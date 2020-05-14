@@ -5,7 +5,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
 import { PregnancyStore } from "../../PregnancyStore";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_CAT, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_KANGAROO, LOWER_BODY_TYPE_FOX, LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS } from "../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_CAT, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_KANGAROO, LOWER_BODY_TYPE_FOX, LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS } from "../../../includes/appearanceDefs";
 import { PerkLib } from "../../PerkLib";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 

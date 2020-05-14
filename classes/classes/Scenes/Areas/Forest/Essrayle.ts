@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { TAIL_TYPE_NONE } from "../../../../../includes/appearanceDefs";
+import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 
 export class Essrayle extends BaseContent {
 
@@ -121,7 +121,7 @@ export class Essrayle extends BaseContent {
         this.clearOutput();
         //Yes
         if (BE == 1) this.outputText("Essy grins, nodding.  \"<i>Precisely.  I don't doubt they'll be even more fun given enough exposure here.</i>\"\n\n");
-        //If No= 
+        //If No=
         else if (BE == 2) this.outputText("\"<i>Heh, suit yourself.</i>\"\n\n");
 
         //Regardless of tit forks, merge back in to this
@@ -381,7 +381,7 @@ export class Essrayle extends BaseContent {
             if (this.player.bRows() == 1) this.player.createBreastRow();
             this.player.breastRows[1].breastRating = this.player.breastRows[0].breastRating;
         }
-        //if four+ breasts: 
+        //if four+ breasts:
         else {
             this.outputText("your [fullChest] swell larger and larger under the expanding magic of the spell");
             this.player.growTits(6, this.player.bRows(), false, 2);

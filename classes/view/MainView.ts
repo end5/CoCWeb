@@ -1,11 +1,11 @@
 ﻿import { StatsView } from "./StatsView";
-import { trace } from "../../../../classes/console";
+import { trace } from "../../classes/console";
 import { CoCButton } from "./CoCButton";
-import { GameModel } from "../../../../classes/coc/model/GameModel";
-import { kFLAGS } from "../../../../classes/classes/GlobalFlags/kFLAGS";
+import { GameModel } from "../../classes/coc/model/GameModel";
+import { kFLAGS } from "../../classes/classes/GlobalFlags/kFLAGS";
 import { loadId } from "./LoadUtils";
-import { Sprites } from "../../../../classes/Sprites";
-import { bindToClass } from "../../../../classes/ClassBinder";
+import { Sprites } from "../../classes/Sprites";
+import { bindToClass } from "../../classes/ClassBinder";
 
 /****
 	coc.view.MainView
@@ -14,7 +14,7 @@ import { bindToClass } from "../../../../classes/ClassBinder";
 	but its coordinates get tested for in places, and set in others.
 	Perhaps some day I'll ask.
 
-	It's for allowing people to test stuff in the parser. It gets moved into view, and you 
+	It's for allowing people to test stuff in the parser. It gets moved into view, and you
 	can enter stuff in the text window, which then gets fed through the parser.
 
 	That's good to know.  Cheers.

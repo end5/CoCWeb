@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
 import { PerkLib } from "../../../PerkLib";
-import { VAGINA_LOOSENESS_TIGHT, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE } from "../../../../../includes/appearanceDefs";
+import { VAGINA_LOOSENESS_TIGHT, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { StatusAffects } from "../../../StatusAffects";
 
@@ -203,7 +203,7 @@ export class CorruptedGlade extends BaseContent {
                 this.outputText("A strange shifting occurs on your backside, making your " + this.player.armorName + " feel tight.  <b>Your butt has grown larger</b>, becoming a " + this.buttDescript() + ".  ");
                 this.player.buttRating += CorruptedGlade.rand(3) + 1;
             }
-            //Rarely change one prick to a vine-like tentacle cock. 
+            //Rarely change one prick to a vine-like tentacle cock.
             if (CorruptedGlade.rand(3) == 0 && this.player.cocks.length > 0 && this.player.hairColor == "green") {
                 if (this.player.tentacleCocks() < this.player.cockTotal()) {
                     if (this.player.cocks.length == 1) { //Single cawks

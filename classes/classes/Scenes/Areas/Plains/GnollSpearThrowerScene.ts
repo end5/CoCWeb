@@ -2,7 +2,7 @@
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { GnollSpearThrower } from "./GnollSpearThrower";
-import { TAIL_TYPE_NONE, LOWER_BODY_TYPE_GOO } from "../../../../../includes/appearanceDefs";
+import { TAIL_TYPE_NONE, LOWER_BODY_TYPE_GOO } from "../../../../includes/appearanceDefs";
 
 /**
  * Created by aimozg on 03.01.14.
@@ -39,14 +39,14 @@ export class GnollSpearThrowerScene extends BaseContent {
 
             this.outputText("A growl snaps your eyes up to the gnoll's face, seeing black lips pulled back from ivory fangs.  Dark, dominant eyes pierce you as the hyena slowly starts to circle you.  She sniffs at the air, getting your scent, before squaring off with you.  Powerful muscles ripple under her fur as she prepares to attack.  You have clearly trespassed on her lands and this feral lady intends to punish you for it.", false);
         }
-        //<Subsequent Encounters> 
+        //<Subsequent Encounters>
         else {
             this.outputText("You barely register the waves of long, dry grass that spread before you in gentle, rolling hills.  Your nerves grow taut as you stare at the featureless expanse as the waist-high grass rustles against your body, knowing you have strayed into Hyena territory.  It seems like there's nothing but peace to be found here, below the expansive blue sky and the dry grass, but you are all too aware that such things are deceptive.\n\n", false);
 
             this.outputText("You strain your ears to catch the smallest sounds.  Something seems off about the sound of the grass waves.  You whirl around to see a massive hyena woman rising out of the grass, holding a javelin in her spotted paw.  The tall, muscular lady ", false);
-            //<If player height is below 6'5\"> 
+            //<If player height is below 6'5\">
             if (this.player.tallness < 77) this.outputText("towers over you, ", false);
-            //<If player height is equal to or above 6'5\"> 
+            //<If player height is equal to or above 6'5\">
             else this.outputText("stands proudly before you, ", false);
             this.outputText("the tan of her spotted pelt gleaming golden in the sun.  Your roaming eyes register that the softer tan of her belly covers her large breasts and slides down below her loincloth.\n\n", false);
 
@@ -56,7 +56,7 @@ export class GnollSpearThrowerScene extends BaseContent {
     }
 
 
-    //<Hyena Victorious – Anal> 
+    //<Hyena Victorious – Anal>
     public hyenaSpearLossAnal(): void {
         this.spriteSelect(54);
         //Oh shit get anal raped.
@@ -66,7 +66,7 @@ export class GnollSpearThrowerScene extends BaseContent {
         }
         this.outputText("", true);
         this.outputText("The gnoll laughs, a sharp, barking sound of mocking, as you sink to ground, ", false);
-        //<Physical Defeat> 
+        //<Physical Defeat>
         if (this.player.HP < 1) this.outputText("bruised and battered, unable to do more than lay prone before her.", false);
         //<Lust Defeat>
         else this.outputText("arousal coursing through your veins, unable to think clearly enough to stand.", false);
@@ -79,11 +79,11 @@ export class GnollSpearThrowerScene extends BaseContent {
 
         this.outputText("Her mocking laughter penetrates your lust hazed mind as the gnoll grabs your " + this.hairDescript() + " and hauls you painfully up.  A shove sends you stumbling forward to the upright javelins.  A furred paw clamps like a vice around your wrists, pulling your hands up to the top of the pyramid.  Her spare hand expertly twines the leather thong of her loincloth around your wrists and the javelins, suddenly binding them tight to the now-sturdy pyramid.  In panic, you struggle against the bindings, but the lashings hold firm against your feeble efforts.\n\n", false);
 
-        //<Paragraph for Nagas> 
+        //<Paragraph for Nagas>
         if (this.player.isNaga()) {
             this.outputText("Panting from your struggles, you feel the tip of your tail pulled back and stretched out.  Bleary, you crane your head back just in time to see the gnoll pull out a black javelin and thrust it down at the tip of your tail.  The end explodes into a ball of goo, pinning your tail to the ground and holding you taut.  You thrash weakly, unable to get enough leverage to break the javelin's hold, leaving you exposed and vulnerable.\n\n", false);
         }
-        //<Paragraph for Slimes> 
+        //<Paragraph for Slimes>
         else if (this.player.isGoo()) {
             this.outputText("The dominant gnoll pulls away from you, stalking around the front of the tripod, her glittering eyes holding your gaze.  One spotted hand raises, holding a small leather bag.  She slowly turns the bag, letting a trickle of powder fall onto the dry ground.  The wind catches some of the dust, blowing it into your trapped form.  Immediately, your slimy skin sparks with jolts of mingled pain and pleasure.  The hyena stalks around your prison, her pointed teeth flashing in a smile as her husky voice fills the air. \"<i>I've been told that this powder, culled from plants in hidden savanna springs, has a curious effect on slimes.  If you try to escape, this powder will absorb into your body, wracking it with burning of two kinds.  Enough of this and you will never be able to separate pain and pleasure again.</i>\" The savanna warrior completes her circuit around you, closing the circle of powder on the ground.  With the power of this faint dust, you are certain that trying to cross the circle would drop you.  Seeing that realization, the hyena gives a sharp laugh, putting the bag away before she confidently stalks behind you.\n\n", false);
         }
@@ -127,19 +127,19 @@ export class GnollSpearThrowerScene extends BaseContent {
         this.outputText("The sound of her powerful body slapping against your bound form echoes through the grassy hills.  The gnoll's muzzle finally vanishes from your neck, leaving behind a perfect imprint of her sharp teeth.  Her breath moans out along the sweat of your skin in time to the thrusting of her hips as she fills your now-willing body.  Clawed hands clamp tight around your waist, pulling your hips back in time with her powerful motions.\n\n", false);
 
         this.outputText("A warm weight starts to grow deep within your abused core.  A soft, needy whimpering fills the air and it takes some time before you realize it is being dragged from your mouth each time the thick shaft plows into you.  Suddenly, pleasure crashes through your body and mind as orgasm suddenly explodes within you.  ", false);
-        //<Male> 
+        //<Male>
         if (this.player.hasCock()) this.outputText("Your cum spurts from your " + this.multiCockDescriptLight() + ", spraying your seed over the dry ground, giving life to the savanna.", false);
         //<Females>
         else if (this.player.hasVagina()) this.outputText("Your own juices flow freely from your " + this.vaginaDescript() + ", coating your thighs and dripping onto the dry grass below you.", false);
         this.outputText("  Muscles deep within you ripple, spasming around the strange intruder buried deep within you.  The hyena roars her pleasure, slamming deep into your " + this.assholeDescript() + " as your body milks her hard cunt for the juices flowing from her.\n\n", false);
 
         this.outputText("With a grunt, the hyena pulls away from your trapped form, filling the air with the scent of the hyena musk that now drips from your abused hole.  With one deft motion of her paw, the bindings on your hands suddenly slip free, ", false);
-        //<All non neuters> 
+        //<All non neuters>
         if (this.player.gender > 0) this.outputText("letting you fall hard into the mess you made on the grass.", false);
         //<neuters>
         else this.outputText("letting you fall hard into the grass.", false);
         this.outputText("  As you slowly fade into unconsciousness from the orgasm, you see the hyena draw a finger along the tip of her cunt until the spotted fingers glisten with moisture.  Those fingers roughly rub the thick, potent fluid against your face, coating it with her scent and the knowledge of her victory.", false);
-        //<For Slimes> 
+        //<For Slimes>
         if (this.player.lowerBody == LOWER_BODY_TYPE_GOO) this.outputText("  Even as your eyes slide closed, you see the hyena kicking open the circle of dust.", false);
         this.outputText("  The last thing you hear before blackness overtakes you is the barking laugh of the hyena as she leaves her newest conquest to sleep in the fields of grass.", false);
         this.player.orgasm();
@@ -189,12 +189,12 @@ export class GnollSpearThrowerScene extends BaseContent {
         if (this.player.cocks[x].cockLength > 7) this.outputText("in the back of her mouth ", false);
         this.outputText("as it starts to be pulled from your encased member.\n\n", false);
 
-        //<One Cock> 
+        //<One Cock>
         if (this.player.cockTotal() == 1) this.outputText("Even as the most incredible sensations flow through you from the feel of her muzzle, you see one of her spotted hands drop from her pendulous breast to grip her own shaft.  Her second hand follows, sliding two furred fingers into the tip of her strange shaft as she starts to move up and down the dark flesh in time to the suckling of her muzzle.  Her dark brown eyes slowly slide closed in bliss as she pleasures herself while servicing the shaft buried deep within her maw.\n\n", false);
         //<Two Cocks>
         else if (this.player.cockTotal() == 2) {
             this.outputText("Even as the most incredible sensations flow through you from the feel of her muzzle, a spotted hand leaves one pendulous breast to wrap around your unattended " + this.cockDescript(y) + ".  Her powerful grip feels like a vice as she begins to slide the paw along the length.  Moving in time to the rippling of her throat, the hand tries hard to match the flood of sensations radiating from her muzzle.", false);
-            //<If character has Scrotum> 
+            //<If character has Scrotum>
             if (this.player.balls > 0) this.outputText("  Her second paw finally cups your " + this.ballsDescriptLight() + ", squeezing and massaging to add to the powerful sensations.", false);
             this.outputText("\n\n", false);
         }
@@ -207,23 +207,23 @@ export class GnollSpearThrowerScene extends BaseContent {
         }
 
         this.outputText("Waves of pleasure radiate through you from the amazon's incredible skill and stamina.  It becomes hard to focus on anything but the lust flowing through your body and it takes some time to realize that the whimpering noise filling the air is coming from your own mouth.  ", false);
-        //<Cock 0 is 7\" or greater> 
+        //<Cock 0 is 7\" or greater>
         if (this.player.cocks[x].cockLength >= 7) this.outputText("The muzzle starts to pull away from your " + this.cockDescript(x) + " until the tip finally slips from her throat, letting her gasp for breath.  ", false);
         this.outputText("The gnoll starts to growl, the deep sound vibrating through your very core.  The lips lock around your cock, starting to suckle hard and fast, pushing you over the edge.\n\n", false);
 
         //<Cock 0 is 7\" or greater>
         if (this.player.cocks[x].cockLength >= 7) {
             this.outputText("Orgasm crashes through your body and mind as time loses its meaning.  The gnoll's muzzle plunges forward once more, enveloping the pulsing shaft deep into her maw.  The powerful muscles of her throat ripple as she swallows, milking your " + this.cockDescript(x) + " for each spurt of your potent seed.", false);
-            //<Two Cocks> 
+            //<Two Cocks>
             if (this.player.cockTotal() == 2) this.outputText("  Your second " + this.cockDescript(y) + " throbs in her hand, spraying her face and throat with thick ropes of cum.", false);
             //<Three or More Cocks>
             if (this.player.cockTotal() >= 3) this.outputText("  Your " + this.multiCockDescriptLight() + " throb in her paws, coating her muzzle, neck, and breasts with thick ropes of cum.", false);
             this.outputText("  You feel your knees weaken as her muzzle works harder and faster, trying to drain you of every drop.  Her paws wrap around your waist and powerful arms lift you and lay you on the ground as that talented muzzle continues to milk you dry.\n\n", false);
         }
-        //<Cock 0 is less than 7\"> 
+        //<Cock 0 is less than 7\">
         else {
             this.outputText("Orgasm crashes through your body and mind as time loses its meaning.  The gnolls's cheeks sink in as she starts to suck as hard as she can, increasing the glorious pressure on your trapped member.  The powerful muscles of her muzzle ripple as she swallows, milking your " + this.cockDescript(x) + " as each spurt of your potent seed splashes across her tongue.", false);
-            //<Two Cocks> 
+            //<Two Cocks>
             if (this.player.totalCocks() == 2) this.outputText("  Your " + this.cockDescript(y) + " throbs in her hand, spraying her face and throat with thick ropes of cum.", false);
             //<Three or More Cocks>
             if (this.player.cockTotal() >= 3) this.outputText("  Your " + this.multiCockDescriptLight() + " throb in her paws, coating her muzzle, neck, and breasts with thick ropes of cum.", false);

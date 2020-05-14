@@ -10,7 +10,7 @@ import { PregnancyStore } from "../../PregnancyStore";
 import { StatusAffects } from "../../StatusAffects";
 import { GreenSlime } from "./Lake/GreenSlime";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { TONUGE_DEMONIC } from "../../../../includes/appearanceDefs";
+import { TONUGE_DEMONIC } from "../../../includes/appearanceDefs";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**

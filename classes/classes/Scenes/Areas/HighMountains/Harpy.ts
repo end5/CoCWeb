@@ -2,18 +2,18 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { trace } from "../../../../console";
-import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_GAPING_WIDE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_EXPANSIVE, LOWER_BODY_TYPE_HARPY, SKIN_TYPE_PLAIN, WING_TYPE_HARPY } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_GAPING_WIDE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_EXPANSIVE, LOWER_BODY_TYPE_HARPY, SKIN_TYPE_PLAIN, WING_TYPE_HARPY } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { ChainedDrop } from "../../../internals/ChainedDrop";
 
 export class Harpy extends Monster {
 
     //*Note, special attack one is an idea based on Ceraph.
-    //About the attack that raises your Lust to 100 if you 
-    //don't "wait" when she unleashes it. Alright, I 
+    //About the attack that raises your Lust to 100 if you
+    //don't "wait" when she unleashes it. Alright, I
     //basically used the idea, sorry. But it's a neat idea
-    //so it should be fitting, right? Or you could just 
-    //dump it out altogether. It'd cause severe damage, 
+    //so it should be fitting, right? Or you could just
+    //dump it out altogether. It'd cause severe damage,
     //in the 150 region if you don't wise up.*
 
     protected harpyUberCharge(): void {

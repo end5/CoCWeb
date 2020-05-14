@@ -1,6 +1,6 @@
 import { Monster } from "../../Monster";
 import { StatusAffects } from "../../StatusAffects";
-import { VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_BOYISH, BUTT_RATING_TIGHT, WING_TYPE_IMP } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_BOYISH, BUTT_RATING_TIGHT, WING_TYPE_IMP } from "../../../includes/appearanceDefs";
 import { trace } from "../../../console";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { WeightedDrop } from "../../internals/WeightedDrop";

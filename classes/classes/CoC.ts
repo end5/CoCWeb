@@ -109,7 +109,7 @@ import { Kiha } from "./Scenes/NPCs/Kiha";
 import { Hel } from "./Scenes/NPCs/Hel";
 import { Isabella } from "./Scenes/NPCs/Isabella";
 import { Clara } from "./Scenes/NPCs/Clara";
-import { MainView } from "../../lib/src/coc/view/MainView";
+import { MainView } from "../view/MainView";
 import { ASDate } from "./ASDate";
 import { ImpHorde } from "./Scenes/Dungeons/DeepCave/ImpHorde";
 import { EncapsulationPod } from "./Scenes/Dungeons/DeepCave/EncapsulationPod";
@@ -926,8 +926,8 @@ export class CoC {
         //User all over the place whenever items come up
         //No longer used:			itemSwapping = false;
 
-        //The extreme flag state array. This needs to go. Holds information about everything, whether it be certain attacks for NPCs 
-        //or state information to do with the game. 
+        //The extreme flag state array. This needs to go. Holds information about everything, whether it be certain attacks for NPCs
+        //or state information to do with the game.
         this.flags = createFlags();
         model.flags = this.flags;
 
@@ -976,7 +976,7 @@ export class CoC {
         //State variable used to indicate whether inside an item submenu
         //The item sub menu
         //			itemSubMenu = false;
-        //} endregion 
+        //} endregion
 
         /**
          * Display Variables
@@ -990,7 +990,7 @@ export class CoC {
 
         //The string holds all the "story" text, mainly used in engineCore
         this.currentText = "";
-        //}endregion 
+        //}endregion
 
         /**
          * Item variables
@@ -1241,7 +1241,7 @@ export class CoC {
         //determine sheath
     var  sheath: boolean = false;
         if(player.catScore() >= 4) race = "cat-" + player.mf("boy","girl");
-        if(player.lizardScore() >= 4) 
+        if(player.lizardScore() >= 4)
         {
             if(player.gender == 0) race = "lizan";
             else if(player.gender == 1) race = "male lizan";
@@ -1249,14 +1249,14 @@ export class CoC {
             else race = "hermaphrodite lizan";
         }
         if(player.dogScore() >= 4) race = "dog-morph";
-        if(player.horseScore() >= 3) 
+        if(player.horseScore() >= 3)
         {
             if(player.lowerBody == LOWER_BODY_TYPE_CENTAUR) race = "centaur-morph";
             else race = "equine-morph";
         }
         if(player.mutantScore() >= 5) race = "corrupted mutant";
         if(player.minoScore() >= 4) race = "minotaur-morph";
-        if(player.cowScore() > 5) 
+        if(player.cowScore() > 5)
         {
             race = "cow-";
             if(player.gender <= 1) race += "boi";
@@ -1270,7 +1270,7 @@ export class CoC {
         if(player.lowerBody == LOWER_BODY_TYPE_CENTAUR) race = "centaur";
         if(player.sharkScore() >= 3) race = "shark-morph";
         if(player.bunnyScore() >= 4) race = "bunny-" + player.mf("boy","girl");
-        if(player.gooScore() >= 3) 
+        if(player.gooScore() >= 3)
         {
             race = "goo-";
             if(player.gender <= 1) race += "boi";
@@ -1579,7 +1579,7 @@ export class CoC {
             this.outputText("  From the waist down you have an incredibly cute and cartoonish parody of a horse's body, with all four legs ending in flat, rounded feet.", false);
         else if (this.player.isTaur())
             this.outputText("  From the waist down you have the body of a horse, with all four legs capped by hooves.", false);
-        //Hip info only displays if you aren't a centaur. 
+        //Hip info only displays if you aren't a centaur.
         if (!this.player.isTaur()) {
             if (this.player.thickness > 70) {
                 this.outputText("  You have " + this.hipDescript(), false);
@@ -2382,19 +2382,19 @@ export class CoC {
     // }
 
     //DROPDOWN BOX STUFF
-    // import fl.controls.ComboBox; 
-    // import fl.data.DataProvider; 
-    // import flash.net.navigateToURL; 
+    // import fl.controls.ComboBox;
+    // import fl.data.DataProvider;
+    // import flash.net.navigateToURL;
 
     //Change handler is only used for selecting perks. Moved to engineCore with the other perk selection code
 
 
     /*HOLY SHIT THIS HOW TO DO URL LINKS!
-   public  changeHandler(event:Event): void { 
-      var  request:URLRequest = new URLRequest(); 
-       request.url = ComboBox(event.target).selectedItem.data; 
-       navigateToURL(request); 
-       mainView.aCb.selectedIndex = -1; 
+   public  changeHandler(event:Event): void {
+      var  request:URLRequest = new URLRequest();
+       request.url = ComboBox(event.target).selectedItem.data;
+       navigateToURL(request);
+       mainView.aCb.selectedIndex = -1;
    }*/
 
     public displayControls(): void {
@@ -2954,11 +2954,11 @@ Also go play <u><a href='http://www.furaffinity.net/view/9830293/'> Nimin </a></
 
 
     /*
-    
+
     Debug pane and related functions
-    
+
     Author: Fake-Name
-    
+
     */
     //     public monkeyStartConfirm(): void {
     //         this.outputText(`<![CDATA[
@@ -4162,7 +4162,7 @@ convert "
             this.outputText("You attempt to attack, but as blinded as you are right now, you doubt you'll have much luck!  ", false);
         }
         if (this.monster instanceof Basilisk) {
-            //basilisk counter attack (block attack, significant speed loss): 
+            //basilisk counter attack (block attack, significant speed loss):
             if (this.player.inte / 5 + this.rand(20) < 25) {
                 this.outputText("Holding the basilisk in your peripheral vision, you charge forward to strike it.  Before the moment of impact, the reptile shifts its posture, dodging and flowing backward skillfully with your movements, trying to make eye contact with you. You find yourself staring directly into the basilisk's face!  Quickly you snap your eyes shut and recoil backwards, swinging madly at the lizard to force it back, but the damage has been done; you can see the terrible grey eyes behind your closed lids, and you feel a great weight settle on your bones as it becomes harder to move.", false);
                 Basilisk.basiliskSpeed(this.player, 20);
@@ -4992,7 +4992,7 @@ convert "
         //Basilisk compulsion
         if (this.player.findStatusAffect(StatusAffects.BasiliskCompulsion) >= 0) {
             Basilisk.basiliskSpeed(this.player, 15);
-            //Continuing effect text: 
+            //Continuing effect text:
             this.outputText("<b>You still feel the spell of those grey eyes, making your movements slow and difficult, the remembered words tempting you to look into its eyes again. You need to finish this fight as fast as your heavy limbs will allow.</b>\n\n", false);
         }
         if (this.player.findStatusAffect(StatusAffects.IzmaBleed) >= 0) {
@@ -5104,7 +5104,7 @@ convert "
             this.dynStats("lus", 7 + int(this.player.sens) / 10);
         }
         if (this.player.findStatusAffect(StatusAffects.KissOfDeath) >= 0) {
-            //Effect 
+            //Effect
             this.outputText("Your lips burn with an unexpected flash of heat.  They sting and burn with unholy energies as a puff of ectoplasmic gas escapes your lips.  That puff must be a part of your soul!  It darts through the air to the succubus, who slurps it down like a delicious snack.  You feel feverishly hot and exhausted...\n\n", false);
             this.dynStats("lus", 5);
             this.takeDamage(15);
@@ -5321,7 +5321,7 @@ convert "
             //Bonus sand trap stuff
             if (this.monster.findStatusAffect(StatusAffects.Level) >= 0) {
                 this.temp = this.monster.statusAffectv1(StatusAffects.Level);
-                //[(new PG for PC height levels)PC level 4: 
+                //[(new PG for PC height levels)PC level 4:
                 this.outputText("\n");
                 if (this.temp == 4) this.outputText("You are right at the edge of its pit.  If you can just manage to keep your footing here, you'll be safe.");
                 else if (this.temp == 3) this.outputText("The sand sinking beneath your feet has carried you almost halfway into the creature's pit.");
@@ -5434,11 +5434,11 @@ convert "
             if (this.monster.str < 1) this.monster.str = 1;
         }
         if (this.monster.short == "harpy") {
-            //(Enemy slightly aroused) 
+            //(Enemy slightly aroused)
             if (this.monster.lust >= 45 && this.monster.lust < 70) this.outputText("The harpy's actions are becoming more and more erratic as she runs her mad-looking eyes over your body, her chest jiggling, clearly aroused.  ", false);
-            //(Enemy moderately aroused) 
+            //(Enemy moderately aroused)
             if (this.monster.lust >= 70 && this.monster.lust < 90) this.outputText("She stops flapping quite so frantically and instead gently sways from side to side, showing her soft, feathery body to you, even twirling and raising her tail feathers, giving you a glimpse of her plush pussy, glistening with fluids.", false);
-            //(Enemy dangerously aroused) 
+            //(Enemy dangerously aroused)
             if (this.monster.lust >= 90) this.outputText("You can see her thighs coated with clear fluids, the feathers matted and sticky as she struggles to contain her lust.", false);
         }
         else if (this.monster instanceof Clara) {
@@ -5457,7 +5457,7 @@ convert "
             if (this.monster.lust < 40) { }
             //(40)
             else if (this.monster.lust < 60) this.outputText("Letting out a groan Minerva shakes her head, focusing on the fight at hand.  The bulge in her short is getting larger, but the siren ignores her growing hard-on and continues fighting.  ");
-            //(60) 
+            //(60)
             else if (this.monster.lust < 80) this.outputText("Tentacles are squirming out from the crotch of her shorts as the throbbing bulge grows bigger and bigger, becoming harder and harder... for Minerva to ignore.  A damp spot has formed just below the bulge.  ");
             //(80)
             else this.outputText("She's holding onto her weapon for support as her face is flushed and pain-stricken.  Her tiny, short shorts are painfully holding back her quaking bulge, making the back of the fabric act like a thong as they ride up her ass and struggle against her cock.  Her cock-tentacles are lashing out in every direction.  The dampness has grown and is leaking down her leg.");
@@ -5489,7 +5489,7 @@ convert "
             else if (this.monster.lust < 80) this.outputText("Kelt is unabashedly aroused at this point.  His skin is flushed, his manhood is erect, and a thin bead of pre has begun to bead underneath.  ");
             //(sub 90)
             else if (this.monster.lust < 90) this.outputText("Kelt seems to be having trouble focusing.  He keeps pausing and flexing his muscles, slapping his cock against his belly and moaning when it smears his pre-cum over his equine underside.  ");
-            //(sub 100) 
+            //(sub 100)
             else this.outputText("There can be no doubt that you're having quite the effect on Kelt.  He keeps fidgeting, dripping pre-cum everywhere as he tries to keep up the facade of fighting you.  His maleness is continually twitching and bobbing, dripping messily.  He's so close to giving in...");
         }
         else if (this.monster.short == "green slime") {
@@ -5677,7 +5677,7 @@ convert "
         //33 Crotch Revealing Clothes (herm only?)
         //34 Maid Costume (female only):
         //35 Servant Boy Clothes (male only)
-        //36 Bondage Patient Clothes 
+        //36 Bondage Patient Clothes
         //37 Kitsune Tease
         //38 Kitsune Tease
         //39 Kitsune Tease
@@ -5999,7 +5999,7 @@ convert "
             choices[choices.length] = 35;
             choices[choices.length] = 35;
         }
-        //36 Bondage Patient Clothes 
+        //36 Bondage Patient Clothes
         if (this.player.armorName == "bondage patient clothes") {
             choices[choices.length] = 36;
             choices[choices.length] = 36;
@@ -6284,7 +6284,7 @@ convert "
             case 13:
                 //PREG
                 this.outputText("You lean back, feigning a swoon while pressing a hand on the small of your back.  The pose juts your huge, pregnant belly forward and makes the shiny spherical stomach look even bigger.  With a teasing groan, you rub the protruding tummy gently, biting your lip gently as you stare at " + this.monster.a + this.monster.short + " through heavily lidded eyes.  \"<i>All of this estrogen is making me frisky,</i>\" you moan, stroking hand gradually shifting to the southern hemisphere of your big baby-bump.", false);
-                //if lactating] 
+                //if lactating]
                 if (this.player.biggestLactation() >= 1) {
                     this.outputText("  Your other hand moves to expose your " + this.chestDesc() + ", cupping and squeezing a stream of milk to leak down the front of your " + this.player.armorName + ".  \"<i>Help a mommy out.</i>\"\n\n", false);
                     chance += 2;
@@ -6613,7 +6613,7 @@ convert "
         }
         //===========================
         //BUILD BONUSES IF APPLICABLE
-        //===========================	
+        //===========================
         var bonusChance: number = 0;
         var bonusDamage: number = 0;
         if (auto) {
@@ -7129,8 +7129,8 @@ convert "
         return;
     }
 
-    //(25) Might – increases strength/toughness by 5 * spellMod, up to a 
-    //maximum of 15, allows it to exceed the maximum.  Chance of backfiring 
+    //(25) Might – increases strength/toughness by 5 * spellMod, up to a
+    //maximum of 15, allows it to exceed the maximum.  Chance of backfiring
     //and increasing lust by 15.
     public spellMight(): void {
         if (this.player.findPerk(PerkLib.BloodMage) < 0 && this.player.fatigue + this.spellCost(25) > 100) {
@@ -7428,8 +7428,8 @@ convert "
         }
     }
 
-    //player gains hellfire perk.  
-    //Hellfire deals physical damage to completely pure foes, 
+    //player gains hellfire perk.
+    //Hellfire deals physical damage to completely pure foes,
     //lust damage to completely corrupt foes, and a mix for those in between.  Its power is based on the PC's corruption and level.  Appearance is slightly changed to mention that the PC's eyes and mouth occasionally show flicks of fire from within them, text could possibly vary based on corruption.
     public hellFire(): void {
         var damage: number = 0;
@@ -7553,14 +7553,14 @@ convert "
         if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_KANGAROO) {
             //(tail)
             if (this.player.tailType == CoC.TAIL_TYPE_KANGAROO) this.outputText("You balance on your flexible kangaroo-tail, pulling both legs up before slamming them forward simultaneously in a brutal kick.  ", false);
-            //(no tail) 
+            //(no tail)
             else this.outputText("You balance on one leg and cock your powerful, kangaroo-like leg before you slam it forward in a kick.  ", false);
         }
-        //(bunbun kick) 
+        //(bunbun kick)
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_BUNNY) this.outputText("You leap straight into the air and lash out with both your furred feet simultaneously, slamming forward in a strong kick.  ", false);
         //(centaur kick)
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_CENTAUR) this.outputText("You lurch up onto your backlegs, lifting your forelegs from the ground a split-second before you lash them out in a vicious kick.  ", false);
-        //(bipedal hoof-kick) 
+        //(bipedal hoof-kick)
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_HOOFED) this.outputText("You twist and lurch as you raise a leg and slam your hoof forward in a kick.  ", false);
 
         if (this.flags[kFLAGS.PC_FETISH] >= 3) {
@@ -7732,7 +7732,7 @@ convert "
         if (this.rand(this.player.spe / 2 + 40) + 20 > this.monster.spe / 1.5) {
             //(if monster = demons)
             if (this.monster.short == "demons") this.outputText("You look at the crowd for a moment, wondering which of their number you should bite. Your glance lands upon the leader of the group, easily spotted due to his snakeskin cloak. You quickly dart through the demon crowd as it closes in around you and lunge towards the broad form of the leader. You catch the demon off guard and sink your needle-like fangs deep into his flesh. You quickly release your venom and retreat before he, or the rest of the group manage to react.", false);
-            //(Otherwise) 
+            //(Otherwise)
             else this.outputText("You lunge at the foe headfirst, fangs bared. You manage to catch " + this.monster.a + this.monster.short + " off guard, your needle-like fangs penetrating deep into " + this.monster.pronoun3 + " body. You quickly release your venom, and retreat before " + this.monster.pronoun1 + " manages to react.", false);
             //The following is how the enemy reacts over time to poison. It is displayed after the description paragraph,instead of lust
             this.monster.str -= 5 + this.rand(5);
@@ -7779,7 +7779,7 @@ convert "
         if (this.rand(this.player.spe / 2 + 40) + 20 > this.monster.spe / 1.5) {
             //(if monster = demons)
             if (this.monster.short == "demons") this.outputText("You look at the crowd for a moment, wondering which of their number you should bite. Your glance lands upon the leader of the group, easily spotted due to his snakeskin cloak. You quickly dart through the demon crowd as it closes in around you and lunge towards the broad form of the leader. You catch the demon off guard and sink your needle-like fangs deep into his flesh. You quickly release your venom and retreat before he, or the rest of the group manage to react.", false);
-            //(Otherwise) 
+            //(Otherwise)
             else {
                 if (!this.monster.plural) this.outputText("You lunge at the foe headfirst, fangs bared. You manage to catch " + this.monster.a + this.monster.short + " off guard, your needle-like fangs penetrating deep into " + this.monster.pronoun3 + " body. You quickly release your venom, and retreat before " + this.monster.a + this.monster.pronoun1 + " manages to react.", false);
                 else this.outputText("You lunge at the foes headfirst, fangs bared. You manage to catch one of " + this.monster.a + this.monster.short + " off guard, your needle-like fangs penetrating deep into " + this.monster.pronoun3 + " body. You quickly release your venom, and retreat before " + this.monster.a + this.monster.pronoun1 + " manage to react.", false);
@@ -7803,7 +7803,7 @@ convert "
 
     //New Abilities and Items
     //[Abilities]
-    //Whisper 
+    //Whisper
     public superWhisperAttack(): void {
         this.flags[kFLAGS.LAST_ATTACK_TYPE] = 2;
         this.outputText("", true);
@@ -7841,14 +7841,14 @@ convert "
             this.enemyAI();
             return;
         }
-        //Enemy too strong or multiplesI think you 
+        //Enemy too strong or multiplesI think you
         if (this.player.inte < this.monster.inte || this.monster.plural) {
             this.outputText("You reach for your enemy's mind, but can't break through.\n", false);
             this.changeFatigue(10);
             this.enemyAI();
             return;
         }
-        //[Failure] 
+        //[Failure]
         if (this.rand(10) == 0) {
             this.outputText("As you reach for your enemy's mind, you are distracted and the chorus of voices screams out all at once within your mind. You're forced to hastily silence the voices to protect yourself.", false);
             this.changeFatigue(10);
@@ -7923,7 +7923,7 @@ convert "
             this.outputText("  <b>Your breath is massively dissipated by the swirling vortex, causing it to hit with far less force!</b>");
             damage = Math.round(0.2 * damage);
         }
-        //Miss: 
+        //Miss:
         if ((this.player.findStatusAffect(StatusAffects.Blind) >= 0 && this.rand(2) == 0) || (this.monster.spe - this.player.spe > 0 && int(Math.random() * (((this.monster.spe - this.player.spe) / 4) + 80)) > 80)) {
             this.outputText("  Despite the heavy impact caused by your roar, " + this.monster.a + this.monster.short + " manages to take it at an angle and remain on " + this.monster.pronoun3 + " feet and focuses on you, ready to keep fighting.");
         }
@@ -8106,7 +8106,7 @@ convert "
             case 2:
                 this.outputText("You saunter up and dart forward, puckering your golden lips into a perfect kiss.", false);
                 break;
-            //Attack text 3: 
+            //Attack text 3:
             case 3:
                 this.outputText("Swaying sensually, you wiggle up to " + this.monster.a + this.monster.short + " and attempt to plant a nice wet kiss on " + this.monster.pronoun2 + ".", false);
                 break;
@@ -8271,7 +8271,7 @@ convert "
         }
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00329] == 1 && (this.monster.short == "minotaur gang" || this.monster.short == "minotaur tribe")) {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00329] = 0;
-            //(Free run away) 
+            //(Free run away)
             this.outputText("You slink away while the pack of brutes is arguing.  Once they finish that argument, they'll be sorely disappointed!", true);
             this.inCombat = false;
             this.clearStatuses(false);
@@ -8370,7 +8370,7 @@ convert "
                 this.clearStatuses(false);
                 this.doNext(this.camp.returnToCampUseOneHour);
             }
-            //Fail: 
+            //Fail:
             else {
                 this.outputText("Despite some impressive jinking, " + this.emberScene.emberMF("he", "she") + " catches you, tackling you to the ground.\n\n");
                 this.enemyAI();
@@ -8875,7 +8875,7 @@ convert "
     /* All calls replaced by calls to playerMenu
     public  eventParser(eventNo): void {
         //Clear banked buttons
-    
+
         //trace("EVENT CODE: " + eventNo);
         if (eventNo is Function)
         {
@@ -8920,7 +8920,7 @@ convert "
             if(eventNo >= 10000 && eventNo < 10999) errorPrint(eventNo); //No events should be in this range anymore. Previously called charCreation.doCreation(eventNo);
             if(eventNo >= 11000) errorPrint(eventNo); //No events should be in this range anymore. Previously called doDungeon(eventNo);
         }
-    
+
         else
         {
             errorPrint(eventNo);		// Dump the system state to the window so the player can file a decent bug-report
@@ -8959,7 +8959,7 @@ convert "
         //@ camp
         //(clear data/appearance buttons if not at camp
         //trace("System Event", eventNo)
-    
+
         if(eventNo != 1)
         {
             hideMenus();
@@ -8989,43 +8989,43 @@ convert "
                 flags[kFLAGS.PLAYER_PREGGO_WITH_WORMS] = 0;
                 camp.doCamp();
                 return;
-    
+
     /* Now called directly
             case 2:
                 exploration.doExplore();
                 return;
-    
-    
+
+
             case 3:
                 desert.exploreDesert();
                 return;
-    
-    
+
+
             case 4:
                 forest.exploreForest();
                 return;
-    
-    
+
+
             case 5:
                 lake.exploreLake();
                 return;
-    
-    
+
+
             case 6:
                 mountain.exploreMountain();
                 return;
-    
-    
+
+
             case 10:
                 masturbateGo(); //Masturbate
                 return;
-    
+
             case 11:
                 //Rest
                 camp.rest();
                 return;
-    
-    
+
+
             case 12:
                 //Explore new zones
                 exploration.tryDiscover();
@@ -9063,8 +9063,8 @@ convert "
                 timeQ = 8;
                 goNext(8, false); */
     /*			return;
-    
-    
+
+
             case 17:
                 outputText("", true);
                 goNext(24, false);
@@ -9076,61 +9076,61 @@ convert "
                 //Load menu
                 saves.loadScreen();
                 return;
-    
-    
+
+
             case 20:
                 //Save Menu
                 saves.saveScreen();
                 return;
-    
-    
+
+
             case -20:
                 saves.saveGameObject(undefined, true);
                 return;
-    
-    
+
+
             case -21:
                 saves.openSave();
                 showStats();
                 statScreenRefresh();
                 return;
-    
-    
+
+
             case 30:
                 //Was used in the save system to return to the menu // I have NO idea what could call this. I don't see anything that passes 30 as an event number anywhere
             var  f:MouseEvent;
                 saves.saveLoad(f);
                 return;
-    
-    
+
+
             case 40:
                 //Use wait command
                 //See camp.as
                 camp.doWait();
                 return;
-    
-    
+
+
             case 41:
                 //Use sleep command
                 //in camp.as
                 camp.doSleep();
                 return;
-    
-    
+
+
             case 42:
                 //Choose masturbate options
                 masturbateMenu();
                 return;
-    
-    
+
+
             case 44:
                 //Gain +5 Str due to level
                 dynStats("str", 5);
                 outputText("Your muscles feel significantly stronger from your time adventuring.", true);
                 doNext(perkBuyMenu);
                 return;
-    
-    
+
+
             case 45:
                 //Gain +5 Toughness due to level
                 dynStats("tou", 5);
@@ -9139,102 +9139,102 @@ convert "
                 outputText("You feel tougher from all the fights you have endured.", true);
                 doNext(perkBuyMenu);
                 return;
-    
-    
+
+
             case 46:
                 //Gain +5 Intelligence due to level
                 dynStats("int", 5);
                 outputText("Your time spent fighting the creatures of this realm has sharpened your wit.", true);
                 doNext(perkBuyMenu);
                 return;
-    
-    
+
+
             case 47:
                 //Gain +5 speed due to level
                 dynStats("spe", 5);
                 outputText("Your time in combat has driven you to move faster.", true);
                 doNext(perkBuyMenu);
                 return;
-    
-    
+
+
             case 48:
                 //Use Onahole
                 onaholeUse();
                 return;
-    
-    
+
+
             case 49:
                 //Use Stimbelt
                 stimBeltUse();
                 return;
-    
-    
+
+
             case 50:
                 deluxeOnaholeUse();
                 return;
-    
-    
+
+
             case 51:
                 allNaturalOnaholeUse();
                 return;
-    
-    
+
+
             case 52:
                 allNaturalStimBeltUse();
                 return;
-    
-    
+
+
             case 65:
                 //turn on/off autosave
             var  e:MouseEvent;
                 player.autoSave = !player.autoSave;
                 saves.saveLoad(e);
                 return;
-    
-    
+
+
             case 71:
                 //Places menu
                 camp.places(true);
                 return;
-    
-    
+
+
             case 74:
                 //Camp followers screen
                 doNext(1);
                 camp.campFollowers();
                 return;
-    
-    
+
+
             case 79:
                 deluxeDildo();
                 return;
-    
-    
+
+
             case 80:
                 forest.exploreDeepwoods();
                 return;
-    
-    
+
+
             case 82:
                 saves.deleteScreen();
                 return;
-    
-    
+
+
             case 94:
                 exploration.debugOptions();
                 return;
-    
-    
+
+
             case 95:
                 highMountains.exploreHighMountain();
                 return;
-    
-    
+
+
             case 97:
                 plains.explorePlains();
                 return;
-    
-    
+
+
             case 111:
                 swamp.exploreSwamp();
                 return;
@@ -9249,7 +9249,7 @@ convert "
                     applyPerk(tempPerk);
                 }
                 return;
-    
+
             case 115:
                 stage.focus = undefined;
                 //mainView.aCb.visible = false;
@@ -9275,8 +9275,8 @@ convert "
                 mainView.eventTestInput.x = -10207.5;
                 mainView.eventTestInput.y = -1055.1;
                 return;
-    
-    
+
+
             case 119:
                 mainView.eventTestInput.x = -10207.5;
                 mainView.eventTestInput.y = -1055.1;
@@ -9284,7 +9284,7 @@ convert "
                 return;
     */
     /*	}
-    
+
         errorPrint(eventNo);		// Dump the system state to the window so the player can file a decent bug-report
     }
     */
@@ -9719,11 +9719,11 @@ convert "
 
 
         this.outputText(`
-    
-    
-    
+
+
+
     [screen startup |
-    
+
     ** This is the header of the first scene(in BOLD) **
 
             Content! This is the first paragraph of content.
@@ -9732,7 +9732,7 @@ multiple lines.Proper paragraph breaks are demarcated by
 two line breaks.
 
 We can also do * italic * and ** bold ** text!
-    
+
     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation
@@ -9752,13 +9752,13 @@ We can also do * italic * and ** bold ** text!
         [if (hasVagina = true) [button page_2 | HasVagBtn]]
         [button last_page | Last Page]
         [button exit | Leave Early ]
-    
+
     ]
 
         [screen page_2 |
 
             THIS IS THE SECOND SCREEN
-    
+
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem
     accusantium doloremque laudantium, totam rem aperiam,
             eaque ipsa quae ab illo inventore veritatis et quasi architecto
@@ -9793,14 +9793,14 @@ We can also do * italic * and ** bold ** text!
         sint et molestiae non recusandae.Itaque earum rerum hic tenetur
         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias
         consequatur aut perferendis doloribus asperiores repellat.
-    
-    
+
+
     [button exit | All Done! ]
     ]
-    
-    
-    
-    
+
+
+
+
         `, true, true);
 
         //trace("Maintext content @ eventTestingPane = ", mainText.htmlText.length)
@@ -9809,11 +9809,11 @@ We can also do * italic * and ** bold ** text!
     }
 
     /*
-    
-    
-    
-    
-    
+
+
+
+
+
     */
 
     // public eventTester(): void {
@@ -9877,17 +9877,17 @@ We can also do * italic * and ** bold ** text!
     // include "../../includes/engineCore.as";
 
     // // import flash.events.MouseEvent;
-    // 
+    //
     // //const DOUBLE_ATTACK_STYLE: number = 867;
     // //const SPELLS_CAST: number = 868;
-    // 
+    //
     // //Fenoxo loves his temps
     // var temp: number = 0;
-    // 
+    //
     // //Used to set what each action buttons displays and does.
     // var args: any[] = new Array();
     // var funcs: any[] = new Array();
-    // 
+    //
     // //Used for stat tracking to keep up/down arrows correct.
     // var oldStats = {};
     // model.oldStats = oldStats;
@@ -9900,7 +9900,7 @@ We can also do * italic * and ** bold ** text!
     // oldStats.oldCor  = 0;
     // oldStats.oldHP   = 0;
     // oldStats.oldLust = 0;
-    // 
+    //
     // model.maxHP = maxHP;
 
     public maxHP(): number {
@@ -9935,7 +9935,7 @@ We can also do * italic * and ** bold ** text!
             }
         }
         list = [];
-        return stuff;        
+        return stuff;
     }
     */
 
@@ -10024,11 +10024,11 @@ We can also do * italic * and ** bold ** text!
     public outputText(output: string,
         purgeText: boolean = false,
         parseAsMarkdown: boolean = false): void {
-        // we have to purge the output text BEFORE calling parseText, because if there are scene commands in 
+        // we have to purge the output text BEFORE calling parseText, because if there are scene commands in
         // the parsed text, parseText() will write directly to the output
 
 
-        // This is cleaup in case someone hits the Data or new-game button when the event-test window is shown. 
+        // This is cleaup in case someone hits the Data or new-game button when the event-test window is shown.
         // It's needed since those buttons are available even when in the event-tester
         // this.mainView.hideTestInputPanel();
 
@@ -10710,9 +10710,9 @@ We can also do * italic * and ** bold ** text!
 
     //         for (var node: XML in typeDesc..method)
     //         {
-    //             // return the method name if the thisObject of f (t) 
-    //             // has a property by that name 
-    //             // that is not undefined (undefined = doesn't exist) and 
+    //             // return the method name if the thisObject of f (t)
+    //             // has a property by that name
+    //             // that is not undefined (undefined = doesn't exist) and
     //             // is strictly equal to the function we search the name of
     //             //trace("this[node.@name] = ", this[node.@name], " node.@name = ", node.@name)
     //             if (object[node.@name] != undefined)
@@ -10732,9 +10732,9 @@ We can also do * italic * and ** bold ** text!
     public getFunctionName(f: any): string {
         // trace("Getting function name")
         // get the object that contains the function (this of f)
-        //var t: Record<string, any> = flash.sampler.getSavedThis(f); 
+        //var t: Record<string, any> = flash.sampler.getSavedThis(f);
 
-        // if we arrive here, we haven't found anything... 
+        // if we arrive here, we haven't found anything...
         // maybe the function is declared in the private namespace?
         if (typeof f === 'function')
             return f.prototype.name;
@@ -10848,48 +10848,48 @@ We can also do * italic * and ** bold ** text!
     /*
     // AFICT, menu() isn't called with arguments ANYWHERE in the codebase.
     // WHRYYYYYYY
-    public  menu(text1: string = "", func1 = undefined, arg1: number = -9000, 
-                        text2: string = undefined, func2 = undefined, arg2: number = -9000, 
-                        text3: string = undefined, func3 = undefined, arg3: number = -9000, 
-                        text4: string = undefined, func4 = undefined, arg4: number = -9000, 
-                        text5: string = undefined, func5 = undefined, arg5: number = -9000, 
-                        text6: string = undefined, func6 = undefined, arg6: number = -9000, 
-                        text7: string = undefined, func7 = undefined, arg7: number = -9000, 
-                        text8: string = undefined, func8 = undefined, arg8: number = -9000, 
-                        text9: string = undefined, func9 = undefined, arg9: number = -9000, 
-                        text0: string = undefined, func0 = undefined, arg0: number = -9000): void 
+    public  menu(text1: string = "", func1 = undefined, arg1: number = -9000,
+                        text2: string = undefined, func2 = undefined, arg2: number = -9000,
+                        text3: string = undefined, func3 = undefined, arg3: number = -9000,
+                        text4: string = undefined, func4 = undefined, arg4: number = -9000,
+                        text5: string = undefined, func5 = undefined, arg5: number = -9000,
+                        text6: string = undefined, func6 = undefined, arg6: number = -9000,
+                        text7: string = undefined, func7 = undefined, arg7: number = -9000,
+                        text8: string = undefined, func8 = undefined, arg8: number = -9000,
+                        text9: string = undefined, func9 = undefined, arg9: number = -9000,
+                        text0: string = undefined, func0 = undefined, arg0: number = -9000): void
     {
-    	
+
     function  _conditionallyShowButton( index : number, label : string, func , arg : number ) : void
         {
         var  callback , toolTipText : string;
-    
-        	
-    
-        	
+
+
+
+
             if( func != undefined )
             {
                 callback = createCallBackFunction(func1, arg1);
-    
+
                 toolTipText = getButtonToolTipText( label );
                 // This is a kind of messy hack because I want to log the button events, so I can do better debugging.
                 // therefore, we wrap the callback function in a shim function that does event-logging, and
                 // *then* calls the relevant callback.
-    
-            	
+
+
                 mainView.showBottomButton( index, label, callback, toolTipText );
-            	
+
             }
             else
             {
                 mainView.hideBottomButton( index );
             }
         }
-    
+
         //Clear funcs & args
         // funcs = new Array();
         // args = new Array();
-    	
+
         _conditionallyShowButton( 0, text1, func1, arg1 );
         _conditionallyShowButton( 1, text2, func2, arg2 );
         _conditionallyShowButton( 2, text3, func3, arg3 );
@@ -10900,7 +10900,7 @@ We can also do * italic * and ** bold ** text!
         _conditionallyShowButton( 7, text8, func8, arg8 );
         _conditionallyShowButton( 8, text9, func9, arg9 );
         _conditionallyShowButton( 9, text0, func0, arg0 );
-    
+
         //mainView.setOutputText( currentText );
         flushOutputTextToGUI();
     }
@@ -10931,10 +10931,10 @@ We can also do * italic * and ** bold ** text!
         /*
         var  callback ;
         var  toolTipText : string;
-        
+
         var  textLabels : any[];
         var  j : number;
-        
+
             textLabels = [
                 text1,
                 text2,
@@ -10947,7 +10947,7 @@ We can also do * italic * and ** bold ** text!
                 text9,
                 text0
             ];
-        
+
             //Transfer event code to storage
             buttonEvents[0] = butt1;
             buttonEvents[1] = butt2;
@@ -10959,11 +10959,11 @@ We can also do * italic * and ** bold ** text!
             buttonEvents[7] = butt8;
             buttonEvents[8] = butt9;
             buttonEvents[9] = butt0;
-        
+
         var  tmpJ: number;
-        
+
             // iterate over the button options, and only enable the ones which have a corresponding event number
-        
+
             for (tmpJ = 0; tmpJ < 10; tmpJ += 1)
             {
                 if(buttonEvents[tmpJ] == -9000 || buttonEvents[tmpJ] == 0 || buttonEvents[tmpJ] == undefined) {
@@ -10976,12 +10976,12 @@ We can also do * italic * and ** bold ** text!
                         callback = createCallBackFunction(buttonEvents[tmpJ], undefined);
                     }
                     toolTipText = getButtonToolTipText( textLabels[ tmpJ ] );
-        
+
                     mainView.showBottomButton( tmpJ, textLabels[ tmpJ ], callback, toolTipText );
                 }
-        
+
             }
-        
+
             // funcs = new Array();
             // args = new Array();
             //mainView.setOutputText( currentText );
@@ -10993,39 +10993,39 @@ We can also do * italic * and ** bold ** text!
         This function is made for multipage menus of unpredictable length,
         say a collection of items or places or people that can change
         depending on certain events, past choices, the time of day, or whatever.
-    
+
         This is not the best for general menu use.  Use choices() for that.
-    
+
         This is a bit confusing, so here's usage instructions.
         Pay attention to all the braces.
-    
+
         This is made to be used with an array that you create before calling it,
         so that you can push as many items on to that array as you like
         before passing that array off to this function.
-    
+
         So you can do something like this:
         var  itemsInStorage : any[] = new Array();
-    
+
             // The extra square braces are important.
             itemsInStorage.push( [ "Doohicky", useDoohickyFunc ] );
             itemsInStorage.push( [ "Whatsit", useWhatsitFunc ] );
             itemsInStorage.push( [ "BagOfDicks", eatBagOfDicks ] );
             ...
-    
+
             // see notes about cancelFunc
             multipageChoices( cancelFunc, itemsInStorage );
-    
+
         cancelfunc is a function (A button event function, specifically)
         that exits the menu.  Provide this if you want a Back button to appear
         in the bottom right.
-    
+
         If you do not need a cancel function, perhaps because some or all
         of the choices will exit the menu, then you can
         pass undefined or 0 for the cancelFunction.
-    
+
             // This menu shows no Back button.
             multipageChoices( undefined, itemsInStorage );
-    
+
         You can call it directly if you want, but that's ridiculous.
             multipageChoices( justGoToCamp, [
                 [ "Do this", doThisEvent ],
@@ -11143,7 +11143,7 @@ We can also do * italic * and ** bold ** text!
         this.addButton(1, "No", eventNo);
         /*
             //Make buttons 1-2 visible and hide the rest.
-        
+
             //trace("doYesNo");
             choices("Yes",eventYes,
                     "No",eventNo,
@@ -11155,26 +11155,26 @@ We can also do * italic * and ** bold ** text!
                     "",0,
                     "",0,
                     "",0);
-        
+
         }
         */
     }
 
     public doNext(event: any): void { //Now typesafe
-        //Prevent new events in combat from automatically overwriting a game over. 
+        //Prevent new events in combat from automatically overwriting a game over.
         if (this.mainView.bottomButtons[0].labelText.indexOf("Game Over") != -1) {
             trace("Do next setup cancelled by game over");
             return;
         }
 
         //trace("DoNext have item:", eventNo);
-        //choices("Next", event, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0); 
+        //choices("Next", event, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0, "", 0);
         this.menu();
         this.addButton(0, "Next", event);
     }
 
     /* Was never called
-    public  doNextClear(eventNo: any): void 
+    public  doNextClear(eventNo: any): void
     {
         outputText("", true, true);
         //trace("DoNext Clearing display");
@@ -11813,7 +11813,7 @@ We can also do * italic * and ** bold ** text!
 
         //Set original values to begin tracking for up/down values if
         //they aren't set yet.
-        //These are reset when up/down arrows are hidden with 
+        //These are reset when up/down arrows are hidden with
         //hideUpDown();
         //Just check str because they are either all 0 or real values
         if (this.oldStats.oldStr == 0) {
@@ -12699,7 +12699,7 @@ We can also do * italic * and ** bold ** text!
             else if (daydream == 16) {
                 if (this.player.gender <= 1) {
                     if (this.rand(2) == 0) this.outputText("something truly unusual...\nIt is difficult to find deep sleep, your rest tormented by strange desires which pluck at your subconscious and tease at the extremities of your nubile, boy-whore body.  You dream of silk against your skin, of wearing gowns, petticoats and dresses which reveal your thin, smooth arms, of girl's underwear tight against your groin, of moving through parties and bars and blushing whenever a man, a real man, looks at you.  Do they know?  Do they guess?  The thoughts and images are powerfully, shamefully erotic and there is no escaping them; each time you flee or turn away from one you open a door into an even more sexually charged dream.");
-                    //Male Trap Dream #2: 
+                    //Male Trap Dream #2:
                     else {
                         this.outputText("something unreal...\nYour eyes slowly open as someone is shaking you, their high pitched voice rings in your ears.  \"<i>Wake up big sis!</i>\"  You turn your head to see a youthful looking little lady shaking you with her small hands.  \"<i>They are going to be upset!  You have to get out of bed!</i>\"  Her eyes seemed moist as if extremely distressed and desperate for you to get up.  With a strangely cute sigh escaping your lips you hop off of the bed. You glance down to realize you are fully dressed in a long frilly dress with cute little ribbons and lace. Your tiny shoes click on the finely polished floor.  Everything seems so much... bigger, or are you... small?");
                         this.outputText("\n\n\"<i>Come on sis, hurry!</i>\"  The young girl pulls on you with surprising strength; you don't have any time to collect yourself as you are tugged along through some sort of mansion.  Various elaborately decorated hallways and rooms flash by you, and you are only able to catch glimpses of each room's contents.  You try not to stumble and trip over your lovely dress as you follow the strange girl.  \"<i>They set everything up nearly an hour ago, but they have been waiting for you, of course.  I reminded you to set the alarm.</i>\" You say something of an apology to the young girl, she seemed so distressed at everything.  You couldn't help but feel guilty.");
@@ -12720,7 +12720,7 @@ We can also do * italic * and ** bold ** text!
                     this.dynStats("lus", 25);
                 }
                 else {
-                    //Female Trap Dream: 
+                    //Female Trap Dream:
                     this.outputText("odd things...\nYou find it difficult to find deep sleep, your rest tormented by strange desires which pluck at your subconscious and tease at your supple tomboy body.   You dream of rough leather on your skin, tough cotton tight upon your [fullChest] and the smell of medicinal alcohol in your nose.  You dream of swaggering down the roads of your old home town, meeting the eyes of everyone you pass, daring them to ask; you dream of haunting bars and parties in a perpetual twilight, sweet talking every girl you see with casual, lust charged ease.  Women want you and men want to be you in the whirl of your sleeping mind.  There is a buzz running through these thoughts and images which energises and stupefies you; you find yourself charging through dream after tantalising dream, exhausting yet somehow never satisfying yourself.");
                     this.dynStats("lus", 25);
                 }
@@ -12953,7 +12953,7 @@ We can also do * italic * and ** bold ** text!
         this.combatRoundOver();
     }
 
-    //IMP GANG [ATTACKS!]  
+    //IMP GANG [ATTACKS!]
     public imtacularMultiHitzilla(): void {
         //Multiattack:
         if (this.monster.findStatusAffect(StatusAffects.Blind) < 0) this.outputText("The imps come at you in a wave, tearing at you with claws!\n", false);
@@ -13080,7 +13080,7 @@ We can also do * italic * and ** bold ** text!
             this.monster.createStatusAffect(StatusAffects.ImpUber, 0, 0, 0, 0);
         }
         else {
-            //(OH SHIT IT GOES OFF) 
+            //(OH SHIT IT GOES OFF)
             //+50 lust!
             this.dynStats("lus", 50);
             this.outputText("The imps in the back finish their spell-casting, and point at you in unison.  A wave of pure arousal hits you with the force of a freight train.   Your equipment rubs across your suddenly violently sensitive " + this.nippleDescript(0), false);
@@ -13104,7 +13104,7 @@ We can also do * italic * and ** bold ** text!
 
     public loseToImpMob(): void {
         this.outputText("", true);
-        //(HP) 
+        //(HP)
         if (this.player.HP < 1) this.outputText("Unable to handle your myriad wounds, you collapse with your strength exhausted.\n\n", false);
         //(LUST)
         else this.outputText("Unable to handle the lust coursing through your body, you give up and collapse, hoping the mob will get you off.\n\n", false);
@@ -13135,7 +13135,7 @@ We can also do * italic * and ** bold ** text!
             else this.outputText("all the", false);
             this.outputText(" openings on your chest are plugged with a tumescent demon-cock.\n\n", false);
         }
-        //(SINGLE PEN) 
+        //(SINGLE PEN)
         if (!this.player.hasVagina()) {
             this.outputText("Most of the crowd centers itself around your lower body, taking a good long look at your " + this.assholeDescript() + ".  An intrepid imp steps forwards and pushes his member into the unfilled orifice.  You're stretched wide by the massive and unexpectedly forceful intrusion.  The tiny corrupted nodules stroke every inch of your interior, eliciting uncontrollable spasms from your inner muscles.  The unintentional dick massage gives your rapist a wide smile, and he reaches down to smack your ass over and over again throughout the ordeal.", false);
             this.player.buttChange(12, true, true, false);
@@ -13309,7 +13309,7 @@ We can also do * italic * and ** bold ** text!
         this.getTrappedContinuation();
     }
 
-    //[CONTINUE ON] 
+    //[CONTINUE ON]
     public getTrappedContinuation(): void {
         this.outputText("\n\nA loud 'slap' nearly deafens you, and the visible light instantly diminishes to a barely visible, purple glow.  The fungal 'leaves' have completely encapsulated you, sealing you inside a fleshy, purple pod.  No light can penetrate the thick sheath surrounding you, but muted illumination pulses from the flexing walls of your new prison, oscillating in strength with the subtle shifts of the organic chamber.\n\n", false);
 
@@ -13481,7 +13481,7 @@ We can also do * italic * and ** bold ** text!
             return;
         }
         //[BAD-END GO]
-        //(MALE)  
+        //(MALE)
         if (this.player.gender == 1 || (this.player.gender == 3 && this.rand(2) == 0)) {
             this.outputText("The orgasm squirts and drips from " + this.player.sMultiCockDesc() + " for what seems like forever.  It feels so right, so perfect, that you actually whine in disappointment when it finally does end.  You can't even be bothered to reach down and stroke yourself.  The softening in your loins is nothing compared to your flaccid, listless muscles.  You couldn't make your arms reach down to touch yourself even if you could work up the motivation to try.  Thankfully the slippery tentacles curl back around your ", false);
             if (!this.player.hasSheath()) this.outputText("base", false);
@@ -13689,7 +13689,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.cockTotal() > 0) {
             var x: number = this.player.cockThatFits(60);
             trace("X IS MOTHERFUCKER: " + x);
-            //(small-to-medium girth dicks) 
+            //(small-to-medium girth dicks)
             if (x >= 0) {
                 this.outputText("Vala's pussy surrounds you like a quivering mouth, but she's simply too used for you to get much friction. The fairy barely even notices, grinding her front against you, tits rubbing your chest like a liquid massage, cream leaking down your torso. She hooks her legs around your " + this.buttDescript() + " and, using her wings, lifts up before dropping down again. Although she's too loose for your preference, the girl seems to be getting off just fine by using your " + this.cockDescript(x) + " as a fucking post. You spot the wooden rack to one side of the room and the variety of carved dildos worked into the pegging ladder. A wicked thought crosses your mind, but lacking any other options, you guess you could at least give it a try. Pulling the fairy over to the lacquered bench, you choose one that seems like a likely fit and position your " + this.player.assholeOrPussy() + " over the carved cock. When the fairy drops herself onto you next, she forces you down with her, penetrating you on the peg. It proves to be a bit thicker than you realized, however, and you gasp at the weight that settles into your gut. You try to get up and select a smaller peg, but the fairy's jack-hammering flight keeps you rooted on the post. Your " + this.cockDescript(x) + " swells from the stimulation your ", false);
                 if (this.player.hasVagina()) this.outputText("cunt", false);
@@ -13928,11 +13928,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\"<i>When we captured Vala, I entertained the thought of breaking her on my dick like a crystalline condom, but I'm rather glad I chose to raise her to be my pet instead.</i>\" The imp's voice is familiar and your mind lurches to the memory of that first violation you suffered when you stepped through the portal to this world. Zetaz. He said never to forget the name Zetaz. You eyes roll in panic, but he holds your chin, his leering face filling your vision. \"<i>As a reward to obedient little Vala, I've decided to remake you in her image. We'll crush all that fatty flesh from your waist, keep your torso bound until you're too weak to walk, and pump you so full of drugs and cum that even seeing your name will be painful,</i>\" he taps the bronze plaque he's prepared for you, a mirror to the fairy's. \"<i>Why, in a few months, we'll be hard pressed to tell the two of you apart.</i>\" A fresh wave of fairy-lubricated imp-seed pumps into your abdomen and the rubber girdle strains, but holds, washing the spunk back up, into your throat, until it feels like you might drown in the frothing cream.\n\n", false);
 
         this.outputText("There's no time to contemplate your fate, however, as the imp's black poison seems to take hold and you feel a burning all along your body. ", false);
-        //(No vagina: 
+        //(No vagina:
         if (!this.player.hasVagina()) {
             this.outputText("Between your thighs, a wet slurping tears through the air and a sudden seething heat fills your groin as a fresh pussy opens up, just under your dick.  ", false);
         }
-        //(No breasts: 
+        //(No breasts:
         if (this.player.biggestTitSize() < 1) this.outputText("You shudder and your chest feels like it's being flooded by the spooge floating at your tonsils. Before your eyes, the girdle around your chest is pushed down and a pair of swelling breasts fills your vision, filling heavily with milk just aching to be sucked from your distended nipples.  ", false);
         this.outputText("The space between your shoulder blades feels like it's been torn open and your muscles reknit themselves as gossamer wings burst from your skin, thin as a dragonfly's and nearly as long as you are tall, settling against their rubber counterparts. Every inch of your skin seems to blister as a feeling of molten glass pouring over you causes you to tremble with agonized shudders, your pores sealing and skin gaining a glossy sheen.\n\n", false);
 
@@ -13960,12 +13960,12 @@ We can also do * italic * and ** bold ** text!
     public valaFightVictoryFuck(): void {
         this.spriteSelect(85);
         this.outputText("", true);
-        //(Female) 
+        //(Female)
         if (this.player.gender == 2) {
             this.outputText("If the girl's got energy to spare, you'd better try to wear her down or she might alert more demons after you leave. Time to see just how strong her drug-fuelled wings have become. Stripping down, you step up to the fairy and present your " + this.vaginaDescript(0) + " to her. She's all too happy to lavish kisses on your lower lips, hot tongue sliding along your labia and tip teasing your " + this.clitDescript() + " with lapping flicks. Licking your lips, you bend over and pull her legs up, forcing her into a hand-stand as you raise the girl's gushing sex to your head. It's startling how light the fairy is; even her flesh-slapping titties are practically weightless as you loop an arm around her impossibly thin waist and bury your face in her groin, breathing in her honey-sweet nectar as she squirts hard enough to splash you with her warm juice. You bear down on her stimulation-swollen clit and suck the joy buzzer hard enough to pull it from the thin skin sheath. Biting lightly on the engorged button, you whisper into the fairy's cunt, \"<i>Let's fly.</i>\"\n\n", false);
 
             this.outputText("She needs no additional urging, and wraps her whip-thin arms around your " + this.buttDescript() + " with a grip like steel. Her corruption-strengthened dragonfly wings flutter uselessly for a moment, but as your excitement begins to drip warm fluid onto her tongue, she flaps like she means it.  ", false);
-            //(PC Has Wings: 
+            //(PC Has Wings:
             if (this.player.wingType > CoC.WING_TYPE_NONE) this.outputText("You decide to give her a hand, and flap your " + this.player.wingDesc + " as hard as you can, the added thrust giving her the start she needs.  ", false);
 
             this.outputText("Like a hummingbird on coffee, the fairy's wings blur as she pulls the two of you into the air and a thrill of glee sends shivers down your spine as the two of you slowly circle the room, clinging to each other in a desperate 69. Under her well-practiced mouth, you can feel your " + this.vaginaDescript(0) + " drooling nearly as much as the fey girl's, your utter dominion of the fairy delighting you nearly to the verge of orgasm.\n\n", false);
@@ -13977,7 +13977,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("If the girl's got energy to spare, you'd better try to wear her down or she might alert more demons after you leave. Commanding her to bow before you, the broken fairy is all too happy to comply, falling on her face, her arms spread wide, panting with desire. You circle around her and strip your " + this.player.armorName + " off, admiring her plump little ass, all the plumper for how whip-thin her waist and legs are. You bend down to grab her waist and haul her ass upward, spearing her on your stiffening " + this.cockDescript(0) + " without further ceremony. It's important she knows that foreplay is for obedient pets, you note to yourself with a grin. With a vicious thrust, you fill the girl's stretched pussy and bend her over at a right angle. Smacking her ass, you command the little bitch to fly and she shivers with delight.\n\n", false);
 
             this.outputText("She needs no additional urging, and wraps her whip-thin legs around your " + this.hipDescript() + " with a grip like steel. Her corruption-strengthened dragonfly wings flutter uselessly for a moment, but as your excitement begins to leak globs of pre-cum into her sucking box, she flaps like she means it. ", false);
-            //(PC Has Wings: 
+            //(PC Has Wings:
             if (this.player.wingType > CoC.WING_TYPE_NONE) this.outputText("You decide to give her a hand, and flap your " + this.player.wingDesc + " as hard as you can, the added thrust giving her the start she needs.  ", false);
             this.outputText("Like a hummingbird on coffee, the fairy's wings blur as she pulls the two of you into the air and a thrill of glee sends shivers down your spine as the two of you slowly circle the room, you mounting her doggy-style, hands gripping her ribs as you lean over her. The tight clenching of her overburdened flight turns her loose pussy into a tight, clenching sphincter that practically milks your shaft with every heartbeat.\n\n", false);
 
@@ -14019,7 +14019,7 @@ We can also do * italic * and ** bold ** text!
         }
         //herm2
         else {
-            //[2 dicks – 
+            //[2 dicks –
             if (this.player.totalCocks() > 1) {
                 this.outputText("It'd be a shame if you didn't get a chance to stuff all her holes, so you grab your " + this.cockDescript(1) + " and slide it along her ass cheeks, pulling out just enough to let it rest against her twitching sphincter. With a probing pinkie, you stretch out her rectum, the muscle spongy from the fuckings the demons have tattooed all down her back. You slide in and are pleasantly surprised that her ass is nearly as slick as her pussy, already lubricated by some body-altering drug the imps must've fed her. You make a note to give her a dash on both the ass and pussy columns of her score-card body-tattoo. You grunt in surprise when you feel your two cocks rubbing against each other through the fleshy wall separating her vagina from her ass, and the extra friction nearly makes you blow your load then and there, but by force of will, you hold it back, teeth gritted in the effort.\n\n", false);
             }
@@ -14028,7 +14028,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("The steel against your cock and inside your cunny gurgle with their restrained payloads and you resist the urge to twist both nozzles until they break, instead beginning a slow bucking ride of the fairy. Sliding the imp cock into your gash on each back-thrust, and stuffing more of the monstrous dildo into her quivering body with every bucking motion, you work your arms as much as your " + this.hipDescript() + ". The bulge of your tools inside her nubile body gets deeper with every push, rushing to meet the swell of her cum-stuffed stomach. The girl has already slurped up nearly two of the three gallons you poured for her. As you're rocking back, building up to a truly delicious orgasm, the slick girl cum from your " + this.vaginaDescript(0) + " drips between your fingers and you lose your grip momentarily. Trying to regain it, your hand accidentally strokes the nozzle at the base and your eyes go wide as the imp cock unleashes a torrent of seething spunk into your body. Panicking, you try to twist it shut again, but only manage to open the spigot all the way, your abdomen nearly bursting as the firehose blasts your cervix with a gushing pillar of cum.", false);
 
             this.outputText("Your careful restraint is torn from your body and orgasm overtakes you.  ", false);
-            //(2 Dicks-  
+            //(2 Dicks-
             if (this.player.cockTotal() > 1) this.outputText("Your " + this.cockDescript(0) + " inside the fairy girl's ass erupts first, pumping your seed into her bowls, her hips distorting with the bursting flow of your cum, sphincter's clenching powerless to stop your alabaster flood.  ", false);
             this.outputText("Inside the fairy's drooling pussy, your " + this.cockDescript(0) + " twitches as your load rushes over the steel dildo and spurts from your cockhead in hot ropes of gooey love. The suffocating pleasure addling your brain makes you flick the nozzle of the chimera dildo, the tube wrapped around your " + this.hipDescript() + " kicking to life. The monstrous hose vibrates your entire lower body and you pump helplessly as your body is stimulated nearly to breaking. The fairy girl, already broken, merely lets out a stream of mad laughter, cum bubbling over her lips as her cunt is turned into a cornucopia of monster jizz. A cunny-copia, you giggle to yourself, her insane glee infecting your exhausted body. The double-penetrated fae bloats and swells under the pressure of the cum-pump, supplemented your own obscene spunk stuffing.\n\n", false);
 
@@ -14257,7 +14257,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("The steel against your " + this.cockDescript(0) + " and inside your cunny gurgle with their restrained payloads and you resist the urge to twist both nozzles until they break, instead beginning a slow bucking ride of the fairy. Sliding the imp cock into your " + this.vaginaDescript(0) + " on each back-thrust, and stuffing more of the monstrous dildo into her quivering body with every bucking motion, you work your arms as much as your hips. The bulge of your tools inside her nubile body gets deeper with every push, rushing to meet the swell of her cum-stuffed stomach, having downed nearly two of the three gallons you poured for her already. As you're rocking back, building up to a truly delicious orgasm, the slick girl cum from your pussy drips between your fingers and you lose your grip momentarily. Trying to regain it, your hand accidentally strokes the nozzle at the base and your eyes go wide as the imp cock unleashes a torrent of seething spunk into your body. Panicking, you try to twist it shut again, but only manage to open the spigot all the way, your abdomen nearly bursting as the firehose blasts your cervix with a gushing pillar of cum.\n\n", false);
 
             this.outputText("Your careful restraint is torn from your body and an orgasm overtakes you.  ", false);
-            //(2 Dicks- 
+            //(2 Dicks-
             if (this.player.cockTotal() > 1) this.outputText("The " + this.cockDescript(1) + " inside the fairy girl's ass erupts first, pumping your seed into her bowels, her hips distorting with the bursting flow of your cum, her sphincters clenching powerless to stop your alabaster flood.  ", false);
             this.outputText("Inside Vala's drooling pussy, your " + this.cockDescript(0) + " twitches as your load rushes over the steel dildo and spurts from your cockhead in hot ropes of gooey love. You manage to think through the suffocating pleasure addling your brain and flick the nozzle of the chimera dildo, the tube kicking to life. The monstrous hose vibrates your entire lower body and you tremble helplessly as you're stimulated nearly to breaking. The fairy girl, already happily shattered, merely lets out a stream of mad laughter, cum bubbling over her lips as her cunt is turned into a cornucopia of monster jizz. A cunny-copia, you giggle to yourself, her insane glee infecting your exhausted body. The double-penetrated fae bloats and swells under the pressure of the cum-pump, supplemented your own obscene spunk stuffing.\n\n", false);
 
@@ -14355,7 +14355,7 @@ We can also do * italic * and ** bold ** text!
         this.simpleChoices("You", this.cleansedValaFuckHerBrainsOut, "", undefined, "", undefined, "", undefined, "Leave", this.telAdre.barTelAdre);
     }
 
-    //[You] 
+    //[You]
     public cleansedValaFuckHerBrainsOut(): void {
         this.spriteSelect(60);
         this.outputText("", true);
@@ -14366,7 +14366,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("Feeling your straining body, hard against hers, she runs a hand through her purple hair, spilling it across half of her face. \"<i>I want you to enjoy this as much as I will.</i>\" Vala reaches a hand between her legs and slides against your abdomen, guiding your " + this.cockDescript(0) + " into her pussy. The fae's labia practically breathes the heat of her uterus across your twitching shaft and you slide through her well-lubricated depths with a moist sigh, her inhuman snatch tight with her passionate yearning. She rocks back and forth barely an inch at a time, but it's enough to ignite a manic need in your loins. ", false);
             //[2 dicks-
             if (this.player.totalCocks() > 1) this.outputText("\"<i>Fairies don't exactly crap rainbows, but we're not quite like normal humans either,</i>\" she grins, taking your " + this.cockDescript(1) + " and pressing it against her pudgy butt, her pink sphincter loosening just enough to slip your cockhead inside the fairy's body before it clenches down. It almost feels like she's got a hand inside of her ass; the walls ripple with expert coordination, rings of muscle clenching and loosening with a dexterity that takes the breath from you. Your tip, sealed just inside her posterior, is milked with a tight grace that has your body twitching before you realize it.  ", false);
-            //3+ dicks- 
+            //3+ dicks-
             if (this.player.cockTotal() >= 3) this.outputText("Vala takes a deep breath, letting the feeling of your meat inside her gut stoke the fires of lust growing in her belly. \"<i>I think there's a little room left, if you're game,</i>\" she whispers, moving to your " + this.cockDescript(2) + ". She bites her lower lip and forces herself down on it, squeezing your two shafts together in her well-lubed love tunnel. The feeling of your straining lengths inside her triple-stuffed body is an ecstatic agony that robs you of words and your body thrusts helplessly, Vala's breeder hips grinding in fleshy ripples, her lower torso swollen with cock.  ", false);
             this.outputText("You try to hold back the orgasm, but it's too late and your cock explodes inside the fairy's unearthly womanhood.\n\n", false);
 
@@ -14381,11 +14381,11 @@ We can also do * italic * and ** bold ** text!
             this.outputText("You run your hands over Vala's flawless skin, fingertips tracing the seemingly frail girl's bone structure around her shoulders and down her thin arms before your hands circle round her inflated bosom, yielding flesh hot with the thundering heartbeat inside her chest. She gasps at the feel of your hands on her sensitive skin and giggles when you move your fingertips to her areolas, coin-sized pink buttons that shimmer with the strange, otherworldly glow of daylight that her body seems to radiate. Her nipples are already stiff from your teasing and you stroke the hot bulges with your thumbs, moisture bubbling under your touch. She draws in breath between her teeth and squirms in your lap, her rose-petal pussy drooling across your " + this.hipDescript() + " as she runs her hands through your " + this.hairDescript() + ". She pushes against you, stroking your " + this.nippleDescript(0) + "s with her hard nubs, pressing her wobbling breasts against your " + this.allBreastsDescript() + ". The heat pouring off the little fairy girl's body is incredible and you can feel a dampness growing in your " + this.vaginaDescript(0) + ".\n\n", false);
 
             this.outputText("Still in your lap, she swings her legs around yours and braces herself with one hand around your neck and the other on your knees. Sliding back and forth, she strokes her pussy against yours, the slick folds of her labia rubbing against your " + this.clitDescript() + " with wet squishing sounds, sending electric shivers up your spine. You begin to rock back, in time with her motions, your stiff clit stroking hers in tight circles that leave the fairy panting, her legs clenching and unclenching around your " + this.buttDescript() + ". The two of you jill against the other's joy buzzers until your bodies tremble with orgasm, the fairy sliding her hand from your neck to one of your heaving breasts, squeezing a nipple between her second knuckles hard enough to make you squeak with pain.", false);
-            //[Lactating- 
+            //[Lactating-
             if (this.player.biggestLactation() >= 1) this.outputText("  The pressure is enough to draw your milk to the surface, tiny jets splashing between the two of you as the fairy milks you with two incredibly agile fingers.", false);
             this.outputText("\n\n", false);
 
-            //[Short characters- 3'- 4'11"] 
+            //[Short characters- 3'- 4'11"]
             if (this.player.tallness <= 59) {
                 this.outputText("The fairy, catching her breath between rolling her tender lower lips against yours, gets a wicked grin on her face and leans in with a whisper. \"<i>Let's do it like they do in the forest,</i>\" she suggests, flicking her dragonfly wings to life. With a fluttering motion, she lifts off of you, flips upside down, and buries her head between your " + this.hipDescript() + ", pink lips pressed against your " + this.vaginaDescript(0) + " in a shower of warm kisses.");
                 if (this.flags[kFLAGS.VALA_HEALED_HONEY] == 1) this.outputText("  You, in turn, take her legs around your temples and rub your nose against her juicy snatch, the fragrance of summer as intoxicating as any of the bottles around you. Your mind goes fuzzy for a moment and you suspect that your pure honey cure may have had some lingering effects on the over-grown girl. She wraps her arms around your " + this.buttDescript() + " and you mirror the grip just as she flaps harder, carrying the two of you into the air, locked in each other's love tunnels.\n\n", false);
@@ -14402,7 +14402,7 @@ We can also do * italic * and ** bold ** text!
             else {
                 this.outputText("The fairy, catching her breath between rolling her tender lower lips against yours and panting with desire, leans in with a whisper. \"<i>I need to taste you,</i>\" she confesses, \"<i>to know the nourishment of humans.</i>\" You nod, wrapping an arm around the girl's narrow waist and haul her up to your bosom. She nuzzles against your " + this.allBreastsDescript() + " her purple hair cascading around your " + this.player.skinDesc + " with a glimmering sparkle of pink amid violet. \"<i>My chest is so heavy,</i>\" she whines softly, her supple breasts pressing against yours. She flutters her wings and lifts out of your embrace just enough to turn upside down in the air, her hair spilling into your lap and her mammoth jugs hanging heavily around her chin. \"<i>Please,</i>\" she whispers as she strokes your " + this.allBreastsDescript() + " with her tiny nose, delicate lips kissing your " + this.nippleDescript(0) + ". You wrap your hands on either side of her breasts and squeeze them together until her stiff, pink nipples touch and you bring your mouth forward, tongue flicking the milky flesh before drawing both into your lips with relish. Her mammaries begin to leak immediately, filling your mouth with the rich, decadent taste of buttermilk, sweet and heavy on your tongue.\n\n", false);
 
-                //[Not lactating – 
+                //[Not lactating –
                 if (this.player.biggestLactation() < 1) {
                     this.outputText("To your surprise, the mere taste of the girl's milk sends a fluid pulsing through your chest and you can feel your breasts filling with milk! You have begun to lactate!  ", false);
                     this.player.boostLactation(3);
@@ -14425,7 +14425,7 @@ We can also do * italic * and ** bold ** text!
             if (this.player.totalCocks() > 0) this.outputText("s", false);
             this.outputText(". You tweak her nipples harder with each thrust, pale cream spurting in increasingly erratic arcs as her heavy breasts grow light pink from the bouncing of her ride. She clenches her eyes shut and wraps her arms under yours, hands clutching your shoulders with desperate rapture.\n\n", false);
 
-            //[Short characters- 3'- 4'11"] 
+            //[Short characters- 3'- 4'11"]
             if (this.player.tallness <= 59) {
                 this.outputText("If the blissful expression across her face is any indication, the girl has begun to lose herself in the joy of sex again, her wings fluttering on their own. You keep thrusting, but are alarmed when she begins to pull the two of you off the stool and into the air, oblivious to the world beyond the space between her legs. You grab her broad flanks and try to get her attention by calling her name. \"<i>Oh yes!</i>\" she moans. \"<i>Say my name!</i>\" Her body seizes in a clenching climax that squeezes your hips into hers and she embraces you with a fiery passion that crushes the breath from your lungs. \"<i>Oh, Vala! Yes! I'm no one's Bitch! Vala! Vala!</i>\" she screams from the depths of her euphoria, her sex erupting in a cascading torrent of shimmering fairy cum.\n\n", false);
 
@@ -14519,10 +14519,10 @@ We can also do * italic * and ** bold ** text!
         this.outputText("One by one, each of the fairies gives her petal to Vala, and one by one, the largest fairy delicately sticks them onto your " + this.cockDescript(0) + ". With each bloom that touches your quivering member, your orgasm builds, never quite erupting from your twitching organ, tearing your self-restraint to shreds. Before long, your teeth are gritted in a steely clench and your eyes are dilated to black pools that make every color around you gleam with a too-bright, lurid hue. Your fingers have given up the bedspread in favor of simply balling into white-knuckled fists and your abdomen aches with the effort of trying to push your seething orgasm out before it suffocates you. Just as your vision is about to black out from the denied climax, Vala takes the final petal and places it atop your urethra, fully covering your " + this.cockDescript(0) + ". \"<i>All done,</i>\" her voice cheerful and innocent, like she'd just finished painting a picture rather than stimulating you just shy of breaking your mind.\n\n", false);
 
         this.outputText("The pixie girl gives your shaft a little kiss and places her lips on your cockhead. She puffs her cheeks and whispers a string of strange words into your " + this.cockDescript(0) + ". All at once, the soft petals around you meld into one warm, hard case, perfectly mirroring your cock like an organic condom. Your mind explodes as your carefully coaxed orgasm is finally released in one body-shaking crescendo. Every muscle in your body clenches, your cock geysering its torrential gouts of seed into the flower petal condom. Rather than bursting apart, the enchanted device merely swells, drinking your seed and slowly lifting off of your shaft. ", false);
-        //[Balls- 
+        //[Balls-
         if (this.player.balls > 0) this.outputText("Vala's tongue caresses your " + this.ballsDescriptLight() + ", slurping hungrily, eager to get every drop out of your overburdened sac.  ", false);
         this.outputText("You nearly forget to breathe as jizz pours from your body until the dick-shaped shell is entirely forced from your body. Deftly, Vala catches the device before it can spill its load and she pastes her own, much larger, petal on the base, sealing your spunk inside. The verdant shaft, now that it's off your cock, seems to be a dildo perfectly molded to resemble your " + this.cockDescript(0) + ". It's a soft pink color, like engorged genitals, and even gently pulses with your every heartbeat.", false);
-        //(Extremely high cum production: 
+        //(Extremely high cum production:
         if (this.player.cumQ() > 2000) this.outputText("  Even after driving the condom off of you, your cock continues its gushing orgasm, spurting thick bubbles of jizz into the air, raining down in creamy torrents. The small fairies gleefully dive after the cum globs, making a game of it, trying to catch the gooey globs before they splatter on the bed or carpet.", false);
         this.outputText("\n\n", false);
 
@@ -14538,7 +14538,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("", true);
         this.outputText("The fairy girl lands at the edge of the bed, settling on her knees and resting her weighty chest on the mattress. Leaning in, she spreads your " + this.player.legs() + " with warm, delicate hands, fingertips stroking the insides of your thighs. You shiver and hug your arms under your breasts, a little nervous about this 'forest magic.' One of the fairies flutters down to Vala and hands her a pale white lily petal with a tittering giggle. The larger fairy takes the soft white bloom and, whispering a silken word to it, licks the cream-colored surface. Slithering further between your legs, she reaches your " + this.vaginaDescript(0) + " and brushes the petal against your " + this.clitDescript() + " with a teasing caress. Then, much to your surprise, she places it on the tip of her forefinger and slides it into your pussy. You gasp, the petal's soft surface rubbing your inner walls with a warmth you were unprepared for. Vala presses lightly on a spot inside your vagina and you lose your breath as the tremor of a small orgasm rumbles through your gut. Without explanation, the fairy barmaid takes a rose petal and repeats the process, another orgasm seizing you and leaving you panting. \"<i>Normally we only need the one petal, but since you and I are so much larger than the average fairy, I had my sisters bring lots. All for you,</i>\" she whispers, coyly.\n\n", false);
 
-        //[If the Player has unlocked Scylla's Addiction Counseling event] 
+        //[If the Player has unlocked Scylla's Addiction Counseling event]
         if (this.flags[kFLAGS.TIMES_SCYLLA_ADDICT_GROUP_EXPLOITED] + this.flags[kFLAGS.SCYLLA_TIMES_SHARED_IN_ADDICT_GROUP] + this.flags[kFLAGS.SCYLLA_MILK_THERAPY_TIMES] + this.flags[kFLAGS.SCYLLA_CUM_THERAPY_TIMES] + this.flags[kFLAGS.SCYLLA_SEX_THERAPY_TIMES] > 0) this.outputText("Another fairy flies toward Vala and you blink through the building lusty haze when you recognize the little girl. Wearing a slightly slutty crystalline gown of translucent gossamer, you recognize Pastie, the fairy from Scylla's addiction counseling meeting. When you call out to her, she bashfully waves back. \"<i>Hey, uh, " + this.player.short + ". It's kinda weird seeing you outside of the meetings. How are you? How have things been?</i>\" She looks at your naked, reclined form on the bed and blushes. \"<i>Oh, right, right. Um. I'm just helping out Vala, you know. Sisters and all. Uh. I'm... I'm going to just give her this petal and get something to drink, okay? All this sobriety is making this really uncomfortable for me.</i>\" The other fairies laugh and Pastie hands off her blossom before zipping out of the room, probably to steal someone's drink downstairs.\n\n", false);
 
         this.outputText("One by one, each of the fairies gives her petal to Vala and one by one, the largest fairy delicately places them inside your " + this.vaginaDescript(0) + ". With each bloom that touches your inner walls, another orgasm tears your self-restraint to shreds, until you're drooling onto the bedsheets, tongue lolling out of your mouth, your eyes rolling aimlessly, unable to focus on any one thing for longer than a moment. Your fingers clench the bedspread in white-knuckled bliss and your thighs vibrate around the girl's body, squeezing her like you're trying to stay on an unsaddled horse. Just as your vision is about to roll into a pink oblivion, Vala withdraws her fingers from your recesses and announces, \"<i>All done,</i>\" her voice cheerful and innocent, like she'd just finished painting a picture rather than stimulating you just shy of breaking your mind. You need more than a few minutes to catch your breath, finally coming down from the seeming eternity of rapturous bliss.\n\n", false);
@@ -14585,7 +14585,7 @@ We can also do * italic * and ** bold ** text!
         this.zetazTaunt();
         this.outputText("\n\n", false);
         //If afflicted by blind or whispered and over 50% lust,
-        //burns lust and clears statuses before continuing with 
+        //burns lust and clears statuses before continuing with
         //turn.
         if (this.monster.lust > 50 && (this.monster.findStatusAffect(StatusAffects.Fear) >= 0 || this.monster.findStatusAffect(StatusAffects.Blind) >= 0)) {
             this.monster.removeStatusAffect(StatusAffects.Fear);
@@ -14609,7 +14609,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\n", false);
         }
         if (this.monster.findStatusAffect(StatusAffects.Constricted) >= 0) {
-            //Enemy struggles - 
+            //Enemy struggles -
             this.outputText("Your prey pushes at your tail, twisting and writhing in an effort to escape from your tail's tight bonds.", false);
             if (this.monster.statusAffectv1(StatusAffects.Constricted) <= 0) {
                 this.outputText("  " + this.monster.capitalA + this.monster.short + " proves to be too much for your tail to handle, breaking free of your tightly bound coils.", false);
@@ -14621,7 +14621,7 @@ We can also do * italic * and ** bold ** text!
         }
         //STANDARD COMBAT STATUS AFFECTS END HERE
         //-If over 50 lust and below 50% hp
-        //--burns 20 lust to restore 20% hp. 
+        //--burns 20 lust to restore 20% hp.
         if (this.monster.lust > 50 && this.monster.HPRatio() <= .5) {
             this.outputText("The imp lord shudders from his wounds and the pulsing member that's risen from under his tattered loincloth.  He strokes it and murmurs under his breath for a few moments.  You're so busy watching the spectacle of his masturbation that you nearly miss the sight of his bruises and wounds closing!  Zetaz releases his swollen member, and it deflates slightly.  He's used some kind of black magic to convert some of his lust into health!", false);
             this.monster.addHP(0.25 * this.monster.eMaxHP());
@@ -14631,7 +14631,7 @@ We can also do * italic * and ** bold ** text!
         else {
             var attackChoice: number = this.rand(3);
             if (attackChoice == 0) {
-                //Chucks faux-heat draft ala goblins. - 
+                //Chucks faux-heat draft ala goblins. -
                 this.outputText("Zetaz grabs a bottle from a drawer and hurls it in your direction!  ", false);
                 if ((this.player.findPerk(PerkLib.Evade) >= 0 && this.rand(4) == 0) ||
                     (this.player.findPerk(PerkLib.Flexibility) >= 0 && this.rand(6) == 0) ||
@@ -14646,9 +14646,9 @@ We can also do * italic * and ** bold ** text!
                 }
             }
             else if (attackChoice == 1) {
-                //'Gust' – channels a pidgy's spirit to beat 
-                //his wings and kick up dust, blinding the PC 
-                //next turn and dealing light damage. - 
+                //'Gust' – channels a pidgy's spirit to beat
+                //his wings and kick up dust, blinding the PC
+                //next turn and dealing light damage. -
                 this.outputText("The imp leaps into the air with a powerful spring, beating his wings hard to suspend himself in the center of his bedchamber.  Dust kicks up into the air from the force of his flight and turns the room into a blinding tornado!  Small objects smack off of you, ", false);
                 //(causing little damage/
                 if (this.player.tou > 60) this.outputText("causing little damage", false);
@@ -14661,8 +14661,8 @@ We can also do * italic * and ** bold ** text!
                 this.outputText(" while the dust gets into your eyes, temporarily blinding you!", false);
                 this.player.createStatusAffect(StatusAffects.Blind, 1, 0, 0, 0);
             }
-            //Gigarouse – A stronger version of normal imp's 
-            //'arouse' spell. - copy normal arouse text and 
+            //Gigarouse – A stronger version of normal imp's
+            //'arouse' spell. - copy normal arouse text and
             //spice it up with extra wetness!
             else {
                 this.gigaArouse();
@@ -14698,10 +14698,10 @@ We can also do * italic * and ** bold ** text!
         this.outputText("", true);
         //[VICTORY HP]
         if (this.monster.HP < 1) this.outputText("Zetaz sinks down on his knees, too wounded to continue.  He looks up at you with helpless rage in his eyes and asks, \"<i>Are you satisfied now?  Go ahead then, kill me.  My life hasn't been worth living since I met you anyway.</i>\"\n\n", false);
-        //[VICTORY LUST] 
+        //[VICTORY LUST]
         else this.outputText("Zetaz sinks down on his knees and fishes his massive, pre-drooling member from under his loincloth.  He looks up at you, nearly crying and moans, \"<i>Why? Ruining my life wasn't enough?  You had to make me jerk off at your feet too?  Just kill me, I don't want to live anymore.</i>\"\n\n", false);
 
-        //[Both] 
+        //[Both]
         this.outputText("He can't die yet.  You need to know where his master, this 'Lethice', is.  It sounds like she's the queen-bitch of the demons, and if you're going to break this vicious cycle", false);
         //( or take her place)
         if (this.player.cor > 66) this.outputText(" or take her place", false);
@@ -14800,7 +14800,7 @@ We can also do * italic * and ** bold ** text!
         this.cleanupAfterCombat();
     }
 
-    //[Tighten Strap] 
+    //[Tighten Strap]
     private sexualTortureTightenZetaz(): void {
         this.outputText("", true);
         this.outputText("\"<i>Idiot,</i>\" you taunt while you tighten the strap further.  Zetaz actually starts to bawl in anguish while another orgasm worth of cum backs up inside him.  You don't want him to get out of the binding while you search for his map, so you pull the cord under his leg and use the free end to bind his wrists together behind his back.  Fondling his turgid prick one last time for good luck, you leave him to struggle with his need as you search for your map.  It's difficult to blank out all the whines and cries, but you manage.\n\n", false);
@@ -15203,18 +15203,18 @@ We can also do * italic * and ** bold ** text!
             this.outputText("[pg]Vala seems to be mulling your question over in her mind, her spritely legs rubbing together as she nibbles her lower lip anxiously.  \"<i>Oh, but now that you mention it, I do want to try,</i>\" she giggles.  Placing her hand atop yours, she gives you an affectionate squeeze.  \"<i>Meet me in the back room,</i>\" she whispers, her wings fluttering gleefully as she flies to the bar to put away her apron and let the barkeep know she'll be taking a break.  You can see tiny, glistening droplets of excited lubrication leaking down her thighs and leaving a dripping line of glittering fem-cum on the floor.");
             this.outputText("[pg]You follow after, finding your way to the storeroom where Vala is waiting for you.  Embracing you tightly, she plants a spritely kiss on your lips and flutters a foot off the ground, her hands on your shoulders.  \"<i>If we're going to try this, we'd better make sure there'll be enough!</i>\" she laughs.  \"<i>After all, I had quite a tolerance built up before you rescued me.</i>\"");
 
-            //[If the player's cum production is under X] 
+            //[If the player's cum production is under X]
             if (this.player.cumQ() < 2000) {
                 this.outputText("[pg]\"<i>I have something that might help,</i>\" Vala offers, brightly.  \"<i>A gift from the sweetest little bunny girl.</i>\"  The fairy turns around to sift through some of the articles in the store room before producing a thin vial of glistening oil that smells faintly of strawberries.  \"<i>She mentioned that this batch wasn't powerful enough and was just going to throw it out, but I hate to see anybody's hard work go to waste, so I offered to pay her for it.</i>\"  Vala hands you the oil and clasps her hands to her mouth, blushing faintly.  \"<i>Oh my, that little bunny girl was just too cute.  I hope you get a chance to meet her!</i>\"");
                 this.outputText("[pg]Tilting your head back, you swallow the greasy oil in a single gulp, your belly filling with a wonderful sweetness that flows into your loins.");
-                //IF BALLS: 
+                //IF BALLS:
                 if (this.player.balls > 0) this.outputText("  Your balls react immediately, filling with a cold weight that nearly knocks you to your ass.  Your [armor] bulges obscenely as the sack hanging between your legs fills with liquid pressure that squeezes your bloating flesh.");
                 this.outputText("  Your abdomen noisily groans as your prostate churns with an eager fervor that sets your heart racing.  You strip before the pre-cum brimming at the peak of [eachCock] can stain your clothing and you find that Vala's already removed and folded her dress, apparently enjoying the sight.  You reach over and tussle her hair playfully, bringing a blush to the fairy's grinning cheeks.");
             }
             //OR [If the player's cum production is over X]
             else {
                 this.outputText("[pg]In response, you cup the pale girl's chin and flash a sly smile of your own.  Arching a " + this.player.hairColor + " eyebrow, you assure her that won't be a problem.  Vala's hands sink down to your crotch, fey fingers pushing aside your [armor] to encircle your swelling member.  \"<i>I don't doubt it,</i>\" she purrs, lightly tracing the crest of your [cock]'s head.");
-                //[IF BALLS: 
+                //[IF BALLS:
                 if (this.player.balls > 0) this.outputText("  The fairy's hands slide a bit further and she turns up her palms to cup your [balls], her thin fingers delicately massaging the heft of your over-burdened sac.  \"<i>I don't know who's more excited, me or these guys,</i>\" she teases, drawing you into another passionate embrace.  Grasping your testicles just tightly enough to send a shiver of pleasure across the back of your neck, she wets her lips and whispers, \"<i>Who am I kidding?  No one wants this more than me.</i>\"");
                 this.outputText("[pg]Stripping the [armor] from your body, piece by piece, Vala carefully sets your clothing on a nearby shelf then attends to her own dress.  Unhitching the clasps from her high-necked emerald garment, she turns her back to you, jutting her birthing-heavy rump out just a bit and wriggles her shoulders.  \"<i>Would you mind unzipping me?</i>\"  You move between the fairy girl's wings, pressing your erection against the silk hugging her ass cheeks and begin to pull open the skin-tight, jade raiment.  Gradually, the gossamer cloth parts, baring the silent testimony of Vala's imprisonment: thousands of ink hash marks tattooed from the girl's shoulders down to the soles of her feet.  The tender mercy of the imps.  She tenses for a moment before turning her head sideways to glance softly at you.  She sighs and her muscles loosen, dark memories melting at the touch of your fingers.  Wordlessly spinning to face you, she cups your cheeks in her warm hands and places a tender kiss on the tip of your nose before slipping out of her dress and folding it next to your clothes.");
             }
@@ -15223,7 +15223,7 @@ We can also do * italic * and ** bold ** text!
             //REPEAT INTRO
             this.outputText("You give your favorite fairy's bottom a squeeze through the silk of her long dress and she returns the affectionate gesture by brushing her fingers down your free arm, lingering atop the tips of your fingers.  Discretely, you ask her if she's recovered from the last time the two of you indulged in each other and she giggles in delight.  \"<i>I don't think anybody would ever be quite the same after that many orgasms,</i>\" she whispers.  \"<i>If you're not careful, I might get addicted to you,</i>\" she teases, sliding a hand around your neck and running her fingers through your [hair].  \"<i>But how can I say no to all this?</i>\" she gestures at your body with a lascivious smile.");
             this.outputText("[pg]She drops off her apron at the bar and guides you to the store room, practically dragging you in her bobbing, exuberant flight.  Stripping the two of you, Vala has to restrain herself from mounting you on the spot, her breaths ragged and husky with desire.  ");
-            //[Low Cum Production: 
+            //[Low Cum Production:
             if (this.player.cumQ() < 2000) this.outputText("Retrieving a vial of glistening oil, she offers the concoction to you with a laugh.  \"<i>The gal who makes these is so silly.  She always giggles when I pay her a visit and blushes when I call her 'bunny girl'.  She's so cute I just want to give her a squeeze!</i>\" You chuckle and down the draft, a thrill of cold weight filling your gut.  ");
             this.outputText("The fairy brushes her glittering hair behind her shoulders and sits on her knees in front of you, large pink eyes staring up eagerly.");
         }
@@ -15240,7 +15240,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.balls > 0) this.outputText("  Your gut is heavy with the churning weight of your jism, sending tingling waves of cold into your pulsing scrotum, the chill soothing the ardor of your trembling balls.  A manic zeal writhes in your groin, filling your swollen pouch just as quickly as your protracted climax can splatter out your lewd passion across the shuddering girl's bare flesh.");
         this.outputText("[pg]The cum-drenched girl runs her hands up and down her torso, rubbing your warm cum against her skin with quivering motions.  Her fingers trace across her lean limbs and up the bust of her tremendous chest, rapidly flicking her nipples with her thumbs as she reaches the peak of her mounds.  Vala's breaths become shallow as a flush creeps across her skin, the hot pink hue visible even under the spoo-slick polish you're encased the fairy in.  She leans forward, her cum-glistening lips inches from your fountaining cock, and you can feel the boiling heat coursing through her drug-basted body with every panting moan that shudders out of her jizz-filled mouth.  She brushes her slime-coated cheeks across the crown of your turgid cockhead and slides her face over your pulsing glans until her nose is directly over your drooling sperm-slit.  She closes her mouth, takes a long, cooing swallow, and sniffs deeply, drinking in the salty scent of your creamy discharge.  Your next load lurches forward, a tremendous glob of goo bursting directly against her nostrils, suffocating her sense of smell with the possessive urgency of your foaming seed.");
         this.outputText("[pg]The fairy chokes as your jetting spunk fills her world, every pore drinking in the oozing nectar of your fervent masturbation.");
-        //[IF BALLS: 
+        //[IF BALLS:
         if (this.player.balls > 0) this.outputText("  Her head sinks down to rest against your wobbling scrotum, the balls within practically swimming in the oceans of jizz your body is producing to saturate the cum-drunk girl.  Lifting your shaft vertically, your jism rains down on Vala's body, blotting out the imp-tattooed hash marks with an ivory cascade that splatters against her narrow shoulders and dribbles down, between her gossamer wings, draping her muscular back with a pearl raiment.");
         this.outputText("  Her face dripping with the milky veil of your spunk, the overwhelmed girl leans back, settling against the floor as the drug-like intoxication of your sperm leaves her incapable of much more than moaning and writhing.  Using both hands, she smears the spattering cum across her lissome frame: tracing the flower-like folds of her labia, pooling it into her belly button, scooping double handfuls to bathe her pink-and-purple hair in your white waterfall.");
 
@@ -15406,7 +15406,7 @@ We can also do * italic * and ** bold ** text!
 
     //Intro to Vala + Vapula Threesomes
     public valaVapulaThreesome(): void {
-        //{First Meeting} 
+        //{First Meeting}
         this.flags[kFLAGS.TIMES_VAPULA_AND_GIANT_VALA]++;
         if (this.flags[kFLAGS.TIMES_VAPULA_AND_GIANT_VALA] == 1) {
             this.outputText("Crossing your arms, you call out to summon your pet succubus from wherever she's lurking at the moment.  Vapula comes frolicking up almost instantaneously before stopping mid-stride, curvy thighs quivering and mouth-gaping.  \"<i>T-there's a gigantic... faerie?!</i>\" she asks incredulously while slowly turning to face you, her [master].");
@@ -15536,7 +15536,7 @@ We can also do * italic * and ** bold ** text!
 
         //[cock area <17:]
         if (this.player.cockArea(x) < 17) this.outputText("\n\nPlanting a kiss right on the head, she draws her tongue around, slowly teasing and licking you.  \"<i>Hehehe, a perfect size for someone like me,</i>\" she says in between lips and delicate kisses.  Her soft lips tease you like fluttering butterflies, leaving a gentle tingling across your sensitive flesh.  Closing her eyes, the passionate fairy wraps her lips around you and starts to gently suck, her hands holding your hips as she slowly starts to bob her head up and down your shaft.");
-        //[cock area >17 <30: 
+        //[cock area >17 <30:
         else if (this.player.cockArea(x) < 30) this.outputText("\n\nPlanting a kiss right on the head, she draws her tongue around, slowly teasing you and tasting you.  \"<i> Mmmm.  What a nice big dick you have here.  Yesss, so much for little Vala to love.</i>\" she says in between lips and delicate kisses.  Her soft lips tease you like fluttering butterflies, leaving a gentle tingling across your sensitive flesh.  Opening wider, the passionate fairy dives headlong into her delicious task, eagerly licking and sucking every inch she can get at to pleasure you.  Her hands gently take a hold of your hips as she bobs her head up and down, wanting nothing more than to taste her hero.");
         //[cock area >30:
         else this.outputText("\n\nPlanting a kiss right on the head, she draws her tongue around the thick head, slowly teasing you.  \"<i>Ooohhh, so big and strong.  So much of my hero to play with,</i>\" she says with a giggle before returning to her teasing task.  Her soft lips tease you like fluttering butterflies, leaving a gentle tingling.  Opening her mouth as wide as she can, the passionate fairy dives headlong into her delicious task, eagerly licking and sucking every inch she can get at to pleasure you.  Her hands gently take hold of your hips as she slowly bobs her head up and down, wanting nothing more than to taste her hero.");
@@ -15573,7 +15573,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nHotter and hotter your passion flares, your wild bucking thrusts rocking and battering your short curvy lover’s body over and over, your " + this.cockDescript(x) + " pounding her hungry pussy harder and faster, desperate to reach that peak of pleasure.  Wrapping your arms around Vala’s small body, you squeeze her against you as you finally reach your climactic end.  Gritting your teeth and growling to your tender lover, you ram your hips against her and sink every inch of throbbing cockflesh into her receptice body as you can fit.  The sudden hard thrust combined with the feeling of your aching mast pulsing and swelling inside her at your orgasm makes your sumptuous sweetheart groan and moan as her eyes roll back from the feeling of your hot spunk rushing into her.  The raw, blissful nirvana of the rampant sex and impending creamy injection bring the overexcited fairy to an explosive squirting orgasm.");
 
-        //[cum volume low: 
+        //[cum volume low:
         if (this.player.cumQ() < 250) this.outputText("\n\nGasping in pleasure, you keep your hips pressed against Vala’s, your cock crammed deep inside her small body as you squirt your cum into her belly.  Your little lover wraps her legs around you, squeezing herself against you to get as much of your hot seed inside her body as she can.");
         else if (this.player.cumQ() < 1000) this.outputText("\n\nGrunting hard, you gush over and over into your sweet fey-lover.  You hold yourself tighter against her, making sure you force as much of your spunk into her waiting, hungry womb as you can.  Your little lover wraps her legs around you, squeezing herself against you to get as much of your hot seed inside her body as she can.  Her tight, toned tummy gently pushes out from the creamy cum being pumped into it.");
         else if (this.player.cumQ() < 3000) this.outputText("\n\nGasping and groaning, you unleash gush after gush of thick, rich cum, basting your fey-lover’s womb with your virile spunk.  Wedging yourself as tightly against her as you can, you make sure that every drop packs into her tender belly.  Your little lover wraps her legs around you, squeezing herself against you to get as much of your hot seed inside her body as she can.  The potent flow of your seed quickly swells her stomach into a cute, cum-bloated paunch.");
@@ -15639,7 +15639,7 @@ We can also do * italic * and ** bold ** text!
         var  text7: string = "";
         var  choice8: any = 0;
         var  text8: string = "";
-            //Always have choices for items or masturbation. 
+            //Always have choices for items or masturbation.
         var  itemMenu = inventory.inventoryMenu;
         var  masturbateMenu: number = 10;
         */
@@ -15808,7 +15808,7 @@ We can also do * italic * and ** bold ** text!
                     //				choice1 = startIncubusFight;
                     //				text1 = "Fight";
                     //				text2 = "Talk";
-                    //				choice2 = talkToIncubus;				
+                    //				choice2 = talkToIncubus;
                     this.addButton(0, "Fight", this.startIncubusFight);
                     this.addButton(1, "Talk", this.talkToIncubus);
                 }
@@ -15878,7 +15878,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("A part of you wants to deny her, to scream that she is wrong.  But it makes too much sense to be a lie... and the evidence is right behind you, on the factory floor.  All those women must be the previous champions, kept alive and cumming for years in order to feed these insatiable demons.  The demoness watches your reaction with something approaching sexual bliss, as if the monstrous betrayal of it all is turning her on.\n\n", false);
                 this.outputText("\"<i>Yes,</i>\" she coos, \"<i>you belong here.  The question is do you accept your fate, or do you fight it?</i>\"", false);
                 //			choice1 = omnibusStartCombat;
-                //			text1 = "Fight";   
+                //			text1 = "Fight";
                 //			choice2 = omnibusAcceptOffer;
                 //			text2 = "Accept";
                 this.addButton(0, "Fight", this.omnibusStartCombat);
@@ -16081,7 +16081,7 @@ We can also do * italic * and ** bold ** text!
                         this.addButton(4, "ShouldraVala", this.shouldraFollower.shouldraMeetsCorruptVala);
                     }
                 }
-                //Zetaz defeated 
+                //Zetaz defeated
                 else {
                     this.outputText("In the far corner, there is a small woman, her back to you, hanging limply by manacles that keep her suspended in a half-kneel. Rich purple hair hangs in long, clumped strands that sparkle occasionally with a pink glitter. Above her, there is a tarnished bronze nameplate that you think reads 'Vala,' but it's impossible to tell for sure under all the imp graffiti. She does not seem to be conscious.\n\n", false);
                     //Option to investigate her
@@ -16155,7 +16155,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("<b><u>Guard Hall</u></b>\n", true);
             //Room Description:
             this.outputText("You stand in what might have been a guard room once upon a time.  Now it is a ruined, ransacked mess.  It seems not to have been used in years, and the table, chairs, and spears lined up against the wall have all rotted away to almost nothing.");
-            //[If Armor has not been taken/fought with: 
+            //[If Armor has not been taken/fought with:
             if (this.flags[kFLAGS.WON_GOO_ARMOR_FIGHT] + this.flags[kFLAGS.LOST_GOO_ARMOR_FIGHT] == 0) {
                 this.outputText("  However, a suit of half-plate armor has been left up against the eastern wall, hanging loosely on a rack; it seems to be in usable shape.");
                 //			text4 = "Armor";
@@ -16330,7 +16330,7 @@ We can also do * italic * and ** bold ** text!
             else {
                 //Room Description:
                 this.outputText("You stand in the harpy throne room - a long, circular room dominated by a high throne surrounded by cushions and drapes.  A single long carpet flows from the heavy double doors to the throne, reminding you of a castle's great hall in days gone by.  A number of harpies cower in the shadows, afraid to oppose you further now that their mighty leader is defeated.");
-                //[if PC hasn't executed the queen: 
+                //[if PC hasn't executed the queen:
                 if (this.flags[kFLAGS.HARPY_QUEEN_EXECUTED] == 0) {
                     //				text5 = "Harpy Queen";
                     //				choice5 = harpyQueenAdvantage;
@@ -16747,7 +16747,7 @@ We can also do * italic * and ** bold ** text!
         }
         //Second/third times...
         else {
-            //[[2nd time]] 
+            //[[2nd time]]
             if (this.player.statusAffectv1(StatusAffects.TensionReleased) == 0) {
                 this.outputText("You eagerly put on the modified harness and let them inject you with more of those body-altering chemicals.  As they fill you with artificial lust and desire, you cry out and beg for more.  They oblige you and give you a larger dose than the first time.  ");
                 //Grow dick!
@@ -16973,7 +16973,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("The beautiful seductress that bound you giggles and says, \"<i>Oh it only gets better baby,</i>\" as she pushes another button.  You see a number of needles lower from the equipment above.  Two pause at chest height.  Faded parchment labels on the tubes mark them as \"Gro+\".  You spot the same markings on at least some of the hoses gathering around your groin.  A few are marked with different labels, but you cannot make out the demonic script.  As one, the hoses rear back, then plunge forward, burying themselves into your supple flesh and injecting their drugged payload into your body.  It hurts at first, but the drugs fog your mind, blocking the pain with pulsing waves of desire.   You begin cumming as your body erupts with artificial pleasure.\n\n");
         //Nipples
         this.outputText("The suction pulls squirt after squirt of milk from your breasts as your " + this.allBreastsDescript() + " start to grow, swelling heavier as they enlarge to produce more milk.  You squeal with delight as your nipples turn black, tainted by corruptive chemicals that are slowly dripped into you.  ");
-        //Dick  
+        //Dick
         if (this.player.cocks.length > 0) {
             this.outputText("The vacuum-pump on your cock noisily sucks down all your spoo, ");
             //High cum variant
@@ -17025,7 +17025,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\n", false);
             //[[Cum]]
             this.outputText("The succubus licks her lips in anticipation as she curls her silk-clad toes tighter around you, making you bulge and twitch in obscene pleasure.  With a naughty smile, she caresses your ass with her bulbous demonic tail.  Before you can react, it plunges inside you, easily slipping through your " + this.assholeDescript() + " and pressing tightly against your prostate.  The suddenness pushes you over the edge, but she immediately wraps her fingers around you, pinching tightly, bottling your cum inside you.  You cry out in pain and surprise as your entire thick load is trapped inside you.  After nearly a full minute, your groin aches with the discomfort of it all.\n\n", false);
-            //More cum paragraph.  HAHA! TINY BABY CUM! 
+            //More cum paragraph.  HAHA! TINY BABY CUM!
             this.outputText("She wastes no time, and caresses you again.  You instantly feel another surge of heat and desire as a fresh load of cum brews behind your first strangled orgasm.  You need to cum so bad, her foot still stroking and squeezing you full of perverted desire.  She slaps your ", false);
             if (this.player.balls > 0) this.outputText("balls", false);
             else this.outputText("ass", false);
@@ -17072,9 +17072,9 @@ We can also do * italic * and ** bold ** text!
         this.player.slimeFeed();
         //MALE
         if (this.player.cocks.length > 0 && (this.player.gender != 3 || this.rand(2))) {
-            //(LUSTY) 
+            //(LUSTY)
             if (this.monster.lust > 99) this.outputText("Panting hotly, the succubus staggers towards you, her eyes fixated on the bulge in your crotch.  Dark viscous liquid drips from her dusky folds as her hips undulate hypnotically.  Blue fingers smear the corrupted lubricants over the smooth outer folds of her sex as she lies back enticingly, giving up on anything but bedding you.  In moments your " + this.player.armorName + " are on the floor and you approach your prize.\n\n", false);
-            //(HP) 
+            //(HP)
             else this.outputText("The succubus collapses on the floor, groaning in pain.  Most of her clothes have been destroyed by the combat and her blue skin is marked with deep purple bruises and bloody lacerations.  You undress, straddling your conquest and gazing down on her helpless, curvaceous form.  She looks up at you and forces a smile, licking the blood from a cracked lip and beginning to masturbate for you.\n\n", false);
             //START ZE RAEP CANNONZ
             this.outputText("While pondering the best way to take your horny prize, her complexion begins to change, the marks of combat disappearing from her toned body.  The demonic horns crowning her perfect visage begin withdrawing into her head, and her hair ", false);
@@ -17121,7 +17121,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText(".  ", false);
                 //Big cum
                 if (this.player.cumQ() >= 50 && this.player.cumQ() < 400) this.outputText("You inhale as black cum spatters from her entrance, her belly distending slightly as you empty what feels like a gallon inside her.  ", false);
-                //((Ginormohuge)) 
+                //((Ginormohuge))
                 if (this.player.cumQ() >= 400) this.outputText("Gasping in pleasure and surprise, you marvel as her belly visibly expands with each eruption of your dark load.  At first it looks like a tiny belly, but by the time the orgasm finishes, your girlish double looks like a woman in her ninth month of pregnancy – with twins.", false);
                 this.outputText("\n\nYou pant with exertion and pull back, only to have your " + this.cockDescript(0) + " plunge right back in. Beginning another rough fucking session, your hips force-fuck her beyond your control.  Exhausted, you lean over her, figuring you may as well enjoy your double's wondrous breasts until your demonic cock has finally sated itself.  You just hope you don't black out from the waves of pleasure each of your new nubs radiates.\n\n\nHours later you pull away, sated.  For now.", false);
             }
@@ -17434,7 +17434,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText(".  The demon underneath you grunts in an attempt to sound displeased, but it's plain to see the pre-cum he's dripping all over the floor.  What a slut!  You slap his ass and begin roughly butt-fucking him, panting with each plunge into the depths of his ridged passage, gradually increasing your tempo until your " + this.hipDescript() + " fill the room with loud slapping noises.", false);
             if (this.player.balls > 0) this.outputText("  Your " + this.ballsDescriptLight() + " swing freely, smacking into the demon's own and making both of you squeal and dribble more pre-cum.", false);
             this.outputText("\n\n", false);
-            //(CUM)  
+            //(CUM)
             if (this.player.balls > 0) this.outputText("You feel your " + this.ballsDescriptLight() + " draw up tight against your body.  ", false);
             this.outputText("Warm heat begins to build inside your groin, pooling under the base of your " + this.cockDescript(0) + ".  You realize you're about to paint this demon's gut with white, the thought only turning you on more.  ", false);
             if (this.player.cumQ() > 200) this.outputText("You groan as you feel your urethra being stretched by the sheer volume of fluid beginning to shoot through it.  ", false);
@@ -17917,7 +17917,7 @@ We can also do * italic * and ** bold ** text!
             this.gameOver();
             return;
         }
-        //(Female) 
+        //(Female)
         if (this.player.vaginas.length == 1 || this.player.gender == 0) {
             this.outputText("In her hand is a seamless pair of panties.  Their surface reflects light perfectly, as if its bright pink surface were coated in slippery oil or made from latex.  ", false);
             if (this.player.gender == 0) {
@@ -18167,7 +18167,7 @@ We can also do * italic * and ** bold ** text!
     private static DUNGEON_HEL_THRONE_ROOM: number = 22;
 
     //Introduction Scene -- Helia's Discovery
-    //Requirements: 
+    //Requirements:
     //-PC has achieved \"<i>Fuckbuddy</i>\" status with Helia.
     //-HelAffection >= 70
     public heliaDiscovery(): void {
@@ -18190,7 +18190,7 @@ We can also do * italic * and ** bold ** text!
         }
         //(Resume All)
         this.outputText("\n\nYou sit the salamander down near your campfire and ask her what brought her all the way from the plains to your humble abode.  She shrugs lightly and says, \"<i>Maybe I just wanted some company tonight.</i>\"");
-        //[If not Centaur: 
+        //[If not Centaur:
         if (!this.player.isTaur()) this.outputText("  Her hand slides over to rest on your thigh.");
         else this.outputText("  \"<i>She gives your flank a slow, affectionate stroke.</i>\"");
         this.outputText("  You ask her if that's true. With a little wink, she answers, \"<i>Well, it's not entirely untrue...</i>\"");
@@ -18232,7 +18232,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.outputText("You mull the salamander's proposition over and eventually agree to assist her.  Not only will you be stopping a new race of monsters from spawning into the mountains, but you'll be getting into the lovely Helia's good graces - a win-win if ever there was one.");
         this.outputText("\n\nHel breaks out into a great big smile and leaps at you, pulling you into a hug and squeezing until you damn near choke.  You return her tight embrace, and are eventually rewarded by Hel relaxing in your arms");
-        //[if has lap: 
+        //[if has lap:
         if (!this.player.isTaur()) this.outputText(" and cuddling up in your lap");
         this.outputText(".  She nuzzles your neck and whispers, \"<i>Thanks, Champ. It means a lot to know I can count on you to... watch my back.</i>\"");
         this.outputText("\n\nYou run a hand through Hel's hair and tell her that you've got her back no matter what.  You give her muscular ass a playful little grope; and she immediately wraps her tail around you, pinning your arms to your chest.  Doesn't look like you're going anywhere now.  With a little smirk, the salamander whispers, \"<i>Let's stay like this 'til morning - what do you say?</i>\"");
@@ -18265,7 +18265,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWhen you're dressed and organized, Hel asks, \"<i>So, what's the plan, [name]?</i>\"");
 
         this.outputText("\n\nYou tell the salamander you just need to get your affairs in order and you're off to the harpies' nest. She nods, reminding you that each moment you spend waiting around is another moment that poor man suffers.  You tell her you'll be quick, and set about preparing.");
-        //(Display: 
+        //(Display:
         this.outputText("\n\n(<b>Helia can now be found under the Lovers tab! (For Now!)</b>)");
         this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] = 1;
         this.doNext(this.playerMenu);
@@ -18374,7 +18374,7 @@ We can also do * italic * and ** bold ** text!
                 return;
             }
         }
-        //If succeed: 
+        //If succeed:
         else {
             this.outputText("You finally pull the goop off of you and dive out of her reach before the goo-girl can re-attach herself to you.  Pouting, she refills her suit of armor and reassumes her fighting stance.");
             this.player.removeStatusAffect(StatusAffects.GooArmorBind);
@@ -18400,14 +18400,14 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nYou have only a moment to figure out what's coming before her goo -- now perfectly shaped like the inside of your cunt -- slams back into you like a stiff cock. You can't help yourself as a moan escapes your lips, barely audible through the goop covering your mouth.");
             this.outputText("\n\n\"<i>Oh, you like that do you?</i>\" the armor-goo asks, smiling evilly.  \"<i>Well, maybe this can be mutually... beneficial.</i>\"  Still grinning, she begins to hammer her cock-like appendage into your pussy, fucking you fast and hard with her goo-dildo.");
             this.player.cuntChange(25, true, true, false);
-            //[If PC has breasts > A-cups: 
+            //[If PC has breasts > A-cups:
             if (this.player.biggestTitSize() > 1) {
                 this.outputText("  As she hammers your cunny, bits of her goo swirl around your [chest], squeezing and massaging your tits.  You squirm as she roughly teases your boobs, pinching at your nipples and squeezing your tender flesh roughly.");
                 //[if PC is lactating: \"<i>
                 if (this.player.lactationQ() > 0) this.outputText("  To her delight, a spray of warm milk jets out of your sore nipples, milky white mixing into blue goo like oil in water. \"<i>Mmm, tasty!</i>\" she teases, massaging more and more from you.</i>\"");
             }
             this.outputText("\n\nShe continues to pound your cunt mercilessly, her grin spreading to inhuman width as your juices begin to flow around and into her gooey penetration.  She soaks your fem-lube up greedily, enjoying the meal, but her fucking is relentless until you feel orgasm approaching.  \"<i>Aw, ");
-            //[if height is less than 6': 
+            //[if height is less than 6':
             if (this.player.tallness < 70) this.outputText("little");
             else this.outputText("big");
             this.outputText(" girl ready to cum?  Well, go on then. Feed me!</i>\"");
@@ -18543,14 +18543,14 @@ We can also do * italic * and ** bold ** text!
 
     public harpyHordeGangBangStruggle(clearDisp: boolean = true): void {
         if (clearDisp) this.clearOutput();
-        //Failure: 
+        //Failure:
         //If fail:
         if (this.rand(10) > 0 && this.player.str / 5 + this.rand(20) < 23) {
             var damage: number = 80 + this.rand(40);
             damage = this.takeDamage(damage);
             this.outputText("You struggle in the harpies' grasp, but can't quite get free.  The brood continues to hammer away at your defenseless self. (" + damage + ")");
         }
-        //Success: 
+        //Success:
         else {
             this.player.removeStatusAffect(StatusAffects.HarpyBind);
             this.outputText("With a mighty roar, you throw off the harpies grabbing you and return to the fight!");
@@ -18693,7 +18693,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.cockArea(x) > 60) this.outputText("as far in as you can manage");
         else this.outputText("filling her completely");
         this.outputText(".  Your cock squirts a thick load inside her, shooting creamy ropes of jizz deep into her bowels ");
-        //[if High Cum Production: 
+        //[if High Cum Production:
         if (this.player.cumQ() > 500) this.outputText("until your cream squelches back out around your cock and onto the floor");
         this.outputText(".  With a scream of delight, Kiri clamps down on your [cock " + y + "] and climaxes too, leaking a pool of fem-spunk onto the ground.  She starts to bounce on your cock, riding out her anal orgasm until she's exhausted and you're deflated inside her.");
 
@@ -19013,7 +19013,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>Oh. Well,</i>\" she says, smirking slightly.  \"<i>If you want a bit of phoenix seed... I guess I wouldn't mind a chance at being a daddy.</i>\"");
 
         this.outputText("\n\n");
-        //[If Broodmother, not pregnant: 
+        //[If Broodmother, not pregnant:
         if (this.player.findPerk(PerkLib.BroodMother) >= 0) this.outputText("You assure her she will be soon");
         else this.outputText("You grin at her");
         this.outputText(" and strip out of your [armor]. The phoenix, a bit more dominant than you might have liked, roughly grabs your [chest], pinching your nipples as she takes over wringing her cock from you. Oh well. You decide to roll with it and slide a hand down to your [vagina], stroking your pussy as your lover warms up.");
@@ -19056,7 +19056,7 @@ We can also do * italic * and ** bold ** text!
 
     public ropeStruggles(wait: boolean = false): void {
         this.clearOutput();
-        //Struggle Fail: 
+        //Struggle Fail:
         if (this.rand(10) > 0 && this.player.str / 5 + this.rand(20) < 23 || wait) {
             this.outputText("You give a mighty try, but cannot pull free of the magic ropes!  The Harpy Queen laughs uproariously, pulling at your arms harder.");
             var damage: number = 25 + this.rand(10);
@@ -19175,7 +19175,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("You nod your head toward the great big-booty broodmother.  \"<i>Ah, the queen cunt herself,</i>\" Hel says ruefully, cracking her knuckles.  \"<i>We're gonna have some fun with you, little birdie...  Aren't we, [name]?</i>\"");
         this.outputText("\n\nYou ask Hel exactly what she thinks you ought to do with the 'queen cunt.'");
         this.outputText("\n\n\"<i>Well, we can start by me shoving my tail so far up her twat that she'll never have kids again.  That's a goddamn start.</i>\"");
-        //[If PC has already told her about Hakon: 
+        //[If PC has already told her about Hakon:
         if (this.flags[kFLAGS.HEL_KNOWS_ABOUT_HAKON] == 1) this.outputText("  \"<i>Maybe snap her neck afterwards.</i>\"");
         this.doNext(this.playerMenu);
     }
@@ -19488,7 +19488,7 @@ We can also do * italic * and ** bold ** text!
 
     public openZeDoorToParadize(): void {
         this.clearOutput();
-        //Touch Sphere to Open: 
+        //Touch Sphere to Open:
         if (this.flags[kFLAGS.ENTERED_SANDWITCH_DUNGEON] == 0) {
             this.outputText("You hesitantly touch the dark sphere, admiring its smooth, glossy finish.  Almost as soon as you come in contact with it, it recedes into the wall.  The doorway rumbles, a giant slab vanishing into the sandy depths, opening a portal to the inside.  Meticulous carvings inlaid with pearl depict large breasted witches in great quantity, and though the specific means of the glyphs are foreign to you, it's clear this place is some kind of sanctuary for sand witches.");
             this.flags[kFLAGS.ENTERED_SANDWITCH_DUNGEON] = 1;
@@ -20029,7 +20029,7 @@ We can also do * italic * and ** bold ** text!
                 this.outputText("\n\nThey crawl up your [legs].  You try to swat them all off, but there are too many.");
                 //If PC has 1 cock:
                 if (this.player.cockTotal() == 1) this.outputText("  A stone crawls onto your [cock].");
-                //[If PC has multi-cocks: 
+                //[If PC has multi-cocks:
                 if (this.player.cockTotal() > 1) this.outputText("  A bunch of the stones crawl onto your " + this.player.multiCockDescriptLight() + ".");
                 if (this.player.hasCock()) bonus++;
                 //[If PC has cunt]
@@ -20993,7 +20993,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         //(HP)
         if (this.player.HP < 1) this.outputText("Unable to further withstand the witch's magical assault, you topple over into the soft, warm sands. Before you can recover, the witch is on top of you, her powerful legs straddling your [hips]. Her long, dainty fingers lock through your [armor], pulling your face out of the sand and rolling you over to look up at her.");
-        //(Lust) 
+        //(Lust)
         else this.outputText("Uncontrollable lust surges through you, your heart pounding beneath your [chest] as your [legs] collapse out from under you.  Your hands desperately claw at your [armor], trying to touch your needy cunt, the fire in your genitals burning like whitefire through your veins.  You moan with helpless lust as the witch looms over you, grabbing your hands away from your crotch and pushing you onto your back.  A moment later, she's on you, straddling your [hips] between her lush thighs.");
         this.outputText("\n\nPinned beneath the witch, you struggle weakly in her grasp as she slowly strips off your [armor], bearing your [chest] to her surprisingly soft, gentle caresses.  ");
         //if Multiboob:
@@ -21573,7 +21573,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         this.outputText("You disrobe, tossing your [armor] aside into a small pile.  You stretch your muscles in the dry desert air and exult in the warm rays beating down on your " + this.player.skinFurScales() + " and " + this.player.multiCockDescriptLight() + ".  Sanura pads around you, taking in your appearance with her chestnut-colored eyes before clicking her tongue approvingly.  Her leonine tail swishes across the top of your [cock biggest], stroking it with the silky soft tuft of fur at its tip.  You shiver at the contact, unsure of what to think.  Your penis, on the other hand, has no such conflictions, and immediately begins to rise.");
 
-        //(Small dicks) 
+        //(Small dicks)
         if (this.player.biggestCockArea() < 6) this.outputText("\n\n\"<i>Aw, it's so cute and compact.  I didn't know these things came in women's sizes,</i>\" she giggles, flicking the [cockHead biggest] of your cock with her tail.  You blush brightly.  Even by Ingnam standards you're a little below average, and in Mareth, well, you're just plain tiny.  \"<i>Don't worry, love, it will suffice for what I have in mind.</i>\"");
 
         //(Normal-sized dicks)
@@ -21697,7 +21697,7 @@ We can also do * italic * and ** bold ** text!
         //Lowish Capacity
         else {
             this.outputText("\n\nYou will yourself to relax, but you just aren't big enough back there to make much of a difference.  Just having such an immense dong pressing at your backdoor is enough to push you to your limits, but your sphincter hasn't even dilated enough to take a fraction of her girth.  Sanura growls in frustration and begins to hump at it, smacking the blunted tip into it again and again. The shocking sensation makes your anal muscles twitch, spasm, and relax as she works to plow her way through your more than token resistance.");
-            //VIRGIN ALT: 
+            //VIRGIN ALT:
             if (this.player.ass.analLooseness == 0) {
                 this.outputText("\n\nShe grunts, \"<i>Don't tell me you're a virgin?</i>\"  You nod and bite your lip as you try to endure.  Sanura stops immediately at that news, mulling it over with a detached expression, a smile slowly spreading across her features.  \"<i>Really?</i>\" she asks as her hips begin to slowly work at your ass once more, slowly picking back up to their old tempo.  \"<i>Then it's a good thing you're getting to ride my magic cock and not some brute's.  It might hurt a little, but I promise this will be buttsex worth remembering....</i>\"");
             }
@@ -21937,7 +21937,7 @@ We can also do * italic * and ** bold ** text!
             this.sandMotherPOMenu();
         }
         //Encounter Repeat: Undecided
-        //The Sand Mother gazes at you uncertainly as you return, her defeat at your hands still fresh in her memory.  The bleach-blond matriarch looks to have recovered from the fight, but she lamely queries, \"<i>Well, you've proven yourself mightier than my magic.  All that remains is a choice.  Do you show your true colors, pawn of demons, or do you tread the path of virtue?</i>\"  Sure, she puts on a brave face, but the nervous tics at the taut corners of her mouth reveal her worry. 
+        //The Sand Mother gazes at you uncertainly as you return, her defeat at your hands still fresh in her memory.  The bleach-blond matriarch looks to have recovered from the fight, but she lamely queries, \"<i>Well, you've proven yourself mightier than my magic.  All that remains is a choice.  Do you show your true colors, pawn of demons, or do you tread the path of virtue?</i>\"  Sure, she puts on a brave face, but the nervous tics at the taut corners of her mouth reveal her worry.
         else {
             this.outputText("Reclining atop an intricately carved throne is what can only be described as the Queen Sand Witch.  The imposing, statue-esque woman must be over eight feet tall when standing, with a quartette of watermelon-sized tits and proud, three-inch long nipples that clearly show through her fine, silken robe.  Platinum blonde tresses hang down to her shoulders, so bleached they're nearly white.  She glares down at you imperiously with unusual, glowing eyes.  Her irises are solid white and luminant, leaving only the black of her pupils to eye you with.  She inquires, \"<i>So, you are the one to get my girls' skirts in a bunch.</i>\"");
 
@@ -21971,7 +21971,7 @@ We can also do * italic * and ** bold ** text!
             //(start combat)
             this.startCombat(new SandMother(), true);
         }
-        //(No new PG. Corruption is less than intellect and no major asshole moves made:) 
+        //(No new PG. Corruption is less than intellect and no major asshole moves made:)
         else {
             this.outputText("  \"<i>Your tale has the ring of truth to it, [name].  I am the Sand Mother of this coven, and it seems we are not enemies after all.  If you like I can instruct my daughters to let you pass through the sands unhindered.</i>\"  She spreads her arms graciously and asks, \"<i>Was there anything you would like to discuss?  It has been an age since I've had a new arrival to converse with.</i>\"\n\n(+200 XP)");
             //(Award XP)
@@ -23039,7 +23039,7 @@ We can also do * italic * and ** bold ** text!
     //*Take Barren Pills✓Kirbu
     public takeBarrenPills(): void {
         this.clearOutput();
-        //{Already contraceptive'ed} 
+        //{Already contraceptive'ed}
         if (this.player.findStatusAffect(StatusAffects.Contraceptives) >= 0) this.outputText("You're already under the effects of contraceptives.  Taking one of the brown pills wouldn't do anything.");
         //{TAKE DAT SHIT YO}
         else {
@@ -23154,7 +23154,7 @@ We can also do * italic * and ** bold ** text!
         this.clearOutput();
         var x: number = this.player.cockThatFits(50);
         if (x < 0) x = this.player.smallestCockIndex();
-        //{if player does not have a tentacle cock} 
+        //{if player does not have a tentacle cock}
         if (this.player.tentacleCocks() == 0) this.outputText("You grab the tanned shoulders of the closest pregnant witch and flip her over on to her back, trapping her beneath the weight of her belly and breasts while you grab both of her ankles.  Her dirty blonde, sweat-soaked hair lies in waves around her head on the floor as she pants heavily in sexual desperation.");
         //{else if player has a tentacle cock}
         else this.outputText("Your tentacle cock lashes outwards, extending as it goes, and wraps around the ankle of the closest girl. It flips her over on to her back, trapping her own torso beneath the weight of her heavy pregnancy and her own four massive leaking breasts.");
@@ -23178,13 +23178,13 @@ We can also do * italic * and ** bold ** text!
         else this.outputText("\n\nYour hands slide along the witch's legs and up her thighs until they grasp her hips. You allow the shaft of your " + this.cockDescript(x) + " to slide up and down the folds of her dripping labia until your cockhead slips in between and presses against her entrance.  \"<i>P-please!  Q-quickly!  I n-n-neeeed it!</i>\"  You're all too eager to service her as you thrust forwards.");
         this.outputText("  The witch's moans and grunts of pleasure arouse the other witches in the room as they watch with the utmost jealously.  Some grab their nipples while others try to finger their pussies; whining and getting off on their envious voyeurism as they watch you fuck their sister.");
 
-        //{all} 
+        //{all}
         this.outputText("\n\nYour thrusts become forceful enough to rock the impaled witch's torso up and down along the floor. Her upper breasts repeatedly smack her own face while her lower slap against the swollen sides of her pregnant belly. All four of her heavily milk engorged tits spray streams of her cream into the air. Whimpering moans of orgasmic ecstasy constantly stream from her perfectly plump lips. Her body shakes and trembles with the convulsions of constant climaxes. The sensation of your bare cock flesh sliding against the naked walls of her inner depths with every thrust quickly shuts down the girl's higher brain functions. She becomes a senseless pregnant she-beast lost in the throes of pleasure that your shaft");
         if (multi) this.outputText("s constantly pound");
         else this.outputText(" constantly pounds");
         this.outputText(" into her nethers. Drool escapes her lips and drips down her cheek even as her eyes roll back in her head. Talk about an easy lay.");
 
-        //{if player has large but not extremely massive breasts} 
+        //{if player has large but not extremely massive breasts}
         if (this.player.biggestTitSize() >= 4 && this.player.biggestTitSize() < 15) {
             this.outputText("\n\nYour breasts bounce up and down as you get in to the groove of fucking your pregnant playtoy.");
             //{if player is largely pregnant and has large breasts.}
@@ -23195,7 +23195,7 @@ We can also do * italic * and ** bold ** text!
         //else if player has extremely huge breasts
         else if (this.player.biggestTitSize() >= 15) {
             this.outputText("\n\nYour [chest] are massive enough that they jiggle instead of bounce with each thrust.");
-            //if player has only one set of massive breasts 
+            //if player has only one set of massive breasts
             if (this.player.bRows() == 1) this.outputText("  Your two heavy milk sacs sway and at times you must rest them on top of the poor witch's belly to keep from prematurely exhausting yourself.");
             else if (this.player.bRows() >= 2) this.outputText("  Resting on top of each other and on top of the witch's legs, your giant globes of tit flesh quake each time you hips move.");
             this.outputText("  The witches around the room can't help but gawk at how much more endowed your mammaries are than even their own, and how the wrong forwards or backwards movement could result in either you or the witch you're fucking to be suddenly smothered under the weight of your ridiculously engorged tits.");
@@ -23206,7 +23206,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText(" forces you to reach your own orgasm.");
         if (this.player.balls > 0) this.outputText("  Your [balls] tense with the anticipation of releasing the fruit of your loins into her waiting womb.");
         this.outputText("  With both hands you reach up and grab the fat nipples of the witch's lower breasts, tugging on them like reins as you try to thrust deeper.  \"<i>Ung! Ah!</i>\" The witch bites her lower lip in pleasure and pain as you roughly handle her leaking teats.");
-        //{if player has huge or massive breasts} 
+        //{if player has huge or massive breasts}
         if (this.player.biggestTitSize() >= 15) this.outputText("  The weight of your own tits bears heavily against your arms as you try to keep the motion of your hips constant while pulling on your lover's milk knobs.");
         //{if player's tits can lactate}
         else this.outputText("  Each of your [nipples] begin spraying milk over the witch as your body begins its crescendo.");
@@ -23258,7 +23258,7 @@ We can also do * italic * and ** bold ** text!
         var x: number = this.player.cockThatFits(50);
         var y: number = this.player.cockThatFits2(50);
         this.outputText("These hormonally overwrought witches are each little more than five huge fleshy orbs of tits and bellies, desperately crawling towards you on hands and knees as their stares fixate on your " + this.cockDescript(y) + ".  ");
-        //{if player has two long tentacle cocks} 
+        //{if player has two long tentacle cocks}
         if (this.player.tentacleCocks() >= 2) this.outputText("Almost of their own accord your tentacle cocks lash out, wrapping around the arms of the two closest girls, lifting them to their knees only to roll them backwards and on to their sides with their backs to each other.  ");
         else this.outputText("It takes little effort to grab the closest two witches and pull them up only to push them down again and on to their sides with their backs pressed against each other.  ");
         this.outputText("The two witches lay before you with their heaving breasts and bellies jutting out to either side while their asses are mashed against each other.  You grab an ankle from each of them and raise their legs up to expose the dual pairs of pussies that they possess.");
@@ -23275,11 +23275,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("  As each witch lays on her side both of them begin feeling your stiff cocks slap against their multiple pussies.  They moan as their four pairs of labia bloom in anticipation of the fucking to come.  Each set of nether lips are dark and dripping with gobs of desperation, but on each girl there's one set that looks particularly gaping as if the pressure inside was forcing it open.  It isn't difficult to figure out that those are the ones that lead to their already occupied wombs, while the other sets are the ones eagerly awaiting a fresh deposit of baby batter.");
 
         this.outputText("\n\nYou feel supremely ready to fulfill those cum craving needs and you carefully align your cocks for the purpose.");
-        //{if has two horse cocks} 
+        //{if has two horse cocks}
         if (this.player.cocks[x].cockType == CockTypesEnum.HORSE && this.player.cocks[y].cockType == CockTypesEnum.HORSE) this.outputText("  The wide flaring tips of your equine pricks press flatly against the pair of sweltering nether lips, but they easily part with only a little pressing.  The hot swollen folds eagerly slurp around the wide ridged crowns of your cock heads as you press against their vaginal entrances.  They're looser than most normal pussies, yet around such thick cock heads they nonetheless feel enjoyably tight.  With a slightly harsher shove forwards you easily impale both whorish witches.  Pleasured cries of shock escapes their lips as your horse-dongs bore through their depths.");
-        //{else if two dog cocks} 
+        //{else if two dog cocks}
         else if (this.player.cocks[x].cockType == CockTypesEnum.DOG && this.player.cocks[y].cockType == CockTypesEnum.DOG) this.outputText("  Your canine pricks easily part the obscenely wet folds of the girls' labia.  Each woman's juices drip down your smooth shafts as you begin pressing their pointed heads into their tight entrances, eliciting pleasured and desperate pleas for more from each of them.  A gentle thrust of your pelvis and both pussies become simultaneously impaled upon your doggy dicks, giving you complete control over the hormonal witches.");
-        //{else if two tentacle cocks} 
+        //{else if two tentacle cocks}
         else if (this.player.cocks[x].cockType == CockTypesEnum.TENTACLE && this.player.cocks[y].cockType == CockTypesEnum.TENTACLE) this.outputText("  Your green tentacle formed cocks stiffen yet weave their ways around the various pussies in front of you.  Their dark fuchsia heads almost seem to have a mind of their own as they trace the outlines of each pussy, teasing the poor hormonal witches into even higher states of sexual desperation. Pussy juice squirts from the anxious cunts with each teasing slide along their labia.  Satisfied with the pleasured taunting your prehensile cocks get down to business, darting into each slutty snatch like snakes striking at prey.  You feel each girl's entrance brutally stretch to accommodate your shafts as they deeply worm a path into each girl's vaginal orifice, causing both to scream in frantic bliss.");
         //{else if two demon dicks}
         else if (this.player.cocks[x].cockType == CockTypesEnum.DEMON && this.player.cocks[y].cockType == CockTypesEnum.DEMON) this.outputText("\n\nThe big bumps and nodules that line the rims of each of your demonic cockheads feel particularly wonderful as they force their way between the dark, swollen folds of each witch's as yet unseeded pussy.  Both girls whimper and yelp in pleasure as the demonic ridges and soft protrusions along your shafts tease and taunt the erogenous zones of the inner walls of their cunts.  Your blighted cocks seem to swell even larger specifically to ensure the tightest fit possible within these two girls and it isn't long before each girl is leaking copious amounts of pussy juice around each cock as the highly textured shafts double time the twin twats.");
@@ -23291,13 +23291,13 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWith yourself so nicely embedded within the doubly busty pair of pregnant sluts you begin to fuck in earnest.  Easy tilting of your hips allows your shafts to thrust with ease repeatedly into the wet and dripping pair of cunts.  Each girl's juices drip down your shafts and wet your thighs as you fuck them progressively deeper.");
         //{if cocks > 12 inches and < 20 inches}
         if (this.player.cocks[x].cockLength < 20 && this.player.cocks[y].cockLength < 20) this.outputText("\n\nFinally, you penetrate them far enough to feel the thresholds of their wombs pressing back against your throbbing cock heads.  Each girl cries out in exquisite pain as you pound against their cervixes, yet both protest if you pull back.  Giving in to their needs you fuck and thrust away as hard as you can, and it isn't long until your shafts are tingling with the sensations of imminent release.");
-        //{if cocks >= 20} 
+        //{if cocks >= 20}
         else this.outputText("\n\nWith one thrust at a time you slowly delve inch by strangled inch deeper into the tight tunnels of each girl's womanhood.  You eventually manage to brush up against the deep and tight entrances to each one's womb, and both cry out in pleasured pain as you pound against their inner thresholds.  With plenty of length to spare, your cocks fill each cunt's passage completely, and the witches' begging pleas for more despite the momentary jolts of pain leaves you no choice but to try to ram yourself into their actual wombs.  Leaning forward with their upright legs pressed tightly against your torso, you place more of your body weight behind each cock.  The girls cry out in joyous agony as they each feel their cervixes stretch and both wombs become impaled.  Their bodies suck in more cock than any normal woman ever could, allowing you to use their abdomens as living cock sleeves to fuck.  With such an opportunity you eagerly begin doing just that, thrusting repeatedly into their wombs.  Their cervixes feel like a second pussy within their first, and it isn't long before [eachCock] feels on the verge of climax.");
 
         this.outputText("\n\nThe eight milk-filled breasts of the two preggo sluts wobble lewdly as each witch's body shakes from your thrusting.  Milk spurting nipples plaster the floor with their cream.");
         //{if player lactates}
         if (this.player.lactationQ() >= 200) this.outputText("  Your own breasts begin spraying down the two pregnant sluts with your own dairy fluids.");
-        //{if player has large but not huge breasts} 
+        //{if player has large but not huge breasts}
         if (this.player.biggestTitSize() >= 5 && this.player.biggestTitSize() < 20) this.outputText("  Each thrust in to the eager cunts causes your breasts to bounce up and down.");
         else if (this.player.biggestTitSize() >= 20) this.outputText("  Each thrust in to the eager cunts causes your massive breasts to sway back and forth, slapping against your own sides.");
         //{if player has six huge breasts}
@@ -23307,11 +23307,11 @@ We can also do * italic * and ** bold ** text!
         if (this.player.balls > 0) this.outputText("  The closer your shafts come to their climax the more tense your balls become, preparing to pump their loads through your cocks.");
 
         this.outputText("\n\nEvery other witch in the room is fingering herself off as they watch you recklessly pound their sisters.  Finally ready, you decide to let them see what they're missing as you plunge your cocks as deep as they'll go, and finally cum your brains out.  Your shafts swell as your seed surges upwards from their bases towards the tips that you've buried so expertly inside the milky whores.");
-        //{if cumNormal or Medium} 
+        //{if cumNormal or Medium}
         if (this.player.cumQ() < 500) this.outputText("  The pair of girls yelp as they feel the hot seed splash forth inside them.  Millions of sperm swim in to their fertile wombs, seeking to turn them into doubly pregnant sluts.");
         //{else if cumHigh}
         else if (this.player.cumQ() < 1000) this.outputText("  The slutty pair of milk bags cry out in sensual surprise as they feel extraordinary amounts of cum pumping directly into their baby makers, knocking them up with the double pregnancy they've desperately wanted. Their bellies bulge with all of the cum you've deposited within them.");
-        //{else if cumVeryHigh} 
+        //{else if cumVeryHigh}
         else if (this.player.cumQ() < 3000) this.outputText("  The two piles of tits and bellies scream in pleasured insanity as their empty wombs are assaulted with a surging torrent of jizz.  You can feel the heavy blasts of cum surging within your shafts as they flood forth in to slutty orifices that have swallowed your manhoods.  Your brain burns with ecstasy as your genitals pump each womb over and over again, forcing them to swell far beyond what they're intended to take from cum alone.  By the time your cocks feel satisfied each witch looks as if she's already full term with a second child, the cum filled womb creating a distinct second orb next to the first pregnancy.");
         //{else if cumExtreme}
         else this.outputText("  The eyes of every witch in the room open wide in shock as they watch their sister's bellies swell obscenely.  Your cocks feel as if they're trying to wrest control of your body from you as liters of hot sperm pump forcefully directly in to the extra fertile wombs of each slutty witch.  The two quad-breasted whores convulse in brain damaging pleasure, causing their huge milk filled tits to quake and bounce everywhere. A white flood of ejaculate erupts from their pussies around your cocks as their overfilled wombs fail to contain your bounty of baby batter.");
@@ -23343,7 +23343,7 @@ We can also do * italic * and ** bold ** text!
 
         var multi: boolean = false;
 
-        //{if player has a single cock} 
+        //{if player has a single cock}
         if (this.player.cockTotal() == 1 || this.player.cockThatFits2(50) < 0) {
             this.outputText("\n\nWasting no time you move forwards to slide the shaft of your [cock] up and down the folds of the nearest witch's labia to lube it up.  She moans in frustrated pleasure, anxious to feel the length of your manhood pushing directly into those folds.  As you feel the crown of your cock head sliding along the lips of her cunt you decide not to tease her for the sake of your own pleasure.  With fingers from each hand you pull her nethers aside and press your cock directly into her entrance, feeling the tight orifice stretch around your man-flesh and swallow your cock as deeply as it can.");
         }
@@ -23352,7 +23352,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nAs you walk forwards you push two of the witches together, side by side, with their asses up in the air and their pairs of pussies facing you as your cocks press up against the nethers leading to their empty wombs.  Their dark cunts part and swallow up your shafts as you press forward, eliciting cries of pleasure from the whorish witches and forcing gobs of girl cum to drip down your cocks from their sexually charged holes.");
             multi = true;
         }
-        //{else if player has three long cocks} 
+        //{else if player has three long cocks}
         else {
             this.outputText("\n\nYou gather three of the bent over witches together with their asses pressed tightly side by side, close enough for their sopping wet cunts to be in reach for three long cocks to fuck at once.  With your stiffening shafts growing harder with each passing moment you begin grabbing your pricks and angling them into the flush dark cunts.  As soon as you feel the entrances of each witch's pussy pressing against your cock heads you begin pressing forwards.  All three of them cry out as your shafts spear their cunts and fill their depths at the same time.  Their inner muscles contract and grip your cocks, almost as if they were trying to suck your bundle of shafts even deeper in to their whorish pregnant bodies.");
             multi = true;
@@ -23390,13 +23390,13 @@ We can also do * italic * and ** bold ** text!
         if (this.player.biggestTitSize() > 3 && this.player.biggestTitSize() < 10) this.outputText("  Your tits bounce as you enthusiastically grind away.");
         //{else if player has huge tits}
         else if (this.player.biggestTitSize() >= 10 && this.player.biggestTitSize() < 20) this.outputText("  The heavy weight of your huge tits causes them to sway with every thrust of your hips.");
-        //{if player has really huge tits} 
+        //{if player has really huge tits}
         else if (this.player.biggestTitSize() >= 20) this.outputText("  The immense swells of your mammaries press down upon the ass of the girl in front of you.");
-        //{if player has four non-huge tits} 
+        //{if player has four non-huge tits}
         if (this.player.bRows() >= 2) {
             if (this.player.breastRows[1].breastRating >= 3) this.outputText("  Your second row of breasts slap against the ass cheeks of the girl in front of you.");
         }
-        //{if player has six huge but not really huge tits} 
+        //{if player has six huge but not really huge tits}
         if (this.player.bRows() >= 3) {
             if (this.player.breastRows[2].breastRating >= 3 && this.player.breastRows[2].breastRating < 20) {
                 this.outputText("  Your lowermost row of breasts become squashed against the witch");
@@ -23491,7 +23491,7 @@ We can also do * italic * and ** bold ** text!
         else this.outputText("\n\nThey fall");
         this.outputText(" over.  Quickly, the rest of the witches in the room are eagerly raising their cunts in the air, begging for their turn at being impregnated.  Happily you oblige, shoving as much cock as you can into each wet hole that the hormonally overwrought sluts offer to you.  One pussy after another finds itself impaled on you, with you thrusting repeatedly until the massaging muscles within their cunts pull forth the rivers of baby gravy that their empty wombs are starving for.  One by one the witches find themselves filled and fall to the floor still reeling from the sensations, only for another new witch to take their place with a sopping cunt even more cum thirsty than the last.");
 
-        //{if player has two or more cocks} 
+        //{if player has two or more cocks}
         if (this.player.cockThatFits2(50) >= 0) this.outputText("\n\nFor the final witch you choose to shove two cocks inside her empty pussy.  Your double dicked thrusts force a joyous yelp from her with every thrust.  \"<i>Ah! T-t-too much!</i>\" she screams but her vaginal canal refuses to let you go regardless.  When you finally finish the torrent of sperm makes her feel as if she's on the verge of bursting.  The swelling of her womb causes her belly to bloat up enough to push her quad breasts upwards and siginificantly shift her center of gravity.  The orgasm that accompanies the feeling of your sperm flooding forcefully into her uterus and tubes is too much for her to bear and she slides off of your cocks like a well used cock sleeve, oozing gobs of cum from between her dark nether lips.");
 
         this.outputText("\n\nFinally finished, you stand in a pool of your own jizz and stare down at the piles of tits and bellies that allegedly are women but for all intent and purpose have become nothing more than sacks of flesh filled with milk, babies, and cum.  Each of them is covered in a layer of sweat and splooge, and small mewing cries of satisfied delight emanate from somewhere underneath those heavy orbs.  You can't help but wonder how long it'll take for them to give birth so that you can once again knock them up with the broods of children that their bodies are so obviously intended to produce.");
@@ -23559,7 +23559,7 @@ We can also do * italic * and ** bold ** text!
         else this.outputText("and grinning with lusty fervor, you push harder, slipping your fingers into her with ease, her milk providing the perfect lubricant to penetrate her.  The slave girl trembles at your sexual advance, but either does not want to stop you out of well-trained fear, or just doesn't want you to stop");
         this.outputText(".  Before you can get too far, though, the slave girl turns on a heel, her huge rack pushing you back through the milky pool and then against the rim.  You're dazed for only a brief second before her breasts press firmly into your back, pressed so hard that a new streak of milk pours from her teats, wetting your back much as you did hers.  You relax against the rim as the slave cups up handfuls of milk, rubbing it into your own hair and shoulders, deft fingers massaging every muscle in your back with the skill of the greatest masseuses, and you can feel the tension bleeding from your muscles. You yawn powerfully, resting your chin on your arms and letting the milky girl massage you, coating your " + this.player.skinFurScales() + " in her rich, delicious milk.");
 
-        //{If PC has a dick: 
+        //{If PC has a dick:
         if (this.player.hasCock()) {
             this.outputText("\n\nOne of the milk girl's hands brushes against your thigh, slipping around your [leg]; slender fingers wrap around your [cock], milky lubricant making her soft strokes all the more pleasurable.  You groan in lusty delight as her fingers slide up and down your quickly-hardening length");
             if (this.player.balls > 0) this.outputText(", her other hand cupping your [balls], rolling the " + this.num2Text(this.player.balls) + " orbs in her palm with surprising dexterity");
@@ -23654,7 +23654,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nAn excited moan worms out of the inky slave-girl's puffy lips, a testament to the raw sensitivity of her milk-bloated jugs.  As your tongue swirls over the leaky nozzle's pebbly skin, she releases another breathy pant of delight.  The vocal tremors seem to coo all the way down to your loins, joining with your fingers' caresses to stir you to aching, trembling arousal.");
         //{Fork, no new PG}
-        //(DA HERMS) 
+        //(DA HERMS)
         if (this.player.gender == 3) {
             this.outputText("  Your [cock] throbs painfully in your hand, so hot and hard that you're sure you must have begun to leak precum, but any fluid is swiftly washed away by the ever-present milk.");
             if (this.player.cockTotal() > 1) this.outputText("  You make sure to fondle each of your members equally, caressing, squeezing, and stroking to the tempo of your swelling passion.");
@@ -23696,7 +23696,7 @@ We can also do * italic * and ** bold ** text!
     72 == painfully distended
     48 == bulges with unclean spawn..blahblahblah*/
     public sandPregUpdate(): boolean {
-        //1: 
+        //1:
         if (this.player.pregnancyIncubation == 336) {
             this.outputText("\nYour breasts have felt unusually heavy recently, and a strange pulsing sensation occasionally emanates from them.  Your appetite is a little off; you could really go for some milk...\n");
             return true;
@@ -24015,7 +24015,7 @@ We can also do * italic * and ** bold ** text!
 
     //Perk name: Fera's Boon - Breeding Bitch
     //Perk description: Greatly increases fertility and doubles base pregnancy speed.
-    //Increases the chance that the character will get pregnant and increases the speed of the character's pregnancies. 
+    //Increases the chance that the character will get pregnant and increases the speed of the character's pregnancies.
     //Why, yes, I did copy/paste Marae's Gift - Fertility for this perk. Edit: And edited it to correct a mistake in its wording. YOU FAILED ME LAD. NOW ROT IN THE DEPTHS OF HELL.
     //Edit of this guy edit : You failed like, ¾ of your tags, you're the one to talk, man.
     //But I had to fix all the tags you tried to fix
@@ -24825,7 +24825,7 @@ We can also do * italic * and ** bold ** text!
                 if (this.player.pregnancyIncubation == 85) {
                     //A small scene for very late in the pregnancy, its breast growth for the little cowgirl.  This scene should be a few days before birth, so the milk doesn't stop before the cowgirl is born.
                     this.outputText("\n<b>Your belly has become heavily pregnant; at the same time, ", false);
-                    //If (PC has flat breasts) 
+                    //If (PC has flat breasts)
                     if (this.player.biggestTitSize() <= 0) {
                         this.outputText("your chest has begun to feel a bit odd.  Your run your hands over it to find that your breasts have grown to around C-cups at some point when you weren't paying attention!  ", false);
                         this.player.breastRows[0].breastRating = 3;
@@ -25160,7 +25160,7 @@ We can also do * italic * and ** bold ** text!
                 }
             }
             if (this.player.pregnancyType == PregnancyStore.PREGNANCY_EMBER) {
-                //Pregnancy notes: Egg Laying 
+                //Pregnancy notes: Egg Laying
                 if (this.flags[kFLAGS.EMBER_OVIPOSITION] > 0) {
                     if (this.player.pregnancyIncubation == 330) pregText = "Your belly has swollen, becoming larger - proof that Ember's seed did its work.  The dragon seems to be constantly checking you out, as if looking for the signs of weight gain.";
                     if (this.player.pregnancyIncubation == 250) pregText = "Your belly grows ever bigger, making your pregnancy noticeable; your belly also feels somewhat solid.  Ember casts pleased glances in your direction, whenever " + this.emberScene.emberMF("he", "she") + " thinks you're not looking.";
@@ -25201,7 +25201,7 @@ We can also do * italic * and ** bold ** text!
                         pregText += "\n\nAs you eat and drink your fill, Ember uses one wing to shield you off the sun.  You're starting to really enjoy all the attention, but seeing Ember give up on " + this.emberScene.emberMF("his", "her") + " usual antics is still very weird.";
                     }
                 }
-                //Pregnancy Notes: Live Birth 
+                //Pregnancy Notes: Live Birth
                 else {
                     if (this.player.pregnancyIncubation == 330) pregText = "Your belly is a bit swollen - either you're eating too much or Ember's seed really did the job.";
                     if (this.player.pregnancyIncubation == 250) pregText = "Your belly grows ever bigger, making your pregnancy noticeable.  Ember shoots you quick looks, trying to hide " + this.emberScene.emberMF("his", "her") + " smirk of success every time " + this.emberScene.emberMF("he", "she") + " does.  You smirk right back at " + this.emberScene.emberMF("him", "her") + ", and occasionally make a subtle show of your gravid form, just to see " + this.emberScene.emberMF("him", "her") + " get turned on by the sight.";
@@ -25260,33 +25260,33 @@ We can also do * italic * and ** bold ** text!
             }
             //Pregnancy 4 Satyrs
             if (this.player.pregnancyType == PregnancyStore.PREGNANCY_SATYR) {
-                //Stage 1: 
+                //Stage 1:
                 if (this.player.pregnancyIncubation == 150) {
                     this.outputText("\n<b>You find that you're feeling quite sluggish these days; you just don't have as much energy as you used to.  You're also putting on weight.</b>\n");
                     displayedUpdate = true;
                 }
-                //Stage 2: 
+                //Stage 2:
                 if (this.player.pregnancyIncubation == 125) {
                     this.outputText("\n<b>Your belly is getting bigger and bigger.  Maybe your recent urges are to blame for this development?</b>\n");
                     displayedUpdate = true;
                 }
-                //Stage 3: 
+                //Stage 3:
                 if (this.player.pregnancyIncubation == 100) {
                     this.outputText("\n<b>You can feel the strangest fluttering sensations in your distended belly; it must be a pregnancy.  You should eat more and drink plenty of wine so your baby can grow properly.  Wait, wine...?</b>\n");
                     displayedUpdate = true;
                 }
-                //Stage 4: 
+                //Stage 4:
                 if (this.player.pregnancyIncubation == 75) {
                     this.outputText("\n<b>Sometimes you feel a bump in your pregnant belly.  You wonder if it's your baby complaining about your moving about.</b>\n");
                     displayedUpdate = true;
                 }
-                //Stage 5: 
+                //Stage 5:
                 if (this.player.pregnancyIncubation == 50) {
                     this.outputText("\n<b>With your bloating gut, you are loathe to exert yourself in any meaningful manner; you feel horny and hungry all the time...</b>\n");
                     displayedUpdate = true;
                     //temp min lust up +5
                 }
-                //Stage 6: 
+                //Stage 6:
                 if (this.player.pregnancyIncubation == 30) {
                     this.outputText("\n<b>The baby you're carrying constantly kicks your belly in demand for food and wine, and you feel sluggish and horny.  You can't wait to birth this little one so you can finally rest for a while.</b>\n");
                     displayedUpdate = true;
@@ -25481,7 +25481,7 @@ We can also do * italic * and ** bold ** text!
                         if (this.player.hasVagina()) this.outputText("  Against your [vagina], the slime feels warm and cold at the same time, coaxing delightful tremors from your [clit].");
                         //[balls:
                         else if (this.player.balls > 0) this.outputText("  Slathered in hallucinogenic frog slime, your balls tingle, sending warm pulses of pleasure all the way up into your brain.");
-                        //genderless: 
+                        //genderless:
                         else this.outputText("  Your [vagina] begins twitching, aching for something to push through it over and over again.");
                         this.outputText("  Seated in your own slime, you moan softly, unable to keep your hands off yourself.");
                         this.dynStats("lus=", 100, "resisted", false);
@@ -25506,7 +25506,7 @@ We can also do * italic * and ** bold ** text!
                     else if (this.player.balls > 0) this.outputText("  Slathered in hallucinogenic frog slime, your balls tingle, sending warm pulses of pleasure all the way up into your brain.");
                     //[cock:
                     else if (this.player.hasCock()) this.outputText("  Splashing against the underside of your " + this.player.multiCockDescriptLight() + ", the slime leaves a warm, oozy sensation that makes you just want to rub [eachCock] over and over and over again.");
-                    //genderless: 
+                    //genderless:
                     else this.outputText("  Your asshole begins twitching, aching for something to push through it over and over again.");
                     this.outputText("  Seated in your own slime, you moan softly, unable to keep your hands off yourself.");
                     this.dynStats("lus=", 100, "resisted", false);
@@ -25515,33 +25515,33 @@ We can also do * italic * and ** bold ** text!
             }
             //Pregnancy 4 Satyrs
             if (this.player.buttPregnancyType == PregnancyStore.PREGNANCY_SATYR) {
-                //Stage 1: 
+                //Stage 1:
                 if (this.player.buttPregnancyIncubation == 150) {
                     this.outputText("\n<b>You find that you're feeling quite sluggish these days; you just don't have as much energy as you used to.  You're also putting on weight.</b>\n");
                     displayedUpdate = true;
                 }
-                //Stage 2: 
+                //Stage 2:
                 if (this.player.buttPregnancyIncubation == 125) {
                     this.outputText("\n<b>Your belly is getting bigger and bigger.  Maybe your recent urges are to blame for this development?</b>\n");
                     displayedUpdate = true;
                 }
-                //Stage 3: 
+                //Stage 3:
                 if (this.player.buttPregnancyIncubation == 100) {
                     this.outputText("\n<b>You can feel the strangest fluttering sensations in your distended belly; it must be a pregnancy.  You should eat more and drink plenty of wine so your baby can grow properly.  Wait, wine...?</b>\n");
                     displayedUpdate = true;
                 }
-                //Stage 4: 
+                //Stage 4:
                 if (this.player.buttPregnancyIncubation == 75) {
                     this.outputText("\n<b>Sometimes you feel a bump in your pregnant belly.  You wonder if it's your baby complaining about your moving about.</b>\n");
                     displayedUpdate = true;
                 }
-                //Stage 5: 
+                //Stage 5:
                 if (this.player.buttPregnancyIncubation == 50) {
                     this.outputText("\n<b>With your bloating gut, you are loathe to exert yourself in any meaningful manner; you feel horny and hungry all the time...</b>\n");
                     displayedUpdate = true;
                     //temp min lust up +5
                 }
-                //Stage 6: 
+                //Stage 6:
                 if (this.player.buttPregnancyIncubation == 30) {
                     this.outputText("\n<b>The baby you're carrying constantly kicks your belly in demand for food and wine, and you feel sluggish and horny.  You can't wait to birth this little one so you can finally rest for a while.</b>\n");
                     displayedUpdate = true;
@@ -26302,7 +26302,7 @@ We can also do * italic * and ** bold ** text!
             2 - blue - vaginal removal and/or growth of existing maleness
             3 - pink - dick removal and/or fertility increase.
             4 - white - breast growth.  If lactating increases lactation.
-            5 - rubbery black - 
+            5 - rubbery black -
             */
             if (this.player.statusAffectv1(StatusAffects.Eggs) == 0) descript += "brown ";
             if (this.player.statusAffectv1(StatusAffects.Eggs) == 1) descript += "purple ";
@@ -26336,7 +26336,7 @@ We can also do * italic * and ** bold ** text!
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //[Intelligence greater than 60] 
+        //[Intelligence greater than 60]
         this.outputText("While spinning the puzzle locks to try and determine the solution, you notice something curious about the repeated symbols adorning them.  Though initially you thought them to mean something in regards to where the locks were meant to sit, you begin to suspect that there is another trick to them.  Slowly working your way through the possibilities, your suspicions are confirmed: the symbols are a cipher, hiding the true answer to getting through the door.  Their rotation is a red herring, meant to obscure their nature.  If your translation is correct, the door is in fact magically sealed, and waiting for a spoken command to open: one that would never be casually spoken in its presence.\n\n", false);
 
         this.outputText("\"<i>Chastity,</i>\" you say.\n\n", false);
@@ -26551,11 +26551,11 @@ We can also do * italic * and ** bold ** text!
     SPITROAST HER! GangHel Style*/
 
     /*Requirements:
-    
+
     -PC has a Dick
     -PC has (Dick'd)Izma or Ceraph in camp (to get the Spit Roast scene only)
     -Scene proc's at 12:00, overriding other scenes
-    
+
     Note on progression:
        The PC has, after each scene (Baste, Stuff, Spitroast) the option to say \"<i>That's Enough</i>\" or continue on to the next scene -- the scenes must be done in order, however.*/
 
@@ -26681,7 +26681,7 @@ We can also do * italic * and ** bold ** text!
         else this.doNext(this.thatllDoTurkey);
     }
 
-    //SPITROAST HER! GangHel Style 
+    //SPITROAST HER! GangHel Style
     //(Needs friendly/lover Hel)
     public spitRoastThatTurkey(): void {
         this.clearOutput();
@@ -27275,27 +27275,27 @@ We can also do * italic * and ** bold ** text!
     /*First of all, a few notes:
     - The scene should probably trigger automatically for people who have met Scylla enough times or been on her addiction meeting at least once, depending on which flags would make it easier for you, and should proc sometime from sometime before the normal hours for the addiction meeting to sometime after; let's say 16-20, upon entering the Wet Bitch or Tel'Adre at all, depending on what you think is better here. Probably the Wet Bitch.
     - Because the scene is Scylla-based, while it should require that you've only met Scylla and not necessarily meet her requirements anymoar, it'd still only be available for players who once had a 12+ inches cock. So, I guess the perks related to the event would best be somewhat weak, or you could do away with them at all, though in that case stat modifications should be present or even enhanced.
-    - In short, the event has 7 possible outcomes, 3 possible gain-able perks, and might require an item and gender or just a cock present for some of the outcomes. 
+    - In short, the event has 7 possible outcomes, 3 possible gain-able perks, and might require an item and gender or just a cock present for some of the outcomes.
     - The event should probably be available for a few days around the Valentines as usual, and sorry for the delay on it.
     - Most of the scenes are, unfortunately, not centaur-proof at all.
     - To go with Pastie, I've set it up so the player must have female parts or one of the game's more regular \"<i>alcohols</i>\". I guess she's the most messed up of the trio.
-    
+
     Possible Perks to Gain:
     - One Track Mind : Player gains additional cum production or multiplier and their capacities increase.
     - Sensual Lover : Increases the effectiveness of teasing and gives a small Lust Resistance boost.
     - Pure and Loving : increases corruption resistance and lust resistance more than Sensual Lover, and/or maybe improves affection gains for NPCs if possible.
-    
+
     Perk Descriptions:
-    
+
     [One Track Mind] You're a dirty person. The highest you'd think of another is that they make you horny, and maybe \"<i>I'd tap that like there's no tomorrow.</i>\" There are no higher feelings for you in intimacy or sexual relations; you dabble in these purely to get off and not really caring about your partners. Even on a special days where love is celebrated, you can't muster affection other than in the form of an orgasm.
     As a super-sexual being, your cum production and capacities are slightly increased.
-    
+
     [Sensual Lover] Intimacy is about making yourself and the other person feel good. You know that, and you resist neither falling in love nor having a one-night stand if someone is to your tastes. On a day that celebrates love, you're certainly wanted by many, but whose do you intend to be? Just tantalize others with how alluring and pleasant you are, or maybe more?
     Your sensuality makes it easy to arouse others and allows you to resist a bit of temptation yourself.
     Your Lust Resistance slightly increases, and you're better at teasing.
-    
+
     [Pure and Loving] This day was about celebrating love, and although to each person love can mean something a bit different and some people need to open their eyes to the fact it exists, you've proven numerous times that being a romantic is not hopeless, and you certainly feel the spirit of the new Mareth holiday. Your strong heart is less likely to be purged of feelings, and people will love you more, too.
-    
+
     THE EVENT ITSELF!*/
 
 
@@ -27330,7 +27330,7 @@ We can also do * italic * and ** bold ** text!
         //Corruption 86-100 : You consider for a moment, but the answer is as clear as day and night. With a look of contempt and maybe a hint of pity, you tell Scylla that things like love are illusions the weak rely on, useless to you, and intimacy is simply a more polite word for fucking and taking your pleasure from whom you'd want to get it. You don't care much for her stupid excuse for celebration.
         //With that, you turn around and go back into the streets of Tel'Adre
         //[end event]
-        //Corruption 16-85 : 
+        //Corruption 16-85 :
         this.outputText("\n\nWell, you do have more important things to do, and in the world of Mareth, where the corruption is dominant and there's definitely way more sex than romance, such a mission may be doomed to fail anyways, but it is something to consider.  All in all, it comes down to whether you think you have the time for this and whether it even seems worth it.");
         //[Help them][Leave]
         this.menu();
@@ -27507,9 +27507,9 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nYou fire off inside Scylla's tit, and the remaining lip draws in air eagerly as the two of them suck, one at the air, the other at your [cock]. You shudder in Scylla's embrace as you unload your offering into her.");
         //[if (cumMedium = true)
         if (this.player.cumQ() < 500) this.outputText("  It's easy to lose yourself into the feeling of Scylla's breast drawing from you, and you realize you're cumming longer and harder than you should, but soon, the ravenous breast sucks you dry, continuing to milk you aggressively for more.  You moan into Scylla's lips, and she pats your head, shuddering as she seems to slowly get off again too from being fed directly....");
-        //[if (cumHigh = true) 
+        //[if (cumHigh = true)
         else if (this.player.cumQ() < 1500) this.outputText("  Scylla's a blessed cum-milker and she doesn't fail this time, either.  Your orgasm and cum output are tremendous, more and more being pulled out of your [cock] and [balls] as Scylla releases a guttural sound, gently inflating her boobs further from draining you and orgasming on her own, milk flowing down her breasts and saliva down her neck as she gives in to the sensations.  Her breast, despite being sated, continues to suckle at you even after your orgasm, almost as if wondering if it could draw out more.  You snuggle up to Scylla, making out with her upper lips, her hands roam over your body in a comforting, pleasant fashion...");
-        //[if (cumVeryHigh = true) 
+        //[if (cumVeryHigh = true)
         else {
             this.outputText("  Scylla's tit thirsts for your cum and you can't afford to let it down. Your orgasm causes you to black out for a moment as you flood her breast with wave after wave of cum, so much that you risk being pulled away from her lips if not for her possessively hanging on to you as she trembles in an intense orgasm, her thirst being sated and pleasure spreading through her body, more and more being pulled out of your [cock] and [balls] as Scylla's body and breasts continue to balloon out, her tits easing out slowly on their draining of you.  Cum and milk flow down her breasts as her body gives in to the sensations.  Her breast, despite being sated, continues to suckle at you even after your orgasm, almost as if wondering if it could draw out more.  You enjoy the sensation of Scylla's liquid-filled body under you for a while.");
         }
@@ -27539,7 +27539,7 @@ We can also do * italic * and ** bold ** text!
     }
 
 
-    //([Abby] 
+    //([Abby]
     public goVisitAbbyVday(): void {
         this.clearOutput();
         this.outputText("You wave to Scylla and Pastie as you try to catch up with Abylon, who's already picking up the pace and, by the looks of it, trying to remove her dress.  \"<i>Well, sup.  I'll be going home and changing myself into my usual clothes, if you don't mind.  This entire celebration thingy just shows your people's issues,</i>\" she says, though she doesn't seem entirely untouched by the mood of it...");
@@ -27579,7 +27579,7 @@ We can also do * italic * and ** bold ** text!
         this.menu();
         if (this.player.hasCock()) {
             var x: number = this.player.cockThatFits(46);
-            //([If ([cocksmallest] < 46 cockArea) 
+            //([If ([cocksmallest] < 46 cockArea)
             if (this.player.cockArea(x) < 46) {
                 this.outputText("\n\nYou could certainly go for a dip into that goblin cunt, but, there's also the option of forgoing your pleasure on this special day and using other means to show her a good time.");
                 //<You can both pleasure and fuck her>
@@ -27683,7 +27683,7 @@ We can also do * italic * and ** bold ** text!
             this.menu();
             this.addButton(0, "Next", this.goForAPushayDivePasty);
         }
-        //({Any other drink}. 
+        //({Any other drink}.
         else {
             var itype: ItemType = ItemType.lookupItem(choice);
             this.player.consumeItem(itype, 1);
@@ -27697,7 +27697,7 @@ We can also do * italic * and ** bold ** text!
     public valentineDrinkPastie(itype: ItemType): void {
         this.clearOutput();
         this.outputText("One you're away from any prying eyes, Pastie turns to you and rubs her little fairy hands together, apparently barely able to hold her enthusiasm to finally get a bit drunk.  You're afraid it may not end at one drink, either, and for a moment, wonder about whether this is all right or not...");
-        //Corruption 0-20] 
+        //Corruption 0-20]
         if (this.player.cor < 33) this.outputText("  It probably isn't.");
         //[Corruption 21-75]
         else if (this.player.cor < 75) this.outputText("  You guess as long as she's fine afterwards, it should be okay.");
@@ -27855,9 +27855,9 @@ We can also do * italic * and ** bold ** text!
     }
 
     /*END!
-    
-    
-    
+
+
+
     1) Hanging out with Scylla's Addiction Group. Requirements :
     A) Meeting Scylla's Addiction Group (Scylla, Abylon, Patsie) before.
     B) One has to have a cock to play with Scylla or Abylon, but not neccessarily Patsie. One has to bring either Black Cat Beer, Bimbo Champagne, or Goblin Ale to play with Patsie.
@@ -27866,55 +27866,55 @@ We can also do * italic * and ** bold ** text!
     E) Staying with Patsie requires one of the alcoholic items. If the player has none, re-direct to Abylon, Scylla, or Leave.
     F) The encounter can grant one of three PerkLib. Scylla allows all perks, Patsie allows the Tainted or Corrupted perk, and Abylon allows the Pure or Tainted perk.
     G) Picking Scylla leads to walking around Tel'Adre before watching sunset on the walls. The PC and Scylla are allowed to do this due to their reputation.
-    G1) The player staying with Scylla can choose to : 
+    G1) The player staying with Scylla can choose to :
     - Cuddle and watch, leads to next day or loss of a few hours. Gives the Pure and Loving perk, plus stat modifications (lowers Corruption and Libido, raises Lust)
     - Make out with all of Scylla's nipples. (Heightens Sensitivity, Toughness and Lust, lowers Libido, gives the Sensual Lover perk)
     - Feed Scylla (Lowers Lust, increases Corruption and Libido, gives the One Track Mind perk)
-    
+
     G2) Player going with Abylon gets to learn a bit more about her and later can help with her Sex Addiction. They can finally fuck Abylon or help her masturbate.
     - Fucking Abylon (tenderly) gives the Sensual Lover perk
     - Masturbating Abylon gives the Pure and Loving perk
     G3) Players going with Patsie get her drunk, and if it's Goblin Ale, they may gain a goblin transformation and unlock the penetration of her.
     - If they have a vagina, they can allow Patsie to go there. Unlocks the Sensual Lover perk.
     - If they have a cock  of a very low area (up to 9 I guess), they can penetrate Pastie if she drunk the Goblin Ale. This unlocks the One Track Mind perk.
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
     And in Scylla's Cuddle scene, you just share a simple kiss before cuddling. In the makeout scene, you first kiss all of her lips before she notices you're sporting a boner, then she slowly rubs one out of you as you keep making out with her lips, until you're finally on your back as she coaxes you almost to the point of cumming and then sticking you in her appropriate lipple, having you cum.
-    
+
     */
 
 
     // include "../../includes/worms.as";
 
-    //const EVER_INFESTED: number = 787;	
+    //const EVER_INFESTED: number = 787;
     //const CAME_WORMS_AFTER_COMBAT: number = 788;
     /*
-     LICENSE 
-     
+     LICENSE
+
     This license grants Fenoxo, creator of this game usage of the works of
     Dxasmodeus in this product. Dxasmodeus grants Fenoxo and the coders assigned by him to this project permission to alter the text to conform with current and new game functions, only. Dxasmodeus retains exclusive rights to alter or change the core contents of the events and no other developer may alter, change or use the events without permission from dxasmodeus. Fenoxo agrees to include Dxasmodeus' name in the credits with indications to the specific contribution made to the licensor. This license must appear
     either at the beginning or the end of the primary file in the source code and cannot be deleted by a third party. This license is also retroactive to include all versions of the game code including events created by dxasmodeus.
-    
+
     DECLARATION OF OWNERSHIP
-    
+
     The following events are the creative works of dxasmodeus and are covered under this license.
-    
+
     Tentacle Plant Event
     Giacomo the Travelling Merchant
     All item events relating to purchases from Giacomo the Travelling Merchant
     worm colony Infestation Events
-    
+
     Tentacle Plant Event and Giacomo sub-events are copyright 2010 by Dxasmodeus.
     worm colony Events are copyright 2011 by dxasmodeus.
-    
+
     THIRD PARTY USAGE
-    
+
     As Fenoxo has made his game code open source, this license DOES NOT transfer to a third party developer. The events created by Dxasmodeus may not be used in whole or in part without permission and license from Dxasmodeus. Dxasmodeus reserves the sole and exclusive right to grant third party licenses of copyrighted scenarios.
-    
+
     For further information and license requests, Dxasmodeus may be contacted through private message at the Futanari Palace. http://www.futanaripalace.com/forum.php. */
 
     public wormEncounter(): void {
@@ -28417,7 +28417,7 @@ We can also do * italic * and ** bold ** text!
         this.player.orgasm();
     }
 
-    //[FEMALE SCENE]	
+    //[FEMALE SCENE]
     public vagFuckXmasElf(): void {
         this.outputText("She pushes you down onto your bedroll and whispers, \"<i>Time to enjoy your present.</i>\"\n\n", false);
         this.outputText("The elf winks and spreads her legs, revealing her obviously aroused sex to you.  She winks and you see her muscles clench.  The moist lips of her vagina slowly spread apart, and a blunt white object begins to squeeze out.  Is she laying an egg?  Wait- no, more of the object slides out and you can see now that it's tubular in shape, like some sort of sex-toy, and it's covered in a spiraling red pattern.  The object continues its slow journey downwards, roughly six inches hanging free as the elf grunts and moans, her face flushed.   She grips it with both hands and pulls it slowly.  It reminds you the soldiers in training back home the first time they tried to draw a sword – a mix of awkwardness and excitement.\n\n", false);
@@ -28520,7 +28520,7 @@ We can also do * italic * and ** bold ** text!
     //const GATS_ANGEL_QUEST_BEGAN: number = 640;
     //const GATS_ANGEL_TIME_TO_FIND_KEY: number = 641;
     /*A Christmas Carol
-    
+
     Entry for the 2012 CoC Contest, \"<i>A Very Milky XMas</i>\".
     Starring Gatters Bee, Shamble Sworth and a caribou named Kirbu.
     */
@@ -28622,7 +28622,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nRegret is the only thing on your mind once you pull free of the water; it's much colder in here than you had anticipated.  A quick shake and a firm rubbing along your arms staves off the feeling long enough for you to concentrate on the task at hand.  With careful steps of your bare [feet] along the smooth rock, you investigate your surroundings for anything of particular note.  It's only now that you wish you had actually bothered to ask just what this key looked like.  Best not to just assume things when it comes to mysterious, gargantuan titans weeping high in the skies, you note to yourself.");
         this.outputText("\n\nLuckily for you, there isn't much ground for you to cover.  Your hands slowly pass over the illuminated surfaces, hunting for anything that stands out.  For as inspiring as the illuminated crag and minuscule gems appear, you doubt that any it is what the mountaintop spirit requested of you.  A few moments pass before a slight ledge hanging over your head comes to your attention, shrouded in the dense emerald radiance of the cave.  Looks as though this little hole has at least a little more to it than you anticipated!");
         this.outputText("\n\nA sturdy grip and a measured tug propels you up the wall, with extra care taken not to brush your bare body against whatever lays on the multicolored wall.  Though there is more to the cave than you initially anticipated, it doesn't amount to much more than an illuminated little dome.");
-        //[if (tallness > 60) 
+        //[if (tallness > 60)
         if (this.player.tallness > 60) this.outputText("  You can't even stand straight up below the low-hanging ceiling, forced to carefully tread along on your knees over the slick, hard rock.");
         this.outputText("  Squinting around the small, deep green grotto, a pedestal in the center calls out to you.  As you approach it, it becomes evident to you why things are so chilly in here; the outcrop is made up of clear ice - and within, the bodies of the many who had found this place before you.  At least that mystery is cleared up.  Atop the frozen prop lies a small, crystal... crank? Upon closer inspection, it actually resembles a - kitty titties, it's a windup key!  Despite the fact that you should've seen this one coming, you surmise that this is the item you've come searching for.");
         this.outputText("\n\nYou reach over the bitter base to pluck your prize free, again careful that your moistened, exposed body refrain from making contact with the frigid obelisk.  There isn't an ounce of your being that wants to experience ripping any frozen flesh free.  As you grasp and pull free the slick, clear trinket you're taken by surprise as the brilliant glow surrounding you snuffs out, quickly leaving you in silent, black darkness.  Your hands grasp tightly onto your bounty, gently rubbing over its curves with your fingertips as you fruitlessly glance around in search of light.");
@@ -28642,7 +28642,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nYour trek halts to a standstill as you return to the side of the vast giantess.  Her sadness and longing appears to have overwhelmed her to a degree, putting her to sleep beside the still-inanimate soldier beside her.  You cast another glance at your brilliant relic, hooking a finger through it as you lift it before your face.  Transfixed by the swirling dance of red and green, you begin to weigh the options before you.  The spirit would surely request the key from you so that she may return her love to his former self, you believe.  However, perhaps you deserve a greater reward from this little deed.  You hold all the important cards in this deal after all.  You thoughtlessly swirl the windup key around on your finger, pondering your next move.");
             this.outputText("\n\nYou could try to fuck around with the spirit or her soldier, but doing either would be a huge dick move...");
             this.menu();
-            //[Give the Key] [Fuck the Soldier] [Fuck the Angel] 
+            //[Give the Key] [Fuck the Soldier] [Fuck the Angel]
             this.addButton(0, "Give The Key", this.goodEndForChristmasMiracleICant);
             this.addButton(1, "FuckSoldier", this.theWorstEndingEverDotJPG);
             this.addButton(2, "Fuck Spirit", this.fuckTheAngelBadEnd);
@@ -28692,14 +28692,14 @@ We can also do * italic * and ** bold ** text!
         if (this.player.gender == 3) this.outputText(" and ");
         if (this.player.hasVagina()) this.outputText("your [vagina]");
         this.outputText(" to try and convince the confused soldier.  You look North over, figuring the best way to work him under your spell.  It isn't a long search, as you decide that his ");
-        //[if (hasCock = true) 
+        //[if (hasCock = true)
         if (this.player.hasCock()) this.outputText("keyhole");
-        //[if (hasCock = false) 
+        //[if (hasCock = false)
         else this.outputText("windup key");
         this.outputText(" would make a worthy candidate for your first alluring act of debauchery.");
         this.outputText("\n\nA playful, sly smile is the only hint you give to the strangely compliant tin man as you slink on around to his back, gracefully resting your fingertips upon his crystal key.");
         this.outputText("\n\n\"<i>What are you doing?</i>\" he asks, his tone still as polite and reserved as ever.  He doesn't react with much more than a sideways glance as you lurch the sizeable apparatus free of his backside.  ");
-        //[if (hasCock = true) 
+        //[if (hasCock = true)
         if (this.player.hasCock()) this.outputText("You slide the key playfully down your wrist, rubbing your [cock] with your free hand.  You aren't entirely sure if he'll even feel a sensation from your penetration, but perhaps it'll at least get him in the mood.  With your manhood at full mast, you gently skirt along the edges of the keyhole.");
         else this.outputText("A mischievous tongue traces along the smooth, perfect surface of the windup key.  You promptly lower the makeshift toy precariously in front of your [cunt]; if there was ever a time to make a wind up pun or remark as some sort of goofy foreplay, now would be the time.");
         this.outputText("\n\n\"<i>This isn't right.</i>\"");
@@ -28710,11 +28710,11 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nWith one last forlorn outstretched arm, the suit of armor crashes to the ground, extinguished of its occupant.  You stand motionless, not sure how to react.  You glance down at the windup key in your hand.  Did... Was this your fault?");
         this.outputText("\n\nThere has to be more to it than this key.");
         this.outputText("\n\nYou slip it back into the armor's lock and give it another twist.  But nothing happens.");
-        //[if (corruption > 49) 
+        //[if (corruption > 49)
         if (this.player.cor > 49) this.outputText("  ...Well, that was a waste of time.");
         this.outputText("\n\nThe key's glowing innards finally disappear, leaving a simple glass key jammed into tin.  It's a sad sight, one that you can't help but stand in silence over.");
         this.outputText("\n\nAfter a few moments, you decide to don your [armor] once again, leaving the mishap behind as you return to camp.  There's no telling if what you did was ultimately right or wrong in the grand scheme of things, but dwelling over North or Carol isn't going to get you anywhere any time soon.");
-        //[if (corruption > 49) 
+        //[if (corruption > 49)
         if (this.player.cor > 49) this.outputText("  More importantly, you have some unsatisfied, pent up lust that you'd like to expend.");
         this.dynStats("lus", 2 + this.player.lib / 10 + this.player.cor / 10, "cor", 10, "resisted", false);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -28872,7 +28872,7 @@ We can also do * italic * and ** bold ** text!
         }
         this.outputText("\n\nFor many heartbeats she lays panting, basking in the afterglow of her and her lover's first outing in a long, long time.  Eventually, a stirring in the breast-milk coating her and the ground around her rouses her from her peaceful contemplations.  Just as you suspected, North had internally traveled from her vaginal passage to her enormous breasts, and escaped with the boobgasm that followed.  His shadow-essence separates from its milky prison to reform near the giantess's cheek.  She smiles warmly at him, and he hugs her cheek in response.");
         this.outputText("\n\nWith North in tow, the giantess lifts herself back up onto the cliff, allowing the knight to retreat back into his ashen armor.  He turns towards you, his golden orbs slightly eclipsed in what you can only assume to be his form of a happy expression.  \"<i>Thank you, hero,</i>\" he says, only managing the brief courtesy before he's swept up into his lover's arms and smashed against her cheek once more, in an even bigger and more passionate hug.");
-        //IF MASTURBATED: 
+        //IF MASTURBATED:
         if (this.player.lust >= 100) {
             this.outputText("\n\nYou take the opportunity to do up your [armor] before either of them notices.");
             this.player.orgasm();
@@ -28892,7 +28892,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\n\"<i>It's Carol.</i>\"");
         this.outputText("\n\nAfter a long pause, you pocket the key, square yourself with Carol and North, returning her hand gesture before giving them a goofy grin that positively sparks in the snow-cushioned landscape.  As you turn to depart once more, you wave over your shoulder, escorted out with the continued giggles and lovey-dovey conversation of the unlikely couple.");
         this.outputText("\n\nMerry Christmas indeed!");
-        //[if you haven't been introduced to christmas via elf or otherwise] 
+        //[if you haven't been introduced to christmas via elf or otherwise]
         if (this.flags[kFLAGS.PC_ENCOUNTERED_CHRISTMAS_ELF_BEFORE] == 0) this.outputText("\n\nYou have no idea what that is.");
         //[end, get The North Star & A Christmas Carol perks]
         //The North Star
@@ -28939,7 +28939,7 @@ We can also do * italic * and ** bold ** text!
     [=Fuck Her=]
     [=Lick Boobs and Finger Pussy=]
     Aftermath...
-    
+
     The Flow:
     Notice snow in Mountain.
     Investigate to meet Jack.
@@ -29669,7 +29669,7 @@ We can also do * italic * and ** bold ** text!
     public leaveBeforeMeetingCandyCaneBun(): void {
         this.clearOutput();
         this.outputText("You're not willing to run the risk of getting a foreign cock stuffed up your [butt].");
-        //(If corruption or libido>50) 
+        //(If corruption or libido>50)
         if (this.player.cor > 50 || this.player.lib > 50) this.outputText("  At least not right now.  You turn back, navigating your way back to your camp.");
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -29678,9 +29678,9 @@ We can also do * italic * and ** bold ** text!
     public investigateCandyCaneBun(): void {
         this.clearOutput();
         this.outputText("You make the decision to find out just what's going on.  You cautiously follow the small pools of goo, slightly on edge.  You approach a wall of low hanging vine which you quickly pull aside.  Sitting in the largest pudddle of semen you've seen yet, a trembling bunny-like figure kneels on its knees.");
-        //(If corruption and libido<50) 
+        //(If corruption and libido<50)
         if (this.player.cor < 50 && this.player.lib < 50) this.outputText("  Your eyes are quickly drawn to the rabbit morph's stark nudity.");
-        //(If corruption or libido>50) 
+        //(If corruption or libido>50)
         else this.outputText("  Your eyes are quickly drawn to the rabbit morph's finely curved ass.");
         this.outputText("  A pair of heavily hanging balls confirm the figure to be at least partially male.");
         this.outputText("\n\nYou make the move to ");
@@ -29694,7 +29694,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.cor < 50) this.outputText("You calmly inform him that you didn't have the intention of violating him. ");
         //(If corruption>50)
         else this.outputText("Your train of thought is derailed, but you agree to let the bunny believe whatever he wants to.");
-        //(If silly mode on) 
+        //(If silly mode on)
         if (this.silly()) this.outputText("  You're willing to say anything to calm him down.  This kid's voice is even more shrill than that asshole from Glee!");
         this.outputText("  A smile lights up his face, his shoulders visibly drop and lose their tension.   He sits like that for but a moment, before he realizes the full scope of the current situation.  His eyes grow wide while he throws down his arms with a rather unmanly yelp, covering his dripping cock.  Despite his embarrassment, it's evident that he's not going to get off unassisted.");
         this.flags[kFLAGS.CANDY_CANE_YEAR_MET] = this.date.fullYear;
@@ -29724,16 +29724,16 @@ We can also do * italic * and ** bold ** text!
         else if (this.player.gender == 2) this.outputText("your [vagina] and [clit] become coated in liberal amounts of juices.");
         //(If herm)
         else if (this.player.gender == 3) this.outputText("both of your sexes flare with arousal.");
-        //(If genderless) 
+        //(If genderless)
         else this.outputText("sweat drips off of you.");
         this.outputText("  You pay no mind to this, too pre-occupied bobbing your head on the delicious dick in your mouth.");
 
         this.outputText("\n\n\"<i>Oh my goodness!</i>\"  The bunny cries out from above you as he wraps his furry legs around your neck.  \"<i>I can't keep from squirting if you keep it up like this!</i>\"  You smile around him before pulling off of his prick.  Your lips make a grotesque popping noise as his cock head pulls out of your dick-craving suck-hole.  You wrap a hand around his throbbing rod, jacking him off while you whisper throatily to him to coat you in his seed.  He wriggles under your experienced grip, dripping his slippery spunk down your fingers.  The mess that coats your fingers allows you to improve your handjob even further.  You hand becomes a practical blur as it draws up and down at an alarming rate.");
 
         this.outputText("\n\nThe feminine boy's slender hands suddenly grip at your [hair], pulling you up against his penis.  You feel his balls churning up against your [face].  Preparing to receive your generous gift, a sharp ringing suddenly distracts you.  Your eyes open wide to identify the odd jingling, but your field of view only lets you view the balls pressing up against your face.  As they churn visibly, you quickly deduce that his nuts are the source of the jingling, announcing his impending climax!  The ringing quickly ceases as his cock swells and blasts of jet of semen onto your [face].  You reflexively open your mouth as wide as you can, resembling a whore clenched between the legs of this bunny boy. His next spurt layers your entire mouth in the white cream, sending a pleasurable shiver down your spine.  His cum is so minty and chilling that you immediately dive on him, engulfing him in your mouth once more.  He allows you to suck down the last few shots of his cum before falling back, utterly spent.  Shuddering slightly, he pulls you on top of him, and leans up to place a not-too-chaste kiss on your cum coated lips.  You remain for a moment, caressing his soft hair.  He eventually lays back, thanking you before drifting into slumber.");
-        //(If corruption<50) 
+        //(If corruption<50)
         if (this.player.cor < 50) this.outputText("  Not wanting to disturb him, you make your way back to camp and attempt to ignore the burning fire in your loins.");
-        //(If corruption>50) 
+        //(If corruption>50)
         else this.outputText("  Despite your rising urge to take advantage of the unknowing bunny, you decide to retire and return to camp.");
         //(Lust set to 100, hour passes.)
         this.dynStats("lib", 1, "sen", 1, "lus=", 100, "cor", -5, "resisted", false);
@@ -29941,7 +29941,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\nYou gaze over the situation.  How should you handle this?");
 
-        //[Player given 4 options: 
+        //[Player given 4 options:
         //Give Anal (Requires none-tentacle cock and no naga or centaur legs.)
         //Receive Anal (Again, no naga or centaur legs.)
         //Blow Job
@@ -29999,7 +29999,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText(".  Each time, the waitress fondles your form with her eager hands.  ");
 
         this.outputText("\n\n");
-        //[If player has pussy] 
+        //[If player has pussy]
         if (this.player.hasVagina()) this.outputText("Your cunt oozes in return, envious of the tenderized hole above it.  ");
         this.outputText("You dedicate a few more minutes to soaking up every moment of her animalistic romping, savoring the feeling of a hung rod in your punished posterior.  Your climax quickly comes to loom over you, however, the potent, ");
         if (this.player.hasCock()) this.outputText("prostate");
@@ -30094,7 +30094,7 @@ We can also do * italic * and ** bold ** text!
             this.player.hornType = CoC.HORNS_ANTLERS;
             this.player.horns = 4 + this.rand(12);
         }
-        //[Show this description instead if the player already had horns when the transformation occurred.] 
+        //[Show this description instead if the player already had horns when the transformation occurred.]
         else if (this.player.horns > 0 && this.player.hornType != CoC.HORNS_ANTLERS && this.rand(2) == 0) {
             this.outputText("\n\nYou hear the sound of cracking branches erupting from the tip of your skull.  The horns on your head begin to twist and turn fanatically, their texture and size morphing considerably until they resemble something more like trees than anything else.  Branching out rebelliously, you've come to the conclusion that <b>you've somehow gained antlers!</b>");
             //[Player horn type changed to Antlers.]
@@ -30148,7 +30148,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outputText("\n\n\"<i>Yes, that's it. Don't be shy now.</i>\"  Pete gives a jolly laugh as he starts pushing more past your lips.  You give a muffled moan, your lips wrapped tight around the giant confection.  The heat in your body grows, and your loins began to ache.");
         if (this.player.hasCock()) this.outputText("  [EachCock] grows stiff and soaks your [armor] with precum.");
-        //(if vagina) 
+        //(if vagina)
         if (this.player.hasVagina()) this.outputText("  Your [vagina] grows moist, dripping eager juices and soaking your [armor].");
 
         this.outputText("\n\n\"<i>Oh ho ho ho, seems like you're really enjoying your gift.  Let ol' Polar Pete lend you a hand,</i>\" he says with a twinkle in his eyes as he lays you down in the snow, his free hand stripping you of your [armor].  Despite the cold you can only sigh in relief, your skin so hot it feels like you could melt the ice and snow with ease.  Pete begins to thrust the massive candy cane into your mouth, the flexible treat dipping down inside your throat with ease.");
@@ -30161,7 +30161,7 @@ We can also do * italic * and ** bold ** text!
         this.player.buttChange(25, true, true, false);
 
         this.outputText("\n\n\"<i>Mmm, I'll definitely have to go down your chimney every year.  You're so very good,</i>\" he pants, clouds of mist fogging his face as he exhales deep breaths in the cold air.  He suddenly takes on a brutal pace, the sound of flesh slapping flesh filling your ears as he leans forward and begins to pound away at you with refocused intent.");
-        //[(if cock) 
+        //[(if cock)
         if (this.player.hasCock()) this.outputText("  His continued ramming of your prostate mixed with the addictive candy crammed in your mouth sends you over the edge, [eachCock] shooting out ropes of snow white all over your chest.  Pete eyes you over with a lurid gaze, your face covered in his cum and your body covered in your own.");
         else if (this.player.hasVagina()) this.outputText("  Your [vagina] quivers, the rough thrusting into your [asshole] mixed with the addictive candy in your mouth sending you over the edge.  With a low muffled moan your mound spills your lust over your groin, dripping down to lube Pete's thrusts as well as your [legs].  Pete gives you a lurid gaze.");
 
@@ -30244,7 +30244,7 @@ We can also do * italic * and ** bold ** text!
             this.menu();
             this.addButton(0, "Snowwoman", this.nieveSnowWoman);
             this.addButton(1, "Snowman", this.nieveSnowMan);
-            //[Snowwoman] [Snowman] 
+            //[Snowwoman] [Snowman]
         }
         //Second Step: Eyes & Mouth
         //Alters Nieve's eyes in scenes
@@ -30260,7 +30260,7 @@ We can also do * italic * and ** bold ** text!
         //Fourth Step: The Nose
         else if (this.flags[kFLAGS.NIEVE_STAGE] == 3) {
             this.outputText("You approach your nearly finished snowman. To others, it might be a perfectly acceptable creation, but not to you. It needs a carrot to finish it off.");
-            //(If PC has the carrot) 
+            //(If PC has the carrot)
             if (this.player.hasKeyItem("Carrot") >= 0) {
                 this.outputText("\n\nLuckily, you've got the perfect one, courtesy of Whitney's farm.  You quickly wash it up and snip the tail end of it off before sticking it right into the center of the snowman's face.  Nostalgia flows over you as you stand back to admire your handiwork.  You feel as if you've brought a little of Ingnam into this strange land, a little bit of cheer into this desolate landscape.");
                 this.outputText("\n\nYou enjoy the presence of your new snowman creation for a while, and then return to your camp with a little smile laid out on your face.");
@@ -30268,7 +30268,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.removeKeyItem("Carrot");
                 this.outputText("\n\n(Removed Key Item: Carrot)");
             }
-            //(Else) 
+            //(Else)
             else {
                 this.outputText("Unfortunately, you've yet to find one in your adventures.  You suppose you'll have to look more carefully.  Who knows, there might be a farm right under your nose.");
             }
@@ -30388,7 +30388,7 @@ We can also do * italic * and ** bold ** text!
     public yesKeepNieve(): void {
         this.clearOutput();
         this.outputText("You actually laugh at the question.  Of course you want " + this.nieveMF("him", "her") + " to stay!");
-        //[Silly mode: 
+        //[Silly mode:
         if (this.silly()) this.outputText("  A free follower, no worries about buying worthless dye or raising their affection?  Fuck yeah, you'll take " + this.nieveMF("him", "her") + "!");
         this.outputText("  " + this.nieveMF("He", "She") + " doesn't seem to be a threat, and indeed seems sincere in the fact that " + this.nieveMF("he", "she") + " was sent here to be your lover.");
         this.outputText("\n\nNieve beams at you, \"<i>You won't regret it, [name]!  Just give me a little while to set up a cozy place here... then we can get cozy.</i>\"");
@@ -30496,9 +30496,9 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nSoon your lips leave the nipple, traveling downwards once more.  Down to her belly button, which you nuzzle for just a moment, and then down further.  You avoid going straight for the vagina again, instead letting your lips caress her thighs, all the way down to her calves.  Switching over to the other leg, you work your way up the calf, up the thigh, and then you finally plant a kiss right on her frosty pussy.  Nieve giggles and squirms a little as you work your lips over her nethers.  You quickly locate the clitoris, an icy nub glittering like a diamond, and begin licking, kissing and rubbing it.");
         if (!this.silly()) {
             this.outputText("\n\nNieve lets out little gasps and sighs as you assault her clit with your tongue.  Not content to leave it at that, you dive in to her frigid, slick cunt, lapping and licking.  ");
-            //(Normal/Snake Tongue: 
+            //(Normal/Snake Tongue:
             if (this.player.tongueType != CoC.TONUGE_DEMONIC) this.outputText("It doesn't get far, but elicits squeals of surprise and pleasure from your elemental slave who's already grasping at the snow surrounding her for support.");
-            //Demon Tongue: 
+            //Demon Tongue:
             else if (this.player.tongueType == CoC.TONUGE_DEMONIC) this.outputText("Her eyes widen as you snake your impressive, demonic tongue into her. She grunts and squeals with pleasure, hands grasping piles of snow, wishing they were bedsheets.");
             this.outputText("  After a minute of this, you realize you've lost the feeling in your tongue!  Pulling it back into your mouth, you find it warms back up quickly, and then you're at it again.");
 
@@ -30526,9 +30526,9 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nAfter a moment you pause awkwardly.  Nieve lets out half a moan, then raises her head and looks down at you, nestled in her crotch.  There is an embarrassingly long pause, eventually broken by the ice woman's voice, \"<i>Your tongue is stuck to me, isn't it.</i>\"");
             this.outputText("\n\nAnother pause. You let out a muffled \"<i>Yeth,</i>\" and Nieve sighs.");
             this.outputText("\n\nIt takes you the better part of an hour to crawl your way back to the camp proper, you on your hands and knees, tongue stuck firmly to the icy love button.  It's a bit like being walked on a leash, and you find the whole ordeal utterly embarrassing and degrading, but quite arousing.  After the two of you manage your way over to a water barrel");
-            //(no Kid A: 
+            //(no Kid A:
             if (this.flags[kFLAGS.ANEMONE_KID] != 1) this.outputText(", Nieve takes a ladle full of water and pours it onto her snatch");
-            //Kid A: 
+            //Kid A:
             else this.outputText(", your little anemone spawn giggles and laughs at your predicament before finally ladling some water onto your lover's snatch");
             this.outputText(", effectively allowing you to pull your tongue away.");
             this.outputText("\n\nThe both of you thoroughly flustered, Nieve returns to the winter paradise and you go back to your duties.");
@@ -30578,10 +30578,10 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nFirst you disrobe, tossing your clothes aside, and order Nieve onto her knees.  She does so immediately, and without needing to be told what to do, she leans in and grasps your " + this.cockClit(x) + " with one hand.  Like the rest of her, Nieve's hands are freezing cold, and though it's a strange sensation at first, it's not at all painful or uncomfortable.  \"<i>Allow me, [Master],</i>\" she says, licking the tip of your " + this.cockClit(x) + " with a wet, cold \"<i>schlick</i>\" that makes you shiver.");
 
         this.outputText("\n\nNot wasting any time, she takes the whole tip into her mouth, swirling her tongue around it with practiced ease.");
-        //(If small cock/clit (<6): 
+        //(If small cock/clit (<6):
         if (x >= 0) {
             if (this.player.cocks[x].cockLength < 6) this.outputText("  \"<i>It's so cute, [Master],</i>\" Nieve says while catching a breath, \"<i>Like a little toy cock.</i>\"");
-            //If overly large (>130): 
+            //If overly large (>130):
             else if (this.player.cocks[x].cockLength >= 24) this.outputText("  She has to take a breath almost immediately, saying, \"<i>By the fat man's beard this thing is huge.  You must make the rest of this world jealous.</i>\"");
             else this.outputText("  \"<i>Mmm,</i>\" she smacks her lips and takes a quick breath, \"<i>Such a nice example of a candycane right here.  Let's go in for another taste.</i>\"");
         }
@@ -30597,16 +30597,16 @@ We can also do * italic * and ** bold ** text!
 
         //(Variable depending on dick-type)
         if (x >= 0) {
-            //(Human) 
+            //(Human)
             if (this.player.cocks[x].cockType == CockTypesEnum.HUMAN) this.outputText("  Your normal, unaltered cock seems to take on a slight blue tint, although you can confirm it's not going numb.  Quite the contrary, it seems to be getting more sensitive as Nieve's lips roll over it.");
-            //(Equine) 
+            //(Equine)
             else if (this.player.cocks[x].cockType == CockTypesEnum.HORSE) this.outputText("  Nieve fawns over your horsecock like a cultist praying to a god.  She sucks and kisses, running the tip of her tongue all along the sides until she reaches the sheathe, and then right back up the other side.");
-            //(Canine) 
+            //(Canine)
             else if (this.player.hasKnot(x)) {
                 this.outputText("  Nieve eyes the knot on your cock as though it were a challenge.  She inches down your shaft, getting ever closer.");
                 //(Cocksize >40)
                 if (this.player.cockArea(x) >= 40) this.outputText("  Eventually, though, she admits defeat and goes back to working your shaft, though she eyes that knot from time to time with no small amount of anger.");
-                //(Cocksize <40) 
+                //(Cocksize <40)
                 else this.outputText("  It takes her a few good minutes, but eventually she works her way down and takes the entire knot into her mouth.  She raises her hands in triumph and lets out a \"<i>Mmmmrrrrrpphhh!</i>\" before pulling back for a breath, inadvertently exposing your wet hard cock to the cold, wintery air.");
             }
             /*Cock types
@@ -30623,20 +30623,20 @@ We can also do * italic * and ** bold ** text!
             */
             //(Demonic)
             else if (this.player.cocks[x].cockType == CockTypesEnum.DEMON) this.outputText("  Your purple, demonic shaft pulses and throbs, seemingly immune to the unnatural cold of Nieve's mouth. Seemingly oblivious to its nature, Nieve slavers over each nodule, giving every ridge and bump a kiss and more than just a lick.");
-            //(Tentacle) 
+            //(Tentacle)
             else if (this.player.cocks[x].cockType == CockTypesEnum.TENTACLE) this.outputText("  Nieve does not seem put off by your tentacle cock in the least, in fact she confesses, \"<i>It reminds me of a comic I read before coming here.</i>\"  As she fawns over your cock, you're certain you hear whispers of \"<i>Oh, you sexy tentacle beast...</i>\" coming from her mouth when she gets her breath.");
-            //(Feline) 
+            //(Feline)
             else if (this.player.cocks[x].cockType == CockTypesEnum.CAT) this.outputText("  Though the barbs on your cock are soft and pliable, they reflexively harden up after Nieve's tongue washes over them.  She doesn't pay particular attention to the barbs, but she does seem rather careful not to get one hooked on her lip.");
             //(Lizard)
             else if (this.player.cocks[x].cockType == CockTypesEnum.LIZARD) this.outputText("  Nieve fawns over your scaled and ridged reptilian cock, slurping and smooching up and down its length. It seems a bit more resistant to the biting cold of Nieve's mouth, which is lucky when she backs off, exposing your entire wet, frigid length to the wintery air surrounding you.");
-            //(Anemone) 
+            //(Anemone)
             else if (this.player.cocks[x].cockType == CockTypesEnum.ANEMONE) this.outputText("  Nieve giggles whenever one of your wriggling tentacles stings her, seemingly immune to its effects, and kisses it back.  Soon after she devours your whole length, delighted to feel the sting of your cock in the back of her throat.");
-            //(Kangaroo) 
+            //(Kangaroo)
             else if (this.player.cocks[x].cockType == CockTypesEnum.KANGAROO) this.outputText("  It takes Nieve a little while to catch on that your cock isn't quite human, and by the time she figures it out, she mutters, \"<i>Huh, that's strange... I thought kangaroos had balls above the cock,</i>\" before shrugging and getting back to work.");
-            //(If you add dicks later, placeholder text:) 
+            //(If you add dicks later, placeholder text:)
             else this.outputText("  Nieve works on your mutant cock, spending time working every unique little facet of it.");
         }
-        //(Clitoris) 
+        //(Clitoris)
         else {
             this.outputText("  Nieve nuzzles and lavishes your elongated love button, showering it with attention. \"<i>I didn't know clits could get this big,</i>\" she says with wonder in her voice. \"<i>");
             if (this.player.clitLength < 5) this.outputText("It's just like a little cock");
@@ -30660,7 +30660,7 @@ We can also do * italic * and ** bold ** text!
         this.outputText(", and just slipping the tip in before pulling out.  You do this until your snowbound lover is biting her lip, squirming with barely contained pleasure.");
 
         this.outputText("\n\nRight as she begins to open her mouth, to beg you to just stop it and fuck her, you slip your " + this.cockClit(x) + " in ");
-        //(if too big: 
+        //(if too big:
         if (x >= 0) {
             if (this.player.cockArea(x) >= 130) this.outputText("at least as far as it will go, ");
         }
@@ -30670,7 +30670,7 @@ We can also do * italic * and ** bold ** text!
         if (x >= 0) {
             //((cocksize 3/Clit 3)
             if (this.player.cockArea(x) <= 7) this.outputText("Your meager penis isn't much, but at this angle you manage to hit all the right places.  Soon Nieve is wriggling around, eyes staring up at you, urging you on faster and faster.");
-            //(Cocksize 30/Clit 12) 
+            //(Cocksize 30/Clit 12)
             else if (this.player.cockArea(x) <= 30) this.outputText("At this angle you manage to hit all the right places.  Soon Nieve is wriggling around, eyes tightly shut as she whispers dirty words you can't even make out.");
             //(Cocksize 70/Clit 24)
             else if (this.player.cockArea(x) <= 70) this.outputText("Nieve's cunt feels like an icy vice on your oversized cock, but even so, you manage to hit all the right places.  Soon she is wriggling around, eyes tightly shut as she pants for breath.");
@@ -30720,9 +30720,9 @@ We can also do * italic * and ** bold ** text!
         this.outputText("\n\nNieve bows subserviently, then moves closer to you, doing the work of disrobing you like he's practiced at it.  He caresses your [chest] and [nipples] as he nibbles on your neck and ears, the cool kisses and touches feeling electric in the contrasting warmth of the air, causing you to shiver in delight at his surprisingly experienced movements.");
         //{Silly Mode:}
         if (this.silly()) this.outputText("   He did say that his kind were effectively love slaves, and boy does this prove it!");
-        //[if (hasVagina = true) 
+        //[if (hasVagina = true)
         if (this.player.hasVagina()) this.outputText("  Your [vag] is a sodden box so soon after he started, and you start to want more, much more!");
-        //[if (hasCock = true) 
+        //[if (hasCock = true)
         if (this.player.hasCock()) this.outputText("  Your [cock biggest] is also rock hard in a short while and you quickly desire some more stimulation from your icy love slave.");
 
         //[(if PC has vagina or large enough tits) \"<i>So [master],</i>\" He says pulling back slightly, \"<i>Where would you like me to put this?</i>\"][(if anal is the only option, automatically selected) \"<i>Well I guess I know where to put this huh?</i>\" He says coyly.]
@@ -30739,23 +30739,23 @@ We can also do * italic * and ** bold ** text!
         this.player.buttChange(9, true, true, false);
 
         this.outputText("\n\nHe continues increasing the tempo until you're both rutting like animals, the lewd squelches coming from the pounding fill the environment as you start to feel a warming sensation in your ass.  The unusually loud squelches tell you he's leaking some precum as the frigid phallus drives into your [asshole] like a perverted slip 'n slide.");
-        //[if (hasCock = true) 
+        //[if (hasCock = true)
         if (this.player.hasCock()) this.outputText("  Nieve then bends forward while keeping his pace to give you a reach-around.  Grabbing your own [cock biggest] in one hand, he starts to pump it to the speed of his thrusts, torturing you with the extra-stimulation in such a good way.");
         //[if (hasVagina = true)
         else if (this.player.hasVagina()) this.outputText("  As Nieve continues to pound away, he places one hand on your sopping wet cunt and begins to finger you in time with his assault, making you lust-drunk with the stimulation as he finger bangs you.");
 
         this.outputText("\n\nNieve continues to grunt as he prods and plunges into your ");
-        //if (silly mode) 
+        //if (silly mode)
         if (this.silly()) this.outputText("pooper");
         else this.outputText("[asshole]");
         this.outputText(" as you feel an oncoming climax.  Nieve, furiously impaling you with his long and cold cock, comes first, and in one final thrust drives his penis as deeply as possible, flooding your bowels with a crisp current of cum as his body rocks from the orgasm.  You join him in the throes of ecstasy as soon as his jizz hits your inner walls");
         if (this.player.gender > 0) {
 
-            //[if (hasCock = true) 
+            //[if (hasCock = true)
             if (this.player.hasCock()) {
                 this.outputText(", ");
                 this.outputText("while your body undulates and seizes as cum starts to spew forth from [eachCock]");
-                //(normal volume: 
+                //(normal volume:
                 if (this.player.cumQ() < 200) this.outputText(", as you cum, you leave a small puddle on the floor below you");
                 else if (this.player.cumQ() < 500) this.outputText(", as you cum you start to dress your arms and hands with your own cream as you shoot your stuff out onto the floor");
             }
@@ -30777,16 +30777,16 @@ We can also do * italic * and ** bold ** text!
 
         //if (corruption < 50)
         if (this.player.cor < 50) this.outputText("\n\nYou give him a dirty look, asking if he's going to make you say it.  \"<i>I do not know what it is you mean, [master],</i>\" he whistles complacently, giving you a sideways glance.  Frustration sets in your mind at the sheer smugness your love slave just exhibited, so much so that you blurt out that you just want him to fuck your cunt like the stud he is.");
-        //if (corruption > 50) 
+        //if (corruption > 50)
         else this.outputText("\n\nYou ask your toy if he's playing coy, to which he merely gives you another sidelong glance.  You then grab him by the chin and force him to look into your eyes, barely an inch away from each others faces.  You whisper that he's going to empty those pretty blue balls of his directly into your womb, and he'd better get started.  Right.  Now.");
 
         this.outputText("\n\nNieve obliges with a, \"<i>Yes ma'am!</i>\" quickly laying you on your back");
-        //[if (hasBalls = true) 
+        //[if (hasBalls = true)
         if (this.player.balls > 0) this.outputText(", gently moving your [balls] out of the way in the process");
         this.outputText(".  He slams his nine inch blue rod balls deep into your sodden box.  A loud squelch fills the air at the penetration, giving Nieve the go ahead to start in top gear, pistoning in and out at a hurried pace.");
         //[if (hasCock = true)
         if (this.player.hasCock()) this.outputText("  During the pounding Nieve grabs your dangling [cock biggest] and starts to pump it in time with his own thrusts, quite eager to please his [master].  Every time your feminine half cums, so does your male half, splashing its happy seed into the valley that your combined bodies have made.");
-        //[if (isLactating = true) 
+        //[if (isLactating = true)
         if (this.player.lactationQ() >= 100) this.outputText("  Your ice man reaches out with a free hand to caress your [chest], twiddling his fingers around your delicate [nipples]. After some rough pulling and flicking, pounding away all the while, he feels milk dribble onto his hand.  He catches a quick glance of the liquid before diving head-first to suckle on your milk faucets, drinking heavily of your cream as he's about to give you his.");
         this.outputText("\n\nYou enjoy the ride and then some, as his phallus hammers away at your cunt, desperate to feed your womb with his seed.  He caresses, fondles and nibbles all parts of your body, quickly stimulating one area after the other to freshen the feeling again and again... and again.  Everytime you come, he pounds a little slower and harder, grunting heavier as you try to wring him dry of all his dickmilk, wanting desperately to feel full of it.");
         this.player.cuntChange(9, true, true, false);
@@ -30823,7 +30823,7 @@ We can also do * italic * and ** bold ** text!
             this.outputText("\n\nEverything about it looks the exact same... except for a sparkling, teardrop shaped icicle which hangs from the eye.  As you inspect it, it comes dislodged, falling and landing on your shoulder.  A final tear shed by Nieve, the ice spirit.");
             this.outputText("\n\nYou pick up the frozen tear, which doesn't appear to be melting at all, and clutch it tightly.");
             if (this.player.cor < 50) this.outputText("  You even tear up yourself, sad to see such a good friend leave, and so abruptly.");
-            //Corruption >50: 
+            //Corruption >50:
             else this.outputText("  You even feel a little sad yourself, it's such a pity to see a good, obedient fucktoy leave.");
             this.outputText("  The snowman collapses on itself, melting away before your very eyes.  In a matter of hours, this entire area will be nothing but a dried up, dehydrated desert once more.  But as the jingling fades out into the distance, you vow to hold on to the tear.");
 

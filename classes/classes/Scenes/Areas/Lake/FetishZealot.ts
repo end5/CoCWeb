@@ -1,6 +1,6 @@
 import { Monster } from "../../../Monster";
 import { trace } from "../../../../console";
-import { ANAL_LOOSENESS_LOOSE, ANAL_WETNESS_DRY, HIP_RATING_BOYISH, BUTT_RATING_TIGHT } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_LOOSE, ANAL_WETNESS_DRY, HIP_RATING_BOYISH, BUTT_RATING_TIGHT } from "../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 
@@ -75,7 +75,7 @@ export class FetishZealot extends Monster {
             //The zealot is clad in a bizarre set of religious robes.  They are similar to what you've seen on other religious leaders from home, but none that included the large slit at the front that lets his above average sized human dick stick out the front.
             this.outputText("The zealot cries out \"<i>Child, are you ready to present your offering to the holy rod?</i>\" while indicating his cock sliding between his robes.  The whole scene leaves you distracted for a few moments and significantly aroused.", false);
         }
-        //A pirate costume; 
+        //A pirate costume;
         if (this.armorName == FetishZealot.PIRATE_CLOTHES) {
             //You are faced with one of the strangest things you have ever seen in your life.  A stereotypical pirate, who has not replaced his hand with a hook, but rather a collection of sex toys.  You can see at least two dildos, a fleshlight, and numerous other toys that you're incapable of recognizing.
             this.outputText("The zealot turns to the side holding his prosthetic towards you and doing something that sends the devices spinning and clicking.  <i>So that's how that would work...<i> you find yourself thinking for a few moments before realizing that he had both distracted and aroused you.", false);
@@ -84,9 +84,9 @@ export class FetishZealot extends Monster {
         if (this.armorName == FetishZealot.MILITARY_CLOTHES) {
             //In front of you is someone wearing a green military uniform.  They obviously aren't in any military you've ever heard of, as on his shoulder he has emblazoned <i>FF Army Sex Instructor</i>.  It seems you are his latest Recruit...
             this.outputText("He suddenly barks, \"<i>Let's see those genitals, soldier!</i>\" ", false);
-            //[player is corrupt] 
+            //[player is corrupt]
             if (this.player.cor > 50) this.outputText("You eagerly cry out \"<i>Yes, sir!</i>\" and show yourself off to the best of your ability.  The whole act is extremely arousing.", false);
-            //[player is not corrupt] 
+            //[player is not corrupt]
             else this.outputText("You have no idea why, but you promptly display yourself in the most provocative way possible.  After a moment you realize what you're doing and quickly stop, flushed with embarrassment and arousal.", false);
         }
         //Gimp gear;
@@ -102,8 +102,8 @@ export class FetishZealot extends Monster {
         this.game.dynStats("lus", (7 + FetishZealot.rand(this.player.lib / 20 + this.player.cor / 20)));
         this.combatRoundOver();
     }
-    //Special2: Lust transfer spell, it becomes more and 
-    //more likely that he will use this power as his lust gets 
+    //Special2: Lust transfer spell, it becomes more and
+    //more likely that he will use this power as his lust gets
     //higher, but he can use it at any time (like the cultist).
     private zealotSpecial2(): void {
         this.outputText("The zealot suddenly cries out and extends his arms towards you; your mind is suddenly overwhelmed with a massive wave of arousal as images of every kind of fetish you can imagine wash over you, all blended together.  After a moment you are able to recover, but you notice that the Zealot doesn't seem to be as aroused as before.", false);

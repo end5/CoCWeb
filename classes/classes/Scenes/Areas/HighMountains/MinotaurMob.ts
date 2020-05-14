@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, SKIN_TYPE_FUR, FACE_COW_MINOTAUR, TAIL_TYPE_COW } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, SKIN_TYPE_FUR, FACE_COW_MINOTAUR, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
 
 /**

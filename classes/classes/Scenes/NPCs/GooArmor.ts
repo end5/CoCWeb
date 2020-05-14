@@ -1,6 +1,6 @@
 import { GooGirl } from "../Areas/Lake/GooGirl";
 import { StatusAffects } from "../../StatusAffects";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_GAPING_WIDE, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_AMPLE, BUTT_RATING_LARGE, SKIN_TYPE_GOO, HAIR_GOO } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_GAPING_WIDE, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_AMPLE, BUTT_RATING_LARGE, SKIN_TYPE_GOO, HAIR_GOO } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 
 export class GooArmor extends GooGirl {

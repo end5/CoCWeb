@@ -14,8 +14,8 @@ import { Inventory } from "./Scenes/Inventory";
 import { TimeModel } from "../coc/model/TimeModel";
 import { GameModel } from "../coc/model/GameModel";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
-import { MainView } from "../../lib/src/coc/view/MainView";
-import { OtherKeys, StatKeys } from "../../lib/src/coc/view/StatsView";
+import { MainView } from "../view/MainView";
+import { OtherKeys, StatKeys } from "../view/StatsView";
 import { ASDate } from "./ASDate";
 
 /**
@@ -266,11 +266,11 @@ export class BaseContent extends Utils {
             protected  clearList(): void{
                 kGAMECLASS.clearList();
             }
-    
+
             protected  addToList(arg: any): void{
                 kGAMECLASS.addToList(arg);
             }
-    
+
             protected  outputList(): string{
                 return kGAMECLASS.outputList();
             }
@@ -395,7 +395,7 @@ export class BaseContent extends Utils {
             {
                 return kGAMECLASS.num2TextBest(number, capitalised, positional);
             }
-        	
+
             protected  num2Text(number: number): string
             {
                 return kGAMECLASS.num2Text(number);
@@ -438,12 +438,12 @@ export class BaseContent extends Utils {
             {
                 return kGAMECLASS.eMultiCockDescriptLight();
             }
-        	
+
             protected  eCockHead(cockNum: number = 0): string
             {
                 return kGAMECLASS.eCockHead(cockNum);
             }
-        	
+
             protected  eCockDescript(cockIndex: number = 0): string
             {
                 return kGAMECLASS.eCockDescript(cockIndex);
@@ -514,7 +514,7 @@ export class BaseContent extends Utils {
      * Also support operators could be appended with + - * /=
      * eg: dynStats("str+", 1, "tou-", 2, "spe*", 1.1, "int/", 2, "cor=", 0)
      *     will add 1 to str, subtract 2 from tou, increase spe by 10%, decrease int by 50%, and set cor to 0
-     * 
+     *
      * @param	... args
      */
     protected dynStats(...args: any[]): void {
@@ -613,7 +613,7 @@ export class BaseContent extends Utils {
             {
                 return kGAMECLASS.itemSwapping;
             }
-        	
+
             protected  set itemSwapping(val: boolean): void
             {
                 kGAMECLASS.itemSwapping = val;
@@ -633,7 +633,7 @@ export class BaseContent extends Utils {
             {
                 return kGAMECLASS.menuLoc;
             }
-        	
+
             protected  set menuLoc(val: number): void
             {
                 kGAMECLASS.menuLoc = val;
@@ -645,7 +645,7 @@ export class BaseContent extends Utils {
             {
                 return kGAMECLASS.gameState;
             }
-        	
+
             protected  set gameState(val: number): void
             {
                 kGAMECLASS.gameState = val;
@@ -664,17 +664,17 @@ export class BaseContent extends Utils {
             {
                 return kGAMECLASS.itemStorage;
             }
-    
+
             protected  set itemStorage(val: any[]): void
             {
                 kGAMECLASS.itemStorage = val;
             }
-        	
+
             protected  get gearStorage(): any[]
             {
                 return kGAMECLASS.gearStorage;
             }
-        	
+
             protected  set gearStorage(val: any[]): void
             {
                 kGAMECLASS.gearStorage = val;

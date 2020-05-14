@@ -4,7 +4,7 @@ import { LustyDemons } from "./Owca/LustyDemons";
 import { StatusAffects } from "../../StatusAffects";
 import { WeaponLib } from "../../Items/WeaponLib";
 import { PerkLib } from "../../PerkLib";
-import { ANTENNAE_NONE } from "../../../../includes/appearanceDefs";
+import { ANTENNAE_NONE } from "../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../PregnancyStore";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 import { ItemType } from "../../ItemType";
@@ -68,7 +68,7 @@ export class Owca extends BaseContent {
         else {
             this.outputText("Using the vivid memory of your last encounter, you easily find Owca village; the first houses are in sight when you spot someone rushing to you.  You recognize Rebecc, the girl you first met in the plains and who begged you for your help.  She is smiling, her arms open for a welcoming embrace.  Before you even try to say something she is already hugging you, pressing her warm body against yours as she takes you in her arms.  She holds you tightly for a minute before kissing you everywhere affectionately; you haven't said a single word and your cheeks and lips are already bearing the mark of her lipstick.");
             this.outputText("\n\n\"<i>Thank you!  Thank you so much, " + this.player.short + "!  You are a wonderful person!  What you did was noble and selfless.  Our people will remember you for years to come!</i>\"");
-            //[if corr >= 50] 
+            //[if corr >= 50]
             if (this.player.cor > 50) this.outputText("  You can't help but smile internally.  Let her think that, if she wants.");
             this.outputText("\n\nShe grabs your hand and drags you to her village, hopping joyfully as she keeps thanking you for your heroic gesture.  You finally reach her home; a handful of people join you, attracted by the noise she's been making.  People are everywhere showing unconditional gratitude, bowing down and muttering thankful words as you go by; it's almost as if they were intimidated - or ashamed - by someone worthier than them.  Eventually you are left alone with the charming farmer girl.");
             this.outputText("\n\n\"<i>My home is yours, hero; alongside everyone else's.  You will always be welcome here.  Don't hesitate to come to my place; you must feel all dirty and sullied from these corrupted monsters.  Don't worry, I'll clean you up.</i>\"  She winks at you and walks into her house, leaving her door open as an invitation.");
@@ -100,7 +100,7 @@ export class Owca extends BaseContent {
                 this.outputText("\n\nYou are shocked by this revelation. You wrap your arms around Rebecc's shoulders protectively, and tell her in a reassuring tone that ");
                 //[[if silly mode on]
                 if (this.silly()) this.outputText("she'll never have to worry about her asshole again.");
-                //[if silly mode off] 
+                //[if silly mode off]
                 else this.outputText("she will never be abused again.");
                 this.outputText("  If there's anything that can be done to hold off these evil creatures, you will do it.");
             }
@@ -433,7 +433,7 @@ export class Owca extends BaseContent {
             else this.outputText(this.player.skin());
             this.outputText("!</i>\"  The poor demoness, cheek stained with semen, mutters an apology and proceeds to lick your " + this.cockDescript(0) + ", suckling the tip, ");
             if (this.player.balls > 0) this.outputText("fondling your " + this.ballsDescriptLight() + ", ");
-            //[if multicocks] 
+            //[if multicocks]
             if (this.player.cockTotal() > 1) this.outputText("alternatively deepthroating or jerking every cock of yours, ");
             this.outputText("warming up your dickflesh with her demonic tongue.  You enjoy her ministrations while staring Vapula in the eyes; she has trouble looking back at you as her body trembles and her eyes widen at your sheer display of depravity.  Your semen-dribbling shaft");
             if (this.player.cockTotal() > 1) this.outputText("s harden and thicken ");
@@ -483,7 +483,7 @@ export class Owca extends BaseContent {
             if (this.player.vaginalCapacity() > 80) this.outputText("His cock is lost in your vast cunt and you work him as hard as you can to feel him against your walls, his body convulsing and dazed eyes rolling against the wet, savage rape.  ");
             this.outputText("You keep thrusting back and forth, treating the worthless horned boy like a disposable dildo.  As you pump him, you look at Vapula, warning her, \"<i>Don't turn your head.  If you ever look away or close your eyes you will regret it.</i>\" Overwhelmed by your dominance and subdued by the defeat, Vapula can only nod.");
             this.outputText("\n\nYou keep working the incubus's hot cock in front of the once-powerful dominatrix, panting as you accelerate the pace until you finally reach your climax, clenching your thighs tightly to his fit body as your " + this.vaginaDescript() + " clenches and spasms.  ");
-            //[if squirter] 
+            //[if squirter]
             if (this.player.wetness() >= 5) this.outputText("The sound of spattering fluid fills the air as your cunt spurts its juices around the incubus's cock, coating him in your fragrant slime.  ");
             this.outputText("Against your relentless milking pressure he stands no chance and he moans raggedly as he cums in tandem, still incapable of moving his body as your mixed juices dribble down him.");
             this.outputText("\n\nNeedless to say, watching this rough session has brought Vapula to a new level of arousal; she is struggling to free her arms and finger herself, but her tight restraints only allow her to wriggle uncomfortably.  Her pussy is gushing of its own accord and she whimpers from time to time, unable to control her lust.");
@@ -497,7 +497,7 @@ export class Owca extends BaseContent {
             this.outputText("\n\n\"<i>You!</i>\" you snap. \"<i>Fuck my ass.  Do a good job or I'll wring your neck.  The rest of you worthless spare pricks... gather around.</i>\"  You grip the incubus beneath you with your " + this.hipDescript() + " as small, uncertain hands grasp you around your waist and something hot oozes moisture into your " + this.assholeDescript() + ".  You thrust forwards and then backwards, simultaneously working the incubus cock whilst driving the imp's meat into your bowels.");
             this.player.buttChange(60, true, true, false);
             this.outputText("  Around you more dicks present themselves as other demons slowly draw closer, and with the cock inside you rubbing your sensitive inner walls backwards and forwards you enthusiastically grab two other turgid members and pump them in tandem.  One of the dicks you have grabbed is a sensitive cat dick and the owner is quickly moaning as your fingers brush his hooks; as you feel him reach his peak you ruthlessly jerk him around so he is facing Vapula, and he helplessly spurts his load onto her jiggling frame.  The imp begins to pump harder as he finds his rhythm, stretching your ass wide as he takes you to his plug, rubbing against the huge incubus cock trapped in your " + this.vaginaDescript(0) + ".  You laugh breathlessly and manically as the other demon in your grasp helplessly falls over his own peak, further soaking the horny ex-domniatrix.");
-            //[cunt nipples] 
+            //[cunt nipples]
             if (this.player.hasFuckableNipples()) this.outputText("  Your freakish nipples moisten with excitement to the smell of man juice, and you feel your libido ratcheting up even higher.  Bending forward, you grab two other imps with smaller dicks, quickly guiding their lengths into your nipplecunts; they are small enough that you can mash their bodies against your soft flesh, doing all the work for them as your sensitive nubs are penetrated.");
             this.outputText("\n\nVapula stares at you through the creamy liquid which now covers her face and tits.  The contact of all this hot demon seed against her untouched body is driving her crazy; after some futile squirming in a desperate attempt to quench her burning pussy, she is now openly sobbing in frustration.");
             this.outputText("\n\n\"<i>You're.. you violate my pets... yet you won't deign to touch me.  Why?  D-don't you like my body?  Don't you like my cunt?  Please fuck me fuck me fuck me fuckmefuckme....<b>why won't you fuck me?  Please, I need to cum! Please!</b></i>\"");
@@ -518,7 +518,7 @@ export class Owca extends BaseContent {
             this.player.slimeFeed();
             this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP);
         }
-        //PC is redirected to camp, next morning. No nightly camp scenes. 
+        //PC is redirected to camp, next morning. No nightly camp scenes.
         this.model.time.hours = 7;
         this.model.time.days++;
         this.cleanupAfterCombat();
@@ -566,7 +566,7 @@ export class Owca extends BaseContent {
         if (this.flags[kFLAGS.DAYS_SINCE_LAST_DEMON_DEALINGS] == 7 && this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] == 0) this.outputText("  A week");
         else if (this.flags[kFLAGS.DAYS_SINCE_LAST_DEMON_DEALINGS] > 7 && this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] == 0) this.outputText("  More than a week");
         if (this.flags[kFLAGS.DAYS_SINCE_LAST_DEMON_DEALINGS] >= 7 && this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] == 0) this.outputText(" has passed since the last offering to the demons; guarding the pit would certainly help improve your relations with the little town's denizens.");
-        //Option: 
+        //Option:
         var pit = undefined;
         var herd = undefined;
         var tavern = undefined;
@@ -750,7 +750,7 @@ export class Owca extends BaseContent {
             this.outputText("\n\nWet sounds fill the air as you thrust your needy cunt into Rebecc's own, your juices dribbling onto and into her, lubricating your unwilling toy.  She whines and again tries to struggle out of the merciless grip you have her in; the effect is to make her own cunt buck and thrust into yours, your slimy lips kissing and moving against each other, heightening your own pleasure and making you scissor into her all the more savagely, already working yourself to a high.  You shove her leg up ruthlessly high so you can really grind into her; you feel her tiny clit bump into your own " + this.clitDescript() + " and suck in your breath as Rebecc squeals.  Irritated with her constant noise, you bend into the prostrate sheep girl and slap her again, before roaming your hand down her lush front, your fingers landing upon a dark nipple.  You squeeze it as you rub your clits together, her warm flesh wobbling against yours, her own juices dribbling now as you push her relentlessly along the boundary between pain and pleasure until she arches her back and moans in miserable ecstasy, her cunt spasming a gush of girlcum onto you.  You reward her with another slap as she twists in her involuntary orgasm, so that your red hand mark has a partner upon the other side of her face.  It's a good look for her.");
             //[big clit]
             if (this.player.clitLength > 3) this.outputText("\n\nYou aren't done yet.  Your own clit has long since pushed out of its hood and is bulging with obscene need.  You rotate your hips, teasing Rebecc's dribbling entrance with it whilst immersing yourself in pleasure, rubbing every inch of your sensitive femcock over her lips and hole before forcing yourself against her own tiny pleasure button, making her twitch and moan.  Your lust stoked to incredible heights by the slick pressure on your clit and the sight and feeling of your yielding, insensate victim, you finally thrust it into her slick hole, eager for release.  Clutching her gelatinous ass and firm neck as you fuck her like a man, you're forced to grit your teeth against the unbearably pleasurable sensation of your clit rubbing on her tender inner walls.  Your " + this.vaginaDescript() + " drools in sympathy as you push your " + this.hipDescript() + " into the sheep girl and drive her into the ground, fucking her with your clit-dick as hard as you can.   Your pelvises beat a rough staccato against each other as you bring yourself all the way out and then thrust yourself in again, spattering your mixed juices everywhere as you pick up the pace.  Your " + this.allBreastsDescript() + " are pushed into her own soft pillows as you rub every inch of yourself over her, determined in your lust craze to violate all of this slut's teasing body.");
-            //[other] 
+            //[other]
             else {
                 this.outputText("\n\nYou aren't done yet.  Your own clit has long since pushed out of its hood and is bulging with need.   You rotate your hips, teasing Rebecc's dribbling entrance with it whilst immersing yourself in pleasure, rubbing every inch of your sensitive female nub over her lips and hole before forcing yourself against her own tiny pleasure button, making her twitch and moan.  Casually you slap her face again, making her start; the movement translates through her body into your own needy sex as her lips involuntary shrink and rub against yours.  What a lovely sensation!  Your lust stoked to incredible heights by the slick pressure on your clit and the sight and feeling of your yielding, insensate victim, you thrust against her slick hole, eager for your own release.  You scissor her as hard and as violently as you can, slapping into her brutalized sex a few times before embedding yourself and rotating, striking her face carelessly again and again and again.  Her shuddering and sobbing only serves to heighten your pleasure.");
             }
@@ -860,7 +860,7 @@ export class Owca extends BaseContent {
         this.outputText("\n\n\"<i>T-they forced you to be abused... I promise I didn't want that!  I tried to convince them... they wouldn't listen... they threw you to the pit... at least I made them give you back your belongings as usual... now you must hate me, don't you?  Oh, I'm so sorry!  It's all my fault!</i>\"");
         this.outputText("\n\nWhat do you do?");
         //Option: Forgive. Sets Attitude to 50, quest goes back to normal.
-        //Option: Rape. Leads to Rebecc Rape scene and ends the quest. 
+        //Option: Rape. Leads to Rebecc Rape scene and ends the quest.
         //Option: Leave. Redirects PC to camp, next encounter leads to Rebecc's Last Plea
         this.simpleChoices("Forgive", this.forgiveOwca,
             "Rape", this.createCallBackFunction(this.rapeRebecc, false), "", undefined, "", undefined, "Leave", this.fuckThisShit);
@@ -896,8 +896,8 @@ export class Owca extends BaseContent {
         this.outputText("As you arrive on the border of the cursed village, you see someone is running in your direction.  You recognize Rebecc instantly; she seems to stumble and stagger at every step, and her face is tear-stricken.  Intrigued, you catch the crying woman by the waist as she runs past you sightlessly; she falls into your arms, nearly tripping as she abandons herself to your embrace.  Unsure of what to do, you ask her why she is panicking, though it takes a while before your words reach her.");
         this.outputText("\n\n\"<i>They... they chose me!</i>\" she wails, choking back.  \"<i>They voted and I was chosen to be thrown in the pit!  They're angry at me for befriending you and I was blamed for the recent troubles with the demons!  They think you've abandoned us and I'm responsible for all this... they hate me!  They hate you too!  I'm going to be tied up, abused and broken... and everyone will pretend nothing happened!  I don't want to go to the pit; I don't know what to do!</i>\"");
         this.outputText("\n\nWhat do you do?");
-        //(You could rape her.) //Leads to Rebecc Rape scene. 
-        //(You could face the villagers and demons in her stead.) 
+        //(You could rape her.) //Leads to Rebecc Rape scene.
+        //(You could face the villagers and demons in her stead.)
         //(You could leave.) //End of quest.
         this.simpleChoices("Rape Her", this.createCallBackFunction(this.rapeRebecc, true),
             "Face Them All", this.faceDownHordes, "", undefined, "", undefined, "Leave", this.leaveRebeccToBeRaped);
@@ -947,7 +947,7 @@ export class Owca extends BaseContent {
     }
 
     //Subdue Vapula Scene - begins Vapula Follower Content(Z)
-    //[Triggered if submissiveness reaches 0 when beating the horde.] 
+    //[Triggered if submissiveness reaches 0 when beating the horde.]
     private subdueVapula(): void {
         this.clearOutput();
         this.outputText("At last, the final demon falls, ");

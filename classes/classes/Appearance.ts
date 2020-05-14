@@ -6,7 +6,7 @@ import { StatusAffects } from "./StatusAffects";
 import { CockTypesEnum, CockTypesGroup } from "./CockTypesEnum";
 import { CoC } from "./CoC";
 import { trace } from "../console";
-import { ANAL_WETNESS_DRY, ANAL_WETNESS_NORMAL, ANAL_WETNESS_MOIST, ANAL_WETNESS_SLIMY, ANAL_WETNESS_DROOLING, ANAL_WETNESS_SLIME_DROOLING, ANAL_LOOSENESS_VIRGIN, ANAL_LOOSENESS_TIGHT, ANAL_LOOSENESS_NORMAL, ANAL_LOOSENESS_LOOSE, ANAL_LOOSENESS_STRETCHED, ANAL_LOOSENESS_GAPING, GENDER_NONE, GENDER_MALE, GENDER_FEMALE, GENDER_HERM, SKIN_TYPE_PLAIN, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, SKIN_TYPE_GOO, SKIN_TYPE_UNDEFINED, HAIR_NORMAL, HAIR_FEATHER, HAIR_GHOST, HAIR_GOO, HAIR_ANEMONE, FACE_HUMAN, FACE_HORSE, FACE_DOG, FACE_COW_MINOTAUR, FACE_SHARK_TEETH, FACE_SNAKE_FANGS, FACE_CAT, FACE_LIZARD, FACE_BUNNY, FACE_KANGAROO, FACE_SPIDER_FANGS, FACE_FOX, FACE_DRAGON, FACE_RACCOON_MASK, FACE_RACCOON, FACE_BUCKTEETH, FACE_MOUSE, TONUGE_HUMAN, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC, EYES_HUMAN, EYES_FOUR_SPIDER_EYES, EYES_BLACK_EYES_SAND_TRAP, EARS_HUMAN, EARS_HORSE, EARS_DOG, EARS_COW, EARS_ELFIN, EARS_CAT, EARS_LIZARD, EARS_BUNNY, EARS_KANGAROO, EARS_FOX, EARS_DRAGON, EARS_RACCOON, EARS_MOUSE, HORNS_NONE, HORNS_DEMON, HORNS_COW_MINOTAUR, HORNS_DRACONIC_X2, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_ANTLERS, ANTENNAE_NONE, ANTENNAE_BEE, ARM_TYPE_HUMAN, ARM_TYPE_HARPY, ARM_TYPE_SPIDER, TAIL_TYPE_NONE, TAIL_TYPE_HORSE, TAIL_TYPE_DOG, TAIL_TYPE_DEMONIC, TAIL_TYPE_COW, TAIL_TYPE_SPIDER_ADBOMEN, TAIL_TYPE_BEE_ABDOMEN, TAIL_TYPE_SHARK, TAIL_TYPE_CAT, TAIL_TYPE_LIZARD, TAIL_TYPE_RABBIT, TAIL_TYPE_HARPY, TAIL_TYPE_KANGAROO, TAIL_TYPE_FOX, TAIL_TYPE_DRACONIC, TAIL_TYPE_RACCOON, TAIL_TYPE_MOUSE, WING_TYPE_NONE, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE, WING_TYPE_HARPY, WING_TYPE_IMP, WING_TYPE_BAT_LIKE_TINY, WING_TYPE_BAT_LIKE_LARGE, WING_TYPE_SHARK_FIN, WING_TYPE_FEATHERED_LARGE, WING_TYPE_DRACONIC_SMALL, WING_TYPE_DRACONIC_LARGE, WING_TYPE_GIANT_DRAGONFLY, LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, LOWER_BODY_TYPE_DEMONIC_CLAWS, LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_CAT, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_PONY, LOWER_BODY_TYPE_BUNNY, LOWER_BODY_TYPE_HARPY, LOWER_BODY_TYPE_KANGAROO, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, LOWER_BODY_TYPE_FOX, LOWER_BODY_TYPE_DRAGON, LOWER_BODY_TYPE_RACCOON, PIERCING_TYPE_NONE, PIERCING_TYPE_STUD, PIERCING_TYPE_RING, PIERCING_TYPE_LADDER, PIERCING_TYPE_HOOP, PIERCING_TYPE_CHAIN, VAGINA_TYPE_HUMAN, VAGINA_TYPE_BLACK_SAND_TRAP, VAGINA_WETNESS_DRY, VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_TIGHT, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, HIP_RATING_BOYISH, HIP_RATING_SLENDER, HIP_RATING_AVERAGE, HIP_RATING_AMPLE, HIP_RATING_CURVY, HIP_RATING_FERTILE, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_BUTTLESS, BUTT_RATING_TIGHT, BUTT_RATING_AVERAGE, BUTT_RATING_NOTICEABLE, BUTT_RATING_LARGE, BUTT_RATING_JIGGLY, BUTT_RATING_EXPANSIVE, BUTT_RATING_HUGE, BUTT_RATING_INCONCEIVABLY_BIG } from "../../includes/appearanceDefs";
+import { ANAL_WETNESS_DRY, ANAL_WETNESS_NORMAL, ANAL_WETNESS_MOIST, ANAL_WETNESS_SLIMY, ANAL_WETNESS_DROOLING, ANAL_WETNESS_SLIME_DROOLING, ANAL_LOOSENESS_VIRGIN, ANAL_LOOSENESS_TIGHT, ANAL_LOOSENESS_NORMAL, ANAL_LOOSENESS_LOOSE, ANAL_LOOSENESS_STRETCHED, ANAL_LOOSENESS_GAPING, GENDER_NONE, GENDER_MALE, GENDER_FEMALE, GENDER_HERM, SKIN_TYPE_PLAIN, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, SKIN_TYPE_GOO, SKIN_TYPE_UNDEFINED, HAIR_NORMAL, HAIR_FEATHER, HAIR_GHOST, HAIR_GOO, HAIR_ANEMONE, FACE_HUMAN, FACE_HORSE, FACE_DOG, FACE_COW_MINOTAUR, FACE_SHARK_TEETH, FACE_SNAKE_FANGS, FACE_CAT, FACE_LIZARD, FACE_BUNNY, FACE_KANGAROO, FACE_SPIDER_FANGS, FACE_FOX, FACE_DRAGON, FACE_RACCOON_MASK, FACE_RACCOON, FACE_BUCKTEETH, FACE_MOUSE, TONUGE_HUMAN, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC, EYES_HUMAN, EYES_FOUR_SPIDER_EYES, EYES_BLACK_EYES_SAND_TRAP, EARS_HUMAN, EARS_HORSE, EARS_DOG, EARS_COW, EARS_ELFIN, EARS_CAT, EARS_LIZARD, EARS_BUNNY, EARS_KANGAROO, EARS_FOX, EARS_DRAGON, EARS_RACCOON, EARS_MOUSE, HORNS_NONE, HORNS_DEMON, HORNS_COW_MINOTAUR, HORNS_DRACONIC_X2, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_ANTLERS, ANTENNAE_NONE, ANTENNAE_BEE, ARM_TYPE_HUMAN, ARM_TYPE_HARPY, ARM_TYPE_SPIDER, TAIL_TYPE_NONE, TAIL_TYPE_HORSE, TAIL_TYPE_DOG, TAIL_TYPE_DEMONIC, TAIL_TYPE_COW, TAIL_TYPE_SPIDER_ADBOMEN, TAIL_TYPE_BEE_ABDOMEN, TAIL_TYPE_SHARK, TAIL_TYPE_CAT, TAIL_TYPE_LIZARD, TAIL_TYPE_RABBIT, TAIL_TYPE_HARPY, TAIL_TYPE_KANGAROO, TAIL_TYPE_FOX, TAIL_TYPE_DRACONIC, TAIL_TYPE_RACCOON, TAIL_TYPE_MOUSE, WING_TYPE_NONE, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE, WING_TYPE_HARPY, WING_TYPE_IMP, WING_TYPE_BAT_LIKE_TINY, WING_TYPE_BAT_LIKE_LARGE, WING_TYPE_SHARK_FIN, WING_TYPE_FEATHERED_LARGE, WING_TYPE_DRACONIC_SMALL, WING_TYPE_DRACONIC_LARGE, WING_TYPE_GIANT_DRAGONFLY, LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, LOWER_BODY_TYPE_DEMONIC_CLAWS, LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_CAT, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_PONY, LOWER_BODY_TYPE_BUNNY, LOWER_BODY_TYPE_HARPY, LOWER_BODY_TYPE_KANGAROO, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, LOWER_BODY_TYPE_FOX, LOWER_BODY_TYPE_DRAGON, LOWER_BODY_TYPE_RACCOON, PIERCING_TYPE_NONE, PIERCING_TYPE_STUD, PIERCING_TYPE_RING, PIERCING_TYPE_LADDER, PIERCING_TYPE_HOOP, PIERCING_TYPE_CHAIN, VAGINA_TYPE_HUMAN, VAGINA_TYPE_BLACK_SAND_TRAP, VAGINA_WETNESS_DRY, VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_TIGHT, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, HIP_RATING_BOYISH, HIP_RATING_SLENDER, HIP_RATING_AVERAGE, HIP_RATING_AMPLE, HIP_RATING_CURVY, HIP_RATING_FERTILE, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_BUTTLESS, BUTT_RATING_TIGHT, BUTT_RATING_AVERAGE, BUTT_RATING_NOTICEABLE, BUTT_RATING_LARGE, BUTT_RATING_JIGGLY, BUTT_RATING_EXPANSIVE, BUTT_RATING_HUGE, BUTT_RATING_INCONCEIVABLY_BIG } from "../includes/appearanceDefs";
 
 export class Appearance extends Utils {
     // Eventually, this should contain the entire char appearance.
@@ -411,7 +411,7 @@ export class Appearance extends Utils {
                     CoC_Settings.error("<b>ERROR: CockDescript called with index of " + i_cockIndex + " - out of BOUNDS</b>");
                     return "<b>ERROR: CockDescript called with index of " + i_cockIndex + " - out of BOUNDS</b>";
                 }
-    
+
                 //Cocknum 99 to default to boring descriptions!
                 if (i_cockIndex != 99) {
                     switch (i_creature.cocks[i_cockIndex].cockType) {
@@ -436,10 +436,10 @@ export class Appearance extends Utils {
                     }
                 }
                 i_cockIndex = 0; //I'm pretty sure this 99 business never gets used anywhere in the code, so this whole lower part of the function is probably orphaned code.
-    
+
             var  description: string = "";
             var  options: any[];
-    
+
                 //50% of the time add a descriptor
                 if (rand(2) == 0)
                     description += i_creature.cockAdjective(i_cockIndex) + " ";
@@ -460,7 +460,7 @@ export class Appearance extends Utils {
                     "rod",
                     "anaconda"];
                 description += randomChoice(options);
-    
+
                 return description;
             }
     */
@@ -720,7 +720,7 @@ export class Appearance extends Utils {
             var  description: string = "";
             var  multi: boolean = false;
             var  options: any[];
-    
+
                 //If used for multiple cocks, set multi flag
                 if (i_cockIndex < 0) {
                     //Since we have multi dicks lets talk about the biggest!
@@ -765,13 +765,13 @@ export class Appearance extends Utils {
                     }
                     else if (i_creature.cocks[i_cockIndex].cockLength < 11) {
                         options = ["sizable"];
-    
+
                         if (i_creature.cocks[i_cockIndex].cockType == CockTypesEnum.HORSE) {
                             options.push("pony-sized", "colt-like");
                         }
                         else
                             options.push("long", "lengthy");
-    
+
                         description += randomChoice(options);
                     }
                     else if (i_creature.cocks[i_cockIndex].cockLength < 14) {
@@ -1982,7 +1982,7 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.HUMAN);
                 return descript;
             }
-    
+
             private static  kangaDescript(cockNum: number): string
             {
             var  descript: string = "";
@@ -1990,7 +1990,7 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.KANGAROO);
                 return descript;
             }
-    
+
             public static  dogDescript(cockNum: number): string
             {
             var  descript: string = "";
@@ -1998,7 +1998,7 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.DOG);
                 return descript;
             }
-    
+
             private static  foxDescript(cockNum: number): string
             {
             var  descript: string = "";
@@ -2006,7 +2006,7 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.FOX);
                 return descript;
             }
-    
+
             private static  tentacleDescript(cockNum: number): string
             {
             var  descript: string = "";
@@ -2014,7 +2014,7 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.TENTACLE);
                 return descript;
             }
-    
+
             private static  demonDescript(cockNum: number): string
             {
             var  descript: string = "";
@@ -2022,8 +2022,8 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.DEMON);
                 return descript;
             }
-    
-    
+
+
             //Horsecock + Descript
             public static  horseDescript(cockNum: number): string
             {
@@ -2032,7 +2032,7 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.HORSE);
                 return descript;
             }
-    
+
             private static  catDescript(cockNum: number): string
             {
             var  descript: string = "";
@@ -2040,7 +2040,7 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.CAT);
                 return descript;
             }
-    
+
             private static  anemoneDescript(cockNum: number): string
             {
             var  descript: string = "";
@@ -2048,7 +2048,7 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.ANEMONE);
                 return descript;
             }
-    
+
             private static  dragonDescript(cockNum: number): string
             {
             var  descript: string = "";
@@ -2056,7 +2056,7 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.DRAGON);
                 return descript;
             }
-    
+
             private static  displacerDescript(cockNum: number): string
             {
             var  descript: string = "";
@@ -2064,8 +2064,8 @@ export class Appearance extends Utils {
                 descript += cockNoun(CockTypesEnum.DISPLACER);
                 return descript;
             }
-    
-    
+
+
             private static  snakeDescript(cockNum: number): string
             {
             var  descript: string = "";

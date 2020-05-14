@@ -6,7 +6,7 @@ import { CoC } from "../../CoC";
 import { trace } from "../../../console";
 import { Scylla } from "../Places/TelAdre/Scylla";
 import { CoC_Settings } from "../../CoC_Settings";
-import { VAGINA_WETNESS_SLICK, VAGINA_WETNESS_SLAVERING, TAIL_TYPE_HORSE, TAIL_TYPE_DOG, SKIN_TYPE_GOO, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_GOO, TONUGE_HUMAN, TAIL_TYPE_NONE, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLICK, VAGINA_WETNESS_SLAVERING, TAIL_TYPE_HORSE, TAIL_TYPE_DOG, SKIN_TYPE_GOO, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_GOO, TONUGE_HUMAN, TAIL_TYPE_NONE, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 import { StatusAffects } from "../../StatusAffects";
 import { CockTypesEnum } from "../../CockTypesEnum";

@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, TAIL_TYPE_DEMONIC } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, TAIL_TYPE_DEMONIC } from "../../../../includes/appearanceDefs";
 import { ChainedDrop } from "../../../internals/ChainedDrop";
 
 export class SandTrap extends Monster {

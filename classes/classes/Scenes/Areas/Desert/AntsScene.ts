@@ -9,7 +9,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { TentacleBeast } from "../Forest/TentacleBeast";
 import { Minotaur } from "../Mountain/Minotaur";
 import { Gnoll } from "../Plains/Gnoll";
-import { TONUGE_SNAKE, VAGINA_LOOSENESS_GAPING } from "../../../../../includes/appearanceDefs";
+import { TONUGE_SNAKE, VAGINA_LOOSENESS_GAPING } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../../PerkLib";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 

@@ -1,7 +1,7 @@
 import { NPCAwareContent } from "./NPCAwareContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
-import { TONUGE_HUMAN, TONUGE_DEMONIC } from "../../../../includes/appearanceDefs";
+import { TONUGE_HUMAN, TONUGE_DEMONIC } from "../../../includes/appearanceDefs";
 import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
 import { CockTypesEnum } from "../../CockTypesEnum";
@@ -304,7 +304,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(67);
         this.outputText("Shouldra runs your fingers along your ");
-        //[if (femininity < 50) 
+        //[if (femininity < 50)
         if (this.player.femininity < 50) this.outputText("masculine ");
         else if (this.player.femininity > 50) this.outputText("feminine ");
         this.outputText("form while processing your request, your eyes glowing yellow as she mulls over her choices.");
@@ -320,7 +320,7 @@ export class ShouldraFollower extends NPCAwareContent {
         //if event occurrence > 0
         else {
             this.outputText("\n\n\"<i>Up for another round then, Champ?</i>\" she asks, rubbing your hands down your [butt].  ");
-            //[if (corruption < 50) 
+            //[if (corruption < 50)
             if (this.player.cor < 50) this.outputText("There isn't an answer or outcome to that question that you're in favor of, honestly.");
             else this.outputText("You sure as hell wouldn't have bothered asking if you weren't.");
         }
@@ -393,7 +393,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(67);
         this.outputText("Shouldra runs your fingers along your ");
-        //[if (femininity < 50) 
+        //[if (femininity < 50)
         if (this.player.femininity < 50) this.outputText("masculine ");
         else if (this.player.femininity > 50) this.outputText("feminine ");
         this.outputText("form while processing your request, your eyes glowing yellow as she mulls over your request.  \"<i>So, let me get this straight.  Despite[if (hasCock = true)  this dandy dick] [if (isHerm = true)  and][if (hasVagina = true)  this serviceable snatch] you want me to work with this?</i>\" the spirit asks, smacking your hand against your [butt].  A smug nod reaffirms your desire.  ");
@@ -480,7 +480,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText("\n\nYou crawl on your belly across to the flower's entrance, shuddering with delight as your [cock] slides, catches, and flops against each and every pedal on the way.  With an effort spurred by your ever-increasing desire to bone a thing, you lunge forward, a hand reaching forward... to smack into the edge of the flowery fuckbox.  You freeze momentarily as your body registers the sheer lubrication of the lips; whereas the pedals glistened with dew, the unnatural opening virtually leaks in an obviously spiritually-imparted sense of anticipation.");
         this.outputText("\n\nFor a little while you gently poke and pinch at her soaking folds before you can confirm their validity.  Shouldra does good work; the vegetable organ even radiates a gentle heat.  There's nothing for it, then.  You drag yourself to your feet, line yourself up as best you can, then, with an excited cry, leap high into the air.  With a loud and delicious-sounding squelch, you drive your way into the rose.  Your momentum aids in the penetration, sinking further and further still until, with a dull smack, you hilt; an impressively deep insertion, you observe happily.");
         this.outputText("\n\nThe plant immediately goes to work, the stuffed recesses expertly rippling and squeezing your [cock].  A shuddering sigh ripples from your very being at the milking.  \"<i>She seems to like you,</i>\" Shouldra whispers in your ear.  If you were in a more stable state of mind, you'd probably roll your eyes.  As it were, you simply hum your agreement, losing yourself in the heat of the moment.  She just chuckles and casts a small spell before falling silent once more.");
-        //if buals: 
+        //if buals:
         if (this.player.balls > 0) this.outputText("\n\nYour sack");
         else this.outputText("\n\nYour prostate");
         this.outputText(" shudders and churns, and you know enough about Shouldra to know exactly what's to come.  Another wave of lust hits you like a freight train, and the thirsty rose feasts on a multi-liter burst of pre.  Though you can't see the stalk around the span of the bloom, you can readily hear and imagine your initial offering sloshing down towards its roots.  The squishing and squeezing intensifies, the rose obviously spurred on by its appetizer.");
@@ -488,7 +488,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText("\n\nThe monstrous flower, seemingly overwhelmed by your overloading orgasm, tips to one side, releasing its grip on you and allowing you to tumble to the ground.  Thankfully, you land rather softly on your back; you glance back at Shouldra's creation and are shocked by the results.  The poor thing can hardly even stand up straight!  Your semen has bulged the rose's shaft in numerous places.  Judging by the steady drizzle of cum still pouring from your engorged member, Shouldra certainly overcharged her virility spell, this time around.");
         this.outputText("\n\nAs the thought crosses your mind, a familiar-looking ghost sits up in your torso, clamoring out and leaning over you with a huge smile on her face.  \"<i>Have fun?</i>\" she asks innocently.  \"<i>I thought you might like that little trick.  Picked it up a few decades back from a dryad; nice bunch, as long as they warm up to you.</i>\"");
         this.outputText("\n\nYou don't bother responding.  She reaches to you, and you take her hand, letting her guide you to your feet.");
-        //if cocksize <200: 
+        //if cocksize <200:
         if (this.player.cockArea(0) < 200) this.outputText("  You stagger a bit at the unaccustomed heft of your junk altering your center of gravity, but you know that will wear off soon enough.");
         this.outputText("  She reaches into her tunic and tosses you a full bottle of ectoplasm, giving you a wink before incorporealizing once more and floating into you.  All's well that ends well.");
         this.player.orgasm();
@@ -926,7 +926,7 @@ export class ShouldraFollower extends NPCAwareContent {
     //Grow Bodypart
     //unlocks after Talk 2
     //works same as Gro+ with additional Butt option
-    //3 day / 72 hour cooldown between uses. Does not appear while on cooldown. 
+    //3 day / 72 hour cooldown between uses. Does not appear while on cooldown.
     //Selecting Grow Bodypart
     private shouldraGroPlus(): void {
         this.clearOutput();
@@ -1468,7 +1468,7 @@ export class ShouldraFollower extends NPCAwareContent {
                 else this.outputText("One of your hands begins playing with your [cock], no doubt spurred on by your paranormal passenger.  \"<i>You know, Champ, I could make you some easy gems.  Just find some know-nothing and introduce them to The Amazing Penis, capable of astounding feats like responding to any vocal coital commands!</i>\"  Playing the part of a sideshow attraction is quite the tangent to your typical daily activities.  Probably best not to think about it.");
                 break;
             case 2:
-                //PC with BIG COCK 
+                //PC with BIG COCK
                 subSelect = ShouldraFollower.rand(5);
                 if (subSelect == 0) this.outputText("Your [cock] begins to feel incredibly warm and dense. You place your hands along your enormous rod, causing it to illicit a low hum.  That \"<i>mmmm</i>\" sounded vaguely like Shouldra.  Best you can figure, the ghost girl is having the time of her life concentrating her being throughout your totem pole.  Shaking your head, you decide it best to carry on, doing your darndest to ignore her.");
                 else if (subSelect == 1) this.outputText("A wet feeling within your [armor] warrants checking, forcing you to stop and examine what's wrong.  Upon undoing your outfit, you discover an alarming stream of pre flowing from your... moaning urethra.  You scold the awestruck ghost girl, knocking her out of her trance.  \"<i>S-sorry, Champ!</i>\" your [cock] apologizes, slurping her \"drool\" back into her... its slit. After a listless stare, you sigh and continue on.");
@@ -1842,7 +1842,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.spriteSelect(67);
         this.outputText("You set off towards the bakery, and it's not long before the smell of freshly-baked pastries and sugary candies wafts through the air.  Something stirs in your mind as a familiar ghostly presence makes herself known; seems you're not the only one who noticed the scent of cinnamon.");
         this.outputText("\n\n\"<i>Oh hey, a bakery!</i>\" She exclaims, \"<i>Are we gonna grab something?  All those years of being a ghost did a real number on my appetite.</i>\"  ");
-        //first time: 
+        //first time:
         if (this.flags[kFLAGS.SHOULDRA_BAKERY_TIMES] == 0) this.outputText("You smirk, wondering how exactly a ghost manages to work up a hunger.  Your skepticism is met by an intense stabbing pain in your stomach, forcing you to buckle slightly from the cramping.  It lasts only a moment before it vanishes, however.  \"<i>You feel that, smartass?</i>\" The ghost girl sneers, \"<i>That's what decades of fasting will do to you.");
         else this.outputText("You point out that she's already had something at the bakery.  \"<i>Yeah, I did.  And now I'm hungry again.  Deal with it.");
         this.outputText("  Now, how about a snack?  Or two?</i>\" Her enthusiasm is clear...  and slightly worrying.");
@@ -1862,7 +1862,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(67);
         this.outputText("You decide that there's no use getting cold feet now; you wanted to go the bakery anyway, no harm in letting Shouldra have some fun while you're there.  ");
-        //after first time: 
+        //after first time:
         if (this.flags[kFLAGS.SHOULDRA_BAKERY_TIMES] > 0) this.outputText("Well, nothing <i>permanent</i>, anyway.  ");
         this.outputText("You press on, soon arriving at the ramp leading down into the bakery's interior.  It's as busy as ever, with patrons milling about, chatting between bites of pastry.");
         this.outputText("\n\nYou spy the pastry-woman Maddie working at the counter; seems she had to be pulled off baking duty for some reason.  As she glances around the room, your eyes meet, and she quickly looks away.  Is she...  blushing?  You didn't know she could do that.");
@@ -1889,7 +1889,7 @@ export class ShouldraFollower extends NPCAwareContent {
     private goAlongWIthShouldrasEatingSpree(): void {
         this.clearOutput();
         this.spriteSelect(67);
-        //if repeat scene: 
+        //if repeat scene:
         if (this.flags[kFLAGS.SHOULDRA_BAKERY_TIMES] > 0) this.outputText("\"Man, you're not sure you want that kind of impact on your figure again...  \"");
         this.outputText("Ah, what the hell.  You were hungry anyway.  You let Shouldra guide the cake into your mouth.  Mmm, not bad; rich, sweet and delicate.  Shouldra chuckles in your mind as she releases her control slightly, letting you lick your fingers clean of any stray crumbs.  \"<i>Well, guess you're pretty hungry yourself!  Alright, Champ, I'll give you some freedom, but just remember you're not the only one with an appetite.</i>\" You wince as your hunger intensifies to the verge of pain; looks like you're eating for two.  Your eyes lock on to the feast before you and something snaps in your mind.  You need this food, all of this food, inside you.  <i>Now</i>.");
         this.outputText("\n\nYou finish the torte, pausing only to scrape the platter clean and devour the crumbs before starting on some brownies.  As snack upon snack disappears down your maw, your stomach grows warm and full, feeling mildly bloated as the last brownie passes your lips.  \"<i>Ooh, is your poor lil' tummy feeling a bit full?</i>\" Shouldra snickers.  \"<i>Let's get it out of this cumbersome outfit.</i>\" An incantation echoes in your mind before your [armor] shimmers and vanishes.  Well, that was unexpected");
@@ -1929,7 +1929,7 @@ export class ShouldraFollower extends NPCAwareContent {
             if (this.player.cumQ() < 200) this.outputText("Modest spurts of semen shoot out into Shouldra's awaiting mouth.  She withdraws, swirls it around her tongue, then swallows your load in one gulp.  \"<i>Hmm...  needs cinnamon,</i>\" she jokes, licking her lips.");
             //if (cumMedium = true)
             else if (this.player.cumQ() <= 400) this.outputText("Several thick spurts of semen shoot out into Shouldra's awaiting mouth.  She withdraws, swilling the sizeable load around her mouth before swallowing it in a few gulps.  \"<i>Not bad...  could use a dash of ginger though,</i>\" she jokes, licking her lips.");
-            //if (cumHigh = true) 
+            //if (cumHigh = true)
             else if (this.player.cumQ() <= 1000) this.outputText("Your groin roils as a thick jet of pearly cum floods Shouldra's mouth, followed by another, then another.  The ghost girl barely has time to swallow each load before the next comes, but she manages not to spill a drop of your virility.  \"<i>Mmm, pretty tasty!</i>\"  She says after wiping her mouth in satisfaction.  \"<i>Hints of pineapple, coconut...  delicious.</i>\"");
             //if (cumVeryHigh = true)
             else if (this.player.cumQ() <= 5000) this.outputText("Your loins tremble and quiver as an immense load of cloying cum bulges along your shaft and explodes in Shouldra's mouth.  A further wave of bulges assault the ghost girl's throat, forcing her to swallow all of your thick virile spunk.  Eventually the wave subsides, leaving a satisfied and somewhat bloated spook in its wake.  \"<i>Soo gooood...</i>\" she drawls, her goofy grin smattered with white.");
@@ -1940,7 +1940,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.player.orgasm();
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //[(if hasCock = false) 
+        //[(if hasCock = false)
         else {
             this.outputText("\n\nYou run a hand down your chest, examining the new material.  Silky smooth...  As your hand slides across your stomach, you press in slightly.  You've only made a small dent in the food before you, but there's already a noticeable bulge beneath the hem of your skirt, and a few inches of soft " + this.player.skinTone + " skin are visible beneath the top.  You rub the modest mound, resulting in a subdued gurgling and a content burp; you've gotten full pretty quickly.  Maybe you should just leave the rest of the food and- \"<i>Not so fast, bucko!</i>\"  Shouldra fumes, causing you to jump in your seat.  \"<i>You might be full, but </i>I've<i> barely started!</i>\"  Your gut churns violently as the ghost girl's inhuman appetite infects your own.  Oh dear...");
             this.outputText("\n\nYou quickly grab something, an eclair, from the table in an effort to ease the pain in your stomach.  The taste is incredible; you don't know if it's the hunger or Shouldra's magic, but this is easily the best eclair you've ever eaten.  You moan low in your throat as you savor the eclair, thick sweet cream exploding in your mouth, chilled chocolatey pastry caressing your tongue like a skilled lover.  Sugar and pastry mix and twirl around your mouth, and you can't help but close your eyes and relax, mind and body comforted by a glucose euphoria.");

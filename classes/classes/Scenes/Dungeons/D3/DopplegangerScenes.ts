@@ -1,7 +1,7 @@
 import { BaseContent } from "../../../BaseContent";
 import { Doppleganger } from "./Doppleganger";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { SKIN_TYPE_FUR, TAIL_TYPE_NONE } from "../../../../../includes/appearanceDefs";
+import { SKIN_TYPE_FUR, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../../PerkLib";
 
 

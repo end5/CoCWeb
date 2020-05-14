@@ -2,7 +2,7 @@ import { Monster } from "../../Monster";
 import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
 import { trace } from "../../../console";
-import { VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_HOOFED, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_HOOFED, TAIL_TYPE_COW } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 
 export class Clara extends Monster {
@@ -45,7 +45,7 @@ export class Clara extends Monster {
     }
     //Clara teases the PC, and tries to get them to give up
     protected claraTeaseAttack(): void {
-        //[cocked PCs only] 
+        //[cocked PCs only]
         if (Clara.rand(3) == 0) this.outputText("Clara hesitates, then lifts up her dress and shows you her womanhood.  Then she slowly utters, \"<i>You know, I’m still a virgin.  You’d be the first thing to ever enter inside this hole, something that Marble never could have offered you.</i>\"  What would it be like, you wonder for a moment, before catching yourself and trying to focus back on the fight.");
         else if (Clara.rand(2) == 0) this.outputText("Clara seems to relax for a moment and bounces her breasts in her hands.  \"<i>Come on, you know how good it is to drink cow-girl milk, just give up!</i>\" she coos.  Despite yourself, you can’t help but remember what it was like, and find yourself becoming aroused.");
         else this.outputText("Instead of attacking, Clara runs her hands up and down her body, emphasizing all the curves it has.  \"<i>You were made to be the milk slave of this, stop fighting it!</i>\" she says almost exasperated.  Even so, you find your gaze lingering on those curves against your will.");
@@ -57,7 +57,7 @@ export class Clara extends Monster {
     //Once Clara is at half health or lower, she'll cast blind.
     public claraCastsBlind(): void {
         this.outputText("Clara glares at you, clearly being worn down.  Then strange lights start dancing around her hand and she points it in your direction.");
-        //Successful: 
+        //Successful:
         if (this.player.inte / 5 + Clara.rand(20) + 1 < 14) {
             this.outputText("\nA bright flash of light erupts in your face, blinding you!  You desperately blink and rub your eyes while Clara cackles with glee.");
             this.player.createStatusAffect(StatusAffects.Blind, 1, 0, 0, 0);
@@ -68,9 +68,9 @@ export class Clara extends Monster {
     public claraGropesBlindPCs(): void {
         //Clara gropes the PC while they're blinded.  Damage is based on corruption + sensitivity.
         if (this.player.hasCock() && (!this.player.hasVagina() || Clara.rand(2) == 0)) this.outputText("Suddenly Clara wraps an arm around you, and sticks a hand into your " + this.player.armorName + "!  She is able to give your " + this.multiCockDescriptLight + " a good fondle before you can push her away.  \"<i>Admit it - I make you soo hard, don't I?</i>\" she taunts you behind your dazzled vision.");
-        //Vagina: 
+        //Vagina:
         else if (this.player.hasVagina()) this.outputText("A sudden rush of Clara's hoofs clopping is the only warning you get before her attack comes, and you try to bring up your guard, only for her to deftly move past your defense and stick a hand into your " + this.player.armorName + "!  She manages to worm her way to your [vagina] and pinches your [clit] before you can push her back out!  \"<i>Hmm, yeah, you're soo wet for me.</i>\" she taunts you behind your dazzled vision.");
-        //Bum: 
+        //Bum:
         else this.outputText("Thanks to Clara robbing you of your sight, you lose track of her.  She takes advantage of this, and grabs you from behind, and rubs her considerable curvy cans against your undefended back!  You manage to get her off you after a moment, but not before she gives your [ass] a smack.  \"<i>Everyone will be soo much happier when yoou finally stop fighting me!</i>\" she taunts you behind your dazzled vision.");
         this.game.dynStats("lus", 7 + this.player.lib / 15);
         this.combatRoundOver();

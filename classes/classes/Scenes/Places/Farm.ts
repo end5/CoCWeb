@@ -7,7 +7,7 @@ import { FarmCorruption } from "./Farm/FarmCorruption";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
-import { FACE_DOG } from "../../../../includes/appearanceDefs";
+import { FACE_DOG } from "../../../includes/appearanceDefs";
 import { ItemType } from "../../ItemType";
 import { trace } from "../../../console";
 import { Appearance } from "../../Appearance";
@@ -201,7 +201,7 @@ export class Farm extends BaseContent {
                 this.outputText("\n\nShe smiles at you. “<i>I charge top gem for your produce, of course. Human milk is a very rare commodity these days, and it has a powerful calming effect on most anyone. Folks love it for their kids.</i>”");
             }
 
-            //[PC has used cock milker: 
+            //[PC has used cock milker:
             if (this.player.findStatusAffect(StatusAffects.CockPumped) >= 0) {
                 if (this.player.findStatusAffect(StatusAffects.BreastsMilked) < 0) this.outputText("\n\n");
 
@@ -398,7 +398,7 @@ export class Farm extends BaseContent {
             this.outputText("You steel yourself, ignore your ", false);
             if (this.player.faceType == FACE_DOG) this.outputText("sensitive ", false);
             this.outputText("nose, and set to work.", false);
-            //[Lust increase based on libido, degree of cow/mino features] 
+            //[Lust increase based on libido, degree of cow/mino features]
             this.dynStats("lus", this.player.cowScore() + this.player.minoScore());
             this.outputText("\n\nAn hour later you can stand it no more and exit the milking barn. Gulping down the fresher air and dragging the tools back to their shed, you admit to yourself that Whitney is a much harder worker and has a stronger constitution than you thought. You promise yourself you'll come back and help her out some more -- as soon as your nose recovers.", false);
             //always +1 str till 50, then 50% chance.
@@ -544,15 +544,15 @@ export class Farm extends BaseContent {
         //Cows
         if (explore == 2) {
             this.outputText("Your explorations take you to the cow pasture. There's no bull here, so the cows are all placidly grazing, building up milk for Whitney to gather. One turns to face you, and you get the odd feeling that it's trying to tell you something.\n\n", true);
-            //[if have a horse dick and rape-high Lust] 
+            //[if have a horse dick and rape-high Lust]
             if (this.player.horseCocks() > 0) {
                 this.outputText("Unbidden, the notion that a cow-slit would probably feel pretty good wrapped around your horse-prick flickers through your mind.  ", false);
                 //[if high corruption]
                 if (this.player.cor > 60) this.outputText("It makes you smile.", false);
                 if (this.player.cor < 30) this.outputText("It disgusts you.", false);
-                //[else/mid-corruption] 
+                //[else/mid-corruption]
                 else if (this.player.cor <= 60) this.outputText("You aren't sure how you feel about that.", false);
-                //[continue paragraph condition] 
+                //[continue paragraph condition]
                 this.outputText("  It for certain would get Whitney chasing you off with a pitchfork.\n\n", false);
                 this.dynStats("lus", 10);
             }
@@ -761,7 +761,7 @@ export class Farm extends BaseContent {
         }
         liters = Math.floor(this.player.lactationQ() * (Farm.rand(10) + 90) / 100) / 1000;
         if (liters < 0) liters = 1337;
-        //Pay 4 gem for every half-liter. 
+        //Pay 4 gem for every half-liter.
         payout = Math.floor(liters * 2 * 4);
         this.outputText("The machinery displays " + liters + " liters of milk", false);
         //If already at cap
@@ -871,7 +871,7 @@ export class Farm extends BaseContent {
         }
         //Small/Medium/Large, 2x each
         if (this.player.cockArea(0) < 20) {
-            //Small 1 
+            //Small 1
             if (Farm.rand(2) == 0) {
                 if (this.player.cockTotal() == 1) this.outputText("The hose's 'tip' is many times longer than your member, and about thrice as thick.  The 'opening' is filled with something wet and pink.  It squirms and wriggles, looking very much alive.  Where did Whitney get this stuff?    It tentatively presses against your " + this.cockDescript(0) + ", sucking wetly as the material inside slurps you down.  The feeling is immediate and intense, like being surrounded by hundreds of eager tongues, all writhing together along your length.\n\n", false);
                 else this.outputText("The hoses' 'tips' are many times longer than your members, and about thrice as thick.  The openings are each filled with something wet and pink.  They squirm and wriggle, looking very much alive.  Where did Whitney get this stuff?   They tentatively press against your " + this.multiCockDescriptLight() + ", sucking wetly as the material inside slurps you down.  The feeling is immediate and intense, like being surrounded by hundreds of eager tongues, all writhing together along your lengths at once.\n\n", false);
@@ -1154,7 +1154,7 @@ export class Farm extends BaseContent {
         if (!tubes) this.outputText("it", false);
         else this.outputText("one of them", false);
         this.outputText(" inserts a rod-like end into your mouth and begins trickling salty fluids down your throat.", false);
-        //[(if vag)  
+        //[(if vag)
         if (this.player.hasVagina()) {
             this.outputText("  Another tube, likewise capped with a thick, firm end instead of a suction cup, reaches your " + this.vaginaDescript(0) + " and pushes inside, secreting more of the fluid.  ", false);
             this.player.cuntChange(15, true);
@@ -1189,7 +1189,7 @@ export class Farm extends BaseContent {
             if (this.player.clitLength > 3) this.outputText(", and your clitoris twitches under the cup, threatening to black you out from the pleasure", false);
             this.outputText(".", false);
         }
-        //[(lactation) 
+        //[(lactation)
         if (this.player.biggestTitSize() > 1) {
             this.outputText("  Your milk sprays out of your " + this.nippleDescript(0) + "s", false);
             //[(nipplecunts)
@@ -1216,7 +1216,7 @@ export class Farm extends BaseContent {
         this.outputText("It is at this point Whitney walks in.\n\n", false);
 
         this.outputText("\"<i>What the FUCK!</i>\" the rancher says, her eyes bugging out at the spectacle of you tied to the machine with demonic tubing and the sheer volume of semen you've left in thick ropes all over her barn.", false);
-        //[(corruption < 90)  
+        //[(corruption < 90)
         if (this.player.cor < 90) {
             this.outputText("  You barely take notice of her as another explosive orgasm goes off, your enormously swollen penis", false);
             if (this.player.cockTotal() > 1) this.outputText("es", false);

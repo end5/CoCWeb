@@ -6,7 +6,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { PerkLib } from "../../../PerkLib";
 import { Appearance } from "../../../Appearance";
-import { VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
 
 export class Marae extends AbstractBoatContent implements TimeAwareInterface {
 

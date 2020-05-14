@@ -1,7 +1,7 @@
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { PregnancyStore } from "../../../PregnancyStore";
-import { TAIL_TYPE_NONE, VAGINA_WETNESS_SLAVERING } from "../../../../../includes/appearanceDefs";
+import { TAIL_TYPE_NONE, VAGINA_WETNESS_SLAVERING } from "../../../../includes/appearanceDefs";
 
 export class FrogGirlScene extends BaseContent {
 

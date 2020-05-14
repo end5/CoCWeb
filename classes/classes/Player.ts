@@ -3,7 +3,7 @@ import { ItemSlotClass } from "./ItemSlotClass";
 import { Armor } from "./Items/Armor";
 import { ArmorLib } from "./Items/ArmorLib";
 import { CoC_Settings } from "./CoC_Settings";
-import { SKIN_TYPE_PLAIN, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, FACE_FERRET_MASK, FACE_FERRET, EARS_FERRET, TAIL_TYPE_FERRET, LOWER_BODY_FERRET, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_DRACONIC_X2, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_TIGHT, BREAST_CUP_C } from "../../includes/appearanceDefs";
+import { SKIN_TYPE_PLAIN, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, FACE_FERRET_MASK, FACE_FERRET, EARS_FERRET, TAIL_TYPE_FERRET, LOWER_BODY_FERRET, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_DRACONIC_X2, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_TIGHT, BREAST_CUP_C } from "../includes/appearanceDefs";
 import { StatusAffects } from "./StatusAffects";
 import { Weapon } from "./Items/Weapon";
 import { WeaponLib } from "./Items/WeaponLib";
@@ -1718,7 +1718,7 @@ export class Player extends Character {
             }
         }
         return true;
-        /*			
+        /*
                 var  consumed: boolean = false;
                 var  slot:ItemSlotClass;
                     while (amount > 0)
@@ -1739,7 +1739,7 @@ export class Player extends Character {
                         }
                         //If on slot 5 and it doesn't have any more to take, break out!
                         if(slot == undefined) amount = -1
-        
+
                     }
                     if(amount == 0) consumed = true;
                     return consumed;
@@ -2010,9 +2010,9 @@ export class Player extends Character {
     // Attempts to put the player in heat (or deeper in heat).
     // Returns true if successful, false if not.
     // The player cannot go into heat if she is already pregnant or is a he.
-    // 
+    //
     // First parameter: boolean indicating if function should output standard text.
-    // Second parameter: numberensity, an integer multiplier that can increase the 
+    // Second parameter: numberensity, an integer multiplier that can increase the
     // duration and intensity. Defaults to 1.
     public goIntoHeat(output: boolean, intensity: number = 1): boolean {
         if (!this.hasVagina() || this.pregnancyIncubation != 0) {
@@ -2045,9 +2045,9 @@ export class Player extends Character {
     // Attempts to put the player in rut (or deeper in heat).
     // Returns true if successful, false if not.
     // The player cannot go into heat if he is a she.
-    // 
+    //
     // First parameter: boolean indicating if function should output standard text.
-    // Second parameter: numberensity, an integer multiplier that can increase the 
+    // Second parameter: numberensity, an integer multiplier that can increase the
     // duration and intensity. Defaults to 1.
     public goIntoRut(output: boolean, intensity: number = 1): boolean {
         if (!this.hasCock()) {

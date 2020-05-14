@@ -1,7 +1,7 @@
 import { Monster } from "../../Monster";
 import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 import { WeightedDrop } from "../../internals/WeightedDrop";
 
@@ -60,11 +60,11 @@ export class GoblinAssassin extends Monster {
         this.outputText("With a swift step, the assassin vanishes, her movements too quick for you to follow. You take a sharp breath as you feel her ample thighs clench your head in between them, her slick cunt in full view as you take in her scent.");
         //Miss
         if (this.combatMiss() || this.combatEvade()) {
-            //Miss: 
+            //Miss:
             this.outputText("\nYou’ve already prepared, however, as you hold your breath and grab the goblin by her sides. Unhindered by her advance, you take the opportunity to move backwards, throwing the goblin off balance and leaving you only faintly smelling of her pussy.");
             this.game.dynStats("lus", GoblinAssassin.rand(this.player.lib / 10) + 4);
         }
-        //Hit: 
+        //Hit:
         else {
             this.outputText("\nYou’re far too distracted to notice the needle injected into the back of your neck, but by the time she flips back into her original position you already feel the contents of the syringe beginning to take effect.");
             this.game.dynStats("lus", GoblinAssassin.rand(this.player.lib / 4) + 20);
@@ -74,11 +74,11 @@ export class GoblinAssassin extends Monster {
     //Dual Shot
     protected dualShot(): void {
         this.outputText("The assassin throws a syringe onto the ground, shattering it and allowing the dissipating smoke from its contents to distract you long enough for her to slip underneath you. With a quick flick of her wrists two needles are placed into her hands, though you’ve already caught wind of her movements.");
-        //Miss: 
+        //Miss:
         if (this.combatMiss() || this.combatEvade() || this.combatMisdirect() || this.combatFlexibility()) {
             this.outputText("\nYou jump backwards, far enough to avoid her quick thrust upwards as she attempts to lick the area in which your crotch once stood. Realising her situation, she quickly removes herself from the ground and faces you, more determined than before.");
         }
-        //Hit: 
+        //Hit:
         else {
             this.outputText("\nBefore you can do anything to stop her, she lifts her head and takes a swift lick of your crotch, taking a small moan from you and giving her enough time to stab into the back of your knees. She rolls out of the way just as you pluck the two needles out and throw them back to the ground. They didn’t seem to have anything in them, but the pain is enough to make you stagger.");
             //(Medium HP loss, small lust gain)

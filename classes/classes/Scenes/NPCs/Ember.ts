@@ -3,7 +3,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, HORNS_DRACONIC_X4_12_INCH_LONG, TAIL_TYPE_DRACONIC } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, HORNS_DRACONIC_X4_12_INCH_LONG, TAIL_TYPE_DRACONIC } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 
 export class Ember extends Monster {
@@ -51,7 +51,7 @@ export class Ember extends Monster {
     //Dragon Breath: Very rare attack, very high damage
     private embersSupahSpecialDragonBreath(): void {
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Ember.rand(2) == 0) {
-            //Blind Ember: 
+            //Blind Ember:
             this.outputText("The blinded dragon tracks you with difficulty as you sprint around the landscape; seeing an opportunity, you strafe around " + this.emberMF("his", "her") + " side, planting yourself behind a large flat boulder near " + this.emberMF("him", "her") + " and pelting " + this.emberMF("him", "her") + " with a small rock.  The scream as the dragon turns the magical conflagration toward you, only to have it hit the rock and blow up in " + this.emberMF("his", "her") + " face, is quite satisfying.");
             //(Ember HP damage)
             this.game.doDamage(50);

@@ -1,5 +1,5 @@
 import { Monster } from "../../../Monster";
-import { VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_CURVY, BUTT_RATING_LARGE } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_CURVY, BUTT_RATING_LARGE } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 
 export class SandWitchMob extends Monster {

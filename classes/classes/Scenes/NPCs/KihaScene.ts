@@ -2,7 +2,7 @@ import { NPCAwareContent } from "./NPCAwareContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { Kiha } from "./Kiha";
 import { ItemType } from "../../ItemType";
-import { TAIL_TYPE_LIZARD, TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../../includes/appearanceDefs";
+import { TAIL_TYPE_LIZARD, TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { Appearance } from "../../Appearance";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
@@ -20,7 +20,7 @@ export class KihaScene extends NPCAwareContent {
     //const PC_WIN_LAST_KIHA_FIGHT: number = 345;
     //const KIHA_CHOKED_OUT_PC: number = 432;
 
-    //Encounter Dragon-Gal 
+    //Encounter Dragon-Gal
     public encounterKiha(): void {
         var temp;
         this.outputText("", true);
@@ -70,7 +70,7 @@ export class KihaScene extends NPCAwareContent {
             //[Fight] [Ask Why][Buy Passage][Leave]
             this.simpleChoices("Fight", this.meetKihaAndFight, "Ask Why", this.askWhy, "Buy Passage", this.offerToBuyPassageFromKiha, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
         }
-        //*Repeat Encounter - PC WAS VICTORIOUS LAST FIGHT 
+        //*Repeat Encounter - PC WAS VICTORIOUS LAST FIGHT
         else if (this.flags[kFLAGS.PC_WIN_LAST_KIHA_FIGHT] == 1) {
             this.outputText("Kiha plummets from the sky, slamming down into the mossy earth with enough force to spray chunks of dirt everywhere.  She stands and growls, \"<i>Just because you beat me before doesn't mean you've defeated me.  I'll NEVER BE DEFEATED!</i>\"\n\n", false);
 
@@ -79,7 +79,7 @@ export class KihaScene extends NPCAwareContent {
             this.flags[kFLAGS.PC_WIN_LAST_KIHA_FIGHT] = 0;
             this.startCombat(new Kiha());
         }
-        //Tribute Offer (1st Time) - Req's Kiha not be mad and PC suggested it at some point. 
+        //Tribute Offer (1st Time) - Req's Kiha not be mad and PC suggested it at some point.
         else if (this.flags[kFLAGS.KIHA_TOLL] == 1 && KihaScene.rand(2) == 0) {
             this.outputText("Kiha steps out from behind a tree with her axe on her back and her arms folded across her sizable chest.  \"<i>You again?  I've been thinking about what you said.  How about instead of beating you senseless, you pay me a tribute of 200 gems, and I'll let you pass through my territory unhindered.  Of course, if you stumble into my lair I might have to teach you a lesson.</i>\"  A greedy smile spreads across her dusky visage while her eyes burn with mischievous crimson light.  Wait a moment... wasn't this your idea?\n\n", false);
             temp = this.payKihaTribute;
@@ -90,7 +90,7 @@ export class KihaScene extends NPCAwareContent {
             //[Pay] [This was my idea] [Leave] [Fight] - Leave uses standard leave text
             this.simpleChoices("Fight", this.meetKihaAndFight, "Pay", temp, "My Idea", this.tellKihaTributeWasYourIdea, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
         }
-        //*Repeat Encounter - Tribute Wore off 
+        //*Repeat Encounter - Tribute Wore off
         else if (this.flags[kFLAGS.KIHA_TOLL] > 1 &&
             (this.flags[kFLAGS.KIHA_TOLL_DURATION] == 1 ||
                 (this.flags[kFLAGS.KIHA_TOLL_DURATION] == 0 && KihaScene.rand(2) == 0))) {
@@ -103,7 +103,7 @@ export class KihaScene extends NPCAwareContent {
             //[Pay Again] [This was my idea] [Leave]  [Fight] - As first time Tribute Offer encounter
             this.simpleChoices("Fight", this.meetKihaAndFight, "Pay", temp, "My Idea", this.tellKihaTributeWasYourIdea, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
         }
-        //Generic Repeat Encounter 
+        //Generic Repeat Encounter
         else {
             this.outputText("A nearby tree suddenly explodes in a shower of splintering wood and burning embers.  Kiha steps through the wreckage with her characteristic double-sided axe.\n\n", false);
 
@@ -120,7 +120,7 @@ export class KihaScene extends NPCAwareContent {
             }
         }
     }
-    //[Buy Passage] 
+    //[Buy Passage]
     private offerToBuyPassageFromKiha(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -130,7 +130,7 @@ export class KihaScene extends NPCAwareContent {
         //[Fight] [Leave] - Same results as main fight/leave.
         this.simpleChoices("Fight", this.meetKihaAndFight, "", undefined, "", undefined, "", undefined, "Leave", this.leaveWhenMeetingAgressiveKiha);
     }
-    //[Leave] 
+    //[Leave]
     private leaveWhenMeetingAgressiveKiha(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -205,7 +205,7 @@ export class KihaScene extends NPCAwareContent {
         this.startCombat(new Kiha());
     }
 
-    //*Generic PC Victory Introduction: 
+    //*Generic PC Victory Introduction:
     public kihaVictoryIntroduction(): void {
         this.flags[kFLAGS.PC_WIN_LAST_KIHA_FIGHT] = 1;
         this.outputText("", true);
@@ -217,12 +217,12 @@ export class KihaScene extends NPCAwareContent {
         else this.outputText("weakly", false);
         this.outputText(" as she tries to rise.\n\n", false);
 
-        //(Lust) 
+        //(Lust)
         if (this.monster.lust > 99) this.outputText("\"<i>You... can't make me like it!,</i>\" she shouts, struggling with all her might to keep her hands away from her genitals.  Somehow, she seems to be managing.", false);
-        //(HP) 
+        //(HP)
         else this.outputText("\"<i>You... you... haven't... beaten me,</i>\" she mutters, even though it's quite clear that you have.", false);
 
-        //(no new PG) 
+        //(no new PG)
         this.outputText("  What do you do with the wannabe dragon now that you've taken her down a peg?", false);
         //[OPTIONS]
         //All
@@ -259,7 +259,7 @@ export class KihaScene extends NPCAwareContent {
         this.choices("Masturbate", forceMasturbate, "Use Tail", useHerTail, "FuckHerPussy", fuckHer, "FuckHerAss", buttFuck, "Talk", wordRape,
             "", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.cleanupAfterCombat);
     }
-    //*Generic PC Loss Intro 
+    //*Generic PC Loss Intro
     public kihaLossIntro(): void {
         this.outputText("", true);
         this.spriteSelect(72);
@@ -367,7 +367,7 @@ export class KihaScene extends NPCAwareContent {
         this.outputText("The gushing honey pooled and slathered along her tail and asscheeks while she was frigging herself gives you more than enough lubrication to part the dragon's silken passage, muscled sphincter clenching rhythmically, more to pull you deeper inside than in response to the sudden intrusion.  You cry out at the intense tightness sucking at your " + this.cockDescript(x) + " and reach up to grab the girl's breasts, but she smacks your hands away with a sharp blow.  \"<i>If you dirty my scales with your filthy mitts, I'll crush you between my thighs!</i>\" she gasps, running her own hands through her hair as her head rolls back in delight.  She rides you hard, bouncing off of your lap without regard for the bruising her athletic ass is giving your " + this.hipDescript() + ", but you can hardly feel anything beyond the vice-like tightness of her rectum.  You open your mouth to beg her to ease up, but she uses the opportunity to thrust her tail between your parted lips, the warm appendage still dripping with girl-cum.  You nearly gag at the insertion, but the shock is quickly subordinated to arousal as your mouth is flooded with the second-hand taste of her sweaty nectar. You reflexively begin sucking on the scaled tip, wrapping your tongue around the scaly invader and even rolling your jaw as you lap Kiha's cream from her posterior.\n\n", false);
 
         this.outputText("With a rumbling growl, the dragoness impales herself on your " + this.cockDescript(x) + " hard enough to knock the wind from your lungs. She clamps down and begins rolling her ass back and forth over your groin, stroking you off with only the rippling contractions from the toned walls of her rectum.  Your orgasm moments away, you helplessly clench your fingers in the earth", false);
-        //[Lizard/naga tail: 
+        //[Lizard/naga tail:
         if (this.player.isNaga() || this.player.tailType == TAIL_TYPE_LIZARD) this.outputText(" while your tail curls around to find your own asshole.  The grip of the dragon's nethers so intense, you barely feel the pressure of your own tail, pushing in easily to soothingly stroke your overtaxed prostate", false);
         this.outputText(".  The tail in your mouth begins to pump deeper into your throat, wrenching your jaw open as the slick, textured scales thrust past your tongue and uvula to snake into your esophagus, forcing the girl's honey into every crevasse of your maw.  The sight of you being face-fucked by her phallic appendage is enough to bring her to a second, screaming climax, Kiha's ass finally loosening enough for the orgasm seething in your loins to burst free", false);
         if (this.player.balls > 0) this.outputText(", your " + this.ballsDescriptLight() + " practically leaping in over-burdened joy as their heavy load rushes through your flesh", false);
@@ -394,9 +394,9 @@ export class KihaScene extends NPCAwareContent {
         this.outputText("You open your mouth and she leans in, her sloping mounds pressing hotly against your " + this.chestDesc() + " stopping just short of kissing you.  She curls her lips into a smile that twists into a sneer.  \"<i>Don't say a fucking word.  I don't need you conscious for this.</i>\"  Then, reaching behind her, Kiha grabs hold of her long, thick tail and pulls it between the two of you.  The tip of her plated appendage wriggles eagerly as she draws it to her charcoal grin, pressing a soft-lipped pucker to the narrow end and gently sucking it into her mouth.  Working it in and out of her face inches at a time, her cheeks go concave from the force of her suction, her chest rising and falling a little faster with each passing moment.  When, finally, she pulls the tail from her maw, the red and black scales shine with the polished gloss of her thick saliva.  The flush appendage turns a half-circle to face you and the dragon forcefully slides it between your lips.  The taste of her warm fluid sends little electric jolts through your muscles, spasming your jaw open, and locking it there for a moment.  You begin drooling and she carefully rolls the dexterous spur around your tongue, gathering your fluids and mixing them with her own.\n\n", false);
 
         this.outputText("The heat of her closeness and probing tail begin to excite you, " + this.multiCockDescriptLight() + " slowly stiffening against your abdomen.  Noticing your arousal, the dragoness pulls her tail from your mouth and curls it back behind her again.  \"<i>You'd love to stuff my tight box with every inch you've got, wouldn't you?</i>\" she taunts, pressing her hands to the ground behind her. Leaning back, she derisively stares down the bridge of her nose and curls her upper lip to display her jagged fangs.  ", false);
-        //NAGA OR SLIME: 
+        //NAGA OR SLIME:
         if (this.player.isNaga() || this.player.isGoo()) this.outputText("Sliding backward slightly", false);
-        //LEGS: 
+        //LEGS:
         else this.outputText("Hooking a leg under one of yours", false);
         this.outputText(", Kiha repositions herself so that her ashen-hued vulva presses moistly against your " + this.vaginaDescript(0) + ", the plush lips of her nethers lapping at yours in a torrid embrace.  Rocking against you in an angular motion, the dragon's sweltering sex grinds against your own sensitive flesh, small shocks of overstimulation arcing through your hips as her stiff, pink pearl brushes against your " + this.clitDescript() + ".  You mirror her motions, rubbing into the girl with increasing urgency as your flesh engorges, nearly forgetting the throbbing imperative of your " + this.multiCockDescriptLight() + ".\n\n", false);
 
@@ -404,18 +404,18 @@ export class KihaScene extends NPCAwareContent {
 
         var dicked: boolean = false;
 
-        //[If the player has an incubus draft: 
+        //[If the player has an incubus draft:
         if (this.player.hasItem(this.consumables.INCUBID)) {
             this.outputText("As the two of you entwine yourselves against Kiha's honey-slick tail, she notices your belongings in a heap next to the two of you. \"<i>What kind of s-s-shitty gifts did you bring me,</i>\" she pants through a toothy grin.  Scattering your belongings with one hand, she notices the phallic shape of your incubus draft, and snatches the bottle between her thumb and forefinger.  \"<i>Demon trash, of course.  You wouldn't even know how to use this right.  Let me show you.</i>\"  She flicks the cork from the vial and upends the concoction down her gullet in one swallow.  You don't have time to protest as the hood over her clitoris slides back, the fingertip-sized bead above her engorged vulva swelling thicker by the second. With a lurching spasm, the flesh of her joy buzzer rises into the air, growing three, then six inches before finally settling at nine inches long.  The two-inch-thick shaft of her massive clit throbs, the underside bulging outward as rectangular, interlocking plates harden into a ladder from base to summit. The featureless, rounded tip of her draconic phallus swells and juts obscenely as it curves into a sloping crest, tinted with the flush of arousal as a thin slit opens at the very crown of her newly grown cock.\n\n", false);
             this.player.consumeItem(this.consumables.INCUBID);
-            //[Incubus Draft cont.: 
+            //[Incubus Draft cont.:
             this.outputText("Without breaking her stride, Kiha threads more of her tail between the gushing lips of your spurting nethers and loops the long, flexible tip around your " + this.cockDescript(0) + ", pulling it against her new shaft.  Completing the circle, the dexterous limb, varnished in girl-cum, tightens around the organs, sliding up and down frantically.  The feeling of her long, smooth cock-plates against the sensitive underside of your shaft is delicious and you reach a hand out to help the dragon's tail with its rapid, coiled jerking. Kiha kicks her leg up, smacking your arm back with the heel of her padded foot.  \"<i>This is for me,</i>\" she practically screams, \"<i>You're just here for the ride!  I don't even like your h-h-hot cock rubbing against mine or your gushing pussy sucking my t-ta-tail.  So just lie back like the little ssssSHIT you are and fucking... CUM!</i>\"  At that, the dragoness loses herself to the sensations, her virginal dick erupting in a shower of seething spunk that arcs backward, splattering her face and tits with her own creamy seed.\n\n", false);
             dicked = true;
         }
-        //Both scenes: 
+        //Both scenes:
         this.outputText("When Kiha climaxes, a shuddering, vulnerable moan escapes her careless lips and your own resolve crumbles.  Your " + this.vaginaDescript(0) + " spasms in muscle-clenching ecstasy as your " + this.multiCockDescriptLight() + " lurches at the rush of geysering jizz cascading from you.  Pale white ropes of gushing ejaculate spray from your loins, passionate globs of alabaster rain down on the two of you, a shower of semen splashing the heat of your orgasm across your wallowing bodies.  Even after the exhilaration of your release fades, the dragon girl keeps rubbing the two of you with her spunk-lacquered tail, until a second, weaker orgasm shudders through your spent flesh.  Extracting herself from your lower body, the dragoness stands, still full of spunky energy and taunting reproach.  \"<i>That's what I do to trespassers!  I don't want to see your tight ass around here again without a proper tribute,</i>\" she warns, her mouth curled into the faintest of crooked grins.", false);
 
-        //[Incubus Draft end: 
+        //[Incubus Draft end:
         if (dicked) this.outputText("\n\nAs she steps back into the mire, the sound of her muttering carries back to you. \"<i>Much as I'd like to keep it, better to be done with this,</i>\" she sighs, glancing down at her turgid, draconic shaft.  \"<i>Just as well I held onto all those pink eggs after that crystal vial knocked me up.</i>\"  The rest of that story is lost to you, however, as her lean, swaying torso is swallowed back into the swamp's embrace.", false);
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 3);
@@ -698,9 +698,9 @@ export class KihaScene extends NPCAwareContent {
         this.cleanupAfterCombat();
     }
     /*Conversation Level 5: requires Lottie as follower, and to have given her enough bee honey, demon items, or harpy seeds to grow wings
-    
+
         You sit down next to Kiha, smirking as she pokes fun at your soft-heartedness.  She's practically relaxed around you now.  You're not even sure if she was trying as hard as she could during the fight, knowing that you wouldn't take advantage of her even if she lost.
-    Slowly, the conversation winds back around to the story of her origin.  You casually mention that she owes you at least the attempt to remember more now since you met the terms of your agreement, a claim she meets with more than the expected skepticism.  Cocking an eyebrow at her protest, you raise your face skyward and, cupping hands around 
+    Slowly, the conversation winds back around to the story of her origin.  You casually mention that she owes you at least the attempt to remember more now since you met the terms of your agreement, a claim she meets with more than the expected skepticism.  Cocking an eyebrow at her protest, you raise your face skyward and, cupping hands around
     */
 
     //Kiha PC victory anal scene - by Space.

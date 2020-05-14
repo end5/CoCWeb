@@ -1,7 +1,7 @@
 import { BaseContent } from "./BaseContent";
 import { kFLAGS } from "./GlobalFlags/kFLAGS";
 import { Player } from "./Player";
-import { SKIN_TYPE_PLAIN, FACE_HUMAN, TAIL_TYPE_NONE, TONUGE_HUMAN, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, WING_TYPE_NONE, GENDER_MALE, GENDER_FEMALE, BREAST_CUP_FLAT, BUTT_RATING_TIGHT, HIP_RATING_SLENDER, BREAST_CUP_B, HIP_RATING_AMPLE, BUTT_RATING_AVERAGE, HIP_RATING_AVERAGE, BREAST_CUP_C, BUTT_RATING_NOTICEABLE, BREAST_CUP_D, BUTT_RATING_LARGE, HIP_RATING_CURVY, BREAST_CUP_A, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE, EARS_ELFIN, HORNS_DEMON, TAIL_TYPE_DEMONIC, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, TAIL_TYPE_FOX, SKIN_TYPE_FUR, EARS_FOX, VAGINA_WETNESS_SLAVERING, TONUGE_DEMONIC, WING_TYPE_FEATHERED_LARGE, EARS_BUNNY, TAIL_TYPE_RABBIT, VAGINA_WETNESS_SLICK, FACE_DOG, EARS_DOG, TAIL_TYPE_DRACONIC, TONUGE_DRACONIC, VAGINA_LOOSENESS_TIGHT, EARS_CAT, FACE_CAT, LOWER_BODY_TYPE_CAT, TAIL_TYPE_CAT, EARS_HORSE, HORNS_DRACONIC_X4_12_INCH_LONG, FACE_HORSE, LOWER_BODY_TYPE_HOOFED, WING_TYPE_DRACONIC_LARGE, TAIL_TYPE_DOG, LOWER_BODY_TYPE_DOG, FACE_FOX, LOWER_BODY_TYPE_DRAGON, WING_TYPE_BAT_LIKE_LARGE, FACE_SHARK_TEETH, WING_TYPE_HARPY, TONUGE_SNAKE, HORNS_NONE, EARS_HUMAN, LOWER_BODY_TYPE_HUMAN, ARM_TYPE_HUMAN, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, ARM_TYPE_HARPY, HORNS_DRACONIC_X2, FACE_SPIDER_FANGS } from "../../includes/appearanceDefs";
+import { SKIN_TYPE_PLAIN, FACE_HUMAN, TAIL_TYPE_NONE, TONUGE_HUMAN, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, WING_TYPE_NONE, GENDER_MALE, GENDER_FEMALE, BREAST_CUP_FLAT, BUTT_RATING_TIGHT, HIP_RATING_SLENDER, BREAST_CUP_B, HIP_RATING_AMPLE, BUTT_RATING_AVERAGE, HIP_RATING_AVERAGE, BREAST_CUP_C, BUTT_RATING_NOTICEABLE, BREAST_CUP_D, BUTT_RATING_LARGE, HIP_RATING_CURVY, BREAST_CUP_A, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE, EARS_ELFIN, HORNS_DEMON, TAIL_TYPE_DEMONIC, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, TAIL_TYPE_FOX, SKIN_TYPE_FUR, EARS_FOX, VAGINA_WETNESS_SLAVERING, TONUGE_DEMONIC, WING_TYPE_FEATHERED_LARGE, EARS_BUNNY, TAIL_TYPE_RABBIT, VAGINA_WETNESS_SLICK, FACE_DOG, EARS_DOG, TAIL_TYPE_DRACONIC, TONUGE_DRACONIC, VAGINA_LOOSENESS_TIGHT, EARS_CAT, FACE_CAT, LOWER_BODY_TYPE_CAT, TAIL_TYPE_CAT, EARS_HORSE, HORNS_DRACONIC_X4_12_INCH_LONG, FACE_HORSE, LOWER_BODY_TYPE_HOOFED, WING_TYPE_DRACONIC_LARGE, TAIL_TYPE_DOG, LOWER_BODY_TYPE_DOG, FACE_FOX, LOWER_BODY_TYPE_DRAGON, WING_TYPE_BAT_LIKE_LARGE, FACE_SHARK_TEETH, WING_TYPE_HARPY, TONUGE_SNAKE, HORNS_NONE, EARS_HUMAN, LOWER_BODY_TYPE_HUMAN, ARM_TYPE_HUMAN, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, ARM_TYPE_HARPY, HORNS_DRACONIC_X2, FACE_SPIDER_FANGS } from "../includes/appearanceDefs";
 import { GooArmor } from "./Items/Armors/GooArmor";
 import { WeaponLib } from "./Items/WeaponLib";
 import { trace } from "../console";
@@ -10,7 +10,7 @@ import { PerkType } from "./PerkType";
 import { StatusAffects } from "./StatusAffects";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { PerkLib } from "./PerkLib";
-import { MainView } from "../../lib/src/coc/view/MainView";
+import { MainView } from "../view/MainView";
 import { Flags, createFlags } from "./FlagTypeOverrides";
 
 
@@ -253,7 +253,7 @@ export class CharCreation extends BaseContent {
             this.completeCharacterCreation(); //Skip character creation, customPlayerProfile will be called in completeCharacterCreation
         }
         else {
-            //After character creation the fact that customPlayerProfile is not undefined will activate a custom player setup 
+            //After character creation the fact that customPlayerProfile is not undefined will activate a custom player setup
             this.outputText("There is something different about you, but first, what is your basic gender?  An individual such as you may later overcome this, of course...");
             this.outputText("\n\n\n\nAre you a man or a woman?");
             this.menu();
@@ -927,9 +927,9 @@ export class CharCreation extends BaseContent {
     }
 
     private customBetram(): void {
-        //Character Creation	
-        //herm, canine cock - 8", virgin, tight, wet	
-        //fox ears, tails, A cup breasts with normal nipples	Betram															
+        //Character Creation
+        //herm, canine cock - 8", virgin, tight, wet
+        //fox ears, tails, A cup breasts with normal nipples	Betram
         this.player.earType = EARS_FOX;
         this.player.tailType = TAIL_TYPE_FOX;
         this.player.tailVenom = 1;
@@ -966,7 +966,7 @@ export class CharCreation extends BaseContent {
         this.player.cocks[1].pShortDesc = "silver cock-ring";
         this.player.cocks[0].pLongDesc = "Silver cock-ring";
         this.player.cocks[1].pLongDesc = "Silver cock-ring";
-        //"Androgynous face, large brown eyes, long black hair down to about ass level, full lips, pirced with one silver ring ass itself is round and thick, chest is flat, only two nipples, about nickle sized pierced with silver studs, skin of a pale ghostly transparent complexion, rest of the body is not notably muscular or chubby in any definite way, feet seem to taper off into full transparency. Full body housed in the lewd Inquisitor Armor, wielding a Wizard Staff. Starting at level 5 with tank, regeneration, healing, smarts, channeling, mage and incorperability perks, a full knowledge of 
+        //"Androgynous face, large brown eyes, long black hair down to about ass level, full lips, pirced with one silver ring ass itself is round and thick, chest is flat, only two nipples, about nickle sized pierced with silver studs, skin of a pale ghostly transparent complexion, rest of the body is not notably muscular or chubby in any definite way, feet seem to taper off into full transparency. Full body housed in the lewd Inquisitor Armor, wielding a Wizard Staff. Starting at level 5 with tank, regeneration, healing, smarts, channeling, mage and incorperability perks, a full knowledge of
         this.player.gender = 1;
         this.player.tallness = 72;
         this.player.femininity = 50;
@@ -1013,7 +1013,7 @@ export class CharCreation extends BaseContent {
 
     private customCharaun(): void {
         this.outputText("As a gifted fox with a juicy, thick knot, a wet cunt, and magical powers, you have no problems with being chosen as champion.");
-        //Herm, Fox Cock: (27"l x 1.4"w, knot multiplier 3.6), No Balls, Cum Multiplier: 7,500, Vaginal Wetness: 5, Clit length: 0.5, Virgin, Fertility: 15	9-tailed "enlightened" kitsune( a pure-blooded kitsune with the "Enlightened Nine-tails" perk and magic specials) 
+        //Herm, Fox Cock: (27"l x 1.4"w, knot multiplier 3.6), No Balls, Cum Multiplier: 7,500, Vaginal Wetness: 5, Clit length: 0.5, Virgin, Fertility: 15	9-tailed "enlightened" kitsune( a pure-blooded kitsune with the "Enlightened Nine-tails" perk and magic specials)
         if (!this.player.hasCock()) this.player.createCock();
         if (!this.player.hasVagina()) this.player.createVagina();
         this.player.gender = 3;
@@ -1155,7 +1155,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customGalatea(): void {
-        //"(Dangit Fenoxo!  Stop adding sexy must-have things to the game!  If it's not too late to update it I've added in that sexy new armor.  Thanks!)		
+        //"(Dangit Fenoxo!  Stop adding sexy must-have things to the game!  If it's not too late to update it I've added in that sexy new armor.  Thanks!)
         //Other:
         if (!this.player.hasVagina()) {
             this.player.createVagina();
@@ -1178,7 +1178,7 @@ export class CharCreation extends BaseContent {
         this.player.createPerk(PerkLib.StrongBack, 0, 0, 0, 0);
         this.player.createPerk(PerkLib.StrongBack2, 0, 0, 0, 0);
 
-        //Equipment: 
+        //Equipment:
         //Weapon: Warhammer
         this.player.setWeapon(this.weapons.WARHAMR);
         //Armor: Lusty shit
@@ -1227,7 +1227,7 @@ export class CharCreation extends BaseContent {
         this.player.spe += 5;
         this.player.tone += 10;
         this.player.createPerk(PerkLib.Fast, 0.25, 0, 0, 0);
-        //- history: religion 
+        //- history: religion
         this.player.createPerk(PerkLib.HistoryReligious, 0, 0, 0, 0);
         //(and if possible)
         //- history: fighter
@@ -1265,7 +1265,7 @@ export class CharCreation extends BaseContent {
         this.player.hairLength = 9;
         this.player.hairColor = "silver-white";
         //- human face
-        //- fox ears 
+        //- fox ears
         this.player.earType = EARS_FOX;
         //- olive complexion
         this.player.skinTone = "olive";
@@ -1277,7 +1277,7 @@ export class CharCreation extends BaseContent {
         this.player.thickness = 50;
         //- body thickness of  around 50
         this.player.tone = 70;
-        //- 'tone of about 70  
+        //- 'tone of about 70
         //- two flat breasts each supporting one 0.2-inch nipple
         this.player.nippleLength = 0.2;
         this.player.createBreastRow();
@@ -1295,7 +1295,7 @@ export class CharCreation extends BaseContent {
 
     private customKatti(): void {
         this.outputText("You have big breasts with big, fuckable nipples on them, and no matter what, your vagina always seems to be there to keep you company.");
-        //Gender: Female	
+        //Gender: Female
         if (!this.player.hasVagina()) {
             this.player.createVagina();
             kGAMECLASS.genderCheck();
@@ -1390,8 +1390,8 @@ export class CharCreation extends BaseContent {
     }
 
     private customLukaz(): void {
-        //Specific Character	
-        //Male. 11.5 inch dog dick, 4 balls, 2 inches in diameter.	
+        //Specific Character
+        //Male. 11.5 inch dog dick, 4 balls, 2 inches in diameter.
         this.player.createCock();
         this.player.cocks[0].cockLength = 11.5;
         this.player.cocks[0].cockThickness = 2;
@@ -1550,7 +1550,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customMirvanna(): void {
-        //Any equine or dragonny attributes accompanying it a big plus! As I'm a dragon-unicorn furry (Qilin~). Bonus points if you add a horn type for unicorn horn. 
+        //Any equine or dragonny attributes accompanying it a big plus! As I'm a dragon-unicorn furry (Qilin~). Bonus points if you add a horn type for unicorn horn.
         this.outputText("You're an equine dragon-herm with a rather well-proportioned body.  Ingnam is certainly going to miss having you whoring yourself out around town.  You don't think they'll miss cleaning up all the messy sex, though.");
         this.player.gender = 3;
         this.player.spe += 3;
@@ -1588,7 +1588,7 @@ export class CharCreation extends BaseContent {
         this.player.skinType = SKIN_TYPE_FUR;
         this.player.hairColor = "black";
         this.player.skinDesc = "fur";
-        //Legs/Feet = Digigrade hooved 
+        //Legs/Feet = Digigrade hooved
         this.player.lowerBody = LOWER_BODY_TYPE_HOOFED;
         //Wing type = Dragon
         this.player.wingType = WING_TYPE_DRACONIC_LARGE;
@@ -1676,7 +1676,7 @@ export class CharCreation extends BaseContent {
 
     private customNavorn(): void {
         this.outputText("There's been something special about you since day one, whether it's your numerous sexual endowments or your supernatural abilities.  You're a natural pick for champion.");
-        //Character Creation	"Herm same number and types of cocks from email sent earlier. 
+        //Character Creation	"Herm same number and types of cocks from email sent earlier.
         //Special abilities: Fire breath, fox fire?
         this.player.createPerk(PerkLib.Dragonfire, 0, 0, 0, 0);
         //equipment: Large claymore, and platemail
@@ -1786,7 +1786,7 @@ export class CharCreation extends BaseContent {
         //no balls
         //virgin pussy, 0.2"" clit
         //wetness 2
-        //fertility 30 
+        //fertility 30
         //virgin bum
         //anal wetness 1
         this.player.ass.analWetness = 2;
@@ -1856,7 +1856,7 @@ export class CharCreation extends BaseContent {
         this.player.lowerBody = LOWER_BODY_TYPE_DOG;
         this.player.tailType = TAIL_TYPE_DOG;
         this.player.earType = EARS_DOG;
-        ////"	"I'm picturing a tall, feminine German-Shepherd morph, solid white and gorgeous. She has both sets of genitals, with no balls, and a large set of breasts. She wields a large claymore and is dressed in a full chain vest and pants. 
+        ////"	"I'm picturing a tall, feminine German-Shepherd morph, solid white and gorgeous. She has both sets of genitals, with no balls, and a large set of breasts. She wields a large claymore and is dressed in a full chain vest and pants.
         //large claymore (and the strength to use it)
         this.player.setWeapon(this.weapons.CLAYMOR);
         this.player.str = 40;
@@ -1875,8 +1875,8 @@ export class CharCreation extends BaseContent {
         //Perk is speed, she was a scout, and it'd be neat (if possible) to give her something akin to the Runner perk. She might not start out very strong or tough, but at least she's fast.
         this.player.createPerk(PerkLib.Fast, 0.25, 0, 0, 0);
         this.player.createPerk(PerkLib.Runner, 0, 0, 0, 0);
-        //In the human world, Prismere began as a scout, helping patrol areas with portals to make sure demonspawn and corruption didn't reach the human homeland. She's gotten herself into a few tight spots because of it, but she's hard to keep pinned down. She has a fiance back in her village whom she fully intends to get back to, so her libido isn't especially high. 
-        //As of the time the PC takes her on, she has some signs of demonic taint, so Corruption might start at 5 to 10 points."	"Breasts at E, height at 5'0, a curvy build with a more narrow waist and substantial hips and butt. Skin is olive, like a mocha, hair is long and wildly wavy, a deep red, and eyes are a stormy blue. Muscles are barely visible; what muscle she has is the lean build of a runner, not a fighter. Nipples aren't especially long, but more soft. 
+        //In the human world, Prismere began as a scout, helping patrol areas with portals to make sure demonspawn and corruption didn't reach the human homeland. She's gotten herself into a few tight spots because of it, but she's hard to keep pinned down. She has a fiance back in her village whom she fully intends to get back to, so her libido isn't especially high.
+        //As of the time the PC takes her on, she has some signs of demonic taint, so Corruption might start at 5 to 10 points."	"Breasts at E, height at 5'0, a curvy build with a more narrow waist and substantial hips and butt. Skin is olive, like a mocha, hair is long and wildly wavy, a deep red, and eyes are a stormy blue. Muscles are barely visible; what muscle she has is the lean build of a runner, not a fighter. Nipples aren't especially long, but more soft.
         this.player.cor = 5;
         this.player.createBreastRow();
         this.player.breastRows[0].breastRating = 7;
@@ -2247,7 +2247,7 @@ export class CharCreation extends BaseContent {
         this.player.breastRows[1].breastRating = 5;
         this.player.breastRows[2].breastRating = 4;
         this.player.nippleLength = 3.5;
-        //Perks: Slut and Fertile"	
+        //Perks: Slut and Fertile"
 
         this.player.spe += 3;
         this.player.inte += 2;
@@ -2486,7 +2486,7 @@ export class CharCreation extends BaseContent {
             player.tone = 50;
             eventParser(10007);
         }
-    
+
         //Choose complexion
         if(eventNo == 10007) {
             outputText("\n\n\n\n\nWhat is your complexion?", true);
@@ -2628,8 +2628,8 @@ export class CharCreation extends BaseContent {
         }
         if(eventNo == 10033)
         {
-    
-    
+
+
             if(temp == 1) {
                 player.str += 5;
                 player.tone += 7;
@@ -2708,7 +2708,7 @@ export class CharCreation extends BaseContent {
             }
             else if(mainView.nameBox.text == "")
             {
-    
+
                 //If part of newgame+, don't fully wipe.
                 if(player.XP > 0 && player.explored == 0) {
                     flags[kFLAGS.NEW_GAME_PLUS_BONUS_STORED_XP] = player.XP;
@@ -2719,7 +2719,7 @@ export class CharCreation extends BaseContent {
                     }
                     flags[kFLAGS.NEW_GAME_PLUS_BONUS_STORED_ITEMS] = player.gems;
                 }
-    
+
                 newGameGo(e);
                 outputText("\n\n\n<b>You must select a name.</b>", false);
                 return;
@@ -2880,18 +2880,18 @@ export class CharCreation extends BaseContent {
             return;
         }
         if(eventNo == 10048) {
-    
+
             return;
         }
         if(eventNo == 10049) {
-    
+
             return;
         }
         if(eventNo == 10050) {
-    
+
             return;
         }
-    
+
     }
     */
 

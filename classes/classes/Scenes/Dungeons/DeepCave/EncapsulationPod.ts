@@ -1,6 +1,6 @@
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { SKIN_TYPE_FUR, SKIN_TYPE_SCALES, HIP_RATING_SLENDER, BUTT_RATING_BUTTLESS, SKIN_TYPE_PLAIN } from "../../../../../includes/appearanceDefs";
+import { SKIN_TYPE_FUR, SKIN_TYPE_SCALES, HIP_RATING_SLENDER, BUTT_RATING_BUTTLESS, SKIN_TYPE_PLAIN } from "../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 
 /**
@@ -56,11 +56,11 @@ export class EncapsulationPod extends Monster {
         else if (this.HPRatio() > 0.6) {
             _long += "  Your attacks have turned a part of the wall a sickly black color, and it no longer glows along with the rest of your chamber.";
         }
-        //[Greater than 40% Life] 
+        //[Greater than 40% Life]
         else if (this.HPRatio() > 0.4) {
             _long += "  You've dented the wall with your attacks.  It's permanently deformed and bruised solid black from your struggles.  Underneath the spongy surface you can feel a rock-solid core that's beginning to give.";
         }
-        //Greater than 20% Life] 
+        //Greater than 20% Life]
         else if (this.HPRatio() > 0.2) {
             _long += "  You have to blink your eyes constantly because the capsule's bio-luminescent lighting is going nuts.  The part of the wall you're going after is clearly dead, but the rest of your fungal prison is flashing in a crazy, panicked fashion.";
         }

@@ -4,7 +4,7 @@ import { PregnancyStore } from "../../PregnancyStore";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { trace } from "../../../console";
 import { Player } from "../../Player";
-import { SKIN_TYPE_FUR, LOWER_BODY_TYPE_FOX, EARS_FOX, FACE_FOX, TAIL_TYPE_FOX, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
+import { SKIN_TYPE_FUR, LOWER_BODY_TYPE_FOX, EARS_FOX, FACE_FOX, TAIL_TYPE_FOX, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
@@ -15,7 +15,7 @@ import { Sirius } from "./UrtaQuest/Sirius";
 import { GnollSpearThrower } from "../Areas/Plains/GnollSpearThrower";
 import { MinotaurLord } from "./UrtaQuest/MinotaurLord";
 import { MilkySuccubus } from "./UrtaQuest/MilkySuccubus";
-import { MainView } from "../../../../lib/src/coc/view/MainView";
+import { MainView } from "../../../view/MainView";
 
 export class UrtaQuest extends NPCAwareContent {
 

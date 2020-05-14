@@ -4,7 +4,7 @@ import { CoC } from "../../CoC";
 import { StatusAffects } from "../../StatusAffects";
 import { trace } from "../../../console";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { SKIN_TYPE_PLAIN, SKIN_TYPE_UNDEFINED, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
+import { SKIN_TYPE_PLAIN, SKIN_TYPE_UNDEFINED, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
 import { PerkLib } from "../../PerkLib";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 
@@ -17,7 +17,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
     //const BOOBGARTUAN_SURPRISE_COUNT: number = 414;
 
     /*function exgartuanMasturbate(): void {
-    	
+
     */
     //Dick(s)
     //Tits
@@ -28,7 +28,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
     //300 xp
 
     //1/40 chance of encountering fountain. It does not appear while possessed.
-    //When drank from, rewards 300 xp, a sizable random growth, and either boosts minimum lust by 5 or gives demonic possession.  
+    //When drank from, rewards 300 xp, a sizable random growth, and either boosts minimum lust by 5 or gives demonic possession.
 
     /*Possession details:
     -Changes body part once a week (if possible)
@@ -45,8 +45,8 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
     **Sandwitches are interrupted when they ask if they can cast a spell on you.
     **Turns it into a demon-dick.
     **Forces you to try to rape bee girls
-    
-    
+
+
     -Tits
     --Randomly stops and starts lactating in various amounts
     --Taunts your male foes, randomly increasing their lust.
@@ -103,26 +103,26 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                         else if (Exgartuan.rand(10) == 0 && this.player.armor.supportsBulge) {
 							/* Old way of doing it.
 							(armorName == "sexy black chitin armor-plating" ||
-							armorName == "glistening gel-armor plates" || 
-							player.armorName == "leather armor segments" || 
-							player.armorName == "comfortable clothes" || 
-							player.armorName == "bondage patient clothes" || 
-							player.armorName == "crotch-revealing clothes" || 
-							player.armorName == "cute servant's clothes" || 
-							player.armorName == "maid's clothes" || 
-							player.armorName == "servant's clothes" || 
-							player.armorName == "maid's clothes" || 
-							player.armorName == "practically indecent steel armor" || 
-							player.armorName == "red, high-society bodysuit" || 
-							player.armorName == "spider-silk armor" || 
-							player.armorName == "slutty swimwear" || 
-							player.armorName == "full-body chainmail" || 
-							player.armorName == "revealing chainmail bikini" || 
-							player.armorName == "full platemail" || 
-							player.armorName == "scale-mail armor" || 
-							player.armorName == "black leather armor surrounded by voluminous robes" || 
-							player.armorName == "rubber fetish clothes" || 
-							player.armorName == "green adventurer's clothes" || 
+							armorName == "glistening gel-armor plates" ||
+							player.armorName == "leather armor segments" ||
+							player.armorName == "comfortable clothes" ||
+							player.armorName == "bondage patient clothes" ||
+							player.armorName == "crotch-revealing clothes" ||
+							player.armorName == "cute servant's clothes" ||
+							player.armorName == "maid's clothes" ||
+							player.armorName == "servant's clothes" ||
+							player.armorName == "maid's clothes" ||
+							player.armorName == "practically indecent steel armor" ||
+							player.armorName == "red, high-society bodysuit" ||
+							player.armorName == "spider-silk armor" ||
+							player.armorName == "slutty swimwear" ||
+							player.armorName == "full-body chainmail" ||
+							player.armorName == "revealing chainmail bikini" ||
+							player.armorName == "full platemail" ||
+							player.armorName == "scale-mail armor" ||
+							player.armorName == "black leather armor surrounded by voluminous robes" ||
+							player.armorName == "rubber fetish clothes" ||
+							player.armorName == "green adventurer's clothes" ||
 							player.armorName == "white shirt and overalls")) {
 							*/
                             this.outputText("\n<b>");
@@ -747,7 +747,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("Your nipples grow warm and sensitive, then start dripping milk into your " + this.player.armorName + ".  Exgartuan appears to be having some fun with you again...", false);
                 this.player.boostLactation(this.player.breastRows.length);
             }
-            //(Stops) 
+            //(Stops)
             else {
                 this.outputText("Your " + this.nippleDescript(0) + "s tighten up.  What's that demon up to?  Realization dawns on you when you realize your " + this.allBreastsDescript() + " no longer feel so 'full'.  Your lactation has stopped!", false);
                 boobs = this.player.breastRows.length;
@@ -771,7 +771,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                     this.outputText("The inner surface of your " + this.player.armorName + " arouses you as it rubs against your " + this.nippleDescript(0) + "s.  You think about it and realize they've never been like this before.  A quick check reveals each nipple has grown about a half inch longer.  Damn demons.", false);
                     this.player.nippleLength += .5;
                 }
-                //(SHORTER NIPPLES!)  
+                //(SHORTER NIPPLES!)
                 else if (this.player.nippleLength > .5) {
                     this.outputText("As time passes you realize something feels different about your chest.  A quick glance confirms your suspicious – your nipples have somehow been shortened by about half an inch.  You've no doubt Exgartuan is responsible.", false);
                     this.player.nippleLength -= .5;
@@ -860,7 +860,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             }
             this.outputText("</i>\"\n\n", false);
 
-            //(LOWCOR: 
+            //(LOWCOR:
             if (this.player.cor < 33) {
                 this.outputText("You grab hold of the perverse prick with both hands, not to stroke it, but to try and pry the invader from your oral cavity by force.  The surface is slick with sweat and pre-cum, and your hands slide inexorably towards the ", false);
                 if (!this.player.hasSheath()) this.outputText("base", false);
@@ -1091,7 +1091,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
     }
 
     //Exgartuan in breasts
-    //≥48 hours since Boobgartuan masturbation scene. 
+    //≥48 hours since Boobgartuan masturbation scene.
     //Random chance for occurrence once requirement met.
     //Player going to sleep, duh
     //3:00AM
@@ -1328,7 +1328,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.cor < 50) this.outputText("  A heavy sigh escapes your lips as you feel the artificial pressure subside, replaced with the slight increase of lust all the excitement brought on.  You'll have to tend to that when you're nice and rested.  Unfortunately, your mighty milk fountain has drenched you and the surrounding countryside, turning dirt to mud and your desire to come out of this somewhat clean becoming a futile fantasy.  You scoop up what little pride you can find and wander back to camp, a trail of milk forming behind you.", false);
         //[else]
         else this.outputText("  Your fingertips continue to sweep across your " + this.player.skin() + ", seemingly in denial that the exciting night has drawn to a close.  You peer up at the ever-present moon, its crimson hue as foreboding as the day you first arrived in Mareth.  You stew on the prospect of apologizing to the demoness for your forgetfulness.  Though, be it for your pride or hers, you decide it better to just shelf the idea.  All Exgartuan cares about is attention and fucking, better to not go and try to turn her into a conversationalist.  Best to just tend to her every so often if you actually do care.  Once you've taken care of your own lust anyway.  You shake some sense back into your head, sending some dirt flying.  The \"<i>breast show on earth</i>\" left you soaked, your milk turning the dirt to mud around you.  You figure it best to worry about it once you're at camp.  You begin the trek back, a little smile growing on your face once you see the trail of milk you're leaving behind in your wake.", false);
-        //[corruption +2, lust +5] 
+        //[corruption +2, lust +5]
         this.dynStats("lus", 5, "cor", 2);
         this.flags[kFLAGS.BOOBGARTUAN_SURPRISE_COUNT]++;
         this.player.changeStatusValue(StatusAffects.Exgartuan, 2, 25);

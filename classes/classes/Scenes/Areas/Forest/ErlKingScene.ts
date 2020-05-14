@@ -3,7 +3,7 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { trace } from "../../../../console";
 import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
-import { WING_TYPE_NONE, TAIL_TYPE_NONE, SKIN_TYPE_FUR, LOWER_BODY_TYPE_DOG, FACE_DOG } from "../../../../../includes/appearanceDefs";
+import { WING_TYPE_NONE, TAIL_TYPE_NONE, SKIN_TYPE_FUR, LOWER_BODY_TYPE_DOG, FACE_DOG } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 
 export class ErlKingScene extends BaseContent {
@@ -181,11 +181,11 @@ export class ErlKingScene extends BaseContent {
         this.outputText("His gaze runs up and down your form, and despite yourself, you shiver at his attention.\n\n");
 
         if (waited) {
-            //[If Stand Your Ground Selected] 
+            //[If Stand Your Ground Selected]
             this.outputText("“<i>You’re a brave one, aren’t you?  Standing your ground in the face of the Wild Hunt?  I applaud your audacity.  I’m going to enjoy hunting you....</i>”\n\n");
         }
         else {
-            //[If Run Selected] 
+            //[If Run Selected]
             this.outputText("“<i>I’m afraid you’re going to have to learn to run faster if you hope to elude me in the future.  I do hope you won’t bore me.</i>”\n\n");
         }
 
@@ -277,10 +277,10 @@ export class ErlKingScene extends BaseContent {
     protected repeatWildHuntCaught(pScore: number): void {
         this.clearOutput();
 
-        // Player Hunt Score < 150.  The Erlking captures you. 
-        //If your score is above 100, the Erlking has his way with you.  
-        // If your score is below 100, Gangbang by his Hounds (canine anthros).  
-        // If the PC is a kitsune, bunny, or harpy, disregard Wild Points because the Erlking will ALWAYS opt to do the PC personally.  
+        // Player Hunt Score < 150.  The Erlking captures you.
+        //If your score is above 100, the Erlking has his way with you.
+        // If your score is below 100, Gangbang by his Hounds (canine anthros).
+        // If the PC is a kitsune, bunny, or harpy, disregard Wild Points because the Erlking will ALWAYS opt to do the PC personally.
         // The Erlking leaves the PC a nicely-wrapped gift of foxberries or canine peppers,  The Hunt reverts to 0 points.
 
         this.outputText("You run through the woods, heart pounding so hard you feel it might leap out of your throat.  Despite your best efforts, though, the fog still closes in.  With it comes the sound of the hounds, running alongside you, hidden in the thick haze. \n\n");
@@ -399,7 +399,7 @@ export class ErlKingScene extends BaseContent {
 
         this.outputText("“<i>Next hunt?</i>” you begin, but before you can get the words out, the Erlking is already on his horse, thundering away through the trees.\n\n");
 
-        //[You gain: Gems + Fox berries / Canine Peppers / Neon Pink Egg ]	
+        //[You gain: Gems + Fox berries / Canine Peppers / Neon Pink Egg ]
         var gemFind: number = 10 + ErlKingScene.rand(15);
 
         this.outputText("<b>You found " + gemFind + " gems.</b>\n\n");
@@ -616,7 +616,7 @@ export class ErlKingScene extends BaseContent {
             }
         }
 
-        //[+10 Fatigue, +1 Toughness / +1 Strength, 100 hp healed]			
+        //[+10 Fatigue, +1 Toughness / +1 Strength, 100 hp healed]
         if (this.player.tou < this.player.str) this.dynStats("toughness+", 1, "fatigue+", 10, "health+", 100, "lust=", 0);
         else (this.dynStats("strength+", 1, "fatigue+", 10, "health+", 100, "lust=", 0));
         this.player.orgasm();

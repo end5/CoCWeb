@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, LOWER_BODY_TYPE_HARPY, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, WING_TYPE_FEATHERED_LARGE, TAIL_TYPE_DEMONIC, HORNS_DEMON } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, LOWER_BODY_TYPE_HARPY, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, WING_TYPE_FEATHERED_LARGE, TAIL_TYPE_DEMONIC, HORNS_DEMON } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 
 export class Brigid extends Monster {

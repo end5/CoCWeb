@@ -5,7 +5,7 @@ import { MinotaurScene } from "./Mountain/MinotaurScene";
 import { Salon } from "./Mountain/Salon";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { trace } from "../../../console";
-import { FACE_DOG, TAIL_TYPE_DOG, LOWER_BODY_TYPE_DOG, HORNS_COW_MINOTAUR, EARS_COW, TAIL_TYPE_COW, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC } from "../../../../includes/appearanceDefs";
+import { FACE_DOG, TAIL_TYPE_DOG, LOWER_BODY_TYPE_DOG, HORNS_COW_MINOTAUR, EARS_COW, TAIL_TYPE_COW, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC } from "../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../PregnancyStore";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";

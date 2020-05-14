@@ -2,7 +2,7 @@ import { AbstractLakeContent } from "./AbstractLakeContent";
 import { StatusAffects } from "../../../StatusAffects";
 import { FetishZealot } from "./FetishZealot";
 import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
-import { VAGINA_LOOSENESS_LOOSE } from "../../../../../includes/appearanceDefs";
+import { VAGINA_LOOSENESS_LOOSE } from "../../../../includes/appearanceDefs";
 
 /**
  * Created by aimozg on 04.01.14.
@@ -11,20 +11,20 @@ import { VAGINA_LOOSENESS_LOOSE } from "../../../../../includes/appearanceDefs";
 export class FetishZealotScene extends AbstractLakeContent {
 
     //Fetish Zealot
-    //The Fetish zealot is the guard, escort, and de-facto 
-    //warrior for the Followers of the Fetish.  They are tasked 
-    //with guarding their assets, protecting their members, and 
-    //as the primary warriors when fighting becomes necessary.  
-    //They wield daggers coated in aphrodisiacs, and like the 
-    //cultist are able to change their clothing at will and cast 
+    //The Fetish zealot is the guard, escort, and de-facto
+    //warrior for the Followers of the Fetish.  They are tasked
+    //with guarding their assets, protecting their members, and
+    //as the primary warriors when fighting becomes necessary.
+    //They wield daggers coated in aphrodisiacs, and like the
+    //cultist are able to change their clothing at will and cast
     //a spell that transfers their lust to their opponent.
     //Combat Stats
-    //Stats similar to the cultist (we can adjust for balance 
+    //Stats similar to the cultist (we can adjust for balance
     //later) +5 STR, god bless DnD
-    //Begins combat with 10 lust (so that he can transfer 
-    //something with the lust transfer spell), gains 5 
+    //Begins combat with 10 lust (so that he can transfer
+    //something with the lust transfer spell), gains 5
     //lust on each turn of combat
-    //Standard attack enabled: does a little bit of lust damage 
+    //Standard attack enabled: does a little bit of lust damage
     //in addition to regular damage (lib/20 + rand(4)+1)
 
 

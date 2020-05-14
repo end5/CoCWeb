@@ -1,6 +1,6 @@
 import { NPCAwareContent } from "./NPCAwareContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { LOWER_BODY_TYPE_CENTAUR, TAIL_TYPE_NONE, SKIN_TYPE_FUR, SKIN_TYPE_SCALES } from "../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_CENTAUR, TAIL_TYPE_NONE, SKIN_TYPE_FUR, SKIN_TYPE_SCALES } from "../../../includes/appearanceDefs";
 import { StatusAffects } from "../../StatusAffects";
 import { PregnancyStore } from "../../PregnancyStore";
 import { Ceraph } from "./Ceraph";
@@ -29,7 +29,7 @@ export class CeraphScene extends NPCAwareContent {
     //Third Level – PC finds themselves incapable of attacking physically.
 
     //How it goes down
-    //First Meeting – PC is unpierced, Ceraph appears as cute goblin offering a free ear-piercing that increases (cum volume/fertility).  
+    //First Meeting – PC is unpierced, Ceraph appears as cute goblin offering a free ear-piercing that increases (cum volume/fertility).
     //If PC volunteers, PC gets pierced and Ceraph reveals herself, letting the PC know she's been duped into wearing cursed ear-rings that give will force an exhibitionism fetish upon him/her.
     //If PC declines, Ceraph attacks.  If Ceraph wins, the player character is pierced.  If Ceraph loses, go to standard Ceraph loss rapes.
     //If PC manages to fight her off the first time, all repeats start with the PC immediately thrown into combat with her!
@@ -41,7 +41,7 @@ export class CeraphScene extends NPCAwareContent {
     //PC is @ level 2 piercing
     //Ceraph saunters up, asking the player how good it feels to expose oneself, or be tied down and restrained.  PC can tell her it's pretty damned good and ask for more or resist.
     //Resist brings on a fight, losing causing piercing.
-    //Ceraph pierces clit, dick, or bellybutton in that order.  
+    //Ceraph pierces clit, dick, or bellybutton in that order.
     //Ceraph taunts and teases player, who discovers he/she is incapable of physically attacking.
 
     //PC is @ level 3 piercing
@@ -50,7 +50,7 @@ export class CeraphScene extends NPCAwareContent {
     //If the PC loses, Ceraph has very bondagey degrading sex with the PC, but does not push the issue.
 
     /*MISC NOTES
-     Type 
+     Type
      0 - unpierced
      1 - stud
      2- ring
@@ -143,9 +143,9 @@ export class CeraphScene extends NPCAwareContent {
         }
         else {
             //[MALE TOO DAMN BIGGA WIGGA]
-            //[lust] 
+            //[lust]
             if (this.monster.lust > 99) this.outputText("Ignoring her squeals of pleasure, you force Ceraph onto her back, oogling her perky breasts, indecent cock, and soaked cunt.  She looks up at you hungrily, and you have the feeling that on some level you're still giving her what she wants.  Wary of the demon's wiles, you pull her hands together and use some scraps of cloth to bind them up.  Moaning with helpless desire, the demon grinds her crotch against your " + this.player.leg() + ", spreading her thighs apart into a near split and giving you a world-class view of her juicy purple cunt.\n\n", false);
-            //[hp] 
+            //[hp]
             else this.outputText("Ignoring her grunts of pain, you force Ceraph onto her back, oogling her perky breasts, limp cock, and hairless cunt.  She looks up at you with disdain, growling at you from the back of her throat. Wary of the demon's abilities, you tie up her hands with a few pieces of tattered cloth.  She seems to like it, judging by her tenting erection and now-glistening gash.  The slut even goes so far as to begin grinding her crotch against you, spreading her thighs wider and wider as she gets off on being restrained.  You're given a perfect view of her enticing purple cunt.\n\n", false);
 
             this.outputText("Ceraph licks her lips and gazes up at you, begging with a voice that drips with seductive intent, \"<i>Please, don't rape me Champion!  Don't tie me down and rape me like a helpless village-girl!</i>\"\n\n", false);
@@ -204,7 +204,7 @@ export class CeraphScene extends NPCAwareContent {
         this.outputText("", true);
         //lust
         if (this.monster.lust > 99) this.outputText("Ignoring her squeals of pleasure, you force Ceraph onto her back, oogling her perky breasts, indecent cock, and soaked cunt.  She looks up at you hungrily, and you have the feeling that on some level you're still giving her what she wants. Wary of the demon's wiles, you pull her hands together and use some tattered strips of cloth to bind them up.  Moaning with helpless desire, the demon grinds her crotch against your " + this.player.leg() + ", spreading her thighs apart into a near split and giving you a world-class view of her pulsating black demon-cock.\n\n", false);
-        //[hp] 
+        //[hp]
         else this.outputText("Ignoring her grunts of pain, you force Ceraph onto her back, oogling her perky breasts, limp cock, and hairless cunt.  She looks up at you with disdain, growling at you from the back of her throat.  Mindful of the demon's abilities, you tie up her hands with some tattered strips of cloth.  She seems to like it, judging by her tenting erection and now-glistening gash.  The slut even goes so far as to begin grinding her crotch against you, spreading her thighs wider and wider as she gets off on being restrained.  You're given a perfect view of her pulsating black demon-cock.\n\n", false);
 
         this.outputText("Ceraph licks her lips and gazes up at you, begging with a voice that drips with seductive intent, \"<i>Please don't rape me!  I took a vow of chastity!</i>\"\n\n", false);
@@ -498,7 +498,7 @@ export class CeraphScene extends NPCAwareContent {
     /*	scandalously seductive armor – dropped off a random demonic enemy.
      A complete suit of scalemail shaped to hug tightly against every curve, it has a solid steel chest-plate with obscenely large nipples molded into it.  The armor does nothing to cover the backside, exposing the wearer's cheeks to the world.
      [After wearing]
-     While you take a break, you feel a sudden shift in your scandalous new armor.  To your horror, it begins folding into itself, revealing more and more of your " + player.skin + " and the comfortable underclothes you had on underneath it.  The transforming armor gradually covers less and less of you until it's little more than a pair of huge nipple-coverings and a silver chain.  A loud KA-CHUNK startles you, and then you're screaming as you feel something stabbing through your nipples.  Goosebumps cover your flesh as you twist in unexpected agony.  
+     While you take a break, you feel a sudden shift in your scandalous new armor.  To your horror, it begins folding into itself, revealing more and more of your " + player.skin + " and the comfortable underclothes you had on underneath it.  The transforming armor gradually covers less and less of you until it's little more than a pair of huge nipple-coverings and a silver chain.  A loud KA-CHUNK startles you, and then you're screaming as you feel something stabbing through your nipples.  Goosebumps cover your flesh as you twist in unexpected agony.
      After you've had a chance to recover, you inspect your abused nipples and discover that your armor has totally disappeared.  The only thing left behind is a pair of seamless black nipple-studs, embedded into your vulnerable flesh.  There doesn't appear to be any way to remove them either.  Thankfully, your comfortable underclothes have been unaffected by the sudden disappearance of your armor.  The thought of having to run around naked stays stubbornly locked in your mind, and you mentally curse the demon for what she's done to you.
      As if summoned by your thoughts, you can hear her voice on the wind, taunting you again, \"<i>Enjoy your new bondage fetish pet!  One more piercing and you'll be ready.  Don't have too much fun being tied down and fucked ok?</i>\"
      */
@@ -870,7 +870,7 @@ export class CeraphScene extends NPCAwareContent {
         this.playerMenu();
     }
 
-    //[Run] → 
+    //[Run] →
     private runFromCeraphsNiceDeal(): void {
         this.outputText("", true);
         this.spriteSelect(7);
@@ -882,7 +882,7 @@ export class CeraphScene extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[Trade] 
+    //[Trade]
     private tradeCeraphSomething(): void {
         this.outputText("", true);
         this.spriteSelect(7);
@@ -890,7 +890,7 @@ export class CeraphScene extends NPCAwareContent {
         var endowment = undefined;
         var armor = undefined;
         this.outputText("Ceraph looks you up and down like an appraiser examining an antique, never stopping her languid masturbation.  You stand there, hands on your hips, waiting for her to finish while you try not to stare too long at her beading pre-cum or dripping twat-juice.\n\n", false);
-        //(BIMBO LIQUER) 
+        //(BIMBO LIQUER)
         if (this.player.hasItem(this.consumables.BIMBOLQ)) {
             this.outputText("She finishes and smiles widely.  \"<i>Is that bimbo liqueur?  That stuff is so hard to find, even for a demon like me.  I tell you what, I'll release you from ", false);
             if (this.flags[kFLAGS.PC_FETISH] > 1) this.outputText("all the fetishes", false);
@@ -901,7 +901,7 @@ export class CeraphScene extends NPCAwareContent {
             liqueur = this.tradeCeraphBimboLiqueur;
             if (this.player.gender > 0 || this.player.biggestTitSize() > 2) endowment = this.tradeCeraphCrotchityBits;
         }
-        //(No Bimbo Liquer) 
+        //(No Bimbo Liquer)
         else if (this.player.gender > 0 || this.player.biggestTitSize() > 2) {
             this.outputText("She finishes and perks up, leering lewdly at you.  \"<i>I tell you what.  Let me take one of your endowments to use on my pets and I'll get rid of ", false);
             if (this.flags[kFLAGS.PC_FETISH] == 1) this.outputText("your fetish for you.</i>\"\n\n", false);
@@ -949,7 +949,7 @@ export class CeraphScene extends NPCAwareContent {
     private tradeCeraphCrotchityBits(): void {
         this.outputText("", true);
         this.spriteSelect(7);
-        //(EXGARTUAN PISSED) 
+        //(EXGARTUAN PISSED)
         if (this.player.statusAffectv1(StatusAffects.Exgartuan) == 1) {
             this.outputText("A disembodied voice roars out, \"<i>FUCK NO!  You are NOT giving me to that crazy bitch!</i>\"  Exgartuan doesn't seem to want to run the risk of being taken by Ceraph, and he completely assumes control of your " + this.player.legs() + " to make you flee with all due haste.  He taunts, \"<i>Rip off your own little dick, why doncha!  You'd look better with just a pussy anyhow ya dried out old sow!</i>\"\n\n", false);
             this.outputText("Ceraph seems perturbed but doesn't bother to pursue you.", false);
@@ -1006,7 +1006,7 @@ export class CeraphScene extends NPCAwareContent {
             this.outputText(".", false);
             this.outputText("</i>\"\n\n", false);
         }
-        //(Cunts) 
+        //(Cunts)
         else if (choice == 2) {
             this.outputText("The demon's gaze drops down between your " + this.player.legs() + ", and she remarks, \"<i>", false);
             if (this.player.wetness() >= 5) this.outputText("My my, what a juicy box you have there.  Tell me, doesn't it bother you to be soaking in your own lubricants all the time?  Perhaps I'll put it on one of my slaves and mount her on the wall.  Then I can simply slip in and lube up before giving one of my other pets a proper lesson.", false);
@@ -1015,7 +1015,7 @@ export class CeraphScene extends NPCAwareContent {
             else this.outputText("My my, such a pretty pussy.  I bet it would be fun to replace one of my noisier pet's mouth with.  She never did learn not to bite.", false);
             this.outputText("</i>\"\n\n", false);
         }
-        //(Tits) 
+        //(Tits)
         else {
             this.outputText("Ceraph's hands reach up to cup the swell of your " + this.biggestBreastSizeDescript() + " as she asks, \"<i>", false);
             if (this.player.biggestTitSize() > 14) this.outputText("Oh wow... just wow.  How do you walk?  With melons like this you could tit-fuck three or four people at once!  Absolutely exquisite.", false);
@@ -1097,7 +1097,7 @@ export class CeraphScene extends NPCAwareContent {
             this.flags[kFLAGS.PC_FETISH]--;
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00219]++;
         }
-        //(Tits) 
+        //(Tits)
         else {
             //Take da biggest titz!
             x = this.player.biggestTitRow();

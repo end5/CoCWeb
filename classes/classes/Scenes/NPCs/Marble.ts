@@ -2,7 +2,7 @@ import { Monster } from "../../Monster";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
-import { VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_HOOFED, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_HOOFED, TAIL_TYPE_COW } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 import { WeightedDrop } from "../../internals/WeightedDrop";
 

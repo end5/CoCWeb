@@ -19,8 +19,8 @@ import { kFLAGS } from "./GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { RandomDrop } from "./internals/RandomDrop";
 import { PerkLib } from "./PerkLib";
-import { OtherKeys, StatKeys } from "../../lib/src/coc/view/StatsView";
-import { GENDER_NONE, TAIL_TYPE_NONE, HORNS_NONE, WING_TYPE_NONE, ANTENNAE_NONE } from "../../includes/appearanceDefs";
+import { OtherKeys, StatKeys } from "../view/StatsView";
+import { GENDER_NONE, TAIL_TYPE_NONE, HORNS_NONE, WING_TYPE_NONE, ANTENNAE_NONE } from "../includes/appearanceDefs";
 
 
 /**

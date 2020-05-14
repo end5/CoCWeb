@@ -4,7 +4,7 @@ import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { LOWER_BODY_TYPE_CENTAUR, VAGINA_LOOSENESS_GAPING, TAIL_TYPE_NONE } from "../../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_CENTAUR, VAGINA_LOOSENESS_GAPING, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../../PregnancyStore";
 import { Minotaur } from "./Minotaur";
 import { Appearance } from "../../../Appearance";
@@ -310,17 +310,17 @@ export class MinotaurScene extends BaseContent {
 
             this.outputText("Mooing and groaning, the beast succumbs to the obscene ministrations of his new \"<i>friends</i>\" and begins jacking himself off, a dull, glazed look of bliss on his face as his huge horse dong visibly worms in his grasp.  ", false);
 
-            //- [Normal (with worms...) semen production]: 
+            //- [Normal (with worms...) semen production]:
             if (this.player.cumQ() < 1000) this.outputText("His obscenely wriggling sack bounces against his ass with his thrusts as pre and worms flow down the sides of his dick, his enhanced balls not hindering his desperation to cum for the worms as he jacks himself harder and harder. The cum you pumped into them has swollen them to the size of large watermelons, the squirming parasites turning his balls into worm-factories as you watch him with a dazed sense of pride. His pre leaks out slowly, dropping the occasional worm or two onto his chest as the beast eagerly picks up the pace, and the dribbles turn into a steady stream as the minotaur grits his teeth, his sack tightening against his groin.\n\n", false);
             //- [High semen production( messy orgasms perk, large balls, whatever)]:
             else if (this.player.cumQ() < 5000) this.outputText("His hugely bloated balls drape over his asshole, their sheer size spreading his legs apart and forcing him to lie on his back to masturbate. The mammoth balls in his outstretched sack are bigger than his head, about the size of beach balls as they pump a steady stream of worms and cum down the minotaur's horse-shaft, dribbling on his muscled chest lewdly as he brings himself back to his peak.\n\n", false);
-            //- [Maximum/enhanced cum production(marae's gift: stud, elven bounty, spamming a shitload of succubus dream on debug mode, etc.)]: 
+            //- [Maximum/enhanced cum production(marae's gift: stud, elven bounty, spamming a shitload of succubus dream on debug mode, etc.)]:
             else this.outputText("the beast's obscenely bloated balls actually lift his legs into the air as he jacks off, each nut almost as big as the minotaur's entire torso! You chuckle to yourself, impressed with your massive load and the additional swelling your pets provide as you watch his balls churn deliciously with their infested cargo, working to turn this bull into a worm-producing, cum-spraying, hyper-productive sex factory. Cum and worms pour out of the beast's cum-nozzle in what you assume to be his orgasm, splattering his chest and face obscenely with the squirming white goop. But you realize that this must just be a mere spurt of \"<i>pre-cum</i>\" as the beast soon arches his back and jacks harder and faster, his real orgasm fast approaching.\n\n", false);
 
             //scene finishers:
-            //(normal and high cum production finish): 
+            //(normal and high cum production finish):
             if (this.player.cumQ() < 5000) this.outputText("The beast cums, spraying a thick stream of infested jizz straight up into the roof of the cavern, causing wormy cum to rain down all over the both of you. The stream continues for several minutes, turning the entire interior of the cave white with worms and cum until the minotaur's eyes roll back into his skull.  He pants and drools as his new friends coat every inch of him. You shudder in arousal as some of his worms work their way back inside your own " + this.cockDescript(x) + " and travel down to your " + this.ballsDescriptLight() + " re-filling your spent reserves while you rise and walk over to the infested beast, who is barely conscious, utterly insensate from the constant stream of bliss coming from his cock.  It finally dies down and slows to a trickle. Planting a kiss upon his worm-covered forehead, you chuckle and leave him to his fate as a horny and insatiable parasite-spreading animal.\n\n", false);
-            //(maximum/enhanced cum production finish): 
+            //(maximum/enhanced cum production finish):
             else {
                 this.outputText("The beast roars as his hideously swollen nuts churn, an absolute deluge of infested jism blasting from his squirming horse-cock and actually pushing the minotaur forward from the massive nut-pressure. Every muscle in the bull-man's body seizes as the endless stream literally begins flooding the cave, inch after inch of squirmy cum pooling on the floor until it's up to your ankles and pouring out of the cave's entrance like an obscene river. As his flow tapers off, the minotaur suddenly bucks his hips into the air as a second spurt begins, his sack beginning to shrink a bit as gallons and gallons pour from the cave down the side of the mountain. Watching your infested toy launch blast after blast against the cave walls is satisfying beyond measure, and you feel the worms build back up in your own " + this.ballsDescriptLight() + ", readying your perverted anatomy to spread the infestation once more. The bull's last shot tapers down to a drizzle, his balls shrunken to the point where he can at least walk with his new \"<i>friends</i>\" without tripping over his enhanced cum-factories. Laying in a three-inch cum flood, the infested minotaur promptly passes out in the wake of his gargantuan orgasm.\n\n", false);
 
@@ -346,7 +346,7 @@ export class MinotaurScene extends BaseContent {
         //Monster got ass whupped
         if (this.monster.HP <= 0) {
             this.outputText("You roll the barely conscious beast over, lifting his ass up above his knees.  The loincloth flops open, giving you a perfect view of his hardening member.  In most ways it looks like a horse's dick, though it seems to be textured with multiple rings of prepuce along its length.  The scent boiling off that marvelously thickening endowment is pleasant yet musky, and overpoweringly strong.", true);
-            //Vagina or not flavor texts		
+            //Vagina or not flavor texts
             if (this.player.vaginas.length > 0) this.outputText("  Glancing back at you with hope in his eyes, the minotaur's " + this.monster.cockDescriptShort(0) + " twitches as he lays his gaze upon your " + this.vaginaDescript(0) + ".", false);
             else this.outputText("  Glancing back at you with eyes full of despair, the minotaur seems to realize you won't be helping the predicament his " + this.monster.ballsDescriptLight() + " are in.", false);
         }
@@ -507,7 +507,7 @@ export class MinotaurScene extends BaseContent {
         //====================================================================
         //((This would be a Minotaur Loss Rape if the PC fulfills either of the following conditions.))
         //{CHECK: If male PC with big butt (Over... I have no idea what butt numbers are), use this}
-        //{CHECK: If female or herm PC with big butt and vagina too small to fit minotaur cock, use this}		
+        //{CHECK: If female or herm PC with big butt and vagina too small to fit minotaur cock, use this}
         if (!autoRape) {
             if (MinotaurScene.rand(2) == 0 && this.player.buttRating >= 15 && this.player.vaginalCapacity() < this.monster.biggestCockArea() && this.player.tone < 60) {
                 this.getMinoHawtDawged();
@@ -659,7 +659,7 @@ export class MinotaurScene extends BaseContent {
             this.AddictNagaOnMinotaur();
             return;
         }
-        //(Rape – titfuck) Requires F+ cup breasts or DD+ breasts on top two rows.  
+        //(Rape – titfuck) Requires F+ cup breasts or DD+ breasts on top two rows.
         this.outputText("", true);
         this.outputText("The helpless minotaur lays in the dirt, ", false);
         if (this.monster.HP < 1) this.outputText("defeated.  ", false);
@@ -838,7 +838,7 @@ export class MinotaurScene extends BaseContent {
         this.outputText("", true);
         this.outputText("While exploring the mountains you catch a strong whiff of your favorite scent.  Tipping your head to the side, you take in a few deep lungfuls and sigh.   Judging by the strength of the smell, there must be MANY minotaurs gathered together.   Immediate visions of being surrounded by the muscly monsters fill your mind.   In your fantasy your holes are plugged and you're soaked in their wondrous stuff.  You desperately want it to be a reality, and all you need to do is follow your nose...\n\n", false);
 
-        //(Withdrawal) 
+        //(Withdrawal)
         if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 3) {
             this.outputText("So great is your need that you don't even think about it, you just start following.", false);
             this.doNext(this.minoAddictionBadEnd2);
@@ -965,7 +965,7 @@ export class MinotaurScene extends BaseContent {
             if (this.player.hasVagina()) this.outputText("Grasping his bull-cock, you pull it against your pussy, rubbing your juices up and down his impressive length as your lips and clit grind on him, adding to your pleasure.");
         }
 
-        //(If male or herm: 
+        //(If male or herm:
         this.outputText("\n\n");
         if (this.player.hasCock()) {
             this.outputText("As your orgasm washes over you, you spray your cum, ");
@@ -1015,17 +1015,17 @@ export class MinotaurScene extends BaseContent {
             this.outputText("you thrust your cock");
             if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(" through the air harder and faster, drenching his ");
-            //(if cum volume low: 
+            //(if cum volume low:
             if (this.player.cumQ() < 250) this.outputText("backside with your cum");
             else if (this.player.cumQ() < 500) this.outputText("back with your cum, with ropes dripping slowly off his horns and down his face");
             else this.outputText("back with your cum, before it covers him and spreads across the floor of his cave.");
         }
-        //(if female: 
+        //(if female:
         else if (this.player.hasVagina()) this.outputText("you rub your pussy hard against the minotaur's muscular ass, marking him with the scent of your fem-cum.");
 
         this.outputText("\n\nFinally, you feel powerful pulses moving through your bee-like abdomen as your eggs move down your ovipositor into their bovine incubator, each one feeling like a mini-climax of its own.  You're beginning to understand why the bee girls are so keen on laying eggs in you when you pass through the forest.  You could definitely get used to this.");
 
-        //(If Silly mode: 
+        //(If Silly mode:
         if (this.silly()) this.outputText("\n\nLooking down at the mass of bull-meat filled with eggs, you lean down and whisper into his ear, \"<i>And that's how you make Scotch Eggs, cowboy.</i>\"");
         //i like this writer, can we keep him?
         this.player.dumpEggs();
@@ -1042,14 +1042,14 @@ export class MinotaurScene extends BaseContent {
         this.clearOutput();
         if (this.player.lust > 99) {
             this.outputText("You collapse to your knees, hands racing to your crotch and your ");
-            //(If Male or Herm: 
+            //(If Male or Herm:
             if (this.player.hasCock()) this.outputText("[cock biggest], which you frantically try to stroke and rub through your [armor], its throbbing arousal clearly evident.");
-            //If Herm: 
+            //If Herm:
             if (this.player.gender == 3) this.outputText("  Your other hand races to your ");
-            //(If Female or Herm: 
+            //(If Female or Herm:
             if (this.player.hasVagina()) this.outputText("[vagina], which is dripping and drooling your arousal down the insides of your [armor].  You manage to apply some pressure to your [clit] through your [armor], which sends a shock of pleasure through you.");
         }
-        //If PC lost by damage, and Minotaur has axe: 
+        //If PC lost by damage, and Minotaur has axe:
         else if (this.monster.weaponName == "axe") this.outputText("The last great blow from the Minotaur's giant, man-slaughtering axe is just a little off, thankfully - the flat of the axe, rather than the blade, hits you upside the flat of your head, sending you tumbling into the dirt.");
         //(If PC lost by damage, and Minotaur does not:
         else this.outputText("The last great blow from the Minotaur's giant, beefy fist hits you upside your head, the blow strong enough to send you tumbling into the dirt.");

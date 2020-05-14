@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_CURVY, BUTT_RATING_EXPANSIVE, LOWER_BODY_TYPE_BEE, ANTENNAE_BEE, WING_TYPE_BEE_LIKE_SMALL, TAIL_TYPE_BEE_ABDOMEN } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_CURVY, BUTT_RATING_EXPANSIVE, LOWER_BODY_TYPE_BEE, ANTENNAE_BEE, WING_TYPE_BEE_LIKE_SMALL, TAIL_TYPE_BEE_ABDOMEN } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 

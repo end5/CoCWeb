@@ -4,7 +4,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_NOTICEABLE, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_NOTICEABLE, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 
 export class Ceraph extends Monster {

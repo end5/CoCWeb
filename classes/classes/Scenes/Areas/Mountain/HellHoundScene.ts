@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
 import { HellHound } from "./HellHound";
-import { LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_GAPING } from "../../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_GAPING } from "../../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../../PregnancyStore";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
@@ -15,8 +15,8 @@ export class HellHoundScene extends BaseContent {
 
     /*
      Attacks:
-     1. Attack (claw); 
-     2. Breath corrupted fire, dealing damage and raising lust due to the heat; 
+     1. Attack (claw);
+     2. Breath corrupted fire, dealing damage and raising lust due to the heat;
      3. Catch the scent of their foe, lowering the chance of successfully running away;
 
      Raped by:
@@ -82,13 +82,13 @@ export class HellHoundScene extends BaseContent {
         //(Raped by player)
         //[if player has only one dick and no vagina]
         if (this.player.cocks.length == 1 && this.player.vaginas.length == 0) this.outputText("The twin heads of the hellhound eagerly lick your " + this.cockDescript(0) + " for a while.  The large, flat tongues give you a rather unusual feeling, but it is definitely effective. As you approach your peak, one of the heads tries to take your manhood into its mouth. But the other head doesn't seem all that pleased with this, and the two start to nip at each other in an effort to claim the right to be the one to push you over the edge. Annoyed at being ignored, you give both heads a smack with your hand. After a moment of recoil, they look down apologetically before resuming their licking. As you peak, the heads pull back and try to catch all the cum that erupts from your " + this.cockDescript(0) + " in their mouths. The fierce competition between the two means that most of the cum ends up outside their eager maws, but they are nontheless satisfied.  With a pair of happy barks, the hellhound turns and runs away.", false);
-        //[if player has only a vagina and no dick] 
+        //[if player has only a vagina and no dick]
         if (this.player.gender == 2) this.outputText("The twin heads of the hellhound eagerly lick your " + this.vaginaDescript(0) + " for a while.  The large, flat tongues give you a rather unusual feeling, but it is definitely effective. As you approach your peak, one of the heads tries to force the other out of the way and push its snout into your " + this.vaginaDescript(0) + ". But the other head doesn't seem all that pleased with this, and the two start to nip at each other in an effort to claim the right to be the one to push you over the edge. Annoyed at being ignored, you give both heads a smack with your hand. After a moment of recoil, they look down apologetically before resuming their licking. As you peak, the heads resume their quarrel and try to drink as much as the fluids coming from your " + this.vaginaDescript(0) + " as they can.  You don't know which got the most, but before long your " + this.vaginaDescript(0) + " is definitely quite clean.  With a pair of happy barks, the hellhound turns and runs away.", false);
-        //[if player has a dick and a vagina] 
+        //[if player has a dick and a vagina]
         if (this.player.gender == 3 && this.player.cocks.length == 1) this.outputText("One of the heads eagerly starts licking your " + this.cockDescript(0) + " while the other starts working on your " + this.vaginaDescript(0) + ". The large, flat tongues give you a rather unusual feeling, but it is definitely effective.  As you approach your peak, the head that had been licking your " + this.cockDescript(0) + " suddenly takes it into its mouth while the other pushes its snout into your " + this.vaginaDescript(0) + ". The pleasure from this new arrangement quickly overwhelms you, leaving you dazed.  When your senses return to you, you look up to see the hellhound's tongues running all over their mouths, clearly very happy.  With a pair of happy barks, the hellhound turns and runs away.", false);
         //If player has multiple endowments
         if (this.player.cocks.length > 1) this.outputText("One of the heads eagerly starts licking your " + this.cockDescript(0) + " while the other starts to work on your " + this.cockDescript(1) + ". The large, flat tongues give you a rather unusual feeling, but it is definitely effective.   As you approach your peak, the heads quickly take your " + this.cockDescript(0) + " and " + this.cockDescript(1) + " into their mouths. The pleasure from this new arrangement quickly overwhelms you, leaving you dazed.  When your senses return to you, you look up to see the hellhound's tongues running all over their mouths, clearly very happy.  With a pair of happy barks, the hellhound turns and runs away.", false);
-        //[if player has no endowments] 
+        //[if player has no endowments]
         if (this.player.gender == 0) this.outputText("The two heads stare at your lack of sexual endowments for a few seconds before looking up at you sadly.  With a whine, the hellhound wanders off.  Feeling rather unsatisfied, you think that you should probably fix your lack of sexual 'parts'...", false);
         else this.player.orgasm();
         this.cleanupAfterCombat();

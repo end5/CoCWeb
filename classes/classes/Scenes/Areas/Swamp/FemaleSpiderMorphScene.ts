@@ -5,7 +5,7 @@ import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CoC } from "../../../CoC";
 import { trace } from "../../../../console";
 import { FemaleSpiderMorph } from "./FemaleSpiderMorph";
-import { TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../../../includes/appearanceDefs";
+import { TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../../includes/appearanceDefs";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 /**
@@ -90,7 +90,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         if (FemaleSpiderMorphScene.rand(2) == 0) {
             this.outputText("You hold up your hands non-threateningly and ask the spider-girl why she's trying to sneak up on you.  Her eyes go wide and she claps her chitinous hands over her mouth in shock before she cries, \"<i>Omigosh, I'm so sorry!</i>\"  You smirk at the decidedly girlish response while she recovers and continues to speak, \"<i>I didn't mean to scare you!  I've been living out here by myself for so long... ever since the demons destroyed our village.  C-could we just... umm... talk for a little while?</i>\"\n\n", false);
             this.outputText("The spider-girl twiddles her fingers nervously for a moment until you give her a nod.  You did mean to talk to her, and it seems that it's worked out a little better than you intended.  She takes a few tiny steps forward before sitting down cross-legged on some ferns.  Feeling no threat from the strange monster-girl, you sit down across from her and let her ply you with questions about your adventures, and once she's finished, you do the same.\n\n", false);
-            //(OPTION 1 - SEX) 
+            //(OPTION 1 - SEX)
             if (FemaleSpiderMorphScene.rand(2) == 0) {
                 this.outputText("After you've both had your fill of talk, the spider-girl asks, \"<i>I-I w-was wondering if you'd do me a favor... I have certain... urges, and", false);
                 if (this.player.gender == 0) {
@@ -102,7 +102,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 this.outputText("Do you let her fuck you?", false);
                 this.simpleChoices("Yes", this.voluntaryFemaleSpiderMorphRapesYou, "", undefined, "", undefined, "", undefined, "Leave", this.declinedCrazyFemaleSpiderMorphSexFunTimes);
             }
-            //(OPTION 2 - GIFT) 
+            //(OPTION 2 - GIFT)
             else {
                 this.outputText("After you've both had your fill of talk, the spider-girl smiles and gives you a gentle hug.  She trills, \"<i>Thank you so much for talking to me!  It feels so good to actually... communicate with someone again.  I can't thank you enough, but here, take this.  Maybe it will help you on your journey.</i>\"\n\n", false);
                 this.inventory.takeItem(this.consumables.S_GOSSR, this.camp.returnToCampUseOneHour);
@@ -269,14 +269,14 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         this.spriteSelect(73);
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
-        //(Noncombat Intro:) 
+        //(Noncombat Intro:)
         if (!this.getGame().inCombat) {
             this.outputText("You shuck your " + this.player.armorName + " and toss it aside, feeling " + this.sMultiCockDesc() + " ", false);
             if (this.player.lust < 70) this.outputText("twitch and begin to stiffen in anticipation of sex with the beautiful spider-maid.", false);
             else this.outputText("twitch, already hard and aching for the touch of the beautiful spider-maid.", false);
             this.outputText("  Striding forward, you close to an arms-length away before she stops you with an outstretched palm.  She says, \"<i>Not yet, lie down over there so I can take you properly.</i>\"\n\n", false);
         }
-        //(All:) 
+        //(All:)
         if (!this.getGame().inCombat) this.outputText("You shrug and step back to lay down in the soft moss,", false);
         else if (this.player.HP < 1) this.outputText("You collapse into the soft moss,", false);
         else this.outputText("You collapse into the soft moss and begin to masturbate,", false);
@@ -367,7 +367,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
     }
 
     //*Defeat Male - Too Big
-    //Summary: web-spooling around dick, then webjob.  
+    //Summary: web-spooling around dick, then webjob.
     private femaleSpiderMorphTooBigWebRape(): void {
         this.outputText("", true);
         this.spriteSelect(73);
@@ -603,7 +603,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
     }
 
     //*Victory Anal:
-    //Summary: Fuck her ass until she loses control of her spinnerets and starts spraying webs willy-nilly. 
+    //Summary: Fuck her ass until she loses control of her spinnerets and starts spraying webs willy-nilly.
     private evilSpiderGirlVictoryAnal(): void {
         var x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x == -1) x = 0;

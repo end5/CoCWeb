@@ -2,7 +2,7 @@ import { AbstractSpiderMorph } from "./AbstractSpiderMorph";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, SKIN_TYPE_PLAIN } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, SKIN_TYPE_PLAIN } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 
@@ -67,7 +67,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
             if (this.player.lust <= 99) this.outputText("  Somehow, you work up the willpower to back away, but your body slowly begins to burn hotter and harder, afflicted with a slowly-building lust.", false);
             this.player.createStatusAffect(StatusAffects.DriderKiss, 0, 0, 0, 0);
         }
-        //Get hit 2nd time) 
+        //Get hit 2nd time)
         else {
             this.player.addStatusValue(StatusAffects.DriderKiss, 1, 1);
             if (this.player.statusAffectv1(StatusAffects.DriderKiss) == 1) {

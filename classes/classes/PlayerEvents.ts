@@ -2,7 +2,7 @@ import { BaseContent } from "./BaseContent";
 import { TimeAwareInterface } from "./TimeAwareInterface";
 import { CoC } from "./CoC";
 import { kFLAGS } from "./GlobalFlags/kFLAGS";
-import { TAIL_TYPE_BEE_ABDOMEN, TAIL_TYPE_SPIDER_ADBOMEN, TAIL_TYPE_CAT, LOWER_BODY_TYPE_CAT, EARS_CAT, FACE_FOX, TAIL_TYPE_FOX, EARS_FOX, LOWER_BODY_TYPE_FOX, SKIN_TYPE_FUR, LOWER_BODY_TYPE_HARPY, TAIL_TYPE_HARPY, LOWER_BODY_TYPE_NAGA, TAIL_TYPE_NONE, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, LOWER_BODY_TYPE_GOO } from "../../includes/appearanceDefs";
+import { TAIL_TYPE_BEE_ABDOMEN, TAIL_TYPE_SPIDER_ADBOMEN, TAIL_TYPE_CAT, LOWER_BODY_TYPE_CAT, EARS_CAT, FACE_FOX, TAIL_TYPE_FOX, EARS_FOX, LOWER_BODY_TYPE_FOX, SKIN_TYPE_FUR, LOWER_BODY_TYPE_HARPY, TAIL_TYPE_HARPY, LOWER_BODY_TYPE_NAGA, TAIL_TYPE_NONE, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, LOWER_BODY_TYPE_GOO } from "../includes/appearanceDefs";
 import { StatusAffects } from "./StatusAffects";
 import { CockTypesEnum } from "./CockTypesEnum";
 import { PregnancyStore } from "./PregnancyStore";
@@ -343,7 +343,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.outputText("</b>\n");
                 needNext = true;
             }
-            if (this.player.cocks[0].cockLength < 8) { //(Dick rebiggening) 
+            if (this.player.cocks[0].cockLength < 8) { //(Dick rebiggening)
                 this.outputText("\n<b>As time passes, your cock engorges, flooding with blood and growing until it's at 8 inches long.  You really have no control over your dick.</b>\n");
                 this.player.cocks[0].cockLength = 8;
                 if (this.player.cocks[0].cockThickness < 2) this.player.cocks[0].cockThickness = 2;
@@ -408,7 +408,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         if (this.player.findPerk(PerkLib.BroBody) >= 0) { //Bro checks
             this.player.removeStatusAffect(StatusAffects.Feeder);
             this.player.removePerk(PerkLib.Feeder);
-            if (!this.player.hasCock()) { //(Dick regrowth) 
+            if (!this.player.hasCock()) { //(Dick regrowth)
                 this.player.createCock();
                 this.player.cocks[0].cockLength = 10;
                 this.player.cocks[0].cockThickness = 2.75;
@@ -721,7 +721,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     default:
                 }
                 this.flags[kFLAGS.INCREASED_HAIR_GROWTH_TIME_REMAINING]--;
-                //reset hair growth multiplier and timer when 
+                //reset hair growth multiplier and timer when
                 //expired.
                 if (this.flags[kFLAGS.INCREASED_HAIR_GROWTH_TIME_REMAINING] <= 0) {
                     this.flags[kFLAGS.INCREASED_HAIR_GROWTH_TIME_REMAINING] = 0;

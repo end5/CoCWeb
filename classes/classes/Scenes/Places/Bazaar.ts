@@ -6,7 +6,7 @@ import { Lilium } from "./Bazaar/Lilium";
 import { Roxanne } from "./Bazaar/Roxanne";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { PerkLib } from "../../PerkLib";
-import { SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
+import { SKIN_TYPE_FUR } from "../../../includes/appearanceDefs";
 
 export class Bazaar extends BaseContent {
     // JOEY_OFFERED_MILKER: number = 466;
@@ -159,7 +159,7 @@ export class Bazaar extends BaseContent {
             this.outputText("You notice Joey leaning on the counter, lost in thought.  The bunny boy frowns, troubled by something.  He jolts upright when he notices you approaching, his expression lifting into a polite grin.  \"<i>Hey, welcome!  Always nice to see a familiar face.  So, do you have some 'tension' that needs relieving?</i>\"  His eyes travel down to your crotch.  Shameless as ever but with a hesitant offer buried in his eyes...\n\n");
             this.flags[kFLAGS.JOEY_OFFERED_MILKER] = 1;
         }
-        //(Repeat visit: 
+        //(Repeat visit:
         else {
             this.outputText("Joey purses his glossed lips when you enter and coyly cocks one of his ears as he says, \"<i>Welcome back to 'The Slippery Squeeze', " + this.player.short + ".  Would you like me to give you a nice, salty rub-down?  Or would you prefer Sara do it?  Just remember, she can't make her own 'oil' like I can.</i>\"\n\n", false);
             //No scenes for Sara yet!
@@ -304,7 +304,7 @@ export class Bazaar extends BaseContent {
             if (this.player.balls > 0) this.outputText("his hand firmly rubs your " + this.sackDescript() + ", and ", false);
             this.outputText("gentle fingertips are probing between your cheeks, rubbing his dripping seed against the pucker of your " + this.assholeDescript() + ".\n\n", false);
         }
-        //(FEM/GENDERLESS) 
+        //(FEM/GENDERLESS)
         else {
             if (this.player.hasVagina()) this.outputText("presses his ruby lips into the glistening delta of your mons", false);
             else this.outputText("presses a finger against the semen-soaked ring of your " + this.assholeDescript(), false);
@@ -399,7 +399,7 @@ export class Bazaar extends BaseContent {
     }
     private joeyBigBalls(): void {
         this.outputText("", true);
-        //(FIRST TIME) 
+        //(FIRST TIME)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00348] == 0) {
             this.outputText("Before you can even clear the door-frame, Joey the bunny-boy masseuse launches himself into you, his hands clutching wildly at your " + this.player.armorName + ".  You look down at him, and his wide, open eyes stare back with panic; namely, the look of someone in over their head with no idea how to save themselves.  Worse still, his trademark thong is bulging out obscenely, cum spilling down the sides while his immensely swollen gonads threaten to burst free of the garment's fraying threads.  Joey babbles, \"<i>Help!  I was testing the potions, and-and-and... I dunno what went wrong, b-b-but my balls are backing up faster than it dribbles out.  They feel like they're going to burst!!  Help meeeeee!</i>\"\n\n", false);
             this.outputText("You push the panicked lagomorph back a pace so that you can breathe and appraise the situation.  Joey's legs are drenched, soaked with sloppy spooge.  His thong is on the verge of bursting.  Most notable, his bloated balls look more like cantaloupes than testicles, and these melons are ripening to an unseen Demeter's power, swelling ever-so-slightly larger with each passing second.  You estimate that there's precious little time.\n\n", false);
@@ -412,7 +412,7 @@ export class Bazaar extends BaseContent {
             //[SuckCumOut] [MasturbateOut]
             this.simpleChoices("SuckCumOut", this.suckOffJoeysGardenHose, "MasturbateOut", this.joeyWanksItOut, "", undefined, "", undefined, "", undefined);
         }
-        //(Sucked Joey once) 
+        //(Sucked Joey once)
         else {
             this.outputText("As soon as you enter The Slippery Squeeze, you know somehow that something is amiss.  Joey staggers out from a back-room, his balls once again swollen huge and round.  He looks at you and admits, \"<i>Someone's <b>got</b> to be sabotaging me... gods, this hurts!  Could you help me, or should I go in the back and jerk it out myself?</i>\"\n\n", false);
             //[SuckCumOut] [MasturbateOut]
@@ -487,7 +487,7 @@ export class Bazaar extends BaseContent {
             this.outputText("The succubus laughs and slaps his ass as she answers, \"<i>Don't worry, you taste great... just not as good as the boss.  I dunno what concoction she made that did it, but her spunk is heavenly.  I could just... mmm... swallow that delicious cream all day long.  Do ya think she's part minotaur?</i>\"\n\n", false);
             this.outputText("\"<i>Babe, you're sliming everywhere again.  Why don't we go blow off some steam?</i>\"  The two horny demons run off and disappear.\n\n", false);
         }
-        //[Listen in Repeat 2]  
+        //[Listen in Repeat 2]
         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00292] >= 2) {
             this.outputText("This time, the two chatty demons are seated near the fire, and the reason for their altered location seems clear.  The succubus' belly is gravid to an unusual degree, utterly packed with some kind of corrupted offspring.  She's rubbing both her hands over the stretched skin-dome and moaning in discomfort, the packed womb squirming beneath her touches.\n\n", false);
             this.outputText("Meanwhile, the male incubus is knocking back a beer, grumbling, \"<i>Could you take it down a notch?  It isn't like this is the first time you've had to lug around a load of imps - don't be so melodramatic.</i>\"\n\n", false);
@@ -677,7 +677,7 @@ export class Bazaar extends BaseContent {
         this.clearOutput();
         this.outputText("You take the cock-sock over to the counter where Greta sits, knitting even more garments and place down the gems required.  \"<i>Aha, good choice, honey!</i>\" the succubus says, snatching up the money and stashing it away.  \"<i>Now let's get that bad boy fitted on you.</i>\"");
 
-        //[If PC only has one cock, jump immediately to Putting It On, else: 
+        //[If PC only has one cock, jump immediately to Putting It On, else:
         if (this.player.cockTotal() == 1) {
             this.menu();
             this.addButton(0, "Next", this.cockSockTarget, 0);

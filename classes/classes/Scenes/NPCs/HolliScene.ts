@@ -6,7 +6,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { trace } from "../../../console";
 import { PregnancyStore } from "../../PregnancyStore";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { SKIN_TYPE_FUR, SKIN_TYPE_SCALES } from "../../../../includes/appearanceDefs";
+import { SKIN_TYPE_FUR, SKIN_TYPE_SCALES } from "../../../includes/appearanceDefs";
 
 export class HolliScene extends NPCAwareContent {
 
@@ -112,11 +112,11 @@ export class HolliScene extends NPCAwareContent {
                     else this.outputText("Do you want to play?  Come on, taste Mother Marae's finest creation.");
                     this.outputText("</i>\"");
                 }
-                //Extra line on description:  
+                //Extra line on description:
                 if (this.flags[kFLAGS.HOLLI_FRUIT] > 0) {
                     if (this.flags[kFLAGS.HOLLI_FRUIT] == 1) this.outputText("\n\nA large, purple fruit hangs from Holli's branches, twisting softly in the breeze.  It looks succulent and ripe.");
                     else this.outputText("\n\n" + HolliScene.Num2Text(this.flags[kFLAGS.HOLLI_FRUIT]) + " large, purple fruits hang from Holli's branches, twisting softly in the breeze.  They look succulent and ripe.");
-                    //Optional Addition: 
+                    //Optional Addition:
                     if (this.flags[kFLAGS.HOLLI_FRUIT_EXPLAINED] > 0) this.outputText("  A very small, strange part of you actually feels proud to have made something like that with the tree-woman.");
                 }
             }
@@ -654,7 +654,7 @@ export class HolliScene extends NPCAwareContent {
         this.outputText("\n\nA geyser of spunk rockets out into ");
         if (this.player.cockArea(x) >= 100) this.outputText("the air, where it hangs for a moment before splattering down atop the plant-girl's leaf-colored hair and face, forming a gossamer shroud.");
         else this.outputText("her mouth, which works noisily to swallow the hot load even as you inject it into her.  After a few swallows, she leans back and lets you shoot it up into the air, so that it can fall down over her face and hair, into a gossamer shroud.");
-        //highish cum:  
+        //highish cum:
         if (this.player.cumQ() >= 500) this.outputText("  You keep blasting heavy ropes of seed until her body and trunk are painted with goo, and then you cum some more, smattering spunk until she looks more like a gooey waterfall than a fey creature.");
         if (this.player.cumQ() >= 1500) this.outputText("  Before you know it, there's a lake around the two of you and a small river running downhill away from camp.");
         this.outputText("  A mischievous grin breaks out under the goopy facial, followed by an unnaturally long tongue that pulls gobs of the stuff into the dryad's hungry mouth.  Once she can see again, the girl gives her tits a squeeze and affectionately kisses your cock, practically worshipping it with sloppy-sweet licks.");
@@ -840,7 +840,7 @@ export class HolliScene extends NPCAwareContent {
         domPowah += this.player.tallness / 12;
         if (this.player.horns > 0) domPowah += 3;
         if (this.player.cor > 66) domPowah += 2;
-        //{fail} 
+        //{fail}
         if (domPowah < 20) {
             this.outputText("\n\nRolling her eyes, Holli sinks back into her arboreal core, the bark 'lips' slowly pulling together, creaking ominously.  You grab hold of them and try to wrench them open, but inexorably, each continues on to meet the other.  An inch before the wood crushes around your fingers, you let go, reminded of a tree back home that somehow split a stone with its growth.  The demonic dryad's home is closed to you.  Perhaps, if you were a little more intimidating, it would have worked.");
             this.doNext(this.camp.returnToCampUseOneHour);

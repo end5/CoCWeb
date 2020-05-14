@@ -1,13 +1,13 @@
 import { BaseContent } from "../../../BaseContent";
 import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { HORNS_COW_MINOTAUR, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_GAPING } from "../../../../../includes/appearanceDefs";
+import { HORNS_COW_MINOTAUR, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_GAPING } from "../../../../includes/appearanceDefs";
 import { Izumi } from "./Izumi";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 
 /**
  * Izumi, the fuckhuge Oni. TOUCH THE FLUFFY HORN.
- * 
+ *
  * @author FeatureCreep
  * @editor Gedan
  * @programmer Gedan

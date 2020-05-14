@@ -3,7 +3,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
 import { trace } from "../../../../console";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_SLENDER, BUTT_RATING_TIGHT, SKIN_TYPE_FUR, TAIL_TYPE_DOG } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_SLENDER, BUTT_RATING_TIGHT, SKIN_TYPE_FUR, TAIL_TYPE_DOG } from "../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 
 export class Akbal extends Monster {
@@ -39,7 +39,7 @@ export class Akbal extends Monster {
             return;
         }
         //Determine damage - str modified by enemy toughness!
-        //*Normal Attack A - 
+        //*Normal Attack A -
         if (Akbal.rand(2) == 0) {
             //(medium HP damage)
             damage = Math.floor((this.str + this.weaponAttack) - Math.random() * (this.player.tou) - this.player.armorDef);
@@ -80,14 +80,14 @@ export class Akbal extends Monster {
     }
 
     public akbalLustAttack(): void {
-        //*Lust Attack - 
+        //*Lust Attack -
         if (this.player.findStatusAffect(StatusAffects.Whispered) < 0) {
             this.outputText("You hear whispering in your head. Akbal begins speaking to you as he circles you, telling all the ways he'll dominate you once he beats the fight out of you.", false);
             //(Lust increase)
             this.game.dynStats("lus", 7 + (100 - this.player.inte) / 10);
             this.player.createStatusAffect(StatusAffects.Whispered, 0, 0, 0, 0);
         }
-        //Continuous Lust Attack - 
+        //Continuous Lust Attack -
         else {
             this.outputText("The whispering in your head grows, many voices of undetermined sex telling you all the things the demon wishes to do to you. You can only blush.", false);
             //(Lust increase)
@@ -97,7 +97,7 @@ export class Akbal extends Monster {
     }
 
     public akbalSpecial(): void {
-        //*Special Attack A - 
+        //*Special Attack A -
         if (Akbal.rand(2) == 0 && this.player.spe > 20) {
             var speedChange: number = this.player.spe / 5 * -1;
             this.outputText("Akbal's eyes fill with light, and a strange sense of fear begins to paralyze your limbs.", false);
@@ -108,7 +108,7 @@ export class Akbal extends Monster {
             else
                 this.player.createStatusAffect(StatusAffects.AkbalSpeed, speedChange, 0, 0, 0);
         }
-        //*Special Attack B - 
+        //*Special Attack B -
         else {
             this.outputText("Akbal releases an ear-splitting roar, hurling a torrent of emerald green flames towards you.\n", false);
             //(high HP damage)
@@ -141,7 +141,7 @@ export class Akbal extends Monster {
         this.game.combatRoundOver();
     }
 
-    //*Support ability - 
+    //*Support ability -
     public akbalHeal(): void {
         if (this.HPRatio() >= 1)
             this.outputText("Akbal licks himself, ignoring you for now.", false);

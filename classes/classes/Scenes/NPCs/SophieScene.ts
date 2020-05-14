@@ -11,7 +11,7 @@ import { Sophie } from "./Sophie";
 import { Harpy } from "../Areas/HighMountains/Harpy";
 import { StatusAffects } from "../../StatusAffects";
 import { CoC_Settings } from "../../CoC_Settings";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class SophieScene extends BaseContent implements TimeAwareInterface {
@@ -80,7 +80,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                             break;
                         default: if (this.pregnancy.incubation == 0) {
                             this.sophieBimbo.sophieBirthsEgg();
-                            this.pregnancy.knockUpForce(); //Clear Pregnancy 
+                            this.pregnancy.knockUpForce(); //Clear Pregnancy
                             this.flags[kFLAGS.SOPHIE_CAMP_EGG_COUNTDOWN] = 150 + SophieScene.rand(30); //This long till that egg hatches
                             this.flags[kFLAGS.SOPHIE_HEAT_COUNTER] = 551; //After pregnancy she waits 23 days before going into heat again
                             needNext = true;
@@ -155,10 +155,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     -Had Sex With Sophie Counter
     -Breastfeed Sophie Counter
     -Sophie Pissed Off?
-    
+
     Sophie max size:
     -232
-    
+
     Harpy Hard Status:
     Min lust of 50 or adds 10 to min lust.
     Lasts 4-8 hours.
@@ -280,7 +280,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
         //(Has dick)
         if (this.player.totalCocks() > 0) {
-            //(Random Rape) 
+            //(Random Rape)
             if (SophieScene.rand(2) == 0 && !this.pregnancy.isPregnant) {
                 this.outputText("During your exploration of the mountains you wind up passing close to the harpy nests again, and Sophie flaps her way over to you.  Her breasts jiggle pleasantly and she hooks her talons through the belt you use to hold your pouches before you can stop her.  The force of her flapping wings pulls you off the mountain, suspending you hundreds of feet above the ground as she flies you back towards her nest.  ", false);
                 if (this.player.tallness > 72) this.outputText("The harpy struggles with your weight and is clearly out of breath by the time she gets you up to her nest.", false);
@@ -301,7 +301,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 }
                 return;
             }
-            //(Have sexed) 
+            //(Have sexed)
             if (this.flags[kFLAGS.FUCKED_SOPHIE_COUNTER] > 0) {
                 this.outputText("During your exploration of the mountains you wind up passing close to the harpy nests again, and Sophie flaps her way over to you.  Her breasts jiggle pleasantly and she hooks her talons through the belt you use to hold your pouches before you can stop her.  The force of her flapping wings pulls you off the mountain, suspending you hundreds of feet above the ground as she flies you back towards her nest.  ", false);
                 if (this.player.tallness > 72) this.outputText("The harpy struggles with your weight and is clearly out of breath by the time she gets you up to her nest.", false);
@@ -311,7 +311,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 else this.outputText("I already laid your last egg, so why don't you come over her and give momma some sugar?", false);
                 this.outputText("</i>\"  Her thighs spread apart, inviting you back for more of her pleasure.\n\n", false);
             }
-            //(Haven't sexed)  
+            //(Haven't sexed)
             else {
                 this.outputText("During your exploration of the mountains you wind up passing close to the harpy nests again.  You hear a faint buzzing on the breeze but ignore it, focusing instead on climbing the rocky mountain.  Pulling yourself up a ledge, you find yourself face-to-face with Sophie the harpy once again.  She's pinching one of her nipples and stroking around the entrance to her sodden twat.  It's flushed bright pink with desire and Sophie explains in between pleasured gasps, \"<i>I've been thinking about you since the last time I saw you, cutey.  I'm normally a horny bundle of fuck anyway, but I'd sure love for a virile " + this.player.mf("boy", "breeder") + " like yourself to fertilize my eggs.</i>\"  She spreads her legs wide and leans back, giving you an offer that's part suggestion, part command, \"<i>Come here and put it inside me.  I promise I'll be tighter than a virgin and wetter than a succubus.</i>\"\n\n", false);
             }
@@ -428,7 +428,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        //(Haz dick (male futa)) 
+        //(Haz dick (male futa))
         else {
             this.outputText("Sophie retreats to the far side of the nest and spreads her well-muscled thighs invitingly.  The harpy demands, \"<i>Well come on then, it's been so long since I've had such a virile young specimen servicing me.  Don't make me wait, cutey.</i>\"\n\n", false);
 
@@ -540,7 +540,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             else if (this.player.totalNipples() > 2) this.outputText("She drinks from each nipple in turn until her belly is full and gurgling.", false);
             this.outputText("\n\n", false);
         }
-        //(High PG) 
+        //(High PG)
         else {
             this.outputText("She suckles hard for a moment, and winds up sputtering at the flood of milk that you produce.  Breast-milk gushes over her face, and she can only look on with a ecstatic pleasure at what she's started.  Sophie leans forward and latches back on, her throat swallowing visibly and often as she struggles to keep up with your milk-flow.  Her arms close around your back and lock together in an effort to hold onto you, even as your milk squirts out from the corners of her mouth.  Her blissful expression makes you wonder just what would make a harpy love milk so much.  Her eyelids droop while she relaxes against the " + this.nippleDescript(0) + ".  The suckling goes on and on, until your milk slows to a reasonable trickle.  Content to have drained one milk-spout, Sophie moves on to the ", false);
             if (this.player.totalNipples()) this.outputText("other ", false);
@@ -572,7 +572,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             }
             this.flags[kFLAGS.SOPHIE_FOLLOWER_PROGRESS] = 0;
         }
-        //(Volunteered: 
+        //(Volunteered:
         else {
             this.outputText("Delicious!  It's been so long since I've had someone to bring me such fresh milk.", false);
             if (this.player.totalCocks() > 0) {
@@ -1067,7 +1067,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
 
         //(small clit)
         if (this.player.clitLength < 2) this.outputText("Your " + this.clitDescript() + " puffs up inside your folds, turning into a hard little bump of pleasure.  Moaning happily, you start to drag your " + this.vaginaDescript(0) + " back and forth against Sophie's wet gash, shivering each time you bump into her own rapidly engorging clitoris.  ", false);
-        //(large clit) 
+        //(large clit)
         else if (this.player.clitLength < 5) this.outputText("Your " + this.clitDescript() + " puffs up, protruding from your folds like a miniature cock.  Moaning happily, you start to pump your " + this.vaginaDescript(0) + " back and forth across Sophie's wet gash, shivering as your " + this.clitDescript() + " continually slips in and out of it.  The harpy's own nub quickly grows hard, and you feel it bumping against you pleasantly while your hips gyrate against her.  ", false);
         //(cock-clit)
         else this.outputText("Your " + this.clitDescript() + " puffs up, growing to an obscene, cock-like size.  You moan happily and begin to stroke the incredibly sensitive protrusion.   The whole time your hips continue to force your " + this.vaginaDescript(0) + " against the harpy's pussy, and you feel her own clitty budding up and getting hard.   It rubs between your girl-cum-slicked bodies, making your hips shake and twitch with delightful sensations.  ", false);

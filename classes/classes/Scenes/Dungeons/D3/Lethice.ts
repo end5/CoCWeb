@@ -1,5 +1,5 @@
 import { Monster } from "../../../Monster";
-import { HIP_RATING_SLENDER, BUTT_RATING_TIGHT } from "../../../../../includes/appearanceDefs";
+import { HIP_RATING_SLENDER, BUTT_RATING_TIGHT } from "../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { PerkLib } from "../../../PerkLib";
@@ -543,9 +543,9 @@ export class Lethice extends Monster {
     }
 
     private phase3(): void {
-        //Every turn she boosts her defense against lust or HP depending on how the PC damaged her. 
+        //Every turn she boosts her defense against lust or HP depending on how the PC damaged her.
 
-        // If you hit her with a physical attack, the next turn she’ll have massive evasion (200 speed or some shit) and massively boosted defense. 
+        // If you hit her with a physical attack, the next turn she’ll have massive evasion (200 speed or some shit) and massively boosted defense.
         // GEDNOTE: We can't really do this- CoCs combat was NEVER designed with that in mind wrt to enemy stats, it would mean modifying EVERY player attack, spell and special to account for it. However, I figured out a potential workaround that covers this so....
 
         // If you hit her with a lusty-damaging attack, she will become immune to lust damage for one turn. Might also have other special resistances too. Will detail in text in the “Reactions” section.

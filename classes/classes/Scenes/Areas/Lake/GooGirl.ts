@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_GOO, SKIN_TYPE_GOO } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_GOO, SKIN_TYPE_GOO } from "../../../../includes/appearanceDefs";
 import { ChainedDrop } from "../../../internals/ChainedDrop";
 
 export class GooGirl extends Monster {
@@ -80,14 +80,14 @@ export class GooGirl extends Monster {
         this.combatRoundOver();
     }
 
-    //Play – 
+    //Play –
     private gooPlay(): void {
         this.outputText("The goo-girl lunges, wrapping her slimy arms around your waist in a happy hug, hot muck quivering excitedly against you. She looks up, empty eyes confused by your lack of enthusiasm and forms her mouth into a petulant pout before letting go.  You shiver in the cold air, regretting the loss of her embrace.", false);
         this.game.dynStats("lus", 3 + GooGirl.rand(3) + this.player.sens / 10);
         this.combatRoundOver();
     }
 
-    //Throw – 
+    //Throw –
     private gooThrow(): void {
         this.outputText("The girl reaches into her torso, pulls a large clump of goo out, and chucks it at you like a child throwing mud. The slime splatters on your chest and creeps under your " + this.player.armorName + ", tickling your skin like fingers dancing across your body.", false);
         var damage: number = 1;
@@ -96,7 +96,7 @@ export class GooGirl extends Monster {
         this.combatRoundOver();
     }
 
-    //Engulf – 
+    //Engulf –
     private gooEngulph(): void {
         this.outputText("The goo-girl gleefully throws her entire body at you and, before you can get out of the way, she has engulfed you in her oozing form! Tendrils of " + this.skinTone + " slime slide up your nostrils and through your lips, filling your lungs with the girl's muck. You begin suffocating!", false);
         if (this.player.findStatusAffect(StatusAffects.GooBind) < 0) this.player.createStatusAffect(StatusAffects.GooBind, 0, 0, 0, 0);
@@ -189,7 +189,7 @@ export class GooGirl extends Monster {
         return this.skinTone;
     }
 
-    //[azure/plum/crystalline] 
+    //[azure/plum/crystalline]
     public gooColor2(): string {
         if (this.skinTone == "blue") return "azure";
         else if (this.skinTone == "purple") return "plum";
@@ -203,7 +203,7 @@ export class GooGirl extends Monster {
         else return "clear";
     }
 
-    //[teal/lavender/glassy] 
+    //[teal/lavender/glassy]
     public gooColor4(): string {
         if (this.skinTone == "blue") return "teal";
         else if (this.skinTone == "purple") return "lavender";

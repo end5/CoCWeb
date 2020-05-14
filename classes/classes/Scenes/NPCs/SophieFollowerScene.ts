@@ -2,7 +2,7 @@ import { NPCAwareContent } from "./NPCAwareContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { Sophie } from "./Sophie";
 import { StatusAffects } from "../../StatusAffects";
-import { TONUGE_HUMAN, TONUGE_DRACONIC } from "../../../../includes/appearanceDefs";
+import { TONUGE_HUMAN, TONUGE_DRACONIC } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
@@ -1043,13 +1043,13 @@ export class SophieFollowerScene extends NPCAwareContent {
 
     /*Sophie daughter incest.  scenes
     vaginal, maybe anal.
-    daughter 1: Big soft, sensitive lips, very large breasts.  
+    daughter 1: Big soft, sensitive lips, very large breasts.
     daughter 2: Huge round ass, very long feathers
     daughter 3: Average harpy body, human feet
     daughter 4: Body as curvy and voluptuous as sophie, very soft wings.
-    
+
     all purpose vaginal and anal sex scene, with modifiers for each daughters body type
-    
+
     intro for all scenes*/
     public sophieIncestInHerCooterOrSomethingIDunno(): void {
         this.clearOutput();
@@ -1063,7 +1063,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         daughterCap = SophieFollowerScene.rand(daughterCap);
 
         if (daughterCap == 0) {
-            //[first daughter: 
+            //[first daughter:
             this.outputText("\n\nYour busty bimbo of a daughter poses for you, pushing her massive mammaries out and blowing you a kiss, showing off her body's tremendous assets.  Lifting her hands, she pushes her soft pillows up before releasing them, letting them enticingly bounce and sway before your eyes.  Not able to wait a moment longer, she bounds over to you.  Her creamy cleavage shakes and jiggles like jello with every step until she wraps her arms around you and presses them against you, her marshmallow-like chest spilling over you as she tries her best to entice you into her nest, ");
             if (this.flags[kFLAGS.DAUGHTER_ONE_BIMBO] > 0 && this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0) this.outputText("\"<i>Like, how do I look, " + this.player.mf("Daddy", "Mommy") + "?  Aren't my breasts so totally soft?  Don't you just want to suck and squeeze them?  Ooohhh!  " + this.player.mf("Daddy", "Mommy") + ", can you please touch me?  I want you so bad!  My pussy gets sooo wet when I, like, think about you pounding my cunny!</i>\"");
             //normal speech:
@@ -1077,7 +1077,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             //[normal speech:
             else this.outputText("\n\n\"<i>Ohhh, oooohhhh!  " + this.player.mf("D-Daddy", "M-Mommy") + "!  Nnnnn... I can't take so much teasing!  Please, please give it to me, fuck me as hard as you can, " + this.player.mf("Daddy", "Mommy") + "!<i>\"");
         }
-        //second daughter: 
+        //second daughter:
         else if (daughterCap == 1) {
             this.outputText("\n\nYour huge assed daughter poses for you, turning her back to you and showing off her huge, rounded ass and thick, fertile hips.  Her bountiful badonkadonk is teasingly hidden by her long, feathery hair and tail.  Looking back at you, she pouts her plump ");
             if (this.flags[kFLAGS.DAUGHTER_TWO_BIMBO] > 0) this.outputText("bimbo ");
@@ -1134,7 +1134,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         if (daughter == 2) this.outputText("massive, round, spankable ass");
         else this.outputText("gropable, soft ass");
         this.outputText(" and grab her hard, squeezing and pulling her pliant flesh.  You growl to her, giving her rump a hard spank before pushing her down and pinning her beneath you.  Your eyes run over her body, taking in her creamy skin and her colorful feathers, her eyes looking back at you with burning, aching desire.  Not wanting to wait a moment longer, you free yourself from her long, silky legs and strip yourself of your [armor].");
-        //[if breasts: 
+        //[if breasts:
         if (this.player.biggestTitSize() >= 1) {
             this.outputText("  Your [chest], free from the confines of your gear");
             //if small bust:

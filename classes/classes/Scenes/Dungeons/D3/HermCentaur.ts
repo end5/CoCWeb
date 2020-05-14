@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { Appearance } from "../../../Appearance";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { HIP_RATING_FERTILE, BUTT_RATING_EXPANSIVE } from "../../../../../includes/appearanceDefs";
+import { HIP_RATING_FERTILE, BUTT_RATING_EXPANSIVE } from "../../../../includes/appearanceDefs";
 
 
 /**
@@ -62,7 +62,7 @@ export class HermCentaur extends Monster {
     // Gonna handle this a little differently than usual.
     // This is one of the advantages of containing monster detail in this manner, and encapsulating the
     // combat implemenation thereof with it- we can easily make use of the object to store things
-    // we would normally use StatusAffects for, in instances where the only thing that will care 
+    // we would normally use StatusAffects for, in instances where the only thing that will care
     // about those Affects are the user/consumer of them.
 
     private _usedGottaCum: boolean = false;

@@ -1,5 +1,5 @@
 import { AbstractSpiderMorph } from "./AbstractSpiderMorph";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, TAIL_TYPE_SPIDER_ADBOMEN } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, TAIL_TYPE_SPIDER_ADBOMEN } from "../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";

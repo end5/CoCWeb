@@ -3,7 +3,7 @@ import { JeanClaude } from "./JeanClaude";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
-import { SKIN_TYPE_FUR } from "../../../../../includes/appearanceDefs";
+import { SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
 
 
 /**
@@ -89,7 +89,7 @@ export class JeanClaudeScenes extends BaseContent {
         // I certainly hope you have a good reason to disturb me, soldier, for I now burn with the desire to skin you alive and rape your corpse. Oh my, what have we here?
         this.outputText("\n\n“<i>J'ose espérer que vous avez une bonne raison de me déranger, soldat, car il me brûle d'envie de vous écorcher vif et de violer votre cadavre. Oh! ma foi, qu'avons-nous là?</i>” Dry, smooth hands grip you and winch you up so you may see the owner of the thick, rich voice. It’s a basilisk- but bigger, at least a foot taller than those that surround him, heavier built, and obviously simmering deep in corruption. Purple scales slather his shoulders and back like an imperial cloak, and he is clad in a military tunic and ornate brass cuirass. The former does absolutely nothing to disguise his two thick, purple pricks, which unlike those of his brethren swing freely and imposingly between his muscled legs. His long, tapering face gives him a toothy sneer of epic proportions, and his proud head is crowned with a helmet, resplendent with a long, black ponytail. His eyes... you renew your frantic efforts to look away. Leering, the basilisk rex steps closer to you, bathing you in their hungry glare. They are a seething yellow, pupil-less, two eternal, burning suns of depthless corruption.");
 
-        // Can you(T-form second person) understand me, intruder? 
+        // Can you(T-form second person) understand me, intruder?
         this.outputText("\n\n“<i>Peux-tu me comprendre, intrus? Non? Sprechen de Gnollen? How about now? Ah, yes. Human. The language of masters... and slaves.</i>” His widening sneer leaves you in no doubt which camp he considers you as belonging to. “<i>I am Jean-Claude, the Rude King, if you please. You are the interloper, if you please. Ah, yes! Yes you are! Do not try to deny it!</i>” He laughs richly, his slow, velvety voice rolling around you as he goes on. “<i>You have beat up enough of my scouts that you have left, eh, an impression, shall we say? We do not need orders from the demons to watch out for such a rough player as you!</i>” He moves as fast as a snake, belying his size and frame, to grab you tight around the jaw. His claws dig into your skin as he stares deep into your eyes, encompassing you in their rich, bottomless glow. It glows like your blood glows, rising to the surface of your skin, coursing inexorably to your groin,");
         if (this.player.hasCock()) this.outputText(" [eachCock] stiffening");
         if (this.player.hasCock() && this.player.hasVagina()) this.outputText(" and");

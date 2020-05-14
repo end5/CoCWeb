@@ -1,7 +1,7 @@
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
-import { LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, TAIL_TYPE_NONE } from "../../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../../PerkLib";
 import { PregnancyStore } from "../../../PregnancyStore";
 import { Akbal } from "./Akbal";

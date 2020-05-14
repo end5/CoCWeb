@@ -2,7 +2,7 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, FACE_COW_MINOTAUR, TAIL_TYPE_COW } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, FACE_COW_MINOTAUR, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
 import { ChainedDrop } from "../../../internals/ChainedDrop";
 
 export class Satyr extends Monster {
@@ -13,7 +13,7 @@ export class Satyr extends Monster {
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Satyr.rand(3) < 1) {
             this.outputText(this.capitalA + this.short + " completely misses you with a blind punch!\n", false);
         }
-        //Evade: 
+        //Evade:
         else if (this.combatMiss() || this.combatEvade() || this.combatFlexibility() || this.combatMisdirect()) {
             this.outputText("He snarls as you duck his blow and it swishes harmlessly through the air.");
         }
@@ -82,7 +82,7 @@ export class Satyr extends Monster {
         this.combatRoundOver();
     }
 
-    //5:(Only executed at high lust) 
+    //5:(Only executed at high lust)
     private highLustChugRape(): void {
         this.outputText("Panting with barely-contained lust, the Satyr charges at you and tries to ram you into the ground.  ");
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Satyr.rand(3) < 1) {

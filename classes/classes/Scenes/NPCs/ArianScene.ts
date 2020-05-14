@@ -3,7 +3,7 @@ import { TimeAwareInterface } from "../../TimeAwareInterface";
 import { CoC } from "../../CoC";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
-import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
+import { TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { ItemType } from "../../ItemType";
 
 // ARIAN_FOLLOWER: number = 933;
@@ -761,7 +761,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You feel like you'd like to know a bit more about Arian, so you ask if he would mind sharing some of [Arian eir] history with you.  After all, as a survivor from at least the early days of the demon war, and a wizard to boot, he's got to have some stories up [Arian eir] voluminous sleeves.");
         this.outputText("\n\nArian nods.  \"<i>I guess it isn't fair that I'm the only one that gets to hear your stories... but before we start....  How long ago do you think this whole demon trouble started?</i>\"");
         this.outputText("\n\nYou shrug your shoulders; ");
-        //PC has met Marae: 
+        //PC has met Marae:
         if (this.player.findStatusAffect(StatusAffects.MetMarae) >= 0) this.outputText("Marae herself told you they showed up about, what, 20-30 years ago?");
         else this.outputText("you'd guess a long while ago given the general mess they seem to have made of the world.");
 
@@ -814,7 +814,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    ////((if ArianHealth >= 20) && (ArianSDialogue == 1)) 
+    ////((if ArianHealth >= 20) && (ArianSDialogue == 1))
     //Can sex Arian.
     private arianStoryDialogue2(): void {
         this.clearOutput();
@@ -890,7 +890,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("You think it over for a moment, and then tell Arian that while you are flattered by the offer and willing to consider it, you can't say that you want to study magic right this moment.  You'd like to discuss it at some other time, please.");
         this.outputText("\n\nArian nods happily.  \"<i>Certainly, I'd be happy to be of some help to you.  So... is there something you'd like to do today?</i>\"");
 
-        //(display options) 
+        //(display options)
         this.arianHomeMenu();
     }
 
@@ -1400,7 +1400,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             //This isn't meant to give AnalXP, but given the fact that Arian's ass will get pen'd it would also be justified. Up to you Fen!
             if (this.player.cockThatFits(50) >= 0 && this.player.cockThatFits2(50) >= 0 && this.flags[kFLAGS.ARIAN_VAGINA] > 0) this.addButton(8, "Double Pen", this.doublePenetrateArian);
             //Docking
-            //ArianCockSize needs to be below 3. (ArianDblCock does not affect this decision.) 
+            //ArianCockSize needs to be below 3. (ArianDblCock does not affect this decision.)
             //PC cock area must be <= 30.
             if (this.player.smallestCockArea() <= 30 && this.flags[kFLAGS.ARIAN_COCK_SIZE] < 3 && this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0) this.addButton(7, "Docking", this.arianDocking);
         }
@@ -1438,7 +1438,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         else
             this.outputText(this.images.showImage("arianmale-home-giveArianAnal"));
 
-        // This breaks the capacity-restriction, but it's a quickfix to make the scene stop crashing in lieu of writing new 
+        // This breaks the capacity-restriction, but it's a quickfix to make the scene stop crashing in lieu of writing new
         // content to work around the player not being able to call this scene from earlier interactions with Arian.
         if (x == -1) {
             x = this.player.smallestCockIndex();
@@ -2161,7 +2161,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\n\"<i>Yes, I liked it very much!  Though I hope you'll let me return the favor... somehow,</i>\"  [Arian Ey] says, releasing you from between [Arian eir] legs, while [Arian eir] tail lazily curls to gently massage your neck in a sign of affection.");
 
-        //[NoCock: 
+        //[NoCock:
         if (!this.player.hasCock()) this.outputText("\n\nYou tell [Arian ey] you'll think of some way [Arian ey] can return the favor,");
         else this.outputText("\n\nWell, you happen to have a creamy lolly of your own that [Arian ey] could lick, you tease,");
         this.outputText(" rolling your neck in pleasure as [Arian ey] rubs it with [Arian eir] reptilian tail.");
@@ -2476,7 +2476,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     //Docking
-    //ArianCockSize needs to be below 3. (ArianDblCock does not affect this decision.) 
+    //ArianCockSize needs to be below 3. (ArianDblCock does not affect this decision.)
     //PC cock area must be <= 30.
     private arianDocking(): void {
         this.clearOutput();
@@ -3164,7 +3164,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     //Reptilum:
-    //Makes Arian horny and high, like giving catnip to a cat in some ways. 
+    //Makes Arian horny and high, like giving catnip to a cat in some ways.
     //Chance to make Arian grow a second dick, if [Arian ey] has only one. (high chance: 50%)
     private giveArianReptilum(): void {
         this.clearOutput();
@@ -3360,7 +3360,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
 
         /*The list:
         Healing Spell: 2x Wet Cloth and 2x Vitality T. - Heals the PC, no chance for failure.
-        Lust Reduction Spell: 2x Lust Draft and 1x Fuck Draft. - Reduces the PC's current lust, no chance for failure. 
+        Lust Reduction Spell: 2x Lust Draft and 1x Fuck Draft. - Reduces the PC's current lust, no chance for failure.
         Shielding Spell: 2x Black Chitin and 1x Tough Silk. - Increases defense for the duration of the battle.
         Dispelling Spell: 1x White Book and 1x Black Book - Cancels all magical and alchemical effects currently affecting the PC, beneficial or not. (Does not cancel the effects of demon's lust aura.)
         Immolation Spell: 2x Goblin Ale and 1x Sweet Gossamer. - Deals damage over time.

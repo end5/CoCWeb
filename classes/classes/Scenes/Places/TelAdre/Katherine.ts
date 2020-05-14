@@ -4,7 +4,7 @@ import { BreastStore } from "../../../BreastStore";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { CoC } from "../../../CoC";
 import { StatusAffects } from "../../../StatusAffects";
-import { BREAST_CUP_A, GENDER_NONE, TAIL_TYPE_LIZARD, TAIL_TYPE_DEMONIC, TONUGE_SNAKE, TONUGE_DEMONIC, EYES_FOUR_SPIDER_EYES, SKIN_TYPE_FUR } from "../../../../../includes/appearanceDefs";
+import { BREAST_CUP_A, GENDER_NONE, TAIL_TYPE_LIZARD, TAIL_TYPE_DEMONIC, TONUGE_SNAKE, TONUGE_DEMONIC, EYES_FOUR_SPIDER_EYES, SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../../PerkLib";
 import { Appearance } from "../../../Appearance";
 import { CockTypesEnum } from "../../../CockTypesEnum";
@@ -793,22 +793,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     /* First, some assumptions I’ve made:
         Urta is in the bar from the 06:00 until 14:00. We can also meet her at home through the different kid interactions any time after 14:00 once she owns a house. She can potentially be drunk from 09:00 to 14:00, so we can assume that’s not during her shift. Since we also occasionally see Urta working during the day we can assume she’s a bit of a workaholic and makes trips back to the watch headquarters or to problem areas whenever there’s real trouble or she feels like surprising her subordinates. Lets say that Urta works on flex time and does a fixed half shift from 02:00 until 06:00 each day. Then she does paperwork in the bar, troubleshoots and puts out fires over the rest of the day. The early hours might be nice for a fox morph since foxes are nocturnal hunters.
-    
+
         Edryn is easier. She’s is in the bar from 14:00 to 19:00 (or 14:00 to 16:00 with kids), so it’s likely she works an early shift - 06:00 to 14:00 and then chills out at the bar after work.
-    
+
         < I’ve put too much thought into this, but I might as well take this to its logical conclusion >
         I’m going to assume the Tel’Adre watch has six eight hour shifts and thanks to Edryn’s quitting time it makes sense to organize them like this:
         A: 02:00 to 10:00,    B: 10:00 to 18:00,    C: 18:00 to 02:00,
         D: 06:00 to 14:00,    E: 14:00 to 22:00,    F: 22:00 to 06:00
         With this arrangement there’s never a time where criminals could surprise the watch during a shift change.
-    
+
         Since Katherine is a new watch officer and also since cats usually have good night vision it would make sense for Urta to put her on the 02:00 to 10:00 shift. It means Urta gets to keep an eye on her during her own half shift. So at 10:00 Kath gets off work and being a cat morph likely takes numerous catnaps during the day rather than sleeping all at once. She also gets the chance to take a long nap from 20:00 or so till her shift starts at 02:00.
-    
-    
+
+
         So the player can meet Kath on the street, in uniform from 06:00 until 09:00. Then at 10:00 Kath goes to the Wet Bitch and stays there until 13:00. From 14:00 until night she’s at her apartment.
-    
+
         In the bar Katherine will get her own table because she doesn’t like to get as drunk as Urta and also because Urta usually ends up meeting lots of people who come in with information, problems, etc.
-    
+
         If Kath and Urta reach 31 affection (they are lovers), then there should be a chance each day that Kath hangs out at Urta’s table instead. If so it can be assumed that Kath will be as drunk as Urta is when the player walks in.*/
     public barDescription(): void {
         this.outputText("\n\nYou see Katherine sitting alone in her usual booth, nursing something that " + (this.pregSize() == 0 ? "looks like a cream liqueur" : "is probably a milkshake") + ".  She’s wearing " + this.clothesChoice("a matching blouse and skirt", "her sheer bodysuit", "the elegant long dress", "her spider silk robe", "that revealing tube top", "the sexy nurse’s outfit") + (this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] < 0 ? ", just like you told her to." : "."));
@@ -4968,7 +4968,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText("\n\nRolling onto your other side, you expect to see the young cat morph from before, but this girl is different.  Slightly more than 5 feet tall, she’s got jet black fur over her body and a mane of shoulder length hair that’s been dyed neon pink.  Her B-cup breasts stand out nicely on her lithe frame.  There’s a small silver bell attached to a collar around her neck.  It’s hard to gauge her age, but you think she has to be around 18 or 20.  Or rather, she would be if she were human.");
         this.outputText("\n\nYou can tell she’s a bit nervous thanks to the twitching of her slender tail.  It swishes back and forth the same way that a feral cat's might when agitated.  Since you can speak, you try to strike up a conversation with the girl.");
         //[Next]
-        //Leads to Intervene (Part 3) 
+        //Leads to Intervene (Part 3)
         this.doNext(this.interveneWithKittyKats3);
     }
 
@@ -4984,7 +4984,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText("\n\nYou ask her why the cats don’t just take everything.  Her response is almost a panic.  “<i>Then we’d get in real trouble! No, no, no.</i>”  She calms herself down and continues.  “<i>Most people won’t go all the way to a Watch house to report a handful of missing gems.  For a thousand gems or even a hundred?  Sure.  But with us they still have all their valuable stuff - armor, weapons, anything personal.  They know the Watch isn’t going to be able to find a handful of gems, so why bother?</i>”");
         this.outputText("\n\n“<i>Lots of gangs have stripped people bare.  They always get caught.  Other gangs killed their marks so they couldn’t tell the Watch who robbed them.  The Watch <b>really</b> stomped on them.  That’s why Evelyn’s plan works so well.  We’re not enough trouble for anyone to go after and we’re never the worst people on the street.</i>”");
         //[Next]
-        //Leads to Intervene (Part 4) 
+        //Leads to Intervene (Part 4)
         this.doNext(this.interveneWithKittyKats4);
     }
 
@@ -5007,7 +5007,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outputText(".  If she gets her wits about her she might still be able to escape, so you put your hands over her mouth and tell her to untie you in your most commanding tone.");
         this.outputText("\n\nShe freezes in place, staring into your eyes.  Then her fingers reach up and, after some fumbling, free your hands.  You remind her that considering she just robbed you calling out isn’t a good idea.  Then you take your hands away and ask what her name is.");
         //[Next]
-        //Leads to Intervene (Part 5) 
+        //Leads to Intervene (Part 5)
         this.doNext(this.interveneWithKittyKats5);
     }
 

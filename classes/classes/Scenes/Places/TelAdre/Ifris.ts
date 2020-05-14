@@ -1,6 +1,6 @@
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { FACE_COW_MINOTAUR } from "../../../../../includes/appearanceDefs";
+import { FACE_COW_MINOTAUR } from "../../../../includes/appearanceDefs";
 
 export class Ifris extends TelAdreAbstractContent {
 
@@ -316,7 +316,7 @@ export class Ifris extends TelAdreAbstractContent {
                 this.outputText("  ", false);
             }
         }
-        //(ALL GO HERE - NOT NEW PG) 
+        //(ALL GO HERE - NOT NEW PG)
         this.outputText("She purrs, \"<i>Delightful,</i>\" into your ear and plants a wet kiss on you, surely leaving a dusky, black lip-print on your neck.\n\n", false);
 
         this.outputText("The last few contractions work through you, emptying the last of your load inside Ifris and allowing you to feel utterly, completely at peace.  Sliding up, she lets your slowly-deflating cocks ", false);

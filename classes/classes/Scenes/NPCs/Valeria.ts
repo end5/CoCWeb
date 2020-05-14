@@ -6,7 +6,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { GooArmor } from "./GooArmor";
 import { GooGirl } from "../Areas/Lake/GooGirl";
 import { PregnancyStore } from "../../PregnancyStore";
-import { SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
+import { SKIN_TYPE_FUR } from "../../../includes/appearanceDefs";
 
 export class Valeria extends NPCAwareContent implements TimeAwareInterface {
 
@@ -92,14 +92,14 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\n\"<i>Do you yield?</i>\" she asks, not unlike a knight.");
         this.outputText("\n\nYou nod emphatically.");
         this.outputText("\n\n\"<i>Tsk,</i>\" she sighs, shaking her head.  \"<i>Only reason I tagged along with you is I thought you might actually have a chance, Champion.  If you can't beat little old me... Oh, whatever am I going to do with you?</i>\" she chuckles");
-        //[if PC lost via HP or has no gender: 
+        //[if PC lost via HP or has no gender:
         if (this.player.HP < 1 || this.player.gender == 0) {
             this.outputText(", offering you a hand up.");
             this.outputText("\n\n\"<i>C'mon, let's get back to camp.</i>\"");
             //(Return to main Camp menu)
             this.cleanupAfterCombat();
         }
-        //[else; If PC lost via lust & has a gender: 
+        //[else; If PC lost via lust & has a gender:
         else {
             this.outputText(".  \"<i>Well, since you're so... eager... I might as well get my daily fluids while we're here.</i>\"");
             //(Go to Valeria's gender-appropriate FemDom sex scenes)
@@ -118,7 +118,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(".");
             this.outputText("\n\n\"<i>Hmm... I suppose that could be arranged. What did you have in mind, partner?</i>\"");
         }
-        //(Display Options: \"<i>[Penetrate Her](Cockwielder PC Only)  [Get Fucked]  [Gooflation] 
+        //(Display Options: \"<i>[Penetrate Her](Cockwielder PC Only)  [Get Fucked]  [Gooflation]
         //[Get Dominated](Must have a gender)  [Dick/No Dick])
         var penetrate = undefined;
         if (this.player.hasCock()) penetrate = this.penetrateValeria;
@@ -139,7 +139,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
     private valeriaDickToggle(): void {
         this.spriteSelect(79);
         this.clearOutput();
-        //[If Valeria has a dick:] 
+        //[If Valeria has a dick:]
         if (this.flags[kFLAGS.VELARIA_FUTA] == 1) {
             this.outputText("Before you do anything, you ask Valeria if she wouldn't mind hiding her facsimile of a dick, at least when you aren't having sex.");
             this.outputText("\n\n\"<i>Aww,</i>\" she groans, \"<i>I was starting to get used to my little buddy there, too.  But, if that's what you want... I guess I'll oblige.</i>\"");
@@ -148,7 +148,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             //(PC returns to sex menu)
             this.flags[kFLAGS.VELARIA_FUTA] = 0;
         }
-        //[If Valeria doesn't have a dick:] 
+        //[If Valeria doesn't have a dick:]
         else {
             this.flags[kFLAGS.VELARIA_FUTA] = 1;
             this.outputText("Struggling to find a less-than-awkward way of phrasing this, you ask Valeria if she wouldn't mind growing a certain extra appendage for you.");
@@ -159,7 +159,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText("\n\n\"<i>Well, this is going to be... different. So, what do you say we put this third leg of mine to good use, huh?</i>\"");
             }
             //(PC returns to sex menu)
-            //(If PC is Male:) 
+            //(If PC is Male:)
             else {
                 this.outputText("\n\nValeria cocks an eyebrow at you.  \"<i>Dude. What're you, gay?</i>\"");
                 this.outputText("\n\nYou scowl at her.");
@@ -190,14 +190,14 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nYou start to remind her that she's already pretty damn moist, but as soon as you open your mouth, she shoves her cock in.  You squirm and grunt, but Valeria just grabs your shoulders and stuffs more of her in your gob until her gooey cock is pouring down your throat.  Figuring it's a useless fight, you start to deepthroat her cock, pumping your head back and forth until your lips press against her groin.  Squishy and malleable as it is, you don't have any problems taking her shaft all the way, and even manage to pierce the bottom of it with your tongue, slurping at the insides of Valeria's dick; your invading tongue tingles at her citrusy taste.");
         this.outputText("\n\nValeria lets out a long, low moan as you fellate her goo-cock and runs her hand through your [hair], urging you onwards.  You continue on for a few minutes, slowly working her slick cock in and out of your throat until she eventually pushes your head back and withdraws herself, already panting from the pleasure.  \"<i>That's enough, [name].  Time for the main event, I think.</i>\"");
         this.outputText("\n\nThe tip of her goopy cock slips out of your well-used mouth, leaving its sticky, citrusy residue clinging to your lips.  Valeria slides back along your chest, ");
-        //[if PC has C-cups or bigger, 
+        //[if PC has C-cups or bigger,
         if (this.player.biggestTitSize() > 3) this.outputText("bumping over your [chest] and stopping for a brief moment to tickle your sensitive tits with her goopy bottom before ");
         this.outputText("coming to a stop over your crotch.  She pours herself into your lap, ");
         //[if PC has cock: \"<i>
         if (this.player.hasCock()) this.outputText("her gooey ass devouring your " + this.cockDescript(0) + " as she slides down your belly");
         if (this.player.hasCock() && this.player.hasVagina()) this.outputText(" and ");
         if (this.player.hasVagina()) this.outputText(" letting bits of her goo-body slither into your wet, waiting [vagina], ever so slightly peeling your walls apart");
-        //If PC has no gender 
+        //If PC has no gender
         if (this.player.gender == 0) this.outputText("poking the shaft of her cock gingerly, teasingly against your [asshole]");
         this.outputText(".");
 
@@ -279,7 +279,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nHer gut becomes concave, then her face, until she's pouring off your body and around your waist.  You try and struggle, but it's too late.  She surges up your rectum, utterly filling you with herself.  You can only sit and watch as your stomach begins to expand, pushing dangerously out from your ribs as the last little bits of Valeria suck up your ass.");
         this.outputText("\n\n\"<i>VALERIA!</i>\" you shout, poking your stomach.  Your flesh quivers, shaking like a great big bowl of goo.");
         this.outputText("\n\n\"<i>Hey there, partner,</i>\" you hear a laugh from inside you.  Before you can say anything else to the goo-girl inside you, your stomach rumbles.  You double over, half in pleasure half in pain as something lurches inside you.  You feel a rush going out your colon, and just squat in time for Val to explode out of your ass in one massive thrust.  You cum, an anal orgasm rocking your body as Valeria pops out your bum, pouring out of your well-stretched sphincter.");
-        //(All Genders Reconvene) 
+        //(All Genders Reconvene)
         if (clearText) {
             this.outputText("\n\nYou collapse, goop flowing freely from your abused body.  Laughing, Valeria pours out of your lap, ");
             if (this.player.gender > 0) this.outputText("patting her belly full of your juices, ");
@@ -328,7 +328,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("\n\nYou have only a moment to figure out what's coming before her goo - now perfectly shaped like the inside of your cunt - slams back into you like a stiff cock.  You can't help yourself as a moan escapes your lips, barely audible through the goop covering your mouth.");
             this.player.cuntChange(this.player.vaginalCapacity(), true, true, false);
             this.outputText("\n\n\"<i>Oh, you like that, do you?</i>\" the armor-goo asks, smiling evilly.  \"<i>Hmm, maybe if you're a good " + this.player.mf("boy", "girl") + ", I'll let you get off, too</i>\"  Still grinning, she begins to hammer her cock-like appendage into your pussy, fucking you fast and hard with her goo-dildo.");
-            //[If PC has breasts > A-cups: 
+            //[If PC has breasts > A-cups:
             if (this.player.biggestTitSize() > 1) {
                 this.outputText("  As she hammers your cunny, bits of her goo swirl around your [chest], squeezing and massaging your tits. You squirm as she roughly teases your boobs, pinching at your nipples and squeezing your tender flesh roughly.");
                 if (this.player.lactationQ() > 0) this.outputText("  To her delight, a spray of warm milk jets out of your sore nipples, milky white mixing into blue goo like oil in water.  \"<i>Mmm, tasty!</i>\" she teases, massaging more and more from you.");
@@ -689,39 +689,39 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
     }
 
     /*MISC. Valeria Interactions
-    
-    
+
+
     [If PC has Valeria unequipped and Isabella is in camp]
     (Play when PC returns to camp from anywhere/anything)
-    
-    As you make your way back home, you hear an annoyed \"<i>Mooooo!</i>\" from Isabella's section of the camp. Cocking an eyebrow, you wander over to the busy cow-girl. Isabella's arms are currently crossed over her prodigious chest, her shield planted in the ground in front of her. Standing a few feet in front of her is Valeria, snuggly fit into her steel plates, her greatsword held firmly in hand. 
-    
+
+    As you make your way back home, you hear an annoyed \"<i>Mooooo!</i>\" from Isabella's section of the camp. Cocking an eyebrow, you wander over to the busy cow-girl. Isabella's arms are currently crossed over her prodigious chest, her shield planted in the ground in front of her. Standing a few feet in front of her is Valeria, snuggly fit into her steel plates, her greatsword held firmly in hand.
+
     \"<i>I'm just saying, Izzy,</i>\" Valeria groans, nodding to her gooey sword. \"<i>You're fighting style is just... lacking, is all.</i>\"
-    
-    \"<i>Mein style of combat ist NICHT LACKING!</i>\" Isabella huffs, crossing her arms so tight that a little dollop of milk bubbles out through her corset. 
-    
+
+    \"<i>Mein style of combat ist NICHT LACKING!</i>\" Isabella huffs, crossing her arms so tight that a little dollop of milk bubbles out through her corset.
+
     \"<i>Yes it is! What's the fucking point of packing a big-ass tower shield and then PUNCHING people? Seriously, what's up with that; if you just can't afford a sword, or a hammer, or whatever, I could spot you some gems. I mean...</i>\"
-    
+
     \"<i>SILENCE!</i>\" Isabella snaps, scowling. \"<i>It ist not a matter of gems! I prefer to use mein fists, und that ist that.</i>\"
-    
+
     \"<i>Come oooonnnn, at least try using a sword. Please? You might like it...</i>\"
-    
+
     \"<i>Nein, Isabella vill not degrade her hand vith your goo weapons.</i>\"
-    
+
     Valeria's shoulders slump. \"<i>Fine, fine. Whatever. Get your arm torn off by a demon. See if I care. I'll just go... spar by myself, I guess.</i>\"
-    
+
     \"<i>Vait, I,</i>\" Isabella starts, grabbing Valeria's shoulder as she turns away. \"<i>I suppose I could... try ein svord.</i>\"
-    
+
     Valeria beams, and hands the cow-girl the gooey greatsword, urging her to give it a few swings to get accustomed to it.
-    
+
     Experimentally, Isabella swings the greatsword in long, slow arcs. She seems to be getting the hang of it, swinging faster and harder, adding on simple spins and parries... Until she makes a wide, spinning arc with the sword, and lands it right on Valeria's neck.
-    
+
     You watch in horror as the armor-goo's head tumbles to the ground, chopped right off by Isabella's powerful swing. \"<i>Mein Gott!</i>\" Isabella gasps, dropping the sword and clutching at her breast.
-    
+
     \"<i>Ow.</i>\" Valeria answers, her head reappearing on her neck a moment later. The cow-girl leaps back in fright as the dismembered head decomposes and is absorbed back into Valeria's feet. The goo-girl rolls her lower jaw and makes an exaggerated show of cracking her neck. \"<i>Hey, nice swing, Izzy. Might wanna, uh, look where you're swinging, though.</i>\"
-    
+
     \"<i>I, ah, ja. Ich vill?</i>\"
-    
+
     Valeria chuckles as she re-absorbs her greatsword and, scratching her neck, wanders off into camp, leaving poor Isabella rather startled.*/
 }
 

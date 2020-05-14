@@ -10,7 +10,7 @@ import { CockTypesEnum } from "../../CockTypesEnum";
 import { Appearance } from "../../Appearance";
 import { CoC_Settings } from "../../CoC_Settings";
 import { PerkLib } from "../../PerkLib";
-import { TAIL_TYPE_NONE, TONUGE_HUMAN, LOWER_BODY_TYPE_HARPY, TAIL_TYPE_HARPY, LOWER_BODY_TYPE_BEE } from "../../../../includes/appearanceDefs";
+import { TAIL_TYPE_NONE, TONUGE_HUMAN, LOWER_BODY_TYPE_HARPY, TAIL_TYPE_HARPY, LOWER_BODY_TYPE_BEE } from "../../../includes/appearanceDefs";
 
 export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
@@ -1078,7 +1078,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             }
             this.outputText("\n\n\"<i>[name],</i>\" Sheila pants, \"<i>I'm gonna come soon if you keep doing that!</i>\"");
             this.outputText("\n\nIn answer, you thrust even harder against her, crossing her netherlips furiously with your");
-            //[(naga) 
+            //[(naga)
             if (this.player.isNaga()) this.outputText(" tail, drawing it up the hot opening and coiling it so you can return the warm, lube-slicked length for another pass even as you hump her butt.");
             else this.outputText(" cunt, grinding her like a sex toy in search of your own climax.");
             this.outputText("  \"<i>Do it!</i>\" you order, anxious to feel her pussy convulsing against you, anxious to feel your own squeezing her.  \"<i>Come with your lesbian lover!</i>\"");
@@ -1749,7 +1749,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         //[(cox)
         if (cock) {
             this.outputText("wrapping a hand around your shaft");
-            //(big) 
+            //(big)
             if (this.player.cockThatFits(32) < 0) this.outputText(" and guiding it to bend comfortably against her chest, drooling a trail of pre-cum as she slides it into position");
             this.outputText(".");
         }
@@ -1763,7 +1763,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(" so your ");
         if (cock) {
             this.outputText("cock sinks down");
-            //[(small cock) 
+            //[(small cock)
             if (this.player.cockThatFits(32) >= 0) this.outputText(" into her warm, waiting mouth");
             else this.outputText("; she lets go of it to grab her breasts instead, trying to push them around the sensitive shaft as she runs her tongue up the underside");
             this.outputText(".");
@@ -2022,7 +2022,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("jiggly tits nearly slap into her face");
         this.outputText(".  \"<i>Ohhh,</i>\" she moans, \"<i>YES!</i>\"  At that moment you feel her vagina clamp around your [cockFit 32], wringing it frantically as she reaches her climax.  You continue pumping as best you're able, but you can't stand up to the siege of her spasming pussy for long; ");
 
-        //[(pc corr >= 90 or > sheila corruption) 
+        //[(pc corr >= 90 or > sheila corruption)
         if (this.player.cor >= 90 || this.player.cor > this.flags[kFLAGS.SHEILA_CORRUPTION]) {
             this.outputText("something builds to a painful intensity in your crotch.  It feels like two mind-blowing orgasms arriving together and fighting over which one gets to come out first.  You rise toward climax quickly and then are drawn back in moments of maddening frustration, over and over.  In response you intensify your thrusts even more, sawing in and out of the girl at a pace that would be blistering if the two of you weren't leaking enough pre-cum and pussy juice to put out a brushfire.  Eventually the pleasure overwhelms the strange reticence of your orgasm; you cry out loudly as you peak, and squeeze a tiny trickle of cum into her grasping vagina.");
             //[(multi)
@@ -2072,7 +2072,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.cockTotal() > 2) this.outputText("Your other cocks erupt as well, soaking her crotch and matting down the fur on her thighs with whiteness. ");
         }
         this.outputText("Both of your orgasms finish up");
-        //(dog-c) 
+        //(dog-c)
         if (this.player.hasKnot(x)) this.outputText(" and you finally manage to pull out of her");
         this.outputText("; the two of you lie there breathing raggedly for several minutes.  Sheila breaks the silence first.");
 
@@ -2272,7 +2272,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         }
         //(jack shit)
         else this.outputText("fingers are pulled into her vagina by her muscles as her orgasm begins.");
-        //[( pc corr >= 90 or > sheila corruption) 
+        //[( pc corr >= 90 or > sheila corruption)
         if (this.player.cor >= 90 || this.player.cor > this.flags[kFLAGS.SHEILA_CORRUPTION]) {
             this.outputText("\n\nHer lips seem to draw yours in when she comes, until it feels like you've been pressing them into her since time began; her chest rises as she sucks, and you can clearly see her breasts swelling up - it's too much to bear, and you grab one with your free hand and squeeze.  Sheila answers you by sticking her tongue even deeper into your mouth.");
         }
@@ -2539,7 +2539,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             //[(nonhors)
             if (!this.player.isTaur()) this.outputText(" and squeeze her breast");
             this.outputText(" as your climax arrives and the first of your seed pours into her grasping pussy.  While you fill her, her back arches");
-            //[(nonhors) 
+            //[(nonhors)
             if (!this.player.isTaur()) this.outputText(" and she presses your hand uncomfortably");
             this.outputText(", gasping as her own orgasm begins.  Her knees wrap around your sides, satisfying your predicition, and her vagina");
             //[(pc corr >= 90 or > sheila corruption)
@@ -2844,7 +2844,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
         this.cleanupAfterCombat();
     }
 
-    //loss in combat: 
+    //loss in combat:
     //- Reminder: non-demon Sheila will kick your ass and leave unless PC has raised her lust to 75+ before losing; only in those cases will she be overcome and actually take advantage of you
     //- Sheila can't into rough, brutal sex and focuses on getting off quickly and leaving, so losses only cost 8 hours if she wins by HP; however, if she chooses not to sex the PC, he's stuck with whatever lust gained
     //-Sheila doesn't care about gems after a win as much as getting the fuck away from you (or getting off and then getting the fuck away from you in shame)
@@ -2856,7 +2856,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.HP < 1) this.outputText("colorful spots");
             else this.outputText("fantasies of her, stark naked but for her hat and waiting with her legs open");
             this.outputText(".");
-            //lose 8 hrs if HP < 1 or 1 hr if lust > 99, no gem loss 
+            //lose 8 hrs if HP < 1 or 1 hr if lust > 99, no gem loss
             this.cleanupAfterCombat();
         }
         //(else monster lust >= 75)
@@ -4349,7 +4349,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
             //(clit>12")
             if (this.player.clitLength <= 12) {
                 this.outputText("  Her tails sink into you as she squirms, parting your lips and pushing their way inside.");
-                //[output hymen check, but don't remove virgin flag yet]  
+                //[output hymen check, but don't remove virgin flag yet]
                 if (this.player.hasVirginVagina()) this.outputText("  <b>You've lost your virginity!</b>");
                 this.outputText("  Buried in your pussy, the spade begins drooling its black fluids in greater and greater volume as Sheila is wracked by her orgasm.");
             }
@@ -4629,7 +4629,7 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outputText("\n\n\"<i>[name]!  Finish in my pussy, please!  I want to raise your baby!  You're the only one that suits me!</i>\"");
 
-        //if corruption >= 80 and PC has worms, present choices 
+        //if corruption >= 80 and PC has worms, present choices
         if (this.player.cor >= 80 && this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
             this.menu();
             //[No][Worms Suit You], else auto-output text from [No]
@@ -5037,133 +5037,133 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 
 
     /*Sheila's Lethicite:
-    
+
     [piercing for magicfags]
     //add [S. Lethicite] to Rare Menu of any piercing
-    
+
     [blah blah blah Tel'Adre blah blah piercing bodyparts furry shit gems - Rare Menu - S. Lethicite]
     You hold out the stone you acquired from Sheila to the artist, and ask if she can use it.
-    
+
     "A Lethite?  Yeah, I can work with that; it's right there on the menu.  You didn't need to bring your own, though."  She considers for a bit.  "Well, it'll save me some material costs... 100 gems instead of 1000.  I'll have to fit and polish it, and the labor's not free.  Still want it?"
-    
+
     [Yes]/[No] (no goes back one screen)
-    
-    
+
+
     [blah blah blah Tel'Adre blah blah piercing bodyparts furry shit gems - Rare Menu - S. Lethicite - Yes]
     //suppress usual Yara output
     You can feel an odd, foreign arousal filling you as your skin wicks latent magical energy from your new piercing.  Yara's bewildered eyes meet yours briefly, then seem to gloss over as the magic dissipates, jumping the gap from you to her.  "Th-that looks nice," she says, shaking.  Her thighs clap together hurriedly, though not before a wet spot forms on the front of her pants, and she finishes her appraisal in a hurry.  "Thank you!  Co... co... cum again!"  Blushing, she shoos you out of the store.  <b>It looks like Sheila's gift has amplified your talent for magical emotional manipulation!</b>  You can only imagine how demons will react to the wellspring of tainted energy, though.
-    
+
     (Gained Perk: Pierced: Lethicite)
-    
+
     //subtract 100 gems, add perk, remove Sheila's Lethicite key item, set sheilacite = 2
-    
-    
-    
-    
+
+
+
+
     da perk:
     Pierced: Lethicite - Sheila's stolen soul aids your black magic, but demons practically line up behind you now.
-    
+
     da effect:
     //improve black magic output by like 15-20% or someshit and increase demon and imp encounter rate by two or three times a normal Lethite piercing effect
     //what am I, a fucking dev?
     //if using Arouse against either version of Sheila with this perk active, automatically set monster lust = 100 and add to spell effect the output "The residual magic from Sheila's lethicite flares up in you, resonating with the woman as you cast your spell; her eyes widen as her knees buckle and dump her onto the ground, drooling lubrication from her vagina."
-    
-    
+
+
     Scarred Blade - Blacksmith-made:
     //[Craft] button in Weapons option of Tel'Adre if PC has Sheila's Lethicite
-    
+
     The blacksmith turns an appraising eye on you as you approach him without looking at any of the weapons on display.
-    
+
     "What do you want?" he says, with characteristic gruffness.
-    
+
     You pull out the dark purple crystal you received from Sheila and ask if it would be possible to alloy a blade from it.  He doesn't move to take it from your outstretched hand just yet, but you can see a hint of interest in the softening of his features.  "That's a lethicite.  Where'd you get it?" asks the smith.
-    
+
     "Stole it from a demon," you lie.
-    
+
     He considers for a moment more before responding.  "Well done, then."  At that, he takes the crystal gingerly from your hand.  "Never worked with this before.  I promise nothing, but come back in two weeks.  I should have an update for you."
     //remove Sheila's Lethicite key item, set sheilacite = 3, start sheilaforge timer, increment once per day at 0:00
-    
+
     //repeat visits to weapons shop while sheilacite = 3
     [if sheilaforge < 14]
     The weaponsmith looks up from the forge as you enter.  "Oh, it's you.  I'm not done yet."  With a gesture, he dismisses you.  You can only content yourself with looking at the finished products.
-    
+
     //goto normal weapon list
-    
-    
+
+
     [if 14 <= sheilaforge < 21]
     The smith looks up as you enter, and you could swear the already-thin, no-nonsense line of his mouth becomes even tighter.  "It's you.  Come here."
-    
+
     Obligingly, you approach him, though the forge's heat is stifling.  "I finished.  The crystal impregnated the metal easily, but the blade itself... just have a look."  He picks up a tatty scabbard from a pile of half-finished weapons and holds it to you - as he does, you notice for the first time the numerous bandages on his hands.  A bit wary, you unsheathe the blade halfway; it hisses against the oiled leather as you draw it.  The revealed form of the weapon is slim, curved rakishly, and glows with an umbral light against the backdrop of the lit forge, but its broad side is covered in deep lines.
-    
+
     "Damnedest thing.  I couldn't straighten the blade for the life of me - with every hammer blow it would leap, vibrating, from the anvil, and warp somewhere else, adding a new twist for each one I took out.  After a few failures, I settled for a backsword design and channeled the bending toward the flat edge.  That's not the uncanny bit though.  You can see how sharp it is; the edge fairly shaped itself with just a touch of the grinder.  I haven't honed it - didn't need to.  But when I tried to etch a design just above the hilt, it would slide under the stencil, leaving a gouge on the blade."
-    
+
     Closer examination reveals the veracity of his claim: all the numerous scratches and flaws on the blade have their origins right above the tang, from the smith's abortive attempts at decoration.  Yet though several ugly gashes stop just short of the edge, none of them actually break the perfect arc, as if cutting were all the blade cared about.
-    
+
     "Damnedest thing," he repeats, breaking your train of thought.  "Every time the blade slipped, it would twist toward my hands.  It's as if it's alive and eager to find flesh.  Truth be told... I was debating whether to turn it over to the Covenant and tell you the crystal couldn't be used.  But you're here, so take it and go."  Giving you barely enough time to sheathe the blade again, he places a strong hand against your back and all-but-pushes you out to the street.
-    
+
     //gain 1 Scarred Blade, set sheilacite = 4
-    
-    
+
+
     [if sheilaforge >=21]
     The weaponsmith is at the forge.  As you approach, he looks up at you and quickly composes his face into a grimace.
-    
+
     "It's you.  I tried using your crystal.  It took to the metal easily enough but I couldn't get it to keep a... reliable edge.  City officials, ah, picked up the wasted scrap a little bit ago."  He looks away in what you guess is professional regret.  "Sorry."
-    
+
     //set sheilacite = 6
-    
-    
+
+
     [Scarred Blade]
     //tooltip
     This saber, made from lethicite-imbued metal, eagerly seeks flesh; it resonates with disdain and delivers deep, jagged wounds as it tries to bury itself in the bodies of others.
-    
+
     //base attack power
     ~10
-    
+
     //hit effect - deals med-high% armor-piercing damage with a power of (corruption - 70) in addition to normal damage, output (only once if d. attack):
     The blade jerks orgasmically as you send it home on [enemy], vibrating and trying to writhe out of your grip to get further inside them!
-    
+
     //if hitting Sheila with it, double all damage after calculation and output this instead of normal output:
     The blade clings longingly to the woman, as if it had finally found its way home; when you pull it free with great effort, it leaves a long, tortuous cut in its wake.
     //i found the control room!  -Metal Man
-    
+
     if PC has <= 70 corruption with Scarred Blade equipped, output this at end of hour
     The scratched sword you carry jerks wildly like a bucking horse, and, tilting hilt-downward, slides itself right out of its scabbard.  Before you can pick it up and re-sheathe it, it lashes out at your hand, cutting you and landing with the point out.  Even when you try to circle it and grab the handle, the uncanny saber spins its edge around to fend you off.  Sighing with irritation, you abandon it for now.
-    
+
     //deal 10 pts damage before armor, unequip Scarred Blade, remove from inventory, set sheilacite = 5
     //don't put in Benoit's shop if blade leaves inventory and sheilacite > 4
-    
+
     if sheilacite >= 5 and PC corr > 70, output this at end of hour
     A nearby flash of light on metal catches your eye.  Drawing closer to it, you find the blade you abandoned before sticking point-down in the dirt.  The tainted saber leans toward you, presenting its hilt almost pleadingly.  Take up the sword again?
-    
+
     [Yes]/[No] (don't set a spacebar default here)
-    
+
     //if PC says yes, add Scarred Blade to inventory and set sheilacite = 4
     //if no, set sheilacite = 6
-    
-    
+
+
     tutoring Kid A while she wields Scarred Blade
     The anemone attempts to draw the bloodthirsty saber at your insistence, but as she pulls it free of the scabbard, it jerks from her hands, lashing across her thigh before clattering noisily to the ground and spinning away.  Her shock grows as thick, clear fluid seeps from the cut, and she covers her mouth with her hands, looking up at you with piteous, wet eyes.  [(if corr <=70)The blade's edge flashes toward you as well, when you try to pick it up.  After a few frustrated attempts, it becomes clear that you'll have to abandon it for now.]
     //empty Kidweapon; if corr <=70, set sheilacite = 5, else add Scarred Blade to inventory
-    
-    
-    
-    
+
+
+
+
     to maybe do:
-    
-    
+
+
     demon Sheila dreams!
     - loyal squire/lady-in-waiting anxiously offering you her vag/hidden wanger re: demon Sheila's talk
     - worm Sheila dream if sheilapreg = -2
     - dream with PC in [Jojo/Sheila]'s place if sheilapreg = -3
     (TBD)
-    
+
     XP-4 rape-pregnancy finale
     -crying in the bushes
     {TBD}
-    
+
     demon Sheila bangin' other wildlife
     (TBD)
-    
+
     fuzzify Sheila by giving her a mighty veggie
     -mistakes it for normal kangafrootloops when PC shows it to her during some lunch scene
     -or else PC can sneak it in with her other forage during lunch
@@ -5174,28 +5174,28 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
     -no fuckin' muzzle
     -super saiyan 4
     (TBD)
-    
+
     demon cunt training!
     -if you can fit in demon Sheila's snizz (cockarea <= 56), you can have her drip on your base while you're inside of her, to swell your dick up and stretch her pussy from the inside
     (TBD)
-    
-    
+
+
     something with huge tits
     -titjobs are fucking boring
     -maybe nipple torture?
     -maybe they grow so big that she can only get off with her tails, so you restrain them and fuck with her
     (TBD)
-    
-    
+
+
     hidden bad end from losing to demon via HP 2+ times
     gets annoyed, takes you home, ties you up, keeps you "safe"
     (TBD)
-    
+
     demon sheila item use - gives confirmation request
     lactaid: Sheila starts lactating, feeds player (succubus milk effect)
     incubus draft: Sheila won't take it unless the player agrees to give up the quest and live with her; route to neutral bad end
     (TBD)
-    
+
     */
 }
 

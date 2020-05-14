@@ -1,6 +1,6 @@
 import { AbstractLakeContent } from "./AbstractLakeContent";
 import { FetishCultist } from "./FetishCultist";
-import { LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA } from "../../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
@@ -16,8 +16,8 @@ export class FetishCultistScene extends AbstractLakeContent {
      Appearance: A large human female who's wearing what looks like a depraved religious outfit while chanting what sounds like random sentences, her outfit sometimes changes into something else, seemingly at random, but only for a short time.  Whatever intelligence she used to have is obviously long gone.
      Habitat: Could be anywhere, but the lake seems best from the current options.
      Attacks: Can raise the opponent's lust by posing in outfits that they find attractive; raise her own lust by "thinking"; or transfer half of her current lust to her opponent via magic.
-     Raped by: She grabs the player character and their clothing shifts into a submissive costume (with a design that allows them to be raped without taking the outfit off), and then she shifts to one that dominates that one.  She then acts the part of her costume and rapes the player character, without removing the outfits.  The player character's clothes remain unchanged afterwards.  Examples: student and teacher, soldier and officer, or nurse and doctor.  The chosen pairing depends on the gender and structure of the player character, and lots of different scenes could be added.  
-     Rape: The cultist's outfit shifts into that of something submissive and helpless and acts the part, but she clearly enjoys what is done to her.  
+     Raped by: She grabs the player character and their clothing shifts into a submissive costume (with a design that allows them to be raped without taking the outfit off), and then she shifts to one that dominates that one.  She then acts the part of her costume and rapes the player character, without removing the outfits.  The player character's clothes remain unchanged afterwards.  Examples: student and teacher, soldier and officer, or nurse and doctor.  The chosen pairing depends on the gender and structure of the player character, and lots of different scenes could be added.
+     Rape: The cultist's outfit shifts into that of something submissive and helpless and acts the part, but she clearly enjoys what is done to her.
      Loot: Could drop a random set of clothing or a costume on death.
      */
 
@@ -199,12 +199,12 @@ export class FetishCultistScene extends AbstractLakeContent {
             //(1 - if player has nipplecunts)
             if (this.player.hasFuckableNipples()) {
                 this.outputText("Still smiling, the nurse looks closely at your " + this.nippleDescript(0) + " and says, \"<i>I see... they really are interesting.  Sorry about tying you down like that.  I know experiments like this can be a little scary, but just remember that you are helping others by agreeing to do this.</i>\"  She leaves the room for a moment and comes back with a pair of syringes.  \"<i>I hope you are as ready for this as I am,</i>\" she says with a look of glee on her face as she climbs on top of you.  She then sticks the syringes into her own nipples simultaneously and injects their contents inside her.  Quivering slightly she sets the empty syringes aside before she starts rubbing her breasts feverishly.  A moment later she stops and pulls her hands away to reveal that her nipples have grown quite long, about four inches from the tops of her mounds.  With a sigh, she lowers herself toward you and pushes her elongated nipples into your " + this.nippleDescript(0) + "s.  You feel your breasts seem to eagerly pull the tips inside and begin sucking on the nurse's dick-like nipples.  You feel a fluid start to come out of the nurse's nipples directly into your own, and the two of you begin moaning in ecstasy.  After a few minutes of your " + this.nippleDescript(0) + "s draining the nurse's long nipples, you feel them pull out of you.  With a sigh of contentment, the nurse pulls back to reveal that her nipples have returned to normal.  She then puts her hands on your " + this.player.allBreastsDescript() + " and starts to massage them, occasionally poking her fingers inside.  You find that they feel fuller and healthier than ever, and ", false);
-                //[if breasts are not lactating] 
+                //[if breasts are not lactating]
                 if (this.player.biggestLactation() < 1) {
                     this.outputText("they have even started to lactate.  ", false);
                     this.player.boostLactation(1.5);
                 }
-                //[if breasts are already lactating] 
+                //[if breasts are already lactating]
                 else {
                     this.outputText("they are producing more milk than before.  ", false);
                     this.player.boostLactation(.6);
@@ -231,7 +231,7 @@ export class FetishCultistScene extends AbstractLakeContent {
                 if (this.player.breastRows.length == 1) {
                     this.outputText("Once about half of the fluid has been injected into your first breast, she moves on to the other and you feel a similar sharp pain followed by the glowing pleasure.  ", false);
                 }
-                //[if the player has two rows of breasts] 
+                //[if the player has two rows of breasts]
                 if (this.player.breastRows.length == 2) this.outputText("Once about a quarter of the fluid has been injected into the first breast, she moves on to the second and you feel a similar sharp pain followed by the glowing pleasure.  She continues this until all of your " + this.player.allBreastsDescript() + " have been injected.  ", false);
                 //[if the player has three rows of breasts]
                 if (this.player.breastRows.length > 2) this.outputText("Once about a sixth of the fluid has been injected into the first breast, she moves on to the second and you feel a similar sharp pain followed by the glowing pleasure.  She continues this until all of your " + this.player.allBreastsDescript() + " have been injected.  ", false);
@@ -304,12 +304,12 @@ export class FetishCultistScene extends AbstractLakeContent {
                 this.outputText("Eager to please your mistress, now reclining on a lovely chair, you crawl to her, remove her shoes, and start to massage her feet.  Your hands seem to move with the will of some outside force and they expertly work to please your mistress.  Pushed on by her approving groans, you work your way up her legs, removing clothing as you go, until you reach her hips.  There, to your mistress' great delight, you run your hands over her hips and butt, and then start to rub her lower lips and clit.\n\n", false);
                 this.outputText("After a minute of this, she stops you and says, \"<i>Good; I am now ready to have you inside of me, toy.  Lie down and start fingering your " + this.vaginaDescript(0) + " while I use the " + this.multiCockDescriptLight() + " that I keep you here for.</i>\"\n\n", false);
                 this.outputText("With your hands slightly trembling in anticipation, you lie down and grab at your very erect " + this.multiCockDescriptLight() + " just before you slip your fingers into your " + this.vaginaDescript(0) + ", ready to please your mistress the best way you can.  You watch your mistress rise off her chair and slowly lower herself onto your " + this.cockDescript(0) + ", moaning in pleasure.  Her interior is so familiar and so wonderful.  You increase the pace that your fingers plunge into your depths, moaning in the way you know your mistress loves. She starts to rock back and forth, your " + this.cockDescript(0) + " bringing her to the height of ecstasy. ", false);
-                //[if player has 2 dicks] 
+                //[if player has 2 dicks]
                 if (this.player.cocks.length == 2) this.outputText("Your " + this.cockDescript(1) + " rubs against her skin pleasantly.  ", false);
-                //[if player has more than 2 dicks] 
+                //[if player has more than 2 dicks]
                 if (this.player.cocks.length > 2) this.outputText("The rest of your " + this.multiCockDescriptLight() + " rubs against her skin pleasantly.  ", false);
                 this.outputText("Thanks to your extended foreplay, your mistress quickly comes to a climax that reverberates through both your bodies, causing you to release yourself into your mistress and cover your fingers with your other fluids.", false);
-                //[if player has multiple dicks] 
+                //[if player has multiple dicks]
                 if (this.player.cocks.length > 1) this.outputText("  You take special care to make sure that the rest of your cum does not get on your mistress in any way.", false);
                 this.outputText("\n\nSatisfied, your mistress rises off of you and dresses.  She tells you that she is going for a walk, and that you should continue your duties now.  ", false);
             }
@@ -337,7 +337,7 @@ export class FetishCultistScene extends AbstractLakeContent {
                 //(variant 2: maid, requires vagina)
                 else if (this.player.vaginas.length > 0) {
                     this.outputText("You see that your " + this.player.armorName + " have become an apron over a plain dress with high stockings and simple black shoes.  They make you look like you would be at home keeping a manor clean and tidy, if it were not for the rather short skirt and lack of undergarments that give easy access to your " + this.vaginaDescript(0), false);
-                    //[if player has a dick] 
+                    //[if player has a dick]
                     if (this.player.cocks.length > 0) this.outputText(", your " + this.multiCockDescriptLight() + ",", false);
                     this.outputText(" and your " + this.buttDescript() + ".\n\n", false);
                     if (this.player.armorValue == 0) this.player.modArmorName = "maid's clothes";
@@ -473,7 +473,7 @@ export class FetishCultistScene extends AbstractLakeContent {
             //(if player has a dick)
             if (this.player.cocks.length > 0 && (this.player.gender != 3 || FetishCultistScene.rand(2))) {
                 this.outputText("Telling her that she is going to please you whether she wants to or not, you reveal your " + this.multiCockDescriptLight() + ".  She screams for help and starts struggling against your grip, but you tell her that no one is going to save her now.  Easily overpowering her, you force her to the ground with no care for her comfort and start tearing off her clothes.  Once you have a clear view of her love hole, you look back up at her face and see that she has stopped struggling and is now crying.  ", false);
-                //[if not corrupted] 
+                //[if not corrupted]
                 if (this.player.cor < 40) this.outputText("Feeling uncomfortable at this, you start to pull away, but her expression turns instantly into a look of pure horror and her body becomes completely tense.  As you move back to her, her body relaxes and her expression returns to the tear-stricken face.  Obviously this is an act and she would be far more bothered by you if you left her without finishing the job.  ", false);
                 this.outputText("Filled with new determination, you push your " + this.cockDescript(0) + " into her love hole and start to rape her roughly.  Despite the tears, she starts moaning, clearly enjoying the rough treatment.  A little while into the rape, she starts to move against you, almost lovingly.  It is quite clear that she has a lot of experience, but is giving you free reign to do whatever you want.   Feeling in complete control, you decide that this game isn't too bad.  Before long you reach your orgasm and you blow your load deep inside her.", false);
                 this.outputText("\n\nYou get dressed and notice that the cultist is still lying on the ground with her farm hand outfit torn from her, with a look of utter bliss on her face.  Satisfied, you continue on your way.", false);

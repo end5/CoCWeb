@@ -3,7 +3,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { PhoukaScene } from "./PhoukaScene";
 import { ItemType } from "../../../ItemType";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_SLENDER, BUTT_RATING_TIGHT, LOWER_BODY_TYPE_HUMAN, ARM_TYPE_HUMAN, EARS_ELFIN, WING_TYPE_GIANT_DRAGONFLY } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_SLENDER, BUTT_RATING_TIGHT, LOWER_BODY_TYPE_HUMAN, ARM_TYPE_HUMAN, EARS_ELFIN, WING_TYPE_GIANT_DRAGONFLY } from "../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 
 /**

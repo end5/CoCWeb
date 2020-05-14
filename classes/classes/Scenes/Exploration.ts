@@ -4,7 +4,7 @@ import { Giacomo } from "./Explore/Giacomo";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 import { StatusAffects } from "../StatusAffects";
-import { LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_DROOLING } from "../../includes/appearanceDefs";
 import { Imp } from "./Monsters/Imp";
 import { Goblin } from "./Monsters/Goblin";
 import { Appearance } from "../Appearance";

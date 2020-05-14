@@ -2,7 +2,7 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
 import { trace } from "../../../../console";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_NAGA } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_NAGA } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 
@@ -10,7 +10,7 @@ export class Naga extends Monster {
 
     //2a)  Ability -  Poison Bite - poisons player
     protected nagaPoisonBiteAttack(): void {
-        //(Deals damage over 4-5 turns, invariably reducing 
+        //(Deals damage over 4-5 turns, invariably reducing
         //your speed. It wears off once combat is over.)
         this.outputText("The naga strikes with the speed of a cobra, sinking her fangs into your flesh!  ", false);
         if (this.player.findStatusAffect(StatusAffects.NagaVenom) < 0) {
@@ -45,7 +45,7 @@ export class Naga extends Monster {
         this.combatRoundOver();
     }
 
-    //2b)  Ability - Constrict - entangles player, raises lust 
+    //2b)  Ability - Constrict - entangles player, raises lust
     //every turn until you break free
     protected nagaConstrict(): void {
         this.outputText("The naga draws close and suddenly wraps herself around you, binding you in place! You can't help but feel strangely aroused by the sensation of her scales rubbing against your body. All you can do is struggle as she begins to squeeze tighter!", false);
@@ -54,7 +54,7 @@ export class Naga extends Monster {
         this.combatRoundOver();
     }
 
-    //2c) Abiliy - Tail Whip - minus ??? HP 
+    //2c) Abiliy - Tail Whip - minus ??? HP
     //(base it on toughness?)
     protected nagaTailWhip(): void {
         this.outputText("The naga tenses and twists herself forcefully.  ", false);

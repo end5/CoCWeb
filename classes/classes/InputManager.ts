@@ -1,5 +1,5 @@
 import { BoundControlMethod } from "./BoundControlMethod";
-import { MainView } from "../../lib/src/coc/view/MainView";
+import { MainView } from "../view/MainView";
 import { BindingPane } from "./display/BindingPane";
 import { bindToClass } from "../ClassBinder";
 

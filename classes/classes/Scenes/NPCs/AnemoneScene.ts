@@ -9,7 +9,7 @@ import { LustyMaidensArmor } from "../../Items/Armors/LustyMaidensArmor";
 import { PerkLib } from "../../PerkLib";
 import { Appearance } from "../../Appearance";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { LOWER_BODY_TYPE_CENTAUR, VAGINA_WETNESS_DROOLING, ANTENNAE_NONE, VAGINA_LOOSENESS_GAPING } from "../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_CENTAUR, VAGINA_WETNESS_DROOLING, ANTENNAE_NONE, VAGINA_LOOSENESS_GAPING } from "../../../includes/appearanceDefs";
 import { ItemType } from "../../ItemType";
 import { Weapon } from "../../Items/Weapon";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";

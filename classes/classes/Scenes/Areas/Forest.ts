@@ -17,7 +17,7 @@ import { Imp } from "../Monsters/Imp";
 import { Goblin } from "../Monsters/Goblin";
 import { Jojo } from "../NPCs/Jojo";
 import { Appearance } from "../../Appearance";
-import { VAGINA_WETNESS_DROOLING, LOWER_BODY_TYPE_CENTAUR } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_DROOLING, LOWER_BODY_TYPE_CENTAUR } from "../../../includes/appearanceDefs";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**

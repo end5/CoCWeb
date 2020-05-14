@@ -1,7 +1,7 @@
 import { Monster } from "../../Monster";
 import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_LOOSE, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, SKIN_TYPE_SCALES, WING_TYPE_IMP, TAIL_TYPE_LIZARD } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_LOOSE, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, SKIN_TYPE_SCALES, WING_TYPE_IMP, TAIL_TYPE_LIZARD } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 
 export class Kiha extends Monster {

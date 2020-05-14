@@ -3,7 +3,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { Cock } from "../../../Cock";
 import { VaginaClass } from "../../../VaginaClass";
 import { BreastRowClass } from "../../../BreastRowClass";
-import { EARS_HORSE, EARS_FERRET, EARS_DOG, EARS_COW, EARS_ELFIN, EARS_CAT, EARS_LIZARD, EARS_DRAGON, EARS_BUNNY, EARS_FOX, EARS_RACCOON, EARS_MOUSE } from "../../../../../includes/appearanceDefs";
+import { EARS_HORSE, EARS_FERRET, EARS_DOG, EARS_COW, EARS_ELFIN, EARS_CAT, EARS_LIZARD, EARS_DRAGON, EARS_BUNNY, EARS_FOX, EARS_RACCOON, EARS_MOUSE } from "../../../../includes/appearanceDefs";
 
 
 /**

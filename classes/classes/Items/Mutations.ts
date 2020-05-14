@@ -5,7 +5,7 @@ import { StatusAffects } from "../StatusAffects";
 import { PerkLib } from "../PerkLib";
 import { CockTypesEnum } from "../CockTypesEnum";
 import { trace } from "../../console";
-import { VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, ARM_TYPE_HARPY, ARM_TYPE_HUMAN, ARM_TYPE_SPIDER, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, SKIN_TYPE_FUR, VAGINA_LOOSENESS_TIGHT, EARS_COW, FACE_COW_MINOTAUR, TAIL_TYPE_COW, HORNS_COW_MINOTAUR, HORNS_NONE, HORNS_DEMON, TAIL_TYPE_NONE, TAIL_TYPE_SPIDER_ADBOMEN, TAIL_TYPE_BEE_ABDOMEN, FACE_HORSE, TAIL_TYPE_HORSE, VAGINA_LOOSENESS_GAPING, EYES_HUMAN, EYES_BLACK_EYES_SAND_TRAP, EYES_FOUR_SPIDER_EYES, EARS_HORSE, FACE_DOG, SKIN_TYPE_PLAIN, SKIN_TYPE_SCALES, EARS_HUMAN, EARS_DOG, TAIL_TYPE_SHARK, VAGINA_WETNESS_DRY, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLAVERING, TAIL_TYPE_DOG, TAIL_TYPE_DEMONIC, VAGINA_LOOSENESS_LOOSE, FACE_HUMAN, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE, WING_TYPE_HARPY, WING_TYPE_SHARK_FIN, WING_TYPE_NONE, ANTENNAE_NONE, EARS_ELFIN, SKIN_TYPE_GOO, LOWER_BODY_TYPE_GOO, FACE_SHARK_TEETH, TONUGE_SNAKE, TONUGE_HUMAN, FACE_SNAKE_FANGS, FACE_BUNNY, FACE_SPIDER_FANGS, EARS_CAT, TAIL_TYPE_CAT, LOWER_BODY_TYPE_CAT, FACE_CAT, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_DRACONIC_X2, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, LOWER_BODY_TYPE_DEMONIC_CLAWS, LOWER_BODY_TYPE_BEE, TAIL_TYPE_LIZARD, EARS_LIZARD, FACE_LIZARD, LOWER_BODY_TYPE_BUNNY, EARS_BUNNY, TAIL_TYPE_RABBIT, LOWER_BODY_TYPE_HARPY, TAIL_TYPE_HARPY, WING_TYPE_FEATHERED_LARGE, FACE_KANGAROO, LOWER_BODY_TYPE_KANGAROO, TAIL_TYPE_KANGAROO, EARS_KANGAROO, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, FACE_FOX, TAIL_TYPE_FOX, EARS_FOX, LOWER_BODY_TYPE_FOX, WING_TYPE_GIANT_DRAGONFLY, TAIL_TYPE_RACCOON, LOWER_BODY_TYPE_RACCOON, EARS_RACCOON, LOWER_BODY_TYPE_PONY, FACE_RACCOON_MASK, FACE_RACCOON, EARS_MOUSE, TAIL_TYPE_MOUSE, FACE_BUCKTEETH, FACE_MOUSE, TONUGE_DEMONIC, WING_TYPE_BAT_LIKE_LARGE, WING_TYPE_BAT_LIKE_TINY, HAIR_ANEMONE, HAIR_GOO, FACE_FERRET_MASK, EARS_FERRET, TAIL_TYPE_FERRET, LOWER_BODY_FERRET, FACE_FERRET, TAIL_TYPE_DRACONIC } from "../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, ARM_TYPE_HARPY, ARM_TYPE_HUMAN, ARM_TYPE_SPIDER, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_HUMAN, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_NAGA, SKIN_TYPE_FUR, VAGINA_LOOSENESS_TIGHT, EARS_COW, FACE_COW_MINOTAUR, TAIL_TYPE_COW, HORNS_COW_MINOTAUR, HORNS_NONE, HORNS_DEMON, TAIL_TYPE_NONE, TAIL_TYPE_SPIDER_ADBOMEN, TAIL_TYPE_BEE_ABDOMEN, FACE_HORSE, TAIL_TYPE_HORSE, VAGINA_LOOSENESS_GAPING, EYES_HUMAN, EYES_BLACK_EYES_SAND_TRAP, EYES_FOUR_SPIDER_EYES, EARS_HORSE, FACE_DOG, SKIN_TYPE_PLAIN, SKIN_TYPE_SCALES, EARS_HUMAN, EARS_DOG, TAIL_TYPE_SHARK, VAGINA_WETNESS_DRY, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLAVERING, TAIL_TYPE_DOG, TAIL_TYPE_DEMONIC, VAGINA_LOOSENESS_LOOSE, FACE_HUMAN, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE, WING_TYPE_HARPY, WING_TYPE_SHARK_FIN, WING_TYPE_NONE, ANTENNAE_NONE, EARS_ELFIN, SKIN_TYPE_GOO, LOWER_BODY_TYPE_GOO, FACE_SHARK_TEETH, TONUGE_SNAKE, TONUGE_HUMAN, FACE_SNAKE_FANGS, FACE_BUNNY, FACE_SPIDER_FANGS, EARS_CAT, TAIL_TYPE_CAT, LOWER_BODY_TYPE_CAT, FACE_CAT, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_DRACONIC_X2, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, LOWER_BODY_TYPE_DEMONIC_CLAWS, LOWER_BODY_TYPE_BEE, TAIL_TYPE_LIZARD, EARS_LIZARD, FACE_LIZARD, LOWER_BODY_TYPE_BUNNY, EARS_BUNNY, TAIL_TYPE_RABBIT, LOWER_BODY_TYPE_HARPY, TAIL_TYPE_HARPY, WING_TYPE_FEATHERED_LARGE, FACE_KANGAROO, LOWER_BODY_TYPE_KANGAROO, TAIL_TYPE_KANGAROO, EARS_KANGAROO, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, FACE_FOX, TAIL_TYPE_FOX, EARS_FOX, LOWER_BODY_TYPE_FOX, WING_TYPE_GIANT_DRAGONFLY, TAIL_TYPE_RACCOON, LOWER_BODY_TYPE_RACCOON, EARS_RACCOON, LOWER_BODY_TYPE_PONY, FACE_RACCOON_MASK, FACE_RACCOON, EARS_MOUSE, TAIL_TYPE_MOUSE, FACE_BUCKTEETH, FACE_MOUSE, TONUGE_DEMONIC, WING_TYPE_BAT_LIKE_LARGE, WING_TYPE_BAT_LIKE_TINY, HAIR_ANEMONE, HAIR_GOO, FACE_FERRET_MASK, EARS_FERRET, TAIL_TYPE_FERRET, LOWER_BODY_FERRET, FACE_FERRET, TAIL_TYPE_DRACONIC } from "../../includes/appearanceDefs";
 import { Appearance } from "../Appearance";
 import { CoC_Settings } from "../CoC_Settings";
 import { PregnancyStore } from "../PregnancyStore";
@@ -2874,7 +2874,7 @@ export class Mutations extends BaseContent {
                 choices("Balls", ballsEvent, "Breasts", breastEvent, "Clit", clitEvent, "Cock", cockEvent, "Nipples", nipplesEvent, "", 0, "", 0, "", 0, "", 0, "Nevermind", 1038);
                 */
     /*		}
-        	
+
             private  growPlusBalls(): void {
                 clearOutput();
                 player.slimeFeed();
@@ -2893,7 +2893,7 @@ export class Mutations extends BaseContent {
                 dynStats("lus", 10);
                 inventory.itemGoNext();
             }
-    
+
             private  growPlusBreasts(): void {
                 clearOutput();
                 player.slimeFeed();
@@ -2905,7 +2905,7 @@ export class Mutations extends BaseContent {
                 dynStats("lus", 10);
                 inventory.itemGoNext();
             }
-    
+
             private  growPlusClit(): void {
                 clearOutput();
                 player.slimeFeed();
@@ -2915,14 +2915,14 @@ export class Mutations extends BaseContent {
                 dynStats("sen", 2, "lus", 10);
                 inventory.itemGoNext();
             }
-    
+
             private  growPlusCock(): void {
                 clearOutput();
                 player.slimeFeed();
                 outputText("You sink the needle into the base of your " + multiCockDescriptLight() + ".  It hurts like hell, but as you depress the plunger, the pain vanishes, replaced by a tingling pleasure as the chemicals take effect.\n\n");
                 if (player.cocks.length == 1) {
                     outputText("Your " + cockDescript(0) + " twitches and thickens, pouring more than an inch of thick new length from your ");
-            	
+
                     player.increaseCock(0, 4);
                     player.cocks[0].cockLength += 1; // This was forcing "what was said" to match "what actually happened" no matter what increase/growCock /actually/ did.
                     player.cocks[0].cockThickness += 0.5; // And growCock never actually touched thickness. Nor does the new version. Thickness mod was stripped out entirely.
@@ -2930,21 +2930,21 @@ export class Mutations extends BaseContent {
                 //MULTI
                 else {
                     outputText("Your " + multiCockDescriptLight() + " twitch and thicken, each member pouring out more than an inch of new length from your ");
-            	
+
                     for (var i: number = 0; i < player.cocks.length; i++) {
                         player.increaseCock(i, 2);
                         player.cocks[i].cockLength += 1;
                         player.cocks[i].cockThickness += 0.5;
                     }
                 }
-        	
+
                 if (player.hasSheath()) outputText("sheath.");
                 else outputText("crotch.");
-        	
+
                 dynStats("sen", 2, "lus", 10);
                 inventory.itemGoNext();
             }
-    
+
             private  growPlusNipples(): void {
                 clearOutput();
                 player.slimeFeed();
@@ -2967,7 +2967,7 @@ export class Mutations extends BaseContent {
                 }
                 inventory.itemGoNext();
             }
-    
+
             private  growPlusCancel(): void {
                 clearOutput();
                 if (debug) {
@@ -3019,7 +3019,7 @@ export class Mutations extends BaseContent {
                 choices("Balls", rdtBalls, "Breasts", rdtBreasts, "Butt", rdtButt, "Clit", rdtClit, "Cock", rdtCock,
                     "Hips", rdtHips, "Nipples", rdtNipples, "", undefined, "", undefined, "Nevermind", reductoCancel);
             }
-        	
+
             private  reductoBalls(): void {
                 clearOutput();
                 outputText("You smear the foul-smelling paste onto your " + sackDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
@@ -3029,7 +3029,7 @@ export class Mutations extends BaseContent {
                 dynStats("lib", -2, "lus", -10);
                 inventory.itemGoNext();
             }
-        	
+
             private  reductoBreasts(): void {
                 clearOutput();
                 outputText("You smear the foul-smelling ointment all over your " + allBreastsDescript() + ", covering them entirely as the paste begins to get absorbed into your " + player.skinDesc + ".\n");
@@ -3042,7 +3042,7 @@ export class Mutations extends BaseContent {
                 dynStats("sen", -2, "lus", -5);
                 inventory.itemGoNext();
             }
-        	
+
             private  reductoButt(): void {
                 clearOutput();
                 outputText("You smear the foul-smelling paste onto your " + buttDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
@@ -3062,7 +3062,7 @@ export class Mutations extends BaseContent {
                 dynStats("lib", -2, "lus", -10);
                 inventory.itemGoNext();
             }
-        	
+
             private  reductoClit(): void {
                 clearOutput();
                 outputText("You carefully apply the paste to your " + clitDescript() + ", being very careful to avoid getting it on your " + vaginaDescript(0) + ".  It burns with heat as it begins to make its effects known...\n\n");
@@ -3073,7 +3073,7 @@ export class Mutations extends BaseContent {
                 dynStats("sen", 2, "lus", 10);
                 inventory.itemGoNext();
             }
-        	
+
             private  reductoCock(): void {
                 clearOutput();
                 outputText("You smear the repulsive smelling paste over your " + multiCockDescriptLight() + ".  It immediately begins to grow warm, almost uncomfortably so, as your " + multiCockDescriptLight() + " begins to shrink.\n\n");
@@ -3093,7 +3093,7 @@ export class Mutations extends BaseContent {
                 dynStats("sen", -2, "lus", -10);
                 inventory.itemGoNext();
             }
-        	
+
             private  reductoHips(): void {
                 clearOutput();
                 outputText("You smear the foul-smelling paste onto your [hips].  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
@@ -3113,7 +3113,7 @@ export class Mutations extends BaseContent {
                 dynStats("lib", -2, "lus", -10);
                 inventory.itemGoNext();
             }
-        	
+
             private  reductoNipples(): void {
                 clearOutput();
                 outputText("You rub the paste evenly over your " + nippleDescript(0) + "s, being sure to cover them completely.\n\n");
@@ -3129,7 +3129,7 @@ export class Mutations extends BaseContent {
                 dynStats("sen", -5, "lus", -5);
                 inventory.itemGoNext();
             }
-        	
+
             private  reductoCancel(): void {
                 clearOutput();
                 if (debug)
@@ -6377,7 +6377,7 @@ export class Mutations extends BaseContent {
                     outputText("  You finish and pucker your lips, feeling fairly sexy with your new makeup on.\n\n", false);
                 }
                 dynStats("lus", 1);
-    
+
             }
     */
 
@@ -7478,15 +7478,15 @@ export class Mutations extends BaseContent {
                 outputText("Curiosity gets the best of you, and you decide to open the package.  After all, what's the worst that could happen?\n\n");
                 //Opening the gift randomly results in one of the following:
     //			menuLoc = MENU_LOCATION_KITSUNE_GIFT;
-            	
+
                 switch(rand(12)) {
                 //[Fox Jewel]
-                    case 0: 
+                    case 0:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, sitting in the center is a small teardrop-shaped jewel!");
                     outputText("\n\n<b>You've received a shining Fox Jewel from the kitsune's gift!  How generous!</b>  ");
                     inventory.takeItem(consumables.FOXJEWL, inventory.inventoryMenu);
                     break;
-    
+
                 //[Fox Berries]
                     case 1:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, there is a small cluster of orange-colored berries sitting in the center!");
@@ -7494,7 +7494,7 @@ export class Mutations extends BaseContent {
                     //add Fox Berries to inventory
                     inventory.takeItem(consumables.FOXBERY, inventory.inventoryMenu);
                     break;
-    
+
                 //[Gems]
                     case 2:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, it is filled to the brim with shining gems!");
@@ -7504,7 +7504,7 @@ export class Mutations extends BaseContent {
                     //add X gems to inventory
                     statScreenRefresh();
                     break;
-    
+
                 //[Kitsune Tea/Scholar's Tea] //Just use Scholar's Tea and drop the "trick" effect if you don't want to throw in another new item.
                     case 3:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, it contains a small bag of dried tea leaves!");
@@ -7512,7 +7512,7 @@ export class Mutations extends BaseContent {
                     //add Kitsune Tea/Scholar's Tea to inventory
                     inventory.takeItem(consumables.SMART_T, inventory.inventoryMenu);
                     break;
-    
+
                 //[Hair Dye]
                     case 4:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, it contains a small vial filled with hair dye!");
@@ -7522,40 +7522,40 @@ export class Mutations extends BaseContent {
                         consumables.BLACK_D,
                         consumables.WHITEDY
                     ][rand(4)];
-    
+
                     outputText("\n\n<b>You've received " + itype.longName + " from the kitsune's gift!  How generous!</b>  ");
                     //add <color> Dye to inventory
                     inventory.takeItem(itype, inventory.inventoryMenu);
                     break;
-    
+
                 //[Knowledge Spell]
                     case 5:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, but it seems like there's nothing else inside.  As you peer into the box, a glowing circle filled with strange symbols suddenly flashes to life!  Light washes over you, and your mind is suddenly assaulted with new knowledge...  and the urge to use that knowledge for mischief!");
-    
+
                     outputText("\n\n<b>The kitsune has shared some of its knowledge with you!</b>  But in the process, you've gained some of the kitsune's promiscuous trickster nature...");
                     //Increase INT and Libido, +10 LUST
                     dynStats("int", 4, "sen", 2, "lus", 10);
                     break;
-    
+
                 //[Thief!]
                     case 6:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and sitting in the center is an artfully crafted paper doll.  Before your eyes, the doll springs to life, dancing about fancifully.  Without warning, it leaps into your item pouch, then hops away and gallavants into the woods, carting off a small fortune in gems.");
-    
+
                     outputText("\n\n<b>The kitsune's familiar has stolen your gems!</b>");
                     // Lose X gems as though losing in battle to a kitsune
                     player.gems -= 2 + rand(15);
                     statScreenRefresh();
                     break;
-    
+
                 //[Prank]
                     case 7:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and sitting in the center is an artfully crafted paper doll.  Before your eyes, the doll springs to life, dancing about fancifully.  Without warning, it pulls a large calligraphy brush from thin air and leaps up into your face, then hops away and gallavants off into the woods.  Touching your face experimentally, you come away with a fresh coat of black ink on your fingertips.");
-    
+
                     outputText("\n\n<b>The kitsune's familiar has drawn all over your face!</b>  The resilient marks take about an hour to completely scrub off in the nearby stream.  You could swear you heard some mirthful snickering among the trees while you were cleaning yourself off.");
                     //Advance time 1 hour, -20 LUST
                     dynStats("lus", -20);
                     break;
-    
+
                 //[Aphrodisiac]
                     case 8:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and sitting in the center is an artfully crafted paper doll.  Before your eyes, the doll springs to life, dancing about fancifully.  Without warning, it tosses a handful of sweet-smelling pink dust into your face, then hops over the rim of the box and gallavants off into the woods.  Before you know what has happened, you feel yourself growing hot and flushed, unable to keep your hands away from your groin.");
@@ -7563,27 +7563,27 @@ export class Mutations extends BaseContent {
                     //+100 LUST
                     dynStats("lus=", 100, "resisted", false);
                     break;
-    
+
                 //[Wither]
                     case 9:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and sitting in the center is an artfully crafted paper doll.  Before your eyes, the doll springs to life, dancing about fancifully.  Without warning, it tosses a handful of sour-smelling orange powder into your face, then hops over the rim of the box and gallavants off into the woods.  Before you know what has happened, you feel the strength draining from your muscles, withering away before your eyes.");
                     outputText("\n\n<b>Oh no!  The kitsune's familiar has hit you with a strength draining spell!  Hopefully it's only temporary...</b>");
                     dynStats("str", -5, "tou", -5);
                     break;
-    
+
                 //[Dud]
                     case 10:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, but to your disappointment, the only other contents appear to be nothing more than twigs, leaves, and other forest refuse.");
                     outputText("\n\n<b>It seems the kitsune's gift was just a pile of useless junk!  What a ripoff!</b>");
                     break;
-    
+
                 //[Dud...  Or is it?]
                     case 11:
                     outputText("As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, but to your disappointment, the only other contents appear to be nothing more than twigs, leaves, and other forest refuse.  Upon further investigation, though, you find a shard of shiny black chitinous plating mixed in with the other useless junk.");
                         outputText("\n\n<b>At least you managed to salvage a shard of black chitin from it...</b>  ");
                     inventory.takeItem(useables.B_CHITN, inventory.inventoryMenu);
                     break;
-    
+
                     default: trace("Kitsune's gift roll foobar..."); break;
                 }
             }

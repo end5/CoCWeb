@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_LIZARD, FACE_LIZARD } from "../../../../../includes/appearanceDefs";
+import { HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_LIZARD, FACE_LIZARD } from "../../../../includes/appearanceDefs";
 
 
 /**

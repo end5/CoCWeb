@@ -2,7 +2,7 @@ import { AbstractSuccubus } from "../../Monsters/AbstractSuccubus";
 import { StatusAffects } from "../../../StatusAffects";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, WING_TYPE_BAT_LIKE_TINY, TAIL_TYPE_DEMONIC } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, WING_TYPE_BAT_LIKE_TINY, TAIL_TYPE_DEMONIC } from "../../../../includes/appearanceDefs";
 
 export class SecretarialSuccubus extends AbstractSuccubus {
     public defeated(hpVictory: boolean): void {

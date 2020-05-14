@@ -3,7 +3,7 @@ import { DriderIncubus } from "./DriderIncubus";
 import { WeaponLib } from "../../../Items/WeaponLib";
 import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { LOWER_BODY_TYPE_HOOFED } from "../../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_HOOFED } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../../PerkLib";
 import { PregnancyStore } from "../../../PregnancyStore";
 

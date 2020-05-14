@@ -1,6 +1,6 @@
 import { Monster } from "../../../Monster";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_BOYISH, BUTT_RATING_TIGHT, LOWER_BODY_TYPE_KANGAROO, WING_TYPE_IMP } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_BOYISH, BUTT_RATING_TIGHT, LOWER_BODY_TYPE_KANGAROO, WING_TYPE_IMP } from "../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 
 export class Zetaz extends Monster {

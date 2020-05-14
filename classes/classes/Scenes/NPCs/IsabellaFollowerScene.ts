@@ -1,7 +1,7 @@
 import { NPCAwareContent } from "./NPCAwareContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { TONUGE_DEMONIC, TONUGE_SNAKE, TONUGE_DRACONIC, LOWER_BODY_TYPE_HOOFED, HORNS_COW_MINOTAUR, HORNS_NONE, EARS_COW, TAIL_TYPE_COW, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
+import { TONUGE_DEMONIC, TONUGE_SNAKE, TONUGE_DRACONIC, LOWER_BODY_TYPE_HOOFED, HORNS_COW_MINOTAUR, HORNS_NONE, EARS_COW, TAIL_TYPE_COW, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { Isabella } from "./Isabella";
 import { StatusAffects } from "../../StatusAffects";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
@@ -110,7 +110,7 @@ Optional Morning Oral for small-membered males*/
         }
         this.flags[kFLAGS.ISABELLA_TIMES_OFFERED_FOLLOWER]++;
     }
-    //Decline Izzy Initial Moving Offer (-10 affection) 
+    //Decline Izzy Initial Moving Offer (-10 affection)
     private turnDownIsabellaFollower(): void {
         this.spriteSelect(31);
         this.isabellaAffection(-10);
@@ -127,7 +127,7 @@ Optional Morning Oral for small-membered males*/
             "Fight 4 Rape", this.isabellaScene.fightIsabella, "Offer Oral", this.isabellaScene.volunteerToSlurpCowCunt, "", undefined,
             "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
     }
-    //Move Ze Bitch In! 
+    //Move Ze Bitch In!
     private moveTheBitchIn(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -143,7 +143,7 @@ Optional Morning Oral for small-membered males*/
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Follower Summoned Text: 
+    //Follower Summoned Text:
     public callForFollowerIsabella(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -271,9 +271,9 @@ Optional Morning Oral for small-membered males*/
             this.doNext(this.callForFollowerIsabella);
             return;
         }
-        /*(req's 100% teach score to replace dialogue.  Success 
+        /*(req's 100% teach score to replace dialogue.  Success
         based on inte)*/
-        //(FIRST TIME) 
+        //(FIRST TIME)
         if (this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] == 0) {
             this.outputText("You tell Isabella you'd like to offer her lessons in order to reduce her accent and make her more understandable.  She folds her arms across her chest and protests, \"<i>You have an accent too, nein?</i>\"\n\n", false);
             this.outputText("Chuckling, a little, you nod, but note that yours is far closer to the people of this land than her own.  She agrees, albeit reluctantly.\n\n", false);
@@ -288,12 +288,12 @@ Optional Morning Oral for small-membered males*/
         if (result < 12) {
             this.temp = IsabellaFollowerScene.rand(3);
             if (this.temp == 0) this.outputText("You spend an hour speaking with Isabella, but ultimately, you wind up making little, if any, progress.  The cow-girl seems a bit dispirited at the failure, but she gives you a big hug anyway.", false);
-            //(FAIL2) 
+            //(FAIL2)
             else if (this.temp == 1) {
                 this.outputText("In spite of your efforts to teach the foreign cow-girl, she doesn't seem to make any progress.  The worst part is, she keeps slumping down when you correct her, which only sets her bosom to jiggling, her cleavage looking larger than ever before.  You wind up quite distracted by the time the two of you get finished.", false);
                 this.dynStats("lus", 10);
             }
-            //(FAIL3) 
+            //(FAIL3)
             else {
                 this.outputText("No matter what you do, you can't get the normally-industrious cow-girl to focus right now.  She's obviously bored with your attempts to teach her, and she spends the entire lesson trying to tease you with her body.  It's more effective than you care to admit", false);
                 if (this.player.hasCock()) this.outputText(", and you leave the lesson with certain stiffness in your loins.", false);
@@ -342,7 +342,7 @@ Optional Morning Oral for small-membered males*/
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Morning Wakeup Call 
+    //Morning Wakeup Call
     public isabellaMorningWakeupCall(): void {
         this.spriteSelect(31);
         this.flags[kFLAGS.ISABELLA_MORNING_FELLATIO_COUNT]++;
@@ -410,7 +410,7 @@ Optional Morning Oral for small-membered males*/
         this.dynStats("sen", -1.5);
         this.doNext(this.playerMenu);
     }
-    //No BJ's Plz 
+    //No BJ's Plz
     private toggleIsabellasMorningWoodChopping(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -439,7 +439,7 @@ Optional Morning Oral for small-membered males*/
         //To Izzy SEX menu
         this.doNext(this.campIzzySexMenu);
     }
-    //Repeatable Campsex: Hot Dogginz' 
+    //Repeatable Campsex: Hot Dogginz'
     private repeatGermanBratwurstInCamp(): void {
         this.spriteSelect(31);
         this.outputText("", true);
@@ -507,7 +507,7 @@ Optional Morning Oral for small-membered males*/
         if (this.player.cockArea(x) <= 38) {
             if (this.isabellaAccent()) this.outputText("\"<i>Oh my, does mein behind feel so good zat your cute, delectable cock vill squirt all over me before you even get to feel ze best part?</i>\" teases Isabella as she flexes one side and then the other, forcing your " + this.cockDescript(x) + " to bend in response to the two dueling masses of her booty cheeks.  She keeps teasing you as she caresses your member with her hefty butt.  \"<i>You have such a naughty look on your face, drooling on yourself from just a little bit of play with Momma Isabella.  No, don't stop, I want to watch the ecstasy spread through you while I work your nice, hot cock.  My asshole wants to kiss it... Can I kiss your dick with my asshole?</i>\"", false);
             else this.outputText("\"<i>Oh my, does my ass-job feel so good that your cute, delectable cock is gonna squirt all over me before you even get to feel the best part?</i>\" teases Isabella as she flexes one side and then the other, forcing your " + this.cockDescript(x) + " to bend in response to the two dueling masses of her booty cheeks.  She keeps teasing you as she caresses your member with her hefty butt.  \"<i>You have such a naughty look on your face, drooling on yourself from just a little bit of play with Momma Isabella.  No, don't stop, I want to watch the ecstasy spread through you while I work your nice, hot cock.  My asshole wants to kiss it... Can I kiss your dick with my asshole?</i>\"", false);
-            //(if libido <=15:  
+            //(if libido <=15:
             if (this.silly() && (this.player.lust < 50 || this.player.lib <= 20)) {
                 this.outputText("  Your cock immediately deflates from her laughable doujin-tier pillow talk and falls out of her buttcheeks.  You'll be posting that line to 4chan later for laughs.", false);
                 this.dynStats("lus", -99);
@@ -538,7 +538,7 @@ Optional Morning Oral for small-membered males*/
             }
             this.outputText("Your " + this.cockDescript(x) + " writhes in bliss for what seems like forever, but before you know it, you're coming back down to Earth.  Isabella whispers, \"<i>Good " + this.player.mf("boy", "girl") + ",</i>\" to you and stands up, ignoring the cum that drips from her dark pucker to stain " + this.sMultiCockDesc() + ".  She helps you up, and her hand tussles your hair affectionately.  Then she turns towards her side of camp, walking a little bow-legged as she leaves.", false);
         }
-        //(Big dicks) 
+        //(Big dicks)
         else {
             if (this.isabellaAccent()) this.outputText("\"<i>Oh my, does mein ass feel zat good on ze huge, pervy thing you call a dick?</i>\" teases Isabella as she flexes one side then the other, forcing your " + this.cockDescript(x) + " to bend in response to the two dueling masses of her booty cheeks.  She keeps talking, \"<i>You have such a naughty look on your face, drooling all over yourself like a dog.  Is that what having a big dick does to you?  Does it make you so horny and weak-willed that you'll waste your cum all over my ass?</i>\"  Isabella stops her back-and-forth flexing in order to begin bouncing up and down.  Her soft, flexing buns caress your " + this.cockDescript(x) + " from base ", false);
             else this.outputText("\"<i>Oh my, does my ass-job feel that good on that huge, pervy thing you call a dick?</i>\" teases Isabella as she flexes one side then the other, forcing your " + this.cockDescript(x) + " to bend in response to the two dueling masses of her booty cheeks.  She keeps talking, \"<i>You have such a naughty look on your face, drooling all over yourself like a dog.  Is that what having a big dick does to you?  Does it make you so horny and weak-willed that you'll waste your cum all over my ass?</i>\"  Isabella stops her back-and-forth flexing in order to begin bouncing up and down.  Her soft, flexing buns caress your " + this.cockDescript(x) + " from base ", false);
@@ -588,7 +588,7 @@ Optional Morning Oral for small-membered males*/
     }
 
     //Tentacle Rape (edited, but see notes -Z)
-    //needs 3 cocks: 2 to tie her and lift her up and at least 
+    //needs 3 cocks: 2 to tie her and lift her up and at least
     //one for penetration
     private tentacleBoneFollowerIzzy(): void {
         this.spriteSelect(31);
@@ -625,8 +625,8 @@ Optional Morning Oral for small-membered males*/
             }
         }
         this.outputText("", true);
-        //(as written it also requires them in slots 0 through 2, 
-        //and logically they would need to be a minimum of 15-20 
+        //(as written it also requires them in slots 0 through 2,
+        //and logically they would need to be a minimum of 15-20
         //inches; also needs a mention in the beginning of just //
         //where and when she herself undresses -Z)
 
@@ -840,8 +840,8 @@ Optional Morning Oral for small-membered males*/
         this.inventory.takeItem(this.consumables.IZYMILK, this.camp.returnToCampUseOneHour);
     }
 
-    //[GetMilk] 
-    //follower menu button 
+    //[GetMilk]
+    //follower menu button
     //(only appears if Izzy Milked Yet flag < 0)
     private getMilk(): void {
         this.spriteSelect(31);
@@ -1290,7 +1290,7 @@ Optional Morning Oral for small-membered males*/
 
         //{New Option in Isabella's [Sex] Menu: [Fuck Her]} -- Requires sex-ready lust & a cock she is capable of taking
         this.outputText("You ask Isabella if she wouldn't mind helping you blow off some steam; it's evident for anyone to see that you're flushed with arousal, your [cock " + y + "] straining against the material of your [armor].  Looking at the state of you, Isabella ");
-        //[if cock in her size: 
+        //[if cock in her size:
         if (this.player.cocks[x].cockLength < 9) this.outputText("pulls your small [cockFit " + y + "] out of your armor, preparing to suck you off as normal.  You grab her shoulders to stop her, more interested in... giving back, this time.");
         else {
             this.outputText("cocks an eyebrow at you, crossing her arms over her tremendous bust.  \"<i>[name],</i>\" she sighs, ");

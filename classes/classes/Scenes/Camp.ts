@@ -6,7 +6,7 @@ import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { PerkLib } from "../PerkLib";
 import { trace } from "../../console";
 import { PregnancyStore } from "../PregnancyStore";
-import { MainView } from "../../../lib/src/coc/view/MainView";
+import { MainView } from "../../view/MainView";
 
 
 export class Camp extends NPCAwareContent {
@@ -645,7 +645,7 @@ export class Camp extends NPCAwareContent {
             if (this.temp == 0) this.outputText("Izma's lazily sitting on the trunk beside her bedroll, reading one of the many books from inside it.  She smiles happily when your eyes linger on her, and you know full well she's only half-interested in it.", false);
             //Text 2
             else if (this.temp == 1) this.outputText("You notice Izma isn't around right now.  She's probably gone off to the nearby stream to get some water.  Never mind, she comes around from behind a rock, still dripping wet.", false);
-            //Text 3 
+            //Text 3
             else this.outputText("Izma is lying on her back near her bedroll.  You wonder at first just why she isn't using her bed, but as you look closer you notice all the water pooled beneath her and the few droplets running down her arm, evidence that she's just returned from the stream.", false);
             this.outputText("\n\n", false);
         }
@@ -782,11 +782,11 @@ export class Camp extends NPCAwareContent {
         if (kGAMECLASS.helScene.followerHel()) {
             if (this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 2) {
                 //Hel @ Camp: Follower Menu
-                //(6-7) 
+                //(6-7)
                 if (this.model.time.hours <= 7) this.outputText("Hel is currently sitting at the edge of camp, surrounded by her scraps of armor, sword, and a few half-empty bottles of vodka.  By the way she's grunting and growling, it looks like she's getting ready to flip her shit and go running off into the plains in her berserker state.\n\n");
-                //(8a-5p) 
+                //(8a-5p)
                 else if (this.model.time.hours <= 17) this.outputText("Hel's out of camp at the moment, adventuring on the plains.  You're sure she'd be on hand in moments if you needed her, though.\n\n");
-                //5-7) 
+                //5-7)
                 else if (this.model.time.hours <= 19) this.outputText("Hel's out visiting her family in Tel'Adre right now, though you're sure she's only moments away if you need her.\n\n");
                 //(7+)
                 else this.outputText("Hel is fussing around her hammock, checking her gear and sharpening her collection of blades.  Each time you glance her way, though, the salamander puts a little extra sway in her hips and her tail wags happily.\n\n");
@@ -803,7 +803,7 @@ export class Camp extends NPCAwareContent {
         }
         //Kiha!
         if (this.followerKiha()) {
-            //(6-7) 
+            //(6-7)
             if (this.model.time.hours < 7) this.outputText("Kiha is sitting near the fire, her axe laying across her knees as she polishes it.[pg]");
             else if (this.model.time.hours < 19) this.outputText("Kiha's out right now, likely patrolling for demons to exterminate.  You're sure a loud call could get her attention.\n\n");
             else this.outputText("Kiha is utterly decimating a set of practice dummies she's set up out on the edge of camp.  All of them have crudely drawn horns. Most of them are on fire.\n\n");
@@ -909,7 +909,7 @@ export class Camp extends NPCAwareContent {
             this.outputText("Amily's bed of grass and herbs lies empty, the mouse-woman still absent from her sojourn to meet your other lover.\n\n", false);
         }
         if (this.arianScene.arianFollower()) this.outputText("Arian's tent is here, if you'd like to go inside.\n\n");
-        //choices("Amily",amilyEvent,"Helia",hel,"Isabella",isabellaButt,"Izma",izmaEvent,"Kiha",kihaButt,"Marble",marbleEvent,"Nieve",nieve,"",0,"",0,"Back",1);	
+        //choices("Amily",amilyEvent,"Helia",hel,"Isabella",isabellaButt,"Izma",izmaEvent,"Kiha",kihaButt,"Marble",marbleEvent,"Nieve",nieve,"",0,"",0,"Back",1);
         this.menu();
         if (amilyEvent != undefined) this.addButton(0, "Amily", amilyEvent);
         if (this.arianScene.arianFollower()) this.addButton(1, "Arian", this.arianScene.visitAriansHouse);
@@ -960,7 +960,7 @@ export class Camp extends NPCAwareContent {
         if (this.milkSlave() && this.flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 0) {
             this.outputText("Your well-endowed, dark-skinned milk-girl is here.  She flicks hopeful eyes towards you whenever she thinks she has your attention.\n\n");
         }
-        //choices("Amily",amilyEvent,"Ceraph",ceraph,"Jojo",jojoEvent,"Sophie",sophieEvent,"Vapula",vapula,"",0,"",0,"",0,flags[kFLAGS.GOO_NAME],goo,"Back",1);	
+        //choices("Amily",amilyEvent,"Ceraph",ceraph,"Jojo",jojoEvent,"Sophie",sophieEvent,"Vapula",vapula,"",0,"",0,"",0,flags[kFLAGS.GOO_NAME],goo,"Back",1);
         this.menu();
         if (amilyEvent != undefined) this.addButton(0, "Amily", amilyEvent);
         if (ceraph != undefined) this.addButton(1, "Ceraph", ceraph);
@@ -1110,7 +1110,7 @@ export class Camp extends NPCAwareContent {
             if (this.model.time.hours == 3) this.timeQ = 3;
             if (this.model.time.hours == 4) this.timeQ = 2;
             if (this.model.time.hours == 5) this.timeQ = 1;
-            //Autosave stuff		
+            //Autosave stuff
             if (this.player.slotName != "VOID" && this.player.autoSave && this.mainView.bottomButtons[0].labelText != "Game Over") {
                 trace("Autosaving to slot: " + this.player.slotName);
 
@@ -1161,13 +1161,13 @@ export class Camp extends NPCAwareContent {
             }
             else if (this.flags[kFLAGS.SLEEP_WITH] == "Sophie" && (this.bimboSophie() || this.sophieFollower()) && this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
                 //Night Time Snuggle Alerts!*
-                //(1) 
+                //(1)
                 if (Camp.rand(4) == 0) {
                     this.outputText("You curl up next to Sophie, planning to sleep for " + Camp.num2Text(this.timeQ) + " hour");
                     if (this.timeQ > 1) this.outputText("s");
                     this.outputText(".  She wraps her feathery arms around you and nestles her chin into your shoulder.  Her heavy breasts cushion flat against your back as she gives you a rather chaste peck on the cheek and drifts off towards dreamland...");
                 }
-                //(2) 
+                //(2)
                 else if (Camp.rand(3) == 0) {
                     this.outputText("While you're getting ready for bed, you see that Sophie has already beaten you there.  She's sprawled out on her back with her arms outstretched, making little beckoning motions towards the valley of her cleavage.  You snuggle in against her, her pillowy breasts supporting your head and her familiar heartbeat drumming you to sleep for " + Camp.num2Text(this.timeQ) + " hour");
                     if (this.timeQ > 1) this.outputText("s");

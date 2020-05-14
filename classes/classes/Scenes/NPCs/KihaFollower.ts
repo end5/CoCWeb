@@ -5,14 +5,14 @@ import { StatusAffects } from "../../StatusAffects";
 import { SpiderMorphMob } from "../Areas/Swamp/SpiderMorphMob";
 import { PerkLib } from "../../PerkLib";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { SKIN_TYPE_SCALES, TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../../includes/appearanceDefs";
+import { SKIN_TYPE_SCALES, TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../includes/appearanceDefs";
 
 export class KihaFollower extends NPCAwareContent {
 
     //Requirements:
     //-PC has achieved \"<i>Fuckbuddy</i>\" status with Hel (because threesomes)
     //-PC has maxed out Kiha's three basic \"<i>Talk</i>\" options
-    //-PC is not genderless 
+    //-PC is not genderless
     //-but unsexed people are ok?
 
     //(Scene procs the first time the player [EXPLORE]s the Swamp when all requirements have been filled)
@@ -20,7 +20,7 @@ export class KihaFollower extends NPCAwareContent {
     //New States:
     //During the course of this expansion, the dragoness will enter into a number of different \"<i>states,</i>\" each of which alters her general behavior. States follow two \"<i>paths</i>\" - a Lover path in which you eventually become friends with Kiha, and even lovers; and a Broken path, in which you break Kiha's mind and soul.
 
-    //Lover Path: 
+    //Lover Path:
     //1. Enemy - Kiha's default state, attacks PC on sight
     //2. Friendly - Begins after saving her from a spidery gang-rape. Kiha allows the PC to visit her at her home, and spar or talk. She cannot be sexed during this State.
     //3. Warm - Begins after raising Kiha's new Affection Score to 100. After much effort on the PCs part in trying to get to know her, she finally admits that she *might* feel *something* for the PC, and adds it would be \"<i>mutually beneficial</i>\" if they both had someone to sate their lusts with. Then sex. (I'm fucking working on this one, okay?)
@@ -734,7 +734,7 @@ export class KihaFollower extends NPCAwareContent {
         if (output) {
             this.clearOutput();
             this.spriteSelect(72);
-            //Approaching Kiha @ Camp: 
+            //Approaching Kiha @ Camp:
             if (this.followerKiha()) {
                 if (this.flags[kFLAGS.KIHA_NEEDS_TO_REACT_TO_HORSECOCKING] == 1) {
                     this.kihaReactsToHorseDicking();
@@ -760,9 +760,9 @@ export class KihaFollower extends NPCAwareContent {
             }
         }
         if (!this.followerKiha() && this.flags[kFLAGS.KIHA_MOVE_IN_OFFER] == 1) campo = this.inviteKihaForDickings;
-        //(Display Options: 
-        //-[Hug Kiha] 
-        //-[Spar](Hug & Spar as in Friendly)  
+        //(Display Options:
+        //-[Hug Kiha]
+        //-[Spar](Hug & Spar as in Friendly)
         //-[Hang Out](If any Talk options left play those first; else, use new options)
         //-[Sex]
         //   Biggus Dickus // Vaginal // Anal // 69+Tail // Tail Pegging // Item/Morph-specific scenes?
@@ -814,7 +814,7 @@ export class KihaFollower extends NPCAwareContent {
         }
         //Hang Out 3
         else {
-            //[if @ swamp: 
+            //[if @ swamp:
             if (!this.followerKiha()) {
                 this.outputText("Looking up from the dragoness to the treetops, you notice that Kiha's little islet has a surprisingly spacious clearing above it - probably why the dragoness chose this spot to make her home in the first place, since it's easier to take off and land without branches crashing into you every time.  You notice the ");
                 if (this.model.time.hours < 21) this.outputText("particularly cloudy day above you, with great pink and purple clouds drifting across the demonically-tainted horizon");
@@ -940,7 +940,7 @@ export class KihaFollower extends NPCAwareContent {
         this.choices("Anal", anal, "Dominate", dom, "FuckVag", fuckVag, "Get HJ", dickWorship, "Girl69", sixtyNine, "GroPlusTits", gro, "Give I.Drft", incu, "LustyDicking", horse, "TentacleFuck", tent, (allowBack ? "Back" : "Leave"), (allowBack ? this.kihaScene.encounterKiha : this.camp.returnToCampUseOneHour));
     }
 
-    //Savage Every Hole With A Bigass Horsecock 
+    //Savage Every Hole With A Bigass Horsecock
     //(requires 50+ minimum lust, or 80+ libido, or a lust/fuck draft)
     private boneTheShitOutofKihaHolesWithHorsecock(): void {
         this.clearOutput();
@@ -1051,7 +1051,7 @@ export class KihaFollower extends NPCAwareContent {
             this.outputText("sperm she's been forced to swallow.");
         }
         this.outputText("[pg]Kiha pulls back and releases your tip from her sore, semen-drenched puckers.  She coughs and gasps for a moment, inadvertently smearing the salty sludge all over herself.  When she recovers, she sighs, \"<i>You got it everywhere, idiot.  Now I'll have to go get a bath, but first, you had better return the favor.</i>\"");
-        //{Variant: Low Lib/Minlust + Fuck/Lust draft} 
+        //{Variant: Low Lib/Minlust + Fuck/Lust draft}
         if (this.player.minLust() < 50 && this.player.lib < 80) {
             this.outputText("[pg]\"<i>No problem,</i>\" you think, reaching for a handy potion to spike your lagging libido back into the stratosphere.  The potion goes down smooth, with barely any effects at first.  However, after a few moments [eachCock] stiffens and tingles, hungry for more.  You can even faintly detect some new, odd scents in the air.");
             this.player.consumeItem(this.consumables.L_DRAFT);
@@ -1104,7 +1104,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText(" into Kiha's fully-dilated pussy.  The dragon-cunt is nice and tight around your large");
         if (this.player.cocks[x].cockType == CockTypesEnum.HORSE) this.outputText(", mammalian");
         this.outputText(" member.  It slurps up inch after inch of pulsating cock, devouring your dick with a hunger born of the female's instinctive drives and desires.");
-        //{UPCOMING HENTAI LOGIC} 
+        //{UPCOMING HENTAI LOGIC}
         this.outputText("[pg]Pussy-juice dribbles onto the ground and immediately disappears into the parched earth as you butt up against her cervix.  You draw back and thrust, smashing your ");
         if (this.player.cocks[x].cockType == CockTypesEnum.HORSE) this.outputText("flat-tipped horsecock");
         else this.outputText(this.cockDescript(x));
@@ -1198,7 +1198,7 @@ export class KihaFollower extends NPCAwareContent {
         else if (this.player.hasSheath()) this.outputText("sheath");
         else this.outputText("cock");
         this.outputText(" and sighs happily.  She reaches up to touch it, her hands reverently smearing her pussy-juices and your leftover cum all over your cock and her face.  She still seems to be quite out of it, but at least she's enthusiastic in her cocklust.  You wipe as much of the sexual slime from your dick off on her nose as possible, and then dry yourself with her hair.  Kiha purrs and scoops some into her mouth as you rise, barely noting your departure as she begins to masturbate.");
-        //(FIRST TIME ONLY:  
+        //(FIRST TIME ONLY:
         if (this.flags[kFLAGS.KIHA_HORSECOCK_FUCKED] == 0) {
             this.outputText("[pg]Once you get away from her intoxicating scent, you realize what you just did.  You clap a hand over your mouth");
             if (this.player.cor <= 33) this.outputText(" and wince");
@@ -1209,7 +1209,7 @@ export class KihaFollower extends NPCAwareContent {
             if (this.player.statusAffectv1(StatusAffects.Exgartuan) == 1) this.outputText("  Exgartuan suggests, \"<i>She probably loved it if she had as much fun as I did.</i>\"");
             this.flags[kFLAGS.KIHA_NEEDS_TO_REACT_TO_HORSECOCKING] = 1;
         }
-        //(REPEAT:  
+        //(REPEAT:
         else this.outputText("[pg]It happened again!  You shudder and stroke yourself, the unmistakable desire to do it again already cementing itself in your brain.  Well, at least Kiha doesn't mind too much.");
         if (this.player.minLust() < 50 && this.player.lib < 80) {
             this.outputText("[pg]<b>(You used up one lust draft!)</b>");
@@ -1242,7 +1242,7 @@ export class KihaFollower extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(72);
         var x: number = this.player.biggestCockIndex();
-        //Works for swamp or camp!  
+        //Works for swamp or camp!
         this.outputText("You playfully approach the fiery cutey and pull her into a tight hug, your bodies molding together as one.  Kiha looks ");
         if (this.player.tallness >= 84) this.outputText("up ");
         else if (this.player.tallness <= 60) this.outputText("down ");
@@ -1346,14 +1346,14 @@ export class KihaFollower extends NPCAwareContent {
         this.outputText("[pg]\"<i>Gah!</i>\"  the dragoness gasps as she feels your hardening " + this.cockDescript(x) + " pressing into her butt, barely restrained by your [armorName].  \"<i>Oh, of all the things to obsess over!</i>\"  she groans, but to your delight Kiha wiggles her hips in your grip, grinding her soft butt against your prick.  You give her a sharp little spank, and laugh as Kiha draws a sharp breath and clenches her derriere - just in time for you to free the beast, your " + this.cockDescript(x) + " flopping down between her butt cheeks.");
 
         this.outputText("[pg]\"<i>Oh, I get it,</i>\" Kiha jeers, suddenly pushing back until your cock is pinned between your ");
-        //(depending on length: 
+        //(depending on length:
         if (this.player.cocks[x].cockLength < 12) this.outputText("belly");
         else this.outputText("chest");
         this.outputText(" and her butt.  \"<i>You want a little assplay, is that it?  You ");
         if (this.player.tallness >= 60) this.outputText("big");
         else this.outputText("little");
         this.outputText(" pervert.</i>\"  Despite her biting words, she continues to grind against you, now lifting her bum up and down to run along the length of your shaft");
-        //[if cock less than 3</i>\" wide: 
+        //[if cock less than 3</i>\" wide:
         if (this.player.cocks[x].cockLength < 3) this.outputText("; you pull her cheeks apart just long enough to slip your prick between them, letting Kiha hotdog you");
         this.outputText(".  Moving your hips in tandem with hers, the two of you must look to any observers like a couple engaged in some perverse dance, grinding, teasing, and groping at each other until you're both flush and Kiha's thighs are slick with her girl-lube");
         if (this.player.hasVagina()) this.outputText(", just as yours are");
@@ -1627,7 +1627,7 @@ export class KihaFollower extends NPCAwareContent {
 
     }
     //[Leave]
-    //You slump your shoulders, deciding not to risk confrontation.  As you step back from the dragoness, she lowers her axe, her head hanging sadly.  It seems this pains her as much as you, but... you return to camp. 
+    //You slump your shoulders, deciding not to risk confrontation.  As you step back from the dragoness, she lowers her axe, her head hanging sadly.  It seems this pains her as much as you, but... you return to camp.
 
     //Kiha & Less-Corrupt PC -- Reunited
     public kihaUnbitchesUncorruptedFolks(): void {
@@ -1668,7 +1668,7 @@ export class KihaFollower extends NPCAwareContent {
         //B. It increases the chance of multi-genital play and recognition.
         //Please note that some scenes have genital requirements, and will not trigger if the PC is lacking the appropriate \"<i>equipment</i>\".
         //['Dominance' during sex] (can be repeatable once she's in camp, for giggles)
-        //outputText("You feel that Kiha's over-emphasis on dominating you during sex is something that needs to be addressed.  Accordingly, you broach the topic with her.  The dragoness averts her head in response and stares out into the woods to one side of the camp, not bothering to give you the courtesy of a verbal acknowledgement.  \"<i>Hey, I'm talking to you!</i>\"  You assert, annoyed at her refusal to listen.  \"<i>...That's nice,</i>\" Kiha dismissively responds, after a pause."); 
+        //outputText("You feel that Kiha's over-emphasis on dominating you during sex is something that needs to be addressed.  Accordingly, you broach the topic with her.  The dragoness averts her head in response and stares out into the woods to one side of the camp, not bothering to give you the courtesy of a verbal acknowledgement.  \"<i>Hey, I'm talking to you!</i>\"  You assert, annoyed at her refusal to listen.  \"<i>...That's nice,</i>\" Kiha dismissively responds, after a pause.");
         //outputText("[pg]You see what's going on: being nice about this isn't going to get you anywhere.  You need to show some dominance if you want her to listen.  \"<i>HEY!  LOOK AT ME WHEN I'M TALKING TO YOU!</i>\"  You snarl, advancing towards the stubborn woman.  Attentively, she returns your gaze.  \"<i>Yes, [name]?  What is it?</i>\"  She inquires, apparently having \"<i>forgotten</i>\" what you just asked her.  You sternly tell her that she needs to learn how to be a bottom in the relationship and take a good fuck from you sometimes, rather than expecting you to play along with her whims.  \"<i>Aw, that's cute; you thinking you have any say in the matter,</i>\" she replies, facetiously.  This makes you angry.  You do have a say in the matter, you tell her, and she will listen.  Kiha grins. \"<i>You're all talk; just be a good " + player.mf("boy","girl") + " and let me do my thing during sex.  Otherwise, I might have to hurt you.  I wouldn't want to hurt my </i>friend<i> now, would I?</i>\"");
         //outputText("[pg]That seems like a challenge.  Will you rise to it, or will you back down?");
         this.outputText("Feeling that Kiha's natural inclination for dominance has grown a little stale, you broach the idea of YOU dominating Her.  The dragoness glances your way and grins toothily as she cracks her knuckles.  \"<i>Why would I want to let you dominate me, doofus?  I've been fighting to stay on top out in the swamps as long as I can remember.  What makes you think I'd want to submit to some cute " + this.player.mf("guy", "girl") + " I just met?</i>\"  She blushes a little when she realizes she just called you cute.");
@@ -1737,20 +1737,20 @@ export class KihaFollower extends NPCAwareContent {
         if (this.player.hasVagina()) choices[choices.length] = 1;
         choices[choices.length] = 2;
         var select: number = choices[KihaFollower.rand(choices.length)];
-        //PC's cock is chosen/ has cock only: 
+        //PC's cock is chosen/ has cock only:
         if (select == 0 || !this.player.hasVagina()) {
             this.outputText(" plow back into her cunt.  With your brute strength and form, you pin her body down to the ground and fuck her from behind.");
-            //Kiha response one (requires vagina): 
+            //Kiha response one (requires vagina):
             if (KihaFollower.rand(2) == 0) this.outputText("[pg]\"<i>Ha!  The Champion still has some fight in " + this.player.mf("him", "her") + "!  Keep me here if you can, wimp!  I WILL pin you down and cum all over your face!  You'll lap it all up like a good little " + this.player.mf("boy", "girl") + " to bo- UGH!</i>\"");
-            //Kiha response one (requires cock): 
+            //Kiha response one (requires cock):
             else this.outputText("[pg]\"<i>Ha!  The Champion still has some fight in " + this.player.mf("him", "her") + "!  Keep me here if you can, wimp!  I WILL pin you down and make you beg to plant your seed in my womb!  Just wa-OOhhOhhh...</i>\"");
         }
-        //PC's vagina is chosen/ has vagina only: 
+        //PC's vagina is chosen/ has vagina only:
         else {
             this.outputText(" work your way between her legs and joined your clits together in a gyrating dance of pleasure.  Locked in a scissoring position, Kiha can only giggle in blissful delight as you grind your pussies together.");
-            //Kiha response one (requires cock): 
+            //Kiha response one (requires cock):
             if (this.player.hasCock() && KihaFollower.rand(2) == 0) this.outputText("[pg]\"<i>Ha!  The Champion still has some fight in " + this.player.mf("him", "her") + "!  Keep me here if you can, wimp!  I WILL pin you down and make you beg to plant your seed in my womb!  Just wa-OOhhOhhh...</i>\"");
-            //Kiha response one (requires vagina): 
+            //Kiha response one (requires vagina):
             else this.outputText("[pg]\"<i>Ha!  The Champion still has some fight in " + this.player.mf("him", "her") + "!  Keep me here if you can, wimp!  I WILL pin you down and cum all over your face!  You'll lap it all up like a good little " + this.player.mf("boy", "girl") + " to bo- UGH!</i>\"");
         }
         this.outputText("[pg]Subdued for the time being, you push onward with coitus and brutalize Kiha's ever moistening pussy, the female dragon morph crying out in sheer delight at the \"<i>punishment</i>\" being inflicted upon her ");
@@ -1758,19 +1758,19 @@ export class KihaFollower extends NPCAwareContent {
         else this.outputText("clit");
         this.outputText(".  \"<i>Come on, idiot!  Give me all you've got, if you have the balls!</i>\"");
 
-        //PC is male or herm, nutless: 
+        //PC is male or herm, nutless:
         if (this.player.gender != 2 && this.player.balls == 0) this.outputText("[pg]You're not sure if that's an insult or a challenge to step it up.");
         this.outputText("[pg]She wants it rough?  Fine by me, you think to yourself.  Taking hold of her scarlet hair, you give her a forceful");
-        //PC is fucking Kiha with a cock:  
+        //PC is fucking Kiha with a cock:
         if (select == 0 || !this.player.hasVagina()) this.outputText(" tug along her lengths and pull her head back towards you, soliciting a pained scream from Kiha as her roots convey the agony of the act to her.  \"<i>Is that all you've GOT?! Give me a break!</i>\"");
-        //PC is fucking Kiha via scissoring: 
+        //PC is fucking Kiha via scissoring:
         else this.outputText(" twist of your fingers along her clitoral hood, causing Kiha to screech in surprised pain and pleasure.  \"<i>Is that all you've GOT?! Give me a break!</i>\"");
         this.outputText(" she mockingly yells back at you.  In a flash, her right leg sweeps against your shoulder and pushes you towards the ground; her other leg and body twisting to assist in knocking you over.  As fast as you can, you try and work your limbs and body to fend off Kiha's attempts to force you against the ground, but it's no use.  The dragoness... ");
-        //Kiha decides to ride the PC's cock (requires cock): 
+        //Kiha decides to ride the PC's cock (requires cock):
         if (select == 0) this.outputText("works her way on top of your pelvis and impales herself on your " + this.cockDescript(x) + ", grinning like a mad fool as she does so.  \"<i>Told you!</i>\"  She remarks. \"<i>Was that really the best you could do?  With the hair pulling?</i>\"  She sighs.  \"<i>I guess I have to teach you a thing or two...</i>\"  Lowering herself down in between savage slams of her rump against your pelvis, the cool and arrogant woman takes the " + this.player.skin() + " of your neck and pierces it with her canines, causing you to cry out as the sting of her bite flows through you.  Humming her approval, she carries on with the coarse treatment of your entrapped cock, mashing and working forth a crescendo of skin on skin slapping noises.");
         //Kiha ensnares the PC between her legs for cunnilingus (universal):
         else if (select == 1) this.outputText("quickly wraps her legs around your head and rolls your body into a belly down prone.  \"<i>Eat it " + this.player.mf("big boy", "you delectable slut") + "!  I've got you in a hold you can't possibly escape from!  Lap it up bitch!</i>\"  For the time being you comply, if only to give you time to find a way out of this as you probe her cunt with your tongue.  \"<i>Yeeeaahhhah, just like that.  Good " + this.player.mf("boy", "girl") + ", lick your mistress's pussy!</i>\"  She coos authoritatively, her thigh tensing up with every stroke.  The dragon woman even has the nerve to play with your hair as she keeps you within her tight embrace.");
-        //Kiha traps the player in a submissive 69 (universal): 
+        //Kiha traps the player in a submissive 69 (universal):
         else {
             this.outputText("settles on top of you and seizes your [legs], pulling up with determined strength as she brings your [feet] up to her ears.  When the flurry of motion settles you find yourself staring up at Kiha's well toned asscheeks, the sensation of wet lady fluids drooling down your face as Kiha takes your ");
             if (this.player.hasCock()) this.outputText(this.cockDescript(x));
@@ -1820,12 +1820,12 @@ export class KihaFollower extends NPCAwareContent {
 
             this.outputText("[pg]Pinning her arms to the cold ground, you move your head down to her supple breast, gently flicking the little stubs of her nipples with your tongue.");
 
-            //PC has a demon/snake tongue: 
+            //PC has a demon/snake tongue:
             if (this.player.tongueType == TONUGE_SNAKE || this.player.tongueType == TONUGE_DEMONIC) {
                 this.outputText("[pg]Kiha initially reacts with titillation, then a sense of perverted violation as you wrap the hardening nub with your mouth muscle, ");
-                //Demon: 
+                //Demon:
                 if (this.player.tongueType == TONUGE_DEMONIC) this.outputText("taking to her pointed mammary like a boa to prey as you lather up each teat separately.  The hot-tempered dragon girl squirms, completely at your mercy while you have your fun.");
-                //Snake: 
+                //Snake:
                 else this.outputText("stimulating the soft, nubby flesh with your forked tongue, hissing for effect as you do it.  Imagine the look on her face if you worked that little bugger over her clit; she'd go berserk!  But she hasn't earned that yet; what you want to hear is her begging for a good dicking first.");
             }
             this.outputText("[pg]Her breathing becoming plagued with arousal and stimulus overload, she finally yields, beseeching you to stop playing with her breasts and to get on with \"<i>more important things.</i>\"");
@@ -1843,11 +1843,11 @@ export class KihaFollower extends NPCAwareContent {
                 this.outputText("a facial.[pg]You tell your lover to stay there and don't move while you conclude the act, furiously stroking your length");
                 if (this.player.cockTotal() > 1) this.outputText("s");
                 this.outputText(" only inches away from Kiha's face.  Her body perks up as it dawns on her what you have in mind, and she arcs her head back for your impending release.  \"<i>Come on... come on... yeah, cum baby, I want it so bad...</i>\" she whines in between pants of lust, impatiently longing for your orgasm.  A few moments later you feel the warmth of seed gushing from your " + this.player.cockHead(x) + ", strings of sperm slamming against Kiha's pretty features.  She gasps in satisfaction as your cum rains down on her, moaning as your ejaculate coats her cheeks and brow.  Not one to let jism go to waste, you take her by the back of the head and press your " + this.cockDescript(x) + " against her lips; Kiha yields her mouth to your whims and hums in bliss as more seed flows into her throat and maw.");
-                //Cum multiplier low: 
+                //Cum multiplier low:
                 if (this.player.cumQ() < 250) this.outputText("[pg]Satisfied with her submission and eagerness to slurp up all of your load, you pull free of her mouth and pet her hair lovingly.  Swallowing your creamy dessert, Kiha shoots you an appreciative look of affection and fulfilled gratification.");
-                //Cum multiplier moderate: 
+                //Cum multiplier moderate:
                 else if (this.player.cumQ() < 1000) this.outputText("[pg]She gags a few times as she tries to alternate between swallowing your sperm and not choking on it, but she manages to ingest all of it.  Rubbing her seed filled belly, Kiha lays back against the trunk and sighs happily.");
-                //Cum multiplier high: 
+                //Cum multiplier high:
                 else this.outputText("[pg]The volume you expend forth is just too much for her to handle; her soft cheeks bulging with an uncontainable load of cum.  She pushes free of your prick and spits out a tidal wave of semen, coughing the entire time. Your orgasm doesn't stop there though, as you bathe her naked form in salty jism.  \"<i>Oh gods, there's so much!  I'm stuffed with it and you're still going?!</i>\" She worriedly exclaims.  You respond by pinning her head against the trunk and bringing your streaming prick back up to her face, giving her another round of facials.  The dragon creature gargles and whines as your dense load impacts on her face, covering her entire head and marking her scarlet hair with your load.  Taking care not to drown her, you pull away after a few moments and drench the remainder of her body in semen.  Wiping her eyes clean of your fluids (or trying to), Kiha gasps and giggles at the \"<i>unique</i>\" punishment she's receiving.  Once passed, you try to find a dry area on Kiha to wipe the results of your orgasm off on; to your dismay, there simply isn't one.  She's completely drenched in cum!  Shrugging, you command her to open her mouth wide open so she can clean you.  A few strands of sperm visibly part where her mouth should be, and you figure that she's heeded your command as you push onwards.  Your cock carries with it the obstructive strands of seed that covered her maw into her mouth and against her warm, wet tongue.  It takes her awhile, but she manages to finish the job.");
             }
             else {

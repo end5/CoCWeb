@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLICK, TAIL_TYPE_RABBIT, TAIL_TYPE_NONE, EARS_BUNNY } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLICK, TAIL_TYPE_RABBIT, TAIL_TYPE_NONE, EARS_BUNNY } from "../../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../../PregnancyStore";
 
 export class BunnyGirl extends BaseContent {
@@ -8,7 +8,7 @@ export class BunnyGirl extends BaseContent {
         return (this.date.date >= 30 && this.date.date <= 31 && this.date.month == 2) || (this.date.month == 3 && this.date.date <= 1);
     }
 
-    //Easter Bunny 
+    //Easter Bunny
     //5'4", small B cup breasts.
     //14" Human dick with a pointed head.  A pair of egg-shaped testes.
     //Egg preg changes – Bunny Ears, Bunny Tail, Bunny Legs?, Hot pink nose & whiskers?
@@ -249,7 +249,7 @@ export class BunnyGirl extends BaseContent {
         this.doNext(this.camp.returnToCampUseEightHours);
     }
 
-    //[Take Dick In A] 
+    //[Take Dick In A]
     private bunbunFucksPCInAss(): void {
         this.spriteSelect(13);
         this.outputText("", true);
@@ -459,7 +459,7 @@ export class BunnyGirl extends BaseContent {
                 this.player.orgasm();
                 this.dynStats("int", -2);
                 //+ Lust
-                //+ Pink Egg 
+                //+ Pink Egg
                 this.inventory.takeItem(this.consumables.NPNKEGG, this.camp.returnToCampUseOneHour);
             }
             return;
@@ -475,9 +475,9 @@ export class BunnyGirl extends BaseContent {
                 this.outputText("In turn, you suck all the harder on the bunny-girl's cock, swallowing a few inches at a time until your mouth feels full of the chocolate girl's erection. Around your head, she's drawn her knees up and braces her legs on the balls of her feet. Her lower body vibrates with the bouncing excitement of her twitching calves and it makes the prick in your mouth quiver like hot jelly. Her sac rolls this way and that in front of you, oval-shaped balls bouncing in eager appreciation and you can't help but wrap your hand around them, feeling the radiating heat pouring from the scrotum in the palm of your hand. Gently rolling them in your hand, you can feel the weight of the rapidly filling pouch in your palm. With your thumb, you stroke her bronzed nuts up to the tip of her vagina. The bunny's clit is as hard and large as a jelly bean and you circle it with the tips of your fingers, almost as if trying to tease it out of its dark chocolate-colored fleshy hood.\n\n", false);
 
                 this.outputText("Your teasing and prodding may have been ill-advised, you realize, as the bunny-girl's restraint evaporates like fog on a hot day. Her animalistic instincts kick in and the girl's bobbing legs become full-sized thrusts. With surprising leg strength, she bucks her hips in increasingly long strokes until her whole butt is bouncing off the ground like fuzzy rubber. You try to compensate, but the girl's frenzy is relentless. In seconds she goes from your tongue to your tonsils to your throat, her conical dick perfectly shaped to slide right into a deep throat. You begin to choke in response to the sudden intrusion, but the bunny is just as eager to get cream-filled as she is to give you a rich, chocolate center. With a gleeful 'squeek' noise she opens her esophagus and works her head deeper onto your shaft, her broad, gentle rabbit teeth pressing your over-burdened veins just enough to send shivers through your body.", false);
-                //[8"+ : 
+                //[8"+ :
                 if (this.player.cocks[0].cockLength >= 8) this.outputText("  As she passes six inches into her throat, her sucking grows more anxious, her arms wrapping around your hips, fingers digging into your ass, drawing your groin down faster.", false);
-                //[12"+ : 
+                //[12"+ :
                 if (this.player.cocks[0].cockLength >= 12) this.outputText("  You can't concentrate with a foot of bunny cock plowing your lungs so you aren't prepared for the girl's desperation until it boils over. She takes a deep breath through her tiny nostrils and slams her head as hard as she can into your groin, fucking your cock with her face until the soft folds of her throat part and she buries her freckled cheeks in your thighs.", false);
                 this.outputText("\n\n", false);
 
@@ -495,14 +495,14 @@ export class BunnyGirl extends BaseContent {
 
                 this.outputText("Her second egg forces its way down your throat with gushing shudders and you can feel your hips straining against the weight of your overburdened stomach. You're a little afraid of what the second one will do to you as it slides out of the flared tip of the bunny's fourteen inches. Maybe it's the milking motion of the bunny's head bobbing in happy hops on your cock or maybe it's the swelling of the second egg, but your body begins to feel hot and your flesh tingles at your scalp and butt. You clench your eyes, willing yourself to digest the bunny's candy eggs and, to your surprise, your belly slows its expansion, gradually shrinking as the eggs burst in your stomach, unloading their gooey candy filling.", false);
                 if (this.player.tailType != TAIL_TYPE_RABBIT) {
-                    //[No Tail: 
+                    //[No Tail:
                     if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("  The heat around your lower back clutches at your tail bone and you feel a fluffy explosion swell around your butt cheeks as <b>a fluffy bunny's tail pops out of your back</b>, twitching excitedly!", false);
-                    //[Existing tail: 
+                    //[Existing tail:
                     else this.outputText("  Your tail jiggles and shrinks, slowly sucking back into your body until only a tiny nub remains which quickly explodes with fluff into <b>your new cuddly, twitching bunny tail!</b>", false);
                 }
                 if (this.player.earType != EARS_BUNNY) {
                     this.outputText("  The top of your head is next, it seems.", false);
-                    //[No antennae: 
+                    //[No antennae:
                     this.outputText("  Your eyebrows feel like they're being drawn upwards, your eyes getting larger and larger until you're almost painfully aware of every color and sound around you. You shake your head and <b>large, floppy bunny ears bounce in front of your eyes</b>. You slap the sides of your head and, sure enough, your old ears are gone.", false);
                 }
                 this.outputText("\n\n", false);
@@ -527,9 +527,9 @@ export class BunnyGirl extends BaseContent {
                 this.outputText("In turn, you suck all the harder on the bunny-girl's cock, swallowing a few inches at a time until your mouth feels full of the chocolate girl's erection. Around your head, she's drawn her knees up and braces her legs on the balls of her feet. Her lower body vibrates with the bouncing excitement of her twitching calves and it makes the prick in your mouth quiver with a breeder's anticipation. Her sac rolls this way and that in front of you, oval-shaped balls bouncing in eager appreciation and you can't help but wrap your hand around them, feeling the radiating heat pouring from the scrotum in the palm of your hand. Gently rolling them in your hand, you can feel the weight of the rapidly filling pouch in your palm. With your thumb, you stroke her bronzed nuts up to the tip of her vagina. The bunny's clit is as hard and large as the tip of your pinkie and you circle it with your fingers, trying to tease it out of its pink, fleshy hood.\n\n", false);
 
                 this.outputText("Your teasing and prodding may have been ill-advised, you realize, as the bunny-girl's restraint evaporates like fog on a hot day. Her animalistic instincts kick in and the girl's bobbing legs become full-sized thrusts. With surprising leg strength, she bucks her hips in increasingly long strokes until her whole butt is bouncing off the ground like fuzzy rubber. You try to compensate, but the girl's face-fucking jubilation is relentless. In seconds she goes from your tongue to your tonsils to your throat, her conical dick perfectly shaped to slide right into your neck. You begin to choke in response to the sudden intrusion, but the bunny's trickling pre-cum provides a woozy numbness that relaxes your gag reflex and swells your throat into a soft, squishy tunnel, pulsing with cunt-tightness. Rocking her head in time to her hips, she seems just as eager to earn your load as she is to give you hers. With a gleeful 'squeek' noise she opens her esophagus and works her mouth deeper onto your shaft, her broad, gentle rabbit teeth pressing your over-burdened veins just enough to send shivers through your body.", false);
-                //[8"+ : 
+                //[8"+ :
                 if (this.player.cocks[0].cockLength >= 8) this.outputText("  As she passes six inches into her throat, her sucking grows more anxious, her arms wrapping around your hips, fingers digging into your ass, drawing your groin down faster.", false);
-                //[12"+ : 
+                //[12"+ :
                 if (this.player.cocks[0].cockLength >= 12) this.outputText("  You can't concentrate with a foot of bunny cock plowing your lungs so you aren't prepared for the girl's desperation until it boils over. She takes a deep breath through her tiny nostrils and slams her head as hard as she can into your groin, fucking your cock with her face until the soft folds of her throat part and she buries her freckled cheeks in your thighs.", false);
                 this.outputText("\n\n", false);
 
@@ -549,9 +549,9 @@ export class BunnyGirl extends BaseContent {
                 this.outputText("Her second egg forces its way down your throat with pulsing shudders and you can feel your hips straining against the weight of your overburdened stomach. You're a little afraid of what the second one will do to you as it slides out of the flared tip of the bunny's fourteen inches. Maybe it's the milking motion of the bunny's head bobbing in happy hops on your cock or maybe it's the swelling numbness of the eggs, but your body begins to feel hot and your flesh tingles at your scalp and butt. You clench your eyes, grunting through the heat of the bunny's eggs and, to your surprise, your belly begins to feel like it's emptying.", false);
 
                 if (this.player.tailType != TAIL_TYPE_RABBIT) {
-                    //[No Tail: 
+                    //[No Tail:
                     if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("  The heat around your lower back clutches at your tail bone and you feel a fluffy explosion swell around your butt cheeks as a fluffy bunny's tail pops out of your back, twitching excitedly!", false);
-                    //Existing tail: 
+                    //Existing tail:
                     else this.outputText("  Your tail jiggles and shrinks, slowly sucking back into your body until only a tiny nub remains which quickly explodes with fluff into a cuddly, twitching bunny tail!", false);
                 }
                 if (this.player.earType != EARS_BUNNY) {
@@ -594,9 +594,9 @@ export class BunnyGirl extends BaseContent {
 
             this.outputText("Her second egg forces its way down your throat with pulsing shudders and you can feel your hips straining against the weight of your overburdened stomach. You're a little afraid of what the second one will do to you as it slides out of the flared tip of the bunny's fourteen inches. Maybe it's the milking motion of the bunny's head bobbing in happy hops on your clit or maybe it's the swelling numbness of the eggs, but your body begins to feel hot and your flesh tingles at your scalp and butt. You clench your eyes, grunting through the heat of the bunny's eggs and, to your surprise, your belly begins to feel like it's emptying.", false);
             if (this.player.tailType != TAIL_TYPE_RABBIT) {
-                //[No Tail: 
+                //[No Tail:
                 if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("  The heat around your lower back clutches at your tail bone and you feel a fluffy explosion swell around your butt cheeks as a fluffy bunny's tail pops out of your back, twitching excitedly!", false);
-                //Existing tail: 
+                //Existing tail:
                 else this.outputText("  Your tail jiggles and shrinks, slowly sucking back into your body until only a tiny nub remains which quickly explodes with fluff into a cuddly, twitching bunny tail!", false);
             }
             if (this.player.earType != EARS_BUNNY) {
@@ -720,7 +720,7 @@ export class BunnyGirl extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Bunny Girl Eggsplosion 
+    //Bunny Girl Eggsplosion
     //Additional, low chance encounter in the plains. Options in parentheses should be adjusted to the following format: (Normal text/ Easter text)
     //-----------
     private adjathaEggsplosions(): void {

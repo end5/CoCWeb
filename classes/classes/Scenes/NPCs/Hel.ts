@@ -3,7 +3,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, TAIL_TYPE_LIZARD } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, TAIL_TYPE_LIZARD } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 import { ChainedDrop } from "../../internals/ChainedDrop";
 

@@ -4,7 +4,7 @@ import { Imp } from "../../Monsters/Imp";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
 import { Kitsune } from "./Kitsune";
-import { VAGINA_LOOSENESS_GAPING, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, TAIL_TYPE_FOX, EARS_FOX } from "../../../../../includes/appearanceDefs";
+import { VAGINA_LOOSENESS_GAPING, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, TAIL_TYPE_FOX, EARS_FOX } from "../../../../includes/appearanceDefs";
 import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { ItemType } from "../../../ItemType";
@@ -367,7 +367,7 @@ export class KitsuneScene extends BaseContent {
         this.outputText("  As your twitching cock relieves itself of the last of your seed inside the blonde's " + ((this.player.biggestCockArea() > 80) ? "pussy" : "ass") + ", you feel your strength slipping away from you with each spasm, your eyelids growing heavy with an uncommon weariness.\n\n");
         this.player.orgasm();
         this.doNext(this.kitsuneStillHungryMansion);
-    } //End letHer() 	
+    } //End letHer()
 
     //Formerly shoveHer()
     private kitsuneShoveHerMansion(willing: boolean = true): void {

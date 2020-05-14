@@ -4,6 +4,7 @@
     "description": "Corruption-of-Champions Web Port",
     "scripts": {
         "build": "parcel build -d public -o index.html index.html",
+        "check": "tsc --noEmit",
         "dev": "parcel index.html"
     },
     "author": "",

@@ -5,7 +5,7 @@ import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
-import { TAIL_TYPE_SPIDER_ADBOMEN } from "../../../../includes/appearanceDefs";
+import { TAIL_TYPE_SPIDER_ADBOMEN } from "../../../includes/appearanceDefs";
 import { ItemType } from "../../ItemType";
 
 export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
@@ -428,10 +428,10 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(49);
         this.outputText("", true);
         this.outputText("You hand the bundled webbing to Rathazul carefully, lest you damage the elderly mouse.  He gives you a bemused smile and snatches the stuff from your grasp while he mutters, \"<i>I'm not falling apart you know.</i>\"\n\n", false);
-        //(Not enough webs: 
+        //(Not enough webs:
         if (!this.player.hasItem(this.useables.T_SSILK, 5)) {
             this.outputText("The rat shakes his head and hands it back to you.  \"<i>This isn't enough for me to make anything with.  I'll need at least five bundles of this stuff total, so you'll need to find more,</i>\" he explains.\n\n", false);
-            //(optional spider bonus: 
+            //(optional spider bonus:
             if (this.player.tailType == TAIL_TYPE_SPIDER_ADBOMEN) {
                 this.outputText("You show him your spider-like abdomen in response, offering to produce more webbing for him.  Rathazul chuckles dryly, a sound that reminds you of hot wind rushing through a dead valley.  \"<i>Dear child, this would never do.  Silk this tough can only be produced by a true-born spider.  No matter how you change yourself, you'll always be a human at heart.</i>\"\n\n", false);
                 this.outputText("The old rat shakes his head and adds, \"<i>Well, now that I think about it, the venom of a red widow might be able to transform you until you are a spider to the core, but I have absolutely no idea what that would do to you.  If you ever try such a dangerous, reckless idea, let me know.  I want to have my notebooks handy, for SCIENCE!</i>\"\n\n", false);

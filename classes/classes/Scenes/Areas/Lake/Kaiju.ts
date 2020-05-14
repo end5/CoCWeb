@@ -2,7 +2,7 @@ import { AbstractLakeContent } from "./AbstractLakeContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
-import { TONUGE_SNAKE, TONUGE_HUMAN } from "../../../../../includes/appearanceDefs";
+import { TONUGE_SNAKE, TONUGE_HUMAN } from "../../../../includes/appearanceDefs";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
 export class Kaiju extends AbstractLakeContent {
@@ -69,7 +69,7 @@ export class Kaiju extends AbstractLakeContent {
         this.clearOutput();
         this.spriteSelect(103);
         if (this.kaijuCock()) {
-            //[If insult and Marae has been corrupted] 
+            //[If insult and Marae has been corrupted]
             this.outputText("In perhaps not your brightest idea, you decide to make fun of the giant green girl in front of you, mocking her obvious insecurity over her figure.  The word 'fat' barely exits your mouth before her face goes red in anger and you realize your mistake.");
             this.outputText("\n\n\"<i>You are too rude,</i>\" she says in a huff.  \"<i>But I know how to fix you!</i>\" she begins to rise, standing to her full towering height.  Though much of her legs are still beneath the waves, her genitalia are in full display.  The lips of her feminine sex are moist, dripping with lake water and substantial moisture of their own.  They are surprisingly pink against the almost olive green of the rest of her.  But most shocking of all is that where a clit should be is instead a massive, gigantic green dong!");
             this.outputText("\n\n\"<i>How about you put that mean mouth of yours to some good,</i>\" she tells you as she roughly picks you up between two large fingers and brings you to her stiffening cock.");
@@ -335,7 +335,7 @@ export class Kaiju extends AbstractLakeContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Fuck] 
+    //[If Fuck]
     private fuckThisGiantYouDumbCunt(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -452,7 +452,7 @@ export class Kaiju extends AbstractLakeContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Talk] 
+    //[If Talk]
     private talkToKaiju(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -461,7 +461,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outputText("\"<i>Oh?  You want to talk?</i>\" she says, a bit taken by surprise, \"<i>What about?</i>\"");
         //(One of the available lines of dialog plays.)
         if (this.flags[kFLAGS.KAIJU_TALK_CYCLE] == 1) {
-            //Dialog one: 
+            //Dialog one:
             this.outputText("\n\nYou ask her to talk about herself and who she is.");
             this.outputText("\n\n\"<i>Well, I'm not really sure what to say.  I was born the youngest of my family shortly after the demons first took over.  Mother was once a shaman of our tribe, a beauteous woman famed for her dances that could call down the rain or predict small pieces of the future.  I never knew my father but mother claimed he was a demon.  Though whether he really was or she was just insulting him for not sticking around and raising his child I do not know.  My elder half sisters all took the path of becoming priestesses and my big brother became a warrior.  Eventually he went off to fight the demons, and I never saw him again,</i>\" she says, a note of sadness creeping into her voice.");
 
@@ -470,7 +470,7 @@ export class Kaiju extends AbstractLakeContent {
             this.outputText("\n\n\"<i>Not much seemed to happen after that. Slowly my family and friends began to drift apart as the lands became more and more corrupt, and I was left mostly alone.  Shortly thereafter the corruption reached the lake and I slowly became addicted to whatever it is the demons began spewing into the water from pipes and hoses and I began to grow... and grow... and grow.  Now what few who are around seem terrified of me. Even the demons steer clear of someone my size.</i>\"");
             this.outputText("\n\nShe seems to grow silent and draws inward as she finishes her story.  She thanks you for listening before sending you on your way.");
         }
-        //Dialog two: 
+        //Dialog two:
         else if (this.flags[kFLAGS.KAIJU_TALK_CYCLE] == 2) {
             this.outputText("\n\nYou decide to ask her a very delicate question that has been bothering you for a while.  How did she become such a giant?");
             this.outputText("\n\n\"<i>I thought you would ask eventually,</i>\" the big green gal says, tapping a finger on her bottom lip for a few seconds as she considers what she'll say.  \"<i>Well, it all began well after the demons took over the land.  I've always tended to go back and forth between the lake and swamp ever since I can remember.  One day I was bathing in the lake all alone when it suddenly... changed.  I couldn't put my finger on it at the time, but the more I bathed the dirtier I felt. I soon left, deciding that I should stay away for a while... but I had such intense dreams that night, unlike any I ever had before.  I kept thinking of naked bodies rubbing up and down against my own body, of large cocks of every shape and description teasing my pussy or my plump rear, sliding between my cunt lips or my buttocks.  After that I just couldn't seem to help myself, I had to go back to the lake and take another dip, and another, and another.  As the waters became more corrupt and my dreams more intense I had to find the source of my pleasures.  So I began to explore every inch of the lake, until I finally came to a spot where the lake meets the mountains.</i>\"");
@@ -484,7 +484,7 @@ export class Kaiju extends AbstractLakeContent {
             this.outputText("\n\nYou thank the giantess for her explanation as you row away.");
         }
         else if (this.flags[kFLAGS.KAIJU_TALK_CYCLE] == 3) {
-            //Dialog three: 
+            //Dialog three:
             this.outputText("\n\nYou decide to ask if there are any other turtle people.");
             this.outputText("\n\n\"<i>Oh yes, lots,</i>\" she says, \"<i>though we’re all scattered about and hard to find these days.  Actually there are two groups of us.  The freshwater turtles are a bit more reptilian, bald with no ears, and they have no nipples, though they still have boobs.  I admit I spend a lot of time swimming in the lake, but I’m a land turtle. Hair, ears, pert nipples to tug and play with...</i>\" she says, demonstrating just that as she pulls on one massive pink nub.  \"<i>The water turtles teased us all the time, saying we look more like goblins with shells than turtles, but I think they’re just jealous.</i>\"");
             this.outputText("\n\n\"<i>Turtle society is nice and simple.  The high priestess and her daughter priestesses are in charge of village life, the men are warriors or farmers, and we generally live unmolested.  Once we go in our shells no one can mess with us, at least until the demons came with their lust magic.  Can’t hide in a shell when you’re orgasming.</i>\"");
@@ -577,7 +577,7 @@ export class Kaiju extends AbstractLakeContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //[If Mock] 
+    //[If Mock]
     private mockDatTurtleGirl(): void {
         this.clearOutput();
         this.spriteSelect(103);
@@ -736,7 +736,7 @@ export class Kaiju extends AbstractLakeContent {
 
             this.outputText("\n\nThe pink tip refuses to give up a drop however as your tongue begins to stroke up and down what small length of nipple flesh you have managed to gather up in your mouth.  Un-sated, the tongue pulls at the tender nipple flesh, forcing more into your oral sex hole as your head is pushed up further onto the moaning girl's unwieldy pink nub.  With the aid of your determined tongue you manage to get a few more inches into you.  Before the nipple can slide down into your throat however, a wicked idea comes over you.  Unwrapping your cursed tongue from the lusty girl's nipple, you aim the tip of your oral muscle and jam it at the head of the milky member in your mouth, your tongue slowly working its way into the nipple, inch by inch, until all of it has bottomed out, the giantess giving a sudden scream of ecstasy.\n\nWith determined strength, you begin working more of the nipple into your mouth, finally bringing it to the entrance of your throat before sliding it down your gullet.  How often do you get to deep throat a nipple?  You begin humming, trying your best to get the nipple to vibrate in your mouth as your tongue undulates and wiggles in the green breast, the very tip of your tongue tasting the liquid gold of her milk.  Your hands at the base of her nipple begin kneading the milky teat firmly with spurred on fury, massaging the much abused areola until the green girl is panting in short lusty breaths.  \"<i>My goodness!</i>\" she moans, milk suddenly pushing at the tip of your tongue, trying to leak around it to get to your mouth.  \"<i>Pull it out pull it out pull it out I gotta release!</i>\" she screams, desperately needing to release the milk that's backed up, your demonic tongue acting as some kind of nipple plug.  With a smile, or as much a smile as your mouth is capable of wrapped around a milk engorged nipple, you withdraw your tongue from her teat, a rather swift process as the pressure of her milk forces your corrupted tongue backwards.\n\nRemembering you have the end of her teat deep within your throat, and not wanting to have your tongue shot down into your own belly, you begin to pull the nipple out as quickly as you can.  Luckily at the last few inches her milk manages to flow around your tongue, covering every taste bud in white calcium rich fluid, pouring out into your sorely taxed throat and coating it in white as the milk sloshes into your belly, gallons of the stuff filling you up till you look nine months pregnant with triplets.  You finally manage to disengage the nipple from your mouth, your tongue finally popping out as you are once again splashed head to toe in the creamy white of the green girl's milk.  Your tongue just hangs out of your mouth as your milk bath slowly dwindles down to a shower, then a drizzle, and a slight dribble before tapping off.");
         }
-        //[Only if PC doesn't have a demon/dragon tongue] 
+        //[Only if PC doesn't have a demon/dragon tongue]
         if (this.player.tongueType <= TONUGE_SNAKE) {
             this.outputText("\n\nYou suck at the prodigious nipple, teasing more and more of it into yourself until you're massaging much of its length with your throat.  The pink flesh stiffens from the green slut's pleasure as you service the slowly leaking teat, licking at the base while your hands massage the puffy areola.  The giantess squirms in delight as you work on the dribbling milk nozzle before she brings her other hand up to tease the nipple you aren't connected to.  \"<i>Oh, don't stop babe,</i>\" she tells you as you force out one large gushing 'drop' of milk from her mammoth mammary after another.  After you have your milky fill, you slowly draw the teat out from your throat until it plops out of your mouth with a popping sound.\n\nDeciding to tease the lusty girl further, you continue to flick your tongue over the gushing nip, letting the refreshing taste roll right off your tongue. You begin to pump at the nipple with both your hands, watching as the milk geyser continually shoots past your head to mix with the lake water below, making the area a cloudy white around the giant girl's knees.  You pump and lick in a rhythm, determined to empty her tit for all it’s worth.  The moaning turtle girl can barely stand as she sways from your administrations.  \"<i>So good!</i>\" she pants out, starting to use her thumb to rub your back in encouragement.  It takes a while, but eventually her titanic tit finally empties out.");
         }
@@ -766,7 +766,7 @@ export class Kaiju extends AbstractLakeContent {
         this.player.buttChange(30, true, true, false);
         this.outputText("  Inches slide in at a time as it spasms inside of you, attempting to hit every sensitive spot your ass may have as it slowly tries to stretch you out.\n\n");
 
-        //[If PC has a cock] 
+        //[If PC has a cock]
         if (this.player.hasCock()) this.outputText("[EachCock] stiffens as the tree tendril pushes against your prostate, forcing a thick glob of pre up your shaft.  ");
         if (this.player.hasVagina()) this.outputText("As the first vine-cock works its way up your rectum a second has found its way up to your snatch!  The plant-like head rubs against your folds almost lovingly, tenderly, before the head starts to prod past your pink lips, butting up against your cunt as part of the shaft rears up to rub against your clit, sending shockwaves through your body, and the vine-cock chooses this moment to plunge into your [vagina].  Now you have two cocks ramming into your holes, pressing up against your walls as if to feel each other through you.  The plant dick in your pussy slides up and down through your folds, each thrust out going ever so slowly, only to ram back in at full speed, more inches sliding in every time until the head is bumping up against your cervix, leaky pre-seed slowly filling up your cunt to leak out between your thighs.  ");
         this.outputText("  The next sinuous cock threads itself between your legs, up your belly, past your chest to lightly poke at your lips.  You open your mouth to shout when the cock in your [asshole] hits a sensitive spot and the cock at your mouth slides right in, dripping seed into your mouth, your tongue suddenly awash in a salty, yet pleasantly sweet flavor.");

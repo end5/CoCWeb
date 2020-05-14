@@ -1,5 +1,5 @@
 import { BaseContent } from "../../../BaseContent";
-import { FACE_SNAKE_FANGS, FACE_SPIDER_FANGS, SKIN_TYPE_PLAIN } from "../../../../../includes/appearanceDefs";
+import { FACE_SNAKE_FANGS, FACE_SPIDER_FANGS, SKIN_TYPE_PLAIN } from "../../../../includes/appearanceDefs";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 
@@ -14,7 +14,7 @@ export class HarpyScene extends BaseContent {
     //*If genderless, rape options are Finger Her*
     public harpyVictoryuuuuu(): void {
         this.outputText("", true);
-        //(Enemy defeated by damage) 
+        //(Enemy defeated by damage)
         if (this.monster.HP < 1) this.outputText("The harpy screams out in one last, pained cry before her wings give way, the feathered woman collapsing into a weary heap.", true);
         //(Enemy defeated by lust)
         else this.outputText("The harpy can't contain her lust anymore and crumples to the ground before you, on her knees with her plush, heavy ass resting on her feet. She coos pathetically, with one hand between her legs furiously fingering herself, and the other pressed against your crotch, a needy look in her eyes.", false);
@@ -108,7 +108,7 @@ export class HarpyScene extends BaseContent {
         if (this.player.hairLength > 12) this.outputText(" and moves it out of your face", false);
         this.outputText(".  When she smirks, you know you're in for quite a ride.\n\n", false);
 
-        //{If Player has only a pussy} Fan of feathers: 
+        //{If Player has only a pussy} Fan of feathers:
         if (this.player.hasVagina() && x < 0) {
             this.outputText("Grabbing your sedate body by ankles and wrists, the four yank you roughly towards a large stone slab, upon which they lie you down, warbling and squawking. Three hold you down and as though they're trying to avoid other harpies getting in on the fun, the three to your side spread their wings wide and cover you up in a feathery dome.  While you are pinned down, the fourth climbs in on top of you as you struggle, taking it amazingly slow. She extends an open hand, revealing the long talons that constitute her fingers and runs the tip of one across your bare chest, leaving a red trail. It makes you gasp a little. The nail would be sharp enough to carve your flesh if she didn't put it down with such care. She seems to like the reaction of both you and your " + this.player.skinDesc + " and chirps bemused.  ", false);
             if (this.player.skinType == SKIN_TYPE_PLAIN) this.outputText("Shortly after, she repeats her journey, this time by folding her wing towards you and almost like soothing the trek, swishing the tip of her tallest feather across it, evoking a thankful moan. The downey barbules are some of the softest materials you've yet encountered. The harpies must not be familiar with sensitive skin like yours and they're exhilarated with the discovery.  ", false);
@@ -128,7 +128,7 @@ export class HarpyScene extends BaseContent {
 
             this.outputText("When you recover a few hours later, the harpies are gone. All they've left you with is a sloppy cunt and a few downey feathers clinging to your nipples and inner thigh.", false);
         }
-        //{When player has a cock} Airborne sex! 
+        //{When player has a cock} Airborne sex!
         //(Reminds me of what my own Succubus does in my novel)
         else {
             this.outputText("The ladies flap their wings and you're surprised by their grace and power. Three of them grab you by the shoulders with their hawk-like feet and lift you up effortlessly and with good speeds like mere prey. When the ground is removed beneath your feet, your heart jumps, but it leaves you completely at the mercy of the harpies who begin to fly up higher and higher. By the time you begin to protest, you're already fifty feet up into the air. If they'd drop you now, your fall would be fatal. It only makes the way in which they begin to toy with you all the more frightening.\n\n", false);
@@ -201,7 +201,7 @@ export class HarpyScene extends BaseContent {
             //Apply harpy status.
             kGAMECLASS.sophieScene.luststickApplication(8);
         }
-        //[(Female) 
+        //[(Female)
         else {
             this.outputText("The hierarchy is determined, and two of the harpies dive forward, burying their fat golden lips into your " + this.vaginaDescript(0) + ", their short, stubby tongues probing and exploring every inch of your feminine love-tunnel.  Together they circle and push at your " + this.clitDescript() + " sensuously, leaving a sharp tingle at every little point their plump golden lips brush against.  Growing more and more horny, each harpy probes one hand behind herself to toy with her drooling pussy, coaxing aroused squawks and moans from the group as they tend to you. The leading harpy makes a reckless dive for your chest, intent on claiming her prize before anyone else can take it from her. Careering down upon your stomach, her immense, wobbly ass pounds into you, knocking the breath out of your lungs", false);
             //(If breasts)
@@ -294,7 +294,7 @@ export class HarpyScene extends BaseContent {
 
         this.outputText("But as sumptuous as her enormous rump is, you can't resist taking her right then and there. The scent from her pussy has taken a serious effect on you as, with an almost feral roar, you break away from her drooling velvet pussy and grasp onto those immense hips, which feel as soft as digging your hands into the most luxurious cushions you can imagine. Guiding her sweet, dribbling fuck-hole onto your " + this.cockDescript(x) + ", you aim to impale the disheveled harpy with all your might, pulling hard on her waist to bury yourself as deep as you can.\n\n", false);
 
-        //(Added bit for multi-dicks) 
+        //(Added bit for multi-dicks)
         if (this.player.totalCocks() > 1) this.outputText("As your head creeps past her tight entrance, your " + this.cockDescript(y) + " brushes past her hot, clenched anus and a wicked idea forms in your brain. Pulling your " + this.cockDescript(x) + " free for the time being, you grasp your two lengths of meat in one hand and smear them enthusiastically against her slick honeypot, coating them in slippery-sweet feminine fluids, before trying a second time. You squeeze her plump rump and force those two hot, throbbing cocks deep inside her holes, letting out a breathless moan which is echoed by the stricken harpy as she tries to adjust to the sudden intrusion.\n\n", false);
 
         this.outputText("You slowly slip your " + this.multiCockDescriptLight() + " into her hot, clutching depths, inch by inch, seeming to take an eternity as all the sensations of her rough, ribbed pussy ", false);
@@ -303,7 +303,7 @@ export class HarpyScene extends BaseContent {
 
         //(If balls)
         if (this.player.balls > 0) this.outputText("You eventually bottom out, your " + this.ballsDescriptLight() + " coming to rest between her powerful, gelatinous thighs, her soft feathers tickling at your " + this.sackDescript() + " maddeningly.\n\n", false);
-        //(If balls-less) 
+        //(If balls-less)
         else this.outputText("Leaning low over her back, you adjust to drive yourself ever deeper, forcing the whole length of your " + this.cockDescript(x) + " into her, the soft down on her gelatinous thighs prickling at your thighs maddeningly.\n\n", false);
 
         if (this.player.gender == 1) {
@@ -381,7 +381,7 @@ export class HarpyScene extends BaseContent {
         if (this.player.biggestTitSize() < 1 && !this.player.hasVagina()) {
             this.outputText("Her pupils constrict, and the feathery fat-reared fowl squawks loudly, going completely crazy atop you! She writhes and bounces this way and that, growing more and more desperate and insane as her pain increases.  Your " + this.cockDescript(x) + " slams this way and that into her rough, gripping walls, as moans and grunts escape your lips. She flaps frantically from side to side, almost slipping her clutching rump free of your " + this.cockDescript(x) + " before you grasp hard onto her meaty thighs, forcing yourself back into the distressed harpy with a lewd grin.  It is clear that some part of her is loving this brutal intrusion; her feminine fluids are spilling free, coating your torso with her strong scent.\n\n", false);
         }
-        //[(Herms/Shemales) 
+        //[(Herms/Shemales)
         else {
             this.outputText("Her pupils constrict, and the feathery fat-reared fowl squawks loudly, going completely crazy atop you! Struggling to escape from your impaling shaft, she drives her clutching, ribbed inner walls into the sides of your throbbing dick, her gelatinous ass wobbling this way and that", false);
             if (this.player.biggestTitSize() >= 2) this.outputText(", the motions causing your " + this.player.allBreastsDescript() + " to bounce and sway wildly, slapping into one another lewdly, adding to your growing lust", false);
@@ -442,14 +442,14 @@ export class HarpyScene extends BaseContent {
             this.outputText("Breaking the kiss, your lips tingle sharply as you realize her golden lipstick is drugged! The heat flows to your groin, your " + this.multiCockDescriptLight() + " swelling noticeably and growing even more sensitive.  Even the slightest breeze feels like a lover's hands passing across the tender flesh. Almost apologetically, the harpy leans in to wrap her hands around your " + this.cockDescript(0) + " those drugged lips brushing sensuously across your cock-tip. Her beautifully formed hands give your shaft a squeeze, sending a wave of pleasure through you that brings you to your knees.  You throw both hands out behind you as you lean away from her, pushing your " + this.hipDescript() + " towards her. The submissive bird-girl waggles her huge, jiggling ass behind her, softly guiding the very tip of your " + this.cockDescript(0) + " between those tainted lips, that tingling sensation slipping down your hyper-sensitive member. Her mouth is warm, soft and suckling while her short tongue is flicking frantically across the underside of your shaft, the pleasure being harsh but oh-so intense.", false);
             //(if herm)
             if (this.player.gender == 3) this.outputText("  Her expert fingers tease up the sides of your thighs, coming to softly brush across your moist nether lips, her fingers spreading your " + this.vaginaDescript(0) + " wide before plunging into the warmth within, adding another sweet sensation of pleasure to the amazing orchestra of sensations her lips were giving to you.", false);
-            //(If balls) 
+            //(If balls)
             if (this.player.balls > 0) this.outputText("  Her hands creep down to softly squeeze and massage your " + this.ballsDescriptLight() + ", the harpy's eager head bobbing back and forth along the sweet tasting shaft of your " + this.cockDescript(0) + ", sending waves of powerful, overwhelming pleasure resonating through your body.", false);
             this.outputText("\n\n", false);
         }
         //[(Male, Shemale, Herm, multicock)
         else if (this.player.cockTotal() > 1) {
             this.outputText("You break the kiss, the soft tingle lingering on your lips for longer than it should... much longer. Her golden lipstick is drugged! The tingle spreads over your whole body", false);
-            //if breasts) 
+            //if breasts)
             if (this.player.biggestTitSize() >= 2) {
                 this.outputText(", and your " + this.player.allBreastsDescript() + " jiggle slightly from the sheer intensity of the pins-and-needles feeling coating your body.  Your " + this.nippleDescript(0) + "s perk up and harden.", false);
                 if (this.player.biggestLactation() >= 1) this.outputText("  Milk dribbles out gently onto the areola, trickling sensually between your cleavage.", false);
@@ -462,7 +462,7 @@ export class HarpyScene extends BaseContent {
             if (this.player.gender == 3) this.outputText("  Her other perfect hand creeps beneath your tense " + this.multiCockDescriptLight() + " to the " + this.vaginaDescript(0) + " that's nestled between your thighs. At the first touch of her hand, an explosive ecstasy shoots through you, forcing you to tense up and arch your back.  You grit your teeth while puissant waves of orgasmic glee flood through you.", false);
             this.outputText("\n\n", false);
         }
-        //(Female) 
+        //(Female)
         if (this.player.gender == 2) {
             this.outputText("Tearing your lips away from hers, you feel a distinct, sharp tingle across your mouth and cheeks as you realized that her shining, gilded lipstick was drugged! The tingle spreads through your body, prickling across your whole body, flowing inexorably in a wave of sensation towards your groin, the ticklish feeling concentrating on your " + this.vaginaDescript(0) + ". You fall to your knees at the sheer unbridled pleasure shooting up and down your body, the thick hipped harpy crawling towards you meekly, applying a gentle pressure to your shoulder and pressing your back to the ground, trilling and squawking quietly, her perfectly formed hand reaching to your overwhelmed pussy. At the slightest first touch of her hand an explosive ecstasy shoots through you, forcing you to tense up and arch your back, teeth gritted. ", false);
             //(If breasts)
@@ -480,7 +480,7 @@ export class HarpyScene extends BaseContent {
             //(if herm)
             if (this.player.gender == 3) this.outputText(", her other hand doing the exact same to your own " + this.vaginaDescript(0) + ", digging those perfect fingers deep into the wet, hyper-sensitive flesh, spreading those lips wide", false);
             this.outputText(".  Her mouth greedily gobbles up inch after inch of your " + this.cockDescript(0) + ", until at last she bottoms out, pressing her nose against your groin, those tainted lips tingling all the way down, increasing the intensity of the pleasure by the second. It takes a surprisingly short time of the harpy bobbing her head, that stubby tongue wetly caressing the sweet shaft of your " + this.cockDescript(0) + ", before you let out a vast, quaking moan, blasting a much larger load than normal into her gentle throat. She doesn't stop though, quite the opposite in fact, as her attentions to your dick became even more aggressive. Her submissive side all but vanishes as her golden lips brush up and down the hot shaft of that " + this.cockDescript(0) + ".  ", false);
-            //(If balls) 
+            //(If balls)
             if (this.player.balls > 0 && this.player.cocks[0].cockLength <= 16) this.outputText("She even deep throats you, taking your length into her expertly-controlled mouth, that tongue creeping out to tickle at your " + this.ballsDescriptLight() + ".  ", false);
             this.outputText("More slutty trills and squawks creep from her tainted lips, muffled by the girth of meat plugged so perfectly into her sucking, slurping mouth. For nearly an hour she keeps milking you of your seed, and you cum a full six times into her incredible mouth before she finally pops free, gasping for her breath with her fat, wobbling thighs coated in her feminine cum. How many times she orgasmed while giving herself to you was a mystery, but she bears down on you with a smile and a slightly-bulging belly. You flinch as she dives at your head, but it was merely to deliver a soft, drugged kiss to your forehead, which lulls you into sleep just as she turns on her heel and takes wing.\n\n", false);
         }

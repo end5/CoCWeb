@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { trace } from "../../../../console";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_SLENDER, BUTT_RATING_TIGHT, WING_TYPE_IMP } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_SLENDER, BUTT_RATING_TIGHT, WING_TYPE_IMP } from "../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 

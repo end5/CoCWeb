@@ -1,6 +1,6 @@
 import { Monster } from "../../../Monster";
 import { Appearance } from "../../../Appearance";
-import { ANAL_LOOSENESS_LOOSE, ANAL_WETNESS_DRY, HIP_RATING_AVERAGE, BUTT_RATING_TIGHT } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_LOOSE, ANAL_WETNESS_DRY, HIP_RATING_AVERAGE, BUTT_RATING_TIGHT } from "../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";

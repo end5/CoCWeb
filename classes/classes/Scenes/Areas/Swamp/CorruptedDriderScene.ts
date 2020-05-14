@@ -1,7 +1,7 @@
 import { BaseContent } from "../../../BaseContent";
 import { CorruptedDrider } from "./CorruptedDrider";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { TAIL_TYPE_NONE, TAIL_TYPE_SPIDER_ADBOMEN, TONUGE_HUMAN, EYES_FOUR_SPIDER_EYES } from "../../../../../includes/appearanceDefs";
+import { TAIL_TYPE_NONE, TAIL_TYPE_SPIDER_ADBOMEN, TONUGE_HUMAN, EYES_FOUR_SPIDER_EYES } from "../../../../includes/appearanceDefs";
 import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { StatusAffects } from "../../../StatusAffects";
 import { PregnancyStore } from "../../../PregnancyStore";
@@ -133,8 +133,8 @@ export class CorruptedDriderScene extends BaseContent {
         var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         this.spriteSelect(77);
         this.outputText("", true);
-        //*Summary: Fuck her cunt with a wang that fits it, lose control of the 
-        //situation when she kisses you with potent, envenomed lips.  Get 
+        //*Summary: Fuck her cunt with a wang that fits it, lose control of the
+        //situation when she kisses you with potent, envenomed lips.  Get
         //moderately hypno'ed into cumming into her over and over again?
         this.outputText("Eager to plumb the depths of this greedy spider's snatch, you practically tear your way out of your " + this.player.armorName + " in your hurry to get naked.  Through it all ", false);
         if (this.monster.lust > 99) {
@@ -334,7 +334,7 @@ export class CorruptedDriderScene extends BaseContent {
     private victoryVSDriderRideOviVaginal(): void {
         this.spriteSelect(77);
         this.outputText("", true);
-        //*Summary:  Roll the drider over and squat on an ovipositor - reuse anal intro? (fuck you bitch, i'm taking your shitty kids to the lake and turning them pink)	
+        //*Summary:  Roll the drider over and squat on an ovipositor - reuse anal intro? (fuck you bitch, i'm taking your shitty kids to the lake and turning them pink)
         this.player.slimeFeed();
         this.outputText("Eyeing the small lump of the spider's retracted ovipositor, you resolve to have a little fun with it, even if it means giving the spider exactly what she wants in a way that she doesn't.  You tear off your " + this.player.armorName + " while the drider watches with ", false);
         if (this.monster.HP < 1) this.outputText("hate", false);
@@ -836,7 +836,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.outputText("You're pleased to see the drider's tongue loll out of her mouth, her eyes rolled up into her head. Clearly she's enjoying this!  Encouraged, you start to fuck her butt harder, hammering into her ass with every bit of force your powerful muscles can summon up.  You're rewarded with a sharp, high moan from the drider.  Once she starts, she doesn't stop.  A symphony of moans, grunts, and pleasured screams erupt from the spider-girl, all in concert with your rough anal ravishing.\n\n", false);
 
         this.outputText("Without warning, the drider cums.  She cries out and grabs her fully-engaged corrupted cock, hosing down the trees in front of her with spider-cum as her butt squeezes down on your " + this.cockDescript(x) + ", milking your dick with her anal passage.  You pick up the tempo of your fucking to break-pelvis speeds, ramming your cock into her backdoor and letting loose a torrent of your spunk, shooting it deep inside her", false);
-        //(if Vagina: 
+        //(if Vagina:
         if (this.player.hasVagina()) {
             this.outputText(" while your unused cunt spurts girlcum across her carapace", false);
             if (this.player.cockTotal() > 1) this.outputText(" and", false);
@@ -887,7 +887,7 @@ export class CorruptedDriderScene extends BaseContent {
         }
     }
 
-    //[No] 
+    //[No]
     private dontSilkRapeDrider(): void {
         this.spriteSelect(77);
         this.clearOutput();

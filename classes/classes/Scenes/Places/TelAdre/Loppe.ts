@@ -1,6 +1,6 @@
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { SKIN_TYPE_SCALES, TONUGE_DEMONIC, TONUGE_HUMAN } from "../../../../../includes/appearanceDefs";
+import { SKIN_TYPE_SCALES, TONUGE_DEMONIC, TONUGE_HUMAN } from "../../../../includes/appearanceDefs";
 
 export class Loppe extends TelAdreAbstractContent {
 

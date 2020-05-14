@@ -14,7 +14,7 @@ import { Appearance } from "./Appearance";
 import { StatusAffects } from "./StatusAffects";
 import { BreastStore } from "./BreastStore";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
-import { GENDER_NONE, HAIR_NORMAL, SKIN_TYPE_PLAIN, FACE_HUMAN, EARS_HUMAN, HORNS_NONE, WING_TYPE_NONE, LOWER_BODY_TYPE_HUMAN, TAIL_TYPE_NONE, HIP_RATING_BOYISH, BUTT_RATING_BUTTLESS, ANTENNAE_NONE, EYES_HUMAN, TONUGE_HUMAN, ARM_TYPE_HUMAN, GENDER_HERM, GENDER_MALE, GENDER_FEMALE, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_PONY, LOWER_BODY_TYPE_DRIDER_LOWER_BODY } from "../../includes/appearanceDefs";
+import { GENDER_NONE, HAIR_NORMAL, SKIN_TYPE_PLAIN, FACE_HUMAN, EARS_HUMAN, HORNS_NONE, WING_TYPE_NONE, LOWER_BODY_TYPE_HUMAN, TAIL_TYPE_NONE, HIP_RATING_BOYISH, BUTT_RATING_BUTTLESS, ANTENNAE_NONE, EYES_HUMAN, TONUGE_HUMAN, ARM_TYPE_HUMAN, GENDER_HERM, GENDER_MALE, GENDER_FEMALE, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_PONY, LOWER_BODY_TYPE_DRIDER_LOWER_BODY } from "../includes/appearanceDefs";
 import { PerkClass } from "./PerkClass";
 import { PerkLib } from "./PerkLib";
 
@@ -34,7 +34,7 @@ export class Creature extends Utils {
     //Variables
 
     //Short refers to player name and monster name. BEST VARIABLE NAME EVA!
-    //"a" refers to how the article "a" should appear in text. 
+    //"a" refers to how the article "a" should appear in text.
     private _short: string = "You";
     private _a: string = "a ";
     public get short(): string { return this._short; }
@@ -299,7 +299,7 @@ export class Creature extends Utils {
     //Gills
     public gills: boolean = false;
 
-    //Sexual Stuff		
+    //Sexual Stuff
     //MALE STUFF
     //public var cocks: any[];
     //TODO: Tuck away into Male genital class?
@@ -322,7 +322,7 @@ export class Creature extends Utils {
     //FEMALE STUFF
     //TODO: Box into Female genital class?
     public vaginas: any[];
-    //Fertility is a % out of 100. 
+    //Fertility is a % out of 100.
     public fertility: number = 10;
     public clitLength: number = .5;
     public nippleLength: number = .25;
@@ -420,7 +420,7 @@ export class Creature extends Utils {
         //keyItems = new Array();
     }
 
-    //Functions			
+    //Functions
     public orgasm(): void {
         this.game.dynStats("lus=", 0, "res", false);
         this.hoursSinceCum = 0;
@@ -1303,7 +1303,7 @@ export class Creature extends Utils {
     }
 
     //Hacky code till I can figure out how to move appearance code out.
-    //TODO: Get rid of this 
+    //TODO: Get rid of this
     public dogScore(): number {
         throw new Error("Not implemented. BAD");
     }
@@ -1471,7 +1471,7 @@ export class Creature extends Utils {
             return 0;
         var quantity: number = 0;
         //Base value is ballsize*ballQ*cumefficiency by a factor of 2.
-        //Other things that affect it: 
+        //Other things that affect it:
         //lust - 50% = normal output.  0 = half output. 100 = +50% output.
         //trace("CUM ESTIMATE: " + int(1.25*2*cumMultiplier*2*(lust + 50)/10 * (hoursSinceCum+10)/24)/10 + "(no balls), " + int(ballSize*balls*cumMultiplier*2*(lust + 50)/10 * (hoursSinceCum+10)/24)/10 + "(withballs)");
         var lustCoefficient: number = (this.lust + 50) / 10;

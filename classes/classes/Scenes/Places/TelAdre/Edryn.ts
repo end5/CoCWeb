@@ -7,7 +7,7 @@ import { trace } from "../../../../console";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { StatusAffects } from "../../../StatusAffects";
 import { ItemType } from "../../../ItemType";
-import { LOWER_BODY_TYPE_CENTAUR, VAGINA_WETNESS_SLAVERING, TONUGE_HUMAN } from "../../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_CENTAUR, VAGINA_WETNESS_SLAVERING, TONUGE_HUMAN } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { Appearance } from "../../../Appearance";
 
@@ -517,7 +517,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
     -Edryn is giving herself for free
     -PC has a cock that fits Edryn's standards
     -PC must be tall enough so their head is over Edryn's ass -- (ie, 4ft + ?)
-    
+
     Scene proc's the first time the PC visits the Wet Bitch after all requirements are met, during Edryn's normal hours. Hel can be found in the Wet Bitch every third day from then on -- this does not disrupt her other functions or appearances.
     */
 

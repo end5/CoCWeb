@@ -2,7 +2,7 @@ import { Harpy } from "../Areas/HighMountains/Harpy";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_GAPING_WIDE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_EXPANSIVE, SKIN_TYPE_PLAIN, WING_TYPE_HARPY } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_GAPING_WIDE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_EXPANSIVE, SKIN_TYPE_PLAIN, WING_TYPE_HARPY } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 import { ChainedDrop } from "../../internals/ChainedDrop";
 
@@ -73,8 +73,8 @@ export class Sophie extends Harpy {
     }
 
     //Harpy-Boating (Only used on males)
-    //Takes off and flies directly at PC, locking her hips 
-    //around PC's torso and smothering the PC with breasts 
+    //Takes off and flies directly at PC, locking her hips
+    //around PC's torso and smothering the PC with breasts
     //for a few moments.
     //Easily dodged with evade or flexibility.
     private sophieHarpyBoatsPC(): void {

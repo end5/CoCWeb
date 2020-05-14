@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
 import { StatusAffects } from "../../../StatusAffects";
-import { VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING } from "../../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 
@@ -94,7 +94,7 @@ export class Faerie extends BaseContent {
             else this.outputText("feeling yourself moistening with need", false);
             this.outputText(" from the tiny touches.\n\n", false);
 
-            //(small) <= .50\"  
+            //(small) <= .50\"
             if (this.player.clitLength <= .5) {
                 this.outputText("She pulls apart your lips, revealing your tiny bud and repositioning herself to plant her feet inside you.  The flawless skin of her thighs pulls another gasp of pleasure from your lips.  They squeeze tightly around your " + this.clitDescript() + ", scissoring her gash across its sensitive surface.   You squirm, too engrossed in the rough grinding your button is receiving to worry about the faerie.   She clings to you, hanging on for dear life as your crotch nearly throws her free.  During the gyrations, she's slammed back into the " + this.clitDescript() + ", instantly penetrated by the nub with a wet 'schlick'.\n\n", false);
                 this.outputText("Squealing and bouncing as she hangs on tightly, the faerie noisily orgasms around your clit, squirting her own fluids into your aching " + this.vaginaDescript(0) + ".  The fluid tingles, and you shove your fingers in, smearing the sticky-sweet faerie-cum through your passage.   Before you can get far with it, your own orgasm goes off, squeezing your fingers and rippling around them, trying to milk your hand as if it was a dick.  Your legs go weak and wobbly, forcing you down on your " + this.buttDescript() + " as the waves of pleasure flow through you, soaking the faerie in girlcum.\n\n", false);
@@ -119,7 +119,7 @@ export class Faerie extends BaseContent {
             }
         }
         //[OH SHIT ITS OVER, POOR BITCH CRAWLS OUT ALL STONE ON GIRLCUM]
-        //[FIRST TIME] 
+        //[FIRST TIME]
         if (this.player.statusAffectv1(StatusAffects.FaerieFemFuck) == 1) {
             this.outputText("Lying in the forest loam as you recover, you watch as the faerie stumbles out of your groin, holding her head and giggling nonstop.  She tries to put on a serious face but it's instantly overpowered by another fit of laughter, \"<i>Hehe, did you know I'd get stoned off your girlcum?  Omigod I've never been this -heheheheheh- high before!  Like I can see EVERYTHING.  Puuhleeeease don't make me do this again...</i>\"\n\n", false);
             this.outputText("She flies off, hungry and looking for a flower to munch on.", false);
@@ -130,7 +130,7 @@ export class Faerie extends BaseContent {
             this.outputText("The little woman spins around happily, proclaiming, \"<i>The colors are like, so bright!  Oh gosh, I'm hungry!  See you and your clit later, just don't let me fall in your snatch, it fucks me up so much.  I don't think I can handle much more or I'll be crawling between your legs every chance I get!</i>\"\n\n", false);
             this.outputText("She flits away, calling out, \"<i>Bye sweetie!</i>\"", false);
         }
-        //[SLUTTIN IT UP] 
+        //[SLUTTIN IT UP]
         else {
             this.outputText("The faerie stumbles out of your snatch, giggling and scooping the slippery girl-goo off her body, licking it up.  She crawls up your body to your lips, giving you a cunt-flavored kiss and babbling happily, \"<i>Mmm your cunt makes me so warm and giggly!  I'm so fucking stoned!  Gawddess, I'm hungry too – I'm gonna grab some food, and then come back for another dip in your honeypot, ok?</i>\"\n\n", false);
             this.outputText("She flits away, a little unsteady and reeking of female sex and desire.", false);

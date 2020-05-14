@@ -1,5 +1,5 @@
 import { BaseContent } from "../../../BaseContent";
-import { LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_NAGA } from "../../../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_NAGA } from "../../../../includes/appearanceDefs";
 import { InfestedHellhound } from "./InfestedHellhound";
 import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
@@ -36,7 +36,7 @@ export class InfestedHellhoundScene extends BaseContent {
                 else this.outputText("With a perverse sense of anticipation ", false);
                 this.outputText("you remove your " + this.player.armorName + " and roll onto your back, exposing your vulnerable groin to the beast.\n\n", false);
             }
-            //(HP) 
+            //(HP)
             else this.outputText("Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-sharp teeth easily sink into your " + this.player.armorName + " before tearing away the offending armor, exposing your " + this.assDescript() + " and " + this.multiCockDescriptLight() + ".  A cold mountain breeze blows across your now-exposed " + this.player.skinDesc + ", reminding you just how utterly vulnerable you are to the alien lusts of this symbiotic monstrosity. With a brutal lunge it knocks you off your " + this.player.feet() + " and onto your back.\n\n", false);
 
             this.outputText("The beast takes a sniff at your groin, then backs away, looking confused.  You glance down and realize just how hard you've become.  A few of your worms are hanging from the " + this.player.cockHead() + " of your " + this.cockDescript(0) + ", starting to flow out in a steady stream.  It feels better than it has any right to.   A shadow falls across you as the hellhound moves over you, its imposing twin members hard and pulsating above you.  Hot splatters of jism drip onto your chest as the beast's worms begin escaping, forcing thick globules of dog-semen out along with them.\n\n", false);
@@ -106,7 +106,7 @@ export class InfestedHellhoundScene extends BaseContent {
         }
         //[HAS PUSSY AND NO DICK BIG ENOUGH TO BE INFECTED]
         else if (this.player.hasVagina() && this.player.biggestCockArea() < 40 && this.player.lowerBody != LOWER_BODY_TYPE_NAGA) {
-            //(LUST) 
+            //(LUST)
             if (this.player.lust > 99) {
                 this.outputText("No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ", false);
                 if (this.player.cor < 33) this.outputText("In spite of your revulsion ", false);
@@ -114,7 +114,7 @@ export class InfestedHellhoundScene extends BaseContent {
                 else this.outputText("With a perverse sense of anticipation ", false);
                 this.outputText("you remove your " + this.player.armorName + " and drop to all fours, mimicking what you think a dog would do.\n\n", false);
             }
-            //(HP) 
+            //(HP)
             else {
                 this.outputText("Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your " + this.player.armorName + " before tearing it off, exposing your " + this.assDescript() + " and " + this.vaginaDescript(0) + ".  A cold mountain breeze blows across your now exposed " + this.player.skinDesc + ", reminding you just how utterly exposed you are to the alien lusts of this symbiotic monstrosity.\n\n", false);
             }
@@ -134,10 +134,10 @@ export class InfestedHellhoundScene extends BaseContent {
             this.player.cuntChange(this.monster.cockArea(0), true);
             this.outputText("  ", false);
             this.player.buttChange(this.monster.cockArea(0), true);
-            //(Status applied – worm plugged) – 
-            //random chance of big lust boost as worms evacuate 
-            //your body.  When worms leave they take with them up 
-            //to 5 fertility, to a minimum of 10. 
+            //(Status applied – worm plugged) –
+            //random chance of big lust boost as worms evacuate
+            //your body.  When worms leave they take with them up
+            //to 5 fertility, to a minimum of 10.
             if (this.player.findStatusAffect(StatusAffects.WormPlugged) >= 0)
                 this.player.addStatusValue(StatusAffects.WormPlugged, 1, 1 + InfestedHellhoundScene.rand(5));
             else
@@ -149,7 +149,7 @@ export class InfestedHellhoundScene extends BaseContent {
         }
         //[GENDERLESS OR MALE WITH DICK TOO SMALL]
         else {
-            //(LUST) 
+            //(LUST)
             if (this.player.lust > 99) {
                 this.outputText("No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ", false);
                 if (this.player.cor < 33) this.outputText("In spite of your revulsion ", false);
@@ -157,7 +157,7 @@ export class InfestedHellhoundScene extends BaseContent {
                 else this.outputText("With a perverse sense of anticipation ", false);
                 this.outputText("you remove your " + this.player.armorName + " and drop to your elbows, mimicking what you think a dog would do.\n\n", false);
             }
-            //(HP) 
+            //(HP)
             else {
                 this.outputText("Too wounded to stand, you drop down to on your elbows in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your " + this.player.armorName + " before tearing it off, exposing your " + this.assDescript() + ".  A cold mountain breeze blows across your now exposed " + this.player.skinDesc + ", reminding you just how utterly exposed you are to the alien lusts of this symbiotic monstrosity.\n\n", false);
             }

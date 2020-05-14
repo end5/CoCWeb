@@ -2,7 +2,7 @@ import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { SKIN_TYPE_FUR } from "../../../../../includes/appearanceDefs";
+import { SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
 
 
 /**

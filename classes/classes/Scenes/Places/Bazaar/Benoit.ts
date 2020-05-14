@@ -4,7 +4,7 @@ import { PregnancyStore } from "../../../PregnancyStore";
 import { PerkLib } from "../../../PerkLib";
 import { ItemType } from "../../../ItemType";
 import { StatusAffects } from "../../../StatusAffects";
-import { HORNS_DEMON, TAIL_TYPE_DEMONIC, EARS_DOG, TAIL_TYPE_DOG, TAIL_TYPE_CAT, EARS_CAT, LOWER_BODY_TYPE_HARPY, WING_TYPE_FEATHERED_LARGE, SKIN_TYPE_SCALES, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE, LOWER_BODY_TYPE_BEE } from "../../../../../includes/appearanceDefs";
+import { HORNS_DEMON, TAIL_TYPE_DEMONIC, EARS_DOG, TAIL_TYPE_DOG, TAIL_TYPE_CAT, EARS_CAT, LOWER_BODY_TYPE_HARPY, WING_TYPE_FEATHERED_LARGE, SKIN_TYPE_SCALES, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE, LOWER_BODY_TYPE_BEE } from "../../../../includes/appearanceDefs";
 
 //  TIMES_IN_BENOITS: number = 562;
 //  BENOIT_AFFECTION: number = 563;
@@ -106,13 +106,13 @@ export class Benoit extends BazaarAbstractContent {
 
     /*
     Cum to Clutch Equation:
-    
+
     Benoite becomes pregnant with 1 egg by default.
-    
+
     She can produce a max clutch of 16 eggs, and a PC can only make her pregnant with up to 12 eggs by cum quantity alone. Elven Bounty gives +1 to both min and max clutch size (so a PC with that perk will give her 2-13 eggs each time they fertilise her), Marae's Gift - Stud gives +2 to both min and max clutch size. These two perks stack.
-    
+
     Every 200mls of cum the PC produces above the first 200mls equals 1 extra egg fertilised. So, producing 2 eggs requires 400mls, 3 eggs requires 600mls, etc, all the way to 12 eggs at 2400mls.
-    
+
     1-4 Eggs equates to a Regular Pregnancy.
     5-8 Eggs equates to a Heavy Pregnancy.
     9-12 Eggs equates to a Very Heavy Pregnancy.
@@ -232,13 +232,13 @@ export class Benoit extends BazaarAbstractContent {
             }
         }
         else {
-            //Subsequent Visit, Affection 0-10: 
+            //Subsequent Visit, Affection 0-10:
             if (this.benoitAffection() <= 10) this.outputText("Once again, you carefully enter the gloom of Benoit's salvage shop.  The proprietor sniffs the air as you enter, and then looks at you sourly.  \"<i>Well?</i>\" he rasps.");
             //Benoit reacts after fucking the PC.
             else if (this.flags[kFLAGS.BENOIT_TIMES_SEXED_FEMPCS] == 1 && this.flags[kFLAGS.BENOIT_POST_FIRSTFUCK_TALK] == 0)
                 this.firstTimeAfterBoningEncounterBenoit();
             else if (this.benoitAffection() < 35) this.outputText("Once again, you carefully enter the gloom of Benoit's salvage shop.  The proprietor sniffs the air as you enter, and then relaxes in his seat.  \"<i>Allo again, " + this.player.short + ".  What brings you 'ere?</i>\"");
-            //Subsequent Visit, Affection 35+ but pre-lover/pre-fem: 
+            //Subsequent Visit, Affection 35+ but pre-lover/pre-fem:
             else {
                 this.outputText("Once again, you carefully enter the gloom of " + this.benoitMF("Benoit", "Benoite") + "'s salvage shop.  The proprietor sniffs the air as you enter, and then smiles widely.  \"<i>If it isn't my favorite customer!  Do not 'ang around out zere, [name]; please, come in and let us, 'ow you say, chew ze fat.</i>\"");
 
@@ -385,7 +385,7 @@ export class Benoit extends BazaarAbstractContent {
         this.doNext(this.benoitIntro);
     }
 
-    //All slots are reset each day.  Benoit buys items at 66% the rate Oswald does.  
+    //All slots are reset each day.  Benoit buys items at 66% the rate Oswald does.
     public updateBenoitInventory(): void {
         this.temp = Benoit.rand(8);
         //Slot 1 Any one of the following: Incubus Draft, Minotaur Blood, Minotaur Cum, Equinuum, Black Pepper, Vitalitea, Scholar's Tea, Double Pepper
@@ -471,7 +471,7 @@ export class Benoit extends BazaarAbstractContent {
             }
             this.doNext(this.camp.returnToCampUseOneHour);
         }
-        //First time Talk: 
+        //First time Talk:
         else if (this.flags[kFLAGS.BENOIT_TALKED_TO_PROPERLY] == 0) {
             this.flags[kFLAGS.BENOIT_TALKED_TO_PROPERLY]++;
             this.outputText("You take a moment to look the strange merchant over.  Although blind, he doesn't seem very old - he retains the tight, thin muscular frame of other basilisks you've seen, but looks to be slightly shorter and for all his proud, cruel profile seems slightly shabby around the edges.  In what is presumably a nod towards civilized manners, he is wearing a pair of denim long johns as well as his fez, perched upon one of his head spines.  You introduce yourself, and then decide to ask him about basilisks.");
@@ -562,12 +562,12 @@ export class Benoit extends BazaarAbstractContent {
             }
             else if (choice == 6) {
                 this.outputText("You ask " + this.benoitMF("Benoit", "Benoite") + " for any rumors going around.");
-                //[Deep cave cleared: 
+                //[Deep cave cleared:
                 if (this.flags[kFLAGS.DEFEATED_ZETAZ] > 0) this.outputText("\n\n\"<i>Somesing strange did 'appen ze uzzer day, now you mention it,</i>\" " + this.benoitMF("he", "she") + " says, tapping a curved tooth.  \"<i>I got a big group of imps in ere.  I normally don't serve zem because zey are always stealing sings whilst one of zem is paying, but zese guys seemed too worked up to even sink about lifting ze shop - zey smelt of fear.  Zey were buying lots of food and survival gear - one of zem kept going on and on about ze fact zey left \"<i>ze fairy</i>\" behind, until one of ze uzzers slapped 'im and said if 'ee didn't shut up, 'ee would be ze fairy.</i>\"  " + this.benoitMF("Benoit", "Benoite") + " shrugs.  \"<i>Nasty little sings.  Tasty, though.</i>\"");
-                //[Factory not cleared: 
+                //[Factory not cleared:
                 else if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) < 0) this.outputText("\n\n\"<i>Not anysing very interesting,</i>\" " + this.benoitMF("he", "she") + " shrugs.  \"<i>I get a few customers from ze desert city, Tel'Adre, coming in 'ere in secret to pick up a few sings zey cannot find back 'ome.  So zey are still a sing.  You 'ave to wonder ow much longer zey can keep hiding, though.</i>\"");
                 else {
-                    //[Factory destroyed: 
+                    //[Factory destroyed:
                     if (this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0) {
                         this.outputText("\n\n\"<i>I don't know what is 'appening exactly,</i>\" " + this.benoitMF("he", "she") + " says, leaning over the counter. \"<i>But ze demons 'oo I trade with, zey seem very worked up about sumsing.  Sumsing went wrong at one of zeir facilities, I sink.  I also get a number of shark ladies coming in ere, asking if I sell fresh water.  Zey also seem very unhappy.</i>\"");
                     }
@@ -668,7 +668,7 @@ export class Benoit extends BazaarAbstractContent {
         this.outputText("\n\n(\"<i>Suggest</i>\" option added to " + this.benoitMF("Benoit's", "Benoite's") + " menu.)");
     }
 
-    //Suggest: 
+    //Suggest:
     private eggySuggest(): void {
         this.clearOutput();
         if (this.flags[kFLAGS.BENOIT_TESTED_BASILISK_WOMB] == .5) {
@@ -690,18 +690,18 @@ export class Benoit extends BazaarAbstractContent {
         }
         this.flags[kFLAGS.BENOIT_TIMES_SEXED_FEMPCS]++;
         if (this.player.isTaur()) {
-            //Suggest: 
+            //Suggest:
             this.outputText("You reach your fingers across the counter and lightly touch Benoit's hands, saying you don't mind working out a few natural urges, if he's in the mood.");
             this.outputText("\n\n“You- I- what?” he replies, looking slightly stunned. “You don't? Are you... I don't know if....” You reach across and squeeze Benoit's hands until his nervous babble dies out and hesitantly, he squeezes back.  Still holding his hand, you move behind the crates and then gently lead him behind the stall's canopy.");
             this.outputText("\n\nWhat passes for Benoit's back office is perfect for your purposes; the two wagons between which his stall is sandwiched close together here and the triangular space is filled with crates and unsorted salvage.  You carefully inch your blind charge to a clear cranny and push him against a wooden wall, standing back to slowly peel off your " + this.player.armorName + ".  You grin as you ostentatiously drop each piece onto the packed earth, allowing him to guess what it is by the sound it makes.  His breathing comes heavier as your undergarments make a feathery sound as they fall.");
             this.outputText("\n\n“Zis will sound strange,” says Benoit in a thick voice, “But- would you mind if I just touched you a bit first? All I know about you is ze sound of your voice.”  You acquiesce and draw close, taking his hands once again and gently laying them upon you.  You sigh as, holding his index claws back, he begins to move them slowly up and down.");
             this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel like you're being read like a book in Braille.  “Good Gods,” he murmurs as his hands lead back onto your flanks.  “Good Gods!” he cries out as he follows you all the way back to your mighty, powerful rear.  “I knew you were a centaur because of all ze clip clopping,” he says, rubbing your side back and forth in wonder.  “But to know it and actually feel it, zey are somesing very different.” He sighs.  “I 'ope you do not mind zis being a bit... awkward, but I am guessing you are probably used to zat by now, yes?”");
-            // Herm: 
+            // Herm:
             if (this.player.gender == 3) {
                 this.outputText("\n\nHis hands travel down your behind until, with a sharp intake of breath, he touches [oneCock].  “Aren't you just full of surprises,” he says dryly.  After a pause, he slowly wraps his dry, smooth grasp around your semi-erect cock and moves it up and down, rubbing and coiling you until you are straining.");
-                //[cock 10 inches or less: 
+                //[cock 10 inches or less:
                 if (this.player.longestCockLength() <= 10) this.outputText("  Although this is evidently an uncanny experience for him, he does manage a cocky smile as his hand moves around your male sex. “Mine is bigger,” he teases.  Unable to reward his cheek from where he is, you simply snort and shuffle your hooves, impatient now with need.");
-                //[cock  >10 inches: 
+                //[cock  >10 inches:
                 else this.outputText("  This is evidently an uncanny experience for him, the alien nature of it deepening as his hands moves around your male sex. “Oly Gods [name], you are a monster,” he says thickly.  You smile and stamp your hooves, impatient now with need.");
             }
             this.outputText("\n\nHis hands trail upwards, moving over your bestial behind, exploring your soft flesh until he touches your lips.  You close your eyes and sigh as he slowly parts them with his smooth fingers and slides into your [vagina].  Although his breath is becoming increasingly heavy he also seems genuinely curious about you; with surprising gentleness his fingers travel over and around your moistening sex, exploring your every fold, working deeper and deeper as he does.  You let him know what pleases you by sighing when he touches a sweet spot, moving deliberately with his finger's motions so he may give them better attention.  He soon finds your [clit], beginning to bulge with need; slowly he circles it and then flicks at it, gently frigging you.");
@@ -712,13 +712,13 @@ export class Benoit extends BazaarAbstractContent {
             this.player.cuntChange(12, true, true, false);
             this.outputText("\n\nBenoit's dick is incredibly smooth and you move down onto it with incredible, slick ease.  Rather than burying yourself onto it straight away you stop with only a third of it in your wet depths and slowly bring it out of you, dipping yourself slowly.  You stop with his sensitive head just inside and work your [hips] around deliberately, sighing as it rotates slowly around your slick walls.  Benoit moans dryly and you feel his body tense; immediately you stop your movements and wait, only gradually beginning to gyrate and thrust again when he has calmed down.  You slide more of him into you when you bend forwards again, this time leaving only his base outside of you; you sigh as you feel him creeping further into your moist depths.  He makes a bestial noise and tries to thrust himself into you and upon you; tutting mockingly, you pull yourself away from him and stop moving until, with what is evidently a huge force of will, the basilisk calms himself, backs himself against the wall and allows you to work him.");
 
-            //[Small capacity: 
+            //[Small capacity:
             if (this.player.vaginalCapacity() <= 30) this.outputText("\n\nYou slide back down onto him, cooing this time as you feel him bottom out with several inches of him still outside of you.  His thin, long length could not be more perfect for your tight sex; he rubs your walls up and down as you dreamily thrust in and out of his body, sending waves of pleasure flowing through you.");
-            //Large capacity: 
+            //Large capacity:
             else this.outputText("\n\nYou slide back down onto him, cooing this time as your groin meets his muscled thighs with a wet kiss, your sex swallowing his cock whole.  You begin to ride him hard and slow, bending his cock upwards to push at your sensitive walls, waves of pleasure starting to flow through you.");
 
             this.outputText("\n\nYou keep at this slow ride for what feels like hours, stopping and starting, pulling and pushing deliberately to keep the basilisk you have backed into a corner under your control.  The pace of the fuck is clearly agonising for Benoit; he pants, tenses and gasps to the wet movement of your [vagina], his face and chest red with extreme arousal, but he lets you stay in control, eventually unable to do anything but lie back and let you have your way with him.");
-            //[Lactation: 
+            //[Lactation:
             if (this.player.lactationQ() >= 50) this.outputText("  The slow, sensual sex is enough for you to begin to bead milk from your sensitive [nipples]; you moan as the flow intensifies until you are instinctively kneading your [chest], spurting your sweet, warm fluids onto the floor.  Benoit starts in genuine amazement at the sound.  “Mammals are so damn weird,” he mutters, making you giggle.");
 
             this.outputText("\n\nYour lust ratchets up as his warm hands continue to move over your behind, and at last losing your discipline you begin to thrust into him with abandon, eager now for your peak.  Benoit pants as you really begin to fuck him and thrusts with you; the wetness of your arousal spatters against his thighs as your body slaps into the basilisk's tight muscles.  He makes a harsh, bestial noise when he cums; his blind eyes roll as he clutches your back and shoots surge after surge of cum into your churning depths.  The warmth of his jizz and his helpless bucking thrust you to your own orgasm; irrepressible pulses of pleasure overwhelm your mind and you can do nothing for long minutes except cry and squeal against the basilisk, clutching him back as you work his dick for every last drop.");
@@ -733,22 +733,22 @@ export class Benoit extends BazaarAbstractContent {
 
             this.outputText("\n\n\"<i>Zis will sound strange,</i>\" says Benoit in a low, thick voice, \"<i>But - would you mind if I just touched you a bit first?  All I know about you is your smell and ze sound of your voice.</i>\"  You acquiesce and draw close, taking his hands once again and gently laying them upon your body.  You sigh as, holding his index claws back, he begins to move them slowly up and down.");
 
-            //[Demon: 
+            //[Demon:
             if (this.player.horns > 0 && this.player.hornType == HORNS_DEMON && this.player.tailType == TAIL_TYPE_DEMONIC && this.player.demonScore() >= 3) this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  He touches your horns and pauses; he reaches around, finds and grips your tail, running his pads up to the spaded point.  \"<i>So,</i>\" he says quietly.  \"<i>You are one of zem.</i>\"  He is silent for a while before finding a warm smile.  \"<i>But I am being silly.  I know you are different inside.</i>\"");
-            //[Dog enough for ears and tail: 
+            //[Dog enough for ears and tail:
             else if (this.player.earType == EARS_DOG && this.player.tailType == TAIL_TYPE_DOG && this.player.dogScore() >= 3) this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  He grins as he finds your floppy ears and outright laughs when he reaches around and touches your tail. \"<i>I like dogs, but not ZAT much, [name],</i>\" he laughs.");
-            //[Cat/Bunny enough for ditto: 
+            //[Cat/Bunny enough for ditto:
             else if (this.player.catScore() >= 3 && this.player.tailType == TAIL_TYPE_CAT && this.player.earType == EARS_CAT) this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  He grins as he finds your ears, outright laughs when he reaches around and touches your soft tail.  \"<i>I always wondered why Pierre gets all excited when 'e sees you,</i>\" he chuckles huskily.");
-            //[Avian with wings and feet:  
+            //[Avian with wings and feet:
             else if (this.player.lowerBody == LOWER_BODY_TYPE_HARPY && this.player.wingType == WING_TYPE_FEATHERED_LARGE) this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  He finds your wings and follows them up as far as he can reach, making you twitch as he caresses your delicate pinfeathers; he carefully shifts his feet forward to touch at your own clawed toes.  \"<i>So,</i>\" he sighs, a smile playing on his lips as he touches your shoulder.  \"<i>What is in front of me is a terrible 'arpy.  Come from ze skies to ravish me.</i>\"");
-            //[Reptile/Naga: 
+            //[Reptile/Naga:
             else if (this.player.skinType == SKIN_TYPE_SCALES && (this.player.lizardScore() >= 3 || this.player.nagaScore() >= 3) || this.player.dragonScore() >= 3) this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  He starts slightly when he touches your scales, and then caresses the reptilian parts of your body with increasing interest.  \"<i>I cannot believe I did not realize you were a sister of ze scales,</i>\" he says huskily.  \"<i>Zat is very... interesting.</i>\"  You can see real arousal in the tense lines of his face now.");
-            //[Bee: 
+            //[Bee:
             else if ((this.player.wingType == WING_TYPE_BEE_LIKE_SMALL || this.player.wingType == WING_TYPE_BEE_LIKE_LARGE) && this.player.lowerBody == LOWER_BODY_TYPE_BEE) this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  He finds your diaphanous wings and follows them up as far as he can reach, his grip on your sensitive membranes making you twitch a bit; then he sends his hands trailing down your carapace-armored limbs.  \"<i>I sought you just liked wearing big boots,</i>\" he murmurs.  \"<i>But zis is actually a part of you?  'Ow... interesting.</i>\"");
-            //[Centaur: 
+            //[Centaur:
             else if (this.player.isTaur()) this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  \"<i>Good Gods,</i>\" he murmurs as his hands lead back onto your flanks.  \"<i>Good Gods!</i>\" he cries out as he follows you all the way back to your mighty, powerful rear.  \"<i>I knew you were a centaur because of all ze clopping,</i>\" he says, rubbing your flank back and forth in wonder.  \"<i>But to know it and actually feel it, zey are very different.</i>\"  He sighs.  \"<i>Zis is going to be a bit... awkward, but I am guessing you are all too used to zat by now, yes?</i>\"");
             else if (this.player.isDrider()) this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  \"<i>Good Gods,</i>\" he murmurs as his hands lead back onto your tough exoskeleton. \"<i>Good Gods!</i>\" he cries out as he follows your bulging abdomen all the way back to your spinnerets. \"<i>I knew you were a spider because of all ze click-clacking,</i>\" he says, his fingers feeling around one of your intricate, many-jointed legs in wonder.  \"<i>But to know it and actually feel it, zey are very different.</i>\"");
-            //[Slime: 
+            //[Slime:
             else if (this.player.isGoo()) this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  \"<i>I knew you were different from ze squishy sounds you made,</i>\" he murmurs as his hands sink into your soft, amorphous mass.  \"<i>But zis is...good Gods, zis is strange.  And zis doesn't 'urt you at all?</i>\" he asks incredulously as he gently pokes a finger into you.  You answer his question by giggling.  \"<i>Zat must come in very useful,</i>\" he says, shaking his head in wonder.  You push yourself slowly up his arms and tell him he has no idea.");
             else this.outputText("\n\nHis warm fingers travel over your body, brushing over your face, your belly, your [hips]; you feel as though you're being read like a book.  \"<i>You 'umans are so squishy, fuzzy and 'ot,</i>\" he says huskily. \"<i>'Ow can you stand it?</i>\"");
             if (this.player.hasCock()) {
@@ -808,7 +808,7 @@ export class Benoit extends BazaarAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //No: 
+    //No:
     private dontTakeEggtraceptives(): void {
         this.clearOutput();
         this.outputText("You smile and say you don't mind carrying and laying a few basilisk eggs. \"<i>You... you don't?</i>\" he says hesitantly.  He faces you and for a moment looks like he's going to say something else; but then he shakes his head and puts the bag back into the drawer.");
@@ -821,7 +821,7 @@ export class Benoit extends BazaarAbstractContent {
     }
 
 
-    //Subsequent visit to the shop: 
+    //Subsequent visit to the shop:
     private firstTimeAfterBoningEncounterBenoit(): void {
         this.clearOutput();
         //Set a flag here to make sure it only happens once.
@@ -834,7 +834,7 @@ export class Benoit extends BazaarAbstractContent {
         //[defaults to regular 30+ affection visit afterwards]
     }
 
-    //Let him(not for horses): 
+    //Let him(not for horses):
     private repeatSexWithBenoitLetHim(): void {
         this.clearOutput();
         if (this.player.isTaur()) {
@@ -851,9 +851,9 @@ export class Benoit extends BazaarAbstractContent {
             this.outputText("\n\nHe pulls out of you, trailing threads of semen as he goes, before slowly turning you around, painstakingly feeling around for a clear space with his feet, and then putting you down, gently but firmly positioning you on your lower body.  His hands descend upon your [butt]; grinning, you poke it outwards invitingly, sighing with mock frustration as the blind basilisk painstakingly lines up his next shot with your drooling, sticky sex.");
 
             this.outputText("\n\nWhen he slides into you he does so with virtually no resistance whatsoever; the two of you have turned your pussy into an inviting, gooey sleeve.  ");
-            //[Tight: 
+            //[Tight:
             if (this.player.vaginalCapacity() < 30) this.outputText("You don't mind; your tight sex is a perfect fit for his smooth, thin dick, and you work with him as he thrusts, pulling and pushing your walls in time with his length, your lubrication allowing him to quickly increase the tempo until the two of you are once again bucking against each other gleefully, your fluids spattering against each other.");
-            //Loose: 
+            //Loose:
             else this.outputText("Although he is long he barely even touches the sides of your encompassing twat.  The sensation isn't great for you until he really starts to go to town, ramming into you with all he's got, beating a wet staccato against your [butt], pushing against your [clit] as he sheaths himself in you.  Your fluids begin to dribble onto your hooves as your slick pleasure button bulges with increasing delight.");
             this.outputText("\n\nThe difference in the position makes his dick bend into you at a different angle, stroking a neglected spot which soon has you gasping with need.  Benoit is not as maddened as he was the first time, and he has the composure to draw himself out; he slows himself down and then back up again, fucking you magisterially, withdrawing himself almost all the way out of you before slamming firmly back in, stopping whilst hilted in you until you beg and moan for him to continue.  You give yourself up to the dominant rut you've awoken in him, thrusting back into him as you are fucked up to a second ecstatic height and then a third; everything disappearing underneath a timeless red haze, of having your [butt] in the air and being given what a mare needs.");
 
@@ -892,7 +892,7 @@ export class Benoit extends BazaarAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    //Take charge: 
+    //Take charge:
     private repeatBenoitFuckTakeCharge(): void {
         this.clearOutput();
         if (this.player.isTaur()) {
@@ -911,16 +911,16 @@ export class Benoit extends BazaarAbstractContent {
             this.outputText("\n\n");
             //[Small capacity:]
             if (this.player.vaginalCapacity() < 30) this.outputText("You slide back down onto him, cooing this time as you feel him bottom out with several inches of him still outside of you.  His thin, long length could not be more perfect for your tight sex; he rubs your walls up and down as you dreamily thrust in and out of his body, sending waves of pleasure flowing through you.");
-            //Large capacity: 
+            //Large capacity:
             else this.outputText("You slide back down onto him, cooing this time as your groin meets his muscular thighs with a wet kiss, your sex swallowing his cock whole.  You begin to ride him hard and slow, bending his cock upwards to push at your sensitive walls, waves of pleasure starting to flow through you.");
 
             this.outputText("\n\nYou keep at this slow ride for what feels like hours, stopping and starting, pulling and pushing deliberately to keep the basilisk you have backed into a corner under your control.  The pace of the fuck is clearly agonising for Benoit; he pants, tenses and gasps to the wet movement of your [vagina], his face and chest red with extreme arousal, but he lets you stay in control, eventually unable to do anything but lie back and let you have your way with him.");
             this.player.cuntChange(14, true, true, false);
-            //[Lactation: 
+            //[Lactation:
             if (this.player.lactationQ() >= 50) this.outputText("  The slow, sensual sex is enough for you to begin to bead milk from your sensitive [nipples]; you moan as the flow intensifies until you are instinctively kneading your [chest], spurting your sweet, warm fluids onto the floor.  Benoit starts in genuine amazement at the sound.  “Mammals are so damn weird,” he mutters, making you giggle.");
 
             this.outputText("\n\nYour lust ratchets up as his warm hands continue to move over your behind, and at last losing your discipline you begin to thrust into him with abandon, eager now for your peak.  Benoit pants as you really begin to fuck him and thrusts with you; the wetness of your arousal spatters against his thighs as your body slaps into the basilisk's tight muscles.  He makes a harsh, bestial noise when he cums; his blind eyes roll as he clutches your back and shoots surge after surge of cum into your churning depths.  The warmth of his jizz and his helpless bucking thrust you to your own orgasm; irrepressible pulses of pleasure overwhelm your mind and you can do nothing for long minutes except cry and squeal against the basilisk, clutching him back as you work his dick for every last drop.");
-            //[Herm: 
+            //[Herm:
             if (this.player.hasCock()) this.outputText("  [EachCock] thickens and spurts in sympathy to your female high, spattering the floor with white paint.");
 
             this.outputText("\n\nYou puddle onto the packed earth floor and cuddle for a while, holding each other as you bask in the afterglow, silently listening to the far away bustle and clatter of the carnival.");
@@ -941,12 +941,12 @@ export class Benoit extends BazaarAbstractContent {
 
             this.outputText("\n\nBenoit's dick is incredibly smooth and you move down onto it with slick ease.  Rather than burying yourself onto it straight away, you stop with only a third of it in your wet depths and bring it out of you, dipping yourself slowly.  You stop with his sensitive head just inside and work your [hips] around deliberately, sighing as it rotates around your slick walls.  Benoit moans and you feel his body tense; immediately you halt your movements and wait, only gradually beginning to gyrate and thrust again when he has calmed down.  You slide more inside when you bend forwards again, this time leaving only his base outside of you; a sigh rolls from you as you feel him creeping further into your moist depths.  He makes a bestial noise and tries to thrust himself into you and upon you; tutting mockingly, you pull yourself away from him and stop moving until, with what is evidently a huge force of will, the basilisk calms himself, backs himself against the wall and allows you to work him.");
 
-            //[Small capacity: 
+            //[Small capacity:
             if (this.player.vaginalCapacity() < 30) this.outputText("\n\nYou slide back down onto him, cooing this time as you feel him bottom out with several inches still outside.  His thin member could not be more perfect for your tight sex; he rubs your walls up and down as you dreamily thrust in and out of his body, sending waves of pleasure washing through you.");
             else this.outputText("\n\nYou slide back down onto him, cooing this time as your groin meets his muscled thighs with a wet kiss, your sex swallowing his cock whole.  You begin to ride him hard and slow, bending his cock upwards to push at your sensitive walls, waves of pleasure starting to wash through you.");
 
             this.outputText("\n\nYou keep at this for what feels like hours, stopping and starting, pulling and pushing deliberately to keep the basilisk you have backed into a corner under your control.  The pace of the fuck is clearly agonising for Benoit; he pants, tenses and gasps to the wet movement of your [vagina], his face and chest heaving with extreme arousal, but he lets you stay in command, eventually giving up on anything but lying back and letting you have your way with him.  To give him something to do, you grab his hands and lay them upon your [chest]; after exploring your flesh for a time, he finds your [nipple]s and begins to knead them, placing each nub between two fingers and rubbing them insistently.");
-            //[Lactation: 
+            //[Lactation:
             if (this.player.lactationQ() > 100) {
                 this.outputText("  You moan as your breasts reward his attention with spurts of milk; he starts in genuine amazement when they ");
                 if (!this.player.isTaur()) this.outputText("hit him in the face");
@@ -991,7 +991,7 @@ export class Benoit extends BazaarAbstractContent {
             //return to shop menu
             doNext(benoitIntro);
         }*/
-        //Ingredients in inventory: 
+        //Ingredients in inventory:
         else {
             this.player.consumeItem(this.consumables.OVIELIX, 2);
             this.player.consumeItem(this.consumables.REPTLUM);
@@ -1014,7 +1014,7 @@ export class Benoit extends BazaarAbstractContent {
             //put some tag here to track dis shit.
             this.flags[kFLAGS.BENOIT_TESTED_BASILISK_WOMB] = .5;
 
-            //[Lust 30 or more: 
+            //[Lust 30 or more:
             if (this.player.lust >= 33) {
                 this.outputText("  You grin and say you're not sure it worked, but you suppose there's only one real way of finding out...");
                 if (this.player.tallness <= 78 && !this.player.isTaur()) this.outputText("  The basilisk is still for a moment, and then with a sudden surge of movement, grabs you by the waist and hoists you over his shoulder.  You squeal in mock terror as he hauls you as fast as he can into the back room, knocking over half his stock as he does.");
@@ -1030,16 +1030,16 @@ export class Benoit extends BazaarAbstractContent {
 
     private suggestSexAfterBasiWombed(later: boolean = true): void {
         this.clearOutput();
-        //Subsequent \"<i>Suggest</i>\" if initial sex option not taken: 
+        //Subsequent \"<i>Suggest</i>\" if initial sex option not taken:
         if (later) {
             this.outputText("You smile coquettishly and ask if he's interested in taking your new body for a... test drive.  ");
-            //(6'6 or less: 
+            //(6'6 or less:
             if (this.player.tallness <= 78 && !this.player.isTaur()) this.outputText("The basilisk is still for a moment, and then with a sudden surge of movement, grabs you by the waist and hoists you over his shoulder.  You squeal in mock terror as he hauls you as fast as he can into the back room, knocking over half his stock as he does.");
             else this.outputText("The basilisk is still for a moment, and then with a sudden surge of movement, grabs you by the waist and frenetically attempts to hoist you over his shoulder.  You are far too big for him though; after several valiant attempts, he collapses against a shelf.  Laughing, you pick the stricken, panting reptile up, hoist him over your own shoulder, and navigate a path into the back room.");
             this.outputText("\n\n");
         }
         if (!this.player.isTaur()) {
-            //Both go to: [>6'6: 
+            //Both go to: [>6'6:
             if (this.player.tallness > 78) this.outputText("You haul your lizard boy into the cramped space of the backroom before gently setting him down.  Now that your gut has settled you feel imbued with an odd, ripe sensation; your belly bulges ever-so-slightly with unfertilized eggs and you feel red, soft and ready.  You begin to disrobe eagerly; having recovered himself slightly, Benoit shrugs out of his trousers, reaching out to you before stopping.  Grinning kindly at the emasculated basilisk, you lower yourself onto the floor, spread your [hips] casually and then ask if he see... smells anything interesting.");
             else this.outputText("Benoit staggers into the back room, bumping into several things as he sets you down, thankfully onto a clear space on the ground.  He leans into you, his weight pushing you onto the ground, hands flying over your [armor], fumbling off clasps and belts when he finds them.  Now that your gut has settled you feel imbued with an odd, ripe sensation; your belly bulges ever-so-slightly with unfertilized eggs and you feel red, soft and ready.  You work with him, wriggling out of your clothes and ripping his own trousers off, spreading your [hips] eagerly as his long, smooth prick springs to attention.");
 
@@ -1120,7 +1120,7 @@ export class Benoit extends BazaarAbstractContent {
         if (this.flags[kFLAGS.BENOIT_EGGS] > 0) this.outputText("latest ");
         this.outputText("clutch hatches, anyway.");
 
-        //First Time: 
+        //First Time:
         if (this.flags[kFLAGS.BENOIT_EGGS] == 0) {
             this.outputText("\n\nHe beams with joy, then looks confused.  \"<i>But... why have you brought zem 'ere?</i>\" he questions.");
 
@@ -1135,7 +1135,7 @@ export class Benoit extends BazaarAbstractContent {
             this.outputText("\n\n\"<i>If zis works, [name], you 'ave done my people a service I cannot repay.  Even if it doesn't, to do zis for me is...</i>\" he gestures futilely as words fail him.  \"<i>All zis time I 'ave been trading potions, I could 'ave done it myself, and I never did.  Per'aps I sought I was too much a man or somesing.  Pah!  I was a coward, a cringing coward.  You 'ad ze idea, you 'ad ze courage, you 'ad ze strength, and because of zat, my people 'ave a chance.  Sank you.</i>\"  He sounds slightly choked, and stops for a moment.  \"<i>It is very, very little, but for you I buy and sell sings at zeir true value.  If zeir is anysing I can do for you, ever, please just say.</i>\"  You are slightly embarrassed by his effusiveness and mumble something.  Perhaps aware of the awkwardness, Benoit gestures to the corner where he has put together a serviceable stove from scrap.\n\n\"<i>'Ungry?</i>\"");
             this.outputText("\n\nYou linger long enough to share breakfast with him, and then return to camp.");
         }
-        //Subsequent: 
+        //Subsequent:
         else {
             this.outputText("\n\nBenoit smiles proudly.  \"<i>I cannot zank you enough for zis.  Do not worry, I shall keep zem as safe as I ave ze ozzeir clutches.</i>\"\n");
         }
@@ -1160,9 +1160,9 @@ export class Benoit extends BazaarAbstractContent {
             if (player.hasItem(consumables.BIMBOLQ))
             {
                 outputText("\n\nA certain pink, effervescent liqueur suddenly feels very heavy in your pouch.  That would certainly be powerful enough to give Benoit what he wants... along with a lot of side effects.");
-        
+
                 outputText("\n\n(\"<i>Bimbofy</i>\" option added to " + benoitMF("Benoit's","Benoite's") + " menu.)");
-        
+
                 flags[kFLAGS.BIMBO_FEMOIT_UNLOCKED] = 1;
             }
             */
@@ -1436,7 +1436,7 @@ export class Benoit extends BazaarAbstractContent {
 
         this.outputText("\n\nShe lets out a howl of pain, claws digging deeply into the scarred wood of the tough old table she's leaning on, her huge belly hanging heavily over the floor. Instinct motivates you to help the soon-to-be mother of your children, and you dart around behind her.");
 
-        // (First time: 
+        // (First time:
         if (this.flags[kFLAGS.FEMOIT_HELPED_LAY] == 0) {
             this.outputText("\n\nYou ask if she can think of any way for you to help her.");
 

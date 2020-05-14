@@ -1,5 +1,5 @@
 import { AbstractSpiderMorph } from "./AbstractSpiderMorph";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, TAIL_TYPE_SPIDER_ADBOMEN } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, TAIL_TYPE_SPIDER_ADBOMEN } from "../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 

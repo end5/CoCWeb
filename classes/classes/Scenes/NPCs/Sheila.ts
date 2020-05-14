@@ -2,7 +2,7 @@ import { Monster } from "../../Monster";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_KANGAROO, TAIL_TYPE_KANGAROO } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_KANGAROO, TAIL_TYPE_KANGAROO } from "../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../internals/WeightedDrop";
 import { ChainedDrop } from "../../internals/ChainedDrop";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";

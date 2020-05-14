@@ -9,7 +9,7 @@ import { Weapon } from "./Items/Weapon";
 import { WeaponLib } from "./Items/WeaponLib";
 import { Armor } from "./Items/Armor";
 import { ArmorLib } from "./Items/ArmorLib";
-import { EYES_HUMAN, ARM_TYPE_HUMAN, SKIN_TYPE_PLAIN, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, SKIN_TYPE_GOO, TONUGE_HUMAN, EARS_HUMAN, ANTENNAE_NONE, HORNS_NONE, BREAST_CUP_B } from "../../includes/appearanceDefs";
+import { EYES_HUMAN, ARM_TYPE_HUMAN, SKIN_TYPE_PLAIN, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, SKIN_TYPE_GOO, TONUGE_HUMAN, EARS_HUMAN, ANTENNAE_NONE, HORNS_NONE, BREAST_CUP_B } from "../includes/appearanceDefs";
 import { CockTypesEnum } from "./CockTypesEnum";
 import { PerkType } from "./PerkType";
 import { PerkLib } from "./PerkLib";
@@ -378,9 +378,9 @@ export class Saves extends BaseContent {
 
 
     /*
-    
+
     OH GOD SOMEONE FIX THIS DISASTER!!!!111one1ONE!
-    
+
     */
     //FURNITURE'S JUNK
     public saveGameObject(slot: string, notes?: HTMLInputElement, exportFile?: boolean): void {
@@ -1683,7 +1683,7 @@ export class Saves extends BaseContent {
 
             if (this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] != 0 && this.flags[kFLAGS.SOPHIE_INCUBATION] != 0) return; //Must be a new format save
             if (this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] > 0 && this.flags[kFLAGS.SOPHIE_INCUBATION] == 0) { //She's in the wild and pregnant with an egg
-                this.flags[kFLAGS.SOPHIE_INCUBATION] = this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE]; //SOPHIE_PREGNANCY_TYPE was previously SOPHIE_WILD_EGG_COUNTDOWN_TIMER 
+                this.flags[kFLAGS.SOPHIE_INCUBATION] = this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE]; //SOPHIE_PREGNANCY_TYPE was previously SOPHIE_WILD_EGG_COUNTDOWN_TIMER
                 this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
             }
             else if (this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] == 0 && this.flags[kFLAGS.SOPHIE_INCUBATION] > 0) {

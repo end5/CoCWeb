@@ -1,6 +1,6 @@
 import { BazaarAbstractContent } from "./BazaarAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { TONUGE_DEMONIC, TAIL_TYPE_DEMONIC, TAIL_TYPE_NONE } from "../../../../../includes/appearanceDefs";
+import { TONUGE_DEMONIC, TAIL_TYPE_DEMONIC, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../../PregnancyStore";
 
 export class Lilium extends BazaarAbstractContent {
@@ -9,9 +9,9 @@ export class Lilium extends BazaarAbstractContent {
     //probably needs to increment your corruption if you're fucking
     //a proper demon. -Z
 
-    //Notes: Requires just a penis, penis and long demonic tongue 
-    //or a vagina. There's a couple of small conditionals to stop 
-    //references to legs for nagas so it's ok for them, but it 
+    //Notes: Requires just a penis, penis and long demonic tongue
+    //or a vagina. There's a couple of small conditionals to stop
+    //references to legs for nagas so it's ok for them, but it
     //doesn't really make sense for centaurs.
 
     //Vars:
@@ -70,7 +70,7 @@ export class Lilium extends BazaarAbstractContent {
             this.doNext(this.bazaar.enterTheBazaar);
             return;
         }
-        //First time - Pay: 
+        //First time - Pay:
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00267] == 0) {
             this.outputText("\"<i>Sounds good,</i>\" you answer while fishing for your gem stash.\n\n", false);
 
@@ -137,7 +137,7 @@ export class Lilium extends BazaarAbstractContent {
         this.outputText("Panting, Lilium grabs your hands and moves them around her waist, holding them against her stomach.  ", false);
         //(If naga body)
         if (this.player.isNaga()) this.outputText("As you both stand there, reeling in the wake of your ecstasy, she leans back against you causing you to flop onto your " + this.buttDescript() + " with the demon girl on top of you; you haven't the strength to remain standing.", false);
-        //(else) 
+        //(else)
         else this.outputText("As you both stand there, reeling in the wake of your ecstasy, she leans back against you causing you to flop onto your " + this.buttDescript() + " with the demon girl on top of you; your wobbling legs have temporarily lost the strength to keep you both upright.", false);
         this.outputText("  Lilium lets out a laugh and soon you find yourself laughing with her.\n\n", false);
 

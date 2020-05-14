@@ -1,6 +1,6 @@
 import { Monster } from "../../Monster";
 import { StatusAffects } from "../../StatusAffects";
-import { TONUGE_HUMAN, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_CURVY, BUTT_RATING_LARGE } from "../../../../includes/appearanceDefs";
+import { TONUGE_HUMAN, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_CURVY, BUTT_RATING_LARGE } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { Appearance } from "../../Appearance";
 

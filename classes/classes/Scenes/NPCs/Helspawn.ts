@@ -1,7 +1,7 @@
 import { Monster } from "../../Monster";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../StatusAffects";
-import { VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, TAIL_TYPE_LIZARD } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, TAIL_TYPE_LIZARD } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 
 export class Helspawn extends Monster {

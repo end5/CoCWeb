@@ -1,7 +1,7 @@
 import { Monster } from "../../Monster";
 import { StatusAffects } from "../../StatusAffects";
 import { PerkLib } from "../../PerkLib";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, TAIL_TYPE_COW } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 
 export class Isabella extends Monster {

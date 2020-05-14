@@ -1,7 +1,7 @@
 import { Monster } from "../../../Monster";
 import { Player } from "../../../Player";
 import { StatusAffects } from "../../../StatusAffects";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_SLENDER, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_LIZARD, SKIN_TYPE_SCALES, TAIL_TYPE_COW } from "../../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_SLENDER, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_LIZARD, SKIN_TYPE_SCALES, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
 import { ChainedDrop } from "../../../internals/ChainedDrop";
 
 /**
