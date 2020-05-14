@@ -1,8 +1,18 @@
+# Directory
 .vscode/
 node_modules/
+tmp/
+
 /*/
 !/classes
 !/converter
 !/includes
 !/lib
 !/res
+
+# File
+*.log
+.*
+!/.editorconfig
+!/.gitignore
+!/.prettier*
