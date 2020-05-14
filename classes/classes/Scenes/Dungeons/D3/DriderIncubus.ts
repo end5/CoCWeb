@@ -1,7 +1,6 @@
 import { AbstractSpiderMorph } from "../../Areas/Swamp/AbstractSpiderMorph";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { HIP_RATING_SLENDER, BUTT_RATING_TIGHT } from "../../../../../includes/appearanceDefs";
-import { release } from "os";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";

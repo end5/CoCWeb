@@ -1,7 +1,6 @@
 import { Monster } from "../../../Monster";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { HIP_RATING_SLENDER, BUTT_RATING_TIGHT } from "../../../../../includes/appearanceDefs";
-import { release } from "os";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
