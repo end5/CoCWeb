@@ -1,7 +1,7 @@
 ﻿import { StatsView } from "./StatsView";
 import { trace } from "../console";
 import { CoCButton } from "./CoCButton";
-import { GameModel } from "../coc/model/GameModel";
+import { GameModel } from "../model/GameModel";
 import { kFLAGS } from "../classes/GlobalFlags/kFLAGS";
 import { loadId } from "./LoadUtils";
 import { Sprites } from "../Sprites";

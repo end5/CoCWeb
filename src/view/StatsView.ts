@@ -1,4 +1,4 @@
-import { GameModel } from "../coc/model/GameModel";
+import { GameModel } from "../model/GameModel";
 import { StatView, StatViewWithBar } from "./StatView";
 import { TimeView } from "./TimeView";
 import { Player } from "../classes/Player";
