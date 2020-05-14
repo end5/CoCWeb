@@ -1,6 +1,6 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { FACE_COW_MINOTAUR } from "../../../../includes/appearanceDefs";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Ifris extends TelAdreAbstractContent {
 

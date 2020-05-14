@@ -1,17 +1,17 @@
-﻿import { BaseContent } from "../../../BaseContent";
-import { TimeAwareInterface } from "../../../TimeAwareInterface";
-import { PregnancyStore } from "../../../PregnancyStore";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+﻿import { trace } from "../../../../console";
+import { TONUGE_SNAKE, VAGINA_LOOSENESS_GAPING } from "../../../../includes/appearanceDefs";
+import { BaseContent } from "../../../BaseContent";
 import { CoC } from "../../../CoC";
-import { trace } from "../../../../console";
-import { DemonPack } from "./DemonPack";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../../PerkLib";
+import { PregnancyStore } from "../../../PregnancyStore";
 import { StatusAffects } from "../../../StatusAffects";
+import { TimeAwareInterface } from "../../../TimeAwareInterface";
 import { TentacleBeast } from "../Forest/TentacleBeast";
 import { Minotaur } from "../Mountain/Minotaur";
 import { Gnoll } from "../Plains/Gnoll";
-import { TONUGE_SNAKE, VAGINA_LOOSENESS_GAPING } from "../../../../includes/appearanceDefs";
-import { PerkLib } from "../../../PerkLib";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { DemonPack } from "./DemonPack";
 
 /**
  * Created by aimozg on 05.01.14.

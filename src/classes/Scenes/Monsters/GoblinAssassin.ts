@@ -1,9 +1,9 @@
+import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_AMPLE, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
+import { Appearance } from "../../Appearance";
+import { WeightedDrop } from "../../internals/WeightedDrop";
 import { Monster } from "../../Monster";
 import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE } from "../../../includes/appearanceDefs";
-import { Appearance } from "../../Appearance";
-import { WeightedDrop } from "../../internals/WeightedDrop";
 
 export class GoblinAssassin extends Monster {
     protected goblinDrugAttack(): void {

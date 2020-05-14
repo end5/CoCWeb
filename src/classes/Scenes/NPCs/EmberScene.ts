@@ -1,15 +1,15 @@
-﻿import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+﻿import { trace } from "../../../console";
+import { EARS_DRAGON, FACE_DRAGON, HORNS_DEMON, HORNS_DRACONIC_X2, HORNS_DRACONIC_X4_12_INCH_LONG, LOWER_BODY_TYPE_DRAGON, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, LOWER_BODY_TYPE_HOOFED, SKIN_TYPE_SCALES, TAIL_TYPE_DRACONIC, TAIL_TYPE_NONE, TONUGE_DRACONIC, TONUGE_HUMAN, WING_TYPE_DRACONIC_LARGE, WING_TYPE_DRACONIC_SMALL, WING_TYPE_NONE, WING_TYPE_SHARK_FIN } from "../../../includes/appearanceDefs";
 import { CoC } from "../../CoC";
-import { trace } from "../../../console";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { FACE_DRAGON, HORNS_DRACONIC_X4_12_INCH_LONG, HORNS_DRACONIC_X2, HORNS_DEMON, EARS_DRAGON, TONUGE_DRACONIC, SKIN_TYPE_SCALES, LOWER_BODY_TYPE_DRAGON, LOWER_BODY_TYPE_DRIDER_LOWER_BODY, LOWER_BODY_TYPE_HOOFED, TAIL_TYPE_DRACONIC, TAIL_TYPE_NONE, WING_TYPE_DRACONIC_LARGE, WING_TYPE_NONE, WING_TYPE_DRACONIC_SMALL, WING_TYPE_SHARK_FIN, TONUGE_HUMAN } from "../../../includes/appearanceDefs";
-import { Ember } from "./Ember";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { Ember } from "./Ember";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 /**
  * Created by aimozg on 04.01.14.

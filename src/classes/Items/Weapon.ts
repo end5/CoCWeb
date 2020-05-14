@@ -55,8 +55,8 @@ export class Weapon extends Useable //Equipable
                     equipped(player,output);
                 }
             }
-    
-    
+
+
             public  unequip(player:Player, returnToInventory: boolean, output: boolean = false): void
             {
                 if (returnToInventory) {

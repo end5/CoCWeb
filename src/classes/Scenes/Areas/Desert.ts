@@ -1,14 +1,14 @@
 import { BaseContent } from "../../BaseContent";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
 import { AntsScene } from "./Desert/AntsScene";
 import { NagaScene } from "./Desert/NagaScene";
 import { Oasis } from "./Desert/Oasis";
 import { SandTrapScene } from "./Desert/SandTrapScene";
 import { SandWitchScene } from "./Desert/SandWitchScene";
 import { Wanderer } from "./Desert/Wanderer";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 06.01.14.

@@ -1,6 +1,6 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 //NECESSARY FLAGS:
 //263 - Met nancy

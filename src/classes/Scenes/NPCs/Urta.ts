@@ -1,18 +1,18 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { CoC } from "../../CoC";
 import { trace } from "../../../console";
-import { Scylla } from "../Places/TelAdre/Scylla";
-import { CoC_Settings } from "../../CoC_Settings";
-import { VAGINA_WETNESS_SLICK, VAGINA_WETNESS_SLAVERING, TAIL_TYPE_HORSE, TAIL_TYPE_DOG, SKIN_TYPE_GOO, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_GOO, TONUGE_HUMAN, TAIL_TYPE_NONE, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC } from "../../../includes/appearanceDefs";
+import { LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_NAGA, SKIN_TYPE_GOO, TAIL_TYPE_DOG, TAIL_TYPE_HORSE, TAIL_TYPE_NONE, TONUGE_DEMONIC, TONUGE_DRACONIC, TONUGE_HUMAN, TONUGE_SNAKE, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_WET } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
-import { StatusAffects } from "../../StatusAffects";
+import { CoC } from "../../CoC";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { Katherine } from "../Places/TelAdre/Katherine";
-import { PerkLib } from "../../PerkLib";
+import { CoC_Settings } from "../../CoC_Settings";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { Katherine } from "../Places/TelAdre/Katherine";
+import { Scylla } from "../Places/TelAdre/Scylla";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class Urta extends NPCAwareContent implements TimeAwareInterface {
 

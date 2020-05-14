@@ -1,6 +1,6 @@
+import { PerkLib } from "../../PerkLib";
 import { Weapon } from "../Weapon";
 import { WeaponLib } from "../WeaponLib";
-import { PerkLib } from "../../PerkLib";
 
 /**
  * Created by aimozg on 10.01.14.
@@ -28,7 +28,7 @@ export class EldritchStaff extends Weapon {
             {
                 player.createPerk(PerkLib.WizardsFocus,.6,0,0,0);
             }
-        	
+
             public  unequipEffect(player:Player, output: boolean): void
             {
                 player.removePerk(PerkLib.WizardsFocus);

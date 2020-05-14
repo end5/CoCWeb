@@ -1,9 +1,9 @@
-import { AbstractFarmContent } from "./AbstractFarmContent";
-import { StatusAffects } from "../../../StatusAffects";
-import { LOWER_BODY_TYPE_CENTAUR, FACE_HORSE, FACE_DOG, FACE_SNAKE_FANGS, TONUGE_SNAKE, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_SLICK } from "../../../../includes/appearanceDefs";
+import { trace } from "../../../../console";
+import { FACE_DOG, FACE_HORSE, FACE_SNAKE_FANGS, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA, TONUGE_SNAKE, VAGINA_WETNESS_SLICK } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
 import { PregnancyStore } from "../../../PregnancyStore";
-import { trace } from "../../../../console";
+import { StatusAffects } from "../../../StatusAffects";
+import { AbstractFarmContent } from "./AbstractFarmContent";
 
 export class KeltScene extends AbstractFarmContent {
 

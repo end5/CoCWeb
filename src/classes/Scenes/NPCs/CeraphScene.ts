@@ -1,11 +1,11 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { LOWER_BODY_TYPE_CENTAUR, TAIL_TYPE_NONE, SKIN_TYPE_FUR, SKIN_TYPE_SCALES } from "../../../includes/appearanceDefs";
-import { StatusAffects } from "../../StatusAffects";
-import { PregnancyStore } from "../../PregnancyStore";
-import { Ceraph } from "./Ceraph";
-import { LustyMaidensArmor } from "../../Items/Armors/LustyMaidensArmor";
+import { LOWER_BODY_TYPE_CENTAUR, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { LustyMaidensArmor } from "../../Items/Armors/LustyMaidensArmor";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { Ceraph } from "./Ceraph";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 /**
  * Created by aimozg on 03.01.14.

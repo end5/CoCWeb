@@ -1,9 +1,9 @@
-import { Monster } from "../../../Monster";
-import { StatusAffects } from "../../../StatusAffects";
-import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_GAPING_WIDE, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, WING_TYPE_BEE_LIKE_LARGE } from "../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_CURVY, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_WETNESS_SLICK, WING_TYPE_BEE_LIKE_LARGE } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { Monster } from "../../../Monster";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class Vala extends Monster {
     //Vala AI

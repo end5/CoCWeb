@@ -1,10 +1,10 @@
-import { Monster } from "../../../Monster";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
 import { trace } from "../../../../console";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_NAGA } from "../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_AMPLE, LOWER_BODY_TYPE_NAGA, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_SLAVERING } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { Monster } from "../../../Monster";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class Naga extends Monster {
 

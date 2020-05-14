@@ -1,8 +1,8 @@
 import { BaseContent } from "../../../BaseContent";
-import { MaleSpiderMorph } from "./MaleSpiderMorph";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { PregnancyStore } from "../../../PregnancyStore";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { MaleSpiderMorph } from "./MaleSpiderMorph";
 
 /**
  * Created by aimozg on 03.01.14.
@@ -14,13 +14,13 @@ export class MaleSpiderMorphScene extends BaseContent {
         this.outputText("", true);
         this.spriteSelect(74);
         this.outputText("A spider-morph drops out of a tree in front of you, hanging by a single thread of sparkling webbing.  His purple eyes gaze deeply into your own while he looks you up and down.  ", false);
-        //DANGER MODE: 
+        //DANGER MODE:
         if (MaleSpiderMorphScene.rand(2) == 0) {
             this.outputText("A moment later, he flips down onto his feet and advances, touching his half-hard, foreskin-shrouded cock.  Judging from the glint in his eyes, he plans to force himself upon you!", false);
             //- auto fight
             this.startCombat(new MaleSpiderMorph());
         }
-        //NICE GUY MODE: 
+        //NICE GUY MODE:
         else {
             this.outputText("He breaks into a smile and says, \"<i>Hi there!  I haven't seen anyone else with a shred of sanity in FOREVER.  Would you mind just, talking with me?</i>\"", false);
             //[Fight] [Talk] [Leave]
@@ -387,7 +387,7 @@ export class MaleSpiderMorphScene extends BaseContent {
         this.outputText("You shudder violently, your stomach growling fiercely at you. It feels as if something is moving around in your womb, and you bend over on all fours, raising your ass into the air as if it is the most natural thing in the world. A slimy green fluid starts leaking out of your " + this.vaginaDescript(0) + ", making a small puddle on the ground. The sensation is extremely pleasurable as you feel it running down your thighs. Groaning, you start to push out a small, smooth green ball, and the action makes your " + this.vaginaDescript(0) + " so much wetter.  You push out another, and another, each ball rubbing against your inner walls before dropping into the slimy pool of goo. After the sixth, you orgasm, ", false);
         //[if male/herm]
         if (this.player.gender != 2) this.outputText("spraying your cum all over the ground underneath you, each egg squeezing out and prolonging the intense feeling.\n\n", false);
-        //[if female/genderless] 
+        //[if female/genderless]
         else this.outputText("spraying your juices all over the ground and mixing in with the green slime, soaking your legs, each egg you squeeze out only prolonging the intense feeling.\n\n", false);
 
         this.outputText("After what seems like hours, you have lost count of the eggs pushed out, and you collapse from sexual exhaustion.\n\n", false);

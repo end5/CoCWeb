@@ -1,16 +1,16 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { CoC } from "../../CoC";
 import { trace } from "../../../console";
-import { StatusAffects } from "../../StatusAffects";
-import { Izma } from "./Izma";
+import { VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLICK } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
+import { CoC } from "../../CoC";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { PerkLib } from "../../PerkLib";
-import { VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { Izma } from "./Izma";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 

@@ -1,11 +1,11 @@
+import { trace } from "../../../../console";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, BUTT_RATING_AVERAGE, FACE_COW_MINOTAUR, HIP_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, SKIN_TYPE_FUR, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
+import { Appearance } from "../../../Appearance";
+import { CockTypesEnum } from "../../../CockTypesEnum";
+import { ChainedDrop } from "../../../internals/ChainedDrop";
+import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { Appearance } from "../../../Appearance";
-import { trace } from "../../../../console";
-import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, SKIN_TYPE_FUR, FACE_COW_MINOTAUR, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
-import { WeightedDrop } from "../../../internals/WeightedDrop";
-import { ChainedDrop } from "../../../internals/ChainedDrop";
 
 
 /**

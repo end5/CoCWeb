@@ -1,7 +1,7 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../../StatusAffects";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { StatusAffects } from "../../../StatusAffects";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 //  BROOKE_AFFECTION: number = 915;
 //  BROOKE_SHOWERED_WITH: number = 916;

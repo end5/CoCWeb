@@ -1,8 +1,8 @@
-import { Monster } from "../../../Monster";
-import { HIP_RATING_SLENDER, BUTT_RATING_TIGHT } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
+import { BUTT_RATING_TIGHT, HIP_RATING_SLENDER } from "../../../../includes/appearanceDefs";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { Monster } from "../../../Monster";
 import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class Lethice extends Monster {
     public constructor() {

@@ -1,5 +1,5 @@
-import { Armor } from "../Armor";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { Armor } from "../Armor";
 
 /**
  * Created by aimozg on 16.01.14.
@@ -63,7 +63,7 @@ export class GooArmor extends Armor {
                 }
                 if (output) outputText("\n\n\"<i>Well alright then, [name]!</i>\" Valeria says excitedly, \"<i>Let's go!</i>\"\n\n");
             }
-    
+
             public  unequipEffect(player:Player, output: boolean): void
             {
                 if (output) {
@@ -71,7 +71,7 @@ export class GooArmor extends Armor {
                 }
                 game.flags[kFLAGS.VALARIA_AT_CAMP] = 1;
             }
-    
+
             protected  unequipReturnItem(player:Player, output: boolean):ItemType
             {
                 return undefined;

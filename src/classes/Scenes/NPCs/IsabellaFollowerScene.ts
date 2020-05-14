@@ -1,10 +1,10 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { EARS_COW, HORNS_COW_MINOTAUR, HORNS_NONE, LOWER_BODY_TYPE_HOOFED, TAIL_TYPE_COW, TAIL_TYPE_NONE, TONUGE_DEMONIC, TONUGE_DRACONIC, TONUGE_SNAKE } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { TONUGE_DEMONIC, TONUGE_SNAKE, TONUGE_DRACONIC, LOWER_BODY_TYPE_HOOFED, HORNS_COW_MINOTAUR, HORNS_NONE, EARS_COW, TAIL_TYPE_COW, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
-import { Isabella } from "./Isabella";
-import { StatusAffects } from "../../StatusAffects";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { StatusAffects } from "../../StatusAffects";
+import { Isabella } from "./Isabella";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 
 export class IsabellaFollowerScene extends NPCAwareContent {

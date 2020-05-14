@@ -1,7 +1,7 @@
 import { BaseContent } from "../../BaseContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { StatusAffects } from "../../StatusAffects";
 
 export class Gargoyle extends BaseContent {
 
@@ -42,7 +42,7 @@ export class Gargoyle extends BaseContent {
         this.model.time.hours++;
     }
 
-    //(Advance time by 1 hour) 
+    //(Advance time by 1 hour)
     private gargoyleMeeting2(): void {
         this.clearOutput();
         this.outputText("You finally close the distance between yourself and the strange structure, which begins to take shape ahead.  Though it's half-buried under what must be years of built-up sand and debris, you can clearly make out high stone walls supported by vaulted arches, broken every so often by the shattered remains of stained-glass windows and a pair of utterly destroyed oaken doors nearly hidden behind a row of tall marble pillars, many of which have long since crumbled.  High above the ground, you can see a pair of tall, slender towers reaching up to the heavens, one of which has been nearly obliterated by some unimaginably powerful impact, leaving it a stump compared to its twin.  From the rooftops, strange shapes look down upon you – stone statues made in the image of demons, dragons, and other monsters.");
@@ -419,11 +419,11 @@ export class Gargoyle extends BaseContent {
         this.outputText("\n\nShe lays down with you atop her, straddling her waist as you stroke her rod, rewarded with sharp pleasure-gasps from the statue-girl.  You're hardly stimulating her pussy with these actions – she must be able to feel <i>through</i> the rod, as if it were a real cock.  Amused, you start to jerk the rod off, sliding it through your clenched fist with slow, measured strokes.  " + this.flags[kFLAGS.GAR_NAME] + " squirms under the pleasurable attention, and is soon groping her big breasts and bucking her hips into your fists, shoving more of her rod-cock into your hand with each of your jerks.");
 
         this.outputText("\n\n\"<i>Well, someone's enjoying herself,</i>\" you tease, and immediately " + this.flags[kFLAGS.GAR_NAME] + " freezes, her mouth agape with embarrassment.  With a little laugh, you give her a pat on the thigh and start to strip out of your [armor].  But you can't just leave " + this.flags[kFLAGS.GAR_NAME] + " without SOME stimulation: ");
-        //(If Human Legs/Feet [ie, needs toes], as new paragraph): 
+        //(If Human Legs/Feet [ie, needs toes], as new paragraph):
         if (!this.player.isTaur() && !this.player.isGoo() && !this.player.isDrider() && !this.player.isNaga()) this.outputText("you reveal your leg first, moving slowly and sensually, giving her a tantalizing look at your nethers before hiding them again.  With a wide grin, you creep your foot up to her thighs and gently run your heel along her smooth, tender flesh.  You come to the base of her rod, standing stark straight in the air like a flag-pole.  As you strip, you grasp her cock between your big and second toe, sliding them up the smooth shaft to the tip.  " + this.flags[kFLAGS.GAR_NAME] + " moans, rolling her head back as you start to foot-fuck her cock, slowly putting more and more pressure on the steel member until it's pressed against her belly.  Your heel takes over, running quickly along the underside of her cock as you finally rid yourself of your [armor].");
         //Else, continued from above paragraph:
         else this.outputText("you giver her a good show, putting on a brief striptease for the gargoyle.  You strip your [armor] slowly, sensually, showing only the barest hints of your privates until the last moment, when the last piece of your clothing falls to the floor.");
-        //(From Both, if has Vagina:) 
+        //(From Both, if has Vagina:)
         if (this.player.hasVagina()) {
             this.outputText("\n\n" + this.flags[kFLAGS.GAR_NAME] + " is panting with lust by the time you're done teasing and stripping for her. Now nude, you drop back to your knees over her holy rod-cock, straddling her hips and lining her up with your [vagina]. You lower yourself until the tip of the rod is pressing against your lower lips – you're pleasantly surprised by the warm tingling sensation that quickly spreads out around the point of contact, and your cunny responds immediately by letting loose a little trickle of moisture that beads down on the gargoyle's shaft.");
 
@@ -617,7 +617,7 @@ export class Gargoyle extends BaseContent {
         this.outputText("\n\nStill, you can't help but hiss in agony as the holy burn spreads through you, seeping into your vulnerable gentials and sensitive chest.");
         //with Exgartuan:
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0) this.outputText("  Booming from within you, you hear the demon's voice: \"<i>Hey!  What the shit is this!?  What're you doing? Fucking stop, you ingrate!</i>\"");
-        //with Worms: 
+        //with Worms:
         else this.outputText("  Gratifyingly, however, you can feel the infestation within you squirming and writhing, desperately seeking escape.");
 
         this.outputText("\n\nSuddenly, the holy rod jammed up your [asshole] makes a loud hissing sound, and withdraws.  Panting, you collapse to the ground, gripping your gut.  It's over, and you feel... alone.  The ");
@@ -705,7 +705,7 @@ export class Gargoyle extends BaseContent {
         this.outputText("\n\nAs if reading your thoughts, she releases you and steps back, giving herself room for another CRACK!  She leaves a mark on your back this time, and you gasp at the sting of her crop.  But not a second later, she's up against you, her long, cool tongue running across the red streak she's left upon you.  She leans back and makes a tsk sound, patting your [butt].  \"<i>With pain comes purity,</i>\" she whispers, rising to nestle her chin in your neck.  \"<i>With agony comes enlightenment.</i>\"  CRACK!  She gives you a swat right on the ass, making you gasp – before you can close your mouth, she locks you in a deep kiss, easily slipping her long, slender tongue into your mouth.");
 
         this.outputText("\n\nShe plays easily within you, running her cool appendage over your own tongue, letting it slide across your teeth and cheeks as she slides a hand down to your ");
-        //if Male/Herm: 
+        //if Male/Herm:
         if (this.player.hasCock()) this.outputText(this.cockDescript(0));
         else if (this.player.hasVagina()) this.outputText(this.vaginaDescript());
         else this.outputText("barren crotch");
@@ -767,10 +767,10 @@ export class Gargoyle extends BaseContent {
         this.outputText(".");
 
         this.outputText("\n\nWith her rod firmly inside you, " + this.flags[kFLAGS.GAR_NAME] + " puts her hands on your [hips] for leverage and begins to pull out again, leaving a hot, intense tingling sensation in your rectum.  She thrusts in, this time much more quickly than you were expecting, making you gasp and moan as her hips slam into yours.");
-        //If PC has Worms: 
+        //If PC has Worms:
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) < 0) this.outputText("  You can feel her cock ram against your prostate, and shudder as the writhing mass of worms begin to panic as her cock pushes against them, obviously causing the creatures great pain.");
         this.outputText("  " + this.flags[kFLAGS.GAR_NAME] + " begins to fuck you in earnest, hammering your [asshole] with the strap-on until you're both panting and gasping, nearly overwhelmed by sensation.");
-        //(If PC has Exgartuan: 
+        //(If PC has Exgartuan:
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0) this.outputText("  You can hear the demonic voice of Exgartuan inside your mind, yelling and cursing as he is rapidly drained from your body and sealed into the holy rod within you.");
 
         //(If PC has a cock:
@@ -809,7 +809,7 @@ export class Gargoyle extends BaseContent {
             this.outputText("You take a seat on one of the sanctuary's pews, motioning for " + this.flags[kFLAGS.GAR_NAME] + " to join you.");
             //If Confidence <50:
             if (this.gargoyleConfidence() < 50) this.outputText("  She meekly approaches her Master and kneels before you, head bowed submissively.");
-            //if Confidence = 51-69: 
+            //if Confidence = 51-69:
             else if (this.gargoyleConfidence() < 70) this.outputText("  She nearly skips to follow you, assuming her low crouch at your feet and looking up at your expectantly.");
             else this.outputText("  Happily, she takes a seat beside you and slips an arm around your shoulders, locking you in companionable closeness.");
             this.outputText("  You tell her you'd like to talk for a few minutes, which immediately causes her eyes to brighten excitedly.  \"<i>Master honors me...  What would you like to talk about?</i>\"");
@@ -882,7 +882,7 @@ export class Gargoyle extends BaseContent {
         if (this.gargoyleConfidence() >= 70) this.outputText(" if she's up to it");
         this.outputText(".  ");
         this.outputText("Hesitantly, she nods her assent, though she says, \"<i>I'm sorry, Master, but I must warn you: I was greatly abused by the demons.  They are responsible for everything that is wrong with my world");
-        //if Confidence >70: 
+        //if Confidence >70:
         if (this.gargoyleConfidence() > 70) this.outputText(", and I despise them with every fiber of my being");
         this.outputText(".  I may not be the most fair nor most balanced source of information.</i>\"");
 

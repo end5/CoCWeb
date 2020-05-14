@@ -1,9 +1,9 @@
-import { Monster } from "../../../Monster";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, BUTT_RATING_AVERAGE, FACE_COW_MINOTAUR, HIP_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_HOOFED, FACE_COW_MINOTAUR, TAIL_TYPE_COW } from "../../../../includes/appearanceDefs";
 import { ChainedDrop } from "../../../internals/ChainedDrop";
+import { Monster } from "../../../Monster";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class Satyr extends Monster {
     //Attacks (Z)

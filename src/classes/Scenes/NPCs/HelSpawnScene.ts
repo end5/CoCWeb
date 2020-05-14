@@ -1,10 +1,10 @@
-import { NPCAwareContent } from "./NPCAwareContent";
+import { LOWER_BODY_TYPE_LIZARD } from "../../../includes/appearanceDefs";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 import { PregnancyStore } from "../../PregnancyStore";
 import { StatusAffects } from "../../StatusAffects";
-import { LOWER_BODY_TYPE_LIZARD } from "../../../includes/appearanceDefs";
 import { Helspawn } from "./Helspawn";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class HelSpawnScene extends NPCAwareContent {
 

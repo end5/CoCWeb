@@ -1,7 +1,7 @@
-import { BoundControlMethod } from "./BoundControlMethod";
-import { MainView } from "../view/MainView";
-import { BindingPane } from "./display/BindingPane";
 import { bindToClass } from "../ClassBinder";
+import { MainView } from "../view/MainView";
+import { BoundControlMethod } from "./BoundControlMethod";
+import { BindingPane } from "./display/BindingPane";
 
 /**
  * Generic input manager

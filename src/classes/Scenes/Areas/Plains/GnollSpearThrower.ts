@@ -1,9 +1,9 @@
-import { Monster } from "../../../Monster";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_TIGHT, SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, BUTT_RATING_TIGHT, HIP_RATING_AMPLE, SKIN_TYPE_FUR, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { ChainedDrop } from "../../../internals/ChainedDrop";
+import { Monster } from "../../../Monster";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...

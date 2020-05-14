@@ -1,6 +1,6 @@
-import { AbstractBoatContent } from "./AbstractBoatContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { StatusAffects } from "../../../StatusAffects";
+import { AbstractBoatContent } from "./AbstractBoatContent";
 import { SharkGirl } from "./SharkGirl";
 
 export class SharkGirlScene extends AbstractBoatContent {
@@ -12,13 +12,13 @@ Gender: Mostly female, though there are males and herms. Due to the nature of th
 Height: 5-6 feet tall. Tiger sharks are primarily in the 6 foot region.
 Build: Well-toned and athletic.
 Skin tone: Grey. Light orange with stripes for tiger sharks.
-Hair color: Silver and in rare cases, Black. 
+Hair color: Silver and in rare cases, Black.
 Eye color: Red for both species.
 
 Typical dress: Ridiculously skimpy swimwear, which they use to entice victims. Some tiger shark girls will wear grass hula skirts when on land to hide their endowments.
 
 Weaponry: Fangs, tail and their bare hands.
-Notable features: Retractable shark teeth, a large fin between their shoulders and a shark tail dangling off of their backsides. 
+Notable features: Retractable shark teeth, a large fin between their shoulders and a shark tail dangling off of their backsides.
 
 Sexual characteristics: Despite their slutty nature, shark girls have rather modest endowments in comparison to other such creatures; the majority of them are C-cups, D-cups at most. Though, their hips and buttocks are nice and curvy. Tiger shark girls possess wildly varying bustlines that are larger than their 'sisters', and usually are hyper-endowed with male genitalia.
 
@@ -30,7 +30,7 @@ L.Draft
 
 History: Before the corruption truly began, the Shark people were a normal fishing community that lived by the lake. They respected and admired marine life so much that they used magic to morph their forms, allowing them to live both under the sea and on dry land. As the demons began to take control, the Shark people retreated into the lake water to avoid the taint. It was only through sheer bad luck that they wound up as they are now; when the factory was constructed, the chemical run-off was funnelled into the lake, causing a drastic change to the mindset of the Shark people and making them near-constantly horny. Those who swam too close to the pollutants found their bodies morphed in unexpected ways, becoming what are now known as tiger shark girls. Even if the factory were to be destroyed, it would take generations for the shark girls to fully lose the effects.
 
-Social Structure: Most shark girls travel in small groups, ruled over by one tiger shark girl. However, there are larger communities that can be found in the lake. Males are generally kept chained up, being abnormally aggressive even for sharks. But as they are more virile and fertile than tiger sharks girls, every once in a while they are unchained to help with reproduction. The Shark people spend most of their time either hunting for food or hunting for sex. 
+Social Structure: Most shark girls travel in small groups, ruled over by one tiger shark girl. However, there are larger communities that can be found in the lake. Males are generally kept chained up, being abnormally aggressive even for sharks. But as they are more virile and fertile than tiger sharks girls, every once in a while they are unchained to help with reproduction. The Shark people spend most of their time either hunting for food or hunting for sex.
 
 Sex Life: The shark girls treat sex like a game or a sport, constantly battling for dominance against their opponents and using them as sex toys if they win. As they're horny most of the time, shark girls often look for 'playmates', regardless if their victims want to 'play' or not!
 ----------------------------------
@@ -94,7 +94,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         else this.cleanupAfterCombat();
     }
 
-    //Male and Herm: 
+    //Male and Herm:
     private sharkgirlDickFuck(): void {
         this.player.addStatusValue(StatusAffects.SharkGirl, 1, 1);
         this.outputText("", true);
@@ -116,7 +116,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         //Non-nagaz
         else {
             this.outputText("You sneer at the fallen shark girl, making up your mind to have your way with her. You tear her bikini off as you whip out your " + this.cockDescript(0) + " and start to order, \"<i>Get to i--!</i>\" But you're cut short by the shark girl suddenly taking the entirety of your cock into her mouth, forcing it as deep into her mouth as possible. Quite a slutty creature, that's for sure. What surprises you more is that those sharp fangs of hers appear to be retractable, and she has a more human-like set hidden behind them.\n\n", false);
-            //[if herm] 
+            //[if herm]
             if (this.player.gender == 3) this.outputText("While sucking you off, her hand steadily snakes its way between your legs. Without warning, she shoves three fingers into your " + this.vaginaDescript(0) + ", pushing in and stretching the moist passage out.\n\n", false);
             this.outputText("You abruptly pull your cock from her mouth, causing the shark girl to gasp in surprise. She looks up at you, tears welling up in her eyes, \"<i>Please let me finish! I need this!</i>\" You smirk and order the shark girl onto her hands and knees. Her expression brightens and she obediently complies, getting down and raising her ass towards you. Taking a firm grip on her well-toned buttocks, you quickly shove your " + this.cockDescript(0) + " into her damp pussy and the shark girl squeals in excitement. You find yourself surprised by its texture; while it looks human enough on the outside, the inside is actually filled with strange feeler-like structures that wriggle and massage your cock as it pushes through.", false);
             //[if herm]
@@ -148,7 +148,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         }
         else {
             this.outputText("Making up your mind to rape the shark girl, you remove your " + this.player.armorName + " and approach the slut before taking a firm grip on her silver hair. \"<i>You know what to do, bitch,</i>\" you sneer, pulling her head into your damp cunt. The shark girl needs no encouragement, eagerly probing your pussy with her long tongue", false);
-            //[if female] 
+            //[if female]
             if (this.player.gender == 2) this.outputText(", pulling out every few minutes to lick your " + this.clitDescript() + ".", false);
             //[if herm]
             if (this.player.gender == 3) this.outputText(". You remind her not to neglect your " + this.cockDescript(0) + ", and the shark girl responds by thoroughly licking your hard erection and sucking at your " + this.ballsDescriptLight() + ".", false);
@@ -156,7 +156,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             this.outputText("You shove the shark girl down onto the ground and quickly plant your crotch on her face, ordering the shark girl to continue. She complies enthusiastically, licking with a greater intensity and clearly loving the sensation of being dominated. You have to admit, you are enjoying your role as master.\n\n", false);
             this.outputText("To reward your little slut for her efforts, your hand reaches back between her legs and slips under her skimpy black thong. You get to work fingering her moist cunt and you soon hear a series of muffled moans coming from beneath your legs. But she's smart enough to know not to stop licking, and you smirk at the effect you're having on the shark girl.  A cute little cry escapes from your little slave's mouth, and you pull your hand from her cunt before licking her sweet juices from your fingers. Shortly after, you cry out in orgasm", false);
             if (this.player.gender == 2) this.outputText(", juices spraying from your sex and coating the girl's face.", false);
-            //[if herm]  
+            //[if herm]
             else this.outputText(" and stand up, gripping your " + this.cockDescript(0) + " and splattering thick jets of cum onto her face.", false);
             this.outputText("  The shark slut licks up your fluids hungrily.\n\n", false);
 
@@ -196,32 +196,32 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
 
     /*-------------------------
     Shark's Tooth
-    
+
     Item description: A glinting white tooth, very sharp and intimidating.
-    
+
     You have no idea why, but you decide to eat the pointed tooth. To your surprise, it's actually quite brittle, turning into a fishy-tasting dust. You figure it must just be a tablet made to look like a shark's tooth.
-    
+
     Transformations:
-    
+
     You firmly grasp your mouth, an intense pain racking your mouth. Your gums shift around and the bones in your jaw reset. You blink a few times wondering what just happened. You move over to a puddle to catch sight of your reflection, and you are thoroughly surprised by what you see. A set of retractable shark fangs have grown in front of your normal teeth. They even scare you a little. (Adds the 'Bite' special attack)
-    
+
     Attack descript: You open your mouth wide, your shark teeth extending out. Snarling with hunger, you lunge at your opponent, set to bite into right them! (Similar to the bow attack, high damage but it raises your fatigue).
     +
-    
+
     Jets of pain shoot down your spine, causing you to gasp in surprise and fall to your hands and knees. Feeling a bulging at the end of your back, you lower your \" + armorName + \"  down just in time for a fully formed shark tail to burst through. You swish it around a few times, surprised by how flexible it is. After some modifications to your clothing, you're ready to go with your brand new shark tail.
     +
-    
+
     You feel a tingling in your scalp and reach up to your head to investigate. To your surprise, your hair color has changed into a silvery color, just like that of a shark girl!
     +
-    
+
     You abruptly stop moving and gasp sharply as a shudder goes up your entire frame. Your skin begins to shift and morph, growing slightly thicker and changing into a shiny grey color. Your skin now feels oddly rough too, comparable to that of a marine mammal. You smile and run your hands across your new shark skin.
     +
-    
+
     You groan and slump down in pain, almost instantly regretting eating the tooth. You start sweating profusely and panting loudly, feeling the space between your shoulder blades shifting about. You hastily remove your \" + armorName +   just in time before a strange fin-like structure bursts from in-between your shoulders. You examine it carefully and make a few modifications to your \" + armorName +   to accommodate your new fin.
     --------------------------
-    
+
     Stat effects:
-    
+
     Increase strength 1-2 points (Up to 50)
     Increase toughness 2-4 points (Up to 100)
     Increase Speed 1-3 points (Up to 100)
@@ -230,24 +230,24 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
     Decrease intellect 1-3 points (Down to 40 points)
     ---------------------------
     Slutty Swimwear
-    
+
     Item description: An impossibly skimpy black bikini. You feel dirty just looking at it... and a little aroused, actually.
-    
+
     armorDef: 0
     armorPerk: Greatly increases effectiveness of 'Tease' ability.
     armorValue: 25 gems
-    
+
     Putting it on: (Lust increases)
-    
-    [flat-chested]  You feel rather stupid putting the top part on like this, but you're willing to bear with it. It could certainly be good for distracting. [/]  
-    
-    [breasts]  The bikini top clings tightly to your bustline, sending a shiver of pleasure through your body. It serves to turn you on quite nicely. [/]  
-    
-    [no dick]  The thong moves over your smooth groin, clinging onto your buttocks nicely. [If player has balls] However, your testicles do serve as an area of discomfort, stretching the material despite their normal size. [/] [/]  
-    
-    [dick]  You grunt in discomfort, your cock flopping free from the thong's confines. The tight material rubbing against your dick does manage to turn you on slightly. [/]  
-    
-    [If dick is 7+ inches OR balls are apple-sized] You do your best to put the thong on, and while the material is very stretchy, it's simply far too uncomfortable to even try. Maybe if you shrunk your male parts down a little... [/]  
+
+    [flat-chested]  You feel rather stupid putting the top part on like this, but you're willing to bear with it. It could certainly be good for distracting. [/]
+
+    [breasts]  The bikini top clings tightly to your bustline, sending a shiver of pleasure through your body. It serves to turn you on quite nicely. [/]
+
+    [no dick]  The thong moves over your smooth groin, clinging onto your buttocks nicely. [If player has balls] However, your testicles do serve as an area of discomfort, stretching the material despite their normal size. [/] [/]
+
+    [dick]  You grunt in discomfort, your cock flopping free from the thong's confines. The tight material rubbing against your dick does manage to turn you on slightly. [/]
+
+    [If dick is 7+ inches OR balls are apple-sized] You do your best to put the thong on, and while the material is very stretchy, it's simply far too uncomfortable to even try. Maybe if you shrunk your male parts down a little... [/]
     -------------------------------*/
     //Loss Rape scenes:
     public sharkLossRape(): void {
@@ -267,7 +267,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         //Female:
         if (this.player.hasVagina() && (this.player.totalCocks() == 0 || SharkGirlScene.rand(2) == 0)) {
             this.outputText("You slump down in defeat, too ", false);
-            //[defeat via HP] 
+            //[defeat via HP]
             if (this.player.HP < 1) this.outputText("hurt ", false);
             else this.outputText("horny ", false);
             this.outputText("to fight on.\n\n", false);
@@ -290,7 +290,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         //Male:
         else {
             this.outputText("You slump down in defeat, too ", false);
-            //[defeat via HP] 
+            //[defeat via HP]
             if (this.player.HP < 1) this.outputText("hurt ", false);
             else this.outputText("horny ", false);
             this.outputText("to fight on.\n\n", false);

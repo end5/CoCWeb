@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
-import { Bazaar } from "../Bazaar";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { Bazaar } from "../Bazaar";
 
 /**
  * Created by aimozg on 06.01.14.

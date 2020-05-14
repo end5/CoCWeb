@@ -1,11 +1,11 @@
-import { Armor } from "../Armor";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { PerkLib } from "../../PerkLib";
 import { CoC } from "../../CoC";
-import { Player } from "../../Player";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { Monster } from "../../Monster";
-import { Minotaur } from "../../Scenes/Areas/Mountain/Minotaur";
+import { PerkLib } from "../../PerkLib";
+import { Player } from "../../Player";
 import { MinotaurMob } from "../../Scenes/Areas/HighMountains/MinotaurMob";
+import { Minotaur } from "../../Scenes/Areas/Mountain/Minotaur";
+import { Armor } from "../Armor";
 
 /**
  * Created by aimozg on 11.01.14.
@@ -142,7 +142,7 @@ export class LustyMaidensArmor extends Armor {
             {
                 if(wearer.lib < 50) game.dynStats("lib", 1, "sen", 1);
                 /*Stats: Virgin - 9, Non-Virgin - 5
-    
+
                 //NONVIRGIN:
                 if(wearer.hasPerk("Slutty Seduction") < 0) wearer.createPerk("Slutty Seduction",6,0,0,0,"Your incredibly revealing steel armor allows you access to 'Seduce', an improved form of 'Tease'.");
                 //VIRGIN:
@@ -159,7 +159,7 @@ export class LustyMaidensArmor extends Armor {
                     if(wearer.findPerk(PerkLib.SluttySeduction) < 0) wearer.createPerk(PerkLib.SluttySeduction,6 + game.flags[kFLAGS.BIKINI_ARMOR_BONUS],0,0,0);
                 }
             }
-    
+
             public  unequipEffect(wearer:Player, output: boolean): void
             {
                 while(wearer.findPerk(PerkLib.SluttySeduction) >= 0) wearer.removePerk(PerkLib.SluttySeduction);

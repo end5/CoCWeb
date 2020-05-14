@@ -1,5 +1,5 @@
-import { ItemType } from "./ItemType";
 import { CoC_Settings } from "./CoC_Settings";
+import { ItemType } from "./ItemType";
 
 export class ItemSlotClass {
     //constructor

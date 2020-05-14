@@ -1,5 +1,5 @@
-import { StatusAffectType } from "./StatusAffectType";
 import { CombatStatusAffect } from "./StatusAffects/CombatStatusAffect";
+import { StatusAffectType } from "./StatusAffectType";
 
 /**
  * IMPORTANT NOTE: any You can rename the constants BUT NOT the string ids (they are stored in saves).

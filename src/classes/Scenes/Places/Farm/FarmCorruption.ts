@@ -1,10 +1,10 @@
-import { AbstractFarmContent } from "./AbstractFarmContent";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { trace } from "../../../../console";
+import { EYES_FOUR_SPIDER_EYES, LOWER_BODY_TYPE_DEMONIC_CLAWS, LOWER_BODY_TYPE_DRAGON, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_HARPY, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_PONY, TONUGE_SNAKE } from "../../../../includes/appearanceDefs";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { SimpleConsumable } from "../../../Items/Consumables/SimpleConsumable";
 import { StatusAffects } from "../../../StatusAffects";
-import { EYES_FOUR_SPIDER_EYES, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_PONY, LOWER_BODY_TYPE_DEMONIC_CLAWS, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_HARPY, LOWER_BODY_TYPE_DRAGON, TONUGE_SNAKE } from "../../../../includes/appearanceDefs";
+import { AbstractFarmContent } from "./AbstractFarmContent";
 
 
 /**

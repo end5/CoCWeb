@@ -1,7 +1,7 @@
+import { trace } from "../../../console";
 import { BaseContent } from "../../BaseContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { ItemType } from "../../ItemType";
-import { trace } from "../../../console";
 
 export class Lumi extends BaseContent {
 
@@ -27,7 +27,7 @@ export class Lumi extends BaseContent {
         this.outputText("", true);
         //First time meeting
         if (this.flags[kFLAGS.LUMI_MET] == 0) {
-            //Set Lumi met flag 
+            //Set Lumi met flag
             this.flags[kFLAGS.LUMI_MET]++;
             this.outputText("You open the door and carefully check inside for any enemies that may be trying to ambush you. The room seems to be some kind of alchemical lab, with shelves full of apparatuses all along the walls, a desk on one side of the room, and a long table across the room from you that is full of alchemical experiments in progress, many give off lots of smoke, and others are bottles of bubbling fluids.  A goblin wearing an apron and some kind of headband is sitting on a tall, wheeled stool; she is otherwise nude and seems to be watching at least 3 experiments right now. She suddenly turns around and looks straight in your direction.  It's hard to tell thanks to the dark goggles that hide her eyes from view, but you're fairly certain she's watching you.  After a few seconds she yells \"<i>Cuths-tohmer!</i>\" in a thick lisp. She looks harmless enough, so you step inside while she fiddles with her experiments, reducing the bubbling smoke.  She jumps down from her stool, tears off her apron, bounds over to the desk, and scrambles on top of it.\n\n", false);
 

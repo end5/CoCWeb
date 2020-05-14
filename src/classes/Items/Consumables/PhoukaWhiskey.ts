@@ -1,9 +1,9 @@
-import { Consumable } from "../Consumable";
-import { Utils } from "../../internals/Utils";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { Utils } from "../../internals/Utils";
 import { Player } from "../../Player";
 import { PregnancyStore } from "../../PregnancyStore";
 import { StatusAffects } from "../../StatusAffects";
+import { Consumable } from "../Consumable";
 
 /**
  * Created by K.Quesom 11.06.14

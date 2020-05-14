@@ -1,5 +1,5 @@
-import { Consumable } from "../Consumable";
 import { PerkLib } from "../../PerkLib";
+import { Consumable } from "../Consumable";
 
 /**
  * Created by aimozg on 10.01.14.

@@ -1,7 +1,7 @@
-import { BaseContent } from "../../../BaseContent";
-import { Gnoll } from "./Gnoll";
 import { Appearance } from "../../../Appearance";
+import { BaseContent } from "../../../BaseContent";
 import { CockTypesEnum } from "../../../CockTypesEnum";
+import { Gnoll } from "./Gnoll";
 
 /**
  * Created by aimozg on 03.01.14.
@@ -43,7 +43,7 @@ export class GnollScene extends BaseContent {
             //(if cockTotal=0 AND vaginas=0)
             else this.outputText("The gnoll actually stops laughing for a moment when she takes in your featureless crotch.  \"<i>Well.  That's a new one,</i>\" she mutters.  She then takes two bobbing steps up the length of your body and rudely shoves her thumb into your mouth.  Her other hand guides her giant clitoris in after it, and you are in no position to stop her.\n\n", false);
         }
-        //(if cockTotal>0 AND 
+        //(if cockTotal>0 AND
         if (this.player.cockTotal() > 0) {
             //thickestCock()>2")
             if (this.player.thickestCockThickness() > 2) {
@@ -95,7 +95,7 @@ export class GnollScene extends BaseContent {
     public defeatHyena(): void {
         this.outputText("", true);
         var dickDownClit = undefined;
-        //Gnoll Defeat (HP)	
+        //Gnoll Defeat (HP)
         if (this.monster.HP < 1) this.outputText("The hyena girl collapses backwards onto the dusty ground, unable to continue the fight.", false);
         //Gnoll Defeat (Lust)
         else this.outputText("The hyena girl heaves a giant breath and takes a single step backwards.  Her club thumps to the ground and her hands fall to her shaft, stroking along its rough length.", false);

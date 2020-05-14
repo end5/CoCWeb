@@ -1,6 +1,6 @@
-import { Consumable } from "../Consumable";
-import { Utils } from "../../internals/Utils";
 import { CockTypesEnum } from "../../CockTypesEnum";
+import { Utils } from "../../internals/Utils";
+import { Consumable } from "../Consumable";
 
 /**
  * Created by aimozg on 11.01.14.

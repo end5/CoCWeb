@@ -1,6 +1,6 @@
-import { CommonItem } from "./CommonItem";
 import { CoC_Settings } from "../CoC_Settings";
 import { Player } from "../Player";
+import { CommonItem } from "./CommonItem";
 
 /**
  * Created by aimozg on 09.01.14.

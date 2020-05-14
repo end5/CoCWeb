@@ -7,7 +7,7 @@ export class TimeView {
 
     public constructor() {
         this.element = loadId('timePanel');
-        
+
         this.day = loadId('timeDay');
         this.hour = loadId('timeHour');
     }

@@ -1,15 +1,15 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { CoC } from "../../CoC";
 import { trace } from "../../../console";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
-import { Marble } from "./Marble";
-import { EARS_HUMAN, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, LOWER_BODY_TYPE_CENTAUR, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_HUMAN } from "../../../includes/appearanceDefs";
-import { ItemType } from "../../ItemType";
+import { EARS_HUMAN, LOWER_BODY_TYPE_CENTAUR, TONUGE_DEMONIC, TONUGE_HUMAN, TONUGE_SNAKE, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_WET } from "../../../includes/appearanceDefs";
+import { CoC } from "../../CoC";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { ItemType } from "../../ItemType";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { Marble } from "./Marble";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 

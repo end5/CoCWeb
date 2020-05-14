@@ -1,8 +1,8 @@
-import { AbstractLakeContent } from "./AbstractLakeContent";
-import { StatusAffects } from "../../../StatusAffects";
-import { FetishZealot } from "./FetishZealot";
-import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { VAGINA_LOOSENESS_LOOSE } from "../../../../includes/appearanceDefs";
+import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
+import { StatusAffects } from "../../../StatusAffects";
+import { AbstractLakeContent } from "./AbstractLakeContent";
+import { FetishZealot } from "./FetishZealot";
 
 /**
  * Created by aimozg on 04.01.14.

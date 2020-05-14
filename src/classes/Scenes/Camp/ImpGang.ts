@@ -1,5 +1,5 @@
-import { Monster } from "../../Monster";
 import { CockTypesEnum } from "../../CockTypesEnum";
+import { Monster } from "../../Monster";
 
 export class ImpGang extends Monster {
     public get capitalA(): string {

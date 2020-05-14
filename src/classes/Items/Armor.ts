@@ -1,5 +1,5 @@
-import { Useable } from "./Useable";
 import { PerkLib } from "../PerkLib";
+import { Useable } from "./Useable";
 
 /**
  * Created by aimozg on 10.01.14.
@@ -57,7 +57,7 @@ export class Armor extends Useable //Equipable
                     equipped(player,output);
                 }
             }
-    
+
             public  unequip(player:Player, returnToInventory: boolean, output: boolean = false): void
             {
                 while(player.findPerk(PerkLib.BulgeArmor) >= 0) player.removePerk(PerkLib.BulgeArmor);// TODO remove this Exgartuan hack

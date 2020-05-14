@@ -1,9 +1,9 @@
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_CURVY, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_SLICK, WING_TYPE_HARPY } from "../../../../includes/appearanceDefs";
+import { Appearance } from "../../../Appearance";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, WING_TYPE_HARPY } from "../../../../includes/appearanceDefs";
-import { Appearance } from "../../../Appearance";
-import { WeightedDrop } from "../../../internals/WeightedDrop";
 
 export class Minerva extends Monster {
 

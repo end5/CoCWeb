@@ -1,8 +1,8 @@
-import { Consumable } from "../Consumable";
+import { trace } from "../../../console";
+import { Utils } from "../../internals/Utils";
 import { PregnancyStore } from "../../PregnancyStore";
 import { StatusAffects } from "../../StatusAffects";
-import { Utils } from "../../internals/Utils";
-import { trace } from "../../../console";
+import { Consumable } from "../Consumable";
 
 /**
  * Created by aimozg on 18.01.14.

@@ -1,5 +1,5 @@
-﻿import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
-import { kFLAGS } from "../GlobalFlags/kFLAGS";
+﻿import { kFLAGS } from "../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 
 
 // Lookup dictionary for converting any single argument brackets into it's corresponding string

@@ -1,12 +1,12 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { Appearance } from "../../../Appearance";
-import { CockTypesEnum } from "../../../CockTypesEnum";
-import { BreastStore } from "../../../BreastStore";
-import { PerkLib } from "../../../PerkLib";
 import { trace } from "../../../../console";
-import { ItemType } from "../../../ItemType";
+import { Appearance } from "../../../Appearance";
+import { BreastStore } from "../../../BreastStore";
+import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { ItemType } from "../../../ItemType";
+import { PerkLib } from "../../../PerkLib";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Rubi extends TelAdreAbstractContent {
 
@@ -3289,11 +3289,11 @@ export class Rubi extends TelAdreAbstractContent {
 
 
 
-        /*	
+        /*
         var  closet: any[] = [];
         var  gifts: any[] = [];
         var  buttonNames: any[] = [];
-        
+
             if (flags[kFLAGS.RUBI_SUITCLOTHES] == 1)
             {
                 closet[closet.length] = "Suitclothes";
@@ -3302,7 +3302,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("Suitclothes");
             }
-        
+
             if (flags[kFLAGS.RUBI_FETISH_CLOTHES] == 1)
             {
                 closet[closet.length] = "Rubber Fetish Clothes";
@@ -3311,7 +3311,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("Rubber Fetish Clothes");
             }
-        
+
             if (flags[kFLAGS.RUBI_GREEN_ADVENTURER] == 1)
             {
                 closet[closet.length] = "A Green Adventurer's Outfit";
@@ -3320,7 +3320,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("A Green Adventurer's Outfit");
             }
-        
+
             if (flags[kFLAGS.RUBI_TUBE_TOP] == 1)
             {
                 closet[closet.length] = "A Tube Top";
@@ -3329,7 +3329,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("A Tube Top");
             }
-        
+
             if (flags[kFLAGS.RUBI_BODYSUIT] == 1)
             {
                 closet[closet.length] = "A Sheer Bodysuit";
@@ -3338,7 +3338,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("A Sheer Bodysuit");
             }
-        
+
             if (flags[kFLAGS.RUBI_LONGDRESS] == 1)
             {
                 // trace("PRE-CRASH");
@@ -3348,7 +3348,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("A Long Dress");
             }
-        
+
             if (flags[kFLAGS.RUBI_TIGHT_PANTS] == 1)
             {
                 closet[closet.length] = "A Dashing Outfit With Tight Leather Pants";
@@ -3357,7 +3357,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("A Dashing Outfit With Tight Leather Pants");
             }
-        
+
             if (flags[kFLAGS.RUBI_NURSE_CLOTHES] == 1)
             {
                 closet[closet.length] = "Nurse's Clothes";
@@ -3366,7 +3366,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("Nurse's Clothes");
             }
-        
+
             //(Slutty Swimwear (Normal))
             if (flags[kFLAGS.RUBI_SWIMWEAR] == 1)
             {
@@ -3376,7 +3376,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("Slutty Swimwear");
             }
-        
+
             if (flags[kFLAGS.RUBI_BIMBO_MINIDRESS] == 1)
             {
                 closet[closet.length] = "A Bimbo Minidress";
@@ -3385,7 +3385,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("A Bimbo Minidress");
             }
-        
+
             if (flags[kFLAGS.RUBI_BONDAGE_STRAPS] == 1)
             {
                 closet[closet.length] = "Bondage Straps";
@@ -3394,7 +3394,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("Bondage Straps");
             }
-        
+
             if (flags[kFLAGS.RUBI_INQUISITORS_CORSET] == 1)
             {
                 closet[closet.length] = "An Inquisitor's Corset";
@@ -3403,7 +3403,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("An Iquisitor's Corset");
             }
-        
+
             //RIsque waitress uniform
             if (flags[kFLAGS.RUBI_AFFECTION] >= 100)
             {
@@ -3413,7 +3413,7 @@ export class Rubi extends TelAdreAbstractContent {
             {
                 gifts.push("A Risque Waitress's Uniform");
             }
-        
+
             if(closet.length > 0) {
                 outputText("<b>Rubi's Closet:</b>\n");
                 temp = 0;
@@ -3423,7 +3423,7 @@ export class Rubi extends TelAdreAbstractContent {
                 }
                 outputText("\n");
             }
-        
+
             if(gifts.length > 0) {
                 outputText("After a quick glance around Rubi's things, you bet [rubi ey] could really use... " + gifts[rand(gifts.length)] + ".\n\n");
             }
@@ -3432,7 +3432,7 @@ export class Rubi extends TelAdreAbstractContent {
                 if(silly()) outputText("  (Achievement Unlocked: Dress-tacular)");
                 outputText("\n\n");
             }
-        
+
             if(!rubiBimbo() && !rubiIncubus() && rubiAffection() >= 100) {
                 outputText("You could give Rubi some incubi draft to make [rubi em] a little more manly but corrupt, or you could give Rubi a Bimbo Draft to turn [rubi em] into a smoking hot, female sex-bomb.\n\n");
             }
@@ -3485,7 +3485,7 @@ export class Rubi extends TelAdreAbstractContent {
                 events[events.length] = armors.I_CORST;
             function s[functions.length] = giveRubiClothes;
             }
-        
+
             if(player.hasItem(consumables.BIMBOLQ) && !rubiBimbo()) {
                 events[events.length] = consumables.BIMBOLQ;
             function s[functions.length] = giveRubiATFItem;

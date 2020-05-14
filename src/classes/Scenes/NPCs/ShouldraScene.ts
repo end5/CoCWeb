@@ -1,11 +1,11 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { FACE_HUMAN, LOWER_BODY_TYPE_HUMAN, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { CoC } from "../../CoC";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
-import { FACE_HUMAN, LOWER_BODY_TYPE_HUMAN, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
-import { Shouldra } from "./Shouldra";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { NPCAwareContent } from "./NPCAwareContent";
+import { Shouldra } from "./Shouldra";
 
 export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface {
 

@@ -1,11 +1,11 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
-import { TONUGE_HUMAN, TONUGE_DEMONIC } from "../../../includes/appearanceDefs";
-import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
+import { TONUGE_DEMONIC, TONUGE_HUMAN } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class ShouldraFollower extends NPCAwareContent {
 

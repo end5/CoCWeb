@@ -1,7 +1,7 @@
-import { Naga } from "../../Areas/Desert/Naga";
-import { StatusAffects } from "../../../StatusAffects";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_AMPLE, LOWER_BODY_TYPE_NAGA } from "../../../../includes/appearanceDefs";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_NAGA } from "../../../../includes/appearanceDefs";
+import { StatusAffects } from "../../../StatusAffects";
+import { Naga } from "../../Areas/Desert/Naga";
 
 export class Sirius extends Naga {
 

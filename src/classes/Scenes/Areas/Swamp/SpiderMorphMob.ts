@@ -1,7 +1,7 @@
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_LARGE, HIP_RATING_AMPLE, TAIL_TYPE_SPIDER_ADBOMEN, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLICK } from "../../../../includes/appearanceDefs";
+import { CockTypesEnum } from "../../../CockTypesEnum";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { CockTypesEnum } from "../../../CockTypesEnum";
-import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_AMPLE, BUTT_RATING_LARGE, TAIL_TYPE_SPIDER_ADBOMEN } from "../../../../includes/appearanceDefs";
 
 export class SpiderMorphMob extends Monster {
     //==============================

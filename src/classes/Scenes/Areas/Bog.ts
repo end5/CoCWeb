@@ -1,9 +1,9 @@
 import { BaseContent } from "../../BaseContent";
-import { FrogGirlScene } from "./Bog/FrogGirlScene";
-import { ChameleonGirlScene } from "./Bog/ChameleonGirlScene";
-import { PhoukaScene } from "./Bog/PhoukaScene";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { ChameleonGirlScene } from "./Bog/ChameleonGirlScene";
+import { FrogGirlScene } from "./Bog/FrogGirlScene";
+import { PhoukaScene } from "./Bog/PhoukaScene";
 
 /**
  * Created by aimozg on 06.01.14.

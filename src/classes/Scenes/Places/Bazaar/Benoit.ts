@@ -1,10 +1,10 @@
-import { BazaarAbstractContent } from "./BazaarAbstractContent";
+import { EARS_CAT, EARS_DOG, HORNS_DEMON, LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_HARPY, SKIN_TYPE_SCALES, TAIL_TYPE_CAT, TAIL_TYPE_DEMONIC, TAIL_TYPE_DOG, WING_TYPE_BEE_LIKE_LARGE, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_FEATHERED_LARGE } from "../../../../includes/appearanceDefs";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { PregnancyStore } from "../../../PregnancyStore";
-import { PerkLib } from "../../../PerkLib";
 import { ItemType } from "../../../ItemType";
+import { PerkLib } from "../../../PerkLib";
+import { PregnancyStore } from "../../../PregnancyStore";
 import { StatusAffects } from "../../../StatusAffects";
-import { HORNS_DEMON, TAIL_TYPE_DEMONIC, EARS_DOG, TAIL_TYPE_DOG, TAIL_TYPE_CAT, EARS_CAT, LOWER_BODY_TYPE_HARPY, WING_TYPE_FEATHERED_LARGE, SKIN_TYPE_SCALES, WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE, LOWER_BODY_TYPE_BEE } from "../../../../includes/appearanceDefs";
+import { BazaarAbstractContent } from "./BazaarAbstractContent";
 
 //  TIMES_IN_BENOITS: number = 562;
 //  BENOIT_AFFECTION: number = 563;

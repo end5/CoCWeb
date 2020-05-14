@@ -1,7 +1,7 @@
+import { VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_TIGHT } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
-import { PerkLib } from "../../../PerkLib";
-import { VAGINA_LOOSENESS_TIGHT, VAGINA_LOOSENESS_NORMAL, VAGINA_LOOSENESS_LOOSE, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_GAPING_WIDE } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
+import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class CorruptedGlade extends BaseContent {

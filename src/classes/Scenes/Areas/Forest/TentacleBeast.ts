@@ -1,9 +1,9 @@
-import { Monster } from "../../../Monster";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
 import { trace } from "../../../../console";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_BOYISH, BUTT_RATING_BUTTLESS, SKIN_TYPE_PLAIN, TAIL_TYPE_DEMONIC } from "../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_BUTTLESS, HIP_RATING_BOYISH, SKIN_TYPE_PLAIN, TAIL_TYPE_DEMONIC } from "../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { Monster } from "../../../Monster";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class TentacleBeast extends Monster {
     private tentaclePhysicalAttack(): void {

@@ -1,13 +1,13 @@
-import { BaseContent } from "../../BaseContent";
-import { StatusAffects } from "../../StatusAffects";
 import { LOWER_BODY_TYPE_CENTAUR, VAGINA_LOOSENESS_GAPING } from "../../../includes/appearanceDefs";
-import { CockTypesEnum } from "../../CockTypesEnum";
-import { PregnancyStore } from "../../PregnancyStore";
-import { ImpGang } from "../Camp/ImpGang";
 import { Appearance } from "../../Appearance";
-import { PerkLib } from "../../PerkLib";
-import { ImpLord } from "./ImpLord";
+import { BaseContent } from "../../BaseContent";
+import { CockTypesEnum } from "../../CockTypesEnum";
 import { LustyMaidensArmor } from "../../Items/Armors/LustyMaidensArmor";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { ImpGang } from "../Camp/ImpGang";
+import { ImpLord } from "./ImpLord";
 
 /**
  * Created by aimozg on 04.01.14.

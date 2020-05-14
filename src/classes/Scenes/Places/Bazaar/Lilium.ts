@@ -1,7 +1,7 @@
-import { BazaarAbstractContent } from "./BazaarAbstractContent";
+import { TAIL_TYPE_DEMONIC, TAIL_TYPE_NONE, TONUGE_DEMONIC } from "../../../../includes/appearanceDefs";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { TONUGE_DEMONIC, TAIL_TYPE_DEMONIC, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../../PregnancyStore";
+import { BazaarAbstractContent } from "./BazaarAbstractContent";
 
 export class Lilium extends BazaarAbstractContent {
 

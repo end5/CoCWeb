@@ -1,9 +1,9 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
+import { FACE_COW_MINOTAUR } from "../../../../includes/appearanceDefs";
+import { CockTypesEnum } from "../../../CockTypesEnum";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
-import { FACE_COW_MINOTAUR } from "../../../../includes/appearanceDefs";
 import { StatusAffects } from "../../../StatusAffects";
-import { CockTypesEnum } from "../../../CockTypesEnum";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Dominika extends TelAdreAbstractContent {
 

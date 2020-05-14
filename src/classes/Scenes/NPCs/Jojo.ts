@@ -1,6 +1,6 @@
-import { Monster } from "../../Monster";
 import { trace } from "../../../console";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_SLENDER, BUTT_RATING_TIGHT, SKIN_TYPE_FUR } from "../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, BUTT_RATING_TIGHT, HIP_RATING_SLENDER, SKIN_TYPE_FUR } from "../../../includes/appearanceDefs";
+import { Monster } from "../../Monster";
 
 export class Jojo extends Monster {
 

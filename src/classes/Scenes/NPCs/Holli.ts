@@ -1,8 +1,8 @@
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, BUTT_RATING_LARGE, HIP_RATING_CURVY, TONUGE_HUMAN, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_WET } from "../../../includes/appearanceDefs";
+import { Appearance } from "../../Appearance";
+import { CockTypesEnum } from "../../CockTypesEnum";
 import { Monster } from "../../Monster";
 import { StatusAffects } from "../../StatusAffects";
-import { TONUGE_HUMAN, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_CURVY, BUTT_RATING_LARGE } from "../../../includes/appearanceDefs";
-import { CockTypesEnum } from "../../CockTypesEnum";
-import { Appearance } from "../../Appearance";
 
 export class Holli extends Monster {
     /*Fight -Z

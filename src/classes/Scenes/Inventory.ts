@@ -1,16 +1,16 @@
-﻿import { BaseContent } from "../BaseContent";
-import { ItemSlotClass } from "../ItemSlotClass";
-import { Saves } from "../Saves";
-import { kFLAGS } from "../GlobalFlags/kFLAGS";
-import { WeaponLib } from "../Items/WeaponLib";
-import { StatusAffects } from "../StatusAffects";
-import { ItemType } from "../ItemType";
+﻿import { trace } from "../../console";
+import { BaseContent } from "../BaseContent";
 import { CoC_Settings } from "../CoC_Settings";
-import { Useable } from "../Items/Useable";
-import { trace } from "../../console";
-import { Armor } from "../Items/Armor";
-import { Weapon } from "../Items/Weapon";
+import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
+import { Armor } from "../Items/Armor";
+import { Useable } from "../Items/Useable";
+import { Weapon } from "../Items/Weapon";
+import { WeaponLib } from "../Items/WeaponLib";
+import { ItemSlotClass } from "../ItemSlotClass";
+import { ItemType } from "../ItemType";
+import { Saves } from "../Saves";
+import { StatusAffects } from "../StatusAffects";
 
 /**
  * Created by aimozg on 12.01.14.
@@ -280,7 +280,7 @@ export class Inventory extends BaseContent {
             this.outputText("You cannot use " + this.player.itemSlots[slotNum].itype.longName + "!\n\n");
         }
         this.itemGoNext(); //Normally returns to the inventory menu. In combat it goes to the inventoryCombatHandler function
-        /* menuLoc is no longer needed, after enemyAI game will always move to the next round			
+        /* menuLoc is no longer needed, after enemyAI game will always move to the next round
                     else if (menuLoc == 1) {
                         menuLoc = 0;
                         if (!combatRoundOver()) {

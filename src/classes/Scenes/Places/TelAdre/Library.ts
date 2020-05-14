@@ -1,8 +1,8 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
 import { WeaponLib } from "../../../Items/WeaponLib";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Library extends TelAdreAbstractContent {
 
@@ -147,9 +147,9 @@ export class Library extends TelAdreAbstractContent {
                     this.player.createStatusAffect(StatusAffects.KnowsWhitefire, 0, 0, 0, 0);
                 }
             }
-            //OR (player is bimbo/bimbro/whatever) 
+            //OR (player is bimbo/bimbro/whatever)
             else if ((this.player.lib > 75 || this.player.cor > 75 || this.player.findPerk(PerkLib.BimboBrains) >= 0 || this.player.findPerk(PerkLib.FutaFaculties) >= 0 || this.player.findPerk(PerkLib.BroBrains) >= 0) && Library.rand(2) == 0) this.outputText("\n\nYou pick up a book from a table randomly and open it up.  Incredibly disappointed, you soon realize that there are no pictures of people fucking at all.  Reading sucks.  You eventually toss the book aside and resolve to go do something more fun.");
-            //OR (history) 
+            //OR (history)
             else this.outputText("\n\nSelecting a book randomly from the scattered tomes, you find a historical text documenting life in Mareth.  It's dreadfully dull, and though you do your best to learn what you can the dry work is putting you to sleep.  Eventually you close the book and accept that you're not going to be learning anything tonight.");
             this.menu();
             this.addButton(0, "Next", this.camp.returnToCampUseOneHour);

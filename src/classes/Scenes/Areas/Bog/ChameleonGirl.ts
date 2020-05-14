@@ -1,7 +1,7 @@
+import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_AMPLE, SKIN_TYPE_PLAIN, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLAVERING } from "../../../../includes/appearanceDefs";
+import { Appearance } from "../../../Appearance";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, SKIN_TYPE_PLAIN } from "../../../../includes/appearanceDefs";
-import { Appearance } from "../../../Appearance";
 
 export class ChameleonGirl extends Monster {
 

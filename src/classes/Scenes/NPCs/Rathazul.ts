@@ -1,12 +1,12 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { CoC } from "../../CoC";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
 import { TAIL_TYPE_SPIDER_ADBOMEN } from "../../../includes/appearanceDefs";
+import { CoC } from "../../CoC";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { ItemType } from "../../ItemType";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
 

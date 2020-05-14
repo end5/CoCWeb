@@ -1,9 +1,9 @@
-import { Monster } from "../../Monster";
-import { StatusAffects } from "../../StatusAffects";
-import { VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_WET, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_BOYISH, BUTT_RATING_TIGHT, WING_TYPE_IMP } from "../../../includes/appearanceDefs";
 import { trace } from "../../../console";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, BUTT_RATING_TIGHT, HIP_RATING_BOYISH, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_WET, WING_TYPE_IMP } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
 import { WeightedDrop } from "../../internals/WeightedDrop";
+import { Monster } from "../../Monster";
+import { StatusAffects } from "../../StatusAffects";
 
 export class Imp extends Monster {
     public defeated(hpVictory: boolean): void {

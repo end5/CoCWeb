@@ -1,6 +1,6 @@
-import { Monster } from "../../../Monster";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_HARPY, SKIN_TYPE_PLAIN, TAIL_TYPE_HARPY, WING_TYPE_FEATHERED_LARGE } from "../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_AMPLE, LOWER_BODY_TYPE_HARPY, SKIN_TYPE_PLAIN, TAIL_TYPE_HARPY, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLAVERING, WING_TYPE_FEATHERED_LARGE } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
+import { Monster } from "../../../Monster";
 
 export class HarpyQueen extends Monster {
 

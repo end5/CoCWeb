@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
-import { Lake } from "../Lake";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { Lake } from "../Lake";
 
 /**
  * Created by aimozg on 06.01.14.

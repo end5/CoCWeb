@@ -1,10 +1,10 @@
-import { Monster } from "../../../Monster";
+import { BUTT_RATING_TIGHT, HIP_RATING_SLENDER } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { HIP_RATING_SLENDER, BUTT_RATING_TIGHT } from "../../../../includes/appearanceDefs";
-import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../../StatusAffects";
+import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { Monster } from "../../../Monster";
 import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class MinotaurKing extends Monster {
     public constructor() {

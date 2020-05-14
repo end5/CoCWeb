@@ -1,10 +1,10 @@
-﻿import { Monster } from "../../../Monster";
+﻿import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, ARM_TYPE_HUMAN, BUTT_RATING_TIGHT, EARS_ELFIN, HIP_RATING_SLENDER, LOWER_BODY_TYPE_HUMAN, WING_TYPE_GIANT_DRAGONFLY } from "../../../../includes/appearanceDefs";
+import { CockTypesEnum } from "../../../CockTypesEnum";
+import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { ItemType } from "../../../ItemType";
+import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 import { PhoukaScene } from "./PhoukaScene";
-import { ItemType } from "../../../ItemType";
-import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_SLENDER, BUTT_RATING_TIGHT, LOWER_BODY_TYPE_HUMAN, ARM_TYPE_HUMAN, EARS_ELFIN, WING_TYPE_GIANT_DRAGONFLY } from "../../../../includes/appearanceDefs";
-import { WeightedDrop } from "../../../internals/WeightedDrop";
 
 /**
  * Created by K.Quesom 11.06.14

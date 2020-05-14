@@ -1,9 +1,9 @@
-import { Monster } from "../../../Monster";
 import { trace } from "../../../../console";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_TIGHT, HIP_RATING_SLENDER, WING_TYPE_IMP } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_SLENDER, BUTT_RATING_TIGHT, WING_TYPE_IMP } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { Monster } from "../../../Monster";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class ImpHorde extends Monster {
     protected performCombatAction(): void {

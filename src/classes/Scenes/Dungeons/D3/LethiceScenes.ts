@@ -1,8 +1,8 @@
 import { BaseContent } from "../../../BaseContent";
-import { Lethice } from "./Lethice";
-import { StatusAffects } from "../../../StatusAffects";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { WeaponLib } from "../../../Items/WeaponLib";
+import { StatusAffects } from "../../../StatusAffects";
+import { Lethice } from "./Lethice";
 
 
 export class LethiceScenes extends BaseContent {

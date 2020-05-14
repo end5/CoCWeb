@@ -1,9 +1,9 @@
+import { Player } from "../classes/Player";
 import { GameModel } from "../model/GameModel";
+import { loadId } from "./LoadUtils";
+import { NameView } from "./NameView";
 import { StatView, StatViewWithBar } from "./StatView";
 import { TimeView } from "./TimeView";
-import { Player } from "../classes/Player";
-import { NameView } from "./NameView";
-import { loadId } from "./LoadUtils";
 
 export type StatKeys = 'str' | 'tou' | 'spe' | 'inte' | 'lib' | 'sens' | 'cor' | 'hp' | 'lust' | 'fatigue';
 export type OtherKeys = 'level' | 'xp' | 'gems';

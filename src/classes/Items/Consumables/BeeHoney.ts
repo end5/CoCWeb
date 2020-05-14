@@ -1,12 +1,12 @@
-import { Consumable } from "../Consumable";
-import { StatusAffects } from "../../StatusAffects";
-import { Player } from "../../Player";
-import { Utils } from "../../internals/Utils";
-import { PerkLib } from "../../PerkLib";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { CoC } from "../../CoC";
 import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { Utils } from "../../internals/Utils";
+import { PerkLib } from "../../PerkLib";
+import { Player } from "../../Player";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { Consumable } from "../Consumable";
 
 /**
  * Created by K.Quesom 11.06.14

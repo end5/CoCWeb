@@ -1,26 +1,26 @@
+import { ANTENNAE_NONE, GENDER_NONE, HORNS_NONE, TAIL_TYPE_NONE, WING_TYPE_NONE } from "../includes/appearanceDefs";
+import { OtherKeys, StatKeys } from "../view/StatsView";
+import { Appearance } from "./Appearance";
+import { BreastRowClass } from "./BreastRowClass";
+import { Cock } from "./Cock";
+import { CockTypesEnum } from "./CockTypesEnum";
+import { CoC_Settings } from "./CoC_Settings";
 import { Creature } from "./Creature";
-import { Player } from "./Player";
+import { kFLAGS } from "./GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
+import { ChainedDrop } from "./internals/ChainedDrop";
+import { RandomDrop } from "./internals/RandomDrop";
+import { Utils } from "./internals/Utils";
+import { WeightedDrop } from "./internals/WeightedDrop";
+import { ArmorLib } from "./Items/ArmorLib";
 import { ConsumableLib } from "./Items/ConsumableLib";
 import { UseableLib } from "./Items/UseableLib";
 import { WeaponLib } from "./Items/WeaponLib";
-import { ArmorLib } from "./Items/ArmorLib";
-import { ChainedDrop } from "./internals/ChainedDrop";
-import { WeightedDrop } from "./internals/WeightedDrop";
-import { CockTypesEnum } from "./CockTypesEnum";
-import { Appearance } from "./Appearance";
-import { Utils } from "./internals/Utils";
-import { CoC_Settings } from "./CoC_Settings";
-import { StatusAffects } from "./StatusAffects";
-import { Cock } from "./Cock";
-import { VaginaClass } from "./VaginaClass";
-import { BreastRowClass } from "./BreastRowClass";
 import { ItemType } from "./ItemType";
-import { kFLAGS } from "./GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
-import { RandomDrop } from "./internals/RandomDrop";
 import { PerkLib } from "./PerkLib";
-import { OtherKeys, StatKeys } from "../view/StatsView";
-import { GENDER_NONE, TAIL_TYPE_NONE, HORNS_NONE, WING_TYPE_NONE, ANTENNAE_NONE } from "../includes/appearanceDefs";
+import { Player } from "./Player";
+import { StatusAffects } from "./StatusAffects";
+import { VaginaClass } from "./VaginaClass";
 
 
 /**

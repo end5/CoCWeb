@@ -1,22 +1,22 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkType } from "../../../PerkType";
-import { PerkLib } from "../../../PerkLib";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../../PerkLib";
+import { PerkType } from "../../../PerkType";
+import { StatusAffects } from "../../../StatusAffects";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 /**
  * Whee!
  * (No @ tag for coder)
  * @author Gedan
  * @author QuietBrowser, ???
- * 
- * I dunno yet how heavy-handed I can get away with being when it comes to making changes to scene content on the fly, whilst I'm coding it up. 
- * For the most part, I've tried to stick to just minor changes where possible rather than making any serious modifications, with the intention of seeing exactly what Fen changes (if anything),
- * using that as kind of my benchmark. In hindsight, anything I code up in future I'd like to /properly/ edit myself via gdocs with the original author(s), 
- * so I can fix the stuff up to the point where I'm happy AND the author(s) have had their input too, but I'm putting that down to how... rough some parts of the Uma doc are. 
  *
- * I COULD have made use of Fake-Names new methods of including scene content, but this content file is a proof of concept for new class-based sceneadditions. 
+ * I dunno yet how heavy-handed I can get away with being when it comes to making changes to scene content on the fly, whilst I'm coding it up.
+ * For the most part, I've tried to stick to just minor changes where possible rather than making any serious modifications, with the intention of seeing exactly what Fen changes (if anything),
+ * using that as kind of my benchmark. In hindsight, anything I code up in future I'd like to /properly/ edit myself via gdocs with the original author(s),
+ * so I can fix the stuff up to the point where I'm happy AND the author(s) have had their input too, but I'm putting that down to how... rough some parts of the Uma doc are.
+ *
+ * I COULD have made use of Fake-Names new methods of including scene content, but this content file is a proof of concept for new class-based sceneadditions.
  * As such, I've left it as "similar" as possible to older content throughout the game for clarity purposes. Anything I add past this point will probably use
  * Fake-Name's Scene Parsing stuff as much as possible.
  *

@@ -1,6 +1,6 @@
-import { Monster } from "../../../Monster";
 import { trace } from "../../../../console";
-import { ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_SLENDER, BUTT_RATING_BUTTLESS } from "../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, BUTT_RATING_BUTTLESS, HIP_RATING_SLENDER } from "../../../../includes/appearanceDefs";
+import { Monster } from "../../../Monster";
 
 export class WormMass extends Monster {
 

@@ -1,6 +1,6 @@
 import { BaseContent } from "../../../BaseContent";
-import { ChameleonGirl } from "./ChameleonGirl";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { ChameleonGirl } from "./ChameleonGirl";
 
 /**
  * Created by aimozg on 03.01.14.

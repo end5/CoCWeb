@@ -5,7 +5,7 @@ import { arianLookups, rubiLookups } from "./npcLookups";
 // note that these are only used in doubleArgLookups, not in Parser.as itself
 //
 // =!= NOTE: MUST BE IMPORTED BEFORE "./doubleArgLookups.as" =!=
-// 
+//
 //Calls are now made through kGAMECLASS rather than thisPtr. This allows the compiler to detect if/when a function is inaccessible.
 // include "./npcLookups.as";
 

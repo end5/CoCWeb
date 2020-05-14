@@ -1,11 +1,11 @@
-import { Monster } from "../../../Monster";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { CockTypesEnum } from "../../../CockTypesEnum";
-import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, HIP_RATING_AMPLE, BUTT_RATING_AVERAGE, TAIL_TYPE_FOX } from "../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_NORMAL, BUTT_RATING_AVERAGE, HIP_RATING_AMPLE, TAIL_TYPE_FOX, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_SLICK } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
+import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { Monster } from "../../../Monster";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class Kitsune extends Monster {
 

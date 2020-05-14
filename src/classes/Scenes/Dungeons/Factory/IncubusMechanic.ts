@@ -1,10 +1,10 @@
-import { Monster } from "../../../Monster";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
-import { StatusAffects } from "../../../StatusAffects";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_TIGHT, HIP_RATING_AMPLE, LOWER_BODY_TYPE_DEMONIC_CLAWS, TAIL_TYPE_DEMONIC, WING_TYPE_BAT_LIKE_TINY } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_AMPLE, BUTT_RATING_TIGHT, LOWER_BODY_TYPE_DEMONIC_CLAWS, TAIL_TYPE_DEMONIC, WING_TYPE_BAT_LIKE_TINY } from "../../../../includes/appearanceDefs";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
+import { Monster } from "../../../Monster";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class IncubusMechanic extends Monster {
 

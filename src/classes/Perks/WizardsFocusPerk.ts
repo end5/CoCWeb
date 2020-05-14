@@ -1,5 +1,5 @@
-import { PerkType } from "../PerkType";
 import { PerkClass } from "../PerkClass";
+import { PerkType } from "../PerkType";
 
 /**
  * Created by aimozg on 27.01.14.

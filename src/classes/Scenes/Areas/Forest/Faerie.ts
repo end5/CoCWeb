@@ -1,8 +1,8 @@
-import { BaseContent } from "../../../BaseContent";
-import { StatusAffects } from "../../../StatusAffects";
-import { VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING } from "../../../../includes/appearanceDefs";
+import { VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_WET } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
+import { BaseContent } from "../../../BaseContent";
 import { CockTypesEnum } from "../../../CockTypesEnum";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class Faerie extends BaseContent {
     //faerie Encounter

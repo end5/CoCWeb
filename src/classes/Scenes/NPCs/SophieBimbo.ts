@@ -1,9 +1,9 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { PregnancyStore } from "../../PregnancyStore";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class SophieBimbo extends NPCAwareContent {
     private get pregnancy(): PregnancyStore { return kGAMECLASS.sophieScene.pregnancy; } //Quick way to access sophie's pregnancyStore
@@ -581,11 +581,11 @@ export class SophieBimbo extends NPCAwareContent {
         this.outputText("<b>(Perk Unlocked: Luststick Adapted - your minimum lust is permanently raised, but you are 20% more lust resistant.  In combat, you're immune to it, though it still gives you a rush during sex.  You're also comfortable enough with it to use it like a harpy if you find any.)</b>\n", false);
         this.player.createPerk(PerkLib.LuststickAdapted, 0, 0, 0, 0);
     }
-    //Get oral as female.  
+    //Get oral as female.
     private bimboSophieLicksRugs(): void {
         this.sophieSprite();
         this.outputText("", true);
-        //*Summary - lean back on a rock and spread your legs.  She licks you off with chance of compelling you to sixtynine her. 
+        //*Summary - lean back on a rock and spread your legs.  She licks you off with chance of compelling you to sixtynine her.
         this.outputText("You sit back on a nearby rock and spread your " + this.player.legs(), false);
         if (this.player.balls > 0) this.outputText(", lifting your heavy sack out of the way", false);
         this.outputText(" to give Sophie a perfect view of your " + this.vaginaDescript() + ".  Sophie's dull, somewhat glazed eyes brighten at the sight of your box, and she leans forward intently, dipping a digit into herself as she asks, \"<i>Ooh, can I, like, lick it for you?  It looks soooo yummy!</i>\"\n\n", false);
@@ -1019,7 +1019,7 @@ export class SophieBimbo extends NPCAwareContent {
         //{if (cocks = 1) and (cumNormal = true)}
         if (this.player.cockTotal() == 1) {
             if (this.player.cumQ() < 250) this.outputText("\n\nYour [cock " + (x + 1) + "] throbs and spasms inside of the bird bitch, your hot seed surging up inside - and then you loose it inside of her, rope after rope of hot, sticky seed spraying against Sophie's insides as the bird-bitch coos and shudders, having a light orgasm of her own.");
-            //{if (cocks = 1) and (cumMedium = true)} 
+            //{if (cocks = 1) and (cumMedium = true)}
             else if (this.player.cumQ() < 500) this.outputText("\n\nYour cock surges inside of Sophie's hot cunt, releasing thick spurts of your spunk inside of her, and the slutty bimbo croons and moans as you paint her insides with it, pleasure rocking through your hips, and she grinds her hips against yours in small circles, thoroughly enjoying getting a nice, hot load inside of her.  You grope and rub her butt in return as she hugs you, her legs uncurling from your back, and let out a loud sigh as you start to relax.");
             else if (this.player.cumQ() < 1500) this.outputText("\n\nYour body seizes up as your orgasm unfolds, gushes of your spunk emptying into the slut's cunt as she rubs your back and cries out, having an orgasm to match your own - and the added stimulation just fuels your own orgasm, loosing everything you have into the feathery whore.  Your seed drips and drools out around your [cock " + (x + 1) + "], adding to the mix of sexual fluids that are already gushing out of her, and you let out one last shuddering sigh.");
             else if (this.player.cumQ() < 3000) this.outputText("\n\nYour hips jump and shudder as your huge load of spunk begins to well up inside of you, and you find yourself moaning into Sophie's tits as the bird-slut eggs you on, muttering \"<i>Cum!  Cum!  Cum!</i>\" over and over.  You groan as the first spurt of your seed shoots out into the harpy's twat - and then the floodgates open.  Your hips buck repeatedly into the bird-whore as she moans her pleasure, each thrust met with a gout of your seed - which quickly starts to pour out of her.\n\nSophie's own climax quickly kicks off as her belly starts to swell with your orgasm, and your spunk paints her insides, her thighs, and the crack of her ass white along with your crotch, her belly bloated out into a little hump by the time you're done. She shudders, hips still twitching, and rubs your back lovingly.");
@@ -1031,9 +1031,9 @@ export class SophieBimbo extends NPCAwareContent {
         }
         else {
             if (this.player.cumQ() < 250) this.outputText("\n\n[EachCock] twitches and sputters as your orgasm kicks off, the [cock " + (x + 1) + "] inside Sophie's drooling cunt getting the first gout from your [balls], followed immediately by a second shot from the cock[if (cocks > 2) s] outside of her.  [EachCock] fire off a few more spurts and shots of your seed, getting Sophie's insides and thighs all sticky, and then you flop down with a sigh.");
-            //{if (cocks >= 2) and (cumMedium = true)} 
+            //{if (cocks >= 2) and (cumMedium = true)}
             else if (this.player.cumQ() < 500) this.outputText("\n\n[EachCock] throbs beneath of you as your orgasm kicks off, and your first few shots of semen get everywhere; Sophie's thighs and crotch and insides all get a liberal helping of your cream as you gush and shudder, emptying your [balls], and she coos happily, rubbing your back.  She reaches down and grabs your [cock " + (y + 1) + "] with her other hand, stroking the smaller length as it shoots out a few more spurts all over her wrist, and she cradles you.");
-            //{if (cocks >= 2) and (cumHigh = true)} 
+            //{if (cocks >= 2) and (cumHigh = true)}
             else if (this.player.cumQ() < 1500) {
                 this.outputText("\n\nSophie's insides milk your [cock " + (x + 1) + "] as you sit, teetering on the edge - and then you hear her voice above you.  \"<i>Cum in me, babe, I, I want it all inside! P-please...</i>\"  That does it; the thought of filling Sophie with your spunk turns into a strange kind of self-fulfilling prophecy; your legs kick behind you as your hips buck, and the first shot of your hot seed spurts out your [cock " + (x + 1) + "], dousing the heat in Sophie's cunt with your own scalding arousal.  She lets out a high-pitched moan as you fill her with a second spurt, then a third, and then a fourth - and your [cock " + (y + 1) + "] similarly sprays her thighs and pussy lips");
                 if (this.player.cockTotal() == 3) this.outputText(", along with your third length, spittling and spraying onto her belly.");
@@ -1041,12 +1041,12 @@ export class SophieBimbo extends NPCAwareContent {
                 if (this.player.cockTotal() == 2) this.outputText(".");
                 this.outputText("  Sophie shudders and sighs, rubbing your [hair] with her hand, and you hear her breathe a \"<i>Thank you...</i>\"");
             }
-            //{if (cocks >= 2) and (cumVeryHigh = true)} 
+            //{if (cocks >= 2) and (cumVeryHigh = true)}
             else if (this.player.cumQ() < 3000) this.outputText("\n\n[EachCock] spasm, twitching and flooding with your seed - the first burst of which empties directly against Sophie's cervix, your [cock " + (x + 1) + "] painting the bird-slut in your colors.  You grope and rub her butt, holding her fat hips against yours as you come in and all over her, her platinum-blonde feathers getting a generous tinting towards white as you spray her belly and her thighs alike - and your belly and [chest] in the process, moaning and crying out your orgasm into the cleavage of her huge tits.\n\nThe bird slut wraps her arms tighter around you, hanging on for dear life as her cum-splattered belly bulges from gout after gout of your cum filling it, and her walls clench and spasm around your cock in a breeding-fueled orgasm.  You loose the rest of your seed from your [balls], leaving her with bukkake'd hips and a bulging belly, and collapse, letting her fat butt hit the wet dirt beneath her.");
-            //{if (cocks >= 2) and (cumExtreme = true)} 
+            //{if (cocks >= 2) and (cumExtreme = true)}
             else this.outputText("\n\n[EachCock] burst all at once, your heated, spasming lengths unloading their seed all together - and as a result you not only spray Sophie's insides white and start to flood her womb with your hot cream, you also coat her thighs and belly with it, liberally spraying her thighs with your seed as you do your level best to knock up the kinky bird bitch.  Sophie screeches out her pleasure, arching her back as you let out spray after spray of your spunk in and out of her - and your [cock " + (x + 1) + "] finds itself squeezed and clamped down on as Sophie's orgasm only makes yours stronger.\n\nYour [balls] refuse to empty as your load makes Sophie's belly bloat with it all, the harpy squawking as she comes again off of the maternal high, and you find yourself moaning against her chest as your seed continues to spurt, helpless to stop your own orgasm.  You try to clamp down on it, the pleasure too much, the heat running straight up your spine, but you can't; each massive gout of your seed overloads your control, forcing you to keep coming all in and all over the fat harpy.\n\nFinally you end up biting onto the harpy's nipple, making her cry out as you try to ride out the waves of your own pleasure, and she shudders and moans and gushes her own juices to add to yours, the excess cream and juices showering your crotch and the dirt around the both of you.  Her excited squawking and screeching is loud enough that you're sure the rest of the camp can hear it, but you don't care; your orgasm is finally starting to taper off, Sophie's belly so bloated with your spunk that she looks pregnant with <i>several</i> eggs.");
         }
-        //[if (hasVagina = true) 
+        //[if (hasVagina = true)
         if (this.player.hasVagina()) {
             this.outputText("\n\nLike an afterthought, your neglected [vagina] is still tingling and shivering after your powerful orgasm, ");
             if (this.player.wetness() >= 4) this.outputText("squirting ");
@@ -1087,7 +1087,7 @@ export class SophieBimbo extends NPCAwareContent {
     }
 
     //Impregnation Sex*
-    //Lots of Sophie Compulsion Foreplay coupled with just jamming it in.  She loses all control and you ride her like a bucking bronco, cumming in her pussy a few times, then in her ass, in her tits/mouth, and then back in her pussy again.  Then snuggles? 
+    //Lots of Sophie Compulsion Foreplay coupled with just jamming it in.  She loses all control and you ride her like a bucking bronco, cumming in her pussy a few times, then in her ass, in her tits/mouth, and then back in her pussy again.  Then snuggles?
     private sophieImpregnationSex(): void {
         var x: number = this.player.cockThatFits(this.sophieCapacity());
         var y: number = this.player.cockThatFits2(this.sophieCapacity());
@@ -1721,7 +1721,7 @@ export class SophieBimbo extends NPCAwareContent {
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] > 0) this.flags[kFLAGS.DAUGHTER_FOUR_BIMBO] = 1;
             }
 
-            //ALL FIRST FOUR END WITH THIS: 
+            //ALL FIRST FOUR END WITH THIS:
             if (this.bimboSophie()) this.outputText("  Before the girl can try to stand she is swept up off her feet by her ecstatic mother.  \"<i>Oohhhhh, just look at you!  My baby girl is sooo cute!  Soooo totally fluffy and like, suuuuper soft!</i>\"");
             else this.outputText("  Before the girl can try to stand she is swept up off her feet by her ecstatic mother.  \"<i>Oohhhhh, you're so cute!  My baby girl is sooo cute!  Oh, the boys will be all over you when you grow up, I just know it!</i>\"");
         }

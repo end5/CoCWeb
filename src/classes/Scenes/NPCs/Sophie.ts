@@ -1,10 +1,10 @@
-import { Harpy } from "../Areas/HighMountains/Harpy";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_GAPING_WIDE, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_INHUMANLY_WIDE, BUTT_RATING_EXPANSIVE, SKIN_TYPE_PLAIN, WING_TYPE_HARPY } from "../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_EXPANSIVE, HIP_RATING_INHUMANLY_WIDE, SKIN_TYPE_PLAIN, VAGINA_LOOSENESS_GAPING_WIDE, VAGINA_WETNESS_DROOLING, WING_TYPE_HARPY } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
 import { ChainedDrop } from "../../internals/ChainedDrop";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
+import { Harpy } from "../Areas/HighMountains/Harpy";
 
 /**
  * ...

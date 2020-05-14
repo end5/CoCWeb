@@ -1,10 +1,10 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { CoC } from "../../CoC";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
-import { TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { ItemType } from "../../ItemType";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 // ARIAN_FOLLOWER: number = 933;
 // ARIAN_PARK: number = 934; //-1 = disabled, 1 = helped.

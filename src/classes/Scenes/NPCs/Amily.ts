@@ -1,9 +1,9 @@
-import { Monster } from "../../Monster";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
-import { CoC_Settings } from "../../CoC_Settings";
-import { VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_TIGHT, SKIN_TYPE_FUR } from "../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_VIRGIN, ANAL_WETNESS_DRY, BUTT_RATING_TIGHT, HIP_RATING_AMPLE, SKIN_TYPE_FUR, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_NORMAL } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
+import { CoC_Settings } from "../../CoC_Settings";
+import { Monster } from "../../Monster";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
 
 /**
  * ...

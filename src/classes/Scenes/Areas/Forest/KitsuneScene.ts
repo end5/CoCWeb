@@ -1,13 +1,13 @@
+import { EARS_FOX, TAIL_TYPE_FOX, VAGINA_LOOSENESS_GAPING, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLAVERING } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { Imp } from "../../Monsters/Imp";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
-import { Kitsune } from "./Kitsune";
-import { VAGINA_LOOSENESS_GAPING, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, TAIL_TYPE_FOX, EARS_FOX } from "../../../../includes/appearanceDefs";
-import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { ItemType } from "../../../ItemType";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
+import { Imp } from "../../Monsters/Imp";
+import { Kitsune } from "./Kitsune";
 
 /**
  * Created by aimozg on 04.01.14.

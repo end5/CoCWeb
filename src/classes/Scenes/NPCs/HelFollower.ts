@@ -1,11 +1,11 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { trace } from "../../../console";
+import { TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
 import { Hel } from "./Hel";
-import { TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
-import { PerkLib } from "../../PerkLib";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class HelFollower extends NPCAwareContent {
 

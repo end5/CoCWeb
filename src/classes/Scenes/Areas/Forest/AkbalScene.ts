@@ -1,13 +1,13 @@
+import { LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
+import { CockTypesEnum } from "../../../CockTypesEnum";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
-import { LOWER_BODY_TYPE_NAGA, LOWER_BODY_TYPE_CENTAUR, TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { PerkLib } from "../../../PerkLib";
 import { PregnancyStore } from "../../../PregnancyStore";
-import { Akbal } from "./Akbal";
-import { CockTypesEnum } from "../../../CockTypesEnum";
 import { StatusAffects } from "../../../StatusAffects";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { Akbal } from "./Akbal";
 
 /**
  * Created by aimozg on 01.01.14.

@@ -1,9 +1,9 @@
+import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, BUTT_RATING_AVERAGE, HIP_RATING_AVERAGE, LOWER_BODY_TYPE_CENTAUR, TAIL_TYPE_HORSE } from "../../../../includes/appearanceDefs";
+import { Appearance } from "../../../Appearance";
+import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { CockTypesEnum } from "../../../CockTypesEnum";
-import { Appearance } from "../../../Appearance";
-import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_CENTAUR, TAIL_TYPE_HORSE } from "../../../../includes/appearanceDefs";
 
 export class Kelt extends Monster {
     //Trample - once every five turns

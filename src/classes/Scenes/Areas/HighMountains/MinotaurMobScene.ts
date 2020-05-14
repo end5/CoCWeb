@@ -1,13 +1,13 @@
+import { trace } from "../../../../console";
+import { TAIL_TYPE_COW, TAIL_TYPE_DEMONIC, TAIL_TYPE_KANGAROO, TAIL_TYPE_LIZARD, TAIL_TYPE_NONE, TAIL_TYPE_SHARK } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
-import { TimeAwareInterface } from "../../../TimeAwareInterface";
 import { CoC } from "../../../CoC";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { trace } from "../../../../console";
-import { PregnancyStore } from "../../../PregnancyStore";
-import { MinotaurMob } from "./MinotaurMob";
-import { TAIL_TYPE_NONE, TAIL_TYPE_DEMONIC, TAIL_TYPE_COW, TAIL_TYPE_SHARK, TAIL_TYPE_LIZARD, TAIL_TYPE_KANGAROO } from "../../../../includes/appearanceDefs";
 import { ItemType } from "../../../ItemType";
 import { PerkLib } from "../../../PerkLib";
+import { PregnancyStore } from "../../../PregnancyStore";
+import { TimeAwareInterface } from "../../../TimeAwareInterface";
+import { MinotaurMob } from "./MinotaurMob";
 
 export class MinotaurMobScene extends BaseContent implements TimeAwareInterface {
 

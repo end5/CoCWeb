@@ -1,14 +1,14 @@
+import { ANTENNAE_NONE } from "../../../includes/appearanceDefs";
 import { BaseContent } from "../../BaseContent";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { LustyDemons } from "./Owca/LustyDemons";
-import { StatusAffects } from "../../StatusAffects";
-import { WeaponLib } from "../../Items/WeaponLib";
-import { PerkLib } from "../../PerkLib";
-import { ANTENNAE_NONE } from "../../../includes/appearanceDefs";
-import { PregnancyStore } from "../../PregnancyStore";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { WeaponLib } from "../../Items/WeaponLib";
 import { ItemType } from "../../ItemType";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
 import { Farmers } from "./Owca/Farmers";
+import { LustyDemons } from "./Owca/LustyDemons";
 
 export class Owca extends BaseContent {
 

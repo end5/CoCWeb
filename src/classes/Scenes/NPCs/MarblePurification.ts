@@ -1,8 +1,8 @@
-﻿import { NPCAwareContent } from "./NPCAwareContent";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+﻿import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 import { StatusAffects } from "../../StatusAffects";
 import { Clara } from "./Clara";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 //MARBLE_BOYS = Number of boys birthed
 //MARBLE_PURIFIED = Marble purified
@@ -44,7 +44,7 @@ export class MarblePurification extends NPCAwareContent {
 	Marble taking the formula will be the last step in her purification.
 	At this point Marble is purified.
 	There were plans to let you use a pure pearl as well, but that would cause you to skip over too much content related to Marble's personality and race for it to be practical to write two forms of Marble's post-purification content.
-	
+
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
     //Marble wants to be purified
@@ -359,7 +359,7 @@ export class MarblePurification extends NPCAwareContent {
         //Marble’s response
         this.outputText("\n\nMarble puts her hand to her forehead, before demanding, \"<i>What, what are you doing Clara?!</i>\"  Clara turns to her sister and with that smirking face tells her, \"<i>I’m collecting the catch that you decided to foolishly throw away.</i>\"  Marble falls to the ground as you feel yourself start to slip thanks to the drugged tea.  Just before you pass out, the visage of a pretty young woman fills your vision and says, \"<i>Come on now, let’s run away toogether.</i>\"");
 
-        //new page 
+        //new page
         this.menu();
         this.addButton(0, "Next", this.partTwoOfLowIntelligencePCsFallingForTheIncrediblyObviousCowCuntsTrap);
 
@@ -530,7 +530,7 @@ export class MarblePurification extends NPCAwareContent {
 
     public loseToClara(combat: boolean = true): void {
         this.clearOutput();
-        //PC loses via health	
+        //PC loses via health
         if (combat) {
             if (this.player.HP < 1) this.outputText("Your body gives out from the strain, and you fall to the ground.  The last thing you hear before you pass out, is Clara’s triumphant laughter.");
             //proceed to loss scene
@@ -842,7 +842,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("\n\nYou can't help but muse that a cow-girl's endurance is something that should never be underestimated.  Their strength certainly isn't as great, but is still more than an average human's by a fair margin.  Making someone who is quite strong completely enraged is generally a bad idea.  Especially when that someone has been working on a farm for close to a year lifting increasingly heavy loads and training with a massive hammer.");
         this.outputText("\n\nClara doesn't stand a chance.  In a matter of moments, she's brought to the ground once more, tightly bound up in a thick rope.  \"<i>Time to teach you a lesson!</i>\"  Marble yells with a look of rage in her eyes.");
         this.outputText("\n\nHow should you punish Clara?  You could let Marble spank Clara, ");
-        //(if PC either has a cock with an area under 20 or a vagina) 
+        //(if PC either has a cock with an area under 20 or a vagina)
         if ((this.player.hasCock() && this.player.cockThatFits(20) >= 0) || this.player.hasVagina()) this.outputText("use Marble's unstable state of mind to get her into a forceful threesome with Clara, ");
         //(if PC either has a cock that will fit Marble, or has a vagina)
         if ((this.player.hasCock() && this.player.cockThatFits(this.marbleScene.marbleCuntCapacity()) >= 0) || this.player.hasVagina()) this.outputText("have sex in front of Clara so she can see what your love really is, ");
@@ -1433,7 +1433,7 @@ export class MarblePurification extends NPCAwareContent {
         this.outputText("While checking your traps to ensure that they're still working, you hear a voice call out from outside the camp, \"<i>Sweetie!</i>\"  You look up and see the smiling face of Marble");
         //if (PC has at least one child with Marble)
         if (this.flags[kFLAGS.MARBLE_KIDS] > 0) this.outputText(" and that of your child");
-        //if (PC has two or more children with Marble) 
+        //if (PC has two or more children with Marble)
         if (this.flags[kFLAGS.MARBLE_KIDS] > 1) this.outputText("ren");
         this.outputText(" just outside the camp.  She must have somehow found out about your purification.");
 

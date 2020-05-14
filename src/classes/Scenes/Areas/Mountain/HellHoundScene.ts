@@ -1,11 +1,11 @@
+import { LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA, VAGINA_LOOSENESS_GAPING, VAGINA_WETNESS_WET } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
-import { HellHound } from "./HellHound";
-import { LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_WET, VAGINA_LOOSENESS_GAPING } from "../../../../includes/appearanceDefs";
-import { PregnancyStore } from "../../../PregnancyStore";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
 import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { PerkLib } from "../../../PerkLib";
+import { PregnancyStore } from "../../../PregnancyStore";
+import { StatusAffects } from "../../../StatusAffects";
+import { HellHound } from "./HellHound";
 
 /**
  * Created by aimozg on 04.01.14.

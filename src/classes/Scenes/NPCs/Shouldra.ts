@@ -1,10 +1,10 @@
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_AVERAGE, HIP_RATING_AMPLE, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_WET } from "../../../includes/appearanceDefs";
+import { Appearance } from "../../Appearance";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { ChainedDrop } from "../../internals/ChainedDrop";
 import { Monster } from "../../Monster";
 import { PerkLib } from "../../PerkLib";
-import { VAGINA_WETNESS_WET, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_AVERAGE } from "../../../includes/appearanceDefs";
 import { StatusAffects } from "../../StatusAffects";
-import { Appearance } from "../../Appearance";
-import { ChainedDrop } from "../../internals/ChainedDrop";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * ...

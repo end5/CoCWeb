@@ -1,12 +1,12 @@
+import { SKIN_TYPE_FUR } from "../../../includes/appearanceDefs";
 import { BaseContent } from "../../BaseContent";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { PerkLib } from "../../PerkLib";
 import { Benoit } from "./Bazaar/Benoit";
 import { Cinnabar } from "./Bazaar/Cinnabar";
 import { FapArena } from "./Bazaar/FapArena";
 import { Lilium } from "./Bazaar/Lilium";
 import { Roxanne } from "./Bazaar/Roxanne";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { PerkLib } from "../../PerkLib";
-import { SKIN_TYPE_FUR } from "../../../includes/appearanceDefs";
 
 export class Bazaar extends BaseContent {
     // JOEY_OFFERED_MILKER: number = 466;

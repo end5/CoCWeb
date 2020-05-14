@@ -1,11 +1,11 @@
-import { NPCAwareContent } from "./NPCAwareContent";
+import { SKIN_TYPE_SCALES, TONUGE_DEMONIC, TONUGE_SNAKE } from "../../../includes/appearanceDefs";
+import { CockTypesEnum } from "../../CockTypesEnum";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { Kiha } from "./Kiha";
+import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
 import { SpiderMorphMob } from "../Areas/Swamp/SpiderMorphMob";
-import { PerkLib } from "../../PerkLib";
-import { CockTypesEnum } from "../../CockTypesEnum";
-import { SKIN_TYPE_SCALES, TONUGE_SNAKE, TONUGE_DEMONIC } from "../../../includes/appearanceDefs";
+import { Kiha } from "./Kiha";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class KihaFollower extends NPCAwareContent {
 

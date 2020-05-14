@@ -1,5 +1,5 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Jasun extends TelAdreAbstractContent {
 

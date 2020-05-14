@@ -1,6 +1,6 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { PerkLib } from "../../../PerkLib";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Maddie extends TelAdreAbstractContent {
 
@@ -20,16 +20,16 @@ export class Maddie extends TelAdreAbstractContent {
             this.outputText(" you. It releases your shoulder and starts walking towards an 'employees only' door.  Do you follow?\n\n", false);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00240] = 1;
         }
-        //(REPEAT) 
+        //(REPEAT)
         else {
             this.outputText("You walk into the bakery and a burly, hair-covered arm grabs your shoulder.  The familiar voice of a minotaur barks, \"<i>You.  You can help.  Come.</i>\"  You turn, but he's already walking towards an 'employees only' door.  Do you follow?", false);
         }
         this.doYesNo(this.followMinotaurIntoBackroom, this.telAdre.bakeryScene.bakeryuuuuuu);
     }
-    //[Follow] 
+    //[Follow]
     private followMinotaurIntoBackroom(): void {
         this.outputText("", true);
-        //	(Not yet explained) 
+        //	(Not yet explained)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00241] == 0) {
             this.outputText("You follow the burly beast through the door, turning several times as he leads you through the blisteringly hot ovens.  The minotaur is sweating heavily by the time you reach his destination, and for that matter so are you.  With all the musk boiling off of him, you find yourself wondering if he was just setting up an elaborate ruse to lure you into a sexual situation.  He grabs a white, fluffy hat and drops it on his head, firmly dispelling that notion as he tries to explain in as few words as possible, \"<i>I am cook.  I make great éclairs, but making masterpiece now.  Need special ingredients.  You get to leave city.  Bring me lust draft and honey.  Not pure stuff, too strong. Go.</i>\"\n\n", false);
             this.outputText("You get a chance to look over his work station, noting the many bowls of batter, hundreds of massive eclairs, and the largest onahole you've ever seen.  ", false);
@@ -41,7 +41,7 @@ export class Maddie extends TelAdreAbstractContent {
             else this.simpleChoices("", undefined, "", undefined, "", undefined, "", undefined, "Leave", this.camp.returnToCampUseOneHour);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00241] = 1;
         }
-        //(Explained) 
+        //(Explained)
         else {
             this.outputText("You follow the burly chef through the door, winding through the familiar ovens.  By the time you reach his work area, you're both covered in a fine sheen of sweat and you find yourself responding to the minotaur musk unconsciously.  The strange chef turns to ask, \"<i>You have special ingredients now, yes?</i>\"", false);
             //[Yes] [Lie – No/Not Yet]
@@ -193,7 +193,7 @@ export class Maddie extends TelAdreAbstractContent {
             this.outputText("You're woken by a furry hand squeezing your shoulder and violently shaking you around.  With such rough treatment, you snap to full alertness in no time.  The minotaur chef is smiling down at you, the expression looking quite strange on his bestial muzzle as he says, \"<i>Sorry.  Experiment backfired.  Glad you gave her what she needed.  Much calmer now.  Will make great assistant.</i>\"\n\n", false);
             this.outputText("Once the beast-man has finished talking you realize the cupcake-girl, Madeleine, is standing behind him.  Her blue-iced 'clothes' have been remade, shaped into a form-fitting apron that accentuates her massive, otherworldly curves.  The minotaur chef utters, \"<i>We go now.  Get dressed.  Maybe sometime can visit Maddie.</i>\"  Maddie claps her hands, bouncing and jiggling with excitement as the two of them leave you there to get dressed.", false);
         }
-        //(FEMALE/Genderpoots) 
+        //(FEMALE/Genderpoots)
         else {
             this.outputText("\"<i>Dad said my name is Madeleine, but that's no fun.  Just call me Maddie!</i>\" exclaims the airheaded pastry.  You briefly wonder if the yeast is to blame for her state, but you stifle the involuntarily giggle that rises with the stray thought.  Now is hardly the time for such frivolous rambling!  You shout with equal parts terror and rage, demanding she remove her sugary bondage from you immediately.  She looks at you with her alien eyes full of confusion, as if she doesn't comprehend a word you're saying.\n\n", false);
 

@@ -1,5 +1,5 @@
-import { Armor } from "../Armor";
 import { PerkType } from "../../PerkType";
+import { Armor } from "../Armor";
 
 /**
  * Created by aimozg on 18.01.14.
@@ -38,7 +38,7 @@ export class ArmorWithPerk extends Armor {
                 if(player.findPerk(playerPerk) < 0)
                     player.createPerk(playerPerk,playerPerkV1,playerPerkV2,playerPerkV3,playerPerkV4);
             }
-    
+
             public  unequipEffect(player:Player, output: boolean): void
             {
                 while(player.findPerk(playerPerk) >= 0) player.removePerk(playerPerk);

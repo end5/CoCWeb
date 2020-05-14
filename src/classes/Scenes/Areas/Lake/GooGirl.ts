@@ -1,8 +1,8 @@
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_LARGE, HIP_RATING_AMPLE, LOWER_BODY_TYPE_GOO, SKIN_TYPE_GOO, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_SLAVERING } from "../../../../includes/appearanceDefs";
+import { ChainedDrop } from "../../../internals/ChainedDrop";
 import { Monster } from "../../../Monster";
 import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_AMPLE, BUTT_RATING_LARGE, LOWER_BODY_TYPE_GOO, SKIN_TYPE_GOO } from "../../../../includes/appearanceDefs";
-import { ChainedDrop } from "../../../internals/ChainedDrop";
 
 export class GooGirl extends Monster {
     /*Fight-

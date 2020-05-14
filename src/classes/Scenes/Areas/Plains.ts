@@ -1,10 +1,10 @@
 import { BaseContent } from "../../BaseContent";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 import { BunnyGirl } from "./Plains/BunnyGirl";
 import { GnollScene } from "./Plains/GnollScene";
 import { GnollSpearThrowerScene } from "./Plains/GnollSpearThrowerScene";
 import { SatyrScene } from "./Plains/SatyrScene";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 06.01.14.

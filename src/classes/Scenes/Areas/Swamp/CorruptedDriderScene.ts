@@ -1,10 +1,10 @@
+import { EYES_FOUR_SPIDER_EYES, TAIL_TYPE_NONE, TAIL_TYPE_SPIDER_ADBOMEN, TONUGE_HUMAN } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
-import { CorruptedDrider } from "./CorruptedDrider";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { TAIL_TYPE_NONE, TAIL_TYPE_SPIDER_ADBOMEN, TONUGE_HUMAN, EYES_FOUR_SPIDER_EYES } from "../../../../includes/appearanceDefs";
 import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
-import { StatusAffects } from "../../../StatusAffects";
 import { PregnancyStore } from "../../../PregnancyStore";
+import { StatusAffects } from "../../../StatusAffects";
+import { CorruptedDrider } from "./CorruptedDrider";
 
 /**
  * Created by aimozg on 03.01.14.

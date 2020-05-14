@@ -1,8 +1,8 @@
-import { Consumable } from "../Consumable";
-import { ConsumableLib } from "../ConsumableLib";
+import { Utils } from "../../internals/Utils";
 import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
-import { Utils } from "../../internals/Utils";
+import { Consumable } from "../Consumable";
+import { ConsumableLib } from "../ConsumableLib";
 
 /**
  * Created by aimozg on 11.01.14.

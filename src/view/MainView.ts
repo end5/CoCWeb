@@ -1,11 +1,11 @@
-﻿import { StatsView } from "./StatsView";
-import { trace } from "../console";
-import { CoCButton } from "./CoCButton";
-import { GameModel } from "../model/GameModel";
+﻿import { bindToClass } from "../ClassBinder";
 import { kFLAGS } from "../classes/GlobalFlags/kFLAGS";
-import { loadId } from "./LoadUtils";
+import { trace } from "../console";
+import { GameModel } from "../model/GameModel";
 import { Sprites } from "../Sprites";
-import { bindToClass } from "../ClassBinder";
+import { CoCButton } from "./CoCButton";
+import { loadId } from "./LoadUtils";
+import { StatsView } from "./StatsView";
 
 /****
 	coc.view.MainView

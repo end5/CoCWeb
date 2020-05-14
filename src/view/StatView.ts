@@ -1,4 +1,4 @@
-import { loadId, loadClass } from "./LoadUtils";
+import { loadClass, loadId } from "./LoadUtils";
 
 export class StatView {
     public element: HTMLElement;

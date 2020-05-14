@@ -1,5 +1,5 @@
-import { Consumable } from "../Consumable";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { Consumable } from "../Consumable";
 
 /**
  * Created by aimozg on 11.01.14.

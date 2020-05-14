@@ -1,5 +1,5 @@
-import { ArmorWithPerk } from "./ArmorWithPerk";
 import { PerkLib } from "../../PerkLib";
+import { ArmorWithPerk } from "./ArmorWithPerk";
 
 /**
  * Created by aimozg on 18.01.14.

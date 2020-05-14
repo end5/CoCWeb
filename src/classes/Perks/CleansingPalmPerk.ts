@@ -1,6 +1,6 @@
-import { PerkType } from "../PerkType";
-import { PerkClass } from "../PerkClass";
 import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
+import { PerkClass } from "../PerkClass";
+import { PerkType } from "../PerkType";
 
 export class CleansingPalmPerk extends PerkType {
 

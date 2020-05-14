@@ -1,14 +1,14 @@
-import { AbstractFarmContent } from "./AbstractFarmContent";
-import { TimeAwareInterface } from "../../../TimeAwareInterface";
-import { PregnancyStore } from "../../../PregnancyStore";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { CoC } from "../../../CoC";
 import { trace } from "../../../../console";
-import { StatusAffects } from "../../../StatusAffects";
-import { Kelt } from "./Kelt";
+import { CoC } from "../../../CoC";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ItemType } from "../../../ItemType";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { ItemType } from "../../../ItemType";
+import { PregnancyStore } from "../../../PregnancyStore";
+import { StatusAffects } from "../../../StatusAffects";
+import { TimeAwareInterface } from "../../../TimeAwareInterface";
+import { AbstractFarmContent } from "./AbstractFarmContent";
+import { Kelt } from "./Kelt";
 
 export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
@@ -36,12 +36,12 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     //const KELLY_TIMES_APPLESAUCED: number = 980;
     //const KELLY_REWARD_COOLDOWN: number = 981;
     //Items
-    //Besides, the PC needs 15 succubi Milk to turn Kelt female. If the PC has a pink egg, only 10 are needed. If the PC has a large pink egg (or two pink eggs), only 5 are needed. 
+    //Besides, the PC needs 15 succubi Milk to turn Kelt female. If the PC has a pink egg, only 10 are needed. If the PC has a large pink egg (or two pink eggs), only 5 are needed.
 
     //Effects
     /*You can start mind-breaking Kelt as soon as he's done with your first lesson and you meet the above requirements.
     Kelt will first try to turn himself back male, in order to continue the mind breaking process you need to keep your stats at the same level or above and get more succubi milk.
-    
+
     Every encounter raises corruption by 5, except the last one that raises corruption by 8. In order to achieve the last encounter your corruption level must not be lower than it was at the third encounter.*/
 
     public pregnancy: PregnancyStore;
@@ -338,7 +338,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.clearOutput();
         //Cut these: You swing your [weapon], ready to use force against the restless centaur if necessary.
         //Cut these: \"<i>Easy now, okay? You don't have your bow, and you know what I can do with my [weapon]. Now if you just calm down I promise I'll be much nicer this time.</i>\"
-        //lust/HP: 
+        //lust/HP:
         if (this.monster.lust > 99) this.outputText("Kelt moans, mauling at his mantits in his lust before he realizes what's going on");
         else this.outputText("Kelt groans, slumping slightly from all the damage you've done to him");
         this.outputText(".  You close in, saying, \"<i>Easy now, okay?  You know what I can do with my [weapon].  Now if you just calm down, I promise I'll be much nicer this time.</i>\"");
@@ -629,14 +629,14 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     private kellyAppearance(): void {
         this.clearOutput();
         this.outputText("Kelly is a 6 foot 3 inch tall centauress with a svelte body and generous curves.  Her feminine face is pretty human in appearance, and her lovely traits would be adorably innocent if it weren't for her emerald eyes shining with lusty need whenever she looks at you.  Plump lips that seem to have been made for cock-sucking adorn her hungry mouth.  A long, single " + this.flags[kFLAGS.KELLY_HAIR_COLOR]);
-        //[chestnut brown/sable black/garish purple/bright pink/slutty blonde) 
+        //[chestnut brown/sable black/garish purple/bright pink/slutty blonde)
         this.outputText(" braid hangs between her shoulders, giving you easy leverage when you have your way with her.  Her torso is likewise human-looking, only stopping below her navel where her equine part starts growing.  She stands on four horse hooves, her lower body looking almost like a horse's- aside from the pointed " + this.flags[kFLAGS.KELLY_HAIR_COLOR] + " demon's tail which sprouts where her horse tail should, and her cute, pink, human-like asshole.");
         //[chestnut brown/sable black/garish purple/bright pink/slutty blonde]
 
         this.outputText("\n\nShe sports a pair of soft DD-cup breasts.  Each one is ornate with a 0.5 inch nipple, often rock-hard in arousal.");
         if (this.flags[kFLAGS.KELLY_BONUS_BOOB_ROWS] > 0) this.outputText("  Beneath those, she has a second row of jiggly tits, just aching to be squeezed.");
         if (this.pregnancy.isPregnant) this.outputText("  Drops of milk often dribble from her tits, betraying her potent lactation.");
-        //[enter vagina text] 
+        //[enter vagina text]
         this.outputText("\n\nKelly has a ");
         //[virgin]
         if (this.flags[kFLAGS.KELLY_VAGINALLY_FUCKED_COUNT] == 0) this.outputText("virgin, ");
@@ -1016,7 +1016,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     private punishKelly(): void {
         this.clearOutput();
         this.flags[kFLAGS.TIMES_PUNISHED_KELLY]++;
-        //First time: 
+        //First time:
         if (this.flags[kFLAGS.TIMES_PUNISHED_KELLY] == 1) {
             this.outputText("You don't say anything immediately when Kelly prances to a bouncing halt in front of you; instead, you take your time to do a slow circuit around her, taking her in as if she were a piece of property, which of course she is.  You know the effect you have upon the centauress and you grin quietly to yourself as you draw in close to her without touching; your aura presses upon her and her breath quickens, her always-ready pussy moistening even further.  You pause next to her back end and gently press a finger against her labia.");
             this.outputText("\n\n\"<i>It must be difficult,</i>\" you say as you gently trace the line of her wet opening, \"<i>being this turned on and not being able to do anything about it.</i>\"");
@@ -1035,7 +1035,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
             this.outputText("\n\n\"<i>Please, [Master],</i>\" says Kelly in a humble voice.  \"<i>Punish me so I can learn to become a better cumslut for you.  It's all I want.</i>\"  You look at the centauress with the plump, cock sucking lips and the bare love pillows, who is not even capable of looking you in the eye, and a memory comes back to you; of a big, bearded horseman with hard, rugged good looks, moving with casual assuredness towards you, sneering down with complete contempt.  You've been struggling to control your own arousal at how your unfortunate slave has taken your abuse, but the simple truth of the transformation you have wrought upon this being sends blood rushing to your groin, and now you ponder the best way of going about this.");
         }
-        //Repeat: (Suggested activations: PC does not have sex with Kelly for 3+ days, Kelly in heat but wasn't fucked during that period) 
+        //Repeat: (Suggested activations: PC does not have sex with Kelly for 3+ days, Kelly in heat but wasn't fucked during that period)
         else {
             this.outputText("You can see guilt written in mile high letters upon Kelly's face as she bounces to a halt in front of you.  You let her stew as, with a poker face, you begin your usual slow inspection of her, letting the aura of your closeness sink into her.  She tenses when you touch the fresh abrasions upon her butt, and you tut slowly.");
             this.outputText("\n\n\"<i>Have you been a bad little cumslut, Kelly?</i>\"");
@@ -1065,7 +1065,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         this.flags[kFLAGS.TIMES_RIM_JOBBED_BY_KELLY]++;
         this.outputText("\"<i>You aren't worthy of my dick,</i>\" you say, as you slowly peel off your [armor]; you do it facing away from Kelly so that she can take in your [butt] as you slowly wriggle free of your underclothing.  \"<i>But I still need servicing.  So...</i>\"");
 
-        //[Naga: 
+        //[Naga:
         if (this.player.isNaga()) this.outputText("\n\nYou slither into her and, wriggling upwards, beginning the process of wrapping your long, patterned tail around her powerful form.  Kelly murmurs disquietly but stays still as you weave under and over her; you stop level to her face, her entire frame swaddled in your coils.  You trace the line of her chin with your hand as you take a moment to enjoy the sensation of this big, soft creature against your warm scales, at your mercy; then you slowly rise above her until her face is level with your genital slit before, with sinuous grace, twisting your body so that her mouth is now facing your [butt].");
 
         //[Centaur:]
@@ -1080,11 +1080,11 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         if (this.player.isNaga()) this.outputText("With reptilian litheness, you slowly lean backwards and press your hands onto the back of her head, pushing her face further between your cheeks.  ");
         else if (!this.player.isTaur()) this.outputText("You lean backwards and press your hands onto the back of her head, pushing her face further between your cheeks.  ");
         this.outputText("You laugh at the sensation of her tongue as it pushes into your anal passage, slathering it with worshipful attention, perhaps hoping the sooner she gets you off the sooner this can end.");
-        //[Not Centaur: 
+        //[Not Centaur:
         if (!this.player.isTaur()) this.outputText("  You smirk and grip her hair, moving her head in rhythm with your own movements.");
         else this.outputText("  You gyrate your [butt] this way and that, moving her head in rhythm with your own movements.");
 
-        //[Pussy: 
+        //[Pussy:
         if (this.player.hasVagina()) this.outputText("\n\nYou feel thin fingers brush against your [vagina], slowly rubbing against the sensitive folds of your labia before circling your [clit] in virtually the same motion you used upon her earlier.  You decide to allow this; she's learnt a valuable lesson you weren't even aware you were teaching, and the dual movements of her tongue in your ass and her warm fingers slicking across your wet pussy are delightful.");
 
         this.outputText("\n\nHer tongue probes deeper and deeper into you, her plump lips pressing into your [asshole] until she touches something sensitive.  Your " + this.cockDescript(x) + " immediately reacts, twitching upwards restlessly.");
@@ -1108,7 +1108,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
         this.outputText("\n\nYou give three final thrusts against Kelly's face to work out every last drop and then, spent, you slowly pull away, spit trailing from your ass to your slave's lips.  You insouciantly flare your cheeks in front of her after she has withdrawn, waiting, and grin when you feel a hesitant lick against one.  You turn around to take a good look at her.  She is panting for breath, her pupils dilated as she stares back up at you; her own arousal, of course, is unabated.  Finally, she finds some words.");
 
-        //[First time: 
+        //[First time:
         if (this.flags[kFLAGS.TIMES_RIM_JOBBED_BY_KELLY] == 1) {
             this.outputText("\n\n\"<i>Th- thank you for the lesson, [Master],</i>\" she says.  You shake your head, smiling at her ignorance.");
 
@@ -1118,7 +1118,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             //[High cum:
             if (this.player.cumQ() >= 1000) this.outputText("  She is, after all, going to be here for a while.");
         }
-        //[Repeat: 
+        //[Repeat:
         else {
             this.outputText("\n\n\"<i>Th-thank you for the lesson, [Master],</i>\" she says.  She knows the drill by now; she quickly gets to her feet and then trots over to the off-white slimy mess you have created.  What a good girl.  Before she can get started you present your " + this.cockDescript(x) + "; she murmurs thanks for the gift and licks your oozing head spotless first before getting on with the main meal.  You rub her behind the ear as she licks away at the spent seed at your feet and then leave her to it.");
             if (this.player.cumQ() >= 1000) this.outputText("  She is, after all, going to be here for a while.");
@@ -1135,7 +1135,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.flags[kFLAGS.TIMES_RIDDEN_KELLY_FOR_PUNISHMENT]++;
-        //First Time: 
+        //First Time:
         if (this.flags[kFLAGS.TIMES_RIDDEN_KELLY_FOR_PUNISHMENT] == 1) {
             this.outputText("You stroke Kelly's side thoughtfully.  What would be a good punishment for a centaur? Several ideas immediately occur, but all require... equipment.  You tap your chin as a plan of action falls into place.");
             //[PC is 6'5</i>\" or less, not a centaur:
@@ -1152,7 +1152,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
                 this.outputText("\n\n\"<i>All right, pony slut,</i>\" you sigh into her ear.  \"<i>I want you to ride us to the farm.  You remember where that is, don't you?  It's where I taught you who you really are.  We're going to learn some more lessons there.  Won't that be fun? Go gently because...</i>\" you grip her breasts tighter, squeezing her nipples between your fingers");
                 if (this.flags[kFLAGS.KELLY_LACTATING] > 0) this.outputText(" hard enough to produce thin arcs of milk");
                 this.outputText(".  The centauress gasps, her breath already ragged. \"<i>...I've got to hold onto something.  Now, giddy up!</i>\" Kelly jolts into action, stumbles slightly at the extra weight, before righting and trotting in the direction of the farm; you keep yourself steady by maintaining a firm grip upon her breasts.");
-                //[PC is riding: 
+                //[PC is riding:
                 this.outputText("\n\nAlthough it's only a short trip, your [butt] is plenty sore by the time you get to the farm, and you KNOW you're going to need better equipment if you're to do this properly.  You bring Kelly to a halt with a \"<i>woah there</i>\" and a tug upon her ponytail.  Then, you leave her behind the barn as you search the barn for what you need, hoping Whitney doesn't find you.");
             }
             //[PC is 6'6</i>\" or more/centaur:
@@ -1212,14 +1212,14 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
                     this.outputText("\n\nEventually you arrive back at camp, and not a moment too soon.  Your nostrils are full of the smell of Kelly, the sight of her hot, moist skin and you are practically champing at the bit yourself.  You bring her to a halt, rip off your [armor], and then without any further ado grip her hindquarters and sink your straining " + this.cockDescript(x) + " straight into her cunt.  It is absolutely soaked with arousal and you encounter virtually no resistance as you thrust your hips into her soft butt and immediately begin to fuck her as hard as you can.  In your sex daze, you realize you are still clutching the reins; you pull at them intermittently as you push as much of yourself in the centauress hot, grasping warmth as you can, the force making her rear.  She squeals, then screams around her gag to the dual sensation of her [master]'s dick burying itself in her and the harness pulling tight upon her head and bit, thrusting back into you as best she can.");
                     this.outputText("\n\nNeither of you are in any condition to keep this up for long, and after five minutes of fevered fucking, you groan as you clutch Kelly's ass firmly and pour yourself into her, your " + this.cockDescript(x) + " surging line after line of cum into her.  She moans breathily and happily to the heavenly sensation of being filled with your seed, her vagina milking you for every drop it can get.  You don't even know how many times she orgasmed; her pussy dribbled and gushed the entire time you were inside her.");
                 }
-                //Centaur: 
+                //Centaur:
                 else {
                     this.outputText("\n\nEventually you arrive back at camp, and not a moment too soon.  Your nostrils are full of the smell of Kelly, the sight of her hot, moist skin and you are practically champing at the bit yourself; even her rippling horse body speaks directly to your own, urging you irresistibly to mount her.  You bring her to a shuddering halt, rip off your [armor], and then without any further ado rear onto her back and sink your straining " + this.cockDescript(x) + " straight into her cunt.  It is absolutely soaked with arousal and you encounter virtually no resistance as you thrust your hips into her soft butt and immediately begin to fuck her as hard as you can.  In your sex daze you realize you are still clutching the reigns; you pull at them intermittently as you push as much of yourself in the centauress hot, grasping warmth as you can, making her rear, squealing and then screaming around her gag to the dual sensation of her [master]'s dick burying itself in her and the harness pulling tight upon her head and bit, thrusting back into you as best she can.");
                     this.outputText("\n\nYou wish you could live forever in these luscious moments; it is so indefinably right to be reared over your eager submissive, encompassing her with your own flesh as you penetrate her deep wetness, both your human and horse parts cry out for it; mounting her, breeding her, imprinting yourself upon her and making her yours.  Neither of you are in any condition to keep it up for long though, and after five minutes of this fevered fucking you groan as you clutch Kelly's breasts hard and pour yourself into her, your " + this.cockDescript(x) + " surging line after line of cum into her.  She moans breathily and happily to the heavenly sensation of being filled with your seed, her vagina milking you for every drop it can get.  You don't even know how many times she orgasmed; her pussy dribbled and gushed the entire time you were inside her.");
                 }
             }
             this.kellyPreggers();
-            //All go to: 
+            //All go to:
             this.outputText("\n\nFinally, you withdraw; you take a long moment to catch your breath before turning to Kelly.  She is panting hard too as she watches you slowly and carefully dismantle the riding gear off her.  The last thing you take off her is the ball bit; you remove it from her mouth, trailing saliva, interested to hear what will come out.");
 
             this.outputText("\n\n\"<i>Th-that was a good lesson, [Master],</i>\" she says eventually, her mouth open and heaving in breath.  \"<i>I think I learnt a lot.  My favorite bit was where you fucked me silly at the end, though.  Could we just skip to that next time?</i>\"  You laugh and say as long as she's a good little cumslut from now on, you will always skip to that part.  Otherwise... you nod at the pile of riding gear... you'll have to teach her more lessons... and the next one will be harder.  She swallows, not taking her eyes off the gear.");
@@ -1227,7 +1227,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             this.outputText("\n\n\"<i>I understand, [Master].  I'm so lucky to have you to teach me how to be good!</i>\" You send her on her way with a swat on the backside.");
             //(\"<i>Horsewhip</i>\" option opened in main \"<i>Punish</i>\" menu)
         }
-        //First repeat: 
+        //First repeat:
         else if (this.flags[kFLAGS.TIMES_RIDDEN_KELLY_FOR_PUNISHMENT] == 2) {
             this.outputText("Without another word, you stride over to the stones underneath which you secreted the riding gear.  Kelly watches you with deep apprehension, and then bursts into protests as you return, carrying the heap of clinking leather and metal.");
 
@@ -1241,7 +1241,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
             this.outputText("\n\n\"<i>You look so adorable like that,</i>\" you say.  \"<i>But it's no good if only I can see you, is it?</i>\"  She opens her eyes wide to that.");
 
-            //PC rider: 
+            //PC rider:
             if (this.player.tallness < 78 && !this.player.isTaur()) {
                 this.outputText("\n\nWithout another word you grab hold of her waist and swing yourself onto her back.  \"<i>Head towards the desert,</i>\" you breathe into her ear as you take hold of the reigns.  \"<i>I think you know where we're going,</i>\" Kelly whimpers, and then sets off at a trot.");
 
@@ -1261,7 +1261,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
                 this.outputText("\n\nYou leave Tel'Adre exactly the way you came, you saddled calmly upon Kelly's back, twitching your reigns occasionally to direct her; she rears her tail up high so that everyone can see her oozing cream pie, her bow bobbing just as prettily as her tassels as you leave a wet trail behind you.");
             }
-            //PC not rider: 
+            //PC not rider:
             else {
                 this.outputText("You grab hold of the reigns and stride off; after a short jerk Kelly follows behind you.  \"<i>We're heading to the desert,</i>\" you announce.  \"<i>I think you can maybe guess where.  Remember; flick those legs high, prance a little, make those tassels whirl.  You represent your [Master], and you don't want " + this.player.mf("him", "her") + " to look bad, do you?</i>\"  There's a muffled whimper in response.");
                 this.outputText("\n\nThanks to Mareth's warped geography it doesn't take you long to arrive at the gates of Tel'Adre.  The guards on duty raise their eyebrows at your partner, her tassels flicking and whipping gaily in the warm breeze, sweat beading on her skin.");
@@ -1280,7 +1280,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
                 this.outputText("\n\nYou leave Tel'Adre exactly the way you came, you calmly striding ahead of Kelly, twitching your reigns occasionally to direct her; she rears her tail up high so that everyone can see her oozing cream pie, her bow bobbing just as prettily as her tassels as you leave a wet trail behind you.");
             }
             this.outputText("\n\nThis final humiliation has her breathing wetly and volubly into her gag by the time you are back to camp, somewhere between pants of desire and sobs of misery.  You strip her of her gear and to show you can be a kind [Master] too you let her suck you off, the hard, shame-tinted memory of the last couple of hours suffixed by the joy of what she does best.");
-            //[Not centaur: 
+            //[Not centaur:
             if (!this.player.isTaur()) this.outputText("   You sigh and enjoy the sight of her pretty head bobbing over your groin, your " + this.cockDescript(x) + " encapsulated in soft shifting blankets of wet mouth flesh, your ears filled with her slurps and muffled sighs.  You are quickly pushed towards a new high by the worshipful treatment; you give her what she wants and cum in her mouth, letting her savor your texture and flavor; she closes her eyes and swallows, orgasm shuddering through her as it hits her stomach.  You smile and hold her face as she basks in an afterglow earned from pure debasement.");
             else this.outputText("  You sigh and enjoy your " + this.cockDescript(x) + " encapsulated in soft shifting blankets of wet mouth flesh, your ears filled with her slurps and muffled sighs.  You are quickly pushed towards a new high by the worshipful treatment; you give her what she wants and cum in her mouth, letting her savor your texture and flavor; she closes her eyes and swallows, orgasm shuddering through her as it hits her stomach.  You smile, turn and hold her face as she basks in an afterglow earned from pure debasement.");
 
@@ -1289,7 +1289,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             this.outputText("\n\n\"<i>Thank you, [Master],</i>\" she says, smiling at you devotedly.  Her voice hardens.  \"<i>You were right.  I deserved that punishment, because from it I will learn to make sure you never have to do it again.  I will be the most obedient cumslut there ever was!</i>\"  You smile and tell her to run along for now.  Your smile widens as you watch her leave.  You know for a fact from the events of today that Kelly will never learn; as a complete masochist she will seek your punishments again and again, consciously or subconsciously.  And you want nothing more than to make her happy.");
             this.kellyPreggers();
         }
-        //Second+ repeat: 
+        //Second+ repeat:
         else {
             this.outputText("Without another word, you stride over to the stones underneath which you secreted the riding gear.  Kelly watches you with deep apprehension, and then bursts into protests as you return, carrying the heap of clinking leather and metal.");
 
@@ -1299,7 +1299,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
             this.outputText("\n\n\"<i>I don't know why you have to be so difficult about this,</i>\" you sigh.  \"<i>You know you earned this, and you look adorable with it all on.</i>\"");
 
-            //PC rider: 
+            //PC rider:
             if (this.player.tallness < 78 && !this.player.isTaur()) {
                 this.outputText("\n\nWithout another word you grab hold of her waist and swing yourself onto her back.  \"<i>You know where you're going,</i>\" you breathe into her ear.  Kelly whimpers, and then sets off at a trot.");
 
@@ -1319,7 +1319,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
                 this.outputText("\n\nYou leave Tel'Adre exactly the way you came, you saddled calmly upon Kelly's back, twitching your reigns occasionally to direct her; she rears her tail up high so that everyone can see the purple sex toy sunk into her, her bow bobbing just as prettily as her tassels as, her bowels sloshing with your seed.");
             }
-            //PC not rider: 
+            //PC not rider:
             else {
                 this.outputText("\n\nWithout another word you grab hold of the reigns and jerk them.  \"<i>You know where you're going,</i>\" you breathe into her ear.  Kelly whimpers, and then sets off behind you at a trot.");
                 this.outputText("\n\nThanks to Mareth's warped geography it doesn't take you long to arrive at the gates of Tel'Adre.  The guards on duty look at you, then look away.  Evidently word is getting around.");
@@ -1338,9 +1338,9 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
                 this.outputText("\n\nYou leave Tel'Adre exactly the way you came, you calmly leading Kelly, twitching your reigns occasionally to direct her; she rears her tail up high so that everyone can see the purple sex toy sunk into her, her bow bobbing just as prettily as her tassels, her bowels sloshing with your seed.");
             }
-            //All go to: 
+            //All go to:
             this.outputText("\n\nThis final humiliation has her breathing wetly and volubly into her gag by the time you are back to camp, somewhere between pants of desire and sobs of misery.  You strip her of her gear, throw the butt plug away and to show you can be a kind [Master] too you let her suck you off, the hard, shame-tinted memory of the last couple of hours suffixed by the joy of what she does best.");
-            //[Not centaur: 
+            //[Not centaur:
             if (!this.player.isTaur()) this.outputText("  You sigh and enjoy the sight of her pretty head bobbing over your groin, your " + this.cockDescript(x) + " encapsulated in soft shifting blankets of wet mouth flesh, your ears filled with her slurps and muffled sighs.  You are quickly pushed towards a new high by the worshipful treatment; you give her what she wants and cum in her mouth, letting her savor your texture and flavor; she closes her eyes and swallows, orgasm shuddering through her as it hits her stomach.  You smile and hold her face as she basks in an afterglow earned from pure debasement.");
             //[Centaur:]
             else this.outputText("  You sigh and enjoy your " + this.cockDescript(x) + " encapsulated in soft shifting blankets of wet mouth flesh, your ears filled with her slurps and muffled sighs.  You are quickly pushed towards a new high by the worshipful treatment; you give her what she wants and cum in her mouth, letting her savor your texture and flavor; she closes her eyes and swallows, orgasm shuddering through her as it hits her stomach.  You smile, turn and hold her face as she basks in an afterglow earned from pure debasement.");
@@ -1437,7 +1437,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     //Canine Pepper
     private giveKellyAPepper(): void {
         this.clearOutput();
-        //First: 
+        //First:
         if (this.flags[kFLAGS.KELLY_TIMES_PEPPERED] == 0) {
             this.outputText("You instruct Kelly to open wide; you've got something that will allow her to serve her [master] even better.  You imagine she once saw Whitney farm these things, but if your centauress slave knows its properties she doesn't show it; dutifully she opens her mouth, making an \"<i>aaaaaaah</i>\" noise until you pop the glossy red fruit onto her tongue.  You stand back and watch as she munches thoughtfully and then swallows.");
 
@@ -1505,7 +1505,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
                 this.outputText("\n\nYour [hips] press upon the softness of her lower pair of tits; it dimly occurs to you what a fine idea growing a few extra inches of dickmeat to take full advantage of the shape of your centauress slave might be.");
             }
             this.outputText("\n\nKelly's tongue flicks intermittently over your head and she moves her boobs up and down briskly, rubbing your dick in an alternating motion as you thrust yourself upwards to a body-seizing high.  Sweat beads your brow and you throw your head back as you cum; your ears are full of the slippery sound of prick against boob and the ecstatic, muffled sounds Kelly makes as she opens her mouth wide and swallows your first load whole.  Your seed rises upwards and outwards and you ride your pulsing orgasm, thrusting your [hips] with each surge to blast your slave with jizz.");
-            //[Low cum: 
+            //[Low cum:
             if (this.player.cumQ() <= 250) this.outputText("\n\nWhen you have finally emptied yourself, you sigh and step back to admire your handiwork.  You've given her a pretty impressive facial, her brow and cheeks splattered with your cream; however what is in range of her tongue is quickly disappearing.\n\n\"<i>Mmm... thank you for the load, [Master]!</i>\" She says, contented pleasure glittering in her eyes as she guides another oozing dollop of addiction down her throat.  You tell her she's quite welcome as you use her braid to wipe your dick clean, climb back into your [armor], and leave her to enjoy her fix.");
             else this.outputText("\n\nYou go on and on, driven by a deep impulse to coat her with your potency, your dick flexing out string after string of jism until it aches with pleasure and you are dripping with sweat.  After what seems like minutes upon end of orgasm, you finally sigh and step back to admire your handiwork.  Kelly's face, shoulders and hair are absolutely plastered with cum, her eyes pasted shut.  As you watch her tongue emerges and does a wide circuit of her mouth, drawing in a big dollop of jizz which is then swallowed with a hum of pure contentment.\n\n\"<i>Mmm... I'm so lucky to have a [Master] who is so virile,</i>\" she purrs.  She unsticks her eyes with her fingers and gazes at you with contented pleasure as she licks her digits clean of oozing addiction. \"<i>Thank you for giving this cumslut what she needs, [Master]!</i>\" You tell her she's quite welcome as you use her braid to wipe your dick clean, climb back into your [armor], and leave her to enjoy her fix.");
         }
@@ -1598,7 +1598,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         //First: You tell her you'd just like to talk.
         if (this.flags[kFLAGS.KELLY_TALK_N_HAND_TIMES] == 0) {
             this.outputText("\"<i>Talk?  Oh, that's the least interesting thing I can do with my mouth, [Master],</i>\" Kelly purrs.  That may be, you say, but she can amuse you with her hands whilst she amuses you with her voice.  The centaur gets the picture and grins.  ");
-            //Not Centaur: 
+            //Not Centaur:
             if (!this.player.isTaur()) {
                 this.outputText("She helps you take off the lower half of your [armor] as you set yourself down and then wraps her warm hand around ");
                 if (this.player.cockTotal() == 1) this.outputText("[oneCock], gently tugging it.  It quickly hardens with the pleasing friction she coils around it.");
@@ -1611,7 +1611,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
                 else this.outputText("a warm hand wraps around first your [cock] and then your [cock 2] before beginning to gently tug, both quickly hardening from the pleasing coils of friction.");
             }
         }
-        //Repeat: 
+        //Repeat:
         else {
             this.outputText("You tell her you'd like to... talk.");
             this.outputText("\n\nGrinning, your centaur slave ");
@@ -1637,7 +1637,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             this.outputText("\n\nYou ask what happened to the wives she mentioned she had.");
             this.outputText("\n\n\"<i>Who?</i>\" Kelly says, stopping her pumping for a moment.  \"<i>Oh, those two.  I wouldn't worry about them, [Master].  I never told them where I worked, because I never wanted them to know I worked for a woman.  Funny, isn't it.");
             if (!this.player.hasVagina()) {
-                //Male: 
+                //Male:
                 this.outputText("  Now I </i>do<i> work for a man, and I spend most days polishing his [cock biggest]!");
             }
             //Futa:
@@ -1655,7 +1655,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
             this.outputText("\n\n\"<i>Thank you so much, [Master]!</i>\"");
         }
-        //2. 
+        //2.
         else if (temp == 1) {
             this.outputText("\n\n\"<i>So,</i>\" says Kelly with feigned casualness as she masturbates you.  \"<i>When can I move in with you, [Master]?  I don't mind if you've got other sluts, you know.  I know someone as virile as you needs many.</i>\"  You sigh, enjoying the coils of pleasure around your [cocks], receding then tightening, wondering how you'll field this one.  Your rising seed pushes open a black doorway in your mind and you smirk.");
 
@@ -1744,7 +1744,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     private rewardKelly(): void {
         this.flags[kFLAGS.KELLY_REWARD_COOLDOWN] = 1;
         this.clearOutput();
-        //First time: 
+        //First time:
         if (this.flags[kFLAGS.KELLY_TIMES_REWARDED] == 0) {
             this.outputText("There seems to be an added bounce to Kelly's canter today.  She prances a bit playfully in front of you, grinning, whipping her demonic tail so that the high, sweet smell of her gushing pussy is in the air.  You realize she is calling your attention to her backside, which is unmarked.");
             this.outputText("\n\n\"<i>I've been good, [Master].  So very, very... good.</i>\"  Color is high in her cheeks, and although she's smiling proudly there is real desperation burning in her green eyes as she gazes at you.  \"<i>We'll fuck now, right?  It's so hard being good.  After a while I can't think of anything but your cock and how wonderful it tastes and feels.  Last night it was so bad I blew my own fingers thinking about you...</i>\"  She demonstrates graphically.  \"<i>But I didn't cum.  I've learnt my lesson [Master], now please fuck me!</i>\"");
@@ -1760,7 +1760,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
         this.menu();
         //Hair Dye/Apple Sauce
-        //[chestnut brown/sable black/garish purple/bright pink/slutty blonde) 
+        //[chestnut brown/sable black/garish purple/bright pink/slutty blonde)
         if (this.player.cockThatFits(300) >= 0 && this.player.hasCock()) this.addButton(0, "Applesauce", this.giveKellyAppleSauce);
         if (this.player.hasItem(this.consumables.BLACK_D) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "sable black") this.addButton(1, "Black Dye", this.dyeKellysBitchAssHair, this.consumables.BLACK_D);
         if (this.player.hasItem(this.consumables.BLOND_D) && this.flags[kFLAGS.KELLY_HAIR_COLOR] != "slutty blonde") this.addButton(2, "Blond Dye", this.dyeKellysBitchAssHair, this.consumables.BLOND_D);
@@ -1788,7 +1788,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             this.flags[kFLAGS.KELLY_HAIR_COLOR] = "sable black";
             this.player.consumeItem(this.consumables.BLACK_D);
         }
-        //Blonde dye: 
+        //Blonde dye:
         else if (color == this.consumables.BLOND_D) {
             this.outputText("\n\nKelly whips her bonny, flaxen hair to look at it, and then bounces it happily with her hands.  Her blonde tail whips back and forth briskly.");
             this.outputText("\n\n\"<i>This feels... right, [Master].  Very right.</i>\"  She looks at you lustfully.  \"<i>Wanna see if we have more fun?</i>\"  You say you'll definitely be back later to test that theory out.");
@@ -1797,7 +1797,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             this.player.consumeItem(this.consumables.BLOND_D);
             this.flags[kFLAGS.KELLY_HAIR_COLOR] = "slutty blonde";
         }
-        //Purple dye: 
+        //Purple dye:
         else if (color == this.consumables.PURPDYE) {
             this.outputText("\n\nKelly whips her virulently purple hair to look at it, trotting back and forth and considering, wagging her equally purple tail.");
             this.outputText("\n\n\"<i>Like the goblins, I guess?  I don't know how much I like this color, [Master].</i>\"  You say it'll serve as a constant reminder to her that she's a cock hungry breeding machine.  Kelly nods thoughtfully as she begins the long process of retying her braid.");
@@ -1890,7 +1890,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         //[merge]
         var x: number = this.player.cockThatFits(300);
         var y: number = this.player.cockThatFits2(300);
-        //Not Centaur: 
+        //Not Centaur:
         if (!this.player.isTaur()) {
             this.outputText("\n\nThe mere smell of the apple sauce has got Kelly's vagina dribbling, and in the close, warm environment of the barn the cloying, sweet smell radiating off her has got [eachCock] rock hard again, and your arousal urges you to work quickly.  You lead her to a shelf roughly level with her collarbone and place the bowl of apples sauce on it.  Transfixed by it, swallowing audibly, the centaur reaches for it automatically.  You catch her hand.");
             this.outputText("\n\n\"<i>No.  Put them here.</i>\"  You set each one on either side of the bowl so she is clasping it.  \"<i>Don't lift it until you have to.  That's it...</i>\"  You watch, pulling off piece after piece of your [armor], as she dips her head into the bowl, scoops up a long lap of the green mash with her tongue and guides it into her wet mouth.  Her throat works and she closes her eyes.  Behind her, the intermittent dripping of her femcum on the straw turns into a steady trickle and you shake off the last of your underclothes in a hurry, stride over to her hindquarters and push your " + this.cockDescript(x) + " against her sopping pussy gently, gripping her " + this.flags[kFLAGS.KELLY_HAIR_COLOR] + " tail to her side so she doesn't inadvertently flick you with it.");
@@ -1914,7 +1914,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             if (y >= 0) this.outputText(" as her anus clenches around your " + this.cockDescript(x));
             this.outputText(".  With a wordless shout, you tense up and orgasm in tandem, surging line after line of glorious into her wet, churning depths, lost in the ageless sensation of filling a breeding slut's holes with thick seed for what seems like oceans of blissful time.");
         }
-        //Centaur: 
+        //Centaur:
         else {
             this.outputText("\n\nThe mere smell of the apple sauce has got Kelly's vagina dribbling, and in the close, warm environment of the barn the cloying, sweet smell radiating off her has got [eachCock] rock hard again, and your arousal urges you to work quickly.  With a “hup” you mount her, settling yourself onto her warm, rippling back, surrounding her with your heavy flesh, smell and presence, your [chest] pressing into her back as you bring the bowl around her head.  Transfixed by it, swallowing audibly, the centaur reaches for it automatically.");
             this.outputText("\n\nYou tut mockingly and pull it away until she lowers her hands, then bring it in close to her face.  Her hands fall on her erect nipples as she dips her head into the bowl, scoops up a long lap of the green mash with her tongue and guides it into her wet mouth.  Her throat works and she closes her eyes.  The intermittent dripping of her femcum on the straw behind you turns into a steady trickle and your own arousal urgent now, you push your " + this.cockDescript(x) + " against her sopping pussy gently.  She is radiating heat and her wet depths suck at your " + this.player.cockHead(x) + " deliciously.");
@@ -1973,7 +1973,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         else this.outputText("them");
         this.outputText(".  You pull away, catching Kelly's tongue with your own lips teasingly as you do, so you can watch her very slowly withdraw it, licking her lips so they glisten, her eyes shining with a depthless, green desire.  You murmur that it's time to put that mouth to use it was made for.  She's folding her legs beneath her before you've finished speaking, her hungry jade eyes never leaving yours.");
 
-        //Not Centaur: 
+        //Not Centaur:
         if (!this.player.isTaur()) {
             this.outputText("\n\nYour [cock biggest] strains outwards as you slide out of your [armor], and you grin as you draw in close to Kelly's face, letting the heavy, demanding smell of your musk envelop her.  Her skin flushes and her breath comes more rapidly as you brush her cheek with it.  You smile and gently but firmly tell her to put her hands under her tits, close her eyes, open her mouth and then be still.  You admire the sight as you languidly rub yourself, your pretty centaur slave presenting her big round breasts to you and her tongue out, waiting to take your load whole.");
             this.outputText("\n\nYou step in and tease her with your [cock biggest], softly brushing her face with your [cockHead biggest], working the musky smell deep into her head.  She closes her eyes and breathes out deeply, enveloping your crotch in warm air.");
@@ -1986,7 +1986,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             //If PC has anything else aside from cock:
             if (this.player.hasVagina()) this.outputText("  You're in no hurry, and with a slight roll of your [hips] you direct her to start at the back and work her way up.");
 
-            //Vagina and balls: 
+            //Vagina and balls:
             if (this.player.balls > 0 && this.player.hasVagina()) {
                 this.outputText("\n\nKelly brushes your [balls] out of the way as she burrows deep into your groin, her hot tongue finally pressing against your [vagina], oozing already in sympathy to the lust which has gripped your male sex.  She is a bit of a stranger to your female anatomy but she's a quick and eager learner, tracing your entrance with the tip of her tongue before pushing her plush lips into your opening, covering your outer lips and your clit in shifting softness as she burrows into your tunnel with her tongue, curling deep into you as she worships every inch she can reach with her flexible mouth muscle, lapping up every trace of sweet moisture she finds with vocal pleasure.");
                 this.outputText("\n\nYou close your eyes and lose yourself for a while, very gently thrusting your [hips] into her hot mouth as she makes your [vagina] glow with pleasure, sending small spasms of ecstasy shooting through your core, keeping your [cock biggest] straining.  It'd be so easy to ride her face to orgasm... but no, you signed up for the whole ten yards here and she isn't even close to being finished.  With a bit of encouragement with your hips, you get her to pull away from your beading muff and move on to your balls.  She sighs as she begins to lavish them with worshipful attention.");
@@ -2046,7 +2046,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             this.outputText("\n\n\"<i>It's lovely that you're such a bitch you can cum just from lapping up the smallest trickle of my weakest juices,</i>\" you say, letting amusement soak into your words.  \"<i>But we aren't here for you.  What can you do for me?</i>\"  The centaur only has eyes for your prick, licking her plump lips instinctively as she gathers her breath, her ardour and hunger not dimmed in the slightest.  She swathes your [cockHead biggest] in her mouth again, her head bobbing purposefully as your length is swallowed by the roiling wetness again, this time working rhythmically, ribbing it with pliant pleasure.  You sigh as you begin to lose yourself in the soft but purposeful motion, revolving your hips now with the pulse of her movements.");
             this.outputText("\n\nBit by bit, she takes more and more of your [cock biggest] into her milking redness.");
             if (this.player.biggestCockLength() > 12) this.outputText("  She can't take all of your dick but she tries her best, thrusting her head down as she crams her mouth with your thick hardness until you are touching her tonsils.  Lust crowding you now, you take hold of her head and force her further down your [cock biggest], gently but purposefully pushing further into her tight throat with each thrust.  You manage to hold back on your urge to simply face fuck her as hard as you can, instead taking hold of the base of her braid and moving her back and forth on your length as sensually as you can, drawing your dick back from the delicious tightness of her throat so she can breathe deep and spend a moment worshipping your [cockHead biggest] with her tongue and lips, eliciting a moaned 'mmm' from her each time before penetrating her gullet again.");
-            //[Cock <12: 
+            //[Cock <12:
             else this.outputText("  Her mouth is a good fit for your dick and you soon find your limit, touching the back of her throat with each gentle thrust.  You manage to hold back on your urge to simply face fuck her as hard as you can, instead taking hold of the base of her braid and moving her back and forth on your length as sensually as you can, drawing your dick back to the entrance of her mouth so she can worship your [cockHead biggest] with her tongue and lips, eliciting a moaned 'mmm' or from her each time before thrusting deep into her maw again.");
             this.outputText("\n\nShe runs her tongue forward along the underbelly of your [cock biggest] as you thrust inwards and then backwards as you withdraw, creating the sweetest friction imaginable, and you find you are breathing hard, running close to the wind now as you thrust into her sucking, milking mouth harder and harder.  The more vigorously you do it, the louder Kelly's muffled sighs and slurps of pleasure become.");
 
@@ -2095,12 +2095,12 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
                     if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] > 0 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] > 0) this.outputText("  You are gripped by a sudden but thrilling, velvet-edged sense of déjà vu.  Has this scene not repeated somewhere else?");
                 }
             }
-            //Vagina: 
+            //Vagina:
             else if (this.player.hasVagina()) {
                 this.outputText("\n\nKelly's hot tongue presses against your [vagina], oozing already in sympathy to the lust which has gripped your male sex.  She is a bit of a stranger to your female anatomy but she's a quick and eager learner, tracing your entrance with the tip of her tongue before pushing her plush lips into your opening. She covers your outer lips and your clit in shifting softness as she burrows into your tunnel with her tongue, curling deep into you as she worships every inch she can reach with her flexible mouth muscle.  Lapping up every trace of sweet moisture she finds, Kelly hums with vocal pleasure.");
                 this.outputText("\n\nYou close your eyes and lose yourself for a while, very gently thrusting your [hips] into her hot mouth as she makes your [vagina] glow with pleasure, sending small spasms of ecstasy shooting through your core, keeping your [cock biggest] straining.  It'd be so easy to ride her face to orgasm... but no, you signed up for the whole ten yards here, and she isn't close to being finished.  With a bit of encouragement with your hips, you get her to pull away from your beading muff and move down to your cock.");
             }
-            //Balls: 
+            //Balls:
             else if (this.player.balls > 0) {
                 this.outputText("\n\nKelly's hot tongue presses against your [balls] and you sigh as she begins to lavish them with worshipful attention.  ");
                 //[Normal balls:
@@ -2137,7 +2137,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             if (this.player.biggestCockLength() > 12) {
                 this.outputText("  She can't take all of your dick but she tries her best, thrusting her head down as she crams her mouth with your thick hardness until you are touching her tonsils.  Lust crowding you now, you thrust your back haunches forward, forcing her further down your [cock biggest], gently but purposefully pushing further into her tight throat with each thrust.  You manage to hold back on your urge to simply face fuck her as hard as you can, instead moving her back and forth on your length as sensually as you can, drawing your dick back from the delicious tightness of her throat so she can breathe deep and spend a moment worshipping your [cockHead biggest] with her tongue and lips, eliciting a moaned “mmm” from her each time before penetrating her gullet again.");
             }
-            //[Cock <12: 
+            //[Cock <12:
             else {
                 this.outputText("  Her mouth is a good fit for your dick and you soon find your limit, touching the back of her throat with each gentle thrust.  You manage to hold back on your urge to simply face fuck her as hard as you can, instead moving your haunches back and forth as sensually as you can, drawing your dick back to the entrance of her mouth so she can worship your [cockHead biggest] with her tongue and lips, eliciting a moaned “mmm” from her each time before thrusting deep into her maw again.");
             }
@@ -2175,7 +2175,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.KELLY_BONUS_BOOB_ROWS] > 0) this.outputText("\n\nShe can't reach her lower row of tits with her tongue, so she simply runs her hands over them, sighing as she rubs your musk into her horny skin and hard nipples before running her tongue across her palms.");
         this.outputText("  She leaves a trail of cum leaking down a nipple until at last, closing her eyes, she tenses and orgasms with a muffled sigh as her wet tongue pushes over her erect nub and guides the last of your fix into her mouth.");
 
-        //[Libido <50: 
+        //[Libido <50:
         if (this.player.lib < 50) {
             this.outputText("\n\nYou stroke yourself languidly to the obscene display and your [cock biggest] is hard again by the time she's finished.  It'd be so easy to stay here and do it with her again, and again, and again... but no, there are plenty of other places you need to be and you are quite spent.  You say goodbye to your cumslut centaur with a fond kiss on the forehead and a slap on the ass before leaving the farm behind you.");
         }

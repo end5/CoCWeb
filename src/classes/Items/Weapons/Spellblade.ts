@@ -1,5 +1,5 @@
-import { Weapon } from "../Weapon";
 import { PerkLib } from "../../PerkLib";
+import { Weapon } from "../Weapon";
 
 /**
  * Created by aimozg on 10.01.14.
@@ -27,7 +27,7 @@ export class Spellblade extends Weapon {
             {
                 player.createPerk(PerkLib.WizardsFocus,.5,0,0,0);
             }
-    
+
             public  unequipEffect(player:Player, output: boolean): void
             {
                 player.removePerk(PerkLib.WizardsFocus);

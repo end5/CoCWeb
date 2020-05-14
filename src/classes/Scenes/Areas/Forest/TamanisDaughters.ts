@@ -1,10 +1,10 @@
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_NOTICEABLE, HIP_RATING_AMPLE, VAGINA_LOOSENESS_TIGHT, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
+import { Appearance } from "../../../Appearance";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { StatusAffects } from "../../../StatusAffects";
 import { Goblin } from "../../Monsters/Goblin";
 import { TamainsDaughtersScene } from "./TamanisDaughtersScene";
-import { StatusAffects } from "../../../StatusAffects";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_TIGHT, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_NOTICEABLE } from "../../../../includes/appearanceDefs";
-import { Appearance } from "../../../Appearance";
-import { WeightedDrop } from "../../../internals/WeightedDrop";
 
 export class TamanisDaughters extends Goblin {
     private midRoundMadness(): void {

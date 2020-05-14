@@ -1,4 +1,4 @@
-import { ImageSets, ImageExtensions } from "./ImageSets";
+import { ImageExtensions, ImageSets } from "./ImageSets";
 
 /**
  * ...

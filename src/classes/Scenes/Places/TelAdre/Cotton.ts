@@ -1,11 +1,11 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
-import { TimeAwareInterface } from "../../../TimeAwareInterface";
-import { PregnancyStore } from "../../../PregnancyStore";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { CoC } from "../../../CoC";
 import { trace } from "../../../../console";
-import { StatusAffects } from "../../../StatusAffects";
+import { CoC } from "../../../CoC";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { PregnancyStore } from "../../../PregnancyStore";
+import { StatusAffects } from "../../../StatusAffects";
+import { TimeAwareInterface } from "../../../TimeAwareInterface";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface {
 
@@ -573,11 +573,11 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
         /*OLD ORIGINAL REPEAT SHOWER SEX
         outputText("You decide to take her up on her offer, pulling her into the showers and quickly disrobing. Seeing the look on your face, she does too, and quickly enters the showers, turning only one shower-head on. She turns around and grabs you, pulling you into an embrace as you kiss under the steaming water. Both your cocks stir, rising and rubbing together while you make out.\n\n", false);
-    
+
         outputText("Finally breaking the kiss, you reach down and hook your arm under one of her legs, lifting her leg up while you position your rock hard member at her pussy. She leans forward to kiss again as you thrust forwards, causing her to moan into your mouth. You thrust in and out while her horse-cock bounces between the two of you, only adding to the excitement.\n\n", false);
-    
+
         outputText("After several minutes, the hot shower, hot woman and hot sex are just too much for you, and give one last thrust, pushing your bodies forward to slam against the wall. It's clearly too much for Cotton as well, as she groans out in orgasmic ecstasy. Her cock, sandwiched between you, tenses and explodes just as yours does, covering Cotton in cum inside and out.\n\n", false);
-    
+
         outputText("After a moment you pull out, share a deep kiss, and wash each other up before redressing and leaving the gym.", false);
         */
         //(Repeat Fuck Her, for centaurs)
@@ -828,13 +828,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         /*OLD SEX SCENES HERE
         if(player.hasCock() && (player.gender != 3 || rand(2) == 0)) {
             outputText("You decide to take her up on her offer, and she pulls you towards the showers, quickly disrobing the both of you. She turns only one shower-head on and pulls you into an embrace underneath the rapidly heating stream. Cotton's cock stirs between you, and though yours tingles, it remains limp in her presence.\n\n", false);
-    
+
             outputText("Finally breaking the kiss, Cotton reaches down and hooks her arms under both your legs. You quickly wrap your arms around her neck as she lifts you off the ground. You carefully grip her with your legs as she uses one arm to position her dick at your waiting entrance. You give her a kiss just as she presses into you, and moan into her mouth. She gives a couple careful thrusts before her free hand returns to holding you.\n\n", false);
-    
+
             outputText("At this angle she can't quite get her entire girth into you, but that doesn't matter, as it feels absolutely exquisite.", false);
             player.buttChange(72,true,true,false);
             outputText("  You take turns kissing each other's necks and nibbling each other's ears while she thrusts in and out. And after several minutes neither of you can take much more. She gives one last thrust, pulling you down further onto her cock as it explodes within you. Your whole body shudders with orgasmic energy and you bury your head into her neck, stifling a scream.\n\n", false);
-    
+
             outputText("After a moment, Cotton pulls you up, letting her shrinking member flop to the floor, and sets you down. Only now you notice your flaccid cock also came at some point, covering both your bodies in seed. You share a deep kiss again and wash each other up before redressing and leaving the gym.\n\n", false);
             player.orgasm();
             dynStats("sen", 1);
@@ -842,13 +842,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         //(Shower Sex, Get Fucked as Female)
         else {
             outputText("You decide to take her up on her offer, and she pulls you towards the showers, quickly disrobing the both of you. She turns only one shower-head on and pulls you into an embrace underneath the rapidly heating stream. Cotton's cock stirs between you, and your " + vaginaDescript() + " burns with anticipation.\n\n", false);
-    
+
             outputText("Finally breaking the kiss, Cotton reaches down and hooks her arms under both your legs. You quickly wrap your arms around her neck as she lifts you off the ground. You carefully grip her with your legs as she uses one arm to position her dick at your waiting entrance. You give her a kiss just as she presses into you, and moan into her mouth. She gives a couple careful thrusts before her free hand returns to holding you.", false);
             player.cuntChange(72,true,true,false);
             outputText("\n\n", false);
-    
+
             outputText("At this angle she can't quite get her entire girth into you, but that doesn't matter, as it feels absolutely exquisite. You take turns kissing each other's necks and nibbling each other's ears while she thrusts in and out. And after several minutes neither of you can take much more. She gives one last thrust, pulling you down further onto her cock as it explodes within you. Your whole body shudders with orgasmic energy and you bury your head into her neck, stifling a scream.\n\n", false);
-    
+
             outputText("After a moment, Cotton pulls you up, letting her shrinking member flop to the floor, and sets you down. You share a deep kiss again and wash each other up before redressing and leaving the gym.", false);
             player.orgasm();
             dynStats("sen", -1);
@@ -997,17 +997,17 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.flags[kFLAGS.COTTON_MET_FUCKED] = 2;
         //OLD TANTRIC SMEX
         /*outputText("You decide to ask instead about using yoga to blow off some steam. She grins, \"<i>I know just what you need. It's called tantric sex, and I think you're just limber and quick enough to try it.</i>\"\n\n", false);
-    
+
         outputText("She leads you to a private room in the gym and sets up a larger mat. She disrobes and you do the same. She sits on the mat and you sit opposite her. You spend a couple minutes just breathing, exploring your partner's body with your eyes only. Then Cotton slips her legs outwards, and leans backwards, letting her enormous member to waggle freely in the air. She curls a finger at you, and gives you your instructions.\n\n", false);
-    
+
         outputText("You stand and straddle her hips, facing her, carefully lowering yourself down onto her length. You take your time, matching your breathing with hers, until you're completely impaled. Then you stretch your legs out behind your partner and also lean back. You both gyrate your hips as your bodies glisten with a light sheen of sweat.", false);
         player.buttChange(72,true,true,false);
         outputText("\n\n", false);
-    
+
         outputText("After several minutes of this you switch positions, with Cotton leaning forward and grabbing you under the waist while you curl your legs under you. Then Cotton pulls herself up into a kneeling position while still inside you, pushing your head and shoulders down onto the mat and your legs up into the ceiling. Several more positions later, your breathing is a little ragged but still in sync, and it's clear neither of you can take much more of this.\n\n", false);
-    
+
         outputText("With one last pose, you both stand, Cotton grabs your hips and you lean down to grab your ankles. Your whole body shivers with sexual energy, feeling like it's on fire with orgasmic light as your equine lover gives one final thrust into you and explodes, her own body shivering and shuddering. Unable to remain standing any longer, you flop down onto the mat, letting Cotton's seed slowly leak out of you, while Cotton lays down next to you, equally exhausted.\n\n", false);
-    
+
         outputText("\"<i>I must say, my little pet, you are the best yoga partner I've had in a long time.</i>\" You share a kiss and take a moment to rest before heading to the showers and then heading home.", false);*/
         //NU HOTNESSSSS
         //(Tantric Sex ONLY available for humanoids and naga, still requires 50+ Speed)

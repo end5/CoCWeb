@@ -1,9 +1,9 @@
-import { BazaarAbstractContent } from "./BazaarAbstractContent";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ItemType } from "../../../ItemType";
 import { Appearance } from "../../../Appearance";
+import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { ItemType } from "../../../ItemType";
+import { BazaarAbstractContent } from "./BazaarAbstractContent";
 
 export class FapArena extends BazaarAbstractContent {
 
@@ -26,7 +26,7 @@ export class FapArena extends BazaarAbstractContent {
         if (this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED] == 0) this.outputText("As you approach the tent, you notice these people are actually waiting in line, pleasantly chatting with each other.  All varieties of species are there, from cute little goblins and mouse-faced people with rodent-like teeth, to towering centaurs and minotaurs, the latter easily noticed with their strong scent.   You spot the occasional sharp-toothed dog-morph or shark breeder, some traditional incubi and a few tentacled mutants, victims of consuming corrupted vegetation.  There are even a few humans, nonchalantly standing in the waiting line and making conversation, as if some of the others weren't monstrosities.  What strikes you is everyone's perfect civility.  Obviously everyone is used to the place.\n\n", false);
 
         this.outputText("The waiting line advances and you finally end up in front of the tent's entrance guarded by a surprisingly tall goblin.  She looks at you with assessing eyes, suddenly grabs your crotch with her left hand, rubs it for a second, and says, ", false);
-        //[if dick size < 8 inches] 
+        //[if dick size < 8 inches]
         if (this.player.longestCockLength() < 8) {
             this.outputText("\"<i>I'm afraid you aren't well-endowed enough to take part in our sessions.  Please come back when ", false);
             if (!this.player.hasCock()) this.outputText("you have a cock.", false);
@@ -39,7 +39,7 @@ export class FapArena extends BazaarAbstractContent {
             this.doNext(this.bazaar.enterTheBazaar);
             return;
         }
-        //[if dick size >= 8 inches: 1st time] 
+        //[if dick size >= 8 inches: 1st time]
         else if (this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED] == 0) {
             this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED]++;
             this.outputText("\"<i>You must be new here.  Go to the backroom on the left, undress yourself and wait with the others in the main room; the session will start soon.</i>\"\n\n", false);
@@ -72,7 +72,7 @@ export class FapArena extends BazaarAbstractContent {
             this.outputText("\n\nDo you stay?", false);
             this.doYesNo(this.fapArenaPageII, this.bazaar.enterTheBazaar);
         }
-        //[if dick size > 8 inches: after first time] 
+        //[if dick size > 8 inches: after first time]
         else {
             this.outputText("\"<i>Welcome back.  Please undress yourself in the backroom and wait with the others in the main room.</i>\"\n\n", false);
             this.outputText("You do as you are told, quickly removing your " + this.player.armorName + " and placing your naked self in the main room, waiting in circle with the others.  You have a pleasant and casual chat with other people, trying to recognize some faces.  You try your best to place yourself between people you don't know yet, in order to feel varied pleasures from one time to the next.  After a few minutes during which " + this.sMultiCockDesc() + " stands fully erect at the sight of so many naked people, the sexy referee walks in, naked as usual.\n\n", false);
@@ -119,7 +119,7 @@ export class FapArena extends BazaarAbstractContent {
         //If that check fails,
         //Let S be the PC's sensitivity
         var s: number = this.player.sens;
-        //D the number of hours since he last came 
+        //D the number of hours since he last came
         var d: number = this.player.hoursSinceCum;
         var c: number = 0;
         if (this.player.cocks[x].cockType == CockTypesEnum.DEMON) c = 10;
@@ -157,7 +157,7 @@ export class FapArena extends BazaarAbstractContent {
             if (this.player.cumQ() > 1000) this.outputText("unholy", false);
             else if (this.player.cumQ() >= 500) this.outputText("enormous", false);
             else this.outputText("appreciable", false);
-            //(depending on cum production) 
+            //(depending on cum production)
             this.outputText(" rope of the creamiest, whitest liquid you've ever produced.", false);
             if (this.player.cockTotal() > 1) this.outputText("  Several more gouts follow suit from the unstimulated dickflesh dangling from your groin.", false);
             this.outputText("  Your whole body shivers, clenches and relaxes several times as you completely lose control of your muscles, your mind only focusing on the cum cannon located between your legs.\n\n", false);
@@ -302,7 +302,7 @@ export class FapArena extends BazaarAbstractContent {
             this.tentacleFapSpecial(place);
             this.outputText("You eventually reach your final peak and start unloading a glorious load, flooding your partner's colon.  As baby-batter freely flows out of your urethra, you let an orgasming scream of your own, ferociously gripping the bountiful ass-cheeks within your grasp, digging your fingers in the soft skin.  You cum, cum and cum, your shaft vibrating on its own in your partner's anus; at the same time, other people in the butt-fuck train start coming too, and everyone's body tenses and clenches as if they wanted to milk every ounce of seed available into their butts.", false);
             tent = this.tentacleFapCum();
-            //[if player has multicocks] 
+            //[if player has multicocks]
             if ((this.player.cockTotal() > 2) || (!tent && this.player.cockTotal() > 1)) {
                 if (this.player.cockTotal() > 3 || (!tent && this.player.cockTotal() > 2)) this.outputText("  Your other cocks also spill ", false);
                 if ((tent && this.player.cockTotal() == 3) || (this.player.cockTotal() == 2 && !tent)) this.outputText("  Your other cock also spills ", false);
@@ -341,7 +341,7 @@ export class FapArena extends BazaarAbstractContent {
             this.tentacleFapSpecial(place);
             this.outputText("A pressure builds at your crotch as a milky torrent of seed finds its way into your urethra, down your sodomite partner's colon.  Almost simultaneously, you feel an equally thick spray of spooge being released inside your own " + this.buttDescript() + ". At the peak of your orgasm, you are unable to think of anything but the steady flow of jism coming in and out of you.", false);
             tent = this.tentacleFapCum();
-            //[if player has multicocks] 
+            //[if player has multicocks]
             if ((this.player.cockTotal() > 2) || (!tent && this.player.cockTotal() > 1)) {
                 if (this.player.cockTotal() > 3 || (!tent && this.player.cockTotal() > 2)) this.outputText("  Your other cocks also spill ", false);
                 if ((tent && this.player.cockTotal() == 3) || (this.player.cockTotal() == 2 && !tent)) this.outputText("  Your other cock also spills ", false);
@@ -362,7 +362,7 @@ export class FapArena extends BazaarAbstractContent {
                 else this.outputText("nice", false);
                 this.outputText(" load of girl-cum too, as if to compete with its male counterpart.", false);
             }
-            //end of conditions 
+            //end of conditions
             this.outputText("\n\nFinally the strength of all the ejaculations is starting to ebb, as well as your fading orgasm.  Wincing in pain and pleasure mixed, your " + this.cockDescript(x) + " lets out an ultimate spurt of goo before resting, deeply buried into your partner's ass.  You fall over, making everyone after fall too by domino effect.  As you slowly doze off, you have a special thought about the still semi-erect cock being lodged in your " + this.buttDescript() + ".  That wagon of butts and dicks... it felt so right, so powerful, so... connected.\n\n", false);
         }
         //[else, if you lost]

@@ -1,16 +1,16 @@
-import { BaseContent } from "../../../BaseContent";
-import { TimeAwareInterface } from "../../../TimeAwareInterface";
-import { PregnancyStore } from "../../../PregnancyStore";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { CoC } from "../../../CoC";
 import { trace } from "../../../../console";
-import { TamanisDaughters } from "./TamanisDaughters";
-import { Appearance } from "../../../Appearance";
-import { CockTypesEnum } from "../../../CockTypesEnum";
 import { LOWER_BODY_TYPE_CENTAUR, SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
+import { Appearance } from "../../../Appearance";
+import { BaseContent } from "../../../BaseContent";
+import { CoC } from "../../../CoC";
+import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../../PerkLib";
+import { PregnancyStore } from "../../../PregnancyStore";
+import { StatusAffects } from "../../../StatusAffects";
+import { TimeAwareInterface } from "../../../TimeAwareInterface";
+import { TamanisDaughters } from "./TamanisDaughters";
 
 export class TamainsDaughtersScene extends BaseContent implements TimeAwareInterface {
 

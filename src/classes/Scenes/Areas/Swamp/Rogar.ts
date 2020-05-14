@@ -1,11 +1,11 @@
-import { BaseContent } from "../../../BaseContent";
-import { TelAdre } from "../../Places/TelAdre";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
+import { BaseContent } from "../../../BaseContent";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { PerkLib } from "../../../PerkLib";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
+import { TelAdre } from "../../Places/TelAdre";
 
 export class Rogar extends BaseContent {
     private get telAdre(): TelAdre {

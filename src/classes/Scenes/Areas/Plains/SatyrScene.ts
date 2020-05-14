@@ -1,8 +1,8 @@
 import { BaseContent } from "../../../BaseContent";
-import { Satyr } from "./Satyr";
-import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { LustyMaidensArmor } from "../../../Items/Armors/LustyMaidensArmor";
 import { PregnancyStore } from "../../../PregnancyStore";
+import { Satyr } from "./Satyr";
 
 export class SatyrScene extends BaseContent {
     //const SATYR_KIDS: number = 603;

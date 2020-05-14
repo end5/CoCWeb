@@ -1,5 +1,5 @@
-import { Armor } from "../Armor";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { Armor } from "../Armor";
 import { ArmorLib } from "../ArmorLib";
 
 /**

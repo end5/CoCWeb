@@ -1,6 +1,6 @@
+import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 
 export class Essrayle extends BaseContent {
 

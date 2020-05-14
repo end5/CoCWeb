@@ -1,8 +1,8 @@
-import { AbstractSuccubus } from "../../Monsters/AbstractSuccubus";
-import { StatusAffects } from "../../../StatusAffects";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, HORNS_DRACONIC_X2, WING_TYPE_BAT_LIKE_TINY, TAIL_TYPE_DEMONIC } from "../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_LARGE, HIP_RATING_CURVY, HORNS_DRACONIC_X2, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, TAIL_TYPE_DEMONIC, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_SLAVERING, WING_TYPE_BAT_LIKE_TINY } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { StatusAffects } from "../../../StatusAffects";
+import { AbstractSuccubus } from "../../Monsters/AbstractSuccubus";
 
 export class MilkySuccubus extends AbstractSuccubus {
 

@@ -1,10 +1,10 @@
-import { Monster } from "../../Monster";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { CockTypesEnum } from "../../CockTypesEnum";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE, HORNS_DRACONIC_X4_12_INCH_LONG, TAIL_TYPE_DRACONIC } from "../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_AMPLE, HORNS_DRACONIC_X4_12_INCH_LONG, TAIL_TYPE_DRACONIC, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLAVERING } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
+import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { Monster } from "../../Monster";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
 
 export class Ember extends Monster {
     private emberMF(male: string, female: string): string {

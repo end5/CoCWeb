@@ -1,7 +1,7 @@
-import { Monster } from "../../../Monster";
+import { BUTT_RATING_EXPANSIVE, HIP_RATING_FERTILE } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { HIP_RATING_FERTILE, BUTT_RATING_EXPANSIVE } from "../../../../includes/appearanceDefs";
+import { Monster } from "../../../Monster";
 
 
 /**

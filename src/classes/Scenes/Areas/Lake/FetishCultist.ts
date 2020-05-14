@@ -1,9 +1,9 @@
-import { Monster } from "../../../Monster";
-import { StatusAffects } from "../../../StatusAffects";
 import { trace } from "../../../../console";
-import { VAGINA_LOOSENESS_GAPING, VAGINA_WETNESS_WET, ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_NORMAL, HIP_RATING_AMPLE, BUTT_RATING_LARGE } from "../../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_NORMAL, BUTT_RATING_LARGE, HIP_RATING_AMPLE, VAGINA_LOOSENESS_GAPING, VAGINA_WETNESS_WET } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { Monster } from "../../../Monster";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class FetishCultist extends Monster {
 

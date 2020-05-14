@@ -1,6 +1,6 @@
+import { EARS_BUNNY, TAIL_TYPE_NONE, TAIL_TYPE_RABBIT, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLICK } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_SLICK, TAIL_TYPE_RABBIT, TAIL_TYPE_NONE, EARS_BUNNY } from "../../../../includes/appearanceDefs";
 import { PregnancyStore } from "../../../PregnancyStore";
 
 export class BunnyGirl extends BaseContent {

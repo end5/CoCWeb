@@ -1,12 +1,12 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { Holli } from "./Holli";
-import { PerkLib } from "../../PerkLib";
-import { StatusAffects } from "../../StatusAffects";
 import { trace } from "../../../console";
-import { PregnancyStore } from "../../PregnancyStore";
-import { CockTypesEnum } from "../../CockTypesEnum";
 import { SKIN_TYPE_FUR, SKIN_TYPE_SCALES } from "../../../includes/appearanceDefs";
+import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { Holli } from "./Holli";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class HolliScene extends NPCAwareContent {
 

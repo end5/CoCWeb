@@ -1,18 +1,18 @@
-﻿import { BaseContent } from "../../BaseContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { CoC } from "../../CoC";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
-import { PregnancyStore } from "../../PregnancyStore";
-import { Anemone } from "./Anemone";
-import { LustyMaidensArmor } from "../../Items/Armors/LustyMaidensArmor";
-import { PerkLib } from "../../PerkLib";
+﻿import { ANTENNAE_NONE, LOWER_BODY_TYPE_CENTAUR, VAGINA_LOOSENESS_GAPING, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
+import { BaseContent } from "../../BaseContent";
+import { CoC } from "../../CoC";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { LOWER_BODY_TYPE_CENTAUR, VAGINA_WETNESS_DROOLING, ANTENNAE_NONE, VAGINA_LOOSENESS_GAPING } from "../../../includes/appearanceDefs";
-import { ItemType } from "../../ItemType";
-import { Weapon } from "../../Items/Weapon";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { LustyMaidensArmor } from "../../Items/Armors/LustyMaidensArmor";
+import { Weapon } from "../../Items/Weapon";
+import { ItemType } from "../../ItemType";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { Anemone } from "./Anemone";
 
 /**
  * Created by aimozg on 02.01.14.

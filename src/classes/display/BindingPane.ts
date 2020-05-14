@@ -1,6 +1,6 @@
+import { BoundControlMethod } from "../BoundControlMethod";
 import { InputManager } from "../InputManager";
 import { BindDisplay } from "./BindDisplay";
-import { BoundControlMethod } from "../BoundControlMethod";
 
 /**
  * Defines a new UI element, providing a scrollable container to be used for display of bound
@@ -26,7 +26,7 @@ export class BindingPane {
     /**
      * Initiate the BindingPane, setting the stage positioning and reference back to the input manager
      * so we can generate function callbacks later.
-     * 
+     *
      * @param	inputManager	Reference to the game input manager for method access
      * @param	xPos			X position on the stage for the top-left corner of the ScrollPane
      * @param	yPos			Y position on the stage for the top-left corner of the ScrollPane
@@ -142,7 +142,7 @@ export class BindingPane {
 
         const table = document.createElement('table');
 
-        //helpLabel.height *= 2; 
+        //helpLabel.height *= 2;
 
         // this._contentChildren++;
         // this._content.addChild(helpLabel);

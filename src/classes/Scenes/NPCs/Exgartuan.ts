@@ -1,12 +1,12 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { CoC } from "../../CoC";
-import { StatusAffects } from "../../StatusAffects";
 import { trace } from "../../../console";
+import { SKIN_TYPE_FUR, SKIN_TYPE_PLAIN, SKIN_TYPE_SCALES, SKIN_TYPE_UNDEFINED, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_WET } from "../../../includes/appearanceDefs";
+import { CoC } from "../../CoC";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { SKIN_TYPE_PLAIN, SKIN_TYPE_UNDEFINED, SKIN_TYPE_FUR, SKIN_TYPE_SCALES, VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
-import { PerkLib } from "../../PerkLib";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
 

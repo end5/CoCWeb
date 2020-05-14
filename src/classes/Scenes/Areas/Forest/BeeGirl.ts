@@ -1,9 +1,9 @@
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, ANTENNAE_BEE, BUTT_RATING_EXPANSIVE, HIP_RATING_CURVY, LOWER_BODY_TYPE_BEE, TAIL_TYPE_BEE_ABDOMEN, VAGINA_LOOSENESS_GAPING, VAGINA_WETNESS_SLAVERING, WING_TYPE_BEE_LIKE_SMALL } from "../../../../includes/appearanceDefs";
+import { Appearance } from "../../../Appearance";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_CURVY, BUTT_RATING_EXPANSIVE, LOWER_BODY_TYPE_BEE, ANTENNAE_BEE, WING_TYPE_BEE_LIKE_SMALL, TAIL_TYPE_BEE_ABDOMEN } from "../../../../includes/appearanceDefs";
-import { Appearance } from "../../../Appearance";
-import { WeightedDrop } from "../../../internals/WeightedDrop";
 
 export class BeeGirl extends Monster {
 

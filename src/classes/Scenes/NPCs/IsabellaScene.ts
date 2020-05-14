@@ -1,14 +1,14 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { CoC } from "../../CoC";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { PerkLib } from "../../PerkLib";
-import { Isabella } from "./Isabella";
-import { StatusAffects } from "../../StatusAffects";
-import { HORNS_NONE, WING_TYPE_NONE, WING_TYPE_SHARK_FIN, TONUGE_HUMAN } from "../../../includes/appearanceDefs";
+import { HORNS_NONE, TONUGE_HUMAN, WING_TYPE_NONE, WING_TYPE_SHARK_FIN } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
+import { CoC } from "../../CoC";
 import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { Isabella } from "./Isabella";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface {
     //Isabella Flags:

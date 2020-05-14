@@ -1,13 +1,13 @@
-import { BaseContent } from "../../../BaseContent";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../../StatusAffects";
-import { CockTypesEnum } from "../../../CockTypesEnum";
-import { CoC } from "../../../CoC";
-import { PregnancyStore } from "../../../PregnancyStore";
-import { BeeGirl } from "./BeeGirl";
-import { VAGINA_WETNESS_WET, VAGINA_WETNESS_DROOLING, LOWER_BODY_TYPE_CENTAUR, FACE_SNAKE_FANGS, FACE_SPIDER_FANGS, TONUGE_SNAKE, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_NORMAL } from "../../../../includes/appearanceDefs";
+import { FACE_SNAKE_FANGS, FACE_SPIDER_FANGS, LOWER_BODY_TYPE_CENTAUR, TONUGE_SNAKE, VAGINA_WETNESS_DROOLING, VAGINA_WETNESS_NORMAL, VAGINA_WETNESS_SLAVERING, VAGINA_WETNESS_SLICK, VAGINA_WETNESS_WET } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
+import { BaseContent } from "../../../BaseContent";
+import { CoC } from "../../../CoC";
+import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { PregnancyStore } from "../../../PregnancyStore";
+import { StatusAffects } from "../../../StatusAffects";
+import { BeeGirl } from "./BeeGirl";
 
 /**
  * Created by aimozg on 03.01.14.

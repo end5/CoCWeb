@@ -1,7 +1,7 @@
-import { SimpleConsumable } from "./SimpleConsumable";
-import { Player } from "../../Player";
 import { Utils } from "../../internals/Utils";
 import { PerkLib } from "../../PerkLib";
+import { Player } from "../../Player";
+import { SimpleConsumable } from "./SimpleConsumable";
 
 /**
  * Created by K.Quesom 11.06.14

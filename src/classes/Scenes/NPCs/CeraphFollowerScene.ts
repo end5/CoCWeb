@@ -1,12 +1,12 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
-import { PregnancyStore } from "../../PregnancyStore";
-import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
-import { CockTypesEnum } from "../../CockTypesEnum";
 import { TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
+import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 /**
  * Created by aimozg on 03.01.14.

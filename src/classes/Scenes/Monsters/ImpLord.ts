@@ -1,7 +1,7 @@
-import { Imp } from "./Imp";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, BUTT_RATING_TIGHT, HIP_RATING_BOYISH, LOWER_BODY_TYPE_HOOFED, WING_TYPE_IMP } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_NORMAL, HIP_RATING_BOYISH, BUTT_RATING_TIGHT, LOWER_BODY_TYPE_HOOFED, WING_TYPE_IMP } from "../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../internals/WeightedDrop";
+import { Imp } from "./Imp";
 
 export class ImpLord extends Imp {
     //Special Attack 1

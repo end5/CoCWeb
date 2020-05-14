@@ -1,7 +1,7 @@
-import { Consumable } from "../Consumable";
-import { PerkLib } from "../../PerkLib";
-import { Utils } from "../../internals/Utils";
 import { VAGINA_WETNESS_SLICK } from "../../../includes/appearanceDefs";
+import { Utils } from "../../internals/Utils";
+import { PerkLib } from "../../PerkLib";
+import { Consumable } from "../Consumable";
 
 /**
  * Created by aimozg on 18.01.14.

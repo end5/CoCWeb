@@ -1,12 +1,12 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
+import { LOWER_BODY_TYPE_CENTAUR } from "../../../../includes/appearanceDefs";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { StatusAffects } from "../../../StatusAffects";
+import { Urta } from "../../NPCs/Urta";
 import { Edryn } from "./Edryn";
 import { Katherine } from "./Katherine";
 import { KatherineThreesome } from "./KatherineThreesome";
-import { Urta } from "../../NPCs/Urta";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { LOWER_BODY_TYPE_CENTAUR } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class KatherineEmployment extends TelAdreAbstractContent {
     //This class holds all the employment quest specific content for Katherine. It's split off to reduce the size of Katherine.as

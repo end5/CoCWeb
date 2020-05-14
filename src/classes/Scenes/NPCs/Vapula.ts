@@ -1,13 +1,13 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_CAT, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_FOX, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_KANGAROO, LOWER_BODY_TYPE_LIZARD } from "../../../includes/appearanceDefs";
 import { CoC } from "../../CoC";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { StatusAffects } from "../../StatusAffects";
-import { PregnancyStore } from "../../PregnancyStore";
 import { CockTypesEnum } from "../../CockTypesEnum";
-import { LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_DOG, LOWER_BODY_TYPE_CAT, LOWER_BODY_TYPE_LIZARD, LOWER_BODY_TYPE_KANGAROO, LOWER_BODY_TYPE_FOX, LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS } from "../../../includes/appearanceDefs";
-import { PerkLib } from "../../PerkLib";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class Vapula extends NPCAwareContent implements TimeAwareInterface {
     public constructor() {

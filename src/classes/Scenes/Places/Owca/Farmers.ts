@@ -1,8 +1,8 @@
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, BUTT_RATING_LARGE, HIP_RATING_AMPLE, HORNS_DEMON, TAIL_TYPE_DEMONIC, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLICK } from "../../../../includes/appearanceDefs";
+import { Appearance } from "../../../Appearance";
+import { CockTypesEnum } from "../../../CockTypesEnum";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { CockTypesEnum } from "../../../CockTypesEnum";
-import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_SLIME_DROOLING, HIP_RATING_AMPLE, BUTT_RATING_LARGE, HORNS_DEMON, TAIL_TYPE_DEMONIC } from "../../../../includes/appearanceDefs";
-import { Appearance } from "../../../Appearance";
 
 export class Farmers extends Monster {
 

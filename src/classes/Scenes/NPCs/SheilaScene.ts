@@ -1,16 +1,16 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { CoC } from "../../CoC";
 import { trace } from "../../../console";
-import { Sheila } from "./Sheila";
-import { StatusAffects } from "../../StatusAffects";
-import { CockTypesEnum } from "../../CockTypesEnum";
+import { LOWER_BODY_TYPE_BEE, LOWER_BODY_TYPE_HARPY, TAIL_TYPE_HARPY, TAIL_TYPE_NONE, TONUGE_HUMAN } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
+import { CoC } from "../../CoC";
+import { CockTypesEnum } from "../../CockTypesEnum";
 import { CoC_Settings } from "../../CoC_Settings";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { PerkLib } from "../../PerkLib";
-import { TAIL_TYPE_NONE, TONUGE_HUMAN, LOWER_BODY_TYPE_HARPY, TAIL_TYPE_HARPY, LOWER_BODY_TYPE_BEE } from "../../../includes/appearanceDefs";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { NPCAwareContent } from "./NPCAwareContent";
+import { Sheila } from "./Sheila";
 
 export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
 

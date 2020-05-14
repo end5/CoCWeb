@@ -1,15 +1,15 @@
-import { PerkType } from "./PerkType";
+import { CleansingPalmPerk } from "./Perks/CleansingPalmPerk";
+import { ControlledBreathPerk } from "./Perks/ControlledBreathPerk";
+import { ElvenBountyPerk } from "./Perks/ElvenBountyPerk";
+import { EnlightenedPerk } from "./Perks/EnlightenedPerk";
+import { PentUpPerk } from "./Perks/PentUpPerk";
 import { PiercedCrimstonePerk } from "./Perks/PiercedCrimstonePerk";
 import { PiercedFertitePerk } from "./Perks/PiercedFertitePerk";
-import { PentUpPerk } from "./Perks/PentUpPerk";
 import { SluttySeductionPerk } from "./Perks/SluttySeductionPerk";
+import { SpellcastingAffinityPerk } from "./Perks/SpellcastingAffinityPerk";
 import { WizardsEndurancePerk } from "./Perks/WizardsEndurancePerk";
 import { WizardsFocusPerk } from "./Perks/WizardsFocusPerk";
-import { SpellcastingAffinityPerk } from "./Perks/SpellcastingAffinityPerk";
-import { ElvenBountyPerk } from "./Perks/ElvenBountyPerk";
-import { ControlledBreathPerk } from "./Perks/ControlledBreathPerk";
-import { CleansingPalmPerk } from "./Perks/CleansingPalmPerk";
-import { EnlightenedPerk } from "./Perks/EnlightenedPerk";
+import { PerkType } from "./PerkType";
 
 /**
  * Created by aimozg on 26.01.14.

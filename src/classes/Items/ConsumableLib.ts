@@ -1,18 +1,18 @@
 import { BaseContent } from "../BaseContent";
-import { SimpleConsumable } from "./Consumables/SimpleConsumable";
 import { Player } from "../Player";
 import { Consumable } from "./Consumable";
 import { BeeHoney } from "./Consumables/BeeHoney";
 import { BimboLiqueur } from "./Consumables/BimboLiqueur";
 import { DeBimbo } from "./Consumables/DeBimbo";
-import { HairExtensionSerum } from "./Consumables/HairExtensionSerum";
 import { GroPlus } from "./Consumables/GroPlus";
+import { HairExtensionSerum } from "./Consumables/HairExtensionSerum";
 import { KitsuneGift } from "./Consumables/KitsuneGift";
 import { LustStick } from "./Consumables/LustStick";
 import { OvipositionElixir } from "./Consumables/OvipositionElixir";
 import { PhoukaWhiskey } from "./Consumables/PhoukaWhiskey";
 import { Reducto } from "./Consumables/Reducto";
 import { RizzaRoot } from "./Consumables/RizzaRoot";
+import { SimpleConsumable } from "./Consumables/SimpleConsumable";
 import { WingStick } from "./Consumables/WingStick";
 import { Mutations } from "./Mutations";
 

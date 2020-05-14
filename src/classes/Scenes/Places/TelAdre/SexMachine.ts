@@ -1,6 +1,6 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { PregnancyStore } from "../../../PregnancyStore";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class SexMachine extends TelAdreAbstractContent {
     public exploreShowers(): void {

@@ -1,5 +1,5 @@
-import { AbstractLakeContent } from "./AbstractLakeContent";
 import { StatusAffects } from "../../../StatusAffects";
+import { AbstractLakeContent } from "./AbstractLakeContent";
 
 export class SwordInStone extends AbstractLakeContent {
     public findSwordInStone(): void {

@@ -1,9 +1,9 @@
+import { TONUGE_DEMONIC, TONUGE_DRACONIC } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { Minerva } from "./Minerva";
-import { TONUGE_DEMONIC, TONUGE_DRACONIC } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { StatusAffects } from "../../../StatusAffects";
+import { Minerva } from "./Minerva";
 
 export class MinervaScene extends BaseContent {
     //const MINERVA_LOVE: number = 813;

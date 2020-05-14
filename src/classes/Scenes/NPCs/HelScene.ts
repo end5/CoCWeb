@@ -1,13 +1,13 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { CoC } from "../../CoC";
 import { trace } from "../../../console";
-import { Hel } from "./Hel";
-import { PerkLib } from "../../PerkLib";
-import { StatusAffects } from "../../StatusAffects";
+import { CoC } from "../../CoC";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { Hel } from "./Hel";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
@@ -181,7 +181,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     public loseToSalamander(): void {
         this.spriteSelect(68);
         this.outputText("", true);
-        //(If HP loss) 
+        //(If HP loss)
         if (this.player.HP < 1) this.outputText("You collapse on the ground just a few steps away from the unconscious Gnoll, overwhelmed by pain and exhaustion caused by the berzerker's onslaught.", false);
         //(If Lust loss)
         else this.outputText("Your arousal is too great, and your mind can no longer focus on anything but a desperate need for release.  Your knees buckle and you collapse", false);
@@ -234,9 +234,9 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         }
         //Player Loss – Rape – Genderless & Male >85 cockarea
         else {
-            //(Genderless) 
+            //(Genderless)
             if (this.player.gender == 0) this.outputText("\"<i>Hmm, what do we have here,</i>\" the salamander asks, yanking your " + this.player.armorName + " off to reveal your genderless crotch.  \"<i>Well, that's... Different.  Well, your loss, I suppose...</i>\" she trails off, stepping up and pushing her cunt into your face.  \"<i>Now lick, and maybe I'll think up a way to get you off, too</i>\".\n\n", false);
-            //(Cock(s) too big to fit) 
+            //(Cock(s) too big to fit)
             else this.outputText("\"<i>Hot damn.  That's impressive, but even I'm not tough enough to handle that.  But maybe I can still get you off by... other means,</i>\" she says with a wink.\n\n", false);
 
             this.outputText("Obediently, you lift your face between her legs and give the lips of her drooling cunt an experimental lick.  You recoil suddenly, feeling like your tongue is on fire.  Seemingly as reassurance, the salamander makes an uncharacteristically gentle gesture and runs her scaled fingers through your " + this.hairDescript() + ", her sharp claws only just brushing your scalp.  \"<i>C'mon, c'mon,</i>\" she insists, pushing your face back up toward her.  You steel yourself for another burn, but when you give her another lick, you find her lips to be cooler the second time.  Without further ado, you begin your oral ministrations, probing into her welcoming cunt with measured skill.  She gasps with pleasure and again strokes your head encouragingly, even as her other cups her tits and begins to play with her nipples.\n\n", false);
@@ -361,7 +361,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         //Player's Options (Female): [Get Licked] [Tail Fuck] [No Thanks]
         //Player's Options (Herm): [Fuck her Vag] [Fuck her Ass] [Get Blown] [Get Licked] [Tail Fuck] [DP] [Tail Wank] [No Thanks]
         //Player's Options (Genderless): [Tail Fuck] [No Thanks] (No racial options)
-        //	Note:: Vaginal/Anal capacity is max 85 cockarea for Male/Herm characters. If their primary cock is too big, go to the second, etc. If all are too large, the male/herm cannot use \"<i>Fuck her Vag/Ass</i>\" options. He may still \"<i>Get Blown,</i>\" or get a \"<i>Tail Fuck.</i>\"	
+        //	Note:: Vaginal/Anal capacity is max 85 cockarea for Male/Herm characters. If their primary cock is too big, go to the second, etc. If all are too large, the male/herm cannot use \"<i>Fuck her Vag/Ass</i>\" options. He may still \"<i>Get Blown,</i>\" or get a \"<i>Tail Fuck.</i>\"
 
         //Racial Specific Options: [Naga: Coil her Up (69)] [M. Centaur: Mount Her] [F. Centaur: Hanging 69]
         //[Possession]
@@ -862,7 +862,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("Your eyes roll back in your head, your long tongue rolling out of your mouth as you give in utterly to the pleasure.  The first egg crests out of your distended bunny-cock, making you scream with orgasmic pleasure as it launches into your hard-cumming nipplecunt.  The top of your " + this.chestDesc() + " lurches upward with the impact, then again as eggs slam out of you and into your waiting tit-mouth.  Laughing, the reptilian woman yanks the cock out of your tit and squishes it between her own mounds, finishing your orgasm off as she hungrily licks the bunny-spooge out of your chest-holes, letting it pour onto herself as eggs crack against her chest.\n\n", false);
         }
 
-        //(IF NO NIPPLECUNTS:) 
+        //(IF NO NIPPLECUNTS:)
         else {
             this.outputText("You can only nod your head and buck your hips as she titty-fucks your bun-cock, humping herself up and down your borrowed length.  The eggs are now nearly at the gorged tip of your cock, and as the first one shoots out of you, your mind is utterly shattered by orgasm.  You cry aloud and wildly buck your hips and thrust between the huge tits, trying desperately to push out the remaining load.  Your eyes roll back in your head, your long tongue rolling out of your mouth as you give in utterly to the pleasure.\n\n", false);
 
@@ -1512,7 +1512,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("The two girls' massive tits are pressed tightly together, creating a barrier between them that forces Hel to keep her back arched.  Giving a brief look over her shoulder at you, she wiggles her flared hips seductively and raises her fiery tail, giving you a clear view of her sopping-wet snatch and the tight ring of her ass between her full cheeks.\n\n", false);
 
         this.outputText("That's all the invitation you need.  You drop to your knees behind the two redheads and thrust your " + this.cockDescript(x) + " into Hel's snatch, eliciting a sharp moan from the salamander.  ", false);
-        //(IF MULTICOCK and second cock is under 9 inches: 
+        //(IF MULTICOCK and second cock is under 9 inches:
         if (y >= 0) this.outputText("Meanwhile, your " + this.cockDescript(y) + " slides easily into Isabella's pussy, making the cow-girl gasp at the sudden and unexpected penetration.  ", false);
         this.outputText("You grab Hel's hips and push in, reveling in the incredible heat and tightness of her pussy as your " + this.cockDescript(x) + " slides into her until you've bottomed out", false);
         if (y >= 0) this.outputText(" with your " + this.cockDescript(y) + " similarly coming to a rest inside Isabella's depths; you're able to feel the cow's rapid heartbeat hammering through her, causing her already tight cunt to contract rhythmically around your girth", false);
@@ -1532,7 +1532,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         //(Player has one cock)
         if (y == -1) {
             this.outputText("Feeling bad for the thus-far-neglected needs of Isabella, you pull out of Hel with a wet squelch and slap your cock against the cow-girl's pussy. She gasps, looking over the salamander's shoulder at the large member pressing against her slit.\n\n", false);
-            //(if PC cock > 9 inches: 
+            //(if PC cock > 9 inches:
             if (this.player.cocks[x].cockLength > 9) {
                 if (this.isabellaAccent()) this.outputText("\"<i>I normally do not play vith such... large... zings, but for you, I vill make an exception.  Give me your cock!</i>\"\n\n", false);
                 else this.outputText("\"<i>I normally don't play with such... clumsy... things, but for you, I'll make an exception.  Give me your cock!</i>\"\n\n", false);
@@ -1627,7 +1627,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("Meanwhile, Isabella has utterly buried herself in your groin.  You knew her tongue granted her immense oral abilities by virtue of its size and shape, but her skill in wielding it is driving you wild.  She's going slowly, but that's only making each long, luscious stroke of her cow-tongue even better, tantalizing you between licks.  Mercifully, she slides a pair of her fingers into your " + this.vaginaDescript() + ", working them into your-now-sopping-wet box between tongue-thrusts.\n\n", false);
 
         this.outputText("The combination of the cow-girl's finger-and-tongue fuck", false);
-        //(IF HERM: 
+        //(IF HERM:
         if (this.player.hasCock()) this.outputText(" and Hel jerking your " + this.cockDescript(0) + " off", false);
         this.outputText(" is driving you quickly toward your limit.  You start to tongue-fuck the salamander as hard and fast as you can, sliding as many fingers into her hungry cunt as possible, and even plugging your thumb into her tight little asshole, anything to bring her to orgasm at the same time you cum.\n\n", false);
 

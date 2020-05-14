@@ -1,7 +1,7 @@
-import { AbstractSpiderMorph } from "./AbstractSpiderMorph";
-import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_LARGE, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, TAIL_TYPE_SPIDER_ADBOMEN } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_CURVY, LOWER_BODY_TYPE_CHITINOUS_SPIDER_LEGS, TAIL_TYPE_SPIDER_ADBOMEN } from "../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { StatusAffects } from "../../../StatusAffects";
+import { AbstractSpiderMorph } from "./AbstractSpiderMorph";
 
 export class MaleSpiderMorph extends AbstractSpiderMorph {
 

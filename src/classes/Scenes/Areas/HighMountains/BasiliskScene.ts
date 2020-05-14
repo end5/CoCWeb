@@ -1,11 +1,11 @@
+import { WING_TYPE_BEE_LIKE_LARGE, WING_TYPE_BEE_LIKE_SMALL } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { Basilisk } from "./Basilisk";
-import { StatusAffects } from "../../../StatusAffects";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { PerkLib } from "../../../PerkLib";
 import { PregnancyStore } from "../../../PregnancyStore";
-import { WING_TYPE_BEE_LIKE_SMALL, WING_TYPE_BEE_LIKE_LARGE } from "../../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { StatusAffects } from "../../../StatusAffects";
+import { Basilisk } from "./Basilisk";
 
 /**
  * Created by aimozg on 03.01.14.

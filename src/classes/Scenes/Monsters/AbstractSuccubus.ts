@@ -1,7 +1,7 @@
-import { Monster } from "../../Monster";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
 import { Appearance } from "../../Appearance";
+import { Monster } from "../../Monster";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
 
 /**
  * Created by aimozg on 18.01.14.

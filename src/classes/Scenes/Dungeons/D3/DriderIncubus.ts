@@ -1,9 +1,9 @@
-import { AbstractSpiderMorph } from "../../Areas/Swamp/AbstractSpiderMorph";
+import { BUTT_RATING_TIGHT, HIP_RATING_SLENDER } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { HIP_RATING_SLENDER, BUTT_RATING_TIGHT } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
+import { AbstractSpiderMorph } from "../../Areas/Swamp/AbstractSpiderMorph";
 
 export class DriderIncubus extends AbstractSpiderMorph {
     public constructor() {

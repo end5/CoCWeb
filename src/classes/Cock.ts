@@ -1,6 +1,6 @@
-import { Utils } from "./internals/Utils";
-import { CockTypesEnum } from "./CockTypesEnum";
 import { trace } from "../console";
+import { CockTypesEnum } from "./CockTypesEnum";
+import { Utils } from "./internals/Utils";
 
 export class Cock {
     private _cockLength: number;
@@ -250,12 +250,12 @@ export class Cock {
     }
 
     /*
-    public  get pierceType():PiercingTypesEnum 
+    public  get pierceType():PiercingTypesEnum
     {
         return _pierceType;
     }
-	
-    public  set pierceType(value:PiercingTypesEnum): void 
+
+    public  set pierceType(value:PiercingTypesEnum): void
     {
         _pierceType = value;
     }

@@ -1,17 +1,17 @@
-﻿import { BaseContent } from "../../BaseContent";
+﻿import { trace } from "../../../console";
+import { EARS_COW, FACE_DOG, HORNS_COW_MINOTAUR, LOWER_BODY_TYPE_DOG, TAIL_TYPE_COW, TAIL_TYPE_DOG, TONUGE_DEMONIC, TONUGE_DRACONIC, TONUGE_SNAKE } from "../../../includes/appearanceDefs";
+import { BaseContent } from "../../BaseContent";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { Goblin } from "../Monsters/Goblin";
+import { Imp } from "../Monsters/Imp";
 import { HellHoundScene } from "./Mountain/HellHoundScene";
 import { InfestedHellhoundScene } from "./Mountain/InfestedHellhoundScene";
 import { MinotaurScene } from "./Mountain/MinotaurScene";
 import { Salon } from "./Mountain/Salon";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { trace } from "../../../console";
-import { FACE_DOG, TAIL_TYPE_DOG, LOWER_BODY_TYPE_DOG, HORNS_COW_MINOTAUR, EARS_COW, TAIL_TYPE_COW, TONUGE_SNAKE, TONUGE_DEMONIC, TONUGE_DRACONIC } from "../../../includes/appearanceDefs";
-import { PregnancyStore } from "../../PregnancyStore";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
-import { Imp } from "../Monsters/Imp";
-import { Goblin } from "../Monsters/Goblin";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 06.01.14.

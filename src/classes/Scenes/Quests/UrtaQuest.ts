@@ -1,21 +1,21 @@
-import { NPCAwareContent } from "../NPCs/NPCAwareContent";
-import { ItemSlotClass } from "../../ItemSlotClass";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { trace } from "../../../console";
-import { Player } from "../../Player";
-import { SKIN_TYPE_FUR, LOWER_BODY_TYPE_FOX, EARS_FOX, FACE_FOX, TAIL_TYPE_FOX, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
-import { CockTypesEnum } from "../../CockTypesEnum";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
-import { ItemType } from "../../ItemType";
-import { GoblinBroodmother } from "./UrtaQuest/GoblinBroodmother";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
-import { Sirius } from "./UrtaQuest/Sirius";
-import { GnollSpearThrower } from "../Areas/Plains/GnollSpearThrower";
-import { MinotaurLord } from "./UrtaQuest/MinotaurLord";
-import { MilkySuccubus } from "./UrtaQuest/MilkySuccubus";
+import { EARS_FOX, FACE_FOX, LOWER_BODY_TYPE_FOX, SKIN_TYPE_FUR, TAIL_TYPE_FOX, TAIL_TYPE_NONE, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
 import { MainView } from "../../../view/MainView";
+import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { ItemSlotClass } from "../../ItemSlotClass";
+import { ItemType } from "../../ItemType";
+import { PerkLib } from "../../PerkLib";
+import { Player } from "../../Player";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { GnollSpearThrower } from "../Areas/Plains/GnollSpearThrower";
+import { NPCAwareContent } from "../NPCs/NPCAwareContent";
+import { GoblinBroodmother } from "./UrtaQuest/GoblinBroodmother";
+import { MilkySuccubus } from "./UrtaQuest/MilkySuccubus";
+import { MinotaurLord } from "./UrtaQuest/MinotaurLord";
+import { Sirius } from "./UrtaQuest/Sirius";
 
 export class UrtaQuest extends NPCAwareContent {
 

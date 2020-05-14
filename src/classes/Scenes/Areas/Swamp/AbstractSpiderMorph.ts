@@ -1,8 +1,8 @@
-import { Monster } from "../../../Monster";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { WeaponLib } from "../../../Items/WeaponLib";
+import { Monster } from "../../../Monster";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * Created by aimozg on 03.01.14.

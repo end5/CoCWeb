@@ -1,24 +1,24 @@
-﻿import { BaseContent } from "../../BaseContent";
+﻿import { trace } from "../../../console";
+import { LOWER_BODY_TYPE_CENTAUR, VAGINA_WETNESS_DROOLING } from "../../../includes/appearanceDefs";
+import { Appearance } from "../../Appearance";
+import { BaseContent } from "../../BaseContent";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
+import { Goblin } from "../Monsters/Goblin";
+import { Imp } from "../Monsters/Imp";
+import { Jojo } from "../NPCs/Jojo";
 import { AkbalScene } from "./Forest/AkbalScene";
 import { BeeGirlScene } from "./Forest/BeeGirlScene";
 import { CorruptedGlade } from "./Forest/CorruptedGlade";
+import { ErlKingScene } from "./Forest/ErlKingScene";
 import { Essrayle } from "./Forest/Essrayle";
 import { Faerie } from "./Forest/Faerie";
 import { KitsuneScene } from "./Forest/KitsuneScene";
-import { TamainsDaughtersScene } from "./Forest/TamanisDaughtersScene";
 import { TamaniScene } from "./Forest/TamaniScene";
+import { TamainsDaughtersScene } from "./Forest/TamanisDaughtersScene";
 import { TentacleBeastScene } from "./Forest/TentacleBeastScene";
-import { ErlKingScene } from "./Forest/ErlKingScene";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { trace } from "../../../console";
-import { Imp } from "../Monsters/Imp";
-import { Goblin } from "../Monsters/Goblin";
-import { Jojo } from "../NPCs/Jojo";
-import { Appearance } from "../../Appearance";
-import { VAGINA_WETNESS_DROOLING, LOWER_BODY_TYPE_CENTAUR } from "../../../includes/appearanceDefs";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 /**
  * Created by aimozg on 06.01.14.

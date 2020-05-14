@@ -1,16 +1,16 @@
-﻿import { NPCAwareContent } from "./NPCAwareContent";
-import { TimeAwareInterface } from "../../TimeAwareInterface";
-import { PregnancyStore } from "../../PregnancyStore";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { CoC } from "../../CoC";
-import { trace } from "../../../console";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
-import { CockTypesEnum } from "../../CockTypesEnum";
+﻿import { trace } from "../../../console";
+import { LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_HOOFED, TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
-import { TAIL_TYPE_NONE, LOWER_BODY_TYPE_HOOFED, LOWER_BODY_TYPE_GOO } from "../../../includes/appearanceDefs";
-import { Amily } from "./Amily";
+import { CoC } from "../../CoC";
+import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
+import { TimeAwareInterface } from "../../TimeAwareInterface";
+import { Amily } from "./Amily";
+import { NPCAwareContent } from "./NPCAwareContent";
 
 /**
  * Created by aimozg on 02.01.14.

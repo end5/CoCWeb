@@ -1,8 +1,8 @@
-import { Monster } from "../../Monster";
-import { StatusAffects } from "../../StatusAffects";
-import { PerkLib } from "../../PerkLib";
-import { VAGINA_WETNESS_SLICK, VAGINA_LOOSENESS_LOOSE, ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_NOTICEABLE } from "../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_DRY, BUTT_RATING_NOTICEABLE, HIP_RATING_CURVY, VAGINA_LOOSENESS_LOOSE, VAGINA_WETNESS_SLICK } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
+import { Monster } from "../../Monster";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
 /**
  * ...
  * @author ...

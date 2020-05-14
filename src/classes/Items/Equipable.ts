@@ -1,8 +1,8 @@
-import { Consumable } from "./Consumable";
-import { Player } from "../Player";
 import { CoC_Settings } from "../CoC_Settings";
-import { GooArmor } from "./Armors/GooArmor";
 import { ItemType } from "../ItemType";
+import { Player } from "../Player";
+import { GooArmor } from "./Armors/GooArmor";
+import { Consumable } from "./Consumable";
 
 /**
  * Created by aimozg on 09.01.14.

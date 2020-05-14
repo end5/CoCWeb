@@ -1,5 +1,5 @@
-import { CoC_Settings } from "./CoC_Settings";
 import { trace } from "../console";
+import { CoC_Settings } from "./CoC_Settings";
 
 /**
  * Created by aimozg on 09.01.14.

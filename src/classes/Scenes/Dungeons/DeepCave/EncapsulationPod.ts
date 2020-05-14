@@ -1,7 +1,7 @@
+import { BUTT_RATING_BUTTLESS, HIP_RATING_SLENDER, SKIN_TYPE_FUR, SKIN_TYPE_PLAIN, SKIN_TYPE_SCALES } from "../../../../includes/appearanceDefs";
+import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
-import { SKIN_TYPE_FUR, SKIN_TYPE_SCALES, HIP_RATING_SLENDER, BUTT_RATING_BUTTLESS, SKIN_TYPE_PLAIN } from "../../../../includes/appearanceDefs";
-import { WeightedDrop } from "../../../internals/WeightedDrop";
 
 /**
  * ...

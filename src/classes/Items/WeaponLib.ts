@@ -1,15 +1,15 @@
-import { Fists } from "./Weapons/Fists";
 import { Weapon } from "./Weapon";
 import { BeautifulSword } from "./Weapons/BeautifulSword";
-import { LargeClaymore } from "./Weapons/LargeClaymore";
 import { DragonShellShield } from "./Weapons/DragonShellShield";
 import { EldritchStaff } from "./Weapons/EldritchStaff";
+import { Fists } from "./Weapons/Fists";
+import { HugeWarhammer } from "./Weapons/HugeWarhammer";
 import { JeweledRapier } from "./Weapons/JeweledRapier";
+import { LargeClaymore } from "./Weapons/LargeClaymore";
 import { LargeHammer } from "./Weapons/LargeHammer";
 import { RaphaelsRapier } from "./Weapons/RaphaelsRapier";
 import { Spellblade } from "./Weapons/Spellblade";
 import { WizardsStaff } from "./Weapons/WizardsStaff";
-import { HugeWarhammer } from "./Weapons/HugeWarhammer";
 
 /**
  * Created by aimozg on 09.01.14.

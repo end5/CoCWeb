@@ -1,11 +1,11 @@
-import { Monster } from "../../Monster";
-import { StatusAffects } from "../../StatusAffects";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { PerkLib } from "../../PerkLib";
 import { trace } from "../../../console";
-import { CockTypesEnum } from "../../CockTypesEnum";
-import { VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_GAPING, ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, HIP_RATING_CURVY, BUTT_RATING_NOTICEABLE, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS } from "../../../includes/appearanceDefs";
+import { ANAL_LOOSENESS_STRETCHED, ANAL_WETNESS_DRY, BUTT_RATING_NOTICEABLE, HIP_RATING_CURVY, LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS, VAGINA_LOOSENESS_GAPING, VAGINA_WETNESS_SLAVERING } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
+import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { Monster } from "../../Monster";
+import { PerkLib } from "../../PerkLib";
+import { StatusAffects } from "../../StatusAffects";
 
 export class Ceraph extends Monster {
 

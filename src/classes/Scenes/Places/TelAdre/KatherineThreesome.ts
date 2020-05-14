@@ -1,12 +1,12 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
-import { Edryn } from "./Edryn";
-import { Katherine } from "./Katherine";
-import { Urta } from "../../NPCs/Urta";
-import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { BREAST_CUP_DD, GENDER_NONE } from "../../../../includes/appearanceDefs";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { PregnancyStore } from "../../../PregnancyStore";
 import { StatusAffects } from "../../../StatusAffects";
+import { Urta } from "../../NPCs/Urta";
+import { Edryn } from "./Edryn";
+import { Katherine } from "./Katherine";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class KatherineThreesome extends TelAdreAbstractContent {
 

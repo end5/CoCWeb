@@ -1,9 +1,9 @@
-import { BaseContent } from "../../../BaseContent";
-import { DemonPack } from "./DemonPack";
 import { LOWER_BODY_TYPE_CENTAUR, VAGINA_LOOSENESS_LEVEL_CLOWN_CAR } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
-import { PregnancyStore } from "../../../PregnancyStore";
+import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { PregnancyStore } from "../../../PregnancyStore";
+import { StatusAffects } from "../../../StatusAffects";
+import { DemonPack } from "./DemonPack";
 
 export class Oasis extends BaseContent {
 

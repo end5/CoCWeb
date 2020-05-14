@@ -1,4 +1,11 @@
+import { trace } from "../../../console";
 import { BaseContent } from "../../BaseContent";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
+import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { ItemType } from "../../ItemType";
+import { PerkLib } from "../../PerkLib";
+import { PregnancyStore } from "../../PregnancyStore";
+import { StatusAffects } from "../../StatusAffects";
 import { AuntNancy } from "./TelAdre/AuntNancy";
 import { BakeryScene } from "./TelAdre/BakeryScene";
 import { Brooke } from "./TelAdre/Brooke";
@@ -21,13 +28,6 @@ import { Rubi } from "./TelAdre/Rubi";
 import { Scylla } from "./TelAdre/Scylla";
 import { SexMachine } from "./TelAdre/SexMachine";
 import { UmasShop } from "./TelAdre/UmasShop";
-import { StatusAffects } from "../../StatusAffects";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { PregnancyStore } from "../../PregnancyStore";
-import { trace } from "../../../console";
-import { ItemType } from "../../ItemType";
-import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
-import { PerkLib } from "../../PerkLib";
 
 /**
 * The lovely town of Tel Adre
@@ -1402,7 +1402,7 @@ export class TelAdre extends BaseContent {
             dominika2 = 2739;
             dominika.fellatrixBarAppearance();
         }
-    
+
         var nancy:Function = null;
         var nancyText:String = "Barkeep";
         if(auntNancy.auntNancy(false)) {
@@ -1411,7 +1411,7 @@ export class TelAdre extends BaseContent {
             nancy = auntNancy.interactWithAuntNancy;
         }
         else outputText("\n\nIt doesn't look like there's a bartender working at the moment.", false);
-    
+
         var rogarB:Function = null;
         var rogarT:String = "HoodedFig";
         if(flags[kFLAGS.ROGAR_PHASE] == 3 && flags[kFLAGS.ROGAR_DISABLED] == 0 && flags[kFLAGS.ROGAR_FUCKED_TODAY] == 0) {

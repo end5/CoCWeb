@@ -1,9 +1,9 @@
+import { SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
-import { JeanClaude } from "./JeanClaude";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
-import { SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
+import { JeanClaude } from "./JeanClaude";
 
 
 /**

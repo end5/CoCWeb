@@ -1,8 +1,8 @@
+import { trace } from "../console";
+import { Appearance } from "./Appearance";
+import { CoC } from "./CoC";
 import { Utils } from "./internals/Utils";
 import { SaveAwareInterface } from "./SaveAwareInterface";
-import { CoC } from "./CoC";
-import { Appearance } from "./Appearance";
-import { trace } from "../console";
 
 export class BreastStore extends Utils implements SaveAwareInterface {
     private static MAX_FLAG_VALUE: number = 2999;
@@ -266,4 +266,4 @@ export class BreastStore extends Utils implements SaveAwareInterface {
         if (value < 1) value = 1;
         this._rows = value;
     }
-}	
+}

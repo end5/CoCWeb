@@ -1,8 +1,8 @@
-import { Goblin } from "../../Monsters/Goblin";
-import { VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL, ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, HIP_RATING_AMPLE, BUTT_RATING_LARGE } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
+import { ANAL_LOOSENESS_TIGHT, ANAL_WETNESS_DRY, BUTT_RATING_LARGE, HIP_RATING_AMPLE, VAGINA_LOOSENESS_NORMAL, VAGINA_WETNESS_DROOLING } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { StatusAffects } from "../../../StatusAffects";
+import { Goblin } from "../../Monsters/Goblin";
 
 /**
  * Created by aimozg on 18.01.14.

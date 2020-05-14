@@ -1,9 +1,9 @@
-import { BaseContent } from "../../../BaseContent";
 import { LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_NAGA } from "../../../../includes/appearanceDefs";
-import { InfestedHellhound } from "./InfestedHellhound";
-import { StatusAffects } from "../../../StatusAffects";
+import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { PregnancyStore } from "../../../PregnancyStore";
+import { StatusAffects } from "../../../StatusAffects";
+import { InfestedHellhound } from "./InfestedHellhound";
 
 /**
  * Created by aimozg on 04.01.14.

@@ -1,15 +1,15 @@
-import { Armor } from "./Armor";
-import { ComfortableUnderclothes } from "./Armors/ComfortableUnderclothes";
-import { ArmorWithPerk } from "./Armors/ArmorWithPerk";
 import { PerkLib } from "../PerkLib";
+import { Armor } from "./Armor";
+import { ArmorWithPerk } from "./Armors/ArmorWithPerk";
 import { ComfortableClothes } from "./Armors/ComfortableClothes";
+import { ComfortableUnderclothes } from "./Armors/ComfortableUnderclothes";
 import { GooArmor } from "./Armors/GooArmor";
 import { InquisitorsCorset } from "./Armors/InquisitorsCorset";
 import { InquisitorsRobes } from "./Armors/InquisitorsRobes";
 import { LeatherArmorSegments } from "./Armors/LeatherArmorSegments";
 import { LustyMaidensArmor } from "./Armors/LustyMaidensArmor";
-import { SluttySwimwear } from "./Armors/SluttySwimwear";
 import { SeductiveArmor } from "./Armors/SeductiveArmor";
+import { SluttySwimwear } from "./Armors/SluttySwimwear";
 
 /**
  * Created by aimozg on 10.01.14.

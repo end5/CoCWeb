@@ -1,10 +1,10 @@
-import { Monster } from "../../../Monster";
-import { StatusAffects } from "../../../StatusAffects";
-import { PerkLib } from "../../../PerkLib";
 import { trace } from "../../../../console";
+import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_NORMAL, BUTT_RATING_AVERAGE, HIP_RATING_AVERAGE, LOWER_BODY_TYPE_DOG, SKIN_TYPE_FUR, TAIL_TYPE_DOG } from "../../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { ANAL_LOOSENESS_NORMAL, ANAL_WETNESS_NORMAL, HIP_RATING_AVERAGE, BUTT_RATING_AVERAGE, LOWER_BODY_TYPE_DOG, SKIN_TYPE_FUR, TAIL_TYPE_DOG } from "../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { Monster } from "../../../Monster";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class HellHound extends Monster {
     protected hellhoundFire(): void {

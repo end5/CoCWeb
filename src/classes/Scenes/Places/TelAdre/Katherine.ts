@@ -1,13 +1,13 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
-import { TimeAwareInterface } from "../../../TimeAwareInterface";
-import { BreastStore } from "../../../BreastStore";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
-import { CoC } from "../../../CoC";
-import { StatusAffects } from "../../../StatusAffects";
-import { BREAST_CUP_A, GENDER_NONE, TAIL_TYPE_LIZARD, TAIL_TYPE_DEMONIC, TONUGE_SNAKE, TONUGE_DEMONIC, EYES_FOUR_SPIDER_EYES, SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
-import { PerkLib } from "../../../PerkLib";
+import { BREAST_CUP_A, EYES_FOUR_SPIDER_EYES, GENDER_NONE, SKIN_TYPE_FUR, TAIL_TYPE_DEMONIC, TAIL_TYPE_LIZARD, TONUGE_DEMONIC, TONUGE_SNAKE } from "../../../../includes/appearanceDefs";
 import { Appearance } from "../../../Appearance";
+import { BreastStore } from "../../../BreastStore";
+import { CoC } from "../../../CoC";
 import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
+import { TimeAwareInterface } from "../../../TimeAwareInterface";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Katherine extends TelAdreAbstractContent implements TimeAwareInterface {
 

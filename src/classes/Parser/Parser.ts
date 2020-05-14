@@ -1,9 +1,9 @@
-﻿import { trace } from "../../console";
-import { conditionalOptions } from "./conditionalConverters";
-import { singleArgConverters } from "./singleArgLookups";
-import { twoWordNumericTagsLookup, twoWordTagsLookup } from "./doubleArgLookups";
+﻿import { bindToClass } from "../../ClassBinder";
+import { trace } from "../../console";
 import { Showdown } from "../../showdown/Showdown";
-import { bindToClass } from "../../ClassBinder";
+import { conditionalOptions } from "./conditionalConverters";
+import { twoWordNumericTagsLookup, twoWordTagsLookup } from "./doubleArgLookups";
+import { singleArgConverters } from "./singleArgLookups";
 
 export class Parser {
 

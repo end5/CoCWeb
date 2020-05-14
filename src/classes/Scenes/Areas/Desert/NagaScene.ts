@@ -1,9 +1,9 @@
+import { FACE_SNAKE_FANGS, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_GOO, LOWER_BODY_TYPE_NAGA, VAGINA_WETNESS_SLAVERING } from "../../../../includes/appearanceDefs";
 import { BaseContent } from "../../../BaseContent";
-import { StatusAffects } from "../../../StatusAffects";
-import { LOWER_BODY_TYPE_NAGA, FACE_SNAKE_FANGS, VAGINA_WETNESS_SLAVERING, LOWER_BODY_TYPE_CENTAUR, LOWER_BODY_TYPE_GOO } from "../../../../includes/appearanceDefs";
-import { Naga } from "./Naga";
-import { PerkLib } from "../../../PerkLib";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
+import { PerkLib } from "../../../PerkLib";
+import { StatusAffects } from "../../../StatusAffects";
+import { Naga } from "./Naga";
 
 export class NagaScene extends BaseContent {
     //NAGA STATUS

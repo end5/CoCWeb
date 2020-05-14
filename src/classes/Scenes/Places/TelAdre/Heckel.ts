@@ -1,7 +1,7 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
-import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { Appearance } from "../../../Appearance";
 import { CockTypesEnum } from "../../../CockTypesEnum";
+import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Heckel extends TelAdreAbstractContent {
 
@@ -13,7 +13,7 @@ export class Heckel extends TelAdreAbstractContent {
     used within the confines of the game, its character viewer application, and any sequels. I retain
     all rights to said characters and events outside of their usage in these games. I also agree that
     Fenoxo will be a rad dude and do his damnedest not to screw me with this legalese.
-    
+
     Name: Heckel
     Requirements to show up: time between 9:00 and 14:00
     Requirements for initial sex: Tone over 60 and fat under 40. Also not a Centaur or
@@ -147,7 +147,7 @@ export class Heckel extends TelAdreAbstractContent {
 
             this.outputText("She grunts above you and you feel one of her paws around the back of your head, pushing you lightly with each of your bobs. Her hips begin thrusting lightly against your lips, and you're pretty sure you can feel the tip of her cock pushing against the entrance to your stomach. It isn't long before you can feel her balls against your chin, your throat distended and stiff with the length of her member.\n\n", false);
 
-            //[<PC IS MALE OR HERM> 
+            //[<PC IS MALE OR HERM>
             if (this.player.hasCock()) this.outputText("You use one hand to fondle her balls, letting them roll over your fingers and pinching the skin lightly. Your other hand finds its way to your crotch, where you begin stroking your " + this.cockDescript(0) + " in time with her weak thrusts. Within moments you've brought yourself to a stiffening arousal, the cold air making your exposed " + this.cockDescript(0) + " twitch slightly.\n\n", false);
             //[<PC IS FEMALE>
             else if (this.player.hasVagina()) this.outputText("You use one hand to fondle her balls, letting them roll over your fingers and pinching the skin lightly. Your other hand finds its way to your crotch, where you roll your " + this.clitDescript() + " between your first two fingers. You let two fingers sink into your " + this.vaginaDescript(0) + ", curling them upwards and moaning around the giant dog dick in your mouth.  Your fingers bring you to the edge of orgasm, but you lack the stimulation to send yourself over just yet.\n\n", false);
@@ -160,7 +160,7 @@ export class Heckel extends TelAdreAbstractContent {
 
             //[<PC IS FEMALE>
             if (this.player.gender == 2) this.outputText("A growl rises in Heckel's throat, and you recognize the sign of her impending orgasm. It's all you can do to keep your balance as her thrusts into your throat come more frequently. Although you are barely able to breath between thrusts, your free hand feverishly works at your wet slit, plumbing your depths as your own orgasm builds. Heckel's paws grab your head and pull you deeply on to her dick as you feel it spasm, and you begin to moan as you feel her load travelling through her cock and finally spilling directly into your stomach. The warmth of her seed spreads throughout your body until it meets the warmth of your groin, and your cunt begins to spasm around your fingers as it sets you over the edge.\n\n", false);
-            //<PC IS MALE OR HERM> 
+            //<PC IS MALE OR HERM>
             else this.outputText("A growl rises in Heckel's throat, and you recognize the sign of her impending orgasm. It's all you can do to keep your balance as her thrusts into your throat come more frequently. Although you are barely able to breath between thrusts, your free hand feverishly strokes your " + this.cockDescript(0) + ", your hand becoming slippery with pre as your own orgasm builds. Heckel's paws grab your head and pull you deeply on to her dick as you feel it spasm, and you begin to moan as you feel her load travelling through her cock and finally spilling directly into your stomach. The warmth of her seed spreads throughout your body until it meets the warmth of your groin, and your cock erupts in your hand as it sets your over the edge.\n\n", false);
 
             this.outputText("Heckel pulls herself slowly from your throat, her dick finally coming free with a loud POP.  You moan as its girth leaves you, your throat feeling strangely empty without it. A strand of semen drips from her tip as she stands above you, but you greedily move your head to catch it and swallow the salty treat down. Heckel snickers at this before falling down on the bench, looking you over appreciatively.\n\n", false);
@@ -212,7 +212,7 @@ export class Heckel extends TelAdreAbstractContent {
 
         this.outputText("Her large tongue feels like sandpaper as it licks up and down your anus, your spread cheeks exposing you to the world. You can feel her wet nose on your sensitive skin, and the contrast with her warm tongue makes you shiver. Her tongue pokes and prods at your " + this.assholeDescript() + " before slipping painlessly in, swirling expertly around before pulling out and licking some more.\n\n", false);
 
-        //[<IF PC HAS PENIS AND VAGOO> 
+        //[<IF PC HAS PENIS AND VAGOO>
         if (this.player.hasCock() && this.player.hasVagina()) this.outputText(this.SMultiCockDesc() + " is trapped between you and the wooden bench, and you know Heckel won't let you shift position to free it. Your " + this.vaginaDescript(0) + " is also being ignored, and having so much pleasure with so little stimulation is driving you crazy. You hump weakly up and down, trying to draw some pleasure out of the bench beneath you while simultaneously pushing her rolling and massaging tongue closer to your aching slit, but she ignores you and only licks deeper. She buries her face in your ass entirely, her cold nose and teeth rubbing up against your sensitive skin as her tongue pushes as far inside of you as she can get it.\n\n", false);
 
         //[<IF PC HAS PENIS>
@@ -245,7 +245,7 @@ export class Heckel extends TelAdreAbstractContent {
         //[<IF PC HAS PENIS AND VAGOO>
         if (this.player.hasCock() && this.player.hasVagina()) this.outputText("Although " + this.sMultiCockDesc() + " is trapped beneath you, Heckel's balls slap into your cunt with every one of her quickening thrusts.  Although neither your " + this.multiCockDescriptLight() + " or " + this.vaginaDescript(0) + " are getting much stimulation, your prostate is being milked better than it ever has. One thrust in particular makes you cry out, and Heckel laughs above you as she slams her furry thighs into yours again. \"<i>You moan like a whore, " + this.player.short + ", a perfect bitch for me to ride.</i>\"\n\n", false);
 
-        //[<IF PC HAS PENIS AND BALLS> 
+        //[<IF PC HAS PENIS AND BALLS>
         else if (this.player.hasCock() && this.player.balls > 0) this.outputText(this.SMultiCockDesc() + " pulses beneath you with every thrust, her duo of fist-sized balls slapping into your " + this.ballsDescriptLight() + ". You gasp in surprise as one of her thrusts rubs against your prostate, and she barks out a single laugh above you. \"<i>You moan like a whore, " + this.player.short + ", a perfect bitch for me to ride.</i>\"\n\n", false);
 
         //[<IF PC HAS VAGOO>

@@ -1,12 +1,12 @@
-import { Creature } from "./Creature";
-import { StatusAffects } from "./StatusAffects";
-import { UmasShop } from "./Scenes/Places/TelAdre/UmasShop";
 import { trace } from "../console";
-import { PregnancyStore } from "./PregnancyStore";
-import { KeyItemClass } from "./KeyItemClass";
-import { CockTypesEnum } from "./CockTypesEnum";
 import { Appearance } from "./Appearance";
+import { CockTypesEnum } from "./CockTypesEnum";
+import { Creature } from "./Creature";
+import { KeyItemClass } from "./KeyItemClass";
 import { PerkLib } from "./PerkLib";
+import { PregnancyStore } from "./PregnancyStore";
+import { UmasShop } from "./Scenes/Places/TelAdre/UmasShop";
+import { StatusAffects } from "./StatusAffects";
 
 /**
 	 * Character class for player and NPCs. Has subclasses Player and NonPlayer.
@@ -103,7 +103,7 @@ export class Character extends Creature {
         //21-28
         else if (this.femininity < 28)
             faceo = "a well-defined jawline and a fairly masculine profile";
-        //28+-35 
+        //28+-35
         else if (this.femininity < 35)
             faceo = "a somewhat masculine, angular jawline";
         //35-45

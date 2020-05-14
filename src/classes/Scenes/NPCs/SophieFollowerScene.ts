@@ -1,10 +1,10 @@
-import { NPCAwareContent } from "./NPCAwareContent";
-import { kFLAGS } from "../../GlobalFlags/kFLAGS";
-import { Sophie } from "./Sophie";
-import { StatusAffects } from "../../StatusAffects";
-import { TONUGE_HUMAN, TONUGE_DRACONIC } from "../../../includes/appearanceDefs";
+import { TONUGE_DRACONIC, TONUGE_HUMAN } from "../../../includes/appearanceDefs";
 import { CockTypesEnum } from "../../CockTypesEnum";
+import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
+import { StatusAffects } from "../../StatusAffects";
+import { NPCAwareContent } from "./NPCAwareContent";
+import { Sophie } from "./Sophie";
 
 
 export class SophieFollowerScene extends NPCAwareContent {

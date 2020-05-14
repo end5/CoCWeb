@@ -1,7 +1,7 @@
-import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../../GlobalFlags/kGAMECLASS";
 import { PerkLib } from "../../../PerkLib";
+import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class BakeryScene extends TelAdreAbstractContent {
 
@@ -125,7 +125,7 @@ export class BakeryScene extends TelAdreAbstractContent {
 
         //[Brownie][Cookie][Cupcake][Doughnut][Pound Cake][Fox Berry][Ringtail Fig][Mouse Cocoa][Nevermind]
         //[Nevermind] goes back to bakery main menu and is spacebar default
-        //all purchases offered after talking should spacebar to [No] and go to normal purchase output if [Yes], returning to bakery main menu afterward 
+        //all purchases offered after talking should spacebar to [No] and go to normal purchase output if [Yes], returning to bakery main menu afterward
         this.menu();
         this.addButton(0, "Brownie", this.talkAboutBrownies);
         this.addButton(1, "Cookie", this.talkAboutCookies);
@@ -283,7 +283,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.addButton(0, "Baker", this.talkToBaker);
 
         // rubiIntros returns 0 if you've driven rubi away
-        // I'm actually not sure how this was *supposed* to work, since it would just call eventParser with a event of 0 
+        // I'm actually not sure how this was *supposed* to work, since it would just call eventParser with a event of 0
         // I guess it just wouldn't do anything?
         // FWIW, the flag that has to be set to get rubiIntros to return zero is set in a function that has the comment:
         //(Will no longer encounter Rubi at the bakery.)

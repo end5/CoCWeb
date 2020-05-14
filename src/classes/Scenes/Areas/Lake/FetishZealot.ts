@@ -1,8 +1,8 @@
-import { Monster } from "../../../Monster";
 import { trace } from "../../../../console";
-import { ANAL_LOOSENESS_LOOSE, ANAL_WETNESS_DRY, HIP_RATING_BOYISH, BUTT_RATING_TIGHT } from "../../../../includes/appearanceDefs";
-import { StatusAffects } from "../../../StatusAffects";
+import { ANAL_LOOSENESS_LOOSE, ANAL_WETNESS_DRY, BUTT_RATING_TIGHT, HIP_RATING_BOYISH } from "../../../../includes/appearanceDefs";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
+import { Monster } from "../../../Monster";
+import { StatusAffects } from "../../../StatusAffects";
 
 export class FetishZealot extends Monster {
 
