@@ -4,11 +4,11 @@ node_modules/
 tmp/
 
 /*/
+!/asset
 !/classes
 !/converter
 !/includes
 !/lib
-!/res
 
 # File
 *.log

@@ -242,7 +242,7 @@ export class MainView {
         if (index < 0 || this.model.flags[kFLAGS.SHOW_SPRITES_FLAG]) // = SHOW_SPRITES_FLAG from flagDefs...
             this.sprite.classList.add('hidden');
         else {
-            this.sprite.src = './res/sprites/' + Sprites[index] + '.png';
+            this.sprite.src = './asset/sprites/' + Sprites[index] + '.png';
             this.sprite.classList.remove('hidden');
         }
     };
