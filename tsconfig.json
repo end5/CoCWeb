@@ -1,14 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "amd",
+        "target": "es2019",
+        "module": "commonjs",
         "sourceMap": true,
-        "outDir": "Build",
         "strict": true,
         "noUnusedLocals": false,
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
     },
-    "files": ["Loader.ts"],
+    "files": ["start.ts"],
     "include": ["classes", "lib"]
 }
