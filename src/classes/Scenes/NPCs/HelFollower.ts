@@ -1,4 +1,3 @@
-import { trace } from "../../../console";
 import { TAIL_TYPE_NONE } from "../../../includes/appearanceDefs";
 import { kFLAGS } from "../../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
@@ -66,7 +65,6 @@ export class HelFollower extends NPCAwareContent {
                         this.flags[kFLAGS.HEL_BONUS_POINTS] = 0;
         }
         return this.flags[kFLAGS.HEL_AFFECTION_FOLLOWER];
-        trace("HEL AFFECTION" + this.flags[kFLAGS.HEL_AFFECTION_FOLLOWER]);
     }
     public isHeliaBirthday(): boolean {
         return this.date.month == 7;

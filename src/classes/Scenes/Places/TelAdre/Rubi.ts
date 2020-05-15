@@ -90,8 +90,8 @@ export class Rubi extends TelAdreAbstractContent {
     }
     private rubiBalls(): string {
         return "normal";
-        return "swollen";
-        return "massively engorged";
+        // return "swollen";
+        // return "massively engorged";
     }
 
     private rubiBimbo(): boolean {

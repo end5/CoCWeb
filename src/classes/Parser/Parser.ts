@@ -300,9 +300,6 @@ export class Parser {
             aspect +
             "</b>"
         );
-        // return "<b>!Unknown tag \"" + arg + "\"!</b>";
-
-        return argResult;
     }
 
     // Provides the conditionalOptions object
@@ -1098,7 +1095,6 @@ export class Parser {
     // Stupid string utility functions, because actionscript doesn't have them (WTF?)
 
     public stripStr(str: string): string {
-        return this.trimStrBack(this.trimStrFront(str, " "), " ");
         return this.trimStrBack(this.trimStrFront(str, " "), " ");
     }
 
