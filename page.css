@@ -292,3 +292,17 @@ body {
 .loading #bottomRowButtons {
     opacity: 1%
 }
+
+/* Name must stay on a single line*/
+#nameDisplay {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#nameDisplay:hover {
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-overflow: initial;
+}
