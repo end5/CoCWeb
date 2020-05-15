@@ -804,9 +804,9 @@ export class Saves extends BaseContent {
     private generateFilename(saveName: string) {
         let domain = location.host.replace(/\./g, '-').replace(/-[^-]+$/, '');
         let save = saveName.replace(/^CoC_?/, '').replace(/_/g, '');
-        let time = new Date().toISOString().replace(/T(\d+-\d+).*/g, '--$1');
+        let time = new Date().toISOString().replace(/T(\d+):(\d+).*/g, '--$1-$2')
         let pre = `CoC--${domain}--${save}--${time}.coc`
-        let filename = pre.replace(/[\\/:*"<>|]/, '')
+        let filename = pre.replace(/[\\/:*"<>|]/, '').replace(/ /g, '_')
         return filename;
     }
 
