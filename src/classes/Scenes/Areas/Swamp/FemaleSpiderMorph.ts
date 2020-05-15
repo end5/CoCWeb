@@ -15,6 +15,7 @@ import { AbstractSpiderMorph } from "./AbstractSpiderMorph";
 
 /**
  * ...
+ *
  * @author ...
  */
 export class FemaleSpiderMorph extends AbstractSpiderMorph {

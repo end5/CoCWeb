@@ -54,7 +54,7 @@ export class Kiha extends Monster {
                 );
         } else {
             // Determine damage - str modified by enemy toughness!
-            var damage: number = Math.floor(
+            let damage: number = Math.floor(
                 this.str + this.weaponAttack - Kiha.rand(this.player.tou) - this.player.armorDef
             );
             damage += 5;
@@ -118,7 +118,7 @@ export class Kiha extends Monster {
         }
         // HIT!
         else {
-            var damage: number = Math.floor(this.str - this.player.armorDef);
+            let damage: number = Math.floor(this.str - this.player.armorDef);
             damage = this.player.takeDamage(damage);
             this.outputText(
                 "Before you can react, you're struck by the power of her blows, feeling an intense pain in your chest as each fist makes contact.  With a final thrust, you're pushed backwards onto the ground; the dragoness smiles as she pulls her axe out of the ground, her hands still steaming from the fingertips. (" +
@@ -163,7 +163,7 @@ export class Kiha extends Monster {
                 false
             );
         } else {
-            var damage: number = Math.round(90 + Kiha.rand(10));
+            let damage: number = Math.round(90 + Kiha.rand(10));
             damage = this.player.takeDamage(damage);
             this.outputText(
                 "You try to avoid the flames, but you're too slow!  The inferno slams into you, setting you alight!  You drop and roll on the ground, putting out the fires as fast as you can.  As soon as the flames are out, you climb back up, smelling of smoke and soot. (" +
@@ -198,7 +198,7 @@ export class Kiha extends Monster {
 
     protected postAttack(damage: number): void {
         super.postAttack(damage);
-        var flame: number = 15 + Kiha.rand(6);
+        let flame: number = 15 + Kiha.rand(6);
         flame = this.player.takeDamage(flame);
         this.outputText(
             "\nAn afterwash of flames trails behind her blow, immolating you! (" + flame + ")",
@@ -207,7 +207,7 @@ export class Kiha extends Monster {
     }
 
     protected performCombatAction(): void {
-        var select: number = Kiha.rand(5);
+        const select: number = Kiha.rand(5);
         if (select <= 1) this.eAttack();
         else if (select == 2) {
             if (this.game.silly()) this.sillyModeKihaAttack();

@@ -559,7 +559,7 @@ export class BaseContent extends Utils {
      * eg: dynStats("str+", 1, "tou-", 2, "spe*", 1.1, "int/", 2, "cor=", 0)
      *     will add 1 to str, subtract 2 from tou, increase spe by 10%, decrease int by 50%, and set cor to 0
      *
-     * @param	... args
+     * @param ... args
      */
     protected dynStats(...args: any[]): void {
         // Bullshit to unroll the incoming array

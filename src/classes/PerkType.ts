@@ -1,4 +1,4 @@
-import { CoC_Settings } from "./CoC_Settings";
+import { CocSettings } from "./CoC_Settings";
 import { PerkClass } from "./PerkClass";
 
 /**
@@ -55,7 +55,7 @@ export class PerkType {
         this._desc = desc;
         this._longDesc = longDesc || this._desc;
         if (PerkType.PERK_LIBRARY[id] != undefined) {
-            CoC_Settings.error(
+            CocSettings.error(
                 "Duplicate perk id " +
                     id +
                     ", old perk is " +

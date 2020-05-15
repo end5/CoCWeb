@@ -23,7 +23,7 @@ export class HolliScene extends NPCAwareContent {
     // const FOUGHT_HOLLI: number = 923;
     // const THREATENED_HOLLI: number = 924;
 
-    /*Plant Sprout Notes:
+    /* Plant Sprout Notes:
         -Small sapling plants near corner of camp after 2nd Marae meeting.
         -Appears in items screen.  Can be pulled out, or left alone.
         -After a while, it 'blooms' to stage 2.  Procs a scene describing it with option to destroy it or...
@@ -52,11 +52,11 @@ export class HolliScene extends NPCAwareContent {
         this.startCombat(new Holli());
     }
 
-    public treeMenu(output: boolean = true): void {
+    public treeMenu(output = true): void {
         if (output) this.clearOutput();
-        var ride = undefined;
-        var fuck = undefined;
-        var burnIt = undefined;
+        let ride;
+        let fuck;
+        let burnIt;
         if (this.flags[kFLAGS.FOUGHT_HOLLI] > 0) {
             // If You Fight, Run, and Come Back To Her in the Menu -Z
             this.outputText(
@@ -210,14 +210,14 @@ export class HolliScene extends NPCAwareContent {
                 }
             }
             if (this.flags[kFLAGS.HOLLI_SUBMISSIVE] == 0) {
-                var eat = undefined;
+                let eat;
                 if (this.flags[kFLAGS.HOLLI_FRUIT] > 0) eat = this.eatHolliFruit;
                 if (this.player.hasCock() && this.player.lust >= 33)
                     fuck = this.fuckHolliInZeFlowerPuss;
                 if (this.player.hasVagina() && this.player.lust >= 33)
                     ride = this.level4RideHollisTentacruels;
 
-                var guardT: string = "";
+                let guardT = "";
                 if (this.flags[kFLAGS.HOLLI_DEFENSE_ON] == 1) guardT = "Stop Guarding";
                 else guardT = "Guard Camp";
                 burnIt = this.askHolliToWatch;
@@ -322,9 +322,9 @@ export class HolliScene extends NPCAwareContent {
         this.treeMenu(false);
     }
 
-    private fertilizeHolli(cock: boolean = true): void {
+    private fertilizeHolli(cock = true): void {
         // 20% chance per sexing.  Up to bonus 20% for jizz or fertility! Max 62%.
-        var odds: number = 20;
+        let odds = 20;
         if (cock && this.player.hasCock()) {
             odds += this.player.cumQ() / 300;
             if (odds > 40) odds = 40;
@@ -432,10 +432,10 @@ export class HolliScene extends NPCAwareContent {
         if (this.silly()) this.outputText("\n\n<b>What do?</b>");
         else this.outputText("\n\n<b>What do you do?</b>");
         // [Fuck It] [Ride Stamen] [Do Nothing] [Destroy It]
-        var fuck = undefined;
+        let fuck;
         if (this.player.hasCock() && this.player.cockThatFits(100) >= 0 && this.player.lust >= 33)
             fuck = this.fuckFuckingFuckFlowerP2;
-        var ride = undefined;
+        let ride;
         if (this.player.hasVagina() && this.player.lust >= 33)
             ride = this.rideDatFuckingFukkFlowerP2;
         this.simpleChoices(
@@ -470,7 +470,7 @@ export class HolliScene extends NPCAwareContent {
     // Fuck It (skimmed)
     private fuckFuckingFuckFlowerP2(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(100);
+        let x: number = this.player.cockThatFits(100);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "Undoing your [armor], you approach the pulsating plant with one thought in mind: fucking it.  At the sight of [eachCock], the petals flutter happily, their surface glimmering with moisture in an instant, slick and wet for your pleasure.  You lean down to inhale the sweet yet sensual nature of the flower's aroma, letting it tickle your nostrils as you idly fondle [oneCock].  Your maleness quickly assumes your favorite state - hard and sensitive, ready to plunge into the nearest set of wet lips with reckless abandon.  At the same time, you can see the wriggling tendrils inside the flower's vase waving about hungrily."
@@ -648,7 +648,7 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nA dollop of something moist landing in your hair startles you from your visual inspection.  Gingerly, you touch your fingers to the wet spot and come away with a thick, viscous fluid that smells faintly musky... and salty...  It's cum!  You recoil, looking up in time to see a half dozen tentacles curling between the branches rubbing against each other in what can only be described as an orgy of frotting cock-lust.  Well now, your little pet plant is growing up.  There's no easy way to get rid of it now"
         );
-        var burnIt = undefined;
+        let burnIt;
         if (
             this.player.findPerk(PerkLib.Dragonfire) >= 0 ||
             this.player.findPerk(PerkLib.FireLord) >= 0 ||
@@ -663,8 +663,8 @@ export class HolliScene extends NPCAwareContent {
         this.flags[kFLAGS.FUCK_FLOWER_LEVEL] = 3;
         this.flags[kFLAGS.FUCK_FLOWER_GROWTH_COUNTER] = 0;
         this.outputText(".\n\n<b>What do you do?</b>");
-        var fuck = undefined;
-        var ride = undefined;
+        let fuck;
+        let ride;
         if (this.player.hasCock() && this.player.lust >= 33) fuck = this.fuckTheFlower;
         if (this.player.hasVagina() && this.player.lust >= 33) ride = this.rideTheWalrusP3;
         // [Fuck flower] [Drink Sap] [Ride Tentacles] [{Torch It}] [Leave It]
@@ -685,7 +685,7 @@ export class HolliScene extends NPCAwareContent {
     // Fuck Flower (skimmed)
     private fuckTheFlower(): void {
         this.clearOutput();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         // (Similar to stage 2 fuck, but no cock limits, wetter, and more aggressive.
         this.outputText(
             "Smiling to yourself, you shed your [armor] like a snake wriggling free of useless, old skin and expose yourself.  Of course, the tree doesn't react - it's just a tree, right?  So, feeling a little cocky (in more than one way), you prowl up to the flower, intent on venting some frustration in the best way possible.  The petals are as violet as ever and glittering with the moisture you've grown used to seeing appear whenever you approach, as if by magic.  The inner folds look even softer, if a bit redder, and they drip steadily with sweet nectar."
@@ -1108,7 +1108,7 @@ export class HolliScene extends NPCAwareContent {
     private fuckHolliInZeFlowerPuss(): void {
         this.clearOutput();
         this.flags[kFLAGS.HOLLI_FUCKED_TODAY] = 1;
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             'With a knowing smile, you toss your [armor] aside and say, "<i>Let\'s do this.</i>"  [EachCock] juts out, hard and proud from your body, pointed straight towards the entrancing woman before you.  She leans down from her perch in the tree and rolls her shoulders from side to side, jiggling her pale green assets back and forth, traces of syrup hanging from her pendulous melons.'
         );
@@ -1388,7 +1388,7 @@ export class HolliScene extends NPCAwareContent {
         );
         // TF CHANCES
         if (HolliScene.rand(2) == 0 && this.player.cockTotal() > this.player.tentacleCocks()) {
-            var choices: any[] = [];
+            const choices: any[] = [];
             this.temp = 0;
             while (this.temp < this.player.cockTotal()) {
                 if (this.player.cocks[this.temp].cockType != CockTypesEnum.TENTACLE)
@@ -1491,7 +1491,7 @@ export class HolliScene extends NPCAwareContent {
         this.outputText(
             "\n\nSlapping your palm down on the other side, you look her right in her oddly gold and black eyes and tell her in no uncertain terms that she is going to serve and service you at your slightest whim.  Any choice she thinks she has is nothing more than an illusion."
         );
-        var domPowah: number = this.player.level;
+        let domPowah: number = this.player.level;
         domPowah += this.player.tallness / 12;
         if (this.player.horns > 0) domPowah += 3;
         if (this.player.cor > 66) domPowah += 2;

@@ -25,11 +25,11 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedHeliaIsabellaThreesome: number = 0;
+    private checkedHeliaIsabellaThreesome = 0;
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        this.checkedHeliaIsabellaThreesome = 0; //Make sure we test just once in timeChangeLarge
+        this.checkedHeliaIsabellaThreesome = 0; // Make sure we test just once in timeChangeLarge
         this.pregnancy.pregnancyAdvance();
         trace(
             "\nHelia time change: Time is " +
@@ -290,7 +290,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
                 '.\n\nYou look up to see the salamander girl looming over you, slowly removing her bikini, revealing her ample breasts and a glistening cunt.  "<i>You\'re a worthy opponent, you know that?  C\'mon, there\'s no shame in losing,</i>" she says, offering a hand up.  Shakily, you take it – and she pulls you right into a rough kiss.\n\n"<i>But, to the victor go the spoils,</i>" she says, pushing her chest into you.  Well, you might as well enjoy yourself...',
                 false
             );
-        var x: number = 0;
+        let x = 0;
         // TO ZE RAPES!
         // Player Loss – Rape – Male =< 85 cockarea
         if (
@@ -549,7 +549,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         // (Wait takes you to \"<i>normal</i>\" post-victory, below)
     }
     // COMBAT – PLAYER WINS w/ LESS THAN 85 CORRUPTION
-    private helDefeatedNormal(clear: boolean = false): void {
+    private helDefeatedNormal(clear = false): void {
         this.spriteSelect(68);
         if (clear) this.outputText("", true);
         if (this.flags[kFLAGS.HEL_TIMES_ENCOUNTERED] == 1) {
@@ -584,10 +584,10 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.helFuckMenu();
     }
 
-    private helFuckMenu(isAmbush: boolean = false): void {
+    private helFuckMenu(isAmbush = false): void {
         this.spriteSelect(68);
         // Leave appropriate way
-        var leave = this.declineHelSexings;
+        let leave = this.declineHelSexings;
         if (isAmbush) leave = this.pussyOutOfHelSexAmbush;
 
         if (this.player.lust < 33) {
@@ -606,15 +606,15 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             );
             return;
         }
-        var getLicked = undefined;
+        let getLicked;
         if (this.player.hasVagina()) {
             getLicked = this.getLickedByHel;
         }
-        var fuckVag = undefined;
-        var fuckAss = undefined;
-        var tailWank = undefined;
-        var dp = undefined;
-        var getBlown = undefined;
+        let fuckVag;
+        let fuckAss;
+        let tailWank;
+        let dp;
+        let getBlown;
         if (this.player.hasCock()) {
             if (this.player.cockThatFits(85) >= 0) {
                 fuckVag = this.beatUpHelAndStealHerWalletFromHerVagina;
@@ -629,17 +629,17 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
                 dp = this.dpHel;
             getBlown = this.helBlowsYou;
         }
-        var tailFuck = this.helTailPegging;
+        const tailFuck = this.helTailPegging;
         // ALTERNATE BODY BUTTONS
-        var bodyText: string = "";
-        var bodyButt = undefined;
-        var bodyText2: string = "";
-        var bodyButt2 = undefined;
+        let bodyText = "";
+        let bodyButt;
+        let bodyText2 = "";
+        let bodyButt2;
         // Player's Options (Male): [Fuck her Vag] [Fuck her Ass] [Get Blown] [Tail Wank] [DP] [No Thanks]
         // Player's Options (Female): [Get Licked] [Tail Fuck] [No Thanks]
         // Player's Options (Herm): [Fuck her Vag] [Fuck her Ass] [Get Blown] [Get Licked] [Tail Fuck] [DP] [Tail Wank] [No Thanks]
         // Player's Options (Genderless): [Tail Fuck] [No Thanks] (No racial options)
-        // 	Note:: Vaginal/Anal capacity is max 85 cockarea for Male/Herm characters. If their primary cock is too big, go to the second, etc. If all are too large, the male/herm cannot use \"<i>Fuck her Vag/Ass</i>\" options. He may still \"<i>Get Blown,</i>\" or get a \"<i>Tail Fuck.</i>\"
+        //  Note:: Vaginal/Anal capacity is max 85 cockarea for Male/Herm characters. If their primary cock is too big, go to the second, etc. If all are too large, the male/herm cannot use \"<i>Fuck her Vag/Ass</i>\" options. He may still \"<i>Get Blown,</i>\" or get a \"<i>Tail Fuck.</i>\"
 
         // Racial Specific Options: [Naga: Coil her Up (69)] [M. Centaur: Mount Her] [F. Centaur: Hanging 69]
         // [Possession]
@@ -733,7 +733,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     public beatUpHelAndStealHerWalletFromHerVagina(): void {
         this.spriteSelect(68);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(this.helFollower.heliaCapacity());
+        const x: number = this.player.cockThatFits(this.helFollower.heliaCapacity());
         this.outputText(
             "You tell her that, sure, you could blow off some steam.  Still grinning, she tosses off her skimpy scale bikini and flops down on her back, already starting to finger her cunt.  You follow suit, stripping off your " +
                 this.player.armorName +
@@ -806,7 +806,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     public fuckHelsAss(): void {
         this.spriteSelect(68);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(this.helFollower.heliaAnalCapacity());
+        const x: number = this.player.cockThatFits(this.helFollower.heliaAnalCapacity());
         this.outputText(
             "You tell her that, yes, you want to blow off some steam, and motion for her to get on hands and knees.\n\n",
             false
@@ -871,7 +871,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     // Player Win – Victory Fuck – Get Blown (Male) (edited)
     public helBlowsYou(): void {
         this.spriteSelect(68);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         this.outputText(
             "You agree to her proposition, and tell her to get on her knees as you draw out your " +
@@ -923,8 +923,8 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     // Player Win – DP(Multicock Only) (edited)
     public dpHel(): void {
         this.spriteSelect(68);
-        var x: number = this.player.cockThatFits(this.helFollower.heliaCapacity());
-        var y: number = this.player.cockThatFits2(this.helFollower.heliaCapacity());
+        const x: number = this.player.cockThatFits(this.helFollower.heliaCapacity());
+        const y: number = this.player.cockThatFits2(this.helFollower.heliaCapacity());
         this.outputText("", true);
         this.outputText(
             "You tell her that, yes, you want to blow off some steam.  You start to undo your " +
@@ -1055,7 +1055,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     public helTailWanksYourDickBecauseSheLovesYouDesuDesuHoraHora(): void {
         this.spriteSelect(68);
         this.outputText("", true);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You think for a moment, then saunter up to the hot salamander.  She gasps initially, then grins wolfishly as you tell her to put the large, prehensile tail to good use.  You shift your grip to her shoulders and push her down to her knees; she's quick to start pulling you out of your " +
                 this.player.armorName +
@@ -1188,8 +1188,8 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     private nagaCoilsUpHel(): void {
         this.spriteSelect(68);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(85);
-        var y: number = this.player.cockThatFits2(85);
+        const x: number = this.player.cockThatFits(85);
+        const y: number = this.player.cockThatFits2(85);
         this.outputText(
             'You slither closer to the salamander and tell her that, yeah, you could stand to work off some steam.  She grins at that and closes the distance between you, reaching out to caress your serpentine half.  "<i>Mmm.  Sexy tail, lover,</i>" she says, reaching around and giving your ' +
                 this.buttDescript() +
@@ -1331,7 +1331,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     // Player Win – Mount Her (Wangbearing Centaurs of height >= 60</i>\") (edited)
     private mountHel(): void {
         this.spriteSelect(68);
-        var x: number = this.player.cockThatFits(85);
+        let x: number = this.player.cockThatFits(85);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText("", true);
         this.outputText(
@@ -1685,8 +1685,8 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     // Player Win – Corrupt Rape – Rape her Ass (wangers and mash) (edited)
     private rapingHelsAssMeansYourCorruptCauseAnalIsEvil(): void {
         this.spriteSelect(68);
-        var x: number = this.player.cockThatFits(85);
-        var y: number = this.player.cockThatFits2(85);
+        const x: number = this.player.cockThatFits(85);
+        const y: number = this.player.cockThatFits2(85);
         this.outputText("", true);
 
         this.outputText(
@@ -1867,7 +1867,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText("I've got another hole needs filling!</i>\"", false);
         else this.outputText("There's enough 'taur to go around, so come on!</i>\"", false);
 
-        ///Player's Options:
+        /// Player's Options:
         // Male/Herm – [Fuck her Ass] [Mino Lick] [Leave]
         if (this.player.hasCock() && this.player.cockThatFits(85) >= 0)
             this.simpleChoices(
@@ -1914,7 +1914,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     private fuckHerAss(): void {
         this.spriteSelect(68);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(85);
+        let x: number = this.player.cockThatFits(85);
         if (x < 0) x = 0;
         this.outputText(
             "Well, damned if you're going to let a chance to fuck her good, hot ass slip by.  You quickly strip out of your " +
@@ -2190,8 +2190,8 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
                 this.bugOutAfterHelMinoThreesome
             );
         else {
-            var zerk = undefined;
-            var attackin = undefined;
+            let zerk;
+            let attackin;
             if (this.flags[kFLAGS.HEL_TALKED_ABOUT_ATTACKING_YOU] == 0)
                 attackin = this.askHelAboutAttackingYou;
             if (this.flags[kFLAGS.HEL_TALKED_ABOUT_BERSERKING] == 0) zerk = this.berserkMode;
@@ -2864,10 +2864,10 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
         this.dynStats("lus", 40);
         this.fatigue(-40);
-        var dick = undefined;
+        let dick;
         // var dick2: number = 0;
         // var dick4: number = 0;
-        var vag = undefined;
+        let vag;
         // (If PC is Herm::)
         if (this.player.hasCock() && this.player.hasVagina()) {
             this.outputText(
@@ -2928,13 +2928,13 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(68);
         this.outputText("", true);
         // Hels pussy
-        var x: number = -1;
+        let x = -1;
         // Iz pussy
-        var y: number = -1;
+        let y = -1;
         // Hels Ass
-        var z: number = -1;
+        let z = -1;
         // Iz Ass
-        var zz: number = -1;
+        let zz = -1;
         this.temp = this.player.cocks.length;
         while (this.temp > 0) {
             this.temp--;
@@ -3417,7 +3417,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
     public foxyFluffsFoursomeAsMale(): void {
         this.spriteSelect(68);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(85);
+        let x: number = this.player.cockThatFits(85);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You strip out of your " +
@@ -3510,7 +3510,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
                 "You let the girls fuck you raw together, the twins slamming into your tits until they threaten to knot as Hel fucks your pussy with her great big tail.  You nearly cum, but seeing this, all three withdraw from you at once.  You're not done yet!\n\n",
                 false
             );
-        } //[End Nipplecunt]
+        } // [End Nipplecunt]
 
         this.outputText(
             "The twins pick you and Hel up and toss you onto the bed, falling side by side on your backs.  The twins loom over you, with Mai stroking her knotty cock as it nears your waiting " +
@@ -3686,7 +3686,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
         // TODO Fix this?
         // Why is this the only place in the whole game where buttonEvents is directly written to?
-        // Got rid of this, now handled by passing true:	kGAMECLASS.buttonEvents[9] = pussyOutOfHelSexAmbush;
+        // Got rid of this, now handled by passing true: kGAMECLASS.buttonEvents[9] = pussyOutOfHelSexAmbush;
         this.helFuckMenu(true);
     }
 

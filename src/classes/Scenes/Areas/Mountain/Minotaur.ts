@@ -18,6 +18,7 @@ import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...
+ *
  * @author Fake-Name
  */
 
@@ -63,11 +64,11 @@ export class Minotaur extends Monster {
         );
     }
 
-    public constructor(axe: boolean = false) {
+    public constructor(axe = false) {
         super();
         // Most times they dont have an axe
         this.hasAxe = axe || Minotaur.rand(3) == 0;
-        var furColor: string = Minotaur.randomChoice("black", "brown");
+        const furColor: string = Minotaur.randomChoice("black", "brown");
 
         trace("Minotaur Constructor!");
         trace(this.game.flags);

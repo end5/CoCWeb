@@ -26,7 +26,7 @@ import { CockTypesEnum } from "./CockTypesEnum";
 import { PerkType } from "./PerkType";
 import { PerkLib } from "./PerkLib";
 import { StatusAffectType } from "./StatusAffectType";
-import { CoC_Settings } from "./CoC_Settings";
+import { CocSettings } from "./CoC_Settings";
 import { ItemSlotClass } from "./ItemSlotClass";
 import { StatusAffects } from "./StatusAffects";
 import { BreastStore } from "./BreastStore";
@@ -34,7 +34,7 @@ import { PregnancyStore } from "./PregnancyStore";
 import { Flags, createFlags } from "./FlagTypeOverrides";
 
 export class Saves extends BaseContent {
-    private static SAVE_FILE_CURRENT_INTEGER_FORMAT_VERSION: number = 816;
+    private static SAVE_FILE_CURRENT_INTEGER_FORMAT_VERSION = 816;
     // Didn't want to include something like this, but an integer is safer than depending on the text version number from the CoC class.
     // Also, this way the save file version doesn't need updating unless an important structural change happens in the save file.
 
@@ -45,7 +45,7 @@ export class Saves extends BaseContent {
 
     public constructor(gameStateDirectGet: any, gameStateDirectSet: any) {
         super();
-        this.gameStateGet = gameStateDirectGet; //This is so that the save game functions (and nothing else) get direct access to the gameState variable
+        this.gameStateGet = gameStateDirectGet; // This is so that the save game functions (and nothing else) get direct access to the gameState variable
         this.gameStateSet = gameStateDirectSet;
     }
 
@@ -72,10 +72,10 @@ export class Saves extends BaseContent {
         "0.8.4.3": 119,
         latest: 119,
     };
-    public savedGameDir: string = "data/com.fenoxo.coc";
+    public savedGameDir = "data/com.fenoxo.coc";
 
     public loadSaveDisplay(saveFile: Record<string, any>, slotName: string): string {
-        var holding: string = "";
+        let holding = "";
         if (saveFile.exists && saveFile.flags[2066] == undefined) {
             if (saveFile.notes == undefined) {
                 saveFile.notes = "No notes available.";
@@ -108,19 +108,19 @@ export class Saves extends BaseContent {
     }
 
     public loadScreen(): void {
-        var slots: any[] = new Array(this.saveFileNames.length);
+        const slots: any[] = new Array(this.saveFileNames.length);
 
         this.outputText("<b><u>Slot: Sex,  Game Days Played</u></b>\r", true);
 
-        for (var i: number = 0; i < this.saveFileNames.length; i += 1) {
-            var test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
+        for (let i = 0; i < this.saveFileNames.length; i += 1) {
+            const test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
             this.outputText(this.loadSaveDisplay(test, String(i + 1)), false);
             if (test.exists && test.flags[2066] == undefined) {
                 // trace("Creating function with indice = ", i);
-                ((i: number) => {
-                    slots[i] = () => {
-                        trace("Loading save with name", this.saveFileNames[i], "at index", i);
-                        this.loadGame(this.saveFileNames[i]);
+                ((ii: number) => {
+                    slots[ii] = () => {
+                        trace("Loading save with name", this.saveFileNames[ii], "at index", ii);
+                        this.loadGame(this.saveFileNames[ii]);
                         // if (this.loadGame(this.saveFileNames[i])) {
                         //     this.doNext(this.playerMenu);
                         //     this.showStats();
@@ -171,16 +171,16 @@ export class Saves extends BaseContent {
             );
         this.outputText("<b><u>Slot: Sex,  Game Days Played</u></b>\r", false);
 
-        var saveFuncs: any[] = [];
+        const saveFuncs: any[] = [];
 
-        for (var i: number = 0; i < this.saveFileNames.length; i += 1) {
-            var test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
+        for (let i = 0; i < this.saveFileNames.length; i += 1) {
+            const test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
             this.outputText(this.loadSaveDisplay(test, String(i + 1)), false);
             trace("Creating function with indice = ", i);
-            ((i: number) => {
-                saveFuncs[i] = () => {
-                    trace("Saving game with name", this.saveFileNames[i], "at index", i);
-                    this.saveGame(this.saveFileNames[i], input);
+            ((ii: number) => {
+                saveFuncs[ii] = () => {
+                    trace("Saving game with name", this.saveFileNames[ii], "at index", ii);
+                    this.saveGame(this.saveFileNames[ii], input);
                 };
             })(i);
         }
@@ -386,22 +386,22 @@ export class Saves extends BaseContent {
     public deleteScreen(): void {
         this.outputText("Slot,  Race,  Sex,  Game Days Played\n", true);
 
-        var delFuncs: any[] = [];
+        const delFuncs: any[] = [];
 
-        for (var i: number = 0; i < this.saveFileNames.length; i += 1) {
-            var test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
+        for (let i = 0; i < this.saveFileNames.length; i += 1) {
+            const test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
             this.outputText(this.loadSaveDisplay(test, String(i + 1)), false);
             if (test.exists) {
                 // slots[i] = loadFuncs[i];
 
                 trace("Creating function with indice = ", i);
-                ((i: number) => {
-                    delFuncs[i] = () => {
-                        this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] = this.saveFileNames[i];
+                ((ii: number) => {
+                    delFuncs[ii] = () => {
+                        this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] = this.saveFileNames[ii];
                         this.confirmDelete();
                     };
                 })(i);
-            } else delFuncs[i] = undefined; //disable buttons for empty slots
+            } else delFuncs[i] = undefined; // disable buttons for empty slots
         }
 
         this.outputText("\n<b>ONCE DELETED, YOUR SAVE IS GONE FOREVER.</b>", false);
@@ -451,9 +451,9 @@ export class Saves extends BaseContent {
     }
 
     public purgeTheMutant(): void {
-        var test: any = this.getSaveObj(this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] + "");
+        const test: any = this.getSaveObj(this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] + "");
         trace("DELETING SLOT: " + this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]);
-        var blah: any[] = [
+        const blah: any[] = [
             "been virus bombed",
             "been purged",
             "been vaped",
@@ -466,7 +466,7 @@ export class Saves extends BaseContent {
         ];
 
         trace(blah.length + " array slots");
-        var select: number = Saves.rand(blah.length);
+        const select: number = Saves.rand(blah.length);
         this.outputText(
             this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] + " has " + blah[select] + ".",
             true
@@ -481,22 +481,20 @@ export class Saves extends BaseContent {
     }
 
     public loadGame(slot: string): void {
-        var saveFile: any = this.getSaveObj(slot);
+        const saveFile: any = this.getSaveObj(slot);
 
         // Check the property count of the file
-        var numProps: number = Object.keys(saveFile).length;
+        const numProps: number = Object.keys(saveFile).length;
 
-        var sfVer: any;
+        let sfVer: any;
         if (saveFile.version == undefined) {
-            sfVer = this.versionProperties["legacy"];
+            sfVer = this.versionProperties.legacy;
         } else {
             sfVer = this.versionProperties[saveFile.version];
         }
 
         if (!(typeof sfVer == "number")) {
-            sfVer = this.versionProperties["latest"];
-        } else {
-            sfVer = sfVer as Number;
+            sfVer = this.versionProperties.latest;
         }
 
         trace("File version " + (saveFile.version || "legacy") + "expects propNum " + sfVer);
@@ -548,13 +546,13 @@ export class Saves extends BaseContent {
         // Autosave stuff
         if (this.player.slotName != "VOID") this.player.slotName = slot || "";
 
-        var backupAborted: boolean = false;
+        let backupAborted = false;
 
-        CoC.saveAllAwareClasses(this.getGame()); //Informs each saveAwareClass that it must save its values in the flags array
+        CoC.saveAllAwareClasses(this.getGame()); // Informs each saveAwareClass that it must save its values in the flags array
         // var counter: number = this.player.cocks.length;
         // Initialize the save file
-        var saveFile: any;
-        var backup;
+        let saveFile: any;
+        let backup;
         if (!slot) {
             saveFile = {};
         } else {
@@ -693,7 +691,7 @@ export class Saves extends BaseContent {
             saveFile.buttPregnancyIncubation = this.player.buttPregnancyIncubation;
             saveFile.buttPregnancyType = this.player.buttPregnancyType;
 
-            /*myLocalData.data.furnitureArray = new Array();
+            /* myLocalData.data.furnitureArray = new Array();
                for (var i: number = 0; i < GameArray.length; i++) {
                myLocalData.data.girlArray.push(new Array());
                myLocalData.data.girlEffectArray.push(new Array());
@@ -861,7 +859,7 @@ export class Saves extends BaseContent {
             saveFile.monk = this.getGame().monk;
             saveFile.sand = this.getGame().sand;
             saveFile.giacomo = this.getGame().giacomo;
-            saveFile.beeProgress = 0; //Now saved in a flag. getGame().beeProgress;
+            saveFile.beeProgress = 0; // Now saved in a flag. getGame().beeProgress;
 
             // ITEMZ. Item1s
             saveFile.itemSlot1 = [];
@@ -919,10 +917,10 @@ export class Saves extends BaseContent {
             // Reload it
             saveFile = this.getSaveObj(slot);
             backup = this.getSaveObj(slot + "_backup");
-            var numProps: number = 0;
+            let numProps = 0;
 
             // Copy the properties over to a new file object
-            for (var prop of Object.keys(saveFile)) {
+            for (const prop of Object.keys(saveFile)) {
                 numProps++;
                 backup[prop] = saveFile[prop];
             }
@@ -966,10 +964,10 @@ export class Saves extends BaseContent {
     public restore(slotName: string): void {
         this.clearOutput();
         // copy slot_backup.sol over slot.sol
-        var backupFile = this.getSaveObj(slotName + "_backup");
-        var overwriteFile = this.getSaveObj(slotName);
+        const backupFile = this.getSaveObj(slotName + "_backup");
+        const overwriteFile = this.getSaveObj(slotName);
 
-        for (var prop of Object.keys(backupFile)) {
+        for (const prop of Object.keys(backupFile)) {
             overwriteFile[prop] = backupFile[prop];
         }
 
@@ -1057,10 +1055,10 @@ export class Saves extends BaseContent {
         // eventParser(1);
     }
 
-    public loadGameObject(saveData: Record<string, any>, slot: string = "VOID"): void {
-        var game: CoC = this.getGame();
+    public loadGameObject(saveData: Record<string, any>, slot = "VOID"): void {
+        const game: CoC = this.getGame();
         game.dungeonLoc = 0;
-        // Not needed, dungeonLoc = 0 does this:	game.inDungeon = false;
+        // Not needed, dungeonLoc = 0 does this: game.inDungeon = false;
         game.inRoomedDungeon = false;
         game.inRoomedDungeonResume = undefined;
 
@@ -1071,7 +1069,7 @@ export class Saves extends BaseContent {
         trace("Loading save!");
         // Initialize the save file
         // var saveFile: Record<string, any> = loader.data.readObject();
-        var saveFile: any = saveData;
+        const saveFile: any = saveData;
         if (saveFile && saveFile.exists) {
             // KILL ALL COCKS;
             this.player = new Player();
@@ -1088,7 +1086,7 @@ export class Saves extends BaseContent {
 
             // flags
 
-            for (var key of Object.keys(this.flags)) {
+            for (const key of Object.keys(this.flags)) {
                 if (saveFile.flags[key])
                     (this.flags as Record<string | number, any>)[key] = saveFile.flags[key];
             }
@@ -1127,7 +1125,7 @@ export class Saves extends BaseContent {
             this.player.fatigue = saveFile.fatigue;
 
             // CLOTHING/ARMOR
-            var found: boolean = false;
+            let found = false;
             if (saveFile.weaponId) {
                 this.player.setWeaponHiddenField(
                     (ItemType.lookupItem(saveFile.weaponId) as Weapon) || WeaponLib.FISTS
@@ -1136,7 +1134,7 @@ export class Saves extends BaseContent {
                 this.player.setWeapon(WeaponLib.FISTS);
                 // player.weapon = WeaponLib.FISTS;
                 const itemLib = ItemType.getItemLibrary();
-                for (var itype of Object.keys(itemLib)) {
+                for (const itype of Object.keys(itemLib)) {
                     if (
                         itemLib[itype] instanceof Weapon &&
                         (itemLib[itype] as Weapon).name == saveFile.weaponName
@@ -1161,7 +1159,7 @@ export class Saves extends BaseContent {
                 this.player.setArmor(ArmorLib.COMFORTABLE_UNDERCLOTHES);
                 // player.armor = ArmorLib.COMFORTABLE_UNDERCLOTHES;
                 const itemLib = ItemType.getItemLibrary();
-                for (itype of Object.keys(itemLib)) {
+                for (const itype of Object.keys(itemLib)) {
                     if (
                         itemLib[itype] instanceof Armor &&
                         (itemLib[itype] as Armor).name == saveFile.armorName
@@ -1174,10 +1172,10 @@ export class Saves extends BaseContent {
                     }
                 }
                 if (!found) {
-                    const itemLib = ItemType.getItemLibrary();
-                    for (itype of Object.keys(itemLib)) {
-                        if (itemLib[itype] instanceof Armor) {
-                            var a: Armor = itemLib[itype] as Armor;
+                    const itemLibNew = ItemType.getItemLibrary();
+                    for (const itype of Object.keys(itemLibNew)) {
+                        if (itemLibNew[itype] instanceof Armor) {
+                            const a: Armor = itemLibNew[itype] as Armor;
                             if (
                                 a.value == saveFile.armorValue &&
                                 a.def == saveFile.armorDef &&
@@ -1242,35 +1240,35 @@ export class Saves extends BaseContent {
             this.player.skinTone = saveFile.skinTone;
             this.player.skinDesc = saveFile.skinDesc;
             // Convert from old skinDesc to new skinAdj + skinDesc!
-            if (this.player.skinDesc.indexOf("smooth") != -1) {
+            if (this.player.skinDesc.includes("smooth")) {
                 this.player.skinAdj = "smooth";
                 if (this.player.skinType == SKIN_TYPE_PLAIN) this.player.skinDesc = "skin";
                 if (this.player.skinType == SKIN_TYPE_FUR) this.player.skinDesc = "fur";
                 if (this.player.skinType == SKIN_TYPE_SCALES) this.player.skinDesc = "scales";
                 if (this.player.skinType == SKIN_TYPE_GOO) this.player.skinDesc = "goo";
             }
-            if (this.player.skinDesc.indexOf("thick") != -1) {
+            if (this.player.skinDesc.includes("thick")) {
                 this.player.skinAdj = "thick";
                 if (this.player.skinType == SKIN_TYPE_PLAIN) this.player.skinDesc = "skin";
                 if (this.player.skinType == SKIN_TYPE_FUR) this.player.skinDesc = "fur";
                 if (this.player.skinType == SKIN_TYPE_SCALES) this.player.skinDesc = "scales";
                 if (this.player.skinType == SKIN_TYPE_GOO) this.player.skinDesc = "goo";
             }
-            if (this.player.skinDesc.indexOf("rubber") != -1) {
+            if (this.player.skinDesc.includes("rubber")) {
                 this.player.skinAdj = "rubber";
                 if (this.player.skinType == SKIN_TYPE_PLAIN) this.player.skinDesc = "skin";
                 if (this.player.skinType == SKIN_TYPE_FUR) this.player.skinDesc = "fur";
                 if (this.player.skinType == SKIN_TYPE_SCALES) this.player.skinDesc = "scales";
                 if (this.player.skinType == SKIN_TYPE_GOO) this.player.skinDesc = "goo";
             }
-            if (this.player.skinDesc.indexOf("latex") != -1) {
+            if (this.player.skinDesc.includes("latex")) {
                 this.player.skinAdj = "latex";
                 if (this.player.skinType == SKIN_TYPE_PLAIN) this.player.skinDesc = "skin";
                 if (this.player.skinType == SKIN_TYPE_FUR) this.player.skinDesc = "fur";
                 if (this.player.skinType == SKIN_TYPE_SCALES) this.player.skinDesc = "scales";
                 if (this.player.skinType == SKIN_TYPE_GOO) this.player.skinDesc = "goo";
             }
-            if (this.player.skinDesc.indexOf("slimey") != -1) {
+            if (this.player.skinDesc.includes("slimey")) {
                 this.player.skinAdj = "slimey";
                 if (this.player.skinType == SKIN_TYPE_PLAIN) this.player.skinDesc = "skin";
                 if (this.player.skinType == SKIN_TYPE_FUR) this.player.skinDesc = "fur";
@@ -1313,7 +1311,7 @@ export class Saves extends BaseContent {
                 saveFile.buttPregnancyIncubation
             );
 
-            var hasViridianCockSock: boolean = false;
+            let hasViridianCockSock = false;
 
             // ARRAYS HERE!
             // Set Cock array
@@ -1411,17 +1409,17 @@ export class Saves extends BaseContent {
             // Force the creation of the default breast row onto the player if it's no longer present
             if (this.player.breastRows.length == 0) this.player.createBreastRow();
 
-            var hasHistoryPerk: boolean = false;
-            var hasLustyRegenPerk: boolean = false;
+            let hasHistoryPerk = false;
+            let hasLustyRegenPerk = false;
             // var addedSensualLover: boolean = false;
 
             // Populate Perk Array
             for (i = 0; i < saveFile.perks.length; i++) {
-                var id: string = saveFile.perks[i].id || saveFile.perks[i].perkName;
-                var value1: number = saveFile.perks[i].value1;
-                var value2: number = saveFile.perks[i].value2;
-                var value3: number = saveFile.perks[i].value3;
-                var value4: number = saveFile.perks[i].value4;
+                let id: string = saveFile.perks[i].id || saveFile.perks[i].perkName;
+                const value1: number = saveFile.perks[i].value1;
+                const value2: number = saveFile.perks[i].value2;
+                const value3: number = saveFile.perks[i].value3;
+                const value4: number = saveFile.perks[i].value4;
 
                 // Fix saves where the Whore perk might have been malformed.
                 if (id == "History: Whote") id = "History: Whore";
@@ -1435,11 +1433,11 @@ export class Saves extends BaseContent {
                 }
 
                 // Some shit checking to track if the incoming data has an available History perk
-                if (id.indexOf("History:") != -1) {
+                if (id.includes("History:")) {
                     hasHistoryPerk = true;
                 }
 
-                var ptype: PerkType = PerkType.lookupPerk(id);
+                const ptype: PerkType = PerkType.lookupPerk(id);
 
                 if (ptype == undefined) {
                     trace("ERROR: Unknown perk id=" + id);
@@ -1490,15 +1488,13 @@ export class Saves extends BaseContent {
                 // Fix some tatto texts that could be broken
                 if (
                     typeof this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] == "string" &&
-                    (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] as String).indexOf(
-                        "lower back.lower back"
-                    ) != -1
+                    this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK].includes("lower back.lower back")
                 ) {
                     this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] =
-                        (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] as String).split(".")[0] + ".";
+                        this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK].split(".")[0] + ".";
                 }
 
-                var refunds: number = 0;
+                let refunds = 0;
 
                 if (typeof this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] == "string") {
                     refunds++;
@@ -1532,11 +1528,11 @@ export class Saves extends BaseContent {
             // Set Status Array
             for (i = 0; i < saveFile.statusAffects.length; i++) {
                 if (saveFile.statusAffects[i].statusAffectName == "Lactation EnNumbere") continue; // ugh...
-                var stype: StatusAffectType = StatusAffectType.lookupStatusAffect(
+                const stype: StatusAffectType = StatusAffectType.lookupStatusAffect(
                     saveFile.statusAffects[i].statusAffectName
                 );
                 if (stype == undefined) {
-                    CoC_Settings.error(
+                    CocSettings.error(
                         "Cannot find status affect '" +
                             saveFile.statusAffects[i].statusAffectName +
                             "'"
@@ -1568,6 +1564,8 @@ export class Saves extends BaseContent {
                     // trace("KeyItem " + player.keyItems[i].keyName + " loaded.");
                 }
             }
+
+            let storage: ItemSlotClass;
             // Set storage slot array
             if (saveFile.itemStorage == undefined) {
                 // trace("OLD SAVES DO NOT CONTAIN ITEM STORAGE ARRAY");
@@ -1576,8 +1574,8 @@ export class Saves extends BaseContent {
                 for (i = 0; i < saveFile.itemStorage.length; i++) {
                     // trace("Populating a storage slot save with data");
                     this.inventory.createStorage();
-                    var storage: ItemSlotClass = this.itemStorageGet()[i];
-                    var savedIS: any = saveFile.itemStorage[i];
+                    storage = this.itemStorageGet()[i];
+                    const savedIS: any = saveFile.itemStorage[i];
                     if (savedIS.shortName) {
                         if (savedIS.shortName.indexOf("Gro+") != -1) savedIS.id = "GroPlus";
                         else if (savedIS.shortName.indexOf("Sp Honey") != -1)
@@ -1661,7 +1659,7 @@ export class Saves extends BaseContent {
             if (saveFile.giacomo == undefined) game.giacomo = 0;
             else game.giacomo = saveFile.giacomo;
             if (saveFile.beeProgress != undefined && saveFile.beeProgress == 1)
-                game.forest.beeGirlScene.setTalked(); //Bee Progress update is now in a flag
+                game.forest.beeGirlScene.setTalked(); // Bee Progress update is now in a flag
             // The flag will be zero for any older save that still uses beeProgress and newer saves always store a zero in beeProgress, so we only need to update the flag on a value of one.
 
             // ITEMZ. Item1
@@ -1722,7 +1720,7 @@ export class Saves extends BaseContent {
                 saveFile.itemSlot5.quantity
             );
 
-            CoC.loadAllAwareClasses(this.getGame()); //Informs each saveAwareClass that it must load its values from the flags array
+            CoC.loadAllAwareClasses(this.getGame()); // Informs each saveAwareClass that it must load its values from the flags array
             this.unFuckSave();
 
             // Control Bindings
@@ -1764,8 +1762,8 @@ export class Saves extends BaseContent {
                 StatusAffects.SlimeCraving,
                 3,
                 this.player.statusAffectv2(StatusAffects.SlimeCraving)
-            ); //Duplicate old combined strength/speed value
-            this.player.changeStatusValue(StatusAffects.SlimeCraving, 4, 1); //Value four indicates this tracks strength and speed separately
+            ); // Duplicate old combined strength/speed value
+            this.player.changeStatusValue(StatusAffects.SlimeCraving, 4, 1); // Value four indicates this tracks strength and speed separately
         }
 
         // Fix issues with corrupt cockTypes caused by a error in the serialization code.
@@ -1804,7 +1802,7 @@ export class Saves extends BaseContent {
             this.flags[kFLAGS.GOO_DICK_TYPE] = 0;
         }
 
-        var flagData: any[] = String(this.flags[kFLAGS.KATHERINE_BREAST_SIZE]).split("^");
+        const flagData: any[] = String(this.flags[kFLAGS.KATHERINE_BREAST_SIZE]).split("^");
         if (flagData.length < 7 && this.flags[kFLAGS.KATHERINE_BREAST_SIZE] > 0) {
             // Older format only stored breast size or zero if not yet initialized
             this.getGame().telAdre.katherine.breasts.cupSize = this.flags[
@@ -1818,11 +1816,11 @@ export class Saves extends BaseContent {
             // Older saves don't have pregnancy types for all impregnable NPCs. Have to correct this.
             // If anything is detected that proves this is a new format save then we can return immediately as all further checks are redundant.
             if (this.flags[kFLAGS.AMILY_INCUBATION] > 0) {
-                if (this.flags[kFLAGS.AMILY_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+                if (this.flags[kFLAGS.AMILY_PREGNANCY_TYPE] != 0) return; // Must be a new format save
                 this.flags[kFLAGS.AMILY_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
             }
             if (this.flags[kFLAGS.AMILY_OVIPOSITED_COUNTDOWN] > 0) {
-                if (this.flags[kFLAGS.AMILY_BUTT_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+                if (this.flags[kFLAGS.AMILY_BUTT_PREGNANCY_TYPE] != 0) return; // Must be a new format save
                 if (this.player.findPerk(PerkLib.SpiderOvipositor) >= 0)
                     this.flags[kFLAGS.AMILY_BUTT_PREGNANCY_TYPE] =
                         PregnancyStore.PREGNANCY_DRIDER_EGGS;
@@ -1832,25 +1830,25 @@ export class Saves extends BaseContent {
             }
 
             if (this.flags[kFLAGS.COTTON_PREGNANCY_INCUBATION] > 0) {
-                if (this.flags[kFLAGS.COTTON_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+                if (this.flags[kFLAGS.COTTON_PREGNANCY_TYPE] != 0) return; // Must be a new format save
                 this.flags[kFLAGS.COTTON_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
             }
 
             if (this.flags[kFLAGS.EMBER_INCUBATION] > 0) {
-                if (this.flags[kFLAGS.EMBER_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+                if (this.flags[kFLAGS.EMBER_PREGNANCY_TYPE] != 0) return; // Must be a new format save
                 this.flags[kFLAGS.EMBER_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
             }
 
             if (this.flags[kFLAGS.FEMALE_SPIDERMORPH_PREGNANCY_INCUBATION] > 0) {
-                if (this.flags[kFLAGS.FEMALE_SPIDERMORPH_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+                if (this.flags[kFLAGS.FEMALE_SPIDERMORPH_PREGNANCY_TYPE] != 0) return; // Must be a new format save
                 this.flags[kFLAGS.FEMALE_SPIDERMORPH_PREGNANCY_TYPE] =
                     PregnancyStore.PREGNANCY_PLAYER;
             }
 
             if (this.flags[kFLAGS.HELSPAWN_AGE] > 0) {
-                kGAMECLASS.helScene.pregnancy.knockUpForce(); //Clear Pregnancy, also removed any old value from HEL_PREGNANCY_NOTICES
+                kGAMECLASS.helScene.pregnancy.knockUpForce(); // Clear Pregnancy, also removed any old value from HEL_PREGNANCY_NOTICES
             } else if (this.flags[kFLAGS.HEL_PREGNANCY_INCUBATION] > 0) {
-                if (this.flags[kFLAGS.HELIA_PREGNANCY_TYPE] > 3) return; //Must be a new format save
+                if (this.flags[kFLAGS.HELIA_PREGNANCY_TYPE] > 3) return; // Must be a new format save
                 // HELIA_PREGNANCY_TYPE was previously HEL_PREGNANCY_NOTICES, which ran from 0 to 3. Converted to the new format by multiplying by 65536
                 // Since HelSpawn's father is already tracked separately we might as well just use PREGNANCY_PLAYER for all possible pregnancies
                 this.flags[kFLAGS.HELIA_PREGNANCY_TYPE] =
@@ -1859,47 +1857,47 @@ export class Saves extends BaseContent {
             }
 
             if (this.flags[kFLAGS.KELLY_INCUBATION] > 0) {
-                if (this.flags[kFLAGS.KELLY_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+                if (this.flags[kFLAGS.KELLY_PREGNANCY_TYPE] != 0) return; // Must be a new format save
                 this.flags[kFLAGS.KELLY_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
             }
 
-            if (this.flags[kFLAGS.MARBLE_PREGNANCY_TYPE] == PregnancyStore.PREGNANCY_PLAYER) return; //Must be a new format save
+            if (this.flags[kFLAGS.MARBLE_PREGNANCY_TYPE] == PregnancyStore.PREGNANCY_PLAYER) return; // Must be a new format save
             if (this.flags[kFLAGS.MARBLE_PREGNANCY_TYPE] == PregnancyStore.PREGNANCY_OVIELIXIR_EGGS)
-                return; //Must be a new format save
+                return; // Must be a new format save
             if (this.flags[kFLAGS.MARBLE_PREGNANCY_TYPE] == 1)
                 this.flags[kFLAGS.MARBLE_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
             if (this.flags[kFLAGS.MARBLE_PREGNANCY_TYPE] == 2)
                 this.flags[kFLAGS.MARBLE_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_OVIELIXIR_EGGS;
 
             if (this.flags[kFLAGS.PHYLLA_DRIDER_INCUBATION] > 0) {
-                if (this.flags[kFLAGS.PHYLLA_VAGINAL_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+                if (this.flags[kFLAGS.PHYLLA_VAGINAL_PREGNANCY_TYPE] != 0) return; // Must be a new format save
                 this.flags[kFLAGS.PHYLLA_VAGINAL_PREGNANCY_TYPE] =
                     PregnancyStore.PREGNANCY_DRIDER_EGGS;
-                this.flags[kFLAGS.PHYLLA_DRIDER_INCUBATION] *= 24; //Convert pregnancy to days
+                this.flags[kFLAGS.PHYLLA_DRIDER_INCUBATION] *= 24; // Convert pregnancy to days
             }
 
             if (this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION] > 0) {
-                if (this.flags[kFLAGS.SHEILA_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+                if (this.flags[kFLAGS.SHEILA_PREGNANCY_TYPE] != 0) return; // Must be a new format save
                 this.flags[kFLAGS.SHEILA_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
                 if (this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION] >= 4)
                     this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION] = 0;
                 // Was ready to be born
                 else
                     this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION] =
-                        24 * (4 - this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION]); //Convert to hours and count down rather than up
+                        24 * (4 - this.flags[kFLAGS.SHEILA_PREGNANCY_INCUBATION]); // Convert to hours and count down rather than up
             }
 
             if (
                 this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] != 0 &&
                 this.flags[kFLAGS.SOPHIE_INCUBATION] != 0
             )
-                return; //Must be a new format save
+                return; // Must be a new format save
             if (
                 this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] > 0 &&
                 this.flags[kFLAGS.SOPHIE_INCUBATION] == 0
             ) {
                 // She's in the wild and pregnant with an egg
-                this.flags[kFLAGS.SOPHIE_INCUBATION] = this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE]; //SOPHIE_PREGNANCY_TYPE was previously SOPHIE_WILD_EGG_COUNTDOWN_TIMER
+                this.flags[kFLAGS.SOPHIE_INCUBATION] = this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE]; // SOPHIE_PREGNANCY_TYPE was previously SOPHIE_WILD_EGG_COUNTDOWN_TIMER
                 this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
             } else if (
                 this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] == 0 &&
@@ -1908,27 +1906,27 @@ export class Saves extends BaseContent {
                 this.flags[kFLAGS.SOPHIE_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
             }
 
-            if (this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+            if (this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_TYPE] != 0) return; // Must be a new format save
             if (this.flags[kFLAGS.TAMANI_DAUGHTER_PREGGO_COUNTDOWN] > 0) {
                 this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_TYPE] =
                     PregnancyStore.PREGNANCY_PLAYER;
-                this.flags[kFLAGS.TAMANI_DAUGHTER_PREGGO_COUNTDOWN] *= 24; //Convert pregnancy to days
+                this.flags[kFLAGS.TAMANI_DAUGHTER_PREGGO_COUNTDOWN] *= 24; // Convert pregnancy to days
                 this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_COUNT] = this.player.statusAffectv3(
                     StatusAffects.Tamani
                 );
             }
 
-            if (this.flags[kFLAGS.TAMANI_PREGNANCY_TYPE] != 0) return; //Must be a new format save
+            if (this.flags[kFLAGS.TAMANI_PREGNANCY_TYPE] != 0) return; // Must be a new format save
             if (this.player.findStatusAffect(StatusAffects.TamaniFemaleEncounter) >= 0)
-                this.player.removeStatusAffect(StatusAffects.TamaniFemaleEncounter); //Wasn't used in previous code
+                this.player.removeStatusAffect(StatusAffects.TamaniFemaleEncounter); // Wasn't used in previous code
             if (this.player.findStatusAffect(StatusAffects.Tamani) >= 0) {
                 if (this.player.statusAffectv1(StatusAffects.Tamani) == -500) {
                     // This used to indicate that a player had met Tamani as a male
                     this.flags[kFLAGS.TAMANI_PREGNANCY_INCUBATION] = 0;
-                    this.flags[kFLAGS.TAMANI_MET] = 1; //This now indicates the same thing
+                    this.flags[kFLAGS.TAMANI_MET] = 1; // This now indicates the same thing
                 } else
                     this.flags[kFLAGS.TAMANI_PREGNANCY_INCUBATION] =
-                        this.player.statusAffectv1(StatusAffects.Tamani) * 24; //Convert pregnancy to days
+                        this.player.statusAffectv1(StatusAffects.Tamani) * 24; // Convert pregnancy to days
                 this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] = this.player.statusAffectv2(
                     StatusAffects.Tamani
                 );
@@ -1947,19 +1945,19 @@ export class Saves extends BaseContent {
                 this.flags[kFLAGS.EGG_WITCH_TYPE] == PregnancyStore.PREGNANCY_BEE_EGGS ||
                 this.flags[kFLAGS.EGG_WITCH_TYPE] == PregnancyStore.PREGNANCY_DRIDER_EGGS
             )
-                return; //Must be a new format save
+                return; // Must be a new format save
             if (this.flags[kFLAGS.EGG_WITCH_TYPE] > 0) {
                 if (this.flags[kFLAGS.EGG_WITCH_TYPE] == 1)
                     this.flags[kFLAGS.EGG_WITCH_TYPE] = PregnancyStore.PREGNANCY_BEE_EGGS;
                 else this.flags[kFLAGS.EGG_WITCH_TYPE] = PregnancyStore.PREGNANCY_DRIDER_EGGS;
                 this.flags[kFLAGS.EGG_WITCH_COUNTER] =
-                    24 * (8 - this.flags[kFLAGS.EGG_WITCH_COUNTER]); //Reverse the count and change to hours rather than days
+                    24 * (8 - this.flags[kFLAGS.EGG_WITCH_COUNTER]); // Reverse the count and change to hours rather than days
             }
 
-            if (this.player.buttPregnancyType == PregnancyStore.PREGNANCY_BEE_EGGS) return; //Must be a new format save
-            if (this.player.buttPregnancyType == PregnancyStore.PREGNANCY_DRIDER_EGGS) return; //Must be a new format save
-            if (this.player.buttPregnancyType == PregnancyStore.PREGNANCY_SANDTRAP_FERTILE) return; //Must be a new format save
-            if (this.player.buttPregnancyType == PregnancyStore.PREGNANCY_SANDTRAP) return; //Must be a new format save
+            if (this.player.buttPregnancyType == PregnancyStore.PREGNANCY_BEE_EGGS) return; // Must be a new format save
+            if (this.player.buttPregnancyType == PregnancyStore.PREGNANCY_DRIDER_EGGS) return; // Must be a new format save
+            if (this.player.buttPregnancyType == PregnancyStore.PREGNANCY_SANDTRAP_FERTILE) return; // Must be a new format save
+            if (this.player.buttPregnancyType == PregnancyStore.PREGNANCY_SANDTRAP) return; // Must be a new format save
             if (this.player.buttPregnancyType == 2)
                 this.player.buttKnockUpForce(
                     PregnancyStore.PREGNANCY_BEE_EGGS,
@@ -1982,18 +1980,18 @@ export class Saves extends BaseContent {
                 );
 
             // If dick length zero then player has never met Kath, no need to set flags. If her breast size is zero then set values for flags introduced with the employment expansion
-            if (this.flags[kFLAGS.KATHERINE_BREAST_SIZE] != 0) return; //Must be a new format save
+            if (this.flags[kFLAGS.KATHERINE_BREAST_SIZE] != 0) return; // Must be a new format save
             if (this.flags[kFLAGS.KATHERINE_DICK_LENGTH] != 0) {
                 this.flags[kFLAGS.KATHERINE_BREAST_SIZE] = BREAST_CUP_B;
                 this.flags[kFLAGS.KATHERINE_BALL_SIZE] = 1;
                 this.flags[kFLAGS.KATHERINE_HAIR_COLOR] = "neon pink";
-                this.flags[kFLAGS.KATHERINE_HOURS_SINCE_CUM] = 200; //Give her maxed out cum for that first time
+                this.flags[kFLAGS.KATHERINE_HOURS_SINCE_CUM] = 200; // Give her maxed out cum for that first time
             }
 
-            if (this.flags[kFLAGS.URTA_PREGNANCY_TYPE] == PregnancyStore.PREGNANCY_BEE_EGGS) return; //Must be a new format save
+            if (this.flags[kFLAGS.URTA_PREGNANCY_TYPE] == PregnancyStore.PREGNANCY_BEE_EGGS) return; // Must be a new format save
             if (this.flags[kFLAGS.URTA_PREGNANCY_TYPE] == PregnancyStore.PREGNANCY_DRIDER_EGGS)
-                return; //Must be a new format save
-            if (this.flags[kFLAGS.URTA_PREGNANCY_TYPE] == PregnancyStore.PREGNANCY_PLAYER) return; //Must be a new format save
+                return; // Must be a new format save
+            if (this.flags[kFLAGS.URTA_PREGNANCY_TYPE] == PregnancyStore.PREGNANCY_PLAYER) return; // Must be a new format save
             if (this.flags[kFLAGS.URTA_PREGNANCY_TYPE] > 0) {
                 // URTA_PREGNANCY_TYPE was previously URTA_EGG_INCUBATION, assume this was an egg pregnancy
                 this.flags[kFLAGS.URTA_INCUBATION] = this.flags[kFLAGS.URTA_PREGNANCY_TYPE];
@@ -2003,7 +2001,7 @@ export class Saves extends BaseContent {
             } else if (this.flags[kFLAGS.URTA_INCUBATION] > 0) {
                 // Assume Urta was pregnant with the player's baby
                 this.flags[kFLAGS.URTA_PREGNANCY_TYPE] = PregnancyStore.PREGNANCY_PLAYER;
-                this.flags[kFLAGS.URTA_INCUBATION] = 384 - this.flags[kFLAGS.URTA_INCUBATION]; //Reverse the pregnancy counter since it now counts down rather than up
+                this.flags[kFLAGS.URTA_INCUBATION] = 384 - this.flags[kFLAGS.URTA_INCUBATION]; // Reverse the pregnancy counter since it now counts down rather than up
             }
 
             if (
@@ -2012,10 +2010,10 @@ export class Saves extends BaseContent {
             ) {
                 // EDRYN_PREGNANCY_TYPE was previously EDRYN_BIRF_COUNTDOWN - used when Edryn was pregnant with Taoth
                 if (this.flags[kFLAGS.EDRYN_PREGNANCY_INCUBATION] > 0)
-                    this.flags[kFLAGS.URTA_FERTILE] = PregnancyStore.PREGNANCY_PLAYER; //These two variables are used to store information on the pregnancy Taoth
+                    this.flags[kFLAGS.URTA_FERTILE] = PregnancyStore.PREGNANCY_PLAYER; // These two variables are used to store information on the pregnancy Taoth
                 this.flags[kFLAGS.URTA_PREG_EVERYBODY] = this.flags[
                     kFLAGS.EDRYN_PREGNANCY_INCUBATION
-                ]; //is overriding (if any), so they can later be restored.
+                ]; // is overriding (if any), so they can later be restored.
                 this.flags[kFLAGS.EDRYN_PREGNANCY_INCUBATION] = this.flags[
                     kFLAGS.EDRYN_PREGNANCY_TYPE
                 ];

@@ -21,15 +21,15 @@ export class BoundControlMethod {
     /**
      * Define a new bindable control method with "Unbound" keys.
      *
-     * @param	func
-// 	The function closure used by this BoundControlMethod
-     * @param	name
-// 	The friendly name used for this BoundControlMethod
-     * @param	desc
-// 	A Description of what the BoundControlMethod does
-     * @param 	primaryKey
+     * @param func
+//  The function closure used by this BoundControlMethod
+     * @param name
+//  The friendly name used for this BoundControlMethod
+     * @param desc
+//  A Description of what the BoundControlMethod does
+     * @param  primaryKey
 // The primary bound key code
-     * @param	secondarykey 	The secondary bound key code
+     * @param secondarykey  The secondary bound key code
      */
     public constructor(
         func: any,
@@ -52,7 +52,7 @@ export class BoundControlMethod {
      * Execute the wrapped BoundControlMethod. Uses an apply() call, so that arguments
      * can be passed to the wrapped function.
      *
-     * @param	... args	Args to pass to the wrapped function.
+     * @param ... args Args to pass to the wrapped function.
      */
     public ExecFunc(...args: any[]): void {
         this._funcToCall.apply(undefined, args);

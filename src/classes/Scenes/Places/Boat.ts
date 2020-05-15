@@ -84,7 +84,7 @@ export class Boat extends AbstractLakeContent {
             return;
         }
         // BUILD LIST OF CHOICES
-        var choice: any[] = [0, 1, 2, 3];
+        const choice: any[] = [0, 1, 2, 3];
         if (
             this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0 &&
             this.player.level > 2
@@ -92,7 +92,7 @@ export class Boat extends AbstractLakeContent {
             choice[choice.length] = 4;
         choice[choice.length] = 5;
         // MAKE YOUR CHOICE
-        var selector: number = choice[Boat.rand(choice.length)];
+        const selector: number = choice[Boat.rand(choice.length)];
         // RUN CHOSEN EVENT
         switch (selector) {
             case 0:

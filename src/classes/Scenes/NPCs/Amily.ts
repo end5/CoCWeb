@@ -8,13 +8,14 @@ import {
     VAGINA_WETNESS_NORMAL,
 } from "../../../includes/appearanceDefs";
 import { Appearance } from "../../Appearance";
-import { CoC_Settings } from "../../CoC_Settings";
+import { CocSettings } from "../../CoC_Settings";
 import { Monster } from "../../Monster";
 import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
 
 /**
  * ...
+ *
  * @author ...
  */
 export class Amily extends Monster {
@@ -29,8 +30,8 @@ export class Amily extends Monster {
     // COMBAT AMILY STUFF
     // (Has regular attack)
     public amilyAttack(): void {
-        var dodged: number = 0;
-        var damage: number;
+        let dodged = 0;
+        let damage: number;
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         // Blind dodge change
@@ -90,7 +91,7 @@ export class Amily extends Monster {
                     this.outputText(" [Flexibility]", false);
                     break;
                 default:
-                    CoC_Settings.error();
+                    CocSettings.error();
                     this.outputText(" <b>[ERROR]</b>", false);
                     break;
             }
@@ -159,8 +160,8 @@ export class Amily extends Monster {
     // (Special Attacks)
     // -Double Attack: Same as a normal attack, but hits twice.
     public amilyDoubleAttack(): void {
-        var dodged: number = 0;
-        var damage: number = 0;
+        let dodged = 0;
+        let damage = 0;
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         // Blind dodge change
@@ -235,7 +236,7 @@ export class Amily extends Monster {
 
     // -Poison Dart: Deals speed and str damage to the PC. (Not constant)
     private amilyDartGo(): void {
-        var dodged: number = 0;
+        let dodged = 0;
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Amily.rand(3) < 2) {
             this.outputText(
@@ -291,7 +292,7 @@ export class Amily extends Monster {
                     this.outputText(" [Flexibility]", false);
                     break;
                 default:
-                    CoC_Settings.error("");
+                    CocSettings.error("");
                     this.outputText(" <b>[ERROR]</b>", false);
                     break;
             }
@@ -305,7 +306,7 @@ export class Amily extends Monster {
             // Set status
             if (this.player.findStatusAffect(StatusAffects.AmilyVenom) < 0)
                 this.player.createStatusAffect(StatusAffects.AmilyVenom, 0, 0, 0, 0);
-            var poison: number = 2 + Amily.rand(5);
+            let poison: number = 2 + Amily.rand(5);
             while (poison > 0) {
                 poison--;
                 if (this.player.str >= 2) {
@@ -361,7 +362,7 @@ export class Amily extends Monster {
         }
     }
 
-    public defeated(hpVictory: boolean): void {
+    public defeated(_hpVictory: boolean): void {
         this.game.amilyScene.conquerThatMouseBitch();
     }
 

@@ -67,9 +67,8 @@ export class Lake extends BaseContent {
             return;
         }
         // Did it already output something?
-        var displayed: boolean = false;
-        var choice: any[] = [];
-        var select: number;
+        let displayed = false;
+        const choice: any[] = [];
 
         // Build choice list.
         // ==================================================
@@ -130,7 +129,7 @@ export class Lake extends BaseContent {
             choice[choice.length] = 11;
 
         // CHOOSE YOUR POISON!
-        select = choice[Lake.rand(choice.length)];
+        const select = choice[Lake.rand(choice.length)];
 
         // ==============================
         // EVENTS GO HERE!
@@ -170,7 +169,7 @@ export class Lake extends BaseContent {
                 this.gooGirlScene.spyOnGooAndOozeSex();
                 return;
             }
-            var girlOdds: number = 50;
+            let girlOdds = 50;
             // 50% odds of slime-girl, 75% if shutdown factory
             if (
                 this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0 &&
@@ -395,7 +394,7 @@ export class Lake extends BaseContent {
         this.outputText(
             " light.  Immediately it flows into your skin, glowing through your arm as if it were translucent.  It rushes through your shoulder and torso, down into your pregnant womb.  The other lights vanish."
         );
-        this.player.statusAffect(this.player.findStatusAffect(StatusAffects.Eggs)).value1 = eggType; //Value 1 is the egg type. If pregnant with OviElixir then StatusAffects.Eggs must exist
+        this.player.statusAffect(this.player.findStatusAffect(StatusAffects.Eggs)).value1 = eggType; // Value 1 is the egg type. If pregnant with OviElixir then StatusAffects.Eggs must exist
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -512,8 +511,7 @@ export class Lake extends BaseContent {
         this.outputText(
             "\n\nStrange, but you oblige, stripping off your [armor] and gear and tossing them aside. Callu instructs you to lay down on the beach next to her fishing pole, which you likewise oblige.  The otter-girl straddles your stomach, facing away from you, though her thick, heavy tail is thankfully kept away from your face."
         );
-        var x: number;
-        var y: number = -1;
+        let y = -1;
         this.temp = 0;
         while (this.temp < this.player.cockTotal()) {
             if (this.player.cocks[this.temp].cockLength < 48) {
@@ -524,7 +522,7 @@ export class Lake extends BaseContent {
             this.temp++;
         }
         if (y < 0) y = this.player.smallestCockIndex();
-        x = y;
+        const x: number = y;
 
         // (Under 6")
         if (this.player.cocks[x].cockLength < 6)

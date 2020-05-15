@@ -13,7 +13,7 @@ import { Monster } from "../../Monster";
 import { StatusAffects } from "../../StatusAffects";
 
 export class Holli extends Monster {
-    /*Fight -Z
+    /* Fight -Z
      Marae's offshoot, [monster] stands rooted in front of you.  Solid black eyes with golden pupils stare out at you.  Her normally-nude body is concealed inside her tree, though occasionally she will flash you the devilish grin of a sadistic temptress and the bark will split to reveal a pale, jiggling bit of flesh.  A pair of gnarled oak horns sprout from her forehead; leaves and flowers alternately bloom and wither on them as her face contorts with emotion.
 
      stats:
@@ -41,7 +41,7 @@ export class Holli extends Monster {
                 ' wraps one of her writhing roots around your [leg], slamming you to the ground and tying you up with several more!  "<i>And just where do you think you\'re going, my little meat?</i>" she hisses.  Her bark splits open, exposing her body, and a green shaft snakes out of her crotch, sprouting thorns and blooming into a rose at the tip.  She holds the drooling blossom over your [face] as she forces your mouth open with her roots!'
         );
         // hp loss, begin lust constrict next round
-        var damage: number = 15;
+        let damage = 15;
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")\n\n");
         this.player.createStatusAffect(StatusAffects.HolliConstrict, 0, 0, 0, 0);
@@ -154,7 +154,7 @@ export class Holli extends Monster {
             // lust damage, fatigue damage, light HP damage
             this.game.fatigue(10);
             this.game.dynStats("lus", 25);
-            var damage: number = 20 + Holli.rand(10);
+            let damage: number = 20 + Holli.rand(10);
             damage = this.player.takeDamage(damage);
             this.outputText(" (" + damage + ")");
         }
@@ -190,7 +190,7 @@ export class Holli extends Monster {
             );
             // plus med HP damage on turn one, plus med-heavy lust damage every turn while constricted
             // sap rose shitposting
-            var damage: number = 10 + Holli.rand(5);
+            let damage: number = 10 + Holli.rand(5);
             damage = this.player.takeDamage(damage);
             this.game.dynStats("lus", 15);
             this.player.createStatusAffect(StatusAffects.HolliConstrict, 0, 0, 0, 0);
@@ -235,7 +235,7 @@ export class Holli extends Monster {
         this.combatRoundOver();
     }
 
-    public waitForHolliConstrict(newScreen: boolean = true): void {
+    public waitForHolliConstrict(newScreen = true): void {
         if (newScreen) this.clearOutput();
         this.outputText(
             'The ominous roseate shaft hovers over you, and its owner strokes the base lewdly, moaning.  "<i>Oooh, gonna... cum!</i>" she shrieks.  As a low moan escapes her, the stalk bloats and begins to spill milky-white sap into your mouth!  Held rigid, you\'re eventually forced to swallow just to breathe; the sap slides into your stomach and warmth radiates to your midsection and groin, making you feel flushed and hot.  Holli sighs in satisfaction, evidently more relaxed after her climax.'

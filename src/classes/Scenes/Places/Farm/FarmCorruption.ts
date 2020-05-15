@@ -19,6 +19,7 @@ import { AbstractFarmContent } from "./AbstractFarmContent";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class FarmCorruption extends AbstractFarmContent {
@@ -27,7 +28,7 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     public corruptFollowers(): number {
-        var count: number = 0;
+        let count = 0;
 
         if (kGAMECLASS.jojoScene.campCorruptJojo()) count++;
         if (kGAMECLASS.amilyScene.amilyCorrupt()) count++;
@@ -40,7 +41,7 @@ export class FarmCorruption extends AbstractFarmContent {
         return count;
     }
 
-    public whitneyCorruption(mod: number = 0): number {
+    public whitneyCorruption(mod = 0): number {
         if (mod != 0) {
             this.flags[kFLAGS.WHITNEY_CORRUPTION] += mod;
 
@@ -218,7 +219,7 @@ export class FarmCorruption extends AbstractFarmContent {
         }
 
         // Figure out how much corruption we're going to slap on to Whitney
-        var modValue: number = -1;
+        let modValue = -1;
 
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 1) modValue += 2;
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1) modValue += 2;
@@ -454,7 +455,7 @@ export class FarmCorruption extends AbstractFarmContent {
             | kFLAGS.FARM_EGG_STORED
             | kFLAGS.FARM_CONTRACEPTIVE_STORED
     ): void {
-        var item: SimpleConsumable = this.getItemObj(flag);
+        const item: SimpleConsumable = this.getItemObj(flag);
 
         if (flag == kFLAGS.FARM_EGG_STORED) this.flags[kFLAGS.FARM_EGG_COUNTDOWN] = 7;
         this.flags[flag]--;
@@ -467,7 +468,7 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     public farmProtection(): number {
-        var protection: number = 0;
+        let protection = 0;
 
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 1) protection += 1;
 
@@ -507,7 +508,7 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     public farmValue(): number {
-        var fValue: number = 0;
+        let fValue = 0;
 
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 1) fValue += 3;
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1) fValue += 2;
@@ -635,7 +636,7 @@ export class FarmCorruption extends AbstractFarmContent {
         );
     }
 
-    protected takeoverPromptMerge(firstTime: boolean = false): void {
+    protected takeoverPromptMerge(firstTime = false): void {
         this.flags[kFLAGS.FARM_CORRUPT_PROMPT_DISPLAY] = 1;
 
         if (firstTime) {
@@ -1082,7 +1083,7 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private numSlavesAtFarm(): number {
-        var count: number = 0;
+        let count = 0;
 
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 1) count++;
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 1) count++;
@@ -1125,7 +1126,7 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private numFollowersAtFarm(): number {
-        var count: number = 0;
+        let count = 0;
 
         if (
             this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 1 &&
@@ -1154,7 +1155,7 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private numLoversAtFarm(): number {
-        var count: number = 0;
+        let count = 0;
 
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_IZMA] > 0) count++;
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] > 0) count++;
@@ -1360,7 +1361,7 @@ export class FarmCorruption extends AbstractFarmContent {
                 this.addButton(0, "Change Her", this.deFurDoge);
                 this.addButton(1, "Don't Change", this.dontDeFurDoge);
 
-                ///[Defur][Get on with it]
+                /// [Defur][Get on with it]
             }
         }
     }
@@ -1512,8 +1513,8 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.outputText("You ask her how the help is coming on.");
 
-        var lowProtection = false;
-        var lowValue = false;
+        let lowProtection = false;
+        let lowValue = false;
 
         if (this.farmProtection() < 12) lowProtection = true;
         if (this.farmValue() < 12) lowValue = true;
@@ -1866,7 +1867,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.doNext(this.rootScene);
     }
 
-    private turnDownInvestment(money: boolean = false): void {
+    private turnDownInvestment(money = false): void {
         this.clearOutput();
         this.whitneySprite();
 
@@ -1971,7 +1972,7 @@ export class FarmCorruption extends AbstractFarmContent {
             "\n\n“<i>Very much so,</i>” you reply as you continue to consider her. It occurs to you that you have caused both dominant and submissive tendencies to bubble to the surface of her psyche during her transformation; although you are now indisputably the overall master of her and her farm, in her vulnerable state now it would only take a few words and actions to make her act one way or the other towards you sexually."
         );
 
-        ///[Make Sub][Make Dom]
+        /// [Make Sub][Make Dom]
         this.menu();
         this.addButton(0, "Make Sub", this.makeDogeSubby);
         this.addButton(1, "Make Dom", this.makeDogeDommy);
@@ -2104,7 +2105,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    private dogeCorruptedMissionComplete(output: boolean = true): void {
+    private dogeCorruptedMissionComplete(output = true): void {
         if (this.flags[kFLAGS.QUEUE_BRANDING_AVAILABLE_TALK] == 1 && output) {
             this.brandingAvailableTalk();
             return;
@@ -2153,8 +2154,8 @@ export class FarmCorruption extends AbstractFarmContent {
         this.clearOutput();
         this.whitneySprite();
 
-        var doFunctor = undefined;
-        var functorOnNext: boolean = false;
+        let doFunctor;
+        let functorOnNext = false;
 
         if (this.flags[kFLAGS.WHITNEY_ORAL_TRAINING] == 0) {
             functorOnNext = true;
@@ -2231,9 +2232,11 @@ export class FarmCorruption extends AbstractFarmContent {
         );
 
         if (this.player.hasCock()) this.outputText(" cocksucker");
-        else this.outputText(" pussy eater");
-
-        (" there has ever been. Doubt wages war with aroused apprehension on Whitney’s face.");
+        else
+            this.outputText(
+                " pussy eater" +
+                    " there has ever been. Doubt wages war with aroused apprehension on Whitney’s face."
+            );
 
         this.outputText(
             "\n\n“<i>I, I will try, [master],</i>” she says. You reach down and hold her around the jaw-line."
@@ -4169,7 +4172,7 @@ export class FarmCorruption extends AbstractFarmContent {
             this.repeatWhitneyDomPleasure();
         }
 
-        var scenes: any[] = new Array();
+        const scenes: any[] = [];
 
         if (!this.player.isTaur()) scenes.push(this.whitneyDomBondageOral);
         if (this.player.hasCock() || this.player.hasVagina())
@@ -4513,7 +4516,7 @@ export class FarmCorruption extends AbstractFarmContent {
         }
 
         // wet and/or loose
-        var capacity: number = this.player.hasVagina()
+        const capacity: number = this.player.hasVagina()
             ? this.player.vaginalCapacity()
             : this.player.analCapacity();
         if (capacity >= 36) {
@@ -4711,8 +4714,8 @@ export class FarmCorruption extends AbstractFarmContent {
         // Too big:
         // Try and find a cock that will fit within vagCap + 33%
         // This is probably wrong as fuck but it's close enough.
-        var cockI: number = this.player.cockThatFits(this.whitneyVagCapacity() * 1.33) + 1;
-        var tooBig: boolean = false;
+        let cockI: number = this.player.cockThatFits(this.whitneyVagCapacity() * 1.33) + 1;
+        let tooBig = false;
 
         // Catch a no-cock-fits scenario so we can do things.
         if (cockI == 0) {
@@ -5076,7 +5079,7 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     public numTattoos(name: string): number {
-        var count: number = 0;
+        let count = 0;
 
         if (name == "whitney") {
             if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != "") count++;
@@ -5923,7 +5926,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.clearOutput();
         this.whitneySprite();
 
-        var tText: string = "A tribal tattoo, all snaking, erotic lines, across her ";
+        let tText = "A tribal tattoo, all snaking, erotic lines, across her ";
 
         if (slot == 0) {
             this.collarboneIntro();
@@ -5952,7 +5955,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private amilyTribalTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A tribal tattoo, all snaking, erotic lines, across her ";
+        let tText = "A tribal tattoo, all snaking, erotic lines, across her ";
 
         if (slot == 0) {
             this.amilyCollarboneIntro();
@@ -5981,7 +5984,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private jojoTribalTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A tribal tattoo, all snaking, erotic lines, across his ";
+        let tText = "A tribal tattoo, all snaking, erotic lines, across his ";
 
         if (slot == 0) {
             this.jojoCollarboneIntro();
@@ -6007,7 +6010,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bimboSophieTribalTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A tribal tattoo, all snaking, erotic lines, across her ";
+        let tText = "A tribal tattoo, all snaking, erotic lines, across her ";
 
         if (slot == 0) {
             this.bimboSophieCollarboneIntro();
@@ -6040,7 +6043,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private vapulaTribalTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A tribal tattoo, all snaking, erotic lines, across her ";
+        let tText = "A tribal tattoo, all snaking, erotic lines, across her ";
 
         if (slot == 0) {
             this.vapulaCollarboneIntro();
@@ -6069,7 +6072,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private kellyTribalTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A tribal tattoo, all snaking, erotic lines, across her ";
+        let tText = "A tribal tattoo, all snaking, erotic lines, across her ";
 
         if (slot == 0) {
             this.kellyCollarboneIntro();
@@ -6098,7 +6101,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private smallMilkyTribalTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A tribal tattoo, all snaking, erotic lines, across her ";
+        let tText = "A tribal tattoo, all snaking, erotic lines, across her ";
 
         if (slot == 0) {
             this.smallMilkyCollarboneIntro();
@@ -6142,7 +6145,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bigMilkyTribalTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A tribal tattoo, all snaking, erotic lines, across her ";
+        let tText = "A tribal tattoo, all snaking, erotic lines, across her ";
 
         if (slot == 0) {
             this.bigMilkyCollarboneIntro();
@@ -6168,7 +6171,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bigMilkyHeartTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A plump, red love heart tattoo on her ";
+        let tText = "A plump, red love heart tattoo on her ";
 
         if (slot == 0) {
             this.bigMilkyCollarboneIntro();
@@ -6194,7 +6197,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bigMilkyPropertyOfTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Property of [Name]” tattooed across her ";
+        let tText = "“Property of [Name]” tattooed across her ";
 
         if (slot == 0) {
             this.bigMilkyCollarboneIntro();
@@ -6220,7 +6223,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bigMilkyBathToyTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Bath Toy” tattooed across her ";
+        let tText = "“Bath Toy” tattooed across her ";
 
         if (slot == 0) {
             this.bigMilkyCollarboneIntro();
@@ -6246,7 +6249,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bigMilkyMegaMilkTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Mega Milk” tattooed across her collarbone.";
+        const tText = "“Mega Milk” tattooed across her collarbone.";
         this.bigMilkyCollarboneIntro();
         this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] = tText;
 
@@ -6256,7 +6259,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bigMilkyCockCozyTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Cock Cozy” tattooed across her collarbone.";
+        const tText = "“Cock Cozy” tattooed across her collarbone.";
         this.bigMilkyCollarboneIntro();
         this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] = tText;
 
@@ -6267,7 +6270,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.clearOutput();
         this.whitneySprite();
 
-        var tText: string = "A plump, red love heart tattoo on her ";
+        let tText = "A plump, red love heart tattoo on her ";
 
         if (slot == 0) {
             this.collarboneIntro();
@@ -6296,7 +6299,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private amilyHeartTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A plump, red love heart tattoo on her ";
+        let tText = "A plump, red love heart tattoo on her ";
 
         if (slot == 0) {
             this.amilyCollarboneIntro();
@@ -6325,7 +6328,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private jojoHeartTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A plump, red love heart tattoo on his ";
+        let tText = "A plump, red love heart tattoo on his ";
 
         if (slot == 0) {
             this.jojoCollarboneIntro();
@@ -6351,7 +6354,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bimboSophieHeartTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A plump, red love heart tattoo on her ";
+        let tText = "A plump, red love heart tattoo on her ";
 
         if (slot == 0) {
             this.bimboSophieCollarboneIntro();
@@ -6384,7 +6387,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private vapulaHeartTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A plump, red love heart tattoo on her ";
+        let tText = "A plump, red love heart tattoo on her ";
 
         if (slot == 0) {
             this.vapulaCollarboneIntro();
@@ -6413,7 +6416,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private kellyHeartTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A plump, red love heart tattoo on her ";
+        let tText = "A plump, red love heart tattoo on her ";
 
         if (slot == 0) {
             this.kellyCollarboneIntro();
@@ -6442,7 +6445,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private smallMilkyHeartTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A plump, red love heart tattoo on her ";
+        let tText = "A plump, red love heart tattoo on her ";
 
         if (slot == 0) {
             this.smallMilkyCollarboneIntro();
@@ -6486,7 +6489,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private smallMilkyPropertyOfTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Property of [Name]” tattooed across her ";
+        let tText = "“Property of [Name]” tattooed across her ";
 
         if (slot == 0) {
             this.smallMilkyCollarboneIntro();
@@ -6530,7 +6533,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private smallMilkyBathToyTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Bath Toy” tattooed across her ";
+        let tText = "“Bath Toy” tattooed across her ";
 
         if (slot == 0) {
             this.smallMilkyCollarboneIntro();
@@ -6574,7 +6577,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private smallMilkyMegaMilkTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Mega Milk” tattooed across her collarbone.";
+        const tText = "“Mega Milk” tattooed across her collarbone.";
 
         this.smallMilkyCollarboneIntro();
         this.outputText(
@@ -6588,7 +6591,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private smallMilkyCockCozyTattoo(): void {
         this.clearOutput();
 
-        var tText: string = "“Cock Cozy” tattooed across her collarbone.";
+        const tText = "“Cock Cozy” tattooed across her collarbone.";
 
         this.smallMilkyCollarboneIntro();
         this.outputText(
@@ -6600,18 +6603,18 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     public numMilkyButterflyTats(): number {
-        var count: number = 0;
+        let count = 0;
         if (typeof this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == "string") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE].indexOf("A butterfly") >= 0) count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE].includes("A butterfly")) count++;
         }
         if (typeof this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == "string") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS].indexOf("A butterfly") >= 0) count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS].includes("A butterfly")) count++;
         }
         if (typeof this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == "string") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK].indexOf("A butterfly") >= 0) count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK].includes("A butterfly")) count++;
         }
         if (typeof this.flags[kFLAGS.MILKY_TATTOO_BUTT] == "string") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT].indexOf("A butterfly") >= 0) count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT].includes("A butterfly")) count++;
         }
         return count;
     }
@@ -6619,7 +6622,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private smallMilkyButterflyTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A butterfly, its four leaf-like wings in flight, tattooed across her ";
+        let tText = "A butterfly, its four leaf-like wings in flight, tattooed across her ";
 
         if (slot == 0) {
             this.smallMilkyCollarboneIntro();
@@ -6721,7 +6724,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private kellyHorseshoeTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A horseshoe imprinted firmly on each shoulder.";
+        const tText = "A horseshoe imprinted firmly on each shoulder.";
 
         this.kellyShouldersIntro();
         this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] = tText;
@@ -6732,7 +6735,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private kellyPropertyOfTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Property of [Name]” tattooed across her ";
+        let tText = "“Property of [Name]” tattooed across her ";
 
         if (slot == 0) {
             this.kellyCollarboneIntro();
@@ -6761,7 +6764,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private kellyNo1FillyTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“#1 Filly” tattooed across her ";
+        let tText = "“#1 Filly” tattooed across her ";
 
         if (slot == 0) {
             this.kellyCollarboneIntro();
@@ -6790,8 +6793,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private kellyDickWonTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string =
-            "“I Fought the Dick And the Dick Won” tattooed in fine text across her ";
+        let tText = "“I Fought the Dick And the Dick Won” tattooed in fine text across her ";
 
         if (slot == 0) {
             this.kellyCollarboneIntro();
@@ -6821,7 +6823,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.clearOutput();
         this.whitneySprite();
 
-        var tText: string = "“Property of [Name]” tattooed across her ";
+        let tText = "“Property of [Name]” tattooed across her ";
 
         if (slot == 0) {
             this.collarboneIntro();
@@ -6850,7 +6852,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private amilyPropertyTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Property of [Name]” tattooed across her ";
+        let tText = "“Property of [Name]” tattooed across her ";
 
         if (slot == 0) {
             this.amilyCollarboneIntro();
@@ -6879,7 +6881,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private jojoPropertyTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Property of [Name]” tattooed across his ";
+        let tText = "“Property of [Name]” tattooed across his ";
 
         if (slot == 0) {
             this.jojoCollarboneIntro();
@@ -6905,7 +6907,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private jojoSissySlutTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Sissy Slut” tattooed across his ";
+        let tText = "“Sissy Slut” tattooed across his ";
 
         if (slot == 0) {
             this.jojoCollarboneIntro();
@@ -6931,7 +6933,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bimboSophiePropertyOfTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Property of [Name]” tattooed across her ";
+        let tText = "“Property of [Name]” tattooed across her ";
 
         if (slot == 0) {
             this.bimboSophieCollarboneIntro();
@@ -6962,7 +6964,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private vapulaPropertyOfTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Property of [Name]” tattooed across her ";
+        let tText = "“Property of [Name]” tattooed across her ";
 
         if (slot == 0) {
             this.vapulaCollarboneIntro();
@@ -6991,7 +6993,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private vapulaCumAddictTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Cum Addict” tattooed across her ";
+        let tText = "“Cum Addict” tattooed across her ";
 
         if (slot == 0) {
             this.vapulaCollarboneIntro();
@@ -7020,7 +7022,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private vapulaButtslutTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Buttslut” tattooed in a red love heart across her lower back.";
+        const tText = "“Buttslut” tattooed in a red love heart across her lower back.";
 
         this.vapulaLowerBackIntro();
         this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] = tText;
@@ -7031,7 +7033,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private vapulaDildoPolisherTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Dildo Polisher” tattooed across her ";
+        let tText = "“Dildo Polisher” tattooed across her ";
 
         if (slot == 0) {
             this.vapulaCollarboneIntro();
@@ -7060,7 +7062,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bimboSophieSwallowTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "A swallow with its tapering wings in flight across her ";
+        let tText = "A swallow with its tapering wings in flight across her ";
 
         if (slot == 0) {
             this.bimboSophieCollarboneIntro();
@@ -7093,7 +7095,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bimboSophieBreedingBitchTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Breeding Bitch” tattooed across her ";
+        let tText = "“Breeding Bitch” tattooed across her ";
 
         if (slot == 0) {
             this.bimboSophieCollarboneIntro();
@@ -7126,7 +7128,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bimboSophieCockGoesHereTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Cock Goes Here” tattooed across her lower back.";
+        const tText = "“Cock Goes Here” tattooed across her lower back.";
 
         this.bimboSophieLowerBackIntro();
         this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] = tText;
@@ -7137,8 +7139,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private bimboSophieWideLoadTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string =
-            "“Wide” tattooed across one butt cheek and “Load” tattooed on the other.";
+        const tText = "“Wide” tattooed across one butt cheek and “Load” tattooed on the other.";
 
         this.bimboSophieButtIntro();
         this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] = tText;
@@ -7150,7 +7151,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.clearOutput();
         this.whitneySprite();
 
-        var tText: string = "“No. 1 Bitch” tattooed across her ";
+        let tText = "“No. 1 Bitch” tattooed across her ";
 
         if (slot == 0) {
             this.collarboneIntro();
@@ -7179,7 +7180,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private amilyBreedingBitchTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Breeding Bitch” tattooed across her ";
+        let tText = "“Breeding Bitch” tattooed across her ";
 
         if (slot == 0) {
             this.amilyCollarboneIntro();
@@ -7209,7 +7210,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.clearOutput();
         this.whitneySprite();
 
-        var tText: string = "“Champion Cocksucker” tattooed across her ";
+        let tText = "“Champion Cocksucker” tattooed across her ";
 
         if (slot == 0) {
             this.collarboneIntro();
@@ -7238,7 +7239,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private amilyCockGoesHereTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Cock Goes Here” tattooed across her ";
+        let tText = "“Cock Goes Here” tattooed across her ";
 
         if (slot == 0) {
             this.amilyCollarboneIntro();
@@ -7267,7 +7268,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private jojoCockGoesHereTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Cock Goes Here” tattooed across his ";
+        let tText = "“Cock Goes Here” tattooed across his ";
 
         if (slot == 0) {
             this.jojoCollarboneIntro();
@@ -7293,7 +7294,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private amilyMommysGirlTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Mommy’s Girl” tattooed across her ";
+        let tText = "“Mommy’s Girl” tattooed across her ";
 
         if (slot == 0) {
             this.amilyCollarboneIntro();
@@ -7322,7 +7323,7 @@ export class FarmCorruption extends AbstractFarmContent {
     private jojoMommysBoyTattoo(slot: number): void {
         this.clearOutput();
 
-        var tText: string = "“Mommy’s Boy” tattooed across his ";
+        let tText = "“Mommy’s Boy” tattooed across his ";
 
         if (slot == 0) {
             this.jojoCollarboneIntro();
@@ -7349,7 +7350,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.clearOutput();
         this.whitneySprite();
 
-        var tText: string = "“Champion Pussylicker” tattooed across her ";
+        let tText = "“Champion Pussylicker” tattooed across her ";
 
         if (slot == 0) {
             this.collarboneIntro();
@@ -7391,38 +7392,35 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private numAmilyTribalTats(): number {
-        var count: number = 0;
+        let count = 0;
         if (typeof this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE] == "string") {
-            if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.AMILY_TATTOO_COLLARBONE].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS] == "string") {
-            if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.AMILY_TATTOO_SHOULDERS].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK] == "string") {
-            if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.AMILY_TATTOO_LOWERBACK].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.AMILY_TATTOO_BUTT] == "string") {
-            if (this.flags[kFLAGS.AMILY_TATTOO_BUTT].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.AMILY_TATTOO_BUTT].includes("A tribal tattoo")) count++;
         }
         return count;
     }
 
     private numWhitneyTribalTats(): number {
-        var count: number = 0;
+        let count = 0;
         if (typeof this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] == "string") {
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE].indexOf("A tribal tattoo") >= 0)
-                count++;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] == "string") {
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS].indexOf("A tribal tattoo") >= 0)
-                count++;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] == "string") {
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK].indexOf("A tribal tattoo") >= 0)
-                count++;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] == "string") {
-            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT].includes("A tribal tattoo")) count++;
         }
         return count;
     }
@@ -7438,18 +7436,18 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private numJojoTribalTats(): number {
-        var count: number = 0;
+        let count = 0;
         if (typeof this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE] == "string") {
-            if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.JOJO_TATTOO_COLLARBONE].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS] == "string") {
-            if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.JOJO_TATTOO_SHOULDERS].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK] == "string") {
-            if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.JOJO_TATTOO_LOWERBACK].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.JOJO_TATTOO_BUTT] == "string") {
-            if (this.flags[kFLAGS.JOJO_TATTOO_BUTT].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.JOJO_TATTOO_BUTT].includes("A tribal tattoo")) count++;
         }
         return count;
     }
@@ -7460,19 +7458,18 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private numSophieTribalTats(): number {
-        var count: number = 0;
+        let count = 0;
         if (typeof this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] == "string") {
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE].indexOf("A tribal tattoo") >= 0)
-                count++;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] == "string") {
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] == "string") {
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] == "string") {
-            if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT].includes("A tribal tattoo")) count++;
         }
         return count;
     }
@@ -7483,19 +7480,18 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private numVapulaTribalTats(): number {
-        var count: number = 0;
+        let count = 0;
         if (typeof this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE] == "string") {
-            if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE].indexOf("A tribal tattoo") >= 0)
-                count++;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_COLLARBONE].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS] == "string") {
-            if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_SHOULDERS].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] == "string") {
-            if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.VAPULA_TATTOO_BUTT] == "string") {
-            if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.VAPULA_TATTOO_BUTT].includes("A tribal tattoo")) count++;
         }
         return count;
     }
@@ -7506,18 +7502,18 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private numKellyTribalTats(): number {
-        var count: number = 0;
+        let count = 0;
         if (typeof this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE] == "string") {
-            if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.KELLY_TATTOO_COLLARBONE].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS] == "string") {
-            if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.KELLY_TATTOO_SHOULDERS].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK] == "string") {
-            if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.KELLY_TATTOO_LOWERBACK].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.KELLY_TATTOO_BUTT] == "string") {
-            if (this.flags[kFLAGS.KELLY_TATTOO_BUTT].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.KELLY_TATTOO_BUTT].includes("A tribal tattoo")) count++;
         }
         return count;
     }
@@ -7528,18 +7524,18 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private numMilkyTribalTats(): number {
-        var count: number = 0;
+        let count = 0;
         if (typeof this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE] == "string") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_COLLARBONE].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS] == "string") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_SHOULDERS].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK] == "string") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_LOWERBACK].includes("A tribal tattoo")) count++;
         }
         if (typeof this.flags[kFLAGS.MILKY_TATTOO_BUTT] == "string") {
-            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT].indexOf("A tribal tattoo") >= 0) count++;
+            if (this.flags[kFLAGS.MILKY_TATTOO_BUTT].includes("A tribal tattoo")) count++;
         }
         return count;
     }
@@ -7550,7 +7546,7 @@ export class FarmCorruption extends AbstractFarmContent {
     }
 
     private orgyRoomRouter(): void {
-        var doFunctor = undefined;
+        let doFunctor;
 
         if (
             this.flags[kFLAGS.FARM_UPGRADES_ORGYROOM] == 0 &&
@@ -7608,7 +7604,7 @@ export class FarmCorruption extends AbstractFarmContent {
 
         this.menu();
 
-        var noT: string = "No";
+        let noT = "No";
         if (this.player.gems >= 2200) {
             this.addButton(0, "Yes", this.getOrgyRoom);
         } else {
@@ -7973,8 +7969,8 @@ export class FarmCorruption extends AbstractFarmContent {
 
     private subHappyEndingMale(): void {
         this.clearOutput();
-        var cockThatFits: number = this.player.cockThatFits(this.whitneyVagCapacity() * 1.33) + 1;
-        var hasBiggerCock: boolean = false;
+        const cockThatFits: number = this.player.cockThatFits(this.whitneyVagCapacity() * 1.33) + 1;
+        let hasBiggerCock = false;
 
         if (this.player.cockArea(cockThatFits - 1) != this.player.biggestCockArea())
             hasBiggerCock = true;

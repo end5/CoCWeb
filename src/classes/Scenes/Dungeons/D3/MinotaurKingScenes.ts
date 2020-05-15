@@ -68,8 +68,8 @@ export class MinotaurKingScenes extends BaseContent {
         this.menu();
         this.addButton(0, "Kill Them", this.murderhobo);
 
-        var smallCockIdx: number = -1;
-        for (var i: number = 0; i < this.player.cocks.length; i++) {
+        let smallCockIdx = -1;
+        for (let i = 0; i < this.player.cocks.length; i++) {
             if (this.player.cocks[i].cockLength <= 12) {
                 if (
                     smallCockIdx != -1 &&
@@ -536,7 +536,7 @@ export class MinotaurKingScenes extends BaseContent {
 
         this.clearOutput();
 
-        var x: number = this.player.biggestCockIndex() + 1;
+        const x: number = this.player.biggestCockIndex() + 1;
 
         this.outputText(
             "Why resort to making use of the brutal minotaur when there’s a puddle of wet trollop so close at hand? It’s a good thing that all the spunk leaking from between her legs actually smells"
@@ -659,7 +659,7 @@ export class MinotaurKingScenes extends BaseContent {
     public hailToTheKingBaby(hpVictory: boolean, pcCameWorms: boolean): void {
         this.clearOutput();
 
-        var mk: MinotaurKing = this.monster as MinotaurKing;
+        const mk: MinotaurKing = this.monster as MinotaurKing;
 
         if (!hpVictory) {
             this.outputText(

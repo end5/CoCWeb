@@ -37,7 +37,7 @@ export class SpiderMorphMob extends Monster {
                 false
             );
             // Determine damage - str modified by enemy toughness!
-            var damage: number =
+            let damage: number =
                 Math.floor(
                     this.str +
                         this.weaponAttack -

@@ -12,6 +12,7 @@ import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class SuccubusGardener extends Monster {
@@ -101,7 +102,7 @@ export class SuccubusGardener extends Monster {
         ) {
             this.sapSpeed();
         } else {
-            var opts: any[] = [this.sicem, this.corruptiveShower, this.lustAuraCast];
+            const opts: any[] = [this.sicem, this.corruptiveShower, this.lustAuraCast];
 
             if (this.lust < 40) opts.push(this.taunt);
             if (this.lust >= 40) opts.push(this.motorboat);
@@ -199,7 +200,7 @@ export class SuccubusGardener extends Monster {
     public grappleStruggle(): void {
         this.clearOutput();
 
-        var numRounds: number = this.player.statusAffectv1(StatusAffects.Tentagrappled);
+        const numRounds: number = this.player.statusAffectv1(StatusAffects.Tentagrappled);
 
         if (SuccubusGardener.rand(this.player.str) > this.str / (1 + numRounds / 2)) {
             this.outputText(
@@ -262,9 +263,9 @@ export class SuccubusGardener extends Monster {
         // Ten very low damage attacks.
         // Geddynote- opted to convert to a lust-inducing attack, because LITERALLY EVERYTHING ELSE she does is lust-based.
 
-        var damage: number = 0;
+        let damage = 0;
 
-        for (var i: number = 0; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             if (
                 !(
                     this.combatMiss() ||
@@ -281,7 +282,7 @@ export class SuccubusGardener extends Monster {
         }
 
         if (damage >= 0) {
-            var sL: number = this.player.lust;
+            let sL: number = this.player.lust;
             this.game.dynStats("lus+", damage);
             sL = Math.round(this.player.lust - sL);
             this.outputText(
@@ -426,7 +427,7 @@ export class SuccubusGardener extends Monster {
         );
 
         // 20%?
-        var speedSapped: number = this.player.spe * 0.2;
+        const speedSapped: number = this.player.spe * 0.2;
         this.player.spe -= speedSapped;
         this.player.createStatusAffect(StatusAffects.GardenerSapSpeed, speedSapped, 0, 0, 0);
         kGAMECLASS.mainView.statsView.showStatDown("spe");

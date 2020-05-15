@@ -77,7 +77,7 @@ export class OvipositionElixir extends Consumable {
             );
             return false;
         }
-        var changeOccurred: boolean = false;
+        let changeOccurred = false;
         if (this.game.player.pregnancyType == PregnancyStore.PREGNANCY_OVIELIXIR_EGGS) {
             // If player already has eggs, chance of size increase!
             if (this.game.player.findStatusAffect(StatusAffects.Eggs) >= 0) {
@@ -111,7 +111,7 @@ export class OvipositionElixir extends Consumable {
             this.outputText(
                 "\n\nYou gasp as your pregnancy suddenly leaps forwards, your belly bulging outward a few inches as it gets closer to time for birthing."
             );
-            var newIncubation: number =
+            let newIncubation: number =
                 this.game.player.pregnancyIncubation -
                 Math.floor(this.game.player.pregnancyIncubation * 0.3 + 10);
             if (newIncubation < 2) newIncubation = 2;

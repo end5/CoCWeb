@@ -212,7 +212,7 @@ export class SandTrapScene extends BaseContent {
         this.spriteSelect(97);
     }
 
-    public sandtrapmentLoss(clear: boolean = false): void {
+    public sandtrapmentLoss(clear = false): void {
         if (
             this.flags[kFLAGS.SANDTRAP_LOSS_REPEATS] >= 2 &&
             this.player.eyeType == EYES_BLACK_EYES_SAND_TRAP &&
@@ -257,11 +257,11 @@ export class SandTrapScene extends BaseContent {
                 "The sand around you stops sinking.  Overpowered with lust, the sandtrap moans and gives up control over itself and its pit to desperately run one set of hands over its flat chest whilst the other pushes into the sand to masturbate... whatever it has down there.  With your foe in this state, climbing out won't be so difficult now."
             );
 
-        var nagaThreeSome = undefined;
-        var putYourDickInIt = undefined;
-        var rideDatSantTrap = undefined;
-        var useSandTarpsHand = undefined;
-        var bikiniTits = undefined;
+        let nagaThreeSome;
+        let putYourDickInIt;
+        let rideDatSantTrap;
+        let useSandTarpsHand;
+        let bikiniTits;
         if (
             this.player.hasVagina() &&
             this.player.biggestTitSize() >= 4 &&
@@ -1005,7 +1005,7 @@ export class SandTrapScene extends BaseContent {
         this.clearOutput();
         this.spriteSelect(97);
         // Requires: Penis and str requirement
-        var x: number = this.player.cockThatFits(80);
+        let x: number = this.player.cockThatFits(80);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You bend into the sand and allow the slope to slowly carry you down to the bottom and the defeated sandtrap.  Its six black eyes regard you with a mixture of lust and resentment as you slowly discard your clothes, revelling in the hot desert sun upon your naked form.  As the soft powder delivers you to its side it tries to curl its hands around your thighs.  Whether this is one last attempt to drag you down or because it is trying to curry your favor somehow you don't know, but you aren't having any of it.  You catch its hands, easily overpowering it.  It uses its other pair to try to pathetically prise itself out of your grasp; you find that its wrists are thin enough for you to reach your hands around both and hold all four of its arms quite comfortably.  You beam triumphantly at the helpless sandtrap, who glowers in response."

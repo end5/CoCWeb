@@ -72,7 +72,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        var needNext: boolean = false;
+        let needNext = false;
         if (this.flags[kFLAGS.ANEMONE_KID] > 0) {
             if (this.flags[kFLAGS.KID_ITEM_FIND_HOURS] < 20)
                 this.flags[kFLAGS.KID_ITEM_FIND_HOURS]++;
@@ -127,7 +127,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         );
     }
 
-    public kidAXP(diff: number = 0): number {
+    public kidAXP(diff = 0): number {
         if (diff == 0) return this.flags[kFLAGS.KID_A_XP];
         this.flags[kFLAGS.KID_A_XP] += diff;
         if (this.flags[kFLAGS.KID_A_XP] < 0) this.flags[kFLAGS.KID_A_XP] = 0;
@@ -172,7 +172,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             // (typical lust gain and temporary stat damage, start combat)
         }
         this.outputText("You are fighting an anemone!", false);
-        var anemone: Anemone = new Anemone();
+        const anemone: Anemone = new Anemone();
         this.startCombat(anemone);
         // (gain lust, temp lose spd/str)
         this.dynStats("lus", 4);
@@ -201,10 +201,10 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             );
             // victory sex choice for males with cock fit 48 or females with clit >7": "her anus"
             // (change "If you do, which of your parts" to "If you do, which part" in pre-sex choice menu)
-            var cockRape = undefined;
-            var vaginaRape = undefined;
-            var anal = undefined;
-            var eggs = undefined;
+            let cockRape;
+            let vaginaRape;
+            let anal;
+            let eggs;
             if (this.player.canOviposit()) eggs = this.anemoneGetsLayedByBeePositor;
             if (this.player.hasVagina() && this.player.clitLength >= 4)
                 anal = this.anemoneButtPlugginz;
@@ -213,13 +213,13 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             // Normal male: -requires dick of area < 36
             if (this.player.cockTotal() > 0) cockRape = this.rapeAnemoneWithDick;
             if (this.player.hasVagina()) vaginaRape = this.rapeAnemoneWithPussy;
-            var bikiniTits = undefined;
+            let bikiniTits;
             if (
                 this.player.hasVagina() &&
                 this.player.biggestTitSize() >= 4 &&
                 this.player.armor instanceof LustyMaidensArmor
             )
-                bikiniTits = (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri;
+                bikiniTits = this.player.armor.lustyMaidenPaizuri;
             this.choices(
                 "Your Ass",
                 this.victoryButtholeRape,
@@ -356,7 +356,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.outputText("", true);
         this.outputText(this.images.showImage("anemone-male-fuck"), false);
         if (this.player.cockThatFits(36) >= 0) {
-            var x: number = this.player.cockThatFits(36);
+            const x: number = this.player.cockThatFits(36);
             this.outputText(
                 "Rubbing yourself through your " +
                     this.player.armorName +
@@ -790,7 +790,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
     // loss rapes:
     public loseToAnemone(): void {
         this.spriteSelect(4);
-        var x: number = this.player.cockThatFits(36);
+        const x: number = this.player.cockThatFits(36);
         this.outputText("", true);
         // loss via hp (only possible if PC engages her while already being at zero or kills himself with Akbal powers):
         if (this.player.HP < 1) {
@@ -1329,7 +1329,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             // (gain lust, temp lose spd/str; if in withdrawal then proceed to fight, otherwise present choices 'Give' and 'Don't Give')
-            var anemone: Anemone = new Anemone();
+            const anemone: Anemone = new Anemone();
             this.startCombat(anemone);
             // (gain lust, temp lose spd/str)
             this.dynStats("lus", 4);
@@ -1359,7 +1359,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
             false
         );
         // (proceed to combat)
-        var anemone: Anemone = new Anemone();
+        const anemone: Anemone = new Anemone();
         this.startCombat(anemone);
         // (gain lust, temp lose spd/str)
         this.dynStats("lus", 4);
@@ -1398,8 +1398,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 "As her fondling devolves into genuine masturbation you realize this would be a good opportunity to take care of your own lusts.  If you do, how will you do it?",
                 false
             );
-            var cockRape = undefined;
-            var vaginaRape = undefined;
+            let cockRape;
+            let vaginaRape;
             // Normal male: -requires dick of area < 36
             if (this.player.cockTotal() > 0) cockRape = this.rapeAnemoneWithDick;
             if (this.player.hasVagina()) vaginaRape = this.rapeAnemoneWithPussy;
@@ -1505,7 +1505,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
 
         this.outputText("\n\nWell, you've located her anus... what do you do now?");
 
-        var hotdog = undefined;
+        let hotdog;
         if (!this.player.isTaur()) hotdog = this.hotdogTheAnemone;
 
         this.simpleChoices(
@@ -1525,8 +1525,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
     // [FUCK IT] (if cock fit 48, use cock; else use clit scenes)
     private anemoneQuoteUnquoteAnal(): void {
         this.clearOutput();
-        var dick: boolean = this.player.cockThatFits(48) >= 0 && this.player.hasCock();
-        var x: number = 0;
+        const dick: boolean = this.player.cockThatFits(48) >= 0 && this.player.hasCock();
+        let x = 0;
         this.outputText(this.images.showImage("anemone-bj"), false);
         if (dick) x = this.player.cockThatFits(48);
         this.outputText("You're in the mood for anal and anal you shall have.  ");
@@ -1671,8 +1671,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
     private hotdogTheAnemone(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("anemone-doggy"), false);
-        var dick: boolean = this.player.cockThatFits(48) >= 0 && this.player.hasCock();
-        var x: number = 0;
+        const dick: boolean = this.player.cockThatFits(48) >= 0 && this.player.hasCock();
+        let x = 0;
         if (dick) x = this.player.cockThatFits(48);
         // horses eat hay, not hotdogs
         this.outputText(
@@ -2157,9 +2157,9 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
 
     // [Barrel] button in [Stash] menu (appears whenever Kidswag flag >= 1)
     public approachAnemoneBarrel(): void {
-        var item = undefined;
-        var weaponT: string = "Give Weapon";
-        var weaponB = this.giveAnemoneWeapon;
+        let item;
+        let weaponT = "Give Weapon";
+        let weaponB = this.giveAnemoneWeapon;
         this.clearOutput();
         this.spriteSelect(71);
         this.outputText("You walk over to the barrel.  ");
@@ -2210,7 +2210,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
                 this.outputText("\n\nYou're too tired to tutor Kid A.");
             this.addButton(4, "Watch", this.anemoneWatchToggle);
             this.addButton(8, "Evict", this.evictANemone);
-            var sex: boolean = false;
+            let sex = false;
             if (this.flags[kFLAGS.HAD_KID_A_DREAM] > 0 && this.flags[kFLAGS.ANEMONE_KID] >= 2) {
                 if (this.kidAXP() >= 40) {
                     if (this.player.lust >= 33) {
@@ -2240,12 +2240,12 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
     private getAnemoneItem(): void {
         this.clearOutput();
         this.spriteSelect(71);
-        var choice: number;
-        var itype: ItemType;
+        let choice: number;
+        let itype: ItemType;
         this.outputText("You reach down and pick up her present.  Today, she's left you ");
         if (this.kidAXP() == 0) itype = this.consumables.DRYTENT;
         else if (this.kidAXP() < 50) {
-            ///[IncubusDraft/SuccubusMilk/ImpFood/MinoBlood/LargeAxe]
+            /// [IncubusDraft/SuccubusMilk/ImpFood/MinoBlood/LargeAxe]
             choice = AnemoneScene.rand(8);
             if (choice == 0) itype = this.consumables.INCUBID;
             else if (choice == 1) itype = this.consumables.SUCMILK;
@@ -2308,8 +2308,8 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         };
         this.menu();
         kGAMECLASS.hideUpDown();
-        var foundItem: boolean = false;
-        for (var x: number = 0; x < 5; x++) {
+        let foundItem = false;
+        for (let x = 0; x < 5; x++) {
             if (
                 this.player.itemSlots[x].quantity > 0 &&
                 giveableToAnemone(this.player.itemSlots[x].itype)
@@ -2345,7 +2345,7 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         this.spriteSelect(71);
         this.outputText("You take the item back.  ");
-        var itype: ItemType = ItemType.lookupItem(this.flags[kFLAGS.ANEMONE_WEAPON_ID]);
+        const itype: ItemType = ItemType.lookupItem(this.flags[kFLAGS.ANEMONE_WEAPON_ID]);
         if (this.flags[kFLAGS.ANEMONE_WATCH] > 0) {
             this.outputText(
                 "Your anemone daughter will not be able to guard you at night without a weapon.  If you want her to guard, you'll need to give her a new weapon and tell her to watch at night again.  "
@@ -2649,15 +2649,15 @@ export class AnemoneScene extends BaseContent implements TimeAwareInterface {
         }
     }
 
-    private kidASex(cont: boolean = true): boolean {
+    private kidASex(cont = true): boolean {
         if (!cont) {
             this.clearOutput();
             this.outputText(
                 "Smiling lustily at Kid A, you run your hand through her hair, inhaling deep breaths as you allow her venom to affect you more and more.  She blushes, but watches eagerly.  Soon, the tingling lust has you overwhelmed..."
             );
         }
-        var x: number;
-        var y: number;
+        let x: number;
+        let y: number;
         // pseudo-virgin vaginal, one time only
         // if KidXP >= 40 and lust > 99 after tutor and PC has wang of area <36 and Kidswag = 2
         if (

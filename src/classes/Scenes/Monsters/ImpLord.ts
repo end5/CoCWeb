@@ -17,7 +17,7 @@ export class ImpLord extends Imp {
             "The imp mutters something to himself. Before you have time to react the demonic creature's hand is filled with a bright red fire that he hurls at you.  The flames lick at your body leaving a painful burn on you torso, as well as an arousing heat in your groin."
         );
         // [-HP // +Lust(minor)]
-        var damage: number = 40 + ImpLord.rand(10);
+        const damage: number = 40 + ImpLord.rand(10);
         this.player.takeDamage(damage);
         this.game.dynStats("lus", 20 + this.player.cor / 10);
         this.combatRoundOver();
@@ -25,7 +25,7 @@ export class ImpLord extends Imp {
 
     // Heavy Attack
     protected impLordHeavyEncounter(): void {
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str + this.weaponAttack + 20 - ImpLord.rand(this.player.tou) - this.player.armorDef
         );
         this.outputText("The demonic creature slashes a clawed hand towards your stomach,");
@@ -62,7 +62,7 @@ export class ImpLord extends Imp {
         this.outputText(
             "Reaching into his satchel the devilish creature pulls out a leather riding crop.  He quickly rushes forward, but somehow manages to get behind you.  Before you can react the imp lashes out, striking your [butt] twice with the riding crop.  The strikes leave a slight burning feeling, as well as a strange sense of arousal."
         );
-        var damage: number = 3 + ImpLord.rand(10);
+        let damage: number = 3 + ImpLord.rand(10);
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")");
         // [-HP(minor) // +Lust]
@@ -70,7 +70,7 @@ export class ImpLord extends Imp {
         this.combatRoundOver();
     }
     protected performCombatAction(): void {
-        var choices: any[] = [
+        const choices: any[] = [
             this.impFire,
             this.impLordLustAttack2,
             this.impLordLustAttack,

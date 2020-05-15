@@ -17,7 +17,7 @@ import { Isabella } from "./Isabella";
 import { NPCAwareContent } from "./NPCAwareContent";
 
 export class IsabellaFollowerScene extends NPCAwareContent {
-    /*===========================
+    /* ===========================
 Izzy Affection stat.
 =============================
 Follower option procs at 50 affection.
@@ -35,7 +35,7 @@ Throat Punch?
 Isabella modifies armor to provide additional +1 bonus?
 Optional Morning Oral for small-membered males*/
 
-    /*===========================
+    /* ===========================
     Variable List
     ===========================*/
     // ISABELLAS CUNT CAPACITY: 164!
@@ -70,7 +70,7 @@ Optional Morning Oral for small-membered males*/
         if (this.flags[kFLAGS.ISABELLA_ACCENT_FORCED_ON]) return true;
         return false;
     }
-    public isabellaAffection(mod: number = 0): number {
+    public isabellaAffection(mod = 0): number {
         this.flags[kFLAGS.ISABELLA_AFFECTION] += mod;
         if (this.flags[kFLAGS.ISABELLA_AFFECTION] > 100)
             this.flags[kFLAGS.ISABELLA_AFFECTION] = 100;
@@ -152,7 +152,7 @@ Optional Morning Oral for small-membered males*/
             );
             // (Raise threshold for next occurance to current affection + 15)
             // [Accept - Use standard] [Normal Menu Options]
-            var suck = undefined;
+            let suck;
             if (this.player.hasCock()) {
                 if (this.player.cocks[this.player.shortestCockIndex()].cockLength < 9)
                     suck = this.isabellaScene.izzyGivesSmallWangsFreeOral;
@@ -198,7 +198,7 @@ Optional Morning Oral for small-membered males*/
                 '.  I shall continue mein lonely vigil.  Vas zere somezing else I could do for you, ja?</i>"\n\n',
             false
         );
-        var suck = undefined;
+        let suck;
         if (this.player.hasCock()) {
             if (this.player.cocks[this.player.shortestCockIndex()].cockLength < 9)
                 suck = this.isabellaScene.izzyGivesSmallWangsFreeOral;
@@ -320,12 +320,12 @@ Optional Morning Oral for small-membered males*/
             else this.outputText("\n\n“<i>Hello [name]. What can Isabella help you with?</i>”");
         }
 
-        var accent = undefined;
+        let accent;
         if (this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] < 100)
             accent = this.isabellasAccentCoaching;
-        var milk = undefined;
+        let milk;
         if (this.flags[kFLAGS.ISABELLA_MILKED_YET] < 0) milk = this.getMilk;
-        var pro = undefined;
+        let pro;
         if (this.player.hasItem(this.consumables.PROBOVA) && this.player.gender > 0) {
             pro = this.isabellaBurps;
             this.outputText(
@@ -418,13 +418,13 @@ Optional Morning Oral for small-membered males*/
 
     private campIzzySexMenu(): void {
         this.spriteSelect(31);
-        var tentacle = undefined;
+        let tentacle;
         if (this.izzyTentacleRapeBool() && this.player.lust >= 33)
             tentacle = this.tentacleBoneFollowerIzzy;
-        var hotdog = undefined;
-        var bjToggle = undefined;
-        var bjTogText: string = "";
-        var getSucked = undefined;
+        let hotdog;
+        let bjToggle;
+        let bjTogText = "";
+        let getSucked;
         if (this.player.hasCock()) {
             if (this.flags[kFLAGS.ISABELLA_BLOWJOBS_DISABLED] == 0) {
                 bjTogText = "No BJs";
@@ -458,7 +458,7 @@ Optional Morning Oral for small-membered males*/
             this.outputText("  <b>You aren't aroused enough to initiate sex.</b>", false);
         if (this.player.hasCock() && this.player.lust >= 33)
             hotdog = this.repeatGermanBratwurstInCamp;
-        var fuckHer = undefined;
+        let fuckHer;
         if (this.player.cockThatFits(164) >= 0 && this.player.lust >= 33)
             fuckHer = this.fuckIsabella;
         this.choices(
@@ -499,7 +499,7 @@ Optional Morning Oral for small-membered males*/
             this.doNext(this.callForFollowerIsabella);
             return;
         }
-        /*(req's 100% teach score to replace dialogue.  Success
+        /* (req's 100% teach score to replace dialogue.  Success
         based on inte)*/
         // (FIRST TIME)
         if (this.flags[kFLAGS.ISABELLA_ACCENT_TRAINING_PERCENT] == 0) {
@@ -516,8 +516,8 @@ Optional Morning Oral for small-membered males*/
         // Autosuccess at inte >= 60)
         // Autofail at inte < 20)
         // 50/50 shot at inte 40ish
-        var result: number = this.player.inte / 5 + IsabellaFollowerScene.rand(9);
-        var accentChange: number = 0;
+        const result: number = this.player.inte / 5 + IsabellaFollowerScene.rand(9);
+        let accentChange = 0;
         // (Success/Fail texts)
         if (result < 12) {
             this.temp = IsabellaFollowerScene.rand(3);
@@ -655,7 +655,7 @@ Optional Morning Oral for small-membered males*/
     public isabellaMorningWakeupCall(): void {
         this.spriteSelect(31);
         this.flags[kFLAGS.ISABELLA_MORNING_FELLATIO_COUNT]++;
-        var x: number = this.player.shortestCockIndex();
+        const x: number = this.player.shortestCockIndex();
         this.outputText("\n", false);
         this.outputText(
             "Sighing happily, your dream takes on a markedly sexual tone, a bevy of delightful sensations wrapping around your loins in your sleep.  Your " +
@@ -883,7 +883,7 @@ Optional Morning Oral for small-membered males*/
     private repeatGermanBratwurstInCamp(): void {
         this.spriteSelect(31);
         this.outputText("", true);
-        var x: number = this.player.smallestCockIndex();
+        let x: number = this.player.smallestCockIndex();
         this.outputText(
             "You ask Isabella if she would mind helping you blow off some pressure before you go back out.  She glances down at " +
                 this.sMultiCockDesc() +
@@ -1318,7 +1318,7 @@ Optional Morning Oral for small-membered males*/
 
     private izzyTentacleRapeBool(): boolean {
         this.spriteSelect(31);
-        var counter: number = 0;
+        let counter = 0;
         this.temp = this.player.cockTotal();
         while (counter < this.player.tentacleCocks() && this.temp > 0) {
             this.temp--;
@@ -1340,18 +1340,18 @@ Optional Morning Oral for small-membered males*/
     private tentacleBoneFollowerIzzy(): void {
         this.spriteSelect(31);
         // Tentacle dick index holders
-        var t1: number = -1;
-        var t2: number = -1;
-        var t3: number = -1;
-        var t4: number = -1;
-        var t5: number = -1;
-        var t6: number = -1;
-        var t7: number = -1;
-        var t8: number = -1;
-        var t9: number = -1;
-        var t10: number = -1;
+        let t1 = -1;
+        let t2 = -1;
+        let t3 = -1;
+        let t4 = -1;
+        let t5 = -1;
+        let t6 = -1;
+        let t7 = -1;
+        let t8 = -1;
+        let t9 = -1;
+        let t10 = -1;
 
-        var counter: number = 0;
+        let counter = 0;
         this.temp = this.player.cocks.length;
         while (counter < this.player.tentacleCocks() && this.temp > 0) {
             this.temp--;
@@ -2057,7 +2057,7 @@ Optional Morning Oral for small-membered males*/
         );
     }
 
-    private sparring(type: number = 1): void {
+    private sparring(type = 1): void {
         this.spriteSelect(31);
         this.outputText("", true);
         if (this.flags[kFLAGS.ISABELLA_SPARRING_INTRO] == 1) {
@@ -2294,7 +2294,7 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-            var changed: boolean = false;
+            let changed = false;
             // no new paragraph, but this obviously shouldn't happen with characters who already have hooves, cow/bull horns, lactating breasts, or a penis smaller than 8 inches. If you want to simply disable the following for those with the first two while simply adding a 'more' to the lactation or an 'even smaller' to the wang growing, I don't blame you, but if you could go in and 'if cow feet don't look at this shit' and whatever with each individual part, it'd probably read the best. Your call, you probably want to get done with this sooner than later. tl;dr it would be cool if you could make it fit as many of the criteria that apply at once.
             if (
                 this.player.lowerBody != LOWER_BODY_TYPE_HOOFED ||
@@ -2910,9 +2910,9 @@ Optional Morning Oral for small-membered males*/
         this.clearOutput();
         this.spriteSelect(31);
         // AREA FOR SCENE ACCESS: (164);
-        var x: number = this.player.shortestCockIndex();
+        let x: number = this.player.shortestCockIndex();
         if (this.player.cocks[x].cockLength >= 9) x = this.player.cockThatFits(164);
-        var y: number = x + 1;
+        const y: number = x + 1;
 
         // {New Option in Isabella's [Sex] Menu: [Fuck Her]} -- Requires sex-ready lust & a cock she is capable of taking
         this.outputText(
@@ -3083,7 +3083,7 @@ Optional Morning Oral for small-membered males*/
 
     // Fuck Her (Male/Dick'd Herms)
     private fuckIsabellaInTheBarn(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.clearOutput();
         this.outputText(
             "You quietly slip into the barn and make your way over to Isabella's stall.  Silently opening the door, you're afforded a good look at the nude, bent-over cowgirl, your eyes drinking in her lush curves and thick, soft ass - and the glistening pussy between her meaty thighs, slightly parted by a pair of mottle-skinned fingers rubbing and teasing at her big clit."

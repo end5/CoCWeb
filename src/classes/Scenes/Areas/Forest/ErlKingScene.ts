@@ -29,7 +29,7 @@ export class ErlKingScene extends BaseContent {
         trace("Calculating Wild Hunt score.");
         trace("Int + Spd = " + String(this.player.inte + this.player.spe));
         trace("Base = " + String(this.player.inte + this.player.spe - this.player.fatigue * 2));
-        var baseVal: number = this.player.inte + this.player.spe - this.player.fatigue * 2;
+        let baseVal: number = this.player.inte + this.player.spe - this.player.fatigue * 2;
 
         /*
         Conditional modifiers: +20 for Evade
@@ -151,7 +151,7 @@ export class ErlKingScene extends BaseContent {
         this.addButton(1, "Run", this.firstWildHuntChase, false);
     }
 
-    protected firstWildHuntChase(waited: boolean = false): void {
+    protected firstWildHuntChase(waited = false): void {
         this.clearOutput();
 
         if (waited == false) {
@@ -294,7 +294,7 @@ export class ErlKingScene extends BaseContent {
     }
 
     protected repeatWildHuntChase(): void {
-        var pScore: number = this.playerHuntScore();
+        const pScore: number = this.playerHuntScore();
         if (pScore > 150) {
             this.repeatWildHuntEscaped();
         } else {
@@ -491,7 +491,7 @@ export class ErlKingScene extends BaseContent {
             "As the fog recedes, your mind quickly returns.  Blinking, you wobble to your [feet], wiping cum from your lips and gathering your scattered gear from around the clearing before setting back for camp.  You find a shiny, red pepper in the clearing, but appear to have dropped some gems in your failed flight from the Hunt.\n\n"
         );
 
-        var gemLoss: number = 10 + ErlKingScene.rand(15);
+        let gemLoss: number = 10 + ErlKingScene.rand(15);
         if (this.player.gems < gemLoss) gemLoss = this.player.gems;
         this.player.gems -= gemLoss;
 
@@ -517,7 +517,7 @@ export class ErlKingScene extends BaseContent {
         );
 
         this.outputText(
-            "He grasps the rope holding you up, and with strength surprising for his slim frame, lowers you down to the forest floor.  “<i>You have my thanks for a grand hunt,</i>” he says as, hand-over-hand, you are returned to the ground.	\n\n"
+            "He grasps the rope holding you up, and with strength surprising for his slim frame, lowers you down to the forest floor.  “<i>You have my thanks for a grand hunt,</i>” he says as, hand-over-hand, you are returned to the ground. \n\n"
         );
 
         this.outputText(
@@ -540,7 +540,7 @@ export class ErlKingScene extends BaseContent {
             "Even with so many of these thoughts crowding your mind, there’s still a tiny spark of resentment burning.  You could rush him and turn the tables on this cocky asshole.\n\n"
         );
 
-        // Sex	 	What’s my prize?
+        // Sex   What’s my prize?
         // Stop the Madness
         // Surrender Forever
         // How Dare You!
@@ -569,11 +569,11 @@ export class ErlKingScene extends BaseContent {
         );
 
         // [You gain: Gems + Fox berries / Canine Peppers / Neon Pink Egg ]
-        var gemFind: number = 10 + ErlKingScene.rand(15);
+        const gemFind: number = 10 + ErlKingScene.rand(15);
 
         this.outputText("<b>You found " + gemFind + " gems.</b>\n\n");
 
-        var selector: number = ErlKingScene.rand(3);
+        const selector: number = ErlKingScene.rand(3);
 
         if (selector == 0)
             this.inventory.takeItem(this.consumables.CANINEP, this.camp.returnToCampUseOneHour);
@@ -755,9 +755,9 @@ export class ErlKingScene extends BaseContent {
         this.getGame().gameOver();
 
         //
-        // 	menu();
+        //  menu();
         //
-        // 	doNext(5025); // Find out the gameover shits
+        //  doNext(5025); // Find out the gameover shits
     }
 
     protected predatoryPrey(): void {
@@ -1085,7 +1085,7 @@ export class ErlKingScene extends BaseContent {
             "“<i>Muh-M’lord?</i>” she asks softly.  Her lithe arms push through the low branches and trees as she steps closer to you.  She’s timid and twitchy, quite different from the ominous and powerful huntsman she’d once been.  In a moment, you see why.\n\n"
         );
 
-        var selector: number = ErlKingScene.rand(6);
+        const selector: number = ErlKingScene.rand(6);
 
         if (selector == 0)
             this.outputText(

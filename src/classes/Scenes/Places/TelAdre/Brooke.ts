@@ -19,10 +19,10 @@ export class Brooke extends TelAdreAbstractContent {
     // Go to the showers; Brooke is there, but affection is too low
     // Third scene
     // Go to the showers; Brooke is there, and is affectionate
-    // 	Working out
-    // 	Gym Members
-    // 	Her Rockin’ Bod
-    // 	Grope
+    //  Working out
+    //  Gym Members
+    //  Her Rockin’ Bod
+    //  Grope
     //
     // Penetrate Her
     //
@@ -36,15 +36,15 @@ export class Brooke extends TelAdreAbstractContent {
     //
     // Double-Dicked
     // Fourth Scene
-    // 	Male Only
-    // 	Female Only
-    // 	Herm Only
+    //  Male Only
+    //  Female Only
+    //  Herm Only
     // Talk to Heckel
-    // 	Leave
-    // 	Butterfly
+    //  Leave
+    //  Butterfly
     //
     // Aftermath
-    // 	Leg Press
+    //  Leg Press
     //
     // Males/Herms Only
     //
@@ -52,7 +52,7 @@ export class Brooke extends TelAdreAbstractContent {
     //
     // Aftermath
 
-    public brookeAffection(arg: number = 0): number {
+    public brookeAffection(arg = 0): number {
         this.flags[kFLAGS.BROOKE_AFFECTION] += arg;
         if (this.flags[kFLAGS.BROOKE_AFFECTION] > 100) this.flags[kFLAGS.BROOKE_AFFECTION] = 100;
         else if (this.flags[kFLAGS.BROOKE_AFFECTION] < 0) this.flags[kFLAGS.BROOKE_AFFECTION] = 0;
@@ -711,9 +711,9 @@ export class Brooke extends TelAdreAbstractContent {
     // Requires at least one penis
     public penetrateBrooke(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.brookeCapacity());
+        let x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = this.player.cockThatFits2(this.brookeCapacity());
+        const y: number = this.player.cockThatFits2(this.brookeCapacity());
         this.outputText(this.images.showImage("brooke-gym-male-penetratebrooke"));
         this.outputText(
             "You rub your " +
@@ -817,7 +817,7 @@ export class Brooke extends TelAdreAbstractContent {
     // Requires at least one penis
     public brookeAnal(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.brookeCapacity());
+        let x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         // var y: number = this.player.cockThatFits2(this.brookeCapacity());
 
@@ -1222,7 +1222,7 @@ export class Brooke extends TelAdreAbstractContent {
     // Requires a gender
     public getLaidByBrooke(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.brookeCapacity());
+        let x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         // var y: number = this.player.cockThatFits2(this.brookeCapacity());
 
@@ -1505,9 +1505,9 @@ export class Brooke extends TelAdreAbstractContent {
     // Requires at least two penises
     public doubleDicked(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.brookeCapacity());
+        let x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = this.player.cockThatFits2(this.brookeCapacity());
+        const y: number = this.player.cockThatFits2(this.brookeCapacity());
 
         // if {all cockFits  >= 61}
         if (y < 0 || this.player.cockThatFits(x) >= this.brookeCapacity()) {
@@ -1813,7 +1813,7 @@ export class Brooke extends TelAdreAbstractContent {
     }
     public brookeSpecialMediumSceneContinued(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.brookeCapacity());
+        let x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x < 0 && this.player.hasCock()) x = this.player.smallestCockIndex();
 
         this.flags[kFLAGS.BROOKE_MEDIUM_SCENE] = 1;
@@ -1830,7 +1830,7 @@ export class Brooke extends TelAdreAbstractContent {
                     this.cockDescript(x) +
                     " continues to saw tantalizingly between her thighs"
             );
-            var y: number = this.player.cockThatFits2(this.brookeCapacity());
+            const y: number = this.player.cockThatFits2(this.brookeCapacity());
             if (this.player.cockTotal() == 2)
                 this.outputText(
                     " while your second phallus brushes higher, rubbing itself through the wet fur on her stomach between the gorge of her abs"
@@ -2676,7 +2676,7 @@ export class Brooke extends TelAdreAbstractContent {
         );
 
         // {Males/herms only}
-        var x: number = this.player.cockThatFits(this.brookeCapacity());
+        const x: number = this.player.cockThatFits(this.brookeCapacity());
         if (x >= 0) {
             this.outputText(
                 '\n\n<i>"Stand,"</i> she commands, stepping back.  <i>"[name], stand behind her, and get ready to catch her."</i>  Heckel hesitates a bit, leaning forward and trying to pull herself to her weary, exhausted legs.  She stands eventually, wobbly and limp, and begins to tumble.  Thankfully, you\'re there to catch her before she falls too far, much to her degradation.  You stand front-to-back, letting your ' +
@@ -2711,8 +2711,8 @@ export class Brooke extends TelAdreAbstractContent {
                 this.flags[kFLAGS.TIMES_FUCKED_HECKEL_BLOWJOB] > 0 ||
                 this.flags[kFLAGS.TIMES_FUCKED_HECKEL_ANAL] > 0
             ) {
-                var bj: boolean = this.flags[kFLAGS.TIMES_FUCKED_HECKEL_BLOWJOB] > 0;
-                var anal: boolean = this.flags[kFLAGS.TIMES_FUCKED_HECKEL_ANAL] > 0;
+                const bj: boolean = this.flags[kFLAGS.TIMES_FUCKED_HECKEL_BLOWJOB] > 0;
+                const anal: boolean = this.flags[kFLAGS.TIMES_FUCKED_HECKEL_ANAL] > 0;
 
                 if (bj && anal)
                     this.outputText(

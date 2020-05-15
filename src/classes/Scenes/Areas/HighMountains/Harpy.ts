@@ -37,7 +37,7 @@ export class Harpy extends Monster {
         // (Harpy special attack 1, part two if PC does anything but "Wait")
         else {
             if (this.flags[kFLAGS.IN_COMBAT_USE_PLAYER_WAITED_FLAG] == 0) {
-                var damage: number = 160 + Harpy.rand(20);
+                let damage: number = 160 + Harpy.rand(20);
                 damage = this.player.takeDamage(damage);
                 this.outputText(
                     "The harpy lets out a terrible cry and drops, reaching an almost impossible speed as she dives down at you.  Her eyes are narrowed like a true bird of prey.  You were too busy with your own attack to avoid it!  Her claws surge down and pierce your " +
@@ -116,7 +116,7 @@ export class Harpy extends Monster {
         }
     }
 
-    public constructor(noInit: boolean = false) {
+    public constructor(noInit = false) {
         super();
         if (noInit) return;
         trace("Harpy Constructor!");

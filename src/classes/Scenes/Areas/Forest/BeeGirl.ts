@@ -35,11 +35,11 @@ export class BeeGirl extends Monster {
             }
             this.player.lust = 98;
             this.game.dynStats("lus", 1);
-            var dildoRape =
+            const dildoRape =
                 this.player.hasKeyItem("Deluxe Dildo") >= 0
                     ? this.game.forest.beeGirlScene.beeGirlsGetsDildoed
                     : undefined;
-            var milkAndHoney =
+            const milkAndHoney =
                 this.player.findStatusAffect(StatusAffects.Feeder) >= 0
                     ? this.game.forest.beeGirlScene.milkAndHoneyAreKindaFunny
                     : undefined;
@@ -89,9 +89,9 @@ export class BeeGirl extends Monster {
 
     private leaveAfterDefeating(): void {
         if (this.HP < 1) {
-            this.flags[kFLAGS.BEE_GIRL_COMBAT_WINS_WITHOUT_RAPE]++; //This only happens if you beat her up and then don't rape her
+            this.flags[kFLAGS.BEE_GIRL_COMBAT_WINS_WITHOUT_RAPE]++; // This only happens if you beat her up and then don't rape her
         } else {
-            this.flags[kFLAGS.BEE_GIRL_COMBAT_WINS_WITH_RAPE]++; //All wins by lust count towards the desire option, even when you leave
+            this.flags[kFLAGS.BEE_GIRL_COMBAT_WINS_WITH_RAPE]++; // All wins by lust count towards the desire option, even when you leave
         }
         this.game.cleanupAfterCombat();
     }
@@ -192,9 +192,9 @@ export class BeeGirl extends Monster {
                     this.short +
                     " manages to sting you!  You stagger back a step and nearly trip, finding it hard to move yourself."
             );
-            var paralyzeIndex: number = this.player.findStatusAffect(StatusAffects.ParalyzeVenom);
+            const paralyzeIndex: number = this.player.findStatusAffect(StatusAffects.ParalyzeVenom);
             if (paralyzeIndex >= 0) {
-                this.player.statusAffect(paralyzeIndex).value1 += 2.9; //v1 - strenght penalty, v2 speed penalty
+                this.player.statusAffect(paralyzeIndex).value1 += 2.9; // v1 - strenght penalty, v2 speed penalty
                 this.player.statusAffect(paralyzeIndex).value2 += 2.9;
                 this.game.dynStats("str", -3, "spe", -3);
                 this.outputText(

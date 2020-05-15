@@ -1,5 +1,5 @@
 import { bindToClass } from "../../ClassBinder";
-import { CoC_Settings } from "../CoC_Settings";
+import { CocSettings } from "../CoC_Settings";
 
 /**
  * Created by aimozg on 18.01.14.
@@ -52,9 +52,9 @@ export class Utils {
     // curryFunction(f,args1)(args2)=f(args1.concat(args2))
     // e.g. curryFunction(f,x,y)(z,w) = f(x,y,z,w)
     public static curry(func: any, ...args: any[]) {
-        if (func == undefined) CoC_Settings.error("carryFunction(undefined," + args + ")");
+        if (func == undefined) CocSettings.error("carryFunction(undefined," + args + ")");
         return function (...args2: any[]): any {
-            return func.apply(undefined, args.concat(args2));
+            return func(...args, ...args2);
         };
     }
 
@@ -74,29 +74,29 @@ export class Utils {
         return concat + " and " + stringList[stringList.length - 1];
     }
 
-    public static num2Text(number: number): string {
-        if (number >= 0 && number <= 10) return Utils.NUMBER_WORDS_NORMAL[number];
-        return number.toString();
+    public static num2Text(numeric: number): string {
+        if (numeric >= 0 && numeric <= 10) return Utils.NUMBER_WORDS_NORMAL[numeric];
+        return numeric.toString();
     }
 
-    public static num2Text2(number: number): string {
-        if (number < 0) return number.toString(); // Can't really have the -10th of something
-        if (number <= 10) return Utils.NUMBER_WORDS_POSITIONAL[number];
-        switch (number % 10) {
+    public static num2Text2(numeric: number): string {
+        if (numeric < 0) return numeric.toString(); // Can't really have the -10th of something
+        if (numeric <= 10) return Utils.NUMBER_WORDS_POSITIONAL[numeric];
+        switch (numeric % 10) {
             case 1:
-                return number.toString() + "st";
+                return numeric.toString() + "st";
             case 2:
-                return number.toString() + "nd";
+                return numeric.toString() + "nd";
             case 3:
-                return number.toString() + "rd";
+                return numeric.toString() + "rd";
             default:
         }
-        return number.toString() + "th";
+        return numeric.toString() + "th";
     }
 
-    public static Num2Text(number: number): string {
-        if (number >= 0 && number <= 10) return Utils.NUMBER_WORDS_CAPITAL[number];
-        return number.toString();
+    public static Num2Text(numeric: number): string {
+        if (numeric >= 0 && numeric <= 10) return Utils.NUMBER_WORDS_CAPITAL[numeric];
+        return numeric.toString();
     }
 
     // Basically, you pass an arbitrary-length list of arguments, and it returns one of them at random.

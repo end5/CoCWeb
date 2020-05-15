@@ -9,7 +9,7 @@ import { GnollSpearThrower } from "./GnollSpearThrower";
  */
 
 export class GnollSpearThrowerScene extends BaseContent {
-    /*Content Guide: Just to help me make sure I got everything and to explain the layout, colored font is going to be used to identify when text should be used.  This will often be used in regards to specific characteristics, instead of the overall gender.  For example, a reference to a cuntboy's chest would be in Orange but a reference to her hips or groin would be red.
+    /* Content Guide: Just to help me make sure I got everything and to explain the layout, colored font is going to be used to identify when text should be used.  This will often be used in regards to specific characteristics, instead of the overall gender.  For example, a reference to a cuntboy's chest would be in Orange but a reference to her hips or groin would be red.
      Black – Universal text
      Blue – Text to be used on Male heroes
      Red – Text to be used on Female heroes
@@ -335,9 +335,9 @@ export class GnollSpearThrowerScene extends BaseContent {
             " to fight further.  One spotted paw holds tight to the shaft while the tawny warrior slowly falls to her knees, the will to fight completely gone.  Her head bows to you in submission as you slowly approach the defeated hyena.",
             false
         );
-        var vagoo = undefined;
+        let vagoo;
         if (this.player.hasVagina()) vagoo = this.victoryRapeHyenaCunnilingus;
-        var penor = undefined;
+        let penor;
         if (this.player.hasCock()) penor = this.hyenaVictoryRapeFellatio;
         if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText(
@@ -362,9 +362,9 @@ export class GnollSpearThrowerScene extends BaseContent {
     // <Hyena Defeat - Fellatio>
     private hyenaVictoryRapeFellatio(): void {
         this.spriteSelect(54);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
-        var y: number = this.player.cockThatFits2(40);
+        let y: number = this.player.cockThatFits2(40);
         if (this.player.cockTotal() > 1 && (y < 0 || y == x)) {
             y = 0;
             if (y == x) y = 1;

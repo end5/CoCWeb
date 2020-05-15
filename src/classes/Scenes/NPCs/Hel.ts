@@ -17,7 +17,7 @@ import { StatusAffects } from "../../StatusAffects";
 
 export class Hel extends Monster {
     private helAttack(): void {
-        var damage: number;
+        let damage: number;
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         // Blind dodge change
@@ -131,7 +131,7 @@ export class Hel extends Monster {
     // Attack 2 – Tail Slap (Hit)
     // low dodge chance, lower damage
     private helAttack2(): void {
-        var damage: number;
+        let damage: number;
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         // Blind dodge change
@@ -249,7 +249,7 @@ export class Hel extends Monster {
                 "To your surprise, the salamander suddenly yanks up her top, letting her hefty breasts hang free in the air; her small, bright pink nipples quickly harden from either arousal or temperature.  Before you can take your eyes off her impressive rack, she jumps at you.  One of her scaled arms encircles your waist, and the other forcefully shoves your face into her cleavage.  She jiggles her tits around your face for a moment before you're able to break free, though you can feel a distinct heat rising in your loins.  As quickly as they were revealed, the breasts are concealed again and your opponent is ready for more combat!",
                 false
             );
-            var lust: number =
+            let lust: number =
                 20 + Hel.rand(10) + this.player.sens / 10 + Hel.rand(this.player.lib / 20);
             this.game.dynStats("lus", lust);
             // Apply resistance
@@ -262,7 +262,7 @@ export class Hel extends Monster {
     }
     protected performCombatAction(): void {
         trace("Hel Perform Combat Action Called");
-        var select: number = Hel.rand(3);
+        const select: number = Hel.rand(3);
         trace("Selected: " + select);
         switch (select) {
             case 0:

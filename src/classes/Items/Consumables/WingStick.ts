@@ -41,7 +41,7 @@ export class WingStick extends Consumable {
             );
         } else {
             // Not dodged
-            var damage: number = 40 + Utils.rand(61);
+            const damage: number = 40 + Utils.rand(61);
             this.outputText(
                 this.game.monster.capitalA +
                     this.game.monster.short +

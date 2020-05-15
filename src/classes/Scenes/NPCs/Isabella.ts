@@ -59,7 +59,7 @@ export class Isabella extends Monster {
                 false
             );
         } else {
-            var damage: number;
+            let damage: number;
             damage = Math.round(
                 this.weaponAttack +
                     this.str +
@@ -127,7 +127,7 @@ export class Isabella extends Monster {
                 false
             );
         } else {
-            var damage: number = 0;
+            let damage = 0;
             damage = Math.round(
                 this.weaponAttack + this.str - Isabella.rand(this.player.tou + this.player.armorDef)
             );
@@ -195,7 +195,7 @@ export class Isabella extends Monster {
                 false
             );
         } else {
-            var damage: number;
+            let damage: number;
             damage = Math.round(this.str - Isabella.rand(this.player.tou + this.player.armorDef));
             if (damage <= 0) {
                 this.outputText("You manage to block her with your own fists.\n", false);

@@ -22,7 +22,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
     // const EXGARTUAN_TIGHTPANTS_MASTURBATE_COUNT: number = 413;
     // const BOOBGARTUAN_SURPRISE_COUNT: number = 414;
 
-    /*function exgartuanMasturbate(): void {
+    /* function exgartuanMasturbate(): void {
 
     */
     // Dick(s)
@@ -36,7 +36,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
     // 1/40 chance of encountering fountain. It does not appear while possessed.
     // When drank from, rewards 300 xp, a sizable random growth, and either boosts minimum lust by 5 or gives demonic possession.
 
-    /*Possession details:
+    /* Possession details:
     -Changes body part once a week (if possible)
     -Dick
     **Increases lust if not paid attention to (masturbation w/special scene)
@@ -70,12 +70,12 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedExgartuan: number = 0;
+    private checkedExgartuan = 0;
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        var needNext: boolean = false;
-        this.checkedExgartuan = 0; //Make sure we test just once in timeChangeLarge
+        let needNext = false;
+        this.checkedExgartuan = 0; // Make sure we test just once in timeChangeLarge
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0) {
             // Update Exgartuan stuff
             trace(
@@ -131,95 +131,95 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
 
 //
 //
-// 	(armorName == "sexy black chitin armor-plating" ||
+//  (armorName == "sexy black chitin armor-plating" ||
 
 //
 //
-// 	armorName == "glistening gel-armor plates" ||
+//  armorName == "glistening gel-armor plates" ||
 
 //
 //
-// 	player.armorName == "leather armor segments" ||
+//  player.armorName == "leather armor segments" ||
 
 //
 //
-// 	player.armorName == "comfortable clothes" ||
+//  player.armorName == "comfortable clothes" ||
 
 //
 //
-// 	player.armorName == "bondage patient clothes" ||
+//  player.armorName == "bondage patient clothes" ||
 
 //
 //
-// 	player.armorName == "crotch-revealing clothes" ||
+//  player.armorName == "crotch-revealing clothes" ||
 
 //
 //
-// 	player.armorName == "cute servant's clothes" ||
+//  player.armorName == "cute servant's clothes" ||
 
 //
 //
-// 	player.armorName == "maid's clothes" ||
+//  player.armorName == "maid's clothes" ||
 
 //
 //
-// 	player.armorName == "servant's clothes" ||
+//  player.armorName == "servant's clothes" ||
 
 //
 //
-// 	player.armorName == "maid's clothes" ||
+//  player.armorName == "maid's clothes" ||
 
 //
 //
-// 	player.armorName == "practically indecent steel armor" ||
+//  player.armorName == "practically indecent steel armor" ||
 
 //
 //
-// 	player.armorName == "red, high-society bodysuit" ||
+//  player.armorName == "red, high-society bodysuit" ||
 
 //
 //
-// 	player.armorName == "spider-silk armor" ||
+//  player.armorName == "spider-silk armor" ||
 
 //
 //
-// 	player.armorName == "slutty swimwear" ||
+//  player.armorName == "slutty swimwear" ||
 
 //
 //
-// 	player.armorName == "full-body chainmail" ||
+//  player.armorName == "full-body chainmail" ||
 
 //
 //
-// 	player.armorName == "revealing chainmail bikini" ||
+//  player.armorName == "revealing chainmail bikini" ||
 
 //
 //
-// 	player.armorName == "full platemail" ||
+//  player.armorName == "full platemail" ||
 
 //
 //
-// 	player.armorName == "scale-mail armor" ||
+//  player.armorName == "scale-mail armor" ||
 
 //
 //
-// 	player.armorName == "black leather armor surrounded by voluminous robes" ||
+//  player.armorName == "black leather armor surrounded by voluminous robes" ||
 
 //
 //
-// 	player.armorName == "rubber fetish clothes" ||
+//  player.armorName == "rubber fetish clothes" ||
 
 //
 //
-// 	player.armorName == "green adventurer's clothes" ||
+//  player.armorName == "green adventurer's clothes" ||
 
 //
 //
-// 	player.armorName == "white shirt and overalls")) {
+//  player.armorName == "white shirt and overalls")) {
 
 //
 //
-// 	*/
+//  */
                             this.outputText("\n<b>");
                             this.exgartuanArmorShift();
                             this.outputText("</b>\n");
@@ -321,7 +321,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
 
     private drinkFountainEndowment(): void {
         this.outputText("", true);
-        var changed: boolean = false;
+        let changed = false;
         this.player.slimeFeed();
         this.outputText(
             "You cup your hands and bring the clear water to your lips, taking a long drink.  It's cool and refreshing, going down quite easily.  Weird.  You thought it would make you feel different somehow.",
@@ -341,7 +341,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             !changed &&
             Exgartuan.rand(2) == 0
         ) {
-            var choices: number = 0;
+            let choices = 0;
             if (this.player.cockTotal() > 0) {
                 if (this.player.cockArea(0) >= 100) choices++;
             }
@@ -847,7 +847,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
 
     // (NOT PLAYED WITH RECENTLY: +LUST MESSAGE)
     public exgartuanBored(): void {
-        var select: number = 0;
+        let select = 0;
         if (
             this.player.statusAffectv1(StatusAffects.Exgartuan) == 1 &&
             this.player.cockArea(0) >= 100
@@ -1010,7 +1010,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         )
             return false;
         // VARS
-        var select: number = 0;
+        let select = 0;
         if (this.player.statusAffectv1(StatusAffects.Exgartuan) == 1) {
             // [USE MAGIC TO MAKE GOBLINS COOCHIES STRETCHIER!]
             if (this.monster.short == "goblin" && Exgartuan.rand(3) == 0) {
@@ -1393,7 +1393,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
 
     // (ARMOR CHANGE)
     public exgartuanArmorShift(): void {
-        var changed: boolean = false;
+        let changed = false;
         if (this.player.armor == this.armors.BEEARMR) {
             this.outputText(
                 "The silken loin-cloth of your chitin armor cinches up, tightening against your groin until it displays the prominent bulge of your demon-possessed dick clearly.",
@@ -1584,7 +1584,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
     }
 
     public exgartuanLactationAdjustment(): void {
-        var boobs: number = 0;
+        let boobs = 0;
         // (Lactating Already)
         if (this.player.biggestLactation() > 1) {
             // (Increase)

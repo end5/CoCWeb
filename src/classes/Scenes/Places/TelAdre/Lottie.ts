@@ -18,7 +18,7 @@ export class Lottie extends TelAdreAbstractContent {
     // 300 - Last encouragement state
 
     // [INITIAL INTRO – Requires Male/Herm, visits at 5pm – 7pm]
-    public lottieAppearance(display: boolean = true) {
+    public lottieAppearance(display = true) {
         if (!this.player.hasCock()) return undefined;
         if (this.player.findStatusAffect(StatusAffects.MetMarae) < 0) return undefined;
         if (this.model.time.hours >= 15 && this.model.time.hours <= 23) {
@@ -111,15 +111,15 @@ export class Lottie extends TelAdreAbstractContent {
         this.encounterLottie(true);
     }
 
-    public encounterLottie(charge: boolean = false): void {
+    public encounterLottie(charge = false): void {
         this.spriteSelect(36);
-        var comedy1 = undefined;
+        let comedy1;
 
         // Choice menu vars
         // [Appearance][Talk][Exercise][Give Item][Sex][Hug]
-        var item = this.giveLottieAnItem;
-        var sex = undefined;
-        var hug = this.hugTheShitOutOfYourHam;
+        const item = this.giveLottieAnItem;
+        let sex;
+        const hug = this.hugTheShitOutOfYourHam;
 
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00310] +
@@ -609,7 +609,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.spriteSelect(36);
         this.outputText("", true);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             'You tell her that you\'re fine with the idea, as long as she\'s willing to follow your lead. "<i>W-wow, you really wanna... and with me? Okay, sure, lemme just uh, hang on...</i>" She fumbles with her clothing, clearly trying to get undressed in public before you decide to stop her – there are far better places for this. Taking her by the hand, you lead her into one of the empty saunas, your erection stirring in your pants as you grow more and more eager to take her. "<i>' +
@@ -899,7 +899,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.spriteSelect(36);
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-fuck-her-in-teh-butzor"));
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You brush her grip off of " +
@@ -993,7 +993,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.spriteSelect(36);
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-gives-you-a-blowjob"));
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         this.outputText(
             "You grab Lottie's shoulders and firmly move her down towards your crotch. She kneels down, face to face with your " +
@@ -1297,7 +1297,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.doNext(this.encounterLottie);
     }
 
-    public lottieTone(dif: number = 0): number {
+    public lottieTone(dif = 0): number {
         if (dif == 0) return this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279];
         if (this.debug)
             this.outputText("\n<b>(DEBUG: Lottie Tone changed by " + dif + "!)</b>\n", false);
@@ -1313,7 +1313,7 @@ export class Lottie extends TelAdreAbstractContent {
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00307] = 0;
         return this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279];
     }
-    public lottieMorale(dif: number = 0): number {
+    public lottieMorale(dif = 0): number {
         if (dif == 0) return this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280];
         if (this.debug)
             this.outputText("\n<b>(DEBUG: Lottie Morale changed by " + dif + "!)</b>\n", false);
@@ -1329,7 +1329,7 @@ export class Lottie extends TelAdreAbstractContent {
     private talkToPigSlut(): void {
         this.spriteSelect(36);
         this.clearOutput();
-        var comedy1 = undefined;
+        let comedy1;
         // FIRST TIMER SHIT
         // [If 1st Time Oral]
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00306] == 1) {
@@ -2070,7 +2070,7 @@ export class Lottie extends TelAdreAbstractContent {
     private lottieFatLoserCulminationFuckChoice(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You've decided that Lottie's only worth one purpose now. A few minutes later and you've taken your whore to the washrooms. Mirrors line the sides of the walls to allow members to observe their physiques. It's entirely empty for the night, though you make sure to lock the door just in case. You turn around to see Lottie cowering in the corner. She knows what you want – and you swear on Mareth's giant tree titties you'll get it. Walking over, you bark at Lottie to strip down and get on all fours. She whimpers at your command, but knows full well what you'll do if she doesn't. Slowly, but surely, she pulls down her tank top, revealing her creamy tits as they bounce out of her clothing. It's not like you haven't seen them before, but her reluctance as she desperately tries to pull off her top while covering her tits at the same time stirs a primal reaction within you. The girl tries to remove her shorts as quickly as possible, but you growl at her to turn around and bend over, giving you a good view of her luscious ass as it juts out towards you. She peels her tight shorts off her hips slowly, revealing her pink, moist lips – the little slut's getting turned on, you laugh to yourself. With her naked body on full display, Lottie quietly moves down to the ground, positioning herself on all fours with her butt facing towards you. She looks behind herself to see your erect " +
@@ -2117,7 +2117,7 @@ export class Lottie extends TelAdreAbstractContent {
     private lottieFatLoserCulminationHumiliationChoice(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "A few minutes later and you've taken your whore outside of the gym and around to the back, where an equipment shed lies in waiting. You make quick work of the lock, busting it open with a nearby metal pole. The two of you walk slowly inside, Lottie pausing behind you to gaze at the tools and exercise apparatuses littering the walls. Soon, you find what you're looking for. You've never been one to judge a person for their fetishes, but you make a mental note to thank the person who couldn't control theirs. A single leather collar attached to a leash dangles silently upon a hook attached to the walls of the shed. Grinning, you take it down, adjusting the length of the rope before handing it to Lottie. \"<i>W-what's this for, " +
@@ -2198,7 +2198,7 @@ export class Lottie extends TelAdreAbstractContent {
     private lottieHighMoraleFatLoveSelfOneTimeEvent(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You begin to talk about your story, how you came to be in Mareth and how you got to be where you are now. You've encountered nasty things, and you've seen people become nasty things themselves. You also know that you've changed since then. You've become someone you didn't expect yourself to become in a million years – and whether it was for better or for worse was up to you to decide. You know you've been through hard times, but you've never once regretted the decisions you've made – because they led to her. To Lottie. The girl begins to tear up at your confession. \"<i>Oh, " +
@@ -2268,7 +2268,7 @@ export class Lottie extends TelAdreAbstractContent {
     private lottieHighMoraleFatYoullGetThereOneTimeEvent(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You tell Lottie that the way she looks right now shouldn't affect how she feels about herself as a person – her value isn't determined by her weight, and never will be. You pat her hand before giving her a thumbs up. You believe in her and you believe in her goal, whether it leads to a better appreciation for herself or her body. She's reassured by your words, stroking your hand gently. You make clear to the girl that you aren't going to leave her because of how she looks, because she's beautiful where it counts. Lottie melts, blushing hard at your compliments. \"<i>Oh, " +
@@ -2352,7 +2352,7 @@ export class Lottie extends TelAdreAbstractContent {
     private lottieElleThreesomeFirstTime(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You chuckle devilishly as you undress in front of your naked and wanting harem. Both of the girls blush nervously as they stare at your " +
@@ -2387,7 +2387,7 @@ export class Lottie extends TelAdreAbstractContent {
     private fuckElleInsteadOfThatFatSlutFirstTime(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You chuckle devilishly as you undress in front of your naked and wanting harem – but you only have eyes for one girl. You point at the spider-girl, informing the both of them that you only plan to fuck her. Lottie may have thought she could win you over with another slut, but you feel as if you should teach her a lesson about being too presumptuous about what you want. Elle walks towards you, her child-bearing hips swaying hypnotically as she ",
@@ -2451,7 +2451,7 @@ export class Lottie extends TelAdreAbstractContent {
     public charlottesWebComedyBullshit(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You slap your " +
@@ -2475,7 +2475,7 @@ export class Lottie extends TelAdreAbstractContent {
     private lottieSuccessOneShot(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         if (this.player.tone > 30 || this.player.thickness < 70) {
             this.outputText(
@@ -2614,7 +2614,7 @@ export class Lottie extends TelAdreAbstractContent {
     private lottieWeights(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var NTR = undefined;
+        let NTR;
         if (
             this.lottieMorale() <= 30 &&
             this.flags[kFLAGS.TIMES_FUCKED_IFRIS_BLOWJOB] > 0 &&
@@ -3010,9 +3010,9 @@ export class Lottie extends TelAdreAbstractContent {
     public giveLottieAnItem(): void {
         this.spriteSelect(36);
         this.clearOutput();
-        var bova = undefined;
-        var gro = undefined;
-        var reducto = undefined;
+        let bova;
+        let gro;
+        let reducto;
         if (this.player.hasItem(this.consumables.LABOVA_)) bova = this.feedLottieLaBova;
         if (
             this.player.hasItem(this.consumables.GROPLUS) &&
@@ -3045,7 +3045,7 @@ export class Lottie extends TelAdreAbstractContent {
                 "You tell Lottie you might have a few other items that'll have an effect on her figure, if she's willing to try. The pork-girl nods, albeit rather hesitantly – the last time you gave her something to try out, it certainly changed her figure – but whether or not it was for the better is still up for debate in Lottie's head. However, you push the idea forward – it couldn't hurt to try some of them, and heck, any one of them could give her the perfect body! Again, Lottie easily melts under your slick tongue, eagerly agreeing to the idea. You look into your inventory – one of these things must have an effect, right?"
             );
             // [Cafe][LaBova][Gro+][Reducto][Ham Sandwich]
-            var sammich = undefined;
+            let sammich;
             if (this.silly()) sammich = this.hamSammitchTimeBIATCH;
             this.choices(
                 "Cafe",
@@ -3229,12 +3229,12 @@ export class Lottie extends TelAdreAbstractContent {
 
     public lottieFuck(): void {
         this.spriteSelect(36);
-        var tentacle = undefined;
-        var thirtyMinute = undefined;
+        let tentacle;
+        let thirtyMinute;
         if (this.silly() && this.player.hasCock()) thirtyMinute = this.lottiesThirtyMinutePigGasm;
         if (this.player.tentacleCocks() > 0 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00306] == 2)
             tentacle = this.tentaDickLottieButtFuckbuttFuckButtFUCKBUTTFUCKBUTTFUCK;
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText("", true);
         // [If Encouragement 0 – 30]
@@ -3263,10 +3263,10 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
             // [Anal][Oral] – [Doggystyle][Walkies][Threesome][Netorare]
-            var dog = undefined;
-            var walk = undefined;
-            var three = undefined;
-            var neatrares = undefined;
+            let dog;
+            let walk;
+            let three;
+            let neatrares;
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00310] > 0)
                 dog = this.lottieRepeatDoggieStyle;
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00311] > 0) walk = this.lottieRepeatWalkies;
@@ -3371,19 +3371,19 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
             // [Anal][Oral] – [Quickie][Cowgirl][ReverseCowgirl][FemDom]
-            var quickie =
+            const quickie =
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00314] > 0
                     ? this.lottieRepeatQuickie
                     : undefined;
-            var cowgirl =
+            const cowgirl =
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00313] > 0
                     ? this.lottieRepeatCowGirl
                     : undefined;
-            var rcowgirl =
+            const rcowgirl =
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00320] > 0
                     ? this.lottieRepeatBackwardsAssCowgirl
                     : undefined;
-            var femdom =
+            const femdom =
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00319] > 0
                     ? this.lottieRepeatFEMDOMFEMFDOM
                     : undefined;
@@ -3418,7 +3418,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.spriteSelect(36);
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-fuck-her-doggie-style-repeat"));
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "A few minutes later and you've taken your whore to the washrooms. Mirrors line the sides of the walls to allow members to observe how far they've gone and how far they still need to go. It's entirely empty for the night, though you make sure to lock the door just in case. You turn around to see Lottie cowering in the corner. She knows what you want – and you swear on Mareth's giant tree titties you'll get it. With her naked body on full display, Lottie quietly moves down to the ground, positioning herself on all fours with her butt facing towards you. She looks behind herself to see your erect " +
@@ -3464,7 +3464,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.spriteSelect(36);
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-fuck-her-in-public-repeat"));
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "A few minutes later and you've taken your whore outside of the gym and around to the back, where an equipment shed lies waiting. You make quick work of the lock, busting it open with a nearby metal pole. The two of you walk slowly inside, Lottie pausing behind you to gaze at the tools and exercise apparatuses littering the walls. Soon, you find what you're looking for. You've never been one to judge a person for their fetishes, but you make a mental note to thank the person who couldn't control theirs. A single leather collar attached to a leash dangles silently upon a hook attached to the walls of the shed. Grinning, you take it down, adjusting the length of the rope before handing it to Lottie. \"<i>W-what's this for, " +
@@ -3519,7 +3519,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.spriteSelect(36);
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-fuck-her-cowgirl-repeat"));
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "A few minutes later and you've both gone to the yoga rooms – you've already placed a mat down while you wait for Lottie to change. Your rosy lover bounces into the empty, dim lit room, her ample thighs squishing out of a pair of super tight shorts, while her breasts fill over a sports bra. You're immediately turned on by the incredibly erotic display, Lottie catching scent of your increasingly hardening member and giggling while she crushes her boobs together in front of you. \"<i>I'm guessing you like what you see?</i>\" she purrs, walking over to you and pushing you down upon the gym mat. Lottie makes quick work of your lower clothes, your " +
@@ -3578,7 +3578,7 @@ export class Lottie extends TelAdreAbstractContent {
     public lottieRepeatQuickie(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
 
         this.outputText(
@@ -3624,7 +3624,7 @@ export class Lottie extends TelAdreAbstractContent {
         this.spriteSelect(36);
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-fuck-her-threesome-repeat"));
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You both walk to the yoga rooms, to find Elle stretching in the empty area. She spots the both of you, waving hello -  but you all have other, dirtier intentions in mind. Elle strips down, her perky tits bouncing loose. You chuckle devilishly as you undress in front of your naked and wanting harem. Both of the girls blush nervously as they stare at your " +
@@ -3648,7 +3648,7 @@ export class Lottie extends TelAdreAbstractContent {
     public lottieRepeatSUPERNEATORARES(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You both walk to the yoga rooms, to find Elle stretching in the empty area. She spots the both of you, waving hello -  but you all have other, dirtier intentions in mind. Elle strips down, her perky tits letting loose. You chuckle devilishly as you undress in front of your naked and wanting harem – but you only have eyes for one girl. You point at the spider-girl, informing the both of them that you only plan to fuck her. Lottie may have thought she could win you over with another slut, but you feel as if you should teach her a lesson about being too presumptuous about what you want. Elle walks towards you, her child-bearing hips swaying hypnotically as she ",
@@ -3708,7 +3708,7 @@ export class Lottie extends TelAdreAbstractContent {
     public lottieRepeatBackwardsAssCowgirl(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You both walk into the yoga area, met with the smell of sweat and flowers pervading the room. Lottie gently asks for you to lie down on your back, to which you comply quite easily. You're comfortable, folding your arms behind your head to give you leverage as you watch your lover walk slowly to you. Lottie turns around, her thick thighs straddling you as she sits down on your groin with her back facing your direction, giving you  a perfect view of her curvy body and plump ass. Your " +
@@ -3736,7 +3736,7 @@ export class Lottie extends TelAdreAbstractContent {
     public lottieRepeatFEMDOMFEMFDOM(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "You both walk into the yoga area and are met with the smell of sweat and flowers pervading the room. You look around, unable to find your lover until –THUNK! A heavy weight is brought down upon your head, pulling you down to the ground and away from consciousness as everything fades to black.\n\n",
@@ -3825,17 +3825,17 @@ export class Lottie extends TelAdreAbstractContent {
     public tentaDickLottieButtFuckbuttFuckButtFUCKBUTTFUCKBUTTFUCK(): void {
         this.outputText("", true);
         this.outputText(this.images.showImage("lottie-fuck-her-with-tentacle-dick"));
-        var x: number = -1;
-        var y: number = -1;
-        var z: number = -1;
-        var zz: number = -1;
-        var zzz: number = -1;
-        var zzzz: number = -1;
-        var zzzzz: number = -1;
-        var zzzzzz: number = -1;
-        var zzzzzzz: number = -1;
-        var zzzzzzzz: number = -1;
-        var counter: number = 0;
+        let x = -1;
+        let y = -1;
+        let z = -1;
+        let zz = -1;
+        let zzz = -1;
+        let zzzz = -1;
+        let zzzzz = -1;
+        let zzzzzz = -1;
+        let zzzzzzz = -1;
+        let zzzzzzzz = -1;
+        let counter = 0;
         while (counter < this.player.cockTotal()) {
             if (this.player.cocks[counter].cockType == CockTypesEnum.TENTACLE) {
                 if (x == -1) x = counter;
@@ -4205,7 +4205,7 @@ export class Lottie extends TelAdreAbstractContent {
 
     public lottiesThirtyMinutePigGasm(): void {
         this.outputText("", true);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             '"<i>Hey, babe!</i>"  Lottie greets you in her usual, cheerful fashion.  Though her smile is booming with assumed confidence, the look in her eyes tells a different story.  She has sad, dependent eyes.  She looks up to you!  Then again, why shouldn\'t she?  You are her personal trainer after all.\n\n',
             false

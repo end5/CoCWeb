@@ -24,7 +24,7 @@ export class Loppe extends TelAdreAbstractContent {
         return 90;
     }
     // Tags/Booleans (C)
-    /*QB Note: I've never actually done this before, so I'm probably missing a few.
+    /* QB Note: I've never actually done this before, so I'm probably missing a few.
     LoppeRace: 0 toggles Loppe in \"<i>laquine-girl</i>\" form (human with bunny ears/legs and horse cock/tail), 1 toggles Loppe in \"<i>laquine-morph</i>\" form (anthro bunny with horse tail & horse cock)
     LoppeBreed: 0 means Loppe is sterile, 1 means Loppe is fertile.
     LoppeKids: Counter to check how many kids you and Loppe have had.
@@ -1168,7 +1168,7 @@ export class Loppe extends TelAdreAbstractContent {
     }
 
     // Sex
-    private loppeSexChoice(bakery: boolean = false): void {
+    private loppeSexChoice(bakery = false): void {
         this.clearOutput();
         // First Time Intro (edited)
         if (this.flags[kFLAGS.LOPPE_TIMES_SEXED] == 0) {
@@ -1438,8 +1438,8 @@ export class Loppe extends TelAdreAbstractContent {
                 "."
         );
         // [(2 fit cocks)
-        var x: number = this.player.cockThatFits(this.loppeCapacity());
-        var y: number = this.player.cockThatFits2(this.loppeCapacity());
+        const x: number = this.player.cockThatFits(this.loppeCapacity());
+        const y: number = this.player.cockThatFits2(this.loppeCapacity());
 
         if (y >= 0 && this.player.cockTotal() == 2)
             this.outputText('  "<i>In fact... I could just eat both of those up.</i>"');
@@ -1550,7 +1550,7 @@ export class Loppe extends TelAdreAbstractContent {
     // {If NoFace:
     private loppeRidesYouNoFaceJizz(): void {
         this.clearOutput();
-        var y: number = this.player.cockThatFits2(this.loppeCapacity());
+        const y: number = this.player.cockThatFits2(this.loppeCapacity());
 
         this.outputText(
             "You let go of the horse-dicked rabbit and she gratefully swivels herself fully upright, cock jutting out over your belly - instinctively, your "
@@ -1579,8 +1579,8 @@ export class Loppe extends TelAdreAbstractContent {
     // {If Facial:}
     private loppeRidesYouSpunksInYourEye(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.loppeCapacity());
-        var y: number = this.player.cockThatFits2(this.loppeCapacity());
+        const x: number = this.player.cockThatFits(this.loppeCapacity());
+        const y: number = this.player.cockThatFits2(this.loppeCapacity());
 
         this.outputText("You keep your ");
         if (this.player.isDrider()) this.outputText("legs");
@@ -1618,8 +1618,8 @@ export class Loppe extends TelAdreAbstractContent {
     }
 
     private loppeRidesPCCockFinal(): void {
-        var x: number = this.player.cockThatFits(this.loppeCapacity());
-        var y: number = this.player.cockThatFits2(this.loppeCapacity());
+        const x: number = this.player.cockThatFits(this.loppeCapacity());
+        const y: number = this.player.cockThatFits2(this.loppeCapacity());
 
         this.outputText(this.images.showImage("loppe-rides-your-cock"));
         this.outputText("\n\nYour " + this.cockDescript(x) + " gushes fluids into her hungry womb");
@@ -3255,7 +3255,7 @@ export class Loppe extends TelAdreAbstractContent {
 
     // Fondle&Tease (rewritten and edited)(C)
     // req LoppeChat > 1
-    private fondleAndTease(output: boolean = true): void {
+    private fondleAndTease(output = true): void {
         if (output) {
             this.clearOutput();
             this.outputText(

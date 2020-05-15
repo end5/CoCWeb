@@ -82,7 +82,7 @@ import { PerkType } from "./PerkType";
 import { Player } from "./Player";
 import { StatusAffects } from "./StatusAffects";
 
-//	import flash.events.MouseEvent;
+// import flash.events.MouseEvent;
 
 export class CharCreation extends BaseContent {
     private customPlayerProfile: any;
@@ -114,9 +114,9 @@ export class CharCreation extends BaseContent {
         // Hide perk boxes
         // this.mainView.aCb.visible = false;
         // If first PC, track status of EZ mode and other such nonsense.
-        var silly: boolean = !!this.flags[kFLAGS.SILLY_MODE_ENABLE_FLAG];
-        var easy: boolean = !!this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG];
-        var sprite: boolean = !!this.flags[kFLAGS.SHOW_SPRITES_FLAG];
+        const silly = !!this.flags[kFLAGS.SILLY_MODE_ENABLE_FLAG];
+        const easy = !!this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG];
+        const sprite = !!this.flags[kFLAGS.SHOW_SPRITES_FLAG];
         this.mainView.newGameButton.labelText = "Newgame"; // b1Text.text = "Newgame";
         // flags[kFLAGS.CUSTOM_PC_ENABLED] = 0;
 
@@ -134,12 +134,12 @@ export class CharCreation extends BaseContent {
         this.player.autoSave = false;
         // RESET DUNGEOn
         // No need, dungeonLoc = 0 does this:
-        // 	kGAMECLASS.inDungeon = false;
+        //  kGAMECLASS.inDungeon = false;
         kGAMECLASS.dungeonLoc = 0;
         kGAMECLASS.inRoomedDungeon = false;
         kGAMECLASS.inRoomedDungeonResume = undefined;
         // Hold onto old data for NG+
-        var oldPlayer: Player = this.player;
+        const oldPlayer: Player = this.player;
         // Reset all standard stats
         this.player = new Player();
         this.model.player = this.player;
@@ -215,7 +215,7 @@ export class CharCreation extends BaseContent {
         kGAMECLASS.monk = 0;
         kGAMECLASS.whitney = 0;
         kGAMECLASS.sand = 0;
-        // Replaced by flag	kGAMECLASS.beeProgress = 0;
+        // Replaced by flag kGAMECLASS.beeProgress = 0;
         kGAMECLASS.giacomo = 0;
         // Lets get this bitch started
         kGAMECLASS.inCombat = false;
@@ -325,7 +325,7 @@ export class CharCreation extends BaseContent {
                 "Your name defines everything about you, and as such, it is time to wake...\n\n"
             );
             this.flags[kFLAGS.HISTORY_PERK_SELECTED] = 1;
-            this.completeCharacterCreation(); //Skip character creation, customPlayerProfile will be called in completeCharacterCreation
+            this.completeCharacterCreation(); // Skip character creation, customPlayerProfile will be called in completeCharacterCreation
         } else {
             // After character creation the fact that customPlayerProfile is not undefined will activate a custom player setup
             this.outputText(
@@ -378,7 +378,7 @@ export class CharCreation extends BaseContent {
                 return this.customSora;
             default:
         }
-        return this.specialName(arg); //Must check against the special name list as well
+        return this.specialName(arg); // Must check against the special name list as well
     }
 
     // Does PC skip creation?
@@ -1045,7 +1045,7 @@ export class CharCreation extends BaseContent {
         this.outputText(
             "You're a rather well-endowed hermaphrodite that sports a thick, dog-knotted cock, an unused pussy, and a nice, stretchy butt-hole.  You've also got horns and demonic high-heels on your feet.  It makes you wonder why you would ever get chosen to be champion!"
         );
-        // Specific Character	"Gender: Herm
+        // Specific Character "Gender: Herm
         // Penis: 13 inch long 3 inch wide penis, dog shaped, 6.5 inch knot
         // Balls: Four 5 inch wide
         // Vagina: Tight, virgin, 0.5 inch clitoris
@@ -1060,7 +1060,7 @@ export class CharCreation extends BaseContent {
         this.player.cocks[0].cockLength = 13;
         this.player.cocks[0].cockThickness = 3;
         this.player.cocks[0].knotMultiplier = 2.2;
-        // Butt: Loose"	"Skin: Purple
+        // Butt: Loose" "Skin: Purple
         this.player.ass.analLooseness = 3;
         this.player.skinTone = "purple";
         // Hair: Back length orange
@@ -1084,7 +1084,7 @@ export class CharCreation extends BaseContent {
 
         // Equipment: Starts with spiked fist
         this.player.setWeapon(this.weapons.S_GAUNT);
-        // Perks: Fighter and Lotsa Jizz"	Annetta
+        // Perks: Fighter and Lotsa Jizz" Annetta
         this.player.createPerk(PerkLib.HistoryFighter, 0, 0, 0, 0);
         this.player.createPerk(PerkLib.MessyOrgasms, 1.25, 0, 0, 0);
         this.player.cumMultiplier = 20;
@@ -1095,8 +1095,8 @@ export class CharCreation extends BaseContent {
         this.outputText(
             "It's really no surprise that you were sent through the portal to deal with the demons - you look enough like one as-is.  Your numerous fetish-inducing piercings, magical fox-tails, and bimbo-licious personality were all the motivation the elders needed to keep you from corrupting the village youth."
         );
-        // 2/26/2013 8:18:21	rdolave@gmail.com	Character Creation	"female DD breasts feminity 100 butt size 5 hip size 5 body thickness 10 clit I would like her nipples pierced with Ceraphs piercing
-        // (on a side note how much do you think it would cost to add bell nipple,labia and clit piercings as well as an option for belly button piercings would like to see belly button piecings with a few different options as well.  Also would love to have handcuff ear piercings.)"	Would like the bimbo brain and bimbo body perks as well as the nine tail PerkLib.  demonic high heels, pink skin, obscenely long pink hair  would like her to be a kitsune with the nine tails.  pink fur.  starting equipment would like to be the succubus whip and nurse's outfit.  Also would like the xmas perk and all three Vday perks	Aria
+        // 2/26/2013 8:18:21 rdolave@gmail.com Character Creation "female DD breasts feminity 100 butt size 5 hip size 5 body thickness 10 clit I would like her nipples pierced with Ceraphs piercing
+        // (on a side note how much do you think it would cost to add bell nipple,labia and clit piercings as well as an option for belly button piercings would like to see belly button piecings with a few different options as well.  Also would love to have handcuff ear piercings.)" Would like the bimbo brain and bimbo body perks as well as the nine tail PerkLib.  demonic high heels, pink skin, obscenely long pink hair  would like her to be a kitsune with the nine tails.  pink fur.  starting equipment would like to be the succubus whip and nurse's outfit.  Also would like the xmas perk and all three Vday perks Aria
         if (!this.player.hasVagina()) this.player.createVagina();
         if (this.player.femininity < 80) this.player.femininity = 80;
         this.player.createPerk(PerkLib.BimboBody, 0, 0, 0, 0);
@@ -1140,7 +1140,7 @@ export class CharCreation extends BaseContent {
     private customBetram(): void {
         // Character Creation
         // herm, canine cock - 8", virgin, tight, wet
-        // fox ears, tails, A cup breasts with normal nipples	Betram
+        // fox ears, tails, A cup breasts with normal nipples Betram
         this.player.earType = EARS_FOX;
         this.player.tailType = TAIL_TYPE_FOX;
         this.player.tailVenom = 1;
@@ -1230,7 +1230,7 @@ export class CharCreation extends BaseContent {
         this.outputText(
             "As a gifted fox with a juicy, thick knot, a wet cunt, and magical powers, you have no problems with being chosen as champion."
         );
-        // Herm, Fox Cock: (27"l x 1.4"w, knot multiplier 3.6), No Balls, Cum Multiplier: 7,500, Vaginal Wetness: 5, Clit length: 0.5, Virgin, Fertility: 15	9-tailed "enlightened" kitsune( a pure-blooded kitsune with the "Enlightened Nine-tails" perk and magic specials)
+        // Herm, Fox Cock: (27"l x 1.4"w, knot multiplier 3.6), No Balls, Cum Multiplier: 7,500, Vaginal Wetness: 5, Clit length: 0.5, Virgin, Fertility: 15 9-tailed "enlightened" kitsune( a pure-blooded kitsune with the "Enlightened Nine-tails" perk and magic specials)
         if (!this.player.hasCock()) this.player.createCock();
         if (!this.player.hasVagina()) this.player.createVagina();
         this.player.gender = 3;
@@ -1271,7 +1271,7 @@ export class CharCreation extends BaseContent {
         this.player.breastRows[3].fuckable = true;
         this.player.tongueType = TONUGE_DEMONIC;
         this.player.nippleLength = 0.1;
-        // Starting with an Inscribed Spellblade and Bondage Straps.	Charaun
+        // Starting with an Inscribed Spellblade and Bondage Straps. Charaun
         this.player.setArmor(this.armors.BONSTRP);
         this.player.setWeapon(this.weapons.S_BLADE);
     }
@@ -1433,7 +1433,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customHikari(): void {
-        // Character Creation	If possible I would like a herm with a cat cock that is 10 inches by 4 inches. Anything else is up to you.	I would like a herm catmorph with two large d breasts and shoulder length hair. Also if possible I would like to start with some gel armor. Everything else is fair game.	Hikari
+        // Character Creation If possible I would like a herm with a cat cock that is 10 inches by 4 inches. Anything else is up to you. I would like a herm catmorph with two large d breasts and shoulder length hair. Also if possible I would like to start with some gel armor. Everything else is fair game. Hikari
         this.outputText(
             "As a herm with a super-thick cat-cock, D-cup breasts, and out-of-this-world armor, you're a natural pick for champion."
         );
@@ -1601,7 +1601,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customLucina(): void {
-        // 428347355782040	Character Creation	Female,wetness=wet, Looseness=normal,not a virgin, Fertility high i guess i dont really care can be up to you.	for her face normal human, ears i want Elvin, no tails, just normal skin, body thickness i want to be slender, body tone kinda athletic but not too much, hair i want really long i think like a 30 on the codex number i think and her hair color light blonde, i want her to have normal D size breast with you can choose how you want them really though i dont think i really care, nipple size i dont care, her skin color a fair light light color but not too pale, for her starting equipment i want im not sure what i want her to wear but basically i want a Elvin archer with a bow. so maybe you can do something about the clothing. i just want a Elvin character in the game since theres goblins plus another archer besides kelt a female one add to that.	Lucina
+        // 428347355782040 Character Creation Female,wetness=wet, Looseness=normal,not a virgin, Fertility high i guess i dont really care can be up to you. for her face normal human, ears i want Elvin, no tails, just normal skin, body thickness i want to be slender, body tone kinda athletic but not too much, hair i want really long i think like a 30 on the codex number i think and her hair color light blonde, i want her to have normal D size breast with you can choose how you want them really though i dont think i really care, nipple size i dont care, her skin color a fair light light color but not too pale, for her starting equipment i want im not sure what i want her to wear but basically i want a Elvin archer with a bow. so maybe you can do something about the clothing. i just want a Elvin character in the game since theres goblins plus another archer besides kelt a female one add to that. Lucina
         this.outputText(
             "You're a blond, fair-skinned lass with a well-made bow and the skills to use it.  You have D-cup breasts and a very moist cunt that's seen a little action.  You're fit and trim, but not too thin, nor too well-muscled.  All in all, you're a good fit for championing your village's cause."
         );
@@ -1684,7 +1684,7 @@ export class CharCreation extends BaseContent {
         this.player.skinDesc = "fur";
         this.player.tone = 88;
         this.player.tongueType = TONUGE_DRACONIC;
-        // gel plate armor, warhammer, 88 body tone, 1 breast row, flat manly breasts, 0.2 inch nipples, 1 on each breast, draconic tongue, short hair-blue, light skin."	Lukaz
+        // gel plate armor, warhammer, 88 body tone, 1 breast row, flat manly breasts, 0.2 inch nipples, 1 on each breast, draconic tongue, short hair-blue, light skin." Lukaz
         this.player.createPerk(PerkLib.HistoryFighter, 0, 0, 0, 0);
         this.player.createPerk(PerkLib.MessyOrgasms, 1.25, 0, 0, 0);
     }
@@ -1920,7 +1920,7 @@ export class CharCreation extends BaseContent {
         this.outputText(
             "There's been something special about you since day one, whether it's your numerous sexual endowments or your supernatural abilities.  You're a natural pick for champion."
         );
-        // Character Creation	"Herm same number and types of cocks from email sent earlier.
+        // Character Creation "Herm same number and types of cocks from email sent earlier.
         // Special abilities: Fire breath, fox fire?
         this.player.createPerk(PerkLib.Dragonfire, 0, 0, 0, 0);
         // equipment: Large claymore, and platemail
@@ -2100,7 +2100,7 @@ export class CharCreation extends BaseContent {
         this.player.lowerBody = LOWER_BODY_TYPE_DOG;
         this.player.tailType = TAIL_TYPE_DOG;
         this.player.earType = EARS_DOG;
-        ////"	"I'm picturing a tall, feminine German-Shepherd morph, solid white and gorgeous. She has both sets of genitals, with no balls, and a large set of breasts. She wields a large claymore and is dressed in a full chain vest and pants.
+        /// /" "I'm picturing a tall, feminine German-Shepherd morph, solid white and gorgeous. She has both sets of genitals, with no balls, and a large set of breasts. She wields a large claymore and is dressed in a full chain vest and pants.
         // large claymore (and the strength to use it)
         this.player.setWeapon(this.weapons.CLAYMOR);
         this.player.str = 40;
@@ -2112,7 +2112,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customPrismere(): void {
-        // Specific Character	Female, virgin, high fertility, tight with standard wetness and clit.
+        // Specific Character Female, virgin, high fertility, tight with standard wetness and clit.
         this.player.createVagina();
         this.player.clitLength = 0.25;
         this.player.fertility = 4;
@@ -2124,7 +2124,7 @@ export class CharCreation extends BaseContent {
         this.player.createPerk(PerkLib.Fast, 0.25, 0, 0, 0);
         this.player.createPerk(PerkLib.Runner, 0, 0, 0, 0);
         // In the human world, Prismere began as a scout, helping patrol areas with portals to make sure demonspawn and corruption didn't reach the human homeland. She's gotten herself into a few tight spots because of it, but she's hard to keep pinned down. She has a fiance back in her village whom she fully intends to get back to, so her libido isn't especially high.
-        // As of the time the PC takes her on, she has some signs of demonic taint, so Corruption might start at 5 to 10 points."	"Breasts at E, height at 5'0, a curvy build with a more narrow waist and substantial hips and butt. Skin is olive, like a mocha, hair is long and wildly wavy, a deep red, and eyes are a stormy blue. Muscles are barely visible; what muscle she has is the lean build of a runner, not a fighter. Nipples aren't especially long, but more soft.
+        // As of the time the PC takes her on, she has some signs of demonic taint, so Corruption might start at 5 to 10 points." "Breasts at E, height at 5'0, a curvy build with a more narrow waist and substantial hips and butt. Skin is olive, like a mocha, hair is long and wildly wavy, a deep red, and eyes are a stormy blue. Muscles are barely visible; what muscle she has is the lean build of a runner, not a fighter. Nipples aren't especially long, but more soft.
         this.player.cor = 5;
         this.player.createBreastRow();
         this.player.breastRows[0].breastRating = 7;
@@ -2141,11 +2141,11 @@ export class CharCreation extends BaseContent {
         this.player.wingType = WING_TYPE_BAT_LIKE_LARGE;
         this.player.wingDesc = "large, bat-like";
         this.player.tailType = TAIL_TYPE_DEMONIC;
-        // I feel really weird talking about all this, so if there's anything you need to change or can't do, or if I totally misinterpreted this, just shoot me an email! jordie.wierenga@gmail.com . Thanks in advance... I'm a big fan. "	Prismere
+        // I feel really weird talking about all this, so if there's anything you need to change or can't do, or if I totally misinterpreted this, just shoot me an email! jordie.wierenga@gmail.com . Thanks in advance... I'm a big fan. " Prismere
     }
 
     private customRannRayla(): void {
-        // Specific Character	Virgin female.	Max femininity. Thin with a little muscle. Size C breasts. Long red hair. Light colored skin. 5'5" tall. 	Rann Rayla
+        // Specific Character Virgin female. Max femininity. Thin with a little muscle. Size C breasts. Long red hair. Light colored skin. 5'5" tall.  Rann Rayla
         this.outputText(
             "You're a young, fiery redhead who's utterly feminine.  You've got C-cup breasts and long red hair.  Being a champion can't be that bad, right?"
         );
@@ -2166,7 +2166,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customRope(): void {
-        // 529315025394020	Character Creation	Neuter (no genitals) "50-50 masculine-feminine ratio. Shark teeth."	Rope
+        // 529315025394020 Character Creation Neuter (no genitals) "50-50 masculine-feminine ratio. Shark teeth." Rope
         this.outputText(
             "Despite outward appearances, you're actually something of a neuter, with shark-like teeth, an androgynous face, and a complete lack of genitalia."
         );
@@ -2240,7 +2240,7 @@ export class CharCreation extends BaseContent {
         this.player.gender = 2;
         this.player.createVagina();
         this.player.clitLength = 0.25;
-        // has a self-repairing hymen in her cunt"	"Angel
+        // has a self-repairing hymen in her cunt" "Angel
         // (means feathered wings on her back)
         this.player.wingType = WING_TYPE_HARPY;
         // Halo (Flaming)
@@ -2281,7 +2281,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customSora(): void {
-        // Character Creation	Female,virgin	A kitsune with a snake-like tongue	Sora
+        // Character Creation Female,virgin A kitsune with a snake-like tongue Sora
         if (this.player.hasVagina()) this.player.vaginas[0].virgin = true;
         this.player.tongueType = TONUGE_SNAKE;
         this.player.earType = EARS_FOX;

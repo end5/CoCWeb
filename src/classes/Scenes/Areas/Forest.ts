@@ -37,7 +37,7 @@ export class Forest extends BaseContent {
     public exploreDeepwoods(): void {
         this.player.addStatusValue(StatusAffects.ExploredDeepwoods, 1, 1);
 
-        var chooser: number = Forest.rand(5);
+        const chooser: number = Forest.rand(5);
 
         // var temp2: number = 0;
         // Every tenth exploration finds a pumpkin if eligible!
@@ -188,7 +188,7 @@ export class Forest extends BaseContent {
         this.player.exploredForest++;
 
         trace("FOREST EVENT CALLED");
-        var chooser: number = Forest.rand(4);
+        let chooser: number = Forest.rand(4);
         // var temp2: number = 0;
         // Cut bee encounter rate 50%
         if (chooser == 3 && Forest.rand(2)) chooser = Forest.rand(3);
@@ -288,7 +288,7 @@ export class Forest extends BaseContent {
         if (chooser == 0) {
             // Determines likelyhood of imp/goblins
             // Below - goblin, Equal and up - imp
-            var impGob: number = 5;
+            let impGob = 5;
             trace("IMP/Gobb");
 
             // Dicks + lots of cum boosts goblin probability
@@ -639,9 +639,9 @@ export class Forest extends BaseContent {
     }
     // [FOREST]
     // [RANDOM SCENE IF CHARACTER HAS AT LEAST ONE COCK LARGER THAN THEIR HEIGHT, AND THE TOTAL COMBINED WIDTH OF ALL THEIR COCKS IS TWELVE INCHES OR GREATER]
-    public bigJunkForestScene(lake: boolean = false): void {
+    public bigJunkForestScene(lake = false): void {
         this.outputText("", true);
-        var x: number = this.player.longestCock();
+        const x: number = this.player.longestCock();
 
         // PARAGRAPH 1
         this.outputText("Walking along the ", false);
@@ -999,7 +999,7 @@ export class Forest extends BaseContent {
     private rapeSatyr(): void {
         this.outputText("", true);
         this.spriteSelect(99);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         // (Low Corruption)
         if (this.player.cor < 33)
@@ -1156,7 +1156,7 @@ export class Forest extends BaseContent {
     }
     // [=Again=]
     private secondSatyrFuck(): void {
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText("", true);
         this.outputText(

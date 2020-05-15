@@ -45,7 +45,7 @@ export class ChameleonGirl extends Monster {
             );
         // Get hit
         else {
-            var damage: number = Math.floor(
+            let damage: number = Math.floor(
                 this.str + this.weaponAttack - ChameleonGirl.rand(this.player.tou)
             );
             if (damage > 0) {
@@ -79,7 +79,7 @@ export class ChameleonGirl extends Monster {
             this.game.combatFlexibility() ||
             this.game.combatMisdirect()
         ) {
-            var damage2: number = 1 + ChameleonGirl.rand(10);
+            let damage2: number = 1 + ChameleonGirl.rand(10);
             damage2 = this.game.doDamage(damage2);
             this.outputText(
                 "The chameleon girl leaps in your direction, rolls, and kicks at you.  You sidestep her flying charge and give her a push from below to ensure she lands face-first in the bog. (" +
@@ -89,7 +89,7 @@ export class ChameleonGirl extends Monster {
         }
         // Get hit
         else {
-            var damage: number =
+            let damage: number =
                 Math.floor(
                     this.str +
                         this.weaponAttack -
@@ -113,7 +113,7 @@ export class ChameleonGirl extends Monster {
 
     protected performCombatAction(): void {
         this.game.spriteSelect(89);
-        var select: number = ChameleonGirl.rand(3);
+        const select: number = ChameleonGirl.rand(3);
         if (select == 0) this.rollKickClawWhatTheFuckComboIsThisShit();
         else if (select == 1) this.chameleonTongueAttack();
         else this.chameleonClaws();
@@ -168,7 +168,7 @@ export class ChameleonGirl extends Monster {
 
     public constructor() {
         super();
-        var skinToneAdj: any[] = ChameleonGirl.randomChoice(this.SKIN_VARIATIONS);
+        const skinToneAdj: any[] = ChameleonGirl.randomChoice(this.SKIN_VARIATIONS);
         this.a = "the ";
         this.short = "chameleon girl";
         this.imageName = "chameleongirl";

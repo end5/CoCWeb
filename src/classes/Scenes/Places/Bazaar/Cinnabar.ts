@@ -1,23 +1,23 @@
 import { BazaarAbstractContent } from "./BazaarAbstractContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 
-//Cinnabar - Female rat-morph, size queen. Likes bizarre
-//stuff and extreme pen, VERY STRETCHY, & Hammerspace
-//orifices. Personality keywords: Sexually adventurous,
-//eager to please, "dominant/power bottom", studious,
-//romantic
+// Cinnabar - Female rat-morph, size queen. Likes bizarre
+// stuff and extreme pen, VERY STRETCHY, & Hammerspace
+// orifices. Personality keywords: Sexually adventurous,
+// eager to please, "dominant/power bottom", studious,
+// romantic
 
-//USES PORTALS.
+// USES PORTALS.
 
-//Appearance
-//Bust – D cups that she can enlarge for 'the big boys'.
-//Eyes - crimson
-//Lips - black
-//Fur – rust red/'ruddy'
-//Tail – Barely touches the ground, but is prehensile and capable of being lengthened at will.
+// Appearance
+// Bust – D cups that she can enlarge for 'the big boys'.
+// Eyes - crimson
+// Lips - black
+// Fur – rust red/'ruddy'
+// Tail – Barely touches the ground, but is prehensile and capable of being lengthened at will.
 export class Cinnabar extends BazaarAbstractContent {
     // Appearnace
-    public cinnabarAppearance(output: boolean = true) {
+    public cinnabarAppearance(output = true) {
         // Send back 0 for 'closed'.
         if (this.model.time.hours < 15 || this.model.time.hours > 20) return undefined;
         if (output) {
@@ -488,7 +488,7 @@ export class Cinnabar extends BazaarAbstractContent {
         this.flags[kFLAGS.CINNABAR_NUMBER_TIMES_FUCKED]++;
         this.flags[kFLAGS.CINNABAR_FUCKED_CORRUPT_PREVIOUSLY] = 0;
         this.outputText("", true);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.spriteSelect(91);
 
         this.outputText(
@@ -649,7 +649,7 @@ export class Cinnabar extends BazaarAbstractContent {
     // (Huger and Corrupteder) (75+ corr)
     private fuckCinnabarHugerAndCorruptedEr(): void {
         this.flags[kFLAGS.CINNABAR_FUCKED_CORRUPT_PREVIOUSLY] = 1;
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         this.outputText("", true);
         this.spriteSelect(91);
@@ -826,7 +826,7 @@ export class Cinnabar extends BazaarAbstractContent {
     // (HUGER)
     private cinnabarHuger(): void {
         this.flags[kFLAGS.CINNABAR_FUCKED_CORRUPT_PREVIOUSLY] = 0;
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         this.outputText("", true);
         this.spriteSelect(91);
@@ -964,7 +964,7 @@ export class Cinnabar extends BazaarAbstractContent {
     // (HUGE)
     private cinnabarHuge(): void {
         this.flags[kFLAGS.CINNABAR_FUCKED_CORRUPT_PREVIOUSLY] = 0;
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         this.outputText("", true);
         this.spriteSelect(91);
@@ -1079,9 +1079,9 @@ export class Cinnabar extends BazaarAbstractContent {
         this.outputText("", true);
         this.spriteSelect(91);
         // x pussy, y butt, z face
-        var x: number = this.player.biggestCockIndex();
-        var y: number = this.player.biggestCockIndex2();
-        var z: number = this.player.biggestCockIndex3();
+        const x: number = this.player.biggestCockIndex();
+        const y: number = this.player.biggestCockIndex2();
+        const z: number = this.player.biggestCockIndex3();
         this.outputText(
             "Cinnabar's hands fly through your " +
                 this.player.armorName +

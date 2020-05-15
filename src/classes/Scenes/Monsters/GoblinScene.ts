@@ -20,7 +20,7 @@ import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
  */
 
 export class GoblinScene extends BaseContent {
-    /*Goblins
+    /* Goblins
      Gender: Female
      Height: 2-4 feet
      Eye Colors:  Red, Violet, Amber, or Pink
@@ -507,15 +507,15 @@ export class GoblinScene extends BaseContent {
             this.cleanupAfterCombat();
             return;
         }
-        var buttseks = undefined;
-        var feeder = undefined;
-        var fitsFuck = undefined;
-        var tooBig = undefined;
-        var corruptTooBig = undefined;
-        var cuntFuck = undefined;
-        var spiderCondom = undefined;
-        var jog = undefined;
-        var eggs = undefined;
+        let buttseks;
+        let feeder;
+        let fitsFuck;
+        let tooBig;
+        let corruptTooBig;
+        let cuntFuck;
+        let spiderCondom;
+        let jog;
+        let eggs;
         if (this.player.canOvipositSpider()) {
             eggs = this.laySomeDriderEggsInGobboTwat;
         }
@@ -655,7 +655,7 @@ export class GoblinScene extends BaseContent {
     }
     private gobboButtSecks(): void {
         this.spriteSelect(24);
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = 0;
         this.outputText("", true);
         this.outputText(this.images.showImage("goblin-win-male-buttsex"));
@@ -986,7 +986,7 @@ export class GoblinScene extends BaseContent {
 
     // Corrupt too big fuck
     private rapeAGoblinCorruptTooBig(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         this.spriteSelect(24);
         this.outputText(this.images.showImage("goblin-win-male-corruptedfuck"));
@@ -1200,7 +1200,7 @@ export class GoblinScene extends BaseContent {
     private manRapesGoblinTooBig(): void {
         this.outputText("", true);
         this.outputText(this.images.showImage("goblin-win-male-corruptedbj"));
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.spriteSelect(24);
         this.outputText("You whip out your stiffening maleness, revealing its ", false);
         if (this.player.cockArea(x) < 80) this.outputText("nearly ", false);
@@ -1274,7 +1274,7 @@ export class GoblinScene extends BaseContent {
     // [DUDEGASM]
     private gobboGetsRapedMaleFits(): void {
         this.spriteSelect(24);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = this.player.biggestCockIndex();
         this.outputText("", true);
         this.outputText(this.images.showImage("goblin-win-male-getridden"));
@@ -1496,7 +1496,7 @@ export class GoblinScene extends BaseContent {
     // Spider goblin condom
     private goblinCondomed(): void {
         this.spriteSelect(24);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        const x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         this.outputText("", true);
         this.outputText(this.images.showImage("goblin-win-male-goblincondomed"));
         this.outputText(
@@ -1567,7 +1567,7 @@ export class GoblinScene extends BaseContent {
     // REQUIRES: AT LEAST ONE DICK AND A COPY OF ATLAS SHRUGGED - MUST NOT BE MONSTROUSLY HUGE
     private gatsGoblinBoners(): void {
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(this.images.showImage("goblin-win-male-goblinboners"));
         this.outputText(

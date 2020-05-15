@@ -56,7 +56,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             this.marblePurification.visitRathazulToPurifyMarbleAfterLaBovaStopsWorkin();
             return;
         }
-        var offered: boolean;
+
         // Rat is definitely not sexy!
         if (this.player.lust > 30) this.dynStats("lus", -10);
         // Introduction
@@ -93,7 +93,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             this.player.changeStatusValue(StatusAffects.MetRathazul, 3, 1);
             return;
         }
-        offered = this.rathazulWorkOffer();
+        const offered = this.rathazulWorkOffer();
         if (!offered) {
             this.outputText(
                 'He sighs dejectedly, "<i>I am not sure what I can do for you, youngling.  This world is fraught with unimaginable dangers, and you\'re just scratching the surface of them.</i>"\n\nYou nod and move on, leaving the depressed alchemist to his sadness.',
@@ -173,7 +173,6 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
                 return;
             }
         }
-        var offered: boolean;
         // Rat is definitely not sexy!
         if (this.player.lust > 50) this.dynStats("lus", -1);
         if (this.player.lust > 65) this.dynStats("lus", -5);
@@ -187,7 +186,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             true
         );
         // player.createStatusAffect(StatusAffects.metRathazul,0,0,0,0);
-        offered = this.rathazulWorkOffer();
+        const offered = this.rathazulWorkOffer();
         if (!offered) {
             this.outputText(
                 "He sighs dejectedly, \"<i>I don't think there is.  Why don't you leave me be for a time, and I will see if I can find something to aid you.</i>\"",
@@ -201,14 +200,14 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
 
     private rathazulWorkOffer(): boolean {
         this.spriteSelect(49);
-        var totalOffers: number = 0;
-        var spoken: boolean = false;
-        var showArmorMenu: boolean = false;
-        var purify = undefined;
-        var debimbo: number = 0;
-        var reductos = undefined;
-        var lethiciteDefense = undefined;
-        var dyes = undefined;
+        let totalOffers = 0;
+        let spoken = false;
+        let showArmorMenu = false;
+        let purify;
+        let debimbo = 0;
+        let reductos;
+        let lethiciteDefense;
+        let dyes;
         if (
             this.player.hasItem(this.consumables.BLACKEG) ||
             this.player.hasItem(this.consumables.L_BLKEG)
@@ -256,7 +255,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
         }
-        var pCounter: number = 0;
+        let pCounter = 0;
         // Item purification offer
         if (this.player.hasItem(this.consumables.INCUBID)) {
             purify = this.purifySomething;
@@ -535,13 +534,13 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
     public rathazulArmorMenu(): void {
         this.spriteSelect(49);
         this.clearOutput();
-        var beeArmor = this.player.hasItem(this.useables.B_CHITN, 5)
+        const beeArmor = this.player.hasItem(this.useables.B_CHITN, 5)
             ? this.craftCarapace
             : undefined;
-        var gelArmor = this.player.hasItem(this.useables.GREENGL, 5)
+        const gelArmor = this.player.hasItem(this.useables.GREENGL, 5)
             ? this.craftOozeArmor
             : undefined;
-        var silk = undefined;
+        let silk;
         this.outputText("Which armor project would you like to pursue with Rathazul?");
         if (
             this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0 &&
@@ -653,7 +652,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
         else this.outputText("robe", false);
         this.outputText(' is finished!</i>"\n\n', false);
         // Robe
-        var itype: ItemType;
+        let itype: ItemType;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00275] == 2) {
             this.outputText(
                 "Hanging from a small rack is a long, flowing robe.  It glitters brightly in the light, the pearl-white threads seeming to shimmer and shine with every ripple the breeze blows through the soft fabric.  You run your fingers over the silken garment, feeling the soft material give at your touch.  There's a hood with a golden border embroidered around the edge.  For now, it hangs limply down the back, but it would be easy to pull up in order to shield the wearer's eyes from harsh sunlight or rainy drizzle.  The sleeves match the cowl, circled with intricate threads laid out in arcane patterns.\n\n",
@@ -740,7 +739,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
     private buyReducto(): void {
         this.spriteSelect(49);
         this.clearOutput();
-        var cost: number = this.flags[kFLAGS.AMILY_MET_RATHAZUL] >= 2 ? 50 : 100;
+        const cost: number = this.flags[kFLAGS.AMILY_MET_RATHAZUL] >= 2 ? 50 : 100;
         if (this.player.gems >= cost) {
             this.outputText(
                 "Rathazul hands you the Reducto with a nod before returning to his work.\n\n"

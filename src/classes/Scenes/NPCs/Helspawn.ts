@@ -14,13 +14,13 @@ import { StatusAffects } from "../../StatusAffects";
 
 export class Helspawn extends Monster {
     public doAI(): void {
-        var choices: any[] = [];
+        const choices: any[] = [];
         choices[choices.length] = this.helspawnTwinStrikes;
         // Bowmander only
         if (this.flags[kFLAGS.HELSPAWN_WEAPON] == "bow") choices[choices.length] = this.calledShot;
         // Zerker ability
         if (this.weaponAttack < 50 || this.flags[kFLAGS.HELSPAWN_WEAPON] == "scimitar")
-            choices[choices.length] = this.helSpawnBerserk; //Shield Bash (Shieldmander Only)
+            choices[choices.length] = this.helSpawnBerserk; // Shield Bash (Shieldmander Only)
         if (this.flags[kFLAGS.HELSPAWN_WEAPON] == "scimitar and shield")
             choices[choices.length] = this.helSpawnShieldBash;
         // Tease (Sluttymander Only)
@@ -61,7 +61,7 @@ export class Helspawn extends Monster {
             this.flags[kFLAGS.HELSPAWN_NAME] +
                 " draws back her bowstring, spending an extra second aiming before letting fly!"
         );
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str + this.weaponAttack - Helspawn.rand(this.player.tou) - this.player.armorDef
         );
         // standard dodge/miss text
@@ -78,7 +78,7 @@ export class Helspawn extends Monster {
             this.outputText(
                 "\nOne of her arrows smacks right into your [leg], nearly bowling you over.  God DAMN that hurt! You're going to be limping for a while!"
             );
-            var affect: number = 20 + Helspawn.rand(5);
+            let affect: number = 20 + Helspawn.rand(5);
             if (this.player.findStatusAffect(StatusAffects.CalledShot) >= 0) {
                 while (affect > 0 && this.player.spe >= 2) {
                     affect--;
@@ -118,7 +118,7 @@ export class Helspawn extends Monster {
     // Shield Bash (Shieldmander Only)
     private helSpawnShieldBash(): void {
         this.clearOutput();
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str - Helspawn.rand(this.player.tou) - this.player.armorDef
         );
         // Stuns a bitch
@@ -151,7 +151,7 @@ export class Helspawn extends Monster {
     // Tail Whip
     private tailWhipShitYo(): void {
         // Light physical, armor piercing (fire, bitch). Random chance to get this on top of any other attack
-        var damage: number = Math.floor(this.str - Helspawn.rand(this.player.tou));
+        let damage: number = Math.floor(this.str - Helspawn.rand(this.player.tou));
         this.outputText(
             "\n" +
                 this.flags[kFLAGS.HELSPAWN_NAME] +
@@ -193,7 +193,7 @@ export class Helspawn extends Monster {
             this.outputText(
                 "\nDat ass.  You lean back, enjoying the show as the slutty little salamander slips right past your guard, practically grinding up against you until you can feel a fire boiling in your loins!"
             );
-            var lustDelta: number = this.player.lustVuln * (10 + this.player.lib / 10);
+            let lustDelta: number = this.player.lustVuln * (10 + this.player.lib / 10);
             this.player.lust += lustDelta;
             this.game.mainView.statsView.showStatUp("lust");
             // lustDown.visible = false;
@@ -228,7 +228,7 @@ export class Helspawn extends Monster {
 
     public constructor() {
         super();
-        var weapon = this.game.flags[kFLAGS.HELSPAWN_WEAPON] || "bow";
+        const weapon = this.game.flags[kFLAGS.HELSPAWN_WEAPON] || "bow";
         this.a = "";
         this.short = this.game.flags[kFLAGS.HELSPAWN_NAME];
         this.imageName = "hollispawn";

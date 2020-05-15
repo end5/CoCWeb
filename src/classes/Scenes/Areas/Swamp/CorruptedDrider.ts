@@ -17,12 +17,13 @@ import { AbstractSpiderMorph } from "./AbstractSpiderMorph";
 
 /**
  * ...
+ *
  * @author ...
  */
 export class CorruptedDrider extends AbstractSpiderMorph {
     // Drider kiss!
     public driderKiss(): void {
-        var temp: number;
+        let temp: number;
         this.outputText(
             "The corrupted drider closes in on your web-bound form, cooing happily at you while you struggle with the sticky fibers.\n\n",
             false
@@ -285,10 +286,15 @@ export class CorruptedDrider extends AbstractSpiderMorph {
     public constructor() {
         super();
 
-        var hairColor: string = CorruptedDrider.randomChoice("red", "orange", "green");
-        var skinTone: string = CorruptedDrider.randomChoice("yellow", "purple", "red", "turquoise");
+        const hairColor: string = CorruptedDrider.randomChoice("red", "orange", "green");
+        const skinTone: string = CorruptedDrider.randomChoice(
+            "yellow",
+            "purple",
+            "red",
+            "turquoise"
+        );
 
-        var pierced: boolean = CorruptedDrider.rand(2) == 0;
+        const pierced: boolean = CorruptedDrider.rand(2) == 0;
         this.a = "the ";
         this.short = "corrupted drider";
         this.imageName = "corrupteddrider";

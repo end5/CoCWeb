@@ -53,7 +53,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         this.game.d3.driderIncubus.spooderbuttGetsANewCockSleeve(hpVictory, pcCameWorms);
     }
 
-    private _goblinFree: boolean = false;
+    private _goblinFree = false;
     public get goblinFree(): boolean {
         return this._goblinFree;
     }
@@ -72,7 +72,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         }
     }
 
-    private _combatRound: number = 0;
+    private _combatRound = 0;
 
     protected performCombatAction(): void {
         // Because fuck having arguments with status affects :^)
@@ -104,7 +104,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         if (this._combatRound >= 3 && (this._combatRound % 6 == 0 || this._combatRound == 3))
             this.stunningSpear();
         else {
-            var opts: any[] = [
+            const opts: any[] = [
                 this.bite,
                 this.spiderMorphWebAttack,
                 this.kick,
@@ -120,7 +120,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         if (this._combatRound >= 3 && (this._combatRound % 6 == 0 || this._combatRound == 3))
             this.constrictingThoughts();
         else {
-            var opts: any[] = [this.arouseSpell, this.arouseSpell];
+            const opts: any[] = [this.arouseSpell, this.arouseSpell];
             if (this.player.findStatusAffect(StatusAffects.TaintedMind) < 0 && !this._seenResolute)
                 opts.push(this.taintedMind);
             if (!this._seenResolute) opts.push(this.purpleHaze);
@@ -129,7 +129,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
     }
 
     private goblinAI(): void {
-        var opts: any[] = [
+        const opts: any[] = [
             this.goblinHandjob,
             this.goblinTongueGrapple,
             this.bootyTwerking,
@@ -140,7 +140,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         opts[DriderIncubus.rand(opts.length)]();
     }
 
-    private _hpGains: number = 0;
+    private _hpGains = 0;
     private gainHpAndLust(): void {
         // Heals 10% of HP but raises lust by 8.
 
@@ -191,7 +191,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         // Drider’s spear ignores armor and toughness completely.
         this.outputText("The drider rears back, lancing out with his spear.");
 
-        var damage: number = (this.str + this.weaponAttack) * 0.4;
+        const damage: number = (this.str + this.weaponAttack) * 0.4;
 
         if (damage <= 0 || this.combatMiss() || this.combatFlexibility()) {
             this.outputText(" You barely slide out of the way.");
@@ -206,7 +206,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
     }
 
     private bite(): void {
-        var amount: number;
+        let amount: number;
 
         // Inflicts venom that reduces strength.
         if (
@@ -293,7 +293,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         } else if (this.combatMiss() || this.combatEvade() || this.combatFlexibility()) {
             this.outputText(" You twist out of the way at the last moment, evading with ease.");
         } else {
-            var damage: number =
+            let damage: number =
                 this.str + this.weaponAttack + 25 - DriderIncubus.rand(this.player.tou);
 
             if (damage > 0) {
@@ -328,7 +328,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
                 " You lean in the direction of the swing, letting gravity pull you down and away from the stunning blow."
             );
         } else {
-            var damage: number =
+            let damage: number =
                 this.str + this.weaponAttack - 25 - DriderIncubus.rand(this.player.tou);
 
             if (damage > 0) {
@@ -366,7 +366,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         );
 
         // Use hit/dodge messages from above.
-        var damage: number =
+        const damage: number =
             this.str + this.weaponAttack + 10 - DriderIncubus.rand(this.player.tou);
 
         if (damage <= 0 || this.combatMiss() || this.combatFlexibility()) {
@@ -454,7 +454,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         }
     }
 
-    private _seenResolute: boolean = false;
+    private _seenResolute = false;
 
     private purpleHaze(): void {
         // Blinds 2-3 turns
@@ -528,7 +528,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         this.lust += 5;
     }
 
-    private _goblinWebChain: boolean = false;
+    private _goblinWebChain = false;
     private webNipplechain(): void {
         this.outputText(
             "Every time she makes a grab for the demonic drider’s tool, he skitters aside, the ebb and flow of your fight keeping her from her objective. In a huff, she grabs hold of a hanging strand of web and affixes the sticky end to one of her nipples. Then, she gives the source spinnaret a squeeze, but not before pressing her other jiggling tit against it."
@@ -550,7 +550,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
         this.lust += 5;
     }
 
-    private _goblinOiled: boolean = false;
+    private _goblinOiled = false;
     public get goblinOiled(): boolean {
         return this._goblinOiled;
     }

@@ -6,7 +6,7 @@ import { ItemType } from "../../../ItemType";
 import { BazaarAbstractContent } from "./BazaarAbstractContent";
 
 export class FapArena extends BazaarAbstractContent {
-    public fapAppearance(display: boolean = true): void {
+    public fapAppearance(display = true): void {
         if (display) {
             // [Paragraph: Bazaar description, 1st time]
             if (this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED] == 0)
@@ -27,7 +27,7 @@ export class FapArena extends BazaarAbstractContent {
     public fapArenaGOOOO(): void {
         this.outputText("", true);
         // (set X = longest cock)
-        var x: number = this.player.longestCock();
+        const x: number = this.player.longestCock();
         // [1st time]
         if (this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED] == 0)
             this.outputText(
@@ -164,7 +164,7 @@ export class FapArena extends BazaarAbstractContent {
         // Increment 'times fap-arena'ed
         this.flags[kFLAGS.FAP_ARENA_SESSIONS]++;
         this.outputText("", true);
-        var x: number = this.player.longestCock();
+        const x: number = this.player.longestCock();
 
         this.outputText('"<i>READY!</i>"\n\n', false);
         if (this.player.cor > 66)
@@ -234,20 +234,20 @@ export class FapArena extends BazaarAbstractContent {
         // 5% chance of losing no matter what.
         // If that check fails,
         // Let S be the PC's sensitivity
-        var s: number = this.player.sens;
+        const s: number = this.player.sens;
         // D the number of hours since he last came
-        var d: number = this.player.hoursSinceCum;
-        var c: number = 0;
+        const d: number = this.player.hoursSinceCum;
+        let c = 0;
         if (this.player.cocks[x].cockType == CockTypesEnum.DEMON) c = 10;
         else if (this.player.cocks[x].cockType == CockTypesEnum.TENTACLE) c = 5;
         else if (this.player.cocks[x].cockType == CockTypesEnum.LIZARD) c = 3;
         else if (this.player.cocks[x].cockType == CockTypesEnum.HORSE) c = 2;
         // R the player's lust resistance (0<R<1)
-        var r: number = kGAMECLASS.lustPercent() / 100;
+        const r: number = kGAMECLASS.lustPercent() / 100;
         // The game does a roll between 0 and 100, call it N.
-        var n: number = FapArena.rand(100);
+        const n: number = FapArena.rand(100);
         // We define the PC's stamina as ST = (N-S*R-4*D)/(D+1) + C
-        var st: number = c + (n - s * r - 4 * d) / (1.2 + d / 10);
+        const st: number = c + (n - s * r - 4 * d) / (1.2 + d / 10);
         // outputText("<B>CHEAT: " + st + "</b> N: " + n + " c: " + c + " s: " + s + " r: " + r + " D: " + d + "\n", false);
         // If ST is 0 or less, the PC loses.
         // If ST > 30, the PC wins.
@@ -260,11 +260,11 @@ export class FapArena extends BazaarAbstractContent {
         else this.doNext(this.createCallBackFunction(this.fapResults, 1));
     }
 
-    private fapResults(place: number = 3): void {
+    private fapResults(place = 3): void {
         this.outputText("", true);
-        var x: number = this.player.longestCock();
-        var num: number = FapArena.rand(50) + 5;
-        var tent: boolean = false;
+        const x: number = this.player.longestCock();
+        const num: number = FapArena.rand(50) + 5;
+        let tent = false;
         // Loses
         if (place == 3) {
             this.outputText(
@@ -893,7 +893,7 @@ export class FapArena extends BazaarAbstractContent {
             );
             // You find [random item from the list: gro+, succubi's dream, large blue egg].
 
-            var itype: ItemType = this.consumables.GROPLUS;
+            let itype: ItemType = this.consumables.GROPLUS;
             switch (FapArena.rand(3)) {
                 case 0:
                     itype = this.consumables.GROPLUS;
@@ -936,7 +936,7 @@ export class FapArena extends BazaarAbstractContent {
     // [SPECIAL: if player has an extra tentacle dick more than 40 inches long OR if the player has lost and has a unique tentacle dick, add this paragraph before the PC cums]
     private tentacleFapSpecial(place: number): void {
         this.temp = this.player.cocks.length;
-        var x: number = this.player.longestCock();
+        const x: number = this.player.longestCock();
         while (this.temp > 0) {
             this.temp--;
             if (
@@ -1000,7 +1000,7 @@ export class FapArena extends BazaarAbstractContent {
     // [in both cases, special paragraph for cumming with tentacle dick]
     private tentacleFapCum(): boolean {
         this.temp = this.player.cocks.length;
-        var x: number = this.player.longestCock();
+        const x: number = this.player.longestCock();
         while (this.temp > 0) {
             this.temp--;
             if (

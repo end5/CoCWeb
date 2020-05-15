@@ -23,7 +23,7 @@ export class Tamani extends Goblin {
 
     // New Tease option:
     public tamaniHypnoTease(): void {
-        var selector: number = Tamani.rand(3);
+        let selector: number = Tamani.rand(3);
         // Choose 1 of 3 variations
         if (selector == 0)
             this.outputText(
@@ -150,8 +150,8 @@ export class Tamani extends Goblin {
                 "  You could fuck her, but if that's the case why did you bother fighting her?\n\nWhat do you do to her?",
                 false
             );
-            var temp = undefined;
-            var temp2 = undefined;
+            let temp;
+            let temp2;
             if (this.player.hasCock() && this.player.cockThatFits(this.analCapacity()) >= 0)
                 temp = this.game.forest.tamaniScene.tamaniAnalShits;
             // NOT PREGGERS

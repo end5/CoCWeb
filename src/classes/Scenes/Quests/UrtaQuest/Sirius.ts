@@ -36,7 +36,7 @@ export class Sirius extends Naga {
     }
 
     protected performCombatAction(): void {
-        var attack: number = Sirius.rand(4);
+        let attack: number = Sirius.rand(4);
         if (this.player.findStatusAffect(StatusAffects.Blind) >= 0) attack = Sirius.rand(3);
         if (attack == 0) this.eAttack();
         if (attack == 1) this.poisonBite();
@@ -109,7 +109,7 @@ export class Sirius extends Naga {
         this.outputText(
             "The snake-man moves too quickly for you to evade and he sinks long fangs into your flesh, leaving a wound that burns with horrific pain."
         );
-        var damage: number = 40 + Sirius.rand(20);
+        let damage: number = 40 + Sirius.rand(20);
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")");
         this.combatRoundOver();

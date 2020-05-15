@@ -43,7 +43,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>Hey there, partner! Need anything while we\'re safe at camp?</i>"'
         );
-        var sex = undefined;
+        let sex;
         if (this.player.lust > 33) sex = this.followersValeriaSex;
         // (Display Options: [Appearance] [Spar] [Sex] [Talk])
         this.choices(
@@ -157,7 +157,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Followers -- [Valeria] -- [Sex]
-    private followersValeriaSex(display: boolean = true): void {
+    private followersValeriaSex(display = true): void {
         this.spriteSelect(79);
         if (display) {
             this.clearOutput();
@@ -175,14 +175,14 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         }
         // (Display Options: \"<i>[Penetrate Her](Cockwielder PC Only)  [Get Fucked]  [Gooflation]
         // [Get Dominated](Must have a gender)  [Dick/No Dick])
-        var penetrate = undefined;
+        let penetrate;
         if (this.player.hasCock()) penetrate = this.penetrateValeria;
-        var getFucked = this.valeriaGetFucked;
-        var gooFlation = this.gooFlation;
-        var dominated = undefined;
+        const getFucked = this.valeriaGetFucked;
+        const gooFlation = this.gooFlation;
+        let dominated;
         if (this.player.gender > 0) dominated = this.valeriaSexDominated;
-        var dickToggle = this.valeriaDickToggle;
-        var dickText: string = "Grow Dick";
+        const dickToggle = this.valeriaDickToggle;
+        let dickText = "Grow Dick";
         if (this.flags[kFLAGS.VELARIA_FUTA] == 1) {
             dickText = "Lose Dick";
         }
@@ -428,7 +428,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    private gooFlation(clearText: boolean = true): void {
+    private gooFlation(clearText = true): void {
         this.spriteSelect(79);
         if (clearText) {
             this.clearOutput();
@@ -812,7 +812,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(79);
         this.armors.GOOARMR.useText();
         this.player.armor.removeText();
-        var item = this.player.setArmor(this.armors.GOOARMR); //Item is now the player's old armor
+        const item = this.player.setArmor(this.armors.GOOARMR); // Item is now the player's old armor
         if (item == undefined) this.doNext(this.playerMenu);
         else this.inventory.takeItem(item, this.playerMenu);
     }
@@ -822,7 +822,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "You cautiously approach with Valeria's voice egging you on, \"<i>We gonna fuck her? We're gonna fuck her, ain't we, [name]?</i>\" She affectionately fondles your "
         );
-        var list: any[] = ["[hips]"];
+        const list: any[] = ["[hips]"];
         if (this.player.balls > 0) list.push("[balls]");
         if (this.player.totalCocks() > 0) list.push("[multiCockDescriptLight]");
         if (this.player.hasVagina()) list.push("[vagina]");
@@ -1105,7 +1105,7 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou shake and squirm on the ground, writhing in climax until your slime-filling settles enough to allow you to take stock of your situation. Valeria is back in place, forming her usual protective coating."
         );
         if (this.player.biggestTitSize() >= 5 && this.player.hasFuckableNipples()) {
-            for (var x: number = 0; x < this.player.bRows(); x++) {
+            for (let x = 0; x < this.player.bRows(); x++) {
                 this.player.breastRows[x].breastRating += 3 + Valeria.rand(3);
             }
             this.outputText(
@@ -1138,10 +1138,10 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
         // v3 = cunt fill?
         // v4 = tit fill?
         this.player.createStatusAffect(StatusAffects.GooStuffed, 10 + Valeria.rand(300), 0, 0, 0);
-        this.player.buttKnockUpForce(PregnancyStore.PREGNANCY_GOO_STUFFED, 500); //Blocks other pregnancies - Way higher than GooStuffed status can last. Cleared when GooStuffed removed
+        this.player.buttKnockUpForce(PregnancyStore.PREGNANCY_GOO_STUFFED, 500); // Blocks other pregnancies - Way higher than GooStuffed status can last. Cleared when GooStuffed removed
         if (this.player.hasVagina()) {
             this.player.changeStatusValue(StatusAffects.GooStuffed, 3, 1);
-            this.player.knockUpForce(PregnancyStore.PREGNANCY_GOO_STUFFED, 500); //Blocks other pregnancies - Way higher than GooStuffed status can last. Cleared when GooStuffed removed
+            this.player.knockUpForce(PregnancyStore.PREGNANCY_GOO_STUFFED, 500); // Blocks other pregnancies - Way higher than GooStuffed status can last. Cleared when GooStuffed removed
         }
         if (this.player.hasCock()) {
             if (this.player.balls > 0)
@@ -1201,11 +1201,11 @@ export class Valeria extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou pant to try and catch your breath as the fluid gathers up beside you and grows a friendly, smiling face. It gives you a simple smile and a kiss on your brow before leaving you to recover, heading in the direction of the lake.\n"
         );
         this.player.removeStatusAffect(StatusAffects.GooStuffed);
-        this.player.knockUpForce(); //Clear the false pregnancy
-        this.player.buttKnockUpForce(); //Clear the false pregnancy
+        this.player.knockUpForce(); // Clear the false pregnancy
+        this.player.buttKnockUpForce(); // Clear the false pregnancy
     }
 
-    /*MISC. Valeria Interactions
+    /* MISC. Valeria Interactions
 
 
     [If PC has Valeria unequipped and Isabella is in camp]

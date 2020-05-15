@@ -18,7 +18,7 @@ import { StatusAffects } from "../../StatusAffects";
 export class Marble extends Monster {
     private marbleSpecialAttackOne(): void {
         // Special1: Heavy overhead swing, high chance of being avoided with evasion, does heavy damage if it hits.
-        var damage: number = 0;
+        let damage = 0;
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(
@@ -77,7 +77,7 @@ export class Marble extends Monster {
     }
     private marbleSpecialAttackTwo(): void {
         // Special2: Wide sweep; very high hit chance, does low damage.
-        var damage: number = 0;
+        let damage = 0;
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(

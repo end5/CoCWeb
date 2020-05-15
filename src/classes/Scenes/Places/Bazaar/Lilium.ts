@@ -21,7 +21,7 @@ export class Lilium extends BazaarAbstractContent {
     // 267 Times Bought Smexin'
 
     // #########AREA TEXT#########
-    public LiliumText(output: boolean = false) {
+    public LiliumText(output = false) {
         if (output) {
             // Before paying:
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00267] == 0)
@@ -39,7 +39,7 @@ export class Lilium extends BazaarAbstractContent {
     private approachLilium(): void {
         this.outputText("", true);
         this.spriteSelect(93);
-        var pay = undefined;
+        let pay;
         // #########FIRST TIME INTRODUCTION#########
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00267] == 0) {
             this.outputText(
@@ -150,9 +150,9 @@ export class Lilium extends BazaarAbstractContent {
         this.player.gems -= 200;
         this.statScreenRefresh();
         // Sex Menu here
-        var buttFuck = undefined;
-        var nippleFuck = undefined;
-        var rideHer = undefined;
+        let buttFuck;
+        let nippleFuck;
+        let rideHer;
         if (this.player.hasCock() && this.player.tongueType >= TONUGE_DEMONIC)
             buttFuck = this.buttFuckTongueJeorb;
         if (this.player.hasCock()) nippleFuck = this.liliumNippleFuck;
@@ -192,7 +192,7 @@ export class Lilium extends BazaarAbstractContent {
     private buttFuckTongueJeorb(): void {
         this.outputText("", true);
         this.spriteSelect(93);
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
         this.outputText(
             "The two of you find a secluded alley between two buildings.  Lilium removes her corset and skirt before moving to help you remove your " +
@@ -471,13 +471,13 @@ export class Lilium extends BazaarAbstractContent {
         this.player.orgasm();
         this.dynStats("cor", 1);
         // (imp preg check)
-        this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP - 14, 61); //Lilium causes faster pregnancies
+        this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP - 14, 61); // Lilium causes faster pregnancies
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
     // #########NIPPLE FUCK SCENE######### REQUIRES PENIS
     private liliumNippleFuck(): void {
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         if (x < 0) x = 0;
 
         this.outputText("", true);
@@ -526,7 +526,7 @@ export class Lilium extends BazaarAbstractContent {
             false
         );
 
-        var doubleNipFuck: boolean = false;
+        let doubleNipFuck = false;
         // (if multicock)
         if (this.player.cockTotal() >= 2) {
             doubleNipFuck = true;

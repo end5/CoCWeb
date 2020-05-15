@@ -54,7 +54,7 @@ export class MinotaurKing extends Monster {
         if (this._orgasms == 0) {
             return "Positioned between you and the Demon Queen is an opponent of singular size and stature - the Minotaur King. He is a beast beyond measure, covered in shaggy fur and a few scraps of leather that do nothing to hide the pillar of flared cuntplow between his legs. In his hands is a gigantic axe, though he seems loathe to use it, preferring to rely on the erotic scent emanating from between his legs. He smells virile, strong, and more alluring than you’d expect. You’d best be careful not to dwell on it.";
         } else {
-            var str: string =
+            let str =
                 "Still standing between you and the Demon Queen, the Minotaur King is breathing heavily. His cock is slathered with the residue of his own potent orgasm. His immense, 14 foot tall form hunches slightly as he stares at you, one hand still clutching to his axe. Driving him back to his peak would undoubtedly push him even beyond his considerable endurance. The only problem is that alluring <i>aroma</i> that surrounds him, suffusing the air with the scent of sweaty bedroom romps and sizzling pleasure. You better finish him quick.";
 
             // I have no idea what this variation is keyed from 9999
@@ -102,12 +102,12 @@ export class MinotaurKing extends Monster {
         this.game.d3.minotaurKing.hailToTheKingBaby(hpVictory, pcCameWorms);
     }
 
-    private _milkDrinks: number = 0;
-    private _orgasms: number = 0;
+    private _milkDrinks = 0;
+    private _orgasms = 0;
     public get orgasms(): number {
         return this._orgasms;
     }
-    private _lastRoundStun: boolean = false;
+    private _lastRoundStun = false;
     private _lastSpellCastCount: number;
 
     protected performCombatAction(): void {
@@ -125,7 +125,7 @@ export class MinotaurKing extends Monster {
             this._lastSpellCastCount = this.flags[kFLAGS.SPELLS_CAST];
             this.headbutt();
         } else {
-            var atks: any[] = [this.backhand, this.battleaxe, this.minoPheromones];
+            const atks: any[] = [this.backhand, this.battleaxe, this.minoPheromones];
             atks[MinotaurKing.rand(atks.length)]();
         }
 
@@ -137,7 +137,7 @@ export class MinotaurKing extends Monster {
             "Feinting with his axe, the Minotaur King flings a powerful backhand in your direction."
         );
 
-        var damage: number = this.str + this.weaponAttack - MinotaurKing.rand(this.player.tou);
+        let damage: number = this.str + this.weaponAttack - MinotaurKing.rand(this.player.tou);
 
         if (damage <= 0 || this.combatMiss() || this.combatFlexibility()) {
             this.outputText(" Luckily, you dodge aside.");
@@ -156,7 +156,7 @@ export class MinotaurKing extends Monster {
             "<i>“Settle down,”</i> the brute growls, moments before attempting to slam his forehead into your own."
         );
 
-        var damage: number =
+        let damage: number =
             (this.str + this.weaponAttack) / 2 - MinotaurKing.rand(this.player.tou);
 
         if (damage <= 0 || this.combatMiss() || this.combatFlexibility()) {
@@ -201,7 +201,7 @@ export class MinotaurKing extends Monster {
         this.outputText(
             "The Minotaur King carries his axe as if it weighed no more than a feather, brandishing it back and forth with such casual movements that you barely register his swing"
         );
-        var damage: number = this.str + this.weaponAttack - MinotaurKing.rand(this.player.tou);
+        let damage: number = this.str + this.weaponAttack - MinotaurKing.rand(this.player.tou);
         if (
             damage <= 0 ||
             this.combatMiss() ||
@@ -301,7 +301,7 @@ export class MinotaurKing extends Monster {
 
     private cowslutTeaseCocks(): void {
         if (this.player.hasCock()) {
-            var sel: number = MinotaurKing.rand(3);
+            const sel: number = MinotaurKing.rand(3);
             if (sel == 0) {
                 this.outputText(
                     "Excellia crawls over to you while you’re distracted with her lord and wraps her arms around your waist, crushing her milk-swollen tits against your crotch. You can feel their warmth through your [armor], promising nothing but bliss in their embrace. When you push her away, you become aware of the rivers of milk she poured down your"

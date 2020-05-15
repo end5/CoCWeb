@@ -67,7 +67,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
     }
     // End of Interface Implementation
 
-    private pregCottonChance(bonusMult: number = 1): void {
+    private pregCottonChance(bonusMult = 1): void {
         // No preg if already preg!
         if (this.pregnancy.isPregnant) return;
 
@@ -201,7 +201,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
             // (If player has a Centaur or Naga body, replace last line with:
             if (this.player.isTaur() || this.player.isNaga()) {
-                /*outputText("\"<i>I'd love to teach you, but I'm afraid I don't know any good routines for your... body type. Sorry, pet.</i>\"", false);
+                /* outputText("\"<i>I'd love to teach you, but I'm afraid I don't know any good routines for your... body type. Sorry, pet.</i>\"", false);
                 // Back to gym!
                 doNext(13);
                 return;*/
@@ -223,7 +223,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             }
             // (If Centaur or Naga)
             if (this.player.isTaur() || this.player.isNaga()) {
-                /*outputText("You approach Cotton, who gives you a friendly smile. \"<i>Hey, there little pet. I'm afraid I don't know any good stretches for your body... Maybe some other time.</i>\"", false);
+                /* outputText("You approach Cotton, who gives you a friendly smile. \"<i>Hey, there little pet. I'm afraid I don't know any good stretches for your body... Maybe some other time.</i>\"", false);
                 doNext(13);
                 return;*/
                 this.centaurNagaBodyBookStuff();
@@ -357,9 +357,9 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.spriteSelect(12);
         this.outputText("", true);
         this.outputText(this.images.showImage("cotton-yoga"));
-        var fuckHer = undefined;
-        var getFucked = undefined;
-        var option3 = undefined;
+        let fuckHer;
+        let getFucked;
+        let option3;
         // var option4 = undefined;
         if (this.player.fatigue > 80) {
             this.outputText("You're way too tired to do any yoga right now.", false);
@@ -559,7 +559,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
     private cottonChat(): void {
         this.spriteSelect(12);
-        var chats: any[] = [];
+        const chats: any[] = [];
         // Urta chance
         if (this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0) chats[chats.length] = 1;
         // Edryn chance
@@ -570,7 +570,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         if (this.flags[kFLAGS.FREED_VALA] != 0) chats[chats.length] = 3;
         // (Jojo chat)
         if (kGAMECLASS.monk > 0) chats[chats.length] = 4;
-        var choice: number = chats[Cotton.rand(chats.length)];
+        const choice: number = chats[Cotton.rand(chats.length)];
 
         // (Urta Chat)
         if (choice == 1) {
@@ -678,8 +678,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
     // (If Shower)
     private cottonShowerFunTimes(): void {
         this.spriteSelect(12);
-        var option1 = undefined;
-        var option2 = undefined;
+        let option1;
+        let option2;
         this.outputText("", true);
         this.outputText(
             '"<i>Perfect! Let\'s go,</i>" she takes you by the arm and leads you back into the lockers, and then into the nearby showers, which are apparently unisex. You both strip down and turn on a shower head. After a few moments of scrubbing up, you give your shower buddy a surreptitious glance.\n\n',
@@ -715,7 +715,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.flags[kFLAGS.COTTON_MET_FUCKED] = 2;
         this.outputText("", true);
         this.outputText(this.images.showImage("cotton-first-fuck"));
-        var x: number = this.player.cockThatFits(100);
+        let x: number = this.player.cockThatFits(100);
         if (x < 0) x = 0;
         this.outputText(
             'Needing no encouragement, you step behind the large horse herm and push her under the stream of water. "<i>Oh, taking the lead are we?</i>" She laughs, "<i>Please, by all means, my little pet.</i>"\n\n',
@@ -1001,10 +1001,10 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.spriteSelect(12);
         this.outputText("", true);
         this.outputText(this.images.showImage("cotton-shower-fuck-repeat"));
-        var x: number = this.player.cockThatFits(60);
+        let x: number = this.player.cockThatFits(60);
         if (x < 0) x = 0;
 
-        /*OLD ORIGINAL REPEAT SHOWER SEX
+        /* OLD ORIGINAL REPEAT SHOWER SEX
         outputText("You decide to take her up on her offer, pulling her into the showers and quickly disrobing. Seeing the look on your face, she does too, and quickly enters the showers, turning only one shower-head on. She turns around and grabs you, pulling you into an embrace as you kiss under the steaming water. Both your cocks stir, rising and rubbing together while you make out.\n\n", false);
 
         outputText("Finally breaking the kiss, you reach down and hook your arm under one of her legs, lifting her leg up while you position your rock hard member at her pussy. She leans forward to kiss again as you thrust forwards, causing her to moan into your mouth. You thrust in and out while her horse-cock bounces between the two of you, only adding to the excitement.\n\n", false);
@@ -1652,7 +1652,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.flags[kFLAGS.COTTON_MET_FUCKED] = 2;
         this.outputText("", true);
         this.outputText(this.images.showImage("cotton-shower-fucks-you-repeat"));
-        /*OLD SEX SCENES HERE
+        /* OLD SEX SCENES HERE
         if(player.hasCock() && (player.gender != 3 || rand(2) == 0)) {
             outputText("You decide to take her up on her offer, and she pulls you towards the showers, quickly disrobing the both of you. She turns only one shower-head on and pulls you into an embrace underneath the rapidly heating stream. Cotton's cock stirs between you, and though yours tingles, it remains limp in her presence.\n\n", false);
 
@@ -2040,7 +2040,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.player.slimeFeed();
         this.flags[kFLAGS.COTTON_MET_FUCKED] = 2;
         // OLD TANTRIC SMEX
-        /*outputText("You decide to ask instead about using yoga to blow off some steam. She grins, \"<i>I know just what you need. It's called tantric sex, and I think you're just limber and quick enough to try it.</i>\"\n\n", false);
+        /* outputText("You decide to ask instead about using yoga to blow off some steam. She grins, \"<i>I know just what you need. It's called tantric sex, and I think you're just limber and quick enough to try it.</i>\"\n\n", false);
 
         outputText("She leads you to a private room in the gym and sets up a larger mat. She disrobes and you do the same. She sits on the mat and you sit opposite her. You spend a couple minutes just breathing, exploring your partner's body with your eyes only. Then Cotton slips her legs outwards, and leans backwards, letting her enormous member to waggle freely in the air. She curls a finger at you, and gives you your instructions.\n\n", false);
 
@@ -2346,7 +2346,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
     }
 
     // COTTON PREGNANCY
-    /*2. Preggo my Eggo!
+    /* 2. Preggo my Eggo!
     PC Pregnancy: Should be about as long as Centaur pregnancy?
     Cotton Pregnancy: Should be about as long as Edryn pregnancy? Cotton should be about as fertile as (maybe less fertile than) Edryn.
     Has Had Child with Cotton: Birth text changes depending on if you've given birth to one of Cotton's kids before. This covers only children birthed by the PC.
@@ -2437,7 +2437,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
     // ORIGINAL:
     // Cotton First-Time Birth*
     private cottonPopsOutAKid(): void {
-        var kid: number = 0;
+        let kid = 0;
         // (Replaces Yoga session)
         this.clearOutput();
         this.outputText(this.images.showImage("cotton-giving-birth"));
@@ -2571,7 +2571,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.outputText(
                 "\n\nYou tell her you'd like that, taking a seat nearby with the 'mother' of your child and watching as your baby foal sleeps soundly.  Eventually, though, you have to leave, and politely excuse yourself to head back to camp."
             );
-            this.pregnancy.knockUpForce(); //Clear Pregnancy
+            this.pregnancy.knockUpForce(); // Clear Pregnancy
             this.flags[kFLAGS.COTTON_KID_COUNT]++;
             if (this.flags[kFLAGS.COTTON_KID_COUNT] == 1)
                 this.flags[kFLAGS.COTTON_OLDEST_KID_AGE] = 1;
@@ -2649,7 +2649,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             this.outputText(
                 " later.  The two of you head back out to the main section of the gym, while Cotton slaps you on the back, \"<i>We sure do make 'em good, don't we?  Anyway, if you want to work out, just get changed and come on back.</i>\""
             );
-            this.pregnancy.knockUpForce(); //Clear Pregnancy
+            this.pregnancy.knockUpForce(); // Clear Pregnancy
             this.flags[kFLAGS.COTTON_KID_COUNT]++;
             if (this.flags[kFLAGS.COTTON_KID_COUNT] == 1)
                 this.flags[kFLAGS.COTTON_OLDEST_KID_AGE] = 1;
@@ -2841,7 +2841,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText(
             "\n\nThe child struggles on the ground for a moment before you pick it up and bring it to your teat.  It quickly latches on, suckling like there's no tomorrow.  You take this opportunity to sit back and examine the fruit of your loins.  Congratulations, it's a "
         );
-        var kid: number = Cotton.rand(3) + 1;
+        const kid: number = Cotton.rand(3) + 1;
         if (kid == 1) this.outputText("boy");
         else if (kid == 2) this.outputText("girl");
         else this.outputText("hermaphrodite");
@@ -3024,7 +3024,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         this.outputText("\n");
         this.flags[kFLAGS.COTTON_KID_COUNT]++;
         if (this.flags[kFLAGS.COTTON_KID_COUNT] == 1) this.flags[kFLAGS.COTTON_OLDEST_KID_AGE] = 1;
-        this.player.knockUpForce(); //Clear Pregnancy
+        this.player.knockUpForce(); // Clear Pregnancy
     }
 
     // Visit Kids*
@@ -3053,7 +3053,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         } else this.outputText("children are");
         this.outputText(" doing.");
 
-        var scene: number = Cotton.rand(4);
+        const scene: number = Cotton.rand(4);
         // Play randomly chosen scene from list below
         // Peek-a-boo
         if (scene == 0) {

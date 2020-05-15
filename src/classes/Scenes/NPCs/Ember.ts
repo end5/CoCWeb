@@ -73,7 +73,7 @@ export class Ember extends Monster {
                 "You dodge aside at the last second and Ember's claws whistle past you."
             );
         else {
-            var damage: number = Math.floor(
+            let damage: number = Math.floor(
                 this.str + this.weaponAttack - Ember.rand(this.player.tou) - this.player.armorDef
             );
             if (damage <= 0)
@@ -123,7 +123,7 @@ export class Ember extends Monster {
                 this.outputText(
                     "  The pain as the deadly combination washes over you is indescribable.  It's a miracle that you endure it, and even Ember looks amazed to see you still standing."
                 );
-                var damage: number = 100 + Ember.rand(100);
+                let damage: number = 100 + Ember.rand(100);
                 damage = this.player.takeDamage(damage);
                 this.outputText(" (" + damage + ")");
             }
@@ -165,7 +165,7 @@ export class Ember extends Monster {
                     " own momentum and stumble."
             );
         } else {
-            var damage: number = Math.floor(
+            let damage: number = Math.floor(
                 this.str +
                     this.weaponAttack +
                     100 -
@@ -201,7 +201,7 @@ export class Ember extends Monster {
             this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
         }
         this.createStatusAffect(StatusAffects.StunCooldown, 4, 0, 0, 0);
-        var damage: number = 10 + Ember.rand(10);
+        let damage: number = 10 + Ember.rand(10);
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")");
         this.combatRoundOver();
@@ -247,7 +247,7 @@ export class Ember extends Monster {
             this.emberMF("his", "her") +
             " tail along the ground, with claws spread and teeth bared ferociously, makes you wonder.";
         // this.plural = false;
-        var gender: number = this.game.flags[kFLAGS.EMBER_GENDER];
+        const gender: number = this.game.flags[kFLAGS.EMBER_GENDER];
         if (gender == 0) {
             this.pronoun1 = "she";
             this.pronoun2 = "her";

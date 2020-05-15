@@ -35,7 +35,7 @@ export class Satyr extends Monster {
                 "He snarls as you duck his blow and it swishes harmlessly through the air."
             );
         } else {
-            var damage: number = Math.floor(
+            let damage: number = Math.floor(
                 this.str + this.weaponAttack - Satyr.rand(this.player.tou)
             );
             if (damage > 0) {
@@ -88,7 +88,7 @@ export class Satyr extends Monster {
             );
             this.HP -= 5;
         } else {
-            var damage: number = Math.floor(
+            let damage: number = Math.floor(
                 this.str + this.weaponAttack - Satyr.rand(this.player.tou)
             );
             if (damage > 0) {

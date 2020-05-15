@@ -79,7 +79,7 @@ export class MinervaScene extends BaseContent {
     }
 
     public encounterMinerva(): void {
-        if (this.flags[kFLAGS.MET_MINERVA] > 0) this.flags[kFLAGS.MET_MINERVA]++; //Increment counter by 1 if previously met Minerva.
+        if (this.flags[kFLAGS.MET_MINERVA] > 0) this.flags[kFLAGS.MET_MINERVA]++; // Increment counter by 1 if previously met Minerva.
         if (this.flags[kFLAGS.MET_MINERVA] == 0) this.firstMinervaEncounter();
         else if (this.flags[kFLAGS.MET_MINERVA] == 3) this.minervaThirdPlusEncounter();
         else if (
@@ -329,7 +329,7 @@ export class MinervaScene extends BaseContent {
         if (this.flags[kFLAGS.MET_MINERVA] == 4)
             this.outputText(
                 "\n\n<b>(You have visited the tower enough times to be able to remember where to go. Unlocked Oasis Tower in Places menu!)</b>"
-            ); //Unlock Minerva's tower from Places menu.
+            ); // Unlock Minerva's tower from Places menu.
         this.outputText(
             "\n\nSurprisingly, you don't see Minerva anywhere.  The shark-harpy isn't lounging in the water, or doing her usual calming exercises.  After a moment, though, a familiar shadow passes over you, and the siren in question lands nearby, smiling at you, looking blissfully happy to finally have some company."
         );
@@ -561,8 +561,8 @@ export class MinervaScene extends BaseContent {
         this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
     }
 
-    private minervaTalkSelect(bath: boolean = true): void {
-        var choices: any[] = [this.talkingToMinervaAboutBackstory];
+    private minervaTalkSelect(bath = true): void {
+        const choices: any[] = [this.talkingToMinervaAboutBackstory];
         if (this.flags[kFLAGS.MINERVA_BACKSTORY_LEARNED] == 0) {
             // Force first time to talk about her early backstory!
             if (this.flags[kFLAGS.MINERVA_BACKSTORY] == 0) {
@@ -1017,7 +1017,7 @@ export class MinervaScene extends BaseContent {
 
     // SEX SCENES!!!!!!!!!
     // PC Chooses Sex from Minerva's Options:
-    private minervaSexMenu(display: boolean = true): void {
+    private minervaSexMenu(display = true): void {
         if (display) {
             this.clearOutput();
             this.spriteSelect(95);
@@ -1077,7 +1077,7 @@ export class MinervaScene extends BaseContent {
             }
         }
         this.menu();
-        var btnIdx: number = 0;
+        let btnIdx = 0;
         if (this.player.hasCock() && this.player.cockThatFits(this.minervaACapacity()) >= 0)
             this.addButton(btnIdx++, "FuckHerButt", this.fuckMinervasAsshole);
         if (
@@ -1099,7 +1099,7 @@ export class MinervaScene extends BaseContent {
     private fuckMinervasAsshole(): void {
         this.clearOutput();
         this.spriteSelect(95);
-        var x: number = this.player.cockThatFits(this.minervaACapacity());
+        let x: number = this.player.cockThatFits(this.minervaACapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.flags[kFLAGS.TIMES_MINERVA_SEXED]++;
         this.outputText(
@@ -1229,7 +1229,7 @@ export class MinervaScene extends BaseContent {
     private minervaCowgirlSex(): void {
         this.clearOutput();
         this.spriteSelect(95);
-        var x: number = this.player.cockThatFits(this.minervaVCapacity());
+        let x: number = this.player.cockThatFits(this.minervaVCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.flags[kFLAGS.TIMES_MINERVA_SEXED]++;
         this.outputText("You look the attractive siren up and down and");
@@ -1440,7 +1440,7 @@ export class MinervaScene extends BaseContent {
     // SEX SCENE 2.5 female/herm: LAP SEX
     // PC in Minerva's lap getting fucked by Minerva:
     private minervaLapSex(): void {
-        var x: number = this.player.cockThatFits(this.minervaACapacity());
+        let x: number = this.player.cockThatFits(this.minervaACapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.spriteSelect(95);
@@ -1670,7 +1670,7 @@ export class MinervaScene extends BaseContent {
     }
 
     // No Balls and continuation
-    private noBallsMinervaAndContinuation(clear: boolean = true): void {
+    private noBallsMinervaAndContinuation(clear = true): void {
         if (clear) this.clearOutput();
         else this.outputText("\n\n");
         this.spriteSelect(95);
@@ -1725,7 +1725,7 @@ export class MinervaScene extends BaseContent {
     // 4-6= sex scene 6: Blow job!
     // any - Minerva sucks off male/herm = needs penis
     private letMinervaSuckYouOff(): void {
-        var x: number = this.player.cockThatFits(this.minervaVCapacity());
+        let x: number = this.player.cockThatFits(this.minervaVCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.spriteSelect(95);
@@ -1883,7 +1883,7 @@ export class MinervaScene extends BaseContent {
     // 4-4= sex scene 4:  hand held behind
     // any- pc fucks Minerva, holding min's wrists from behind
     private fuckMinervaWithHerHandsBehindHerBack(): void {
-        var x: number = this.player.cockThatFits(this.minervaVCapacity());
+        let x: number = this.player.cockThatFits(this.minervaVCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.spriteSelect(95);

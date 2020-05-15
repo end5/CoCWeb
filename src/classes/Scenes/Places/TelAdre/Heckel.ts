@@ -7,7 +7,7 @@ export class Heckel extends TelAdreAbstractContent {
     // const TIMES_LOST_HECKEL_DOM_CHALLENGE: number = 650;
     // const TIMES_DOMMED_HECKEL: number = 651;
 
-    /*By submitting content to Fenoxo for addition to Corruption of Champions, I agree to give up any
+    /* By submitting content to Fenoxo for addition to Corruption of Champions, I agree to give up any
     and all creative and legal control over how the characters and events from my submissions are
     used within the confines of the game, its character viewer application, and any sequels. I retain
     all rights to said characters and events outside of their usage in these games. I also agree that
@@ -93,7 +93,7 @@ export class Heckel extends TelAdreAbstractContent {
     // First time Sex
     private heckelTraining(): void {
         this.clearOutput();
-        var dom = undefined;
+        let dom;
         // Rejection
         // Tone not high enough or fat too high
         if (this.player.tone < 60) {
@@ -404,7 +404,7 @@ export class Heckel extends TelAdreAbstractContent {
     }
 
     // anal
-    private heckelLovesDaAnal(loss: boolean = false): void {
+    private heckelLovesDaAnal(loss = false): void {
         this.outputText("", true);
         // rejection - ass not loose enough
         if (this.player.analCapacity() <= 20 && !loss) {
@@ -735,7 +735,7 @@ export class Heckel extends TelAdreAbstractContent {
     // [Fuck Heckel]
     private dominateHeckelConclusion(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(70);
+        let x: number = this.player.cockThatFits(70);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You casually rise and circle round the table.  Before she can react, you dexterously slip your hands down to Heckel's sculpted, furry backside and lift her high, easily flipping her up onto the wooden surface.  The muscle-herm grunts softly as she comes to rest upon the polished wood, her flopping dog-cock already starting to thicken with the telltale engorgement of oncoming arousal.  Smirking, you gently prod at the growing knot and tease her - she might be an avowed dom, but her dick seems excited by the prospect of sex on any terms."

@@ -15,7 +15,7 @@ import { TamainsDaughtersScene } from "./TamanisDaughtersScene";
 
 export class TamanisDaughters extends Goblin {
     private midRoundMadness(): void {
-        var selector: number = TamanisDaughters.rand(4);
+        const selector: number = TamanisDaughters.rand(4);
         if (selector == 0) {
             this.outputText(
                 "A slender hand reaches inside your " + this.player.armorName + " and gives your ",
@@ -61,7 +61,7 @@ export class TamanisDaughters extends Goblin {
 
     private tamaniShowsUp(): void {
         if (TamainsDaughtersScene.tamaniPresent) {
-            if (TamanisDaughters.rand(4) == 0) this.goblinDrugAttack(); //Tamani already there - chance of potion
+            if (TamanisDaughters.rand(4) == 0) this.goblinDrugAttack(); // Tamani already there - chance of potion
         } else if (TamanisDaughters.rand(6) == 0) {
             TamainsDaughtersScene.tamaniPresent = true;
             this.outputText(
@@ -86,7 +86,7 @@ export class TamanisDaughters extends Goblin {
     }
 
     protected performCombatAction(): void {
-        var select: number = 1;
+        let select = 1;
         // mid-round madness!
         this.midRoundMadness();
         this.tamaniShowsUp();
@@ -102,7 +102,7 @@ export class TamanisDaughters extends Goblin {
                     0,
                     0,
                     0
-                ); //Tamani's Daughters get multiattacks!
+                ); // Tamani's Daughters get multiattacks!
                 this.eAttack();
                 break;
             case 1:

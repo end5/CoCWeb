@@ -37,7 +37,7 @@ export class Maddie extends TelAdreAbstractContent {
     // [Follow]
     private followMinotaurIntoBackroom(): void {
         this.outputText("", true);
-        // 	(Not yet explained)
+        //  (Not yet explained)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00241] == 0) {
             this.outputText(
                 'You follow the burly beast through the door, turning several times as he leads you through the blisteringly hot ovens.  The minotaur is sweating heavily by the time you reach his destination, and for that matter so are you.  With all the musk boiling off of him, you find yourself wondering if he was just setting up an elaborate ruse to lure you into a sexual situation.  He grabs a white, fluffy hat and drops it on his head, firmly dispelling that notion as he tries to explain in as few words as possible, "<i>I am cook.  I make great éclairs, but making masterpiece now.  Need special ingredients.  You get to leave city.  Bring me lust draft and honey.  Not pure stuff, too strong. Go.</i>"\n\n',
@@ -305,7 +305,7 @@ export class Maddie extends TelAdreAbstractContent {
         // (FORK BETWEEN MALE/NONMALE)
         // (MALE)
         if (this.player.hasCock()) {
-            var x: number = this.player.cockThatFits(60);
+            let x: number = this.player.cockThatFits(60);
             if (x < 0) x = 0;
             this.outputText(
                 "\"<i>Dad said my name is Madeleine, but that's no fun.  Just call me Maddie.  You've got lots of icing like Dad, right?  I-I... need more icing.  It's in my recipe,</i>\" says Maddie.  The baked broad strips your " +

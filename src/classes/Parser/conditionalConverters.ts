@@ -1,146 +1,146 @@
 ﻿import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 
-//Calls are now made through kGAMECLASS rather than thisPtr. This allows the compiler to detect if/when a function is inaccessible.
+// Calls are now made through kGAMECLASS rather than thisPtr. This allows the compiler to detect if/when a function is inaccessible.
 
 // Possible text arguments in the conditional of a if statement
 // First, there is an attempt to cast the argument to a Number. If that fails,
 // a dictionary lookup is performed to see if the argument is in the conditionalOptions[]
 // object. If that fails, we just fall back to returning 0
 export const conditionalOptions: Record<string, any> = {
-    strength: function (): any {
+    strength(): any {
         return kGAMECLASS.player.str;
     },
-    toughness: function (): any {
+    toughness(): any {
         return kGAMECLASS.player.tou;
     },
-    speed: function (): any {
+    speed(): any {
         return kGAMECLASS.player.spe;
     },
-    intelligence: function (): any {
+    intelligence(): any {
         return kGAMECLASS.player.inte;
     },
-    libido: function (): any {
+    libido(): any {
         return kGAMECLASS.player.lib;
     },
-    sensitivity: function (): any {
+    sensitivity(): any {
         return kGAMECLASS.player.sens;
     },
-    corruption: function (): any {
+    corruption(): any {
         return kGAMECLASS.player.cor;
     },
-    fatigue: function (): any {
+    fatigue(): any {
         return kGAMECLASS.player.fatigue;
     },
-    hp: function (): any {
+    hp(): any {
         return kGAMECLASS.player.HP;
     },
-    hour: function (): any {
+    hour(): any {
         return kGAMECLASS.model.time.hours;
     },
-    days: function (): any {
+    days(): any {
         return kGAMECLASS.model.time.days;
     },
-    tallness: function (): any {
+    tallness(): any {
         return kGAMECLASS.player.tallness;
     },
-    hairlength: function (): any {
+    hairlength(): any {
         return kGAMECLASS.player.hairLength;
     },
-    femininity: function (): any {
+    femininity(): any {
         return kGAMECLASS.player.femininity;
     },
-    masculinity: function (): any {
+    masculinity(): any {
         return 100 - kGAMECLASS.player.femininity;
     },
-    cocks: function (): any {
+    cocks(): any {
         return kGAMECLASS.player.cockTotal();
     },
-    breastrows: function (): any {
+    breastrows(): any {
         return kGAMECLASS.player.bRows();
     },
-    biggesttitsize: function (): any {
+    biggesttitsize(): any {
         return kGAMECLASS.player.biggestTitSize();
     },
-    vagcapacity: function (): any {
+    vagcapacity(): any {
         return kGAMECLASS.player.vaginalCapacity();
     },
-    analcapacity: function (): any {
+    analcapacity(): any {
         return kGAMECLASS.player.analCapacity();
     },
-    balls: function (): any {
+    balls(): any {
         return kGAMECLASS.player.balls;
     },
-    cumquantity: function (): any {
+    cumquantity(): any {
         return kGAMECLASS.player.cumQ();
     },
     // "biggesttitsize": function (): any { return kGAMECLASS.player.biggestTitSize(); },
-    milkquantity: function (): any {
+    milkquantity(): any {
         return kGAMECLASS.player.lactationQ();
     },
-    hasvagina: function (): any {
+    hasvagina(): any {
         return kGAMECLASS.player.hasVagina();
     },
-    istaur: function (): any {
+    istaur(): any {
         return kGAMECLASS.player.isTaur();
     },
-    isnaga: function (): any {
+    isnaga(): any {
         return kGAMECLASS.player.isNaga();
     },
-    isgoo: function (): any {
+    isgoo(): any {
         return kGAMECLASS.player.isGoo();
     },
-    isbiped: function (): any {
+    isbiped(): any {
         return kGAMECLASS.player.isBiped();
     },
-    hasbreasts: function (): any {
+    hasbreasts(): any {
         return kGAMECLASS.player.biggestTitSize() >= 1;
     },
-    hasballs: function (): any {
+    hasballs(): any {
         return kGAMECLASS.player.balls > 0;
     },
-    hascock: function (): any {
+    hascock(): any {
         return kGAMECLASS.player.hasCock();
     },
-    isherm: function (): any {
+    isherm(): any {
         return kGAMECLASS.player.gender == 3;
     },
-    cumnormal: function (): any {
+    cumnormal(): any {
         return kGAMECLASS.player.cumQ() <= 150;
     },
-    cummedium: function (): any {
+    cummedium(): any {
         return kGAMECLASS.player.cumQ() > 150 && kGAMECLASS.player.cumQ() <= 350;
     },
-    cumhigh: function (): any {
+    cumhigh(): any {
         return kGAMECLASS.player.cumQ() > 350 && kGAMECLASS.player.cumQ() <= 1000;
     },
-    cumveryhigh: function (): any {
+    cumveryhigh(): any {
         return kGAMECLASS.player.cumQ() > 1000 && kGAMECLASS.player.cumQ() <= 2500;
     },
-    cumextreme: function (): any {
+    cumextreme(): any {
         return kGAMECLASS.player.cumQ() > 2500;
     },
-    issquirter: function (): any {
+    issquirter(): any {
         return kGAMECLASS.player.wetness() >= 4;
     },
-    ispregnant: function (): any {
+    ispregnant(): any {
         return kGAMECLASS.player.pregnancyIncubation > 0;
     },
-    isbuttpregnant: function (): any {
+    isbuttpregnant(): any {
         return kGAMECLASS.player.buttPregnancyIncubation > 0;
     },
-    hasnipplecunts: function (): any {
+    hasnipplecunts(): any {
         return kGAMECLASS.player.hasFuckableNipples();
     },
-    canfly: function (): any {
+    canfly(): any {
         return kGAMECLASS.player.canFly();
     },
-    islactating: function (): any {
+    islactating(): any {
         return kGAMECLASS.player.lactationQ() > 0;
     },
-    true: function (): any {
+    true(): any {
         return true;
     },
-    false: function (): any {
+    false(): any {
         return false;
     },
 };

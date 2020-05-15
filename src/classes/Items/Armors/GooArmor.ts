@@ -66,7 +66,7 @@ export class GooArmor extends Armor {
     public playerRemove(): undefined {
         // This item is being removed by the player. Remove any perks, etc.
         this.game.flags[kFLAGS.VALARIA_AT_CAMP] = 1;
-        return; //Can't put Valaria in your inventory
+        return; // Can't put Valaria in your inventory
     }
 
     /*

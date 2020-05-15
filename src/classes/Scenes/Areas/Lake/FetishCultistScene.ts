@@ -33,10 +33,10 @@ export class FetishCultistScene extends AbstractLakeContent {
     public cultistRapesYou(): void {
         this.monster.lust = 1;
         this.monster.HP = 10;
-        var changed: boolean = false;
-        var changedCock: boolean = false;
-        var changedBoobs: boolean = false;
-        var sexed: boolean = false;
+        let changed = false;
+        let changedCock = false;
+        let changedBoobs = false;
+        const sexed = false;
         this.outputText(
             "The thoughts of fetishes have become so strong that they override everything else.  You see the cultist moving towards you, but you can't possibly fight any more.  She reaches out and touches you, and you fall to the ground as the multitudes of thoughts cascade into one.\n\n",
             false
@@ -516,7 +516,7 @@ export class FetishCultistScene extends AbstractLakeContent {
                         " is indeed growing larger, and you can feel your womb disappearing within you.\n\n",
                     false
                 );
-                this.player.knockUpForce(); //The only event I can find anywhere that removes a pregnancy
+                this.player.knockUpForce(); // The only event I can find anywhere that removes a pregnancy
                 this.player.createCock();
                 this.player.removeVagina(0, 1);
                 this.outputText(
@@ -1117,8 +1117,8 @@ export class FetishCultistScene extends AbstractLakeContent {
             // increase PC's lust thanks to foreplay
             this.dynStats("lus", 30);
             // player chooses between; penetrate vagina, vibrator vagina, nevermind.  Options as appropriate.
-            var vibe = undefined;
-            var fuckVag = undefined;
+            let vibe;
+            let fuckVag;
             if (this.player.hasVagina()) vibe = this.swimsuitVibrators;
             if (this.player.hasCock()) fuckVag = this.plugSwimsuitVag;
             this.simpleChoices(
@@ -1217,7 +1217,7 @@ export class FetishCultistScene extends AbstractLakeContent {
 
     // PC goes for the vagina
     private plugSwimsuitVag(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         if (this.player.hasVagina())
             this.outputText(
@@ -1406,7 +1406,7 @@ export class FetishCultistScene extends AbstractLakeContent {
     }
 
     public cultistBadEnd2(): void {
-        var genderTag: string = "";
+        let genderTag = "";
         this.outputText(
             "On a hill sits a large cathedral overlooking a river that feeds into a massive lake.  It is a surprisingly grand structure in a land almost devoid of any signs of civilization in any direction.  The design is quite clear; its entrance lined with statues of lewd naked figures and its windows are made of stain glass depicting acts of sexuality.  Even without hearing the sounds of ecstasy that usually emanate from inside, it is quite clear this is a place of debauchery.\n\n",
             true

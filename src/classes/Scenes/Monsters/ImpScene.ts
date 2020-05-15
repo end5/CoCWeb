@@ -16,8 +16,8 @@ import { ImpLord } from "./ImpLord";
 export class ImpScene extends BaseContent {
     public impVictory(): void {
         this.clearOutput();
-        var canFeed: boolean = this.player.findStatusAffect(StatusAffects.Feeder) >= 0;
-        var canBikiniTits: boolean =
+        const canFeed: boolean = this.player.findStatusAffect(StatusAffects.Feeder) >= 0;
+        const canBikiniTits: boolean =
             this.player.hasVagina() &&
             this.player.biggestTitSize() >= 4 &&
             this.player.armor instanceof LustyMaidensArmor;
@@ -51,7 +51,7 @@ export class ImpScene extends BaseContent {
             return;
         }
         if (this.player.lust > 33) {
-            var maleRape = undefined;
+            let maleRape;
             if (this.player.hasCock()) {
                 if (this.player.cockThatFits(this.monster.analCapacity()) == -1)
                     this.outputText(
@@ -74,7 +74,7 @@ export class ImpScene extends BaseContent {
                 !canBikiniTits &&
                 !this.player.canOvipositBee()
             ) {
-                this.cleanupAfterCombat(); //Only happens when there's no way to fuck the imp
+                this.cleanupAfterCombat(); // Only happens when there's no way to fuck the imp
                 return;
             }
             this.addButton(0, this.player.isTaur() ? "Centaur Rape" : "Male Rape", maleRape);
@@ -93,7 +93,7 @@ export class ImpScene extends BaseContent {
     }
 
     private rapeImpWithDick(): void {
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = 0;
         // Single cock
         this.outputText(this.images.showImage("imp-win-male-fuck"), false);
@@ -710,7 +710,7 @@ export class ImpScene extends BaseContent {
                 false
             );
         // [Even chance of any of the following happening if the player has the correct equipment, distribute chances between what equipment is available]
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        const x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x >= 0 && !this.player.hasVagina()) this.centaurOnImpMale();
         else if (this.player.hasVagina() && x < 0) this.centaurOnImpFemale();
         else {
@@ -731,8 +731,8 @@ export class ImpScene extends BaseContent {
     }
 
     // Player has a cock}}
-    private centaurOnImpMale(vape: boolean = false): void {
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+    private centaurOnImpMale(vape = false): void {
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = 0;
         if (vape) this.outputText("", true);
         this.outputText(
@@ -1019,7 +1019,7 @@ export class ImpScene extends BaseContent {
         this.cleanupAfterCombat();
     }
     // CUNTS
-    private centaurOnImpFemale(vape: boolean = false): void {
+    private centaurOnImpFemale(vape = false): void {
         if (vape) this.outputText("", true);
         // PREGGERS CHANCE HERE - unfinished
         // {{Player has a cunt}}
@@ -1221,7 +1221,7 @@ export class ImpScene extends BaseContent {
     */
 
     private centaurOnImpResults(iNum: number): void {
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = 0;
         // {{ GoTo results }}
         // <<I1>>
@@ -1268,7 +1268,7 @@ export class ImpScene extends BaseContent {
                     "You leave him panting and lapping at a pool of your semen.",
                     false
                 );
-            } //<</multiplier>>
+            } // <</multiplier>>
             // <<cum multiplier: little-normal>>
             else {
                 this.outputText(
@@ -1368,9 +1368,9 @@ export class ImpScene extends BaseContent {
                                     " and streams down your body.  ",
                                 false
                             );
-                    } //<</milk>>
+                    } // <</milk>>
                 }
-            } //<</Breasts>>
+            } // <</Breasts>>
             return;
         }
     }
@@ -2018,7 +2018,7 @@ export class ImpScene extends BaseContent {
                 this.player.knockUp(
                     PregnancyStore.PREGNANCY_IMP,
                     PregnancyStore.INCUBATION_IMP - 14
-                ); //Bigger imp means faster pregnancy
+                ); // Bigger imp means faster pregnancy
             }
             // Scene number 2 - male possible.
             else {
@@ -2499,7 +2499,7 @@ export class ImpScene extends BaseContent {
                 this.player.knockUp(
                     PregnancyStore.PREGNANCY_IMP,
                     PregnancyStore.INCUBATION_IMP - 14
-                ); //Bigger imp means faster pregnancy
+                ); // Bigger imp means faster pregnancy
                 // Stretch!
                 if (this.player.hasVagina()) {
                     if (this.player.cuntChange(this.monster.cockArea(2), true))
@@ -2954,7 +2954,7 @@ export class ImpScene extends BaseContent {
                 this.player.knockUp(
                     PregnancyStore.PREGNANCY_IMP,
                     PregnancyStore.INCUBATION_IMP - 14
-                ); //Bigger imp means faster pregnancy
+                ); // Bigger imp means faster pregnancy
             } else {
                 // Imp Scene 2 (Bipedal, vaginal)
                 // Tag-team
@@ -3430,7 +3430,7 @@ export class ImpScene extends BaseContent {
                 this.player.knockUp(
                     PregnancyStore.PREGNANCY_IMP,
                     PregnancyStore.INCUBATION_IMP - 14
-                ); //Bigger imp means faster pregnancy
+                ); // Bigger imp means faster pregnancy
                 // Stretch!
                 if (this.player.hasVagina()) {
                     if (this.player.cuntChange(this.monster.cockArea(2), true))
@@ -3486,7 +3486,7 @@ export class ImpScene extends BaseContent {
                 "With a sigh, he pulls his dick free, and you flop down, cum leaking out onto the ground from your well-fucked hole. If you could, like, focus at all, you'd totally be worrying about being, like, pregnant or whatever. But you lose consciousness.",
                 false
             );
-            this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP - 14); //Bigger imp means faster pregnancy
+            this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP - 14); // Bigger imp means faster pregnancy
 
             this.player.orgasm();
             this.dynStats("lib", 1, "sen", 1, "cor", 1);
@@ -3599,7 +3599,7 @@ export class ImpScene extends BaseContent {
                 this.player.knockUp(
                     PregnancyStore.PREGNANCY_IMP,
                     PregnancyStore.INCUBATION_IMP - 14
-                ); //Bigger imp means faster pregnancy
+                ); // Bigger imp means faster pregnancy
                 this.dynStats("lib", 1, "sen", 1, "lus", 1, "cor", 1);
                 this.player.orgasm();
             }
@@ -3979,7 +3979,7 @@ export class ImpScene extends BaseContent {
     private impLordBumPlug(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("implord-win-male-fuck"), false);
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You grab the muscular creature by one of his long pointed ears, pulling him to his feet. He protests slightly, and gives a slightly defiant snarl of discomfort.  Lucky for him you're in a forgiving mood and ignore his whining."

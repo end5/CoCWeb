@@ -64,7 +64,7 @@ export class Swamp extends BaseContent {
             return;
         }
         /*  STANDARD SCENE SELECTION  */
-        var choices: any[] = [];
+        const choices: any[] = [];
         // Build the choice array
         // M & F spidermorphs
         choices[choices.length] = 0;
@@ -78,7 +78,7 @@ export class Swamp extends BaseContent {
         choices[choices.length] = 4;
 
         // Pick from the choices and pull the encounter.
-        var choice: number = choices[Swamp.rand(choices.length)];
+        const choice: number = choices[Swamp.rand(choices.length)];
         switch (choice) {
             case 0:
                 this.femaleSpiderMorphScene.fSpiderMorphGreeting();

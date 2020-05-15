@@ -1642,7 +1642,7 @@ export class NagaScene extends BaseContent {
                 true
             );
 
-        var eggs = undefined;
+        let eggs;
         if (this.player.canOvipositSpider()) eggs = this.eggUpANagaSpiderLike;
         if (this.player.canOvipositBee() && this.player.gender > 0) eggs = this.beePositANagaPlease;
         if (this.player.lust >= 33) {
@@ -1928,11 +1928,11 @@ export class NagaScene extends BaseContent {
         // (Otherwise)
         else {
             kGAMECLASS.fatigueRecovery();
-            var damage: number = 0;
-            var chance: number = 0;
-            var bimbo: boolean = false;
-            var bro: boolean = false;
-            var futa: boolean = false;
+            let damage = 0;
+            let chance = 0;
+            let bimbo = false;
+            let bro = false;
+            let futa = false;
             // var choices: any[] = new Array();
             // var select: number = 0;
             // Tags used for bonus damage and chance later on

@@ -1,4 +1,4 @@
-import { CoC_Settings } from "../CoC_Settings";
+import { CocSettings } from "../CoC_Settings";
 import { ItemType } from "../ItemType";
 import { Player } from "../Player";
 import { GooArmor } from "./Armors/GooArmor";
@@ -7,7 +7,7 @@ import { Consumable } from "./Consumable";
 /**
  * Created by aimozg on 09.01.14.
  */
-//No longer used - equipping Weapons and Armor is now handled by the inventoryMenu
+// No longer used - equipping Weapons and Armor is now handled by the inventoryMenu
 
 /**
  * Superclass for items that could be equipped by player (armor, weapon, talisman, piercing, ...).
@@ -18,6 +18,7 @@ import { Consumable } from "./Consumable";
 export class Equipable extends Consumable {
     /**
      * Called on attempt to equip item.
+     *
      * @param output Print "equipping" scene to output
      */
     public canUse(player: Player, output: boolean): boolean {
@@ -43,15 +44,15 @@ export class Equipable extends Consumable {
     }
 
     protected equip(player: Player, returnOldItem: boolean, output: boolean): void {
-        CoC_Settings.errorAMC("Equipable", "equip", this.id);
+        CocSettings.errorAMC("Equipable", "equip", this.id);
     }
 
     /**
      * @param returnToInventory true if that item should be placed in player's inventory
      * @param output true if the unequip function should print to the screen
      */
-    public unequip(player: Player, returnToInventory: boolean, output: boolean = false): void {
-        CoC_Settings.errorAMC("Equipable", "unequip", this.id);
+    public unequip(player: Player, returnToInventory: boolean, output = false): void {
+        CocSettings.errorAMC("Equipable", "unequip", this.id);
     }
 
     public doEffect(player: Player, output: boolean): void {

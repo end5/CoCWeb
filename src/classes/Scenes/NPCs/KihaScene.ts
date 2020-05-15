@@ -8,7 +8,7 @@ import { Appearance } from "../../Appearance";
 import { kGAMECLASS } from "../../GlobalFlags/kGAMECLASS";
 
 export class KihaScene extends NPCAwareContent {
-    /*FLAGS STUFF*/
+    /* FLAGS STUFF*/
     // 1 = PC asked her about it, past that it counts the times paid
     // const KIHA_TOLL: number = 341;
     // Tracks how many special explores the PC gets.
@@ -21,7 +21,7 @@ export class KihaScene extends NPCAwareContent {
 
     // Encounter Dragon-Gal
     public encounterKiha(): void {
-        var temp;
+        let temp;
         this.outputText("", true);
         this.spriteSelect(72);
         if (
@@ -293,12 +293,12 @@ export class KihaScene extends NPCAwareContent {
         // (do a 'Kiha' exploration with chances of fantabulous prizes)
         this.doNext(this.kihaExplore);
     }
-    public kihaExplore(clearScreen: boolean = true): void {
+    public kihaExplore(clearScreen = true): void {
         if (clearScreen) this.outputText("", true);
         // spriteSelect(72);
         this.flags[kFLAGS.KIHA_TOLL_DURATION]--;
-        var event: number = KihaScene.rand(10);
-        var itype: ItemType;
+        const event: number = KihaScene.rand(10);
+        let itype: ItemType;
         // Grabbin' Inquisitor Armor
         if (event == 0 && this.flags[kFLAGS.GOTTEN_INQUISITOR_ARMOR] == 0) {
             kGAMECLASS.inquisitorRobesDiscovery();
@@ -375,16 +375,16 @@ export class KihaScene extends NPCAwareContent {
         );
         // [OPTIONS]
         // All
-        var forceMasturbate = this.tsundereMasturbationChristmasCarol;
+        const forceMasturbate = this.tsundereMasturbationChristmasCarol;
         this.outputText("\n\nYou could forcibly masturbate her.", false);
         // Fems
-        var useHerTail = undefined;
+        let useHerTail;
         if (this.player.lust >= 33 && this.player.hasVagina()) {
             this.outputText("\n\nYou could use her tail as a dildo.", false);
             useHerTail = this.kihaVictoryPomfTail;
         }
         // Vagina with optional double-dick!
-        var fuckHer = undefined;
+        let fuckHer;
         if (this.player.hasCock()) {
             if (
                 this.player.cockThatFits(this.monster.vaginalCapacity()) != -1 &&
@@ -400,13 +400,13 @@ export class KihaScene extends NPCAwareContent {
                 fuckHer = this.victoryDickKiha;
             }
         }
-        var buttFuck = undefined;
+        let buttFuck;
         // Buttfuck 20 or less
         if (this.player.cockThatFits(this.monster.analCapacity()) >= 0 && this.player.lust >= 33) {
             buttFuck = this.analRapuzulaKiha;
         }
         // Conversation Only - Emotional Rape! (40- Corruption!)
-        var wordRape = undefined;
+        let wordRape;
         if (this.player.cor < 40) {
             this.outputText(
                 "\n\nNow that she's a captive audience, you could always talk to her.",
@@ -600,7 +600,7 @@ export class KihaScene extends NPCAwareContent {
     private kihaRapesMen(): void {
         this.outputText("", true);
         this.spriteSelect(72);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
         this.outputText(
             "You try to rise, but the dragon girl whips around, her long, thick tail delivering a subduing crack against the side of your head, dropping you back onto your " +
@@ -785,7 +785,7 @@ export class KihaScene extends NPCAwareContent {
             false
         );
 
-        var dicked: boolean = false;
+        let dicked = false;
 
         // [If the player has an incubus draft:
         if (this.player.hasItem(this.consumables.INCUBID)) {
@@ -1072,8 +1072,8 @@ export class KihaScene extends NPCAwareContent {
     // *Victory Dicking - Fencrafted
     private victoryDickKiha(): void {
         this.spriteSelect(72);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
-        var y: number = this.player.cockThatFits2(this.monster.vaginalCapacity());
+        const x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        const y: number = this.player.cockThatFits2(this.monster.vaginalCapacity());
         this.outputText("", true);
         this.outputText(
             "You walk up and push the dragoness off the tree and onto her side to get a better look at her sopping vagina and tight rump.  Initially she doesn't react, though when she realizes what you're about to do, she cries, \"<i>How very much like my old masters you are.  As soon as you've won a fight, you think of nothing but sex.  ",
@@ -1174,7 +1174,7 @@ export class KihaScene extends NPCAwareContent {
             );
             this.flags[kFLAGS.KIHA_CHOKED_OUT_PC] = 1;
             // [if PC has naga tail or 40</i>\"+ tentacle dick not currently in use:
-            var z: number = -1;
+            let z = -1;
             this.temp = this.player.cocks.length;
             while (this.temp > 0) {
                 this.temp--;
@@ -1477,7 +1477,7 @@ export class KihaScene extends NPCAwareContent {
         if (this.flags[kFLAGS.KIHA_TALK_STAGE] < 3) this.flags[kFLAGS.KIHA_TALK_STAGE]++;
         this.cleanupAfterCombat();
     }
-    /*Conversation Level 5: requires Lottie as follower, and to have given her enough bee honey, demon items, or harpy seeds to grow wings
+    /* Conversation Level 5: requires Lottie as follower, and to have given her enough bee honey, demon items, or harpy seeds to grow wings
 
         You sit down next to Kiha, smirking as she pokes fun at your soft-heartedness.  She's practically relaxed around you now.  You're not even sure if she was trying as hard as she could during the fight, knowing that you wouldn't take advantage of her even if she lost.
     Slowly, the conversation winds back around to the story of her origin.  You casually mention that she owes you at least the attempt to remember more now since you met the terms of your agreement, a claim she meets with more than the expected skepticism.  Cocking an eyebrow at her protest, you raise your face skyward and, cupping hands around
@@ -1490,9 +1490,9 @@ export class KihaScene extends NPCAwareContent {
         this.spriteSelect(72);
         // Kiha PC victory anal scene - by Space.
         // Requires at least one penis with area <= 20
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = 0;
-        var y: number = this.player.cockThatFits2(this.monster.analCapacity());
+        const y: number = this.player.cockThatFits2(this.monster.analCapacity());
         this.outputText(
             "You watch the dragoness slump against the tree, her tail barely covering her soaked snatch.  You lick your lips hungrily at the prospect of ravishing the haughty dragon-girl's cunny, but decide she deserves something a bit more special.  You want that tight ass of hers, and you want it now.\n\n",
             false

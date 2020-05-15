@@ -13,15 +13,15 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class FetishCultist extends Monster {
-    private static NAUGHTY_NURSES_UNIFORM: string = "naughty nurse's uniform";
-    private static TEACHERS_OUTFIT: string = "teacher's outfit";
-    private static SWIMSUIT: string = "swimsuit";
-    private static NOBLES_CLOTHING: string = "noble's clothing";
-    private static PERVY_NUNS_CLOTHING: string = "pervy nun's clothing";
+    private static NAUGHTY_NURSES_UNIFORM = "naughty nurse's uniform";
+    private static TEACHERS_OUTFIT = "teacher's outfit";
+    private static SWIMSUIT = "swimsuit";
+    private static NOBLES_CLOTHING = "noble's clothing";
+    private static PERVY_NUNS_CLOTHING = "pervy nun's clothing";
 
     public combatRoundUpdate(): void {
         super.combatRoundUpdate();
-        var changed: boolean = false;
+        let changed = false;
         // Fetish Cultist Update
         switch (FetishCultist.rand(5)) {
             case 0:
@@ -81,7 +81,7 @@ export class FetishCultist extends Monster {
         this.lust += this.lustVuln * 3;
     }
 
-    private static FETISHY_OUTFIT: string = "fetishy outfit";
+    private static FETISHY_OUTFIT = "fetishy outfit";
 
     private cultistRaisePlayerLust(): void {
         // Two text variants!
@@ -181,7 +181,7 @@ export class FetishCultist extends Monster {
     }
 
     public defeated(hpVictory: boolean): void {
-        var temp2 = undefined;
+        let temp2;
         if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0)
             temp2 = this.game.lake.fetishCultistScene.fetishCultistHasAMilkFetish;
         if (hpVictory) {

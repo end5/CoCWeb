@@ -2,13 +2,7 @@ import { StatusAffectType } from "./StatusAffectType";
 
 export class StatusAffectClass {
     // constructor
-    public constructor(
-        stype: StatusAffectType,
-        value1: number = 0,
-        value2: number = 0,
-        value3: number = 0,
-        value4: number = 0
-    ) {
+    public constructor(stype: StatusAffectType, value1 = 0, value2 = 0, value3 = 0, value4 = 0) {
         this._stype = stype;
         this.value1 = value1;
         this.value2 = value2;

@@ -52,7 +52,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             this.flags[kFLAGS.EDRYN_PREGNANT_AND_NOT_TOLD_PC_YET] == 0 &&
             this.pregnancy.type != PregnancyStore.PREGNANCY_TAOTH
         ) {
-            this.flags[kFLAGS.EDRYN_PREGNANCY_INCUBATION]++; //Pregnancy on hold until the PC discovers it
+            this.flags[kFLAGS.EDRYN_PREGNANCY_INCUBATION]++; // Pregnancy on hold until the PC discovers it
         }
         return false;
     }
@@ -71,9 +71,9 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                 this.flags[kFLAGS.URTA_PREG_EVERYBODY] = 0;
                 return true;
             } else if (this.pregnancy.type == PregnancyStore.PREGNANCY_PLAYER) {
-                this.flags[kFLAGS.EDRYN_NUMBER_OF_KIDS]++; //Add one kid
-                this.flags[kFLAGS.EDRYN_NEEDS_TO_TALK_ABOUT_KID] = 1; //Set 'needs to talk to edryn about da kid
-                this.pregnancy.knockUpForce(); //Clear Pregnancy
+                this.flags[kFLAGS.EDRYN_NUMBER_OF_KIDS]++; // Add one kid
+                this.flags[kFLAGS.EDRYN_NEEDS_TO_TALK_ABOUT_KID] = 1; // Set 'needs to talk to edryn about da kid
+                this.pregnancy.knockUpForce(); // Clear Pregnancy
             }
         }
         return false;
@@ -88,7 +88,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText(this.images.showImage("edryn-bar-chat"));
 
         // Used for finding what cock to use!
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         // If no cocks fit, set to primary
         if (x < 0) x = 0;
 
@@ -99,7 +99,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         }
         // Talk about latest birth
         if (this.flags[kFLAGS.EDRYN_NEEDS_TO_TALK_ABOUT_KID] == 1) {
-            var kidGender: number = Edryn.rand(2);
+            let kidGender: number = Edryn.rand(2);
             if (Edryn.rand(10) < 2) kidGender = 3;
             this.outputText('Edryn cracks into a beautiful smile and gushes, "<i>We had a ', false);
             if (kidGender == 0) this.outputText("son", false);
@@ -196,7 +196,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                     false
                 );
                 // (Chance of equinum,gro+(twice only),minotaur blood, or purified incubus draft)
-                var itype: ItemType;
+                let itype: ItemType;
                 if (this.flags[kFLAGS.EDRYN_GIFT_COUNTER] < 2) {
                     this.outputText(
                         "Here, take some of this stuff.  We confiscated it off one of the miscreants we kicked out the other day, and I KNOW it'll get you to be big enough for me.  Just don't go too nuts with it, okay?</i>\"\n\n",
@@ -417,7 +417,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
 
     private edrynOffer(): void {
         this.spriteSelect(14);
-        var cost: number = 0;
+        let cost = 0;
         switch (this.player.statusAffectv1(StatusAffects.Edryn)) {
             case 0:
                 cost = 200;
@@ -439,7 +439,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
                 break;
         }
         // Pick most appropriate cock
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         // If no cocks fit, set to main.
         if (x < 0) x = 0;
 
@@ -636,7 +636,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
 
     public edrynSexSelecter(): void {
         this.spriteSelect(14);
-        var cost: number = 0;
+        let cost = 0;
         switch (this.player.statusAffectv1(StatusAffects.Edryn)) {
             case 0:
                 cost = 200;
@@ -679,7 +679,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText("", true);
 
         this.outputText(this.images.showImage("edryn-fuck-as-taur"));
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = 0;
         this.outputText(
             "Your equine body lurches forwards on its own, rearing up on your hind legs and lunging forwards.  Edryn whinnies as she is violently penetrated and forced to support most of your weight.  Her equine pussy is a wonder, able to stretch to a degree that would shame the raunchiest of human and demon sluts.  The velvet walls of her massive equine cunny clench tightly around you, trapping you completely inside her juicy depths.  She wiggles slightly, bending her body, teasing your " +
@@ -796,7 +796,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.spriteSelect(14);
         this.outputText("", true);
         this.outputText(this.images.showImage("edryn-fuck-as-non-taur"));
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = 0;
         this.outputText(
             "She wiggles her more than ample backside towards you, squelching wetly against your ",
@@ -956,7 +956,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         return false;
     }
     // Hel x Edryn Threesome
-    /*Sahvin
+    /* Sahvin
     Requirements:
     -Hel is in Fuckbuddy or Follower mode
     -Edryn is giving herself for free
@@ -969,7 +969,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
     // Introduction -- Hel x Edryn -- Wet Bitch Entrance
     // (PC goes to the Wet Bitch during Edryn's hours)
 
-    private edrynHeliaLastThreesomeCheck: number = 0;
+    private edrynHeliaLastThreesomeCheck = 0;
 
     public edrynHeliaThreesomePossible(): boolean {
         if (
@@ -988,7 +988,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             (this.flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 1 &&
                 this.flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED] == 0)
         ) {
-            this.edrynHeliaLastThreesomeCheck = -this.edrynHeliaLastThreesomeCheck; //Make the saved time negative to indicate Helia is not at the bar right now
+            this.edrynHeliaLastThreesomeCheck = -this.edrynHeliaLastThreesomeCheck; // Make the saved time negative to indicate Helia is not at the bar right now
             return false;
         }
         return true;
@@ -1008,7 +1008,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
     public approachHelAtZeBitch(): void {
         this.outputText("", true);
         this.outputText(this.images.showImage("hel-chat-at-bar"));
-        var edryn = undefined;
+        let edryn;
         if (
             this.edrynBar() &&
             this.player.cockThatFits(300) >= 0 &&
@@ -1170,7 +1170,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
     private threesomeEdrynAndHel(): void {
         this.outputText("", true);
         this.outputText(this.images.showImage("edryn-hel-threesome"));
-        var x: number = this.player.cockThatFits(300);
+        const x: number = this.player.cockThatFits(300);
         this.flags[kFLAGS.EDRYN_TIMES_HEL_THREESOMED]++;
         this.outputText(
             'You arrive in Edryn\'s private room, a small dark alcove in the bar with a healthy layer of pillows covering the floor.  You start to disrobe, watching as Hel is nearly crushed up against a wall by a sudden butt-bump from Edryn: "<i>You better start warming me up with that long lizard tongue, cutie,</i>" she says, herself yanking off her loose shirt.\n\n',
@@ -1270,7 +1270,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
 
         this.outputText("<b>How do you react?</b>", false);
 
-        var aroused = this.player.totalCocks() > 0 ? this.arousedByPregdryn : undefined;
+        const aroused = this.player.totalCocks() > 0 ? this.arousedByPregdryn : undefined;
         // [Shocked] [Pleased] [Aroused (Requires Wang)]
         this.simpleChoices(
             "Shocked",
@@ -1379,7 +1379,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
     }
 
     // Pregger Offer
-    private pregdrynOffer(cs: boolean = true): void {
+    private pregdrynOffer(cs = true): void {
         this.spriteSelect(14);
         if (cs) this.outputText("", true);
         // Used to call post birthing sexings.
@@ -1495,7 +1495,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
             return;
         }
         // (MEETS SIZE REQUIREMENTS)
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         // -1 = none fit.  Set x to 0 for big boys.
         if (x < 0) x = 0;
         if (this.player.cockArea(x) >= 24 && this.player.cockArea(x) < 300) {
@@ -1590,7 +1590,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.clearOutput();
         this.spriteSelect(14);
         this.outputText(this.images.showImage("edryn-preggo-fuck"));
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = 0;
         this.outputText("", true);
         // NONTAUR
@@ -1800,7 +1800,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
     private jizzFromEatingPregdrynOut(): void {
         this.spriteSelect(14);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = 0;
 
         this.outputText(
@@ -1946,7 +1946,7 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         if (this.pregnancy.isPregnant) return;
 
         // See if any of the scenarios get her preg
-        var preg: boolean = false;
+        let preg = false;
         /*
         // 25% chance if 'stud'
         if(player.hasPerk("Marae's Gift - Stud") >= 0 && rand(4) == 0) {
@@ -1986,9 +1986,9 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
         this.clearOutput();
         this.spriteSelect(14);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = 0;
-        var cost: number = 0;
+        let cost = 0;
         switch (this.player.statusAffectv1(StatusAffects.Edryn)) {
             case 0:
                 cost = 200;
@@ -2082,9 +2082,9 @@ export class Edryn extends TelAdreAbstractContent implements TimeAwareInterface 
     public eatEdrynPussyLikeABawss(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("edryn-eat-her-out"));
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = this.player.cockThatFits2(300);
+        const y: number = this.player.cockThatFits2(300);
         this.outputText(
             "Edryn starts to say something, but you strip out of your [armor] before she gets more than a half-dozen words out, your " +
                 this.multiCockDescriptLight() +

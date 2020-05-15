@@ -5,7 +5,7 @@ import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 export class SexMachine extends TelAdreAbstractContent {
     public exploreShowers(): void {
         this.outputText("", true);
-        /*if(flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) {
+        /* if(flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) {
             outputText("You toss ten gems to centaur and head towards the back.\n\n", false);
             player.gems -= 10;
             statScreenRefresh();
@@ -567,7 +567,7 @@ export class SexMachine extends TelAdreAbstractContent {
                     this.player.knockUp(
                         PregnancyStore.PREGNANCY_MOUSE,
                         PregnancyStore.INCUBATION_MOUSE
-                    ); //I'm betting this was meant to be dog morph chance
+                    ); // I'm betting this was meant to be dog morph chance
                     break;
                 default:
                     this.player.knockUp(

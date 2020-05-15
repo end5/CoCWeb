@@ -74,11 +74,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedMarbleMilk: number = 0; //Make sure we test each of these events just once in timeChangeLarge
+    private checkedMarbleMilk = 0; // Make sure we test each of these events just once in timeChangeLarge
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        var needNext: boolean = false;
+        let needNext = false;
         this.checkedMarbleMilk = 0;
         this.pregnancy.pregnancyAdvance();
         trace(
@@ -313,7 +313,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     public timeChangeLarge(): boolean {
         if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0 && this.marbleAtCamp()) {
             this.marblePoopsBaybees();
-            this.pregnancy.knockUpForce(); //Clear Marble's Pregnancy
+            this.pregnancy.knockUpForce(); // Clear Marble's Pregnancy
             return true;
         }
         // End addiction (occurs after the player wakes up when their addiction is under 25 && is not permanently addicted)
@@ -646,7 +646,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // Marble is still available at farm
                 if (this.player.findStatusAffect(StatusAffects.NoMoreMarble) < 0) {
                     this.postAddictionFarmMornings();
-                    kGAMECLASS.timeQ++; //We can get rid of this: threshhold--;
+                    kGAMECLASS.timeQ++; // We can get rid of this: threshhold--;
                 }
             }
             this.doNext(this.playerMenu);
@@ -917,7 +917,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             "You've gathered a bit of a crowd around you now, thanks to the noise of this cow clunking around with her huge hooves and hammer.  It might not be a terribly good idea to rape Marble...  you'd have to drag her up to her room just to avoid interruption and Whitney would likely find out and be upset.  What do you do?"
         );
         // Options, rape in room, milk (Spy's submission - not included yet) and, don't rape.
-        var feed = undefined;
+        let feed;
         if (this.player.findPerk(PerkLib.Feeder) >= 0 || this.player.lactationQ() > 200)
             feed = this.forceFeedMarble;
         this.simpleChoices(
@@ -1701,7 +1701,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     /*
     // While Addicted Events type 1 (Marble likes her addictive milk):
     */
-    public addictedEncounterHappy(clearS: boolean = true): void {
+    public addictedEncounterHappy(clearS = true): void {
         this.spriteSelect(41);
         if (clearS) this.outputText("", true);
         // First visit post addiction:
@@ -1923,7 +1923,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // While Addicted Events type 2 (Marble is ashamed):
-    public encounterMarbleAshamedAddiction(clearS: boolean = true): void {
+    public encounterMarbleAshamedAddiction(clearS = true): void {
         if (clearS) this.outputText("", true);
         this.spriteSelect(41);
         // First visit post addiction:
@@ -2526,7 +2526,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
     // Post addiction Camp Text:
     // These appear when Marble decides to join the player at their camp.
-    public postAddictionCampMornings(extra: boolean = true): void {
+    public postAddictionCampMornings(extra = true): void {
         this.spriteSelect(41);
         // (if player is completely addicted, do this event at the start of every day)
         this.outputText(
@@ -2560,7 +2560,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
     // Sex scenes (all take an additional hour after the trigger event):
     // For all of these scenes, do every part that the player qualifies for.  Male if the player is only male, herm if the player is only herm.  All genderless players default to the one genderless sex scene.
-    private standardSex(newpage: boolean = true): void {
+    private standardSex(newpage = true): void {
         this.spriteSelect(41);
         if (newpage) {
             this.outputText("", true);
@@ -2764,7 +2764,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
     // (Milk sex, player has genitals, position: Marble sits on the player)
     // (this scene will need a taur variation)
-    private marbleMilkSex(newpage: boolean = true): void {
+    private marbleMilkSex(newpage = true): void {
         this.spriteSelect(41);
         if (newpage) {
             this.outputText("", true);
@@ -2966,7 +2966,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
     // (after addiction sex, standing sex)
     // (this whole section simply doesn't work if the player has a taur body)
-    public marbleAddictionSex(newpage: boolean = true): void {
+    public marbleAddictionSex(newpage = true): void {
         this.spriteSelect(41);
         if (newpage) {
             this.outputText("", true);
@@ -3078,7 +3078,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.dynStats("lus", 40);
     }
 
-    public marbleStatusChange(affection: number, addiction: number, isAddicted: number = -1): void {
+    public marbleStatusChange(affection: number, addiction: number, isAddicted = -1): void {
         if (this.player.findStatusAffect(StatusAffects.Marble) < 0)
             this.player.createStatusAffect(StatusAffects.Marble, 0, 0, 0, 40);
         // Values only change if not brought to conclusion
@@ -3097,8 +3097,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
     private applyMarblesMilk(): void {
         this.player.slimeFeed();
-        var str: number = 5;
-        var tou: number = 10;
+        let str = 5;
+        let tou = 10;
         // Marble's milk - effect
         // Increases player toughness by 10 and strength by 5 for several hours (suggest 12).
         if (this.player.findStatusAffect(StatusAffects.MarblesMilk) < 0) {
@@ -3159,12 +3159,12 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     // tion camp
     public interactWithMarbleAtCamp(): void {
         this.spriteSelect(41);
-        var gatherEvent = undefined;
-        var milkEvent = undefined;
-        var sexEvent = undefined;
-        var playtime = undefined;
-        var marbleGoEvent = undefined;
-        var goEventString: string = "";
+        let gatherEvent;
+        let milkEvent;
+        let sexEvent;
+        let playtime;
+        let marbleGoEvent;
+        let goEventString = "";
         // Text to display for when the Marble button is pressed
         this.clearOutput();
         if (this.flags[kFLAGS.MARBLE_PURIFICATION_STAGE] != 2)
@@ -3176,7 +3176,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 true
             );
         }
-        /*List the six buttons, first four on the top row, second two on the
+        /* List the six buttons, first four on the top row, second two on the
         bottom row, the milk and gathered buttons do not appear if Marble has
         nothing to give for them, the talk button does not appear if the player's
         corruption is >=50, or if Marble's corruption is >=60.*/
@@ -3263,20 +3263,20 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.marbleTalkOverhaul);
     }
 
-    private sleepWith(arg: string = ""): void {
+    private sleepWith(arg = ""): void {
         this.flags[kFLAGS.SLEEP_WITH] = arg;
     }
 
     // Kid playtime
     private marbleKidsPlaytime(): void {
         this.clearOutput();
-        var choices: any[] = [];
+        const choices: any[] = [];
         choices[choices.length] = 1;
         if (this.flags[kFLAGS.MARBLE_KIDS] > 1) choices[choices.length] = 2;
         if (this.flags[kFLAGS.MARBLE_KIDS] > 1) choices[choices.length] = 3;
         if (this.flags[kFLAGS.MARBLE_KIDS] > 1) choices[choices.length] = 4;
         if (this.flags[kFLAGS.MARBLE_KIDS] > 1) choices[choices.length] = 5;
-        var select: number = choices[MarbleScene.rand(choices.length)];
+        let select: number = choices[MarbleScene.rand(choices.length)];
         if (this.flags[kFLAGS.KID_SITTER] == 2 && this.flags[kFLAGS.ANEMONE_KID] > 0) select = 6;
         // Bovine Saviour (Z)
         // requires exactly 1 kid  (just put it on the RNG; players get knocked up so much and lots of people have 10+ Marble kids already -Z)
@@ -3480,7 +3480,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             "You call Marble over and the two of you sit down on some rocks to chat.  After thinking a bit, you sort through everything that has happened in this strange land, trying to come up with a new story for your bovine friend.  ",
             true
         );
-        /*check if the player has encountered a major story event that they
+        /* check if the player has encountered a major story event that they
         have not told Marble about, put it in the temp variable if there is,
         otherwise leave it blank*/
         // earliest story event the player has not told Marble about since she joined the player at camp, alternatively, just the most recent event;
@@ -4520,8 +4520,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         return "nipples(MARBLE NIP ERROR)";
     }
     private marbleCock(): string {
-        var descript: string = "";
-        var rando: number;
+        let descript = "";
         // Discuss length one in 3 times.
         if (Math.floor(Math.random() * 3) == 0) {
             if (this.flags[kFLAGS.MARBLE_DICK_LENGTH] < 3) descript = "squat ";
@@ -4579,7 +4578,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 descript += "fat ";
             if (this.flags[kFLAGS.MARBLE_DICK_THICKNESS] > 3.5) descript += "distended ";
         }
-        rando = Math.floor(Math.random() * 10);
+        const rando = Math.floor(Math.random() * 10);
         if (rando >= 0 && rando <= 4) descript += "cock";
         if (rando == 5 || rando == 6) descript += "prick";
         if (rando == 7) descript += "pecker";
@@ -4592,7 +4591,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(41);
         // Note: highlighted stuff needs to have the logic created for that part.
         // This is an expansion for the scene during Marble's initial encounter, when the player chooses rape.
-        var raped: boolean = false; //records whether or not the player was successful in raping Marble
+        let raped = false; // records whether or not the player was successful in raping Marble
         this.outputText("", true);
         this.outputText(
             "You decide that rather than helping her, you are going to roughly manhandle her breasts and rape her.  You suddenly grab at her breasts and squeeze them roughly, at which point she screams and ",
@@ -4808,7 +4807,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         // Variables for this function:
         // morph – keeps track of player's form (human, dog-morph, centaur)
-        var morph: string = "human";
+        let morph = "human";
         if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR) morph = "centaur";
         if (this.player.dogScore() >= 4) morph = "dog-morph";
         if (this.player.horseScore() >= 3) {
@@ -4832,7 +4831,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // pronouns – holds the proper pronouns for the player's gender, he/she, his/hers, him/her (should probably be multiple
         // OH FUCK THIS!
         // approxHeight – short description for approximately how tall is the player is, (very short, short, average height, tall, very tall)
-        var approxHeight: string = "";
+        let approxHeight = "";
         if (this.player.tallness < 54) approxHeight = "very short";
         else if (this.player.tallness < 66) approxHeight = "short";
         else if (this.player.tallness < 72) approxHeight = "average";
@@ -5042,7 +5041,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 );
 
                 // note that these may have to change, I'm not sure if they'll belong here or not
-                this.flags[kFLAGS.MARBLE_BOYS]++; //again, n is the flag for the number of male kids Marble has had
+                this.flags[kFLAGS.MARBLE_BOYS]++; // again, n is the flag for the number of male kids Marble has had
             } else {
                 this.outputText(
                     "After only a few short minutes, the child is pushed out by Marble completely and she gives a satisfied sigh.  You look at the child as it starts bawling and see that it is indeed a little cow-girl that the two of you have brought into the world.  You can already tell that she has all the bovine features that Marble has",
@@ -5158,7 +5157,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
             // Gain appropriate egg
             // default
-            var itype: ItemType;
+            let itype: ItemType;
             // Large eggs
             if (MarbleScene.rand(3) == 1) {
                 itype = this.consumables.LARGE_EGGS[
@@ -5196,19 +5195,19 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "<b>You notice that Marble seems to have gained some weight.</b>\n\n",
                     false
-                ); //3 days in
+                ); // 3 days in
                 break;
             case 3:
                 this.outputText(
                     "<b>Marble's belly has gotten a fair bit bigger; she may be pregnant.</b>\n\n",
                     false
-                ); //8 days in
+                ); // 8 days in
                 break;
             case 4:
                 this.outputText(
                     "<b>Marble's belly has gotten bigger; she is obviously pregnant.",
                     false
-                ); //12 days in
+                ); // 12 days in
                 // (if the nursery has not yet been built, she is forced to start working on it here and her job cannot be changed until it has been finished)
                 if (
                     this.flags[kFLAGS.MARBLE_NURSERY_CONSTRUCTION] == 0 &&
@@ -5226,13 +5225,13 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "<b>Marble's pregnancy has advanced further still, though the structure of her body keeps it from slowing her down.</b>\n\n",
                     false
-                ); //18 days in
+                ); // 18 days in
                 break;
             case 6:
                 this.outputText(
                     "<b>Marble is probably getting close to giving birth, as her belly has gotten very large.</b>\n\n",
                     false
-                ); //24 days in
+                ); // 24 days in
             default:
         }
         // Both under 30 - no sex
@@ -5254,7 +5253,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             }
             return false;
         }
-        ///START NEW MARBLE NIGHT LOGIC
+        /// START NEW MARBLE NIGHT LOGIC
         // This section does not happen if Marble's lust is at or over 50, the requests for sex or oral come instead then.
         if (this.player.gender == 0) {
             this.outputText(
@@ -5335,7 +5334,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     );
                 this.outputText("\n\nWill you orally pleasure Marble?");
                 // options: yes/no (yes continues the current scene, this is a bit awkward as the current breaks are in the middle of if statements, so new futa/female if statements will need to be added)
-                var tailJob = undefined;
+                let tailJob;
                 // tailjob for futa marble if PC is naga
                 if (this.player.isNaga() && this.flags[kFLAGS.MARBLE_DICK_LENGTH] > 0)
                     tailJob = this.giveMarbleTailjobRelease;
@@ -5454,12 +5453,12 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // SEKCS
-    private marbleNightSexIntro(clear: boolean = true): void {
+    private marbleNightSexIntro(clear = true): void {
         if (clear) this.clearOutput();
         else this.outputText("\n\n");
         // This scene is for non corrupted Marble, and low corruption player.  Until I add more scenes, just use it for everything.
         // Try to find a dick that fits.
-        var x: number = this.player.cockThatFits(this.marbleCuntCapacity());
+        let x: number = this.player.cockThatFits(this.marbleCuntCapacity());
         if (x < 0) x = 0;
         // No sex if dude and too big!
         else if (this.player.gender == 1 && this.player.cockArea(x) > this.marbleCuntCapacity()) {
@@ -5576,7 +5575,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     private marbleNightSexDudes(): void {
         this.spriteSelect(41);
         // Try to find a dick that fits.
-        var x: number = this.player.cockThatFits(this.marbleCuntCapacity());
+        let x: number = this.player.cockThatFits(this.marbleCuntCapacity());
         if (x < 0) x = 0;
         this.flags[kFLAGS.MARBLE_LUST] = 0;
         this.outputText("", true);
@@ -5776,7 +5775,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                         false
                     );
                 }
-            } //no, no, the PC is much hornier than she is
+            } // no, no, the PC is much hornier than she is
             else {
                 this.outputText(
                     "You give a horny moan and start to bounce up and down on her dildo, relishing the feeling of it within your walls.  Marble gasps at the sudden rapid stimulation and starts to writhe on the ground helplessly underneath you.  You grin down at her as you continue your movements of rising, falling and rolling.  You slow down for a moment so you can get a good grip on her ample breasts.\n\n",
@@ -5991,7 +5990,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // chance for PC's with normal human cum production should be 15% + 1%/100 ml of production (to a max of +15%) + 5%
         // for each general male fertility perks + 20% for being Merae's stud.
 
-        var preggerOdds: number = 10;
+        let preggerOdds = 10;
         // Count cum quantity
         preggerOdds += this.player.cumQ() / 100;
         // Capped at 20
@@ -6221,7 +6220,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 "After taking the elixir, Marble's belly rumbles slightly.  You can both tell that her pregnancy has advanced.  ",
                 false
             );
-            var newIncubation: number = this.pregnancy.incubation - (40 + MarbleScene.rand(30));
+            let newIncubation: number = this.pregnancy.incubation - (40 + MarbleScene.rand(30));
             if (newIncubation <= 0) newIncubation = 1;
             this.pregnancy.knockUpForce(this.pregnancy.type, newIncubation);
         } else {
@@ -6247,7 +6246,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     */
 
     public marbleCuntCapacity(): number {
-        var size: number = 36;
+        let size = 36;
         if (this.flags[kFLAGS.MARBLE_BOVA_LEVEL] >= 1) {
             size += 10;
         }
@@ -6404,25 +6403,25 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outputText(
                     "It looks like she's put on some weight since coming to your camp.\n\n",
                     false
-                ); //3 to 8 days in
+                ); // 3 to 8 days in
                 break;
             case 3:
-                this.outputText("Her belly has swollen a bit; she may be pregnant.\n\n", false); //8 to 12 days in
+                this.outputText("Her belly has swollen a bit; she may be pregnant.\n\n", false); // 8 to 12 days in
                 break;
             case 4:
                 this.outputText(
                     "Her belly is obviously swollen; she is almost certainly pregnant.\n\n",
                     false
-                ); //12 to 18 days in
+                ); // 12 to 18 days in
                 break;
             case 5:
-                this.outputText("Her belly is very swollen; she is very pregnant.\n\n", false); //18 to 24 days in
+                this.outputText("Her belly is very swollen; she is very pregnant.\n\n", false); // 18 to 24 days in
                 break;
             case 6:
                 this.outputText(
                     "Her belly is extremely swollen and occasionally quivers when whatever she is pregnant with moves around.\n\n",
                     false
-                ); //24+ days in
+                ); // 24+ days in
             default:
         }
 
@@ -6717,14 +6716,14 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.flags[kFLAGS.MARBLE_LUST] = 10;
-        var pLust: number = Math.floor(20 + (this.player.lib + this.player.cor) / 10);
+        const pLust: number = Math.floor(20 + (this.player.lib + this.player.cor) / 10);
         this.dynStats("lus", pLust);
         this.dynStats("sen", 1);
         this.doNext(this.camp.returnToCampUseTwoHours);
     }
 
     private milkMarbleFuckDatCowPussy(): void {
-        var x: number = this.player.cockThatFits(this.marbleCuntCapacity());
+        const x: number = this.player.cockThatFits(this.marbleCuntCapacity());
         this.clearOutput();
 
         this.outputText(
@@ -7057,8 +7056,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     private milkMarbleBarFollowTail(): void {
-        var x: number = this.player.cockThatFits(this.marbleCuntCapacity());
-        var y: number = this.player.cockThatFits2(this.marbleCuntCapacity());
+        const x: number = this.player.cockThatFits(this.marbleCuntCapacity());
+        const y: number = this.player.cockThatFits2(this.marbleCuntCapacity());
         this.clearOutput();
 
         this.outputText("You ask Marble where her tail will lead you.");
@@ -7156,7 +7155,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.orgasm();
             this.marblePreggoChance(1);
         } else {
-            var pLust: number = Math.floor(10 + this.player.lib / 10);
+            const pLust: number = Math.floor(10 + this.player.lib / 10);
             this.dynStats("lus", pLust);
         }
         this.doNext(this.camp.returnToCampUseTwoHours);
@@ -7222,7 +7221,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("[pg]Alright, you'll end the teasing, for now.");
 
         this.flags[kFLAGS.MARBLE_LUST] = 15;
-        var pLust: number = Math.floor(10 + this.player.lib / 10);
+        const pLust: number = Math.floor(10 + this.player.lib / 10);
         this.dynStats("lus", pLust);
         this.dynStats("sen", 1);
         this.model.time.hours++;
@@ -7230,7 +7229,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     private milkMarbleBarPullTail(): void {
-        var x: number = this.player.cockThatFits(this.marbleCuntCapacity());
+        const x: number = this.player.cockThatFits(this.marbleCuntCapacity());
         this.clearOutput();
 
         this.outputText(
@@ -7398,7 +7397,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             "[pg]She is a bit disappointed that you didn't go further after getting her on the bar, but doesn't have a problem with you leaving.  She does tell you that she's looking forward to having you in her milker again some time."
         );
 
-        var pLust: number = Math.floor(5 + this.player.lib / 20);
+        const pLust: number = Math.floor(5 + this.player.lib / 20);
         this.dynStats("lus", pLust);
         this.flags[kFLAGS.MARBLE_LUST] += 5;
         this.doNext(this.camp.returnToCampUseTwoHours);

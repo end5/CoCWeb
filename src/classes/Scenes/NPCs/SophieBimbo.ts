@@ -8,12 +8,12 @@ import { NPCAwareContent } from "./NPCAwareContent";
 export class SophieBimbo extends NPCAwareContent {
     private get pregnancy(): PregnancyStore {
         return kGAMECLASS.sophieScene.pregnancy;
-    } //Quick way to access sophie's pregnancyStore
+    } // Quick way to access sophie's pregnancyStore
 
     // VARS
-    // 282	Sophie Bimbo Follower?
-    // 283	Sophie Disabled Forever
-    // 284	Has Ovi Event Procced?
+    // 282 Sophie Bimbo Follower?
+    // 283 Sophie Disabled Forever
+    // 284 Has Ovi Event Procced?
 
     // const SOPHIE_HEAT_COUNTER: number = 737;
     // const SOPHIE_INCUBATION: number = 738;
@@ -29,7 +29,7 @@ export class SophieBimbo extends NPCAwareContent {
     // const TIMES_SOPHIE_AND_IZMA_FUCKED: number = 780;
     // const TOLD_SOPHIE_TO_IZMA: number = 781;
 
-    /*Sophie TF Notes:
+    /* Sophie TF Notes:
     DD tits become F, impairing flight to gliding at best.
     Pink feathers turn platinum blond and 'hair' feathers grow down to her ass.
     Lips plump slightly, and Sophie begins applying her lip gloss more generously.
@@ -296,7 +296,7 @@ export class SophieBimbo extends NPCAwareContent {
     }
     // Follower In Camp Text:
     public sophieCampLines(): void {
-        var choice: number = SophieBimbo.rand(4);
+        const choice: number = SophieBimbo.rand(4);
         if (choice == 0)
             this.outputText(
                 "Sophie is sitting by herself, applying yet another layer of glittering lip gloss to her puffy bimbo lips.",
@@ -320,7 +320,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.outputText("\n\n", false);
     }
     // Approach Texts
-    public approachBimboSophieInCamp(output: boolean = true): void {
+    public approachBimboSophieInCamp(output = true): void {
         this.sophieSprite();
         if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
             if (output) {
@@ -349,7 +349,7 @@ export class SophieBimbo extends NPCAwareContent {
                     this.dynStats("lus", 20);
                 } else if (this.pregnancy.isPregnant) {
                     switch (this.pregnancy.event) {
-                        case 3: //Medium Bump*
+                        case 3: // Medium Bump*
                             this.outputText(
                                 "As usual, Sophie is laying on your bedroll.  Each day the fertile swell in her stomach seems to grow bigger with the egg inside.  The positively pregnant woman idly strokes her egg-bearing belly with motherly affection.  She even coos to the growing bump as she caresses her body, clearly loving the fact that she is pregnant with another egg.  It's not long before she catches sight of you; a big silly smile breaking across her puffy lips as she hurriedly gets up from your blankets and bounds over to you.  With each step, her voluptuous body jiggles and bounces, her big bountiful bosom heaving and shaking, her ripe round rump quivering like jelly as she sways her fecund hips for you."
                             );
@@ -358,7 +358,7 @@ export class SophieBimbo extends NPCAwareContent {
                             );
                             this.dynStats("lus", 5);
                             break;
-                        case 4: //Big Belly Bump*
+                        case 4: // Big Belly Bump*
                             this.outputText(
                                 "Once again, your pregnant bimbo lounges on your bedroll, her face buried in your pillow and taking deep breaths of your scent.  Even with her in such a - vulnerable... position, face down and ass up, you can clearly see the big, round bulge of her egg-laden belly.  With your feathery slut so gravid, you're sure it won't be long until she lays that womb-straining egg.  As if sensing your gaze, Sophie starts to sway her round spankable ass, her legs seeming to spread a little wider as well.  Your suspicions prove correct when she looks back at you; her plump bimbo lips blowing you a kiss as she looks at you with lusty eyes."
                             );
@@ -377,7 +377,7 @@ export class SophieBimbo extends NPCAwareContent {
                             this.dynStats("lus", 3);
                     }
                 } else {
-                    var choice: number = SophieBimbo.rand(3);
+                    const choice: number = SophieBimbo.rand(3);
                     if (choice == 0) {
                         this.outputText(
                             "Sophie flutters her wings, kicking up a small cloud of dust around herself as she shifts position to present her huge F-cup breasts to you.  She's not wearing a stitch of clothing, and you can see the sticky, soaking fluids of her lust running down her thick thighs unimpeded.  The harpy twists around, leaning over to show just how big and round her jiggling ass has become, the bulging cheeks framed by blond, feathery hair, draped over her derriere.  She asks, \"<i>Mmm, baby, I'm hooooorny, could we, like, fuck or something?</i>\"",
@@ -626,7 +626,7 @@ export class SophieBimbo extends NPCAwareContent {
     }
 
     private eggSelector(): void {
-        for (var i: number = 0; i < this.eggColors.length; i++) {
+        for (let i = 0; i < this.eggColors.length; i++) {
             this.addButton(i, this.eggColors[i], this.postEggSelector, this.eggColors[i]);
         }
     }
@@ -804,7 +804,7 @@ export class SophieBimbo extends NPCAwareContent {
     public bimboSophieLustStickSurprise(): void {
         this.outputText("\n", false);
         // *The PC is repeatedly afflicted with harpy lipstick by Sophie in one of five ways.  Additional exposure from the mountain harpies will speed the process.  After 40(or 20-30?)  applications of lust-stick, the PC becomes resistant to it, raising the PC's lust by 20%, but also reducing lust gain by 20%.
-        var select: number = SophieBimbo.rand(4);
+        const select: number = SophieBimbo.rand(4);
         if (select == 0) {
             this.sophieSprite();
             this.outputText(
@@ -1240,7 +1240,7 @@ export class SophieBimbo extends NPCAwareContent {
         }
         // SixtyNine Continuation - DUDES
         else {
-            var x: number = this.player.cockThatFits(this.sophieCapacity());
+            let x: number = this.player.cockThatFits(this.sophieCapacity());
             if (x < 0) x = this.player.smallestCockIndex();
             this.outputText(
                 "You throw yourself at Sophie, compelled by thoughts of pleasure and her delicious-looking pussy.  Imagining yourself placing your lips on her cunt and slurping with reckless abandon, you tackle her, hard.  She takes the hit like a champ, tumbling with you through the dirt and dust until you land on your " +
@@ -1365,7 +1365,7 @@ export class SophieBimbo extends NPCAwareContent {
     private buttFuckBimboSophie(): void {
         this.sophieSprite();
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(this.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             'You instruct your bimbo bitch to bend over and show you that rounded rump that you keep her around for.  She leans away from you, her ass high in the air with tail feathers fluffing, and she cluelessly asks, "<i>Ummm, like this, babe? Or this?</i>"\n\n',
@@ -1512,7 +1512,7 @@ export class SophieBimbo extends NPCAwareContent {
     private fuckBimboSophiesTits(): void {
         this.sophieSprite();
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(this.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You grab Sophie's tits in a squeezing grip and pull her towards you, flicking your thumbs across the bimbo's nipples.  She stumbles toward you and purrs, \"<i>Who's being forward now, huh?  If you wanted to play with Momma Sophie's tits, all you had to do was, like, ask!</i>\"\n\n",
@@ -1654,8 +1654,8 @@ export class SophieBimbo extends NPCAwareContent {
             );
         }
         // [Daddy (Male/herm)] [Mommy (female/herm)] [Leave]
-        var daddy = undefined;
-        var mommy = undefined;
+        let daddy;
+        let mommy;
         this.flags[kFLAGS.TIMES_SOPHIE_HAS_DRUNK_OVI_ELIXIR]++;
         if (this.player.hasCock()) daddy = this.beBimboSophiesSugarDaddy;
         if (this.player.hasVagina()) mommy = this.beBimboSophiesSugarMommy;
@@ -1677,7 +1677,7 @@ export class SophieBimbo extends NPCAwareContent {
     private beBimboSophiesSugarDaddy(): void {
         this.sophieSprite();
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(this.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         if (this.player.hasItem(this.consumables.OVIELIX))
             this.player.consumeItem(this.consumables.OVIELIX);
@@ -1804,12 +1804,12 @@ export class SophieBimbo extends NPCAwareContent {
 
     // Butts McGee
     // =====================================================
-    private rideDatSophieVag(nice: boolean = false): void {
+    private rideDatSophieVag(nice = false): void {
         this.clearOutput();
         this.sophieSprite();
-        var x: number = this.player.cockThatFits(this.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = -1;
+        let y = -1;
         if (this.player.cockTotal() > 1) {
             y = this.player.cockThatFits2(this.sophieCapacity());
             if (y < 0) {
@@ -2204,8 +2204,8 @@ export class SophieBimbo extends NPCAwareContent {
     // Impregnation Sex*
     // Lots of Sophie Compulsion Foreplay coupled with just jamming it in.  She loses all control and you ride her like a bucking bronco, cumming in her pussy a few times, then in her ass, in her tits/mouth, and then back in her pussy again.  Then snuggles?
     private sophieImpregnationSex(): void {
-        var x: number = this.player.cockThatFits(this.sophieCapacity());
-        var y: number = this.player.cockThatFits2(this.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieCapacity());
+        const y: number = this.player.cockThatFits2(this.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.sophieSprite();
@@ -2516,7 +2516,7 @@ export class SophieBimbo extends NPCAwareContent {
     // Sophie starts grinding on top, hypno-compelling you to get hornier and hornier until you flip her over and full-body titfuck her.  After the first jizz, you get a little winded and lay back, she remounts you and gets you to cum against her entrance, then she snuggles with you and slowly teases and orgasm denials you until you fucking explode and pass out cuddling with her.
     private giantCocksImpregnateSophie(): void {
         this.clearOutput();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.sophieSprite();
 
         this.outputText(
@@ -2682,8 +2682,8 @@ export class SophieBimbo extends NPCAwareContent {
 
     // Sophie Morning Sex*
     // Alternate Intro/Outro for consensual fucking when it isn't morning?
-    public sophieFenCraftedSex(morning: boolean = false): void {
-        var x: number = this.player.cockThatFits(this.sophieCapacity());
+    public sophieFenCraftedSex(morning = false): void {
+        let x: number = this.player.cockThatFits(this.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.sophieSprite();
         // {Morning Sex}
@@ -2801,8 +2801,8 @@ export class SophieBimbo extends NPCAwareContent {
 
     // Pregnant Sophie Morning Sex*
     // Alternate Intro/Outro for consensual fucking when it isn't morning?
-    public fuckYoPregnantHarpyWaifu(morning: boolean = false): void {
-        var x: number = this.player.cockThatFits(this.sophieCapacity());
+    public fuckYoPregnantHarpyWaifu(morning = false): void {
+        const x: number = this.player.cockThatFits(this.sophieCapacity());
         // {Morning Fuck}
         if (morning) {
             this.sophieSprite();
@@ -2947,7 +2947,7 @@ export class SophieBimbo extends NPCAwareContent {
     // Very Pregnant Sophie Tit Jobs*
     // Alternate Intro/Outro for consensual fucking when it isn't morning?
     private sophiePreggoTitJobs(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.clearOutput();
         this.sophieSprite();
         this.outputText(
@@ -3022,7 +3022,7 @@ export class SophieBimbo extends NPCAwareContent {
     private goHogWildOnSophieBewbs(): void {
         this.clearOutput();
         this.sophieSprite();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You don't care about her promises- there's a pair of soft tits right there just waiting for a dick to fuck them, and nothing is going to stop you from spooging all over them however you want!  Sophie barely has a chance to react before you're tossing her on her back and mounting her chest.  Your [butt] rubs on the top of her pregnant belly as you settle your " +
                 this.cockDescript(x) +
@@ -3123,7 +3123,7 @@ export class SophieBimbo extends NPCAwareContent {
     private letSophieMilkYoDick(): void {
         this.clearOutput();
         this.sophieSprite();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You nod at Sophie and hold yourself still.  She rewards you by wrapping her breasts back around you, enveloping you in tight pleasure again.  "
         );

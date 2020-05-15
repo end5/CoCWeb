@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/adjacent-overload-signatures */
 import { Character } from "./Character";
 import { ItemSlotClass } from "./ItemSlotClass";
 import { Armor } from "./Items/Armor";
 import { ArmorLib } from "./Items/ArmorLib";
-import { CoC_Settings } from "./CoC_Settings";
+import { CocSettings } from "./CoC_Settings";
 import {
     SKIN_TYPE_PLAIN,
     SKIN_TYPE_FUR,
@@ -36,6 +37,7 @@ import { PerkLib } from "./PerkLib";
 
 /**
  * ...
+ *
  * @author Yoffy
  */
 export class Player extends Character {
@@ -56,35 +58,35 @@ export class Player extends Character {
         ];
     }
 
-    protected outputText(text: string, clear: boolean = false): void {
+    protected outputText(text: string, clear = false): void {
         this.game.outputText(text, clear);
     }
 
     // Autosave
-    public slotName: string = "VOID";
-    public autoSave: boolean = false;
+    public slotName = "VOID";
+    public autoSave = false;
 
     // Lust vulnerability
     // TODO: Kept for backwards compatibility reasons but should be phased out.
-    public lustVuln: number = 1;
+    public lustVuln = 1;
 
     // Teasing attributes
-    public teaseLevel: number = 0;
-    public teaseXP: number = 0;
+    public teaseLevel = 0;
+    public teaseXP = 0;
 
     // Perks used to store 'queued' perk buys
-    public perkPoints: number = 0;
+    public perkPoints = 0;
 
     // Number of times explored for new areas
-    public explored: number = 0;
-    public exploredForest: number = 0;
-    public exploredDesert: number = 0;
-    public exploredMountain: number = 0;
-    public exploredLake: number = 0;
+    public explored = 0;
+    public exploredForest = 0;
+    public exploredDesert = 0;
+    public exploredMountain = 0;
+    public exploredLake = 0;
 
     // Player pregnancy variables and functions
     public pregnancyUpdate(): boolean {
-        return this.game.updatePregnancy(); //Returns true if we need to make sure pregnancy texts aren't hidden
+        return this.game.updatePregnancy(); // Returns true if we need to make sure pregnancy texts aren't hidden
     }
 
     // Inventory
@@ -96,42 +98,42 @@ export class Player extends Character {
     public itemSlots: any[];
 
     private _armor: Armor = ArmorLib.COMFORTABLE_UNDERCLOTHES;
-    private _modArmorName: string = "";
+    private _modArmorName = "";
 
     public set armorValue(value: number) {
-        CoC_Settings.error("ERROR: attempt to directly set player.armorValue.");
+        CocSettings.error("ERROR: attempt to directly set player.armorValue.");
     }
 
     public set armorName(value: string) {
-        CoC_Settings.error("ERROR: attempt to directly set player.armorName.");
+        CocSettings.error("ERROR: attempt to directly set player.armorName.");
     }
 
     public set armorDef(value: number) {
-        CoC_Settings.error("ERROR: attempt to directly set player.armorDef.");
+        CocSettings.error("ERROR: attempt to directly set player.armorDef.");
     }
 
     public set armorPerk(value: string) {
-        CoC_Settings.error("ERROR: attempt to directly set player.armorPerk.");
+        CocSettings.error("ERROR: attempt to directly set player.armorPerk.");
     }
 
     public set weaponName(value: string) {
-        CoC_Settings.error("ERROR: attempt to directly set player.weaponName.");
+        CocSettings.error("ERROR: attempt to directly set player.weaponName.");
     }
 
     public set weaponVerb(value: string) {
-        CoC_Settings.error("ERROR: attempt to directly set player.weaponVerb.");
+        CocSettings.error("ERROR: attempt to directly set player.weaponVerb.");
     }
 
     public set weaponAttack(value: number) {
-        CoC_Settings.error("ERROR: attempt to directly set player.weaponAttack.");
+        CocSettings.error("ERROR: attempt to directly set player.weaponAttack.");
     }
 
     public set weaponPerk(value: string) {
-        CoC_Settings.error("ERROR: attempt to directly set player.weaponPerk.");
+        CocSettings.error("ERROR: attempt to directly set player.weaponPerk.");
     }
 
     public set weaponValue(value: number) {
-        CoC_Settings.error("ERROR: attempt to directly set player.weaponValue.");
+        CocSettings.error("ERROR: attempt to directly set player.weaponValue.");
     }
 
     public get modArmorName(): string {
@@ -149,7 +151,7 @@ export class Player extends Character {
         return this._armor.name;
     }
     public get armorDef(): number {
-        var armorDef: number = this._armor.def;
+        let armorDef: number = this._armor.def;
         // Blacksmith history!
         if (armorDef > 0 && this.findPerk(PerkLib.HistorySmith) >= 0) {
             armorDef = Math.round(armorDef * 1.1);
@@ -199,7 +201,7 @@ export class Player extends Character {
         return this._weapon.verb;
     }
     public get weaponAttack(): number {
-        var attack: number = this._weapon.attack;
+        let attack: number = this._weapon.attack;
         if (
             this.findPerk(PerkLib.WeaponMastery) >= 0 &&
             this.weaponPerk == "Large" &&
@@ -234,12 +236,12 @@ export class Player extends Character {
     public setArmor(newArmor: Armor): Armor | undefined {
         // Returns the old armor, allowing the caller to discard it, store it or try to place it in the player's inventory
         // Can return undefined, in which case caller should discard.
-        var oldArmor = this._armor.playerRemove(); //The armor is responsible for removing any bonuses, perks, etc.
+        const oldArmor = this._armor.playerRemove(); // The armor is responsible for removing any bonuses, perks, etc.
         if (newArmor == undefined) {
-            CoC_Settings.error(this.short + ".armor is set to undefined");
+            CocSettings.error(this.short + ".armor is set to undefined");
             newArmor = ArmorLib.COMFORTABLE_UNDERCLOTHES;
         }
-        this._armor = newArmor.playerEquip(); //The armor can also choose to equip something else - useful for Ceraph's trap armor
+        this._armor = newArmor.playerEquip(); // The armor can also choose to equip something else - useful for Ceraph's trap armor
         return oldArmor;
     }
 
@@ -266,12 +268,12 @@ export class Player extends Character {
     public setWeapon(newWeapon: Weapon) {
         // Returns the old weapon, allowing the caller to discard it, store it or try to place it in the player's inventory
         // Can return undefined, in which case caller should discard.
-        var oldWeapon = this._weapon.playerRemove(); //The weapon is responsible for removing any bonuses, perks, etc.
+        const oldWeapon = this._weapon.playerRemove(); // The weapon is responsible for removing any bonuses, perks, etc.
         if (newWeapon == undefined) {
-            CoC_Settings.error(this.short + ".weapon is set to undefined");
+            CocSettings.error(this.short + ".weapon is set to undefined");
             newWeapon = WeaponLib.FISTS;
         }
-        this._weapon = newWeapon.playerEquip(); //The weapon can also choose to equip something else
+        this._weapon = newWeapon.playerEquip(); // The weapon can also choose to equip something else
         return oldWeapon;
     }
 
@@ -315,7 +317,7 @@ export class Player extends Character {
         }
 
         // Uma's Massage bonuses
-        var statIndex: number = this.findStatusAffect(StatusAffects.UmasMassage);
+        const statIndex: number = this.findStatusAffect(StatusAffects.UmasMassage);
         if (statIndex >= 0) {
             if (this.statusAffect(statIndex).value1 == UmasShop.MASSAGE_RELAXATION) {
                 damage = Math.round(damage * this.statusAffect(statIndex).value2);
@@ -323,7 +325,7 @@ export class Player extends Character {
         }
 
         // Uma's Accupuncture Bonuses
-        var modArmorDef: number = 0;
+        let modArmorDef = 0;
         if (this.findPerk(PerkLib.ChiReflowDefense) >= 0)
             modArmorDef = this.armorDef * UmasShop.NEEDLEWORK_DEFENSE_DEFENSE_MULTI - this.armorDef;
         if (this.findPerk(PerkLib.ChiReflowAttack) >= 0)
@@ -337,7 +339,7 @@ export class Player extends Character {
         // Round
         damage = Math.round(damage);
         // we return "1 damage received" if it is in (0..1) but deduce no HP
-        var returnDamage: number = damage > 0 && damage < 1 ? 1 : damage;
+        const returnDamage: number = damage > 0 && damage < 1 ? 1 : damage;
         if (damage > 0) {
             this.HP -= damage;
             this.game.mainView.statsView.showStatDown("hp");
@@ -358,8 +360,8 @@ export class Player extends Character {
      * speeds (1: narrowly avoid, 3: deftly avoid)
      */
     public speedDodge(monster: Monster): number {
-        var diff: number = this.spe - monster.spe;
-        var rnd: number = Math.floor(Math.random() * (diff / 4 + 80));
+        const diff: number = this.spe - monster.spe;
+        const rnd: number = Math.floor(Math.random() * (diff / 4 + 80));
         if (rnd <= 80) return 0;
         else if (diff < 8) return 1;
         else if (diff < 20) return 2;
@@ -368,7 +370,7 @@ export class Player extends Character {
 
     // Body Type
     public bodyType(): string {
-        var desc: string = "";
+        let desc = "";
         // OLD STUFF
         // SUPAH THIN
         if (this.thickness < 10) {
@@ -482,7 +484,7 @@ export class Player extends Character {
 
     public race(): string {
         // Determine race type:
-        var race: string = "human";
+        let race = "human";
         if (this.lowerBody == 4) race = "centaur";
         if (this.lowerBody == 11) race = "pony-kin";
         if (this.catScore() >= 4) race = "cat-" + this.mf("boy", "girl");
@@ -557,7 +559,7 @@ export class Player extends Character {
 
     // determine demon rating
     public demonScore(): number {
-        var demonCounter: number = 0;
+        let demonCounter = 0;
         if (this.hornType == 1 && this.horns > 0) demonCounter++;
         if (this.hornType == 1 && this.horns > 4) demonCounter++;
         if (this.tailType == 3) demonCounter++;
@@ -571,7 +573,7 @@ export class Player extends Character {
 
     // Determine Human Rating
     public humanScore(): number {
-        var humanCounter: number = 0;
+        let humanCounter = 0;
         if (this.faceType == 0) humanCounter++;
         if (this.skinType == 0) humanCounter++;
         if (this.horns == 0) humanCounter++;
@@ -585,7 +587,7 @@ export class Player extends Character {
 
     // Determine minotaur rating
     public minoScore(): number {
-        var minoCounter: number = 0;
+        let minoCounter = 0;
         if (this.faceType == 3) minoCounter++;
         if (this.earType == 3) minoCounter++;
         if (this.tailType == 4) minoCounter++;
@@ -605,7 +607,7 @@ export class Player extends Character {
 
     // Determine cow rating
     public cowScore(): number {
-        var minoCounter: number = 0;
+        let minoCounter = 0;
         if (this.faceType == 0) minoCounter++;
         if (this.faceType == 3) minoCounter--;
         if (this.earType == 3) minoCounter++;
@@ -620,7 +622,7 @@ export class Player extends Character {
     }
 
     public sandTrapScore(): number {
-        var counter: number = 0;
+        let counter = 0;
         if (this.findStatusAffect(StatusAffects.BlackNipples) >= 0) counter++;
         if (this.hasVagina() && this.vaginaType() == 5) counter++;
         if (this.eyeType == 2) counter++;
@@ -631,7 +633,7 @@ export class Player extends Character {
 
     // Determine Bee Rating
     public beeScore(): number {
-        var beeCounter: number = 0;
+        let beeCounter = 0;
         if (this.hairColor == "shiny black") beeCounter++;
         if (this.hairColor == "black and yellow") beeCounter += 2;
         if (this.antennae > 0) {
@@ -649,7 +651,7 @@ export class Player extends Character {
     }
     // Determine Ferret Rating!
     public ferretScore(): number {
-        var counter: number = 0;
+        let counter = 0;
         if (this.faceType == FACE_FERRET_MASK) counter++;
         if (this.faceType == FACE_FERRET) counter += 2;
         if (this.earType == EARS_FERRET) counter++;
@@ -660,7 +662,7 @@ export class Player extends Character {
     }
     // Determine Dog Rating
     public dogScore(): number {
-        var dogCounter: number = 0;
+        let dogCounter = 0;
         if (this.faceType == 2) dogCounter++;
         if (this.earType == 2) dogCounter++;
         if (this.tailType == 2) dogCounter++;
@@ -675,7 +677,7 @@ export class Player extends Character {
     }
 
     public mouseScore(): number {
-        var coonCounter: number = 0;
+        let coonCounter = 0;
         if (this.earType == 12) coonCounter++;
         if (this.tailType == 16) coonCounter++;
 
@@ -690,7 +692,7 @@ export class Player extends Character {
     }
 
     public raccoonScore(): number {
-        var coonCounter: number = 0;
+        let coonCounter = 0;
         if (this.faceType == 13) coonCounter++;
         if (this.faceType == 14) coonCounter += 2;
         if (this.earType == 11) coonCounter++;
@@ -704,7 +706,7 @@ export class Player extends Character {
 
     // Determine Fox Rating
     public foxScore(): number {
-        var foxCounter: number = 0;
+        let foxCounter = 0;
         if (this.faceType == 11) foxCounter++;
         if (this.earType == 9) foxCounter++;
         if (this.tailType == 13) foxCounter++;
@@ -720,7 +722,7 @@ export class Player extends Character {
 
     // Determine cat Rating
     public catScore(): number {
-        var catCounter: number = 0;
+        let catCounter = 0;
         if (this.faceType == 6) catCounter++;
         if (this.earType == 5) catCounter++;
         if (this.tailType == 8) catCounter++;
@@ -736,7 +738,7 @@ export class Player extends Character {
 
     // Determine lizard rating
     public lizardScore(): number {
-        var lizardCounter: number = 0;
+        let lizardCounter = 0;
         if (this.faceType == 7) lizardCounter++;
         if (this.earType == 6) lizardCounter++;
         if (this.tailType == 9) lizardCounter++;
@@ -748,7 +750,7 @@ export class Player extends Character {
     }
 
     public spiderScore(): number {
-        var score: number = 0;
+        let score = 0;
         if (this.eyeType == 1) score += 2;
         if (this.faceType == 10) score++;
         if (this.armType == 2) score++;
@@ -761,7 +763,7 @@ export class Player extends Character {
 
     // Determine Horse Rating
     public horseScore(): number {
-        var horseCounter: number = 0;
+        let horseCounter = 0;
         if (this.faceType == 1) horseCounter++;
         if (this.earType == 1) horseCounter++;
         if (this.tailType == 1) horseCounter++;
@@ -774,7 +776,7 @@ export class Player extends Character {
 
     // Determine kitsune Rating
     public kitsuneScore(): number {
-        var kitsuneCounter: number = 0;
+        let kitsuneCounter = 0;
         // If the character has fox ears, +1
         if (this.earType == 9) kitsuneCounter++;
         // If the character has a fox tail, +1
@@ -818,7 +820,7 @@ export class Player extends Character {
 
     // Determine Horse Rating
     public dragonScore(): number {
-        var dragonCounter: number = 0;
+        let dragonCounter = 0;
         if (this.faceType == 12) dragonCounter++;
         if (this.earType == 10) dragonCounter++;
         if (this.tailType == 14) dragonCounter++;
@@ -835,7 +837,7 @@ export class Player extends Character {
 
     // Goblinscore
     public goblinScore(): number {
-        var horseCounter: number = 0;
+        let horseCounter = 0;
         if (this.earType == 4) horseCounter++;
         if (
             this.skinTone == "pale yellow" ||
@@ -855,7 +857,7 @@ export class Player extends Character {
 
     // Gooscore
     public gooScore(): number {
-        var gooCounter: number = 0;
+        let gooCounter = 0;
         if (this.hairType == 3) gooCounter++;
         if (this.skinAdj == "slimy") gooCounter++;
         if (this.lowerBody == 8) gooCounter++;
@@ -866,7 +868,7 @@ export class Player extends Character {
 
     // Nagascore
     public nagaScore(): number {
-        var nagaCounter: number = 0;
+        let nagaCounter = 0;
         if (this.faceType == 5) nagaCounter++;
         if (this.tongueType == 1) nagaCounter++;
         if (nagaCounter > 0 && this.antennae == 0) nagaCounter++;
@@ -876,7 +878,7 @@ export class Player extends Character {
 
     // Bunnyscore
     public bunnyScore(): number {
-        var bunnyCounter: number = 0;
+        let bunnyCounter = 0;
         if (this.faceType == 8) bunnyCounter++;
         if (this.tailType == 10) bunnyCounter++;
         if (this.earType == 7) bunnyCounter++;
@@ -893,7 +895,7 @@ export class Player extends Character {
 
     // Harpyscore
     public harpyScore(): number {
-        var harpy: number = 0;
+        let harpy = 0;
         if (this.armType == 1) harpy++;
         if (this.hairType == 1) harpy++;
         if (this.wingType == 9) harpy++;
@@ -906,7 +908,7 @@ export class Player extends Character {
 
     // Kangascore
     public kangaScore(): number {
-        var kanga: number = 0;
+        let kanga = 0;
         if (this.kangaCocks() > 0) kanga++;
         if (this.earType == 8) kanga++;
         if (this.tailType == 12) kanga++;
@@ -918,7 +920,7 @@ export class Player extends Character {
 
     // sharkscore
     public sharkScore(): number {
-        var sharkCounter: number = 0;
+        let sharkCounter = 0;
         if (this.faceType == 4) sharkCounter++;
         if (this.wingType == 8) sharkCounter++;
         if (this.tailType == 7) sharkCounter++;
@@ -927,7 +929,7 @@ export class Player extends Character {
 
     // Determine Mutant Rating
     public mutantScore(): number {
-        var mutantCounter: number = 0;
+        let mutantCounter = 0;
         if (this.faceType > 0) mutantCounter++;
         if (this.skinType > 0) mutantCounter++;
         if (this.tailType > 0) mutantCounter++;
@@ -952,7 +954,7 @@ export class Player extends Character {
         // (Small – 0.01 mLs – Size 1 + 1 Multi)
         // (Large – 0.8 - Size 10 + 4 Multi)
         // (HUGE – 2.4 - Size 12 + 5 Multi + 4 tits)
-        var total: number;
+        let total: number;
         if (this.findStatusAffect(StatusAffects.LactationEndurance) < 0)
             this.createStatusAffect(StatusAffects.LactationEndurance, 1, 0, 0, 0);
         total =
@@ -973,13 +975,13 @@ export class Player extends Character {
     public cuntChange(
         cArea: number,
         display: boolean,
-        spacingsF: boolean = false,
-        spacingsB: boolean = true
+        spacingsF = false,
+        spacingsB = true
     ): boolean {
         if (this.vaginas.length == 0) return false;
-        var wasVirgin: boolean = this.vaginas[0].virgin;
-        var stretched: boolean = this.cuntChangeNoDisplay(cArea);
-        var devirgined: boolean = wasVirgin && !this.vaginas[0].virgin;
+        const wasVirgin: boolean = this.vaginas[0].virgin;
+        const stretched: boolean = this.cuntChangeNoDisplay(cArea);
+        const devirgined: boolean = wasVirgin && !this.vaginas[0].virgin;
         if (devirgined) {
             if (spacingsF) this.outputText("  ");
             this.outputText("<b>Your hymen is torn, robbing you of your virginity.</b>", false);
@@ -1036,10 +1038,10 @@ export class Player extends Character {
     public buttChange(
         cArea: number,
         display: boolean,
-        spacingsF: boolean = true,
-        spacingsB: boolean = true
+        spacingsF = true,
+        spacingsB = true
     ): boolean {
-        var stretched: boolean = this.buttChangeNoDisplay(cArea);
+        const stretched: boolean = this.buttChangeNoDisplay(cArea);
         // STRETCH SUCCESSFUL - begin flavor text if outputting it!
         if (stretched && display) {
             if (spacingsF) this.outputText("  ");
@@ -1091,7 +1093,7 @@ export class Player extends Character {
         }
     }
 
-    public minoCumAddiction(raw: number = 10): void {
+    public minoCumAddiction(raw = 10): void {
         // Increment minotaur cum intake count
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00340]++;
         // Fix if variables go out of range.
@@ -1146,14 +1148,14 @@ export class Player extends Character {
         return Appearance.hairDescription(this);
     }
 
-    public shrinkTits(ignore_hyper_happy: boolean = false): void {
-        if (this.flags[kFLAGS.HYPER_HAPPY] && !ignore_hyper_happy) {
+    public shrinkTits(ignoreHyperHappy = false): void {
+        if (this.flags[kFLAGS.HYPER_HAPPY] && !ignoreHyperHappy) {
             return;
         }
         if (this.breastRows.length == 1) {
             if (this.breastRows[0].breastRating > 0) {
                 // Shrink if bigger than N/A cups
-                var temp: number;
+                let temp: number;
                 temp = 1;
                 this.breastRows[0].breastRating--;
                 // Shrink again 50% chance
@@ -1187,8 +1189,8 @@ export class Player extends Character {
             this.outputText("\n", false);
             // temp2 = amount changed
             // temp3 = counter
-            var temp2: number = 0;
-            var temp3: number = this.breastRows.length;
+            let temp2 = 0;
+            let temp3: number = this.breastRows.length;
             while (temp3 > 0) {
                 temp3--;
                 if (this.breastRows[temp3].breastRating > 0) {
@@ -1227,13 +1229,13 @@ export class Player extends Character {
         // GrowthType 1 = smallest grows
         // GrowthType 2 = Top Row working downward
         // GrowthType 3 = Only top row
-        var temp2: number = 0;
+        let temp2 = 0;
         // var temp3: number = 0;
         // Chance for "big tits" perked characters to grow larger!
         if (this.findPerk(PerkLib.BigTits) >= 0 && Player.rand(3) == 0 && amount < 1) amount = 1;
 
         // Needs to be a number, since uint will round down to 0 prevent growth beyond a certain point
-        var temp: number = this.breastRows.length;
+        let temp: number = this.breastRows.length;
         if (growthType == 1) {
             // Select smallest breast, grow it, move on
             while (rowsGrown > 0) {
@@ -1296,7 +1298,7 @@ export class Player extends Character {
                 else amount /= 1.5;
             }
         }
-        /*if(breastRows[0].breastRating > 12) {
+        /* if(breastRows[0].breastRating > 12) {
             if(hasPerk("Big Tits") < 0) amount/=2;
             else amount /= 1.5;
         }*/
@@ -1496,7 +1498,7 @@ export class Player extends Character {
 
     // Determine minimum lust
     public minLust(): number {
-        var min: number = 0;
+        let min = 0;
         // Bimbo body boosts minimum lust by 40
         if (
             this.findStatusAffect(StatusAffects.BimboChampagne) >= 0 ||
@@ -1711,10 +1713,10 @@ export class Player extends Character {
             if (this.weapon == WeaponLib.FISTS) {
                 //
                 //
-                // 	weapon = ItemType.lookupItem(flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon;
+                //  weapon = ItemType.lookupItem(flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon;
                 //
                 //
-                // 	(ItemType.lookupItem(flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon).doEffect(this, false);
+                //  (ItemType.lookupItem(flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon).doEffect(this, false);
                 this.setWeapon(
                     ItemType.lookupItem(this.flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon
                 );
@@ -1806,9 +1808,9 @@ export class Player extends Character {
             this.removeStatusAffect(StatusAffects.PigbysHands);
     }
 
-    public consumeItem(itype: ItemType, amount: number = 1): boolean {
+    public consumeItem(itype: ItemType, amount = 1): boolean {
         if (!this.hasItem(itype, amount)) {
-            CoC_Settings.error(
+            CocSettings.error(
                 "ERROR: consumeItem attempting to find " +
                     amount +
                     " item" +
@@ -1820,9 +1822,9 @@ export class Player extends Character {
             return false;
         }
         // From here we can be sure the player has enough of the item in inventory
-        var slot: ItemSlotClass;
+        let slot: ItemSlotClass;
         while (amount > 0) {
-            slot = this.getLowestSlot(itype); //Always draw from the least filled slots first
+            slot = this.getLowestSlot(itype); // Always draw from the least filled slots first
             if (slot.quantity > amount) {
                 slot.quantity -= amount;
                 amount = 0;
@@ -1862,8 +1864,8 @@ export class Player extends Character {
     }
 
     public getLowestSlot(itype: ItemType): ItemSlotClass {
-        var minslot;
-        for (var slot of this.itemSlots) {
+        let minslot;
+        for (const slot of this.itemSlots) {
             if (slot.itype == itype) {
                 if (minslot == undefined || slot.quantity < minslot.quantity) {
                     minslot = slot;
@@ -1873,13 +1875,13 @@ export class Player extends Character {
         return minslot;
     }
 
-    public hasItem(itype: ItemType, minQuantity: number = 1): boolean {
+    public hasItem(itype: ItemType, minQuantity = 1): boolean {
         return this.itemCount(itype) >= minQuantity;
     }
 
     public itemCount(itype: ItemType): number {
-        var count: number = 0;
-        for (var itemSlot of this.itemSlots) {
+        let count = 0;
+        for (const itemSlot of this.itemSlots) {
             if (itemSlot.itype == itype) count += itemSlot.quantity;
         }
         return count;
@@ -1887,7 +1889,7 @@ export class Player extends Character {
 
     // 0..5 or -1 if no
     public roomInExistingStack(itype: ItemType): number {
-        for (var i: number = 0; i < this.itemSlots.length; i++) {
+        for (let i = 0; i < this.itemSlots.length; i++) {
             if (
                 this.itemSlot(i).itype == itype &&
                 this.itemSlot(i).quantity != 0 &&
@@ -1904,14 +1906,14 @@ export class Player extends Character {
 
     // 0..5 or -1 if no
     public emptySlot(): number {
-        for (var i: number = 0; i < this.itemSlots.length; i++) {
+        for (let i = 0; i < this.itemSlots.length; i++) {
             if (this.itemSlot(i).isEmpty() && this.itemSlot(i).unlocked) return i;
         }
         return -1;
     }
 
     public destroyItems(itype: ItemType, numOfItemToRemove: number): boolean {
-        for (var slotNum: number = 0; slotNum < this.itemSlots.length; slotNum += 1) {
+        for (let slotNum = 0; slotNum < this.itemSlots.length; slotNum += 1) {
             if (this.itemSlot(slotNum).itype == itype) {
                 while (this.itemSlot(slotNum).quantity > 0 && numOfItemToRemove > 0) {
                     this.itemSlot(slotNum).removeOneItem();
@@ -2270,10 +2272,10 @@ export class Player extends Character {
 
     public killCocks(deadCock: number): void {
         // Count removal for text bits
-        var removed: number = 0;
-        var temp: number;
+        let removed = 0;
+        let temp: number;
         // Holds cock index
-        var storedCock: number = 0;
+        let storedCock = 0;
         // Less than 0 = PURGE ALL
         if (deadCock < 0) {
             deadCock = this.cocks.length;
@@ -2400,7 +2402,7 @@ export class Player extends Character {
     }
 
     public increaseCock(cockNum: number, lengthDelta: number): number {
-        var bigCock: boolean = false;
+        let bigCock = false;
 
         if (this.findPerk(PerkLib.BigCock) >= 0) bigCock = true;
 
@@ -2408,9 +2410,9 @@ export class Player extends Character {
     }
 
     public increaseEachCock(lengthDelta: number): number {
-        var totalGrowth: number = 0;
+        let totalGrowth = 0;
 
-        for (var i: number = 0; i < this.cocks.length; i++) {
+        for (let i = 0; i < this.cocks.length; i++) {
             trace("increaseEachCock at: " + i);
             totalGrowth += this.increaseCock(i, lengthDelta);
         }
@@ -2425,7 +2427,7 @@ export class Player extends Character {
     // First parameter: boolean indicating if function should output standard text.
     // Second parameter: numberensity, an integer multiplier that can increase the
     // duration and intensity. Defaults to 1.
-    public goIntoHeat(output: boolean, intensity: number = 1): boolean {
+    public goIntoHeat(output: boolean, intensity = 1): boolean {
         if (!this.hasVagina() || this.pregnancyIncubation != 0) {
             // No vagina or already pregnant, can't go into heat.
             return false;
@@ -2441,7 +2443,7 @@ export class Player extends Character {
                     false
                 );
             }
-            var temp: number = this.findStatusAffect(StatusAffects.Heat);
+            const temp: number = this.findStatusAffect(StatusAffects.Heat);
             this.statusAffect(temp).value1 += 5 * intensity;
             this.statusAffect(temp).value2 += 5 * intensity;
             this.statusAffect(temp).value3 += 48 * intensity;
@@ -2476,7 +2478,7 @@ export class Player extends Character {
     // First parameter: boolean indicating if function should output standard text.
     // Second parameter: numberensity, an integer multiplier that can increase the
     // duration and intensity. Defaults to 1.
-    public goIntoRut(output: boolean, intensity: number = 1): boolean {
+    public goIntoRut(output: boolean, intensity = 1): boolean {
         if (!this.hasCock()) {
             // No cocks, can't go into rut.
             return false;

@@ -38,7 +38,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     // Besides, the PC needs 15 succubi Milk to turn Kelt female. If the PC has a pink egg, only 10 are needed. If the PC has a large pink egg (or two pink eggs), only 5 are needed.
 
     // Effects
-    /*You can start mind-breaking Kelt as soon as he's done with your first lesson and you meet the above requirements.
+    /* You can start mind-breaking Kelt as soon as he's done with your first lesson and you meet the above requirements.
     Kelt will first try to turn himself back male, in order to continue the mind breaking process you need to keep your stats at the same level or above and get more succubi milk.
 
     Every encounter raises corruption by 5, except the last one that raises corruption by 8. In order to achieve the last encounter your corruption level must not be lower than it was at the third encounter.*/
@@ -77,7 +77,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         }
         if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0) {
             this.kellyPopsOutARunt();
-            this.pregnancy.knockUpForce(); //Clear Pregnancy
+            this.pregnancy.knockUpForce(); // Clear Pregnancy
             return true;
         }
         return false;
@@ -455,7 +455,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     }
 
     // Second encounter
-    /*10 succubi milk (or 1 pink egg - large or small - and 5 succubi milk) */
+    /* 10 succubi milk (or 1 pink egg - large or small - and 5 succubi milk) */
     private secondKeltBreaking(): void {
         this.clearOutput();
         this.spriteSelect(35);
@@ -780,7 +780,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     }
 
     // Fourth encounter
-    /*This one requires you not to have lost any corruption since the last encounter you had with her (so if you did, just get back to your former corruption level).*/
+    /* This one requires you not to have lost any corruption since the last encounter you had with her (so if you did, just get back to your former corruption level).*/
     private finalKeltBreaking(): void {
         this.clearOutput();
         this.outputText(
@@ -1212,7 +1212,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     private fuckKellysCunt(): void {
         this.clearOutput();
         this.flags[kFLAGS.KELLY_VAGINALLY_FUCKED_COUNT]++;
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You strip out of your [armor] in a hurry, intent on claiming your equine slut from behind.  As soon as [eachCock] flops free, Kelly takes notice, her hand coming in front of her mouth in surprise."
@@ -1334,11 +1334,11 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     }
 
     // Centaur on Centaur Sex
-    /*Requires a centaur lower body.*/
+    /* Requires a centaur lower body.*/
     private taurOnTaurSexKelly(): void {
         this.clearOutput();
         this.flags[kFLAGS.KELLY_VAGINALLY_FUCKED_COUNT]++;
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "Admiring your [armor], you slowly remove the portions that cover your animal-like bottom half, wondering how you could ever handle having to wear pants.  Letting [eachCock] swing free below you, smacking against your belly when erect - now that's life.  That's how you were meant to be!  You go ahead and undo the top parts of your gear as well, not wanting anything to come between you and the slutty fem-centaur just a few feet away.  She's keeping her eyes down submissively, but she keeps casting glances under your lower half, licking her lips whenever she gets a good look at [oneCock]."
@@ -1437,12 +1437,12 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
                 '.  The plant-like appendages wriggle around the horny centauress, inspecting her body from every angle.  You feel your own lust rising as the tentacle peckers grow harder, their green heads turning pink in arousal.  Kelly stammers, confused: "<i>W-what are you-</i>"'
         );
 
-        var one: number = -1;
-        var two: number = -2;
-        var three: number = -3;
-        var four: number = -4;
-        var five: number = -5;
-        var temp: number = 0;
+        let one = -1;
+        let two = -2;
+        let three = -3;
+        let four = -4;
+        let five = -5;
+        let temp = 0;
         while (temp < this.player.totalCocks()) {
             if (this.player.cocks[temp].cockType == CockTypesEnum.TENTACLE) {
                 if (one < 0) one = temp;
@@ -1679,7 +1679,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     // Rimjob/Ride/Riding crop
     // Rimjob(C)
     private getARimjobFromKelly(): void {
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.flags[kFLAGS.TIMES_RIM_JOBBED_BY_KELLY]++;
@@ -1829,7 +1829,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     // Ride(C)
     // (Assumes Kelly is at camp; minor revisions required otherwise)
     private rideKellyForPunishment(): void {
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.flags[kFLAGS.TIMES_RIDDEN_KELLY_FOR_PUNISHMENT]++;
@@ -2283,7 +2283,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
     private takeKellysVirginity(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(300);
+        let x: number = this.player.cockThatFits(300);
         if (x < 0) x = this.player.smallestCockIndex();
 
         this.outputText(
@@ -2510,7 +2510,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     private kellyTitJob(): void {
         this.clearOutput();
 
-        var x: number;
+        let x: number;
 
         if (this.flags[kFLAGS.KELLY_BONUS_BOOB_ROWS] == 0)
             x = this.player.cockThatFits(18, "length");
@@ -2624,10 +2624,10 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     }
 
     // Preggers
-    /*Chance for Kelta to be pregnant is 1% for every 20 mL, capping at 80%.*/
+    /* Chance for Kelta to be pregnant is 1% for every 20 mL, capping at 80%.*/
     private kellyPreggers(): void {
         if (this.pregnancy.isPregnant) return;
-        var x: number = Math.round(this.player.cumQ() / 20);
+        let x: number = Math.round(this.player.cumQ() / 20);
         if (x > 80) x = 80;
         if (this.flags[kFLAGS.KELLY_HEAT_TIME] > 0) x += 15;
         if (Kelly.rand(100) + 1 <= 80) {
@@ -2643,7 +2643,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
     // notice this could be adapted into a normal scene minus the paragraph referring to her pregnancy
     private kellyPregSex(): void {
         this.clearOutput();
-        var x: number;
+        let x: number;
         if (this.flags[kFLAGS.KELLY_CUNT_TYPE] == 1) x = this.player.biggestCockIndex();
         else x = this.player.cockThatFits(300);
         if (x < 0) x = this.player.smallestCockIndex();
@@ -2692,7 +2692,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
 
         this.outputText('\n\n"<i>[name]! You\'re here! Say hi to your new kid!</i>"');
 
-        var gender: number = Kelly.rand(2) + 1;
+        const gender: number = Kelly.rand(2) + 1;
         this.outputText(
             "\n\nInterested, you approach and get a better view of your union with your centaur slut.  The little foal seems to have grown quickly, probably due to the corrupting effects of "
         );
@@ -2790,7 +2790,7 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
         }
         this.flags[kFLAGS.KELLY_TALK_N_HAND_TIMES]++;
         // (Randomly generated)
-        var temp: number = Kelly.rand(5);
+        const temp: number = Kelly.rand(5);
         // 1.
         if (temp == 0) {
             this.outputText("\n\nYou ask what happened to the wives she mentioned she had.");
@@ -3266,8 +3266,8 @@ export class Kelly extends AbstractFarmContent implements TimeAwareInterface {
             );
         }
         // [merge]
-        var x: number = this.player.cockThatFits(300);
-        var y: number = this.player.cockThatFits2(300);
+        const x: number = this.player.cockThatFits(300);
+        const y: number = this.player.cockThatFits2(300);
         // Not Centaur:
         if (!this.player.isTaur()) {
             this.outputText(

@@ -4,6 +4,7 @@ import { CoCButton } from "../../view/CoCButton";
  * Defines a composite display object of all the seperate components required to display a
  * single BoundControlMethod, its associated primary and secondary bindings with the buttons
  * used to bind methods to new keys.
+ *
  * @author Gedan
  */
 export class BindDisplay {
@@ -38,7 +39,7 @@ export class BindDisplay {
      * Create a new composite object, initilizing the label to be used for display, as well as the two
      * buttons used for user interface.
      *
-     * @param	maxWidth	Defines the maximum available width that the control can consume for positining math
+     * @param maxWidth Defines the maximum available width that the control can consume for positining math
      */
     public constructor() {
         this.element = document.createElement("tr");

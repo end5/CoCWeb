@@ -3,18 +3,18 @@ import { Utils } from "./internals/Utils";
 export class BreastRowClass {
     // constructor
 
-    public breasts: number = 2;
-    public nipplesPerBreast: number = 1;
-    public breastRating: number = 0;
-    public lactationMultiplier: number = 0;
+    public breasts = 2;
+    public nipplesPerBreast = 1;
+    public breastRating = 0;
+    public lactationMultiplier = 0;
     // Fullness used for lactation....if 75 or greater warning bells start going off!
     // If it reaches 100 it reduces lactation multiplier.
-    public milkFullness: number = 0;
-    public fullness: number = 0;
-    public fuckable: boolean = false;
+    public milkFullness = 0;
+    public fullness = 0;
+    public fuckable = false;
 
     public validate(): string {
-        var error: string = "";
+        let error = "";
         error += Utils.validateNonNegativeNumberFields(this, "BreastRowClass.validate", [
             "breasts",
             "nipplesPerBreast",

@@ -31,6 +31,7 @@ import { UmasShop } from "./TelAdre/UmasShop";
 
 /**
  * The lovely town of Tel Adre
+ *
  * @author:
  */
 export class TelAdre extends BaseContent {
@@ -73,7 +74,7 @@ export class TelAdre extends BaseContent {
     // 6) **Nose (+.5 attack)
     // 7) **Tongue (+1 sens)
     // 8) **Vulva (+1 sens)
-    public piercingLoc: number = 0;
+    public piercingLoc = 0;
 
     // 1. Amethyst (+1 int, +1 lib)
     // 2. Diamond (+2 int, -1 cor)
@@ -83,14 +84,14 @@ export class TelAdre extends BaseContent {
     // 6. Onyx (+1 tou, -1 spe)
     // 7. Ruby (+1 lib, +1 sens)
     // 8. Steel (+2 str, -2 int)
-    public piercingMat: number = 0;
+    public piercingMat = 0;
 
     // 1. Stud
     // 2. Ring (Called prince albert on dick)
     // 3. Jacobs Ladder (dick only)
     // 4. Hoop (ears/nipples/clit)
     // 5. Chain (nipples only)
-    public piercingType: number = 0;
+    public piercingType = 0;
     // }endregion
 
     public discoverTelAdre(): void {
@@ -278,7 +279,7 @@ export class TelAdre extends BaseContent {
         }
         switch (this.flags[kFLAGS.KATHERINE_UNLOCKED]) {
             case -1:
-            case 0: //Still potentially recruitable
+            case 0: // Still potentially recruitable
                 if (
                     this.flags[kFLAGS.KATHERINE_RANDOM_RECRUITMENT_DISABLED] == 0 &&
                     this.player.gems > 34 &&
@@ -289,11 +290,11 @@ export class TelAdre extends BaseContent {
                     else this.katherine.repeatAmbushKatherineRecruitMent();
                     return;
                 }
-            case 1: //In alley behind Oswald's
-            case 2: //You are training her
-            case 3: //You and Urta are training her
+            case 1: // In alley behind Oswald's
+            case 2: // You are training her
+            case 3: // You and Urta are training her
                 break;
-            case 4: //Employed
+            case 4: // Employed
                 if (
                     !this.katherine.isAt(Katherine.KLOC_KATHS_APT) &&
                     this.flags[kFLAGS.KATHERINE_TRAINING] >= 100
@@ -359,7 +360,7 @@ export class TelAdre extends BaseContent {
 
     public telAdreMenuShow(): void {
         // Just displays the normal Tel'Adre menu options, no special events, no description. Useful if a special event has already played
-        var homes: Boolean = false;
+        let homes = false;
         if (this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] == -2 && kGAMECLASS.raphael.RaphaelLikes())
             homes = true;
         else if (this.player.hasKeyItem("Spare Key to Urta's House") >= 0) homes = true;
@@ -396,7 +397,7 @@ export class TelAdre extends BaseContent {
     public houses(): void {
         this.clearOutput();
         this.outputText("Whose home will you visit?");
-        var orphanage = undefined;
+        let orphanage;
         if (this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] == -2) {
             if (kGAMECLASS.raphael.RaphaelLikes()) {
                 orphanage = kGAMECLASS.raphael.orphanageIntro;
@@ -428,7 +429,7 @@ export class TelAdre extends BaseContent {
 
     private piercingStudio(): void {
         this.spriteSelect(63);
-        var about = undefined;
+        let about;
         if (this.player.findStatusAffect(StatusAffects.Yara) < 0) about = this.aboutYara;
         this.outputText("", true);
         this.outputText(
@@ -498,27 +499,27 @@ export class TelAdre extends BaseContent {
     private pierceMenu(): void {
         this.spriteSelect(63);
         this.hideUpDown();
-        var clit = undefined;
+        let clit;
         if (this.player.hasVagina()) {
             if (this.player.vaginas[0].clitPierced == 0) clit = this.clitPierce;
         }
-        var dick = undefined;
+        let dick;
         if (this.player.totalCocks() > 0) {
             if (this.player.cocks[0].pierced == 0) dick = this.dickPierce;
         }
-        var ears = undefined;
+        let ears;
         if (this.player.earsPierced == 0) ears = this.earPierce;
-        var eyebrow = undefined;
+        let eyebrow;
         if (this.player.eyebrowPierced == 0) eyebrow = this.eyebrowPierce;
-        var lip = undefined;
+        let lip;
         if (this.player.lipPierced == 0) lip = this.lipPierce;
-        var nipples = undefined;
+        let nipples;
         if (this.player.nipplesPierced == 0) nipples = this.nipplePierce;
-        var nose = undefined;
+        let nose;
         if (this.player.nosePierced == 0) nose = this.nosePierce;
-        var tongue = undefined;
+        let tongue;
         if (this.player.tonguePierced == 0) tongue = this.tonguePierce;
-        var vulva = undefined;
+        let vulva;
         if (this.player.hasVagina()) {
             if (this.player.vaginas[0].labiaPierced == 0) vulva = this.vulvaPierce;
         }
@@ -816,7 +817,7 @@ export class TelAdre extends BaseContent {
             this.doNext(this.piercingStudio);
             return;
         }
-        var rare = undefined;
+        let rare;
         if (this.player.gems >= 1000) rare = this.chooseAdvancedMaterials;
         this.choices(
             "Amethyst",
@@ -963,8 +964,8 @@ export class TelAdre extends BaseContent {
         // 12. Crimsonite (+Min Lust)
         // 13.
         // var piercingMat:Number = 0;
-        var shortP = "";
-        var longP = "";
+        let shortP = "";
+        let longP = "";
         this.player.gems -= 100;
         if (this.piercingMat > 8) this.player.gems -= 900;
         this.statScreenRefresh();
@@ -1219,27 +1220,27 @@ export class TelAdre extends BaseContent {
     private piercingRemove(): void {
         this.spriteSelect(63);
         this.hideUpDown();
-        var clit = undefined;
+        let clit;
         if (this.player.hasVagina()) {
             if (this.player.vaginas[0].clitPierced > 0) clit = this.removeClitPierce;
         }
-        var dick = undefined;
+        let dick;
         if (this.player.totalCocks() > 0) {
             if (this.player.cocks[0].pierced > 0) dick = this.removeCockPierce;
         }
-        var ears = undefined;
+        let ears;
         if (this.player.earsPierced > 0) ears = this.removeEarsPierce;
-        var eyebrow = undefined;
+        let eyebrow;
         if (this.player.eyebrowPierced > 0) eyebrow = this.removeEyebrowPierce;
-        var lip = undefined;
+        let lip;
         if (this.player.lipPierced > 0) lip = this.removeLipPierce;
-        var nipples = undefined;
+        let nipples;
         if (this.player.nipplesPierced > 0) nipples = this.removeNipplesPierce;
-        var nose = undefined;
+        let nose;
         if (this.player.nosePierced > 0) nose = this.removeNosePierce;
-        var tongue = undefined;
+        let tongue;
         if (this.player.tonguePierced > 0) tongue = this.removeTonguePierce;
-        var vulva = undefined;
+        let vulva;
         if (this.player.hasVagina()) {
             if (this.player.vaginas[0].labiaPierced > 0) vulva = this.removeVulvaPierce;
         }
@@ -1485,13 +1486,13 @@ export class TelAdre extends BaseContent {
             );
             if (this.player.gems < 500) {
                 this.outputText("\n\n<b>You can't afford that!</b>");
-                this.oswaldPawnMenu(); //eventParser(1065);
+                this.oswaldPawnMenu(); // eventParser(1065);
             } else {
                 this.menu();
                 this.addButton(0, "Sell", this.oswaldPawnMenu);
                 this.addButton(1, "BuyCarrot", this.buyCarrotFromOswald);
             }
-        } else this.oswaldPawnMenu(); //eventParser(1065);
+        } else this.oswaldPawnMenu(); // eventParser(1065);
     }
 
     private buyCarrotFromOswald(): void {
@@ -1511,8 +1512,8 @@ export class TelAdre extends BaseContent {
         this.spriteSelect(47);
         this.outputText("\n\n<b><u>Oswald's Estimates</u></b>");
         this.menu();
-        var totalItems = 0;
-        for (var slot = 0; slot < 5; slot++) {
+        let totalItems = 0;
+        for (let slot = 0; slot < 5; slot++) {
             if (
                 this.player.itemSlots[slot].quantity > 0 &&
                 this.player.itemSlots[slot].itype.value >= 1
@@ -1549,7 +1550,7 @@ export class TelAdre extends BaseContent {
                     5,
                     "Kath's Alley",
                     this.katherineEmployment.postTrainingAlleyDescription
-                ); //Appears until Kath gives you her housekeys
+                ); // Appears until Kath gives you her housekeys
             default:
         }
         this.addButton(9, "Back", this.telAdreMenu);
@@ -1558,7 +1559,7 @@ export class TelAdre extends BaseContent {
     private oswaldPawnSell(slot: number): void {
         // Moved here from Inventory.as
         this.spriteSelect(47);
-        var itemValue = Math.floor(this.player.itemSlots[slot].itype.value / 2);
+        const itemValue = Math.floor(this.player.itemSlots[slot].itype.value / 2);
         this.clearOutput();
         if (itemValue == 0)
             this.outputText(
@@ -1582,9 +1583,9 @@ export class TelAdre extends BaseContent {
 
     private oswaldPawnSellAll(): void {
         this.spriteSelect(47);
-        var itemValue = 0;
+        let itemValue = 0;
         this.clearOutput();
-        for (var slot = 0; slot < 5; slot++) {
+        for (let slot = 0; slot < 5; slot++) {
             if (
                 this.player.itemSlots[slot].quantity > 0 &&
                 this.player.itemSlots[slot].itype.value >= 1
@@ -1622,7 +1623,7 @@ export class TelAdre extends BaseContent {
         this.spriteSelect(-1);
 
         this.hideUpDown();
-        var button = 0;
+        let button = 0;
         this.clearOutput();
         if (
             this.flags[kFLAGS.LOPPE_DISABLED] == 0 &&
@@ -1640,7 +1641,7 @@ export class TelAdre extends BaseContent {
             "you hardly get any odd stares.  There are a number of rooms towards the back, as well as a stairway leading up to an upper level."
         );
 
-        this.scylla.scyllaBarSelectAction(); //Done before anything else so that other NPCs can check scylla.action to see what she's doing
+        this.scylla.scyllaBarSelectAction(); // Done before anything else so that other NPCs can check scylla.action to see what she's doing
         // Thanks to this function and edryn.edrynHeliaThreesomePossible() the bar menu will always display the same possible options until the game time advances.
         // So it's safe to return to this menu, Helia or Urta can't suddenly disappear or appear just from leaving and re-entering the bar.
 
@@ -1739,7 +1740,7 @@ export class TelAdre extends BaseContent {
         // trace("HEL FOLLOWER LEVEL: " + flags[kFLAGS.HEL_FOLLOWER_LEVEL] + " HEL FUCKBUDDY: " + flags[kFLAGS.HEL_FUCKBUDDY] + " HARPY QUEEN DEFEATED: " + flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED]);
         // trace("REDUCED ENCOUNTER RATE (DISPLINED): " + flags[kFLAGS.HEL_REDUCED_ENCOUNTER_RATE]);
         // HELIA
-        // 	if(player.gender > 0 && model.time.hours >= 14 && rand(2) == 0 && model.time.hours < 20 && (flags[kFLAGS.HEL_FUCKBUDDY] != 0 || kGAMECLASS.helFollower.followerHel()) && !(flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 1 && flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED]== 0)) {
+        //  if(player.gender > 0 && model.time.hours >= 14 && rand(2) == 0 && model.time.hours < 20 && (flags[kFLAGS.HEL_FUCKBUDDY] != 0 || kGAMECLASS.helFollower.followerHel()) && !(flags[kFLAGS.HEL_FOLLOWER_LEVEL] == 1 && flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED]== 0)) {
         if (this.edryn.edrynHeliaThreesomePossible()) {
             this.edryn.helAppearance();
             button = this.anotherButton(button, "Helia", this.edryn.approachHelAtZeBitch);
@@ -1804,7 +1805,7 @@ export class TelAdre extends BaseContent {
         }
 
         switch (
-            this.scylla.action //Scylla - requires dungeon shut down
+            this.scylla.action // Scylla - requires dungeon shut down
         ) {
             case Scylla.SCYLLA_ACTION_FIRST_TALK:
                 this.outputText(
@@ -2204,7 +2205,7 @@ export class TelAdre extends BaseContent {
             '"<i>What can I make for you?  Platemail?  Or something that breathes a little easier?</i>" Yvonne asks, fanning herself.'
         );
 
-        var egg = undefined;
+        let egg;
         if (this.player.hasKeyItem("Dragon Eggshell") >= 0) {
             this.outputText(
                 '\n\nThough the pieces on display have their arguable attractions, none of them really interest you.  Yvonne taps her foot impatiently.  "<i>Well, I could make you something to order... if you have any decent materials, cutie.  200 gems.</i>"'
@@ -2465,16 +2466,16 @@ export class TelAdre extends BaseContent {
     }
 
     private gymMenu(): void {
-        var membership = undefined;
-        var cotton2 = undefined;
-        var cottonB = "Horsegirl";
-        var hyena = undefined;
-        var hyenaB = "Hyena";
-        var ifris2 = undefined;
-        var ifrisB = "Girl";
-        var lottie2 = this.lottie.lottieAppearance(false);
-        var lottieB = "Pig-Lady";
-        var loppe2 = undefined;
+        let membership;
+        let cotton2;
+        let cottonB = "Horsegirl";
+        let hyena;
+        let hyenaB = "Hyena";
+        let ifris2;
+        let ifrisB = "Girl";
+        const lottie2 = this.lottie.lottieAppearance(false);
+        let lottieB = "Pig-Lady";
+        let loppe2;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281] > 0) lottieB = "Lottie";
         if (this.ifris.ifrisIntro()) ifris2 = this.ifris.approachIfris;
         if (this.flags[kFLAGS.MET_IFRIS] > 0) ifrisB = "Ifris";
@@ -2712,7 +2713,7 @@ export class TelAdre extends BaseContent {
                 );
                 this.player.buttRating--;
             }
-        } //If hips is over 15 guaranteed reduction
+        } // If hips is over 15 guaranteed reduction
         if (this.player.hipRating >= 15) {
             this.outputText(
                 "\n\nIt feels like your " +
@@ -2762,7 +2763,7 @@ export class TelAdre extends BaseContent {
         } else this.doYesNo(this.sexMachine.exploreShowers, this.camp.returnToCampUseOneHour);
     }
 
-    private yaraSex(girl: Boolean = true): void {
+    private yaraSex(girl = true): void {
         this.spriteSelect(63);
         this.outputText("", true);
         this.outputText(
@@ -2810,10 +2811,10 @@ export class TelAdre extends BaseContent {
             );
     }
 
-    private letsDoYaraSex(girl: Boolean = true): void {
+    private letsDoYaraSex(girl = true): void {
         this.spriteSelect(63);
         this.outputText("", true);
-        var x = this.player.cockThatFits(36);
+        let x = this.player.cockThatFits(36);
         if (this.flags[kFLAGS.HYPER_HAPPY]) {
             x = this.player.cockThatFits(50000);
         } else if (x == -1 && !girl) {
@@ -3070,10 +3071,10 @@ export class TelAdre extends BaseContent {
         this.spriteSelect(64);
         this.clearOutput();
         // X = cock that fits!
-        var x = this.player.cockThatFits(75);
+        let x = this.player.cockThatFits(75);
         if (x < 0) x = 0;
         // Used for the new cock stuff
-        var y = x + 1;
+        const y = x + 1;
         this.outputText(
             "You walk over to the door and find a sign hanging in front of the window.  The side facing indoors has 'out' on it.  There's also a 'closed' sign hanging to the side of the doorframe.  You take the simple wood plaque in hand and flip it over - can't have anybody walking in on your sexual hijinks, can you?"
         );
@@ -3139,7 +3140,7 @@ export class TelAdre extends BaseContent {
     // [Flirt]
     private flirtWithVictoria(itype: ItemType): void {
         this.clearOutput();
-        var x = this.player.cockThatFits(70);
+        let x = this.player.cockThatFits(70);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You take the clothes from her and give them a look over.  Setting them on the counter, you tell her that they're quite nice, but if she's interested you might have something that could fit her quite nicely as well in the back."

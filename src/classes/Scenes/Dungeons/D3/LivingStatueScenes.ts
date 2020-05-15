@@ -3,6 +3,7 @@ import { LivingStatue } from "./LivingStatue";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class LivingStatueScenes extends BaseContent {

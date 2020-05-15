@@ -43,7 +43,7 @@ export class Lethice extends Monster {
     }
 
     public get long(): string {
-        var str: string = "";
+        let str = "";
         if (this._fightPhase == 1) {
             str +=
                 "Lethice is the epitome of all things demonic. From her luxurious purple hair, interwoven with black roses, to her pink skin and goat-like horns, she is the perfect image of sensual, enticing corruption. Tall heels of bone complement her revealing, black clothes. They look almost like a nun’s habit, but pared down to an almost fetishistic extreme. Her slim breasts provide just a hint of shape to the diaphanous fabric, a promise of feminine delights instead of the garish acres of flesh her outfit displays. Outsized wings, like those of a dragon, hold Lethice aloft as she zips about her throne room, gathering her corruptive magics. The strangely slit pupils of her black-rimmed eyes never seem to leave you.";
@@ -119,13 +119,13 @@ export class Lethice extends Monster {
         this.game.d3.lethice.won(hpVictory, pcCameWorms);
     }
 
-    private _roundCount: number = 0;
-    private _fightPhase: number = 1;
+    private _roundCount = 0;
+    private _fightPhase = 1;
     public get fightPhase(): number {
         return this._fightPhase;
     }
-    private _wingsDestroyed: boolean = false;
-    private _defMode: number = 0; // 0- none, 1- hp, 2- lust
+    private _wingsDestroyed = false;
+    private _defMode = 0; // 0- none, 1- hp, 2- lust
 
     protected performCombatAction(): void {
         this._roundCount++;
@@ -148,7 +148,7 @@ export class Lethice extends Monster {
     }
 
     private phase1(): void {
-        var atks: any[] = [this.demonicArouse, this.demonfire];
+        const atks: any[] = [this.demonicArouse, this.demonfire];
         if (this._roundCount % 10 == 3) atks.push(this.rapetacles);
         if (this.player.findStatusAffect(StatusAffects.Blind) < 0) atks.push(this.wingbuffet);
         atks[Lethice.rand(atks.length)]();
@@ -158,7 +158,7 @@ export class Lethice extends Monster {
         this.outputText(
             "Lethice’s hands blur in a familiar set of arcane motions, similar to the magical gestures you’ve seen from the imps. Hers are a thousand times more intricate. Her slender fingers move with all the precision of a master artist’s brush, wreathed in sparks of black energy."
         );
-        var l: number = this.player.lib / 10 + this.player.cor / 10 + 25;
+        let l: number = this.player.lib / 10 + this.player.cor / 10 + 25;
         if (this.player.findStatusAffect(StatusAffects.MinotaurKingsTouch) >= 0) l *= 1.25;
         this.game.dynStats("lus", l);
 
@@ -256,7 +256,7 @@ export class Lethice extends Monster {
             "Lethice narrows her eyes, focusing her mind with deadly intent. She snaps her fingers and a gout of black, twisting flames engulfs you!"
         );
 
-        var damage: number = 100 + Lethice.rand(25);
+        let damage: number = 100 + Lethice.rand(25);
         damage = this.player.takeDamage(damage);
 
         this.outputText(" (" + damage + ")");
@@ -284,7 +284,7 @@ export class Lethice extends Monster {
             "Swooping low, the Demonic Queen takes a swipe at you with claws that are suddenly six inches long and as sharp as razors!"
         );
 
-        var damage: number = this.str + this.weaponAttack - Lethice.rand(this.player.tou);
+        let damage: number = this.str + this.weaponAttack - Lethice.rand(this.player.tou);
 
         if (this.combatMiss()) {
             this.outputText("You manage to dodge her slash!");
@@ -379,7 +379,7 @@ export class Lethice extends Monster {
     }
 
     private phase2(): void {
-        var atks: any[] = [
+        const atks: any[] = [
             this.demonLustMagic,
             this.dirtyDancing,
             this.hornyPoke,
@@ -393,7 +393,7 @@ export class Lethice extends Monster {
     }
 
     private demonLustMagic(): void {
-        var l: number = 0;
+        let l = 0;
         this.outputText(
             "Though the front rank of demons are compressed so tight against you by their cohorts that they can’t move, the second and third rings have more than ample room to move their arms about, tracing arcane runes in the air. You know you can resist the lust-magics of a mere demon, but so many at once..."
         );
@@ -447,7 +447,7 @@ export class Lethice extends Monster {
                 this.outputText(
                     "\n\nOh gods! The way their bodies undulate, caressing and cumming, moaning as they're fucked from behind and transfer all of that energy to you, makes your body burn with desire. It's almost too much to bear!"
                 );
-            var l: number = this.player.lib / 10 + this.player.cor / 10 + 10;
+            let l: number = this.player.lib / 10 + this.player.cor / 10 + 10;
             if (this.player.findStatusAffect(StatusAffects.MinotaurKingsTouch) >= 0) l *= 1.25;
             this.game.dynStats("lus", l);
         }
@@ -473,7 +473,7 @@ export class Lethice extends Monster {
                 " You manage to duck down enough to avoid the worst of the horn-spikes, and your [armor] deflects the rest!"
             );
         } else {
-            var damage: number = 70 - Lethice.rand(this.player.tou);
+            let damage: number = 70 - Lethice.rand(this.player.tou);
             damage = this.player.takeDamage(damage);
             this.outputText(
                 " Several of the big, stout horns slam into you, given all the more force thanks to the crushing waves of demons pushing them forward. You yelp in pain as they score your flesh! (" +
@@ -492,7 +492,7 @@ export class Lethice extends Monster {
                 "\n\nYou drop to the ground, squirming between several of their legs until you get somewhere you can stand again -- this time without breaking your ribs. Howls of frustration and anger echo through the hall, and the horde just comes barreling down on your again!"
             );
         } else {
-            var damage: number = 70 - Lethice.rand(this.player.tou);
+            let damage: number = 70 - Lethice.rand(this.player.tou);
             damage = this.player.takeDamage(damage);
 
             this.outputText(
@@ -714,7 +714,7 @@ export class Lethice extends Monster {
         this.outputText(
             "Drawing on your magic, you use the opportunity to mend your wounds. No foe dares challenge you during the brief lull in battle, enabling you to maintain perfect concentration. With your flesh freshly knit and ready for battle, you look to Lethice."
         );
-        var temp: number = Math.floor(
+        let temp: number = Math.floor(
             (this.player.inte / (2 + Lethice.rand(3))) *
                 this.game.spellMod() *
                 (this.player.maxHP() / 150)
@@ -797,7 +797,7 @@ export class Lethice extends Monster {
 
         if (this._roundCount == 5) this.gropehands();
         else {
-            var atks: any[] = [this.parasiteThrowingStars, this.whiptrip, this.sonicwhip];
+            const atks: any[] = [this.parasiteThrowingStars, this.whiptrip, this.sonicwhip];
             if (this.player.findStatusAffect(StatusAffects.WhipSilence) < 0)
                 atks.push(this.whipchoke);
 
@@ -821,11 +821,11 @@ export class Lethice extends Monster {
         } else if (this.combatFlexibility()) {
             this.outputText(" You bend over backwards to avoid the living throwing stars.");
         } else {
-            var l: number = this.player.lib / 10 + this.player.cor / 10 + 10;
+            let l: number = this.player.lib / 10 + this.player.cor / 10 + 10;
             if (this.player.findStatusAffect(StatusAffects.MinotaurKingsTouch) >= 0) l *= 1.25;
             this.game.dynStats("lus", l);
 
-            var damage: number = this.str + this.weaponAttack - Lethice.rand(this.player.tou);
+            let damage: number = this.str + this.weaponAttack - Lethice.rand(this.player.tou);
             damage = this.player.takeDamage(damage);
 
             this.outputText(
@@ -857,7 +857,7 @@ export class Lethice extends Monster {
         // Light damages even on avoidance. Can stun.
         this.outputText("Lethice slashes her whip in a wide, low arc.");
 
-        var minDamage: boolean = false;
+        let minDamage = false;
 
         if (this.combatMiss()) {
             this.outputText(" You jump over it at the last second, the heat singing your [feet].");
@@ -884,7 +884,7 @@ export class Lethice extends Monster {
             }
         }
 
-        var damage: number;
+        let damage: number;
         if (minDamage) {
             damage = 25 + this.weaponAttack - Lethice.rand(this.player.tou);
         } else {
@@ -901,7 +901,7 @@ export class Lethice extends Monster {
             "Lethice raises her sizzling, flame-spitting whip high up overhead, then snaps her arm out and back in an instant, cracking the whip so hard that it gives birth to a shockwave of flame and cacophonous thunder. There’s no avoiding the all-encompassing wave of energy. There’s not even time to brace yourself. It slams into you, rattling bones and scorching flesh."
         );
 
-        var damage: number = 75 + this.weaponAttack + this.str;
+        let damage: number = 75 + this.weaponAttack + this.str;
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")");
     }
@@ -927,7 +927,7 @@ export class Lethice extends Monster {
             );
             this.outputText("\n\n<b>You are effectively silenced!</b>");
 
-            var damage: number = this.weaponAttack + 25 - Lethice.rand(this.player.tou);
+            let damage: number = this.weaponAttack + 25 - Lethice.rand(this.player.tou);
             damage = this.player.takeDamage(damage);
 
             this.player.createStatusAffect(StatusAffects.WhipSilence, 3, 0, 0, 0);
@@ -942,9 +942,9 @@ export class Lethice extends Monster {
             "Lethice’s arm blurs in figure eights, snapping the whip at you from every sides. You’ll have a tough time avoiding so many strikes!"
         );
 
-        for (var i: number = 0; i < 3; i++) {
+        for (let i = 0; i < 3; i++) {
             if (this.attackSucceeded()) {
-                var damage: number = this.eOneAttack();
+                const damage: number = this.eOneAttack();
                 this.outputAttack(damage);
                 this.postAttack(damage);
                 this.game.statScreenRefresh();

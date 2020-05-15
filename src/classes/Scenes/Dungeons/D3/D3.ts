@@ -2,7 +2,7 @@ import { trace } from "../../../../console";
 import { BaseContent } from "../../../BaseContent";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { SimpleConsumable } from "../../../Items/Consumables/SimpleConsumable";
-import { room } from "../../../room";
+import { Room } from "../../../RoomClass";
 import { DopplegangerScenes } from "./DopplegangerScenes";
 import { DriderIncubusScenes } from "./DriderIncubusScenes";
 import { HermCentaurScenes } from "./HermCentaurScenes";
@@ -16,11 +16,12 @@ import { SuccubusGardenerScenes } from "./SuccubusGardenerScenes";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class D3 extends BaseContent {
     public rooms: Record<string, any> = {};
-    private _currentRoom: string = ""; // I don't think we'll need to save/load this, as we're not gonna allow saving in the dungeon, and it'll be overwritten by calling enterD3();
+    private _currentRoom = ""; // I don't think we'll need to save/load this, as we're not gonna allow saving in the dungeon, and it'll be overwritten by calling enterD3();
 
     public jeanClaude: JeanClaudeScenes = new JeanClaudeScenes();
     public doppleganger: DopplegangerScenes = new DopplegangerScenes();
@@ -38,17 +39,17 @@ export class D3 extends BaseContent {
     }
 
     private configureRooms(): void {
-        var tRoom: room;
+        let tRoom: Room;
 
         // Entrance
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "entrance";
         tRoom.EastExit = "tunnel1";
         tRoom.RoomFunction = this.entranceRoomFunc;
         this.rooms[tRoom.RoomName] = tRoom;
 
         // Tunnel 1
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "tunnel1";
         tRoom.NorthExit = "antechamber";
         tRoom.WestExit = "entrance";
@@ -56,7 +57,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // Antechamber
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "antechamber";
         tRoom.NorthExit = "magpiehalls";
         tRoom.EastExit = "roomofmirrors";
@@ -65,14 +66,14 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // Room of Mirrors
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "roomofmirrors";
         tRoom.WestExit = "antechamber";
         tRoom.RoomFunction = this.roomofmirrorsRoomFunc;
         this.rooms[tRoom.RoomName] = tRoom;
 
         // Magpie Hall S
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "magpiehalls";
         tRoom.NorthExit = "tunnel2";
         tRoom.SouthExit = "antechamber";
@@ -80,7 +81,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // Magpie Hall N
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "magpiehalln";
         tRoom.NorthExit = "tunnel2";
         tRoom.SouthExit = "antechamber";
@@ -88,7 +89,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // Tunnel 2
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "tunnel2";
         tRoom.EastExit = "edgeofkeep";
         tRoom.SouthExit = "magpiehalln";
@@ -96,7 +97,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // Edge of Keep
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "edgeofkeep";
         tRoom.NorthExit = "northentry";
         tRoom.WestExit = "tunnel2";
@@ -104,7 +105,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // North Entry
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "northentry";
         tRoom.NorthExit = "southcourtyard";
         tRoom.SouthExit = "edgeofkeep";
@@ -112,7 +113,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // South Courtyard
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "southcourtyard";
         tRoom.SouthExit = "northentry";
         tRoom.EastExit = "southeastcourtyard";
@@ -121,7 +122,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // South West Courtyard
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "southwestcourtyard";
         tRoom.EastExit = "southcourtyard";
         tRoom.NorthExit = "southwestwalk";
@@ -129,7 +130,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // South West Walk
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "southwestwalk";
         tRoom.NorthExit = "westwalk";
         tRoom.SouthExit = "southwestcourtyard";
@@ -137,7 +138,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // West Walk
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "westwalk";
         tRoom.NorthExit = "northwestwalk";
         tRoom.EastExit = "courtyardsquare";
@@ -146,7 +147,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // North West Walk
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "northwestwalk";
         tRoom.NorthExit = "northwestcourtyard";
         tRoom.SouthExit = "westwalk";
@@ -154,7 +155,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // North West Courtyard
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "northwestcourtyard";
         tRoom.EastExit = "northcourtyard";
         tRoom.SouthExit = "northwestwalk";
@@ -162,7 +163,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // North Courtyard
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "northcourtyard";
         tRoom.EastExit = "northeastcourtyard";
         tRoom.WestExit = "northwestcourtyard";
@@ -170,14 +171,14 @@ export class D3 extends BaseContent {
         tRoom.RoomFunction = this.northcourtyardRoomFunc;
         this.rooms[tRoom.RoomName] = tRoom;
 
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "throneroom";
         tRoom.SouthExit = "northcourtyard";
         tRoom.RoomFunction = this.throneRoom;
         this.rooms[tRoom.RoomName] = tRoom;
 
         // North East Courtyard
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "northeastcourtyard";
         tRoom.SouthExit = "northeastwalk";
         tRoom.WestExit = "northcourtyard";
@@ -185,7 +186,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // North East Walk
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "northeastwalk";
         tRoom.NorthExit = "northeastcourtyard";
         tRoom.SouthExit = "eastwalk";
@@ -193,7 +194,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // East Walk
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "eastwalk";
         tRoom.NorthExit = "northeastwalk";
         tRoom.SouthExit = "southeastwalk";
@@ -202,7 +203,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // South East Walk
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "southeastwalk";
         tRoom.NorthExit = "eastwalk";
         tRoom.SouthExit = "southeastcourtyard";
@@ -210,7 +211,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // South East Courtyard
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "southeastcourtyard";
         tRoom.NorthExit = "southeastwalk";
         tRoom.SouthExit = "greatlift";
@@ -219,7 +220,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // Courtyard Square
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "courtyardsquare";
         tRoom.EastExit = "eastwalk";
         tRoom.WestExit = "westwalk";
@@ -227,7 +228,7 @@ export class D3 extends BaseContent {
         this.rooms[tRoom.RoomName] = tRoom;
 
         // Great Lift
-        tRoom = new room();
+        tRoom = new Room();
         tRoom.RoomName = "greatlift";
         tRoom.NorthExit = "southeastcourtyard";
         tRoom.RoomFunction = this.greatliftRoomFunc;
@@ -279,7 +280,7 @@ export class D3 extends BaseContent {
         this.move(this._currentRoom);
     }
 
-    private generateRoomMenu(tRoom: room): void {
+    private generateRoomMenu(tRoom: Room): void {
         if (tRoom.NorthExit != undefined && tRoom.NorthExit.length > 0) {
             if (tRoom.NorthExitCondition == undefined || tRoom.NorthExitCondition()) {
                 this.addButton(0, "North", this.move, tRoom.NorthExit);
@@ -324,7 +325,7 @@ export class D3 extends BaseContent {
             return;
         }
 
-        var tRoom: room = this.rooms[roomName];
+        const tRoom: Room = this.rooms[roomName];
 
         if (tRoom.RoomFunction == undefined) {
             this.outputText(
@@ -469,9 +470,9 @@ export class D3 extends BaseContent {
     private PURPLE: number = 1 << 5;
 
     private eggsAvailable(): number {
-        var flagNum: number = this.flags[kFLAGS.D3_EGGS_AVAILABLE];
+        const flagNum: number = this.flags[kFLAGS.D3_EGGS_AVAILABLE];
 
-        var eggs: number = 0;
+        let eggs = 0;
 
         if (!(flagNum & this.BLACK)) eggs++;
         if (!(flagNum & this.BLUE)) eggs++;
@@ -491,7 +492,7 @@ export class D3 extends BaseContent {
 
         this.menu();
 
-        var flagNum: number = this.flags[kFLAGS.D3_EGGS_AVAILABLE];
+        const flagNum: number = this.flags[kFLAGS.D3_EGGS_AVAILABLE];
 
         if (!(flagNum & this.BLACK)) this.addButton(0, "Black", this.takeEgg, this.BLACK);
         if (!(flagNum & this.BLUE)) this.addButton(1, "Blue", this.takeEgg, this.BLUE);
@@ -504,7 +505,7 @@ export class D3 extends BaseContent {
     }
 
     private takeEgg(eggMask: number): void {
-        var item: SimpleConsumable;
+        let item: SimpleConsumable;
 
         if (eggMask == this.BLACK) item = this.consumables.L_BLKEG;
         if (eggMask == this.BLUE) item = this.consumables.L_BLUEG;
@@ -520,7 +521,7 @@ export class D3 extends BaseContent {
         this.outputText("You pluck out " + item!.longName + " ");
 
         this.flags[kFLAGS.D3_EGGS_AVAILABLE] += eggMask;
-        this.inventory.takeItem(item!, this.playerMenu); //playerMenu is equivalent to doNext(1)
+        this.inventory.takeItem(item!, this.playerMenu); // playerMenu is equivalent to doNext(1)
     }
 
     private fallbackFromMagpieHallS(): void {

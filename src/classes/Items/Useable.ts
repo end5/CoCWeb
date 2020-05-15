@@ -1,4 +1,4 @@
-import { CoC_Settings } from "../CoC_Settings";
+import { CocSettings } from "../CoC_Settings";
 import { Player } from "../Player";
 import { CommonItem } from "./CommonItem";
 
@@ -19,7 +19,7 @@ export class Useable extends CommonItem {
     // public function hasSubMenu(): boolean { return false; } //Only GroPlus and Reducto use this. //Replaced with a return
 
     public useItem(): boolean {
-        CoC_Settings.errorAMC("Useable", "useItem", this.id);
+        CocSettings.errorAMC("Useable", "useItem", this.id);
         return false;
     }
 

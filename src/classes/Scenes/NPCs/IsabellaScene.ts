@@ -17,11 +17,11 @@ import { NPCAwareContent } from "./NPCAwareContent";
 
 export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface {
     // Isabella Flags:
-    // 256	PC decided to approach Isabella's camp yet? 1
-    // 257	Met Isabella?
-    // 258	Is Isabella okay with tall folks?
-    // 259	Has Isabella ever met the PC while PC is short?
-    // 260	Isabella angry counter
+    // 256 PC decided to approach Isabella's camp yet? 1
+    // 257 Met Isabella?
+    // 258 Is Isabella okay with tall folks?
+    // 259 Has Isabella ever met the PC while PC is short?
+    // 260 Isabella angry counter
     // 261  Times Izzy sleep-raped the PC?
     // -Has PC raped her?
 
@@ -30,7 +30,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedIsabella: number = 0; //Make sure we test this event just once in timeChangeLarge
+    private checkedIsabella = 0; // Make sure we test this event just once in timeChangeLarge
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
@@ -87,7 +87,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
     public isabellaGreeting(): void {
         this.spriteSelect(31);
         this.outputText("", true);
-        var suck = undefined;
+        let suck;
         // Not approached yet - the prequel!
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00256] == 0) {
             this.outputText(
@@ -495,7 +495,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
     public nomOnMommaIzzysTits(): void {
         this.outputText("", true);
         this.spriteSelect(31);
-        var x: number = this.player.cockThatFits(20);
+        const x: number = this.player.cockThatFits(20);
         // [Voluntary Nursing – PC is a big one or taur]
         if (this.player.tallness > 78 || this.player.isTaur()) {
             this.outputText(
@@ -806,7 +806,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
     // [GET ORAL'ED AS A SMALL MALE]
     public izzyGivesSmallWangsFreeOral(): void {
         this.spriteSelect(31);
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         this.outputText("", true);
         this.outputText("You ", false);
         if (this.player.cor < 33)
@@ -1697,7 +1697,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
     // [Isabella rapes you with her ass]
     public isabellaRapesYouWithHerAss(): void {
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(38);
+        let x: number = this.player.cockThatFits(38);
         if (x < 0) x = 0;
 
         if (this.player.HP < 1)
@@ -2031,7 +2031,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
 
     // [OPTIONAL GET RAPED AFTER SPANKING/FEEDING]
     public IsabellaPostSpankFeedSex(): void {
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         this.outputText("", true);
         this.outputText("<b>Squish... squish... squish...</b>\n", false);
         this.outputText(
@@ -2220,21 +2220,21 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
                 false
             );
         /*
-        2962	victoryLactation69()
-        2963	PCVictoryOnIzmaButtsex()
-        2964	victoryAgainstIzzzzzySixtyNine()
-        2965	tooBigVictoryTittyFuckingFuntimesWithMilk()
-        2966	vaginalProdNPokeIsabella()
-        2967	tinyVictoryTittyFuckingFuntimesWithMilk()*/
-        var lactation = undefined;
+        2962 victoryLactation69()
+        2963 PCVictoryOnIzmaButtsex()
+        2964 victoryAgainstIzzzzzySixtyNine()
+        2965 tooBigVictoryTittyFuckingFuntimesWithMilk()
+        2966 vaginalProdNPokeIsabella()
+        2967 tinyVictoryTittyFuckingFuntimesWithMilk()*/
+        let lactation;
         if (this.player.biggestLactation() >= 1) lactation = this.victoryLactation69;
-        var buttsex = undefined;
-        var sixtyNine = undefined;
+        let buttsex;
+        let sixtyNine;
         if (this.player.gender > 0 && this.player.lust >= 33)
             sixtyNine = this.victoryAgainstIzzzzzySixtyNine;
-        var bigTitFuck = undefined;
-        var smallTitFuck = undefined;
-        var vaginalSex = undefined;
+        let bigTitFuck;
+        let smallTitFuck;
+        let vaginalSex;
         if (this.player.hasCock()) {
             if (
                 this.player.cockThatFits(this.monster.analCapacity()) != -1 &&
@@ -2532,8 +2532,8 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
     }
     // [VICTORY BUTTSEX]
     public PCVictoryOnIsabellaButtsex(): void {
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
-        var y: number = this.player.cockThatFits2(this.monster.analCapacity());
+        const x: number = this.player.cockThatFits(this.monster.analCapacity());
+        const y: number = this.player.cockThatFits2(this.monster.analCapacity());
         this.outputText("", true);
         this.outputText("Milk, huh?  No, that won't do.  You tell the ", false);
         if (this.monster.lust > 99) this.outputText("horny ", false);
@@ -2782,7 +2782,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
 
     // [Victory 69]
     public victoryAgainstIzzzzzySixtyNine(): void {
-        var x: number = this.player.cockThatFits(38);
+        let x: number = this.player.cockThatFits(38);
         if (x < 0) x = 0;
         this.outputText("", true);
         this.outputText(
@@ -3073,7 +3073,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
 
     // ['Too Big' Victory Titfucking Funtimes With Milk]
     public tooBigVictoryTittyFuckingFuntimesWithMilk(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         this.outputText(
             "You toss aside your " +
@@ -3290,7 +3290,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
 
     // [VAGINAL PROD N' POKE]
     public vaginalProdNPokeIsabella(): void {
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
         this.outputText("", true);
         this.outputText(
@@ -3495,7 +3495,7 @@ export class IsabellaScene extends NPCAwareContent implements TimeAwareInterface
 
     // [Small dick tit-fucking] (Dicks less than 9 inches)
     public tinyVictoryTittyFuckingFuntimesWithMilk(): void {
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         this.outputText("", true);
         this.outputText(
             "You toss aside your " +

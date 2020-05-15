@@ -1,4 +1,4 @@
-import { CoC_Settings } from "./CoC_Settings";
+import { CocSettings } from "./CoC_Settings";
 
 /**
  * Created by aimozg on 31.01.14.
@@ -27,7 +27,7 @@ export class StatusAffectType {
     public constructor(id: string) {
         this._id = id;
         if (StatusAffectType.STATUSAFFECT_LIBRARY[id] != undefined) {
-            CoC_Settings.error("Duplicate status affect " + id);
+            CocSettings.error("Duplicate status affect " + id);
         }
         StatusAffectType.STATUSAFFECT_LIBRARY[id] = this;
     }

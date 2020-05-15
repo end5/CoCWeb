@@ -447,7 +447,7 @@ export class FollowerInteractions extends NPCAwareContent {
             undefined
         );
     }
-    // 	[Jojo is yours]
+    //  [Jojo is yours]
     private tellRathazulYouOwnJojo(): void {
         this.jojoScene.jojoSprite();
         this.clearOutput();
@@ -549,7 +549,7 @@ export class FollowerInteractions extends NPCAwareContent {
                 "As you bring Amily into your camp, you see Marble look towards you with a smile for a moment, before that smile turns into a frown.  You realize that this might not have been such a good idea...\n\n",
                 false
             );
-        ////Amily is in camp first
+        /// /Amily is in camp first
         else
             this.outputText(
                 'As you bring Marble back to your camp, you see Amily sitting there as Marble asks while frowning, "<i>Sweetie, who is that?</i>"  Uh-oh, this could get bad.\n\n',
@@ -714,10 +714,10 @@ export class FollowerInteractions extends NPCAwareContent {
         this.player.itemSlot3.quantity = 0;
         this.player.itemSlot4.quantity = 0;
         this.player.itemSlot5.quantity = 0;
-        this.player.setArmor(this.getGame().armors.C_CLOTH); //Old armor disappears unless it's Valeria
+        this.player.setArmor(this.getGame().armors.C_CLOTH); // Old armor disappears unless it's Valeria
         this.player.setWeapon(WeaponLib.FISTS);
-        // 	player.armor = armors.C_CLOTH;
-        // 	player.weapon.unequip(player,false,true);
+        //  player.armor = armors.C_CLOTH;
+        //  player.weapon.unequip(player,false,true);
         this.player.removeStatusAffect(StatusAffects.CampMarble);
         this.outputText(
             "\n\nNo doubt Amily ran back to the ruins.  Perhaps you could gather some appropriate drugs to teach her a lesson?",
@@ -777,7 +777,7 @@ export class FollowerInteractions extends NPCAwareContent {
         }
         // Explain -> fail (C3)
         else {
-            var blameMarble: any = this.BlameMarblezSweetVagoozle;
+            let blameMarble: any = this.BlameMarblezSweetVagoozle;
             this.outputText(
                 "After a while it becomes apparent to both yourself and the others that you have no idea what you're talking about.  Marble then says to you, \"<i>Well, do you have anything else to say?</i>\" At this point it probably isn't possible to say something to make both of them happy, will you stay silent or turn on one of them to try and keep the other?\n\n",
                 false
@@ -1189,8 +1189,8 @@ export class FollowerInteractions extends NPCAwareContent {
         );
 
         // Watch (only game in town for now, so suppress the choice buttons and route right to this)
-        var dick = undefined;
-        var vag = undefined;
+        let dick;
+        let vag;
         if (this.player.hasVagina()) vag = this.amilyScene.urtaXAmilyCuntPussyVagSQUICK;
         if (this.player.hasCock()) dick = this.amilyScene.threesomeAmilUrtaCAWKS;
         this.simpleChoices(

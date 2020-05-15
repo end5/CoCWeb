@@ -8,7 +8,7 @@ import { StatusAffects } from "../../StatusAffects";
 import { NPCAwareContent } from "./NPCAwareContent";
 
 export class ShouldraFollower extends NPCAwareContent {
-    /*Follower Shouldra tracks hours since her last fuck, similar to Exgartuan. Each sex scene involving her resets this counter and also puts her to "sleep" (length of sleep at least 16 hours). Shouldra will gradually fuck with the PC the longer they go without involving her in sex (length of time below)*/
+    /* Follower Shouldra tracks hours since her last fuck, similar to Exgartuan. Each sex scene involving her resets this counter and also puts her to "sleep" (length of sleep at least 16 hours). Shouldra will gradually fuck with the PC the longer they go without involving her in sex (length of time below)*/
 
     // const GENDERLESS_MASTURBATION_WITH_GHOST_COUNT: number = 511;
     // const SHOULDRA_TONGUE_LICKS_TIMES: number = 512;
@@ -26,7 +26,7 @@ export class ShouldraFollower extends NPCAwareContent {
     public followerShouldra(): boolean {
         return this.flags[kFLAGS.SHOULDRA_FOLLOWER_STATE] == 1;
     }
-    private shouldraSleeping(changes: number = 0, reset: boolean = false): boolean {
+    private shouldraSleeping(changes = 0, reset = false): boolean {
         // Adjust sleep timer
         if (reset) {
             this.flags[kFLAGS.SHOULDRA_SLEEP_TIMER] = changes;
@@ -1744,7 +1744,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.doNext(this.playerMenu);
             return;
         }
-        var sex = undefined;
+        let sex;
         if (this.player.lust >= 33) sex = this.shouldraSexMenu;
         this.simpleChoices(
             "Talk",
@@ -1766,7 +1766,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             'Shouldra stirs from somewhere deep inside you, excitement evident in the swiftness of her reaction.  "<i>Is it time for some fun, Champ?</i>" she asks happily, her increased lust affecting you just a bit.  Do you oblige her?'
         );
-        var vala = undefined;
+        let vala;
         if (
             this.flags[kFLAGS.FREED_VALA] != 0 &&
             this.model.time.hours >= 12 &&
@@ -1775,7 +1775,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText("\n\nVala might interest Shouldra.  You could go introduce them...");
             vala = this.shouldraAndValaGetBigger;
         }
-        var anal = undefined;
+        let anal;
         if (this.player.gender > 0 && this.player.lust >= 33) {
             anal = this.nongenderlessAnalShouldraMasturbation;
             this.outputText(
@@ -1805,8 +1805,8 @@ export class ShouldraFollower extends NPCAwareContent {
             return;
         }
         // Allow for the expansion of bodyparts via spooky magic
-        var blowShitUp = undefined;
-        var shrinkShit = undefined;
+        let blowShitUp;
+        let shrinkShit;
         if (
             this.flags[kFLAGS.SHOULDRA_PLOT_LEVEL] >= 2 &&
             this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] <= 0
@@ -1844,12 +1844,12 @@ export class ShouldraFollower extends NPCAwareContent {
             "You decide to take up Shouldra's offer on natural body enhancement.  Before you tell her as much, the eager spectre quickly assumes control of your body.  \"<i>Alright, Champ, now we're in business.  So, what did you have in mind?</i>\""
         );
         // Balls     Breast     Clit     Cock     Nipples     Butt     Nevermind
-        var balls = undefined;
-        var breast = this.shouldraGrowsYoTits;
-        var clit = undefined;
-        var cock = undefined;
-        var butt = this.shouldrasButtBigginator;
-        var nipples = this.shouldraGivesYaSomeFukkinTeats;
+        let balls;
+        const breast = this.shouldraGrowsYoTits;
+        let clit;
+        let cock;
+        const butt = this.shouldrasButtBigginator;
+        const nipples = this.shouldraGivesYaSomeFukkinTeats;
         if (this.player.balls > 0) balls = this.groBallsBiggaGHOSTYSTYLE;
         if (this.player.hasCock()) cock = this.shouldraCockBloating101;
         if (this.player.hasVagina()) clit = this.shouldraGrowsYoClit;
@@ -1975,7 +1975,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText(
                 "Your bouquet of cocks twitches and thickens, each gaining more than an inch of new vibrance.  Shouldra wastes no time in grouping them together, your hands stroking them vigorously.  Knowing your inaction will strand you for the rest of the day, you're able to pry your haunted hands away from your crotch."
             );
-            for (var i: number = 0; i < this.player.cocks.length; i++) {
+            for (let i = 0; i < this.player.cocks.length; i++) {
                 this.player.increaseCock(i, 2);
                 this.player.cocks[i].cockLength += 1;
                 this.player.cocks[i].cockThickness += 0.25;
@@ -1999,7 +1999,7 @@ export class ShouldraFollower extends NPCAwareContent {
         // same increase and potential for fuckable nipples as Gro+
         this.player.nippleLength += (ShouldraFollower.rand(2) + 3) / 10;
         this.dynStats("lus", 15);
-        var temp2: number = 0;
+        let temp2 = 0;
         // NIPPLECUNTZZZ
         if (!this.player.hasFuckableNipples() && ShouldraFollower.rand(4) == 0) {
             this.temp = this.player.breastRows.length;
@@ -2049,12 +2049,12 @@ export class ShouldraFollower extends NPCAwareContent {
             "Shouldra's offer to shrink aspects of your body sounds right up your alley, and you pulse as much to your ghostly compatriot.  There's no response.  You remind her that it was HER suggestion in the first place.  \"<i>Come ooooon, Champ.  It was just a slip of the ol' spiritual tongue.</i>\"  You cross your arms and look up and off to the side, the best way you can figure to glare at something that isn't there. \"<i>Ugh, fine.  Let's just get this over with,</i>\" Shouldra concedes, removing your [armor]."
         );
         // Balls     Breast     Clit     Cock     Nipples     Butt     Nevermind
-        var balls = undefined;
-        var breasts = undefined;
-        var clit = undefined;
-        var cock = undefined;
-        var butt = undefined;
-        var nipples = undefined;
+        let balls;
+        let breasts;
+        let clit;
+        let cock;
+        let butt;
+        let nipples;
         if (this.player.nippleLength > 0.25) nipples = this.shrinkDemNipplzForYoGhost;
         if (this.player.biggestTitSize() >= 1) breasts = this.shouldraReductosYourTits;
         if (this.player.buttRating >= 2) butt = this.shrinkDatBootyForYoGhost;
@@ -2149,7 +2149,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText(
                 '\n\nYour penis vibrates slightly as the magic starts to take effect.  Your eyes just about bulge out of your skull when your rod starts to smoke and twitch violently.  The panic immediately subsides when it starts yelling.  "<i>You '
             );
-            var choice: number = ShouldraFollower.rand(10);
+            const choice: number = ShouldraFollower.rand(10);
             if (choice == 0) this.outputText("murderer");
             else if (choice == 1) this.outputText("bastard");
             else if (choice == 2) this.outputText("jerk");
@@ -2199,9 +2199,9 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outputText(
                 "\n\nThe cacophony of voices finally subside, your crotch finally settling down with each of your cocks at roughly two/thirds their original size.  A single tear rolls down your cheek; you suspect the melodramatic spirit is at fault here."
             );
-            for (var ii: number = 0; ii < this.player.cocks.length; ii++) {
-                this.player.cocks[ii].cockLength *= 2 / 3;
-                this.player.cocks[ii].cockThickness *= 2 / 3;
+            for (const cock of this.player.cocks) {
+                cock.cockLength *= 2 / 3;
+                cock.cockThickness *= 2 / 3;
             }
         }
         this.dynStats("sen", -2, "lus", -10);
@@ -2527,8 +2527,7 @@ export class ShouldraFollower extends NPCAwareContent {
     public shouldraWakesUpOrPokesPCsForShitsAndGigglesIdunnoHowLongCanIMakeThisFunctionNameQuestionMark(): void {
         this.outputText("\n");
         this.spriteSelect(67);
-        var choices: any[] = [];
-        var select: number;
+        const choices: any[] = [];
 
         // 1 PC with cock - 1
         if (this.player.hasCock() && this.player.biggestCockArea() < 200) {
@@ -2620,8 +2619,8 @@ export class ShouldraFollower extends NPCAwareContent {
         // 22 (Computer date is within a week before or after Halloween/or on Halloween whichever's easier)
         if (this.isHalloween()) choices[choices.length] = 22;
 
-        select = choices[ShouldraFollower.rand(choices.length)];
-        var subSelect: number = 0;
+        const select = choices[ShouldraFollower.rand(choices.length)];
+        let subSelect = 0;
 
         switch (select) {
             // PC with cock
@@ -2957,7 +2956,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             '\n\nThe two of you sit in silence for a moment, your body breathing heavily.  "<i>What the fuck is wrong with you?</i>"  your mouth says plainly.  More wormy escape attempts cause your pelvis to thrash about; Shouldra not only refuses to touch your blighted phallus, but is actively working to avoid its every swing. "<i>NOPE.  NEVER.  These fuckers have GOT to GO!  There\'s no way in HELL I\'m riding shotgun with-</i>"  The ghost has you shout yet again, quickly jumping away from a thick strand of your jism flying back towards you.  Looks like the decision lies with you.'
         );
-        // [Keep Worms]	[Keep Shouldra]
+        // [Keep Worms] [Keep Shouldra]
         this.simpleChoices(
             "Keep Shouldra",
             this.kickOutWormiesForYourGhostPalPAL,
@@ -3146,7 +3145,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.outputText(
             "  You shout loud enough to get the two to at least shut up and notice you're there.  It's time to end this little battle once and for all, starting with your first - and hopefully last - involvement."
         );
-        // [Keep Exgartuan]	[Keep Shouldra]	[Keep Both!]
+        // [Keep Exgartuan] [Keep Shouldra] [Keep Both!]
         this.simpleChoices(
             "Keep Exgartuan",
             this.keepExgartuanInsteadOfShouldra,

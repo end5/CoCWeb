@@ -14,7 +14,7 @@ import { StatusAffects } from "../../../StatusAffects";
 import { AbstractFarmContent } from "./AbstractFarmContent";
 
 export class KeltScene extends AbstractFarmContent {
-    /*Kelt the Centaur Archer
+    /* Kelt the Centaur Archer
 A Corruption of Champions Event by Ourakun
 
 Foreword
@@ -589,8 +589,8 @@ STATUSES:
             return;
         }
         // Never!
-        // 	Shamefully
-        // 	Eagerly
+        //  Shamefully
+        //  Eagerly
         if (
             this.player.inte > 40 &&
             this.player.cor > 70 &&
@@ -627,7 +627,7 @@ STATUSES:
     }
 
     // Blowjob Requirement, Never
-    private keltBlowjobRequirementNever(newl: boolean = true): void {
+    private keltBlowjobRequirementNever(newl = true): void {
         this.spriteSelect(35);
         if (newl) this.outputText("", true);
         this.outputText(
@@ -668,7 +668,7 @@ STATUSES:
     }
 
     // Blowjob Requirement, Shamefully
-    private keltBlowjobRequirementShamefully(newl: boolean = true): void {
+    private keltBlowjobRequirementShamefully(newl = true): void {
         this.spriteSelect(35);
         if (newl) this.outputText("", true);
         this.player.slimeFeed();
@@ -744,7 +744,7 @@ STATUSES:
     }
 
     // Blowjob Requirement, Eagerly
-    private keltBlowjobRequirementEagerly(newl: boolean = true): void {
+    private keltBlowjobRequirementEagerly(newl = true): void {
         this.spriteSelect(35);
         // This is never called with arguments, so newl will always be true. Can this be simplified?
         if (newl) this.outputText("", true);
@@ -910,7 +910,7 @@ STATUSES:
                         false
                     );
                     // (Yes[+5 Submissive]
-                    // 	No[Never event])
+                    //  No[Never event])
                     // Link this to reluctant && never
 
                     if (
@@ -1015,7 +1015,7 @@ STATUSES:
     }
 
     private keltMainEncounter3(): void {
-        var temporary: number = 0;
+        let temporary = 0;
         // (Clothed)
         if (this.player.findStatusAffect(StatusAffects.NakedOn) < 0) {
             this.outputText(

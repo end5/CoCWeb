@@ -992,7 +992,7 @@ export class Kaiju extends AbstractLakeContent {
         this.clearOutput();
         this.spriteSelect(103);
         this.flags[kFLAGS.KAIJU_BAD_END_COUNTER] += 2;
-        var counter: number = 10;
+        let counter = 10;
         while (counter > 0) {
             counter--;
             if (this.player.hasItem(this.consumables.P_DRAFT))

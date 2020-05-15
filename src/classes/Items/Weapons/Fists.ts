@@ -9,7 +9,7 @@ export class Fists extends Weapon {
         super("Fists  ", "Fists", "fists", "fists", "punch", 0);
     }
 
-    public useText(): void {} //No text for equipping fists
+    public useText(): void {} // No text for equipping fists
 
     public playerRemove() {
         return undefined;

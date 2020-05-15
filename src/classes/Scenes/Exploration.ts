@@ -188,7 +188,7 @@ export class Exploration extends BaseContent {
                 return;
             }
             // Used for chosing 'repeat' encounters.
-            var choosey: number = Exploration.rand(6);
+            let choosey: number = Exploration.rand(6);
             // 2 (gargoyle) is never chosen once cathedral is discovered.
             if (choosey == 2 && this.flags[kFLAGS.FOUND_CATHEDRAL] == 1) {
                 choosey = Exploration.rand(5);
@@ -197,7 +197,7 @@ export class Exploration extends BaseContent {
             // Chance of encountering Giacomo!
             if (choosey == 0) {
                 this.player.explored++;
-                this.giacomo.giacomoEncounter(); //eventParser(2015);
+                this.giacomo.giacomoEncounter(); // eventParser(2015);
                 return;
             } else if (choosey == 1) {
                 this.player.explored++;
@@ -213,7 +213,7 @@ export class Exploration extends BaseContent {
             // Monster - 50/50 imp/gob split.
             else {
                 this.player.explored++;
-                var impGob: number = 5;
+                const impGob = 5;
                 // Imptacular Encounter
                 if (Exploration.rand(10) < impGob) {
                     if (this.player.level >= 8 && Exploration.rand(2) == 0) {
@@ -272,7 +272,7 @@ export class Exploration extends BaseContent {
     // AND THE TOTAL COMBINED WIDTH OF ALL THEIR COCKS IS TWELVE INCHES OR GREATER]
     public bigJunkDesertScene(): void {
         this.outputText("", true);
-        var x: number = this.player.longestCock();
+        const x: number = this.player.longestCock();
         // PARAGRAPH 1
         this.outputText(
             "Walking along the sandy dunes of the desert you find yourself increasingly impeded by the bulk of your " +

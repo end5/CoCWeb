@@ -29,12 +29,13 @@ import { Sirius } from "./UrtaQuest/Sirius";
 export class UrtaQuest extends NPCAwareContent {
     /**
      * Urta's Quest
+     *
      * @Author:
      */
 
-    // 	import classes.*
+    //  import classes.*
     // import flash.events.MouseEvent;
-    // 	import classes.*
+    //  import classes.*
 
     // const URTA_MET_HEL: number = 710;
     // const URTA_QUEST_STATUS: number = 711;
@@ -385,8 +386,8 @@ export class UrtaQuest extends NPCAwareContent {
         // GEAR!
         this.player.setWeapon(this.weapons.URTAHLB);
         this.player.setArmor(this.armors.URTALTA);
-        // 	player.weapon = weapons.URTAHLB;
-        // 	player.armor = armors.URTALTA;
+        //  player.weapon = weapons.URTAHLB;
+        //  player.armor = armors.URTALTA;
 
         // DISPLAY SOME SHIT YO
         this.clearOutput();
@@ -1524,7 +1525,7 @@ export class UrtaQuest extends NPCAwareContent {
     // Put a PC dick in Urta's vag(C)*
     private putAPCDickInUrtaCoochies(truth: boolean): void {
         this.clearOutput();
-        var x: number = this.player2.cockThatFits(this.urta.urtaCapacity());
+        const x: number = this.player2.cockThatFits(this.urta.urtaCapacity());
         this.outputText(
             "You push " +
                 this.player2.short +
@@ -2241,7 +2242,7 @@ export class UrtaQuest extends NPCAwareContent {
 
     // Goblin Encounter(C)*
     // Intro(C)*
-    public runIntoAGoblin(camped: boolean = false): void {
+    public runIntoAGoblin(camped = false): void {
         this.clearOutput();
         if (camped) {
             this.outputText(
@@ -2532,7 +2533,7 @@ export class UrtaQuest extends NPCAwareContent {
     // Second Wind: Regain 50% HP and lose 50 lust.  Once per fight.
 
     public urtaSpecials(): void {
-        // Gone	menuLoc = 3;
+        // Gone menuLoc = 3;
         if (
             this.getGame().inCombat &&
             this.player.findStatusAffect(StatusAffects.Sealed) >= 0 &&
@@ -2557,7 +2558,7 @@ export class UrtaQuest extends NPCAwareContent {
 
     private urtaMetabolize(): void {
         this.clearOutput();
-        var damage: number = this.player.takeDamage(Math.round(this.player.maxHP() / 10));
+        const damage: number = this.player.takeDamage(Math.round(this.player.maxHP() / 10));
         this.outputText(
             "You work your body as hard as you can, restoring your fatigue at the cost of health. (" +
                 damage +
@@ -2596,9 +2597,9 @@ export class UrtaQuest extends NPCAwareContent {
             if (this.player.fatigue + 25 > 100) {
                 this.outputText("You are too fatigued to use that attack!");
                 // Gone
-                // 	menuLoc = 3;
+                //  menuLoc = 3;
                 //
-                // 	doNext(getGame().combatMenu);
+                //  doNext(getGame().combatMenu);
                 this.menu();
                 this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
                 return;
@@ -2622,7 +2623,7 @@ export class UrtaQuest extends NPCAwareContent {
                 false
             );
         }
-        var damage: number;
+        let damage: number;
         // Determine if dodged!
         if (
             this.monster.findStatusAffect(StatusAffects.Blind) < 0 &&
@@ -2661,7 +2662,7 @@ export class UrtaQuest extends NPCAwareContent {
             }
         }
         // Determine damage
-        /*Determine damage - str modified by enemy toughness!
+        /* Determine damage - str modified by enemy toughness!
         if(player.hasPerk("Double Attack") >= 0 && player.str <= 60) {
             if(player.weaponName == "deadly spear") damage = int((player.str + player.weaponAttack) - Math.random()*(monster.tou));
             else if(player.weaponName == "jeweled rapier") damage = int((player.str + player.weaponAttack) - Math.random()*(monster.tou));
@@ -2673,7 +2674,7 @@ export class UrtaQuest extends NPCAwareContent {
         // Weapon addition!
         damage += this.player.weaponAttack;
         // Determine if critical hit!
-        var crit: boolean = false;
+        let crit = false;
         if (
             UrtaQuest.rand(100) <= 4 ||
             (this.player.findPerk(PerkLib.Tactician) >= 0 &&
@@ -2684,7 +2685,7 @@ export class UrtaQuest extends NPCAwareContent {
             damage *= 2;
         }
         // Start figuring enemy damage resistance
-        var reduction: number = UrtaQuest.rand(this.monster.tou);
+        let reduction: number = UrtaQuest.rand(this.monster.tou);
         // Add in enemy armor if needed
         if (
             this.player.weaponName != "jeweled rapier" &&
@@ -2828,7 +2829,7 @@ export class UrtaQuest extends NPCAwareContent {
                 false
             );
         } else this.outputText("You make a wide swing to the side, hoping to stun your foe!  ");
-        var damage: number;
+        let damage: number;
         // Determine if dodged!
         if (
             (this.player.findStatusAffect(StatusAffects.Blind) >= 0 && UrtaQuest.rand(2) == 0) ||
@@ -2857,7 +2858,7 @@ export class UrtaQuest extends NPCAwareContent {
             return;
         }
         // Determine damage
-        /*Determine damage - str modified by enemy toughness!
+        /* Determine damage - str modified by enemy toughness!
         if(player.hasPerk("Double Attack") >= 0 && player.str <= 60) {
             if(player.weaponName == "deadly spear") damage = int((player.str + player.weaponAttack) - Math.random()*(monster.tou));
             else if(player.weaponName == "jeweled rapier") damage = int((player.str + player.weaponAttack) - Math.random()*(monster.tou));
@@ -2871,7 +2872,7 @@ export class UrtaQuest extends NPCAwareContent {
         // 70% crappier than normal attack.
         damage *= 0.7;
         // Determine if critical hit!
-        var crit: boolean = false;
+        let crit = false;
         if (
             UrtaQuest.rand(100) <= 4 ||
             (this.player.findPerk(PerkLib.Tactician) >= 0 &&
@@ -2882,7 +2883,7 @@ export class UrtaQuest extends NPCAwareContent {
             damage *= 1.75;
         }
         // Start figuring enemy damage resistance
-        var reduction: number = UrtaQuest.rand(this.monster.tou);
+        let reduction: number = UrtaQuest.rand(this.monster.tou);
         // Add in enemy armor if needed
         if (
             this.player.weaponName != "jeweled rapier" &&
@@ -3008,7 +3009,7 @@ export class UrtaQuest extends NPCAwareContent {
                     this.player.weaponName +
                     " into your foe!  "
             );
-        var damage: number;
+        let damage: number;
         // Determine if dodged!
         if (
             (this.player.findStatusAffect(StatusAffects.Blind) >= 0 && UrtaQuest.rand(2) == 0) ||
@@ -3041,7 +3042,7 @@ export class UrtaQuest extends NPCAwareContent {
             return;
         }
         // Determine damage
-        /*Determine damage - str modified by enemy toughness!
+        /* Determine damage - str modified by enemy toughness!
         if(player.hasPerk("Double Attack") >= 0 && player.str <= 60) {
             if(player.weaponName == "deadly spear") damage = int((player.str + player.weaponAttack) - Math.random()*(monster.tou));
             else if(player.weaponName == "jeweled rapier") damage = int((player.str + player.weaponAttack) - Math.random()*(monster.tou));
@@ -3055,7 +3056,7 @@ export class UrtaQuest extends NPCAwareContent {
         // 25% better than normal attack.
         damage *= 1.25;
         // Determine if critical hit!
-        var crit: boolean = false;
+        let crit = false;
         if (
             this.monster.findStatusAffect(StatusAffects.Stunned) >= 0 ||
             UrtaQuest.rand(100) <= 4 ||
@@ -3067,7 +3068,7 @@ export class UrtaQuest extends NPCAwareContent {
             damage *= 2;
         }
         // Start figuring enemy damage resistance
-        var reduction: number = UrtaQuest.rand(this.monster.tou);
+        let reduction: number = UrtaQuest.rand(this.monster.tou);
         // Add in enemy armor if needed
         if (
             this.player.weaponName != "jeweled rapier" &&
@@ -3587,7 +3588,7 @@ export class UrtaQuest extends NPCAwareContent {
     // Fight*
     // Use attack descriptions/effects from Gnoll Spearthrower
     // Hey QB, Savin wants to make this bitch a non-furry waifu later. That okay?
-    ///You mean if Urta rapes her? I got no complains about it, but why non-furry? I'd personally suggest it should be okay whether you drug her with milk or not... or is the milk-drugging going to be automatic? -QB
+    /// You mean if Urta rapes her? I got no complains about it, but why non-furry? I'd personally suggest it should be okay whether you drug her with milk or not... or is the milk-drugging going to be automatic? -QB
 
     // Urta Wins*
     // Standard Win Rape Fuck*
@@ -5270,7 +5271,7 @@ export class UrtaQuest extends NPCAwareContent {
         if (this.player.gender > 0)
             this.outputText(" fuck the horny fox and help her out of her predicament, or");
         this.outputText(" send her to Tel'Adre to find a suitable partner, like Edryn?");
-        /*if(player.hasCock()) {
+        /* if(player.hasCock()) {
             if(player.cockThatFits(urtaCapacity()) < 0) outputText("  A shame you're too big to fit inside her.");
         }*/
         // Genderless PCs auto-select the Edryn option, KnockUrta requires PC has penis, KnockMe requires PC has vagina
@@ -5283,7 +5284,7 @@ export class UrtaQuest extends NPCAwareContent {
     // PC Knocks Up Urta with God Child*
     private knockUpUrtaWithGodChild(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.urta.urtaCapacity());
+        let x: number = this.player.cockThatFits(this.urta.urtaCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "Well, this problem seems like it can solved the same way you've dealt with most of Urta's issues - with the judicious application of sperm.  You strip out of your [armor], which causes the lust-crazed vixen's eyes to bulge in appreciation, her mouth beginning to drool nearly as much as her genitals.  She whimpers needily, \"<i>Now?  Can we do it now?</i>\"  One after another, she takes trembling steps towards you, each movement a shuffling half-step, as if she's afraid you'll run away.  Feverish sweat drips from her forehead, and her ears are constantly twitching this way and that."
@@ -5558,7 +5559,7 @@ export class UrtaQuest extends NPCAwareContent {
         else this.outputText("her");
         this.outputText(" balls, slathering them with slick spunk.");
 
-        var ballWorship: any[] = [];
+        const ballWorship: any[] = [];
         if (
             this.amilyScene.amilyFollower() &&
             this.flags[kFLAGS.AMILY_FOLLOWER] == 2 &&
@@ -5574,7 +5575,7 @@ export class UrtaQuest extends NPCAwareContent {
         if (this.helFollower.followerHel()) ballWorship[ballWorship.length] = 3;
         if (this.latexGirl.latexGooFollower()) ballWorship[ballWorship.length] = 4;
         if (this.flags[kFLAGS.VALARIA_AT_CAMP] == 1) ballWorship[ballWorship.length] = 5;
-        var choice: number;
+        let choice: number;
         if (ballWorship.length > 0) choice = ballWorship[UrtaQuest.rand(ballWorship.length)];
         else choice = -1;
 
@@ -5799,8 +5800,8 @@ export class UrtaQuest extends NPCAwareContent {
             "Urta shudders from head to toe, barely able to restrain herself around you.  \"<i>Oooooh... uh... okay, then.  I'll come back... when... when it's time, okay?</i>\" she titters, almost drunkenly, already prancing off towards the desert.  The lusty vixen looks over her shoulder at you as she jogs off, a trail of lubricant spattering in her wake, her tongue lolling wildly as her eye-humps you.  After a long moment, she looks away, perhaps unable to bear gazing on you any longer.  You hope everything turns out okay..."
         );
         // [Urta and Edryn disabled until birth event]
-        this.flags[kFLAGS.URTA_FERTILE] = this.telAdre.edryn.pregnancy.type; //Use these two flags to store the pregnancy that Taoth is overriding.
-        this.flags[kFLAGS.URTA_PREG_EVERYBODY] = this.telAdre.edryn.pregnancy.incubation; //Since they can't be in use prior to Taoth being born this is fine.
+        this.flags[kFLAGS.URTA_FERTILE] = this.telAdre.edryn.pregnancy.type; // Use these two flags to store the pregnancy that Taoth is overriding.
+        this.flags[kFLAGS.URTA_PREG_EVERYBODY] = this.telAdre.edryn.pregnancy.incubation; // Since they can't be in use prior to Taoth being born this is fine.
         this.telAdre.edryn.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_TAOTH, 24);
         this.getGame().inCombat = false;
         this.doNext(this.camp.returnToCampUseOneHour);

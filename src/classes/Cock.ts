@@ -5,7 +5,7 @@ import { Utils } from "./internals/Utils";
 export class Cock {
     private _cockLength: number;
     private _cockThickness: number;
-    private _cockType: CockTypesEnum; //See CockTypesEnum.as for all cock types
+    private _cockType: CockTypesEnum; // See CockTypesEnum.as for all cock types
 
     // Used to determine thickness of knot relative to normal thickness
     private _knotMultiplier: number;
@@ -25,7 +25,7 @@ export class Cock {
      * @return string description of errors
      */
     public validate(): string {
-        var error: string = "";
+        let error = "";
         error += Utils.validateNonNegativeNumberFields(this, "Cock.validate", [
             "cockLength",
             "cockThickness",
@@ -45,15 +45,11 @@ export class Cock {
     }
 
     // constructor. Default type is HUMAN
-    public constructor(
-        i_cockLength: number = 5.5,
-        i_cockThickness: number = 1,
-        i_cockType?: CockTypesEnum
-    ) {
-        if (i_cockType == undefined) i_cockType = CockTypesEnum.HUMAN;
-        this._cockLength = i_cockLength;
-        this._cockThickness = i_cockThickness;
-        this._cockType = i_cockType;
+    public constructor(iCockLength = 5.5, iCockThickness = 1, iCockType?: CockTypesEnum) {
+        if (iCockType == undefined) iCockType = CockTypesEnum.HUMAN;
+        this._cockLength = iCockLength;
+        this._cockThickness = iCockThickness;
+        this._cockType = iCockType;
         this._pierced = 0;
         this._knotMultiplier = 1;
         this._isPierced = false;
@@ -74,7 +70,7 @@ export class Cock {
             return lengthDelta;
         }
 
-        var threshhold: number = 0;
+        let threshhold = 0;
 
         trace("growcock starting at:" + lengthDelta);
 
@@ -139,8 +135,8 @@ export class Cock {
     }
 
     public thickenCock(increase: number): number {
-        var amountGrown: number = 0;
-        var temp: number = 0;
+        let amountGrown = 0;
+        let temp = 0;
         if (increase > 0) {
             while (increase > 0) {
                 if (increase < 1) temp = increase;

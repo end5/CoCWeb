@@ -33,7 +33,7 @@ export class Kelt extends Monster {
         }
 
         // Determine damage - str modified by enemy toughness!
-        var damage: number = Math.round(
+        let damage: number = Math.round(
             this.str + this.weaponAttack - Kelt.rand(this.player.tou) - this.player.armorDef
         );
         if (damage > 0) damage = this.player.takeDamage(damage);
@@ -75,7 +75,7 @@ export class Kelt extends Monster {
             return;
         }
 
-        var damage: number = 0;
+        let damage = 0;
         damage = Math.floor(
             20 +
                 this.str / 3 +
@@ -98,7 +98,7 @@ export class Kelt extends Monster {
 
     // Aura Arouse
     private KellyuraAttack(): void {
-        var select: number = Kelt.rand(3);
+        const select: number = Kelt.rand(3);
         // (1)
         if (select == 0)
             this.outputText(
@@ -151,7 +151,7 @@ export class Kelt extends Monster {
             if (Kelt.rand(2) == 0 && this.flags[kFLAGS.KELT_BREAK_LEVEL] >= 2) this.dayDreamKelly();
             else this.keltShootBow();
         }
-        var select: number = Kelt.rand(5);
+        const select: number = Kelt.rand(5);
         if (select <= 1) this.eAttack();
         else if (select <= 3) this.KellyuraAttack();
         else this.keltTramplesJoo();
@@ -176,7 +176,7 @@ export class Kelt extends Monster {
 
     public constructor() {
         super();
-        var breakLevel2: boolean = this.game.flags[kFLAGS.KELT_BREAK_LEVEL] == 2;
+        const breakLevel2: boolean = this.game.flags[kFLAGS.KELT_BREAK_LEVEL] == 2;
         this.a = "";
         this.short = "Kelt";
         this.imageName = "kelt";

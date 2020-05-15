@@ -456,7 +456,7 @@ export class Character extends Creature {
         // Contraceptives cancel!
         if (this.findStatusAffect(StatusAffects.Contraceptives) >= 0 && arg < 1) return;
         //
-        // 	if (findStatusAffect(StatusAffects.GooStuffed) >= 0) return; //No longer needed thanks to PREGNANCY_GOO_STUFFED being used as a blocking value
+        //  if (findStatusAffect(StatusAffects.GooStuffed) >= 0) return; //No longer needed thanks to PREGNANCY_GOO_STUFFED being used as a blocking value
         let bonus = 0;
         // If arg = 1 (always pregnant), bonus = 9000
         if (arg >= 1) bonus = 9000;

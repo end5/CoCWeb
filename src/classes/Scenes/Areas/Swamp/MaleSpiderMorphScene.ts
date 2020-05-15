@@ -81,9 +81,9 @@ export class MaleSpiderMorphScene extends BaseContent {
     public defeatSpiderBoy(): void {
         this.outputText("", true);
         this.spriteSelect(74);
-        var mount = undefined;
-        var buttfuck = undefined;
-        var frot = undefined;
+        let mount;
+        let buttfuck;
+        let frot;
         if (this.player.hasVagina()) mount = this.victoryCowgirlRidingOnSpiderBoi;
         if (this.player.hasCock()) {
             if (this.player.cockThatFits(this.monster.analCapacity()) != -1)
@@ -91,7 +91,7 @@ export class MaleSpiderMorphScene extends BaseContent {
             if (this.player.biggestCockArea() > this.monster.analCapacity())
                 frot = this.victoryFrotTheSpoidah;
         }
-        var bikiniTits = undefined;
+        let bikiniTits;
         if (
             this.player.hasVagina() &&
             this.player.biggestTitSize() >= 4 &&
@@ -133,7 +133,7 @@ export class MaleSpiderMorphScene extends BaseContent {
 
     // Loss selector
     public loseToMaleSpiderMorph(): void {
-        var choices: any[] = [];
+        const choices: any[] = [];
         if (this.player.hasCock()) choices[choices.length] = 0;
         if (this.player.hasVagina()) choices[choices.length] = 1;
         if (this.player.gender == 0) {
@@ -148,14 +148,14 @@ export class MaleSpiderMorphScene extends BaseContent {
             this.cleanupAfterCombat();
             return;
         }
-        var select: number = choices[MaleSpiderMorphScene.rand(choices.length)];
+        const select: number = choices[MaleSpiderMorphScene.rand(choices.length)];
         if (select == 0) this.spiderBoyLossMaleButtfuck();
         else this.loseToSpiderBoyVagFucked();
     }
 
     // *Victory Buttfucko
     private victoryButtFuck(): void {
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        const x: number = this.player.cockThatFits(this.monster.analCapacity());
         this.outputText("", true);
         this.spriteSelect(74);
         // *Summary:  Reaming some anus.

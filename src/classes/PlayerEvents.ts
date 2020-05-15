@@ -37,12 +37,12 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedTurkey: number = 0; //Make sure we test each of these events just once in timeChangeLarge
-    private checkedDream: number = 0;
+    private checkedTurkey = 0; // Make sure we test each of these events just once in timeChangeLarge
+    private checkedDream = 0;
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        var needNext: boolean = false;
+        let needNext = false;
         this.checkedTurkey = 0;
         this.checkedDream = 0;
         if (this.player.cumMultiplier > 19999) this.player.cumMultiplier = 19999;
@@ -63,14 +63,14 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         if (this.player.findPerk(PerkLib.FerasBoonAlpha) >= 0) this.player.hoursSinceCum += 2;
         // Normal
         if (this.player.findPerk(PerkLib.WellAdjusted) < 0) {
-            this.getGame().dynStats("lus", this.player.lib * 0.04, "resisted", false); //Raise lust
+            this.getGame().dynStats("lus", this.player.lib * 0.04, "resisted", false); // Raise lust
             if (this.player.findPerk(PerkLib.Lusty) >= 0)
-                this.getGame().dynStats("lus", this.player.lib * 0.02, "resisted", false); //Double lust rise if lusty.
+                this.getGame().dynStats("lus", this.player.lib * 0.02, "resisted", false); // Double lust rise if lusty.
         } else {
             // Well adjusted perk
-            this.getGame().dynStats("lus", this.player.lib * 0.02); //Raise lust
+            this.getGame().dynStats("lus", this.player.lib * 0.02); // Raise lust
             if (this.player.findPerk(PerkLib.Lusty) >= 0)
-                this.getGame().dynStats("lus", this.player.lib * 0.01, "resisted", false); //Double lust rise if lusty.
+                this.getGame().dynStats("lus", this.player.lib * 0.01, "resisted", false); // Double lust rise if lusty.
         }
         if (
             this.player.tailType == TAIL_TYPE_BEE_ABDOMEN ||
@@ -179,7 +179,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     this.player.cockDescript(0) +
                     " and have her spread honey all over it grows with each passing minute\n"
             );
-            this.dynStats("lust", 10); //Always gain 10 lust each hour
+            this.dynStats("lust", 10); // Always gain 10 lust each hour
             needNext = true;
         }
         if (!this.player.hasVagina() && this.player.findPerk(PerkLib.Diapause) >= 0) {
@@ -228,7 +228,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             this.player.pregnancyType == PregnancyStore.PREGNANCY_OVIELIXIR_EGGS
         ) {
             // Fixing Egg Preg Preglocked Glitch
-            this.player.knockUpForce(); //Clear Pregnancy
+            this.player.knockUpForce(); // Clear Pregnancy
         }
         if (
             this.player.findStatusAffect(StatusAffects.Uniball) >= 0 &&
@@ -244,7 +244,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         }
         if (this.player.findPerk(PerkLib.Androgyny) < 0) {
             // Fix femininity ratings if out of whack!
-            var textHolder: string = this.player.fixFemininity();
+            const textHolder: string = this.player.fixFemininity();
             if (textHolder != "") {
                 this.outputText(textHolder, false);
                 needNext = true;
@@ -252,7 +252,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         }
         if (this.player.findStatusAffect(StatusAffects.LustStickApplied) >= 0) {
             // Lust stick!
-            this.player.addStatusValue(StatusAffects.LustStickApplied, 1, -1); //Decrement!
+            this.player.addStatusValue(StatusAffects.LustStickApplied, 1, -1); // Decrement!
             if (this.player.statusAffectv1(StatusAffects.LustStickApplied) <= 0) {
                 this.player.removeStatusAffect(StatusAffects.LustStickApplied);
                 this.outputText(
@@ -350,7 +350,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 needNext = true;
             } else {
                 // Update stuff!
-                var prevEggs: number = this.player.eggs();
+                const prevEggs: number = this.player.eggs();
                 if (prevEggs < 10) {
                     this.player.addEggs(2);
                 } else if (prevEggs < 20 && this.getGame().model.time.hours % 2 == 0) {
@@ -457,8 +457,8 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                         PlayerEvents.rand(2),
                         5 + PlayerEvents.rand(3),
                         0
-                    ); //v1 is type, v2 is size (1 == large) and v3 is quantity
-                    this.player.addPerkValue(PerkLib.Oviposition, 1, 1); //Count times eggpregged this way in perk.
+                    ); // v1 is type, v2 is size (1 == large) and v3 is quantity
+                    this.player.addPerkValue(PerkLib.Oviposition, 1, 1); // Count times eggpregged this way in perk.
                     needNext = true;
                 }
             }
@@ -479,7 +479,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     "noBimbo",
                     true
                 );
-                this.player.removeStatusAffect(StatusAffects.Heat); //remove heat
+                this.player.removeStatusAffect(StatusAffects.Heat); // remove heat
                 if (this.player.lib < 1) this.player.lib = 1;
                 this.getGame().statScreenRefresh();
                 this.outputText("\n<b>Your body calms down, at last getting over your heat.</b>\n");
@@ -503,7 +503,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     "noBimbo",
                     true
                 );
-                this.player.removeStatusAffect(StatusAffects.Rut); //remove heat
+                this.player.removeStatusAffect(StatusAffects.Rut); // remove heat
                 if (this.player.lib < 10) this.player.lib = 10;
                 this.getGame().statScreenRefresh();
                 this.outputText("\n<b>Your body calms down, at last getting over your rut.</b>\n");
@@ -527,7 +527,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                         StatusAffects.LustyTongue,
                         1,
                         this.player.statusAffectv1(StatusAffects.LustyTongue) + 10
-                    ); //Tongue orgasming makes it last longer.
+                    ); // Tongue orgasming makes it last longer.
                 }
                 this.outputText("\n");
                 needNext = true;
@@ -536,7 +536,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 StatusAffects.LustyTongue,
                 1,
                 this.player.statusAffectv1(StatusAffects.LustyTongue) - 1
-            ); //Decrement
+            ); // Decrement
             if (this.player.statusAffectv1(StatusAffects.LustyTongue) <= 0) {
                 this.player.removeStatusAffect(StatusAffects.LustyTongue);
                 this.outputText("\nYour mouth and tongue return to normal.\n");
@@ -544,7 +544,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             }
         }
         if (this.player.statusAffectv2(StatusAffects.Kelt) > 0)
-            this.player.addStatusValue(StatusAffects.Kelt, 2, -0.15); //Reduce kelt submissiveness by 1 every 5 hours
+            this.player.addStatusValue(StatusAffects.Kelt, 2, -0.15); // Reduce kelt submissiveness by 1 every 5 hours
         // Mino cum update.
         if (this.getGame().mountain.minotaurScene.minoCumUpdate()) {
             needNext = true;
@@ -784,7 +784,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     this.player.breastRows[0].breastRating = 5;
                     needNext = true;
                 }
-                this.player.addStatusValue(StatusAffects.Feeder, 2, 1); //Increase 'time since breastfed'
+                this.player.addStatusValue(StatusAffects.Feeder, 2, 1); // Increase 'time since breastfed'
                 // trace("Feeder status: " + player.statusAffectv2(StatusAffects.Feeder) + " (modded " + ((player.statusAffectv2(StatusAffects.Feeder)) - 70) + ")");
                 // After 3 days without feeding someone sensitivity jumps.
                 if (
@@ -816,18 +816,18 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     this.getGame().dynStats("lus", 2 + this.player.sens / 10);
                     if (this.player.fertility > 5)
                         this.player.fertility -= 1 + Math.round(this.player.fertility / 4);
-                    this.player.addStatusValue(StatusAffects.WormPlugged, 1, -1); //Lower chances
+                    this.player.addStatusValue(StatusAffects.WormPlugged, 1, -1); // Lower chances
                     if (this.player.statusAffectv1(StatusAffects.WormPlugged) <= 0) {
                         // Remove if too low
                         this.player.removeStatusAffect(StatusAffects.WormPlugged);
-                        this.player.knockUpForce(); //Clear worm 'pregnancy'
+                        this.player.knockUpForce(); // Clear worm 'pregnancy'
                     }
                     needNext = true;
                 }
             } else {
                 // Non cunts lose worm plugged
                 this.player.removeStatusAffect(StatusAffects.WormPlugged);
-                this.player.knockUpForce(); //Clear worm 'pregnancy'
+                this.player.knockUpForce(); // Clear worm 'pregnancy'
             }
         }
         if (this.player.findStatusAffect(StatusAffects.Milked) >= 0) {
@@ -1057,7 +1057,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.outputText(
                     "\nPanting, you open your eyes and see that, for once, the source of your climax wasn't your loins.  Feeling a warm, wetness on your abs, you investigate and find the small, heart-shaped nucleus that used to be inside your body has somehow managed to pass through your belly button. Exposed to the open air, the crimson organ slowly crystallizes, shrinking and hardening into a tiny ruby.  Rubbing the stone with your thumb, you're surprised to find that you can still feel a pulse within its glittering facets.  You stow the ruby heart, in case you need it again.\n"
                 );
-                this.player.createKeyItem("Ruby Heart", 0, 0, 0, 0); //[Add 'Ruby Heart' to key items. Player regains slime core if returning to goo body]
+                this.player.createKeyItem("Ruby Heart", 0, 0, 0, 0); // [Add 'Ruby Heart' to key items. Player regains slime core if returning to goo body]
                 this.player.removePerk(PerkLib.SlimeCore);
                 needNext = true;
             }
@@ -1125,9 +1125,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                         needNext = true;
                     }
                     if (this.player.spe > 1)
-                        this.player.addStatusValue(StatusAffects.SlimeCraving, 3, 0.1); //Keep track of how much has been taken from speed
+                        this.player.addStatusValue(StatusAffects.SlimeCraving, 3, 0.1); // Keep track of how much has been taken from speed
                     this.getGame().dynStats("str", -0.1, "spe", -0.1, "lus", 2);
-                    this.player.addStatusValue(StatusAffects.SlimeCraving, 2, 0.1); //Keep track of how much has been taken from strength
+                    this.player.addStatusValue(StatusAffects.SlimeCraving, 2, 0.1); // Keep track of how much has been taken from strength
                 }
             }
         }
@@ -1141,9 +1141,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.player.statusAffectv2(StatusAffects.SlimeCraving) * 0.5,
                 "spe",
                 this.player.statusAffectv3(StatusAffects.SlimeCraving)
-            ); //Boost speed and restore half the player's lost strength
-            this.player.removeStatusAffect(StatusAffects.SlimeCravingFeed); //Remove feed succuss status so it can be reset
-            this.player.changeStatusValue(StatusAffects.SlimeCraving, 2, 0); //Reset stored hp/toughness values
+            ); // Boost speed and restore half the player's lost strength
+            this.player.removeStatusAffect(StatusAffects.SlimeCravingFeed); // Remove feed succuss status so it can be reset
+            this.player.changeStatusValue(StatusAffects.SlimeCraving, 2, 0); // Reset stored hp/toughness values
             needNext = true;
         }
         if (
@@ -1160,9 +1160,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         }
         if (this.flags[kFLAGS.BIKINI_ARMOR_BONUS] > 0) {
             if (this.player.armorName == "lusty maiden's armor") {
-                if (this.getGame().model.time.hours == 0) this.flags[kFLAGS.BIKINI_ARMOR_BONUS]--; //Adjust for inflation
+                if (this.getGame().model.time.hours == 0) this.flags[kFLAGS.BIKINI_ARMOR_BONUS]--; // Adjust for inflation
                 if (this.flags[kFLAGS.BIKINI_ARMOR_BONUS] < 0)
-                    this.flags[kFLAGS.BIKINI_ARMOR_BONUS] = 0; //Keep in bounds.
+                    this.flags[kFLAGS.BIKINI_ARMOR_BONUS] = 0; // Keep in bounds.
                 if (this.flags[kFLAGS.BIKINI_ARMOR_BONUS] > 8)
                     this.flags[kFLAGS.BIKINI_ARMOR_BONUS] = 8;
             } else this.flags[kFLAGS.BIKINI_ARMOR_BONUS] = 0;
@@ -1170,7 +1170,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
 
         // No better place for these since the code for the event is part of CoC.as or one of its included files
         if (this.flags[kFLAGS.TIME_SINCE_VALA_ATTEMPTED_RAPE_PC] > 0)
-            this.flags[kFLAGS.TIME_SINCE_VALA_ATTEMPTED_RAPE_PC]--; //Vala post-rape countdown
+            this.flags[kFLAGS.TIME_SINCE_VALA_ATTEMPTED_RAPE_PC]--; // Vala post-rape countdown
         if (
             this.flags[kFLAGS.GATS_ANGEL_TIME_TO_FIND_KEY] > 0 &&
             this.flags[kFLAGS.GATS_ANGEL_TIME_TO_FIND_KEY] < 500
@@ -1198,7 +1198,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             this.getGame().bazaar.benoit.updateBenoitInventory();
             this.flags[kFLAGS.ROGAR_FUCKED_TODAY] = 0;
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00285] > 0)
-                this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00285]--; //Reduce lust-stick resistance building
+                this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00285]--; // Reduce lust-stick resistance building
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00155] > 0) {
                 // Dominika fellatrix countdown
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00155]--;
@@ -1218,8 +1218,8 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     this.flags[kFLAGS.WEEKLY_FAIRY_ORGY_COUNTDOWN] = 0;
             }
             if (this.getGame().model.time.days % 7 == 0)
-                this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] = 0; //Clear Whitney's Weekly limit
-            if (this.flags[kFLAGS.USED_MILKER_TODAY] > 0) this.flags[kFLAGS.USED_MILKER_TODAY] = 0; //Clear 'has fucked milker today'
+                this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] = 0; // Clear Whitney's Weekly limit
+            if (this.flags[kFLAGS.USED_MILKER_TODAY] > 0) this.flags[kFLAGS.USED_MILKER_TODAY] = 0; // Clear 'has fucked milker today'
             if (this.getGame().latexGirl.latexGooFollower()) {
                 // Latex goo follower daily updates
                 this.getGame().latexGirl.gooFluid(-2, false);
@@ -1232,7 +1232,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 if (this.getGame().latexGirl.gooHappiness() >= 90)
                     this.getGame().latexGirl.gooObedience(1, false);
             }
-            this.getGame().farm.farmCorruption.updateFarmCorruption(); //Farm Corruption updating
+            this.getGame().farm.farmCorruption.updateFarmCorruption(); // Farm Corruption updating
             if (this.player.findStatusAffect(StatusAffects.Contraceptives) >= 0) {
                 // Herbal contraceptives countdown
                 if (this.player.statusAffectv1(StatusAffects.Contraceptives) == 1) {
@@ -1242,7 +1242,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 }
             }
             if (this.player.statusAffectv1(StatusAffects.SharkGirl) > 0)
-                this.player.addStatusValue(StatusAffects.SharkGirl, 1, -1); //Lower shark girl counter
+                this.player.addStatusValue(StatusAffects.SharkGirl, 1, -1); // Lower shark girl counter
             if (this.flags[kFLAGS.INCREASED_HAIR_GROWTH_TIME_REMAINING] > 0) {
                 switch (this.flags[kFLAGS.INCREASED_HAIR_GROWTH_SERUM_TIMES_APPLIED]) {
                     case 1:
@@ -1305,7 +1305,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             this.getGame().date.fullYear > this.flags[kFLAGS.PC_ENCOUNTERED_CHRISTMAS_ELF_BEFORE]
         ) {
             // XMAS ELF
-            this.getGame().xmasBitchEncounter(); //Set it to remember the last year encountered
+            this.getGame().xmasBitchEncounter(); // Set it to remember the last year encountered
             return true;
         }
         if (
@@ -1317,7 +1317,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             this.getGame().isThanksgiving() &&
             this.player.gender > 0
         ) {
-            this.getGame().datTurkeyRumpMeeting(); //TURKEY SURPRISE
+            this.getGame().datTurkeyRumpMeeting(); // TURKEY SURPRISE
             return true;
         }
         if (this.checkedDream++ == 0 && this.getGame().model.time.hours == 3) {
@@ -1392,8 +1392,8 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.outputText(
                     "  The sensation of wetness inside your own clothes torments you as you try to return to sleep, driving up your lust and making you half-hard once again... the rumbling of eggs in your abdomen, as if they're ready to be laid, doesn't help either."
                 );
-                this.player.fertilizeEggs(); //convert eggs to fertilized based on player cum output, reduce lust by 100 and then add 20 lust
-                this.player.orgasm(); //reduce lust by 100 and add 20, convert eggs to fertilized depending on cum output
+                this.player.fertilizeEggs(); // convert eggs to fertilized based on player cum output, reduce lust by 100 and then add 20 lust
+                this.player.orgasm(); // reduce lust by 100 and add 20, convert eggs to fertilized depending on cum output
                 this.getGame().dynStats("lus", 20);
                 this.getGame().doNext(this.playerMenu);
                 // Hey Fenoxo - maybe the unsexed characters get a few \"cock up the ovipositor\" scenes for fertilization with some characters (probably only willing ones)?
@@ -1455,7 +1455,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.outputText(
                     "  Turning over and trying to find a dry spot, you attempt to return to sleep... the wet pressure against your crotch doesn't make it easy, nor do the rumbles in your abdomen, and you're already partway erect by the time you drift off into another erotic dream.  Another traveler passes under you, and you prepare to snare her with your web; your ovipositor peeks out eagerly and a bead of slime drips from it, running just ahead of the first fertilized egg you'll push into your poor victim..."
                 );
-                this.player.fertilizeEggs(); //reduce lust by 100 and add 20, convert eggs to fertilized depending on cum output
+                this.player.fertilizeEggs(); // reduce lust by 100 and add 20, convert eggs to fertilized depending on cum output
                 this.player.orgasm();
                 this.getGame().dynStats("lus", 20);
                 this.getGame().doNext(this.playerMenu);
@@ -1463,7 +1463,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 // Hey whoever, maybe you write them? -Z
                 return true;
             }
-            var ceraph: number; //Ceraph's dreams - overlaps normal night-time dreams.
+            let ceraph: number; // Ceraph's dreams - overlaps normal night-time dreams.
             switch (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00218] +
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00219] +
@@ -1471,10 +1471,10 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             ) {
                 case 0:
                     ceraph = 0;
-                    break; //If you've given her no body parts then Ceraph will not cause any dreams
+                    break; // If you've given her no body parts then Ceraph will not cause any dreams
                 case 1:
                     ceraph = 10;
-                    break; //Once every 10 days if 1, once every 7 days if 2, once every 5 days if 3
+                    break; // Once every 10 days if 1, once every 7 days if 2, once every 5 days if 3
                 case 2:
                     ceraph = 7;
                     break;

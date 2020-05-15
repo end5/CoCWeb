@@ -17,7 +17,7 @@ import { AbstractSuccubus } from "../../Monsters/AbstractSuccubus";
 export class SecretarialSuccubus extends AbstractSuccubus {
     public defeated(hpVictory: boolean): void {
         if (this.player.gender > 0) {
-            var dildo =
+            const dildo =
                 this.player.hasKeyItem("Deluxe Dildo") >= 0
                     ? this.game.succubusGetsDildoed
                     : undefined;

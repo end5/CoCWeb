@@ -35,7 +35,7 @@ export class Mountain extends BaseContent {
     // Explore Mountain
     public exploreMountain(): void {
         this.player.exploredMountain++;
-        var chooser: number = Mountain.rand(4);
+        let chooser: number = Mountain.rand(4);
         // Helia monogamy fucks
         if (
             this.flags[kFLAGS.PC_PROMISED_HEL_MONOGAMY_FUCKS] == 1 &&
@@ -175,7 +175,7 @@ export class Mountain extends BaseContent {
         if (chooser == 0) {
             // Determines likelyhood of imp/goblins
             // Below - goblin, Equal and up - imp
-            var impGob: number = 5;
+            let impGob = 5;
             if (this.player.findPerk(PerkLib.PiercedLethite) >= 0) {
                 if (impGob <= 3) impGob += 2;
                 else if (impGob < 7) impGob = 7;

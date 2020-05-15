@@ -39,7 +39,7 @@ export class Owca extends BaseContent {
     // First encounter (Z)
     private gangbangVillageFirstGoRound(): void {
         this.clearOutput();
-        /*if(flags[kFLAGS.OWCAS_ATTITUDE] < 5) {
+        /* if(flags[kFLAGS.OWCAS_ATTITUDE] < 5) {
             desperateVillages();
             return;
         }*/
@@ -245,7 +245,7 @@ export class Owca extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
     // Accept plea (Z)
-    private acceptRebeccsPlea(firstTime: boolean = false, sacrificed: boolean = false): void {
+    private acceptRebeccsPlea(firstTime = false, sacrificed = false): void {
         this.clearOutput();
         this.flags[kFLAGS.OWCAS_ATTITUDE] += 10;
         if (this.flags[kFLAGS.OWCAS_ATTITUDE] > 100) this.flags[kFLAGS.OWCAS_ATTITUDE] = 100;
@@ -281,11 +281,11 @@ export class Owca extends BaseContent {
         // Dusk transition text (Z)
         this.doNext(this.createCallBackFunction(this.intoTheDemonPit, true));
     }
-    private intoTheDemonPit(sacrifice: boolean = true): void {
+    private intoTheDemonPit(sacrifice = true): void {
         this.clearOutput();
         // N is the number of hours left before night
         if (this.model.time.hours < 21) {
-            var passed: number = 21 - this.model.time.hours;
+            const passed: number = 21 - this.model.time.hours;
             this.outputText(
                 "<b>" +
                     Owca.Num2Text(passed) +
@@ -374,7 +374,7 @@ export class Owca extends BaseContent {
             );
     }
     // Submit/Fight
-    private fightZeDemons(sacrifice: boolean = true): void {
+    private fightZeDemons(sacrifice = true): void {
         this.clearOutput();
         // Fight leads to the Horde Fight
         // When acting as sacrifice, Item button is disabled; Fight, Run, and Phys Special buttons are disabled unless PC has str >= 80; Run is furthermore prevented entirely if PC is non-winged; outputs text: \"<i>You'd like to run, but you can't scale the walls of the pit with so many demonic hands pulling you down!</i>\"
@@ -395,7 +395,7 @@ export class Owca extends BaseContent {
                     this.monster.createStatusAffect(StatusAffects.RunDisabled, 0, 0, 0, 0);
             }
         }
-        this.playerMenu(); //Avoid showing the next button. Must call it here, after setting up all the statuses, so the first round combat menu is correct
+        this.playerMenu(); // Avoid showing the next button. Must call it here, after setting up all the statuses, so the first round combat menu is correct
     }
 
     // Loss scene/Submit (gangrape) (Z)
@@ -592,7 +592,7 @@ export class Owca extends BaseContent {
         if (this.flags[kFLAGS.VAPULA_SUBMISSIVENESS] >= 100) this.doNext(this.slaveToVapulaBadEnd);
         else if (this.player.findStatusAffect(StatusAffects.LostVillagerSpecial) >= 0)
             this.doNext(this.morningAfterRape);
-        else this.doNext(this.wakeUpAfterDemonGangBangs); //WAKE UP
+        else this.doNext(this.wakeUpAfterDemonGangBangs); // WAKE UP
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 2, "cor", 3);
         this.flags[kFLAGS.REBECCS_LAST_PLEA] = 0;
@@ -1106,9 +1106,9 @@ export class Owca extends BaseContent {
                 " has passed since the last offering to the demons; guarding the pit would certainly help improve your relations with the little town's denizens."
             );
         // Option:
-        var pit = undefined;
-        var herd = undefined;
-        var tavern = undefined;
+        let pit;
+        let herd;
+        let tavern;
         if (this.model.time.hours >= 16 && this.flags[kFLAGS.OWCA_SACRIFICE_DISABLED] == 0) {
             // Pit. Requires 16:00 or later. Leads to the night gangbang (with possible fight) scene, this time fully equipped and clothed. Attitude is raised by 3.
             pit = this.zePit;
@@ -1152,26 +1152,26 @@ export class Owca extends BaseContent {
             "The tavern is nice and cozy; there are a few tables and chairs scattered around in no ordered pattern, and most clients here appear to belong to the same species.  By the crude wooden bar, you see a list of all the current drinks on sale:\n<i>"
         );
         // SheepMk
-        var milk: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.SHEEPMK);
+        let milk: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.SHEEPMK);
         this.outputText(
             "\nSheep Milk Bottle: " + (180 - this.flags[kFLAGS.OWCAS_ATTITUDE]) + " gems"
         );
         if (180 - this.flags[kFLAGS.OWCAS_ATTITUDE] > this.player.gems) milk = undefined;
 
-        var goblin: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.GOB_ALE);
+        let goblin: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.GOB_ALE);
         this.outputText(
             "\nGoblin Ale: " + (60 - Math.round(this.flags[kFLAGS.OWCAS_ATTITUDE] / 2)) + " gems"
         );
         if (60 - Math.round(this.flags[kFLAGS.OWCAS_ATTITUDE] / 2) > this.player.gems)
             goblin = undefined;
 
-        var brew: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.BROBREW);
+        let brew: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.BROBREW);
         if (Owca.rand(10) > this.flags[kFLAGS.OWCAS_ATTITUDE] / 10) {
             this.outputText("\nBro Brew: 2000 gems");
             if (2000 > this.player.gems) brew = undefined;
         } else brew = undefined;
 
-        var cum: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.MINOCUM);
+        let cum: any = this.createCallBackFunction(this.owcaBuySetup, this.consumables.MINOCUM);
         this.outputText("\nMinotaur Cum: " + (300 - this.flags[kFLAGS.OWCAS_ATTITUDE]) + " gems");
         if (300 - this.flags[kFLAGS.OWCAS_ATTITUDE] > this.player.gems) cum = undefined;
         this.outputText("</i>");
@@ -1198,7 +1198,7 @@ export class Owca extends BaseContent {
         else this.buyOwcaShit(item, 300 - this.flags[kFLAGS.OWCAS_ATTITUDE]);
     }
 
-    private buyOwcaShit(bleh: ItemType, price: number = 0): void {
+    private buyOwcaShit(bleh: ItemType, price = 0): void {
         this.clearOutput();
         this.player.gems -= price;
         this.statScreenRefresh();
@@ -1256,7 +1256,7 @@ export class Owca extends BaseContent {
         // Option: Rape: Leads to Rebecc Rape scene. Ends the quest. Requires sizable corruption score.
         // Option: Leave: Redirects PC to Owca Village.
         // [Appearance][Bath][Leave][Surprise Sex!]
-        var sex = undefined;
+        let sex;
         if (this.player.cor >= 66) {
             sex = this.createCallBackFunction(this.rapeRebecc, false);
             this.outputText(
@@ -1346,7 +1346,7 @@ export class Owca extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
     // Rebecc Rape scene (for discerning penises) (Z)
-    private rapeRebecc(outside: boolean = false): void {
+    private rapeRebecc(outside = false): void {
         this.clearOutput();
         if (this.player.hasCock()) {
             this.outputText(
@@ -1544,14 +1544,14 @@ export class Owca extends BaseContent {
             "The last of the villagers drops his improvised weapon.  They are all lying defenseless before you.  At last, you notice Rebecc, the only one still conscious, curled up as she weeps uncontrollably.  She is clearly oblivious of her surroundings, undoubtedly shocked by the violent fight.  Even if she calls herself your friend, you don't think you'd be able to reason with her after pummeling her kin.  What do you do?"
         );
         // Rape Rebbecc/Torch Village (needs Akbal's fire or Whitefire)/Leave
-        var torch = undefined;
+        let torch;
         if (
             this.player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0 ||
             this.player.findPerk(PerkLib.FireLord) >= 0 ||
             this.player.findPerk(PerkLib.Hellfire) >= 0
         )
             torch = this.torchOwcaMotherFuckers;
-        var rape = undefined;
+        let rape;
         if (this.player.cor >= 60 && this.player.gender > 0 && this.player.lust >= 33)
             rape = this.createCallBackFunction(this.rapeRebecc, true);
         this.simpleChoices(
@@ -1827,9 +1827,9 @@ export class Owca extends BaseContent {
             "\n\nBy now, you've completely broken the back of the rapacious demon horde.  Their leader is starting to get used to her repeated defeats; it's time for you to make a decision... what do you do?"
         );
         // choices: [Disband the horde]/[Enslave Vapula(requires cock or non-centaur vagina, D2 completion, libido >= 60, and corr >= 70)]
-        var fuck = undefined;
+        let fuck;
         if (this.player.gender > 0 && this.player.lust >= 33) fuck = this.rapeZeVapula;
-        var enslave = undefined;
+        let enslave;
         if (this.player.gender > 0 && this.player.cor >= 66)
             enslave = this.enslaveVapulaWithYourWang;
         this.simpleChoices(

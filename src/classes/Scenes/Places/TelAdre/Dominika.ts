@@ -121,7 +121,7 @@ export class Dominika extends TelAdreAbstractContent {
                     false
                 );
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150]++;
-            } //[Follow-up encounters, player has naga tail/centaur body/slime body]
+            } // [Follow-up encounters, player has naga tail/centaur body/slime body]
             else {
                 this.outputText(
                     "You make your way over to Dominika's table and start up a conversation with the modestly dressed woman. You share exploits and knowledge, but can't help but feel like she's being somewhat distant. She glances out to the distance more than once, and drums her fingers on the table. You make conversation for a little while longer, but realize that it's not really going to go anywhere, and excuse yourself.",
@@ -517,7 +517,7 @@ export class Dominika extends TelAdreAbstractContent {
         this.spriteSelect(58);
         this.outputText("", true);
         this.outputText(this.images.showImage("dominika-oral-sex"));
-        var x: number = this.player.cockThatFits(36);
+        let x: number = this.player.cockThatFits(36);
         // [Random one-shot after Player has done a Scylla scene]
         // Mind control at 6th suck
         if (
@@ -1690,7 +1690,7 @@ export class Dominika extends TelAdreAbstractContent {
     private dominikaBlowjobs(): void {
         this.outputText("", true);
         this.outputText(this.images.showImage("dominika-gives-you-blowjob"));
-        var x: number = this.player.cockThatFits(36);
+        let x: number = this.player.cockThatFits(36);
         if (x < 0) x = this.player.biggestCockIndex();
 
         this.outputText(

@@ -11,11 +11,11 @@ export class SatyrScene extends BaseContent {
     // Happens either in the plains or the swamp.
     // Fighting Descript (Z)
 
-    /*You are fighting a satyr! (Level: sumthin')
+    /* You are fighting a satyr! (Level: sumthin')
     Note: Satyrs actively increase their own lust in order to use their lust charge, if increasing their own lust will cause the satyr to lose the battle, then he should do something else! In other words, the conditions to execute a lust charge are mutually exclusive with the conditions to execute a lust increase.
     */
 
-    public satyrEncounter(location: number = 0): void {
+    public satyrEncounter(location = 0): void {
         this.clearOutput();
         this.spriteSelect(98);
         if (
@@ -57,7 +57,7 @@ export class SatyrScene extends BaseContent {
     }
 
     // [=Yes=]
-    private consensualSatyrFuck(loc: number = 0): void {
+    private consensualSatyrFuck(loc = 0): void {
         this.clearOutput();
         this.spriteSelect(98);
         this.outputText("You decide to search for the source of the music.");
@@ -99,13 +99,13 @@ export class SatyrScene extends BaseContent {
         );
         // Trick him only available to High Int PCs and Skip Foreplay only available to High Libido PCs.
 
-        var trick = undefined;
+        let trick;
         // (if High Int)
         if (this.player.inte > 60 && this.player.lust <= 99) {
             this.outputText("\n\nPerhaps you could trick him into knocking himself out with it?");
             trick = this.trickZeSatyr;
         }
-        var foreplay = undefined;
+        let foreplay;
         // (if High Libido)
         if (this.player.lib > 60) {
             this.outputText(
@@ -184,7 +184,7 @@ export class SatyrScene extends BaseContent {
             '\n\nThere is a sudden loud, indignant bleat from behind you, and you hear something suddenly charging clumsily forward.  Though you only realize this when something slams into your back, knocking you to the ground.  When you roll around, you find the satyr standing over you, face contorted in fury.  "<i>Nobody leaves me until I\'m done with them!</i>" he roars, and attacks you again!\n\n'
         );
 
-        var satyr: Satyr = new Satyr();
+        const satyr: Satyr = new Satyr();
         this.startCombat(satyr);
         // proc first attack;
         satyr.satyrCharge();
@@ -365,8 +365,8 @@ export class SatyrScene extends BaseContent {
             this.outputText(
                 "Beaten and dazed, the satyr collapses to its caprine knees, shaking his head in a futile attempt to recover himself from the brutal trouncing you've just given him.  The combination of the blows and his previous drunken state mean he's quite incapable of getting back, however."
             );
-        var butt = undefined;
-        var faces = undefined;
+        let butt;
+        let faces;
         if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText(
                 "\n\nYou wonder if you should give the satyr some sort of payback for attempting to rape you... do you take advantage of the helpless goat-man?"
@@ -378,7 +378,7 @@ export class SatyrScene extends BaseContent {
                 this.outputText("\n\nYou're too big to fuck his ass...");
             if (this.player.hasVagina()) faces = this.femaleTakesAdvantageOfSatyr;
         }
-        var bikiniTits = undefined;
+        let bikiniTits;
         if (
             this.player.hasVagina() &&
             this.player.biggestTitSize() >= 4 &&
@@ -461,7 +461,7 @@ export class SatyrScene extends BaseContent {
     private malesTakeAdvantageOfSatyrs(): void {
         this.clearOutput();
         this.spriteSelect(98);
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You examine your conquest, trying to decide how it is you should use him to find some sexual release.  For a better view, you stride over, push him to the ground, and roughly cup his face.  The satyr looks up to you in fear, struggling in your grasp as you better examine him; he is most definitely male; you can't ignore the goat-like lines on his cheeks, nor the small goatee that grows from his chin, and his nose flares as he breathes and he bleats weakly while you pull his face this way and that way.  Finally, the satyr manages to yank his face out of your hands and lie prone on the floor, still gauging your movements."
@@ -668,7 +668,7 @@ export class SatyrScene extends BaseContent {
     // Pregnancy Stuff (Z)
     private satyrPreggo(): void {
         if (this.player.hasVagina()) {
-            this.player.knockUp(PregnancyStore.PREGNANCY_SATYR, PregnancyStore.INCUBATION_SATYR); //Satyrs can now fertilize eggs for ovipositing players
+            this.player.knockUp(PregnancyStore.PREGNANCY_SATYR, PregnancyStore.INCUBATION_SATYR); // Satyrs can now fertilize eggs for ovipositing players
         } else {
             this.player.buttKnockUp(
                 PregnancyStore.PREGNANCY_SATYR,

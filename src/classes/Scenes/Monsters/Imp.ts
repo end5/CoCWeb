@@ -102,7 +102,7 @@ export class Imp extends Monster {
                             (this.player.vaginas.length > 1 ? "" : "s") +
                             " your groin."
                     );
-                default: //Dry vaginas are unaffected
+                default: // Dry vaginas are unaffected
             }
         }
         this.outputText("\n");
@@ -110,7 +110,7 @@ export class Imp extends Monster {
         else this.doNext(this.game.playerMenu);
     }
 
-    public constructor(noInit: boolean = false) {
+    public constructor(noInit = false) {
         super();
         if (noInit) return;
         trace("Imp Constructor!");

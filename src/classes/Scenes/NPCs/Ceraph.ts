@@ -228,7 +228,7 @@ export class Ceraph extends Monster {
             this.combatRoundOver();
             return;
         }
-        var damage: number = 0;
+        let damage = 0;
         this.outputText(
             "The demoness weaves her whip in the air until you can practically hear it slithering like a snake, cutting the air as it weaves back and forth, still magically alight with flames.  In a blink she lashes out twice in quick succession!\n",
             false
@@ -517,7 +517,7 @@ export class Ceraph extends Monster {
     }
 
     protected performCombatAction(): void {
-        var choice: number = Ceraph.rand(4);
+        const choice: number = Ceraph.rand(4);
         if (this.player.findStatusAffect(StatusAffects.Bound) >= 0) {
             this.ceraphSpecial2();
             return;

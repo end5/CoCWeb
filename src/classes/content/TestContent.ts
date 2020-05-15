@@ -3,6 +3,7 @@ import { BaseContent } from "../BaseContent";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class TestContent extends BaseContent {
@@ -15,7 +16,7 @@ export class TestContent extends BaseContent {
         this.outputText("\nsackDescript " + this.sackDescript());
         this.outputText("\ncockClit " + this.cockClit);
         //
-        // 	outputText("\nballs " + balls(0, 0));
+        //  outputText("\nballs " + balls(0, 0));
         this.outputText("\nsheathDesc " + this.player.sheathDescription());
         this.outputText("\nchestDesc " + this.chestDesc());
         this.outputText("\nallChestDesc " + this.allChestDesc());

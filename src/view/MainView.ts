@@ -7,33 +7,33 @@ import { CoCButton } from "./CoCButton";
 import { loadId } from "./LoadUtils";
 import { StatsView } from "./StatsView";
 
-/****
-	coc.view.MainView
+/* ***
+ coc.view.MainView
 
-	I have no real idea yet what eventTestInput is for,
-	but its coordinates get tested for in places, and set in others.
-	Perhaps some day I'll ask.
+ I have no real idea yet what eventTestInput is for,
+ but its coordinates get tested for in places, and set in others.
+ Perhaps some day I'll ask.
 
-	It's for allowing people to test stuff in the parser. It gets moved into view, and you
-	can enter stuff in the text window, which then gets fed through the parser.
+ It's for allowing people to test stuff in the parser. It gets moved into view, and you
+ can enter stuff in the text window, which then gets fed through the parser.
 
-	That's good to know.  Cheers.
-****/
+ That's good to know.  Cheers.
+ *** */
 
 export class MainView {
     // Menu button names.
-    public static MENU_NEW_MAIN: string = "newGame";
-    public static MENU_DATA: string = "data";
-    public static MENU_STATS: string = "stats";
-    public static MENU_LEVEL: string = "level";
-    public static MENU_PERKS: string = "perks";
-    public static MENU_APPEARANCE: string = "appearance";
+    public static MENU_NEW_MAIN = "newGame";
+    public static MENU_DATA = "data";
+    public static MENU_STATS = "stats";
+    public static MENU_LEVEL = "level";
+    public static MENU_PERKS = "perks";
+    public static MENU_APPEARANCE = "appearance";
 
-    private static BOTTOM_BUTTON_COUNT: number = 10;
-    private static TOP_BUTTON_COUNT: number = 6;
+    private static BOTTOM_BUTTON_COUNT = 10;
+    private static TOP_BUTTON_COUNT = 6;
     // private static BOTTOM_BUTTON_PER_ROW_COUNT: number = 5;
 
-    //// Actual buttons.
+    /// / Actual buttons.
     public bottomButtons: CoCButton[] = [];
     public newGameButton: CoCButton;
     public dataButton: CoCButton;
@@ -81,16 +81,16 @@ export class MainView {
         }
     }
 
-    //////// Internal(?) view update methods ////////
+    /// ///// Internal(?) view update methods ////////
 
     public showBottomButton(
         index: number,
         label: string,
         callback?: any,
-        toolTipViewText: string = ""
+        toolTipViewText = ""
     ): void {
         // var buttonTF :TextField = this.bottomButtonTexts[ index ] as TextField,
-        // 	buttonBG :MovieClip = this.bottomButtonBGs[ index ] as MovieClip;
+        //  buttonBG :MovieClip = this.bottomButtonBGs[ index ] as MovieClip;
         const button = this.bottomButtons[index];
 
         // Should error.
@@ -111,15 +111,10 @@ export class MainView {
         button.visible = false;
     }
 
-    //////// Bottom Button Methods ////////
+    /// ///// Bottom Button Methods ////////
 
     // TODO: Refactor button set-up code to use callback and toolTipViewText here.
-    public setButton(
-        index: number,
-        label: string = "",
-        callback?: any,
-        toolTipViewText: string = ""
-    ) {
+    public setButton(index: number, label = "", callback?: any, toolTipViewText = "") {
         if (index < 0 || index >= MainView.BOTTOM_BUTTON_COUNT) {
             trace("MainView.setButton called with out of range index:", index);
             // throw new RangeError();
@@ -134,14 +129,14 @@ export class MainView {
     }
 
     public clearBottomButtons(): void {
-        var i: number;
+        let i: number;
 
         for (i = 0; i < MainView.BOTTOM_BUTTON_COUNT; ++i) {
             this.setButton(i);
         }
     }
 
-    //////// Menu Button Methods ////////
+    /// ///// Menu Button Methods ////////
 
     protected getMenuButtonByName(name: string): CoCButton {
         switch (name) {
@@ -161,9 +156,9 @@ export class MainView {
         throw new Error("MainView.getMenuButtonByName: Invalid menu button name: " + name);
     }
 
-    ////////
+    /// /////
 
-    public setMenuButton(name: string, label: string = "", callback?: any): void {
+    public setMenuButton(name: string, label = "", callback?: any): void {
         const button = this.getMenuButtonByName(name);
 
         if (label) {
@@ -200,12 +195,12 @@ export class MainView {
     }
 
     public showMenuButton(name: string): void {
-        var button: CoCButton = this.getMenuButtonByName(name);
+        const button: CoCButton = this.getMenuButtonByName(name);
         button.visible = true;
     }
 
     public hideMenuButton(name: string): void {
-        var button: CoCButton = this.getMenuButtonByName(name);
+        const button: CoCButton = this.getMenuButtonByName(name);
         button.visible = false;
     }
 
@@ -235,7 +230,7 @@ export class MainView {
         for (const button of this.bottomButtons) button.visible = true;
     }
 
-    //////// misc... ////////
+    /// ///// misc... ////////
 
     public clearOutputText(): void {
         this.mainText.innerHTML = "";
@@ -249,7 +244,7 @@ export class MainView {
         this.mainText.innerHTML = text;
     }
 
-    public selectSprite(index: number = 0): void {
+    public selectSprite(index = 0): void {
         // TODO: When flags goes away, if it goes away, replace this with the appropriate settings thing.
         if (index < 0 || this.model.flags[kFLAGS.SHOW_SPRITES_FLAG])
             // = SHOW_SPRITES_FLAG from flagDefs...

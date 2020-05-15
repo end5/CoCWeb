@@ -90,7 +90,7 @@ export class HelSpawnScene extends NPCAwareContent {
             );
         } else {
             switch (kGAMECLASS.helScene.pregnancy.event) {
-                case 1: //She's pregnant, but no special text yet
+                case 1: // She's pregnant, but no special text yet
                     break;
                 case 2:
                     this.outputText("  Hel's just starting to show a little bulge of pregnancy.");
@@ -527,7 +527,7 @@ export class HelSpawnScene extends NPCAwareContent {
         kGAMECLASS.helScene.pregnancy.knockUpForce(
             PregnancyStore.PREGNANCY_PLAYER,
             PregnancyStore.INCUBATION_SALAMANDER
-        ); //Yes, it's Mai's baby, but that's already tracked separately
+        ); // Yes, it's Mai's baby, but that's already tracked separately
         this.flags[kFLAGS.HEL_NTR_TRACKER] = 1;
         this.flags[kFLAGS.HELSPAWN_DADDY] = 2;
         this.doNext(this.playerMenu);
@@ -542,7 +542,7 @@ export class HelSpawnScene extends NPCAwareContent {
         kGAMECLASS.helScene.pregnancy.knockUpForce(
             PregnancyStore.PREGNANCY_PLAYER,
             PregnancyStore.INCUBATION_SALAMANDER
-        ); //Yes, it's the spider's baby, but that's already tracked separately
+        ); // Yes, it's the spider's baby, but that's already tracked separately
         this.flags[kFLAGS.HEL_NTR_TRACKER] = 1;
         this.flags[kFLAGS.HELSPAWN_DADDY] = 1;
         this.doNext(this.playerMenu);
@@ -817,7 +817,7 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>Or he.  Whichever... so, which do you want, lover mine?  A big strong boy, or a fiery little girl just like her mom?</i>"'
         );
-        // Shouldn't be needed, bet this was originally here to stop duplicate notices:	flags[kFLAGS.HEL_PREGNANCY_INCUBATION]--;
+        // Shouldn't be needed, bet this was originally here to stop duplicate notices: flags[kFLAGS.HEL_PREGNANCY_INCUBATION]--;
         this.menu();
         this.addButton(0, "Boy", this.youWantABoy);
         this.addButton(1, "Girl", this.youWantAGirl);
@@ -874,7 +874,7 @@ export class HelSpawnScene extends NPCAwareContent {
     public heliaGravidity(): void {
         this.clearOutput();
         this.spriteSelect(68);
-        // Shouldn't be needed, bet this was originally here to stop duplicate notices:	flags[kFLAGS.HEL_PREGNANCY_INCUBATION]--;
+        // Shouldn't be needed, bet this was originally here to stop duplicate notices: flags[kFLAGS.HEL_PREGNANCY_INCUBATION]--;
         this.outputText(
             "You can't help but notice that Hel's starting to have a hard time getting around, lately - and she's been sticking closer and closer to camp, barely leaving at all the last few days.  Now, she's fussing around her part of camp, trying to beat some spare logs into a crib one-handed.  You can't remember the last time you saw her walking around without a hand on her back to support her gravid belly, the other absently rubbing or poking at it, already playing with the child inside her."
         );
@@ -1178,7 +1178,7 @@ export class HelSpawnScene extends NPCAwareContent {
         }
         this.flags[kFLAGS.HELSPAWN_AGE] = 1;
         this.flags[kFLAGS.HELSPAWN_GROWUP_COUNTER] = 1;
-        kGAMECLASS.helScene.pregnancy.knockUpForce(); //Clear Pregnancy
+        kGAMECLASS.helScene.pregnancy.knockUpForce(); // Clear Pregnancy
         // >If the two scores tie at the end somehow, Sluttymandergirl prevails!
     }
 
@@ -2005,7 +2005,7 @@ export class HelSpawnScene extends NPCAwareContent {
     private talkToHelspawn(): void {
         // {Note: Talk 1 displays first and only once, followed by a random selection from the other scenes. Most of Helspawn's talk scenes involve other characters from camp, since after all, it takes a village!}
         this.clearOutput();
-        var temp: number = HelSpawnScene.rand(5);
+        const temp: number = HelSpawnScene.rand(5);
         // Talk 1
         if (this.flags[kFLAGS.HAD_FIRST_HELSPAWN_TALK] == 0) {
             this.flags[kFLAGS.HAD_FIRST_HELSPAWN_TALK]++;

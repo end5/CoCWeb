@@ -17,6 +17,7 @@ import { Harpy } from "../Areas/HighMountains/Harpy";
 
 /**
  * ...
+ *
  * @author Fake-Name
  */
 
@@ -308,7 +309,7 @@ export class Sophie extends Harpy {
             "Sophie pulls her leg up, cocking her thigh dangerously.  Look out!  ",
             false
         );
-        var damage: number = 0;
+        let damage = 0;
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Sophie.rand(3) < 2) {
             this.outputText(
@@ -388,7 +389,7 @@ export class Sophie extends Harpy {
     // Batters PC with wings – 4x attack impossible to dodge.*/
     private batterAttackSophie(): void {
         this.game.sophieBimbo.sophieSprite();
-        var damage: number = 0;
+        let damage = 0;
         this.outputText(
             "Sophie comes at you in a flurry of beating wings!  There's no way to dodge the flurry of strikes!\n",
             false
@@ -426,7 +427,7 @@ export class Sophie extends Harpy {
         // Sophie has special AI in harpySophie.as
         this.game.sophieBimbo.sophieSprite();
         // var select: number = 1;
-        var rando: number = 1;
+        let rando = 1;
         // Update attacks for girls/neuters
         if (!this.player.hasCock() || this.findStatusAffect(StatusAffects.BimboBrawl) >= 0) {
             // Talons

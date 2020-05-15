@@ -52,7 +52,7 @@ export class KihaFollower extends NPCAwareContent {
         if (this.flags[kFLAGS.KIHA_FOLLOWER] > 0) return true;
         return false;
     }
-    private kihaAffection(changes: number = 0): boolean {
+    private kihaAffection(changes = 0): boolean {
         if (this.flags[kFLAGS.KIHA_AFFECTION_LEVEL] == 2)
             this.flags[kFLAGS.KIHA_AFFECTION] += changes;
         if (this.flags[kFLAGS.KIHA_AFFECTION] > 100) this.flags[kFLAGS.KIHA_AFFECTION] = 100;
@@ -413,7 +413,7 @@ export class KihaFollower extends NPCAwareContent {
     }
 
     // Meeting Kiha - \"<i>Friendly</i>\" State (Z)
-    public kihaFriendlyGreeting(output: boolean = true): void {
+    public kihaFriendlyGreeting(output = true): void {
         if (output) this.clearOutput();
         this.spriteSelect(72);
         if (
@@ -532,7 +532,7 @@ export class KihaFollower extends NPCAwareContent {
                 false
             );
         }
-        var talk = undefined;
+        let talk;
         if (this.flags[kFLAGS.KIHA_TALK_STAGE] < 6) talk = this.talkToFriendlyKiha;
         // (Display Options: [Talk] [Spar] [Hug] [Leave]
         this.simpleChoices(
@@ -1389,7 +1389,7 @@ export class KihaFollower extends NPCAwareContent {
     private lovingHugDickings(): void {
         this.outputText("", true);
         this.spriteSelect(72);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText('Kiha laughs, "<i>', false);
         if (this.player.biggestCockArea() > 100)
             this.outputText(
@@ -1627,9 +1627,9 @@ export class KihaFollower extends NPCAwareContent {
     }
 
     // \"<i>Warm</i>\"/Lover Kiha Intro
-    private warmLoverKihaIntro(output: boolean = true): void {
-        var campo = undefined;
-        var leave = this.camp.returnToCampUseOneHour;
+    private warmLoverKihaIntro(output = true): void {
+        let campo;
+        let leave = this.camp.returnToCampUseOneHour;
         if (output) {
             this.clearOutput();
             this.spriteSelect(72);
@@ -1706,7 +1706,7 @@ export class KihaFollower extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(72);
         // Hang Out 1
-        var select: number = KihaFollower.rand(3);
+        const select: number = KihaFollower.rand(3);
 
         if (select == 0) {
             this.outputText(
@@ -1906,17 +1906,17 @@ export class KihaFollower extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    private kihaSexMenu(display: boolean = true, allowBack: boolean = true): void {
+    private kihaSexMenu(display = true, allowBack = true): void {
         this.spriteSelect(72);
-        var gro = undefined;
-        var incu = undefined;
-        var tent = undefined;
-        var horse = undefined;
-        var anal = undefined;
-        var sixtyNine = undefined;
-        var dickWorship = undefined;
-        var fuckVag = undefined;
-        var dom = undefined;
+        let gro;
+        let incu;
+        let tent;
+        let horse;
+        let anal;
+        let sixtyNine;
+        let dickWorship;
+        let fuckVag;
+        let dom;
         // var backFunc = (allowBack ? this.kihaScene.encounterKiha : this.camp.returnToCampUseOneHour);
         if (display) this.outputText("\n");
         // REQUIRES CAMP FOLLOWER:
@@ -2028,9 +2028,9 @@ export class KihaFollower extends NPCAwareContent {
     private boneTheShitOutofKihaHolesWithHorsecock(): void {
         this.clearOutput();
         this.spriteSelect(72);
-        var c: number = this.player.cumQ();
-        var x: number = -1;
-        var y: number = -1;
+        const c: number = this.player.cumQ();
+        let x = -1;
+        let y = -1;
         // Find appropriately large horsecock
         if (this.player.horseCocks() > 0) {
             this.temp = this.player.cockTotal();
@@ -2121,7 +2121,7 @@ export class KihaFollower extends NPCAwareContent {
         if (this.player.cocks[x].cockType == CockTypesEnum.HORSE || this.player.isTaur())
             this.outputText("whinny ");
         else this.outputText("groan ");
-        var horse: boolean = false;
+        let horse = false;
         if (this.player.cocks[x].cockType == CockTypesEnum.HORSE || this.player.isTaur())
             horse = true;
         this.outputText("starts in your throat, but ");
@@ -2552,7 +2552,7 @@ export class KihaFollower extends NPCAwareContent {
     private kihaPlaysWithBigassCocksFemDomAhoy(): void {
         this.clearOutput();
         this.spriteSelect(72);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         // Works for swamp or camp!
         this.outputText(
             "You playfully approach the fiery cutey and pull her into a tight hug, your bodies molding together as one.  Kiha looks "
@@ -2756,7 +2756,7 @@ export class KihaFollower extends NPCAwareContent {
     private savinTheAnalForKiha(): void {
         this.clearOutput();
         this.spriteSelect(72);
-        var x: number = this.player.cockThatFits(94);
+        let x: number = this.player.cockThatFits(94);
         if (x < 0) x = 0;
         this.outputText(
             'Giving the dragoness a little grin, you slip around her half-furled wings and grab her big, soft butt. Kiha lets out a little gasp, then turns to glower at you, though you duck behind her massive wings and give her cheeks a little squeeze.  "<i>W-what do you think you\'re doing back there, doofus?</i>" Giving her a playful swat, you turn around, pressing your [chest] against '
@@ -3041,10 +3041,10 @@ export class KihaFollower extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(72);
         // {Requirements: 1 tentacle dick over 18 inches long.}
-        var x: number = -1;
-        var y: number = -1;
-        var z: number = -1;
-        var zz: number = -1;
+        let x = -1;
+        let y = -1;
+        let z = -1;
+        let zz = -1;
         this.temp = this.player.cockTotal();
         while (this.temp > 0) {
             this.temp--;
@@ -3491,7 +3491,7 @@ export class KihaFollower extends NPCAwareContent {
     public pcWinsDomFight(): void {
         this.clearOutput();
         this.spriteSelect(72);
-        var x: number = this.player.cockThatFits(67);
+        let x: number = this.player.cockThatFits(67);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             'Defeated, the Dragon-morph falls to the ground, her arm reaching out to the cool, dirty ground to soften her descent.  "<i>Hah... you win.  I guess I do have to be the bottom, then,</i>"  she says, with a wry smile. She whimpers, tossing her axe to the side as she weakly splays her legs, giving you ready access to do as you will with her.  Smirking, you remove your [armor] and '
@@ -3526,11 +3526,11 @@ export class KihaFollower extends NPCAwareContent {
             '[pg]Working your hands quickly into the fleeting gaps in her stranglehold, you capitalize on her distraction and wiggle out of her grip.  "<i>W-wha-?</i>" she tries to blather out, but her expression of dismay and confusion is cut off as you roughly flip her body over with your hands.  The air is filled briefly with a loud "<i>umph</i>" from your dragoness lover, and then a wail of surprise as you'
         );
 
-        var choices: any[] = [];
+        let choices: any[] = [];
         if (this.player.hasCock()) choices[choices.length] = 0;
         if (this.player.hasVagina()) choices[choices.length] = 1;
         choices[choices.length] = 2;
-        var select: number = choices[KihaFollower.rand(choices.length)];
+        let select: number = choices[KihaFollower.rand(choices.length)];
         // PC's cock is chosen/ has cock only:
         if (select == 0 || !this.player.hasVagina()) {
             this.outputText(

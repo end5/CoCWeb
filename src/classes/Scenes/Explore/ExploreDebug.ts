@@ -327,7 +327,7 @@ export class ExploreDebug extends BaseContent {
         },
     ];
 
-    private exploreDebugMonsters(monsterIdx: number = 0): void {
+    private exploreDebugMonsters(monsterIdx = 0): void {
         this.clearOutput();
         this.menu();
 
@@ -344,7 +344,7 @@ export class ExploreDebug extends BaseContent {
         if (monsterIdx >= this.allMonsters.length) {
             this.outputText("You have fought every monster.");
         } else {
-            var m: Monster = this.allMonsters[monsterIdx]();
+            const m: Monster = this.allMonsters[monsterIdx]();
             m.onDefeated = (hpVictory: boolean): void => {
                 this.getGame().inCombat = false;
                 this.getGame().clearStatuses(false);

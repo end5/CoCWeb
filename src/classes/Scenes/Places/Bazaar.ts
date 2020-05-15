@@ -115,10 +115,10 @@ export class Bazaar extends BaseContent {
     }
 
     // [Enter]
-    public enterTheBazaarAndMenu(demons: boolean = true): void {
+    public enterTheBazaarAndMenu(demons = true): void {
         this.outputText("", true);
-        var rat: string = "Rat";
-        var lilium2: string = "Demon";
+        let rat = "Rat";
+        let lilium2 = "Demon";
         if (
             this.model.time.hours >= 15 &&
             this.model.time.hours <= 20 &&
@@ -134,12 +134,12 @@ export class Bazaar extends BaseContent {
         this.outputText(
             "\n\nOne of the wagons proudly proclaims itself to be \"Greta's Garments,\" though both 'G's are emphasized with cute, stylized devil horns, and the 'S' is shaped in the form of a spaded, demonic tail.  Obviously it must some kind of clothing shop."
         );
-        var roxanne2 = this.roxanne.RoxanneAppearance();
-        var roxanneT: string = "Lizans";
-        var demon = undefined;
-        var tent;
-        var benoit2 = undefined;
-        var benoitT: string = "MarketStall";
+        const roxanne2 = this.roxanne.RoxanneAppearance();
+        let roxanneT = "Lizans";
+        let demon;
+
+        let benoit2;
+        let benoitT = "MarketStall";
         if (this.model.time.hours >= 9 && this.model.time.hours <= 17) {
             if (
                 (this.flags[kFLAGS.FEMOIT_NEXTDAY_EVENT_DONE] == 1 &&
@@ -161,7 +161,7 @@ export class Bazaar extends BaseContent {
                 benoit2 = this.benoit.benoitIntro;
             }
         }
-        tent = this.fapArena.fapArenaGOOOO;
+        const tent = this.fapArena.fapArenaGOOOO;
         this.fapArena.fapAppearance();
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00221] > 0) roxanneT = "Roxanne";
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00267] > 0) lilium2 = "Lilium";
@@ -182,7 +182,7 @@ export class Bazaar extends BaseContent {
             );
             demon = this.overHearDemonsAboutSyrena;
         }
-        var niamh = undefined;
+        let niamh;
         if (
             this.flags[kFLAGS.NIAMH_STATUS] > 0 &&
             this.flags[kFLAGS.NIAMH_MOVED_OUT_COUNTER] == -1
@@ -193,7 +193,7 @@ export class Bazaar extends BaseContent {
                 );
             niamh = this.getGame().telAdre.niamh.bazaarNiamh;
         }
-        /*[S. Squeeze] [][][] [Leave]
+        /* [S. Squeeze] [][][] [Leave]
         choices(benoitT,benoit,rat,cinnabarAppearance(),"GripingDemons",demon,lilium,LiliumText(false),"Niamh",niamh,roxanneT,roxanne,"S. Squeeze",theSlipperySqueeze,"Tent",tent,"",0,"Leave",13);*/
         this.menu();
         this.addButton(0, benoitT, benoit2);
@@ -225,8 +225,8 @@ export class Bazaar extends BaseContent {
                 " after so much walking, letting you loosen up and relax.  Incense burns on the counter, filling the air with strange, fragrant aromas that tickle at your nose.\n\n",
             false
         );
-        var androgyny = undefined;
-        var milker = undefined;
+        let androgyny;
+        let milker;
         // (First time desc:
         if (this.flags[kFLAGS.BAZAAR_SLIPPERY_SQUEEZE_VISITED] == 0) {
             this.flags[kFLAGS.BAZAAR_SLIPPERY_SQUEEZE_VISITED]++;
@@ -301,7 +301,7 @@ export class Bazaar extends BaseContent {
             this.player.hasKeyItem("Cock Milker - Installed At Whitney's Farm") < 0
         )
             milker = this.askJoeyAboutOffer;
-        // 	[Joey] [Sara] [][] [Leave]
+        //  [Joey] [Sara] [][] [Leave]
 
         // simpleChoices("JoeyMassage",joeyMassage,"Androgyny",androgyny,"Joey'sOffer",milker,"",0,"Leave",2855);
         this.menu();
@@ -1356,7 +1356,7 @@ export class Bazaar extends BaseContent {
         } else {
             this.outputText("\n\nWhich cock would you like to put it on?");
             this.temp = 0;
-            var button: number = 0;
+            let button = 0;
             this.menu();
             while (button < this.player.cockTotal()) {
                 if (this.player.cocks[button].sock == "")
@@ -1405,7 +1405,7 @@ export class Bazaar extends BaseContent {
     private yesPutDatSockOnMe(target: number): void {
         this.clearOutput();
 
-        var conflict: boolean = false;
+        let conflict = false;
 
         if (this.flags[kFLAGS.SOCK_HOLDING] == "amaranthine") this.player.gems -= 1000;
 
@@ -1497,7 +1497,7 @@ export class Bazaar extends BaseContent {
         this.outputText("Which cock-sock would you like to get removed?");
         // (display list of socked cocks)
         this.temp = 0;
-        var button: number = 0;
+        let button = 0;
         this.menu();
         while (button < this.player.cockTotal()) {
             if (this.player.cocks[button].sock != "")
@@ -1532,8 +1532,8 @@ export class Bazaar extends BaseContent {
             "\n\nYour dick rapidly deflates, and as it does so, the sock covering it falls off naturally.  The busty succubus gathers up the now-mundane sock and returns to her seat behind the counter."
         );
 
-        var storage: string = this.player.cocks[index].sock;
-        var extra: boolean = false;
+        const storage: string = this.player.cocks[index].sock;
+        let extra = false;
         this.player.cocks[index].sock = "";
         this.temp = this.player.cockTotal();
         while (this.temp > 0) {
@@ -1571,7 +1571,7 @@ export class Bazaar extends BaseContent {
         this.addButton(0, "Next", this.gretasGarments);
     }
 
-    /*At the Slippery Squeeze
+    /* At the Slippery Squeeze
     There's another option on the list, cheerfully presented with a pastel border and a little painted egg next to it.  'Sweet Massage' it says.  \"<i>That's our spring special,</i>\" Joey explains, \"<i>using our new chocolate-flavored massage oil.  It comes with a complimentary 'dessert.'</i>\"  He gives you a little wink at that last word, so you can be certain that it's no normal dessert.
     */
 
@@ -1608,7 +1608,7 @@ export class Bazaar extends BaseContent {
         this.addButton(1, "No", this.eggsInButt, false);
     }
 
-    private eggsInButt(eggButt: boolean = false): void {
+    private eggsInButt(eggButt = false): void {
         this.clearOutput();
         if (eggButt) {
             this.outputText(
@@ -2131,7 +2131,7 @@ export class Bazaar extends BaseContent {
     }
 
     // all options lead to here for now
-    private finalGayFinallee(road: number = 0): void {
+    private finalGayFinallee(road = 0): void {
         this.outputText(
             "\n\nWith a wet pop, the satyr pulls his spent manhood from your " +
                 this.assholeDescript() +

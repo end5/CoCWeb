@@ -10,15 +10,15 @@ import { Monster } from "../../../Monster";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class FetishZealot extends Monster {
-    private static RELIGIOUS_CLOTHES: string = "religious clothes";
-    private static PIRATE_CLOTHES: string = "pirate clothes";
-    private static MILITARY_CLOTHES: string = "military clothes";
-    private static LEATHER_CLOTHES: string = "leather clothes";
-    private static STUDENTS_CLOTHES: string = "student's clothes";
+    private static RELIGIOUS_CLOTHES = "religious clothes";
+    private static PIRATE_CLOTHES = "pirate clothes";
+    private static MILITARY_CLOTHES = "military clothes";
+    private static LEATHER_CLOTHES = "leather clothes";
+    private static STUDENTS_CLOTHES = "student's clothes";
 
     public combatRoundUpdate(): void {
         super.combatRoundUpdate();
-        var changed: boolean = false;
+        let changed = false;
         // Fetish Zealot Update!
         switch (FetishZealot.rand(5)) {
             case 0:

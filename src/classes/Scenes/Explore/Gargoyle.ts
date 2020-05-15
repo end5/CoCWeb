@@ -12,7 +12,7 @@ export class Gargoyle extends BaseContent {
     // const GAR_CATHEDRAL: number = 830;
     // const GAR_NAME_TALKS: number = 831;
 
-    private gargoyleConfidence(arg: number = 0): number {
+    private gargoyleConfidence(arg = 0): number {
         if (arg != 0) {
             this.flags[kFLAGS.GAR_CONFIDENCE] += arg;
             if (this.flags[kFLAGS.GAR_CONFIDENCE] > 100) this.flags[kFLAGS.GAR_CONFIDENCE] = 100;
@@ -343,7 +343,7 @@ export class Gargoyle extends BaseContent {
 
     // [i](Whenever the player returns to the Cathedral, play one of the following introductions, then the “Cathedral Interior” scenes. )[/i]
     // [b]Player Returns to the Cathedral A[/b]
-    public returnToCathedral(woken: boolean = false): void {
+    public returnToCathedral(woken = false): void {
         this.flags[kFLAGS.FOUND_CATHEDRAL] = 1;
         if (!woken) {
             this.clearOutput();
@@ -553,7 +553,7 @@ export class Gargoyle extends BaseContent {
     // no limits
     private gargoyleCoochiiGetsPlowed(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(60);
+        let x: number = this.player.cockThatFits(60);
         if (x < 0) x = this.player.smallestCockIndex();
 
         this.outputText(
@@ -1473,7 +1473,7 @@ export class Gargoyle extends BaseContent {
     }
 
     // [b]Talk[/b]
-    private talkToGargoyle(output: boolean = true): void {
+    private talkToGargoyle(output = true): void {
         if (output) {
             this.clearOutput();
             this.outputText(

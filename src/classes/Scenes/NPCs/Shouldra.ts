@@ -15,11 +15,12 @@ import { StatusAffects } from "../../StatusAffects";
 
 /**
  * ...
+ *
  * @author ...
  */
 export class Shouldra extends Monster {
     private shouldrattack(): void {
-        var damage: number = 0;
+        let damage = 0;
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         // Determine if dodged!
@@ -83,7 +84,7 @@ export class Shouldra extends Monster {
         }
         // everyone else
         else {
-            var choice: number = Shouldra.rand(3);
+            const choice: number = Shouldra.rand(3);
             // (regular attack 1)
             if (choice == 0)
                 this.outputText(
@@ -140,7 +141,7 @@ export class Shouldra extends Monster {
     }
     // (magic attack)
     private shouldraMagicLazers(): void {
-        var damage: number = this.player.takeDamage(20 + Shouldra.rand(10));
+        const damage: number = this.player.takeDamage(20 + Shouldra.rand(10));
         this.outputText(
             "Falling back a step, the girl raises a hand and casts a small spell. From her fingertips shoot four magic missiles that slam against your skin and cause a surprising amount of discomfort. (" +
                 damage +
@@ -151,7 +152,7 @@ export class Shouldra extends Monster {
     }
 
     protected performCombatAction(): void {
-        var attack: number = Shouldra.rand(3);
+        const attack: number = Shouldra.rand(3);
         if (attack == 0) this.shouldrattack();
         else if (attack == 1) this.shouldraLustAttack();
         else this.shouldraMagicLazers();

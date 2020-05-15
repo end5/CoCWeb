@@ -18,7 +18,7 @@ export class TentacleBeast extends Monster {
             "The shambling horror throws its tentacles at you with a murderous force.\n",
             false
         );
-        var temp: number = Math.floor(
+        let temp: number = Math.floor(
             this.str + this.weaponAttack - Math.random() * this.player.tou - this.player.armorDef
         );
         if (temp < 0) temp = 0;

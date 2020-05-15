@@ -28,7 +28,7 @@ export class Anemone extends Monster {
     }
 
     // Apply the effects of AnemoneVenom()
-    public applyVenom(str: number = 1): void {
+    public applyVenom(str = 1): void {
         // First application
         if (this.player.findStatusAffect(StatusAffects.AnemoneVenom) < 0)
             this.player.createStatusAffect(StatusAffects.AnemoneVenom, 0, 0, 0, 0);

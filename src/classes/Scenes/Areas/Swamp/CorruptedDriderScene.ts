@@ -27,7 +27,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.spriteSelect(77);
         this.outputText("", true);
         // Load monster stats so we can display things like eye/hide color!
-        var drider: CorruptedDrider = new CorruptedDrider();
+        const drider: CorruptedDrider = new CorruptedDrider();
         // First time
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00277] == 0) {
             this.outputText(
@@ -112,12 +112,12 @@ export class CorruptedDriderScene extends BaseContent {
             );
         this.outputText("  The spider-herm lies in a miserable, defeated heap.", false);
 
-        var buttFuckBUTTFUCKBUTTTFUCKBUTTFUCK = undefined;
+        let buttFuckBUTTFUCKBUTTTFUCKBUTTFUCK;
         if (this.player.cockThatFits(this.monster.analCapacity()) >= 0)
             buttFuckBUTTFUCKBUTTTFUCKBUTTFUCK = this.buttFuckADriderOhBaby;
-        var vagFuck = undefined;
-        var fuckSpinner = undefined;
-        var careful = undefined;
+        let vagFuck;
+        let fuckSpinner;
+        let careful;
         if (this.player.hasCock() && this.player.lust >= 33) {
             if (this.player.cockThatFits(this.monster.vaginalCapacity()) >= 0) {
                 this.outputText(
@@ -144,15 +144,15 @@ export class CorruptedDriderScene extends BaseContent {
                     false
                 );
         }
-        var rideCock = undefined;
-        var rideOvi = undefined;
-        var bikiniTits = undefined;
+        let rideCock;
+        let rideOvi;
+        let bikiniTits;
         if (
             this.player.hasVagina() &&
             this.player.biggestTitSize() >= 4 &&
             this.player.armor instanceof LustyMaidensArmor
         )
-            bikiniTits = (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri;
+            bikiniTits = this.player.armor.lustyMaidenPaizuri;
         if (this.player.hasVagina() && this.player.lust >= 33) {
             rideCock = this.winVSDriderTakeItsCockInCunt;
             rideOvi = this.victoryVSDriderRideOviVaginal;
@@ -161,7 +161,7 @@ export class CorruptedDriderScene extends BaseContent {
                 false
             );
         }
-        var rideOviAss = undefined;
+        let rideOviAss;
         if (this.player.lust >= 33) {
             this.outputText("\nYou could always ride her ovipositor anally...", false);
             rideOviAss = this.victoryVSDriderRideOviAnal;
@@ -199,7 +199,7 @@ export class CorruptedDriderScene extends BaseContent {
     public loseToDrider(): void {
         this.spriteSelect(77);
         // Build array of choices
-        var select: any[] = [];
+        const select: any[] = [];
         if (this.player.hasCock()) select[select.length] = 0;
         if (this.player.hasVagina()) select[select.length] = 1;
         // Genderless scene has low chance for gendered folks
@@ -210,7 +210,7 @@ export class CorruptedDriderScene extends BaseContent {
             select[select.length] = 2;
 
         // SELECT SCENE HERE
-        var choice: number = select[CorruptedDriderScene.rand(select.length)];
+        const choice: number = select[CorruptedDriderScene.rand(select.length)];
         // *Loss Ride Ovi Anal unsexed - gats (done)
         if (choice == 2) this.loseVSDriderGetAnalledOvi();
         // *Loss Vaginal Impregnation and forced BJ - Symphonie (done)
@@ -221,7 +221,7 @@ export class CorruptedDriderScene extends BaseContent {
 
     // *Victory Rape: PC Penis goes in Vagina (done)
     private winDriderPCDickInSpiderCunt(): void {
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        const x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         this.spriteSelect(77);
         this.outputText("", true);
         // *Summary: Fuck her cunt with a wang that fits it, lose control of the
@@ -617,7 +617,7 @@ export class CorruptedDriderScene extends BaseContent {
 
     // Part 2 of the above
     private winDriderPCDickInSpiderCunt2(): void {
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        const x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         this.spriteSelect(77);
         this.outputText("", true);
         this.outputText("<b>Sometime Later...</b>\n", false);
@@ -1145,7 +1145,7 @@ export class CorruptedDriderScene extends BaseContent {
             PregnancyStore.PREGNANCY_DRIDER_EGGS,
             PregnancyStore.INCUBATION_DRIDER - 200,
             10
-        ); //Butt pregnancy goes faster
+        ); // Butt pregnancy goes faster
         this.player.slimeFeed();
         this.player.orgasm();
         this.dynStats("cor", 0.5);
@@ -1157,7 +1157,7 @@ export class CorruptedDriderScene extends BaseContent {
     private victoryVSDriderStickDickInSpinneret(): void {
         this.spriteSelect(77);
         this.outputText("", true);
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         this.outputText(
             "Quickly shedding your " +
                 this.player.armorName +
@@ -1403,7 +1403,7 @@ export class CorruptedDriderScene extends BaseContent {
             PregnancyStore.PREGNANCY_DRIDER_EGGS,
             PregnancyStore.INCUBATION_DRIDER - 200,
             10
-        ); //Butt pregnancy goes faster
+        ); // Butt pregnancy goes faster
         // (slimefeed, set lust to 100?)
         this.player.slimeFeed();
         this.dynStats("sen", 1, "lus", 800, "cor", 1);
@@ -1652,7 +1652,7 @@ export class CorruptedDriderScene extends BaseContent {
 
     // *Loss Ride & Impregnate Butt (done)
     private loseVSDriderAndGetFuckedANDAnalImpreggegity(): void {
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        const x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         this.spriteSelect(77);
         // Poor males.  All the buttsexes. (yo this is an actual paragraph of the game text right)
         this.outputText("", true);
@@ -1797,7 +1797,7 @@ export class CorruptedDriderScene extends BaseContent {
             PregnancyStore.PREGNANCY_DRIDER_EGGS,
             PregnancyStore.INCUBATION_DRIDER - 200,
             10
-        ); //Butt pregnancy goes faster
+        ); // Butt pregnancy goes faster
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1, "cor", 0.5);
         this.cleanupAfterCombat();
@@ -1964,7 +1964,7 @@ export class CorruptedDriderScene extends BaseContent {
 
     // Win Drider Male Anal (OH BABY)
     private buttFuckADriderOhBaby(): void {
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        const x: number = this.player.cockThatFits(this.monster.analCapacity());
         this.spriteSelect(77);
         this.outputText("", true);
         this.outputText(
@@ -2031,9 +2031,9 @@ export class CorruptedDriderScene extends BaseContent {
         // Drider Non-reverse Rape
         // Requires a cock that fits and either a spider/drider abdomen or a bundle of tough spider silk
         // Radar (completely correctly) said it was too rapey, so I tried to tone it down.  Let me know if it's still over the top.
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = x + 1;
+        const y: number = x + 1;
 
         this.outputText(
             "You keep your distance from the downed spidermorph, still wary of her dripping, toxin-coated lips despite her weakened state and your own rising desire to breed her.  Trailing your eyes over her sweaty, splayed body you feel a familiar rush below the belt, your hardening [cock " +
@@ -2087,9 +2087,9 @@ export class CorruptedDriderScene extends BaseContent {
 
     private driderTiedUpPartTwo(useItem: boolean): void {
         this.spriteSelect(77);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = x + 1;
+        const y: number = x + 1;
         if (useItem) {
             this.clearOutput();
             this.player.consumeItem(this.useables.T_SSILK);
@@ -2162,9 +2162,9 @@ export class CorruptedDriderScene extends BaseContent {
 
     private driderTiedUpPartThree(): void {
         this.spriteSelect(77);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = x + 1;
+        const y: number = x + 1;
         this.clearOutput();
         this.outputText(
             "The drider seems to be completely oblivious, apparently too focused on ignoring your hand still roaming over her chest to realize your intentions.  You start to prepare the ball of silk with one hand, keeping the other on her chest to distract her from your actions.  You notice that the silk is starting to glisten slightly as the juices on your hand begin to stain the material and the sight gives you a devious idea.  Wrapping the strands around your hand, you dip it down in between your bodies, trying to absorb as much pre-cum as possible.  You run it over your slick stomach, as well as the small of the spider-taur's back, making her squeak slightly at the strange, wet sensation.  As you brush the dampening sheet over your still-leaking length, you have to choke back a moan as the soft, slick, sticky silk sticks slightly to your [cock " +
@@ -2264,9 +2264,9 @@ export class CorruptedDriderScene extends BaseContent {
 
     private driderTiedUpPartFour(): void {
         this.spriteSelect(77);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = x + 1;
+        const y: number = x + 1;
         this.clearOutput();
         this.outputText(
             "Grabbing the drider by her shoulders, you find the girl surprisingly light despite your weakened state.  Swiftly dragging her through the shallow water to a patch of firmer ground, you prop her up against a web-covered tree before recovering your gear.  She mumbles slightly whilst you redress yourself; it looks like she's going to be out of it for a while.  "

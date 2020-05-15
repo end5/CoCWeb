@@ -161,7 +161,7 @@ export class Farm extends BaseContent {
     }
 
     // [YES]
-    private whitneyMilkerHookup(breast: boolean = true): void {
+    private whitneyMilkerHookup(breast = true): void {
         this.spriteSelect(62);
         this.outputText(
             'Whitney takes the gear back to her farm after promising to have it working within the hour.  She did leave you with a cryptic warning to "<i>leave the milkings to the beasts, lest you become one</i>.</i>"\n\nYou shrug and head back to check up on camp.',
@@ -562,7 +562,7 @@ export class Farm extends BaseContent {
     }
 
     public workFarm(): void {
-        var marbling: number = 0;
+        let marbling = 0;
         this.outputText("", true);
         // In withdrawl odds are higher.
         if (
@@ -671,8 +671,8 @@ export class Farm extends BaseContent {
             false
         );
         // (75% chance normal pepper, 25% chance \"<i>rare</i>\" pepper)
-        var pepper: number = Farm.rand(4);
-        var itype: ItemType;
+        const pepper: number = Farm.rand(4);
+        let itype: ItemType;
         if (pepper <= 2) itype = this.consumables.CANINEP;
         else {
             this.temp = Farm.rand(5);
@@ -692,7 +692,7 @@ export class Farm extends BaseContent {
     }
 
     public meetMarble(): void {
-        var marbling: number = 0;
+        let marbling = 0;
         // Pre-addiction events(explore events take 1 hour, working ones take 3)
         if (this.player.statusAffectv3(StatusAffects.Marble) == 0) {
             // Meet Marble while exploring version 1 (can occur anytime before the player becomes addicted):
@@ -727,7 +727,7 @@ export class Farm extends BaseContent {
 
     public exploreFarm(): void {
         // var marbling: number = 0;
-        var explore: number = 0;
+        let explore = 0;
 
         // Marble after-rape
         if (
@@ -906,7 +906,7 @@ export class Farm extends BaseContent {
     }
 
     public getMilked(): void {
-        /*MILK YOU TIT-PUMPZ ONLY
+        /* MILK YOU TIT-PUMPZ ONLY
         (Milk production TOTAL= breastSize x 10 * lactationMultiplier * breast total * milking-endurance (1- default, maxes at 2.  Builds over time as milking as done)
         (Small – 0.01 mLs – Size 1 + 1 Multi)
         (Large – 0.8 - Size 10 + 4 Multi)
@@ -991,7 +991,7 @@ export class Farm extends BaseContent {
                 false
             );
         }
-        var application: number = Farm.rand(3);
+        let application: number = Farm.rand(3);
         // Super huge nips scene
         if (this.player.nippleLength == 3 && Farm.rand(2) == 0) application = 3;
         // Apply
@@ -1070,7 +1070,7 @@ export class Farm extends BaseContent {
         // < 250 'good' output
         // < 750 'high' output
         // ELSE milk overload
-        var milksplosion: number = Farm.rand(3);
+        let milksplosion: number = Farm.rand(3);
         // Lightish (+15 lust)
         if (this.player.lactationQ() < 50) {
             this.dynStats("lus", 15);
@@ -1126,7 +1126,7 @@ export class Farm extends BaseContent {
                     false
                 );
             }
-            ////Medium 2
+            /// /Medium 2
             if (milksplosion == 1) {
                 this.outputText(
                     "A tight stream of milk erupts from your " +
@@ -1226,9 +1226,9 @@ export class Farm extends BaseContent {
         }
         // Aftermaths
         // Set temp to liter amount produced.
-        var liters: number = 0;
-        var payout: number = 0;
-        var cap: number = 500;
+        let liters = 0;
+        let payout = 0;
+        let cap = 500;
         // Ez mode cap doubles
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) cap *= 2;
         if (this.debug) {
@@ -1342,7 +1342,7 @@ export class Farm extends BaseContent {
     }
 
     public cockPumping(): void {
-        var cumQ: number = (this.player.cumQ() * (Farm.rand(10) + 90)) / 100;
+        let cumQ: number = (this.player.cumQ() * (Farm.rand(10) + 90)) / 100;
         this.outputText("", true);
         // First time barn entrance
         if (this.player.findStatusAffect(StatusAffects.CockPumped) < 0) {
@@ -1865,8 +1865,8 @@ export class Farm extends BaseContent {
         );
 
         // Set temp to liter amount produced.
-        var payout: number = 0;
-        var cap: number = 500;
+        let payout = 0;
+        let cap = 500;
         // Ez mode cap doubles
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) cap *= 2;
         if (this.debug) {
@@ -1910,7 +1910,7 @@ export class Farm extends BaseContent {
             this.statScreenRefresh();
         }
         if (this.player.countCockSocks("gilded") > 0) {
-            var gems: number = Farm.rand(2) + this.player.countCockSocks("gilded");
+            let gems: number = Farm.rand(2) + this.player.countCockSocks("gilded");
 
             if (this.player.cumQ() > 1000) gems *= 1.5;
 
@@ -1977,7 +1977,7 @@ export class Farm extends BaseContent {
         this.getGame().gameOver();
     }
     private milkerBadEnd1(): void {
-        var cumQ: number = this.player.cumQ();
+        const cumQ: number = this.player.cumQ();
         this.outputText("", true);
         this.outputText(
             "As you roll onto your back the machine delivers an encore performance on your swollen " +
@@ -2021,8 +2021,8 @@ export class Farm extends BaseContent {
             " reaches your ears as your second deposit is massed, but your attention is drawn to the new tube",
             false
         );
-        ///(if vag/nipplecunts/lactation)
-        var tubes: boolean = false;
+        /// (if vag/nipplecunts/lactation)
+        let tubes = false;
         if (
             this.player.hasVagina() ||
             this.player.hasFuckableNipples() ||

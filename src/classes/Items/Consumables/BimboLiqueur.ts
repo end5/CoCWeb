@@ -257,7 +257,7 @@ export class BimboLiqueur extends Consumable {
                 this.game.player.createPerk(PerkLib.BimboBody, 0, 0, 0, 0);
             }
             if (this.game.player.findPerk(PerkLib.BimboBrains) < 0) {
-                this.outputText("(Bimbo Brains - Perk Gained!)\n"); //int to 20.  max int 50)
+                this.outputText("(Bimbo Brains - Perk Gained!)\n"); // int to 20.  max int 50)
                 this.game.player.createPerk(PerkLib.BimboBrains, 0, 0, 0, 0);
                 if (this.game.player.inte > 21) this.game.player.inte = 21;
             }

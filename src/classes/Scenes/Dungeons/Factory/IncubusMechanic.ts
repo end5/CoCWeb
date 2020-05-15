@@ -75,7 +75,7 @@ export class IncubusMechanic extends Monster {
                 this.outputText(
                     "  Now would be the perfect opportunity to put his tool to use...\n\nWhat do you do?"
                 );
-                var titfuck = undefined;
+                let titfuck;
                 if (
                     this.player.hasVagina() &&
                     this.player.biggestTitSize() >= 4 &&
@@ -207,7 +207,7 @@ export class IncubusMechanic extends Monster {
         );
         this.outputText("You do your best to dodge, but some still lands on your ");
         switch (IncubusMechanic.rand(3)) {
-            case 0: //Face
+            case 0: // Face
                 this.outputText(
                     "face.  The gooey demon-seed oozes and slides over you with a mind of its own, forcing its way into your mouth and nose!  You can feel it moving around inside you, doing its best to prepare you for its master."
                 );
@@ -217,7 +217,7 @@ export class IncubusMechanic extends Monster {
                 else this.player.addStatusValue(StatusAffects.DemonSeed, 1, 7);
                 this.player.slimeFeed();
                 break;
-            case 1: //Chest
+            case 1: // Chest
                 if (this.player.hasFuckableNipples()) {
                     this.outputText(
                         this.allBreastsDescript() +

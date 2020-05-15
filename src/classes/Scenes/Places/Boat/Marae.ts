@@ -31,7 +31,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 }
             }
             if (this.flags[kFLAGS.HOLLI_FUCKED_TODAY] == 1)
-                this.flags[kFLAGS.HOLLI_FUCKED_TODAY] = 0; //Holli Fuck Tracking
+                this.flags[kFLAGS.HOLLI_FUCKED_TODAY] = 0; // Holli Fuck Tracking
         }
         return false;
     }
@@ -593,7 +593,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
         this.outputText(
-            ".  The old dinghy's cutting through the water with amazing speed, leaving foot-high waves in its wake.  Marae's island grows larger with each passing second, almost taunting you with your inability to get away.   By now the root-like vines have crept over the gunwales, and they wriggle at you, seemingly in warning.  Getting in the water is definitely not a good idea right now.	The bone-chilling scrape of sand on wood grates at your ears.  You've arrived.  There's no point in putting off the inevitable.  You straighten up your " +
+            ".  The old dinghy's cutting through the water with amazing speed, leaving foot-high waves in its wake.  Marae's island grows larger with each passing second, almost taunting you with your inability to get away.   By now the root-like vines have crept over the gunwales, and they wriggle at you, seemingly in warning.  Getting in the water is definitely not a good idea right now. The bone-chilling scrape of sand on wood grates at your ears.  You've arrived.  There's no point in putting off the inevitable.  You straighten up your " +
                 this.player.armorName,
             false
         );

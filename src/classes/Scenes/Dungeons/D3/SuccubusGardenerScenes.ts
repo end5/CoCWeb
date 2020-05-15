@@ -6,12 +6,13 @@ import { SKIN_TYPE_FUR } from "../../../../includes/appearanceDefs";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class SuccubusGardenerScenes extends BaseContent {
-    private GARDENER_LEFT: number = 1;
+    private GARDENER_LEFT = 1;
     // private GARDENER_FUCKED: number = 2;
-    private GARDENER_KILLED: number = 3;
+    private GARDENER_KILLED = 3;
 
     public gardenerDefeated(): boolean {
         if (this.flags[kFLAGS.D3_GARDENER_DEFEATED] > 0) return true;
@@ -105,7 +106,7 @@ export class SuccubusGardenerScenes extends BaseContent {
             else this.outputText(" How long were they preparing this for you?");
         }
 
-        var createdVag: boolean = false;
+        let createdVag = false;
         if (!this.player.hasCock() && !this.player.hasVagina()) {
             // Genderless
             this.outputText(
@@ -290,7 +291,7 @@ export class SuccubusGardenerScenes extends BaseContent {
         this.cleanupAfterCombat(this.getGame().d3.resumeFromFight);
     }
 
-    public surrenderToTheGardener(hpVictory: boolean = false): void {
+    public surrenderToTheGardener(hpVictory = false): void {
         // Male
         if (this.player.hasCock() && !this.player.hasVagina()) {
             this.maleLoss(hpVictory);

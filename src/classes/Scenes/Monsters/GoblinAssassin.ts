@@ -14,8 +14,8 @@ import { StatusAffects } from "../../StatusAffects";
 
 export class GoblinAssassin extends Monster {
     protected goblinDrugAttack(): void {
-        var temp2: number = GoblinAssassin.rand(5);
-        var color: string = "";
+        const temp2: number = GoblinAssassin.rand(5);
+        let color = "";
         if (temp2 == 0) color = "red";
         if (temp2 == 1) color = "green";
         if (temp2 == 2) color = "blue";
@@ -135,7 +135,7 @@ export class GoblinAssassin extends Monster {
                 "\nBefore you can do anything to stop her, she lifts her head and takes a swift lick of your crotch, taking a small moan from you and giving her enough time to stab into the back of your knees. She rolls out of the way just as you pluck the two needles out and throw them back to the ground. They didn’t seem to have anything in them, but the pain is enough to make you stagger."
             );
             // (Medium HP loss, small lust gain)
-            var damage: number = Math.floor(
+            let damage: number = Math.floor(
                 this.str +
                     this.weaponAttack +
                     40 -
@@ -156,7 +156,7 @@ export class GoblinAssassin extends Monster {
             "\nYou shield yourself from the explosion, though the goblin has already lit a second needle which she throws behind you, launching your body forwards as it explodes behind your back. "
         );
         // (High HP loss, no lust gain)
-        var damage: number = 25 + GoblinAssassin.rand(75);
+        let damage: number = 25 + GoblinAssassin.rand(75);
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")");
         this.combatRoundOver();
@@ -175,7 +175,7 @@ export class GoblinAssassin extends Monster {
             this.game.goblinAssassinScene.gobboAssassinBeatYaUp();
         }
     }
-    public constructor(noInit: boolean = false) {
+    public constructor(noInit = false) {
         super();
         if (noInit) return;
         this.a = "the ";
@@ -220,7 +220,7 @@ export class GoblinAssassin extends Monster {
     }
 
     protected performCombatAction(): void {
-        var actions: any[] = [
+        const actions: any[] = [
             this.eAttack,
             this.goblinDrugAttack,
             this.lustNeedle,

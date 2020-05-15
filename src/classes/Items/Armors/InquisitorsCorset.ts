@@ -49,7 +49,7 @@ export class InquisitorsCorset extends Armor {
                     this.game.player.buttDescript() +
                     " rises with their influence."
             );
-        ///(else if PC has funny feet)
+        /// (else if PC has funny feet)
         else
             this.outputText(
                 "The final bit of the outfit is a pair of long-heeled lace-up boots, which, though decorated with gorgeous golden symbols spelling out what appears to be a hymn to sex, seem... relatively unusable in your current state.  You tuck them away someplace safe in case you ever become a biped again, then stand to your full height and assess yourself."

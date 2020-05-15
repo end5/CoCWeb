@@ -504,7 +504,7 @@ export class SophieFollowerScene extends NPCAwareContent {
     }
 
     private eggSelector(): void {
-        for (var i: number = 0; i < this.eggColors.length; i++) {
+        for (let i = 0; i < this.eggColors.length; i++) {
             this.addButton(i, this.eggColors[i], this.postEggSelector, this.eggColors[i]);
         }
     }
@@ -716,9 +716,9 @@ export class SophieFollowerScene extends NPCAwareContent {
     // vaginal Fuck*
     // Needs some mods for when she's in season!
     private fuckFollowerSophie(): void {
-        var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
-        var y: number = this.player.cockThatFits2(this.sophieBimbo.sophieCapacity());
+        const y: number = this.player.cockThatFits2(this.sophieBimbo.sophieCapacity());
         this.clearOutput();
         // In season intro
         if (this.sophieBimbo.sophieIsInSeason()) {
@@ -875,7 +875,7 @@ export class SophieFollowerScene extends NPCAwareContent {
     // [Next]
     private sophieVagFollowerFollowup(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         // var y: number = this.player.cockThatFits2(this.sophieBimbo.sophieCapacity());
 
@@ -897,7 +897,7 @@ export class SophieFollowerScene extends NPCAwareContent {
     // Sucking dicks.
     private sophieFollowerGivesBlowjobs(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
 
         this.outputText(
@@ -928,7 +928,7 @@ export class SophieFollowerScene extends NPCAwareContent {
 
     // Blow Sixtynine*
     private sophieBlowsSixtyNine(): void {
-        var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.outputText(
@@ -1065,7 +1065,7 @@ export class SophieFollowerScene extends NPCAwareContent {
 
     // Forceful Blowjob*
     private forceSophieBlowjob(): void {
-        var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         // Increments a displeasure counter - doing enough of these causes her to leave in the night if it gets too high.
@@ -1220,7 +1220,7 @@ export class SophieFollowerScene extends NPCAwareContent {
     // Sophie Teases Small Dicks In The Morning*
     // No toggles.  If you have a small penis you deserve the small penis femdom.
     public sophieSmallDongTeases(): void {
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         this.outputText("\n<b><u>As you're waking up that morning...</u></b>");
         this.outputText(
             "\nTingly warmth envelops your [oneCock] with supple, soft sensation, wrapping it up tight in pulsing warmth.  A slippery protrusion slithers around your girth, tickling at your [sheath]"
@@ -1416,7 +1416,7 @@ export class SophieFollowerScene extends NPCAwareContent {
     // [special]
     private sophieSpecial(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
+        const x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) this.player.smallestCockIndex();
         this.outputText(
             "\"<i>Ahhh, so you do want a bit of Momma Sophie's special treatment... such a brave " +
@@ -1720,7 +1720,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.doNext(this.playerMenu);
     }
 
-    /*Sophie daughter incest.  scenes
+    /* Sophie daughter incest.  scenes
     vaginal, maybe anal.
     daughter 1: Big soft, sensitive lips, very large breasts.
     daughter 2: Huge round ass, very long feathers
@@ -1747,7 +1747,7 @@ export class SophieFollowerScene extends NPCAwareContent {
             "The curvy girl smiles at you, her eyes bright and attentive, positively sparkling with the taboo affection she holds for her beloved daddy.  Smirking to her you give her an appraising look, your eyes wandering up and down her beautiful womanly body."
         );
 
-        var daughterCap: number = this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT];
+        let daughterCap: number = this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT];
         if (daughterCap > 4) daughterCap = 4;
         daughterCap = SophieFollowerScene.rand(daughterCap);
 
@@ -1936,7 +1936,7 @@ export class SophieFollowerScene extends NPCAwareContent {
 
     private phaseTwoOfIncest(daughter: number): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
+        let x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         daughter++;
         this.outputText(
@@ -1984,7 +1984,7 @@ export class SophieFollowerScene extends NPCAwareContent {
                 " achingly hard and ready for your fuck-hungry daughter.  The mass of masculine flesh throbs with your arousal, the insatiable organ longing to be sheathed within the welcoming depths of your daughter's soaking cunt, her tight, velvety folds ready to accept your potent, virile essence."
         );
 
-        var bimbo = false;
+        let bimbo = false;
         if (
             this.flags[kFLAGS.DAUGHTER_FOUR_BIMBO] > 0 &&
             this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0

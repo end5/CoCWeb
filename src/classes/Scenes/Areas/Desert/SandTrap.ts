@@ -44,7 +44,7 @@ export class SandTrap extends Monster {
         // combatRoundOver();
     }
 
-    public trapLevel(adjustment: number = 0): number {
+    public trapLevel(adjustment = 0): number {
         if (this.findStatusAffect(StatusAffects.Level) < 0)
             this.createStatusAffect(StatusAffects.Level, 4, 0, 0, 0);
         if (adjustment != 0) {
@@ -73,7 +73,7 @@ export class SandTrap extends Monster {
                 "  Moving artfully with the flow rather than against it, you are able to avoid the trap's fluids, which splash harmlessly into the dune."
             );
         } else {
-            var damage: number = 10 + this.player.lib / 10;
+            let damage: number = 10 + this.player.lib / 10;
             this.outputText(
                 "  Despite ducking away from the jet of fluid as best you can, you cannot avoid some of the stuff splashing upon your arms and face.  The substance feels oddly warm and oily, and though you quickly try to wipe it off it sticks resolutely to your skin and the smell hits your nose.  Your heart begins to beat faster as warmth radiates out from it; you feel languid, light-headed and sensual, eager to be touched and led by the hand to a sandy bed...  Shaking your head, you try to stifle what the foreign pheromones are making you feel."
             );

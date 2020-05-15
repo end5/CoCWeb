@@ -13,14 +13,14 @@ import { Consumable } from "../Consumable";
  */
 
 export class BeeHoney extends Consumable {
-    private static PURE_HONEY_VALUE: number = 40;
-    private static SPECIAL_HONEY_VALUE: number = 20;
+    private static PURE_HONEY_VALUE = 40;
+    private static SPECIAL_HONEY_VALUE = 20;
 
     public constructor(pure: boolean, special: boolean) {
-        var honeyName: string;
-        var honeyLong: string;
-        var honeyDesc: string;
-        var honeyValue: number;
+        let honeyName: string;
+        let honeyLong: string;
+        let honeyDesc: string;
+        let honeyValue: number;
         if (special) {
             honeyName = "SpHoney";
             honeyLong = "a bottle of special bee honey";
@@ -56,11 +56,11 @@ export class BeeHoney extends Consumable {
     }
 
     public useItem(): boolean {
-        var player: Player = this.getGame().player;
-        var pure: boolean = this.value == BeeHoney.PURE_HONEY_VALUE;
-        var special: boolean = this.value == BeeHoney.SPECIAL_HONEY_VALUE;
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        const player: Player = this.getGame().player;
+        const pure: boolean = this.value == BeeHoney.PURE_HONEY_VALUE;
+        const special: boolean = this.value == BeeHoney.SPECIAL_HONEY_VALUE;
+        let changes = 0;
+        let changeLimit = 1;
         this.clearOutput();
         player.slimeFeed();
         // Chances of boosting the change limit.
@@ -98,7 +98,7 @@ export class BeeHoney extends Consumable {
                 );
             }
             this.getGame().flags[kFLAGS.PREGNANCY_CORRUPTION]--;
-            if (pure) return false; //No transformative effects for the player because the pure honey was absorbed by the baby - Special honey will keep on giving
+            if (pure) return false; // No transformative effects for the player because the pure honey was absorbed by the baby - Special honey will keep on giving
         }
         // Corruption reduction
         if (changes < changeLimit && pure) {
@@ -253,8 +253,8 @@ export class BeeHoney extends Consumable {
             else this.outputText("breast.");
             changes++;
             // Loop through and reset nipples
-            for (var temp: number = 0; temp < player.breastRows.length; temp++) {
-                player.breastRows[temp].nipplesPerBreast = 1;
+            for (const breastRow of player.breastRows) {
+                breastRow.nipplesPerBreast = 1;
             }
         }
         // Gain oviposition!
@@ -386,7 +386,7 @@ export class BeeHoney extends Consumable {
                 player.cocks[0].cockThickness = 2;
                 this.getGame().dynStats("sen", 10);
             } else if (player.cocks.length > 1) {
-                var biggest: number = player.biggestCockIndex();
+                const biggest: number = player.biggestCockIndex();
                 this.outputText(
                     "\n\nThe effects of the honey move towards your groin, and into your " +
                         player.multiCockDescriptLight() +
@@ -423,8 +423,8 @@ export class BeeHoney extends Consumable {
                         "Your member is now simply huge, you wonder what in the world could actually take your massive size now?"
                     );
                 this.outputText("</b>");
-                player.cocks[0].cockLength += Utils.rand(3) + 4; //4 to 6 inches in length
-                player.cocks[0].cockThickness += 0.1 * Utils.rand(5) + 0.5; //0.5 to 1 inches in thickness
+                player.cocks[0].cockLength += Utils.rand(3) + 4; // 4 to 6 inches in length
+                player.cocks[0].cockThickness += 0.1 * Utils.rand(5) + 0.5; // 0.5 to 1 inches in thickness
                 this.getGame().dynStats("sen", 5);
             } else if (
                 player.cocks[0].cockType != CockTypesEnum.BEE &&
@@ -461,8 +461,8 @@ export class BeeHoney extends Consumable {
                 this.outputText(
                     "\n\nYour mind feels surprisingly clear of the twisted thoughts that have plagued it as of late, but you find yourself feeling more and more aroused than usual."
                 );
-                var corLoss: number = Math.min(0.1 * player.cor + 5, player.cor);
-                this.getGame().dynStats("cor", -corLoss, "lib", corLoss); //Lose corruption and gains that much libido
+                const corLoss: number = Math.min(0.1 * player.cor + 5, player.cor);
+                this.getGame().dynStats("cor", -corLoss, "lib", corLoss); // Lose corruption and gains that much libido
             } else {
                 this.outputText(
                     "\n\nYou find your mind is drifting to the thought of using your member to fertilize hundreds and hundreds of eggs every day.  You shake your head, the bizarre fantasy catching you completely off guard."

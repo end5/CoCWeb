@@ -24,15 +24,15 @@ import { BeeGirl } from "./BeeGirl";
  */
 
 export class BeeGirlScene extends BaseContent {
-    private static BEE_GIRL_CONVERSATION: number = 0x7fff0000; //Used to track conversations when the player is a female bee morph (Highest bit is for the bad end warning)
-    private static BEE_GIRL_ATTITUDE: number = 0x0000ffff;
-    private static BEE_GIRL_TALKED: number = 1; //Replaces the old bee progress flag
-    private static BEE_GIRL_TALKED_AND_LEFT: number = 2; //Refusing to take her eggs leads to conversation
-    private static BEE_GIRL_TALKED_AND_LEFT_TWICE: number = 3;
-    private static BEE_GIRL_PLAYER_AFRAID: number = 4;
-    private static BEE_GIRL_PLAYER_VOLUNTARY_EGGING: number = 5; //End of the afraid chain, from now on player gets egged when they meet her
-    private static BEE_GIRL_PLAYER_DISGUSTED: number = 6;
-    private static BEE_GIRL_PLAYER_DUTY: number = 7;
+    private static BEE_GIRL_CONVERSATION = 0x7fff0000; // Used to track conversations when the player is a female bee morph (Highest bit is for the bad end warning)
+    private static BEE_GIRL_ATTITUDE = 0x0000ffff;
+    private static BEE_GIRL_TALKED = 1; // Replaces the old bee progress flag
+    private static BEE_GIRL_TALKED_AND_LEFT = 2; // Refusing to take her eggs leads to conversation
+    private static BEE_GIRL_TALKED_AND_LEFT_TWICE = 3;
+    private static BEE_GIRL_PLAYER_AFRAID = 4;
+    private static BEE_GIRL_PLAYER_VOLUNTARY_EGGING = 5; // End of the afraid chain, from now on player gets egged when they meet her
+    private static BEE_GIRL_PLAYER_DISGUSTED = 6;
+    private static BEE_GIRL_PLAYER_DUTY = 7;
 
     public BeeGirlScene() {}
 
@@ -105,7 +105,7 @@ export class BeeGirlScene extends BaseContent {
         else this.beeEncounterSelect(false);
     }
 
-    private beeEncounterSelect(clearScreen: boolean = true): void {
+    private beeEncounterSelect(clearScreen = true): void {
         if (clearScreen) this.clearOutput();
         this.spriteSelect(6);
         // Bee appears!
@@ -129,7 +129,7 @@ export class BeeGirlScene extends BaseContent {
             this.beeEncounterWithWorms();
             return;
         }
-        var isBeeMorph: boolean = this.player.race() == "bee-morph";
+        const isBeeMorph: boolean = this.player.race() == "bee-morph";
         if (
             this.player.hasCock() &&
             (this.player.cockArea(0) >= 50 ||
@@ -316,7 +316,7 @@ export class BeeGirlScene extends BaseContent {
                 this.player.armorName +
                 " as you recover from the sensation overload of her kiss.\n\n"
         );
-        var cockIndex: number = this.player.cockThatFits(50);
+        const cockIndex: number = this.player.cockThatFits(50);
         if (cockIndex >= 0) {
             if (this.player.hasVagina()) {
                 this.outputText(
@@ -526,7 +526,7 @@ export class BeeGirlScene extends BaseContent {
         this.outputText(
             "  Shortly after, you feel her bee seed start to flow inside your bowels.  Soon, lumps that must be her eggs accompany the seed.\n\n"
         );
-        var cockIndex: number = this.player.cockThatFits(50);
+        const cockIndex: number = this.player.cockThatFits(50);
         if (cockIndex >= 0) {
             this.outputText(
                 "Left wanting a bit more pleasure, you lift up the bee girl, and gently lower her onto your waiting " +
@@ -741,9 +741,7 @@ export class BeeGirlScene extends BaseContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    private beeEncounterSheBeatsYouRegularlyAndYouLetHerLaysEggs(
-        clearScreen: boolean = true
-    ): void {
+    private beeEncounterSheBeatsYouRegularlyAndYouLetHerLaysEggs(clearScreen = true): void {
         if (clearScreen) this.clearOutput();
         else this.outputText("\n\n");
         this.spriteSelect(6);
@@ -830,7 +828,7 @@ export class BeeGirlScene extends BaseContent {
                 PregnancyStore.INCUBATION_BEE,
                 1,
                 1
-            ); //Anal bee pregnancy!
+            ); // Anal bee pregnancy!
         this.player.buttChange(25, true);
         this.doNext(this.camp.returnToCampUseFourHours);
     }
@@ -908,24 +906,24 @@ export class BeeGirlScene extends BaseContent {
         this.startCombat(new BeeGirl());
     }
 
-    private beeEncounterClassic(clearScreen: boolean = true): void {
+    private beeEncounterClassic(clearScreen = true): void {
         if (clearScreen) this.clearOutput();
         if (
             this.attitude == BeeGirlScene.BEE_GIRL_TALKED_AND_LEFT ||
             this.attitude == BeeGirlScene.BEE_GIRL_TALKED_AND_LEFT_TWICE
         )
-            this.attitude = BeeGirlScene.BEE_GIRL_TALKED; //Reset your friendly conversation path if autorape or accepted
+            this.attitude = BeeGirlScene.BEE_GIRL_TALKED; // Reset your friendly conversation path if autorape or accepted
         this.beeEncounterClassicSex(false);
     }
 
-    private beeEncounterClassicSex(postCombat: boolean = true): void {
+    private beeEncounterClassicSex(postCombat = true): void {
         this.spriteSelect(6);
         // Give into the beeee
         if (
             this.attitude == BeeGirlScene.BEE_GIRL_TALKED_AND_LEFT ||
             this.attitude == BeeGirlScene.BEE_GIRL_TALKED_AND_LEFT_TWICE
         )
-            this.attitude = BeeGirlScene.BEE_GIRL_TALKED; //Reset your friendly conversation path if autorape or accepted
+            this.attitude = BeeGirlScene.BEE_GIRL_TALKED; // Reset your friendly conversation path if autorape or accepted
         // TAUR SPECIAL!
         if (this.player.isTaur()) {
             this.outputText(
@@ -1519,15 +1517,15 @@ export class BeeGirlScene extends BaseContent {
         else this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    public beeSexForCocks(clearScreen: boolean = true): void {
+    public beeSexForCocks(clearScreen = true): void {
         if (clearScreen) this.clearOutput();
         this.spriteSelect(6);
         if (this.badEndWarning == true && BeeGirlScene.rand(2) == 0) {
             this.beeDroneBadEnd();
             return;
         }
-        var giantCockIndex: number = -1;
-        for (var x: number = 0; x < this.player.cocks.length; x++) {
+        let giantCockIndex = -1;
+        for (let x = 0; x < this.player.cocks.length; x++) {
             if (this.player.cocks[x].cockLength < 24 || this.player.cocks[x].cArea() < 100)
                 continue;
             giantCockIndex = x;
@@ -1628,7 +1626,7 @@ export class BeeGirlScene extends BaseContent {
             this.outputText(
                 "It’s true, the pain in your giant bee cock never really goes away unless you’re feeling honey run over it.  You need the release that the bees offer you to actually escape the intense needs of your new member.  Unless you can find a way to get rid of it, you’re going to have to go to her queen.  It is the only way you’ll be able to survive.\n\n"
             );
-            this.badEndWarning = true; //Player has been warned about the bad end
+            this.badEndWarning = true; // Player has been warned about the bad end
         } else {
             this.outputText(
                 "The honey she spreads onto your " +
@@ -1821,7 +1819,7 @@ export class BeeGirlScene extends BaseContent {
                     "Looking at her through lust-tinted eyes, you're sure she can deliver on her offer.  Getting closer to her scent alone would be worth bearing a few eggs..."
                 );
             this.outputText("\n\nDo you accept her offer?");
-            this.attitude = BeeGirlScene.BEE_GIRL_TALKED; //Replaced beeProgress
+            this.attitude = BeeGirlScene.BEE_GIRL_TALKED; // Replaced beeProgress
             this.doYesNo(this.beeEncounterClassic, this.camp.returnToCampUseOneHour);
         } else {
             // If you get lucky, chance for free honey and -corruption in exchange for lust.
@@ -1884,7 +1882,7 @@ export class BeeGirlScene extends BaseContent {
                 );
                 return;
             case BeeGirlScene.BEE_GIRL_TALKED_AND_LEFT:
-                this.attitude = BeeGirlScene.BEE_GIRL_TALKED_AND_LEFT_TWICE; //Same text as for first time you talked and left, just update attitude
+                this.attitude = BeeGirlScene.BEE_GIRL_TALKED_AND_LEFT_TWICE; // Same text as for first time you talked and left, just update attitude
                 break;
             default:
                 // This handled the first refusal - only BEE_GIRL_TALKED should go to the default
@@ -2283,7 +2281,7 @@ export class BeeGirlScene extends BaseContent {
         this.spriteSelect(6);
         this.clearOutput();
         this.flags[kFLAGS.BEE_GIRL_COMBAT_LOSSES]++;
-        var sexed: boolean = false;
+        let sexed = false;
         // Centaur lost to giant bee:
         if (this.player.isTaur()) {
             // Damage:
@@ -3021,13 +3019,13 @@ export class BeeGirlScene extends BaseContent {
         );
 
         // OPTIONS HERE!
-        var naga = undefined;
-        var multiCock = undefined;
-        var cock = undefined;
-        var vagina = undefined;
-        var herm = undefined;
-        var gentleman = undefined;
-        var eggs = undefined;
+        let naga;
+        let multiCock;
+        let cock;
+        let vagina;
+        let herm;
+        let gentleman;
+        let eggs;
         if (
             this.player.canOvipositSpider() &&
             (this.player.faceType == FACE_SNAKE_FANGS || this.player.faceType == FACE_SPIDER_FANGS)
@@ -3213,7 +3211,7 @@ export class BeeGirlScene extends BaseContent {
     private rapeTheBeeGirlWithADick(): void {
         this.spriteSelect(6);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
         // TAURS GO!
         if (this.player.isTaur()) {
@@ -4195,12 +4193,12 @@ export class BeeGirlScene extends BaseContent {
         );
 
         // [random effects: roll for one
-        var choices: any[] = [];
+        const choices: any[] = [];
         if (this.player.tongueType == TONUGE_SNAKE) choices[choices.length] = 0;
         if (this.player.hasCock()) choices[choices.length] = 1;
         if (this.player.hasVagina()) choices[choices.length] = 2;
         if (this.player.biggestTitSize() >= 4) choices[choices.length] = 3;
-        var select: number = choices[BeeGirlScene.rand(choices.length)];
+        const select: number = choices[BeeGirlScene.rand(choices.length)];
 
         // (if naga tongue)
         if (select == 0) {
@@ -4310,8 +4308,8 @@ export class BeeGirlScene extends BaseContent {
 
     private beeAlternate(): void {
         this.spriteSelect(6);
-        var x: number = this.player.biggestCockIndex();
-        var y: number = this.player.biggestCockIndex2();
+        const x: number = this.player.biggestCockIndex();
+        const y: number = this.player.biggestCockIndex2();
         // MULTIPLE MULTIPLE SCENES!
         if (BeeGirlScene.rand(2) == 0) {
             this.outputText(

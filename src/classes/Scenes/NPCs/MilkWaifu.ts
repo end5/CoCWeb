@@ -143,7 +143,7 @@ export class MilkWaifu extends NPCAwareContent {
 
             // [Next time Rath's at camp and PC accesses Milky's meny, play the Arrival w/ Rath scene, sans first sentence]
         }
-        // Set before this function is called:	kGAMECLASS.inDungeon = false;
+        // Set before this function is called: kGAMECLASS.inDungeon = false;
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -608,7 +608,7 @@ export class MilkWaifu extends NPCAwareContent {
         this.addButton(1, "Milk Girl", this.pullInZeMilkGirl);
         if (this.player.gender > 0 && this.player.lust >= 33)
             this.addButton(0, "DrinkNFap", this.drinkAndFapturbate);
-        var count: number = 0;
+        let count = 0;
         if (this.sophieFollowerScene.sophieFollower()) count++;
         if (this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0) count++;
         if (this.latexGirl.latexGooFollower()) count++;
@@ -845,7 +845,7 @@ export class MilkWaifu extends NPCAwareContent {
             this.addButton(1, "LesboFuck", this.beARugMunchingMilkDyke);
     }
 
-    // 	[Don't]
+    //  [Don't]
     private dontFuckTheMilkWaifu(): void {
         this.clearOutput();
         this.outputText(
@@ -1262,7 +1262,7 @@ export class MilkWaifu extends NPCAwareContent {
     // [Fuck Her] (Needs a dick what fits)
     private fuckDatMilkSlat(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(50);
+        const x: number = this.player.cockThatFits(50);
         this.outputText(
             "Sitting behind the milky girl, chest pressed to her back tight enough to feel her every breath, you can't help but feel " +
                 this.flags[kFLAGS.MILK_NAME] +

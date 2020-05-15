@@ -16,7 +16,7 @@ import { WizardsStaff } from "./Weapons/WizardsStaff";
  */
 
 export class WeaponLib {
-    public static DEFAULT_VALUE: number = 6;
+    public static DEFAULT_VALUE = 6;
 
     public static FISTS: Fists = new Fists();
 

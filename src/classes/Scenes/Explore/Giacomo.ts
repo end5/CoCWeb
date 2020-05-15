@@ -36,14 +36,14 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedSuccubi: number = 0;
+    private checkedSuccubi = 0;
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        this.checkedSuccubi = 0; //Make sure we test just once in timeChangeLarge
+        this.checkedSuccubi = 0; // Make sure we test just once in timeChangeLarge
         if (this.model.time.hours > 23) {
             if (this.flags[kFLAGS.CERULEAN_POTION_BAD_END_FUTA_COUNTER] > 0)
-                this.flags[kFLAGS.CERULEAN_POTION_BAD_END_FUTA_COUNTER] -= 0.5; //Reduce bad-end for cerulean herms number
+                this.flags[kFLAGS.CERULEAN_POTION_BAD_END_FUTA_COUNTER] -= 0.5; // Reduce bad-end for cerulean herms number
         }
         return false;
     }
@@ -65,7 +65,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                 )
                     // VapulaSurprise
                     this.getGame().vapula.vapulaAssistsCeruleanSuccubus();
-                else this.nightSuccubiRepeat(); //Normal night succubi shit
+                else this.nightSuccubiRepeat(); // Normal night succubi shit
             } else {
                 this.nightSuccubiFirstTime();
                 this.player.createStatusAffect(StatusAffects.RepeatSuccubi, 0, 0, 0, 0);
@@ -130,7 +130,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                 "Giacomo's grin is nothing short of creepy as he offers his wares to you. What are you interested in?"
             );
         }
-        var deworm =
+        const deworm =
             this.player.findStatusAffect(StatusAffects.WormOffer) >= 0 &&
             this.player.findStatusAffect(StatusAffects.Infested) >= 0
                 ? this.wormRemovalOffer

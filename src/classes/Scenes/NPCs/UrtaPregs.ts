@@ -35,7 +35,7 @@ export class UrtaPregs extends NPCAwareContent {
     // const FIRST_TIME_AT_URTA_HOUSE: number = 809;
     // const NEW_BABY_ANNOUNCED: number = 810;
     // const DISCUSSED_LUBE_SPRAY: number = 811;
-    /*FLAGS NEEDING DEFINED
+    /* FLAGS NEEDING DEFINED
     URTA_TIMES_BIRTHED
     URTA_TIMES_PC_BIRTHED
     URTA_KIDS_MALES
@@ -63,7 +63,7 @@ export class UrtaPregs extends NPCAwareContent {
     }
 
     private urtaSexMenu(): void {
-        var spank = undefined;
+        let spank;
         if (
             (this.player.hasCock() && this.player.cockThatFits(this.urta.urtaCapacity()) >= 0) ||
             this.player.hasKeyItem("Deluxe Dildo") >= 0
@@ -296,12 +296,12 @@ export class UrtaPregs extends NPCAwareContent {
 
     // Urta Gives Birth
     // Focus will be on a \"traditional\" birth, where PC is fetched to hospital by a runner to attend to Urta
-    ///Later on, can potentially write an option for more sex-based \"home birth\" that PCs can opt to do instead
+    /// Later on, can potentially write an option for more sex-based \"home birth\" that PCs can opt to do instead
     // ☼☼
     // Hospital
     public preggoUrtaGivingBirth(): void {
         this.clearOutput();
-        this.pregnancy.knockUpForce(); //Clear Pregnancy
+        this.pregnancy.knockUpForce(); // Clear Pregnancy
         this.flags[kFLAGS.URTA_PREGNANT_DELIVERY_SCENE] = 0;
         this.flags[kFLAGS.NEW_BABY_ANNOUNCED] = 0;
         this.outputText(
@@ -363,9 +363,9 @@ export class UrtaPregs extends NPCAwareContent {
     }
 
     // [=Go=]
-    private goVisitUrtaBirfs(withUrta: boolean = false): void {
+    private goVisitUrtaBirfs(withUrta = false): void {
         this.clearOutput();
-        this.pregnancy.knockUpForce(); //Clear Pregnancy
+        this.pregnancy.knockUpForce(); // Clear Pregnancy
         this.flags[kFLAGS.URTA_PREGNANT_DELIVERY_SCENE] = 0;
         this.flags[kFLAGS.NEW_BABY_ANNOUNCED] = 0;
         if (!withUrta)
@@ -449,7 +449,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             '\n\n"<i>I can see the head!  Remember: push, breathe, push, breath, keep your pace.</i>"   Urta moans loudly, though not exactly in a pained manner, holds onto her knees and visibly strains.  Her belly suddenly flattens and an infantile wail splits the air; the birth is complete.'
         );
-        var gender: number = UrtaPregs.rand(3) + 1;
+        const gender: number = UrtaPregs.rand(3) + 1;
         this.outputText(
             '\n\nDr. Don makes quick work of the umbilical cord and wraps the baby in a towel.  "<i>Congratulations, [name] and Urta!  You two have given birth to a healthy '
         );
@@ -1057,7 +1057,7 @@ export class UrtaPregs extends NPCAwareContent {
         );
 
         // Gender check for infant
-        var gender: number = UrtaPregs.rand(3) + 1;
+        const gender: number = UrtaPregs.rand(3) + 1;
         // Boy:
         if (gender == 1) {
             this.outputText(
@@ -2487,7 +2487,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.outputText(
             "\n\nUnable to remain awake after your explosive orgasm, you lay down on the "
         );
-        var puddle: number = 0;
+        let puddle = 0;
         if (this.player.hasVagina()) {
             if (this.player.wetness() >= 4) puddle += 2;
             else puddle++;
@@ -3026,7 +3026,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.menu();
         this.addButton(0, "Next", this.telAdre.telAdreMenu);
     }
-    private urtaKidsText(male: string = "", female: string = "", plural: string = ""): string {
+    private urtaKidsText(male = "", female = "", plural = ""): string {
         if (this.urtaKids() == 1) {
             if (this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] == 1) return male;
             else return female;
@@ -3597,7 +3597,7 @@ export class UrtaPregs extends NPCAwareContent {
             ".  One door leads out to the back courtyard, while another looks like it closes off stairs leading down to a basement."
         );
 
-        /*{if (Urta is pregnant at stage 5 or above) && (random chance):
+        /* {if (Urta is pregnant at stage 5 or above) && (random chance):
         if(flags[kFLAGS.URTA_INCUBATION] >= 192 && rand(2) == 0) {
             outputText("\n\nThe house is completely silent.  Shrugging you decide to poke into the kitchen to see if you can find any sign of anyone.  On the counter you see a small note, so you decide to read it.");
             outputText("\n\n<i>Urta, I'm taking the kid");
@@ -3695,7 +3695,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.addButton(9, "Back", this.visitTheHouse);
     }
 
-    private talkToLiana(output: boolean = true): void {
+    private talkToLiana(output = true): void {
         if (output) {
             this.clearOutput();
             this.outputText(

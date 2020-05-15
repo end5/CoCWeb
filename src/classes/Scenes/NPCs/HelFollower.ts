@@ -29,7 +29,7 @@ export class HelFollower extends NPCAwareContent {
         return 85;
     }
     private helAnalCapacity(): number {
-        var anal: number = 85;
+        let anal = 85;
         if (this.flags[kFLAGS.HELIA_ANAL_TRAINING] >= 1) anal += 100;
         if (this.flags[kFLAGS.HELIA_ANAL_TRAINING] >= 2) anal += 300;
         return anal;
@@ -40,7 +40,7 @@ export class HelFollower extends NPCAwareContent {
     public heliaAnalCapacity(): number {
         return this.helAnalCapacity();
     }
-    public helAffection(diff: number = 0): number {
+    public helAffection(diff = 0): number {
         if (
             this.flags[kFLAGS.HEL_AFFECTION_FOLLOWER] > 70 &&
             this.flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED] == 0
@@ -778,7 +778,7 @@ export class HelFollower extends NPCAwareContent {
     }
 
     // Introduction -- Followers -> Helia
-    public heliaFollowerMenu(display: boolean = true): void {
+    public heliaFollowerMenu(display = true): void {
         if (display) {
             this.clearOutput();
             this.spriteSelect(68);
@@ -886,7 +886,7 @@ export class HelFollower extends NPCAwareContent {
         this.addButton(9, "Back", this.heliaFollowerMenu);
     }
 
-    /*Replaced by a function in heliaPreggers.as: heliasAppearanceScreen
+    /* Replaced by a function in heliaPreggers.as: heliasAppearanceScreen
     // Hel: Appearance
     private  helFollowerAppearance(): void {
         clearOutput();
@@ -1199,7 +1199,7 @@ export class HelFollower extends NPCAwareContent {
             this.isabellaFollower() &&
             this.kihaFollower.followerKiha()
         ) {
-            var gems: number = 0;
+            let gems = 0;
             this.outputText(
                 '<i>"Hey, [name],"</i> Hel says with a sly grin.  <i>"Me, Izzy, and spitfire were just playing a little game.  Wanna deal in?"</i>'
             );
@@ -1463,7 +1463,7 @@ export class HelFollower extends NPCAwareContent {
         this.flags[kFLAGS.FOLLOWER_HEL_TALKS]++;
         this.heliaRoughSex(false);
         this.addButton(9, "Leave", this.camp.returnToCampUseOneHour);
-        // 	doNext(13);
+        //  doNext(13);
     }
 
     // Hug(C)
@@ -1552,14 +1552,14 @@ export class HelFollower extends NPCAwareContent {
 
     // Rough Sex
     // Into Text
-    private heliaRoughSex(output: boolean = true): void {
+    private heliaRoughSex(output = true): void {
         if (output) {
             this.clearOutput();
             this.outputText(
                 '<i>"Mmm, need to blow off some steam, lover?"</i>  Hel grins, reaching around to undo the straps of her scale bikini.  <i>"Well, I\'m all for that!"</i>'
             );
         }
-        var buttons: number = 0;
+        let buttons = 0;
         // (Display Options:
         // PC has a dick: [Vaginal] [Anal] [Get Blown] [DP (Multi)] [Tail Wank]
         // PC has Vag: [Get Licked]
@@ -1819,7 +1819,7 @@ export class HelFollower extends NPCAwareContent {
     // Male naga shit
     private inCampHelNagaLuv(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.heliaCapacity());
+        let x: number = this.player.cockThatFits(this.heliaCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You slither over to the salamander and circle around her, your serpentine lower body trailing around her legs as you sweep Helia into a tight embrace.  She grins wolfishly, pressing her lips to yours; you let her tongue enter your mouth, entwining with your tongue, letting her distract herself as you coil more and more of your snake-body around the salamander.  By the time Hel realizes what you're up to, there isn't much she can do about it - you grab her arms and press them to her sides as you bind her up past the waist, wrapping your lover in your lengthy, serpentine form."
@@ -1935,7 +1935,7 @@ export class HelFollower extends NPCAwareContent {
 
     // "Rough" Sex -- Centaur Mounts Hel (PC has Centaur body & a dick)
     private centaurMountsCampHel(): void {
-        var x: number = this.player.cockThatFits(this.heliaCapacity());
+        let x: number = this.player.cockThatFits(this.heliaCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.outputText(
@@ -2520,8 +2520,8 @@ export class HelFollower extends NPCAwareContent {
     // Helia at Camp, Intro
     private heliaAndVapula(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.heliaCapacity());
-        var y: number = this.player.cockThatFits2(this.heliaCapacity());
+        const x: number = this.player.cockThatFits(this.heliaCapacity());
+        const y: number = this.player.cockThatFits2(this.heliaCapacity());
         this.outputText(
             "You gab Hel and start for the edge of camp, where a certain succubus dwells...."
         );
@@ -3339,7 +3339,7 @@ export class HelFollower extends NPCAwareContent {
         this.outputText(
             "\n\nHel jumps back, practically falling into your arms as the bar lights up, filled with people: Hakon and Kiri at the forefront, her family smiling wide.  Behind them, surrounding a great big cake practically as tall as Hel is, stands "
         );
-        var list: any[] = ["Edryn"];
+        const list: any[] = ["Edryn"];
         if (this.flags[kFLAGS.VALARIA_AT_CAMP] == 1) list.push("Valeria");
         if (this.followerKiha()) list.push("Kiha");
         if (this.isabellaFollower()) list.push("Isabella");

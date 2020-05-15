@@ -222,7 +222,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
                     "."
             );
             // Start Dick Size Check
-            var x: number = this.player.biggestCockIndex();
+            const x: number = this.player.biggestCockIndex();
             // If player can auto-fallatio:
             if (this.player.cocks[x].cockLength >= 20)
                 this.outputText(
@@ -816,7 +816,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText(
             "Sporting a painfully obvious tent, your body betrays its desire for sexual gratification and it causes Phylla to smile with interest.  \"<i>I-I didn't think I had that ability to... to...  I mean I'm not like you, so I thought...</i>\" she begins, but trails off as she takes in the rough, obscured shape given off by your bulge."
         );
-        var x: number = this.player.cockThatFits(this.phyllaCapacity());
+        let x: number = this.player.cockThatFits(this.phyllaCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         // ***Dick(s) size less than 36 inches:
         if (this.player.cockArea(x) < 36) {
@@ -1025,7 +1025,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
     // PURE ENDING!
     private phyllaFirstTimePureBabiesFuckEnding(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.phyllaCapacity());
+        let x: number = this.player.cockThatFits(this.phyllaCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "For a while, you allow Phylla to slowly adapt to your presence inside of her and the stretching of her vaginal walls; something she reacts to with soft moans of pleasurable appreciation.  She wears her obvious discomfort at being forcefully stretched by your " +
@@ -1132,7 +1132,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
                 );
                 this.player.dumpEggs();
                 if (!this.pregnancy.isPregnant)
-                    this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_DRIDER_EGGS, 8 * 24); //Supposed to be eight days, not eight hours
+                    this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_DRIDER_EGGS, 8 * 24); // Supposed to be eight days, not eight hours
             }
             // (End Drider Continuation)
         }
@@ -1164,7 +1164,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.outputText(
             '\n\n"<i>W-What are you doing?</i>" she asks nervously. "<i>This isn\'t how I imag~</i>"'
         );
-        var x: number = this.player.cockThatFits(this.phyllaCapacity());
+        let x: number = this.player.cockThatFits(this.phyllaCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
 
         this.outputText(
@@ -1186,7 +1186,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             "\n\nPoor Phylla can only grasp at her cushions as she struggles to maintain her comfort.  The brutish drilling of her pussy forces her to lift her rear further and further towards an acute angle. Try as she might, her efforts are no match for your barbaric tactics as you pound her love hole into oblivion.  All her attempts at maintaining a comfortable position quickly evaporate, and she resigns herself to being roughly taken from behind.  You watch as she buries her head into her cushions to muffle her howls of painful ecstasy."
         );
         // PC has more than one cock that is suitable:
-        var y: number = this.player.cockThatFits2(this.phyllaCapacity());
+        let y: number = this.player.cockThatFits2(this.phyllaCapacity());
         if (this.player.cockTotal() < 2) y = -1;
         if (y >= 0) {
             this.outputText("\n\nIntent on increasing your own pleasures, you decide to work ");
@@ -2415,7 +2415,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
                 '\n\n"<i>Breakfast in bed?  Y-You shouldn\'t have.</i>"  She coos playfully.'
             );
 
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         // Dick size less than 60 inches:
         if (this.player.cockArea(x) < 60) {
             this.outputText(
@@ -2533,7 +2533,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
     // Pure BJ:
     private purePhyllaBJOver(): void {
         this.clearOutput();
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         this.outputText(
             "You quickly and softly tell her to calm down, she needn't worry; you'll be more than happy to help her learn how as surely as she would help you if your situations were reversed.  At the mention of counter positions she nods cheerfully."
         );
@@ -2604,7 +2604,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
     // [Sure]
     private surePhyllaLetsFuck(): void {
         this.clearOutput();
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         this.outputText(
             '"<i>We\'ll have to... kiss...  I mean, I can still taste you... inside my mouth...  I could go wash or... ah~!</i>" You cut her off by pulling her mouth on to yours.'
         );
@@ -2649,7 +2649,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
     }
 
     // Pure BJ Ending
-    private pureBJEnding(linked: boolean = true): void {
+    private pureBJEnding(linked = true): void {
         this.outputText(
             "\n\nTo your surprise, Phylla has fully embraced this new talent you've helped 'teach' her"
         );
@@ -2665,7 +2665,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             this.outputText(
                 '  You can feel her relying less and less on the link with every subsequent time; there\'s no doubt in your mind that she will no longer "<i>cheat</i>" her way into making you cum before you know it.'
             );
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         this.outputText(
             "\n\nShe giggles up at you as she bobs back and forth along your shaft, sensing the telltale signs of your pending orgasm with her mouth.  When you feel the moment of climax finally arrive, you grab onto the back of her head with your hands. She jumps at the unexpected feeling, but before she can react you roar, thrusting your hips forward.  Phylla, like a pro, times her motions with your release, drawing a steady stream of semen out of your rod.  With each spasm of your cock you shoot your cum into her mouth.  She doesn't relent until she's got a mouthful, pulling free of your " +
                 this.cockDescript(x) +
@@ -2728,7 +2728,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
     // Corrupt BJ Ending
     private corruptPhyllaEndings(): void {
         this.clearOutput();
-        var x: number = this.player.smallestCockIndex();
+        const x: number = this.player.smallestCockIndex();
         this.outputText(
             "\"<i>A slut that can't suck a dick... how can this get any worse?</i>\"  You ponder to yourself while rubbing your nasal bridge. You tell the innocent little ant that she'll learn how to suck a mean cock, even if it kills her.  You're knee deep at this point - might as well turn her into something salvageable.  Commanding her attention, you lift her face up and hover your " +
                 this.cockDescript(x) +
@@ -2840,7 +2840,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
 
     // \"<i>Use Dick</i>\"
     private dickPhylla(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.clearOutput();
         this.outputText(
             "You give Phylla a devious look that denotes you didn't come here to just talk.  She looks a little surprised and embarrassed for you as you start removing your [armor].  Noticing her watching, you pull each article of clothing off a little slower, letting her lust build.  You seductively drop your armor, completely revealing yourself to her.  You can see her eyes widen as she visibly feasts on your features."
@@ -3808,7 +3808,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
                 "\n\nYou knew this moment would come and you're mentally prepared for it.  Feeling your mind link to everyone in the room is still overwhelming at first, but you quickly get over it as your mind finds balance."
             );
 
-        var x: number = this.player.cockThatFits(this.phyllaCapacity());
+        let x: number = this.player.cockThatFits(this.phyllaCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "\n\nWhen you've felt your mind completely sync up with everyone else in the room, it's like being drunk on sexual euphoria.  You almost lose yourself in it for a moment, but focusing your mind, you snap your eyes open. You see Phylla in front of you looking like a drugged slut; she runs all four of her hands over your " +
@@ -4267,7 +4267,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
     // Phylla lays Drider eggs
     private phyllaLaysSomeDriderEggs(): void {
         this.clearOutput();
-        this.pregnancy.knockUpForce(); //Clear Pregnancy
+        this.pregnancy.knockUpForce(); // Clear Pregnancy
         this.outputText(
             "As you near Phylla's bedchamber you can hear an 'Eeep!' of surprise and worry. Thinking she might be in trouble you burst into the room.  Glancing around for any immediate danger you only see Phylla's vagina drooling a green, slimy mucus.  The way she holds her very pregnant stomach and splays her legs out on the bedspread suggests that your recently laid spawn are ready to hatch.  \"<i>[name], it's time!  UGH!  I don't... have to words to express how weird this feels!</i>\"  Phylla cries out, somewhat scared at the green ooze that trickled out of her."
         );
@@ -4388,7 +4388,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         this.player.dumpEggs();
         // set phylla drider preggo timer
         if (!this.pregnancy.isPregnant)
-            this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_DRIDER_EGGS, 8 * 24); //Supposed to be eight days, not eight hours
+            this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_DRIDER_EGGS, 8 * 24); // Supposed to be eight days, not eight hours
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -4499,7 +4499,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
     // (Leads to - Failure)
     private phyllaDigsForGems(): void {
         this.clearOutput();
-        var kidsMod: number = 0;
+        let kidsMod = 0;
         if (this.flags[kFLAGS.ANT_KIDS] > 10) kidsMod++;
         if (this.flags[kFLAGS.ANT_KIDS] > 50) kidsMod++;
         if (this.flags[kFLAGS.ANT_KIDS] > 150) kidsMod++;
@@ -4509,7 +4509,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.ANT_KIDS] > 2000) kidsMod++;
         // Success
         if (this.flags[kFLAGS.PHYLLA_GEMS_HUNTED_TODAY] == 0 && AntsScene.rand(20) + kidsMod > 10) {
-            var gems: number = 0;
+            let gems = 0;
             gems = 10 + AntsScene.rand(10) + kidsMod * 2;
             this.player.gems += gems;
             this.statScreenRefresh();
@@ -4664,7 +4664,7 @@ export class AntsScene extends BaseContent implements TimeAwareInterface {
             // PC Drider eggs will take 8 days regardless of where she houses them to hatch. (3
             // through 8 children per pregnancy)
             if (!this.pregnancy.isPregnant)
-                this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_DRIDER_EGGS, 8 * 24); //Supposed to be eight days, not eight hours
+                this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_DRIDER_EGGS, 8 * 24); // Supposed to be eight days, not eight hours
             this.flags[kFLAGS.TIMES_EGG_IMPREGNATING_PHYLLA]++;
             this.player.orgasm();
             this.player.dumpEggs();

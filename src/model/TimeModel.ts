@@ -1,6 +1,6 @@
 export class TimeModel {
-    private _days: number = 0;
-    private _hours: number = 0;
+    private _days = 0;
+    private _hours = 0;
 
     public get days(): number {
         return this._days;

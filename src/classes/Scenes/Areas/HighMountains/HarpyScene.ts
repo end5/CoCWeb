@@ -35,16 +35,16 @@ export class HarpyScene extends BaseContent {
             this.cleanupAfterCombat();
             return;
         }
-        var eggs = undefined;
+        let eggs;
         if (
             this.player.canOvipositSpider() &&
             (this.player.faceType == FACE_SNAKE_FANGS || this.player.faceType == FACE_SPIDER_FANGS)
         )
             eggs = this.spoidahsLegEggsInHarpeis;
-        var anal = undefined;
-        var pussy = undefined;
-        var scissor = undefined;
-        var clitFuck = undefined;
+        let anal;
+        let pussy;
+        let scissor;
+        let clitFuck;
 
         if (this.player.hasVagina() && this.player.clitLength >= 3.5)
             clitFuck = this.clitFuckAHarpy;
@@ -91,7 +91,7 @@ export class HarpyScene extends BaseContent {
 
     public harpyLossU(): void {
         // NO MALE RAPE IF DICK TOO BIG
-        var x: number = -1;
+        let x = -1;
         if (this.player.hasCock()) x = this.player.cockThatFits(this.monster.vaginalCapacity());
         // Genderless people get boned
         if (this.player.gender == 0 && this.player.isGoo()) {
@@ -151,7 +151,7 @@ export class HarpyScene extends BaseContent {
     private harpyLossLust(): void {
         this.outputText("", true);
         // Merauder wroted.
-        var x: number = -1;
+        let x = -1;
         if (this.player.hasCock()) x = this.player.cockThatFits(this.monster.vaginalCapacity());
 
         this.outputText(
@@ -318,10 +318,10 @@ export class HarpyScene extends BaseContent {
     private harpyDamageLoss(): void {
         this.outputText("", true);
 
-        var x: number = -1;
+        let x = -1;
         if (this.player.hasCock()) x = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
-        var y: number = x + 1;
+        let y: number = x + 1;
         // If second cock is out of bounds, choose one in bounds
         if (y >= this.player.cocks.length) y -= 2;
         if (y == x && this.player.totalCocks() > 1) {
@@ -658,10 +658,10 @@ export class HarpyScene extends BaseContent {
     }
 
     private victoryHarpyGetsHerPussyRaped(): void {
-        var x: number = -1;
+        let x = -1;
         if (this.player.hasCock()) x = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
-        var y: number = x + 1;
+        let y: number = x + 1;
         // If second cock is out of bounds, choose one in bounds
         if (y >= this.player.cocks.length) y -= 2;
         if (y == x && this.player.totalCocks() > 1) {
@@ -836,10 +836,10 @@ export class HarpyScene extends BaseContent {
 
     private winAndRapeHarpyAnally(): void {
         this.outputText("", true);
-        var x: number = -1;
+        let x = -1;
         if (this.player.hasCock()) x = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
-        var y: number = x + 1;
+        let y: number = x + 1;
         // If second cock is out of bounds, choose one in bounds
         if (y >= this.player.cocks.length) y -= 2;
         if (y == x && this.player.totalCocks() > 1) {
@@ -984,9 +984,9 @@ export class HarpyScene extends BaseContent {
 
     private WinOnHarpyAndOralRape(): void {
         this.outputText("", true);
-        var x: number = -1;
+        let x = -1;
         if (this.player.hasCock()) x = this.player.cockThatFits(this.monster.analCapacity());
-        var y: number = x + 1;
+        let y: number = x + 1;
         if (y == x && this.player.totalCocks() > 1) {
             // If second cock is out of bounds, choose one in bounds
             if (y >= this.player.cocks.length) y -= 2;

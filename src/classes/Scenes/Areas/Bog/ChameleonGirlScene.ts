@@ -7,7 +7,7 @@ import { ChameleonGirl } from "./ChameleonGirl";
  */
 
 export class ChameleonGirlScene extends BaseContent {
-    /*You can ignore this stuff, just sets a random color to the chameleon girl at each encounter
+    /* You can ignore this stuff, just sets a random color to the chameleon girl at each encounter
      ENCOUNTER TEXT (Introduction; First Time) (Z edited)
      ENCOUNTER INTRO; REPEAT (Z edited)
      COMBAT TEXT (Combat Menu) (Z edited)
@@ -79,7 +79,7 @@ export class ChameleonGirlScene extends BaseContent {
         }
         this.flags[kFLAGS.TIMES_MET_CHAMELEON]++;
         this.doNext(this.playerMenu);
-    } //LOSS SCENES (Intro) (Z edited)
+    } // LOSS SCENES (Intro) (Z edited)
     public loseToChameleonGirl(): void {
         this.clearOutput();
         this.spriteSelect(89);
@@ -115,7 +115,7 @@ export class ChameleonGirlScene extends BaseContent {
 
     // Herm Loss (Z edited)
     private loseToChameleonWithCockAnBallsAnCunt(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.spriteSelect(89);
         this.outputText(
             "\n\n\"<i>Hah! You didn't think you could beat me in </i>my<i> bog, did you?</i>\" the haughty chameleon laughs. She stalks towards you, swaying her wide hips in an exaggerated imitation of a dominatrix, shedding her spare clothing as she approaches.  She stops and stands before you, trying her best to look intimidating.  Wondering what exactly she has planned for you, you await your fate.  From the worried look in her eyes, you can tell she has no idea what she's doing."
@@ -176,7 +176,7 @@ export class ChameleonGirlScene extends BaseContent {
 
     // -Male Loss (Z edited)
     private dudesLoseToChamChams(): void {
-        var x: number = ChameleonGirlScene.rand(this.player.totalCocks());
+        const x: number = ChameleonGirlScene.rand(this.player.totalCocks());
         this.spriteSelect(89);
         this.outputText(
             "\n\nRecognizing that you're no danger, her skin shifts back into its natural " +
@@ -314,10 +314,10 @@ export class ChameleonGirlScene extends BaseContent {
             return;
         }
         // (Display Options: [Fuck Her Face] [Pussy Rub] [Herm Style Pussyrub] [Incubi Draft] [Succubi Milk] [Lust&Sens Drafts])
-        var dick = undefined;
-        var pussy = undefined;
-        var herm = undefined;
-        var item = undefined;
+        let dick;
+        let pussy;
+        let herm;
+        let item;
         if (this.player.hasCock()) dick = this.manFucksChameleonWithBiggishWang;
         if (this.player.hasVagina()) pussy = this.femaleHasWinSexWithChamCham;
         if (this.player.gender == 3) herm = this.fuckDatChameleonAsACoolGuyGirlHerm;
@@ -352,7 +352,7 @@ export class ChameleonGirlScene extends BaseContent {
     private fuckDatChameleonAsACoolGuyGirlHerm(): void {
         this.clearOutput();
         this.spriteSelect(89);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You shed your " +
@@ -408,7 +408,7 @@ export class ChameleonGirlScene extends BaseContent {
     private manFucksChameleonWithBiggishWang(): void {
         this.clearOutput();
         this.spriteSelect(89);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You approach the fallen girl, and she looks up at you, a pleading expression in her eyes.  You might feel worse for her if she hadn't tried to assault you in a bog.  Reaching down behind her, you find the knot of the cloth covering her breasts, and with a quick pull you yank it off and toss it aside, then drop your [armorName], revealing your erect prick.  Her eyes widen when she sees it and her mouth parts slightly, letting a bit of her tongue slip out to lick her lips.  Quietly disdainful of the slutty girl's open arousal, you decide that if she wants to taste it so badly, she may.  But when you put your hand on the back of her head to push her onto your stiff cock, she manages to work up the strength to grab your arm with a free hand and resist its impulse.  Looking her over, you can see that her sudden burst of energy is due to "
         );
@@ -524,8 +524,8 @@ export class ChameleonGirlScene extends BaseContent {
         // also incubi draft and succubi milk should probably have something of a corruption requirement
         // (Display Options: [Incubus Draft] [Succubi Milk](PC must have cock) [Lust&SensDrafts]
         // optionz go herez
-        var milk = undefined;
-        var drafts = undefined;
+        let milk;
+        let drafts;
         if (
             (this.player.hasItem(this.consumables.SUCMILK) ||
                 this.player.hasItem(this.consumables.P_S_MLK)) &&
@@ -572,7 +572,7 @@ export class ChameleonGirlScene extends BaseContent {
                 "."
         );
 
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             '\n\nShe looks back up from her rack to see you standing naked in front of her, cock erect after watching her sudden growth.  Her eyes water, and she flushes red with anger.  "<i>You... why would you...</i>"  You cut her off with a push, taking her off her knees and onto her back, and then jump on top of her, pinning her to the peat'
         );
@@ -646,7 +646,7 @@ export class ChameleonGirlScene extends BaseContent {
         }
         // (else if at least one cock of appropriate size)
         else {
-            var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+            const x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
             if (x < 0) {
                 this.outputText("COCK ERROR");
                 this.cleanupAfterCombat();

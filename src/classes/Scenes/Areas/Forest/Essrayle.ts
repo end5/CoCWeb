@@ -183,7 +183,7 @@ export class Essrayle extends BaseContent {
         }
     }
 
-    private plantsForMe2(BE: number = 0): void {
+    private plantsForMe2(BE = 0): void {
         this.clearOutput();
         // Yes
         if (BE == 1)
@@ -448,7 +448,7 @@ export class Essrayle extends BaseContent {
     }
 
     // (Cock)
-    private hasCockFeedEssy(newPage: boolean = true): void {
+    private hasCockFeedEssy(newPage = true): void {
         if (newPage) this.clearOutput();
         else this.outputText("\n\n");
         this.outputText(
@@ -487,7 +487,7 @@ export class Essrayle extends BaseContent {
         this.doNext(this.playerMenu);
     }
 
-    private hasPussyFeedEssy(newPage: boolean = true): void {
+    private hasPussyFeedEssy(newPage = true): void {
         if (newPage) this.clearOutput();
         else this.outputText("\n\n");
         this.outputText(

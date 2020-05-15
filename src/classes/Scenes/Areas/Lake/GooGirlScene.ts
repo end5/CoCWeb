@@ -1,7 +1,7 @@
 import { AbstractLakeContent } from "./AbstractLakeContent";
 import { GooGirl } from "./GooGirl";
 import { trace } from "../../../../console";
-import { CoC_Settings } from "../../../CoC_Settings";
+import { CocSettings } from "../../../CoC_Settings";
 import { StatusAffects } from "../../../StatusAffects";
 import { PerkLib } from "../../../PerkLib";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
@@ -18,10 +18,10 @@ export class GooGirlScene extends AbstractLakeContent {
     // const GOOGIRL_CONSECUTIVE_LOSSES: number = 385;
 
     private gooGirl(): GooGirl {
-        var g: GooGirl = this.monster as GooGirl;
+        let g: GooGirl = this.monster as GooGirl;
         if (g == undefined) {
             trace(this.monster.short + ", not GooGirl!");
-            CoC_Settings.error(this.monster.short + ", not GooGirl!");
+            CocSettings.error(this.monster.short + ", not GooGirl!");
             g = new GooGirl();
         }
         return g;
@@ -297,7 +297,7 @@ export class GooGirlScene extends AbstractLakeContent {
     // Defeat – Male
     private dudeLoseToGooGal(): void {
         this.outputText("", true);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "Reeling, you stumble backwards, trying and failing to shake the dizziness from your eyes. The " +
                 this.gooColor() +
@@ -401,7 +401,7 @@ export class GooGirlScene extends AbstractLakeContent {
 
     // Defeat – Herm
     private hermLoseToGooGal(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         this.outputText(
             "You can't take anymore and your hands fall at your sides as you sink to your knees. The goo-girl, sensing your surrender, happily claps her hands together in a wet, slapping motion and slides against you. Her soft, moist body squishes against yours as she runs her hands up and down your shoulders, fingers slipping under your " +
@@ -495,7 +495,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 false
             );
         }
-        // 	[If the player is not obviously pregnant/small breasts/not lactating]
+        //  [If the player is not obviously pregnant/small breasts/not lactating]
         else {
             this.outputText(
                 "Shrugging, you gesture at yourself, unsure what she's trying to communicate to you. The goo-girl rolls her eyes and soundlessly sighs in exasperation. She grabs hold of you and runs her hands from your head to your hips, her body rippling as she does so, sculpting itself into a crude copy. She brings your attention to her belly and breasts, pointing to them as they swell and grow, nipples leaking " +
@@ -650,7 +650,7 @@ export class GooGirlScene extends AbstractLakeContent {
             "There is a lurching in your belly that steals the breath from you. As seconds pass, the quivering kicks increase and you're forced to the ground as your womb feels like it's been set aflame by the heat pouring from your stowaway goo-girl. You pant and spread your labia with two fingers, the chill of your hands on your inflamed sex so sweet that you almost cum from the mere touch. Your cervix clenches involuntarily and you try to relax as much as possible, but the slime inside of you hardly needs the help. Squishing and slurping in gouts of syrupy fluid, she trickles from your uterus, sliding out of your tunnel in spurting gouts. You sigh and let her force her seething warmth from within you, the small puddle of ooze growing larger as it pools together. Finally, the small, red heart pops out of your tunnel and you allow yourself a big gulp of chill air to resuscitate your seared lungs.\n\n",
             false
         );
-        this.monster = new GooGirl(); //because if we don't, the gooColor4() goes crazy.
+        this.monster = new GooGirl(); // because if we don't, the gooColor4() goes crazy.
         this.outputText(
             "The small " +
                 this.gooColor4() +
@@ -683,22 +683,22 @@ export class GooGirlScene extends AbstractLakeContent {
                 "With the goo-girl defeated, her unusual body is at your mercy.  What do you do?",
                 false
             );
-            var sex1S: string = "";
-            var sex1N = undefined;
-            var sex2S: string = "";
-            var sex2N = undefined;
-            var sex3S: string = "";
-            var sex3N = undefined;
-            var sex4S: string = "";
-            var sex4N = undefined;
-            var valeria: any = kGAMECLASS.valeria.valeriaAndGooThreeStuff;
+            let sex1S = "";
+            let sex1N;
+            let sex2S = "";
+            let sex2N;
+            let sex3S = "";
+            let sex3N;
+            let sex4S = "";
+            let sex4N;
+            let valeria: any = kGAMECLASS.valeria.valeriaAndGooThreeStuff;
             if (
                 this.player.armorName != "goo armor" ||
                 this.player.isButtPregnant() ||
                 this.player.isPregnant()
             )
                 valeria = undefined;
-            var eggs = undefined;
+            let eggs;
             if (this.player.canOvipositBee()) eggs = this.layBeeEggsInGoo;
             if (this.player.hasCock()) {
                 if (this.player.cocks[this.player.smallestCockIndex()].cockLength < 24) {
@@ -725,7 +725,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 sex4S = "Breastfeed";
                 sex4N = this.victoryRapeAGooGalAsFeeder;
             }
-            var gooTF = undefined;
+            let gooTF;
             // corrupt chances
             if (
                 this.flags[kFLAGS.GOO_TFED_MEAN] == 0 &&
@@ -806,10 +806,10 @@ export class GooGirlScene extends AbstractLakeContent {
     }
 
     // Victory – Male
-    private gooMaleRape(type: number = 1): void {
+    private gooMaleRape(type = 1): void {
         this.flags[kFLAGS.TIMES_FUCKED_NORMAL_GOOS]++;
         this.outputText("", true);
-        var x: number = this.player.biggestCockIndex();
+        let x: number = this.player.biggestCockIndex();
         if (this.player.longestCockLength() >= 24 && this.player.shortestCockLength() < 24) {
             if (type == 1) x = this.player.longestCock();
             else x = this.player.shortestCockIndex();
@@ -945,7 +945,7 @@ export class GooGirlScene extends AbstractLakeContent {
 
     // Victory – Herm
     private victoryHermSex(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.flags[kFLAGS.TIMES_FUCKED_NORMAL_GOOS]++;
         this.outputText("", true);
         this.outputText(

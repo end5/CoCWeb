@@ -10,6 +10,7 @@ import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class JeanClaude extends Monster {

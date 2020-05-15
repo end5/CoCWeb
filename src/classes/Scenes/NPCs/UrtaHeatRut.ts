@@ -341,7 +341,7 @@ export class UrtaHeatRut extends NPCAwareContent {
         }
     }
     // (If in heat OR rut, or did not pick Watch)
-    private drunkUrtaIntroPartDuex(chosenSex: number = 1, newl: boolean = true): void {
+    private drunkUrtaIntroPartDuex(chosenSex = 1, newl = true): void {
         if (newl) this.clearOutput();
         else this.outputText("\n\n");
         this.urta.urtaSprite();
@@ -783,7 +783,7 @@ export class UrtaHeatRut extends NPCAwareContent {
     private sateRutWithSoberUrtaButHuegDicked(): void {
         this.clearOutput();
         this.urta.urtaSprite();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "Urta observes your approaching " +
                 this.cockDescript(x) +
@@ -866,12 +866,12 @@ export class UrtaHeatRut extends NPCAwareContent {
         this.dynStats("lib+", 1, "sen-", 2, "lust=", 0);
         this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] += 1;
         this.doNext(this.camp.returnToCampUseOneHour);
-        ///Player returns to Tel'Adre Menu, usual one hor passes//
+        /// Player returns to Tel'Adre Menu, usual one hor passes//
     }
 
     // Quote:[=Sate Rut with Sober Urta=]
     private sateRutWithSoberUrta(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.clearOutput();
         this.urta.urtaSprite();
         this.outputText(
@@ -1241,7 +1241,7 @@ export class UrtaHeatRut extends NPCAwareContent {
     // Quote:[Drunken Urta Fucks Cock]
     private drunkUrtaRidesARutPCsCock(): void {
         this.clearOutput();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.urta.urtaSprite();
         this.outputText(
             "You decide not to fight the situation; truthfully, the promises given by the sight of the hot hermaphrodite vixen climbing on top of you ignite your lusts and sing to your rut in ways you don't think you'd be able to safely ignore."

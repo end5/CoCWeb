@@ -4,7 +4,7 @@ import { AbstractBoatContent } from "./AbstractBoatContent";
 import { SharkGirl } from "./SharkGirl";
 
 export class SharkGirlScene extends AbstractBoatContent {
-    /*Codex: Shark girls and tiger shark girls
+    /* Codex: Shark girls and tiger shark girls
 
 Gender: Mostly female, though there are males and herms. Due to the nature of their conception, the vast majority of tiger sharks are herms.
 
@@ -35,7 +35,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
 ----------------------------------
 */
     // [Explore Lake]
-    public sharkGirlEncounter(exploreLoc: number = 0): void {
+    public sharkGirlEncounter(exploreLoc = 0): void {
         // Set 'PC met Sharkgirls' for Izma stuff
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230] == 0)
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230] = 1;
@@ -96,7 +96,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         }
         if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText("  Do you have your way with her or leave?", false);
-            var dildo =
+            const dildo =
                 this.player.hasKeyItem("Deluxe Dildo") >= 0
                     ? this.getGame().sharkGirlGetsDildoed
                     : undefined;
@@ -164,7 +164,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         this.spriteSelect(70);
         // Naga get a different version of this scene.
         if (this.player.isNaga()) {
-            var x: number = this.player.cockThatFits(this.monster.analCapacity());
+            let x: number = this.player.cockThatFits(this.monster.analCapacity());
             if (x < 0) x = this.player.smallestCockIndex();
             // [if(monster.lust > 99)
             if (this.monster.lust > 99)
@@ -393,7 +393,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         this.getGame().gameOver();
     }
 
-    /*-------------------------
+    /* -------------------------
     Shark's Tooth
 
     Item description: A glinting white tooth, very sharp and intimidating.

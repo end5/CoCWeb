@@ -2,42 +2,38 @@ import { Utils } from "./internals/Utils";
 
 export class VaginaClass {
     // constructor
-    public constructor(
-        vaginalWetness: number = 1,
-        vaginalLooseness: number = 0,
-        virgin: boolean = false
-    ) {
+    public constructor(vaginalWetness = 1, vaginalLooseness = 0, virgin = false) {
         this.virgin = virgin;
         this.vaginalWetness = vaginalWetness;
         this.vaginalLooseness = vaginalLooseness;
     }
     // data
     // Vag wetness
-    public vaginalWetness: number = 1;
-    /*Vag looseness
+    public vaginalWetness = 1;
+    /* Vag looseness
     0 - virgin
     1 - normal
     2 - loose
     3 - very loose
     4 - gaping
     5 - monstrous*/
-    public vaginalLooseness: number = 0;
+    public vaginalLooseness = 0;
     // Type
     // 0 - Normal
     // 5 - Black bugvag
-    public type: number = 0;
-    public virgin: boolean = true;
+    public type = 0;
+    public virgin = true;
     // Used during sex to determine how full it currently is.  For multi-dick sex.
-    public fullness: number = 0;
-    public labiaPierced: number = 0;
-    public labiaPShort: string = "";
-    public labiaPLong: string = "";
-    public clitPierced: number = 0;
-    public clitPShort: string = "";
-    public clitPLong: string = "";
+    public fullness = 0;
+    public labiaPierced = 0;
+    public labiaPShort = "";
+    public labiaPLong = "";
+    public clitPierced = 0;
+    public clitPShort = "";
+    public clitPLong = "";
 
     public validate(): string {
-        var error: string = "";
+        let error = "";
         error += Utils.validateNonNegativeNumberFields(this, "VaginaClass.validate", [
             "vaginalWetness",
             "vaginalLooseness",

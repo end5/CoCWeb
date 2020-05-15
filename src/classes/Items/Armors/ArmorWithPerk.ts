@@ -26,8 +26,8 @@ export class ArmorWithPerk extends Armor {
         playerPerkV2: number,
         playerPerkV3: number,
         playerPerkV4: number,
-        playerPerkDesc: string = "",
-        supportsBulge: boolean = false
+        playerPerkDesc = "",
+        supportsBulge = false
     ) {
         super(id, shortName, name, longName, def, value, description, perk, supportsBulge);
         this.playerPerk = playerPerk;

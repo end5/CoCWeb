@@ -19,6 +19,7 @@
         "jsdoc"
     ],
     "rules": {
+        "@typescript-eslint/adjacent-overload-signatures": "off",
         "@typescript-eslint/array-type": "off",
         "@typescript-eslint/ban-types": [
             "error",
@@ -51,6 +52,7 @@
         "@typescript-eslint/member-ordering": "off",
         "@typescript-eslint/no-empty-function": "off",
         "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-parameter-properties": "off",
         "@typescript-eslint/no-unused-expressions": "error",
         "@typescript-eslint/no-use-before-define": "off",
@@ -65,6 +67,7 @@
                 "lib": "always"
             }
         ],
+        "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/unified-signatures": "error",
         "brace-style": [
             "off",
@@ -95,7 +98,7 @@
         "id-match": "error",
         "import/order": "off",
         "jsdoc/check-alignment": "error",
-        "jsdoc/check-indentation": "error",
+        "jsdoc/check-indentation": "off",
         "jsdoc/newline-after-description": "error",
         "max-classes-per-file": "off",
         "max-len": "off",
@@ -119,7 +122,7 @@
         "no-throw-literal": "error",
         "no-trailing-spaces": "error",
         "no-undef-init": "error",
-        "no-underscore-dangle": "error",
+        "no-underscore-dangle": "off",
         "no-unsafe-finally": "error",
         "no-unused-labels": "error",
         "object-shorthand": "error",

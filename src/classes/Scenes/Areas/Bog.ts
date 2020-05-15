@@ -32,7 +32,7 @@ export class Bog extends BaseContent {
             this.flags[kFLAGS.BOG_EXPLORED] % 4 == 0 &&
             this.flags[kFLAGS.PHOUKA_LORE] > 0
         ) {
-            this.phoukaScene.phoukaHalloween(); //Must have met them enough times to know what they're called, have some idea of their normal behaviour
+            this.phoukaScene.phoukaHalloween(); // Must have met them enough times to know what they're called, have some idea of their normal behaviour
             return;
         }
         if (this.player.buttPregnancyIncubation == 0 && Bog.rand(3) == 0)

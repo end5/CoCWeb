@@ -78,8 +78,8 @@ export class BakeryScene extends TelAdreAbstractContent {
     private checkBakeryMenu(): void {
         this.clearOutput();
         // var used for minotaur cum eclair in the menu
-        var minoCum = undefined;
-        var gcupcake = undefined;
+        let minoCum;
+        let gcupcake;
         // Turn on cum eclairs if PC is an addict!
         if (
             this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0 &&
@@ -340,7 +340,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         // choices("Brownies",createCallBackFunction2(nomnomnom, "brownies", 3),"Cookies",2831,"Cupcakes",2833,"Doughnuts",createCallBackFunction2(nomnomnom, "doughnuts", 5),"Pound Cake",createCallBackFunction2(nomnomnom, "pound cake", 4),"Fox Berry",buyFoxBerry,"SpecialEclair",minoCum,"GiantCupcake",gcupcake,rubiT,rubiB,"Leave",telAdreMenu);
         this.clearOutput();
         this.outputText("Who will you talk to?\n");
-        var rubiT: string = "Waitress";
+        let rubiT = "Waitress";
         if (this.flags[kFLAGS.RUBI_INTRODUCED] > 0) rubiT = "Rubi";
         this.menu();
         this.addButton(0, "Baker", this.talkToBaker);
@@ -350,7 +350,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         // I guess it just wouldn't do anything?
         // FWIW, the flag that has to be set to get rubiIntros to return zero is set in a function that has the comment:
         // (Will no longer encounter Rubi at the bakery.)
-        var rubiB = this.telAdre.rubi.rubiIntros();
+        const rubiB = this.telAdre.rubi.rubiIntros();
         if (rubiB != undefined) this.addButton(1, rubiT, rubiB);
 
         if (kGAMECLASS.nieveHoliday()) {
@@ -492,7 +492,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.menu();
         this.addButton(0, "Next", this.checkBakeryMenu);
     }
-    /*[doughnuts] – some thickness, lots of – tone. (+hips and butt!)
+    /* [doughnuts] – some thickness, lots of – tone. (+hips and butt!)
     [cookies] – thickness and a little – tone (+hips)
     [brownies] – lots of thickness (chance of +butt)
     [cupcakes] – lots of – tone (chance of +hips)

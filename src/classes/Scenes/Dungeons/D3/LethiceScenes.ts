@@ -71,7 +71,7 @@ export class LethiceScenes extends BaseContent {
             this.outputText(" Good thing she’s not the only one that can fly!");
         this.outputText("\n\n<b>It’s a fight!</b>");
 
-        var m: Lethice = new Lethice();
+        const m: Lethice = new Lethice();
         if (this.player.wingType != 0) {
             m.createStatusAffect(StatusAffects.PhysicalDisabled, 0, 0, 0, 0);
             m.createStatusAffect(StatusAffects.AttackDisabled, 0, 0, 0, 0);
@@ -102,7 +102,7 @@ export class LethiceScenes extends BaseContent {
         if (this.player.hasVagina()) this.addButton(1, "Queen Her", this.queenHer);
         this.addButton(2, "Boob Play", this.boobPlay, hpVictory);
 
-        var hasLethicite: boolean =
+        const hasLethicite: boolean =
             this.player.hasKeyItem("Sheila's Lethicite") > 0 ||
             this.player.hasKeyItem("Stone Statue Lethicite") > 0;
         if (
@@ -1512,7 +1512,7 @@ export class LethiceScenes extends BaseContent {
     }
 
     private HowFuckedIsThePlayerOMeter(): number {
-        var levelOfFuckedness: number = 0;
+        let levelOfFuckedness = 0;
 
         // Marae corrupt +50
         if (this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0)
@@ -1659,7 +1659,7 @@ export class LethiceScenes extends BaseContent {
             ", and the last pure forces in the land. Even those of questionable purity are gathered into the fold. With Lethice deposed, the remaining free peoples of Mareth flock to your leadership. The enchantment binding the pure waters of the world into cloud are broken, and the world has its first real rainfall in years, clearing the air of residual corruption and washing the taint from the soil into recessed cesspits."
         );
 
-        var levelOfFuckedness: number = this.HowFuckedIsThePlayerOMeter();
+        const levelOfFuckedness: number = this.HowFuckedIsThePlayerOMeter();
 
         if (levelOfFuckedness <= 50) {
             this.outputText(

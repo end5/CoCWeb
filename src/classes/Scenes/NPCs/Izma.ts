@@ -12,6 +12,7 @@ import { PerkLib } from "../../PerkLib";
 import { StatusAffects } from "../../StatusAffects";
 /**
  * ...
+ *
  * @author ...
  */
 export class Izma extends Monster {
@@ -117,7 +118,7 @@ export class Izma extends Monster {
             );
             return;
         }
-        var damage: number = 0;
+        let damage = 0;
         damage = Math.round(130 - Izma.rand(this.player.tou + this.player.armorDef));
         if (damage < 0) damage = 0;
         this.outputText(
@@ -146,7 +147,7 @@ export class Izma extends Monster {
     }
 
     private IzmaAI(): void {
-        var choice: number = Izma.rand(5);
+        let choice: number = Izma.rand(5);
         if (choice <= 1) this.eAttack();
         if (choice == 2) {
             if (this.player.fatigue >= 80) choice = 3;
@@ -169,7 +170,7 @@ export class Izma extends Monster {
     }
 
     protected performCombatAction(): void {
-        var choice: number = Izma.rand(5);
+        let choice: number = Izma.rand(5);
         if (choice <= 1) this.eAttack();
         if (choice == 2) {
             if (this.player.fatigue >= 80) choice = 3;

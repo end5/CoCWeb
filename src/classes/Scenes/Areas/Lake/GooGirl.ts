@@ -14,7 +14,7 @@ import { PerkLib } from "../../../PerkLib";
 import { StatusAffects } from "../../../StatusAffects";
 
 export class GooGirl extends Monster {
-    /*Fight-
+    /* Fight-
      You are fighting a goo-girl.
      The goo-girl has a curious expression on her youthful, shimmering face. Her body is slender and globs of slime regularly drip from her limbs, splattering into the goo puddle pooling beneath her hips. A small, heart-shaped nucleus pulses in her chest with a red glow. [if the player has a c-cup or larger chest: She has apparently made herself a bit more like you, as her chest appears to be a perfect copy of your " + biggestBreastSizeDescript()+ ".]
      */
@@ -23,7 +23,7 @@ export class GooGirl extends Monster {
     // Slap – The slime holds its hands up and they morph into a replica of your " + weaponName + ". Happily, she swings at you, painfully smacking her gooey limbs against your head.  You shake your " + hairDescript() + ", clearing your head of the dazing slap. (lightly damages hit points)
     // Acid Slap (Only after player's fire attack) – Her body quivering from your flames, the goo-girl delivers a painful slap across your cheek. You gasp when the light stinging becomes a searing burn that seems to get worse as time goes on! (heavily damages hit points and puts Acid Burn on the player)
     private gooGalAttack(): void {
-        var damage: number = 0;
+        let damage = 0;
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         if (this.findPerk(PerkLib.Acid) >= 0)
@@ -180,7 +180,7 @@ export class GooGirl extends Monster {
                 ", tickling your skin like fingers dancing across your body.",
             false
         );
-        var damage: number = 1;
+        const damage = 1;
         this.player.takeDamage(damage);
         this.game.dynStats("lus", 5 + GooGirl.rand(3) + this.player.sens / 10);
         this.combatRoundOver();
@@ -248,10 +248,10 @@ export class GooGirl extends Monster {
         this.applyTease(lustDelta);
     }
 
-    public constructor(noInit: boolean = false) {
+    public constructor(noInit = false) {
         super();
         if (noInit) return;
-        var playerHasBigBoobs: boolean = this.player.biggestTitSize() >= 3;
+        const playerHasBigBoobs: boolean = this.player.biggestTitSize() >= 3;
         this.a = "the ";
         this.short = "goo-girl";
         this.imageName = "googirl";
@@ -273,7 +273,7 @@ export class GooGirl extends Monster {
         this.hipRating = HIP_RATING_AMPLE;
         this.buttRating = BUTT_RATING_LARGE;
         this.lowerBody = LOWER_BODY_TYPE_GOO;
-        var tone: string = GooGirl.randomChoice("blue", "purple", "crystal");
+        const tone: string = GooGirl.randomChoice("blue", "purple", "crystal");
         this.skinTone = tone;
         this.skinType = SKIN_TYPE_GOO;
         // this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_GOO];

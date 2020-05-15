@@ -102,7 +102,7 @@ export class Naga extends Monster {
                 "Before you can even think, you feel a sharp pain at your side as the naga's tail slams into you and shoves you into the sands. You pick yourself up, wincing at the pain in your side.",
                 false
             );
-            var damage: number = 10;
+            let damage = 10;
             if (this.player.armorDef < 10) damage += 10 - this.player.armorDef;
             damage += Naga.rand(3);
             damage = this.player.takeDamage(damage);
@@ -128,7 +128,7 @@ export class Naga extends Monster {
         }
     }
 
-    public constructor(noInit: boolean = false) {
+    public constructor(noInit = false) {
         super();
         if (noInit) return;
         trace("Naga Constructor!");

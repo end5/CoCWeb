@@ -20,34 +20,34 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
     // --Leads up to perk with Tamani autosexing (maybe bad end)
 
     // Fuck Them:
-    // 	*Fits
-    // 	 *Alternate Tamani scenes directly in the event.
-    // 	*Doesnt Fit
-    // 	 *Alternate Tamani scenes directly in the event.
+    //  *Fits
+    //   *Alternate Tamani scenes directly in the event.
+    //  *Doesnt Fit
+    //   *Alternate Tamani scenes directly in the event.
 
     // Let Them:
-    // 	*Fits
-    // 	 *Tamani Is Here
-    // 	 *No Tamani
-    // 	*Doesnt Fit
-    // 	 *No Tamani
-    // 	 *Tamani is here
+    //  *Fits
+    //   *Tamani Is Here
+    //   *No Tamani
+    //  *Doesnt Fit
+    //   *No Tamani
+    //   *Tamani is here
 
     // Win:
     // *Rape -> "Fuck Them" scenes.
 
     // Lose:
-    // 	*Daughters drag PC back to caves and milking machine action ensues.
-    // 	*Tamani is there and hypno's the PC, then orgy ensues.
+    //  *Daughters drag PC back to caves and milking machine action ensues.
+    //  *Tamani is there and hypno's the PC, then orgy ensues.
 
     // Variables to track:
-    // 	Number of Daughters – Capped at 19 if PC has not yet encountered them yet.
+    //  Number of Daughters – Capped at 19 if PC has not yet encountered them yet.
     // "Tamani" v2
-    // 	Times Encountered – 0 → infinity
+    //  Times Encountered – 0 → infinity
     // flags[kFLAGS.TIMES_ENCOUNTED_TAMANIS_DAUGHTERS]
-    // 	Tamani Hypno Level – increases by 1 for each hypno event.  1-4 slight lust raises, 5-9 medium lust raises, 10-19 super high lust raises, 20+ high chance of autorape with special scene.
+    //  Tamani Hypno Level – increases by 1 for each hypno event.  1-4 slight lust raises, 5-9 medium lust raises, 10-19 super high lust raises, 20+ high chance of autorape with special scene.
     // flags[kFLAGS.TAMANI_TIMES_HYPNOTISED]
-    // 	Daughter Preg Counter – they will not return until this countdown timer is 0.  Same length as Tamani's incubation – approx 1 week.
+    //  Daughter Preg Counter – they will not return until this countdown timer is 0.  Same length as Tamani's incubation – approx 1 week.
     // flags[kFLAGS.TAMANI_DAUGHTER_PREGGO_COUNTDOWN]
     // Tamani's Daughters – Tracked every birthing.  High cum production characters will produce more //Tamani babies and thus grow the mob (and achieve bad-end) faster.
     // Tamani's Daughters first arrive after #12 is born.
@@ -70,7 +70,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        this.pregnancy.pregnancyAdvance(); //Preg should be 7*24, ends at 0 to -48 --> 9*24, ends at 0
+        this.pregnancy.pregnancyAdvance(); // Preg should be 7*24, ends at 0 to -48 --> 9*24, ends at 0
         trace(
             "\nTamani's Daughters time change: Time is " +
                 this.model.time.hours +
@@ -84,7 +84,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_COUNT
             ];
             this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_COUNT] = 0;
-            this.pregnancy.knockUpForce(); //Clear Pregnancy
+            this.pregnancy.knockUpForce(); // Clear Pregnancy
         }
         // Put a cap on daughters if they havent been met yet.
         if (
@@ -109,7 +109,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
     }
     // End of Interface Implementation
 
-    static tamaniPresent: boolean = false; //Used to communicate between this class and TamanisDaughters.as
+    static tamaniPresent = false; // Used to communicate between this class and TamanisDaughters.as
 
     // Prime daughter tit-size
     // 12-20 – C
@@ -302,8 +302,8 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
     private fuckYoDaughtersHomie(): void {
         this.spriteSelect(57);
         this.flags[kFLAGS.TIMES_FUCKED_TAMANIS_DAUGHTERS]++;
-        var cocks: number = this.player.totalCocks();
-        var daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
+        const cocks: number = this.player.totalCocks();
+        const daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
 
         this.outputText("", true);
         this.outputText(
@@ -324,7 +324,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.outputText(" surges forwards, mobbing you from all sides.  ", false);
 
         // Find a dick that fits
-        var primary: number = this.player.cockThatFits(50);
+        const primary: number = this.player.cockThatFits(50);
         // (Fits)
         if (primary >= 0) {
             this.outputText(
@@ -708,7 +708,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.player.orgasm();
         this.dynStats("lib", 1, "cor", 1);
         // Knock the bitches up, boost libido, corruption
-        if (TamainsDaughtersScene.tamaniPresent) kGAMECLASS.forest.tamaniScene.tamaniKnockUp(); //If she wasn't pregnant she will be now
+        if (TamainsDaughtersScene.tamaniPresent) kGAMECLASS.forest.tamaniScene.tamaniKnockUp(); // If she wasn't pregnant she will be now
         this.knockUpDaughters();
         this.player.cumMultiplier += 0.3;
         if (this.getGame().inCombat) this.cleanupAfterCombat();
@@ -719,10 +719,10 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
     private legTamanisDaughtersRAEPYou(): void {
         this.spriteSelect(57);
         this.flags[kFLAGS.TIMES_FUCKED_TAMANIS_DAUGHTERS]++;
-        var cocks: number = this.player.totalCocks();
-        var daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
+        const cocks: number = this.player.totalCocks();
+        const daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
         // Find a dick that fits
-        var primary: number = this.player.cockThatFits(50);
+        const primary: number = this.player.cockThatFits(50);
 
         this.outputText("", true);
         this.outputText("Knowing full well that a ", false);
@@ -1101,7 +1101,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         }
         // [NO FIT]
         else {
-            // 	[No Tamani]
+            //  [No Tamani]
             if (!TamainsDaughtersScene.tamaniPresent) {
                 this.outputText(
                     "Effortlessly, Tamani's daughter launches herself onto you, straddling your body as she tries to work your " +
@@ -1637,7 +1637,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         // knock bitches up, slight libido gain, slight strength/toughness loss.
         this.player.orgasm();
         this.dynStats("str", -0.5, "int", -0.5, "lib", 1, "cor", 1);
-        if (TamainsDaughtersScene.tamaniPresent) kGAMECLASS.forest.tamaniScene.tamaniKnockUp(); //If she wasn't pregnant she will be now
+        if (TamainsDaughtersScene.tamaniPresent) kGAMECLASS.forest.tamaniScene.tamaniKnockUp(); // If she wasn't pregnant she will be now
         this.knockUpDaughters();
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseFourHours);
@@ -1650,7 +1650,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.outputText("", true);
 
         // Vars
-        var cocks: number = this.player.totalCocks();
+        const cocks: number = this.player.totalCocks();
         // var daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
 
         this.outputText(
@@ -1914,7 +1914,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             false
         );
 
-        //// Chance of tamani saving you
+        /// / Chance of tamani saving you
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00058] < 4) {
             this.outputText(
                 "You lose consciousness a few hours into the ordeal, still cumming with no sign of stopping, your body sustained by the fluids pouring into your backside.  The dreams are a constant barrage of sexual situations, flitting between various incongruous orgasmic acts.  Were you capable of comprehending your situation, you probably wouldn't even want to wake up.  Alas, the pleasure does end, and you settle into a deeper slumber.  A gentle rocking and the exhaustion of your crotch keep you snoring soundly for hours.\n\n",
@@ -2114,7 +2114,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.outputText("", true);
         this.flags[kFLAGS.TIMES_FUCKED_TAMANIS_DAUGHTERS]++;
         // Find a dick that fits
-        var primary: number = this.player.cockThatFits(50);
+        const primary: number = this.player.cockThatFits(50);
 
         this.outputText(
             "Your attempts to resist prove to be in vain, as your daughters and their extra-curvy mother have completely defeated you.  ",
@@ -2381,10 +2381,10 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
 
     private knockUpDaughters(): void {
         if (this.pregnancy.isPregnant) return;
-        this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, 216); //Nine day long pregnancy, just like mom
+        this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, 216); // Nine day long pregnancy, just like mom
         // Determine how many kids...
         this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_COUNT] = 2;
-        var cum: number = this.player.cumQ();
+        const cum: number = this.player.cumQ();
         // Breeder perk is awesome
         if (this.player.findPerk(PerkLib.MaraesGiftStud) >= 0)
             this.flags[kFLAGS.TAMANI_DAUGHTERS_PREGNANCY_COUNT] += 3;

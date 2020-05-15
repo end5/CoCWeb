@@ -112,7 +112,7 @@ import {
 import { Appearance } from "../Appearance";
 import { BaseContent } from "../BaseContent";
 import { CockTypesEnum } from "../CockTypesEnum";
-import { CoC_Settings } from "../CoC_Settings";
+import { CocSettings } from "../CoC_Settings";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 import { PerkLib } from "../PerkLib";
@@ -206,9 +206,9 @@ export class Mutations extends BaseContent {
     /* ITEMZZZZZ FUNCTIONS GO HERE */
     public incubiDraft(tainted: boolean, player: Player): void {
         player.slimeFeed();
-        var temp2: number = 0;
-        var temp3: number = 0;
-        var rando: number = Mutations.rand(100);
+        let temp2 = 0;
+        let temp3 = 0;
+        let rando: number = Mutations.rand(100);
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) rando += 10;
         this.outputText("The draft is slick and sticky, ", true);
         if (player.cor <= 33) this.outputText("just swallowing it makes you feel unclean.", false);
@@ -804,18 +804,18 @@ export class Mutations extends BaseContent {
     public minotaurBlood(player: Player): void {
         player.slimeFeed();
         // Changes done
-        var changes: number = 0;
+        let changes = 0;
         // Change limit
-        var changeLimit: number = 1;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
         if (changeLimit == 1) changeLimit = 2;
         // Temporary storage
-        var temp: number = 0;
-        var temp2: number = 0;
-        var temp3: number = 0;
+        let temp = 0;
+        let temp2 = 0;
+        let temp3 = 0;
         // Set up output
         this.outputText(
             "You drink the bubbling red fluid, tasting the tangy iron after-taste.",
@@ -1144,8 +1144,8 @@ export class Mutations extends BaseContent {
         }
         // Boosts cock size up to 36"x5".
         if (changes < changeLimit && Mutations.rand(2) == 0 && player.cocks.length > 0) {
-            var selectedCock: number = -1;
-            for (var i: number = 0; i < player.cocks.length; i++) {
+            let selectedCock = -1;
+            for (let i = 0; i < player.cocks.length; i++) {
                 if (
                     player.cocks[i].cockType == CockTypesEnum.HORSE &&
                     (player.cocks[i].cockLength < 36 || player.cocks[i].cockThickness < 5)
@@ -1218,8 +1218,8 @@ export class Mutations extends BaseContent {
         }
         // Morph dick to horsediiiiick
         if (player.cocks.length > 0 && Mutations.rand(2) == 0 && changes < changeLimit) {
-            var selectedCockValue: number = -1; //Changed as selectedCock and i caused duplicate var warnings
-            for (var indexI: number = 0; indexI < player.cocks.length; indexI++) {
+            let selectedCockValue = -1; // Changed as selectedCock and i caused duplicate var warnings
+            for (let indexI = 0; indexI < player.cocks.length; indexI++) {
                 if (player.cocks[indexI].cockType != CockTypesEnum.HORSE) {
                     selectedCockValue = indexI;
                     break;
@@ -1441,7 +1441,7 @@ export class Mutations extends BaseContent {
                 changes++;
             }
         }
-        // +cow ears	- requires tail
+        // +cow ears - requires tail
         if (
             player.earType != EARS_COW &&
             changes < changeLimit &&
@@ -1534,13 +1534,13 @@ export class Mutations extends BaseContent {
     public equinum(player: Player): void {
         player.slimeFeed();
         // Changes done
-        var changes: number = 0;
+        let changes = 0;
         // Change limit
-        var changeLimit: number = 1;
+        let changeLimit = 1;
         // Temporary storage
-        var temp: number = 0;
-        var temp2: number = 0;
-        var temp3: number = 0;
+        let temp = 0;
+        let temp2 = 0;
+        let temp3 = 0;
         // Store location of cock to be changed
         // var old: number = 0;
         // Chancee to raise limit
@@ -1902,7 +1902,7 @@ export class Mutations extends BaseContent {
                         false
                     );
                     if (temp == -1) {
-                        CoC_Settings.error("");
+                        CocSettings.error("");
                         this.outputText("FUKKKK ERROR NO COCK XFORMED", true);
                     }
                     // Already have a sheath
@@ -2456,9 +2456,9 @@ export class Mutations extends BaseContent {
 
     public succubiMilk(tainted: boolean, player: Player): void {
         player.slimeFeed();
-        var temp2: number = 0;
-        var temp3: number = 0;
-        var rando: number = Math.random() * 100;
+        let temp2 = 0;
+        let temp3 = 0;
+        let rando: number = Math.random() * 100;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) rando += 10;
         if (rando >= 90 && !tainted) rando -= 10;
         if (player.cor < 35)
@@ -2805,12 +2805,12 @@ export class Mutations extends BaseContent {
     // 4-Knotty Pepper (+Knot + Cum Multiplier)
     // 5-Bulbous Pepper (+ball size or fresh balls)
     public caninePepper(type: number, player: Player): void {
-        var temp2: number = 0;
-        var temp3: number = 0;
-        var crit: number = 1;
+        let temp2 = 0;
+        let temp3 = 0;
+        let crit = 1;
         // Set up changes and changeLimit
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
@@ -3593,7 +3593,7 @@ export class Mutations extends BaseContent {
                     // Check for size mismatches, and move closer to spec!
                     this.temp = player.breastRows.length;
                     temp2 = 0;
-                    var evened: boolean = false;
+                    let evened = false;
                     // Check each row, and if the row above or below it is
                     while (this.temp > 1 && temp2 == 0) {
                         this.temp--;
@@ -4099,11 +4099,11 @@ export class Mutations extends BaseContent {
 
     public succubisDelight(tainted: boolean, player: Player): void {
         player.slimeFeed();
-        var changes: number = 0;
-        var crit: number = 1;
+        let changes = 0;
+        let crit = 1;
         // Determine crit multiplier (x2 or x3)
         if (Mutations.rand(4) == 0) crit += Mutations.rand(2) + 1;
-        var changeLimit: number = 1;
+        let changeLimit = 1;
         // Chances to up the max number of changes
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
@@ -4212,11 +4212,11 @@ export class Mutations extends BaseContent {
 
     public succubisDream(player: Player): void {
         player.slimeFeed();
-        var changes: number = 0;
-        var crit: number = 1;
+        let changes = 0;
+        let crit = 1;
         // Determine crit multiplier (x2 or x3)
         crit += Mutations.rand(2) + 1;
-        var changeLimit: number = 1;
+        let changeLimit = 1;
         // Chances to up the max number of changes
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
@@ -4545,8 +4545,8 @@ export class Mutations extends BaseContent {
 
     // Maleness
     public blueEgg(large: boolean, player: Player): void {
-        var temp2: number = 0;
-        var temp3: number = 0;
+        let temp2 = 0;
+        let temp3 = 0;
         this.outputText("You devour the egg, momentarily sating your hunger.", true);
         if (!large) {
             // Kill pussies!
@@ -4888,7 +4888,7 @@ export class Mutations extends BaseContent {
 
     // Nipplezzzzz
     public whiteEgg(large: boolean, player: Player): void {
-        var temp2: number = 0;
+        let temp2 = 0;
         this.outputText("You devour the egg, momentarily sating your hunger.", true);
         if (!large) {
             // Grow nipples
@@ -4976,7 +4976,7 @@ export class Mutations extends BaseContent {
             else {
                 // If hair isn't rubbery/latex yet
                 if (
-                    player.hairColor.indexOf("rubbery") == -1 &&
+                    !player.hairColor.includes("rubbery") &&
                     player.hairColor.indexOf("latex-textured") &&
                     player.hairLength != 0
                 ) {
@@ -5066,7 +5066,7 @@ export class Mutations extends BaseContent {
             else {
                 // If hair isn't rubbery/latex yet
                 if (
-                    player.hairColor.indexOf("rubbery") == -1 &&
+                    !player.hairColor.includes("rubbery") &&
                     player.hairColor.indexOf("latex-textured") &&
                     player.hairLength != 0
                 ) {
@@ -5099,10 +5099,7 @@ export class Mutations extends BaseContent {
     }
 
     public hairDye(color: string, player: Player): void {
-        if (
-            player.hairColor.indexOf("rubbery") != -1 ||
-            player.hairColor.indexOf("latex-textured") != -1
-        ) {
+        if (player.hairColor.includes("rubbery") || player.hairColor.includes("latex-textured")) {
             this.outputText(
                 "You massage the dye into your " +
                     this.hairDescript() +
@@ -5141,148 +5138,6 @@ export class Mutations extends BaseContent {
         if (player.findPerk(PerkLib.PurityBlessing) < 0)
             player.createPerk(PerkLib.PurityBlessing, 0, 0, 0, 0);
     } /*
-                kGAMECLASS.itemSubMenu = true;
-                clearOutput();
-                outputText("You ponder the paste in your hand and wonder what part of your body you would like to shrink.  What will you use it on?");
-                choices("Balls", rdtBalls, "Breasts", rdtBreasts, "Butt", rdtButt, "Clit", rdtClit, "Cock", rdtCock,
-                    "Hips", rdtHips, "Nipples", rdtNipples, "", undefined, "", undefined, "Nevermind", reductoCancel);
-            }
-
-            private  reductoBalls(): void {
-                clearOutput();
-                outputText("You smear the foul-smelling paste onto your " + sackDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
-                player.ballSize -= (2 + rand(4));
-                if (player.ballSize < 1) player.ballSize = 1;
-                outputText("You feel your scrotum shift, shrinking down along with your " + ballsDescriptLight() + ".  Within a few seconds the paste has been totally absorbed and the shrinking stops.");
-                dynStats("lib", -2, "lus", -10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoBreasts(): void {
-                clearOutput();
-                outputText("You smear the foul-smelling ointment all over your " + allBreastsDescript() + ", covering them entirely as the paste begins to get absorbed into your " + player.skinDesc + ".\n");
-                player.shrinkTits(true);
-                if (rand(2) == 0 && player.biggestTitSize() >= 1) {
-                    outputText("\nThe effects of the paste continue to manifest themselves, and your body begins to change again...");
-                    player.shrinkTits(true);
-                }
-                outputText("\nThe last of it wicks away into your skin, completing the changes.");
-                dynStats("sen", -2, "lus", -5);
-                inventory.itemGoNext();
-            }
-
-            private  reductoButt(): void {
-                clearOutput();
-                outputText("You smear the foul-smelling paste onto your " + buttDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
-                if (player.buttRating >= 15) {
-                    player.buttRating -= (3 + int(player.buttRating / 3));
-                    outputText("Within seconds you feel noticeably lighter, and a quick glance shows your ass is significantly smaller.");
-                }
-                else if (player.buttRating >= 10) {
-                    player.buttRating -= 3;
-                    outputText("You feel much lighter as your " + buttDescript() + " jiggles slightly, adjusting to its smaller size.");
-                }
-                else {
-                    player.buttRating -= 1 + rand(3);
-                    if (player.buttRating < 1) player.buttRating = 1;
-                    outputText("After a few seconds your " + buttDescript() + " has shrunk to a much smaller size!");
-                }
-                dynStats("lib", -2, "lus", -10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoClit(): void {
-                clearOutput();
-                outputText("You carefully apply the paste to your " + clitDescript() + ", being very careful to avoid getting it on your " + vaginaDescript(0) + ".  It burns with heat as it begins to make its effects known...\n\n");
-                player.clitLength /= 1.7;
-                // Set clitlength down to 2 digits in length
-                player.clitLength = int(player.clitLength * 100) / 100;
-                outputText("Your " + clitDescript() + " shrinks rapidly, dwindling down to almost half its old size before it finishes absorbing the paste.");
-                dynStats("sen", 2, "lus", 10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoCock(): void {
-                clearOutput();
-                outputText("You smear the repulsive smelling paste over your " + multiCockDescriptLight() + ".  It immediately begins to grow warm, almost uncomfortably so, as your " + multiCockDescriptLight() + " begins to shrink.\n\n");
-                if (player.cocks.length == 1) {
-                    outputText("Your " + cockDescript(0) + " twitches as it shrinks, disappearing steadily into your " + (player.hasSheath() ? "sheath" : "crotch") + " until it has lost about a third of its old size.");
-                    player.cocks[0].cockLength *= 2 / 3;
-                    player.cocks[0].cockThickness *= 2 / 3;
-                }
-                // MULTI
-                else {
-                    outputText("Your " + multiCockDescriptLight() + " twitch and shrink, each member steadily disappearing into your " + (player.hasSheath() ? "sheath" : "crotch") + " until they've lost about a third of their old size.");
-                    for (var i: number = 0; i < player.cocks.length; i++) {
-                        player.cocks[i].cockLength
-// *= 2 / 3;
-                        player.cocks[i].cockThickness	*= 2 / 3;
-                    }
-                }
-                dynStats("sen", -2, "lus", -10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoHips(): void {
-                clearOutput();
-                outputText("You smear the foul-smelling paste onto your [hips].  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
-                if (player.hipRating >= 15) {
-                    player.hipRating -= (3 + int(player.hipRating / 3));
-                    outputText("Within seconds you feel noticeably lighter, and a quick glance at your hips shows they've gotten significantly narrower.");
-                }
-                else if (player.hipRating >= 10) {
-                    player.hipRating -= 3;
-                    outputText("You feel much lighter as your [hips] shift slightly, adjusting to their smaller size.");
-                }
-                else {
-                    player.hipRating -= 1 + rand(3);
-                    if (player.hipRating < 1) player.hipRating = 1;
-                    outputText("After a few seconds your [hips] have shrunk to a much smaller size!");
-                }
-                dynStats("lib", -2, "lus", -10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoNipples(): void {
-                clearOutput();
-                outputText("You rub the paste evenly over your " + nippleDescript(0) + "s, being sure to cover them completely.\n\n");
-                // Shrink
-                if (player.nippleLength / 2 < 0.25) {
-                    outputText("Your nipples continue to shrink down until they stop at 1/4\" long.");
-                    player.nippleLength = 0.25;
-                }
-                else {
-                    outputText("Your " + nippleDescript(0) + "s get smaller and smaller, stopping when they are roughly half their previous size.");
-                    player.nippleLength /= 2;
-                }
-                dynStats("sen", -5, "lus", -5);
-                inventory.itemGoNext();
-            }
-
-            private  reductoCancel(): void {
-                clearOutput();
-                if (debug)
-                    eventParser(inventory.inventoryMenu);
-                else {
-                    inventory.takeItem(consumables.REDUCTO);
-                    itemSwapping = true;
-                }
-            }
-    */ /*
-            var  ballsEvent: number = 0;
-                if (player.balls > 0) ballsEvent = 1039;
-            var  clitEvent: number = 0;
-                if (player.vaginas.length > 0) clitEvent = 1041;
-            var  nipplesEvent: number = 0;
-                if (player.totalNipples() > 0) nipplesEvent = 1043;
-            var  breastEvent: number = 0;
-                if (player.breastRows.length > 0) breastEvent = 1040;
-            var  cockEvent: number = 0;
-                if (player.cockTotal() > 0) cockEvent = 1042;
-                kGAMECLASS.itemSubMenu = true;
-                outputText("You ponder the needle in your hand knowing it will enlarge the injection site.  What part of your body will you use it on?  ", true);
-                choices("Balls", ballsEvent, "Breasts", breastEvent, "Clit", clitEvent, "Cock", cockEvent, "Nipples", nipplesEvent, "", 0, "", 0, "", 0, "", 0, "Nevermind", 1038);
-                */ /*
             var  ballsEvent: number = 0;
                 if (player.balls > 0 && player.ballSize > 1) ballsEvent = 1054;
             var  clitEvent: number = 0;
@@ -5409,7 +5264,149 @@ export class Mutations extends BaseContent {
                     }
                 }
             }
-    */
+    */ /*
+                kGAMECLASS.itemSubMenu = true;
+                clearOutput();
+                outputText("You ponder the paste in your hand and wonder what part of your body you would like to shrink.  What will you use it on?");
+                choices("Balls", rdtBalls, "Breasts", rdtBreasts, "Butt", rdtButt, "Clit", rdtClit, "Cock", rdtCock,
+                    "Hips", rdtHips, "Nipples", rdtNipples, "", undefined, "", undefined, "Nevermind", reductoCancel);
+            }
+
+            private  reductoBalls(): void {
+                clearOutput();
+                outputText("You smear the foul-smelling paste onto your " + sackDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
+                player.ballSize -= (2 + rand(4));
+                if (player.ballSize < 1) player.ballSize = 1;
+                outputText("You feel your scrotum shift, shrinking down along with your " + ballsDescriptLight() + ".  Within a few seconds the paste has been totally absorbed and the shrinking stops.");
+                dynStats("lib", -2, "lus", -10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoBreasts(): void {
+                clearOutput();
+                outputText("You smear the foul-smelling ointment all over your " + allBreastsDescript() + ", covering them entirely as the paste begins to get absorbed into your " + player.skinDesc + ".\n");
+                player.shrinkTits(true);
+                if (rand(2) == 0 && player.biggestTitSize() >= 1) {
+                    outputText("\nThe effects of the paste continue to manifest themselves, and your body begins to change again...");
+                    player.shrinkTits(true);
+                }
+                outputText("\nThe last of it wicks away into your skin, completing the changes.");
+                dynStats("sen", -2, "lus", -5);
+                inventory.itemGoNext();
+            }
+
+            private  reductoButt(): void {
+                clearOutput();
+                outputText("You smear the foul-smelling paste onto your " + buttDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
+                if (player.buttRating >= 15) {
+                    player.buttRating -= (3 + int(player.buttRating / 3));
+                    outputText("Within seconds you feel noticeably lighter, and a quick glance shows your ass is significantly smaller.");
+                }
+                else if (player.buttRating >= 10) {
+                    player.buttRating -= 3;
+                    outputText("You feel much lighter as your " + buttDescript() + " jiggles slightly, adjusting to its smaller size.");
+                }
+                else {
+                    player.buttRating -= 1 + rand(3);
+                    if (player.buttRating < 1) player.buttRating = 1;
+                    outputText("After a few seconds your " + buttDescript() + " has shrunk to a much smaller size!");
+                }
+                dynStats("lib", -2, "lus", -10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoClit(): void {
+                clearOutput();
+                outputText("You carefully apply the paste to your " + clitDescript() + ", being very careful to avoid getting it on your " + vaginaDescript(0) + ".  It burns with heat as it begins to make its effects known...\n\n");
+                player.clitLength /= 1.7;
+                // Set clitlength down to 2 digits in length
+                player.clitLength = int(player.clitLength * 100) / 100;
+                outputText("Your " + clitDescript() + " shrinks rapidly, dwindling down to almost half its old size before it finishes absorbing the paste.");
+                dynStats("sen", 2, "lus", 10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoCock(): void {
+                clearOutput();
+                outputText("You smear the repulsive smelling paste over your " + multiCockDescriptLight() + ".  It immediately begins to grow warm, almost uncomfortably so, as your " + multiCockDescriptLight() + " begins to shrink.\n\n");
+                if (player.cocks.length == 1) {
+                    outputText("Your " + cockDescript(0) + " twitches as it shrinks, disappearing steadily into your " + (player.hasSheath() ? "sheath" : "crotch") + " until it has lost about a third of its old size.");
+                    player.cocks[0].cockLength *= 2 / 3;
+                    player.cocks[0].cockThickness *= 2 / 3;
+                }
+                // MULTI
+                else {
+                    outputText("Your " + multiCockDescriptLight() + " twitch and shrink, each member steadily disappearing into your " + (player.hasSheath() ? "sheath" : "crotch") + " until they've lost about a third of their old size.");
+                    for (var i: number = 0; i < player.cocks.length; i++) {
+                        player.cocks[i].cockLength
+// *= 2 / 3;
+                        player.cocks[i].cockThickness *= 2 / 3;
+                    }
+                }
+                dynStats("sen", -2, "lus", -10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoHips(): void {
+                clearOutput();
+                outputText("You smear the foul-smelling paste onto your [hips].  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
+                if (player.hipRating >= 15) {
+                    player.hipRating -= (3 + int(player.hipRating / 3));
+                    outputText("Within seconds you feel noticeably lighter, and a quick glance at your hips shows they've gotten significantly narrower.");
+                }
+                else if (player.hipRating >= 10) {
+                    player.hipRating -= 3;
+                    outputText("You feel much lighter as your [hips] shift slightly, adjusting to their smaller size.");
+                }
+                else {
+                    player.hipRating -= 1 + rand(3);
+                    if (player.hipRating < 1) player.hipRating = 1;
+                    outputText("After a few seconds your [hips] have shrunk to a much smaller size!");
+                }
+                dynStats("lib", -2, "lus", -10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoNipples(): void {
+                clearOutput();
+                outputText("You rub the paste evenly over your " + nippleDescript(0) + "s, being sure to cover them completely.\n\n");
+                // Shrink
+                if (player.nippleLength / 2 < 0.25) {
+                    outputText("Your nipples continue to shrink down until they stop at 1/4\" long.");
+                    player.nippleLength = 0.25;
+                }
+                else {
+                    outputText("Your " + nippleDescript(0) + "s get smaller and smaller, stopping when they are roughly half their previous size.");
+                    player.nippleLength /= 2;
+                }
+                dynStats("sen", -5, "lus", -5);
+                inventory.itemGoNext();
+            }
+
+            private  reductoCancel(): void {
+                clearOutput();
+                if (debug)
+                    eventParser(inventory.inventoryMenu);
+                else {
+                    inventory.takeItem(consumables.REDUCTO);
+                    itemSwapping = true;
+                }
+            }
+    */ /*
+            var  ballsEvent: number = 0;
+                if (player.balls > 0) ballsEvent = 1039;
+            var  clitEvent: number = 0;
+                if (player.vaginas.length > 0) clitEvent = 1041;
+            var  nipplesEvent: number = 0;
+                if (player.totalNipples() > 0) nipplesEvent = 1043;
+            var  breastEvent: number = 0;
+                if (player.breastRows.length > 0) breastEvent = 1040;
+            var  cockEvent: number = 0;
+                if (player.cockTotal() > 0) cockEvent = 1042;
+                kGAMECLASS.itemSubMenu = true;
+                outputText("You ponder the needle in your hand knowing it will enlarge the injection site.  What part of your body will you use it on?  ", true);
+                choices("Balls", ballsEvent, "Breasts", breastEvent, "Clit", clitEvent, "Cock", cockEvent, "Nipples", nipplesEvent, "", 0, "", 0, "", 0, "", 0, "Nevermind", 1038);
+                */
 
     // TODO FIX
     /* Moved to new GroPlus item
@@ -5437,7 +5434,7 @@ export class Mutations extends BaseContent {
         player: Player
     ): void {
         player.slimeFeed();
-        var i: number = 0;
+        let i = 0;
         this.outputText(
             "You gulp down the bottle of lactaid, easily swallowing the creamy liquid.",
             true
@@ -5542,7 +5539,7 @@ export class Mutations extends BaseContent {
         } else player.createStatusAffect(StatusAffects.BottledMilk, 12, 0, 0, 0);
     }
 
-    /*Purified LaBova:
+    /* Purified LaBova:
      This will be one of the items that the player will have to give Marble to purify her, but there is a limit on how much she can be purified in this way.
      Effects on the player:
      Mostly the same, but without animal transforms, corruption, and lower limits on body changes
@@ -5563,18 +5560,18 @@ export class Mutations extends BaseContent {
     public laBova(tainted: boolean, enhanced: boolean, player: Player): void {
         player.slimeFeed();
         // Changes done
-        var changes: number = 0;
+        let changes = 0;
         // Change limit
-        var changeLimit: number = 1;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
         if (enhanced) changeLimit += 2;
         // Temporary storage
-        var temp: number = 0;
-        var temp2: number = 0;
-        var temp3: number = 0;
+        let temp = 0;
+        let temp2 = 0;
+        let temp3 = 0;
         // LaBova:
         // ItemDesc: "A bottle containing a misty fluid with a grainy texture, it has a long neck and a ball-like base.  The label has a stylized picture of a well endowed cowgirl nursing two guys while they jerk themselves off.  "
         // ItemUseText:
@@ -5712,7 +5709,7 @@ export class Mutations extends BaseContent {
             }
         }
         // Sex bits - girly
-        var boobsGrew: boolean = false;
+        let boobsGrew = false;
         // Increase player's breast size, if they are HH or bigger
         // do not increase size, but do the other actions:
         if (
@@ -6496,8 +6493,8 @@ export class Mutations extends BaseContent {
 
     public goblinAle(player: Player): void {
         player.slimeFeed();
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(4) == 0) changeLimit++;
@@ -6518,7 +6515,7 @@ export class Mutations extends BaseContent {
                 false
             );
         }
-        ///Less tough
+        /// Less tough
         if (player.tou > 50) {
             this.outputText(
                 "\n\nGiggling, you poke yourself, which only makes you giggle harder when you realize how much softer you feel.",
@@ -6626,7 +6623,7 @@ export class Mutations extends BaseContent {
         ) {
             if (player.cocks[0].cockLength > 12) {
                 changes++;
-                var temp3: number = 0;
+                let temp3 = 0;
                 this.outputText("\n\n", false);
                 // Shrink said cock
                 if (player.cocks[0].cockLength < 6 && player.cocks[0].cockLength >= 2.9) {
@@ -6881,7 +6878,7 @@ export class Mutations extends BaseContent {
             );
             this.dynStats("sen", -1);
         }
-        /*Calculate goopiness
+        /* Calculate goopiness
         var  goopiness: number = 0;
          if(player.skinType == SKIN_TYPE_GOO) goopiness+=2;
          if(player.hair.indexOf("gooey") != -1) goopiness++;
@@ -6919,8 +6916,8 @@ export class Mutations extends BaseContent {
             } else {
                 // if hair isnt rubbery or latexy
                 if (
-                    player.hairColor.indexOf("rubbery") == -1 &&
-                    player.hairColor.indexOf("latex-textured") == -1
+                    !player.hairColor.includes("rubbery") &&
+                    !player.hairColor.includes("latex-textured")
                 ) {
                     this.outputText(
                         "\n\nYour head buzzes pleasantly, feeling suddenly hot and wet.  You instinctively reach up to feel the source of your wetness, and discover your hair has become a slippery, gooey mess.  From time to time it drips, running down your back to the crack of your " +
@@ -6945,7 +6942,7 @@ export class Mutations extends BaseContent {
                 player.hairColor != "emerald"
             ) {
                 this.outputText("  Stranger still, the hue of your semi-liquid hair changes to ");
-                var blah: number = Mutations.rand(10);
+                const blah: number = Mutations.rand(10);
                 if (blah <= 2) player.hairColor = "green";
                 else if (blah <= 4) player.hairColor = "purple";
                 else if (blah <= 6) player.hairColor = "blue";
@@ -6999,7 +6996,7 @@ export class Mutations extends BaseContent {
                 player.skinTone != "emerald"
             ) {
                 this.outputText("  Stranger still, your skintone changes to ");
-                var blaht: number = Mutations.rand(10);
+                const blaht: number = Mutations.rand(10);
                 if (blaht <= 2) player.skinTone = "green";
                 else if (blaht <= 4) player.skinTone = "purple";
                 else if (blaht <= 6) player.skinTone = "blue";
@@ -7009,7 +7006,7 @@ export class Mutations extends BaseContent {
             }
             return;
         }
-        ////1a.Make alterations to dick/vaginal/nippular descriptors to match
+        /// /1a.Make alterations to dick/vaginal/nippular descriptors to match
         // DONE EXCEPT FOR TITS & MULTIDICKS (UNFINISHED KINDA)
         // 2.Goo legs
         if (
@@ -7074,7 +7071,7 @@ export class Mutations extends BaseContent {
                     "\n\nYou feel a growing gnawing in your gut.  You feel... hungry, but not for food.  No, you need something wet and goopy pumped into you.  You NEED it.  You can feel it in your bones.  <b>If you don't feed that need... you'll get weaker and maybe die.</b>",
                     false
                 );
-                player.createStatusAffect(StatusAffects.SlimeCraving, 0, 0, 0, 1); //Value four indicates this tracks strength and speed separately
+                player.createStatusAffect(StatusAffects.SlimeCraving, 0, 0, 0, 1); // Value four indicates this tracks strength and speed separately
             } else {
                 this.outputText(
                     "\n\nYou feel full for a moment, but you know it's just a temporary respite from your constant need to be 'injected' with fluid.",
@@ -7089,8 +7086,8 @@ export class Mutations extends BaseContent {
     }
 
     public sharkTooth(type: number, player: Player): void {
-        var changes: number = 0;
-        var changeLimit: number = 2;
+        let changes = 0;
+        let changeLimit = 2;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
@@ -7392,7 +7389,7 @@ export class Mutations extends BaseContent {
     }
 
     // 9)  Transformation Item - Snake Oil (S. Oil)
-    /*Effects:
+    /* Effects:
       Boosts Speed stat
       Ass reduction
       Testicles return inside your body (could be reverted by the use of succubi delight)
@@ -7417,8 +7414,8 @@ export class Mutations extends BaseContent {
     public snakeOil(player: Player): void {
         player.slimeFeed();
         this.outputText("", true);
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
@@ -7679,7 +7676,7 @@ export class Mutations extends BaseContent {
         player.eyeType = EYES_HUMAN;
         if (player.fertility > 15) player.fertility = 15;
         if (player.cumMultiplier > 50) player.cumMultiplier = 50;
-        var virgin: boolean = false;
+        let virgin = false;
         // Clear cocks
         while (player.cocks.length > 0) {
             player.removeCock(0, 1);
@@ -7766,10 +7763,10 @@ export class Mutations extends BaseContent {
     }
 
     public catTransformation(player: Player): void {
-        var changes: number = 0;
-        var changeLimit: number = 1;
-        var temp2: number = 0;
-        var temp3: number = 0;
+        let changes = 0;
+        let changeLimit = 1;
+        let temp2 = 0;
+        let temp3 = 0;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
@@ -7911,7 +7908,7 @@ export class Mutations extends BaseContent {
         // Sexual changes would go here if I wasn't a tard.
         // Heat
         if (Mutations.rand(4) == 0 && changes < changeLimit) {
-            var intensified: boolean = player.inHeat;
+            const intensified: boolean = player.inHeat;
 
             if (player.goIntoHeat(false)) {
                 if (intensified) {
@@ -7964,7 +7961,7 @@ export class Mutations extends BaseContent {
             if (temp2 > 0) {
                 // temp3 stores how many rows are changed
                 temp3 = 0;
-                for (var k: number = 0; k < player.breastRows.length; k++) {
+                for (let k = 0; k < player.breastRows.length; k++) {
                     // If this row is over threshhold
                     if (player.breastRows[k].breastRating > temp2) {
                         // Big change
@@ -8023,11 +8020,8 @@ export class Mutations extends BaseContent {
             Mutations.rand(4) == 0
         ) {
             // loop through and find a non-cat wang.
-            for (
-                var i: number = 0;
-                i < player.cockTotal() && player.cocks[i].cockType == CockTypesEnum.CAT;
-                i++
-            ) {}
+            let i = 0;
+            for (; i < player.cockTotal() && player.cocks[i].cockType == CockTypesEnum.CAT; i++) {}
             this.outputText(
                 "\n\nYour " +
                     this.cockDescript(i) +
@@ -8057,7 +8051,8 @@ export class Mutations extends BaseContent {
         ) {
             // loop through and find a cat wang.
             this.temp = 0;
-            for (var j: number = 0; j < player.cockTotal(); j++) {
+            let j = 0;
+            for (; j < player.cockTotal(); j++) {
                 if (
                     player.cocks[j].cockType == CockTypesEnum.CAT &&
                     player.cocks[j].cockLength > 6
@@ -8317,9 +8312,9 @@ export class Mutations extends BaseContent {
     public reptilum(player: Player): void {
         player.slimeFeed();
         // init variables
-        var changes: number = 0;
-        var changeLimit: number = 1;
-        var temp2: number = 0;
+        let changes = 0;
+        let changeLimit = 1;
+        let temp2 = 0;
         // Randomly choose affects limit
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
@@ -9023,8 +9018,8 @@ export class Mutations extends BaseContent {
     */
 
     public neonPinkEgg(pregnantChange: boolean, player: Player): void {
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
@@ -9293,7 +9288,7 @@ export class Mutations extends BaseContent {
         }
         // Makes girls very girl(90), guys somewhat girly (61).
         if (changes < changeLimit && Mutations.rand(2) == 0) {
-            var buffer: string = "";
+            let buffer = "";
             if (player.gender < 2) buffer += player.modFem(61, 4);
             else buffer += player.modFem(90, 4);
             if (buffer != "") {
@@ -9807,8 +9802,8 @@ export class Mutations extends BaseContent {
         // 'type' refers to the variety of seed.
         // 0 == standard.
         // 1 == enhanced - increase change limit and no pre-reqs for TF
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (type == 1) changeLimit += 2;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
@@ -10495,14 +10490,13 @@ export class Mutations extends BaseContent {
             false
         );
         // Used to track changes and the max
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (type == 1) changeLimit += 2;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
         // Used as a holding variable for biggest dicks and the like
-        var biggestCock: number;
         // ****************
         // General Effects:
         // ****************
@@ -10664,7 +10658,7 @@ export class Mutations extends BaseContent {
             changes++;
         }
         // Find biggest dick!
-        biggestCock = player.biggestCockIndex();
+        const biggestCock = player.biggestCockIndex();
         // -Shrink dicks down to 8\" max.
         if (player.hasCock()) {
             if (
@@ -10708,7 +10702,7 @@ export class Mutations extends BaseContent {
                 if (player.hasSheath()) this.outputText("your sheath", false);
                 else this.outputText("a sheath that forms at the base of it", false);
                 this.outputText(".  <b>You now have a kangaroo-penis!</b>", false);
-                var cockIdx: number = 0;
+                let cockIdx = 0;
                 // Find first non-roocock!
                 while (cockIdx < player.cockTotal()) {
                     if (player.cocks[cockIdx].cockType != CockTypesEnum.KANGAROO) {
@@ -10932,8 +10926,8 @@ export class Mutations extends BaseContent {
 
     public sweetGossamer(type: number, player: Player): void {
         this.outputText("", true);
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
@@ -11064,7 +11058,7 @@ export class Mutations extends BaseContent {
         if (player.hasCock() && changes < changeLimit && Mutations.rand(4) == 0) {
             // Use temp to see if any dicks can be thickened
             this.temp = 0;
-            counter = 0;
+            let counter = 0;
             while (counter < player.cockTotal()) {
                 if (player.cocks[counter].cockThickness * 5.5 < player.cocks[counter].cockLength) {
                     player.cocks[counter].cockThickness += 0.1;
@@ -11088,7 +11082,6 @@ export class Mutations extends BaseContent {
                 if (player.cockTotal() == 1) this.outputText("It's", false);
                 else this.outputText("They're", false);
                 this.outputText(" definitely thicker.", false);
-                var counter: number;
                 changes++;
             }
         }
@@ -11706,7 +11699,7 @@ export class Mutations extends BaseContent {
         player.createPerk(PerkLib.BroBrains, 0, 0, 0, 0);
         player.createPerk(PerkLib.BroBody, 0, 0, 0, 0);
         this.outputText("<b>(Bro Body - Perk Gained!)\n", false);
-        this.outputText("(Bro Brains - Perk Gained!)</b>\n", false); //int to 20.  max int 50)
+        this.outputText("(Bro Brains - Perk Gained!)</b>\n", false); // int to 20.  max int 50)
         if (player.findPerk(PerkLib.Feeder) >= 0) {
             this.outputText("<b>(Perk Lost - Feeder!)</b>\n", false);
             player.removePerk(PerkLib.Feeder);
@@ -11727,8 +11720,8 @@ export class Mutations extends BaseContent {
             "You grimace and uncork the bottle, doing your best to ignore the unearthly smell drifting up to your nostrils. Steeling yourself, you raise the container to your lips and chug the contents, shivering at the feel of the stuff sliding down your throat.  Its taste, at least, is unexpectedly pleasant.  Almost tastes like oranges.",
             false
         );
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
@@ -11876,8 +11869,8 @@ export class Mutations extends BaseContent {
             "You chew on the rubbery tentacle; its texture and taste are somewhat comparable to squid, but the half-dormant nematocysts cause your mouth to tingle sensitively.",
             false
         );
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (player.findPerk(PerkLib.HistoryAlchemist) >= 0) changeLimit++;
@@ -12146,13 +12139,13 @@ export class Mutations extends BaseContent {
             this.outputText(
                 'You pop the cap on the enhanced "Vixen\'s Vigor" and decide to take a swig of it.  Perhaps it will make you as cunning as the crude fox Lumi drew on the front?'
             );
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (enhanced) changeLimit += 2;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         // Used for dick and boob TFs
-        var counter: number = 0;
+        let counter = 0;
 
         if (
             player.faceType == FACE_FOX &&
@@ -12248,7 +12241,7 @@ export class Mutations extends BaseContent {
             changes < changeLimit &&
             Mutations.rand(4) == 0
         ) {
-            var hairTemp: number = Mutations.rand(10);
+            const hairTemp: number = Mutations.rand(10);
             if (hairTemp < 5) player.hairColor = "reddish-orange";
             else if (hairTemp < 7) player.hairColor = "red";
             else if (hairTemp < 8) player.hairColor = "golden-blonde";
@@ -12334,7 +12327,7 @@ export class Mutations extends BaseContent {
             Mutations.rand(3) == 0 &&
             player.dogCocks() < player.cocks.length
         ) {
-            var choices: any[] = [];
+            const choices: any[] = [];
             counter = player.cockTotal();
             while (counter > 0) {
                 counter--;
@@ -12343,7 +12336,7 @@ export class Mutations extends BaseContent {
                     choices[choices.length] = counter;
             }
             if (choices.length != 0) {
-                var select: number = choices[Mutations.rand(choices.length)];
+                const select: number = choices[Mutations.rand(choices.length)];
                 if (player.cocks[select].cockType == CockTypesEnum.HUMAN) {
                     this.outputText(
                         "\n\nYour " +
@@ -12497,7 +12490,7 @@ export class Mutations extends BaseContent {
             changes++;
         }
         // Find out if tits are eligible for evening
-        var tits: boolean = false;
+        let tits = false;
         counter = player.bRows();
         while (counter > 1) {
             counter--;
@@ -12513,7 +12506,7 @@ export class Mutations extends BaseContent {
                         "\n\nThey aren't the only pair to go through a change!  Another row of growing bosom goes through the process with its sisters, getting larger."
                     );
                 else {
-                    var select2: number = Mutations.rand(3);
+                    const select2: number = Mutations.rand(3);
                     if (select2 == 1)
                         this.outputText(
                             "\n\nA faint warmth buzzes to the surface of your " +
@@ -12825,7 +12818,7 @@ export class Mutations extends BaseContent {
         // Grow hair: Your scalp is beset by pins and needles as your hair grows out, stopping after it reaches [medium/long] length.}
     }
 
-    public sheepMilk(player: Player): void {
+    public sheepMilk(_player: Player): void {
         this.outputText(
             "You gulp the bottle's contents, and its sweet taste immediately invigorates you, making you feel calm and concentrated",
             true
@@ -12867,8 +12860,8 @@ export class Mutations extends BaseContent {
     // Consume:
     public foxJewel(mystic: boolean, player: Player): void {
         this.clearOutput();
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (mystic) changeLimit += 2;
@@ -13209,7 +13202,7 @@ export class Mutations extends BaseContent {
             player.hairColor != "black" &&
             player.hairColor != "red"
         ) {
-            var hairTemp: number = Mutations.rand(10);
+            const hairTemp: number = Mutations.rand(10);
             if (hairTemp == 0) player.hairColor = "golden blonde";
             else if (hairTemp == 1) player.hairColor = "silver blonde";
             else if (hairTemp <= 3) player.hairColor = "white";
@@ -13258,7 +13251,7 @@ export class Mutations extends BaseContent {
                 player.skinTone != "olive" &&
                 player.skinTone != "light"
             ) {
-                var skinTemp: number = Mutations.rand(3);
+                const skinTemp: number = Mutations.rand(3);
                 if (skinTemp == 0) player.skinTone = "tan";
                 else if (skinTemp == 1) player.skinTone = "olive";
                 else player.skinTone = "light";
@@ -13270,7 +13263,7 @@ export class Mutations extends BaseContent {
                 player.skinTone != "sable" &&
                 player.skinTone != "milky white"
             ) {
-                var skinT: number = Mutations.rand(5);
+                const skinT: number = Mutations.rand(5);
                 if (skinT == 0) player.skinTone = "dark";
                 else if (skinT == 1) player.skinTone = "ebony";
                 else if (skinT == 2) player.skinTone = "ashen";
@@ -13295,7 +13288,7 @@ export class Mutations extends BaseContent {
             this.outputText(
                 "\n\nYou feel a crawling sensation on the surface of your skin, starting at the small of your back and spreading to your extremities, ultimately reaching your face.  Holding an arm up to your face, you discover that <b>you now have "
             );
-            var mtoneTemp: number = Mutations.rand(5);
+            const mtoneTemp: number = Mutations.rand(5);
             if (mtoneTemp == 0) player.skinTone = "dark";
             else if (mtoneTemp == 1) player.skinTone = "ebony";
             else if (mtoneTemp == 2) player.skinTone = "ashen";
@@ -13316,7 +13309,7 @@ export class Mutations extends BaseContent {
             this.outputText(
                 "\n\nYou feel a crawling sensation on the surface of your skin, starting at the small of your back and spreading to your extremities, ultimately reaching your face.  Holding an arm up to your face, you discover that <b>you now have "
             );
-            var toneTemp: number = Mutations.rand(3);
+            const toneTemp: number = Mutations.rand(3);
             if (toneTemp == 0) player.skinTone = "tan";
             else if (toneTemp == 1) player.skinTone = "olive";
             else player.skinTone = "light";
@@ -13392,7 +13385,7 @@ export class Mutations extends BaseContent {
                 outputText("Curiosity gets the best of you, and you decide to open the package.  After all, what's the worst that could happen?\n\n");
                 // Opening the gift randomly results in one of the following:
     //
-// 	menuLoc = MENU_LOCATION_KITSUNE_GIFT;
+//  menuLoc = MENU_LOCATION_KITSUNE_GIFT;
 
                 switch(rand(12)) {
                 // [Fox Jewel]
@@ -13603,8 +13596,8 @@ export class Mutations extends BaseContent {
     // Flavour Description: A round, opaque glass vial filled with a clear, viscous fluid.  It has a symbol inscribed on it, a circle with a cross and arrow pointing out of it in opposite directions.  It looks and smells entirely innocuous.
     public trapOil(player: Player): void {
         this.clearOutput();
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
@@ -14069,8 +14062,8 @@ export class Mutations extends BaseContent {
             "You split the fruit and scoop out the pulp, eating it greedily.  It's sweet and slightly gritty with seeds, and you quickly finish both halves."
         );
 
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
@@ -14408,8 +14401,8 @@ export class Mutations extends BaseContent {
     public mouseCocoa(player: Player): void {
         this.clearOutput();
 
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;
@@ -14503,7 +14496,7 @@ export class Mutations extends BaseContent {
             Mutations.rand(2) == 0 &&
             changes < changeLimit
         ) {
-            var intensified: boolean = player.inHeat;
+            const intensified: boolean = player.inHeat;
             if (player.goIntoHeat(false)) {
                 if (intensified) {
                     this.outputText(
@@ -14974,10 +14967,10 @@ export class Mutations extends BaseContent {
             this.flags[kFLAGS.FERRET_BAD_END_WARNING] = 0;
         }
 
-        var changes: number = 0;
-        var changeLimit: number = 1;
-        var temp: number = 0;
-        var x: number = 0;
+        let changes = 0;
+        let changeLimit = 1;
+        let temp = 0;
+        let x = 0;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(2) == 0) changeLimit++;
         if (Mutations.rand(3) == 0) changeLimit++;

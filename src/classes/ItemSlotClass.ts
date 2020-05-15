@@ -1,13 +1,13 @@
-import { CoC_Settings } from "./CoC_Settings";
+import { CocSettings } from "./CoC_Settings";
 import { ItemType } from "./ItemType";
 
 export class ItemSlotClass {
     // constructor
 
     // data
-    private _quantity: number = 0;
+    private _quantity = 0;
     private _itype: ItemType = ItemType.NOTHING;
-    private _unlocked: boolean = false;
+    private _unlocked = false;
 
     public setItemAndQty(itype: ItemType, quant: number): void {
         if (itype == undefined) itype = ItemType.NOTHING;
@@ -20,7 +20,7 @@ export class ItemSlotClass {
             (quant == 0 && itype != ItemType.NOTHING) ||
             (quant > 0 && itype == ItemType.NOTHING)
         ) {
-            CoC_Settings.error("Inconsistent setItemAndQty call: " + quant + " " + itype);
+            CocSettings.error("Inconsistent setItemAndQty call: " + quant + " " + itype);
             quant = 0;
             itype = ItemType.NOTHING;
         }
@@ -34,7 +34,7 @@ export class ItemSlotClass {
     }
 
     public removeOneItem(): void {
-        if (this._quantity == 0) CoC_Settings.error("Tried to remove item from empty slot!");
+        if (this._quantity == 0) CocSettings.error("Tried to remove item from empty slot!");
         if (this._quantity > 0) this._quantity -= 1;
 
         if (this._quantity == 0) this._itype = ItemType.NOTHING;
@@ -46,7 +46,7 @@ export class ItemSlotClass {
 
     public set quantity(value: number) {
         if (value > 0 && this._itype == undefined)
-            CoC_Settings.error(
+            CocSettings.error(
                 "ItemSlotClass.quantity set with no item; use setItemAndQty instead!"
             );
         if (value == 0) this._itype = ItemType.NOTHING;

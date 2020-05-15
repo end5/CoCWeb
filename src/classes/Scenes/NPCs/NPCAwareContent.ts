@@ -240,7 +240,7 @@ export class NPCAwareContent extends BaseContent {
         return kGAMECLASS.sophieFollowerScene.sophieFollower();
     }
     // Urta
-    public urtaLove(love: number = 0): boolean {
+    public urtaLove(love = 0): boolean {
         return kGAMECLASS.urta.urtaLove(love);
     }
     protected get urta(): Urta {

@@ -354,7 +354,7 @@ export class InfestedHellhoundScene extends BaseContent {
             this.player.knockUpForce(
                 PregnancyStore.PREGNANCY_WORM_STUFFED,
                 100 + this.player.statusAffectv1(StatusAffects.WormPlugged)
-            ); //Will be cleared when the WormPlugged effect ends
+            ); // Will be cleared when the WormPlugged effect ends
             this.player.orgasm();
             this.dynStats("lib", 1, "cor", 1);
             this.cleanupAfterCombat();

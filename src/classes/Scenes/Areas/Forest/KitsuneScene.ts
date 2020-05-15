@@ -123,7 +123,7 @@ export class KitsuneScene extends BaseContent {
             );
             // -> Go to <i>"Going Somewhere?</i>\"
             this.doNext(this.createCallBackFunction(this.followTheWillOWisp, true));
-        } //PC did NOT see through glamour
+        } // PC did NOT see through glamour
         // With Religious BG:
         else if (this.player.findPerk(PerkLib.HistoryReligious) >= 0) {
             this.outputText(
@@ -207,7 +207,7 @@ export class KitsuneScene extends BaseContent {
     }
 
     // [Follow] (C)
-    private followTheWillOWisp(firstTime: boolean = false): void {
+    private followTheWillOWisp(firstTime = false): void {
         this.clearOutput();
         if (!firstTime) {
             this.outputText(
@@ -351,7 +351,7 @@ export class KitsuneScene extends BaseContent {
     }
 
     // [Leave] (C)
-    private leaveKitsune(talked: boolean = false): void {
+    private leaveKitsune(talked = false): void {
         this.clearOutput();
         this.kitsuneSprite();
         // if PC was Talking to the kitsune
@@ -384,7 +384,7 @@ export class KitsuneScene extends BaseContent {
     }
 
     // Illusory Mansion (C)
-    private mansion(willing: boolean, firstTime: boolean = false): void {
+    private mansion(willing: boolean, firstTime = false): void {
         this.clearOutput();
         this.kitsuneSprite();
         if (willing) {
@@ -530,7 +530,7 @@ export class KitsuneScene extends BaseContent {
 
     // end function
     // fomerly letHer()
-    private kitSuneLetHerMansion(willing: boolean = true): void {
+    private kitSuneLetHerMansion(willing = true): void {
         this.clearOutput();
         this.kitsuneSprite();
         this.outputText(
@@ -715,10 +715,10 @@ export class KitsuneScene extends BaseContent {
         );
         this.player.orgasm();
         this.doNext(this.kitsuneStillHungryMansion);
-    } //End letHer()
+    } // End letHer()
 
     // Formerly shoveHer()
-    private kitsuneShoveHerMansion(willing: boolean = true): void {
+    private kitsuneShoveHerMansion(willing = true): void {
         this.clearOutput();
         this.kitsuneSprite();
         this.outputText(
@@ -1082,7 +1082,7 @@ export class KitsuneScene extends BaseContent {
         // Increase PC cum production slightly due to residual effects from the kitsunes' magic.
         this.player.orgasm();
         this.outro();
-    } //end stillHungry();
+    } // end stillHungry();
 
     // formerly femaleOrGenderless()
     private kitsuneFemaleOrGenderless(willing: boolean): void {
@@ -1479,7 +1479,7 @@ export class KitsuneScene extends BaseContent {
         this.player.orgasm();
     }
 
-    private outro(tentacles: boolean = false): void {
+    private outro(tentacles = false): void {
         this.fatigue(15);
         this.kitsuneSprite();
         this.dynStats("tou", -2);
@@ -1657,7 +1657,7 @@ export class KitsuneScene extends BaseContent {
     }
 
     public loseToKitsunes(): void {
-        var scene: any[] = [];
+        const scene: any[] = [];
         // [LOSE FIGHT]
         // Shared Scenes
         // For Males and Herms
@@ -2508,7 +2508,7 @@ export class KitsuneScene extends BaseContent {
 
     // [WIN FIGHT]
     // Damage victory
-    public defeatTheKitsunes(display: boolean = true): void {
+    public defeatTheKitsunes(display = true): void {
         if (display) {
             this.clearOutput();
             this.kitsuneSprite();
@@ -2543,7 +2543,7 @@ export class KitsuneScene extends BaseContent {
             }
         }
         this.menu();
-        var button: number = 0;
+        let button = 0;
         // Shared Scenes
         // [Vaginal] - requires cock
         if (this.player.hasCock())
@@ -2846,7 +2846,7 @@ export class KitsuneScene extends BaseContent {
     private putItInAKitsunesAssWin(): void {
         this.clearOutput();
         this.kitsuneSprite();
-        var x: number = this.player.cockThatFits(144);
+        const x: number = this.player.cockThatFits(144);
         this.outputText(
             "Your gaze cascades up and down her lovely form, taking in every voluptuous curve and line.  Finally, your eyes come to rest on her expansive, jiggling ass, carefully scrutinizing the large colorful tattoo emblazoned on the right cheek.  Heat surges to [eachCock] as you stare at it, almost entranced by the smooth globes.  Rubbing your hands together and grinning lecherously, you reach down and position the kitsune on her hands and knees, lifting her deliciously plump derriere into the air and tugging her robes apart, tossing them unceremoniously to the side." +
                 (this.monster.hairColor == "red" && this.flags[kFLAGS.redheadIsFuta] == 1
@@ -3418,8 +3418,8 @@ export class KitsuneScene extends BaseContent {
     private fuckDraftBlond(): void {
         this.clearOutput();
         this.kitsuneSprite();
-        var x: number = -1;
-        var temp: number = 0;
+        let x = -1;
+        let temp = 0;
         while (temp < this.player.cockTotal() && x < 0) {
             if (this.player.cocks[temp].cockType == CockTypesEnum.DOG) x = temp;
             temp++;
@@ -3643,7 +3643,7 @@ export class KitsuneScene extends BaseContent {
     private doseAKitsuneWithOviElixirs(): void {
         this.clearOutput();
         this.kitsuneSprite();
-        var x: number = this.player.cockThatFits(100);
+        let x: number = this.player.cockThatFits(100);
         if (x < 0) x = this.player.biggestCockIndex();
         this.outputText(
             "You fish in your pouch for a large hexagonal bottle with a picture of an egg tagged to the neck, holding it up to the light and swirling the thick green liquid inside.  The kitsune eyes you suspiciously as you close in on her, slowly crawling backward until she hits a tree.  She scrambles to escape, failing spectacularly when you " +
@@ -3776,7 +3776,7 @@ export class KitsuneScene extends BaseContent {
 
         this.outputText("They are ");
 
-        var itype: ItemType;
+        let itype: ItemType;
         // Large eggs
         if (KitsuneScene.rand(3) == 0) {
             itype = this.consumables.LARGE_EGGS[
@@ -3921,7 +3921,7 @@ export class KitsuneScene extends BaseContent {
     private hotdogAnalInKitsuneButtDontLetTailTickleYourNose(): void {
         this.clearOutput();
         this.kitsuneSprite();
-        var x: number = this.player.cockThatFits(144);
+        const x: number = this.player.cockThatFits(144);
 
         this.outputText(
             "You let your gaze wander lecherously up and down her prone form, taking your time to observe every voluptuous curve.  Finally your eyes come to rest on her enormous ass, her robes haphazardly rolled up to her hips to leave the jiggling flesh exposed.  A large sun-shaped tattoo adorns the right cheek, accentuating the creamy flesh of the rounded globes with an exotic splash of color.  They quiver heavily with even the slightest movement, jiggling in an almost hypnotic fashion that compels you to come closer.  Before you know it, you are on top of her, lifting her expansive rump into the air and grinding against her in unabashed lust.\n\n"
@@ -4179,7 +4179,7 @@ export class KitsuneScene extends BaseContent {
     private getABJFromAFoxGirl(): void {
         this.clearOutput();
         this.kitsuneSprite();
-        var x: number = this.player.cockThatFits(108);
+        const x: number = this.player.cockThatFits(108);
 
         this.outputText(
             "Standing over the beaten kitsune, you hear a barely audible groan.  Curiously, you lean down, and are surprised to find that the sound is coming from the girl's stomach.\n\n"
@@ -4966,7 +4966,7 @@ export class KitsuneScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    /*Use whichever enhancement scene(s) you feel like.
+    /* Use whichever enhancement scene(s) you feel like.
      [Lumi Enhance]
 
      outputText( "Lumi snatches the jewel from your hand, staring wide-eyed into the fathoms of its depths.  She remains like that for several moments before you clear her throat, and then hurries off to work.  Flitting back and forth between the various beakers and test tubes that litter the workshop, she mixes chemicals seemingly at random, many of which bubble or explode rather violently.\n\n
@@ -5052,7 +5052,7 @@ export class KitsuneScene extends BaseContent {
         this.outputText(
             "You decide to peruse the selection of old tomes on the bookshelf.  To your dismay, many of them seem to be written in a strange script that you can't understand.  After a bit of searching, though, you find a couple that you can read, carefully thumbing through the old, dusty pages.\n\n"
         );
-        var choice: number = KitsuneScene.rand(3);
+        const choice: number = KitsuneScene.rand(3);
         // Randomly Display one of the following:
         if (choice == 0) {
             this.outputText(

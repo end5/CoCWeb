@@ -14,7 +14,7 @@ import { StatusAffects } from "../../../StatusAffects";
 
 export class Izumi extends Monster {
     // Set trace outout for this classes' content.
-    private combatDebug: boolean = true;
+    private combatDebug = true;
 
     public constructor() {
         super();
@@ -119,7 +119,7 @@ export class Izumi extends Monster {
             this.createStatusAffect(StatusAffects.UsedTitsmother, 0, 0, 0, 0);
             return;
         } else {
-            var actions: any[] = [
+            const actions: any[] = [
                 this.straightJab,
                 this.straightJab,
                 this.straightJab,
@@ -154,7 +154,7 @@ export class Izumi extends Monster {
             "Quick as a flash, Izumi lashes out with her free hand, aiming for your head."
         );
 
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str + 175 - Izumi.rand(this.player.tou) - this.player.armorDef
         );
         if (
@@ -231,7 +231,7 @@ export class Izumi extends Monster {
     public chokeSlamStruggle(): void {
         this.clearOutput();
 
-        var brokeFree: boolean = false;
+        let brokeFree = false;
 
         if (Izumi.rand(this.player.str) > this.str / 2) {
             brokeFree = true;
@@ -287,7 +287,7 @@ export class Izumi extends Monster {
             "The hit is extreme enough to leave you dazed for a moment, splayed out across the floor.  When you rouse yourself back to full consciousness a few seconds later, the cave is still echoing with the sound of the impact, a testament to the strength of the Oni - and your resilience."
         );
 
-        var damage: number = Math.floor(
+        const damage: number = Math.floor(
             this.str + 225 - Izumi.rand(this.player.tou) - this.player.armorDef
         );
         this.player.takeDamage(damage);
@@ -352,7 +352,7 @@ export class Izumi extends Monster {
                 "The rumbling actually knocks you off your feet, sprawling on the ground and banging your head.  As the shaking subsides, you pull yourself upright, but you feel a little unsteady on your [feet] after the disorienting impact."
             );
 
-            var spdReducedBy: number = Math.floor(this.player.spe * 0.25);
+            const spdReducedBy: number = Math.floor(this.player.spe * 0.25);
             this.player.createStatusAffect(StatusAffects.Groundpound, 3, spdReducedBy, 0, 0);
             this.game.dynStats("spe-", spdReducedBy);
 
@@ -407,7 +407,7 @@ export class Izumi extends Monster {
     public titSmotherStruggle(): void {
         if (this.combatDebug) trace("Titsmother Struggle");
 
-        var brokeFree: boolean = false;
+        let brokeFree = false;
 
         if (Izumi.rand(this.player.str) > this.str / 4) {
             brokeFree = true;

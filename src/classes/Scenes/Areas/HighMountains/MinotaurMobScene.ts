@@ -1529,13 +1529,13 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "Your body is burning up, buzzing with growing lust from the obscenity going on a few feet away from you.  What do you do?",
             false
         );
-        // 	[win options]
-        var getSuck = undefined;
+        //  [win options]
+        let getSuck;
         if (this.player.hasCock())
             getSuck = this.createCallBackFunction(this.forceMinitaurToGiveOral, 1);
-        var nipFuck = undefined;
+        let nipFuck;
         if (this.player.hasFuckableNipples()) nipFuck = this.victoryBJNippleFuckMinotaurGang;
-        var titFuck = undefined;
+        let titFuck;
         if (this.player.biggestTitSize() >= 6) titFuck = this.victoryMinotaurGangTitFuck;
         this.choices(
             "Gangbang",
@@ -1955,7 +1955,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             )
                 this.outputText("Two studs assemble around ", false);
             else {
-                var dicks: number = this.player.totalBreasts();
+                let dicks: number = this.player.totalBreasts();
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3 < dicks)
                     dicks = this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3;
                 this.outputText(
@@ -2093,7 +2093,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
     }
 
     // *[Victory - Make minitaur oral (M/F/H)]
-    private forceMinitaurToGiveOral(choice: number = 0): void {
+    private forceMinitaurToGiveOral(choice = 0): void {
         this.outputText("", true);
         this.spriteSelect(94);
         this.outputText(

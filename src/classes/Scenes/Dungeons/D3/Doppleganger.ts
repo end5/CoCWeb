@@ -20,10 +20,11 @@ import { VaginaClass } from "../../../VaginaClass";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class Doppleganger extends Monster {
-    private _roundCount: number = 0;
+    private _roundCount = 0;
 
     public mirrorAttack(damage: number): void {
         this.createStatusAffect(StatusAffects.MirroredAttack, 0, 0, 0, 0);
@@ -331,11 +332,11 @@ export class Doppleganger extends Monster {
         this.ass.analWetness = this.player.ass.analWetness;
 
         if (this.player.cocks.length > 0) {
-            for (var i: number = 0; i < this.player.cocks.length; i++) {
+            for (const cock of (this.player.cocks as Cock[])) {
                 this.createCock(
-                    (this.player.cocks[i] as Cock).cockLength,
-                    (this.player.cocks[i] as Cock).cockThickness,
-                    (this.player.cocks[i] as Cock).cockType
+                    cock.cockLength,
+                    cock.cockThickness,
+                    cock.cockType
                 );
             }
         }
@@ -358,8 +359,8 @@ export class Doppleganger extends Monster {
 
         for (i = 0; i < this.player.breastRows.length; i++) {
             this.createBreastRow();
-            var tbr: BreastRowClass = this.breastRows[i];
-            var sbr: BreastRowClass = this.player.breastRows[i];
+            const tbr: BreastRowClass = this.breastRows[i];
+            const sbr: BreastRowClass = this.player.breastRows[i];
 
             tbr.breastRating = sbr.breastRating;
             tbr.breasts = sbr.breasts;
@@ -375,7 +376,7 @@ export class Doppleganger extends Monster {
     }
 
     public get long(): string {
-        var str: string = "";
+        let str = "";
 
         str += "You are fighting the doppelganger. " + this.player.mf("He", "She") + " is a ";
         str += String(

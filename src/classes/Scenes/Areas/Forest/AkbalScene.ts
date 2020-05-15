@@ -22,7 +22,7 @@ export class AkbalScene extends BaseContent {
         this.flags[kFLAGS.AKBAL_SUBMISSION_STATE] = 1;
         if (hpVictory) {
             // [General Victory]
-            /*if(rand(10) == 0) {
+            /* if(rand(10) == 0) {
                outputText("Akbal falls to the ground, but as you raise your " + player.weaponName + " to deliver the final blow, a harsh ripping sound rends the air.  A dark form covered in burning violet light flies out of the jaguar's body; the demon has fled, leaving a corpse behind.  You have no doubt that the demon can gain another body, but it's best to take the old one with you to make sure it doesn't regain its form easily.", false);
                // 9999 change monster name to let itemloot know what item to drop.
                short = "Akbitch";
@@ -30,7 +30,7 @@ export class AkbalScene extends BaseContent {
              }*/
             // [Common chance of dropping 'Incubus Draft', 'Smart Tea' or 'Pipe']
             this.outputText("Akbal falls to the ground in a beaten bloody heap.", true);
-        } //[Victory via Lust]
+        } // [Victory via Lust]
         else {
             this.outputText(
                 "Akbal falls to the ground, unable to go on. Yet a growl still rumbles in his chest, and you quickly recognize the submissive gesture when he bows his head, his cat belly hugging the ground.  His body begins shifting, and soon he has a vaguely humanoid form. You assume this is the form he uses for sex, as his lust is out of control.\n\n",
@@ -41,10 +41,10 @@ export class AkbalScene extends BaseContent {
                     "You walk around Akbal's beaten and lust crazed form with a smile on your face. The demon's growl continues as he awaits your judgment.",
                     false
                 );
-                var vagoo = undefined;
-                var vagooLick = undefined;
-                var buttFuck = undefined;
-                var bikiniTits = undefined;
+                let vagoo;
+                let vagooLick;
+                let buttFuck;
+                let bikiniTits;
                 if (this.player.hasVagina()) {
                     vagoo = this.girlsRapeAkbal;
                     vagooLick = this.rapeAkbalForcedFemaleOral;
@@ -54,7 +54,7 @@ export class AkbalScene extends BaseContent {
                     this.player.biggestTitSize() >= 4 &&
                     this.player.armor instanceof LustyMaidensArmor
                 )
-                    bikiniTits = (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri;
+                    bikiniTits = this.player.armor.lustyMaidenPaizuri;
                 if (this.player.hasCock()) buttFuck = this.rapeAkbal;
                 this.outputText("\n\nDo you rape him?", false);
                 // Rape / Don't Rape
@@ -260,7 +260,7 @@ export class AkbalScene extends BaseContent {
     // Standard rapes - buttfucks and oral
     private rapeAkbal(): void {
         this.flags[kFLAGS.AKBAL_BITCH_Q]++;
-        var primary: number = this.player.cockThatFits(50);
+        let primary: number = this.player.cockThatFits(50);
         if (primary < 0) primary = 0;
         this.outputText("", true);
         // Naga RAPPUUUUUU
@@ -2346,7 +2346,7 @@ export class AkbalScene extends BaseContent {
         }
     }
 
-    private akbitchNoThnx(clear: boolean = true): void {
+    private akbitchNoThnx(clear = true): void {
         if (clear) this.clearOutput();
         else this.outputText("\n\n");
         this.outputText(
@@ -2384,7 +2384,7 @@ export class AkbalScene extends BaseContent {
                 "\n\nA gout of green fire roars into existence.  The suddenly intense heat causes you to flinch away from the inferno nearly encasing your [face].  The jaguar demon slips your grasp, and when you look up, another green fireball is coming your way.  Looks like you have a fight on your hands.\n\n"
             );
             // (Enter battle with clearscreen and fireball attack.)
-            var akbal: Akbal = new Akbal();
+            const akbal: Akbal = new Akbal();
             this.startCombat(akbal);
             akbal.akbalSpecial();
             return;
@@ -2462,7 +2462,7 @@ export class AkbalScene extends BaseContent {
             "  You lift your [cock biggest] into position, and with a grin, you begin to push into the demon’s moist depths."
         );
 
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         // {if penis < 7 inches}
         if (this.player.cocks[x].cockLength < 7)
@@ -2487,7 +2487,7 @@ export class AkbalScene extends BaseContent {
     // - page turn -
     private fuckAkbitchsButt(): void {
         this.clearOutput();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(this.images.showImage("akbal-deepwoods-male-buttfuck2"));
         this.outputText(
             "Without warning, Akbal’s insides become vacuum tight.  Convulsions rocket through his body and you realize he has reached his climax without any attention to his barbed dick.  "
@@ -2637,7 +2637,7 @@ export class AkbalScene extends BaseContent {
             this.outputText(
                 "\n\nAkbal licks your [face], quite obviously lost in lust.  You can’t help but chuckle because this self proclaimed god has turned into your submissive little bitch.  You pin him to a nearby tree and slide your hands down his lust crazed body to his slim waist.  You then grab your [cock] and push it up into the demon’s soft cleft."
             );
-            var x: number = this.player.biggestCockIndex();
+            const x: number = this.player.biggestCockIndex();
             // {If CockLength < 7}
             if (this.player.cocks[x].cockLength < 7)
                 this.outputText(
@@ -2816,7 +2816,7 @@ export class AkbalScene extends BaseContent {
         );
         this.outputText('\n\n"<i>[Master],</i>" Akbal’s chorus of voices croons in your mind.');
 
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         // [if (hasCock = true)]
         if (this.player.hasCock()) {
@@ -2998,7 +2998,7 @@ export class AkbalScene extends BaseContent {
             this.outputText(
                 "\n\nYou tell the demon to put his ass up. When he does, you aid him by shoving his chest into the ground, making sure he arches his back properly.  His furry ass naturally parts, revealing his little dripping pink rosebud.  You begin to shed your [armor], and his hole flexes a few times, causing a creamy lube to drip down his scrotum.  [EachCock] is rigid as you expose yourself to the air.  Akbal wiggles his ass at you and you realize how badly he wants you inside him.  It appears this demon has decided to be a good little bitch.  You grab your [cock biggest] and grin as you lower yourself to mount him."
             );
-            var x: number = this.player.biggestCockIndex();
+            const x: number = this.player.biggestCockIndex();
 
             // {cocklength < 7}
             if (this.player.cocks[x].cockLength < 7)

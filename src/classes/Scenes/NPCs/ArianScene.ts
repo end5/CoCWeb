@@ -34,7 +34,7 @@ import { NPCAwareContent } from "./NPCAwareContent";
 // ARIAN_MORNING: number = 951;
 // TIMES_ARIAN_DILDOED: number = 983;
 
-/*Design Notes
+/* Design Notes
 Arian has a \"<i>health</i>\" stat that goes from 0 to 100. Where 0 equals very sick and 100 equals healthy. This also works as a sort of affection meter.
 Interacting with the PC will improve Arian's health; be it talking, giving items or sex.
 
@@ -131,7 +131,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         }
         return girl;
     }
-    public arianHealth(arg: number = 0): number {
+    public arianHealth(arg = 0): number {
         if (arg != 0) {
             this.flags[kFLAGS.ARIAN_HEALTH] += arg;
             if (this.flags[kFLAGS.ARIAN_HEALTH] > 100) this.flags[kFLAGS.ARIAN_HEALTH] = 100;
@@ -140,8 +140,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         return this.flags[kFLAGS.ARIAN_HEALTH];
     }
     public arianChestAdjective(): string {
-        var buffer: string = "";
-        var temp: number = ArianScene.rand(10);
+        let buffer = "";
+        const temp: number = ArianScene.rand(10);
         if (this.flags[kFLAGS.ARIAN_BREASTS] == 0) return "";
         else if (this.flags[kFLAGS.ARIAN_BREASTS] == 1) {
             if (temp <= 4) buffer += "small";
@@ -164,7 +164,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         return buffer;
     }
     public arianChest(): string {
-        var buffer: string = "";
+        let buffer = "";
         // Men get no cool descriptions!
         if (this.flags[kFLAGS.ARIAN_BREASTS] == 0) return "chest";
 
@@ -172,7 +172,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         if (ArianScene.rand(2) == 0) buffer += this.arianChestAdjective() + " ";
 
         // Name 'dose titays
-        var temp: number = ArianScene.rand(10);
+        const temp: number = ArianScene.rand(10);
         if (temp <= 2) buffer += "tits";
         else if (temp <= 5) buffer += "breasts";
         else if (temp <= 7) buffer += "pillows";
@@ -197,7 +197,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // [=Don't Help=]
-    private dontHelpArianWhenYouMeetHim(never: boolean = false): void {
+    private dontHelpArianWhenYouMeetHim(never = false): void {
         this.clearOutput();
         this.outputText(
             "Not liking the risks it presents - after all, they could be a mugger, or have something nasty and highly contagious - you keep on walking.  You've not gone too far before a pair of figures, elegantly dressed ferret-morphs, nearly slam into you, running quickly.  You shout at them to watch where they're going, but they ignore you, instead heading straight for the alleyway you just passed.  You watch as they grab the hooded figure and pull them to their feet.  The ferrets start chattering at their target; though you can't make out precisely what they're saying, it sounds like a scolding, even as they take a bottle from a pouch they're carrying and make the hooded figure drink it.  The cloaked man's coughs start to subside, and they promptly take an arm each and half-lead, half-carry him away.  You wonder what that was all about, but decide it doesn't matter and press on."
@@ -442,7 +442,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "You approach the enchanted tent and slip easily inside the doors to the luxurious interior.  "
             );
-            var temp: number = ArianScene.rand(10);
+            const temp: number = ArianScene.rand(10);
             if (temp == 0) {
                 this.outputText(
                     'However, Arian isn\'t here right now, so you instead make yourself comfortable on the couch.  After a few minutes, Arian [Arian emself] walks in through the entrance.  "<i>Oh, [name].  I wasn\'t aware you were here... have you been waiting for long?</i>" [Arian ey] asks.  You tell [Arian em] not very long.  "<i>That\'s good to hear.  So, what can I do for you?</i>" [Arian ey] asks, with a smile.'
@@ -1235,7 +1235,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    ////((if ArianHealth >= 20) && (ArianSDialogue == 1))
+    /// /((if ArianHealth >= 20) && (ArianSDialogue == 1))
     // Can sex Arian.
     private arianStoryDialogue2(): void {
         this.clearOutput();
@@ -1939,7 +1939,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.sexTalkFinish(false);
     }
 
-    private sexTalkFinish(newl: boolean = false): void {
+    private sexTalkFinish(newl = false): void {
         if (newl) this.clearOutput();
         else this.outputText("\n\n");
         this.outputText(
@@ -2118,7 +2118,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
 
     // Sex
     // ArianHealth must be at least 20 before you can even pick Sex as an option.
-    private arianSexMenu(output: boolean = true): void {
+    private arianSexMenu(output = true): void {
         if (output) {
             this.clearOutput();
             this.outputText(
@@ -2228,7 +2228,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     // Modified by AnalXP.
     // PC must have a cock that fits (cock area 50 or less)
     private giveArianAnal(): void {
-        var x: number = this.player.cockThatFits(50);
+        let x: number = this.player.cockThatFits(50);
         this.clearOutput();
         this.arianHealth(3);
         this.flags[kFLAGS.ARIAN_ANAL_XP] += 10;
@@ -2921,7 +2921,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     // Arian must be herm/female.
     // PC must have a cock that fits (cock area 50 or less)
     private penetrateArian(): void {
-        var x: number = this.player.cockThatFits(50);
+        let x: number = this.player.cockThatFits(50);
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_VIRGIN] += 1;
@@ -3786,8 +3786,8 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.ARIAN_VIRGIN] += 1;
         this.arianHealth(3);
         this.outputText(this.images.showImage("arianfemale-home-doublepenetrate"));
-        var x: number = this.player.cockThatFits(this.flags[kFLAGS.ARIAN_CAPACITY]);
-        var y: number = this.player.cockThatFits2(this.flags[kFLAGS.ARIAN_CAPACITY]);
+        const x: number = this.player.cockThatFits(this.flags[kFLAGS.ARIAN_CAPACITY]);
+        const y: number = this.player.cockThatFits2(this.flags[kFLAGS.ARIAN_CAPACITY]);
         this.outputText(
             "You look over your feminine lizard lover, and feel your " +
                 this.multiCockDescriptLight() +
@@ -5259,7 +5259,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
         this.dynStats("lus", 5 + this.player.lib / 10);
 
-        var tfed: boolean = false;
+        let tfed = false;
         this.outputText("\n\nArian's giggling suddenly stops as [Arian ey] finally orgasms, ");
         if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0) {
             this.outputText("shooting thick ropes of cum up into the air to land on [Arian eir] ");
@@ -5432,7 +5432,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou start observing the parchment, contemplating your choices.  So, what spell will you have [Arian em] place in the talisman?"
         );
 
-        /*The list:
+        /* The list:
         Healing Spell: 2x Wet Cloth and 2x Vitality T. - Heals the PC, no chance for failure.
         Lust Reduction Spell: 2x Lust Draft and 1x Fuck Draft. - Reduces the PC's current lust, no chance for failure.
         Shielding Spell: 2x Black Chitin and 1x Tough Silk. - Increases defense for the duration of the battle.
@@ -5530,13 +5530,13 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
 
     // Follower Stuff:
     // Camp Modifier
-    /*9999
+    /* 9999
     The small tent that Arian dwells in is in its usual place in a quiet corner of the camp. You're not sure if he's inside, taking advantage of its uncannily larger interior, or out on one of his usual strolls outside of the camp.
     */
     // Approach Arian
 
     // Sleep With Arian
-    public sleepWithArian(newl: boolean = false): void {
+    public sleepWithArian(newl = false): void {
         if (newl) this.clearOutput();
         this.flags[kFLAGS.SLEEP_WITH] = "Arian";
         this.outputText(
@@ -6304,7 +6304,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Pick a color
-    private pickAnEggArian(color: string = "pink"): void {
+    private pickAnEggArian(color = "pink"): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_EGG_COLOR] = color;
         this.outputText("You tell Arian you'd like her to make you a " + color + " egg.");
@@ -6340,7 +6340,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     // Randomly decide between small or large egg, I'd say 50% chance of either.
     public arianLaysEggs(): void {
         this.clearOutput();
-        var color: string = this.flags[kFLAGS.ARIAN_EGG_COLOR];
+        const color: string = this.flags[kFLAGS.ARIAN_EGG_COLOR];
         this.flags[kFLAGS.ARIAN_EGG_COUNTER] = 0;
         this.outputText(
             "As you approach the tent, you wonder if Arian's ready to lay those eggs...  Your contemplations are promptly interrupted as you hear a pained moan coming from inside.  Seems like Arian is in labor!  Without delay, you rush inside, to be greeted by the sight of naked lizan-"
@@ -6433,7 +6433,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou laugh at Arian's reaction, telling her that you don't mind.  You should go right now.  You turn to pocket the egg and leave Arian's tent, bidding the lizan farewell before you do.\n\n"
         );
         // (PC obtains (Large) Egg of the [color] asked message.)
-        var itype: ItemType;
+        let itype: ItemType;
         if (this.flags[kFLAGS.ARIAN_EGG_COLOR] == "brown") itype = this.consumables.L_BRNEG;
         else if (this.flags[kFLAGS.ARIAN_EGG_COLOR] == "purple") itype = this.consumables.L_PRPEG;
         else if (this.flags[kFLAGS.ARIAN_EGG_COLOR] == "blue") itype = this.consumables.L_BLUEG;

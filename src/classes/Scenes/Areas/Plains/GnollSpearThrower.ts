@@ -15,11 +15,12 @@ import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...
+ *
  * @author ...
  */
 export class GnollSpearThrower extends Monster {
     private hyenaPhysicalAttack(): void {
-        var damage: number = 0;
+        let damage = 0;
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         // Blind dodge change
@@ -196,8 +197,8 @@ export class GnollSpearThrower extends Monster {
 
     // <Writers note: I recommend that the javelin have a chance to greatly decrease speed for the remaining battle.  I am writing the flavor text for this event if you choose to include it>
     private hyenaJavelinAttack(): void {
-        var damage: number = 0;
-        var slow: number = 0;
+        let damage = 0;
+        let slow = 0;
         // <Hyena Attack 2 – Javelin – Unsuccessful – Dodged>
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && GnollSpearThrower.rand(3) < 2) {
@@ -304,7 +305,7 @@ export class GnollSpearThrower extends Monster {
 
     // <Writer's Note: With the third attack, I intend that the damage be increased based on the breast size of the player.  Thus, the text will vary if the player is flat-chested as indicated by colored text.>
     private hyenaSnapKicku(): void {
-        var damage: number = 0;
+        let damage = 0;
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && GnollSpearThrower.rand(3) < 2) {
             this.outputText(
@@ -399,7 +400,7 @@ export class GnollSpearThrower extends Monster {
 
     private hyenaArousalAttack(): void {
         // Success = cor+lib > rand(150)
-        var chance: number = GnollSpearThrower.rand(150);
+        const chance: number = GnollSpearThrower.rand(150);
         // <Hyena Attack 4 – Arousal Attack – Highly Successful>
         if (this.player.cor + this.player.lib > chance + 50) {
             this.outputText(
@@ -427,7 +428,7 @@ export class GnollSpearThrower extends Monster {
     }
 
     public eAttack(): void {
-        var damage: number = 0;
+        let damage = 0;
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         // Blind dodge change

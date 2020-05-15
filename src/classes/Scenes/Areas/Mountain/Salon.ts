@@ -57,9 +57,9 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     }
 
     private salonFavoritesPaymentMenu(): void {
-        var blow = undefined;
+        let blow;
         if (this.player.hasCock()) blow = this.goblinHairDresserFacefuck;
-        var minoCum = undefined;
+        let minoCum;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00142] > 0)
             minoCum = this.goblinHairDresserFacefuck;
         this.menu();
@@ -75,9 +75,9 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     }
 
     private salonPaymentMenu(): void {
-        var blow = undefined;
+        let blow;
         if (this.player.hasCock()) blow = this.goblinHairDresserFacefuck;
-        var minoCum = undefined;
+        let minoCum;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00142] > 0) minoCum = this.buyMinoCum;
         this.menu();
         if (this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] >= 4 && this.player.hasCock())
@@ -109,13 +109,13 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     public salonPurchaseMenu(): void {
         this.flags[kFLAGS.SALON_PAID] = 1;
         this.spriteSelect(38);
-        var cutShort2 = undefined;
-        var cutMedium2 = undefined;
-        var cutLong2 = undefined;
-        var lengthening = undefined;
-        var minoCum = undefined;
-        var mudFacial2 = undefined;
-        var sandFacial2 = undefined;
+        let cutShort2;
+        let cutMedium2;
+        let cutLong2;
+        let lengthening;
+        let minoCum;
+        let mudFacial2;
+        let sandFacial2;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00142] > 0) minoCum = this.buyMinoCum;
         if (this.player.hairLength > 2) cutShort2 = this.cutShort;
         if (this.player.hairLength > 13) cutMedium2 = this.cutMedium;
@@ -1027,7 +1027,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(" won't take no for an answer.");
-        var x: number = this.player.cockThatFits(80);
+        let x: number = this.player.cockThatFits(80);
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "\n\nGrunting as you aggressively move yourself into place, you lock eyes with the shameless slut, letting her know with a single look just how hard you are going to fuck her, how perfectly pounded her pussy is going to be.  That one expression leaves her unequivocally sure of her impending bowleggedness, and the little tart just grins.  You thrust forward with all the subtleness of a rampaging bull, battering your " +
@@ -1231,7 +1231,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
         this.flags[kFLAGS.LYNNETTE_PREGNANCY_CYCLE] = 0;
         this.salonPurchaseMenu();
     }
-    public lynnetteApproval(arg: number = 0): number {
+    public lynnetteApproval(arg = 0): number {
         if (arg != 0) this.flags[kFLAGS.LYNNETTE_APPROVAL] += arg;
         if (this.flags[kFLAGS.LYNNETTE_APPROVAL] < -100)
             this.flags[kFLAGS.LYNNETTE_APPROVAL] = -100;

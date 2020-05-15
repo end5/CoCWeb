@@ -2,15 +2,15 @@ import { TAIL_TYPE_NONE } from "../../../../includes/appearanceDefs";
 import { kFLAGS } from "../../../GlobalFlags/kFLAGS";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
-//NECESSARY FLAGS:
-//263 - Met nancy
-//264 - Nancy relationship level
-//265 - Talk Nancy
-//266 - Times boned
+// NECESSARY FLAGS:
+// 263 - Met nancy
+// 264 - Nancy relationship level
+// 265 - Talk Nancy
+// 266 - Times boned
 export class AuntNancy extends TelAdreAbstractContent {
     // [Introduction Blurb:
     // (appears in the Wet Bitch between 6:00 and 14:00)]
-    public auntNancy(display: boolean = true): boolean {
+    public auntNancy(display = true): boolean {
         if (this.model.time.hours >= 6 && this.model.time.hours <= 14) {
             if (display) {
                 this.outputText(
@@ -234,7 +234,7 @@ export class AuntNancy extends TelAdreAbstractContent {
                 '"<i>Wonderful!</i>" she says enthusiastically, spreading her upper set of arms. "<i>I reckon that means that you\'ve got quite a few stories on you, friend. Feel like sharing?</i>" The drink, despite its low alcohol content, has still left you feeling a little chatty, and you eagerly tell her about your adventures.\n\n',
                 false
             );
-            /*[If Corruption < 30]
+            /* [If Corruption < 30]
             You tell Aunt Nancy about a too-close experience you had once fighting with the tentacle beast in the woods. It swung at you with powerful blows and tried to snatch you up with its mighty tendrils, but you kept out of its reach and wore it down until it was almost too exhausted to keep fighting, knocking off a tentacle or two whenever it faltered. In the end, you managed to lure it into a trap, where it got stuck, and peppered it with arrows until it collapsed and began to fade to yellow, then brown, in death. You howled in victory, and tore the creature open to scavenge valuable gems from its, taken from its previous, less lucky victims.
 
             [If Corruption is 75 >= 30]
@@ -508,7 +508,7 @@ export class AuntNancy extends TelAdreAbstractContent {
                 false
             );
         // [If you have at least one dick, she always takes the smallest so as to avoid missing out on another scene later:]
-        var x: number = this.player.shortestCockIndex();
+        const x: number = this.player.shortestCockIndex();
         if (this.player.hasCock()) {
             this.outputText(
                 "Gently, she picks " +
@@ -525,8 +525,8 @@ export class AuntNancy extends TelAdreAbstractContent {
                 '"<i>Oooooh,</i>" she sighs dreamily, her eyes temporarily distant and unfocused.  "<i>Marae on earth, that hits the spot.</i>"\n\n',
                 false
             );
-            var titFucked: boolean = false;
-            var y: number = this.player.longestCock();
+            let titFucked = false;
+            const y: number = this.player.longestCock();
             // [If your longest dick is of at least auto-titfucking size:]
             if (this.player.cockTotal() >= 2) {
                 if (this.player.cocks[y].cockLength >= 22) {
@@ -789,8 +789,8 @@ export class AuntNancy extends TelAdreAbstractContent {
         this.outputText("", true);
         // [If PC has a cock]
         if (this.player.hasCock()) {
-            var x: number = this.player.shortestCockIndex();
-            var y: number = this.player.longestCock();
+            const x: number = this.player.shortestCockIndex();
+            const y: number = this.player.longestCock();
             this.outputText(
                 'You can feel it when the spider-lady\'s pussy begins to quiver in delight. Aunt Nancy soon moans, then cries out in incredible pleasure.  The lower half of her eyes all close, while the others all roll up into her head in ecstasy.  "<i>Yes!  YEEEEESSSSSSS!</i>" she hisses with throaty, feminine indulgence.  The tiny feelers in her otherwise silky-smooth vagina suddenly begin to squeeze and pull at your ' +
                     this.cockDescript(x) +

@@ -18,10 +18,10 @@ export class Armor extends Useable {
         name: string,
         longName: string,
         def: number,
-        value: number = 0,
+        value = 0,
         description?: string,
-        perk: string = "",
-        supportsBulge: boolean = false
+        perk = "",
+        supportsBulge = false
     ) {
         super(id, shortName, longName, value, description);
         this._name = name;
@@ -59,12 +59,12 @@ export class Armor extends Useable {
     public playerRemove(): Armor | undefined {
         // This item is being removed by the player. Remove any perks, etc. - This function should only handle mechanics, not text output
         while (this.game.player.findPerk(PerkLib.BulgeArmor) >= 0)
-            this.game.player.removePerk(PerkLib.BulgeArmor); //TODO remove this Exgartuan hack
+            this.game.player.removePerk(PerkLib.BulgeArmor); // TODO remove this Exgartuan hack
         if (this.game.player.modArmorName.length > 0) this.game.player.modArmorName = "";
         return this;
     }
 
-    public removeText(): void {} //Produces any text seen when removing the armor normally
+    public removeText(): void {} // Produces any text seen when removing the armor normally
 
     /*
             protected  equip(player:Player, returnOldItem: boolean,output: boolean): void

@@ -27,11 +27,11 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedRussetRogue: number = 0;
+    private checkedRussetRogue = 0;
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        this.checkedRussetRogue = 0; //Make sure we test just once in timeChangeLarge
+        this.checkedRussetRogue = 0; // Make sure we test just once in timeChangeLarge
         if (this.flags[kFLAGS.RAPHAEL_DRESS_TIMER] > 1 && this.player.gems >= 5)
             this.flags[kFLAGS.RAPHAEL_DRESS_TIMER]--;
         if (this.flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER] > 1 && this.player.gems >= 5)
@@ -55,7 +55,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             this.player.gems >= 5 &&
             this.player.statusAffectv1(StatusAffects.TelAdre) >= 1
         ) {
-            /*trace("RAPHAEL FINAL COUNTDOWN: " + flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER]);
+            /* trace("RAPHAEL FINAL COUNTDOWN: " + flags[kFLAGS.RAPHEAL_COUNTDOWN_TIMER]);
             trace("RAPHAEL MET: " + flags[kFLAGS.RAPHAEL_MET]);
             trace("RAPHAEL DRESS TIMER: " + flags[kFLAGS.RAPHAEL_DRESS_TIMER]);
             trace("RAPHAEL DISGUSTED: " + flags[kFLAGS.RAPHAEL_DISGUSTED_BY_PC_APPEARANCE]);*/
@@ -450,7 +450,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.inventory.takeItem(this.armors.R_BDYST, this.playerMenu);
     }
 
-    /*DRESS HERE
+    /* DRESS HERE
     Descriptive: A high society bodysuit. It is as easy to mistake it for ballroom apparel as it is for boudoir lingerie. The thin transparent fabric is so light and airy that it makes avoiding blows a second nature.
     Optional:
     Multiplies evasion ratings. It has crap armor rating.
@@ -1704,7 +1704,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // {Player chooses [Thieving] while in the picnic}
-    private RaphaelPicnicChooseThieving(newl: boolean = true): void {
+    private RaphaelPicnicChooseThieving(newl = true): void {
         if (newl == true) this.outputText("", true);
         // (Introduction; plays out only once)
         if (this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 0) {

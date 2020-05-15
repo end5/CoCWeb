@@ -74,7 +74,7 @@ export class FetishZealotScene extends AbstractLakeContent {
     // Raping the player
     public zealotLossRape(): void {
         this.outputText("", true);
-        var broseph: string = this.player.mf("dude", "chick");
+        const broseph: string = this.player.mf("dude", "chick");
         // Pre Rape Scene - lose by hp
         if (this.player.HP < 1)
             this.outputText(
@@ -99,7 +99,7 @@ export class FetishZealotScene extends AbstractLakeContent {
         if (broseph == "dude") {
             // set the player's armor to their new male teacher outfit, see lower down for a full description.
             if (this.player.armorValue <= 0) {
-                this.player.modArmorName = "formal vest, tie, and crotchless pants"; //can you think of a better way of putting this?
+                this.player.modArmorName = "formal vest, tie, and crotchless pants"; // can you think of a better way of putting this?
             }
             this.outputText(
                 "You smooth down your detached pants, and look at your exposed dick for a few moments, wondering if there was anything you said that may have upset him.  ",
@@ -421,7 +421,7 @@ export class FetishZealotScene extends AbstractLakeContent {
                 "\n\nDo you want to take advantage of his vulnerable state to sate your lusts?",
                 false
             );
-            var bikiniTits = undefined;
+            let bikiniTits;
             if (
                 this.player.hasVagina() &&
                 this.player.biggestTitSize() >= 4 &&

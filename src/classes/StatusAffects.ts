@@ -153,10 +153,10 @@ export class StatusAffects {
     public static SuccubiNight: StatusAffectType = StatusAffects.mk("succubiNight");
     public static TakenGroPlus: StatusAffectType = StatusAffects.mk("TakenGro+");
     public static TakenLactaid: StatusAffectType = StatusAffects.mk("TakenLactaid");
-    public static Tamani: StatusAffectType = StatusAffects.mk("Tamani"); //Used only for compatibility with old save files, otherwise no longer in use
+    public static Tamani: StatusAffectType = StatusAffects.mk("Tamani"); // Used only for compatibility with old save files, otherwise no longer in use
     public static TamaniFemaleEncounter: StatusAffectType = StatusAffects.mk(
         "Tamani Female Encounter"
-    ); //Used only for compatibility with old save files, otherwise no longer in use
+    ); // Used only for compatibility with old save files, otherwise no longer in use
     public static TelAdre: StatusAffectType = StatusAffects.mk("Tel'Adre");
     public static TentacleBadEndCounter: StatusAffectType = StatusAffects.mk(
         "TentacleBadEndCounter"
@@ -175,7 +175,7 @@ export class StatusAffects {
     public static UsedNaturalSelfStim: StatusAffectType = StatusAffects.mk(
         "used natural self-stim"
     );
-    public static used_self_dash_stim: StatusAffectType = StatusAffects.mk("used self-stim");
+    public static UsedSelfDashStim: StatusAffectType = StatusAffects.mk("used self-stim");
     public static Victoria: StatusAffectType = StatusAffects.mk("Victoria");
     public static VoluntaryDemonpack: StatusAffectType = StatusAffects.mk("Voluntary Demonpack");
     public static WormOffer: StatusAffectType = StatusAffects.mk("WormOffer");

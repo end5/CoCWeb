@@ -14,10 +14,11 @@ import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...
+ *
  * @author ...
  */
 export class Basilisk extends Monster {
-    public static basiliskSpeed(player: Player, amount: number = 0): void {
+    public static basiliskSpeed(player: Player, amount = 0): void {
         if (player.spe - amount < 1) {
             amount = player.spe - 1;
             if (amount < 0) amount = 0;
@@ -62,7 +63,7 @@ export class Basilisk extends Monster {
 
     // Special 3: basilisk tail swipe (Small physical damage):
     private basiliskTailSwipe(): void {
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str + 20 - Math.random() * (this.player.tou + this.player.armorDef)
         );
         damage = this.player.takeDamage(damage);

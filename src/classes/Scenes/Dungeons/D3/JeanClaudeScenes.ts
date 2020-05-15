@@ -7,6 +7,7 @@ import { JeanClaude } from "./JeanClaude";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class JeanClaudeScenes extends BaseContent {

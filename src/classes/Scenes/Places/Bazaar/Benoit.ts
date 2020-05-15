@@ -35,7 +35,7 @@ import { BazaarAbstractContent } from "./BazaarAbstractContent";
 //  BENOIT_POST_FIRSTFUCK_TALK: number = 576;
 //  BENOIT_TESTED_BASILISK_WOMB: number = 577;
 //  BENOIT_GENERIC_EGGS: number = 632;
-//(Shop open between 9:00 and 17:00)
+// (Shop open between 9:00 and 17:00)
 export class Benoit extends BazaarAbstractContent {
     // Fen, you'll need a function to determine gendered pronouns and version of name for this character. I've formatted all the eligible places I found in the order of [male/female]. -Z
     public benoitMF(stringM: string, stringF: string): string {
@@ -46,7 +46,7 @@ export class Benoit extends BazaarAbstractContent {
     private benoitLover(): boolean {
         return this.flags[kFLAGS.BENOIT_TIMES_SEXED_FEMPCS] >= 2;
     }
-    public benoitAffection(changes: number = 0): number {
+    public benoitAffection(changes = 0): number {
         if (changes != 0) {
             this.flags[kFLAGS.BENOIT_AFFECTION] += changes;
             if (this.flags[kFLAGS.BENOIT_AFFECTION] > 100)
@@ -105,7 +105,7 @@ export class Benoit extends BazaarAbstractContent {
 
     /**
         Return the "heaviness" of the pregnancy
-    */
+     */
     public benoitPreggers(): boolean {
         if (this.flags[kFLAGS.BENOIT_STATUS] == 0) return false;
         if (this.flags[kFLAGS.FEMOIT_EGGS] > 0) return true;
@@ -141,9 +141,9 @@ export class Benoit extends BazaarAbstractContent {
         if (this.flags[kFLAGS.BENOIT_STATUS] == 0) return false;
 
         // Benoit enters "clutch" every 21 days, for 7 days
-        var startDay: number = this.flags[kFLAGS.FEMOIT_NEXTDAY_EVENT];
-        var currDay: number = this.getGame().model.time.days;
-        var diffDays: number = (currDay - startDay) % 28;
+        const startDay: number = this.flags[kFLAGS.FEMOIT_NEXTDAY_EVENT];
+        const currDay: number = this.getGame().model.time.days;
+        const diffDays: number = (currDay - startDay) % 28;
 
         if (diffDays >= 21) return true;
         return false;
@@ -168,19 +168,19 @@ export class Benoit extends BazaarAbstractContent {
         if (!this.benoitInClutch()) return false;
 
         // Calc the number of eggs
-        var cumQ: number = this.player.cumQ();
+        const cumQ: number = this.player.cumQ();
 
-        var bounty: boolean = this.player.findPerk(PerkLib.ElvenBounty) >= 0 ? true : false;
-        var stud: boolean = this.player.findPerk(PerkLib.MaraesGiftStud) >= 0 ? true : false;
-        var alpha: boolean = this.player.findPerk(PerkLib.FerasBoonAlpha) >= 0 ? true : false;
+        const bounty: boolean = this.player.findPerk(PerkLib.ElvenBounty) >= 0 ? true : false;
+        const stud: boolean = this.player.findPerk(PerkLib.MaraesGiftStud) >= 0 ? true : false;
+        const alpha: boolean = this.player.findPerk(PerkLib.FerasBoonAlpha) >= 0 ? true : false;
 
-        var eggMod: number = 0;
+        let eggMod = 0;
         if (bounty) eggMod += 1;
         if (stud) eggMod += 2;
         if (alpha) eggMod += 1;
 
-        var numEggs: number = cumQ / 200;
-        var minEggs: number = 1 + eggMod;
+        let numEggs: number = cumQ / 200;
+        const minEggs: number = 1 + eggMod;
         if (numEggs > 12) numEggs = 12;
         if (numEggs < minEggs) numEggs = minEggs;
 
@@ -204,9 +204,9 @@ export class Benoit extends BazaarAbstractContent {
     // Introduction Scenes
     public benoitIntro(): void {
         this.clearOutput();
-        var suggestText: string = "";
-        var suggest = undefined;
-        var womb = undefined;
+        let suggestText = "";
+        let suggest;
+        let womb;
         if (this.flags[kFLAGS.TIMES_IN_BENOITS] == 0) {
             this.outputText(
                 "You cautiously approach the stall.  The shadow thrown by its large, overhanging canopy makes it quite difficult to see into its interior, and getting inside is made even more hazardous by the sheer volume of objects which clutter the area around it and hang out of the shelves arranged along its wooden walls.  Everything Mareth has ever created or distilled seems to be here - or at least, everything Mareth has ever thrown out.  Pots, pans, ugly crockery, shelves stuffed with clothing, a spice rack bulging with all manner of suspect-looking potions... you imagine you could probably find anything you'd ever want in here - or something closely resembling it - if you looked hard enough."
@@ -406,7 +406,7 @@ export class Benoit extends BazaarAbstractContent {
         )
             womb = this.tryToConvertToBassyWomb;
 
-        var fem;
+        let fem;
 
         if (this.flags[kFLAGS.FEMOIT_UNLOCKED] == 1 && this.flags[kFLAGS.BENOIT_STATUS] == 0) {
             // Only available if the player hasn't since fucked Benoit after unlocking the option.
@@ -450,7 +450,7 @@ export class Benoit extends BazaarAbstractContent {
         this.clearOutput();
         if (this.flags[kFLAGS.BENOIT_1] == "") this.updateBenoitInventory();
         if (this.flags[kFLAGS.BENOIT_EXPLAINED_SHOP] == 0) this.buyOrSellExplanationFirstTime();
-        var buyMod: number = 2;
+        let buyMod = 2;
 
         if (this.flags[kFLAGS.BENOIT_STATUS] == 1) {
             buyMod = 1.66;
@@ -509,13 +509,13 @@ export class Benoit extends BazaarAbstractContent {
                     this.benoitMF("his", "her") +
                     " hand to you."
             );
-        var sellMod: number = 3;
+        let sellMod = 3;
         if (this.flags[kFLAGS.BENOIT_EGGS] > 0 || this.flags[kFLAGS.BENOIT_STATUS] != 0)
             sellMod = 2;
         this.outputText("\n\n<b><u>Benoit" + this.benoitMF("", "e") + "'s Estimates</u></b>");
         this.menu();
-        var totalItems: number = 0;
-        for (var slot: number = 0; slot < 5; slot++) {
+        let totalItems = 0;
+        for (let slot = 0; slot < 5; slot++) {
             if (
                 this.player.itemSlots[slot].quantity > 0 &&
                 Math.floor(this.player.itemSlots[slot].itype.value / sellMod) >= 1
@@ -546,10 +546,10 @@ export class Benoit extends BazaarAbstractContent {
         this.addButton(9, "Back", this.benoitIntro);
     }
 
-    private benoitTransactBuy(slot: number = 1): void {
+    private benoitTransactBuy(slot = 1): void {
         this.clearOutput();
-        var itype: ItemType;
-        var buyMod: number = 2;
+        let itype: ItemType;
+        let buyMod = 2;
 
         if (this.flags[kFLAGS.BENOIT_STATUS] == 1) buyMod = 1.66;
 
@@ -611,8 +611,8 @@ export class Benoit extends BazaarAbstractContent {
 
     private benoitSellAllTransact(totalItems: number, sellMod: number): void {
         this.clearOutput();
-        var itemValue: number = 0;
-        for (var slot: number = 0; slot < 5; slot++) {
+        let itemValue = 0;
+        for (let slot = 0; slot < 5; slot++) {
             if (
                 this.player.itemSlots[slot].quantity > 0 &&
                 Math.floor(this.player.itemSlots[slot].itype.value / sellMod) >= 1
@@ -805,10 +805,8 @@ export class Benoit extends BazaarAbstractContent {
         }
         // Subsequent Talk
         else {
-            var choice: number;
-
             /* BUILD ZE CHOICES!*/
-            var choices: any[] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            const choices: any[] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
             // option 9 is non-lover non-fem only
             if (!this.benoitLover() && this.benoitMF("he", "she") == "he")
                 choices[choices.length] = 9;
@@ -831,7 +829,7 @@ export class Benoit extends BazaarAbstractContent {
             }
             // trace("BENOIT CHOICE: " + choice);
             // Pick one and go!
-            choice = choices[Benoit.rand(choices.length)];
+            const choice: number = choices[Benoit.rand(choices.length)];
             // (Randomly generated)
             if (choice == 0) {
                 this.outputText(
@@ -1785,7 +1783,7 @@ export class Benoit extends BazaarAbstractContent {
             );
             this.doNext(this.benoitIntro);
         }
-        /*else if(player.isTaur()) {
+        /* else if(player.isTaur()) {
             outputText("\"<i>Forgive me, [name],</i>\" Benoit says, clearly troubled, as you begin hauling out the ingredients and announcing your plan.  \"<i>I sink your body is already stressed enough wis 'aving to pump so little blood so far... I would razer you not take furzer risks on my account until your form is more... compact.  I cannot be a part of zis... 'owever much I would like to.  You mean too much to me, you see.</i>\"");
             outputText("\n\nLeft speechless by his frankness, you can only sweep the items back into your bag.");
             // return to shop menu
@@ -1855,7 +1853,7 @@ export class Benoit extends BazaarAbstractContent {
         }
     }
 
-    private suggestSexAfterBasiWombed(later: boolean = true): void {
+    private suggestSexAfterBasiWombed(later = true): void {
         this.clearOutput();
         // Subsequent \"<i>Suggest</i>\" if initial sex option not taken:
         if (later) {
@@ -2057,7 +2055,7 @@ export class Benoit extends BazaarAbstractContent {
             );
         }
         this.player.orgasm();
-        this.player.knockUpForce(); //Clear Pregnancy
+        this.player.knockUpForce(); // Clear Pregnancy
         this.flags[kFLAGS.BENOIT_EGGS] += Math.floor(this.player.totalFertility() / 10);
         // doNext(1);
     }

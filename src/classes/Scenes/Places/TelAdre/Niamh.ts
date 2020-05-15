@@ -25,7 +25,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        var needNext: boolean = false;
+        let needNext = false;
         if (this.flags[kFLAGS.NIAMH_SEAN_BREW_BIMBO_LIQUEUR_COUNTER] > 1)
             this.flags[kFLAGS.NIAMH_SEAN_BREW_BIMBO_LIQUEUR_COUNTER]--;
         if (this.flags[kFLAGS.NIAMH_MOVED_OUT_COUNTER] > 1)
@@ -128,7 +128,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 "You approach the burdened woman, hailing her politely.  Her ears twitch at the sound, and she sends a crooked smile your way.  \"<i>What can I do ya for?</i>\" she asks somewhat tiredly, the lilt of her words hinting at an accent.  \"<i>Up for a bit o' the brew, perhaps?</i>\"  Your question regarding why she's peddling alcohol dies in your throat as your gaze inevitably drops to her dusky-toned bosom.  As you watch, a small droplet of cloudy golden liquid forms at her engorged teat and splashes into the growing puddle under the nipple.  From the array of top-bearing beer mugs placed within reaching distance on the ground, you begin to put the pieces together.  Is she actually... lactating beer?  You glance back up at her; she smirks knowingly, casually resting her forearms against her expansive breast-flesh and using them to push together and amplify the already-incredible cleavage.  She takes a deep breath, then chants in a singsong voice, \"<i>Black cat beer, two bits a glass.  Get it quick, for it's goin' fast.  Just treat me gentle, or you're in for a slap, and no, you can't have it 'straight from the tap'.</i>\"  After a couple moments, you shrug, figuring stranger things have happened in Mareth."
             );
 
-        var beer = undefined;
+        let beer;
         if (this.player.gems >= 2) beer = this.getANiamhBeer;
         else this.outputText("\n\n<b>You're too poor for beer.</b>");
         // [Talk] [Get Beer] [Leave]
@@ -198,7 +198,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.player.gems -= 2;
         this.statScreenRefresh();
         // [Here][To Go]
-        var togo = undefined;
+        let togo;
         if (this.player.gems >= 2) togo = this.blackCatBeerToGo;
         else this.outputText("\n\n<b>You're too poor to buy the mug.</b>");
         this.flags[kFLAGS.GOT_NIAMH_BEER]++;
@@ -386,7 +386,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             }
         }
         // [Beer] [Leave]
-        var beer = undefined;
+        let beer;
         if (this.player.gems >= 2) beer = this.getANiamhBeer;
         this.simpleChoices(
             "Beer",
@@ -413,11 +413,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
 
     // Black Cat Beer
     // is affected by Black Cat Beer item effects
-    public blackCatBeerEffects(
-        player: Player,
-        clearScreen: boolean = true,
-        newLine: boolean = false
-    ): void {
+    public blackCatBeerEffects(player: Player, clearScreen = true, newLine = false): void {
         if (clearScreen) this.clearOutput();
         if (newLine) this.outputText("\n\n");
         this.outputText(
@@ -431,7 +427,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         );
         // Regain 40 to 60 lost health, increase lust by 10 to 20 points, decrease Intelligence and Speed by 5, increase Libido by 5//
         this.HPChange(40 + Niamh.rand(21), false);
-        var lib: number = 0;
+        let lib = 0;
         if (player.findStatusAffect(StatusAffects.BlackCatBeer) >= 0) {
             if (100 - player.lib >= 10) lib = 10;
             else lib = 100 - player.lib;
@@ -509,7 +505,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText(
             'You chuckle nervously and shake your head, citing your ignorance of all things alcoholic.  Niamh sighs resignedly, reaching forward and grabbing one of her elongated nipples.  With practiced ease, she fills her flagon and takes a deep swig of it.  "<i>Can\'t blame me for wantin\' a change of pace,</i>" she mutters.  "<i>Now, would ye like your own glass of Black Cat Beer, or are ya gonna keep starin\' at me tits?</i>"'
         );
-        var beer = undefined;
+        let beer;
         if (this.player.gems >= 2) beer = this.getANiamhBeer;
         else this.outputText("\n\n<b>You're too poor for beer.</b>");
         // [Talk] [Get Beer] [Leave]
@@ -528,7 +524,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
     }
 
     // [Succubus Milk] or [Bimbo Liqueur]
-    public taintNiamh(bimbo: boolean = false): void {
+    public taintNiamh(bimbo = false): void {
         this.clearOutput();
         this.outputText(
             "You grab Niamh's glass and one more and head off, making sure to turn a corner before commandeering an empty table.  Plunking the mugs down in front of you, you mutter to yourself as she moves away."
@@ -873,10 +869,10 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         }
         this.flags[kFLAGS.TIMES_NIAMH_BAZAAR_MET]++;
         // [Bizarre Bazaar, beer purchase, bimbo and corrupted version]
-        var drink = undefined;
+        let drink;
         if (this.player.gems >= 2) drink = this.bazaardNiamhDrink;
         else this.outputText("\n\n<b>You're too poor to get a drink.</b>");
-        var fuck = undefined;
+        let fuck;
         if (this.player.hasCock()) fuck = this.bazaarSex;
         this.simpleChoices(
             "Get A Drink",
@@ -968,8 +964,8 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
 
     // [Bazaar sex]
     private bazaarSex(): void {
-        var x: number = this.player.biggestCockIndex();
-        var y: number = x + 1;
+        const x: number = this.player.biggestCockIndex();
+        const y: number = x + 1;
         this.clearOutput();
         if (this.flags[kFLAGS.NIAMH_STATUS] == 2) {
             // Bimbo:Fuck a Bimbo Catgirl and Suck Dem Boozetits Like You Got a Pair (Or at least a dick; gotta have one of them)
@@ -1021,7 +1017,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outputText(
             '\n\nHe picks up one of the flasks and screws off the cap, leaning forward and wafting the drink to his nostrils.  "<i>Not as potent as the real stuff,</i>" he confirms, recapping the thing and setting it next to the others.  "<i>I can do it,</i>" he decides, "<i>but it will take a good amount of time and a good amount of effort.  Five hundred gems and I\'ll have it done by tomorrow.</i>"'
         );
-        var yep = undefined;
+        let yep;
         // [Yep][Nope]
         if (this.player.gems < 500)
             this.outputText("<b>\n\nYou're too poor to get Sean to make you bimbo liqueur.</b>");
@@ -1258,9 +1254,9 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             );
         }
 
-        /*================
-	Fourth Paragraph
-	================*/
+        /* ================
+ Fourth Paragraph
+ ================*/
         this.outputText(
             "\n\nNiamh crawls up and on to the table, moving to position her hips over your head while leaning over the rest of your torso.  It's obvious that she either removed her undergarments, or wasn't wearing any in the first place.  Her bare pussy is now hovering just inches from your face."
         );
@@ -1562,7 +1558,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                         this.player.knockUp(
                             PregnancyStore.PREGNANCY_MOUSE,
                             PregnancyStore.INCUBATION_MOUSE
-                        ); //I'm betting this was meant to be dog morph chance
+                        ); // I'm betting this was meant to be dog morph chance
                         break;
                     default:
                         this.player.knockUp(

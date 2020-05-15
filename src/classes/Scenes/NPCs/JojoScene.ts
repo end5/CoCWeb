@@ -243,11 +243,11 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             }
         }
 
-        var tent = undefined;
+        let tent;
         if (this.tentacleJojo() && this.player.lust >= 33) tent = this.useTentacleJojo;
-        var milkHim = undefined;
-        var tentaMilk = undefined;
-        var eggs = undefined;
+        let milkHim;
+        let tentaMilk;
+        let eggs;
         if (this.player.canOvipositBee()) eggs = this.beeEggsInCorruptJojo;
         if (this.player.hasKeyItem("Cock Milker - Installed At Whitney's Farm") >= 0) {
             if (this.flags[kFLAGS.JOJO_COCK_MILKING_COOLDOWN] > 0)
@@ -262,8 +262,8 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     tentaMilk = this.createCallBackFunction(this.repeatMilkJojo, true);
             } else milkHim = this.milkJojoFirst;
         }
-        var hairCare = undefined;
-        var sex = undefined;
+        let hairCare;
+        let sex;
         if (this.player.gender > 0 && this.player.lust >= 33) sex = this.corruptJojoSexMenu;
         if (this.player.findStatusAffect(StatusAffects.HairdresserMeeting) >= 0)
             hairCare = this.jojoPaysForPerms;
@@ -579,12 +579,12 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     public useTentacleJojo(): void {
         this.jojoSprite();
         this.player.slimeFeed();
-        var nippleSucking: boolean = false;
+        let nippleSucking = false;
         // var clitSucking: boolean = false;
-        var mouthFucking: boolean = false;
-        var titFucking: boolean = false;
-        var cumPuddle: boolean = false;
-        var milkPuddle: boolean = false;
+        let mouthFucking = false;
+        let titFucking = false;
+        let cumPuddle = false;
+        let milkPuddle = false;
         this.outputText('You call out, "<i>Sluuuuuut!</i>"\n\n', true);
         this.outputText(
             "A few seconds later Jojo comes bounding into camp on all fours, blushing furiously and with his ass high in the air, trying to keep his tumescent mouse-member from dragging along the ground.  He presents himself to you, putting his hands behind his back and displaying his prick.  It squirms and wriggles obscenely in a way that nothing that thick should be able to move.  Jojo is biting his lip and blushing hard at his uncontrollable display.  You note that despite his blush, the tiny lumps on his shoulders are growing larger and taking on a purplish hue, while his three tails have begun to disentangle themselves behind him.\n\n",
@@ -1182,15 +1182,15 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Jojo milk payments
-    private jojoMilkPay(tentacle: boolean = false): void {
+    private jojoMilkPay(tentacle = false): void {
         this.jojoSprite();
         this.flags[kFLAGS.JOJO_COCK_MILKING_COOLDOWN] = 4;
         this.outputText("A loud 'ding' chimes and a panel displays ", false);
 
         // Set temp to liter amount produced.
-        var payout: number = 0;
-        var cap: number = 500;
-        var cumQ: number = 0;
+        let payout = 0;
+        let cap = 500;
+        let cumQ = 0;
         // Ez mode cap doubles
         if (this.flags[kFLAGS.EASY_MODE_ENABLE_FLAG] == 1) cap *= 2;
         if (this.debug) {
@@ -1244,7 +1244,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         } else this.outputText("You g", false);
     }
     private jojoCumQ(): number {
-        var cumQ: number = 0;
+        let cumQ = 0;
         cumQ = 400;
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00331] < 4)
             cumQ += this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00331] * 200;
@@ -1256,7 +1256,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     // Jojo - First Time Milking (edited)
     private milkJojoFirst(): void {
         this.jojoSprite();
-        var x: number = this.player.cockThatFits(40);
+        let x: number = this.player.cockThatFits(40);
         this.outputText("", true);
         this.outputText(
             "A wicked idea comes to mind, and you call for your favorite mousey ",
@@ -1507,7 +1507,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    private repeatMilkJojo(tentacle: boolean = false): void {
+    private repeatMilkJojo(tentacle = false): void {
         this.jojoSprite();
         this.outputText("", true);
         // Jojo Repeat Milking - Non Tentacle (edited)
@@ -1859,7 +1859,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         // [Cum in Amily Mouth] [Cum in Amily Pussy] [Cum in Jojo Mouth]
         this.outputText("\n\nWhere do you cum?");
         // Pussy requires a minimum tallness?
-        var puss = undefined;
+        let puss;
         if (this.player.tallness > 55) puss = this.stuffAmilysMouthWithPostBJCUM;
         this.simpleChoices(
             "Amily's Mouth",
@@ -2010,16 +2010,16 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
             // Reduces lust
             this.dynStats("lus", -30);
-            var cleanse: number = -2; //Corruption reduction - faster at high corruption
+            let cleanse = -2; // Corruption reduction - faster at high corruption
             if (this.player.cor > 80) cleanse -= 3;
             else if (this.player.cor > 60) cleanse -= 2;
             else if (this.player.cor > 40) cleanse -= 1;
             this.dynStats("cor", cleanse - this.player.countCockSocks("alabaster"));
-            if (this.player.str < 45) this.dynStats("str", 1); //Str boost to 45
-            if (this.player.tou < 45) this.dynStats("tou", 1); //Tou boost to 45
-            if (this.player.spe < 75) this.dynStats("spe", 1); //Speed boost to 75
-            if (this.player.inte < 80) this.dynStats("int", 1); //Int boost to 80
-            if (this.player.lib > 15) this.dynStats("lib", -1); //Libido lower to 15
+            if (this.player.str < 45) this.dynStats("str", 1); // Str boost to 45
+            if (this.player.tou < 45) this.dynStats("tou", 1); // Tou boost to 45
+            if (this.player.spe < 75) this.dynStats("spe", 1); // Speed boost to 75
+            if (this.player.inte < 80) this.dynStats("int", 1); // Int boost to 80
+            if (this.player.lib > 15) this.dynStats("lib", -1); // Libido lower to 15
             this.player.createStatusAffect(StatusAffects.Meditated, 1, 0, 0, 0);
         }
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -2083,7 +2083,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(0, "Next", this.jojoRape, true);
     }
 
-    public jojoRape(postCombat: boolean = false): void {
+    public jojoRape(postCombat = false): void {
         trace("jojoRape called");
 
         this.jojoSprite();
@@ -2218,7 +2218,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
-            ); //Jojo's kids take longer for some reason
+            ); // Jojo's kids take longer for some reason
         } else if (this.player.gender == 3) {
             trace("gender3");
 
@@ -2381,7 +2381,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
-            ); //Jojo's kids take longer for some reason
+            ); // Jojo's kids take longer for some reason
         }
     }
 
@@ -2530,7 +2530,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
-            ); //Jojo's kids take longer for some reason
+            ); // Jojo's kids take longer for some reason
         }
         if (this.player.gender == 3) {
             if (this.player.isBiped())
@@ -2626,7 +2626,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
-            ); //Jojo's kids take longer for some reason
+            ); // Jojo's kids take longer for some reason
         }
     }
 
@@ -3019,7 +3019,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.knockUp(
                 PregnancyStore.PREGNANCY_JOJO,
                 PregnancyStore.INCUBATION_MOUSE + 82
-            ); //Jojo's kids take longer for some reason
+            ); // Jojo's kids take longer for some reason
             // The end
             if (this.player.lib > 50 && this.player.cor > 80) {
                 this.outputText(
@@ -3140,7 +3140,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         PregnancyStore.PREGNANCY_MOUSE,
                         PregnancyStore.INCUBATION_MOUSE + 82,
                         101
-                    ); //Jojo's kids take longer for some reason
+                    ); // Jojo's kids take longer for some reason
                 }
                 if (this.player.gender == 0) {
                     this.outputText(
@@ -3180,7 +3180,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.addButton(3, "Gentle Anal", this.corruptJojoAnalGentle);
             if (this.player.findPerk(PerkLib.Whispered) >= 0)
                 this.addButton(8, "Whisper", this.whisperJojobait);
-            else this.addButton(8, "Cruel Anal", this.corruptJojoAnalCruel); //Overrides Anal Smother - Herms don't smother, they fuck
+            else this.addButton(8, "Cruel Anal", this.corruptJojoAnalCruel); // Overrides Anal Smother - Herms don't smother, they fuck
         }
         this.addButton(1, "Give BJ", this.corruptJojoCunnilingus);
         if (this.player.biggestTitSize() >= 2)
@@ -3188,14 +3188,14 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 6,
                 this.player.biggestLactation() > 1 ? "Suckle" : "Breasts",
                 this.corruptJojoBreasts
-            ); //All ya need is bewbs
+            ); // All ya need is bewbs
         this.addButton(9, "Back", this.playerMenu);
     }
 
     private corruptJojoBJCruel(): void {
         this.jojoSprite();
         this.clearOutput();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             'You yell out into the jungle, "<i>Slut!</i>" Minutes later Jojo slips into your camp from the jungle\'s shadows, dropping to his knees with a timid look of fear in his eyes. You step forward and grip the fur between his shell-like ears firmly, hissing angrily, "<i>When I call for you, you need to be here. Do I need to teach you your place again?</i>"  '
         );
@@ -3246,7 +3246,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     private corruptJojoBJGentle(): void {
         this.jojoSprite();
         this.clearOutput();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "As if on command, Jojo slips into your camp from the jungle's shadows, dropping to his knees with a timid look of fear in his eyes. You step forward and caress your fingers through the fur between his shell-like ears, whispering softly to him, \"<i>It's all right, my beautiful slut, it will all be over soon.</i>\""
         );
@@ -3387,7 +3387,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 ". You stay seated on his hips until your orgasm fades, then with a sigh of pleasure you stand off of him and dismiss him with a wave of your hand.  "
         );
         // Preggers chance!
-        this.player.knockUp(PregnancyStore.PREGNANCY_JOJO, PregnancyStore.INCUBATION_MOUSE + 82); //Jojo's kids take longer for some reason
+        this.player.knockUp(PregnancyStore.PREGNANCY_JOJO, PregnancyStore.INCUBATION_MOUSE + 82); // Jojo's kids take longer for some reason
         this.player.orgasm();
         this.dynStats("cor", 0.5);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -3428,7 +3428,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     private corruptJojoAnalCruel(): void {
         this.jojoSprite();
         this.clearOutput();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You decided that it is time to seek out your pet monk slut, and stalk into the jungle after the mouse. It doesn't take long to find him, so you move silently to avoid his notice. You move with a predator's grace as you sneak up behind him, your hand reaching down to grab hold of his tail firmly as you shove him against a nearby tree.  "
         );
@@ -3477,7 +3477,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     private corruptJojoAnalGentle(): void {
         this.jojoSprite();
         this.clearOutput();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You watch as Jojo slinks into your camp from the dense jungle, moving timidly with his eyes focused on your feet. The sight of such a once pious monk reduced to your submissive fuck toy stirs your loins and brings a smile to your lips.  "
         );
@@ -3567,7 +3567,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outputText(
                 "He leans in and starts to kiss along your nipples before taking one into his mouth. He gives a firm suckle at the engorged teat, and you can see his eyes open wider in surprise at the sudden surge of milk that fills his muzzle. He shivers and starts to suckle in earnest, drinking from first one breast, then the other, "
             );
-            if (this.player.breastRows.length > 1) this.outputText("and then all the others, "); //Extra boob coverage
+            if (this.player.breastRows.length > 1) this.outputText("and then all the others, "); // Extra boob coverage
             this.outputText("partaking of your blessing until his belly is full.  ");
             this.player.milked();
         } else if (this.player.biggestTitSize() <= 5) {
@@ -3597,7 +3597,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     private whisperJojobait(): void {
         this.clearOutput();
         this.outputText(this.images.showImage("akbal-deepwoods-male-jojosex"));
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You close your eyes and begin to think of Jojo.  You can feel the former monk's presence far away in the forest, futilely trying to meditate and rid himself of the corruption you so generously bestowed upon him.  He is sitting with one paw on his knee, and the other on his rigid tool.\n\n"
         );
@@ -4111,7 +4111,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "\n\nYou start to answer, but the exhausted, anal-gaped slut slumps onto his side and starts snoring, exhausted and dripping both white and yellow.  The whole thing makes you feel a little hot under the collar, but there's nothing to do for now but head back to camp.\n"
         );
-        this.pregnancy.buttKnockUpForce(); //Clear Butt Pregnancy
+        this.pregnancy.buttKnockUpForce(); // Clear Butt Pregnancy
     }
 
     // JOJO: THE EXPANSIONING
@@ -4306,7 +4306,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Some hacky shit to be able to control the text clearing mechanics of the doEvent system... OH GOD WHY. //Gone, gone forever
-    private doClear: boolean = true;
+    private doClear = true;
 
     public acceptJojoIntoYourCamp(): void {
         this.jojoSprite();
@@ -4428,7 +4428,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
     private jojoCampMenu(): void {
         // Normal Follower Choices
         // [Appearance] [Talk] [Train] [Meditate] [Night Watch toggle]
-        var jojoDefense: string = "N.Watch:";
+        let jojoDefense = "N.Watch:";
         if (this.player.findStatusAffect(StatusAffects.JojoNightWatch) >= 0) {
             this.outputText("(Jojo is currently watching for enemies at night.)\n\n");
             jojoDefense += "On";
@@ -5124,7 +5124,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.fatigue(60);
 
             // {each scene only shows if the follower is there}
-            var enlightenedBlurbs: any[] = new Array();
+            const enlightenedBlurbs: any[] = [];
 
             enlightenedBlurbs.push(
                 "You can hear Jojo’s feet move through the campsite as he heads toward his rock, seeking rest after your training session."

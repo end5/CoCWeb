@@ -177,10 +177,10 @@ export class Vala extends Monster {
         this.weaponName = "fists";
         this.weaponVerb = "caresses";
         this.armorName = "skin";
-        var lustVuln: number = 0.5;
+        let lustVuln = 0.5;
         if (this.game.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] > 0) lustVuln += 0.25;
         if (this.game.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] > 2) lustVuln += 0.5;
-        var lust: number = 30 + this.game.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] * 10;
+        let lust: number = 30 + this.game.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] * 10;
         if (lust > 80) lust = 80;
         this.bonusHP = 350;
         this.lust = lust;
@@ -194,7 +194,7 @@ export class Vala extends Monster {
         this.special1 = this.special1;
         this.special2 = this.special2;
         this.special3 = this.special3;
-        var wingDesc: string = "shimmering wings";
+        const wingDesc = "shimmering wings";
         if (this.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] == 0)
             this.drop = new WeightedDrop(this.consumables.NUMBROX);
         else this.drop = this.NO_DROP;

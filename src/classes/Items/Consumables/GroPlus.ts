@@ -192,12 +192,9 @@ export class GroPlus extends Consumable {
         // NIPPLECUNTZZZ
         if (!this.game.player.hasFuckableNipples() && Utils.rand(4) == 0) {
             let nowFuckable = false;
-            for (let x = 0; x < this.game.player.breastRows.length; x++) {
-                if (
-                    !this.game.player.breastRows[x].fuckable &&
-                    this.game.player.nippleLength >= 2
-                ) {
-                    this.game.player.breastRows[x].fuckable = true;
+            for (const breatRow of this.game.player.breastRows) {
+                if (!breatRow.fuckable && this.game.player.nippleLength >= 2) {
+                    breatRow.fuckable = true;
                     nowFuckable = true;
                 }
             }

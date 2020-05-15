@@ -54,8 +54,8 @@ export class InputManager {
     /**
      * Init the InputManager. Attach the keyboard event listener to the stage and prepare the subobjects for usage.
      *
-     * @param	stage	Reference to core stage on which to add display objects
-     * @param	debug	Emit debugging trace statements
+     * @param stage Reference to core stage on which to add display objects
+     * @param debug Emit debugging trace statements
      */
     public constructor(mainView: MainView) {
         bindToClass(this);
@@ -83,12 +83,12 @@ export class InputManager {
      * with a new bound control method, removing the keycode from *other* bindings and updating data as appropriate.
      * Displays a message indicating the player should do the needful.
      *
-     * @param	funcName	BoundControlMethod name that they key is going to be associated with. Set by a button
+     * @param funcName BoundControlMethod name that they key is going to be associated with. Set by a button
      *
 //
 //
 // callback function generated in BindingPane
-     * @param	isPrimary	Specifies if the incoming bind will replace/set the primary or secondary bind for a control.
+     * @param isPrimary Specifies if the incoming bind will replace/set the primary or secondary bind for a control.
      */
     public ListenForNewBind(funcName: string, isPrimary = true): void {
         // if (this._debug) {
@@ -136,13 +136,13 @@ export class InputManager {
      * The closure can be declared with the rest of the game code, in the namespace where the functions are available,
      * and still work inside this object.
      *
-     * @param	name
+     * @param name
 // Name to associate the BoundControlMethod with
-     * @param	desc
+     * @param desc
 // A description of the activity that the BoundControlMethod does. (Unused, but implemented)
-     * @param	func
+     * @param func
 // A function object that defines the BoundControlMethods action
-     * @param	isCheat
+     * @param isCheat
 // Differentiates between a cheat method (not displayed in the UI) and normal controls.
      */
     public AddBindableControl(name: string, desc: string, func: any, isCheat = false): void {
@@ -163,10 +163,10 @@ export class InputManager {
     /**
      * Set either the primary or secondary binding for a target control method to a given keycode.
      *
-     * @param	keyCode
+     * @param keyCode
 // The keycode to bind the method to.
-     * @param	funcName	The name of the associated BoundControlMethod
-     * @param	isPrimary	Specifies the primary or secondary binding slot
+     * @param funcName The name of the associated BoundControlMethod
+     * @param isPrimary Specifies the primary or secondary binding slot
      */
     public BindKeyToControl(keyCode: number, funcName: string, isPrimary = true): void {
         for (const key of Object.keys(this._controlMethods)) {
@@ -208,7 +208,7 @@ export class InputManager {
     /**
      * Remove an existing key from a BoundControlMethod, if present, and shuffle the remaining key as appropriate
      *
-     * @param	keyCode
+     * @param keyCode
 // The keycode to remove.
      */
     public RemoveExistingKeyBind(keyCode: number): void {
@@ -234,7 +234,7 @@ export class InputManager {
     /**
      * The core event handler we attach to the stage to capture incoming keyboard events.
      *
-     * @param	e
+     * @param e
 // KeyboardEvent data
      */
     public KeyHandler(e: KeyboardEvent): void {
@@ -264,7 +264,7 @@ export class InputManager {
     /**
      * Execute the BoundControlMethod's wrapped function associated with the given KeyCode
      *
-     * @param	keyCode
+     * @param keyCode
 // The KeyCode for which we wish to execute the BoundControlMethod for.
      */
     private ExecuteKeyCode(keyCode: number): void {
@@ -274,8 +274,8 @@ export class InputManager {
             this._controlMethods[this._keysToControlMethods[keyCode]].ExecFunc();
         }
 
-        for (let i = 0; i < this._cheatControlMethods.length; i++) {
-            this._cheatControlMethods[i].ExecFunc(keyCode);
+        for (const method of this._cheatControlMethods) {
+            method.ExecFunc(keyCode);
         }
     }
 
@@ -354,7 +354,7 @@ export class InputManager {
     /**
      * Get an array of the available functions.
      *
-     * @return	Array of available BoundControlMethods.
+     * @return Array of available BoundControlMethods.
      */
     public GetAvailableFunctions(): BoundControlMethod[] {
         // var funcs: any[] = new Array();
@@ -371,7 +371,7 @@ export class InputManager {
     /**
      * Get an array of the currently active keyCodes.
      *
-     * @return	Array of active keycodes.
+     * @return Array of active keycodes.
      */
     public GetControlMethods(): any[] {
         const buttons: any[] = [];
@@ -397,7 +397,7 @@ export class InputManager {
     /**
      * Load bindings from a source "Object" retrieved from a game save file.
      *
-     * @param	source	Source object to enumerate for binding data.
+     * @param source Source object to enumerate for binding data.
      */
     public LoadBindsFromObj(source: Record<string, any>): void {
         this.ClearAllBinds();
@@ -419,7 +419,7 @@ export class InputManager {
     /**
      * Create an associative object that can serialise the bindings to the users save file.
      *
-     * @return	Dynamic object of control bindings.
+     * @return Dynamic object of control bindings.
      */
     public SaveBindsToObj(): Record<string, any> {
         const controls: Record<string, any> = new Object();
@@ -446,93 +446,93 @@ export class InputManager {
  * ** Bypass handler if mainView.eventTestInput.x == 270.5
  * ** Bypass handler if mainView.nameBox.visible && stage.focus == mainView.nameBox
  *
- * 38	-- UpArrow
-// 	-- Cheat code for Humus stage 1
- * 40	-- DownArrow
+ * 38 -- UpArrow
+//  -- Cheat code for Humus stage 1
+ * 40 -- DownArrow
 // -- Cheat code for Humus stage 2
- * 37 	-- LeftArrow
+ * 37  -- LeftArrow
 // -- Cheat code for Humus stage 3
- * 39	-- RightArrow
+ * 39 -- RightArrow
 // -- Cheat code for Humus stage 4 IF str > 0, not gameover, give humus
  *
- * 83	-- s
+ * 83 -- s
 //
 // -- Display stats if main menu button displayed
- * 76	-- l
+ * 76 -- l
 //
 // -- Level up if level up button displayed
- * 112	-- F1
+ * 112 -- F1
 //
 // -- Quicksave to slot 1 if menu_data displayed
- * 113	-- F2
+ * 113 -- F2
 //
 // -- Quicksave slot 2
- * 114	-- F3
+ * 114 -- F3
 //
 // -- Quicksave slot 3
- * 115	-- F4
+ * 115 -- F4
 //
 // -- Quicksave slot 4
- * 116	-- F5
+ * 116 -- F5
 //
 // -- Quicksave slot 5
  *
- * 117	-- F6
+ * 117 -- F6
 //
 // -- Quickload slot 1
- * 118	-- F7
+ * 118 -- F7
 //
 // -- Quickload slot 2
- * 119	-- F8
+ * 119 -- F8
 //
 // -- Quickload slot 3
- * 120	-- F9
+ * 120 -- F9
 //
 // -- Quickload slot 4
- * 121	-- F10
+ * 121 -- F10
 //
 // -- Quickload slot 5
  *
- * 8	-- Backspace
+ * 8 -- Backspace
 // -- Go to "Main" menu if in game
- * 68	-- d
+ * 68 -- d
 //
 // -- Open saveload if in game
- * 65	-- a
+ * 65 -- a
 //
 // -- Open apperance if in game
- * 78	-- n
+ * 78 -- n
 //
 // -- "no" if button index 1 displays no
 // <--
- * 89	-- y
+ * 89 -- y
 //
 // -- "yes" if button index 0 displays yes
 // <-- These two seem akward
- * 80	-- p
+ * 80 -- p
 //
 // -- display perks if in game
  *
  * 13/32 -- Enter/Space
 // -- if button index 0,4,5 or 9 has text of (nevermind, abandon, next, return, back, leave, resume) execute it
  *
- * 36	-- Home
+ * 36 -- Home
 //
 // -- Cycle the background of the maintext area
  *
- * 49	-- 1
+ * 49 -- 1
 //
 // -- Execute button index 0 if visisble
- * 50	-- 2
+ * 50 -- 2
 //
 // -- ^ index 1
- * 51	-- 3
+ * 51 -- 3
 //
 // -- ^ index 2
- * 52	-- 4
+ * 52 -- 4
 //
 // -- ^ index 3
- * 53	-- 5
+ * 53 -- 5
 //
 // -- ^ index 4
  * 54/81-- 6/q
@@ -551,7 +551,7 @@ export class InputManager {
 //
 // -- ^ index 9
  *
- * 68	-- ???
+ * 68 -- ???
 //
 // -- ??? Unknown, theres a conditional check for the button, but no code is ever executed
  */

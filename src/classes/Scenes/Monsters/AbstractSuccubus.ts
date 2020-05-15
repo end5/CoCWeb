@@ -25,7 +25,7 @@ export class AbstractSuccubus extends Monster {
                 "Grinning deviously, the succubus cracks her whip with expert skill, landing a painful blow on your ",
                 false
             );
-            var temp: number = AbstractSuccubus.rand(6);
+            const temp: number = AbstractSuccubus.rand(6);
             // Whip yo ass!
             if (temp == 0) {
                 this.outputText("ass (4)", false);
@@ -147,9 +147,8 @@ export class AbstractSuccubus extends Monster {
     }
 
     protected seduceAttack(): void {
-        var temp: number;
         // determine which method of teasing you use
-        temp = AbstractSuccubus.rand(3);
+        const temp: number = AbstractSuccubus.rand(3);
         // Butt slap!
         if (temp == 0) {
             this.outputText(

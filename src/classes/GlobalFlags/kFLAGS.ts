@@ -37,18 +37,18 @@ export enum kFLAGS {
     URTA_KNOWS_PC_HAS_MARBLE_FOLLOWER = 32, // Marble Cockblock happened = 0 - no, 1 = yes
     PC_SEEN_URTA_BADASS_FIGHT = 33, // Seen Urta be a badass?
     PC_ENCOUNTERED_CHRISTMAS_ELF_BEFORE = 34, // Last year xmas elf encountered
-    AMILY_MET = 35, //   (0 = not met, 1 = met)Amily Met.	 0=Not Met, 1=Met
-    AMILY_VILLAGE_ENCOUNTERS_DISABLED = 36, //  1=true,44=village buttonAmily Village Encounters Disabled.	 1=True, 44=Village Button?
+    AMILY_MET = 35, //   (0 = not met, 1 = met)Amily Met.  0=Not Met, 1=Met
+    AMILY_VILLAGE_ENCOUNTERS_DISABLED = 36, //  1=true,44=village buttonAmily Village Encounters Disabled.  1=True, 44=Village Button?
     AMILY_GROSSED_OUT_BY_WORMS = 37, //  1=freaked out-Amily encounters disabled due to worms 0=False, 1= True
-    AMILY_AFFECTION = 38, //   (< 15 = low.  In between = medium. 40+= high affect)Amily Affection.	15 = Low.  In Between = Medium. 40+= High Affect
-    AMILY_OFFER_ACCEPTED = 39, //   (1 = true, 0 = not yet)Amily Offer Accepted.	0=False, 1=True
+    AMILY_AFFECTION = 38, //   (< 15 = low.  In between = medium. 40+= high affect)Amily Affection. 15 = Low.  In Between = Medium. 40+= High Affect
+    AMILY_OFFER_ACCEPTED = 39, //   (1 = true, 0 = not yet)Amily Offer Accepted. 0=False, 1=True
     AMILY_BIRTH_TOTAL = 40, // Amily Birth Total.
-    AMILY_INCUBATION = 41, //    0 = not pregnant, otherwise hours till birth 168Amily Incubation.	0=Not Pregnant, Otherwise Hours Till Birth Starting From 168
+    AMILY_INCUBATION = 41, //    0 = not pregnant, otherwise hours till birth 168Amily Incubation. 0=Not Pregnant, Otherwise Hours Till Birth Starting From 168
     AMILY_FUCK_COUNTER = 42, // Amily Fuck Counter.
     AMILY_FOLLOWER = 43, // Amily Follower. 0=Not Follower, 1=Follower 2=Corrupted Follower?
-    AMILY_VILLAGE_ACCESSIBLE = 44, // Amily Village Accessible.	Related To 36]
+    AMILY_VILLAGE_ACCESSIBLE = 44, // Amily Village Accessible. Related To 36]
     AMILY_WANG_LENGTH = 45, // Amily's Wang Length" Description="Starts 4x1, maxes @ 13x2
-    AMILY_WANG_GIRTH = 46, // Amily Penis Gith.	Default=0
+    AMILY_WANG_GIRTH = 46, // Amily Penis Gith. Default=0
     AMILY_CUP_SIZE = 47, //  5-JanAmily's Cup Size (1 to 5)
     AMILY_NIPPLE_LENGTH = 48, //  0.3-4Nipple Length from .3 to 4"
     AMILY_HIP_RATING = 49, //  girly-womanlyAmily Hip Rating - girly to womanly - Default=12
@@ -67,7 +67,7 @@ export enum kFLAGS {
     CERULEAN_POTION_NEUTER_ATTEMPTED = 62, // Cerulean Potion Neuter Attempted
     TEMP_STORAGE_SAVE_DELETION = 63, // Used as temp storage for deleting save slots
     MARBLE_GROSSED_OUT_BECAUSE_WORM_INFESTATION = 64, // Marble not sleeping with you due to worms
-    FORCE_BEE_TO_PRODUCE_HONEY = 65, // Force Bee Honey Drop - Found Bee Honey.	1=Found
+    FORCE_BEE_TO_PRODUCE_HONEY = 65, // Force Bee Honey Drop - Found Bee Honey. 1=Found
     HAIR_GROWTH_STOPPED_BECAUSE_LIZARD = 66, // Hair no longer grows due to lizard
     TIMES_AUTOFELLATIO_DUE_TO_CAT_FLEXABILITY = 67, // CAT: Autofellated
     EDRYN_PREGNANCY_INCUBATION = 68, //
@@ -87,7 +87,7 @@ export enum kFLAGS {
     AMILY_MET_RATHAZUL = 82, // AMILY: Met Rathazul
     RATHAZUL_CORRUPT_JOJO_FREAKOUT = 83, // RATHAZUL: Corrupt Jojo freakout!
     JOJO_RATHAZUL_INTERACTION_COUNTER = 84, // RATHAZUL: NON CORRUPT JOJO STUFF
-    MARBLE_OR_AMILY_FIRST_FOR_FREAKOUT = 85, // Which came first?  Marble(1) or Amily(2) - Freakout at Camp if both Marble and Amily present.	1=true, 2=No freakout
+    MARBLE_OR_AMILY_FIRST_FOR_FREAKOUT = 85, // Which came first?  Marble(1) or Amily(2) - Freakout at Camp if both Marble and Amily present. 1=true, 2=No freakout
     AMILY_NOT_FREAKED_OUT = 86, // Amily Freakout Session
     RATHAZUL_CAMP_INTERACTION_COUNTDOWN = 87, // Rathazul inter-follower countdown timer
     DISCOVERED_HIGH_MOUNTAIN = 88, // DISCOVER HIGH MOUNTAIN (Rangers, what a terrible TV show)
@@ -101,7 +101,7 @@ export enum kFLAGS {
     SOPHIE_ANGRY_AT_PC_COUNTER = 96, // Sophie Pissed Off Counter
     TIMES_PISSED_OFF_SOPHIE_COUNTER = 97, // Times Pissed Off Sophie
     TIMES_FUCKED_SOPHIE_LESBIAN = 98, // Times Lesbo-Sexed
-    EASY_MODE_ENABLE_FLAG = 99, // Invincibility On - Easy Mode.	0=false, 1=true
+    EASY_MODE_ENABLE_FLAG = 99, // Invincibility On - Easy Mode. 0=false, 1=true
     CORRUPT_MARAE_FOLLOWUP_ENCOUNTER_STATE = 100, // Corrupt Marae Followups
     FOUND_WIZARD_STAFF = 101, // Found Wizard Staff
     UNKNOWN_FLAG_NUMBER_00102 = 102, // Has extra jojo time been cleared? - Jojo Debug Flag
@@ -175,7 +175,7 @@ export enum kFLAGS {
     UNKNOWN_FLAG_NUMBER_00170 = 170, // Amily's Corruption Value
     AMILY_HAS_BALLS_AND_SIZE = 171, // Amily's Balls: 1 = yes, higher numbers = bigger balls.
     AMILY_VAGINAL_WETNESS = 172, // Amily's Wetness
-    UNKNOWN_FLAG_NUMBER_00173 = 173, // In camp amily warns you!  DUN DUN DUN! - Amily Freaked out about your corruption.	0=Not freaked out, 1=Freaked out
+    UNKNOWN_FLAG_NUMBER_00173 = 173, // In camp amily warns you!  DUN DUN DUN! - Amily Freaked out about your corruption. 0=Not freaked out, 1=Freaked out
     UNKNOWN_FLAG_NUMBER_00174 = 174, // Times Dominika Sucked off horsecocks
     UNKNOWN_FLAG_NUMBER_00175 = 175, // Dominidrama - 1 = yes, 2 = no
     TIMES_HAD_YOGA = 176, // Cotton - TIMES HAD YOGA
@@ -218,7 +218,7 @@ export enum kFLAGS {
     CINNABAR_HOUSE_VISITED = 213, //  -Been to Cinnabar's House?
     CINNABAR_NUMBER_ENCOUNTERS = 214, //  -CINNABAR Introduced?
     CINNABAR_NUMBER_TIMES_FUCKED = 215, //  -CINNABAR Times Fucked
-    CINNABAR_FUCKED_CORRUPT_PREVIOUSLY = 216, //  -CINNABARWas last fuck corrupt fuck? - Cinnabar Hard Fucked.	0=No, 1=Yes
+    CINNABAR_FUCKED_CORRUPT_PREVIOUSLY = 216, //  -CINNABARWas last fuck corrupt fuck? - Cinnabar Hard Fucked. 0=No, 1=Yes
     UNKNOWN_FLAG_NUMBER_00217 = 217, // Ceraph's genital stealing choice is stored here between functions
     UNKNOWN_FLAG_NUMBER_00218 = 218, // Number of Dicks Ceraph owns
     UNKNOWN_FLAG_NUMBER_00219 = 219, // Number of Pussies Ceraph owns
@@ -245,7 +245,7 @@ export enum kFLAGS {
     UNKNOWN_FLAG_NUMBER_00240 = 240, // Mino Chef First Meeting Happen?
     UNKNOWN_FLAG_NUMBER_00241 = 241, // mino explained what he needs yet?
     UNKNOWN_FLAG_NUMBER_00242 = 242, // , 3 =stayed, 4 = epilogue'ed
-    UNKNOWN_FLAG_NUMBER_00243 = 243, // Counter for minotaur chef baker procs - Maddie present at bakery.	Mod%8=0, present
+    UNKNOWN_FLAG_NUMBER_00243 = 243, // Counter for minotaur chef baker procs - Maddie present at bakery. Mod%8=0, present
     COTTON_UNUSUAL_YOGA_BOOK_TRACKER = 244, // Cotton Unusual Yoga Guidebook tracker
     COTTON_BREAKFAST_CLUB = 245, // Cotton Breakfast Club
     UNKNOWN_FLAG_NUMBER_00246 = 246, // Tiger Tooth Countdown
@@ -298,7 +298,7 @@ export enum kFLAGS {
     UNKNOWN_FLAG_NUMBER_00293 = 293, // Disabled Ceraph Faux Corruption - Ceraph Corruption Scene
     UNKNOWN_FLAG_NUMBER_00294 = 294, // Times Done 'SWEETIE NO!' Ceraph Marble RP
     UNKNOWN_FLAG_NUMBER_00295 = 295, // In Ceraph's SWEETIE NO!, is Utter Moo disabled?
-    UNKNOWN_FLAG_NUMBER_00296 = 296, // Ceraph Udder on or off? - Ceraph Has Udders.	0=No, 1=Yes
+    UNKNOWN_FLAG_NUMBER_00296 = 296, // Ceraph Udder on or off? - Ceraph Has Udders. 0=No, 1=Yes
     UNKNOWN_FLAG_NUMBER_00297 = 297, // Lottie love her bodY? (1 = yes)
     UNKNOWN_FLAG_NUMBER_00298 = 298, // Lottie porked count? (1+ = yes)
     UNKNOWN_FLAG_NUMBER_00299 = 299, // Lotties Trainer? (1 = yes)
@@ -420,7 +420,7 @@ export enum kFLAGS {
     GOTTEN_INQUISITOR_ARMOR = 415, //
     DOMINIKAS_SWORD_GIVEN = 416, //
     HEL_FOXY_FOURSOME_WARNED = 417, //
-    HISTORY_PERK_SELECTED = 418, // HISTORY PERK SET - tail, fur, or scales.	0=Nothing
+    HISTORY_PERK_SELECTED = 418, // HISTORY PERK SET - tail, fur, or scales. 0=Nothing
     AMILY_TIMES_BUTTFUCKED_PC = 419, //
     TIMES_FUCKED_AMILYBUTT = 420, //
     KIHA_AFFECTION_LEVEL = 421, //
@@ -588,7 +588,7 @@ export enum kFLAGS {
     URTA_FERTILE_EGGS = 583, //
     URTA_EGG_FORCE_EVENT = 584, //
     URTA_TIMES_EGG_PREGGED = 585, //
-    URTA_PREGNANCY_TYPE = 586, //Previously URTA_EGG_INCUBATION
+    URTA_PREGNANCY_TYPE = 586, // Previously URTA_EGG_INCUBATION
     URTA_FLATBELLY_NOTICE = 587, //
     EGG_WITCH_COUNTER = 588, //
     EGG_WITCH_TYPE = 589, //
@@ -724,7 +724,7 @@ export enum kFLAGS {
     URTA_IS_VULQUINE_MENACE = 719, //
     URTA_RAPED_MINO_LORD = 720, //
     URTA_MINO_AND_SUCCUBI_SLAVE = 721, //
-    EDRYN_PREGNANCY_TYPE = 722, //In previous versions was EDRYN_BIRF_COUNTDOWN - Corrected in Saves.unFuckSave()
+    EDRYN_PREGNANCY_TYPE = 722, // In previous versions was EDRYN_BIRF_COUNTDOWN - Corrected in Saves.unFuckSave()
     URTA_FERTILE = 723, //
     URTA_PREG_EVERYBODY = 724, //
     KELT_BREAK_LEVEL = 725, //
@@ -761,10 +761,10 @@ export enum kFLAGS {
     KID_A_XP = 756, //
     KID_SITTER = 757, // 0 = no sitter, 1 = possible, 2 = doing dat shit
     HAD_KID_A_DREAM = 758, //
-    CUSTOM_PC_ENABLED = 759, //No longer in use
+    CUSTOM_PC_ENABLED = 759, // No longer in use
     SHEILA_CORRUPTION = 760, //
     SHEILA_XP = 761, //
-    SHEILA_PREGNANCY_INCUBATION = 762, //Previously SHEILA_PREG
+    SHEILA_PREGNANCY_INCUBATION = 762, // Previously SHEILA_PREG
     SHEILA_JOEYS = 763, //
     SHEILA_DEMON = 764, //
     SHEILA_CITE = 765, //
@@ -970,7 +970,7 @@ export enum kFLAGS {
     HEL_NTR_TRACKER = 965, //
     HEL_BONUS_POINTS = 966, //
     HEL_PREGNANCY_INCUBATION = 967, //
-    HELIA_PREGNANCY_TYPE = 968, //Previously HEL_PREGNANCY_NOTICES
+    HELIA_PREGNANCY_TYPE = 968, // Previously HEL_PREGNANCY_NOTICES
     HAD_FIRST_HELSPAWN_TALK = 969, //
     HELSPAWN_INCEST = 970, //
     HEL_TALK_EIGHT = 971, //
@@ -1024,7 +1024,7 @@ export enum kFLAGS {
     FERAS_TRAP_SPRUNG_YEAR = 1019,
     TIMES_VALERIA_GOO_THREESOMED = 1020,
     MORE_TURKEY = 1021,
-    LYNNETTE_PREGNANCY_CYCLE = 1022, //0-3 = pregnant. 4-6 = not.
+    LYNNETTE_PREGNANCY_CYCLE = 1022, // 0-3 = pregnant. 4-6 = not.
     LYNNETTE_APPROVAL = 1023,
     LYNNETTE_BABY_COUNT = 1024,
     LYNNETTE_CARRYING_COUNT = 1025,
@@ -1203,7 +1203,7 @@ export enum kFLAGS {
     PHYLLA_VAGINAL_PREGNANCY_TYPE = 1198,
     TAMANI_PREGNANCY_TYPE = 1199,
     TAMANI_PREGNANCY_INCUBATION = 1200,
-    TAMANI_PREGNANCY_COUNT = 1201, //Just how many has she got stuffed in there?
+    TAMANI_PREGNANCY_COUNT = 1201, // Just how many has she got stuffed in there?
     TAMANI_TIMES_IMPREGNATED = 1202,
     TAMANI_MET = 1203,
     TAMANI_NUMBER_OF_DAUGHTERS = 1204,
@@ -1212,10 +1212,10 @@ export enum kFLAGS {
     IZMA_PREGNANCY_TYPE = 1207,
     EMBER_PREGNANCY_TYPE = 1208,
     JOJO_BUTT_PREGNANCY_TYPE = 1209,
-    SHEILA_DISABLED = 1210, //1 = Told to avoid or you refused apology, 2 = Baby Issues, 3 = Worm Infested, 4 = Jojo's 'Wife'
+    SHEILA_DISABLED = 1210, // 1 = Told to avoid or you refused apology, 2 = Baby Issues, 3 = Worm Infested, 4 = Jojo's 'Wife'
     SHEILA_PREGNANCY_TYPE = 1211,
     KELLY_PREGNANCY_TYPE = 1212,
-    KELLY_KIDS_MALE = 1213, //Tracks number of sons with Kelly. Total number of children is stored in KELLY_KIDS
+    KELLY_KIDS_MALE = 1213, // Tracks number of sons with Kelly. Total number of children is stored in KELLY_KIDS
     FUCK_OFF_THEIVING_RAPHAEL = 1214,
     VALA_TIMES_CONSENSUAL_SEX = 1215,
     KATHERINE_DICK_FORM = 1216,
@@ -1256,7 +1256,7 @@ export enum kFLAGS {
     D3_CENTAUR_DEFEATED = 1251,
     D3_EGGS_AVAILABLE = 1252,
     NOT_HELPED_ARIAN_TODAY = 1253,
-    BEE_GIRL_STATUS = 1254, //Player Attitude + Conversation Stage
+    BEE_GIRL_STATUS = 1254, // Player Attitude + Conversation Stage
     BEE_GIRL_COMBAT_WINS_WITH_RAPE = 1255,
     BEE_GIRL_COMBAT_WINS_WITHOUT_RAPE = 1256,
     BEE_GIRL_COMBAT_LOSSES = 1257,

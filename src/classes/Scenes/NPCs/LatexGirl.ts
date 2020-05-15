@@ -29,7 +29,7 @@ export class LatexGirl extends NPCAwareContent {
     // const TIMES_FED_LATEXY_MINO_CUM: number = 671;
     // const LATEX_GOO_TIMES_FEMDOMMED_BY_PC: number = 672;
 
-    /*&Corrupt Plot:
+    /* &Corrupt Plot:
     Have sex with goos at least 5-6 times.
     PC must have used a black egg at least once.
     Defeat goo by lust.
@@ -74,7 +74,7 @@ export class LatexGirl extends NPCAwareContent {
     flags[kFLAGS.GOO_EYES]
     flags[kFLAGS.GOO_TOSSED_AFTER_NAMING] = 1;
     */
-    public gooFluid(arg: number = 0, output: boolean = true): number {
+    public gooFluid(arg = 0, output = true): number {
         if (arg != 0) {
             this.flags[kFLAGS.GOO_FLUID_AMOUNT] += arg;
             if (output)
@@ -85,7 +85,7 @@ export class LatexGirl extends NPCAwareContent {
         }
         return this.flags[kFLAGS.GOO_FLUID_AMOUNT];
     }
-    public gooHappiness(arg: number = 0, output: boolean = true): number {
+    public gooHappiness(arg = 0, output = true): number {
         if (arg != 0) {
             this.flags[kFLAGS.GOO_HAPPINESS] += arg;
             if (output)
@@ -95,7 +95,7 @@ export class LatexGirl extends NPCAwareContent {
         }
         return this.flags[kFLAGS.GOO_HAPPINESS];
     }
-    public gooObedience(arg: number = 0, output: boolean = true): number {
+    public gooObedience(arg = 0, output = true): number {
         if (arg != 0) {
             this.flags[kFLAGS.GOO_OBEDIENCE] += arg;
             if (output)
@@ -1425,7 +1425,7 @@ export class LatexGirl extends NPCAwareContent {
     }
 
     // She Changes Her Bust Size(F)
-    private changeLatexyTits(arg: number = 0): void {
+    private changeLatexyTits(arg = 0): void {
         this.clearOutput();
         // PC wants tits bigger than current preferred and fluid not sufficient to reach new size
         if (
@@ -1818,7 +1818,7 @@ export class LatexGirl extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
     // Feed Her Minotaur Cum {Nice Vs Hard}:(F)
-    private minotaurCumFeedingGoo(nice: boolean = false): void {
+    private minotaurCumFeedingGoo(nice = false): void {
         this.clearOutput();
         this.player.consumeItem(this.consumables.MINOCUM);
         this.outputText("You pull a vial of minotaur cum from the pouches at your waist");
@@ -2453,7 +2453,7 @@ export class LatexGirl extends NPCAwareContent {
         this.doNext(this.camp.returnToCampUseFourHours);
     }
 
-    /*Savin Says: Disobedient Pets get Punished with Gentle Loving PC-Dom (FEMALE)(F)*/
+    /* Savin Says: Disobedient Pets get Punished with Gentle Loving PC-Dom (FEMALE)(F)*/
 
     // [Display option to \"<i>Assert Control</i>\" with Moderate strength check if achieve Femdom end to direct feed scene: \"<i>You're strong enough to pull her off before she utterly dominates you!</i>\"]
     private assertControlOverCuntDrainingLatexGoo(): void {

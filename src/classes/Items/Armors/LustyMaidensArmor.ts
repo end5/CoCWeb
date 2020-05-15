@@ -371,7 +371,7 @@ export class LustyMaidensArmor extends Armor {
                 Min lust: 30
                 Min libido: 50*/
     /*
-// 	if(wearer.hasVirginVagina()) {
+//  if(wearer.hasVirginVagina()) {
                     while(wearer.findPerk(PerkLib.SluttySeduction) >= 0) wearer.removePerk(PerkLib.SluttySeduction);
                     wearer.createPerk(PerkLib.SluttySeduction,10 + game.flags[kFLAGS.BIKINI_ARMOR_BONUS],0,0,0);
                 }

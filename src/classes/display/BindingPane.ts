@@ -28,15 +28,15 @@ export class BindingPane {
      * Initiate the BindingPane, setting the stage positioning and reference back to the input manager
      * so we can generate function callbacks later.
      *
-     * @param	inputManager	Reference to the game input manager for method access
-     * @param	xPos
-// 	X position on the stage for the top-left corner of the ScrollPane
-     * @param	yPos
-// 	Y position on the stage for the top-left corner of the ScrollPane
-     * @param	width
-// 	Fixed width of the containing ScrollPane
-     * @param	height
-// 	Fixed height of the containing ScrollPane
+     * @param inputManager Reference to the game input manager for method access
+     * @param xPos
+//  X position on the stage for the top-left corner of the ScrollPane
+     * @param yPos
+//  Y position on the stage for the top-left corner of the ScrollPane
+     * @param width
+//  Fixed width of the containing ScrollPane
+     * @param height
+//  Fixed height of the containing ScrollPane
      */
     public constructor(inputManager: InputManager) {
         this._inputManager = inputManager;
@@ -77,7 +77,7 @@ export class BindingPane {
     /**
      * Cleanly get us a reference to the stage to add/remove other event listeners
      *
-     * @param	e
+     * @param e
      */
     // private AddedToStage(e: Event): void {
     //     this.removeEventListener(Event.ADDED_TO_STAGE, this.AddedToStage);
@@ -156,16 +156,16 @@ export class BindingPane {
         // this._contentChildren++;
         // this._content.addChild(helpLabel);
 
-        for (let i = 0; i < this._functions.length; i++) {
+        for (const func of this._functions) {
             // this._contentChildren++;
 
             const newLabel = new BindDisplay();
-            // newLabel.name = this._functions[i].Name;
+            // newLabel.name = func.Name;
             // newLabel.x = 2;
             // newLabel.y = (BindDisplay.BUTTON_Y_DELTA * i) + (7 + helpLabel.textHeight);
-            newLabel.htmlText = "<b>" + this._functions[i].Name + ":</b>";
-            newLabel.button1Text = String.fromCharCode(this._functions[i].PrimaryKey);
-            newLabel.button2Text = String.fromCharCode(this._functions[i].SecondaryKey);
+            newLabel.htmlText = "<b>" + func.Name + ":</b>";
+            newLabel.button1Text = String.fromCharCode(func.PrimaryKey);
+            newLabel.button2Text = String.fromCharCode(func.SecondaryKey);
 
             // This is going to look crazy...
             const genPrimaryCallback = function (funcName: string, inMan: InputManager) {
@@ -183,14 +183,8 @@ export class BindingPane {
             };
             // ... Warned you.
 
-            newLabel.button1Callback = genPrimaryCallback(
-                this._functions[i].Name,
-                this._inputManager
-            );
-            newLabel.button2Callback = genSecondaryCallback(
-                this._functions[i].Name,
-                this._inputManager
-            );
+            newLabel.button1Callback = genPrimaryCallback(func.Name, this._inputManager);
+            newLabel.button2Callback = genSecondaryCallback(func.Name, this._inputManager);
 
             // this._content.addChild(newLabel);
             table.appendChild(newLabel.element);

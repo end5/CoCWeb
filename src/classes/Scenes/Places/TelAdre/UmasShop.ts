@@ -8,6 +8,7 @@ import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 /**
  * Whee!
  * (No @ tag for coder)
+ *
  * @author Gedan
  * @author QuietBrowser, ???
  *
@@ -175,9 +176,10 @@ export class UmasShop extends TelAdreAbstractContent {
     /**
      * Repeat visits.
      * Edit Status: 90%
-     * @param returnedTo	Indicates the "entrance" mode. false = came here from an external menu, true = backed out from one of Uma's options
+     *
+     * @param returnedTo Indicates the "entrance" mode. false = came here from an external menu, true = backed out from one of Uma's options
      */
-    public enterClinic(returnedTo: boolean = false): void {
+    public enterClinic(returnedTo = false): void {
         this.clearOutput();
 
         // Hide the stuff that dun make no sense if you're dropping back from a menu inside the clinic
@@ -215,9 +217,10 @@ export class UmasShop extends TelAdreAbstractContent {
 
     /**
      * Build the primary interface menu to interact with Uma.
-     * @param	noSex	Indicates if the Sex button should be hidden from display.
+     *
+     * @param noSex Indicates if the Sex button should be hidden from display.
      */
-    private buildCoreMenu(noSex: boolean = false): void {
+    private buildCoreMenu(noSex = false): void {
         if (noSex) {
             this.outputText(
                 "You sigh softly, but accept Uma's sexuality is the way it is and apologize for the problem.\n\n"
@@ -307,9 +310,9 @@ export class UmasShop extends TelAdreAbstractContent {
      * Adds a 10% reduction to lust gain while active.
      * Edit Status: 100%
      */
-    public static MASSAGE_RELIEF: number = 0;
-    public static MASSAGE_RELIEF_BONUS: number = 0.9; // Multiplicative bonus to Lust gains
-    private static MASSAGE_RELIEF_BONUS_TEXT: string =
+    public static MASSAGE_RELIEF = 0;
+    public static MASSAGE_RELIEF_BONUS = 0.9; // Multiplicative bonus to Lust gains
+    private static MASSAGE_RELIEF_BONUS_TEXT =
         "<b>(10% Reduction to all Lust gains whilst active!)</b>";
     public massageRelief(): void {
         this.clearOutput();
@@ -333,9 +336,9 @@ export class UmasShop extends TelAdreAbstractContent {
      * Adds a 10% increase to lust gain while active.
      * Edit Status: 95%
      */
-    public static MASSAGE_LUST: number = 1;
-    public static MASSAGE_LUST_BONUS: number = 1.1; // Multiplicative bonus to Lust gains
-    private static MASSAGE_LUST_BONUS_TEXT: string =
+    public static MASSAGE_LUST = 1;
+    public static MASSAGE_LUST_BONUS = 1.1; // Multiplicative bonus to Lust gains
+    private static MASSAGE_LUST_BONUS_TEXT =
         "<b>(10% Increase to all Lust gains whilst active!)</b>";
     public massageLust(): void {
         this.clearOutput();
@@ -359,10 +362,9 @@ export class UmasShop extends TelAdreAbstractContent {
      * Adds a +10 bonus to femininity?
      * Edit Status: 90%
      */
-    public static MASSAGE_MODELLING: number = 2;
-    public static MASSAGE_MODELLING_BONUS: number = 10; // Flat bonus applied to femininity stat
-    private static MASSAGE_MODELLING_BONUS_TEXT: string =
-        "<b>(+10 Bonus Femininity whilst active!)</b>";
+    public static MASSAGE_MODELLING = 2;
+    public static MASSAGE_MODELLING_BONUS = 10; // Flat bonus applied to femininity stat
+    private static MASSAGE_MODELLING_BONUS_TEXT = "<b>(+10 Bonus Femininity whilst active!)</b>";
     public massageModelling(): void {
         this.clearOutput();
 
@@ -393,9 +395,9 @@ export class UmasShop extends TelAdreAbstractContent {
      * Add a 10% reduction in damage taken?
      * Edit Status: 95%
      */
-    public static MASSAGE_RELAXATION: number = 3;
-    public static MASSAGE_RELAXATION_BONUS: number = 0.9; // Multiplicative bonus to damage taken -- these seem a little op with current values
-    private static MASSAGE_RELAXATION_BONUS_TEXT: string =
+    public static MASSAGE_RELAXATION = 3;
+    public static MASSAGE_RELAXATION_BONUS = 0.9; // Multiplicative bonus to damage taken -- these seem a little op with current values
+    private static MASSAGE_RELAXATION_BONUS_TEXT =
         "<b>(10% Reduction to all Damage taken whilst active!)</b>";
     public massageRelaxation(): void {
         this.clearOutput();
@@ -419,9 +421,9 @@ export class UmasShop extends TelAdreAbstractContent {
      * Add a 10% increase to damage inflicted?
      * Edit Status: 95%
      */
-    public static MASSAGE_POWER: number = 4;
-    public static MASSAGE_POWER_BONUS: number = 1.1; // Multiplicative bonus to damage done -- these seem a little op with current values
-    private static MASSAGE_POWER_BONUS_TEXT: string =
+    public static MASSAGE_POWER = 4;
+    public static MASSAGE_POWER_BONUS = 1.1; // Multiplicative bonus to damage done -- these seem a little op with current values
+    private static MASSAGE_POWER_BONUS_TEXT =
         "<b>(10% Increase to all Damage inflicted whilst active!)</b>";
     public massagePower(): void {
         this.clearOutput();
@@ -450,7 +452,8 @@ export class UmasShop extends TelAdreAbstractContent {
 
     /**
      * "Joiner" scene for all of the subtypes of massage selection
-     * @param	selectedMassage
+     *
+     * @param selectedMassage
 // int key of the massage type, for later application of benefits.
      * Edit Status: 95%
      */
@@ -515,7 +518,8 @@ export class UmasShop extends TelAdreAbstractContent {
 
     /**
      * Extensions to Massage Joiner.
-     * @param	selectedMassage
+     *
+     * @param selectedMassage
 // Massage bonus ID to apply
      * Edit Status: 95%
      */
@@ -578,18 +582,19 @@ export class UmasShop extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    public static MAX_MASSAGE_BONUS_DURATION: number = 24; // Duration of the bonus
+    public static MAX_MASSAGE_BONUS_DURATION = 24; // Duration of the bonus
     /**
      * Apply massage bonus. Bonuses are replaced when a new effect is placed on the player.
      * StatusAffects.UmasMassage for all bonuses
-     * @param	selectedMassage
+     *
+     * @param selectedMassage
      */
     public applyMassageBonus(selectedMassage: number): void {
         if (selectedMassage < 0 || selectedMassage > 4) {
             this.outputText("<b>Invalid massage bonus ID! Welp!</b>");
         } else {
-            var statIndex: number = this.player.findStatusAffect(StatusAffects.UmasMassage);
-            var bonusValue: number = 0;
+            const statIndex: number = this.player.findStatusAffect(StatusAffects.UmasMassage);
+            let bonusValue = 0;
 
             // Remove the old massage bonus if present
             if (statIndex >= 0) {
@@ -646,7 +651,7 @@ export class UmasShop extends TelAdreAbstractContent {
      * When expired, remove and include a message to the effect.
      */
     public updateBonusDuration(hours: number): void {
-        var statIndex: number = this.player.findStatusAffect(StatusAffects.UmasMassage);
+        const statIndex: number = this.player.findStatusAffect(StatusAffects.UmasMassage);
 
         if (statIndex >= 0) {
             this.player.statusAffect(statIndex).value3 -= hours;
@@ -677,49 +682,50 @@ export class UmasShop extends TelAdreAbstractContent {
      * All of the associated bonuses for the Acupuncture perks are listed here, and reference throughout the codebase. If Fenoxo wants to tweak the values,
      * you can do so easily here without having to go fishing through other files to find where they are referenced.
      */
-    public static NEEDLEWORK_UNDO: number = -1;
-    public static NEEDLEWORK_SPEED: number = 0;
-    public static NEEDLEWORK_LUST: number = 1;
-    public static NEEDLEWORK_DEFENSE: number = 2;
-    public static NEEDLEWORK_MAGIC: number = 3;
-    public static NEEDLEWORK_ATTACK: number = 4;
+    public static NEEDLEWORK_UNDO = -1;
+    public static NEEDLEWORK_SPEED = 0;
+    public static NEEDLEWORK_LUST = 1;
+    public static NEEDLEWORK_DEFENSE = 2;
+    public static NEEDLEWORK_MAGIC = 3;
+    public static NEEDLEWORK_ATTACK = 4;
 
     public NEEDLEWORK_SPEED_PERK: PerkType = PerkLib.ChiReflowSpeed;
-    public static NEEDLEWORK_SPEED_PERK_DESC: string =
+    public static NEEDLEWORK_SPEED_PERK_DESC =
         "Uma's Acupuncture Needlework has gifted you with the 'Chi Reflow - Speed' perk. As a result your strength is capped but speed reductions are halved.";
-    public static NEEDLEWORK_SPEED_STRENGTH_CAP: number = 60;
-    public static NEEDLEWORK_SPEED_SPEED_MULTI: number = 0.5;
+    public static NEEDLEWORK_SPEED_STRENGTH_CAP = 60;
+    public static NEEDLEWORK_SPEED_SPEED_MULTI = 0.5;
 
     public NEEDLEWORK_LUST_PERK: PerkType = PerkLib.ChiReflowLust;
-    public static NEEDLEWORK_LUST_PERK_DESC: string =
+    public static NEEDLEWORK_LUST_PERK_DESC =
         "Uma's Acupuncture Needlework has gifted you with the 'Chi Reflow - Lust' perk. As a result your Lust resistance and Tease attack are enhanced, but Libido and Sensitivity gains are increased.";
-    public static NEEDLEWORK_LUST_LUST_RESIST: number = 10;
-    public static NEEDLEWORK_LUST_TEASE_MULTI: number = 10;
-    public static NEEDLEWORK_LUST_TEASE_DAMAGE_MULTI: number = 1.1;
-    public static NEEDLEWORK_LUST_LIBSENSE_MULTI: number = 1.1;
+    public static NEEDLEWORK_LUST_LUST_RESIST = 10;
+    public static NEEDLEWORK_LUST_TEASE_MULTI = 10;
+    public static NEEDLEWORK_LUST_TEASE_DAMAGE_MULTI = 1.1;
+    public static NEEDLEWORK_LUST_LIBSENSE_MULTI = 1.1;
 
     public NEEDLEWORK_DEFENSE_PERK: PerkType = PerkLib.ChiReflowDefense;
-    public static NEEDLEWORK_DEFENSE_PERK_DESC: string =
+    public static NEEDLEWORK_DEFENSE_PERK_DESC =
         "Uma's Acupuncture Needlework has gifted you with the 'Chi Reflow - Defense' perk. As a result your body has gained passive damage resistance and extra health, but speed is capped.";
-    public static NEEDLEWORK_DEFENSE_DEFENSE_MULTI: number = 1.1;
-    public static NEEDLEWORK_DEFENSE_EXTRA_HP: number = 50;
-    public static NEEDLEWORK_DEFENSE_SPEED_CAP: number = 60;
+    public static NEEDLEWORK_DEFENSE_DEFENSE_MULTI = 1.1;
+    public static NEEDLEWORK_DEFENSE_EXTRA_HP = 50;
+    public static NEEDLEWORK_DEFENSE_SPEED_CAP = 60;
 
     public NEEDLEWORK_MAGIC_PERK: PerkType = PerkLib.ChiReflowMagic;
-    public static NEEDLEWORK_MAGIC_PERK_DESC: string =
+    public static NEEDLEWORK_MAGIC_PERK_DESC =
         "Uma's Acupuncture Needlework has gifted you with the 'Chi Reflow - Magic' perk. As a result your spells are now more powerful, but regular attacks are weaker.";
-    public static NEEDLEWORK_MAGIC_SPELL_MULTI: number = 0.25; // Additive bonus to the other magic damage bonuses
-    public static NEEDLEWORK_MAGIC_REGULAR_MULTI: number = 0.75; // Multiplier tagged onto the end of damage calculations for the player.
+    public static NEEDLEWORK_MAGIC_SPELL_MULTI = 0.25; // Additive bonus to the other magic damage bonuses
+    public static NEEDLEWORK_MAGIC_REGULAR_MULTI = 0.75; // Multiplier tagged onto the end of damage calculations for the player.
 
     public NEEDLEWORK_ATTACK_PERK: PerkType = PerkLib.ChiReflowAttack;
-    public static NEEDLEWORK_ATTACK_PERK_DESC: string =
+    public static NEEDLEWORK_ATTACK_PERK_DESC =
         "Uma's Acupuncture Needlework has gifted you with the 'Chi Reflow - Attack' perk. As a result your regular attacks are more powerful, but your damage reduction is decreased.";
-    public static NEEDLEWORK_ATTACK_REGULAR_MULTI: number = 1.1;
-    public static NEEDLEWORK_ATTACK_DEFENSE_MULTI: number = 0.9;
+    public static NEEDLEWORK_ATTACK_REGULAR_MULTI = 1.1;
+    public static NEEDLEWORK_ATTACK_DEFENSE_MULTI = 0.9;
 
     /**
      * Return a short string representation of the selected bonus index
-     * @param	needleworkType
+     *
+     * @param needleworkType
 // Static index value of the selected bonus scene
      * @return
 //
@@ -745,7 +751,8 @@ export class UmasShop extends TelAdreAbstractContent {
     /**
      * To save having to bullshit around with the perk list description stuff, the functions been modified to call this function to get
      * descriptions about accpuncture PerkLib. Let's us contain all of the related content together in a neater manner.
-     * @param	perkName	PerkName currently being searched for
+     *
+     * @param perkName PerkName currently being searched for
      * @return
 //
 // Description of what the perk does.
@@ -775,10 +782,11 @@ export class UmasShop extends TelAdreAbstractContent {
 
     /**
      * Calculate the current undo cost of the players needlework
-     * @return	calculated cost
+     *
+     * @return calculated cost
      */
     public needleworkUndoCost(): number {
-        var baseCost: number = 125;
+        let baseCost = 125;
 
         if (this.flags[kFLAGS.UMA_TIMES_ACUPUNCTURE_UNDO] != 0) {
             // 25 per undo?
@@ -790,10 +798,11 @@ export class UmasShop extends TelAdreAbstractContent {
 
     /**
      * Figure out if the player currently has ANY needlework perk so we can modify scenes accordingly
-     * @return	true if player has a needlework perk
+     *
+     * @return true if player has a needlework perk
      */
     public hasNeedleworkPerk(): boolean {
-        var pType = this.getNeedleworkPerk();
+        const pType = this.getNeedleworkPerk();
         if (pType != undefined) {
             return true;
         } else {
@@ -803,10 +812,11 @@ export class UmasShop extends TelAdreAbstractContent {
 
     /**
      * Figure out exactly WHICH needlework perk the player has
-     * @return	Perk name that the player currently has
+     *
+     * @return Perk name that the player currently has
      */
     public getNeedleworkPerk(): PerkType | undefined {
-        for (var perk of [
+        for (const perk of [
             PerkLib.ChiReflowAttack,
             PerkLib.ChiReflowDefense,
             PerkLib.ChiReflowLust,
@@ -824,7 +834,8 @@ export class UmasShop extends TelAdreAbstractContent {
      * Apply a Needlework perk to the player.
      * I don't want to stuff the stat values themselves into the Perk itself, because then we have to figure out if a player was saved with different bonuses applied to the perk than what we currently have defined.
      * ie. it makes future balancing of the perks more of a chore. Rather, other code can just reference the static vars we have here using UmasShop.NEEDLEWORK_MAGIC_blah. It's still bad, but its an shader of bad lighter so fuck it!
-     * @param	selectedSession
+     *
+     * @param selectedSession
 // Static bonus index to apply to the player
      */
     public applyNeedlework(selectedSession: number): void {
@@ -863,7 +874,7 @@ export class UmasShop extends TelAdreAbstractContent {
             "You tell her that you want to try one of those acupuncture sessions of hers.\n\n"
         );
 
-        var sessionCost: number = 125;
+        let sessionCost = 125;
 
         if (this.hasNeedleworkPerk()) {
             sessionCost = this.needleworkUndoCost();
@@ -972,7 +983,8 @@ export class UmasShop extends TelAdreAbstractContent {
     /**
      * Opening of the Accupuncture session itself. Minor variantion/cost changes
      * Edit Status: 100%
-     * @param	selectedSession
+     *
+     * @param selectedSession
 // Static var indicating the desired outcome based on player selection. See NEEDLEWORK_ vars.
      */
     public needleworkSession(selectedSession: number): void {
@@ -1009,7 +1021,8 @@ export class UmasShop extends TelAdreAbstractContent {
     /**
      * Actual scene for the acupuncture stuff to happen.
      * Edit Status: 90%
-     * @param	selectedSession
+     *
+     * @param selectedSession
 // Static var indicating the desired outcome based on player selection. See NEEDLEWORK_ vars.
      */
     public doNeedleworkSession(selectedSession: number): void {
@@ -2211,8 +2224,8 @@ export class UmasShop extends TelAdreAbstractContent {
     /**
      * SEXY TIMES
      */
-    private static UMA_CONSIDER_PC_FEM: number = 70; // Femininity value that Uma considers "girly"
-    private static UMA_CONSIDER_PC_AND: number = 50; // Femininity value that Uma considers "androgynous"
+    private static UMA_CONSIDER_PC_FEM = 70; // Femininity value that Uma considers "girly"
+    private static UMA_CONSIDER_PC_AND = 50; // Femininity value that Uma considers "androgynous"
 
     /**
      * Main sex menu
@@ -2436,7 +2449,7 @@ export class UmasShop extends TelAdreAbstractContent {
 
         // DONT CARE HAD SEX
         // Scene says we've only cum a little so err I guess store the players hoursSinceCum, do statmod, then reset it to a smaller value?
-        var hoursSinceCum: number = this.player.hoursSinceCum;
+        const hoursSinceCum: number = this.player.hoursSinceCum;
         this.dynStats("lust=", 0);
         this.player.hoursSinceCum = Math.ceil(hoursSinceCum * 0.75);
 
@@ -2799,7 +2812,7 @@ export class UmasShop extends TelAdreAbstractContent {
     // Needs Cock.
     private sexGetABJFromDisMilfyLesboSlut(): void {
         // Aim for something right around the biggest she can take, otherwise just take smallest.
-        var x: number = this.player.cockThatFits(25);
+        let x: number = this.player.cockThatFits(25);
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.outputText("Fidgeting in place, very much aware of the cum-filled cock");

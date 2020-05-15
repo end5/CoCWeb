@@ -1,5 +1,5 @@
 import { trace } from "../console";
-import { CoC_Settings } from "./CoC_Settings";
+import { CocSettings } from "./CoC_Settings";
 
 /**
  * Created by aimozg on 09.01.14.
@@ -67,7 +67,7 @@ export class ItemType {
         _id: string,
         _shortName?: string,
         _longName?: string,
-        _value: number = 0,
+        _value = 0,
         _description?: string
     ) {
         this._id = _id;
@@ -76,7 +76,7 @@ export class ItemType {
         this._description = _description || this.longName;
         this._value = _value;
         if (ItemType.ITEM_LIBRARY[_id] != undefined) {
-            CoC_Settings.error(
+            CocSettings.error(
                 "Duplicate itemid " +
                     _id +
                     ", old item is " +

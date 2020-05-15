@@ -241,9 +241,8 @@ export class PregnancyStore {
         const pregType: number = this.type;
         if (pregType == 0) return 0; // Not pregnant
         const incubationValue: number = this.incubation;
-        let pregEventVector;
-        for (let i = 0; i < this._pregnancyEventValue.length; i++) {
-            pregEventVector = this._pregnancyEventValue[i];
+
+        for (const pregEventVector of this._pregnancyEventValue) {
             if (pregEventVector[0] == pregType) {
                 for (let j = 1; j < pregEventVector.length; j++) {
                     // Skip element zero, the pregnancy type
@@ -259,9 +258,7 @@ export class PregnancyStore {
         const pregType: number = this.buttType;
         if (pregType == 0) return 0; // Not pregnant
         const incubationValue: number = this.buttIncubation;
-        let pregEventVector;
-        for (let i = 0; i < this._buttPregnancyEventValue.length; i++) {
-            pregEventVector = this._buttPregnancyEventValue[i];
+        for (const pregEventVector of this._buttPregnancyEventValue) {
             if (pregEventVector[0] == pregType) {
                 for (let j = 1; j < pregEventVector.length; j++) {
                     // Skip element zero, the pregnancy type

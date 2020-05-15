@@ -8,6 +8,7 @@ import { PregnancyStore } from "../../../PregnancyStore";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class IncubusMechanicScenes extends BaseContent {
@@ -19,15 +20,15 @@ export class IncubusMechanicScenes extends BaseContent {
         return false;
     }
 
-    private MECHNIC_NO_SELECTION: number = 0;
-    private MECHANIC_PAID: number = 1;
-    private MECHANIC_SUCKED: number = 2;
-    private MECHANIC_FOUGHT: number = 3;
+    private MECHNIC_NO_SELECTION = 0;
+    private MECHANIC_PAID = 1;
+    private MECHANIC_SUCKED = 2;
+    private MECHANIC_FOUGHT = 3;
 
-    private MECHANIC_KILLED: number = 1;
-    private MECHANIC_RELEASED: number = 2;
-    private MECHANIC_FUCKED: number = 3;
-    private MECHANIC_FUCKED_YOU: number = 4;
+    private MECHANIC_KILLED = 1;
+    private MECHANIC_RELEASED = 2;
+    private MECHANIC_FUCKED = 3;
+    private MECHANIC_FUCKED_YOU = 4;
 
     public meetAtElevator(): void {
         if (this.flags[kFLAGS.D3_MECHANIC_LAST_GREET] == this.MECHNIC_NO_SELECTION) {
@@ -317,7 +318,7 @@ export class IncubusMechanicScenes extends BaseContent {
     private buttfuckTheMechanic(hpVictory: boolean): void {
         this.flags[kFLAGS.D3_MECHANIC_FIGHT_RESULT] = this.MECHANIC_FUCKED;
 
-        var x: number = this.player.cockThatFits(200);
+        let x: number = this.player.cockThatFits(200);
         if (x == -1) x = 0;
 
         this.clearOutput();
@@ -419,7 +420,7 @@ export class IncubusMechanicScenes extends BaseContent {
                 " feels bigger and harder than it was a few seconds. The velvety folds of the demon's pre-slickened asshole are caressing you wonderfully, slowly egging you towards a climax of your own. You fuck him hard enough to knock him off-balance, dropping his cheek into his own spooge-puddle. Then, you cum, flooding your toy's asshole with its reward for a job well done."
         );
 
-        ////Low cum exit
+        /// /Low cum exit
         if (this.player.cumQ() <= 250) {
             this.outputText("\n\nYou pull");
             if (this.player.hasKnot(x)) this.outputText(", popping your knot");
@@ -473,9 +474,9 @@ export class IncubusMechanicScenes extends BaseContent {
         this.cleanupAfterCombat(this.getGame().d3.resumeFromFight);
     }
 
-    private MECHANIC_DEMON_COCK: number = 0;
-    private MECHANIC_HORZ_GOG: number = 1;
-    private MECHANIC_DOG_COCK: number = 2;
+    private MECHANIC_DEMON_COCK = 0;
+    private MECHANIC_HORZ_GOG = 1;
+    private MECHANIC_DOG_COCK = 2;
 
     private rideMechanicsCock(): void {
         this.flags[kFLAGS.D3_MECHANIC_FIGHT_RESULT] = this.MECHANIC_FUCKED_YOU;
@@ -608,9 +609,9 @@ export class IncubusMechanicScenes extends BaseContent {
                 " presses poignantly at your entrance, throbbing gently. Small blooms of warm tickle over your lips, warm and wet as he leaks his liquid excitement into your nethers, lubricating you further. You relax a bit more"
         );
 
-        var mCockArea: number = this.monster.cockArea(0);
-        var pCuntArea: number = this.player.vaginalCapacity();
-        var tightFit: boolean = false;
+        const mCockArea: number = this.monster.cockArea(0);
+        const pCuntArea: number = this.player.vaginalCapacity();
+        let tightFit = false;
 
         // Easy fit -- Player cunt can fit at least 50% more cock
         if (pCuntArea >= mCockArea * 1.5) {
@@ -916,7 +917,7 @@ export class IncubusMechanicScenes extends BaseContent {
                 "\n\nThe ring is being forced down your bundled shafts. Below, your dicks remain as they are. Above, they're being merged together into one impressive tool."
             );
 
-            var allDemon: boolean = false;
+            let allDemon = false;
             if (this.player.demonCocks() == this.player.cocks.length) allDemon = true;
 
             if (!allDemon)

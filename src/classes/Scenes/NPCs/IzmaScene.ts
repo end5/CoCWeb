@@ -47,8 +47,8 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedIzmaLatexy: number = 0; //Make sure we test each of these events just once in timeChangeLarge
-    private checkedIzmaSophie: number = 0;
+    private checkedIzmaLatexy = 0; // Make sure we test each of these events just once in timeChangeLarge
+    private checkedIzmaSophie = 0;
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
@@ -64,7 +64,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.pregnancy.event
         );
         if (this.flags[kFLAGS.IZMA_TIME_TILL_NEW_BOOK_AVAILABLE] > 0)
-            this.flags[kFLAGS.IZMA_TIME_TILL_NEW_BOOK_AVAILABLE]--; //BOOKURYUUUU COUNTAH For IZMA
+            this.flags[kFLAGS.IZMA_TIME_TILL_NEW_BOOK_AVAILABLE]--; // BOOKURYUUUU COUNTAH For IZMA
         if (
             this.izmaFollower() &&
             this.flags[kFLAGS.IZMA_NO_COCK] == 0 &&
@@ -433,7 +433,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.statScreenRefresh();
 
         // (One of the following random effects happens)
-        var choice: number = IzmaScene.rand(3);
+        const choice: number = IzmaScene.rand(3);
         if (choice == 0) {
             this.outputText(
                 "You learn a few new guarding stances that seem rather promising.",
@@ -723,9 +723,9 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                 );
         }
         this.outputText("Which part of your body will you claim her with?", false);
-        var penis = undefined;
+        let penis;
         if (this.player.hasCock()) penis = this.victoryPenisIzma;
-        var vag = undefined;
+        let vag;
         if (this.player.hasVagina()) vag = this.useVagooOnIzmaWin;
         // [use penis][use vag][use ass][Leave]
         this.simpleChoices(
@@ -1182,7 +1182,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                 "Pulling her fingers free, Izma quickly flips your nude body over, leaving you on your back and staring up at her.  Izma's hands are resting on her hips and she seems to be puffing her large chest out proudly. Her foot-long cock is fully erect, hot beads of pre-cum occasionally dripping onto the sands.  She takes the time to examine your own cock, grinning with her fangs bared.  \"<i>Let's see what you've got, weakling.</i>\"  ",
                 false
             );
-            var x: number = this.player.biggestCockIndex();
+            const x: number = this.player.biggestCockIndex();
             // (1-10 inch penis)
             if (this.player.cocks[x].cockLength <= 10)
                 this.outputText(
@@ -1443,7 +1443,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
     // [Victory rape-use penus]
     private victoryPenisIzma(): void {
         this.outputText("", true);
-        var cockIndex: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let cockIndex: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (cockIndex < 0) cockIndex = 0;
         this.outputText(
             "You watch the defeated tigershark closely and a grin forms on your face.  You touch a hand to her forehead and push her onto her back with minimal effort, slipping her clothing off.  She hardly lacks the strength to stop you, but she knows full well what the terms of the battle were, so she's not going to go back on her word.  You remove your " +
@@ -2487,7 +2487,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    /*[Izma's Reward Items]
+    /* [Izma's Reward Items]
 
     Hooked Gauntlets: These tatty metal gloves are fitted with bone spikes and hooks shaped like shark teeth. They can tear flesh and deliver concussive force with equal ease.
     Pawn Value: 50
@@ -2554,7 +2554,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             'Izma blushes fiercely and a lewd smile comes over her face at the suggestion.  "<i>O-okay,</i>" she says, stripping off her bikini top and gently removing her grass skirt, allowing her breasts and monster cock to pop free.  She sits down and smiles at you.  "<i>After you...</i>"\n\n',
             false
         );
-        var x: number = this.player.cockThatFits(65);
+        let x: number = this.player.cockThatFits(65);
         if (x < 0) x = 0;
         // [Male/Herm]
         if (this.player.hasCock() && (this.player.gender == 1 || IzmaScene.rand(2) == 0)) {
@@ -2604,7 +2604,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                     "your weight pinning her to the sand and preventing her from taking control.",
                     false
                 );
-            ///(non-taur and height > 4')
+            /// (non-taur and height > 4')
             else if (this.player.tallness > 48)
                 this.outputText(
                     "and pin her hands above her head to stop her from trying to change the position. Her heaving breasts rub against your " +
@@ -2696,9 +2696,9 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    private izmaLakeDominateContinueVanilla(vanilla: boolean = true): void {
+    private izmaLakeDominateContinueVanilla(vanilla = true): void {
         this.spriteSelect(32);
-        var cockIndex: number = this.player.cockThatFits(65);
+        let cockIndex: number = this.player.cockThatFits(65);
         if (cockIndex < 0) cockIndex = 0;
 
         if (vanilla) {
@@ -2835,7 +2835,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.izmaCumsAfterRadarStuffHere(true);
     }
     private izmaCumsAfterRadarStuffHere(denied: boolean): void {
-        var cockIndex: number = this.player.cockThatFits(65);
+        let cockIndex: number = this.player.cockThatFits(65);
         if (cockIndex < 0) cockIndex = 0;
         if (!denied)
             this.outputText(
@@ -2880,7 +2880,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
         // (male/Unsexed)
         if (this.player.gender <= 1) {
-            ///[(If player has tight butthole:)
+            /// [(If player has tight butthole:)
             if (this.player.analCapacity() < 26) {
                 this.outputText(
                     "You can't help but yell in pain at the sudden sensation of something so huge forcing its way into your " +
@@ -3103,7 +3103,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                 "  Pulling her fingers free, Izma quickly flips your nude body over, leaving you on your back and staring up at her.  Izma's hands are resting on her hips and she seems to be puffing her large chest out proudly. Her foot-long cock is fully erect, hot beads of pre-cum occasionally dripping onto the sands.  She takes the time to examine your own cock, grinning with her fangs bared.  \"<i>Let's see what you've got, weakling.</i>\"\n\n",
                 false
             );
-            var x: number = this.player.biggestCockIndex();
+            const x: number = this.player.biggestCockIndex();
             // (1-10 inch penis)
             if (this.player.cocks[x].cockLength <= 10)
                 this.outputText(
@@ -3196,7 +3196,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             // Izma pops 'em out!
             if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0) {
                 this.IzmaPoopsBabies();
-                this.pregnancy.knockUpForce(); //Clear Pregnancy
+                this.pregnancy.knockUpForce(); // Clear Pregnancy
                 return;
             }
             this.outputText(
@@ -3263,17 +3263,17 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         }
 
         // [Sex (If lust is 30+)] [Talk] [Appearance]
-        var sex = undefined;
+        let sex;
         if (this.player.lust >= 33) sex = this.izmaSexMenu;
-        var kids = undefined;
+        let kids;
         if (
             this.flags[kFLAGS.IZMA_CHILDREN_SHARKGIRLS] +
                 this.flags[kFLAGS.IZMA_CHILDREN_TIGERSHARKS] >
             0
         )
             kids = this.izmaKidsPlaytime;
-        var deDickT: string = "";
-        var deDickB = undefined;
+        let deDickT = "";
+        let deDickB;
         if (this.flags[kFLAGS.IZMA_NO_COCK] == 0) {
             deDickT = "Remove Dick";
             deDickB = this.removeIzmasPenis;
@@ -3425,9 +3425,9 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
     private izmaSexMenu(): void {
         this.spriteSelect(32);
         // [Get Anal] [Her Vag] [69] [Izma Mounts PC]
-        var mount = undefined;
-        var vagoo = undefined;
-        var domVag = undefined;
+        let mount;
+        let vagoo;
+        let domVag;
         // Mounts PC - req Cock
         // Vagoo - req Cock
         if (this.player.hasCock()) {
@@ -3435,17 +3435,17 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             mount = this.followerIzmaMountsPC;
             vagoo = this.followerIzmaTakesItInVagoo;
         }
-        var getVagooFucked = undefined;
+        let getVagooFucked;
         if (this.player.hasVagina() && this.flags[kFLAGS.IZMA_NO_COCK] == 0)
             getVagooFucked = this.inCampRideIzmasDickDongTheWitchIsDead;
         // 69 - non-0 gender
-        var sixty = undefined;
+        let sixty;
         if (this.player.gender > 0) sixty = this.followerIzmaTakesIt69;
         // var kids: string = "";
         // if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00249] == 1) kids = "NoKidsPlease";
         // else kids = "Have Kids?";
-        var analCatch = undefined;
-        var assDom = undefined;
+        let analCatch;
+        let assDom;
         if (this.flags[kFLAGS.IZMA_NO_COCK] == 0) {
             analCatch = this.followerIzmaTakesItInPooper;
             assDom = this.radarIzmaAnalDominant;
@@ -3469,10 +3469,10 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.addButton(9, "Back", this.izmaFollowerMenu);
     }
     // [Izma mounts the PC]
-    private followerIzmaMountsPC(lastHalf: boolean = false): void {
+    private followerIzmaMountsPC(lastHalf = false): void {
         this.spriteSelect(32);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(65);
+        let x: number = this.player.cockThatFits(65);
         if (x < 0) x = 0;
         if (!lastHalf) {
             if (this.flags[kFLAGS.IZMA_NO_COCK] == 0) this.player.slimeFeed();
@@ -4182,7 +4182,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         // (leads to Where's it going?)
         this.wheresItGoing();
     }
-    private wheresItGoing(denied: boolean = false): void {
+    private wheresItGoing(denied = false): void {
         this.spriteSelect(32);
         this.outputText(
             "\n\nIzma continues to moan and groan loudly, and starts to mash her own hips against yours, trying to work in as many inches of your " +
@@ -4778,7 +4778,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            ///(Female/herm)
+            /// (Female/herm)
             else
                 this.outputText(
                     '  "<i>Oh... you\'d be so big and curvy, so sexy,</i>" she purrs.  You advance towards her.  Leaning in, you mention you\'re willing to try and make a baby, right here and now.  "<i>I... oh, wow.  We could certainly try,</i>" she replies, grabbing your neck and pulling you in for a kiss.',
@@ -4821,7 +4821,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                 "You tell Izma that you've been thinking, and that the two of you should put making children together on hold, at least for a while.  Izma looks a little upset, but she nods her head.  \"<i>By your command, alpha,</i>\"  she tells you.  She ambles slowly away from you, her hips and ass swaying side to side in a very enticing manner; you think maybe she's trying to tempt you into changing your mind.  When you don't speak up, though, she reaches into and rummages through her chest for one of her contraceptive herbs, turning towards you and making sure you can see her taking it.\n\n",
                 false
             );
-            ///Return to Sex Menu options/
+            /// Return to Sex Menu options/
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00249] = 0;
         }
         // [=Yes=] (TURN ON KID-MODE
@@ -5071,7 +5071,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                     "! Whoa- hold still, you slippery little girl! Stop wriggling so much, you're out now, it's me, your daddy!</i>\" Izma cries out. As you regain your strength and your vision clears, you are presented with the sight of Izma trying desperately to wrangle a squirming baby shark-morph; from her ",
                 false
             );
-            var type: number = 0;
+            let type = 0;
             if (IzmaScene.rand(100) <= 59) {
                 this.outputText("grey", false);
                 type = 0;
@@ -5137,7 +5137,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
     private izmaKidsPlaytime(): void {
         this.spriteSelect(32);
         this.outputText("", true);
-        var choices: any[] = [];
+        const choices: any[] = [];
         // Build an array of the possible scenes
         if (this.flags[kFLAGS.IZMA_CHILDREN_TIGERSHARKS] > 0) {
             // NEITHER GOOD
@@ -5154,7 +5154,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         choices[choices.length] = 4;
         choices[choices.length] = 5;
         // Select correct scene!
-        var choice: number = choices[IzmaScene.rand(choices.length)];
+        const choice: number = choices[IzmaScene.rand(choices.length)];
         if (
             this.model.time.hours < 10 &&
             this.flags[kFLAGS.ANEMONE_KID] > 0 &&
@@ -5556,7 +5556,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // [Using Izma's books in camp]
-    ///[Books] appears as a tab when interacting with Izma.
+    /// [Books] appears as a tab when interacting with Izma.
     private IzmaCampBooks(): void {
         this.spriteSelect(32);
         this.outputText("", true);
@@ -5596,7 +5596,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.IZMA_TIME_TILL_NEW_BOOK_AVAILABLE] = 11;
         // (Usual random stat increase from the combat Manual)
         // (One of the following random effects happens)
-        var choice: number = IzmaScene.rand(3);
+        const choice: number = IzmaScene.rand(3);
         if (choice == 0) {
             this.outputText(
                 "You learn a few new guarding stances that seem rather promising.",
@@ -5762,9 +5762,9 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
         // COUNT MILK TOTAL
-        var succMilk: number = 0;
-        var pMilk: number = 0;
-        var count: number = 5;
+        let succMilk = 0;
+        let pMilk = 0;
+        let count = 5;
         while (count > 0) {
             if (this.player.hasItem(this.consumables.SUCMILK, count)) {
                 succMilk = count;
@@ -5819,9 +5819,9 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou make a quick, horizontal gesture with your hand flat, cutting off her whining.  You're in charge.  She isn't."
         );
         // COUNT MILK TOTAL
-        var succMilk: number = 0;
-        var pMilk: number = 0;
-        var count: number = 5;
+        let succMilk = 0;
+        let pMilk = 0;
+        let count = 5;
         while (count > 0) {
             if (this.player.hasItem(this.consumables.SUCMILK, count)) {
                 succMilk = count;
@@ -5890,7 +5890,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou carry her to the stream to keep her moist, tending to her for a half-hour before she wakens.  When her eyes open, Izma says, \"<i>Tch, that wasn't too bad.  Maybe I can get used to it, if that's what it's like for 'pure' women.</i>\"  Izma's tail wags back and forth mischievously, splashing up a storm as she suggests, \"<i>Just let me know if I'm ever allowed my penis again, okay?</i>\"  You sigh and agree.  <b>Izma is a female!</b>"
             );
             this.flags[kFLAGS.IZMA_NO_COCK] = 1;
-            var count: number = 0;
+            let count = 0;
             while (this.player.hasItem(this.consumables.P_S_MLK) && count < 5) {
                 this.player.consumeItem(this.consumables.P_S_MLK);
                 count++;
@@ -5914,9 +5914,9 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
     private fuckIzmasPussyDominate(): void {
         this.clearOutput();
         this.spriteSelect(32);
-        var x: number = this.player.cockThatFits(65);
+        let x: number = this.player.cockThatFits(65);
         if (x < 0) x = 0;
-        var y: number = x + 1;
+        const y: number = x + 1;
         this.outputText("Fixating on Izma's ");
         if (this.flags[kFLAGS.IZMA_NO_COCK] == 0) this.outputText("cock ");
         else this.outputText("cunt ");
@@ -6025,7 +6025,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.createStatusAffect(StatusAffects.Goojob, 0, 0, 0, 0);
     }
     // [Spanking and orgasm]
-    private radarIzmaSpanking(newSentence: boolean = true): void {
+    private radarIzmaSpanking(newSentence = true): void {
         if (newSentence) {
             this.clearOutput();
             this.outputText("Now ");
@@ -6258,9 +6258,9 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
     // [Fuck Izma's ass (Dominant)]
     private radarFucksIzmasAss(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(65);
+        let x: number = this.player.cockThatFits(65);
         if (x < 0) x = 0;
-        var y: number = this.player.cockThatFits2(65);
+        const y: number = this.player.cockThatFits2(65);
 
         this.outputText(
             "Your eyes are unavoidably drawn to her well toned ass; the potential feel of her tight asshole against your " +
@@ -6381,9 +6381,9 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         }
     }
     // More than four TD's: [Both,(requires 70 INT)]   [Just Dick]   [Just Blowjob]
-    private radarIzmaJustDick(choice: number = 0): void {
+    private radarIzmaJustDick(choice = 0): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(65);
+        let x: number = this.player.cockThatFits(65);
         if (x < 0) x = 0;
         // var y: number = this.player.cockThatFits2(65);
         // Just dick
@@ -6436,7 +6436,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
         if(player.hasStatusAffect(StatusAffects.JerkingIzma) >= 0) outputText("\n\nThe rumbling in her rod comes shortly after, signaling the releases of her jizzum as you stroke her lovingly with the head of your cock while pumping her with your coiled shaft.  Her cum flies straight into the ground and spasms in your tight grip as you hold her member close to comfort it during her release.");
 
     The vocal and passionate display of her release drives you over the edge, and you know that you can't hold on much longer.
-        [proceeds to Tentacle Cumming, if PC only has one-two TD's; If PC has more than two 	TD's, the scene transitions to the TD group cumming]
+        [proceeds to Tentacle Cumming, if PC only has one-two TD's; If PC has more than two  TD's, the scene transitions to the TD group cumming]
 
     [Tentacle Cumming]
 
@@ -6456,7 +6456,7 @@ export class IzmaScene extends NPCAwareContent implements TimeAwareInterface {
 
     (Cum volume High, unlocks special ending scene: balloon up as your cum works its way to freedom along the contractions of your muscles.) (Leads to Spray n' Play scene or Cum bath scene)
 
-    [Spray n' Play scene]	(If PC hasn't orgasmed in three days: You try as hard as you can to contain the impending cum blast, but when it hits, your " + multicockDescriptLight() + " flail under the force of all that sperm.  Semen sporadically flies in every direction as you lose complete control of your dicks, occasionally getting hit with your own cum... and even receiving a unintentional self inflicted cock slap across the forehead; (thankfully, the misguided cock misses your horns).  You reel in pain from the sudden impact and fall backwards onto your ass.  With the orgasm now behind you, the opportunity presents itself to survey the "damage".
+    [Spray n' Play scene] (If PC hasn't orgasmed in three days: You try as hard as you can to contain the impending cum blast, but when it hits, your " + multicockDescriptLight() + " flail under the force of all that sperm.  Semen sporadically flies in every direction as you lose complete control of your dicks, occasionally getting hit with your own cum... and even receiving a unintentional self inflicted cock slap across the forehead; (thankfully, the misguided cock misses your horns).  You reel in pain from the sudden impact and fall backwards onto your ass.  With the orgasm now behind you, the opportunity presents itself to survey the "damage".
 
     Random followers might get hit with cum, low chance of it occurring though
 

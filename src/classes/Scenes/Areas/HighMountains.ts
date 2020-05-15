@@ -186,7 +186,7 @@ export class HighMountains extends BaseContent {
             this.outputText(
                 '\n\n"<i>Hey sunshine, do y\'have any elixirs you can give me today?</i>"'
             );
-            // [Give Two][Give Three]	[No, I Must Now Return To My People]
+            // [Give Two][Give Three] [No, I Must Now Return To My People]
         }
         this.flags[kFLAGS.TIMES_MET_CHICKEN_HARPY]++;
         // [Give Two][Give Three]

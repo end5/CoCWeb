@@ -10,7 +10,7 @@ import { SophieFollowerScene } from "./SophieFollowerScene";
 import { Sophie } from "./Sophie";
 import { Harpy } from "../Areas/HighMountains/Harpy";
 import { StatusAffects } from "../../StatusAffects";
-import { CoC_Settings } from "../../CoC_Settings";
+import { CocSettings } from "../../CoC_Settings";
 import {
     VAGINA_WETNESS_SLAVERING,
     VAGINA_WETNESS_SLICK,
@@ -35,12 +35,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         CoC.timeAwareClassAdd(this);
     }
 
-    private checkedSophie: number = 0; //Make sure we test this event just once in timeChangeLarge
+    private checkedSophie = 0; // Make sure we test this event just once in timeChangeLarge
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00283] > 0) return false; //Nothing can happen if she's been kicked out or disappeared off into the mountains
-        var needNext: boolean = false;
+        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00283] > 0) return false; // Nothing can happen if she's been kicked out or disappeared off into the mountains
+        let needNext = false;
         this.checkedSophie = 0;
         this.pregnancy.pregnancyAdvance();
         trace(
@@ -69,8 +69,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 this.pregnancy.incubation == 0
             ) {
                 // As long as she's not at the farm it's alright to lay eggs
-                this.flags[kFLAGS.SOPHIE_EGGS_LAID]++; //Before she moves in she just produces harpies in the mountains
-                this.pregnancy.knockUpForce(); //Clear Pregnancy
+                this.flags[kFLAGS.SOPHIE_EGGS_LAID]++; // Before she moves in she just produces harpies in the mountains
+                this.pregnancy.knockUpForce(); // Clear Pregnancy
             }
         } else {
             // She might be a bimbo, debimboed or normal, but she's a follower and presently at camp
@@ -92,7 +92,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                         case 100:
                         case 200:
                         case 325:
-                            this.sophiesDaughterDescript(); //At these three times we need to output a message about her daughters
+                            this.sophiesDaughterDescript(); // At these three times we need to output a message about her daughters
                             needNext = true;
                         default:
                     }
@@ -100,7 +100,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             }
             if (this.pregnancy.isPregnant) {
                 if (this.pregnancy.type == PregnancyStore.PREGNANCY_PLAYER) {
-                    var triggeredEvent: number = this.pregnancy.eventTriggered();
+                    const triggeredEvent: number = this.pregnancy.eventTriggered();
                     switch (triggeredEvent) {
                         case 1:
                         case 2:
@@ -111,10 +111,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                         default:
                             if (this.pregnancy.incubation == 0) {
                                 this.sophieBimbo.sophieBirthsEgg();
-                                this.pregnancy.knockUpForce(); //Clear Pregnancy
+                                this.pregnancy.knockUpForce(); // Clear Pregnancy
                                 this.flags[kFLAGS.SOPHIE_CAMP_EGG_COUNTDOWN] =
-                                    150 + SophieScene.rand(30); //This long till that egg hatches
-                                this.flags[kFLAGS.SOPHIE_HEAT_COUNTER] = 551; //After pregnancy she waits 23 days before going into heat again
+                                    150 + SophieScene.rand(30); // This long till that egg hatches
+                                this.flags[kFLAGS.SOPHIE_HEAT_COUNTER] = 551; // After pregnancy she waits 23 days before going into heat again
                                 needNext = true;
                             }
                     }
@@ -725,7 +725,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             return;
         }
     }
-    // 	[Stay&Sex] – starts combat
+    //  [Stay&Sex] – starts combat
     private FirstTimeSophieForceSex(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
@@ -1013,15 +1013,15 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
         this.flags[kFLAGS.SOPHIE_FOLLOWER_PROGRESS]++;
-        var x: number = this.player.cockThatFits(232);
+        const x: number = this.player.cockThatFits(232);
         if (x < 0) {
-            CoC_Settings.error("");
+            CocSettings.error("");
             this.outputText("ERROR: No cock found that fits, yet 'fits' scene was called.", true);
             this.doNext(this.playerMenu);
             this.getGame().inCombat = false;
             return;
         } else if (x > this.player.cocks.length - 1) {
-            CoC_Settings.error("");
+            CocSettings.error("");
             this.outputText(
                 "ERROR: Cock above max cocks selected for Sophie sex.  Please report bug on fen's bug report forum.",
                 true
@@ -1383,7 +1383,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     // [Consentual Sex No Fito]
     private consensualSophieSexNoFit(): void {
         this.sophieBimbo.sophieSprite();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.flags[kFLAGS.SOPHIE_FOLLOWER_PROGRESS]++;
         this.outputText("", true);
         this.outputText(
@@ -1585,7 +1585,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.doYesNo(this.postSophieSexSnuggle, this.postSexSophieSnuggleTurnedDown);
         // Go to same yes or no as 'fits' options.
     }
-    private sophieFucked(dicked: boolean = true): void {
+    private sophieFucked(dicked = true): void {
         // knock up if not knocked up
         if (!this.pregnancy.isPregnant && dicked) {
             this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, 48 + SophieScene.rand(48));
@@ -1605,7 +1605,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.flags[kFLAGS.FUCKED_SOPHIE_COUNTER]++;
     }
 
-    public luststickApplication(hours: number = 4): void {
+    public luststickApplication(hours = 4): void {
         // Immune to luststick?
         if (this.player.findPerk(PerkLib.LuststickAdapted) >= 0) return;
         // Increment luststick resistance
@@ -1647,11 +1647,11 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         // RAEP OPTIONS
+        let dickRape;
+        let clitFuck;
+        let cuntFuck;
+        let bimbo;
         if (this.player.gender != 0) {
-            var dickRape = undefined;
-            var clitFuck = undefined;
-            var cuntFuck = undefined;
-            var bimbo = undefined;
             if (this.player.lust >= 33 && this.player.totalCocks() > 0) {
                 // Set dick rape to correct scene.
                 // Too big
@@ -1707,7 +1707,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     // Male 'Normal' – throw on back and grab ankles, force over head and fuck
     private maleVictorySophieRape(): void {
         this.sophieBimbo.sophieSprite();
-        var x: number = this.player.cockThatFits(232);
+        const x: number = this.player.cockThatFits(232);
         this.outputText("", true);
         this.outputText("Sophie is ", false);
         if (this.monster.HP < 1)
@@ -1790,7 +1790,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     // Male 'Doesn't Fit'
     private maleVictorySophieRapeHUGE(): void {
         this.sophieBimbo.sophieSprite();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
 
         this.outputText("Not satisfied with a simple victory, you undress and expose your ", false);
@@ -2350,7 +2350,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     private normalLossRapuuuuSophie(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(232);
+        const x: number = this.player.cockThatFits(232);
 
         this.outputText(
             "Sophie watches your lust-wracked body with an expression of pity.  The harpy woman saunters over and muses, \"<i>Well that was a waste.  You aren't exactly hard to get in the mood, you know?  Why don't you just come fuck me next time and skip all the foreplay?</i>\"  The motherly bird-woman takes a moment to preen her feathery hair while she watches your hands pump away at your " +
@@ -2474,7 +2474,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     private tooBigForOwnGoodSophieLossRape(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         this.outputText(
             "Sophie reaches forwards with a clawed foot to pull down your armor, but your " +

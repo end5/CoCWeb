@@ -88,7 +88,7 @@ export class Kitsune extends Monster {
         this.outputText(
             "\n\nThe flames burn furiously, but leave you with an incredibly pleasant tingling sensation all over your body.  Your skin flushes with excitement, and you can feel blood rushing to your extremities, making you shudder with pleasure."
         );
-        var damage: number = 5 + Kitsune.rand(20);
+        let damage: number = 5 + Kitsune.rand(20);
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")");
         this.game.dynStats("lus", 15 + this.player.sens / 10);
@@ -103,7 +103,7 @@ export class Kitsune extends Monster {
             "You struggle to keep your eyes on the kitsune, ghostly laughter echoing all around you as you turn to and fro, trying to track her movements.  It almost seems like the edges of reality are blurring around her, severely distorting your perceptions and making it hard to follow her.  It's going to be much harder to hit her if she keeps this up!"
         );
         // Resist: - successfully resisting deals small health & lust damage to kitsune
-        var resist: number = 0;
+        let resist = 0;
         if (this.player.inte < 30) resist = Math.round(this.player.inte);
         else resist = 30;
         if (this.player.findPerk(PerkLib.Whispered) >= 0) resist += 20;
@@ -123,13 +123,13 @@ export class Kitsune extends Monster {
     // Seal: - cancels and disables whatever command the player uses this round. Lasts 3 rounds, cannot seal more than one command at a time.
     // PCs with "Religious" background and < 20 corruption have up to 20% resistance to sealing at 0 corruption, losing 1% per corruption.
     private kitsuneSealAttack(): void {
-        var resist: number = 0;
+        let resist = 0;
         if (this.player.inte < 30) resist = Math.round(this.player.inte);
         else resist = 30;
         if (this.player.findPerk(PerkLib.Whispered) >= 0) resist += 20;
         if (this.player.findPerk(PerkLib.HistoryReligious) >= 0 && this.player.cor < 20)
             resist += 20 - this.player.cor;
-        var select: number = Kitsune.rand(7);
+        const select: number = Kitsune.rand(7);
         // Attack:
         if (select == 0) {
             this.outputText(
@@ -208,7 +208,7 @@ export class Kitsune extends Monster {
 
     // Tease Texts:
     private kitSuneTeases(): void {
-        var select: number = Kitsune.rand(3);
+        let select: number = Kitsune.rand(3);
         if (this.hairColor == "red" && Kitsune.rand(2) == 0) select = 3;
         if (select == 0)
             this.outputText(
@@ -232,7 +232,7 @@ export class Kitsune extends Monster {
     }
 
     protected performCombatAction(): void {
-        var moves: any[] = [
+        const moves: any[] = [
             this.foxFireAttack,
             this.foxFireAttack,
             this.kitSuneTeases,

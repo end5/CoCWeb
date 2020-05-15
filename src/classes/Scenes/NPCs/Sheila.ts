@@ -24,7 +24,7 @@ export class Sheila extends Monster {
 
     // special 1: frog punch (med-high damage, slightly lower accuracy than reg attack, deals minor concussion which adds 5-10 pts fatigue, may stun pc and prevent attack, misses while blinded or misfires on pcs under 3'6")
     private sheilaFrogPunch(): void {
-        var damage: number = 0;
+        let damage = 0;
         this.spe -= 30;
         // Midget misfire (if PC < 3'6"):
         if (this.player.tallness < 42 && Sheila.rand(2) == 0) {
@@ -82,7 +82,7 @@ export class Sheila extends Monster {
 
     // special 2: flying kick rabbit punch (high damage, much lower accuracy than reg attack, deals concussion which adds 10-15 pts fatigue, may stun pc and prevent attack)
     private sheilaFlyingKick(): void {
-        var damage: number = 0;
+        let damage = 0;
         this.spe -= 60;
         // Miss:
         if (
@@ -167,7 +167,7 @@ export class Sheila extends Monster {
             // big (20+) int drop and big lib-based lust gain if successful, locks Infest command for the fight if successful, always misses if Sheila is blinded
             if (this.findStatusAffect(StatusAffects.TwuWuv) < 0) {
                 this.createStatusAffect(StatusAffects.TwuWuv, 0, 0, 0, 0);
-                var counter: number = 40 + Sheila.rand(5);
+                let counter: number = 40 + Sheila.rand(5);
                 Sheila.showStatDown("inte");
                 // inteDown.visible = true;
                 // inteUp.visible = false;
@@ -341,7 +341,7 @@ export class Sheila extends Monster {
             this.sitAndPout();
             return;
         }
-        var choices: any[] = [];
+        let choices: any[] = [];
 
         if (this.player.findStatusAffect(StatusAffects.SheilaOil) < 0) {
             choices = [
@@ -377,7 +377,7 @@ export class Sheila extends Monster {
 
     public constructor() {
         super();
-        var sheilaDemon: boolean = this.game.flags[kFLAGS.SHEILA_DEMON] == 1;
+        const sheilaDemon: boolean = this.game.flags[kFLAGS.SHEILA_DEMON] == 1;
         this.a = "";
         this.short = "Sheila";
         this.imageName = "sheila";
@@ -422,9 +422,9 @@ export class Sheila extends Monster {
         this.hairLength = 11;
         this.initStrTouSpeInte(80, 45, 95, 50);
         this.initLibSensCor(30, 45, 25);
-        var lust: number = 30;
-        var lustVuln: number = 0.4;
-        var bonusHP: number = 200;
+        let lust = 30;
+        let lustVuln = 0.4;
+        let bonusHP = 200;
         if (sheilaDemon) {
             // -slightly slower, has much more stamina, intel, and HP now
             this.spe -= 15;

@@ -20,7 +20,7 @@ export class Minerva extends Monster {
         this.outputText(
             "The siren paces around you in circles, waiting for the right moment to strike.  Unexpectedly quick thanks to her clawed feet, she propels herself toward you at full speed.  Her maw opens wide to chomp on you, showing off multiple rows of glinting, razor-sharp teeth."
         );
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str + 85 - Minerva.rand(this.player.tou) - this.player.armorDef
         );
         if (
@@ -55,7 +55,7 @@ export class Minerva extends Monster {
             "The blue beauty flaps her wings and launches herself into the air.  Once she's gained as much altitude as she can, she dive-bombs you, her demon-clawed feet leading the attack."
         );
 
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str +
                 this.weaponAttack +
                 100 -
@@ -92,7 +92,7 @@ export class Minerva extends Monster {
 
     // Tail-whip
     private tailWhip(): void {
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str + 35 - Minerva.rand(this.player.tou) - this.player.armorDef
         );
 
@@ -123,7 +123,7 @@ export class Minerva extends Monster {
     // Halberd stab:
     private minervaUsesHalberdStab(): void {
         this.outputText("Minerva charges at you, brandishing her halberd's sharp tip toward you.");
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str + this.weaponAttack - Minerva.rand(this.player.tou)
         );
 
@@ -157,7 +157,7 @@ export class Minerva extends Monster {
         this.outputText(
             "She moves in close, practically right in front of you and raises the halberd."
         );
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str + 100 - Minerva.rand(this.player.tou) - this.player.armorDef
         );
 
@@ -191,7 +191,7 @@ export class Minerva extends Monster {
         this.outputText(
             "The siren holds her hand out, flashing you a cunning smirk and snapping her fingers.  Your entire body is engulfed in white-hot flames, searing flesh and burning your [armor].  The sudden flash of heat and fire elicit panic from deep within you, causing you to cry out and roll on the ground to put the fires out.  The burns aren't too severe, but you know you can't keep getting hit like that!"
         );
-        var damage: number = Math.floor(10 + (this.inte / 3 + Minerva.rand(this.inte / 2)) * 1.5);
+        let damage: number = Math.floor(10 + (this.inte / 3 + Minerva.rand(this.inte / 2)) * 1.5);
         damage = this.player.takeDamage(damage);
         this.outputText(" (" + damage + ")");
         this.combatRoundOver();
@@ -255,7 +255,7 @@ export class Minerva extends Monster {
             this.sirensSong();
         // Else choose randomly!
         else {
-            var choices: any[] = [
+            const choices: any[] = [
                 this.lickDatPole,
                 this.bootyShortInYoFaceSon,
                 this.kiteFire,

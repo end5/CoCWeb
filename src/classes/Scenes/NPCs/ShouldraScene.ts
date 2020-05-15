@@ -36,7 +36,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        var needNext: boolean = false;
+        let needNext = false;
         if (this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN] >= 1)
             this.flags[kFLAGS.SHOULDRA_MAGIC_COOLDOWN]--;
         if (this.shouldraFollower.followerShouldra()) {
@@ -376,7 +376,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         );
 
         // CHOICES HURRAH
-        var lake = undefined;
+        let lake;
         if (
             this.player.gender > 0 &&
             ((this.player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0 &&
@@ -389,7 +389,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             );
             lake = this.nowOnVickiLake;
         }
-        var gender = undefined;
+        let gender;
         // Genderless Scene
         if (this.player.gender == 0) gender = this.genderlessGhostBuster;
         else if (this.player.gender == 1) gender = this.penisLossThatIsntALoss;
@@ -424,13 +424,13 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
 
         // SHARK-GIRL - REQUIRES BOAT AND MET SHARKGIRL
         // SLIME - REQUIRES MET SLIME
-        var shark = undefined;
+        let shark;
         if (
             this.player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0 &&
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00230] > 0
         )
             shark = this.sharkbustersVictory;
-        var ooze = undefined;
+        let ooze;
         if (this.flags[kFLAGS.TIMES_MET_OOZE] > 0) ooze = this.ghostGooGurlzDuckfaces;
         if (ooze != undefined && shark != undefined) {
             this.outputText(
@@ -905,7 +905,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
     // Slime x Ghost Girl - Penis Scene (Slime Cum Inflation)
     private slimeyPenorsAhoy(): void {
         this.spriteSelect(67);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             '"<i>Wait a sec,</i>" she bids, and you watch curiously as the slime begins to roil angrily. Before your eyes, the unremarkable mass shoots upwards and reforms into a jiggling recreation of the spirit you\'ve come to know. The two large circles that stood in for eyes even glow with the same amber fire. "<i>Ever get taken for a ride by a goo-ghost?</i>" she asks coyly, sliding towards you with arms outstretched. With a grin and a head shake, you move to meet her.  To your surprise - and hers as well, judging from her reaction - her skin seems incredibly sensitive to your touch. The goo nearly flinches away from your questing fingers as you caress every part of her "<i>body</i>" that you can reach. You\'re rewarded by a satisfied grunt, and suddenly, she hooks her hands around your head and pulls you into her slime-filled bosom. The enamoured ghost girl ignores your struggles for several moments before she apparently comes to her senses and releases you from your suffocating predicament. "<i>Sorry!  This slime is a bit more insidious than I thought...</i>" she explains, a blush inexplicably finding its way to her emerald face. No harm, no foul, you insist, and she nods in appreciation. "<i>Oh!</i>" she exclaims, struck with inspiration, "<i>I\'ve got a good idea!</i>"\n\n',
             false
@@ -1176,7 +1176,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
     // Penis Scene
     private penisLossThatIsntALoss(): void {
         this.spriteSelect(67);
-        var x: number = this.player.biggestCockIndex();
+        let x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         if (this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
             this.dewormYourGhost();
@@ -1364,7 +1364,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
     // back to this thing okay
     private ghostBJFinisher(inside: boolean): void {
         this.spriteSelect(67);
-        var x: number = this.player.cockThatFits(80);
+        const x: number = this.player.cockThatFits(80);
         this.outputText(
             "Like a backed up geyser, your gigantic testicles push hot, thick strands of seed out of your belaboured " +
                 this.cockDescript(x) +
@@ -1447,7 +1447,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
     // Penis With Exgartuan Scene
     private penisGartuanGhostSmexVictory(): void {
         this.spriteSelect(67);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         this.outputText(
             "You feel an almost overwhelming surge of anxious arousal as the ghost girl regards your excessively large " +
@@ -1610,7 +1610,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
     // Hermaphrodite Scene
     private hermaphroditeGhostsCumEctoplasm(): void {
         this.spriteSelect(67);
-        var x: number = this.player.biggestCockIndex();
+        let x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         if (this.flags[kFLAGS.SHOULDRA_HERMSEX_COUNT] == 0)
             this.outputText(
@@ -1854,7 +1854,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
     // [If you have a penis]
     private ourDadTaughtUsNotToBeAshamedOfOurDicks(): void {
         this.spriteSelect(67);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         // [first encounter]
         if (this.flags[kFLAGS.SHOULDRA_PENIS_DEFEAT_TIMES] == 0)
             this.outputText("She abruptly gasps in excitement, ", false);
@@ -1872,7 +1872,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
             "You feel your face flush as the ghost girl relives her awkward previous possessions. Your penis finally extends to its fullest, and your hands slide up and down its length in a clumsy yet admittedly effective technique. Sweat soon begins lathering your body as you sink to your knees, confusingly overwhelmed by the pleasure of a simple self-stimulation. You've never felt this good while masturbating! You figure the otherworldly influence of your new 'room-mate' has something to do with this. As if to prove your theory, your mouth moves in the strange archaic language of the girl, and your body stiffens in both pain and pleasure as ",
             false
         );
-        ///[if present]
+        /// [if present]
         if (this.player.balls > 0)
             this.outputText("your testicles churn with fertility and ", false);
         this.outputText(
@@ -2052,7 +2052,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
     // Enormous Cock Scene
     private shouldraGiantCockLoss(): void {
         this.spriteSelect(67);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "Her attention inevitably moves to your gigantic dick, somehow still contained in your garments, and she swiftly clamors to free it from its prison. Practically tearing off your " +
                 this.player.armorName +
@@ -2408,7 +2408,7 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
     // Penis With Exgartuan Scene
     private ghostGartuanLossSceneOrSomeShit(): void {
         this.spriteSelect(67);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "Your entire body shivers in delight as the ghost girl regards your excessively large " +
                 this.cockDescript(x) +
@@ -2660,12 +2660,12 @@ export class ShouldraScene extends NPCAwareContent implements TimeAwareInterface
         }
     }
 
-    /*Slime x Ghost Girl - Herm Edition
+    /* Slime x Ghost Girl - Herm Edition
     Requirements:
     Encountered both cock and vagina slime possession scenes at least once (need tracking variable added to Ghost Girl x Slime vagina slime inflation scene slimeGinaFlation())
     PC has at least one cock and vagina
     Scene is selectable along with original two*/
-    private slimeGhostGalForHerms(clearOut: boolean = false): void {
+    private slimeGhostGalForHerms(clearOut = false): void {
         if (clearOut) this.clearOutput();
         this.outputText(
             'Your naked trot towards the emerald ooze stops as worry washes over your sexual cravings.  The contemplative expression forming on your face catches the attention of your ghostly friend.  "<i>I know exactly what you\'re mulling over, but don\'t worry,</i>" she assures you with a condescending chuckle.  The haunted blob slowly approaches you, seamlessly transitioning from its shapeless form to a perfect representation of the apparition mid-stride.  "<i>'

@@ -60,7 +60,7 @@ export class Lumi extends BaseContent {
                 false
             );
         }
-        var enhance = undefined;
+        let enhance;
         if (this.lumiEnhance(true)) enhance = this.lumiEnhance;
         this.simpleChoices(
             "Shop",
@@ -142,7 +142,7 @@ export class Lumi extends BaseContent {
         this.spriteSelect(37);
         this.clearOutput();
         // After choosing, and PC has enough gems
-        var cost: number = 0;
+        let cost = 0;
         if (itype == this.consumables.OVIELIX) cost = 45;
         if (itype == this.consumables.GOB_ALE) cost = 20;
         if (itype == this.consumables.L_DRAFT) cost = 15;
@@ -167,24 +167,24 @@ export class Lumi extends BaseContent {
         }
     }
 
-    public lumiEnhance(justCheck: boolean = false): boolean {
+    public lumiEnhance(justCheck = false): boolean {
         this.spriteSelect(37);
-        var fox = undefined;
+        let fox;
         if (this.player.hasItem(this.consumables.FOXBERY)) fox = this.lumiEnhanceFox;
-        var laBova = undefined;
+        let laBova;
         if (this.player.hasItem(this.consumables.LABOVA_)) laBova = this.lumiEnhanceLaBova;
-        var succuDelight = undefined;
+        let succuDelight;
         if (this.player.hasItem(this.consumables.SDELITE)) succuDelight = this.lumiEnhanceSDelight;
-        var oviElix = undefined;
+        let oviElix;
         // if(player.hasItem(consumables.OVIELIX))
-        // 	oviElix = lumiEnhanceOviElix;
-        var lustDraft = undefined;
+        //  oviElix = lumiEnhanceOviElix;
+        let lustDraft;
         if (this.player.hasItem(this.consumables.L_DRAFT)) lustDraft = this.lumiEnhanceDraft;
-        var seed = undefined;
+        let seed;
         if (this.player.hasItem(this.consumables.GLDSEED)) seed = this.lumiEnhanceGoldenSeed;
-        var kanga = undefined;
+        let kanga;
         if (this.player.hasItem(this.consumables.KANGAFT)) kanga = this.lumiEnhanceKanga;
-        var kitsune = undefined;
+        let kitsune;
         if (this.player.hasItem(this.consumables.FOXJEWL)) kitsune = this.lumiEnhanceFoxJewel;
         if (justCheck) {
             return (
@@ -268,7 +268,7 @@ export class Lumi extends BaseContent {
     private lumiEnhanceGo(itype: ItemType): void {
         this.spriteSelect(37);
         trace("LUMI ENHANCE");
-        var nextItem: ItemType = ItemType.NOTHING;
+        let nextItem: ItemType = ItemType.NOTHING;
         if (itype == this.consumables.LABOVA_) {
             nextItem = this.consumables.PROBOVA;
         } else if (itype == this.consumables.KANGAFT) {
@@ -276,7 +276,7 @@ export class Lumi extends BaseContent {
         } else if (itype == this.consumables.SDELITE) {
             nextItem = this.consumables.S_DREAM;
         } else if (itype == this.consumables.L_DRAFT) {
-            /*else if(itype == consumables.OVIELIX) {
+            /* else if(itype == consumables.OVIELIX) {
             nextItem = consumables.OVIMAX_;
         } */
             nextItem = this.consumables.F_DRAFT;

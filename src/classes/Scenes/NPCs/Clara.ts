@@ -28,8 +28,8 @@ export class Clara extends Monster {
     // Clara throws a goblin potion, she has the web potion, the lust potion, and the weakening potion
     // should she try to drug them instead?
     protected claraDrugAttack(): void {
-        var temp2: number = Clara.rand(2);
-        var color: string = "";
+        const temp2: number = Clara.rand(2);
+        let color = "";
         if (temp2 == 0) color = "red";
         if (temp2 == 1) color = "black";
         // Throw offensive potions at the player
@@ -149,13 +149,13 @@ export class Clara extends Monster {
         } else if (this.player.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.claraGropesBlindPCs();
         } else {
-            var actions: any[] = [
+            const actions: any[] = [
                 this.eAttack,
                 this.claraDrugAttack,
                 this.claraTeaseAttack,
                 this.claraCastsBlind,
             ];
-            var action: number = Clara.rand(actions.length);
+            const action: number = Clara.rand(actions.length);
             trace("ACTION SELECTED: " + action);
             actions[action]();
         }

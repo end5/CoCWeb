@@ -1,6 +1,6 @@
 import { AbstractLakeContent } from "./AbstractLakeContent";
 import { CockTypesEnum } from "../../../CockTypesEnum";
-import { CoC_Settings } from "../../../CoC_Settings";
+import { CocSettings } from "../../../CoC_Settings";
 import { trace } from "../../../../console";
 import { StatusAffects } from "../../../StatusAffects";
 
@@ -109,7 +109,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     "  On top of that, you are unsure if the thick, foot and a half long appendage would even fit inside of you.",
                     false
                 );
-            this.outputText("\n\n", false); //this line present to ensure proper paragraph structure
+            this.outputText("\n\n", false); // this line present to ensure proper paragraph structure
         }
         // Penises foreplay
         if (this.player.cockTotal() > 0) {
@@ -632,22 +632,22 @@ export class GreenSlimeScene extends AbstractLakeContent {
             );
             // !! PENISTYPE
             switch (this.player.cocks[0].cockType) {
-                case 0: //human cock
+                case 0: // human cock
                     this.outputText("tip", false);
                     break;
-                case 1: //horse cock
+                case 1: // horse cock
                     this.outputText("flared tip", false);
                     break;
-                case 2: //dog cock
+                case 2: // dog cock
                     this.outputText("pointed tip", false);
                     break;
-                case 4: //tentacle cock
+                case 4: // tentacle cock
                     this.outputText("rounded tip", false);
                     break;
                 default:
                     // error text
                     this.outputText("tip", false);
-                    CoC_Settings.error("");
+                    CocSettings.error("");
                     trace("ERROR: Penis type not supported, defaulting to tip.");
                     break;
             }

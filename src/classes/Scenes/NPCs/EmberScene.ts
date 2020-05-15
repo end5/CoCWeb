@@ -108,7 +108,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        var needNext: boolean = false;
+        let needNext = false;
         this.pregnancy.pregnancyAdvance();
         trace(
             "\nEmber time change: Time is " +
@@ -122,7 +122,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.emberPregUpdate()) needNext = true;
             if (this.pregnancy.incubation == 0) {
                 this.emberGivesBirth();
-                this.pregnancy.knockUpForce(); //Clear Pregnancy
+                this.pregnancy.knockUpForce(); // Clear Pregnancy
                 needNext = true;
             }
         }
@@ -205,14 +205,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
     // End of Interface Implementation
 
-    public emberAffection(changes: number = 0): number {
+    public emberAffection(changes = 0): number {
         this.flags[kFLAGS.EMBER_AFFECTION] += changes;
         if (this.flags[kFLAGS.EMBER_AFFECTION] > 100) this.flags[kFLAGS.EMBER_AFFECTION] = 100;
         else if (this.flags[kFLAGS.EMBER_AFFECTION] < 0) this.flags[kFLAGS.EMBER_AFFECTION] = 0;
         return this.flags[kFLAGS.EMBER_AFFECTION];
     }
 
-    private emberCorruption(changes: number = 0): number {
+    private emberCorruption(changes = 0): number {
         this.flags[kFLAGS.EMBER_COR] += changes;
         if (this.flags[kFLAGS.EMBER_COR] > 100) this.flags[kFLAGS.EMBER_COR] = 100;
         else if (this.flags[kFLAGS.EMBER_COR] < 0) this.flags[kFLAGS.EMBER_COR] = 0;
@@ -282,14 +282,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
         // OPTIONS HERE
         // [APPEARANCE]
-        /*Talk (always available)
+        /* Talk (always available)
          Egg (get a dragon egg, available if she has a pussy and received Ovi Elixir before hatching) (unlimited times/day)
          Milk (get dragon milk, available if " + emberMF("he","she") + " has received Lactaid before hatching.) (unlimited times/day)
          Blood (get dragon blood, always available) (1 time/day)
          Sex (have sex, always available)
          Spar (fight Ember)*/
-        var egg = undefined;
-        var milk = undefined;
+        let egg;
+        let milk;
         if (
             this.flags[kFLAGS.EMBER_OVIPOSITION] > 0 &&
             this.flags[kFLAGS.EMBER_GENDER] >= 2 &&
@@ -322,7 +322,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Approach for sex - initial output when selecting [Sex] menu (Z)
-    private emberSexMenu(output: boolean = true): void {
+    private emberSexMenu(output = true): void {
         if (output) {
             this.clearOutput();
             this.outputText(
@@ -410,14 +410,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             else this.outputText('\n\n"<i>Depends... what do you have in mind?</i>"');
         }
 
-        var catchAnal_ = undefined;
-        var pitchAnal = undefined;
-        var blowEmber = undefined;
-        var getBlown = undefined;
-        var eatOut = undefined;
-        var getEatenOut = undefined;
-        var penetrateHer = undefined;
-        var getPenetrated = undefined;
+        let catchAnal_;
+        let pitchAnal;
+        let blowEmber;
+        let getBlown;
+        let eatOut;
+        let getEatenOut;
+        let penetrateHer;
+        let getPenetrated;
         // Display Options:[Catch Anal][Pitch Anal][Blow Ember][Get Blown][Eat Ember Out][Get Eaten Out][Penetrate Her][Get Penetrated][Leave]
         // Scenes that require Ember to have a dick
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
@@ -699,7 +699,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
         // NOT AN EGG! HAHA!
         else {
-            var choice: number = EmberScene.rand(3);
+            const choice: number = EmberScene.rand(3);
             if (choice == 0)
                 this.outputText(
                     "Ember is lying in front of " +
@@ -772,9 +772,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
 
     // For now only Tainted Ember has been written so there's no need to track, but later more types of Ember may be hatched.
     // if Egg's Corruption is:
-    // 0-25	= Pure Ember is Born
-    // 26-74	= Tainted Ember is Born
-    // 75-100	= Corrupted Ember is Born
+    // 0-25 = Pure Ember is Born
+    // 26-74 = Tainted Ember is Born
+    // 75-100 = Corrupted Ember is Born
 
     // if EmberType has been altered, forget corruption. Hybrid forms have no corruption variants.
 
@@ -843,27 +843,27 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou stare at the egg's pulsations as the rhythm shifts slightly.  You feel a tinge of excitement, a distant expectation not your own.  Though curious about what could be inside, you decide nothing more can be done for now."
             );
         }
-        var fap = undefined;
+        let fap;
         if (this.player.lust >= 33) fap = this.masturbateOntoAnEgg;
-        var draft = undefined;
+        let draft;
         if (this.player.hasItem(this.consumables.INCUBID))
             draft = this.createCallBackFunction(this.useIncubusDraftOnEmber, false);
-        var pDraft = undefined;
+        let pDraft;
         if (this.player.hasItem(this.consumables.P_DRAFT))
             pDraft = this.createCallBackFunction(this.useIncubusDraftOnEmber, true);
-        var milk = undefined;
+        let milk;
         if (this.player.hasItem(this.consumables.SUCMILK))
             milk = this.createCallBackFunction(this.useSuccubiMilkOnEmber, false);
-        var pMilk = undefined;
+        let pMilk;
         if (this.player.hasItem(this.consumables.P_S_MLK))
             pMilk = this.createCallBackFunction(this.useSuccubiMilkOnEmber, true);
-        var hair = undefined;
+        let hair;
         if (this.player.hasItem(this.consumables.EXTSERM)) hair = this.hairExtensionSerum;
-        var ovi = undefined;
+        let ovi;
         if (this.player.hasItem(this.consumables.OVIELIX)) ovi = this.useOviElixerOnEmber;
-        var lactaid = undefined;
+        let lactaid;
         if (this.player.hasItem(this.consumables.LACTAID)) lactaid = this.useLactaidOnEmber;
-        var hatch = undefined;
+        let hatch;
         if (
             this.flags[kFLAGS.EMBER_EGG_FLUID_COUNT] >= 5 &&
             this.flags[kFLAGS.EMBER_JACKED_ON] > 0 &&
@@ -951,27 +951,27 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // If PC picks No and qualifies for item use, display the text below.
         // (If player has an item that is valid for application)
-        var fap = undefined;
+        let fap;
         if (this.player.lust >= 33) fap = this.masturbateOntoAnEgg;
-        var draft = undefined;
+        let draft;
         if (this.player.hasItem(this.consumables.INCUBID))
             draft = this.createCallBackFunction(this.useIncubusDraftOnEmber, false);
-        var pDraft = undefined;
+        let pDraft;
         if (this.player.hasItem(this.consumables.P_DRAFT))
             pDraft = this.createCallBackFunction(this.useIncubusDraftOnEmber, true);
-        var milk = undefined;
+        let milk;
         if (this.player.hasItem(this.consumables.SUCMILK))
             milk = this.createCallBackFunction(this.useSuccubiMilkOnEmber, false);
-        var pMilk = undefined;
+        let pMilk;
         if (this.player.hasItem(this.consumables.P_S_MLK))
             pMilk = this.createCallBackFunction(this.useSuccubiMilkOnEmber, true);
-        var hair = undefined;
+        let hair;
         if (this.player.hasItem(this.consumables.EXTSERM)) hair = this.hairExtensionSerum;
-        var ovi = undefined;
+        let ovi;
         if (this.player.hasItem(this.consumables.OVIELIX)) ovi = this.useOviElixerOnEmber;
-        var lactaid = undefined;
+        let lactaid;
         if (this.player.hasItem(this.consumables.LACTAID)) lactaid = this.useLactaidOnEmber;
-        var hatch = undefined;
+        let hatch;
         if (
             this.flags[kFLAGS.EMBER_EGG_FLUID_COUNT] >= 5 &&
             this.flags[kFLAGS.EMBER_JACKED_ON] > 0 &&
@@ -1069,7 +1069,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Incubus Draft/Purified Incubus Draft (Z)
-    private useIncubusDraftOnEmber(purified: boolean = false): void {
+    private useIncubusDraftOnEmber(purified = false): void {
         this.clearOutput();
         if (purified) {
             this.player.consumeItem(this.consumables.P_DRAFT);
@@ -1095,7 +1095,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Succubi Milk/Purified Succubi Milk (Z)
-    private useSuccubiMilkOnEmber(purified: boolean = false): void {
+    private useSuccubiMilkOnEmber(purified = false): void {
         this.clearOutput();
         if (purified) {
             this.player.consumeItem(this.consumables.P_S_MLK);
@@ -1937,7 +1937,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText(
             "You ask Ember to tell you more about " + this.emberMF("his", "her") + " species."
         );
-        var choice: number = EmberScene.rand(5);
+        const choice: number = EmberScene.rand(5);
         if (choice == 0) {
             this.outputText(
                 "\n\nEmber crosses " +
@@ -2056,8 +2056,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     // Exploration (Z)
     private discussExplorationWithEmber(): void {
         this.clearOutput();
-        var choice: number = EmberScene.rand(4);
-        var subChoice: number = 0;
+        const choice: number = EmberScene.rand(4);
+        let subChoice = 0;
         this.outputText(
             "You ask Ember for news of anything interesting " +
                 this.emberMF("he", "she") +
@@ -2240,7 +2240,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     // Talk about Yourself (Z)
     private talkToEmberAboutYourself(): void {
         this.clearOutput();
-        var points: number = 0;
+        let points = 0;
         this.outputText("You ask Ember what " + this.emberMF("he", "she") + " thinks about you.");
         // (Low Affection)
         if (this.emberAffection() <= 25) {
@@ -2937,7 +2937,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // Flag as drinking her blood today!
         this.flags[kFLAGS.DRANK_EMBER_BLOOD_TODAY] = 1;
         // Medium/high get stat boosts!
-        var stat: number = EmberScene.rand(4);
+        const stat: number = EmberScene.rand(4);
         if (stat == 0) this.dynStats("str", 1);
         else if (stat == 1) this.dynStats("tou", 1);
         else if (stat == 2) this.dynStats("spe", 1);
@@ -3032,8 +3032,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
 
     // TF messages (Z)
     private emberTFs(): void {
-        var changes: number = 0;
-        var changeLimit: number = 2;
+        let changes = 0;
+        const changeLimit = 2;
         // Gain Dragon Dick
         if (
             changes < changeLimit &&
@@ -3041,8 +3041,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             EmberScene.rand(3) == 0
         ) {
             this.temp = 0;
-            var choices: any[] = [];
-            var select: number;
+            const choices: any[] = [];
             this.temp = this.player.cockTotal();
             // Build an array of all the locations for TF'able cocks.
             while (this.temp > 0) {
@@ -3051,7 +3050,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     choices[choices.length] = this.temp;
             }
             // Randomly choose one of those locations
-            select = choices[EmberScene.rand(choices.length)];
+            const select: number = choices[EmberScene.rand(choices.length)];
             this.outputText(
                 "\n\nYour " +
                     this.cockDescript(select) +
@@ -5454,8 +5453,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(".");
-        var x: number = this.player.biggestCockIndex();
-        var y: number = x + 1;
+        const x: number = this.player.biggestCockIndex();
+        const y: number = x + 1;
         if (this.player.cockTotal() > 1) {
             this.outputText(
                 "  " +
@@ -5838,7 +5837,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " suckles on the fingers of the other."
         );
 
-        var x: number = this.player.cockThatFits(this.emberAnalCapacity());
+        let x: number = this.player.cockThatFits(this.emberAnalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
 
         this.outputText(
@@ -6256,7 +6255,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     this.emberMF("his", "her") +
                     " cheeks, forced out by the tumble, and the dragon freezes in place.  You smile wryly.  "
             );
-            /*OLD
+            /* OLD
              \"<i>Asshole!  Bite me!</i>\" " + emberMF("he","she") + " shrieks, turning hurriedly toward the stream.");
              outputText("\n\nWhat a " + emberMF("bastard","bitch") + ".");*/
             // New
@@ -6753,7 +6752,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             " off your [armor] until you are standing naked before her, letting her see what you have to offer in terms of phallic delights."
         );
 
-        var x: number;
+        let x: number;
         // var y: number;
         // If the PC is too big
         if (this.player.cockThatFits(this.emberVaginalCapacity()) == -1) {
@@ -7917,7 +7916,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.player.orgasm();
         this.dynStats("sen", -2);
         // Preg shit goez hurdur
-        this.player.knockUp(PregnancyStore.PREGNANCY_EMBER, PregnancyStore.INCUBATION_EMBER, 0); //Will always impregnate unless contraceptives are in use
+        this.player.knockUp(PregnancyStore.PREGNANCY_EMBER, PregnancyStore.INCUBATION_EMBER, 0); // Will always impregnate unless contraceptives are in use
         this.player.createStatusAffect(StatusAffects.EmberFuckCooldown, 36, 0, 0, 0);
         this.doNext(
             this.createCallBackFunction(
@@ -7932,7 +7931,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         // Silently steal her virginity.
         this.flags[kFLAGS.EMBER_PUSSY_FUCK_COUNT]++;
-        var x: number = this.player.cockThatFits(this.emberVaginalCapacity());
+        let x: number = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "Ember catches you and rolls you around, pinning you to the ground under her.  She smiles at you seductively and reaches down to stroke your " +
@@ -8136,11 +8135,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Bred/Breeding Aftermath
-    private emberBreedingAfterMathWatchOutForRadioactiveFallout(
-        emberPregged: boolean = true
-    ): void {
+    private emberBreedingAfterMathWatchOutForRadioactiveFallout(emberPregged = true): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.emberVaginalCapacity());
+        let x: number = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You wake up, feeling replenished after your exhausting mating session with your draconic lover, and stretch the last few kinks out.  As you do, you realize you're in still in your tent, which is perfectly clean, with no trace of the copious sexual fluids that you and Ember were splattering everywhere before you took your impromptu nap."
@@ -8373,7 +8370,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 return true;
             default:
         }
-        return false; //If there's no update then return false so needNext is not set to true
+        return false; // If there's no update then return false so needNext is not set to true
     }
 
     public emberGivesBirth(): void {
@@ -8441,7 +8438,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outputText("n anthro dragon");
             else this.outputText(" hybrid of human and dragon");
             this.outputText(".  It's a beautiful strong, healthy little ");
-            var roll: number = EmberScene.rand(100);
+            const roll: number = EmberScene.rand(100);
             if (roll < 40) this.outputText("boy");
             else if (roll < 80) this.outputText("girl");
             else this.outputText("herm");
@@ -8600,7 +8597,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     public giveBirthToEmberKids(): void {
-        var roll: number = EmberScene.rand(100);
+        const roll: number = EmberScene.rand(100);
         this.outputText("\n");
         // PC Gives Live Birth
         if (this.flags[kFLAGS.EMBER_OVIPOSITION] == 0) {
@@ -8984,7 +8981,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
 
     private highAffectionEmberLustFuck(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.emberVaginalCapacity());
+        let x: number = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "You strip your [armor] and watch Ember as " +
@@ -9821,7 +9818,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     // [=Yes=]
     private stayWithEmberAfterLustFuck(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(this.emberVaginalCapacity());
+        let x: number = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             "With a smile, you tell " +
@@ -9919,8 +9916,8 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Frotting:
-    private frottingWithEmber(clear: boolean = true): void {
-        var x: number = this.player.biggestCockIndex();
+    private frottingWithEmber(clear = true): void {
+        const x: number = this.player.biggestCockIndex();
         if (clear) this.clearOutput();
         else this.outputText("\n\n");
         this.outputText(
@@ -10053,10 +10050,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Penetrate:
-    private penetrateWithEmber(clear: boolean = true): void {
+    private penetrateWithEmber(clear = true): void {
         if (clear) this.clearOutput();
         else this.outputText("\n\n");
-        var x: number = this.player.cockThatFits(this.emberVaginalCapacity());
+        let x: number = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outputText(
             '"<i>Go on.</i>"  She moves her arms around you and into a hug.  "<i>Enter me.</i>"  With no further prelude needed, you slide yourself into the damp interior of her cunt, the organ eagerly accepting you back for the fourth time.'

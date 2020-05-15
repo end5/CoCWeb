@@ -32,7 +32,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
     public timeChange(): boolean {
         this.pregnancy.pregnancyAdvance();
         if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0)
-            this.pregnancy.knockUpForce(); //Silently clear the spider morph's pregnancy if the player doesn't see the egg sac in time
+            this.pregnancy.knockUpForce(); // Silently clear the spider morph's pregnancy if the player doesn't see the egg sac in time
         trace(
             "\nFemale Spidermorph time change: Time is " +
                 this.model.time.hours +
@@ -183,7 +183,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
                 false
             );
             // (Start combat and immediately call a web attack)
-            var femaleSpiderMorph: FemaleSpiderMorph = new FemaleSpiderMorph();
+            const femaleSpiderMorph: FemaleSpiderMorph = new FemaleSpiderMorph();
             this.startCombat(femaleSpiderMorph);
             femaleSpiderMorph.spiderMorphWebAttack();
         }
@@ -508,7 +508,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         // *SUMMARY:  PC is tied down and has a web-condom sprayed around their dick, then a webbing cock-ring.  The PC is then ridden hard, bit numerous times, and never able to cum until pain lances through his (balls/cock) from the lack of release.  Finally, she bites PC's neck and the PC cums, inflating web-condom of various size.
         this.outputText("", true);
         this.spriteSelect(73);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
         // (Noncombat Intro:)
         if (!this.getGame().inCombat) {
@@ -736,7 +736,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
     private femaleSpiderMorphTooBigWebRape(): void {
         this.outputText("", true);
         this.spriteSelect(73);
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
         // (Consensual)
         if (!this.getGame().inCombat) {
@@ -963,9 +963,9 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         else this.outputText(", too wounded to fight back or run away.", false);
         if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText("\n\nWhat do you do to her?", false);
-            var scissor = undefined;
-            var pussyFuck = undefined;
-            var analFuck = undefined;
+            let scissor;
+            let pussyFuck;
+            let analFuck;
             if (this.player.hasVagina()) scissor = this.fSpiderMorphRape;
             if (this.player.hasCock()) {
                 if (this.player.cockThatFits(this.monster.vaginalCapacity()) != -1)
@@ -1158,7 +1158,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
     // *Victory Male
     // Summary:  Bind her hands with vines and fuck the immobilized spider-girl. BORING
     private fSpiderMorphRapeDude(): void {
-        var x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let x: number = this.player.cockThatFits(this.monster.vaginalCapacity());
         if (x < 0) x = 0;
         this.outputText("", true);
         this.spriteSelect(73);
@@ -1294,7 +1294,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
         this.pregnancy.knockUpForce(
             PregnancyStore.PREGNANCY_PLAYER,
             PregnancyStore.INCUBATION_SPIDER - 200
-        ); //Spiders carry for half as long as the player does for some reason
+        ); // Spiders carry for half as long as the player does for some reason
         if (!this.getGame().inCombat) this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
     }
@@ -1302,9 +1302,9 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
     // *Victory Anal:
     // Summary: Fuck her ass until she loses control of her spinnerets and starts spraying webs willy-nilly.
     private evilSpiderGirlVictoryAnal(): void {
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x == -1) x = 0;
-        var y: number = this.player.cockThatFits2(this.monster.analCapacity());
+        const y: number = this.player.cockThatFits2(this.monster.analCapacity());
         this.outputText("", true);
         this.spriteSelect(73);
         this.outputText(
@@ -1442,7 +1442,7 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
             this.pregnancy.knockUpForce(
                 PregnancyStore.PREGNANCY_PLAYER,
                 PregnancyStore.INCUBATION_SPIDER - 200
-            ); //Spiders carry for half as long as the player does for some reason
+            ); // Spiders carry for half as long as the player does for some reason
         this.player.orgasm();
         if (!this.getGame().inCombat) this.doNext(this.camp.returnToCampUseOneHour);
         else this.cleanupAfterCombat();
@@ -1461,11 +1461,11 @@ export class FemaleSpiderMorphScene extends BaseContent implements TimeAwareInte
             "You're left scratching your head when you realize they were your own children, birthed by the spider-morph you fucked not so long ago.\n\n",
             false
         );
-        this.pregnancy.knockUpForce(); //Clear Spidermorph pregnancy
+        this.pregnancy.knockUpForce(); // Clear Spidermorph pregnancy
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    /*Joke Shit
+    /* Joke Shit
 
      \"<i>PIZZA,</i>\" she suddenly screams, wrapping you and picking you up.  You can't even tell where you're going, but you eventually end up at a cave, and she promptly goes in.  Propping you up on the wall like some sort of ornament, the spider-girl moves away from you, preheating her oven and choosing a pizza to cook.  As you know, preheating takes quite a while, so she heads over to her computer chair and plops down, booting up Team Fortress 2 for a bit of jumpin' and shootin'.  \"<i>NO CAT GOD DAMN IT,</i>\" she screams as a demonic-looking feline leaps upon her keyboard from on high.  \"<i>CAT YOU ARE THE WORST CAT.</i>\"  Of course, the cat does not even take heed of her outbursts, stomping around the keyboard and hitting literally every key.  The cat then lies comfortably, taking no heed of the girl's hands still attempting to type, and takes a nap.  While you can tell the spider-girl is upset with the obstruction, she makes no move to remove the cat.  You guess it was too cute for her to get upset with it.  The oven's ready, so she rises (taking precautions against waking the cat, of course) and puts a pizza in.  Delicious.
      Oh god what...

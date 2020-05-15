@@ -507,7 +507,7 @@ export class Gnoll extends Monster {
 // if(temperment == 0) eGrappleRetreat();
                         if (temperment == 1) {
                             //
-// 	if(lust < 50) eGrappleRetreat();
+//  if(lust < 50) eGrappleRetreat();
                             doNext(3);
                         }
                         outputText("Lust Placeholder!!", false);

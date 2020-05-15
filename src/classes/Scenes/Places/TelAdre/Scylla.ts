@@ -6,19 +6,19 @@ import { StatusAffects } from "../../../StatusAffects";
 import { TelAdreAbstractContent } from "./TelAdreAbstractContent";
 
 export class Scylla extends TelAdreAbstractContent {
-    public static SCYLLA_NOT_PRESENT: number = 0;
-    public static SCYLLA_ACTION_FIRST_TALK: number = 1;
-    public static SCYLLA_ACTION_ROUND_TWO: number = 2;
-    public static SCYLLA_ACTION_ROUND_THREE: number = 3;
-    public static SCYLLA_ACTION_ROUND_FOUR: number = 4;
-    public static SCYLLA_ACTION_MEET_CATS: number = 5;
-    public static SCYLLA_ACTION_ADICTS_ANON: number = 6;
-    public static SCYLLA_ACTION_FLYING_SOLO: number = 7;
-    public static SCYLLA_ACTION_FUCKING_URTA: number = 8;
-    public static SCYLLA_ACTION_FURRY_FOURSOME: number = 9;
+    public static SCYLLA_NOT_PRESENT = 0;
+    public static SCYLLA_ACTION_FIRST_TALK = 1;
+    public static SCYLLA_ACTION_ROUND_TWO = 2;
+    public static SCYLLA_ACTION_ROUND_THREE = 3;
+    public static SCYLLA_ACTION_ROUND_FOUR = 4;
+    public static SCYLLA_ACTION_MEET_CATS = 5;
+    public static SCYLLA_ACTION_ADICTS_ANON = 6;
+    public static SCYLLA_ACTION_FLYING_SOLO = 7;
+    public static SCYLLA_ACTION_FUCKING_URTA = 8;
+    public static SCYLLA_ACTION_FURRY_FOURSOME = 9;
 
-    private scyllaAction: number = 0;
-    private scyllaLastActionSelectionTime: number = 0;
+    private scyllaAction = 0;
+    private scyllaLastActionSelectionTime = 0;
     public get action(): number {
         return this.scyllaAction;
     }
@@ -35,7 +35,7 @@ export class Scylla extends TelAdreAbstractContent {
     public scyllaBarSelectAction(): void {
         // This allows Scylla's activity at the bar to be determined before any description of what Kath and Urta be doing.
         // Required because Scylla's behaviour in the bar is partly random, so you can't just check flags to see what she's up to.
-        if (this.model.time.totalTime == this.scyllaLastActionSelectionTime) return; //Only choose action once per visit to the bar
+        if (this.model.time.totalTime == this.scyllaLastActionSelectionTime) return; // Only choose action once per visit to the bar
         this.scyllaLastActionSelectionTime = this.model.time.totalTime;
         this.scyllaAction = Scylla.SCYLLA_NOT_PRESENT;
         if (
@@ -89,12 +89,12 @@ export class Scylla extends TelAdreAbstractContent {
                 }
             }
             // All the following conditions are needed to see if she's fucking Urta
-            if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] < 3) return; //Minimum Scylla meetings for Urta to fuck her
+            if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] < 3) return; // Minimum Scylla meetings for Urta to fuck her
             if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00147] == 1 &&
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00145] == 1
             )
-                return; //Together these are the 'No more Scylla' flag
+                return; // Together these are the 'No more Scylla' flag
             if (
                 !this.getGame().urta.urtaAtBar() ||
                 this.flags[kFLAGS.URTA_ANGRY_AT_PC_COUNTDOWN] > 0
@@ -109,10 +109,10 @@ export class Scylla extends TelAdreAbstractContent {
             // She only fucks Scylla if she's horny and you've fucked her enough to make her comfortable
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00143] == 0) {
                 // Never fucked Scylla before
-                if (!this.getGame().urta.urtaDrunk()) return; //So she has to be drunk
-            } else if (this.getGame().urta.urtaDrunk() && this.player.balls == 0) return; //Otherwise she has to be sober and you need to have balls (I'm not sure why, but it is so)
+                if (!this.getGame().urta.urtaDrunk()) return; // So she has to be drunk
+            } else if (this.getGame().urta.urtaDrunk() && this.player.balls == 0) return; // Otherwise she has to be sober and you need to have balls (I'm not sure why, but it is so)
             if (this.telAdre.katherine.needIntroductionFromScylla()) return;
-            if (Scylla.rand(3) == 0) this.scyllaAction = Scylla.SCYLLA_ACTION_FUCKING_URTA; //And after all that there's still just a 1/3 chance it will happen
+            if (Scylla.rand(3) == 0) this.scyllaAction = Scylla.SCYLLA_ACTION_FUCKING_URTA; // And after all that there's still just a 1/3 chance it will happen
             // Yay, Foursomes! - unless you're Scylla special
             if (
                 Scylla.rand(2) == 0 &&
@@ -202,7 +202,7 @@ export class Scylla extends TelAdreAbstractContent {
     private helpScylla(): void {
         this.scyllaSprite();
         this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA]++;
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         this.outputText(this.images.showImage("scylla-first-help"), false);
         this.outputText(
@@ -938,7 +938,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.scyllaSprite();
         this.hideUpDown();
         this.player.orgasm();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
         this.outputText(
             "When you break your second kiss, tummy full of Scylla's cream, you find yourself entrapped by her mammoth chest. The stimulation of your nursing seems to have caused her tits to overcompensate, inflating with milk far in excess to what your small stomach could drain. You are literally encased between her breasts, the pliant but firm flesh engulfing everything from your shoulders down in her snug cleavage. You shift uncomfortably for a moment, until you realize not all of your body has shrunk. You shift, no longer able to resist your erection's pressure, and shed your " +
@@ -1003,7 +1003,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.player.orgasm();
         this.dynStats("lib", 1, "sen", 1);
         this.outputText("", true);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "Scrambling up and out of your titty cocoon, you pull your tiny body onto the top of her jiggling mounds. Scylla laughs at the feeling of having you crawl over her body, and watches your progress with amusement as she lazily slurps down your slowing loads. With an expression of ecstatic agony, you buck your hips in an attempt to fuck the nun's face without any leverage. The cum on her body makes your perch slippery, however, and you begin to slide backward before she catches you with sure hands and draws you closer. Each time you thrust, she pulls you a little closer, a few more inches of your " +
                 this.cockDescript(x) +
@@ -1161,7 +1161,7 @@ export class Scylla extends TelAdreAbstractContent {
             this.scyllaPtVLeave
         );
     }
-    // [Nun]	(Repeat)
+    // [Nun] (Repeat)
     private scyllaPtVRepeat(): void {
         this.scyllaSprite();
         this.outputText("", true);
@@ -1183,7 +1183,7 @@ export class Scylla extends TelAdreAbstractContent {
             this.scyllaPtVLeave
         );
     }
-    // [Leave]	(First time and Repeat)
+    // [Leave] (First time and Repeat)
     private scyllaPtVLeave(): void {
         this.scyllaSprite();
         this.flags[kFLAGS.TIMES_MET_SCYLLA_IN_ADDICTION_GROUP]++;
@@ -1199,7 +1199,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.doNext(this.telAdre.barTelAdre);
     }
 
-    // [Take Advantage]	(First time and Repeat)
+    // [Take Advantage] (First time and Repeat)
     private scyllaPtVTakeAdvantage(): void {
         this.scyllaSprite();
         if (
@@ -1226,7 +1226,7 @@ export class Scylla extends TelAdreAbstractContent {
         if (this.player.cor < 30) this.dynStats("cor", 2);
         if (this.player.cor < 60) this.dynStats("cor", 1);
 
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         this.outputText(
             "You decide this is too good to pass up, so you step away and duck into an empty room. You whip out your " +
@@ -1467,7 +1467,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    // [Share]	(First time)
+    // [Share] (First time)
     private scyllaPtVShare(): void {
         this.scyllaSprite();
         this.outputText("", true);
@@ -1488,7 +1488,7 @@ export class Scylla extends TelAdreAbstractContent {
                 false
             );
         }
-        // [Share]	(Repeat)
+        // [Share] (Repeat)
         else {
             this.outputText(
                 "You knock on the door and poke your head in. As they look up, you see an empty chair's been pulled up to the table this time. It seems they were expecting - or perhaps hoping - you'd come again. Abylon still wears her carefully crafted mask of mocking apathy, but you think you catch a glimmer in her eyes that even she's not fully aware of. She scratches the tip of her nose and tosses you a curt 'hey' gesture with her wrist. Pastie is already wasted, but only on liquor. Is it just your imagination, or are the fairy's crystalline clothes a little sluttier than they were last time? Scylla seems happy to see you, though there are little crinkles of need at the edges of her smile.\n\n",
@@ -1506,22 +1506,22 @@ export class Scylla extends TelAdreAbstractContent {
         this.flags[kFLAGS.TIMES_MET_SCYLLA_IN_ADDICTION_GROUP]++;
         this.outputText("What addiction would you like to discuss?", false);
         // Set choices
-        var milk = undefined;
+        let milk;
         if (
             (this.player.findPerk(PerkLib.MarblesMilk) >= 0 ||
                 this.player.statusAffectv3(StatusAffects.Marble) > 0) &&
             this.player.findPerk(PerkLib.MarbleResistant) < 0
         )
             milk = this.scyllaPtVMilk;
-        var cum = undefined;
+        let cum;
         if (
             this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_TRACKER] >= 50 ||
             this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0
         )
             cum = this.scyllaPtVCum;
-        var sex = undefined;
+        let sex;
         if (this.player.lib >= 85 || this.player.minLust() >= 20) sex = this.scyllaPtVSex;
-        var tentacles = undefined;
+        let tentacles;
         if (this.player.tentacleCocks() >= 2) tentacles = this.shareTentaclesWithScylla;
         // CHOOSE HERE
         this.simpleChoices(
@@ -1546,7 +1546,7 @@ export class Scylla extends TelAdreAbstractContent {
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
-    // [Marble's Milk]	(First time and Repeat)
+    // [Marble's Milk] (First time and Repeat)
     private scyllaPtVMilk(): void {
         this.scyllaSprite();
         this.flags[kFLAGS.SCYLLA_MILK_THERAPY_TIMES]++;
@@ -1689,7 +1689,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    // [Share- Minotaur cum]	(First time and Repeat)
+    // [Share- Minotaur cum] (First time and Repeat)
     private scyllaPtVCum(): void {
         this.scyllaSprite();
         this.outputText("", true);
@@ -1723,7 +1723,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.scyllaSprite();
         this.outputText("", true);
         this.outputText(this.images.showImage("scylla-help-round-five-jizz-pt-two"), false);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             '"<i>I\'ll prove it,</i>" Abby says, hopping down from her chair. "<i>We\'ll roleplay. You be the minotaur,</i>" she points at you, "<i>an I\'ll be the Champion. Come on, stand up, ya schlub. Good, now put your fingers on the sides of yer head like horns.</i>" You numbly follow her directions, unsure if you should be insulted or not. "<i>Great. Gimme a dumb cow-snort. Yer a minotaur and all ya do is fight and fuck all day. Ya don\'t know any better.</i>" You snort, a little embarrassed. "<i>Here I come, walkin\' through the mountains, tryin\' ta rescue virgins an fight demons, when bam - you jump out!</i>" She pantomimes surprise. "<i>I reach for my weapon but yer too fast, so ya knock me down and grab me.</i>" Abylon spins in place as if struck, and collapses face-down, her plump rear sticking up and wiggling back and forth invitingly. "<i>Come on, doofus, ya gotta grab me.</i>" You bend down and seize the goblin by her shoulders, hoisting her up into the air in front of you, her scarlet braid flapping in your face. "<i>Oh no, woe is me, whatever am I ta do?</i>" she theatrically asks the girls she\'s facing.\n\n',
             false
@@ -1752,7 +1752,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.scyllaSprite();
         this.outputText("", true);
         this.outputText(this.images.showImage("scylla-help-round-five-jizz-pt-three"), false);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "Before Abby can give you another kick, you slide your hands down to her hips and jerk downwards as you thrust up with all your might. The goblin bites her tongue in surprise as your cock plows past her labia and splits her cunny wide. Her lithe body distends wildly, abdomen and stomach bloating well past her hips as you impale the girl on your mast. Her legs spasm, toes curling as you fill her cunt to the cervix and, with a brutal snort, you ram past, into her womb. The bulge of your " +
                 this.cockDescript(x) +
@@ -1796,7 +1796,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.scyllaSprite();
         this.outputText("", true);
         this.outputText(this.images.showImage("scylla-help-round-five-jizz-pt-four"), false);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         // [2 DICKS]
         if (this.player.totalCocks() >= 2) {
             if (this.player.balls > 0)
@@ -1890,7 +1890,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    // [Sex Addiction]	(minimum lust at least 20 or current libido at 85)(First time and Repeat)
+    // [Sex Addiction] (minimum lust at least 20 or current libido at 85)(First time and Repeat)
     private scyllaPtVSex(): void {
         this.scyllaSprite();
         this.outputText("", true);
@@ -1934,7 +1934,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.scyllaSprite();
         this.outputText("", true);
         this.outputText(this.images.showImage("scylla-help-round-five-sex-pt-two"), false);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "Scylla gasps in alarm. \"<i>Pastie, please stop! This isn't what I meant at all! Oh, " +
                 this.player.short +
@@ -1964,7 +1964,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.outputText("", true);
         this.outputText(this.images.showImage("scylla-help-round-five-sex-pt-three"), false);
         this.scyllaSprite();
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You take a deep breath, shake your head, and set the goblin's feet back on the floor. She moans in desperate disappointment until you bring your hand back and give her a slap across her plump butt. She shrieks through her stuffed mouth and her legs nearly give out. The goblin girl is forced to grab onto the edge of the table for support. She bends down, presenting her rump to you once more. You spit on your palm and smack her again, green ass flushing at the crack your hand makes. Her eyes roll up in her head while she clenches and unclenches her hams uncontrollably. Pastie, meanwhile, feels the vibrations of your spanking, gurgling as the jiggling goblin nipple jills her tiny clit into a clenching orgasm. She loses control of her wings and starts to fall down, but her crushing cunt latches her onto Abby's tit, and she's left hanging, legs up, like a moaning, crystal nipple piercing.\n\n",
             false
@@ -2198,13 +2198,13 @@ export class Scylla extends TelAdreAbstractContent {
         this.outputText(this.images.showImage("scylla-help-round-five-multi-cock-four"), false);
 
         // Array of all possible scenes
-        var blah: any[] = new Array(0);
+        const blah: any[] = new Array(0);
         // Add possible scenes to array
         if (this.player.totalCocks() >= 4) blah.push(4);
         if (this.player.tentacleCocks() > 0) blah.push(5);
         if (this.player.demonCocks() > 0) blah.push(6);
         // Pick an available scene and store it in select.
-        var select: number = blah[Scylla.rand(blah.length)];
+        const select: number = blah[Scylla.rand(blah.length)];
 
         // [If the player has 4 dicks]
         if (select == 4) {
@@ -2383,7 +2383,7 @@ export class Scylla extends TelAdreAbstractContent {
                 false
             );
             // [Yell]      [Wait]    [Kick Ass (Super high str only)]
-            var kickass = undefined;
+            let kickass;
             if (this.player.str >= 85) kickass = this.lactateAndKickAss;
             this.simpleChoices(
                 "Yell",
@@ -2415,8 +2415,8 @@ export class Scylla extends TelAdreAbstractContent {
                 false
             );
 
-            var submit = undefined;
-            var rapeWorld = undefined;
+            let submit;
+            let rapeWorld;
             if (this.flags[kFLAGS.KATHERINE_UNLOCKED] < 1) {
                 if (this.player.hasVagina()) submit = this.Scylla6NoMilkSubmit;
                 rapeWorld = this.Scylla6NoMilkRAPETHEWORLD;

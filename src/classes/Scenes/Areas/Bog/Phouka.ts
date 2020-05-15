@@ -21,7 +21,7 @@ import { PhoukaScene } from "./PhoukaScene";
 
 export class Phouka extends Monster {
     protected phoukaFightAttack(): void {
-        var damage: number;
+        let damage: number;
         // Only the bunny, goat and horse forms make physical attacks
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Phouka.rand(3) < 1) {
             this.outputText(
@@ -29,7 +29,7 @@ export class Phouka extends Monster {
                 false
             );
         } else if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_BUNNY) {
-            damage = Math.round(60 + 30 + 10 - Phouka.rand(this.player.tou) - this.player.armorDef); //60 == Bunny Strength, 30 == Bunny Weapon Attack
+            damage = Math.round(60 + 30 + 10 - Phouka.rand(this.player.tou) - this.player.armorDef); // 60 == Bunny Strength, 30 == Bunny Weapon Attack
             this.outputText(
                 "The bunny morph hops towards you.  At the last second he changes direction and throws a kick toward you with his powerful hind legs."
             );
@@ -53,7 +53,7 @@ export class Phouka extends Monster {
                 this.outputText("\nThe kick connects and leaves you reeling.");
             }
         } else if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_GOAT) {
-            damage = Math.round(80 + 40 + 10 - Phouka.rand(this.player.tou) - this.player.armorDef); //80 == Goat Strength, 40 == Goat Weapon Attack
+            damage = Math.round(80 + 40 + 10 - Phouka.rand(this.player.tou) - this.player.armorDef); // 80 == Goat Strength, 40 == Goat Weapon Attack
             this.outputText("The goat morph races toward you, head down.");
             if (
                 this.combatMiss() ||
@@ -76,7 +76,7 @@ export class Phouka extends Monster {
             }
         } else {
             // HORSE
-            damage = Math.round(95 + 55 + 10 - Phouka.rand(this.player.tou) - this.player.armorDef); //95 == Horse Strength, 55 == Horse Weapon Attack
+            damage = Math.round(95 + 55 + 10 - Phouka.rand(this.player.tou) - this.player.armorDef); // 95 == Horse Strength, 55 == Horse Weapon Attack
             this.outputText(
                 "The stallion charges you, clearly intending to trample you under its hooves."
             );
@@ -191,26 +191,26 @@ export class Phouka extends Monster {
             this.outputText(
                 "The ball smacks into your face like a wet snowball.  It covers most of your nose and mouth with a layer of sticky, salty mud which makes it hard to breathe.  You'll be unable to use your magic while you're struggling for breath!\n"
             );
-            this.player.createStatusAffect(StatusAffects.WebSilence, 0, 0, 0, 0); //Probably safe to reuse the same status affect as for the spider morphs
+            this.player.createStatusAffect(StatusAffects.WebSilence, 0, 0, 0, 0); // Probably safe to reuse the same status affect as for the spider morphs
         }
         this.combatRoundOver();
     }
 
     protected performCombatAction(): void {
-        var blinded: boolean = this.findStatusAffect(StatusAffects.Blind) >= 0;
+        const blinded: boolean = this.findStatusAffect(StatusAffects.Blind) >= 0;
         if (
             !blinded &&
             this.player.findStatusAffect(StatusAffects.WebSilence) < 0 &&
             Phouka.rand(4) == 0
         ) {
-            this.phoukaTransformToPhouka(); //Change to faerie form so that it can lob the ball of muck at you
+            this.phoukaTransformToPhouka(); // Change to faerie form so that it can lob the ball of muck at you
             this.phoukaFightSilence();
         } else {
-            var transformChance: number = Phouka.rand(9); //2 in 3 chance of staying in current form
+            let transformChance: number = Phouka.rand(9); // 2 in 3 chance of staying in current form
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE) {
                 if (blinded) transformChance = Phouka.rand(3);
                 // 100% chance of change from blind phouka if not doing silence attack
-                else transformChance = Phouka.rand(4); //75% chance of change from phouka if not doing silence attack
+                else transformChance = Phouka.rand(4); // 75% chance of change from phouka if not doing silence attack
             }
             switch (transformChance) {
                 case 0:
@@ -294,7 +294,7 @@ export class Phouka extends Monster {
     }
 
     protected phoukaTransformToBunny(): void {
-        if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_BUNNY) return; //Already a bunny, so no change
+        if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_BUNNY) return; // Already a bunny, so no change
         if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE) {
             this.outputText(
                 "The faerie suddenly drops out of the air.  A look of concentration sets in on its face and it begins to expand and warp.  You blink and see that in front of you there is now a 5 foot tall bunny morph.\n\n"
@@ -319,7 +319,7 @@ export class Phouka extends Monster {
     }
 
     protected phoukaTransformToGoat(): void {
-        if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_GOAT) return; //Already a goat, so no change
+        if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_GOAT) return; // Already a goat, so no change
         if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE) {
             this.outputText(
                 "The faerie suddenly drops out of the air.  A look of concentration sets in on its face and it begins to expand and warp.  You blink and see that in front of you there is now a 4 foot tall goat morph.\n\n"
@@ -344,7 +344,7 @@ export class Phouka extends Monster {
     }
 
     protected phoukaTransformToHorse(): void {
-        if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE) return; //Already a horse, so no change
+        if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE) return; // Already a horse, so no change
         if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE) {
             this.outputText(
                 "The faerie suddenly drops out of the air.  A look of concentration sets in on its face and it begins to grow larger and larger.  You watch amazed as the creature's form stretches.  Finally it seems unable to grow further and settles into the form of a massive stallion.\n\n"
@@ -369,7 +369,7 @@ export class Phouka extends Monster {
     }
 
     protected phoukaTransformToPhouka(): void {
-        if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE) return; //Already a faerie, so no change
+        if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE) return; // Already a faerie, so no change
         if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_BUNNY) {
             this.outputText(
                 "The bunny morph hops back from you and starts to melt and shrink.  In seconds only a tiny faerie is left floating in the air where the bunny once was.\n\n"
@@ -434,7 +434,7 @@ export class Phouka extends Monster {
                     this.short +
                     " took your only gem."
             );
-        return 1; //Only use up one hour after combat loss
+        return 1; // Only use up one hour after combat loss
     }
 
     public constructor(phoukaName: string) {
@@ -492,7 +492,7 @@ export class Phouka extends Monster {
             .add(this.consumables.P_WHSKY, 35)
             .add(undefined, 20);
 
-        this.wingType = WING_TYPE_GIANT_DRAGONFLY; //Maybe later, if the PC can get them, make a Faerie wing type.
+        this.wingType = WING_TYPE_GIANT_DRAGONFLY; // Maybe later, if the PC can get them, make a Faerie wing type.
         this.wingDesc = "small black faerie wings";
         this.checkMonster();
     }

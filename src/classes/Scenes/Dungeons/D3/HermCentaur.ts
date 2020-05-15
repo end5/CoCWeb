@@ -5,6 +5,7 @@ import { Monster } from "../../../Monster";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class HermCentaur extends Monster {
@@ -63,14 +64,14 @@ export class HermCentaur extends Monster {
     // we would normally use StatusAffects for, in instances where the only thing that will care
     // about those Affects are the user/consumer of them.
 
-    private _usedGottaCum: boolean = false;
-    private _usedHeal: boolean = false;
+    private _usedGottaCum = false;
+    private _usedHeal = false;
 
-    private _chargingArouse: boolean = false;
-    private _lustAtChargeStart: number = -1;
-    private _arouseCooldown: number = 0;
+    private _chargingArouse = false;
+    private _lustAtChargeStart = -1;
+    private _arouseCooldown = 0;
 
-    private _hypnoCockUses: number = 0;
+    private _hypnoCockUses = 0;
 
     protected performCombatAction(): void {
         this._arouseCooldown--;
@@ -82,7 +83,7 @@ export class HermCentaur extends Monster {
         else if (HermCentaur.rand(this.lust) >= 40) this.hypnoCock();
         else {
             // Selections
-            var opts: any[] = [this.feminineMusk, this.aphrodisiacSquirt];
+            const opts: any[] = [this.feminineMusk, this.aphrodisiacSquirt];
             if (!this._chargingArouse && this._arouseCooldown <= 0)
                 opts.push(this.arouseSpellCharge);
 

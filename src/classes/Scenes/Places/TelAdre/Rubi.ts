@@ -100,7 +100,7 @@ export class Rubi extends TelAdreAbstractContent {
     private rubiIncubus(): boolean {
         return this.flags[kFLAGS.RUBI_INCUBUS_PROGRESS] == 3;
     }
-    public rubiAffection(delt: number = 0): number {
+    public rubiAffection(delt = 0): number {
         if (delt == 0) return this.flags[kFLAGS.RUBI_AFFECTION];
         this.flags[kFLAGS.RUBI_AFFECTION] += delt;
         if (this.flags[kFLAGS.RUBI_AFFECTION] > 100) this.flags[kFLAGS.RUBI_AFFECTION] = 100;
@@ -108,8 +108,8 @@ export class Rubi extends TelAdreAbstractContent {
         return this.flags[kFLAGS.RUBI_AFFECTION];
     }
 
-    public rubiCock(lust: number = 50): string {
-        var cumQ: number = 300;
+    public rubiCock(lust = 50): string {
+        let cumQ = 300;
         if (this.flags[kFLAGS.RUBI_BLU_BALLS] < 4) {
             cumQ = 10;
         } else if (this.flags[kFLAGS.RUBI_BLU_BALLS] <= 6) {
@@ -128,7 +128,7 @@ export class Rubi extends TelAdreAbstractContent {
         return this.flags[kFLAGS.RUBI_COCK_TYPE];
     }
     public rubiBreasts(): string {
-        var ret: string = "pair of ";
+        let ret = "pair of ";
 
         if (this.flags[kFLAGS.RUBI_BREAST_SIZE] < 1) ret = "chest";
         else {
@@ -143,7 +143,7 @@ export class Rubi extends TelAdreAbstractContent {
         return this.rubiBreasts();
     }
     public rubiCapacity(): number {
-        var bonus: number = this.flags[kFLAGS.RUBI_TIMES_ANALLY_TRAINED] * 10;
+        let bonus: number = this.flags[kFLAGS.RUBI_TIMES_ANALLY_TRAINED] * 10;
         if (bonus > 76) bonus = 76;
         if (this.flags[kFLAGS.HYPER_HAPPY]) bonus += 200; // MAKE IT FIT
         return 24 + bonus;
@@ -319,7 +319,7 @@ export class Rubi extends TelAdreAbstractContent {
         }
         // (Approach repeat, relationship 20+.  At this stage, randomly select an outfit from what the PC has given him, plus his waitress outfit.  Variants included for Bimbo /Incubus Rubi.)
         else {
-            var choices: any[] = [1];
+            const choices: any[] = [1];
             if (this.flags[kFLAGS.RUBI_SUITCLOTHES] == 1) choices[choices.length] = 2;
             if (this.flags[kFLAGS.RUBI_FETISH_CLOTHES] == 1) choices[choices.length] = 3;
             // (Green Adventurer's Clothing (Normal)
@@ -344,7 +344,7 @@ export class Rubi extends TelAdreAbstractContent {
             // RIsque waitress uniform
             if (this.flags[kFLAGS.RUBI_AFFECTION] >= 100) choices[choices.length] = 14;
 
-            var select: number = choices[Rubi.rand(choices.length)];
+            const select: number = choices[Rubi.rand(choices.length)];
 
             // trace("Rubi outfit selection = ", select);
 
@@ -771,9 +771,9 @@ export class Rubi extends TelAdreAbstractContent {
         this.outputText(
             "\n\nYou look over the menu... what do you want?\n-----------------------\nMilk: 3 gems\nTea: 6 gems"
         );
-        var place = undefined;
-        var tea = undefined;
-        var milk = undefined;
+        let place;
+        let tea;
+        let milk;
         if (this.player.gems >= 6) tea = this.getTeaFromRubi;
         else this.outputText("\n<b>You cannot afford tea.</b>");
         if (this.player.gems >= 3) milk = this.buyRubiMilk;
@@ -1196,7 +1196,7 @@ export class Rubi extends TelAdreAbstractContent {
     // (available for players with cocks or large clits (at least 4</i>\")) (If Orgasm Denial is activated, adds 1 to Blue Balls)
     public fuckRubi(): void {
         this.outputText(this.images.showImage("rubi-fuck"), false);
-        var x: number;
+        let x: number;
         x = this.player.cockThatFits(this.rubiCapacity());
         if (x < 0) x = this.player.biggestCockIndex();
         this.clearOutput();
@@ -1223,7 +1223,7 @@ export class Rubi extends TelAdreAbstractContent {
         } else this.outputText(this.clitDescript(), false);
         this.outputText(".");
 
-        var size: number = 0;
+        let size = 0;
         // var cock: boolean = this.player.hasCock();
         // (If player cock/clit at or under 4</i>\")
         if (this.player.hasCock()) {
@@ -2192,9 +2192,9 @@ export class Rubi extends TelAdreAbstractContent {
     // Has red demon tail
     // Offer
     // First Time:
-    // 	Rubi gestures to some bottles and a box from the bakery before mentioning, \"<i>You look awful tense, babe.  I know you've got it hard out there, and well, I-I thought maybe I could really pamper you today, if you'd like.</i>\"
+    //  Rubi gestures to some bottles and a box from the bakery before mentioning, \"<i>You look awful tense, babe.  I know you've got it hard out there, and well, I-I thought maybe I could really pamper you today, if you'd like.</i>\"
     // Repeat:
-    // 	Rubi nods towards the bottles and box in the corner and gives you a sly wink.  \"<i>Want another massage?</i>\"
+    //  Rubi nods towards the bottles and box in the corner and gives you a sly wink.  \"<i>Want another massage?</i>\"
 
     // Actual Scene:
     private chocoRubiMassage(): void {
@@ -2489,8 +2489,8 @@ export class Rubi extends TelAdreAbstractContent {
             "You look over Rubi's vast collection of clothes.  What outfit would you like Rubi to put on?\n\n"
         );
         this.menu();
-        var closet: any[] = [];
-        var buttonNames: any[] = [];
+        const closet: any[] = [];
+        const buttonNames: any[] = [];
         if (this.flags[kFLAGS.RUBI_SUITCLOTHES] == 1) {
             closet[closet.length] = "Suitclothes";
             buttonNames[buttonNames.length] = "Suit";
@@ -2556,7 +2556,7 @@ export class Rubi extends TelAdreAbstractContent {
             }
             this.outputText("\n");
         }
-        var button: number = 0;
+        let button = 0;
         while (button < 9 && button < buttonNames.length) {
             trace("BUTTONNAMES: " + buttonNames[button]);
             trace("CLOSET: " + closet[button]);
@@ -2574,8 +2574,8 @@ export class Rubi extends TelAdreAbstractContent {
             "You look over Rubi's vast collection of clothes.  What outfit would you like Rubi to put on?\n\n"
         );
         this.menu();
-        var closet: any[] = [];
-        var buttonNames: any[] = [];
+        const closet: any[] = [];
+        const buttonNames: any[] = [];
         if (this.flags[kFLAGS.RUBI_SUITCLOTHES] == 1) {
             closet[closet.length] = "Suitclothes";
             buttonNames[buttonNames.length] = "Suit";
@@ -2639,7 +2639,7 @@ export class Rubi extends TelAdreAbstractContent {
             }
             this.outputText("\n");
         }
-        var button: number = 7;
+        let button = 7;
         while (button - 7 < 9 && button < buttonNames.length) {
             if (button == 7) this.addButton(0, "Previous", this.playDressUp);
             else if (button <= closet.length)
@@ -3394,7 +3394,7 @@ export class Rubi extends TelAdreAbstractContent {
     }
 
     // Exhibitionist Date
-    ///For Tube Top, Slutty Swimwear, Bimbo Minidress, Bondage Straps.
+    /// For Tube Top, Slutty Swimwear, Bimbo Minidress, Bondage Straps.
     private exhibitionistDate(): void {
         this.rubiSprite();
         this.outputText(
@@ -4344,7 +4344,7 @@ export class Rubi extends TelAdreAbstractContent {
             '\n\n"<i>No, babe, I\'m lucky to have found you,</i>" [rubi ey] says, snuggling [rubi eir] naked body up against yours as the two of you drift off into a lazy, sex-induced nap.'
         );
         this.player.orgasm();
-        this.flags[kFLAGS.RUBI_BLU_BALLS] = 0; //Since he just came so he should be cured of blue balls
+        this.flags[kFLAGS.RUBI_BLU_BALLS] = 0; // Since he just came so he should be cured of blue balls
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -5139,9 +5139,9 @@ export class Rubi extends TelAdreAbstractContent {
     private pickAnItemToFeedRubi(): void {
         this.clearOutput();
         this.rubiSprite();
-        var button: number = 0;
-        var closet: any[] = [];
-        var gifts: any[] = [];
+        let button = 0;
+        const closet: any[] = [];
+        const gifts: any[] = [];
         this.menu();
         if (this.flags[kFLAGS.RUBI_SUITCLOTHES] == 1) closet[closet.length] = "Suitclothes";
         else {
@@ -5231,7 +5231,7 @@ export class Rubi extends TelAdreAbstractContent {
 
         if (this.flags[kFLAGS.RUBI_BIMBO_MINIDRESS] == 1)
             closet[closet.length] = "A Bimbo Minidress";
-        else gifts.push("A Bimbo Minidress"); //No button, must be found in a special event
+        else gifts.push("A Bimbo Minidress"); // No button, must be found in a special event
 
         if (this.flags[kFLAGS.RUBI_BONDAGE_STRAPS] == 1) closet[closet.length] = "Bondage Straps";
         else {
@@ -5254,7 +5254,7 @@ export class Rubi extends TelAdreAbstractContent {
 
         if (closet.length > 0) {
             this.outputText("<b>Rubi's Closet:</b>");
-            for (var x: number = 0; x < closet.length; x++) this.outputText("\n" + closet[x]);
+            for (const closetLine of closet) this.outputText("\n" + closetLine);
             this.outputText("\n\n");
         }
 

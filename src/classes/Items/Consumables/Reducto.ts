@@ -203,9 +203,9 @@ export class Reducto extends Consumable {
                         (this.game.player.hasSheath() ? "sheath" : "crotch") +
                         " until they've lost about a third of their old size."
                 );
-                for (let i = 0; i < this.game.player.cocks.length; i++) {
-                    this.game.player.cocks[i].cockLength *= 2 / 3;
-                    this.game.player.cocks[i].cockThickness *= 2 / 3;
+                for (const cock of this.game.player.cocks) {
+                    cock.cockLength *= 2 / 3;
+                    cock.cockThickness *= 2 / 3;
                 }
             }
         }

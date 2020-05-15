@@ -1,6 +1,6 @@
 ﻿import { trace } from "../../console";
 import { BaseContent } from "../BaseContent";
-import { CoC_Settings } from "../CoC_Settings";
+import { CocSettings } from "../CoC_Settings";
 import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 import { Armor } from "../Items/Armor";
@@ -164,7 +164,7 @@ export class Inventory extends BaseContent {
         // Player returns to the combat menu on cancel
         else this.addButton(9, "Back", this.playerMenu);
         // Gone
-        // 	menuLoc = 1;
+        //  menuLoc = 1;
     }
 
     public stash(): void {
@@ -218,7 +218,7 @@ export class Inventory extends BaseContent {
         source?: ItemSlotClass
     ): void {
         if (itype == undefined) {
-            CoC_Settings.error("takeItem(undefined)");
+            CocSettings.error("takeItem(undefined)");
             return;
         }
         if (itype == ItemType.NOTHING) return;
@@ -632,7 +632,7 @@ export class Inventory extends BaseContent {
         );
     }
 
-    private allAcceptable(itype: ItemType): boolean {
+    private allAcceptable(_itype: ItemType): boolean {
         return true;
     }
 

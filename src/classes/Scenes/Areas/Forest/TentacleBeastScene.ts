@@ -895,7 +895,7 @@ export class TentacleBeastScene extends BaseContent {
                     );
                 if (this.player.cuntChange(20, true)) this.outputText("\n", false);
                 this.outputText("\n", false);
-            } //HERMS
+            } // HERMS
             if (this.player.gender == 3) {
                 // [Herm/Virgin-Tight Cunt]
                 if (this.player.vaginalCapacity() < 30)

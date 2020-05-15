@@ -26,7 +26,7 @@ export class CoCButton {
         this.button.click();
     }
 
-    //////// Getters and Setters ////////
+    /// ///// Getters and Setters ////////
 
     public get toolTipText() {
         if (this.tooltip) return this.tooltip.innerHTML || "";

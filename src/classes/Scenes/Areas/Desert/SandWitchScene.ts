@@ -38,7 +38,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                 this.pregnancy.event
         );
         if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0)
-            this.pregnancy.knockUpForce(); //Silently clear the Sand Witch's pregnancy if the player has not met her in time
+            this.pregnancy.knockUpForce(); // Silently clear the Sand Witch's pregnancy if the player has not met her in time
         return false;
     }
 
@@ -222,7 +222,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                 "Your wobbly legs give out underneath you as your body's will to fight evaporates.\n\n",
                 true
             );
-            if (this.player.hairColor.indexOf("sandy blonde") != -1) {
+            if (this.player.hairColor.includes("sandy blonde")) {
                 this.outputText(
                     'The Sand Witch smiles wickedly and intones, "<i>Tresed eht retaw llahs klim ruoy.</i>"\n\n',
                     false
@@ -1217,16 +1217,16 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.outputText(
             "  Of course, just taunting, teasing, and humiliating her for her arrogance would be equally amusing, <b>but it would give her plenty of time to turn the tables...</b>"
         );
-        var temp2 = undefined;
-        var temp3 = undefined;
+        let temp2;
+        let temp3;
         if (this.silly()) temp3 = this.missingoSex;
         if (this.player.hasKeyItem("Deluxe Dildo") >= 0)
             temp2 = this.getGame().sandwitchGetsDildoed;
-        var shouldra = undefined;
+        let shouldra;
         if (kGAMECLASS.shouldraFollower.followerShouldra() && this.player.gender > 0)
             shouldra = kGAMECLASS.shouldraFollower.sandWitchGetsGhostly;
         // doYesNo(sandwitchRaped, cleanupAfterCombat);
-        var ovi = undefined;
+        let ovi;
         if (this.player.gender > 0 && this.player.canOviposit()) ovi = this.ovipositSandWitches;
 
         this.choices(
@@ -1604,7 +1604,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
     // choose pussy or anus randomly
     private laySomeEggsInThatWitchFinally(): void {
         this.clearOutput();
-        var cunt: boolean = SandWitchScene.rand(2) == 0;
+        const cunt: boolean = SandWitchScene.rand(2) == 0;
         this.outputText(
             "Before long the intense need to culminate the act grows too lucid to ignore, and with a hum of satisfaction you finally bore your ovipositor through the tight "
         );
@@ -1682,7 +1682,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.outputText(
             ".  At long last her enthusiastic efforts bring you to a more 'traditional' release, lathering "
         );
-        var facial: number = SandWitchScene.rand(2);
+        const facial: number = SandWitchScene.rand(2);
         if (facial == 0) this.outputText("her facial features with proof of your climax");
         else if (facial == 1)
             this.outputText("the interior of her mouth with sweltering streams of your cum");
@@ -1839,7 +1839,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         // [(corr >= 60)
         if (this.player.cor >= 60)
             this.outputText('\n\n"<i>Just, use your common sense next time.</i>"');
-        this.pregnancy.knockUpForce(); //Clear Pregnancy
+        this.pregnancy.knockUpForce(); // Clear Pregnancy
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -1864,7 +1864,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.outputText(
             "\n\nContent with how things turned out, you head back to camp and decide on the next course of action for today."
         );
-        this.pregnancy.knockUpForce(); //Clear Pregnancy
+        this.pregnancy.knockUpForce(); // Clear Pregnancy
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 

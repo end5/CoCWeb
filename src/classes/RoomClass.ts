@@ -1,8 +1,9 @@
 /**
  * ...
+ *
  * @author Gedan
  */
-export class room {
+export class Room {
     public RoomName?: string; // Index name
     public RoomDisplayName?: string; // Header text
 

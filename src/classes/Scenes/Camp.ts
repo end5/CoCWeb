@@ -40,7 +40,7 @@ export class Camp extends NPCAwareContent {
 
     public constructor(campInitialize: any) {
         super();
-        campInitialize(this.doCamp); //Pass the doCamp function up to CoC. This way doCamp is private but the CoC class itself can call it.
+        campInitialize(this.doCamp); // Pass the doCamp function up to CoC. This way doCamp is private but the CoC class itself can call it.
     }
 
     /* Replaced with calls to playerMenu
@@ -61,19 +61,19 @@ export class Camp extends NPCAwareContent {
 
     public returnToCampUseOneHour(): void {
         this.returnToCamp(1);
-    } //Replacement for event number 13;
+    } // Replacement for event number 13;
 
     public returnToCampUseTwoHours(): void {
         this.returnToCamp(2);
-    } //Replacement for event number 14;
+    } // Replacement for event number 14;
 
     public returnToCampUseFourHours(): void {
         this.returnToCamp(4);
-    } //Replacement for event number 15;
+    } // Replacement for event number 15;
 
     public returnToCampUseEightHours(): void {
         this.returnToCamp(8);
-    } //Replacement for event number 16;
+    } // Replacement for event number 16;
 
     //  SLEEP_WITH: number = 701;
 
@@ -612,11 +612,11 @@ export class Camp extends NPCAwareContent {
         this.flags[kFLAGS.CAME_WORMS_AFTER_COMBAT] = 0;
         this.campQ = false;
         // Build explore menus
-        var placesEvent = this.placesKnown() ? this.places : undefined;
-        var followers = undefined;
-        var lovers = undefined;
-        var slaves = undefined;
-        var storage = undefined;
+        let placesEvent = this.placesKnown() ? this.places : undefined;
+        let followers;
+        let lovers;
+        let slaves;
+        let storage;
         if (this.inventory.showStash()) storage = this.inventory.stash;
         // Clear stuff
         if (this.player.findStatusAffect(StatusAffects.SlimeCravingOutput) >= 0)
@@ -646,8 +646,8 @@ export class Camp extends NPCAwareContent {
             this.mainView.statsView.hideLevelUp();
         }
         // Build main menu
-        var exploreEvent: (() => void) | undefined = this.getGame().exploration.doExplore;
-        var masturbate =
+        let exploreEvent: (() => void) | undefined = this.getGame().exploration.doExplore;
+        const masturbate =
             this.player.lust > 30 ? this.getGame().masturbation.masturbateMenu : undefined;
         this.clearOutput();
 
@@ -1045,7 +1045,7 @@ export class Camp extends NPCAwareContent {
                 // This once disabled the ability to rest, sleep or wait, but ir hasn't done that for many many builds
             }
         }
-        var baitText: string = "Masturbate";
+        let baitText = "Masturbate";
         if (
             ((this.player.findPerk(PerkLib.HistoryReligious) >= 0 && this.player.cor <= 66) ||
                 (this.player.findPerk(PerkLib.Enlightened) >= 0 && this.player.cor < 10)) &&
@@ -1061,8 +1061,8 @@ export class Camp extends NPCAwareContent {
             if (this.slavesCount() > 0) slaves = this.campSlavesMenu;
             if (this.loversCount() > 0) lovers = this.campLoversMenu;
         }
-        var restEvent = this.doWait;
-        var restName: string = "Wait";
+        let restEvent = this.doWait;
+        let restName = "Wait";
         // Set up rest stuff
         // Night
         if (this.model.time.hours < 6 || this.model.time.hours > 20) {
@@ -1124,7 +1124,7 @@ export class Camp extends NPCAwareContent {
     }
 
     public followersCount(): number {
-        var counter: number = 0;
+        let counter = 0;
         if (this.emberScene.followerEmber()) counter++;
         if (this.flags[kFLAGS.VALARIA_AT_CAMP] == 1) counter++;
         if (this.player.findStatusAffect(StatusAffects.PureCampJojo) >= 0) counter++;
@@ -1136,7 +1136,7 @@ export class Camp extends NPCAwareContent {
     }
 
     public slavesCount(): number {
-        var counter: number = 0;
+        let counter = 0;
         if (this.latexGooFollower() && this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 0) counter++;
         if (this.vapulaSlave() && this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 0) counter++;
         if (this.campCorruptJojo() && this.flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 0) counter++;
@@ -1154,7 +1154,7 @@ export class Camp extends NPCAwareContent {
     }
 
     public loversCount(): number {
-        var counter: number = 0;
+        let counter = 0;
         if (this.arianScene.arianFollower()) counter++;
         if (this.followerHel()) counter++;
         // Izma!
@@ -1177,13 +1177,13 @@ export class Camp extends NPCAwareContent {
     }
 
     public campLoversMenu(): void {
-        var isabellaButt = undefined;
-        var marbleEvent = undefined;
-        var izmaEvent = undefined;
-        var kihaButt = undefined;
-        var amilyEvent = undefined;
-        var hel = undefined;
-        var nieve = undefined;
+        let isabellaButt;
+        let marbleEvent;
+        let izmaEvent;
+        let kihaButt;
+        let amilyEvent;
+        let hel;
+        let nieve;
         this.clearOutput();
         if (this.flags[kFLAGS.NIEVE_STAGE] == 5) {
             kGAMECLASS.nieveCampDescs();
@@ -1285,7 +1285,7 @@ export class Camp extends NPCAwareContent {
                 );
             else if (this.model.time.hours == 13) {
                 this.outputText("Isabella ", false);
-                var izzyCreeps: any[] = [];
+                const izzyCreeps: any[] = [];
                 // Build array of choices for izzy to talk to
                 if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0)
                     izzyCreeps[izzyCreeps.length] = 0;
@@ -1312,7 +1312,7 @@ export class Camp extends NPCAwareContent {
                 // Base choice - book
                 izzyCreeps[izzyCreeps.length] = 5;
                 // Select!
-                var choice: number = Camp.rand(izzyCreeps.length);
+                const choice: number = Camp.rand(izzyCreeps.length);
 
                 if (izzyCreeps[choice] == 0)
                     this.outputText(
@@ -1517,12 +1517,12 @@ export class Camp extends NPCAwareContent {
 
     public campSlavesMenu(): void {
         this.clearOutput();
-        var vapula2 = undefined;
-        var amilyEvent = undefined;
-        var ceraph = undefined;
-        var sophieEvent = undefined;
-        var jojoEvent = undefined;
-        var goo = undefined;
+        let vapula2;
+        let amilyEvent;
+        let ceraph;
+        let sophieEvent;
+        let jojoEvent;
+        let goo;
         if (this.vapulaSlave() && this.flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 0) {
             this.vapula.vapulaSlaveFlavorText();
             this.outputText("\n\n");
@@ -1582,11 +1582,11 @@ export class Camp extends NPCAwareContent {
     }
 
     public campFollowers(): void {
-        var rathazulEvent = undefined;
-        var jojoEvent = undefined;
-        var valeria2 = undefined;
-        var shouldra = undefined;
-        var ember = undefined;
+        let rathazulEvent;
+        let jojoEvent;
+        let valeria2;
+        let shouldra;
+        let ember;
         this.clearOutput();
         this.getGame().inCombat = false;
         // ADD MENU FLAGS/INDIVIDUAL FOLLOWER TEXTS
@@ -1752,7 +1752,7 @@ export class Camp extends NPCAwareContent {
         this.goNext(this.timeQ, true);
     }
 
-    public doSleep(clrScreen: boolean = true): void {
+    public doSleep(clrScreen = true): void {
         if (
             kGAMECLASS.urta.pregnancy.incubation == 0 &&
             kGAMECLASS.urta.pregnancy.type == PregnancyStore.PREGNANCY_PLAYER &&
@@ -1785,9 +1785,9 @@ export class Camp extends NPCAwareContent {
             }
             // Clear screen
             if (clrScreen) this.outputText("", true);
-            /******************************************************************/
+            /** ****************************************************************/
             /*       ONE TIME SPECIAL EVENTS                                  */
-            /******************************************************************/
+            /** ****************************************************************/
             // HEL SLEEPIES!
             if (
                 this.helFollower.helAffection() >= 70 &&
@@ -1823,9 +1823,9 @@ export class Camp extends NPCAwareContent {
                 this.sleepRecovery(false);
                 return;
             }
-            /******************************************************************/
+            /** ****************************************************************/
             /*       SLEEP WITH SYSTEM GOOOO                                  */
-            /******************************************************************/
+            /** ****************************************************************/
             // Marble Sleepies
             if (
                 this.marbleScene.marbleAtCamp() &&
@@ -1953,7 +1953,7 @@ export class Camp extends NPCAwareContent {
         this.goNext(this.timeQ, true);
     }
 
-    public sleepRecovery(display: boolean = false): void {
+    public sleepRecovery(display = false): void {
         // Marble withdrawl
         if (this.player.findStatusAffect(StatusAffects.MarbleWithdrawl) >= 0) {
             if (display)

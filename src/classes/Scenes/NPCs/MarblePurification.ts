@@ -4,13 +4,13 @@ import { StatusAffects } from "../../StatusAffects";
 import { Clara } from "./Clara";
 import { NPCAwareContent } from "./NPCAwareContent";
 
-//MARBLE_BOYS = Number of boys birthed
-//MARBLE_PURIFIED = Marble purified
-//CLARA_PURIFIED = Is clara purified?
-//CLARA_IMPRISONED = Is Clara Imprisoned?
-//CLARA_RELEASED = Is Clara released?
-//MARBLE_BREAST_SIZE = the size of her titons (0=DD cup, 1=G, 2=HH, 3=J)
-//MARBLE_TIME_SINCE_NURSED_IN_HOURS = Really fucking obvious.
+// MARBLE_BOYS = Number of boys birthed
+// MARBLE_PURIFIED = Marble purified
+// CLARA_PURIFIED = Is clara purified?
+// CLARA_IMPRISONED = Is Clara Imprisoned?
+// CLARA_RELEASED = Is Clara released?
+// MARBLE_BREAST_SIZE = the size of her titons (0=DD cup, 1=G, 2=HH, 3=J)
+// MARBLE_TIME_SINCE_NURSED_IN_HOURS = Really fucking obvious.
 
 /*
 flags[kFLAGS.MARBLE_PURIFICATION_STAGE] : 0 = unstarted
@@ -22,28 +22,28 @@ flags[kFLAGS.MARBLE_PURIFICATION_STAGE] : 5 = QUEST COMPLETE
 */
 
 export class MarblePurification extends NPCAwareContent {
-    /*Purifying Marble
-	Quest starts a few days after recruiting Marble to camp if they’re not addicted to her.  She will approach the PC and tell them that not nursing her is a real burden for her, and ask them to help her purify herself.  This quest will not start if the PC’s corruption is over 50, or has any corrupt character in camp (corrupt Jojo, corrupt Amily, Vapula).
-	She suggests that the TF item of her race, LaBova might be a good place to start, if you can find a means of reversing its effects.  Or, if you’ve already got Rath recruited, she will suggest that he could be able to get what you need.
-	You then need to give Marble at least three doses of purified LaBova (enough to get Rath in camp), plus more if you’ve done any corrupting of her before.
-	At this point, Marble will admit that while the first (few) doses did affect her, they don’t seem to be doing anything anymore.  She suggests that Rath might have an answer, and the two of you talk to him directly.  If Rath has not been recruited, then she will suggest that you should try and convince the alchemist to come to the camp, and then going to talk to him will happen after he is recruited.
-	Rath will ask for a fresh sample of Marble’s milk and will start to study it.  The next day he will admit that he can’t really come up with a solution from just the one sample, he needs milk from another Lacta Bovine, preferably one who is closely related to Marble.
-	Marble offers to go back home and bring one of her family members to donate the milk he needs to figure out the formula, but it will take her some time to cross the mountains and get back home.  So the PC has to decide when they want her to go.
-	When they do send her away, she will leave for at least 2 days, and then come back with her youngest sister in tow (Marble is the oldest, Ophelia was the middle one and the book lover, Clara is the youngest and the one who is more or less the ideal LB who really likes the idea of getting others addicted to her once she finds out about their addictive milk).
-	At this point, Clara will give Rath the fresh sample he needs, and then get everyone to gather around the firepit while she makes some tea for them and tell a funny story.  The tea she serves everyone is drugged, to try and put them to asleep to steal the PC as her own milk addicted slave.  She feels that the PC is fair game since he broke his addiction to Marble.
-	I’m not sure how the next sequence will play out right now, but there will be the possibility of the PC getting a bad end if Clara gets her way.  If the PC manages to avoid getting bad ended, Clara will leave and Rath will finish the formula.  Current plan:
-	Marble has spent the last day or two talking to her sister and generally having a friendly chat.  Clara isn't too bad up until she hears that the PC isn't addicted anymore, and that Lacta Bovine's milk is addictive.
-	Marble is quite trusting of her sister given her time apart, and wants to think that her sister isn't as bad as she was when she was a kid.
-	And up until that point, she hasn't seemed to have been that way.
-	The player can guess what is coming up, but otherwise it comes down to an int check on the PC as to whether or not they see it coming.  The player will have some hints.
-	(low intelligence) The PC is put to sleep and wakes up with their head on Clara’s breast, already starting to feel the effects of the new addiction.  They then are given the choice to either give in, or fight her.  The fight in this case is greatly at the PC’s disadvantage.
-	(moderate intelligence) Clara will put everyone else to sleep and then turn to the PC.  She will first tell them to come quietly and drink her milk, and then get really mad if they refuse and attack them.
-	(high intelligence) The PC realizes what’s going on and get’s everyone not to drink the tea.  At this point, Clara panics, grabs Marble’s hammar and decks her from behind.  If there are other fighter followers, at this point the PC and them will overwhelm Clara.  If not, then she will attack the PC to try and beat them before Marble has a chance to recover.  What follows is a fight where after a certain amount of turns pass, Marble gets back up and helps take Clara out.  So the fight ends if you can last for a certain number of turns.
-	Marble taking the formula will be the last step in her purification.
-	At this point Marble is purified.
-	There were plans to let you use a pure pearl as well, but that would cause you to skip over too much content related to Marble's personality and race for it to be practical to write two forms of Marble's post-purification content.
+    /* Purifying Marble
+ Quest starts a few days after recruiting Marble to camp if they’re not addicted to her.  She will approach the PC and tell them that not nursing her is a real burden for her, and ask them to help her purify herself.  This quest will not start if the PC’s corruption is over 50, or has any corrupt character in camp (corrupt Jojo, corrupt Amily, Vapula).
+ She suggests that the TF item of her race, LaBova might be a good place to start, if you can find a means of reversing its effects.  Or, if you’ve already got Rath recruited, she will suggest that he could be able to get what you need.
+ You then need to give Marble at least three doses of purified LaBova (enough to get Rath in camp), plus more if you’ve done any corrupting of her before.
+ At this point, Marble will admit that while the first (few) doses did affect her, they don’t seem to be doing anything anymore.  She suggests that Rath might have an answer, and the two of you talk to him directly.  If Rath has not been recruited, then she will suggest that you should try and convince the alchemist to come to the camp, and then going to talk to him will happen after he is recruited.
+ Rath will ask for a fresh sample of Marble’s milk and will start to study it.  The next day he will admit that he can’t really come up with a solution from just the one sample, he needs milk from another Lacta Bovine, preferably one who is closely related to Marble.
+ Marble offers to go back home and bring one of her family members to donate the milk he needs to figure out the formula, but it will take her some time to cross the mountains and get back home.  So the PC has to decide when they want her to go.
+ When they do send her away, she will leave for at least 2 days, and then come back with her youngest sister in tow (Marble is the oldest, Ophelia was the middle one and the book lover, Clara is the youngest and the one who is more or less the ideal LB who really likes the idea of getting others addicted to her once she finds out about their addictive milk).
+ At this point, Clara will give Rath the fresh sample he needs, and then get everyone to gather around the firepit while she makes some tea for them and tell a funny story.  The tea she serves everyone is drugged, to try and put them to asleep to steal the PC as her own milk addicted slave.  She feels that the PC is fair game since he broke his addiction to Marble.
+ I’m not sure how the next sequence will play out right now, but there will be the possibility of the PC getting a bad end if Clara gets her way.  If the PC manages to avoid getting bad ended, Clara will leave and Rath will finish the formula.  Current plan:
+ Marble has spent the last day or two talking to her sister and generally having a friendly chat.  Clara isn't too bad up until she hears that the PC isn't addicted anymore, and that Lacta Bovine's milk is addictive.
+ Marble is quite trusting of her sister given her time apart, and wants to think that her sister isn't as bad as she was when she was a kid.
+ And up until that point, she hasn't seemed to have been that way.
+ The player can guess what is coming up, but otherwise it comes down to an int check on the PC as to whether or not they see it coming.  The player will have some hints.
+ (low intelligence) The PC is put to sleep and wakes up with their head on Clara’s breast, already starting to feel the effects of the new addiction.  They then are given the choice to either give in, or fight her.  The fight in this case is greatly at the PC’s disadvantage.
+ (moderate intelligence) Clara will put everyone else to sleep and then turn to the PC.  She will first tell them to come quietly and drink her milk, and then get really mad if they refuse and attack them.
+ (high intelligence) The PC realizes what’s going on and get’s everyone not to drink the tea.  At this point, Clara panics, grabs Marble’s hammar and decks her from behind.  If there are other fighter followers, at this point the PC and them will overwhelm Clara.  If not, then she will attack the PC to try and beat them before Marble has a chance to recover.  What follows is a fight where after a certain amount of turns pass, Marble gets back up and helps take Clara out.  So the fight ends if you can last for a certain number of turns.
+ Marble taking the formula will be the last step in her purification.
+ At this point Marble is purified.
+ There were plans to let you use a pure pearl as well, but that would cause you to skip over too much content related to Marble's personality and race for it to be practical to write two forms of Marble's post-purification content.
 
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
     // Marble wants to be purified
     // This scene takes place 3-4 days after Marble joins the PC in camp
@@ -408,7 +408,7 @@ export class MarblePurification extends NPCAwareContent {
         // Get followers for tea
         // Set a temp integer variable that will track the number of followers agreeing to come for tea.
         // if (any of the following followers are in camp)
-        var teaDrinkers: number = 0;
+        let teaDrinkers = 0;
         if (kGAMECLASS.camp.companionsCount() >= 3) {
             this.outputText(
                 "\n\nMarble suggests that you should gather up the others while Clara is still making it, it shouldn’t take too long.  You nod, and head off, leaving Clara and Marble at the campfire."
@@ -608,7 +608,7 @@ export class MarblePurification extends NPCAwareContent {
         // go to Clara’s fight
         this.startCombatWithMarbleSister(false);
     }
-    public startCombatWithMarbleSister(inCamp: boolean = true): void {
+    public startCombatWithMarbleSister(inCamp = true): void {
         this.startCombat(new Clara());
         this.player.createStatusAffect(StatusAffects.NoFlee, 0, 0, 0, 0);
         if (inCamp && this.player.findStatusAffect(StatusAffects.ClaraFoughtInCamp) < 0)
@@ -699,7 +699,7 @@ export class MarblePurification extends NPCAwareContent {
     }
     // High Intelligence Outcome
     // The PC realizes that Clara does not have good intentions and that there is likely something wrong with the tea as she is passing it out.  They have the option of calling her out on it while she is still passing the tea out, say nothing but don’t drink the tea, or say nothing and drink the tea anyway.  The later two options lead to the moderate and low intelligence options respectively.
-    public highIntelligenceOutcomesVsCowCuntDrugs(teaDrinkers: number = 0): void {
+    public highIntelligenceOutcomesVsCowCuntDrugs(teaDrinkers = 0): void {
         this.clearOutput();
         this.outputText(
             "It is obvious to you that Clara is up to something; she’s been behaving oddly every time she’s spoken to you, and this sharing of tea seems even odder.  You carefully watch as she counts up cups and starts pouring them out, then starts handing them out.  You also notice that her ingredients also included something from outside her tea kit."
@@ -791,7 +791,7 @@ export class MarblePurification extends NPCAwareContent {
         }
     }
 
-    public loseToClara(combat: boolean = true): void {
+    public loseToClara(combat = true): void {
         this.clearOutput();
         // PC loses via health
         if (combat) {
@@ -1009,7 +1009,7 @@ export class MarblePurification extends NPCAwareContent {
     // cock n is the largest cock that will fit in Clara’s 20 capacity
     public badEndDickThatFitsClara(): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(20);
+        let x: number = this.player.cockThatFits(20);
         if (x < 0) x = this.player.smallestCockIndex();
 
         // if (PC does not have: dick has more than 40 area, or breasts bigger then HHH cup, or centaur lower body, or naga lower body, or slime lower body, or drider lower body)
@@ -1236,7 +1236,7 @@ export class MarblePurification extends NPCAwareContent {
 
     // Win scenes against Clara
     // PC defeats Clara outside camp
-    public defeatClaraCuntInAFight(cheated: boolean = false): void {
+    public defeatClaraCuntInAFight(cheated = false): void {
         if (cheated) this.clearOutput();
         else {
             // Clara is taken out by Marble
@@ -1332,7 +1332,7 @@ export class MarblePurification extends NPCAwareContent {
                 " to my milk!  I want to so much!  I'm so afraid that " +
                 this.player.mf("he", "she") +
                 " won't stay by my side, but I also feel so bottled up.  "
-        ); //no new paragraph
+        ); // no new paragraph
 
         // if (PC has another lover in camp)
         if (kGAMECLASS.camp.loversCount() > 1) {
@@ -1342,7 +1342,7 @@ export class MarblePurification extends NPCAwareContent {
                     "'s only mate.  " +
                     this.player.mf("He", "She") +
                     " can satisfy their needs, but can't satisfy mine?  "
-            ); //no new paragraph
+            ); // no new paragraph
         }
         this.outputText(
             "The frustration of not being able to nurse, someone, anyone, but especially my mate is tearing me apart!</i>\"  Marble stops screaming and her head drops.  All that's coming out of her now is heavy breathing."
@@ -1507,9 +1507,9 @@ export class MarblePurification extends NPCAwareContent {
     // PC and Marble rape Clara
     // Double team Clara, will be rough forceful sex.
     public pcAndMurbleDoubleTeamCowButt(): void {
-        //does not work with centaur, naga, drider, or goo bodies.  However, I don't particularly want to just say you can't do this scene if you have them.
+        // does not work with centaur, naga, drider, or goo bodies.  However, I don't particularly want to just say you can't do this scene if you have them.
         this.clearOutput();
-        var x: number = this.player.cockThatFits(20);
+        const x: number = this.player.cockThatFits(20);
         this.outputText(
             "You step forward and suggest to Marble that the two of you should work together to punish Clara.  She nods and asks what you have in mind.  Well, you were thinking that a sexual punishment from the two of you would be appropriate."
         );
@@ -1561,7 +1561,7 @@ export class MarblePurification extends NPCAwareContent {
                     this.player.short +
                     " have taken the front?  Now I'll never be able to experience it for the first time with my perfect mate!  You're evil, sister.</i>\"  Marble looks like she is about to blow up once more at that comment...."
             );
-        } //else if (PC has a cock, Marble does not)
+        } // else if (PC has a cock, Marble does not)
         else if (this.player.hasCock() && x >= 0 && this.flags[kFLAGS.MARBLE_DICK_TYPE] == 0) {
             // n is the index of the PC's biggest cock under 20 area.
             this.outputText(
@@ -1711,7 +1711,7 @@ export class MarblePurification extends NPCAwareContent {
             "\n\nAfter a little more rack riding, Marble decides that it is time to get onto the main event.  She uncharacteristically violently forces you into a sitting position and tears the rest of your garments off.  You don't even get a chance to pull off her skirt before "
         );
         // if (PC has a cock that fits)
-        var x: number = this.player.cockThatFits(this.marbleScene.marbleCuntCapacity());
+        const x: number = this.player.cockThatFits(this.marbleScene.marbleCuntCapacity());
         if (this.player.hasCock() && x >= 0) {
             this.outputText(
                 "she drops herself onto your " +

@@ -54,7 +54,7 @@ export class KitsuneGift extends Consumable {
                 this.outputText(
                     "As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, it is filled to the brim with shining gems!"
                 );
-                var gems: number = 2 + Utils.rand(20);
+                const gems: number = 2 + Utils.rand(20);
                 this.outputText(
                     "\n\n<b>You've received " +
                         Utils.num2Text(gems) +
@@ -85,7 +85,7 @@ export class KitsuneGift extends Consumable {
                 this.outputText(
                     "As the paper falls away, you carefully lift the cover of the box, your hands trembling nervously.  The inside of the box is lined with purple velvet, and to your delight, it contains a small vial filled with hair dye!"
                 );
-                var itype: Consumable = [
+                const itype: Consumable = [
                     this.game.consumables.RED_DYE,
                     this.game.consumables.BLOND_D,
                     this.game.consumables.BLACK_D,
@@ -189,6 +189,6 @@ export class KitsuneGift extends Consumable {
             default:
                 trace("Kitsune's gift roll foobar...");
         }
-        return false; //Any other case does not have a sub-menu.
+        return false; // Any other case does not have a sub-menu.
     }
 }

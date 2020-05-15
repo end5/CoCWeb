@@ -27,7 +27,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
     // Score = Height x (Thickness + 100)/200 x (toughness/100) + Bonus Score * 10 (bonus drops by 2 a week
     // 30-50 score needed to win
 
-    /*Sex scenes:
+    /* Sex scenes:
     LOSS:
     -Get reamed when poisontail is huge
     -Get reamed when poisontail is less huge
@@ -83,7 +83,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             }
         }
         if (this.model.time.hours > 23 && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00227] > 0)
-            this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00227]--; //Reduce drinking contest bonus
+            this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00227]--; // Reduce drinking contest bonus
         return false;
     }
 
@@ -407,7 +407,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 false
             );
         }
-        var score: number = 0;
+        let score = 0;
         // Calculate score if not
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00226] == 0)
             score =
@@ -476,8 +476,8 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 false
             );
             // [Fellatio] [Cunnilingus] [Rimming]
-            var fellatio = undefined;
-            var cunnilingus = undefined;
+            let fellatio;
+            let cunnilingus;
             if (this.player.hasCock()) fellatio = this.roxanneGivesABlowjob;
             if (this.player.hasVagina()) cunnilingus = this.roxanneCunnilingus;
             this.simpleChoices(
@@ -499,7 +499,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
     private roxanneGivesABlowjob(): void {
         this.spriteSelect(78);
         this.outputText("", true);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You open the lower portion of your " +
                 this.player.armorName +

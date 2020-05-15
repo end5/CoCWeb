@@ -19,7 +19,7 @@ export class ComfortableUnderclothes extends Armor {
     }
 
     public playerRemove(): undefined {
-        return; //Player never picks up their underclothes
+        return; // Player never picks up their underclothes
     }
 
     /*

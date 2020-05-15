@@ -3,7 +3,7 @@ import { Armor } from "../Armor";
 /**
  * Created by aimozg on 11.01.14.
  */
-//Not used in game
+// Not used in game
 
 export class FurLoincloth extends Armor {
     public get description(): string {

@@ -58,7 +58,7 @@ export class SeductiveArmor extends Armor {
 
     public playerEquip(): Armor {
         super.playerEquip();
-        return ArmorLib.COMFORTABLE_UNDERCLOTHES; //After seductive armor magic the player is left in their underclothes
+        return ArmorLib.COMFORTABLE_UNDERCLOTHES; // After seductive armor magic the player is left in their underclothes
     }
 
     /*

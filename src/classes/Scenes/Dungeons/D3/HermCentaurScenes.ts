@@ -5,6 +5,7 @@ import { PregnancyStore } from "../../../PregnancyStore";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class HermCentaurScenes extends BaseContent {
@@ -25,9 +26,9 @@ export class HermCentaurScenes extends BaseContent {
         this.startCombat(new HermCentaur());
     }
 
-    private CENTAUR_KILLED: number = 1;
-    private CENTAUR_RELEASED: number = 2;
-    private CENTAUR_FUCKED: number = 3;
+    private CENTAUR_KILLED = 1;
+    private CENTAUR_RELEASED = 2;
+    private CENTAUR_FUCKED = 3;
 
     public beatThePony(hpVictory: boolean): void {
         this.clearOutput();
@@ -85,7 +86,7 @@ export class HermCentaurScenes extends BaseContent {
     private maleFuckHer(): void {
         this.flags[kFLAGS.D3_CENTAUR_DEFEATED] = this.CENTAUR_FUCKED;
 
-        var y: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let y: number = this.player.cockThatFits(this.monster.vaginalCapacity());
 
         if (y < 0) y = this.player.smallestCockIndex();
 
@@ -180,9 +181,9 @@ export class HermCentaurScenes extends BaseContent {
         this.cleanupAfterCombat(this.getGame().d3.resumeFromFight);
     }
 
-    private HORZGOG: number = 0;
-    private DOGGECOCK: number = 1;
-    private TENTACOCK: number = 2;
+    private HORZGOG = 0;
+    private DOGGECOCK = 1;
+    private TENTACOCK = 2;
 
     private femFuckHer(): void {
         this.flags[kFLAGS.D3_CENTAUR_DEFEATED] = this.CENTAUR_FUCKED;
@@ -582,7 +583,7 @@ export class HermCentaurScenes extends BaseContent {
     private maleLoss(hpVictory: boolean): void {
         this.clearOutput();
 
-        var y: number = this.player.cockThatFits(this.monster.vaginalCapacity());
+        let y: number = this.player.cockThatFits(this.monster.vaginalCapacity());
 
         if (y < 0) y = this.player.smallestCockIndex();
 

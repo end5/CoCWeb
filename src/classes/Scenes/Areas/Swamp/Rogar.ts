@@ -12,7 +12,7 @@ export class Rogar extends BaseContent {
         return kGAMECLASS.telAdre;
     }
 
-    /*Ro'gar encounter in the swamp; Ro'gar phase flag = 0 (edited)
+    /* Ro'gar encounter in the swamp; Ro'gar phase flag = 0 (edited)
 ((Second Encounter, Ro'gar phase = 1)) (edited)
 ((Third encounter; Ro'gar phase = 2)) (edited)
 ((Fourth Encounter)) ([Cloaked Figure] button in Wet Bitch; Ro'gar phase = 3) (edited)
@@ -269,7 +269,7 @@ export class Rogar extends BaseContent {
                         "You can see the dried cum stains on the bed from where you sit.  They were thick in the fabric, so much so they could only have been left behind by huge, creamy globs of spunk, the kind you can feel sliding down your throat after a hot, lengthy blowjob.  \"<i>You didn't see much while you was here a'fore me, didj'a?</i>\" Ro'gar asks slowly, his blue eyes peering at you searchingly.  Your own flick to the filthy sheets as you grin, and he coughs in mid-sip of his drink.  \"<i>Been meanin' to clean 'em...</i>\" he says, embarrassed.  You shake your head slowly and reassure him, which seems to embolden him enough to make the next suggestion.  \"<i>You clean me up a bit, then how's about I get you dirty?</i>\"  Ro'gar's long, orcish tongue flicks over his lips invitingly.\n\n",
                         false
                     );
-                } //goto sexy choices
+                } // goto sexy choices
             }
             // SEXY CHOICES
             this.sexyChoices();
@@ -862,12 +862,12 @@ export class Rogar extends BaseContent {
 
     private rogarFuckMenu(): void {
         this.spriteSelect(86);
-        var getAnal = undefined;
-        var giveAnal = undefined;
-        var frot = undefined;
-        var brodown = undefined;
-        var getTied = undefined;
-        var rubdub = undefined;
+        let getAnal;
+        let giveAnal;
+        let frot;
+        let brodown;
+        let getTied;
+        let rubdub;
 
         if (this.player.hasItem(this.consumables.BROBREW)) brodown = this.brobrobrobro;
         if (this.player.hasCock()) {
@@ -1279,7 +1279,7 @@ export class Rogar extends BaseContent {
                 false
             );
             this.doNext(this.camp.returnToCampUseOneHour);
-            return; //end if too small
+            return; // end if too small
         }
         // ((else If smallest cock is over 18 inches))
         else if (this.player.shortestCockLength() > 18) {
@@ -1465,8 +1465,8 @@ export class Rogar extends BaseContent {
     private takeDatBroBrewFromDaBigMeanOlOrc(): void {
         this.flags[kFLAGS.ROGAR_FUCKED_TODAY] = 1;
         this.player.consumeItem(this.consumables.BROBREW);
-        var changed: boolean = false;
-        var cocked: boolean = false;
+        let changed = false;
+        let cocked = false;
         this.outputText("", true);
         this.spriteSelect(86);
         this.outputText(
@@ -1575,7 +1575,7 @@ export class Rogar extends BaseContent {
             this.player.createPerk(PerkLib.BroBrains, 0, 0, 0, 0);
             this.player.createPerk(PerkLib.BroBody, 0, 0, 0, 0);
             this.outputText("<b>(Bro Body - Perk Gained!)\n", false);
-            this.outputText("(Bro Brains - Perk Gained!)</b>\n", false); //int to 20.  max int 50)
+            this.outputText("(Bro Brains - Perk Gained!)</b>\n", false); // int to 20.  max int 50)
             if (this.player.findPerk(PerkLib.Feeder) >= 0) {
                 this.outputText("<b>(Perk Lost - Feeder!)</b>\n", false);
                 this.player.removePerk(PerkLib.Feeder);

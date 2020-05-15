@@ -512,8 +512,8 @@ export class ConsumableLib extends BaseContent {
         "PeppWht",
         "PeppWht",
         "a vial of peppermint white",
-        (player: Player) => {
-            this.getGame().peppermintWhite(player);
+        () => {
+            this.getGame().peppermintWhite();
         },
         "This tightly corked glass bottle gives off a pepperminty smell and reminds you of the winter holidays.  How odd.",
         120

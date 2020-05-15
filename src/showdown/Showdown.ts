@@ -1,16 +1,16 @@
 export class Showdown {
-    private static g_urls: any[];
+    private static gUrls: any[];
 
-    private static g_titles: any[];
+    private static gTitles: any[];
 
-    private static g_html_blocks: any[];
+    private static gHtmlBlocks: any[];
 
-    private static g_list_level: number = 0;
+    private static gListLevel = 0;
 
     public static makeHtml(text: string): string {
-        Showdown.g_urls = [];
-        Showdown.g_titles = [];
-        Showdown.g_html_blocks = [];
+        Showdown.gUrls = [];
+        Showdown.gTitles = [];
+        Showdown.gHtmlBlocks = [];
         text = text.replace(/~/g, "~T");
         text = text.replace(/\$/g, "~D");
         text = text.replace(/\r\n/g, "\n");
@@ -29,16 +29,16 @@ export class Showdown {
     }
 
     private static _StripLinkDefinitions(text: string): string {
-        var text: string = text.replace(
+        text = text.replace(
             /^[ ]{0,3}\[(.+)\]:[ \t]*\n?[ \t]*<?(\S+?)>?[ \t]*\n?[ \t]*(?:(\n*)["(](.+?)[")][ \t]*)?(?:\n+|\Z)/gm,
             function (wholeMatch: string, m1: any, m2: any, m3: any, m4: any, ...args): string {
                 m1 = m1.toLowerCase();
-                Showdown.g_urls[m1] = Showdown._EncodeAmpsAndAngles(m2);
+                Showdown.gUrls[m1] = Showdown._EncodeAmpsAndAngles(m2);
                 if (m3) {
                     return m3 + m4;
                 }
                 if (m4) {
-                    Showdown.g_titles[m1] = m4.replace(/"/g, "&quot;");
+                    Showdown.gTitles[m1] = m4.replace(/"/g, "&quot;");
                 }
                 return "";
             }
@@ -82,17 +82,17 @@ export class Showdown {
         m4: any,
         ...args: any[]
     ): string {
-        var blockText: any = m1;
+        let blockText: any = m1;
         blockText = blockText.replace(/\n\n/g, "\n");
         blockText = blockText.replace(/^\n/, "");
         blockText = blockText.replace(/\n+$/g, "");
-        blockText = "\n\n~K" + (Showdown.g_html_blocks.push(blockText) - 1) + "K\n\n";
+        blockText = "\n\n~K" + (Showdown.gHtmlBlocks.push(blockText) - 1) + "K\n\n";
         return blockText;
     }
 
     private static _RunBlockGamut(text: string): string {
         text = Showdown._DoHeaders(text);
-        var key: string = Showdown.hashBlock("<hr />");
+        const key: string = Showdown.hashBlock("<hr />");
         text = text.replace(/^[ ]{0,2}([ ]?\*[ ]?){3,}[ \t]*$/gm, key);
         text = text.replace(/^[ ]{0,2}([ ]?\-[ ]?){3,}[ \t]*$/gm, key);
         text = text.replace(/^[ ]{0,2}([ ]?\_[ ]?){3,}[ \t]*$/gm, key);
@@ -119,9 +119,9 @@ export class Showdown {
     }
 
     private static _EscapeSpecialCharsWithinTagAttributes(text: string): string {
-        var regex: RegExp = /(<[a-z\/!$]("[^"]*"|'[^']*'|[^'">])*>|<!(--.*?--\s*)+>)/gi;
-        var text: string = text.replace(regex, function (wholeMatch: string, ...args): string {
-            var tag: any = wholeMatch.replace(/(.)<\/?code>(?=.)/g, "$1`");
+        const regex = /(<[a-z\/!$]("[^"]*"|'[^']*'|[^'">])*>|<!(--.*?--\s*)+>)/gi;
+        text = text.replace(regex, function (wholeMatch: string, ...args): string {
+            let tag: any = wholeMatch.replace(/(.)<\/?code>(?=.)/g, "$1`");
             tag = Showdown.escapeCharacters(tag, "\\`*_");
             return tag;
         });
@@ -157,35 +157,35 @@ export class Showdown {
         if (m7 == undefined) {
             m7 = "";
         }
-        var whole_match: string = m1;
-        var link_text: string = m2;
-        var link_id: string = m3.toLowerCase();
-        var url: string = m4;
-        var title: string = m7;
+        const wholeMatchM1: string = m1;
+        const linkText: string = m2;
+        let linkId: string = m3.toLowerCase();
+        let url: string = m4;
+        let title: string = m7;
         if (url == "") {
-            if (link_id == "") {
-                link_id = link_text.toLowerCase().replace(/ ?\n/g, " ");
+            if (linkId == "") {
+                linkId = linkText.toLowerCase().replace(/ ?\n/g, " ");
             }
-            url = "#" + link_id;
-            if (Showdown.g_urls[parseInt(link_id)] != undefined) {
-                url = Showdown.g_urls[parseInt(link_id)];
-                if (Showdown.g_titles[parseInt(link_id)] != undefined) {
-                    title = Showdown.g_titles[parseInt(link_id)];
+            url = "#" + linkId;
+            if (Showdown.gUrls[parseInt(linkId, 10)] != undefined) {
+                url = Showdown.gUrls[parseInt(linkId, 10)];
+                if (Showdown.gTitles[parseInt(linkId, 10)] != undefined) {
+                    title = Showdown.gTitles[parseInt(linkId, 10)];
                 }
-            } else if (whole_match.search(/\(\s*\)$/m) > -1) {
+            } else if (wholeMatchM1.search(/\(\s*\)$/m) > -1) {
                 url = "";
             } else {
-                return whole_match;
+                return wholeMatchM1;
             }
         }
         url = Showdown.escapeCharacters(url, "*_");
-        var result: any = '<a href="' + url + '"';
+        let result: any = '<a href="' + url + '"';
         if (title != "") {
             title = title.replace(/"/g, "&quot;");
             title = Showdown.escapeCharacters(title, "*_");
             result = result + (' title="' + title + '"');
         }
-        result = result + (">" + link_text + "</a>");
+        result = result + (">" + linkText + "</a>");
         return result;
     }
 
@@ -202,7 +202,7 @@ export class Showdown {
     }
 
     private static writeImageTag(
-        wholeMatch: string,
+        wholeMatch_: string,
         m1: any,
         m2: any,
         m3: any,
@@ -213,31 +213,31 @@ export class Showdown {
         m8: any,
         m9: any
     ): string {
-        var whole_match: string = m1;
-        var alt_text: string = m2;
-        var link_id: string = m3.toLowerCase();
-        var url: string = m4;
-        var title: string = m7;
+        const wholeMatch: string = m1;
+        let altText: string = m2;
+        let linkId: string = m3.toLowerCase();
+        let url: string = m4;
+        let title: string = m7;
         if (!title) {
             title = "";
         }
         if (url == "") {
-            if (link_id == "") {
-                link_id = alt_text.toLowerCase().replace(/ ?\n/g, " ");
+            if (linkId == "") {
+                linkId = altText.toLowerCase().replace(/ ?\n/g, " ");
             }
-            url = "#" + link_id;
-            if (Showdown.g_urls[parseInt(link_id)] != undefined) {
-                url = Showdown.g_urls[parseInt(link_id)];
-                if (Showdown.g_titles[parseInt(link_id)] != undefined) {
-                    title = Showdown.g_titles[parseInt(link_id)];
+            url = "#" + linkId;
+            if (Showdown.gUrls[parseInt(linkId, 10)] != undefined) {
+                url = Showdown.gUrls[parseInt(linkId, 10)];
+                if (Showdown.gTitles[parseInt(linkId, 10)] != undefined) {
+                    title = Showdown.gTitles[parseInt(linkId, 10)];
                 }
             } else {
-                return whole_match;
+                return wholeMatch;
             }
         }
-        alt_text = alt_text.replace(/"/g, "&quot;");
+        altText = altText.replace(/"/g, "&quot;");
         url = Showdown.escapeCharacters(url, "*_");
-        var result: any = '<img src="' + url + '" alt="' + alt_text + '"';
+        let result: any = '<img src="' + url + '" alt="' + altText + '"';
         title = title.replace(/"/g, "&quot;");
         title = Showdown.escapeCharacters(title, "*_");
         result = result + (' title="' + title + '"');
@@ -246,7 +246,7 @@ export class Showdown {
     }
 
     private static _DoHeaders(text: string): string {
-        var text: string = text.replace(/^(.+)[ \t]*\n=+[ \t]*\n+/gm, function (
+        text = text.replace(/^(.+)[ \t]*\n=+[ \t]*\n+/gm, function (
             wholeMatch: string,
             m1: string,
             ...args
@@ -266,47 +266,47 @@ export class Showdown {
             m2: string,
             ...args
         ): string {
-            var h_level: any = m1.length;
+            const hLevel: any = m1.length;
             return Showdown.hashBlock(
-                "<h" + h_level + ">" + Showdown._RunSpanGamut(m2) + "</h" + h_level + ">"
+                "<h" + hLevel + ">" + Showdown._RunSpanGamut(m2) + "</h" + hLevel + ">"
             );
         });
         return text;
     }
 
     private static _DoLists(text: string): string {
-        var text: string = text + "~0";
-        var whole_list: RegExp = /^(([ ]{0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(~0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/gm;
-        if (Showdown.g_list_level) {
-            text = text.replace(whole_list, function (
+        text = text + "~0";
+        let wholeList = /^(([ ]{0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(~0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/gm;
+        if (Showdown.gListLevel) {
+            text = text.replace(wholeList, function (
                 wholeMatch: string,
                 m1: string,
                 m2: string,
                 ...args
             ): string {
-                var list: any = m1;
-                var list_type: any = m2.search(/[*+-]/g) > -1 ? "ul" : "ol";
+                let list: any = m1;
+                const listType = m2.search(/[*+-]/g) > -1 ? "ul" : "ol";
                 list = list.replace(/\n{2,}/g, "\n\n\n");
-                var result: any = Showdown._ProcessListItems(list);
+                let result = Showdown._ProcessListItems(list);
                 result = result.replace(/\s+$/, "");
-                result = "<" + list_type + ">" + result + "</" + list_type + ">\n";
+                result = "<" + listType + ">" + result + "</" + listType + ">\n";
                 return result;
             });
         } else {
-            whole_list = /(\n\n|^\n?)(([ ]{0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(~0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/g;
-            text = text.replace(whole_list, function (
+            wholeList = /(\n\n|^\n?)(([ ]{0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(~0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/g;
+            text = text.replace(wholeList, function (
                 wholeMatch: string,
                 m1: string,
                 m2: string,
                 m3: string,
                 ...args
             ): string {
-                var runup: any = m1;
-                var list: any = m2;
-                var list_type: any = m3.search(/[*+-]/g) > -1 ? "ul" : "ol";
+                const runup: any = m1;
+                let list: any = m2;
+                const listType: any = m3.search(/[*+-]/g) > -1 ? "ul" : "ol";
                 list = list.replace(/\n{2,}/g, "\n\n\n");
-                var result: any = Showdown._ProcessListItems(list);
-                result = runup + "<" + list_type + ">\n" + result + "</" + list_type + ">\n";
+                let result: any = Showdown._ProcessListItems(list);
+                result = runup + "<" + listType + ">\n" + result + "</" + listType + ">\n";
                 return result;
             });
         }
@@ -315,7 +315,7 @@ export class Showdown {
     }
 
     private static _DoTables(text: string): string {
-        var text: string = text.replace(/(?:\|(?:[^\|\r\n]+\|)+\n)+/gm, function (
+        text = text.replace(/(?:\|(?:[^\|\r\n]+\|)+\n)+/gm, function (
             wholeMatch: string,
             ...args
         ): string {
@@ -325,7 +325,7 @@ export class Showdown {
     }
 
     private static _DoTableRows(text: string): string {
-        var text: string = text.replace(/\|((?:[^\|\r\n]+\|)+)\n/gm, function (
+        text = text.replace(/\|((?:[^\|\r\n]+\|)+)\n/gm, function (
             wholeMatch: string,
             g1: string,
             ...args
@@ -336,7 +336,7 @@ export class Showdown {
     }
 
     private static _DoTableCells(text: string): string {
-        var text: string = text.replace(/([^\|\r\n]+)\|/gm, function (
+        text = text.replace(/([^\|\r\n]+)\|/gm, function (
             wholeMatch: string,
             g1: string,
             ...args
@@ -346,11 +346,11 @@ export class Showdown {
         return text;
     }
 
-    private static _ProcessListItems(list_str: string): string {
-        Showdown.g_list_level++;
-        var list_str: string = list_str.replace(/\n{2,}$/, "\n");
-        list_str = list_str + "~0";
-        list_str = list_str.replace(
+    private static _ProcessListItems(listStr: string): string {
+        Showdown.gListLevel++;
+        listStr = listStr.replace(/\n{2,}$/, "\n");
+        listStr = listStr + "~0";
+        listStr = listStr.replace(
             /(\n)?(^[ \t]*)([*+-]|\d+[.])[ \t]+([^\r]+?(\n{1,2}))(?=\n*(~0|\2([*+-]|\d+[.])[ \t]+))/gm,
             function (
                 wholeMatch: string,
@@ -360,10 +360,10 @@ export class Showdown {
                 m4: string,
                 ...args
             ): string {
-                var item: any = m4;
-                var leading_line: any = m1;
+                let item: any = m4;
+                const leadingLine: any = m1;
                 // var leading_space: any = m2;
-                if (leading_line || item.search(/\n{2,}/) > -1) {
+                if (leadingLine || item.search(/\n{2,}/) > -1) {
                     item = Showdown._RunBlockGamut(Showdown._Outdent(item));
                 } else {
                     item = Showdown._DoLists(Showdown._Outdent(item));
@@ -373,18 +373,18 @@ export class Showdown {
                 return "<li>" + item + "</li>\n";
             }
         );
-        list_str = list_str.replace(/~0/g, "");
-        Showdown.g_list_level--;
-        return list_str;
+        listStr = listStr.replace(/~0/g, "");
+        Showdown.gListLevel--;
+        return listStr;
     }
 
     private static _DoCodeBlocks(text: string): string {
-        var text: string = text + "~0";
+        text = text + "~0";
         text = text.replace(
             /(?:\n\n|^)((?:(?:[ ]{4}|\t).*\n+)+)(\n*[ ]{0,3}[^ \t\n]|(?=~0))/g,
             function (wholeMatch: string, m1: string, m2: string, ...args): string {
-                var codeblock: any = m1;
-                var nextChar: any = m2;
+                let codeblock: any = m1;
+                const nextChar: any = m2;
                 codeblock = Showdown._EncodeCode(Showdown._Outdent(codeblock));
                 codeblock = Showdown._Detab(codeblock);
                 codeblock = codeblock.replace(/^\n+/g, "");
@@ -399,11 +399,11 @@ export class Showdown {
 
     private static hashBlock(text: string, ...args: any[]): string {
         text = text.replace(/(^\n+|\n+$)/g, "");
-        return "\n\n~K" + (Showdown.g_html_blocks.push(text) - 1) + "K\n\n";
+        return "\n\n~K" + (Showdown.gHtmlBlocks.push(text) - 1) + "K\n\n";
     }
 
     private static _DoCodeSpans(text: string): string {
-        var text: string = text.replace(/(^|[^\\])(`+)([^\r]*?[^`])\2(?!`)/gm, function (
+        text = text.replace(/(^|[^\\])(`+)([^\r]*?[^`])\2(?!`)/gm, function (
             wholeMatch: string,
             m1: any,
             m2: any,
@@ -411,7 +411,7 @@ export class Showdown {
             m4: any,
             ...args
         ): string {
-            var c: any = m3;
+            let c: any = m3;
             c = c.replace(/^([ \t]*)/g, "");
             c = c.replace(/[ \t]*$/g, "");
             c = Showdown._EncodeCode(c);
@@ -435,23 +435,22 @@ export class Showdown {
     }
 
     private static _DoBlockQuotes(text: string): string {
-        var text: string = text.replace(/((^[ \t]*>[ \t]?.+\n(.+\n)*\n*)+)/gm, function (
+        text = text.replace(/((^[ \t]*>[ \t]?.+\n(.+\n)*\n*)+)/gm, function (
             wholeMatch: string,
             m1: any,
             ...args
         ): string {
-            var bq: any = m1;
+            let bq: any = m1;
             bq = bq.replace(/^[ \t]*>[ \t]?/gm, "~0");
             bq = bq.replace(/~0/g, "");
             bq = bq.replace(/^[ \t]+$/gm, "");
             bq = Showdown._RunBlockGamut(bq);
             bq = bq.replace(/(^|\n)/g, "$1  ");
             bq = bq.replace(/(\s*<pre>[^\r]+?<\/pre>)/gm, function (
-                wholeMatch: string,
-                m1: string,
-                ...args: any[]
+                _wholeMatch: string,
+                mm1: string
             ): string {
-                var pre: any = m1;
+                let pre: any = mm1;
                 pre = pre.replace(/^  /gm, "~0");
                 pre = pre.replace(/~0/g, "");
                 return pre;
@@ -462,15 +461,15 @@ export class Showdown {
     }
 
     private static _FormParagraphs(text: string): string {
-        var i: number = NaN;
-        var str: any = null;
-        var firstGroup;
-        var blockText;
+        let i = NaN;
+        let str: any = null;
+        let firstGroup;
+        let blockText;
         text = text.replace(/^\n+/g, "");
         text = text.replace(/\n+$/g, "");
-        var grafs = text.split(/\n{2,}/g);
-        var grafsOut = [];
-        var end = grafs.length;
+        const grafs = text.split(/\n{2,}/g);
+        const grafsOut = [];
+        let end = grafs.length;
         for (i = 0; i < end; i++) {
             str = grafs[i];
             if (str.search(/~K(\d+)K/g) >= 0) {
@@ -486,7 +485,7 @@ export class Showdown {
         for (i = 0; i < end; i++) {
             while (grafsOut[i].search(/~K(\d+)K/) >= 0) {
                 firstGroup = /~K(\d+)K/.exec(grafsOut[i])![1];
-                blockText = Showdown.g_html_blocks[parseInt(firstGroup)];
+                blockText = Showdown.gHtmlBlocks[parseInt(firstGroup, 10)];
                 blockText = blockText.replace(/\$/g, "$$$$");
                 grafsOut[i] = grafsOut[i].replace(/~K\d+K/, blockText);
             }
@@ -501,13 +500,13 @@ export class Showdown {
     }
 
     private static _EncodeBackslashEscapes(text: string): string {
-        text = text.replace(/\\(\\)/g, Showdown.escapeCharacters_callback);
-        text = text.replace(/\\([`*_{}\[\]()>#+-.!])/g, Showdown.escapeCharacters_callback);
+        text = text.replace(/\\(\\)/g, Showdown.escapeCharactersCallback);
+        text = text.replace(/\\([`*_{}\[\]()>#+-.!])/g, Showdown.escapeCharactersCallback);
         return text;
     }
 
     private static _DoAutoLinks(text: string): string {
-        var text: string = text.replace(/<((https?|ftp|dict):[^'">\s]+)>/gi, '<a href="$1">$1</a>');
+        text = text.replace(/<((https?|ftp|dict):[^'">\s]+)>/gi, '<a href="$1">$1</a>');
         text = text.replace(
             /<(?:mailto:)?([-.\w]+\@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)>/gi,
             function (wholeMatch: string, m1: any, ...args): string {
@@ -518,12 +517,12 @@ export class Showdown {
     }
 
     private static _EncodeEmailAddress(addr: string): string {
-        var char2hex = function (ch: string): string {
-            var hexDigits: string = "0123456789ABCDEF";
-            var dec: number = ch.charCodeAt(0);
+        const char2hex = function (ch: string): string {
+            const hexDigits = "0123456789ABCDEF";
+            const dec: number = ch.charCodeAt(0);
             return hexDigits.charAt(dec >> 4) + hexDigits.charAt(dec & 15);
         };
-        var encode = [
+        const encode = [
             function (ch: string): string {
                 return "&#" + ch.charCodeAt(0) + ";";
             },
@@ -534,9 +533,9 @@ export class Showdown {
                 return ch;
             },
         ];
-        var addr: string = "mailto:" + addr;
+        addr = "mailto:" + addr;
         addr = addr.replace(/./g, function (ch: string, ...args: any[]): string {
-            var r: any = undefined;
+            let r: any;
             if (ch == "@") {
                 ch = encode[Math.floor(Math.random() * 2)](ch);
             } else if (ch != ":") {
@@ -551,12 +550,12 @@ export class Showdown {
     }
 
     private static _UnescapeSpecialChars(text: string): string {
-        var text: string = text.replace(/~E(\d+)E/g, function (
+        text = text.replace(/~E(\d+)E/g, function (
             wholeMatch: string,
             m1: string,
             ...args
         ): string {
-            var charCodeToReplace: any = parseInt(m1);
+            const charCodeToReplace: any = parseInt(m1, 10);
             return String.fromCharCode(charCodeToReplace);
         });
         return text;
@@ -569,7 +568,7 @@ export class Showdown {
     }
 
     private static _Detab(text: string): string {
-        var text: string = text.replace(/\t(?=\t)/g, "    ");
+        text = text.replace(/\t(?=\t)/g, "    ");
         text = text.replace(/\t/g, "~A~B");
         text = text.replace(/~B(.+?)~A/g, function (
             wholeMatch: string,
@@ -577,9 +576,9 @@ export class Showdown {
             m2: any,
             ...args
         ): string {
-            var leadingText: any = m1;
-            var numSpaces: any = 4 - (leadingText.length % 4);
-            for (var i: any = 0; i < numSpaces; leadingText = leadingText + " ", i++) {}
+            let leadingText: any = m1;
+            const numSpaces: any = 4 - (leadingText.length % 4);
+            for (let i: any = 0; i < numSpaces; leadingText = leadingText + " ", i++) {}
             return leadingText;
         });
         text = text.replace(/~A/g, "    ");
@@ -590,25 +589,25 @@ export class Showdown {
     private static escapeCharacters(
         text: string,
         charsToEscape: string,
-        afterBackslash: Boolean = false
+        afterBackslash = false
     ): string {
-        var regexString: any = "([" + charsToEscape.replace(/([\[\]\\])/g, "\\$1") + "])";
+        let regexString: any = "([" + charsToEscape.replace(/([\[\]\\])/g, "\\$1") + "])";
         if (afterBackslash) {
             regexString = "\\\\" + regexString;
         }
-        var regex: RegExp = new RegExp(regexString, "g");
-        text = text.replace(regex, Showdown.escapeCharacters_callback);
+        const regex = new RegExp(regexString, "g");
+        text = text.replace(regex, Showdown.escapeCharactersCallback);
         return text;
     }
 
-    private static escapeCharacters_callback(
+    private static escapeCharactersCallback(
         wholeMatch: string,
         m1: any,
         m2: any,
         m3: any,
         ...args: any[]
     ): string {
-        var charCodeToEscape: number = m1.charCodeAt(0);
+        const charCodeToEscape: number = m1.charCodeAt(0);
         return "~E" + charCodeToEscape + "E";
     }
 }

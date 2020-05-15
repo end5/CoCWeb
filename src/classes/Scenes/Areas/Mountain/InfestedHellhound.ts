@@ -7,13 +7,14 @@ import {
     SKIN_TYPE_FUR,
     TAIL_TYPE_DOG,
 } from "../../../../includes/appearanceDefs";
-import { CoC_Settings } from "../../../CoC_Settings";
+import { CocSettings } from "../../../CoC_Settings";
 import { WeightedDrop } from "../../../internals/WeightedDrop";
 import { StatusAffects } from "../../../StatusAffects";
 import { HellHound } from "./HellHound";
 
 /**
  * ...
+ *
  * @author Fake-Name
  */
 
@@ -96,7 +97,7 @@ export class InfestedHellhound extends HellHound {
                     );
                     this.game.dynStats("lus", 10);
                 } else {
-                    CoC_Settings.error("Infested but no cock!");
+                    CocSettings.error("Infested but no cock!");
                     this.game.dynStats("lus", 5);
                     this.outputText(
                         "  The idea of being covered in the beast's infested seed arouses you slightly, but you shake your head violently and clear away the unwelcome thought.",

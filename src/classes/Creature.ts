@@ -1,4 +1,5 @@
-﻿import { Utils } from "./internals/Utils";
+﻿/* eslint-disable @typescript-eslint/adjacent-overload-signatures */
+import { Utils } from "./internals/Utils";
 import { CoC } from "./CoC";
 import { AssClass } from "./AssClass";
 import { Cock } from "./Cock";
@@ -6,7 +7,7 @@ import { VaginaClass } from "./VaginaClass";
 import { BreastRowClass } from "./BreastRowClass";
 import { PerkType } from "./PerkType";
 import { trace } from "../console";
-import { CoC_Settings } from "./CoC_Settings";
+import { CocSettings } from "./CoC_Settings";
 import { StatusAffectType } from "./StatusAffectType";
 import { StatusAffectClass } from "./StatusAffectClass";
 import { CockTypesEnum } from "./CockTypesEnum";
@@ -691,7 +692,7 @@ export class Creature extends Utils {
             return;
         }
         if (valueIdx < 1 || valueIdx > 4) {
-            CoC_Settings.error("addPerkValue(" + ptype.id + ", " + valueIdx + ", " + bonus + ").");
+            CocSettings.error("addPerkValue(" + ptype.id + ", " + valueIdx + ", " + bonus + ").");
             return;
         }
         if (valueIdx == 1) this.perk(counter).value1 += bonus;
@@ -714,7 +715,7 @@ export class Creature extends Utils {
             return;
         }
         if (valueIdx < 1 || valueIdx > 4) {
-            CoC_Settings.error("setPerkValue(" + ptype.id + ", " + valueIdx + ", " + newNum + ").");
+            CocSettings.error("setPerkValue(" + ptype.id + ", " + valueIdx + ", " + newNum + ").");
             return;
         }
         if (valueIdx == 1) this.perk(counter).value1 = newNum;
@@ -801,7 +802,7 @@ export class Creature extends Utils {
         // Various Errors preventing action
         if (counter < 0) return;
         if (statusValueNum < 1 || statusValueNum > 4) {
-            CoC_Settings.error("ChangeStatusValue called with invalid status value number.");
+            CocSettings.error("ChangeStatusValue called with invalid status value number.");
             return;
         }
         if (statusValueNum == 1) this.statusAffect(counter).value1 = newNum;
@@ -817,7 +818,7 @@ export class Creature extends Utils {
             return;
         }
         if (statusValueNum < 1 || statusValueNum > 4) {
-            CoC_Settings.error("ChangeStatusValue called with invalid status value number.");
+            CocSettings.error("ChangeStatusValue called with invalid status value number.");
             return;
         }
         if (statusValueNum == 1) this.statusAffect(counter).value1 += bonus;
@@ -870,9 +871,9 @@ export class Creature extends Utils {
         return this.breastRows[index].breastRating;
     }
 
-    public cockArea(i_cockIndex: number): number {
-        if (i_cockIndex >= this.cocks.length || i_cockIndex < 0) return 0;
-        return this.cocks[i_cockIndex].cockThickness * this.cocks[i_cockIndex].cockLength;
+    public cockArea(iCockIndex: number): number {
+        if (iCockIndex >= this.cocks.length || iCockIndex < 0) return 0;
+        return this.cocks[iCockIndex].cockThickness * this.cocks[iCockIndex].cockLength;
     }
 
     public biggestCockLength(): number {
@@ -1072,7 +1073,7 @@ export class Creature extends Utils {
     }
 
     // Find the biggest cock that fits inside a given value
-    public cockThatFits(i_fits = 0, type = "area"): number {
+    public cockThatFits(iFits = 0, type = "area"): number {
         if (this.cocks.length <= 0) return -1;
         let cockIdxPtr: number = this.cocks.length;
         // Current largest fitter
@@ -1080,7 +1081,7 @@ export class Creature extends Utils {
         while (cockIdxPtr > 0) {
             cockIdxPtr--;
             if (type == "area") {
-                if (this.cockArea(cockIdxPtr) <= i_fits) {
+                if (this.cockArea(cockIdxPtr) <= iFits) {
                     // If one already fits
                     if (cockIndex >= 0) {
                         // See if the newcomer beats the saved small guy
@@ -1091,7 +1092,7 @@ export class Creature extends Utils {
                     else cockIndex = cockIdxPtr;
                 }
             } else if (type == "length") {
-                if (this.cocks[cockIdxPtr].cockLength <= i_fits) {
+                if (this.cocks[cockIdxPtr].cockLength <= iFits) {
                     // If one already fits
                     if (cockIndex >= 0) {
                         // See if the newcomer beats the saved small guy
@@ -1315,7 +1316,6 @@ export class Creature extends Utils {
     public vaginalCapacity(): number {
         // If the player has no vaginas
         if (this.vaginas.length == 0) return 0;
-        let total: number;
         let bonus = 0;
         // Centaurs = +50 capacity
         if (this.lowerBody == 4) bonus = 50;
@@ -1328,7 +1328,7 @@ export class Creature extends Utils {
         if (this.findPerk(PerkLib.Cornucopia) >= 0) bonus += 30;
         if (this.findPerk(PerkLib.FerasBoonWideOpen) >= 0) bonus += 25;
         if (this.findPerk(PerkLib.FerasBoonMilkingTwat) >= 0) bonus += 40;
-        total =
+        const total: number =
             (bonus +
                 this.statusAffectv1(StatusAffects.BonusVCapacity) +
                 8 * this.vaginas[0].vaginalLooseness * this.vaginas[0].vaginalLooseness) *
@@ -1590,8 +1590,8 @@ export class Creature extends Utils {
     public countCocksOfType(type: CockTypesEnum): number {
         if (this.cocks.length == 0) return 0;
         let counter = 0;
-        for (let x = 0; x < this.cocks.length; x++) {
-            if (this.cocks[x].cockType == type) counter++;
+        for (const { cockType } of this.cocks) {
+            if (cockType == type) counter++;
         }
         return counter;
     }
@@ -1623,12 +1623,8 @@ export class Creature extends Utils {
         // How many dogCocks
         if (this.cocks.length == 0) return 0;
         let counter = 0;
-        for (let x = 0; x < this.cocks.length; x++) {
-            if (
-                this.cocks[x].cockType == CockTypesEnum.DOG ||
-                this.cocks[x].cockType == CockTypesEnum.FOX
-            )
-                counter++;
+        for (const { cockType } of this.cocks) {
+            if (cockType == CockTypesEnum.DOG || cockType == CockTypesEnum.FOX) counter++;
         }
         return counter;
     }
@@ -1769,8 +1765,8 @@ export class Creature extends Utils {
     public countCockSocks(type: string): number {
         let count = 0;
 
-        for (let i = 0; i < this.cocks.length; i++) {
-            if (this.cocks[i].sock == type) {
+        for (const { sock } of this.cocks) {
+            if (sock == type) {
                 count++;
             }
         }
@@ -2106,8 +2102,8 @@ export class Creature extends Utils {
                         this.removePerk(PerkLib.LustyRegeneration);
                     } else if (cock.sock == "cockring") {
                         let numRings = 0;
-                        for (let i = 0; i < this.cocks.length; i++) {
-                            if (this.cocks[i].sock == "cockring") numRings++;
+                        for (const { sock } of this.cocks) {
+                            if (sock == "cockring") numRings++;
                         }
 
                         if (numRings == 0) this.removePerk(PerkLib.PentUp);
@@ -2612,7 +2608,7 @@ export class Creature extends Utils {
     public breastCup(rowNum: number): string {
         return Appearance.breastCup(this.breastRows[rowNum].breastRating);
         // Should change this to make use of Appearance
-        // 	return BreastStore.cupSize(breastRows[rowNum].breastRating);
+        //  return BreastStore.cupSize(breastRows[rowNum].breastRating);
         /*
         if (breastRows[rowNum].breastRating < 1)
             return "flat, manly breast";
@@ -3036,7 +3032,7 @@ export class Creature extends Utils {
 
     private cockMultiLDescriptionShort(): string {
         if (this.cocks.length < 1) {
-            CoC_Settings.error("<b>ERROR: NO WANGS DETECTED for cockMultiLightDesc()</b>");
+            CocSettings.error("<b>ERROR: NO WANGS DETECTED for cockMultiLightDesc()</b>");
             return "<b>ERROR: NO WANGS DETECTED for cockMultiLightDesc()</b>";
         }
         if (this.cocks.length == 1) {
@@ -3069,8 +3065,9 @@ export class Creature extends Utils {
 
     public hasSheath(): boolean {
         if (this.cocks.length == 0) return false;
-        for (let x = 0; x < this.cocks.length; x++) {
-            switch (this.cocks[x].cockType) {
+
+        for (const { cockType } of this.cocks) {
+            switch (cockType) {
                 case CockTypesEnum.CAT:
                 case CockTypesEnum.DISPLACER:
                 case CockTypesEnum.DOG:
@@ -3101,7 +3098,7 @@ export class Creature extends Utils {
         if (this.biggestTitSize() < 1) return "chest";
         return Appearance.biggestBreastSizeDescript(this);
         //
-        // 	return Appearance.chestDesc(this);
+        //  return Appearance.chestDesc(this);
     }
 
     public allChestDesc(): string {
@@ -3115,7 +3112,7 @@ export class Creature extends Utils {
 
     public cockHead(cockNum = 0): string {
         if (cockNum < 0 || cockNum > this.cocks.length - 1) {
-            CoC_Settings.error("");
+            CocSettings.error("");
             return "ERROR";
         }
         switch (this.cocks[cockNum].cockType) {
@@ -3162,7 +3159,7 @@ export class Creature extends Utils {
     }
 
     // Short cock description. Describes length or girth. Supports multiple cocks.
-    public cockDescriptShort(i_cockIndex = 0): string {
+    public cockDescriptShort(iCockIndex = 0): string {
         // catch calls where we're outside of combat, and eCockDescript could be called.
         if (this.cocks.length == 0)
             return "<B>ERROR. INVALID CREATURE SPECIFIED to cockDescriptShort</B>";
@@ -3171,39 +3168,39 @@ export class Creature extends Utils {
         let descripted = false;
         // Discuss length one in 3 times
         if (Creature.rand(3) == 0) {
-            if (this.cocks[i_cockIndex].cockLength >= 30) description = "towering ";
-            else if (this.cocks[i_cockIndex].cockLength >= 18) description = "enormous ";
-            else if (this.cocks[i_cockIndex].cockLength >= 13) description = "massive ";
-            else if (this.cocks[i_cockIndex].cockLength >= 10) description = "huge ";
-            else if (this.cocks[i_cockIndex].cockLength >= 7) description = "long ";
-            else if (this.cocks[i_cockIndex].cockLength >= 5) description = "average ";
+            if (this.cocks[iCockIndex].cockLength >= 30) description = "towering ";
+            else if (this.cocks[iCockIndex].cockLength >= 18) description = "enormous ";
+            else if (this.cocks[iCockIndex].cockLength >= 13) description = "massive ";
+            else if (this.cocks[iCockIndex].cockLength >= 10) description = "huge ";
+            else if (this.cocks[iCockIndex].cockLength >= 7) description = "long ";
+            else if (this.cocks[iCockIndex].cockLength >= 5) description = "average ";
             else description = "short ";
             descripted = true;
         } else if (Creature.rand(2) == 0) {
             // Discuss girth one in 2 times if not already talked about length.
             // narrow, thin, ample, broad, distended, voluminous
-            if (this.cocks[i_cockIndex].cockThickness <= 0.75) description = "narrow ";
+            if (this.cocks[iCockIndex].cockThickness <= 0.75) description = "narrow ";
             if (
-                this.cocks[i_cockIndex].cockThickness > 1 &&
-                this.cocks[i_cockIndex].cockThickness <= 1.4
+                this.cocks[iCockIndex].cockThickness > 1 &&
+                this.cocks[iCockIndex].cockThickness <= 1.4
             )
                 description = "ample ";
             if (
-                this.cocks[i_cockIndex].cockThickness > 1.4 &&
-                this.cocks[i_cockIndex].cockThickness <= 2
+                this.cocks[iCockIndex].cockThickness > 1.4 &&
+                this.cocks[iCockIndex].cockThickness <= 2
             )
                 description = "broad ";
             if (
-                this.cocks[i_cockIndex].cockThickness > 2 &&
-                this.cocks[i_cockIndex].cockThickness <= 3.5
+                this.cocks[iCockIndex].cockThickness > 2 &&
+                this.cocks[iCockIndex].cockThickness <= 3.5
             )
                 description = "fat ";
-            if (this.cocks[i_cockIndex].cockThickness > 3.5) description = "distended ";
+            if (this.cocks[iCockIndex].cockThickness > 3.5) description = "distended ";
             descripted = true;
         }
         // Seems to work better without this comma:
-        // 	if (descripted && cocks[i_cockIndex].cockType != CockTypesEnum.HUMAN) description += ", ";
-        description += Appearance.cockNoun(this.cocks[i_cockIndex].cockType);
+        //  if (descripted && cocks[i_cockIndex].cockType != CockTypesEnum.HUMAN) description += ", ";
+        description += Appearance.cockNoun(this.cocks[iCockIndex].cockType);
 
         return description;
     }
@@ -3231,11 +3228,11 @@ export class Creature extends Utils {
     public breastDescript(rowNum: number): string {
         // ERROR PREVENTION
         if (this.breastRows.length - 1 < rowNum) {
-            CoC_Settings.error("");
+            CocSettings.error("");
             return "<b>ERROR, breastDescript() working with invalid breastRow</b>";
         }
         if (this.breastRows.length == 0) {
-            CoC_Settings.error("");
+            CocSettings.error("");
             return "<b>ERROR, breastDescript() called when no breasts are present.</b>";
         }
         return BreastStore.breastDescript(

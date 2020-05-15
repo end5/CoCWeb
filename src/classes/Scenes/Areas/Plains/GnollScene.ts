@@ -185,7 +185,7 @@ export class GnollScene extends BaseContent {
 
     public defeatHyena(): void {
         this.outputText("", true);
-        var dickDownClit = undefined;
+        let dickDownClit;
         // Gnoll Defeat (HP)
         if (this.monster.HP < 1)
             this.outputText(
@@ -287,7 +287,7 @@ export class GnollScene extends BaseContent {
             "Inch by inch, you sink your dick down into the warm tunnel of her monstrous clitoris.  The interior, you are happy to find, is not as rough as the exterior, and in fact is just slick enough to make your invasion possible.  After a few thrusts, you find it easiest to adopt a sort of reverse-cowgirl position, facing her feet as you roll your hips forward and shove more and more of your dick inside her.   Beneath you, the gnoll is clutching at the ground and making little submissive whimpers.\n\n",
             false
         );
-        var x: number = this.player.longestCock();
+        const x: number = this.player.longestCock();
         // (if biggestCockLength()>9)
         if (this.player.cocks[x].cockLength > 9)
             this.outputText(
@@ -356,9 +356,9 @@ export class GnollScene extends BaseContent {
     // DickInAss
     private dickInGnollAss(): void {
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = 0;
-        var y: number = this.player.cockThatFits2(this.monster.analCapacity());
+        const y: number = this.player.cockThatFits2(this.monster.analCapacity());
         if (GnollScene.rand(2) == 0) {
             this.outputText(
                 "The gnoll must be taught a lesson, but you're staying the hell away from her freaky anatomy.  You roughly roll her onto her belly and pull her lean ass up into the air.  You line up your " +

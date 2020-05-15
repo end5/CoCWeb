@@ -16,7 +16,7 @@ import { StatusAffects } from "../../../StatusAffects";
 export class Akbal extends Monster {
     public eAttack(): void {
         // Chances to miss:
-        var damage: number = 0;
+        let damage = 0;
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outputText(
@@ -166,7 +166,7 @@ export class Akbal extends Monster {
     public akbalSpecial(): void {
         // *Special Attack A -
         if (Akbal.rand(2) == 0 && this.player.spe > 20) {
-            var speedChange: number = (this.player.spe / 5) * -1;
+            const speedChange: number = (this.player.spe / 5) * -1;
             this.outputText(
                 "Akbal's eyes fill with light, and a strange sense of fear begins to paralyze your limbs.",
                 false

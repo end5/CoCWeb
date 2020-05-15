@@ -5,29 +5,29 @@ import { Utils } from "./internals/Utils";
 import { SaveAwareInterface } from "./SaveAwareInterface";
 
 export class BreastStore extends Utils implements SaveAwareInterface {
-    private static MAX_FLAG_VALUE: number = 2999;
-    private static BREAST_STORE_VERSION_1: string = "1";
-    private static LACTATION_BOOST: any[] = [0, 0, 2, 3, 6, 9, 17]; //Disabled, None, Light, Moderate, Strong, Heavy, Epic
+    private static MAX_FLAG_VALUE = 2999;
+    private static BREAST_STORE_VERSION_1 = "1";
+    private static LACTATION_BOOST: any[] = [0, 0, 2, 3, 6, 9, 17]; // Disabled, None, Light, Moderate, Strong, Heavy, Epic
 
-    public static LACTATION_DISABLED: number = 0;
-    public static LACTATION_NONE: number = 1; //Full == (>= 50), Overfull == (>= 60 + 5 * _lactationLevel), Overload == (>= 60 + 20 * _lactationLevel)
-    public static LACTATION_LIGHT: number = 2; //Full after 25 hours, overfull after 35 hours, overloaded after 50 hours
-    public static LACTATION_MODERATE: number = 3; //Full after 17 hours, overfull after 25 hours, overloaded after 40 hours
-    public static LACTATION_STRONG: number = 4; //Full after  9 hours, overfull after 15 hours, overloaded after 30 hours
-    public static LACTATION_HEAVY: number = 5; //Full after  6 hours, overfull after 12 hours, overloaded after 27 hours
-    public static LACTATION_EPIC: number = 6; //Full after  3 hours, overfull after  9 hours, overloaded after 24 hours
+    public static LACTATION_DISABLED = 0;
+    public static LACTATION_NONE = 1; // Full == (>= 50), Overfull == (>= 60 + 5 * _lactationLevel), Overload == (>= 60 + 20 * _lactationLevel)
+    public static LACTATION_LIGHT = 2; // Full after 25 hours, overfull after 35 hours, overloaded after 50 hours
+    public static LACTATION_MODERATE = 3; // Full after 17 hours, overfull after 25 hours, overloaded after 40 hours
+    public static LACTATION_STRONG = 4; // Full after  9 hours, overfull after 15 hours, overloaded after 30 hours
+    public static LACTATION_HEAVY = 5; // Full after  6 hours, overfull after 12 hours, overloaded after 27 hours
+    public static LACTATION_EPIC = 6; // Full after  3 hours, overfull after  9 hours, overloaded after 24 hours
 
     private _breastFlag: number;
-    private _cupSize: number = 0;
-    private _fullness: number = 0; //How much milk the breasts currently hold - use milkQuantity to decide how much milk is produced in a scene
+    private _cupSize = 0;
+    private _fullness = 0; // How much milk the breasts currently hold - use milkQuantity to decide how much milk is produced in a scene
     // The milkIsFull and milkIsOverflowing functions let you know how much the NPC wants to be milked
-    private _lactation: number = 0; //How fast the breasts refill with milk
-    private _nippleLength: number = 0;
-    private _timesMilked: number = 0; //How many times has this NPC been milked - only used internally
-    private _rows: number = 0; //Number of rows of breasts. All assumed to be the same size
+    private _lactation = 0; // How fast the breasts refill with milk
+    private _nippleLength = 0;
+    private _timesMilked = 0; // How many times has this NPC been milked - only used internally
+    private _rows = 0; // Number of rows of breasts. All assumed to be the same size
 
-    public preventLactationIncrease: number = 0; //Control the points at which the lactation stops increasing or decreasing
-    public preventLactationDecrease: number = 0;
+    public preventLactationIncrease = 0; // Control the points at which the lactation stops increasing or decreasing
+    public preventLactationDecrease = 0;
 
     public constructor(breastFlag: number) {
         super();
@@ -43,7 +43,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
     // Implementation of SaveAwareInterface
     public updateAfterLoad(game: CoC): void {
         if (this._breastFlag < 1 || this._breastFlag > BreastStore.MAX_FLAG_VALUE) return;
-        var flagData: any[] = String(game.flags[this._breastFlag]).split("^");
+        const flagData: any[] = String(game.flags[this._breastFlag]).split("^");
         if (flagData.length < 9) {
             // Loading from a file that doesn't contain appropriate save data.
             // Values will either have to be assigned in Saves.unFuckSave() or by the first encounter with this NPC
@@ -83,9 +83,9 @@ export class BreastStore extends Utils implements SaveAwareInterface {
     }
     // End of Interface Implementation
 
-    public static breastDescript(size: number, lactation: number = 0): string {
+    public static breastDescript(size: number, lactation = 0): string {
         if (size < 1) return "flat breasts";
-        var descript: string = BreastStore.rand(2) == 0 ? Appearance.breastSize(size) : ""; //Add a description of the breast size 50% of the time
+        let descript: string = BreastStore.rand(2) == 0 ? Appearance.breastSize(size) : ""; // Add a description of the breast size 50% of the time
         switch (BreastStore.rand(10)) {
             case 1:
                 if (lactation > 2) return descript + "milk-udders";
@@ -140,12 +140,12 @@ export class BreastStore extends Utils implements SaveAwareInterface {
     public advanceTime(): void {
         if (this._lactation <= BreastStore.LACTATION_NONE) return;
         // Add to breastFullness and possibly adjust lactationLevel. Even when lactationLevel == LACTATION_NONE this is still doing something useful, adjusting _breastTimesMilked
-        this._fullness += BreastStore.LACTATION_BOOST[this._lactation]; //Higher lactation means faster refill
+        this._fullness += BreastStore.LACTATION_BOOST[this._lactation]; // Higher lactation means faster refill
         if (this._fullness > 60 + 20 * BreastStore.LACTATION_BOOST[this._lactation]) {
             // 100 at LACTATION_LIGHT, 180 at LACTATION_EPIC - fullness over this value is overloaded, lactation may be reduced
-            this._fullness = 50; //This way fullness won't immediately hit the limit again
+            this._fullness = 50; // This way fullness won't immediately hit the limit again
             if (this._timesMilked >= 5) {
-                this._timesMilked -= 5; //If enough milkings have occured then don't reduce lactation level right away
+                this._timesMilked -= 5; // If enough milkings have occured then don't reduce lactation level right away
             } else if (this.preventLactationDecrease != this._lactation) {
                 this._lactation--;
             }
@@ -217,9 +217,9 @@ export class BreastStore extends Utils implements SaveAwareInterface {
 
     public cup(): string {
         return Appearance.breastCup(this._cupSize);
-    } //The cup size alone
+    } // The cup size alone
 
-    public description(useAdj: boolean = false, isMale: boolean = false): string {
+    public description(useAdj = false, isMale = false): string {
         if (this._cupSize == CoC.BREAST_CUP_FLAT)
             return "flat" + (isMale ? " manly," : "") + " chest";
         return (useAdj ? this.adj() + " " : "") + this.cup() + " breasts";
@@ -243,9 +243,9 @@ export class BreastStore extends Utils implements SaveAwareInterface {
         this._timesMilked++;
         if (this.preventLactationIncrease == this._lactation) return false;
         switch (
-            this._lactation //With enough milking the lactation level increases
+            this._lactation // With enough milking the lactation level increases
         ) {
-            case BreastStore.LACTATION_NONE: //If you suckle enough times the NPC will eventually start producing milk if they're set to LACTATION_NONE
+            case BreastStore.LACTATION_NONE: // If you suckle enough times the NPC will eventually start producing milk if they're set to LACTATION_NONE
                 if (this._timesMilked < 12) return false;
                 break;
             case BreastStore.LACTATION_LIGHT:
@@ -277,7 +277,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
     public milkIsOverflowing(): boolean {
         return this._lactation <= BreastStore.LACTATION_NONE
             ? false
-            : this._fullness >= 60 + 5 * BreastStore.LACTATION_BOOST[this._lactation]; //Probably pretty desperate to be milked by this point
+            : this._fullness >= 60 + 5 * BreastStore.LACTATION_BOOST[this._lactation]; // Probably pretty desperate to be milked by this point
     }
 
     // At fullness == 50 the maximum amount of milk is produced. When overfull, lactation level is reduced and fullness drops to 50.
@@ -292,11 +292,11 @@ export class BreastStore extends Utils implements SaveAwareInterface {
     }
 
     public nippleDescript(
-        tiny: string = "tiny",
-        small: string = "prominent",
-        large: string = "large",
-        huge: string = "elongated",
-        massive: string = "massive"
+        tiny = "tiny",
+        small = "prominent",
+        large = "large",
+        huge = "elongated",
+        massive = "massive"
     ): string {
         if (this._nippleLength < 3) return tiny;
         if (this._nippleLength < 10) return small;
@@ -311,7 +311,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
 
     public set nippleLength(value: number) {
         if (value < 0) value = 0;
-        this._nippleLength = 0.1 * Math.round(10 * value); //Ensure nipple length only goes to one decimal place
+        this._nippleLength = 0.1 * Math.round(10 * value); // Ensure nipple length only goes to one decimal place
     }
 
     public get rows(): number {

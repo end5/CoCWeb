@@ -10,8 +10,8 @@ import { SimpleConsumable } from "./SimpleConsumable";
 export class RizzaRoot extends SimpleConsumable {
     private rizzaRootEffect(player: Player): void {
         this.clearOutput();
-        var changes: number = 0;
-        var changeLimit: number = 1;
+        let changes = 0;
+        let changeLimit = 1;
         // var counter: number = 0;
         if (Utils.rand(2) == 0) changeLimit++;
         if (Utils.rand(3) == 0) changeLimit++;
@@ -49,7 +49,7 @@ export class RizzaRoot extends SimpleConsumable {
             );
         }
         if (changes < changeLimit && player.tallness < 108) {
-            player.tallness += changeLimit - changes + Utils.rand(2); //Add remaining changes as additional height
+            player.tallness += changeLimit - changes + Utils.rand(2); // Add remaining changes as additional height
             if (player.tallness > 108) player.tallness = 108;
             this.outputText(
                 "\n\nA shiver runs down your spine.  You realize that it, along with the rest of your frame, is now a bit taller."

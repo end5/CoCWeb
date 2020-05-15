@@ -66,7 +66,7 @@ export class MinotaurLord extends Monster {
         );
         this.player.setWeapon(WeaponLib.FISTS);
         //
-        // 	player.weapon.unequip(player, false, true);
+        //  player.weapon.unequip(player, false, true);
         kGAMECLASS.combatRoundOver();
     }
 

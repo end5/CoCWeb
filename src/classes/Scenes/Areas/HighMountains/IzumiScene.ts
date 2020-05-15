@@ -22,7 +22,7 @@ export class IzumiScene extends BaseContent {
      */
 
     // Return a height-based nickname for the player
-    public heightDesc(doName: boolean = true): string {
+    public heightDesc(doName = true): string {
         if (IzumiScene.rand(4) != 0) return "kid";
         else {
             if (this.player.tallness < 60) return "pint-size";
@@ -37,7 +37,7 @@ export class IzumiScene extends BaseContent {
     }
 
     public HeightDesc(): string {
-        var str: string = this.heightDesc();
+        const str: string = this.heightDesc();
         return str.charAt(0).toUpperCase() + str.substr(1);
     }
 
@@ -425,17 +425,17 @@ export class IzumiScene extends BaseContent {
     }
 
     // Set some shit up for the Pipesmoke scene during the introduction
-    private SMOKE_SPEED_REDUCE: number = 1.1;
-    private SMOKE_SENS_BOOST: number = 1.1;
-    private SMOKE_LIBIDO_BOOST: number = 1.1;
-    private SMOKE_DURATION: number = 24;
+    private SMOKE_SPEED_REDUCE = 1.1;
+    private SMOKE_SENS_BOOST = 1.1;
+    private SMOKE_LIBIDO_BOOST = 1.1;
+    private SMOKE_DURATION = 24;
 
     // Applies the smokeeffect to a player, based on if they used the pipe directly or not
     protected smokeEffect(smokedPipe: boolean): void {
-        var deltaSpd: number = this.player.spe - this.player.spe * this.SMOKE_SPEED_REDUCE;
-        var deltaSns: number = this.player.sens * this.SMOKE_SENS_BOOST - this.player.sens;
-        var deltaLib: number = this.player.lib * this.SMOKE_LIBIDO_BOOST - this.player.lib;
-        var lustMod: number = 7;
+        let deltaSpd: number = this.player.spe - this.player.spe * this.SMOKE_SPEED_REDUCE;
+        let deltaSns: number = this.player.sens * this.SMOKE_SENS_BOOST - this.player.sens;
+        let deltaLib: number = this.player.lib * this.SMOKE_LIBIDO_BOOST - this.player.lib;
+        let lustMod = 7;
 
         // Double effect for directly smokin da pipe
         if (smokedPipe) {
@@ -471,7 +471,7 @@ export class IzumiScene extends BaseContent {
 
     // Update the duration of the pipe smoke effect
     public updateSmokeDuration(hours: number): void {
-        var affectIndex: number = this.player.findStatusAffect(StatusAffects.IzumisPipeSmoke);
+        const affectIndex: number = this.player.findStatusAffect(StatusAffects.IzumisPipeSmoke);
 
         if (affectIndex >= 0) {
             this.player.statusAffect(affectIndex).value1 -= hours;
@@ -484,7 +484,7 @@ export class IzumiScene extends BaseContent {
 
     // Method to contain removal mechanics + scene text to spit out
     protected smokeEffectWearsOff(): void {
-        var affectIndex: number = this.player.findStatusAffect(StatusAffects.IzumisPipeSmoke);
+        const affectIndex: number = this.player.findStatusAffect(StatusAffects.IzumisPipeSmoke);
 
         if (affectIndex >= 0) {
             this.player.spe += Math.abs(this.player.statusAffect(affectIndex).value2);
@@ -1236,7 +1236,7 @@ export class IzumiScene extends BaseContent {
             if (this.player.isNaga()) this.outputText(" wriggling atop your [legs]");
             else this.outputText(" subtly parting your [legs] and even ");
             if (this.player.isTaur()) this.outputText(" rolling your butt upward");
-            else " tilting your hips forwards";
+            else this.outputText(" tilting your hips forwards");
             this.outputText(
                 " a little, to ensure that Izumi gets a really <b>good</b> look at you down there.  The shameless act sends a flush of embarrassed warmth through you, making you tremble in pleasure.  You’re unable to keep yourself from smiling a little - you can barely manage to stop yourself from moaning aloud.  You place your hands above your breasts, hoping that Izumi will stop to look at them... which she does, looking up a moment later to say something, then pausing as her eyes linger at the sight of your [chest].\n\n"
             );
@@ -1667,7 +1667,7 @@ export class IzumiScene extends BaseContent {
     /**
      * LOSS SCENES
      */
-    public fuckedUpByAFuckhugeOni(titLoss: boolean = false): void {
+    public fuckedUpByAFuckhugeOni(titLoss = false): void {
         this.flags[kFLAGS.IZUMI_LAST_ENCOUNTER] = 1;
         this.flags[kFLAGS.IZUMI_SEEN_PC_GENDER] = this.player.gender;
 
@@ -2980,7 +2980,7 @@ export class IzumiScene extends BaseContent {
             "“<i>Kiss it,</i>” you order. Izumi’s eyes flicker briefly to look up at your face, but by this point she knows better than to attempt disobedience.  Leaning hesitantly forwards, Izumi purses her lips as she moves in for the kiss."
         );
 
-        var cockIndex: number = this.player.biggestCockIndex();
+        const cockIndex: number = this.player.biggestCockIndex();
 
         if (this.player.cocks[cockIndex].cockType == CockTypesEnum.HORSE)
             this.outputText(

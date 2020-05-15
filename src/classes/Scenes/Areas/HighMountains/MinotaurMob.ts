@@ -15,13 +15,14 @@ import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...
+ *
  * @author ...
  */
 export class MinotaurMob extends Monster {
     private precumTease(): void {
-        var teased: boolean = false;
-        var damage: number = 0;
-        var oldLust: number = this.player.lust;
+        let teased = false;
+        let damage = 0;
+        const oldLust: number = this.player.lust;
         this.game.spriteSelect(94);
         // (Big taur pre-cum tease)
         if (MinotaurMob.rand(2) == 0) {
@@ -203,7 +204,7 @@ export class MinotaurMob extends Monster {
     public doAI(): void {
         this.game.spriteSelect(94);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00329] = 0;
-        var select: number = MinotaurMob.rand(7);
+        const select: number = MinotaurMob.rand(7);
         if (select <= 2) this.precumTease();
         else if (select <= 4) this.minotaurGangGropeAttack();
         else if (select == 5) this.minotaurGangGangGropeAttack();
@@ -265,15 +266,15 @@ export class MinotaurMob extends Monster {
         this.weaponName = "fists";
         this.weaponVerb = "punches";
         this.armorName = "thick fur";
-        var bonusHP: number = 340 + 50 * (this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3);
-        var lustVuln: number = 0.45;
+        const bonusHP: number = 340 + 50 * (this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3);
+        let lustVuln = 0.45;
         if ((this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3) * 2 > 13) lustVuln = 0.3;
         else lustVuln -= (this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3) * 0.02;
         this.bonusHP = bonusHP;
         this.lust = 30;
         this.lustVuln = lustVuln;
         this.temperment = MinotaurMob.TEMPERMENT_LUSTY_GRAPPLES;
-        var level: number =
+        let level: number =
             11 + Math.round((this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3) / 2);
         if (level > 14) level = 14;
         this.level = level;

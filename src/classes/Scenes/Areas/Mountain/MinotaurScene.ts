@@ -26,20 +26,20 @@ export class MinotaurScene extends BaseContent {
     public minoVictoryRapeChoices(): void {
         this.spriteSelect(44);
         // Determine if PC can rape with a dick!
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
-        var dickRape = undefined;
-        var cuntRape = undefined;
-        var tentaRape = undefined;
-        var hermRape = undefined;
-        var urethralPen = undefined;
-        var filled = undefined;
-        var bj = undefined;
-        var eggs: number;
-        var feedposit: string = "B. Feed";
-        var bikiniTits: number;
+        const x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let dickRape;
+        let cuntRape;
+        let tentaRape;
+        let hermRape;
+        let urethralPen;
+        let filled;
+        let bj;
+        let eggs: number;
+        let feedposit = "B. Feed";
+        let bikiniTits: number;
         // Checking to see if can urethral pen
         if (this.player.hasCock()) {
-            var counter: number = 0;
+            let counter = 0;
             // Loop through to see if any dicks qualify, and if so enable it.
             while (counter < this.player.cockTotal()) {
                 if (
@@ -61,7 +61,7 @@ export class MinotaurScene extends BaseContent {
         if (this.player.gender == 3 && x >= 0 && !this.player.isTaur())
             hermRape = this.minotaurGetsRapedByHerms;
         // Enable feeder scene if appropriate
-        var temp2 = undefined;
+        let temp2;
         if (this.player.findPerk(PerkLib.Feeder) >= 0) temp2 = this.minotaurDrinksMilkNewsAtEleven;
         // Oviposit overlaps feeder
         if (
@@ -78,11 +78,11 @@ export class MinotaurScene extends BaseContent {
             this.player.armor instanceof LustyMaidensArmor
         ) {
             feedposit = "B.Titfuck";
-            temp2 = (this.player.armor as LustyMaidensArmor).lustyMaidenPaizuri;
+            temp2 = this.player.armor.lustyMaidenPaizuri;
         }
         // Used for tracking prostate milking and injection
-        var tempText: string = "";
-        var temp = undefined;
+        let tempText = "";
+        let temp;
         // Enable mino milking even if not in need
         if (
             this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] >= 1 ||
@@ -220,8 +220,8 @@ export class MinotaurScene extends BaseContent {
         //     }
         //     counter++;
         // }
-        var mismatched: boolean = false;
-        var temp2: number = 0;
+        let mismatched = false;
+        let temp2 = 0;
         this.outputText("", true);
         if (this.monster.HP <= 0)
             this.outputText(
@@ -354,8 +354,8 @@ export class MinotaurScene extends BaseContent {
     private rapeMinotaurTentacle(): void {
         this.spriteSelect(44);
         this.minoRapeIntro();
-        var x: number = 0;
-        var counter: number = 0;
+        let x = 0;
+        let counter = 0;
         while (counter < this.player.cockTotal()) {
             if (this.player.cocks[counter].cockType == CockTypesEnum.TENTACLE) {
                 x = counter;
@@ -576,8 +576,8 @@ export class MinotaurScene extends BaseContent {
     private minoUrethralPen(): void {
         this.spriteSelect(44);
         this.minoRapeIntro();
-        var counter: number = 0;
-        var x: number = 0;
+        let counter = 0;
+        let x = 0;
         // Find which dick to use!
         while (counter < this.player.cockTotal()) {
             if (
@@ -787,7 +787,7 @@ export class MinotaurScene extends BaseContent {
     // Man buttrapes a minotaur butt.
     private bumRapeaMinotaur(): void {
         this.spriteSelect(44);
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        const x: number = this.player.cockThatFits(this.monster.analCapacity());
         this.minoRapeIntro();
         this.outputText("\n\nYou droop your ", false);
         // Regular or multi...
@@ -1116,7 +1116,7 @@ export class MinotaurScene extends BaseContent {
         if (this.player.lust >= 100) this.doNext(this.getGame().endLustLoss);
         else this.doNext(this.getGame().combatMenu);
     }
-    public getRapedByMinotaur(autoRape: boolean = false): void {
+    public getRapedByMinotaur(autoRape = false): void {
         this.spriteSelect(44);
         this.player.slimeFeed();
         this.clearOutput();
@@ -1636,13 +1636,13 @@ export class MinotaurScene extends BaseContent {
         this.cleanupAfterCombat();
     }
 
-    private minoCumAddiction(raw: number = 10): void {
+    private minoCumAddiction(raw = 10): void {
         this.player.minoCumAddiction(raw);
     }
 
     public minoCumUpdate(): boolean {
         if (this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_TRACKER] == 0) return false;
-        var output: boolean = false;
+        let output = false;
         // Your addicted enough for it to be official!
         if (
             this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 0 &&
@@ -1934,7 +1934,7 @@ export class MinotaurScene extends BaseContent {
     private minotaurBlowjob(): void {
         this.spriteSelect(44);
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(80);
+        const x: number = this.player.cockThatFits(80);
         this.outputText("You step towards the minotaur, ", false);
         if (!this.player.isTaur())
             this.outputText("peeling away your " + this.player.armorName + " and ", false);

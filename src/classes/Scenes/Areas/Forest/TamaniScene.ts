@@ -14,7 +14,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
     // const TIMES_OVIPOSITED_TAMANI: number = 581;
     // const TAMANI_TIME_OUT: number = 580;
 
-    /*NOTES:
+    /* NOTES:
     Tamani encountered if you have a dick, short alternate female scene available.
     Variables:
         -\"Tamani\"
@@ -60,7 +60,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 ", event: " +
                 this.pregnancy.event
         );
-        if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0) this.tamaniGivesBirth(); //Silently clear Tamani's pregnancy if the player doesn't encounter her in time
+        if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0) this.tamaniGivesBirth(); // Silently clear Tamani's pregnancy if the player doesn't encounter her in time
         return false;
     }
 
@@ -78,11 +78,11 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             this.flags[kFLAGS.TAMANI_PREGNANCY_COUNT] = 0;
             this.flags[kFLAGS.TAMANI_TIMES_IMPREGNATED]++;
         }
-        this.pregnancy.knockUpForce(); //Clear Pregnancy
+        this.pregnancy.knockUpForce(); // Clear Pregnancy
     }
 
     public tamaniChest(): string {
-        var descript: string = "";
+        let descript = "";
         switch (this.flags[kFLAGS.TAMANI_TIMES_IMPREGNATED]) {
             case -1:
             case 0:
@@ -200,7 +200,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
     // [First Time]
     private tamaniMaleFirstEncounter(): void {
         this.spriteSelect(56);
-        this.flags[kFLAGS.TAMANI_MET] = 1; //Indicates you've met her as a male at least once
+        this.flags[kFLAGS.TAMANI_MET] = 1; // Indicates you've met her as a male at least once
         this.outputText("", true);
         this.outputText(
             "A goblin leaps out from behind a rock outcropping.  For something so small, she has a lot of curves.  She advances towards you, rolling her hips in a suggestive way, immediately diverting your blood-flow to your crotch.  The little thing is only about four feet tall, with pink and black dyed hair cut into a cute little 'do.  The greenish-gray skin of her breasts jiggles pleasantly with every step, supported by a few leather straps, amplifying her cleavage.  Her cunt lips are pierced multiple times, inflamed, and slightly parted.  There really isn't any clothing on her to hide them, just more of the ever-present straps wrapping around her thighs.\n\n",
@@ -1162,7 +1162,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
     public tamaniSexWon(): void {
         this.spriteSelect(56);
         this.tamaniKnockUp();
-        var x: number = this.player.cockThatFits(90);
+        let x: number = this.player.cockThatFits(90);
         if (x == -1) x = this.player.biggestCockIndex();
         this.outputText("", true);
         if (this.player.cockArea(x) <= 90) {
@@ -1499,7 +1499,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] > 0)
-            this.outputText("with her daughters, ", false); //She always has at least two daughters if she has any
+            this.outputText("with her daughters, ", false); // She always has at least two daughters if she has any
         this.outputText(
             "laying against a scrubby tree with her legs spread wide and surrounded by a small puddle.  Her " +
                 this.tamaniChest() +
@@ -1545,11 +1545,11 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
     }
 
     public tamaniKnockUp(): void {
-        if (this.pregnancy.isPregnant) return; //Already preggers
-        this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, 216); //Nine day long pregnancy
+        if (this.pregnancy.isPregnant) return; // Already preggers
+        this.pregnancy.knockUpForce(PregnancyStore.PREGNANCY_PLAYER, 216); // Nine day long pregnancy
         // Determine how many kids...
         this.flags[kFLAGS.TAMANI_PREGNANCY_COUNT] = 2;
-        var cum: number = this.player.cumQ();
+        const cum: number = this.player.cumQ();
         // Breeder perk is awesome
         if (this.player.findPerk(PerkLib.MaraesGiftStud) >= 0)
             this.flags[kFLAGS.TAMANI_PREGNANCY_COUNT] += 3;
@@ -1574,12 +1574,12 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             switch (this.pregnancy.event) {
                 case 2:
                     this.tamaniPregnantEncounter();
-                    break; //She's moderately pregnant
+                    break; // She's moderately pregnant
                 case 3:
                     this.tamaniPoopsOutBabies();
-                    break; //She's close to giving birth so do it now
+                    break; // She's close to giving birth so do it now
                 default:
-                    this.tamaniMaleRepeatEncounter(); //She's not pregnant or is only slightly pregnant
+                    this.tamaniMaleRepeatEncounter(); // She's not pregnant or is only slightly pregnant
             }
         }
     }
@@ -1590,9 +1590,9 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.spriteSelect(56);
         this.outputText("", true);
         // Find a dick that fits
-        var primary: number = this.player.cockThatFits(65);
-        var secondary: number = 0;
-        var cocks: number = this.player.totalCocks();
+        const primary: number = this.player.cockThatFits(65);
+        let secondary = 0;
+        const cocks: number = this.player.totalCocks();
 
         this.outputText(
             "Tamani crooks her finger and you come running, already feeling yourself straining against your " +
@@ -1955,7 +1955,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
 
     public tamaniAnalShits(): void {
         this.spriteSelect(56);
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        const x: number = this.player.cockThatFits(this.monster.analCapacity());
         this.outputText("", true);
         this.outputText(
             "You grab hold of the insensate goblin by her pink-dyed hair and shove her into the mud, irritated with her constant demands and rape attempts.  The horny slut doesn't even have the grace to be ashamed of her defeat.  She just lies in the mud, wiggling her exposed ass back and forth in the air, trying to tempt you with it.\n\n",

@@ -27,7 +27,7 @@ export class DriderIncubusScenes extends BaseContent {
     public spooderbuttGetsANewCockSleeve(hpVictory: boolean, pcCameWorms: boolean): void {
         this.clearOutput();
 
-        var m: DriderIncubus = this.monster as DriderIncubus;
+        const m: DriderIncubus = this.monster as DriderIncubus;
 
         // Because I ran out of steam for writing more!
         this.outputText(
@@ -304,7 +304,7 @@ export class DriderIncubusScenes extends BaseContent {
         this.flags[kFLAGS.DRIDERINCUBUS_DEFEATED] = 1;
 
         this.clearOutput();
-        var m: DriderIncubus = this.monster as DriderIncubus;
+        const m: DriderIncubus = this.monster as DriderIncubus;
         // HP
         if (hpVictory) {
             this.outputText(
@@ -358,8 +358,8 @@ export class DriderIncubusScenes extends BaseContent {
     }
 
     public driderDefeatMenu(): void {
-        var doneDriderbus: boolean = false;
-        var doneGoblin: boolean = false;
+        let doneDriderbus = false;
+        let doneGoblin = false;
 
         this.menu();
         if (

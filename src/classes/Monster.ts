@@ -10,7 +10,7 @@ import { Appearance } from "./Appearance";
 import { BreastRowClass } from "./BreastRowClass";
 import { Cock } from "./Cock";
 import { CockTypesEnum } from "./CockTypesEnum";
-import { CoC_Settings } from "./CoC_Settings";
+import { CocSettings } from "./CoC_Settings";
 import { Creature } from "./Creature";
 import { kFLAGS } from "./GlobalFlags/kFLAGS";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
@@ -30,13 +30,14 @@ import { VaginaClass } from "./VaginaClass";
 
 /**
  * ...
+ *
  * @author Yoffy, Fake-Name, aimozg
  */
 export class Monster extends Creature {
     protected get player(): Player {
         return this.game.player;
     }
-    protected outputText(text: string, clear: boolean = false): void {
+    protected outputText(text: string, clear = false): void {
         this.game.outputText(text, clear);
     }
     protected combatRoundOver(): void {
@@ -80,9 +81,8 @@ export class Monster extends Creature {
         return this.game.armors;
     }
     // For enemies
-    public bonusHP: number = 0;
-    private _long: string =
-        "<b>You have encountered an unitialized  Please report this as a bug</b>.";
+    public bonusHP = 0;
+    private _long = "<b>You have encountered an unitialized  Please report this as a bug</b>.";
     public get long(): string {
         return this._long;
     }
@@ -92,16 +92,16 @@ export class Monster extends Creature {
     }
 
     // Is a creature a 'plural' encounter - mob, etc.
-    public plural: boolean = false;
-    public imageName: string = "";
+    public plural = false;
+    public imageName = "";
 
     // Lust vulnerability
-    public lustVuln: number = 1;
+    public lustVuln = 1;
 
-    public static TEMPERMENT_AVOID_GRAPPLES: number = 0;
-    public static TEMPERMENT_LUSTY_GRAPPLES: number = 1;
-    public static TEMPERMENT_RANDOM_GRAPPLES: number = 2;
-    public static TEMPERMENT_LOVE_GRAPPLES: number = 3;
+    public static TEMPERMENT_AVOID_GRAPPLES = 0;
+    public static TEMPERMENT_LUSTY_GRAPPLES = 1;
+    public static TEMPERMENT_RANDOM_GRAPPLES = 2;
+    public static TEMPERMENT_LOVE_GRAPPLES = 3;
     /**
      * temperment - used for determining grapple behaviors
      * 0 - avoid grapples/break grapple
@@ -117,19 +117,19 @@ export class Monster extends Creature {
     public special3: any = undefined;
 
     // he
-    public pronoun1: string = "";
+    public pronoun1 = "";
     public get Pronoun1(): string {
         if (this.pronoun1 == "") return "";
         return this.pronoun1.substr(0, 1).toUpperCase() + this.pronoun1.substr(1);
     }
     // him
-    public pronoun2: string = "";
+    public pronoun2 = "";
     public get Pronoun2(): string {
         if (this.pronoun2 == "") return "";
         return this.pronoun2.substr(0, 1).toUpperCase() + this.pronoun2.substr(1);
     }
     // 3: Possessive his
-    public pronoun3: string = "";
+    public pronoun3 = "";
     public get Pronoun3(): string {
         if (this.pronoun3 == "") return "";
         return this.pronoun3.substr(0, 1).toUpperCase() + this.pronoun3.substr(1);
@@ -175,13 +175,13 @@ export class Monster extends Creature {
         return this.player.reduceDamage(this.eBaseDamage());
     }
 
-    protected totalXP(playerLevel: number = -1): number {
+    protected totalXP(playerLevel = -1): number {
         if (playerLevel == -1) playerLevel = this.game.player.level;
         //
         // 1) Nerf xp gains by 20% per level after first two level difference
         // 2) No bonuses for underlevel!
         // 3) Super high level folks (over 10 levels) only get 1 xp!
-        var difference: number = playerLevel - this.level;
+        let difference: number = playerLevel - this.level;
         if (difference <= 2) difference = 0;
         else difference -= 2;
         if (difference > 4) difference = 4;
@@ -201,7 +201,7 @@ export class Monster extends Creature {
                 55,
                 60,
                 66,
-                75, //0-9
+                75, // 0-9
                 83,
                 85,
                 92,
@@ -211,7 +211,7 @@ export class Monster extends Creature {
                 118,
                 121,
                 128,
-                135, //10-19
+                135, // 10-19
                 145,
             ][Math.round(this.level)] || 200
         );
@@ -229,193 +229,193 @@ export class Monster extends Creature {
         // trace("Generic Monster Constructor!");
         this.gender = GENDER_NONE;
 
-        //// INSTRUCTIONS
-        //// Copy-paste remaining code to the new monster constructor
-        //// Uncomment and replace placeholder values with your own
-        //// See existing monsters for examples
+        /// / INSTRUCTIONS
+        /// / Copy-paste remaining code to the new monster constructor
+        /// / Uncomment and replace placeholder values with your own
+        /// / See existing monsters for examples
 
         // super(mainClassPtr);
 
-        //// INIITIALIZERS
-        //// If you want to skip something that is REQUIRED, you shoud set corresponding
-        //// this.initedXXX property to true, e.g. this.initedGenitals = true;
+        /// / INIITIALIZERS
+        /// / If you want to skip something that is REQUIRED, you shoud set corresponding
+        /// / this.initedXXX property to true, e.g. this.initedGenitals = true;
 
-        //// 1. Names and plural/singular
-        ///*REQUIRED*/ this.a = "a";
-        ///*REQUIRED*/ this.short = "short";
-        ///*OPTIONAL*/ // this.imageName = "imageName"; // default ""
-        ///*REQUIRED*/ this.long = "long";
-        ///*OPTIONAL*/ //this.plural = true|false; // default false
+        /// / 1. Names and plural/singular
+        /// *REQUIRED*/ this.a = "a";
+        /// *REQUIRED*/ this.short = "short";
+        /// *OPTIONAL*/ // this.imageName = "imageName"; // default ""
+        /// *REQUIRED*/ this.long = "long";
+        /// *OPTIONAL*/ //this.plural = true|false; // default false
 
-        //// 2. Gender, genitals, and pronouns (also see "note for 2." below)
-        //// 2.1. Male
-        ///*REQUIRED*/ this.createCock(length,thickness,type); // defaults 5.5,1,human; could be called multiple times
-        ///*OPTIONAL*/ //this.balls = numberOfBalls; // default 0
-        ///*OPTIONAL*/ //this.ballSize = ; // default 0. should be set if balls>0
-        ///*OPTIONAL*/ //this.cumMultiplier = ; // default 1
-        ///*OPTIONAL*/ //this.hoursSinceCum = ; // default 0
-        //// 2.2. Female
-        ///*REQUIRED*/ this.createVagina(virgin=true|false,VAGINA_WETNESS_,VAGINA_LOOSENESS_); // default true,normal,tight
-        ///*OPTIONAL*/ //this.createStatusAffect(StatusAffects.BonusVCapacity, bonus, 0, 0, 0);
-        //// 2.3. Hermaphrodite
-        //// Just create cocks and vaginas. Last call determines pronouns.
-        //// 2.4. Genderless
-        ///*REQUIRED*/ initGenderless(); // this functions removes genitals!
+        /// / 2. Gender, genitals, and pronouns (also see "note for 2." below)
+        /// / 2.1. Male
+        /// *REQUIRED*/ this.createCock(length,thickness,type); // defaults 5.5,1,human; could be called multiple times
+        /// *OPTIONAL*/ //this.balls = numberOfBalls; // default 0
+        /// *OPTIONAL*/ //this.ballSize = ; // default 0. should be set if balls>0
+        /// *OPTIONAL*/ //this.cumMultiplier = ; // default 1
+        /// *OPTIONAL*/ //this.hoursSinceCum = ; // default 0
+        /// / 2.2. Female
+        /// *REQUIRED*/ this.createVagina(virgin=true|false,VAGINA_WETNESS_,VAGINA_LOOSENESS_); // default true,normal,tight
+        /// *OPTIONAL*/ //this.createStatusAffect(StatusAffects.BonusVCapacity, bonus, 0, 0, 0);
+        /// / 2.3. Hermaphrodite
+        /// / Just create cocks and vaginas. Last call determines pronouns.
+        /// / 2.4. Genderless
+        /// *REQUIRED*/ initGenderless(); // this functions removes genitals!
 
-        //// Note for 2.: during initialization pronouns are set in:
-        //// * createCock: he/him/his
-        //// * createVagina: she/her/her
-        //// * initGenderless: it/it/its
-        //// If plural=true, they are replaced with: they/them/their
-        //// If you want to customize pronouns:
-        ///*OPTIONAL*/ //this.pronoun1 = "he";
-        ///*OPTIONAL*/ //this.pronoun2 = "him";
-        ///*OPTIONAL*/ //this.pronoun3 = "his";
-        //// Another note for 2.: gender is automatically calculated in createCock,
-        //// createVagina, initGenderless. If you want to change it, set this.gender
-        //// after these method calls.
+        /// / Note for 2.: during initialization pronouns are set in:
+        /// / * createCock: he/him/his
+        /// / * createVagina: she/her/her
+        /// / * initGenderless: it/it/its
+        /// / If plural=true, they are replaced with: they/them/their
+        /// / If you want to customize pronouns:
+        /// *OPTIONAL*/ //this.pronoun1 = "he";
+        /// *OPTIONAL*/ //this.pronoun2 = "him";
+        /// *OPTIONAL*/ //this.pronoun3 = "his";
+        /// / Another note for 2.: gender is automatically calculated in createCock,
+        /// / createVagina, initGenderless. If you want to change it, set this.gender
+        /// / after these method calls.
 
-        //// 3. Breasts
-        ///*REQUIRED*/ this.createBreastRow(size,nipplesPerBreast); // default 0,1
-        //// Repeat for multiple breast rows
-        //// You can call just `this.createBreastRow();` for flat breasts
-        //// Note useful method: this.createBreastRow(Appearance.breastCupInverse("C")); // "C" -> 3
+        /// / 3. Breasts
+        /// *REQUIRED*/ this.createBreastRow(size,nipplesPerBreast); // default 0,1
+        /// / Repeat for multiple breast rows
+        /// / You can call just `this.createBreastRow();` for flat breasts
+        /// / Note useful method: this.createBreastRow(Appearance.breastCupInverse("C")); // "C" -> 3
 
-        //// 4. Ass
-        ///*OPTIONAL*/ //this.ass.analLooseness = ANAL_LOOSENESS_; // default TIGHT
-        ///*OPTIONAL*/ //this.ass.analWetness = ANAL_WETNESS_; // default DRY
-        ///*OPTIONAL*/ //this.createStatusAffect(StatusAffects.BonusACapacity, bonus, 0, 0, 0);
-        //// 5. Body
-        ///*REQUIRED*/ this.tallness = ;
-        ///*OPTIONAL*/ //this.hipRating = HIP_RATING_; // default boyish
-        ///*OPTIONAL*/ //this.buttRating = BUTT_RATING_; // default buttless
-        ///*OPTIONAL*/ //this.lowerBody = LOWER_BODY_; //default human
-        ///*OPTIONAL*/ //this.armType = ARM_TYPE_; // default human
+        /// / 4. Ass
+        /// *OPTIONAL*/ //this.ass.analLooseness = ANAL_LOOSENESS_; // default TIGHT
+        /// *OPTIONAL*/ //this.ass.analWetness = ANAL_WETNESS_; // default DRY
+        /// *OPTIONAL*/ //this.createStatusAffect(StatusAffects.BonusACapacity, bonus, 0, 0, 0);
+        /// / 5. Body
+        /// *REQUIRED*/ this.tallness = ;
+        /// *OPTIONAL*/ //this.hipRating = HIP_RATING_; // default boyish
+        /// *OPTIONAL*/ //this.buttRating = BUTT_RATING_; // default buttless
+        /// *OPTIONAL*/ //this.lowerBody = LOWER_BODY_; //default human
+        /// *OPTIONAL*/ //this.armType = ARM_TYPE_; // default human
 
-        //// 6. Skin
-        ///*OPTIONAL*/ //this.skinTone = "skinTone"; // default "albino"
-        ///*OPTIONAL*/ //this.skinType = SKIN_TYPE_; // default PLAIN
-        ///*OPTIONAL*/ //this.skinDesc = "skinDesc"; // default "skin" if this.skinType is not set, else Appearance.DEFAULT_SKIN_DESCS[skinType]
-        ///*OPTIONAL*/ //this.skinAdj = "skinAdj"; // default ""
+        /// / 6. Skin
+        /// *OPTIONAL*/ //this.skinTone = "skinTone"; // default "albino"
+        /// *OPTIONAL*/ //this.skinType = SKIN_TYPE_; // default PLAIN
+        /// *OPTIONAL*/ //this.skinDesc = "skinDesc"; // default "skin" if this.skinType is not set, else Appearance.DEFAULT_SKIN_DESCS[skinType]
+        /// *OPTIONAL*/ //this.skinAdj = "skinAdj"; // default ""
 
-        //// 7. Hair
-        ///*OPTIONAL*/ //this.hairColor = ; // default "no"
-        ///*OPTIONAL*/ //this.hairLength = ; // default 0
-        ///*OPTIONAL*/ //this.hairType = HAIR_; // default NORMAL
+        /// / 7. Hair
+        /// *OPTIONAL*/ //this.hairColor = ; // default "no"
+        /// *OPTIONAL*/ //this.hairLength = ; // default 0
+        /// *OPTIONAL*/ //this.hairType = HAIR_; // default NORMAL
 
-        //// 8. Face
-        ///*OPTIONAL*/ //this.faceType = FACE_; // default HUMAN
-        ///*OPTIONAL*/ //this.earType = EARS_; // default HUMAN
-        ///*OPTIONAL*/ //this.tongueType = TONGUE_; // default HUMAN
-        ///*OPTIONAL*/ //this.eyeType = EYES_; // default HUMAN
+        /// / 8. Face
+        /// *OPTIONAL*/ //this.faceType = FACE_; // default HUMAN
+        /// *OPTIONAL*/ //this.earType = EARS_; // default HUMAN
+        /// *OPTIONAL*/ //this.tongueType = TONGUE_; // default HUMAN
+        /// *OPTIONAL*/ //this.eyeType = EYES_; // default HUMAN
 
-        //// 9. Primary stats.
-        ///*REQUIRED*/ initStrTouSpeInte(,,,);
-        ///*REQUIRED*/ initLibSensCor(,,);
+        /// / 9. Primary stats.
+        /// *REQUIRED*/ initStrTouSpeInte(,,,);
+        /// *REQUIRED*/ initLibSensCor(,,);
 
-        //// 10. Weapon
-        ///*REQUIRED*/ this.weaponName = "weaponName";
-        ///*REQUIRED*/ this.weaponVerb = "weaponVerb";
-        ///*OPTIONAL*/ //this.weaponAttack = ; // default 0
-        ///*OPTIONAL*/ //this.weaponPerk = "weaponPerk"; // default ""
-        ///*OPTIONAL*/ //this.weaponValue = ; // default 0
+        /// / 10. Weapon
+        /// *REQUIRED*/ this.weaponName = "weaponName";
+        /// *REQUIRED*/ this.weaponVerb = "weaponVerb";
+        /// *OPTIONAL*/ //this.weaponAttack = ; // default 0
+        /// *OPTIONAL*/ //this.weaponPerk = "weaponPerk"; // default ""
+        /// *OPTIONAL*/ //this.weaponValue = ; // default 0
 
-        //// 11. Armor
-        ///*REQUIRED*/ this.armorName = "armorName";
-        ///*OPTIONAL*/ //this.armorDef = ; // default 0
-        ///*OPTIONAL*/ //this.armorPerk = "armorPerk"; // default ""
-        ///*OPTIONAL*/ //this.armorValue = ; // default 0
+        /// / 11. Armor
+        /// *REQUIRED*/ this.armorName = "armorName";
+        /// *OPTIONAL*/ //this.armorDef = ; // default 0
+        /// *OPTIONAL*/ //this.armorPerk = "armorPerk"; // default ""
+        /// *OPTIONAL*/ //this.armorValue = ; // default 0
 
-        //// 12. Combat
-        ///*OPTIONAL*/ //this.bonusHP = ; // default 0
-        ///*OPTIONAL*/ //this.lust = ; // default 0
-        ///*OPTIONAL*/ //this.lustVuln = ; // default 1
-        ///*OPTIONAL*/ //this.temperment = TEMPERMENT; // default AVOID_GRAPPLES
-        ///*OPTIONAL*/ //this.fatigue = ; // default 0
+        /// / 12. Combat
+        /// *OPTIONAL*/ //this.bonusHP = ; // default 0
+        /// *OPTIONAL*/ //this.lust = ; // default 0
+        /// *OPTIONAL*/ //this.lustVuln = ; // default 1
+        /// *OPTIONAL*/ //this.temperment = TEMPERMENT; // default AVOID_GRAPPLES
+        /// *OPTIONAL*/ //this.fatigue = ; // default 0
 
-        //// 13. Level
-        ///*REQUIRED*/ this.level = ;
-        ///*REQUIRED*/ this.gems = ;
-        ///*OPTIONAL*/ //this.additionalXP = ; // default 0
+        /// / 13. Level
+        /// *REQUIRED*/ this.level = ;
+        /// *REQUIRED*/ this.gems = ;
+        /// *OPTIONAL*/ //this.additionalXP = ; // default 0
 
-        //// 14. Drop
-        //// 14.1. No drop
-        ///*REQUIRED*/ this.drop = NO_DROP;
-        //// 14.2. Fixed drop
-        ///*REQUIRED*/ this.drop = new WeightedDrop(dropItemType);
-        //// 14.3. Random weighted drop
-        ///*REQUIRED*/ this.drop = new WeightedDrop()...
-        //// Append with calls like:
-        //// .add(itemType,itemWeight)
-        //// .addMany(itemWeight,itemType1,itemType2,...)
-        //// Example:
-        //// this.drop = new WeightedDrop()
-        ////
+        /// / 14. Drop
+        /// / 14.1. No drop
+        /// *REQUIRED*/ this.drop = NO_DROP;
+        /// / 14.2. Fixed drop
+        /// *REQUIRED*/ this.drop = new WeightedDrop(dropItemType);
+        /// / 14.3. Random weighted drop
+        /// *REQUIRED*/ this.drop = new WeightedDrop()...
+        /// / Append with calls like:
+        /// / .add(itemType,itemWeight)
+        /// / .addMany(itemWeight,itemType1,itemType2,...)
+        /// / Example:
+        /// / this.drop = new WeightedDrop()
+        /// /
         // .add(A,2)
-        ////
+        /// /
         // .add(B,10)
-        ////
+        /// /
         // .add(C,1)
-        //// 	will drop B 10 times more often than C, and 5 times more often than A.
-        //// 	To be precise, \forall add(A_i,w_i): P(A_i)=w_i/\sum_j w_j
-        //// 14.4. Random chained check drop
-        ///*REQUIRED*/ this.drop = new ChainedDrop(optional defaultDrop)...
-        //// Append with calls like:
-        //// .add(itemType,chance)
-        //// .elseDrop(defaultDropItem)
-        ////
-        //// Example 1:
-        //// init14ChainedDrop(A)
-        ////
+        /// /  will drop B 10 times more often than C, and 5 times more often than A.
+        /// /  To be precise, \forall add(A_i,w_i): P(A_i)=w_i/\sum_j w_j
+        /// / 14.4. Random chained check drop
+        /// *REQUIRED*/ this.drop = new ChainedDrop(optional defaultDrop)...
+        /// / Append with calls like:
+        /// / .add(itemType,chance)
+        /// / .elseDrop(defaultDropItem)
+        /// /
+        /// / Example 1:
+        /// / init14ChainedDrop(A)
+        /// /
         // .add(B,0.01)
-        ////
+        /// /
         // .add(C,0.5)
-        //// 	will FIRST check B vs 0.01 chance,
-        //// 	if it fails, C vs 0.5 chance,
-        //// 	else A
-        ////
-        //// 	Example 2:
-        //// 	init14ChainedDrop()
-        ////
+        /// /  will FIRST check B vs 0.01 chance,
+        /// /  if it fails, C vs 0.5 chance,
+        /// /  else A
+        /// /
+        /// /  Example 2:
+        /// /  init14ChainedDrop()
+        /// /
         // .add(B,0.01)
-        ////
+        /// /
         // .add(C,0.5)
-        ////
+        /// /
         // .elseDrop(A)
-        //// 	for same result
+        /// /  for same result
 
-        //// 15. Special attacks. No need to set them if the monster has custom AI.
-        //// Values are either combat event numbers (5000+) or function references
-        ///*OPTIONAL*/ //this.special1 = ; //default 0
-        ///*OPTIONAL*/ //this.special2 = ; //default 0
-        ///*OPTIONAL*/ //this.special3 = ; //default 0
+        /// / 15. Special attacks. No need to set them if the monster has custom AI.
+        /// / Values are either combat event numbers (5000+) or function references
+        /// *OPTIONAL*/ //this.special1 = ; //default 0
+        /// *OPTIONAL*/ //this.special2 = ; //default 0
+        /// *OPTIONAL*/ //this.special3 = ; //default 0
 
-        //// 16. Tail
-        ///*OPTIONAL*/ //this.tailType = TAIL_TYPE_; // default NONE
-        ///*OPTIONAL*/ //this.tailVenom = ; // default 0
-        ///*OPTIONAL*/ //this.tailRecharge = ; // default 5
+        /// / 16. Tail
+        /// *OPTIONAL*/ //this.tailType = TAIL_TYPE_; // default NONE
+        /// *OPTIONAL*/ //this.tailVenom = ; // default 0
+        /// *OPTIONAL*/ //this.tailRecharge = ; // default 5
 
-        //// 17. Horns
-        ///*OPTIONAL*/ //this.hornType = HORNS_; // default NONE
-        ///*OPTIONAL*/ //this.horns = numberOfHorns; // default 0
+        /// / 17. Horns
+        /// *OPTIONAL*/ //this.hornType = HORNS_; // default NONE
+        /// *OPTIONAL*/ //this.horns = numberOfHorns; // default 0
 
-        //// 18. Wings
-        ///*OPTIONAL*/ //this.wingType = WING_TYPE_; // default NONE
-        ///*OPTIONAL*/ //this.wingDesc = ; // default Appearance.DEFAULT_WING_DESCS[wingType]
+        /// / 18. Wings
+        /// *OPTIONAL*/ //this.wingType = WING_TYPE_; // default NONE
+        /// *OPTIONAL*/ //this.wingDesc = ; // default Appearance.DEFAULT_WING_DESCS[wingType]
 
-        //// 19. Antennae
-        ///*OPTIONAL*/ //this.antennae = ANTENNAE_; // default NONE
+        /// / 19. Antennae
+        /// *OPTIONAL*/ //this.antennae = ANTENNAE_; // default NONE
 
-        //// REQUIRED !!!
-        //// In debug mode will throw an error for uninitialized monster
+        /// / REQUIRED !!!
+        /// / In debug mode will throw an error for uninitialized monster
         // checkMonster();
     }
 
-    private _checkCalled: boolean = false;
+    private _checkCalled = false;
     public get checkCalled(): boolean {
         return this._checkCalled;
     }
-    public checkError: string = "";
+    public checkError = "";
     public initsCalled: Record<string, any> = {
         a: false,
         short: false,
@@ -423,8 +423,8 @@ export class Monster extends Creature {
         genitals: false,
         breasts: false,
         tallness: false,
-        str_tou_spe_inte: false,
-        lib_sens_cor: false,
+        strTouSpeInte: false,
+        libSensCor: false,
         drop: false,
     };
     // MONSTER INITIALIZATION HELPER FUNCTIONS
@@ -438,22 +438,22 @@ export class Monster extends Creature {
         this.initsCalled.drop = value;
     }
     protected set initedStrTouSpeInte(value: boolean) {
-        this.initsCalled.str_tou_spe_inte = value;
+        this.initsCalled.strTouSpeInte = value;
     }
     protected set initedLibSensCor(value: boolean) {
-        this.initsCalled.lib_sens_cor = value;
+        this.initsCalled.libSensCor = value;
     }
     protected NO_DROP: WeightedDrop = new WeightedDrop();
 
     public isFullyInit(): boolean {
-        for (var phase of Object.keys(this.initsCalled)) {
+        for (const phase of Object.keys(this.initsCalled)) {
             if (typeof phase == "boolean" && phase == false) return false;
         }
         return true;
     }
     public missingInits(): string {
-        var result: string = "";
-        for (var phase of Object.keys(this.initsCalled)) {
+        let result = "";
+        for (const phase of Object.keys(this.initsCalled)) {
             if (typeof this.initsCalled[phase] == "boolean" && this.initsCalled[phase] == false) {
                 if (result == "") result = phase;
                 else result += ", " + phase;
@@ -479,11 +479,7 @@ export class Monster extends Creature {
         super.short = value;
     }
 
-    public createCock(
-        clength: number = 5.5,
-        cthickness: number = 1,
-        ctype?: CockTypesEnum
-    ): boolean {
+    public createCock(clength = 5.5, cthickness = 1, ctype?: CockTypesEnum): boolean {
         this.initedGenitals = true;
         if (!this._checkCalled) {
             if (this.plural) {
@@ -496,16 +492,12 @@ export class Monster extends Creature {
                 this.pronoun3 = "his";
             }
         }
-        var result: boolean = super.createCock(clength, cthickness, ctype);
+        const result: boolean = super.createCock(clength, cthickness, ctype);
         this.genderCheck();
         return result;
     }
 
-    public createVagina(
-        virgin: boolean = true,
-        vaginalWetness: number = 1,
-        vaginalLooseness: number = 0
-    ): boolean {
+    public createVagina(virgin = true, vaginalWetness = 1, vaginalLooseness = 0): boolean {
         this.initedGenitals = true;
         if (!this._checkCalled) {
             if (this.plural) {
@@ -518,7 +510,7 @@ export class Monster extends Creature {
                 this.pronoun3 = "her";
             }
         }
-        var result: boolean = super.createVagina(virgin, vaginalWetness, vaginalLooseness);
+        const result: boolean = super.createVagina(virgin, vaginalWetness, vaginalLooseness);
         this.genderCheck();
         return result;
     }
@@ -539,7 +531,7 @@ export class Monster extends Creature {
         this.genderCheck();
     }
 
-    public createBreastRow(size: number = 0, nipplesPerBreast: number = 1): boolean {
+    public createBreastRow(size = 0, nipplesPerBreast = 1): boolean {
         this.initedBreasts = true;
         return super.createBreastRow(size, nipplesPerBreast);
     }
@@ -586,7 +578,7 @@ export class Monster extends Creature {
     }
 
     public validate(): string {
-        var error: string = "";
+        let error = "";
         // 1. Required fields must be set
         if (!this.isFullyInit()) {
             error += "Missing phases: " + this.missingInits() + ". ";
@@ -605,17 +597,18 @@ export class Monster extends Creature {
         this._checkCalled = true;
         this.checkError = this.validate();
         if (this.checkError.length > 0)
-            CoC_Settings.error("Monster not initialized:" + this.checkError);
+            CocSettings.error("Monster not initialized:" + this.checkError);
         return this.checkError.length == 0;
     }
 
     /**
      * try to hit, apply damage
+     *
      * @return damage
      */
     public eOneAttack(): number {
         // Determine damage - str modified by enemy toughness!
-        var damage: number = this.calcDamage();
+        let damage: number = this.calcDamage();
         if (damage > 0) damage = this.player.takeDamage(damage);
         return damage;
     }
@@ -624,7 +617,7 @@ export class Monster extends Creature {
      * return true if we land a hit
      */
     protected attackSucceeded(): boolean {
-        var attack: boolean = true;
+        let attack = true;
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             attack = attack && this.handleBlind();
@@ -634,11 +627,11 @@ export class Monster extends Creature {
     }
 
     public eAttack(): void {
-        var attacks: number = this.statusAffectv1(StatusAffects.Attacks);
+        let attacks: number = this.statusAffectv1(StatusAffects.Attacks);
         if (attacks == 0) attacks = 1;
         while (attacks > 0) {
             if (this.attackSucceeded()) {
-                var damage: number = this.eOneAttack();
+                const damage: number = this.eOneAttack();
                 this.outputAttack(damage);
                 this.postAttack(damage);
                 this.game.statScreenRefresh();
@@ -651,12 +644,13 @@ export class Monster extends Creature {
         }
         this.removeStatusAffect(StatusAffects.Attacks);
         //
-        // 	if (!game.combatRoundOver()) game.doNext(1);
-        this.game.combatRoundOver(); //The doNext here was not required
+        //  if (!game.combatRoundOver()) game.doNext(1);
+        this.game.combatRoundOver(); // The doNext here was not required
     }
 
     /**
      * Called no matter of success of the attack
+     *
      * @param damage damage received by player
      */
     protected postAttack(damage: number): void {
@@ -808,7 +802,7 @@ export class Monster extends Creature {
 
     private playerDodged(): boolean {
         // Determine if dodged!
-        var dodge: number = this.player.speedDodge(this);
+        const dodge: number = this.player.speedDodge(this);
         if (dodge > 0) {
             this.outputPlayerDodged(dodge);
             return true;
@@ -880,7 +874,7 @@ export class Monster extends Creature {
         }
         // If grappling... TODO implement grappling
         //
-        // 	if (game.gameState == 2) {
+        //  if (game.gameState == 2) {
         //
         //
         // game.gameState = 1;
@@ -894,7 +888,7 @@ export class Monster extends Creature {
 // if(temperment == 0) eGrappleRetreat();
          if (temperment == 1) {
          //
-// 	if(lust < 50) eGrappleRetreat();
+//  if(lust < 50) eGrappleRetreat();
          mainClassPtr.doNext(3);
          return;
          }
@@ -902,7 +896,7 @@ export class Monster extends Creature {
          mainClassPtr.doNext(3);
          return;*/
         //
-        // 	}
+        //  }
         this.performCombatAction();
     }
 
@@ -988,13 +982,13 @@ export class Monster extends Creature {
      * Default: Equal chance to do physical or special (if any) attack
      */
     protected performCombatAction(): void {
-        var actions: any[] = [this.eAttack, this.special1, this.special2, this.special3].filter(
+        const actions: any[] = [this.eAttack, this.special1, this.special2, this.special3].filter(
             function (special, idx: number, array: any[]): boolean {
                 return special != undefined;
             }
         );
-        var rando: number = Math.floor(Math.random() * actions.length);
-        var action = actions[rando];
+        const rando: number = Math.floor(Math.random() * actions.length);
+        const action = actions[rando];
         action();
     }
 
@@ -1024,7 +1018,7 @@ export class Monster extends Creature {
         }
         this.game.inCombat = false;
         this.game.clearStatuses(false);
-        var temp: number = Monster.rand(10) + 1;
+        let temp: number = Monster.rand(10) + 1;
         if (temp > this.player.gems) temp = this.player.gems;
         this.outputText(
             "\n\nYou'll probably wake up in eight hours or so, missing " + temp + " gems.",
@@ -1065,6 +1059,7 @@ export class Monster extends Creature {
 
     /**
      * Display tease reaction message. Then call applyTease() to increase lust.
+     *
      * @param lustDelta value to be added to lust (already modified by lustVuln etc)
      */
     public teased(lustDelta: number): void {
@@ -1263,11 +1258,11 @@ export class Monster extends Creature {
     }
 
     public generateDebugDescription(): string {
-        var result: string;
-        var be: string = this.plural ? "are" : "is";
-        var have: string = this.plural ? "have" : "has";
-        var Heis: string = this.Pronoun1 + " " + be + " ";
-        var Hehas: string = this.Pronoun1 + " " + have + " ";
+        let result: string;
+        const be: string = this.plural ? "are" : "is";
+        const have: string = this.plural ? "have" : "has";
+        const Heis: string = this.Pronoun1 + " " + be + " ";
+        const Hehas: string = this.Pronoun1 + " " + have + " ";
         result =
             "You are inspecting " +
             this.a +
@@ -1384,8 +1379,8 @@ export class Monster extends Creature {
                     "antennaeType#" + this.antennae) + " antennae.\n\n";
 
         // GENITALS AND BREASTS
-        for (var i: number = 0; i < this.cocks.length; i++) {
-            var cock: Cock = this.cocks[i] as Cock;
+        for (let i = 0; i < this.cocks.length; i++) {
+            const cock: Cock = this.cocks[i] as Cock;
             result +=
                 this.Pronoun3 +
                 (i > 0 ? " #" + (i + 1) : "") +
@@ -1413,8 +1408,8 @@ export class Monster extends Creature {
         if (this.hoursSinceCum > 0 || this.cocks.length > 0)
             result +=
                 "It were " + this.hoursSinceCum + " hours since " + this.pronoun1 + " came.\n\n";
-        for (i = 0; i < this.vaginas.length; i++) {
-            var vagina: VaginaClass = this.vaginas[i] as VaginaClass;
+        for (let i = 0; i < this.vaginas.length; i++) {
+            const vagina: VaginaClass = this.vaginas[i] as VaginaClass;
             result +=
                 this.Pronoun3 +
                 (i > 0 ? " #" + (i + 1) : "") +
@@ -1446,10 +1441,10 @@ export class Monster extends Creature {
             result += ".\n";
         }
         if (this.breastRows.length > 0) {
-            var nipple: string = this.nippleLength + '" ';
+            let nipple: string = this.nippleLength + '" ';
             if (this.nipplesPierced) nipple += "pierced by " + this.nipplesPLong;
-            for (i = 0; i < this.breastRows.length; i++) {
-                var row: BreastRowClass = this.breastRows[i] as BreastRowClass;
+            for (let i = 0; i < this.breastRows.length; i++) {
+                const row: BreastRowClass = this.breastRows[i] as BreastRowClass;
                 result +=
                     this.Pronoun3 +
                     (i > 0 ? " #" + (i + 1) : "") +
@@ -1561,7 +1556,7 @@ export class Monster extends Creature {
             this.XP +
             " XP.\n";
 
-        var numSpec: number =
+        const numSpec: number =
             (this.special1 != undefined ? 1 : 0) +
             (this.special2 != undefined ? 1 : 0) +
             (this.special3 != undefined ? 1 : 0);
@@ -1657,7 +1652,7 @@ export class Monster extends Creature {
                     this.outputText(
                         "<b>The grainy mess cuts at any exposed flesh and gets into every crack and crevice of your armor."
                     );
-                    var temp: number = this.player.takeDamage(1 + Monster.rand(2));
+                    const temp: number = this.player.takeDamage(1 + Monster.rand(2));
                     this.outputText(" (" + temp + ")");
                     this.outputText("</b>\n\n");
                 }
@@ -1702,7 +1697,7 @@ export class Monster extends Creature {
             }
             // Deal damage if still wounded.
             else {
-                var store: number = (this.eMaxHP() * (3 + Monster.rand(4))) / 100;
+                let store: number = (this.eMaxHP() * (3 + Monster.rand(4))) / 100;
                 store = this.game.doDamage(store);
                 if (this.plural)
                     this.outputText(
@@ -1935,7 +1930,7 @@ export class Monster extends Creature {
                     "You flush bright red with desire as the lust in the air worms its way inside you.  ",
                     false
                 );
-                temp = Monster.rand(4);
+                const temp = Monster.rand(4);
                 if (temp == 0)
                     this.outputText(
                         "You have a hard time not dropping to your knees to service her right now.\n\n",
@@ -2006,6 +2001,6 @@ export class Monster extends Creature {
                 );
             else this.outputText(".");
         }
-        return 8; //This allows different monsters to delay the player by different amounts of time after a combat loss. Normal loss causes an eight hour blackout
+        return 8; // This allows different monsters to delay the player by different amounts of time after a combat loss. Normal loss causes an eight hour blackout
     }
 }

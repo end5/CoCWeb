@@ -18,9 +18,9 @@ export class Weapon extends Useable {
         longName: string,
         verb: string,
         attack: number,
-        value: number = 0,
+        value = 0,
         description?: string,
-        perk: string = ""
+        perk = ""
     ) {
         super(id, shortName, longName, value, description);
         this._name = name;
@@ -59,7 +59,7 @@ export class Weapon extends Useable {
         return this;
     }
 
-    public removeText(): void {} //Produces any text seen when removing the armor normally
+    public removeText(): void {} // Produces any text seen when removing the armor normally
 
     /*
             protected  equip(player:Player, returnOldItem: boolean, output: boolean): void

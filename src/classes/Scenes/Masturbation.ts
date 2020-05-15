@@ -14,7 +14,7 @@ import { kFLAGS } from "../GlobalFlags/kFLAGS";
 import { PerkLib } from "../PerkLib";
 import { StatusAffects } from "../StatusAffects";
 
-//	import classes.Scenes.NPCs.*;
+// import classes.Scenes.NPCs.*;
 
 export class Masturbation extends BaseContent {
     public masturbateMenu(): void {
@@ -27,7 +27,7 @@ export class Masturbation extends BaseContent {
             this.addButton(0, "Next", this.playerMenu);
             return;
         }
-        var button: number = 0;
+        let button = 0;
 
         // FAP BUTTON GOAADFADHAKDADK
         if (
@@ -91,17 +91,17 @@ export class Masturbation extends BaseContent {
                     this.masturbateGo();
                 else this.meditate();
             } else this.masturbateGo();
-            this.funcs = new Array();
-            this.args = new Array();
+            this.funcs = [];
+            this.args = [];
             return;
         }
         this.addButton(9, "Back", this.playerMenu);
     }
 
-    private fappingItems(menus: boolean = true): boolean {
+    private fappingItems(menus = true): boolean {
         if (menus) this.menu();
-        var button: number = 0; //Will be greater than zero by the end if the player owns any fapping items
-        var canReachCock: boolean =
+        let button = 0; // Will be greater than zero by the end if the player owns any fapping items
+        const canReachCock: boolean =
             this.player.cocks.length > 0 &&
             (!this.player.isTaur() ||
                 this.player.cocks[this.player.longestCock()].cockLength >=
@@ -232,9 +232,9 @@ export class Masturbation extends BaseContent {
             this.gildedCockTurbate();
             return;
         }
-        var autofellatio: boolean = false;
+        let autofellatio = false;
         // var hermtastic: boolean = false;
-        var nippleFuck: boolean = false;
+        let nippleFuck = false;
         // Early prep
         if (this.player.cor < 15)
             this.outputText(
@@ -363,7 +363,7 @@ export class Masturbation extends BaseContent {
                 }
             }
         }
-        /*******************************
+        /** *****************************
         ||       MASTURBATION CORE    ||
         \\*****************************/
 
@@ -792,7 +792,7 @@ export class Masturbation extends BaseContent {
                             autofellatio = true;
                             // UNFINISHED
                             if (this.player.normalCocks() > 0) this.titFuckSingle();
-                        } //if you only have dogcocks that are too big, no nipple fuck! Otherwise, run normal multiTitFuck
+                        } // if you only have dogcocks that are too big, no nipple fuck! Otherwise, run normal multiTitFuck
                     } else {
                         nippleFuck = true;
                         if (this.multiTitFuck()) autofellatio = true;
@@ -863,7 +863,7 @@ export class Masturbation extends BaseContent {
                             autofellatio = true;
                             if (this.player.normalCocks() > 0 || this.player.horseCocks() > 0)
                                 this.titFuckSingle();
-                        } //if you only have dogcocks that are too big, no nipple fuck! Otherwise, run normal multiTitFuck
+                        } // if you only have dogcocks that are too big, no nipple fuck! Otherwise, run normal multiTitFuck
                     } else {
                         nippleFuck = true;
                         if (this.multiTitFuck()) autofellatio = true;
@@ -966,7 +966,7 @@ export class Masturbation extends BaseContent {
                                 this.titFuckSingle();
                             if (this.player.cocks.length - this.player.dogCocks() > 1)
                                 this.multiTitFuck();
-                        } //if you only have dogcocks that are too big, no nipple fuck! Otherwise, run normal multiTitFuck
+                        } // if you only have dogcocks that are too big, no nipple fuck! Otherwise, run normal multiTitFuck
                     } else {
                         nippleFuck = true;
                         if (this.multiTitFuck()) autofellatio = true;
@@ -1042,7 +1042,7 @@ export class Masturbation extends BaseContent {
                                 this.titFuckSingle();
                             if (this.player.cocks.length - this.player.dogCocks() > 1)
                                 this.multiTitFuck();
-                        } //if you only have dogcocks that are too big, no nipple fuck! Otherwise, run normal multiTitFuck
+                        } // if you only have dogcocks that are too big, no nipple fuck! Otherwise, run normal multiTitFuck
                     } else {
                         nippleFuck = true;
                         if (this.multiTitFuck()) autofellatio = true;
@@ -1211,7 +1211,7 @@ export class Masturbation extends BaseContent {
             if (this.player.vaginas.length > 0)
                 this.outputText("You sigh softly and drift off into a quick nap, smelling of sex.");
             // Girl ending
-            else this.outputText("You sigh and drift off to sleep."); //Genderless ending
+            else this.outputText("You sigh and drift off to sleep."); // Genderless ending
         }
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -1508,7 +1508,7 @@ export class Masturbation extends BaseContent {
     }
 
     private titFuckSingle(): void {
-        /*DUPLICATE WITH SCENE BELOW)
+        /* DUPLICATE WITH SCENE BELOW)
         // different based on libido
         if(player.lib < 45) outputText("You grip your " + cockDescript(0) + " and begin cautiously guiding it towards ", false);
         if(player.lib >= 45 && player.lib < 70) outputText("Shivering with anticipation, you place the tip of your " + cockDescript(0) + " against the opening of ", false);
@@ -1535,7 +1535,7 @@ export class Masturbation extends BaseContent {
         else if (this.player.lib < 70) {
             this.outputText("Shivering with anticipation, you place the ");
             switch (
-                this.player.cocks[0].cockType //Different way of choosing cock to use, results in consistent description of cock[0]
+                this.player.cocks[0].cockType // Different way of choosing cock to use, results in consistent description of cock[0]
             ) {
                 case CockTypesEnum.ANEMONE:
                 case CockTypesEnum.DISPLACER:
@@ -1571,7 +1571,7 @@ export class Masturbation extends BaseContent {
         } else {
             this.outputText("Without hesitation, you shove the ");
             switch (
-                this.player.cocks[0].cockType //Different way of choosing cock to use, results in consistent description of cock[0]
+                this.player.cocks[0].cockType // Different way of choosing cock to use, results in consistent description of cock[0]
             ) {
                 case CockTypesEnum.ANEMONE:
                     this.outputText("tentacle-laden mushroom that is ");
@@ -1629,7 +1629,7 @@ export class Masturbation extends BaseContent {
             else if (this.player.averageVaginalWetness() < 4) {
                 this.outputText("Slick juices dribble ");
                 switch (
-                    this.player.cocks[0].cockType //Different way of choosing cock to use, results in consistent description of cock[0]
+                    this.player.cocks[0].cockType // Different way of choosing cock to use, results in consistent description of cock[0]
                 ) {
                     case CockTypesEnum.ANEMONE:
                         this.outputText("over the nearly transparent skin of ");
@@ -1682,7 +1682,7 @@ export class Masturbation extends BaseContent {
             if (this.player.averageLactation() < 2) {
                 this.outputText("Rivulets of milky girlcum drizzle ");
                 switch (
-                    this.player.cocks[0].cockType //Different way of choosing cock to use, results in consistent description of cock[0]
+                    this.player.cocks[0].cockType // Different way of choosing cock to use, results in consistent description of cock[0]
                 ) {
                     case CockTypesEnum.ANEMONE:
                         this.outputText("and drip from the many tiny tentacles of ");
@@ -1734,7 +1734,7 @@ export class Masturbation extends BaseContent {
                         ", staining "
                 );
                 switch (
-                    this.player.cocks[0].cockType //Different way of choosing cock to use, results in consistent description of cock[0]
+                    this.player.cocks[0].cockType // Different way of choosing cock to use, results in consistent description of cock[0]
                 ) {
                     case CockTypesEnum.ANEMONE:
                         this.outputText("the odd aquatic shaft white.  Y");
@@ -1824,7 +1824,7 @@ export class Masturbation extends BaseContent {
                     );
                 else {
                     switch (
-                        this.player.cocks[0].cockType //Different way of choosing cock to use, results in consistent description of cock[0]
+                        this.player.cocks[0].cockType // Different way of choosing cock to use, results in consistent description of cock[0]
                     ) {
                         case CockTypesEnum.ANEMONE:
                             this.outputText(
@@ -1934,7 +1934,7 @@ export class Masturbation extends BaseContent {
                     );
                 else {
                     switch (
-                        this.player.cocks[0].cockType //Different way of choosing cock to use, results in consistent description of cock[0]
+                        this.player.cocks[0].cockType // Different way of choosing cock to use, results in consistent description of cock[0]
                     ) {
                         case CockTypesEnum.ANEMONE:
                             this.outputText(
@@ -2045,7 +2045,7 @@ export class Masturbation extends BaseContent {
                         " in thick streams, "
                 );
                 switch (
-                    this.player.cocks[0].cockType //Different way of choosing cock to use, results in consistent description of cock[0]
+                    this.player.cocks[0].cockType // Different way of choosing cock to use, results in consistent description of cock[0]
                 ) {
                     case CockTypesEnum.ANEMONE:
                         this.outputText("pooling around the wriggling tentacles near your base.  ");
@@ -2122,7 +2122,7 @@ export class Masturbation extends BaseContent {
                         " and begin to slide down its length, "
                 );
                 switch (
-                    this.player.cocks[0].cockType //Different way of choosing cock to use, results in consistent description of cock[0]
+                    this.player.cocks[0].cockType // Different way of choosing cock to use, results in consistent description of cock[0]
                 ) {
                     case CockTypesEnum.ANEMONE:
                         this.outputText(
@@ -2224,11 +2224,11 @@ export class Masturbation extends BaseContent {
     }
 
     private multiTitFuck(): boolean {
-        var holeTotal: number = this.player.totalNipples();
-        var fittableCocks: number = this.player.cocks.length;
-        var doubleUp: boolean = false;
+        const holeTotal: number = this.player.totalNipples();
+        const fittableCocks: number = this.player.cocks.length;
+        let doubleUp = false;
         // randomize what kind of dick to start with
-        var randomCock: number = Masturbation.rand(fittableCocks);
+        const randomCock: number = Masturbation.rand(fittableCocks);
         this.multiNippleFuckPrep(randomCock);
         // Now deal with the rest of your dicks in more general terms
         // Just how many cocks are we dealing with here?
@@ -2255,7 +2255,7 @@ export class Masturbation extends BaseContent {
             );
             // can you fit more than one in each?
             if (this.player.vaginalCapacity() >= 2 * this.player.cockArea(randomCock)) {
-                doubleUp = true; //WTF IS MULTIDIVISICATION?  SERIOUSLY?
+                doubleUp = true; // WTF IS MULTIDIVISICATION?  SERIOUSLY?
                 this.outputText(
                     'The words "multiple insertions" drifts through your lust-fogged brain, and you begin to position two dicks against a poor, unsuspecting nipple, preparing to double-penetrate.  '
                 );
@@ -2691,7 +2691,7 @@ export class Masturbation extends BaseContent {
                     this.player.dogCocks() > this.player.horseCocks()
                 ) {
                     // Primary Dog
-                    var dogIndex: number;
+                    let dogIndex: number;
                     for (dogIndex = 0; dogIndex < this.player.cocks.length; dogIndex++) {
                         if (this.player.cocks[dogIndex].cockType == CockTypesEnum.DOG) break;
                     }
@@ -2702,7 +2702,7 @@ export class Masturbation extends BaseContent {
                     );
                 } else if (this.player.horseCocks() > this.player.normalCocks()) {
                     // Primary Horse
-                    var horseIndex: number;
+                    let horseIndex: number;
                     for (horseIndex = 0; horseIndex < this.player.cocks.length; horseIndex++) {
                         if (this.player.cocks[horseIndex].cockType == CockTypesEnum.HORSE) break;
                     }
@@ -2832,7 +2832,7 @@ export class Masturbation extends BaseContent {
         this.dynStats("sen", -0.5);
     }
 
-    private titCum(cumQuantity: number = 3): void {
+    private titCum(cumQuantity = 3): void {
         // var tempSize: number = Math.round((nippleLength + baseCockLength/2)*100)/100;
         // var nippleCockDescript: string = nippleCockDescript(tempSize);
         // Normal Tits, only if lactating at at least level 2
@@ -2997,7 +2997,7 @@ export class Masturbation extends BaseContent {
                         this.hipDescript() +
                         " buck into the air, fucking an imaginary lover.  The dildo sinks into your core, your arms instinctively fulfilling your desire for complete penetration.  A warm wetness suddenly soaks your womb as the fuck-stick erupts, filling you.  Just like that the orgasm you had seems like foreplay.  Your eyes roll back into your head and you begin convulsing, practically having a pleasure-seizure from the drugs and your already oversensitive twat.   You sprawl there, wiggling and cumming your brains out for what feels like an eternity, but it does eventually end, and when it does the dildo is back to its normal size, lying in a puddle of aphrodisiacs and girlcum."
                 );
-                // (+sensitivity by 3 & intellect -2 & libido +1	)
+                // (+sensitivity by 3 & intellect -2 & libido +1 )
             }
             // Option Jojo veyeurism?
             if (this.getGame().monk >= 5 && this.flags[kFLAGS.JOJO_DEAD_OR_GONE] == 0) {
@@ -3210,8 +3210,8 @@ export class Masturbation extends BaseContent {
         // FIRST TIME USAGE
         if (this.player.hasKeyItem("Self-Stimulation Belt") >= 0) {
             // First use! Flag after first use!
-            if (this.player.findStatusAffect(StatusAffects.used_self_dash_stim) < 0) {
-                this.player.createStatusAffect(StatusAffects.used_self_dash_stim, 0, 0, 0, 0);
+            if (this.player.findStatusAffect(StatusAffects.UsedSelfDashStim) < 0) {
+                this.player.createStatusAffect(StatusAffects.UsedSelfDashStim, 0, 0, 0, 0);
                 this.outputText(
                     "Brimming with anticipation, you wind up the small gearbox on the weird contraption. You place the machine down and strip yourself naked. Stepping through the straps of the garment, you pull it up. The dildo does not come out, so you take the time to ease the artificial phallus to rest deep in your womanhood. After nestling the false cock in your pussy, you finish pulling up the belt and you tighten the straps. You lay down and you flip the switch. The machine vibrates around and inside you vigorously. Immediately, waves and cramps of pleasure swirl around your cunt and shoot up and down your spine. The machine, free of human limitations and fatigue, ceaselessly rubs and caresses your insides at impossibly high speeds. Within minutes, you begin experiencing the tell-tale contractions of an impending orgasm. With your hands free, you are able to explore your breasts and body as the device hammers away. You squeeze your "
                 );
@@ -3490,7 +3490,7 @@ export class Masturbation extends BaseContent {
             ) {
                 this.flags[kFLAGS.GILDED_JERKED]++;
 
-                var gems: number = this.midasCockJackingGemsRoll();
+                const gems: number = this.midasCockJackingGemsRoll();
 
                 this.outputText(
                     " along with a sudden chill from your Gilded cock sock causing you to reflexively pull off your " +
@@ -3555,7 +3555,7 @@ export class Masturbation extends BaseContent {
             ) {
                 this.flags[kFLAGS.GILDED_JERKED]++;
 
-                var gemsCreated: number = this.midasCockJackingGemsRoll(); //Changed as gems caused a duplicate var warning
+                const gemsCreated: number = this.midasCockJackingGemsRoll(); // Changed as gems caused a duplicate var warning
 
                 this.outputText(
                     "You once again feel a slight chill as you reach the point-of-no-return and you let your " +
@@ -3743,7 +3743,7 @@ export class Masturbation extends BaseContent {
 
     private centaurMasturbation(): boolean {
         this.clearOutput();
-        var canMasturbateHugeCock: boolean =
+        const canMasturbateHugeCock: boolean =
             this.player.hasCock() &&
             this.player.tallness * (5 / 6) <
                 this.player.cocks[this.player.longestCock()].cockLength;
@@ -3759,7 +3759,7 @@ export class Masturbation extends BaseContent {
             this.centaurHugeCock();
             return true;
         }
-        this.centaurCantMasturbate(); //Failsafe - you suck.
+        this.centaurCantMasturbate(); // Failsafe - you suck.
         return false;
     }
 
@@ -3828,7 +3828,7 @@ export class Masturbation extends BaseContent {
         );
 
         if (this.player.hasVagina() || this.player.hasCock()) {
-            var plural: boolean = false;
+            let plural = false;
             this.outputText("Denied a single touch, your ");
             if (this.player.hasCock()) {
                 if (this.player.hasVagina())
@@ -3942,8 +3942,8 @@ export class Masturbation extends BaseContent {
 
     private centaurHugeCock(): void {
         // Set plurality and primary cock.
-        var primary: number = this.player.longestCock();
-        var plural: boolean = this.player.cocks.length > 1;
+        const primary: number = this.player.longestCock();
+        const plural: boolean = this.player.cocks.length > 1;
         this.outputText(
             "You shrug out of your " +
                 this.player.armorName +
@@ -4249,7 +4249,7 @@ export class Masturbation extends BaseContent {
 
     // [Maturbate] -- [Fake Mare] (Cock Centaurs Only)
     private centaurDudesGetHorseAids(): void {
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.clearOutput();
         if (this.player.keyItemv1("Fake Mare") == 0) {
             if (this.player.cor < 50)
@@ -4317,7 +4317,7 @@ export class Masturbation extends BaseContent {
         ) {
             this.flags[kFLAGS.GILDED_JERKED]++;
 
-            var gems: number = this.midasCockJackingGemsRoll();
+            const gems: number = this.midasCockJackingGemsRoll();
 
             this.outputText(
                 ".\n\nSated, you spend a few blissful minutes enjoying the warmth and tightness of the mare-like onahole until your " +
@@ -4946,8 +4946,8 @@ export class Masturbation extends BaseContent {
     // Segue into tentacle-faps.
     // Pick biggest tentacle that can possible fit into 'gina
     private tentacleSelfFuck(): void {
-        var x: number = -1;
-        var y: number = -1;
+        let x = -1;
+        let y = -1;
         this.temp = 0;
         while (this.temp < this.player.cocks.length) {
             if (this.player.cocks[this.temp].cockType == CockTypesEnum.TENTACLE) {
@@ -5208,11 +5208,11 @@ export class Masturbation extends BaseContent {
     // Upon selecting the option to masturbate you should have the option to fuck your own ass if you have a tentacle dick
     // Replace n with the tentacle cock number
     private tentacleGoesUpYerPooperNewsAtEleven(): void {
-        var tentacle: number;
+        let tentacle: number;
         for (tentacle = 0; tentacle < this.player.cocks.length; tentacle++) {
             if (this.player.cocks[tentacle].cockType == CockTypesEnum.TENTACLE) break;
         }
-        for (var x: number = tentacle + 1; x < this.player.cocks.length; x++) {
+        for (let x: number = tentacle + 1; x < this.player.cocks.length; x++) {
             // Find the biggest tentacle cock you've got
             if (
                 this.player.cocks[x].cockType == CockTypesEnum.TENTACLE &&
@@ -5349,11 +5349,11 @@ export class Masturbation extends BaseContent {
     // Select [Gilded Sock] from Masturbation menu
     private gildedCockTurbate(): void {
         this.clearOutput();
-        var gildedCock: number;
+        let gildedCock: number;
         for (gildedCock = 0; gildedCock < this.player.cocks.length; gildedCock++) {
             if (this.player.cocks[gildedCock].sock == "gilded") break;
         }
-        for (var x: number = gildedCock + 1; x < this.player.cocks.length; x++) {
+        for (let x: number = gildedCock + 1; x < this.player.cocks.length; x++) {
             // Find the biggest gilded cock you've got
             if (
                 this.player.cocks[x].sock == "gilded" &&
@@ -5406,7 +5406,7 @@ export class Masturbation extends BaseContent {
                 "."
         );
 
-        var gems: number = this.midasCockJackingGemsRoll();
+        const gems: number = this.midasCockJackingGemsRoll();
 
         this.outputText(
             "\n\n<b>You have just enough wherewithal to gather up the spent " +
@@ -5549,8 +5549,8 @@ export class Masturbation extends BaseContent {
     }
 
     private midasCockJackingGemsRoll(): number {
-        var cockSocks: number = this.player.countCockSocks("gilded");
-        var gems: number = 10 + Masturbation.rand(20);
+        const cockSocks: number = this.player.countCockSocks("gilded");
+        let gems: number = 10 + Masturbation.rand(20);
 
         if (this.player.cumQ() < 1000 * cockSocks) gems += this.player.cumQ() / 10;
         else if (this.player.cumQ() < 2500 * cockSocks) gems += this.player.cumQ() / 50;
@@ -5564,7 +5564,7 @@ export class Masturbation extends BaseContent {
     }
 
     private onaholeRepeatUse(corrupted: boolean): void {
-        var gemsCreated: number = 0; //Changed as gems caused a duplicate var warning
+        let gemsCreated = 0; // Changed as gems caused a duplicate var warning
         if (
             this.player.countCockSocks("gilded") > 0 &&
             this.flags[kFLAGS.GILDED_JERKED] < this.player.countCockSocks("gilded")

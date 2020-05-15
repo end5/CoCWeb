@@ -14,10 +14,10 @@ import { StatusAffects } from "../../StatusAffects";
 
 export class Goblin extends Monster {
     protected goblinDrugAttack(): void {
-        var temp2: number = Goblin.rand(2);
+        let temp2: number = Goblin.rand(2);
         if (this.short == "Tamani") temp2 = Goblin.rand(5);
         if (this.short == "Tamani's daughters") temp2 = Goblin.rand(5);
-        var color: string = "";
+        let color = "";
         if (temp2 == 0) color = "red";
         if (temp2 == 1) color = "green";
         if (temp2 == 2) color = "blue";
@@ -121,7 +121,7 @@ export class Goblin extends Monster {
         else this.outputText("\n", false);
     }
     protected goblinTeaseAttack(): void {
-        var det: number = Goblin.rand(3);
+        const det: number = Goblin.rand(3);
         if (det == 0)
             this.outputText(
                 this.capitalA +
@@ -174,7 +174,7 @@ export class Goblin extends Monster {
         }
     }
 
-    public constructor(noInit: boolean = false) {
+    public constructor(noInit = false) {
         super();
         if (noInit) return;
         this.a = "the ";

@@ -1,4 +1,4 @@
-import { CoC_Settings } from "../CoC_Settings";
+import { CocSettings } from "../CoC_Settings";
 import { RandomDrop } from "./RandomDrop";
 
 /**
@@ -14,7 +14,7 @@ export class ChainedDrop implements RandomDrop {
     }
     public add(item: any, prob: number): ChainedDrop {
         if (prob < 0 || prob > 1) {
-            CoC_Settings.error("Invalid probability value " + prob);
+            CocSettings.error("Invalid probability value " + prob);
         }
         this.items.push(item);
         this.probs.push(prob);
@@ -26,7 +26,7 @@ export class ChainedDrop implements RandomDrop {
     }
 
     public roll(): any {
-        for (var i: number = 0; i < this.items.length; i++) {
+        for (let i = 0; i < this.items.length; i++) {
             if (Math.random() < this.probs[i]) return this.items[i];
         }
         return this.defaultItem;

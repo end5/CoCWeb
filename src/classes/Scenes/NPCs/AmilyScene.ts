@@ -21,35 +21,35 @@ import { NPCAwareContent } from "./NPCAwareContent";
  */
 
 export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
-    /*Amily the Mousegirl Breeder
+    /* Amily the Mousegirl Breeder
      * Plus human stuff
     =============================================
-    35	-met Amily? (0 = not met, 1 = met)
-    36	-Amily village encounters disabled (1 = true) (44 for village button)
-    37	-Amily encounters disabled due to worms (1=she freaked out.  Goes to 0 automatically if uninfected)
-    38	-Amily Affection (< 15 = low.  In between = medium. 40+= high affect)
-    39	-Amily Offer Accepted? (1 = true, 0 = not yet)
-    40	-Amily Birth Total (no explanation needed)
-    41	-Amily Pregnancy Incubation - 0 = not pregnant, otherwise hours till birth 168
-    42	-Fucked Amily Counter
-    43	-Follower Toggle for amily (1 = follower, 0 = not)
-    44	-Amily's Village Unlocked (1=village button on, 0=off)
-    45	Amily's Wang Length
-    46	Amily's Wang Thickness
-    47	Amily's Cup Size (1 to 5)
-    48	Nipple Length from .3 to 4"
-    49	Amily Hip Rating - girly to womanly
-    50	Can increase ass from "unremarkable ass" to "delightfully jiggly"
-    51	Amily Lactation Rating
-    52	Amily Clothing
+    35 -met Amily? (0 = not met, 1 = met)
+    36 -Amily village encounters disabled (1 = true) (44 for village button)
+    37 -Amily encounters disabled due to worms (1=she freaked out.  Goes to 0 automatically if uninfected)
+    38 -Amily Affection (< 15 = low.  In between = medium. 40+= high affect)
+    39 -Amily Offer Accepted? (1 = true, 0 = not yet)
+    40 -Amily Birth Total (no explanation needed)
+    41 -Amily Pregnancy Incubation - 0 = not pregnant, otherwise hours till birth 168
+    42 -Fucked Amily Counter
+    43 -Follower Toggle for amily (1 = follower, 0 = not)
+    44 -Amily's Village Unlocked (1=village button on, 0=off)
+    45 Amily's Wang Length
+    46 Amily's Wang Thickness
+    47 Amily's Cup Size (1 to 5)
+    48 Nipple Length from .3 to 4"
+    49 Amily Hip Rating - girly to womanly
+    50 Can increase ass from "unremarkable ass" to "delightfully jiggly"
+    51 Amily Lactation Rating
+    52 Amily Clothing
     158 -What did the PC meet amily as
-    159	-Has Amily Confessed Lesbian Love? (1 = yes, 2= yes and you accepted)
-    160	Times PC and Amily have done girlygirl sex
-    161	Times PC and Herm-Amily have done girlygirl sex
-    162	Times PC has birthed Amily's brood
-    163	Is PC pending preggo completion? (1 = yes, 2 = finished)
-    164	Amily remembers PC gender
-    165	Amily Herm Quest (1 = amily has flipped out, 2 = accepted to be amily's dad
+    159 -Has Amily Confessed Lesbian Love? (1 = yes, 2= yes and you accepted)
+    160 Times PC and Amily have done girlygirl sex
+    161 Times PC and Herm-Amily have done girlygirl sex
+    162 Times PC has birthed Amily's brood
+    163 Is PC pending preggo completion? (1 = yes, 2 = finished)
+    164 Amily remembers PC gender
+    165 Amily Herm Quest (1 = amily has flipped out, 2 = accepted to be amily's dad
     166 Amily Allowing Fertility In Camp? (1 = yes)
     */
     // Sorry for this, but it makes it a helluva lot easier for me to read it - Harb
@@ -128,7 +128,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
     // Implementation of TimeAwareInterface
     public timeChange(): boolean {
-        var needNext: boolean = false;
+        let needNext = false;
         this.pregnancy.pregnancyAdvance();
         trace(
             "\nAmily time change: Time is " +
@@ -159,13 +159,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0) {
                 this.outputText("\n", false);
                 this.amilyPopsOutKidsInCamp();
-                this.pregnancy.knockUpForce(); //Clear Pregnancy
+                this.pregnancy.knockUpForce(); // Clear Pregnancy
                 this.outputText("\n", false);
                 needNext = true;
             }
             if (this.pregnancy.isButtPregnant && this.pregnancy.buttIncubation == 0) {
                 this.amilyLaysEggsLikeABitch();
-                this.pregnancy.buttKnockUpForce(); //Clear Pregnancy
+                this.pregnancy.buttKnockUpForce(); // Clear Pregnancy
                 needNext = true;
             }
         }
@@ -287,7 +287,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00254] == 0 ||
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00255] == 0)
         ) {
-            var rack: number = 0;
+            let rack = 0;
             // Already got weapon
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00254] > 0) rack = 0;
             // Already got armor
@@ -395,7 +395,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         // Preggo birthing!
         if (this.pregnancy.isPregnant && this.pregnancy.incubation == 0) {
             this.fuckingMouseBitchPopsShitOut();
-            this.pregnancy.knockUpForce(); //Clear Pregnancy
+            this.pregnancy.knockUpForce(); // Clear Pregnancy
             return;
         }
         if (this.amilyCanHaveTFNow()) {
@@ -431,7 +431,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                         "Wandering into the ruined village, you set off in search of Amily.\n\n",
                         false
                     );
-                    /*NOPE!
+                    /* NOPE!
                     [Player meets the requirements to stalk Amily]
                     if(player.spe > 50 && player.inte > 40) {
                         outputText("Using all of your knowledge, skill and cunning, you sneak and squirm through the ruins until you finally find yourself coming up right behind the dusty mouse girl. She's picking berries off of a small bush and hasn't noticed you yet.\n\n", false);
@@ -456,7 +456,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                         false
                     );
                     // Accept her / Turn her down gently / Turn her down bluntly
-                    var fur = undefined;
+                    let fur;
                     if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) fur = this.amilyNoFur;
                     this.simpleChoices(
                         "Accept Her",
@@ -562,7 +562,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                         "Wandering into the ruined village, you set off in search of Amily.\n\n",
                         false
                     );
-                    /*NOPE!
+                    /* NOPE!
                     // [Player meets the requirements to stalk Amily]
                     if(player.spe > 50 && player.inte > 40) {
                         outputText("Using all of your knowledge, skill and cunning, you sneak and squirm through the ruins until you finally find yourself coming up right behind the dusty mouse girl. She's picking berries off of a small bush and hasn't noticed you yet.\n\n", false);
@@ -911,7 +911,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             }
         }
         // [Surprise Remeeting]
-        /*(random chance of happening instead of [Normal Remeeting] if player meets 'requirements' for stalking Amily)
+        /* (random chance of happening instead of [Normal Remeeting] if player meets 'requirements' for stalking Amily)
         if(player.spe > 50 && player.inte > 40 && rand(4) == 0) {
             outputText("Deciding to find Amily first instead of waiting for her to find you, you set off into the ruins. Using all of your knowledge, skill and cunning to figure out where she is likely to be, you make your way there without giving yourself away.\n\n", false);
             // [Amily is not pregnant]
@@ -951,7 +951,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             case 2:
             case 3:
             case 4:
-            case 5: //Amily is slightly pregnant
+            case 5: // Amily is slightly pregnant
                 this.outputText(
                     "Amily materializes out of the ruins somewhat slower than usual. You can see that your efforts together have taken; an undeniable bulge pokes out of her midriff, pushing up her tattered shirt slightly and seriously straining her belt. She idly rubs it with one hand, as if confirming its presence to herself.\n\n",
                     false
@@ -977,7 +977,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 break;
             case 6:
             case 7:
-            case 8: //Amily is heavily pregnant
+            case 8: // Amily is heavily pregnant
                 this.outputText(
                     "It takes several minutes before Amily appears, but when you see her, you marvel at how she got to you as quickly as she did. Her stomach is hugely swollen; one of her hands actually cradles underneath its rounded expanse, as if trying to hold it up. She is pants-less, evidently no longer able to fit into them. Her shirt drapes loosely, barely managing to cover the upper half of her firm orb of a belly. The belt where she hangs her blowpipe and dagger has been tied around her upper chest like a sash – between her breasts and her bulge – so she can still carry her weapons effectively.\n\n",
                     false
@@ -1066,7 +1066,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 }
         }
         // Sex / Talk / Talk then sex
-        var efficiency = undefined;
+        let efficiency;
         // Amily is not a herm but is ok with herm-daddying!
         if (
             this.player.hasItem(this.consumables.P_DRAFT) &&
@@ -1082,7 +1082,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
 
-        var sex = this.determineAmilySexEvent();
+        const sex = this.determineAmilySexEvent();
         this.simpleChoices(
             "Sex",
             sex,
@@ -1098,14 +1098,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         // Set flag for 'last gender met as'
         this.flags[kFLAGS.AMILY_PC_GENDER] = this.player.gender;
 
-        /*FAILSAFE - ALL GENDERS HAVE HAD THERE GO AN NOTHING HAPPENED!
+        /* FAILSAFE - ALL GENDERS HAVE HAD THERE GO AN NOTHING HAPPENED!
         outputText("You enter the ruined village cautiously. There are burnt-down houses, smashed-in doorways, ripped-off roofs... everything is covered with dust and grime. You explore for an hour, but you cannot find any sign of another living being, or anything of value. The occasional footprint from an imp or a goblin turns up in the dirt, but you don't see any of the creatures themselves. It looks like time and passing demons have stripped the place bare since it was originally abandoned. Finally, you give up and leave. You feel much easier when you're outside of the village – you had the strangest sensation of being watched while you were in there.", false);
         doNext(13);
         return;*/
     }
 
-    private determineAmilySexEvent(forced: boolean = false) {
-        var sex = undefined;
+    private determineAmilySexEvent(forced = false) {
+        let sex;
         if (!forced && this.player.lust < 35) return undefined;
         // If Amily is lesbo lover!
         if (this.flags[kFLAGS.AMILY_CONFESSED_LESBIAN] > 0 && this.player.gender == 2) {
@@ -1450,7 +1450,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             case 2:
             case 3:
             case 4:
-            case 5: //Amily is slightly pregnant
+            case 5: // Amily is slightly pregnant
                 // [Low Affection]
                 if (this.flags[kFLAGS.AMILY_AFFECTION] < 15) {
                     this.outputText(
@@ -1490,7 +1490,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 break;
             case 6:
             case 7:
-            case 8: //Amily is heavily pregnant
+            case 8: // Amily is heavily pregnant
                 // [Low Affection]
                 if (this.flags[kFLAGS.AMILY_AFFECTION] < 15) {
                     this.outputText(
@@ -1608,7 +1608,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 case 2:
                 case 3:
                 case 4:
-                case 5: //Amily is slightly pregnant
+                case 5: // Amily is slightly pregnant
                     this.outputText(
                         "\"<i>I could use someone to talk to, I suppose,</i>\" she says plainly, but you can clearly see that she's very happy that's what you want to do.\n\n",
                         false
@@ -1616,7 +1616,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     break;
                 case 6:
                 case 7:
-                case 8: //Amily is heavily pregnant
+                case 8: // Amily is heavily pregnant
                     this.outputText(
                         '"<i>Oh, NOW you want to get to know me,</i>" she complains, but her tone is gentle – amused even, and she clearly isn\'t as unhappy as her words may imply. Heavily, she sits herself down unceremoniously. "<i>But... there are things weighing on my mind. I really could use somebody to talk to.</i>"\n\n',
                         false
@@ -1669,7 +1669,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             case 2:
             case 3:
             case 4:
-            case 5: //Amily is slightly pregnant
+            case 5: // Amily is slightly pregnant
                 // [Low Affection]
                 if (this.flags[kFLAGS.AMILY_AFFECTION] < 15) {
                     this.outputText(
@@ -1712,7 +1712,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 break;
             case 6:
             case 7:
-            case 8: //Amily is heavily pregnant
+            case 8: // Amily is heavily pregnant
                 // [Low Affection]
                 if (this.flags[kFLAGS.AMILY_AFFECTION] < 15) {
                     this.outputText(
@@ -1811,7 +1811,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             case 2:
             case 3:
             case 4:
-            case 5: //Amily is slightly pregnant
+            case 5: // Amily is slightly pregnant
                 // [Low Affection]
                 if (this.flags[kFLAGS.AMILY_AFFECTION] < 15)
                     this.outputText(
@@ -1833,7 +1833,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 break;
             case 6:
             case 7:
-            case 8: //Amily is heavily pregnant
+            case 8: // Amily is heavily pregnant
                 // [Low Affection]
                 if (this.flags[kFLAGS.AMILY_AFFECTION] < 15)
                     this.outputText(
@@ -2311,7 +2311,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             " as the strongest contraction yet hits – she's crowning! Immediately your hands dive down to hover under her vagina as a small, pink, naked and wriggling thing slips between their parted lips. The little body is surprisingly light in your hands, but it squeaks loudly as it draws its first breath – correction, HER first breath. It's a ",
             false
         );
-        var amilyKid: string = "girl";
+        let amilyKid = "girl";
         if (
             (this.player.gender == 3 || this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0) &&
             AmilyScene.rand(2) == 0
@@ -2559,10 +2559,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     // Conversations - talk wif da bitch.
-    public talkWithCuntIMeanAmily(sexAfter: boolean = false): void {
+    public talkWithCuntIMeanAmily(sexAfter = false): void {
         this.outputText("", true);
         this.amilySprite();
-        var convo: number = AmilyScene.rand(15);
+        let convo: number = AmilyScene.rand(15);
 
         // Bump past convo #12 if she's already at camp because it doesn't make much sense by this point.
         if (convo == 12 && this.amilyFollower()) convo++;
@@ -3644,7 +3644,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     public amilySexHappens(): void {
         this.outputText("", true);
         this.amilySprite();
-        var x: number = this.player.cockThatFits(61);
+        const x: number = this.player.cockThatFits(61);
         // If too big
         if (x == -1 && this.player.hasCock()) {
             this.outputText(
@@ -3686,7 +3686,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         // Moderate Affection Sex:
         else if (this.flags[kFLAGS.AMILY_AFFECTION] < 40) {
-            var pregEvent: number = this.pregnancy.event;
+            const pregEvent: number = this.pregnancy.event;
             this.outputText(
                 "Amily leads you to her nest as quickly as ever, but things are a little different this time. You can tell Amily has what can only be described as a 'spring in her step'. She moves just a little bit quicker, she seems more enthusiastic about the prospect - her tail even waves slowly from side to side, a bit of body language you haven't seen from her before. And you're certain there's a bit of a seductive wiggle to her hips - which you definitely haven't seen from her before.",
                 false
@@ -3809,7 +3809,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     private sitAndWatchAmilySex(): void {
         this.outputText("", true);
         this.amilySprite();
-        var x: number = this.player.cockThatFits(61);
+        const x: number = this.player.cockThatFits(61);
         this.outputText(
             "You stay right where you are, not wanting to spoil the show. By the time that she is visibly starting to drip girlcum and approaches you, clearly ready to move on to the main event, your " +
                 this.cockDescript(x) +
@@ -3874,7 +3874,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     private continueAmilySmex(): void {
-        var x: number = this.player.cockThatFits(61);
+        const x: number = this.player.cockThatFits(61);
         this.amilySprite();
         this.outputText(this.images.showImage("amily-forest-plainfuck"), false);
         this.outputText(
@@ -3884,7 +3884,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        /*(If player chooses "Share The Pleasure":)
+        /* (If player chooses "Share The Pleasure":)
         {
             outputText("Determined to make this good for Amily too, you resume stroking and caressing her, doing your best to meet her thrusts with your own, and planting the odd kiss on the nape of her neck", false);
             // ([horsecock]
@@ -3975,7 +3975,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     private StripForAmilyYouSlut(): void {
         this.outputText("", true);
         this.amilySprite();
-        var x: number = this.player.cockThatFits(61);
+        const x: number = this.player.cockThatFits(61);
         this.outputText(
             "It is your turn to give her a mischievous smile back. Feeling turned on and excited, and remembering the elders in the village telling you that fair is only fair, you decide to give her a little show of her own. Standing up, you tilt your head back and thrust out your chest, trying to look enticing. As Amily watches, at first bemused and then pleased, you slowly strip off your " +
                 this.player.armorName +
@@ -3991,7 +3991,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     private getDownWithSexTiem(): void {
         this.outputText("", true);
         this.amilySprite();
-        var x: number = this.player.cockThatFits(61);
+        const x: number = this.player.cockThatFits(61);
         this.outputText(
             "Too horny to think of anything else than what lies ahead, you hastily remove your " +
                 this.player.armorName +
@@ -4100,7 +4100,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     // [High Affection - Non-Pregnant/Slightly Pregnant]
     private amilyHighAffectionSecks(): void {
         this.amilySprite();
-        var x: number = this.player.cockThatFits(61);
+        const x: number = this.player.cockThatFits(61);
         this.outputText(
             "Amily really didn't waste any time getting to her hidden bedroom, sprinting as fast as she could with you in tow.",
             false
@@ -4242,7 +4242,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             "</i>\" Amily says while rubbing her stomach. You smile at her and nod, promising you'll come back, before setting off for your own camp.",
             false
         );
-        /*OLD
+        /* OLD
         outputText("Amily really didn't waste any time getting to her hidden bedroom, sprinting as fast as she could with you in tow.", false);
         if(flags[kFLAGS.AMILY_INCUBATION] > 0) outputText("  Even in a slightly pregnant state she goes surprisingly fast, though she's also rather cautious of her small bump.", false);
         outputText("\n\n", false);
@@ -4405,7 +4405,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.pregnancy.knockUpForce(
                 PregnancyStore.PREGNANCY_PLAYER,
                 PregnancyStore.INCUBATION_MOUSE - 182
-            ); //Amily completes her pregnancies much faster than a regular player
+            ); // Amily completes her pregnancies much faster than a regular player
         }
     }
 
@@ -4455,7 +4455,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         ) {
             this.outputText("", true);
             this.amilyPopsOutKidsInCamp();
-            this.pregnancy.knockUpForce(); //Clear Pregnancy
+            this.pregnancy.knockUpForce(); // Clear Pregnancy
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
@@ -4585,8 +4585,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilyMenu(true);
     }
 
-    private amilyMenu(output: boolean = true): void {
-        var date = undefined;
+    private amilyMenu(output = true): void {
+        let date;
         // If no fight yet, have option to introduce Urta and Amily
         if (
             this.player.gender > 0 &&
@@ -4602,13 +4602,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             date = this.dateNightFirstTime;
         }
-        var defur = undefined;
+        let defur;
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) defur = this.amilyDefurryOfferAtCamp;
         // Innocent
         if (this.flags[kFLAGS.AMILY_FOLLOWER] == 1) {
             // outputText("Options:\nAppearance\nTalk\nMake Love\n", false);
             // MOAR OPTIONS: Give Present\nAlchemy\nTeach Blowpipe
-            var eggs = undefined;
+            let eggs;
             if (this.flags[kFLAGS.AMILY_OVIPOSITION_UNLOCKED] > 0 && this.player.canOviposit())
                 eggs = this.layEggsInAmily;
             this.choices(
@@ -4682,12 +4682,12 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     // Corrupt Amily Sex Options
     private amilyCorruptSexMenu(): void {
         this.amilySprite();
-        var anal = undefined;
-        var penetrated = undefined;
-        var fuckCunt = undefined;
-        var oral = undefined;
-        var oral2 = undefined;
-        var scissor = undefined;
+        let anal;
+        let penetrated;
+        let fuckCunt;
+        let oral;
+        let oral2;
+        let scissor;
 
         this.outputText("", true);
         if (this.player.gender > 0) {
@@ -4765,16 +4765,15 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         this.outputText("", true);
         // [HORSECOCK]
-        var stopSayingNetherlipsFuck: string =
-            "its hairless netherlips seem to shine in between her fur";
+        let stopSayingNetherlipsFuck = "its hairless netherlips seem to shine in between her fur";
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 1)
             stopSayingNetherlipsFuck = "its netherlips seem to shine in contrast to her thighs";
 
-        var what: string = this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "mouse-morph" : "mouse girl";
-        var onHerMuzzle: string =
+        const what: string = this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "mouse-morph" : "mouse girl";
+        const onHerMuzzle: string =
             this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "on her furry little muzzle " : "";
-        var furDesc: string = "";
-        var feetDesc: string = "";
+        let furDesc = "";
+        let feetDesc = "";
         // FURRAH
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) {
             // Corrupt
@@ -4825,7 +4824,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             // (If Amily has a penis:
             if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0) {
                 // ([horsecock]
-                var dickDesc: string =
+                const dickDesc: string =
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0
                         ? "naked and hairless and pink and throbbing"
                         : "pink and throbbing";
@@ -4970,8 +4969,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             return;
         }
         this.outputText("", true);
-        var babies = undefined;
-        var bText: string = "";
+        let babies;
+        let bText = "";
         // [Amily rejects sex]
         if (this.flags[kFLAGS.AMILY_WAIT_FOR_PC_FIX_JOJO] > 0) {
             this.outputText(
@@ -5045,21 +5044,21 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 babies = this.makeChildren;
             }
         }
-        var urta = undefined;
+        let urta;
         if (
             this.flags[kFLAGS.AMILY_VISITING_URTA] == 4 &&
             this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] >= 0 &&
             !this.getGame().urtaQuest.urtaBusy()
         )
             urta = this.getGame().followerInteractions.amilyUrtaSex;
-        var swim = undefined;
+        let swim;
         if (
             this.flags[kFLAGS.AMILY_OWNS_BIKINI] > 0 &&
             this.player.hasCock() &&
             !this.amilyCorrupt()
         )
             swim = this.amilySwimFuckIntro;
-        var threesome = undefined;
+        let threesome;
         if (
             this.izmaFollower() &&
             this.flags[kFLAGS.AMILY_X_IZMA_POTION_3SOME] > 0 &&
@@ -5070,7 +5069,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
             threesome = this.drinkThePotion;
         }
-        var nurse = undefined;
+        let nurse;
         if (
             this.flags[kFLAGS.GIVEN_AMILY_NURSE_OUTFIT] > 0 &&
             this.player.hasCock() &&
@@ -5108,13 +5107,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     private amilyTakesChargeSex(): void {
         this.amilySprite();
         this.outputText("", true);
-        var fuck = undefined;
-        var drinkMilk = undefined;
-        var getSucked = undefined;
-        var scissor = undefined;
-        var mountHer = undefined;
-        var buttFuckButtFUCKBUTTFUCK = undefined;
-        var catchs = undefined;
+        let fuck;
+        let drinkMilk;
+        let getSucked;
+        let scissor;
+        let mountHer;
+        let buttFuckButtFUCKBUTTFUCK;
+        let catchs;
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
             catchs = this.pureAmilyPutsItInYourRectumDamnNearKilledEm;
         if (this.player.hasCock()) {
@@ -5140,7 +5139,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 '. You lead her back to the nest she has made for herself and firmly but gently place her on her back there. She smiles up at you. "<i>Ooh, taking charge, are we?</i>" She trills with pleasure, tail waving to and fro with sincere excitement.\n\nWhat will you do?',
             false
         );
-        var scene: number = AmilyScene.rand(4);
+        const scene: number = AmilyScene.rand(4);
         this.choices(
             "Fuck",
             fuck,
@@ -5168,7 +5167,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     // Take Charge 1: Fuck
     private takeChargeAmilyFuck(): void {
         this.amilySprite();
-        var x: number = this.player.cockThatFits(61);
+        const x: number = this.player.cockThatFits(61);
         this.outputText("", true);
         this.outputText(
             "With a smile, you gently place the tip of a finger on her nose, then slowly run it down along her body, over her lip, between her breasts, across her stomach, and finally stopping between her legs, where you playfully circle her secret spot with the tip of your finger.",
@@ -5367,7 +5366,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     // Take Charge 4 - amily sucks off
     private takeChargeAmilyGetSucked(): void {
         this.amilySprite();
-        var hands: string = this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "paws" : "hands"; // [Horsecocks]
+        const hands: string = this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "paws" : "hands"; // [Horsecocks]
         this.outputText("", true);
         this.outputText("You stand up and undo your clothes, allowing ", false);
         if (this.player.totalCocks() > 1) this.outputText("each of ", false);
@@ -5609,8 +5608,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 ".\n\n",
             false
         );
-        var x: number = this.player.cockThatFits(61);
-        var choices: any[] = [];
+        const x: number = this.player.cockThatFits(61);
+        const choices: any[] = [];
         // POPULATE ARRAY WITH POSSIBLE SEX OPTIONS
         // ========================================
         if (this.player.hasCock()) {
@@ -5636,7 +5635,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             choices[choices.length] = 5;
         // ========================================
         // CHOOSE PROPER SCENE
-        var scene: number = choices[AmilyScene.rand(choices.length)];
+        const scene: number = choices[AmilyScene.rand(choices.length)];
         // ========================================
         // B1: Tailjob
         if (scene == 0) {
@@ -5970,7 +5969,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         this.clearOutput();
         this.menu();
-        var haveGift: boolean = false;
+        let haveGift = false;
         if (this.flags[kFLAGS.AMILY_FOLLOWER] == 1) {
             this.outputText("You tell Amily that you have something you want to give her.\n\n");
 
@@ -6092,9 +6091,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         this.outputText("", true);
 
-        var maxSizePure: number = 13;
-        var maxSizeCorr: number = 15;
-        var maxSizeHypr: number = 23;
+        const maxSizePure = 13;
+        const maxSizeCorr = 15;
+        const maxSizeHypr = 23;
 
         // PURE AMILY
         if (this.flags[kFLAGS.AMILY_FOLLOWER] == 1) {
@@ -6272,8 +6271,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.amilySprite();
 
-        var maxSizeCorr: number = 15;
-        var maxSizeHypr: number = 23;
+        const maxSizeCorr = 15;
+        const maxSizeHypr = 23;
 
         // (If PC has 2 feet that are not hooves)
         if (this.player.isBiped() && this.player.lowerBody != LOWER_BODY_TYPE_HOOFED) {
@@ -6356,7 +6355,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         // If no wang, grow.
 
         // ((flags[kFLAGS.AMILY_WANG_LENGTH] >= 23 && flags[kFLAGS.AMILY_WANG_GIRTH] >= 5) && flags[kFLAGS.HYPER_HAPPY])
-        var maxSize: number;
+        let maxSize: number;
         if (this.flags[kFLAGS.HYPER_HAPPY]) {
             maxSize = 23;
         } else {
@@ -6395,8 +6394,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         // DAH PURE
 
-        var maxSizePure: number = 5;
-        var maxSizeHypr: number = 22;
+        const maxSizePure = 5;
+        const maxSizeHypr = 22;
 
         if (this.flags[kFLAGS.AMILY_FOLLOWER] == 1) {
             this.outputText(
@@ -6501,7 +6500,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.amilySprite();
         // [HORSECOCKS] - Since I'm fucking lazy, that's why
-        var footpaw: string = "foot";
+        let footpaw = "foot";
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) footpaw += "paw";
         if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] == 0) {
             this.player.consumeItem(this.consumables.SDELITE);
@@ -6672,9 +6671,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.amilySprite();
 
-        var maxSizePure: number = 4;
-        var maxSizeCorr: number = 4;
-        var maxSizeHypr: number = 8;
+        const maxSizePure = 4;
+        const maxSizeCorr = 4;
+        const maxSizeHypr = 8;
 
         this.outputText(
             "You hold out a white egg, telling her that it will make her nipples grow.\n\n",
@@ -6759,9 +6758,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.amilySprite();
 
-        var maxSizePure: number = 16;
-        var maxSizeCorr: number = 20;
-        var maxSizeHypr: number = 35;
+        const maxSizePure = 16;
+        const maxSizeCorr = 20;
+        const maxSizeHypr = 35;
 
         this.outputText(
             "You hold out a brown egg, telling her that it will make her butt grow.\n\n",
@@ -6847,9 +6846,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     public giveAmilyAPurpleEgg(): void {
         this.outputText("", true);
         this.amilySprite();
-        var maxSizePure: number = 16;
-        var maxSizeCorr: number = 20;
-        var maxSizeHypr: number = 35;
+        const maxSizePure = 16;
+        const maxSizeCorr = 20;
+        const maxSizeHypr = 35;
 
         this.outputText(
             "You hold out a purple egg, telling her that it will make her hips grow.\n\n",
@@ -6997,8 +6996,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     */
 
     private amilyHips(): string {
-        var desc: string = "";
-        var rando: number = 0;
+        let desc = "";
+        let rando = 0;
         if (this.flags[kFLAGS.AMILY_HIP_RATING] <= 1) {
             if (AmilyScene.rand(2) == 0) desc = "boyish ";
             else desc = "tiny ";
@@ -7057,8 +7056,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     private amilyButt(): string {
-        var desc: string = "";
-        var rando: number = 0;
+        let desc = "";
+        let rando = 0;
         if (this.flags[kFLAGS.AMILY_ASS_SIZE] <= 1) {
             if (AmilyScene.rand(2) == 0) desc = "pixie-like ";
             else desc = "very small ";
@@ -7119,9 +7118,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
     private amilyBalls(): string {
         if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] == 0) return "prostate";
-        var descripted: boolean;
-        var rando: number;
-        var desc: string = "";
+        let descripted: boolean;
+        let rando: number;
+        let desc = "";
         rando = AmilyScene.rand(3);
         if (rando == 0) desc += "pair of ";
         if (rando == 1) desc += "two ";
@@ -7188,8 +7187,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     public amilyTits(): string {
-        var temp: number = Math.random() * 3;
-        var descript: string = "";
+        let temp: number = Math.random() * 3;
+        let descript = "";
         // 50% of the time size-descript them
         if (AmilyScene.rand(2) == 0) {
             if (this.flags[kFLAGS.AMILY_CUP_SIZE] <= 2) {
@@ -7264,9 +7263,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     public amilyCock(): string {
-        var descript: string = "";
-        var descripted: boolean = false;
-        var rando: number;
+        let descript = "";
+        let descripted = false;
+
         // Discuss length one in 3 times.
         if (Math.floor(Math.random() * 3) == 0) {
             if (this.flags[kFLAGS.AMILY_WANG_LENGTH] < 3) descript = "squat ";
@@ -7326,7 +7325,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.AMILY_WANG_GIRTH] > 3.5) descript += "distended ";
             descripted = true;
         }
-        rando = Math.floor(Math.random() * 10);
+        const rando: number = Math.floor(Math.random() * 10);
         if (rando >= 0 && rando <= 4) descript += "cock";
         if (rando == 5 || rando == 6) descript += "prick";
         if (rando == 7) descript += "pecker";
@@ -7335,9 +7334,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         return descript;
     }
     private amilyNipples(): string {
-        var descripted: boolean = false;
-        var description: string = "";
-        var rando: number;
+        let descripted = false;
+        let description = "";
+        let rando: number;
         // Size descriptors 33% chance
         if (AmilyScene.rand(4) == 0) {
             // TINAHHHH
@@ -8612,7 +8611,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     private amilyLesboLetHerGo(): void {
         this.amilySprite();
         this.outputText("", true);
-        /*(If player is already locked into a relationship):
+        /* (If player is already locked into a relationship):
         if(player.hasStatusAffect(StatusAffects.CampMarble) >= 0 || urtaLove()) {
             outputText("You put a hand on her shoulder, bringing her to a stop. She looks so hopeful at you that it's almost painful, but you tell her that, while you do care for her and you like her as a friend, you're already in a relationship with somebody.\n\n", false);
 
@@ -9134,9 +9133,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     private amilyNewGenderConfrontation(): void {
         this.amilySprite();
         this.outputText("", true);
-        var sex = undefined;
+        let sex;
         // Remember old gender.
-        var oldGender: number = this.flags[kFLAGS.AMILY_PC_GENDER];
+        const oldGender: number = this.flags[kFLAGS.AMILY_PC_GENDER];
         // Re-init old gender so we don't get caught in a loop!
         this.flags[kFLAGS.AMILY_PC_GENDER] = this.player.gender;
         // Called from mid-way through remeeting's intro!
@@ -9641,7 +9640,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         // [Yes]
         // [No]
         // doYesNo(beAmilysDadAsAHerm,fuckNoYouWontBeAmilysHermDaddy);
-        var noFurry = undefined;
+        let noFurry;
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) noFurry = this.amilyNoFur;
         this.simpleChoices(
             "Yes",
@@ -10119,7 +10118,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             case 2:
             case 3:
             case 4:
-            case 5: //Amily is slightly pregnant
+            case 5: // Amily is slightly pregnant
                 this.outputText(
                     "Amily materializes out of the ruins, somewhat slower than usual. You can see that your efforts together have taken; an undeniable bulge pokes out of her midriff, pushing up her tattered shirt slightly and seriously straining her belt. She idly strokes it with one hand, as if confirming its presence to herself.\n\n",
                     false
@@ -10127,7 +10126,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 break;
             case 6:
             case 7:
-            case 8: //Amily is heavily pregnant
+            case 8: // Amily is heavily pregnant
                 this.outputText(
                     "It takes several minutes before Amily appears - but when you can see her, you marvel that she got to you as quickly as she did. Her stomach is hugely swollen, and one of her hands actually cradles underneath its rounded expanse as if trying to hold it up. She is pantsless, evidently no longer able to fit into them with this firm orb of a belly, and her shirt drapes loosely, barely managing to cover its upper half. Her belt, where she hangs her blowpipe and dagger, has been tied around her upper chest, between her breasts and her bulge, so she can still carry them effectively.\n\n",
                     false
@@ -10499,10 +10498,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(kGAMECLASS.farm.farmCorruption.rootScene);
     }
 
-    private talkWithCORRUPTCUNT(sexAfter: boolean = false): void {
+    private talkWithCORRUPTCUNT(sexAfter = false): void {
         this.outputText("", true);
         this.amilySprite();
-        var convo: number = AmilyScene.rand(13);
+        const convo: number = AmilyScene.rand(13);
         // Girls dont get to listen to amily talk about being knocked up.
         // Herms either unless she's okay'ed them for dad-hood.
         // if(player.gender == 2 || (player.gender == 3 && flags[kFLAGS.AMILY_HERM_QUEST] < 2)) convo = rand(12); <-- I think this is likely a copypaste issue from the original talk menu.
@@ -11404,7 +11403,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     // [Male]
     private rapeCorruptAmily1Male(): void {
         this.amilySprite();
-        var x: number = this.player.cockThatFits(61);
+        let x: number = this.player.cockThatFits(61);
         if (x < 0) x = 0;
         this.player.removeKeyItem("Potent Mixture");
         this.outputText("", true);
@@ -11534,7 +11533,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     private rapeCorruptAmily2Male(): void {
         this.amilySprite();
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(61);
+        let x: number = this.player.cockThatFits(61);
         if (x < 0) x = 0;
         this.outputText(
             "You unceremoniously shove your " + this.cockDescript(x) + " into her maw. ",
@@ -12986,7 +12985,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         } else this.player.consumeItem(this.consumables.P_S_MLK);
 
         if (this.amilyCorrupt()) {
-            var master: string = this.player.mf("master", "mistress");
+            const master: string = this.player.mf("master", "mistress");
             this.outputText(
                 "Beckoning your furry little slut over to you, you inform her that her " +
                     master +
@@ -13304,10 +13303,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     // Amily/Urta -- Use Cock
     public threesomeAmilUrtaCAWKS(): void {
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(60);
+        let x: number = this.player.cockThatFits(60);
         if (x < 0) x = this.player.smallestCockIndex();
         // Silly mode alternative:
-        /*if(silly()) {
+        /* if(silly()) {
             outputText("MUZZLESMUZZLES MUZZLE PAW FUR MURR HIR SHI YIFF YIFFITY YIFF PURR PURR MEW.", false);
         }*/
         this.outputText(
@@ -13485,7 +13484,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     }
     public pureAmilyPutsItInYourRectumDamnNearKilledEm(): void {
         this.outputText("", true);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
         this.outputText(
             "You pause and flash her a coy smirk, then you gently place the tip of a finger on her nose, slowly running it down along her body, over her lip, between her breasts, across her stomach, finally stopping in between her legs, where you start to teasingly stroke her cock through her pants, letting it tent her clothing.\n\n",
             false
@@ -13681,7 +13680,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
     private fuckPureAmilysHeiny(): void {
         this.outputText("", true);
-        var x: number = this.player.cockThatFits(50);
+        let x: number = this.player.cockThatFits(50);
         if (x < 0) x = 0;
         this.outputText(
             "You pause and flash her a coy smirk, then you gently place the tip of a finger on her nose, slowly running it down along her body, over her lip, between her breasts, across her stomach, finally stopping to firmly grip her " +
@@ -13934,9 +13933,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     }
     // Fuck Cunts/All (extra pg or two) (Z)
     private fuckIncestCunts(all: boolean): void {
-        var x: number = this.player.cockThatFits(61);
+        let x: number = this.player.cockThatFits(61);
         if (x < 0) x = 0;
-        var y: number = x + 1;
+        const y: number = x + 1;
         this.clearOutput();
         this.amilySprite();
         this.outputText("You step up and ");
@@ -14334,12 +14333,12 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.pregnancy.buttKnockUp(
                     PregnancyStore.PREGNANCY_DRIDER_EGGS,
                     PregnancyStore.INCUBATION_DRIDER - 304
-                ); //(96)
+                ); // (96)
             } else if (this.player.canOvipositBee()) {
                 this.pregnancy.buttKnockUp(
                     PregnancyStore.PREGNANCY_BEE_EGGS,
                     PregnancyStore.INCUBATION_BEE + 48
-                ); //(96)
+                ); // (96)
             }
             this.flags[kFLAGS.AMILY_OVIPOSITED_COUNT] = this.player.eggs();
         }
@@ -14499,7 +14498,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
     // Go 'Swimming'
     private amilySwimFuckPartII(): void {
-        var x: number = this.player.cockThatFits(61);
+        let x: number = this.player.cockThatFits(61);
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.outputText(
@@ -15172,7 +15171,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.pregnancy.knockUpForce(
                     PregnancyStore.PREGNANCY_PLAYER,
                     PregnancyStore.INCUBATION_MOUSE - 182
-                ); //Amily carries babies to term way faster than a regular player
+                ); // Amily carries babies to term way faster than a regular player
                 if (!this.izmaScene.pregnancy.isPregnant) this.outputText(" and ");
             }
             if (!this.izmaScene.pregnancy.isPregnant) {
@@ -15192,9 +15191,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     // This borderline obscene nurse's outfit would barely cover your hips and crotch.  The midriff is totally exposed, and the white top leaves plenty of room for cleavage.  A tiny white hat tops off the whole ensemble.
 
     // Prompt to Give It To Her:
-    // 	You could give Amily the nurse's outfit you got, though it barely covers anything at all, and would likely be inviting some roleplay from the kinky mouse-girl.
-    // 	{No dick: You have a hunch if you were a male, giving Amily a nurse's outfit might set off some kinky roleplay.}
-    // 	{You have a hunch that if you had a nurse's outfit you could get Amily to give you a rather erotic checkout{, provided you had a dick}.}
+    //  You could give Amily the nurse's outfit you got, though it barely covers anything at all, and would likely be inviting some roleplay from the kinky mouse-girl.
+    //  {No dick: You have a hunch if you were a male, giving Amily a nurse's outfit might set off some kinky roleplay.}
+    //  {You have a hunch that if you had a nurse's outfit you could get Amily to give you a rather erotic checkout{, provided you had a dick}.}
 
     // Give It To Her/Repeat Sex Option
     // [NurseCheckup]
@@ -15236,7 +15235,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
     // [Next] - both merge here
     private amilyNurseCheckupV2(repeat: boolean): void {
         this.clearOutput();
-        var x: number = this.player.cockThatFits(61);
+        const x: number = this.player.cockThatFits(61);
         this.outputText(
             "You step in to Amily's office, as it were.  It's really just a cluster of boulders, but with the way the mouse-girl is looking about imperiously and gesturing for you to sit on a flat rock, you really do feel like you're back at the village doctor, getting checked on to make sure you're okay.  As for Amily, she's looking fine... mighty fine indeed.  Her " +
                 this.amilyTits() +

@@ -6,6 +6,7 @@ import { Doppleganger } from "./Doppleganger";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class DopplegangerScenes extends BaseContent {

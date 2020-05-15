@@ -8,6 +8,6 @@
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
     },
-    "files": ["start.ts"],
+    "files": ["start.ts", "src/classes/content/TestContent.ts", "src/classes/NonPlayer.ts", "src/classes/Items/Equipable.ts", "src/classes/Items/Armors/FurLoincloth.ts"],
     "include": ["classes", "lib"]
 }

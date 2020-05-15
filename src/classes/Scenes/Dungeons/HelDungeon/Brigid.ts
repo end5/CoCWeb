@@ -24,7 +24,7 @@ export class Brigid extends Monster {
                 " and sending you reeling."
         );
         // (Effect: Heavy Damage)
-        var damage: number = Math.round(
+        let damage: number = Math.round(
             this.str + this.weaponAttack - Brigid.rand(this.player.tou) - this.player.armorDef
         );
         if (damage < 30) damage = 30;
@@ -39,7 +39,7 @@ export class Brigid extends Monster {
             "The harpy feints at you with her poker; you dodge the blow, but you leave yourself vulnerable as she spins around and slams her heavy shield into you, knocking you off balance."
         );
         // (Effect: Stagger/Stun)
-        var damage: number = 5;
+        let damage = 5;
         damage = this.player.takeDamage(5);
         this.outputText(" (" + damage + ")");
         if (this.player.findPerk(PerkLib.Resolute) >= 0)

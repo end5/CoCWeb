@@ -82,7 +82,7 @@ export class Frosty extends TelAdreAbstractContent {
                 "\nAt least they go down in price if you buy in bulk, that or she’s bad at math."
             );
 
-            /*Button 1 [x1]
+            /* Button 1 [x1]
             Button 2 [x5]
             Button 3 [x10]
             Button 4 [x20]
@@ -104,7 +104,7 @@ export class Frosty extends TelAdreAbstractContent {
         this.addButton(9, "Leave", kGAMECLASS.telAdre.telAdreMenu);
     }
 
-    public frostySpecialsMenu(free: boolean = false): void {
+    public frostySpecialsMenu(free = false): void {
         // 1. Hand – 5. points
         // 2. Mouth-15. Points
         this.menu();
@@ -121,7 +121,7 @@ export class Frosty extends TelAdreAbstractContent {
         this.addButton(9, "Back", this.approachFrosty);
     }
 
-    public cupcakeBuy(arg: number = 1): void {
+    public cupcakeBuy(arg = 1): void {
         this.clearOutput();
         this.outputText(
             "You make your purchase and swiftly devour the results. They're surprisingly delicious!"
@@ -242,7 +242,7 @@ export class Frosty extends TelAdreAbstractContent {
         this.frostySpecialsMenu();
     }
 
-    private frostyPoints(arg: number = 0): number {
+    private frostyPoints(arg = 0): number {
         if (arg == 0) return this.flags[kFLAGS.FROSTY_POINTS];
         // If any change, add it in.
         this.flags[kFLAGS.FROSTY_POINTS] += arg;
@@ -618,19 +618,19 @@ export class Frosty extends TelAdreAbstractContent {
     You unwrap the cupcake and take a big bite. Its sweet unique taste fills your mouth, making you take another bite just to keep the taste strong. You take so many quick bites that the cupcake is gone before you know it.
 
     Cupcake’s Effects
-    •	They pawn for 15 gems
-    •	They restore 15% HP
-    •	Reduces Fatigue by 30 points
-    •	30% chance to add 1 speed
-    •	10% chance to add 2 speed
-    •	Eating too many (20) of them in a short time (2 days) earns the player the hyperactive perk.
+    • They pawn for 15 gems
+    • They restore 15% HP
+    • Reduces Fatigue by 30 points
+    • 30% chance to add 1 speed
+    • 10% chance to add 2 speed
+    • Eating too many (20) of them in a short time (2 days) earns the player the hyperactive perk.
 
     Hyperactive Perk Effect
-    •	Speed is increased by 40 points.
-    •	Speed will never go below 40 points
-    •	Gets a double-attack that stacks with other double-attack effects.
-    •	The player cannot wait but they can still rest or sleep.
-    •	The player must eat at least 5 cupcakes every 4 days to keep the perk.
+    • Speed is increased by 40 points.
+    • Speed will never go below 40 points
+    • Gets a double-attack that stacks with other double-attack effects.
+    • The player cannot wait but they can still rest or sleep.
+    • The player must eat at least 5 cupcakes every 4 days to keep the perk.
 
     [Player getting the hyperactive perk]
     Your heart races and your blood boils. You feel like running, jumping, yelling at the top of your lungs for no reason. Surely these newfound feelings would drive anyone around you up the walls but you can’t help it.
@@ -645,24 +645,24 @@ export class Frosty extends TelAdreAbstractContent {
     You feel lazy, like all the energy in you has just left your body, even the tiniest step makes your heart beat in exhaustion and leaves you panting like a lazy good-for-nothing. Seems like your sugar-rush has just made you hit the wall..
 
     Hitting the wall effect
-    •	Lose the Hyperactive perk and all its benefits
-    •	It lasts for 6 hours
-    •	The player loses 30 speed for the time
-    •	Fatigue increases are 25% higher for the time
+    • Lose the Hyperactive perk and all its benefits
+    • It lasts for 6 hours
+    • The player loses 30 speed for the time
+    • Fatigue increases are 25% higher for the time
     [Cupcake prices list]
-    1.	Cupcake x 1 = 30gems
-    2.	Cupcake x 5 = 125gems
-    3.	Cupcakes x 10 = 230gems
-    4.	Cupcakes x 20 = 400gems
+    1. Cupcake x 1 = 30gems
+    2. Cupcake x 5 = 125gems
+    3. Cupcakes x 10 = 230gems
+    4. Cupcakes x 20 = 400gems
 
     [Cupcakes prices list with discount]
-    1.	Cupcake x 1 = 24gems
-    2.	Cupcake x 5 = 100gems
-    3.	Cupcakes x 10 = 184gems
-    4.	Cupcakes x 20 = 320gems
+    1. Cupcake x 1 = 24gems
+    2. Cupcake x 5 = 100gems
+    3. Cupcakes x 10 = 184gems
+    4. Cupcakes x 20 = 320gems
     */
 
-    /*Specials
+    /* Specials
             Cunnalings - 1pt.
             Anal - 10pt.
             Spankings - 100pt
@@ -726,7 +726,7 @@ export class Frosty extends TelAdreAbstractContent {
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
-    /*Anal (One service genderless can have) -WIP-
+    /* Anal (One service genderless can have) -WIP-
     function analWithACupcakeSloot(): void
     {
         clearOutput();
@@ -878,7 +878,7 @@ export class Frosty extends TelAdreAbstractContent {
 
     She doesn’t seem to like this service, are you sure you want her to go through with this?
 
-    [Yes]	[No]
+    [Yes] [No]
 
     [No]
     She wipes the worry off her brow and goes back to her happy face.
@@ -887,7 +887,7 @@ export class Frosty extends TelAdreAbstractContent {
 
     [Yes]
     You tap your finger over the “Spanking” text. “Sooooooo... do you want to spank me or do want me to spank you?”
-    [Her]	[You](available if you have the masochist perk)
+    [Her] [You](available if you have the masochist perk)
 
     [Her]
     (Picked by default if you don’t have masochist perk)
@@ -912,7 +912,7 @@ export class Frosty extends TelAdreAbstractContent {
     [if player has 60 corruption/sadist perk and a cock, this option is presented to the PC,]
     There’s a devious idea  you could with that free service, wonder how happy she’ll be if you wanted that service to be anal?
 
-       [Nah] 	[Do it]
+       [Nah]  [Do it]
 
     [Nah] (Keep paddling)
     Pick by default if player doesn’t meet the requirement

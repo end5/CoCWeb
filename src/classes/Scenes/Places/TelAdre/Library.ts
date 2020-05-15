@@ -339,9 +339,9 @@ export class Library extends TelAdreAbstractContent {
             if (this.player.weapon == this.weapons.S_BLADE) {
                 this.player.setWeapon(WeaponLib.FISTS);
                 //
-                // 	player.weapon.unequip(player, false, true);
+                //  player.weapon.unequip(player, false, true);
                 //
-                // 	player.removePerk(PerkLib.WizardsFocus);
+                //  player.removePerk(PerkLib.WizardsFocus);
             } else {
                 this.player.consumeItem(this.weapons.S_BLADE);
             }

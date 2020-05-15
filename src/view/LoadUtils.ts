@@ -5,7 +5,7 @@ export function loadClass(className: string, element: HTMLElement) {
 }
 
 export function loadId(id: string) {
-    let element = document.getElementById(id);
+    const element = document.getElementById(id);
     if (!element) throw new Error('Could not load element with id: "' + id + '"');
     return element;
 }

@@ -54,7 +54,7 @@ export class CeraphScene extends NPCAwareContent {
     // If the player joins the harem they receive a vibrating tongue-stud and gains 'lick' attack.
     // If the PC loses, Ceraph has very bondagey degrading sex with the PC, but does not push the issue.
 
-    /*MISC NOTES
+    /* MISC NOTES
      Type
      0 - unpierced
      1 - stud
@@ -540,7 +540,7 @@ export class CeraphScene extends NPCAwareContent {
         this.player.cuntChange(this.monster.cockArea(0), true);
         this.player.orgasm();
         this.dynStats("lib", 3, "sen", 3, "cor", 1);
-        this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP - 32, 61); //Ceraph causes faster pregnancies
+        this.player.knockUp(PregnancyStore.PREGNANCY_IMP, PregnancyStore.INCUBATION_IMP - 32, 61); // Ceraph causes faster pregnancies
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -1023,7 +1023,7 @@ export class CeraphScene extends NPCAwareContent {
     }
 
     // [PC haz 1 piercing, trapped armor]
-    /*	scandalously seductive armor – dropped off a random demonic enemy.
+    /* scandalously seductive armor – dropped off a random demonic enemy.
      A complete suit of scalemail shaped to hug tightly against every curve, it has a solid steel chest-plate with obscenely large nipples molded into it.  The armor does nothing to cover the backside, exposing the wearer's cheeks to the world.
      [After wearing]
      While you take a break, you feel a sudden shift in your scandalous new armor.  To your horror, it begins folding into itself, revealing more and more of your " + player.skin + " and the comfortable underclothes you had on underneath it.  The transforming armor gradually covers less and less of you until it's little more than a pair of huge nipple-coverings and a silver chain.  A loud KA-CHUNK startles you, and then you're screaming as you feel something stabbing through your nipples.  Goosebumps cover your flesh as you twist in unexpected agony.
@@ -1182,7 +1182,7 @@ export class CeraphScene extends NPCAwareContent {
 
     public winRapeChoices(): void {
         // FOLLOWER CHANCE:
-        var leave = this.cleanupAfterCombat;
+        let leave = this.cleanupAfterCombat;
         if (!this.getGame().inCombat) {
             // Load ceraph and set up win conditions
             this.startCombat(new Ceraph());
@@ -1208,8 +1208,8 @@ export class CeraphScene extends NPCAwareContent {
                 false
             );
 
-            var dicking = undefined;
-            var buttsmexing = undefined;
+            let dicking;
+            let buttsmexing;
             // Dickings ahoyu!
             if (this.player.hasCock()) {
                 dicking = this.maleFuckCeraphsPussy;
@@ -1221,10 +1221,10 @@ export class CeraphScene extends NPCAwareContent {
                         false
                     );
             }
-            var cunting = undefined;
+            let cunting;
             if (this.player.hasVagina())
                 cunting = this.rideCeraphsCockLikeaBAWSSexclamation11eleven;
-            var bikiniTits = undefined;
+            let bikiniTits;
             if (
                 this.player.hasVagina() &&
                 this.player.biggestTitSize() >= 4 &&
@@ -1378,7 +1378,7 @@ export class CeraphScene extends NPCAwareContent {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00291] += 2;
         this.outputText("", true);
         this.spriteSelect(7);
-        var x: number = this.player.biggestCockIndex();
+        const x: number = this.player.biggestCockIndex();
 
         this.outputText("You laugh at Ceraph's ", false);
         if (this.monster.HP < 1) this.outputText("beaten, prone", false);
@@ -1721,9 +1721,9 @@ export class CeraphScene extends NPCAwareContent {
     private tradeCeraphSomething(): void {
         this.outputText("", true);
         this.spriteSelect(7);
-        var liqueur = undefined;
-        var endowment = undefined;
-        var armor = undefined;
+        let liqueur;
+        let endowment;
+        let armor;
         this.outputText(
             "Ceraph looks you up and down like an appraiser examining an antique, never stopping her languid masturbation.  You stand there, hands on your hips, waiting for her to finish while you try not to stare too long at her beading pre-cum or dripping twat-juice.\n\n",
             false
@@ -1846,9 +1846,9 @@ export class CeraphScene extends NPCAwareContent {
             return;
         }
         // Create array for choosing bits!
-        var choices: any[] = [];
-        var choice: number = 0;
-        var temp2: number = 0;
+        const choices: any[] = [];
+        let choice = 0;
+        let temp2 = 0;
         // 1 = wang, 2 = cunt, 3 = tits.
         // Add dicks
         this.temp = this.player.totalCocks();
@@ -2025,7 +2025,7 @@ export class CeraphScene extends NPCAwareContent {
     private giveUpYourBallsOrWhateverForLessFetishes(): void {
         this.outputText("", true);
         this.spriteSelect(7);
-        var x: number = 0;
+        let x = 0;
         this.outputText(
             "You hold still, dreading this moment but knowing all-too well that you'd have to give something up to get her touch out of your mind.  ",
             false
@@ -2218,9 +2218,9 @@ export class CeraphScene extends NPCAwareContent {
     public ceraphBodyPartDreams(): void {
         this.spriteSelect(7);
         // Create array for choosing bits!
-        var choices: any[] = [];
-        var choice: number = 0;
-        var subChoice: number = 0;
+        const choices: any[] = [];
+        let choice = 0;
+        let subChoice = 0;
         // dicks
         this.temp = this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00218];
         while (this.temp > 0) {
@@ -2604,7 +2604,7 @@ export class CeraphScene extends NPCAwareContent {
     public buttRapeCeraph(): void {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00291]++;
         this.spriteSelect(7);
-        var x: number = this.player.cockThatFits(this.monster.analCapacity());
+        let x: number = this.player.cockThatFits(this.monster.analCapacity());
         if (x < 0) x = 0;
         this.outputText("", true);
         this.outputText(

@@ -1,6 +1,6 @@
 ﻿import { kGAMECLASS } from "../GlobalFlags/kGAMECLASS";
 
-//Calls are now made through kGAMECLASS rather than thisPtr. This allows the compiler to detect if/when a function is inaccessible.
+// Calls are now made through kGAMECLASS rather than thisPtr. This allows the compiler to detect if/when a function is inaccessible.
 
 // PRONOUNS: The parser uses Elverson/Spivak Pronouns specifically to allow characters to be written with non-specific genders.
 // http://en.wikipedia.org/wiki/Spivak_pronoun
@@ -16,32 +16,32 @@
 export const arianLookups =
     // For subject: "arian"
     {
-        man: function (): string {
+        man(): string {
             return kGAMECLASS.arianScene.arianMF("man", "woman");
         },
         // argh! "Man" is the mass-noun for humanity, and I'm loathe to choose an even more esoteric variant.
         // Elverson/Spivak terminology is already esoteric enough, and it lacks a ungendered mass noun.
 
-        ey: function (): string {
+        ey(): string {
             return kGAMECLASS.arianScene.arianMF("he", "she");
         },
-        em: function (): string {
+        em(): string {
             return kGAMECLASS.arianScene.arianMF("him", "her");
         },
-        eir: function (): string {
+        eir(): string {
             return kGAMECLASS.arianScene.arianMF("his", "her");
         },
-        eirs: function (): string {
+        eirs(): string {
             return kGAMECLASS.arianScene.arianMF("his", "hers");
         },
-        emself: function (): string {
+        emself(): string {
             return kGAMECLASS.arianScene.arianMF("himself", "herself");
         },
 
-        chestadj: function (): string {
+        chestadj(): string {
             return kGAMECLASS.arianScene.arianChestAdjective();
         },
-        chest: function (): string {
+        chest(): string {
             return kGAMECLASS.arianScene.arianChest();
         },
     };
@@ -53,34 +53,34 @@ export const arianLookups =
 export const rubiLookups =
     // For subject: "rubi"
     {
-        man: function (): string {
+        man(): string {
             return kGAMECLASS.telAdre.rubi.rubiMF("man", "woman");
         },
 
-        ey: function (): string {
+        ey(): string {
             return kGAMECLASS.telAdre.rubi.rubiMF("he", "she");
         },
-        em: function (): string {
+        em(): string {
             return kGAMECLASS.telAdre.rubi.rubiMF("him", "her");
         },
-        eir: function (): string {
+        eir(): string {
             return kGAMECLASS.telAdre.rubi.rubiMF("his", "her");
         },
-        eirs: function (): string {
+        eirs(): string {
             return kGAMECLASS.telAdre.rubi.rubiMF("his", "hers");
         },
-        emself: function (): string {
+        emself(): string {
             return kGAMECLASS.telAdre.rubi.rubiMF("himself", "herself");
         },
 
-        cock: function (): string {
+        cock(): string {
             return kGAMECLASS.telAdre.rubi.rubiCock();
         },
-        breasts: function (): string {
+        breasts(): string {
             return kGAMECLASS.telAdre.rubi.rubiBreasts();
         },
     };
-//Rubi unhandled terms :
+// Rubi unhandled terms :
 // rubiMF("boy","girl")
 // rubiMF("demon","demoness")
 // rubiMF("gentleman","lady")

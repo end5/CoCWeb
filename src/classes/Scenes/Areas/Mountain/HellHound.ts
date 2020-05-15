@@ -27,7 +27,7 @@ export class HellHound extends Monster {
             this.combatRoundOver();
             return;
         }
-        /*if(player.hasStatusAffect(StatusAffects.Web_dash_Silence) >= 0) {
+        /* if(player.hasStatusAffect(StatusAffects.Web_dash_Silence) >= 0) {
             outputText("You reach inside yourself to breathe flames, but as you ready to release a torrent of fire, it backs up in your throat, blocked by the webbing across your mouth.  It causes you to cry out as the sudden, heated force explodes in your own throat.\n", false);
             changeFatigue(10);
             takeDamage(10+rand(20));
@@ -66,7 +66,7 @@ export class HellHound extends Monster {
             );
         } else {
             // Determine the damage to be taken
-            var temp: number = 15 + HellHound.rand(10);
+            let temp: number = 15 + HellHound.rand(10);
             temp = this.player.takeDamage(temp);
             this.outputText(
                 "Both the hellhound's heads breathe in deeply before blasting a wave of dark fire at you. While the flames don't burn much, the unnatural heat fills your body with arousal. (" +
@@ -108,7 +108,7 @@ export class HellHound extends Monster {
             this.player.createStatusAffect(StatusAffects.NoFlee, 0, 0, 0, 0);
         }
         this.combatRoundOver();
-        /*if(spe >= 80) {
+        /* if(spe >= 80) {
             if(spe == 100) {
                 hellhoundFire();
                 return;
@@ -165,7 +165,7 @@ export class HellHound extends Monster {
                 "Unable to bear hurting you anymore, the hellhound's flames dim as he stops his attack. The two heads look at you, whining plaintively.  The hellhound slowly pads over to you and nudges its noses at your crotch.  It seems he wishes to pleasure you.\n\n",
                 true
             );
-            var temp2 = undefined;
+            let temp2;
             if (this.player.gender > 0 && this.player.lust >= 33) {
                 this.outputText(
                     "You realize your desires aren't quite sated.  You could let it please you",
@@ -208,7 +208,7 @@ export class HellHound extends Monster {
         }
     }
 
-    public constructor(noInit: boolean = false) {
+    public constructor(noInit = false) {
         super();
         if (noInit) return;
         trace("HellHound Constructor!");

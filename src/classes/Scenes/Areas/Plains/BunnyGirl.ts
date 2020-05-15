@@ -100,10 +100,10 @@ export class BunnyGirl extends BaseContent {
                 false
             );
             this.dynStats("lus", 5 + this.player.lib / 20);
-            var DickInV = undefined;
-            var Vagina = undefined;
-            var sixtyNine = undefined;
-            var eggs = undefined;
+            let DickInV;
+            let Vagina;
+            let sixtyNine;
+            let eggs;
             if (this.player.cockThatFits(40) >= 0) {
                 Vagina = this.bunbunGetsFucked;
                 this.outputText("  Fuck her vagina?", false);
@@ -192,9 +192,9 @@ export class BunnyGirl extends BaseContent {
             "(If you're going to sex her, which of her body parts will you use?",
             false
         );
-        var DickInV = undefined;
-        var Vagina = undefined;
-        var sixtyNine = undefined;
+        let DickInV;
+        let Vagina;
+        let sixtyNine;
         // Dick requires one 40 area or smaller.
         if (this.player.hasVagina()) {
             DickInV = this.bunbunFucksYourVag;
@@ -265,9 +265,9 @@ export class BunnyGirl extends BaseContent {
                 "(If you're going to sex her, which of her body parts will you use?",
                 false
             );
-            var DickInV = undefined;
-            var Vagina = undefined;
-            var sixtyNine = undefined;
+            let DickInV;
+            let Vagina;
+            let sixtyNine;
             // Dick requires one 40 area or smaller.
             if (this.player.hasVagina()) {
                 DickInV = this.bunbunFucksYourVag;
@@ -770,9 +770,9 @@ export class BunnyGirl extends BaseContent {
         this.spriteSelect(13);
         this.outputText("", true);
         // Requires wang that fits
-        var x: number = this.player.cockThatFits(40);
+        const x: number = this.player.cockThatFits(40);
         // Second wang that fits for DP
-        var y: number = this.player.cockThatFits2(40);
+        const y: number = this.player.cockThatFits2(40);
 
         this.outputText(
             "You disrobe and toss your " +
@@ -937,7 +937,7 @@ export class BunnyGirl extends BaseContent {
             );
         if (this.player.cumQ() > 250)
             this.outputText("  One more follows, giving her quads", false);
-        var z: number = 8 + BunnyGirl.rand(this.player.cumQ() / 100);
+        let z: number = 8 + BunnyGirl.rand(this.player.cumQ() / 100);
         if (z > 50) z = 50;
         if (this.player.cumQ() > 700)
             this.outputText(

@@ -51,7 +51,7 @@ export class BasiliskScene extends BaseContent {
                 "Using every vestige of your willpower, you tear your gaze away from the terrible, paralyzing sight.  Panting and feeling groggy, you desperately hold the rock formation in the corner of your eye. A tall, thin bipedal shape disengages from the stone against which it had been camouflaging itself, and stalks predatorily towards you.  With small, quick glances you glean fleeting impressions of grey-green scales, a tightly muscled yellow underbelly, cruelly curved index claws, a whip like tail. The creature moves its snub head towards yours suddenly, trying to catch your gaze with its deadly grey eyes again.  You recoil and ready yourself to fight it as best you can.\n\n",
                 false
             );
-            var basilisk: Basilisk = new Basilisk();
+            const basilisk: Basilisk = new Basilisk();
             // (spd loss)
             Basilisk.basiliskSpeed(this.player, 5);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00276]++;
@@ -79,8 +79,8 @@ export class BasiliskScene extends BaseContent {
     public defeatBasilisk(): void {
         this.spriteSelect(75);
         this.outputText("", true);
-        var evil = undefined;
-        var eggs = undefined;
+        let evil;
+        let eggs;
         if (this.player.canOvipositSpider()) eggs = this.driderPCEggLaysBasilisk;
         if (this.player.canOvipositBee() && this.player.gender > 0)
             eggs = this.layBeeEggsInABasilisk;
@@ -263,7 +263,7 @@ export class BasiliskScene extends BaseContent {
 
         // Male/Herm:
         if (this.player.hasCock()) {
-            var x: number = this.player.cockThatFits(this.monster.analCapacity());
+            const x: number = this.player.cockThatFits(this.monster.analCapacity());
             this.outputText(
                 "You get off the basilisk and walk around it, giving it a cautious tap in the flank.  No response; the creature is well and truly paralyzed.  Knowing your prey is going nowhere, you undress at leisure, allowing your " +
                     this.cockDescript(x) +
@@ -461,7 +461,7 @@ export class BasiliskScene extends BaseContent {
             );
 
         // More to go here?
-        var scene: number = BasiliskScene.rand(5);
+        const scene: number = BasiliskScene.rand(5);
         if (scene == 0) this.basiliskAdvantageNobody();
         else if (scene == 1) this.basiliskAdvantageHarpy();
         else if (scene == 2) this.basiliskAdvantageImp();
@@ -583,7 +583,7 @@ export class BasiliskScene extends BaseContent {
             this.player.knockUpForce(
                 PregnancyStore.PREGNANCY_BASILISK,
                 PregnancyStore.INCUBATION_BASILISK - 150
-            ); //Convert Ovi Elixir eggs to Basilisk eggs
+            ); // Convert Ovi Elixir eggs to Basilisk eggs
         }
         // Eggs fertilised (Ovi Potion/Oviposition only. Eggs take a few days
         // longer to be laid than usual):
@@ -1072,7 +1072,7 @@ export class BasiliskScene extends BaseContent {
                 "You feel her pick herself up and then begin to work her sopping vagina down onto your head.  ",
                 false
             );
-            var x: number = this.player.cockThatFits(60);
+            let x: number = this.player.cockThatFits(60);
             if (x < 0) x = 0;
             // (more than goblin vag capacity:
             if (this.player.cockArea(x) >= 60)

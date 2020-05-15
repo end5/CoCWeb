@@ -15,7 +15,7 @@ export class SimpleConsumable extends Consumable {
         shortName: string,
         longName: string,
         effect: any,
-        value: number = 0,
+        value = 0,
         description?: string
     ) {
         super(id, shortName, longName, value, description);
@@ -25,6 +25,6 @@ export class SimpleConsumable extends Consumable {
     public useItem(): boolean {
         this.clearOutput();
         this.effect(this.game.player);
-        return false; //Any normal consumable does not have a sub-menu. Return false so that the inventory runs the itemDoNext function after useItem.
+        return false; // Any normal consumable does not have a sub-menu. Return false so that the inventory runs the itemDoNext function after useItem.
     }
 }

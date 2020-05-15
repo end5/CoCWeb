@@ -11,6 +11,7 @@ import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...
+ *
  * @author Fake-Name
  */
 
@@ -28,7 +29,7 @@ export class EncapsulationPod extends Monster {
 
     public get long(): string {
         // [Round 1 Description]
-        var _long: string;
+        let _long: string;
         if (this.findStatusAffect(StatusAffects.Round) < 0)
             _long =
                 "You're totally trapped inside a pod!  The walls are slimy and oozing moisture that makes the air sickeningly sweet.  It makes you feel a little dizzy.  Tentacles are climbing up your " +

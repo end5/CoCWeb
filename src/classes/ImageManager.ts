@@ -2,6 +2,7 @@ import { ImageExtensions, ImageSets } from "./ImageSets";
 
 /**
  * ...
+ *
  * @author Yoffy, Fake-Name
  */
 
@@ -88,12 +89,12 @@ export class ImageManager {
         return Object.keys(ImageManager.imageTable).length;
     }
 
-    public showImage(imageID: ImageSetKey, align: string = "left"): string {
+    public showImage(imageID: ImageSetKey, align = "left"): string {
         if (!(imageID in ImageManager.imageTable)) return "";
-        var imageString: string = "";
+        let imageString = "";
 
-        var imageIndex: number = 0;
-        var image = new Image();
+        let imageIndex = 0;
+        const image = new Image();
         if (ImageManager.imageTable[imageID] === undefined) throw new Error("Image not found");
 
         // More than 1 image? Pick one at random.
@@ -103,8 +104,8 @@ export class ImageManager {
 
         if (align == "left" || align == "right") {
             // Scale images down to fit the box
-            var ratio: number = image.width / image.height;
-            var scaler: number;
+            const ratio: number = image.width / image.height;
+            let scaler: number;
 
             if (ratio >= 1) {
                 scaler = this.MAXSIZE / image.width;
