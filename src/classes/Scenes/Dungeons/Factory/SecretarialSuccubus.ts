@@ -23,7 +23,7 @@ export class SecretarialSuccubus extends AbstractSuccubus {
                     : undefined;
 
             if (hpVictory) {
-                this.outputText(
+                this.outx(
                     "You smile in satisfaction as the " +
                         this.short +
                         " collapses, unable to continue fighting.  Now would be the perfect opportunity to taste the fruits of her sex-ready form...\n\nDo you rape her?",
@@ -43,7 +43,7 @@ export class SecretarialSuccubus extends AbstractSuccubus {
                     this.game.cleanupAfterCombat
                 );
             } else if (this.player.lust >= 33) {
-                this.outputText(
+                this.outx(
                     "You smile in satisfaction as the " +
                         this.short +
                         " gives up on fighting you and starts masturbating, begging for you to fuck her.  Now would be the perfect opportunity to taste the fruits of her sex-ready form...\n\nDo you fuck her?",
@@ -72,7 +72,7 @@ export class SecretarialSuccubus extends AbstractSuccubus {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nYour foe doesn't seem to care...");
+            this.outx("\n\nYour foe doesn't seem to care...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.succubusLossRape();

@@ -197,8 +197,8 @@ export class BaseContent extends Utils {
         kGAMECLASS.rawOutputText(output, purgeText);
     }
 
-    protected outputText(output: string, purgeText = false, parseAsMarkdown = false): void {
-        kGAMECLASS.outputText(output, purgeText, parseAsMarkdown);
+    protected outx(output: string, purgeText = false, parseAsMarkdown = false): void {
+        kGAMECLASS.outx(output, purgeText, parseAsMarkdown);
     }
 
     protected clearOutput(): void {

@@ -27,9 +27,9 @@ export class GooGirl extends Monster {
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         if (this.findPerk(PerkLib.Acid) >= 0)
-            this.outputText("Her body quivering from your flames, the goo-girl ");
+            this.outx("Her body quivering from your flames, the goo-girl ");
         else
-            this.outputText(
+            this.outx(
                 "The slime holds its hands up and they morph into a replica of your " +
                     this.player.weaponName +
                     ".  Happily, she swings at you",
@@ -41,8 +41,8 @@ export class GooGirl extends Monster {
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             if (this.findPerk(PerkLib.Acid) >= 0)
-                this.outputText("tries to slap you, but you dodge her attack.");
-            else this.outputText(", missing as you dodge aside.");
+                this.outx("tries to slap you, but you dodge her attack.");
+            else this.outx(", missing as you dodge aside.");
             return;
         }
         // Determine if evaded
@@ -52,8 +52,8 @@ export class GooGirl extends Monster {
             GooGirl.rand(100) < 10
         ) {
             if (this.findPerk(PerkLib.Acid) >= 0)
-                this.outputText("tries to slap you, but you evade her attack.");
-            else this.outputText(", but you evade the clumsy attack.");
+                this.outx("tries to slap you, but you evade her attack.");
+            else this.outx(", but you evade the clumsy attack.");
             return;
         }
         // ("Misdirection"
@@ -63,18 +63,15 @@ export class GooGirl extends Monster {
             this.player.armorName == "red, high-society bodysuit"
         ) {
             if (this.findPerk(PerkLib.Acid) >= 0)
-                this.outputText("tries to slap you.  You misdirect her, avoiding the hit.");
-            else this.outputText(", missing as you misdirect her attentions.");
+                this.outx("tries to slap you.  You misdirect her, avoiding the hit.");
+            else this.outx(", missing as you misdirect her attentions.");
             return;
         }
         // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && GooGirl.rand(100) < 6) {
             if (this.findPerk(PerkLib.Acid) >= 0)
-                this.outputText(
-                    "tries to slap you, but misses due to your cat-like evasion.",
-                    false
-                );
-            else this.outputText(", missing due to your cat-like evasion.");
+                this.outx("tries to slap you, but misses due to your cat-like evasion.", false);
+            else this.outx(", missing due to your cat-like evasion.");
             return;
         }
         // Determine damage - str modified by enemy toughness!
@@ -95,51 +92,51 @@ export class GooGirl extends Monster {
             damage = 0;
             if (this.findPerk(PerkLib.Acid) >= 0) {
                 if (GooGirl.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
-                    this.outputText(
+                    this.outx(
                         "tries to slap you, but the acid-bearing slap spatters weakly off your " +
                             this.player.armorName +
                             ".",
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "tries to slap you with an acid-loaded hand, but it splatters off you ineffectually.",
                         false
                     );
             } else {
                 // Due to toughness or amor...
                 if (GooGirl.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
-                    this.outputText(
+                    this.outx(
                         ", her attack slapping fruitlessly against your " +
                             this.player.armorName +
                             ".",
                         false
                     );
-                else this.outputText(", her attack splattering ineffectually against you.");
+                else this.outx(", her attack splattering ineffectually against you.");
             }
         }
         // everyone else
         else {
             if (this.findPerk(PerkLib.Acid) >= 0) {
-                this.outputText(
+                this.outx(
                     "delivers a painful slap across your cheek.  You gasp when the light stinging becomes a searing burn that seems to get worse as time goes on!",
                     false
                 );
                 if (this.player.findStatusAffect(StatusAffects.AcidSlap) < 0)
                     this.player.createStatusAffect(StatusAffects.AcidSlap, 0, 0, 0, 0);
             } else
-                this.outputText(
+                this.outx(
                     ", painfully smacking her gooey limbs against your head.  You shake your " +
                         this.player.hairDescript() +
                         ", clearing your head of the dazing slap.",
                     false
                 );
-            this.outputText(" (" + damage + ")", false);
+            this.outx(" (" + damage + ")", false);
         }
         if (damage > 0) {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
                 if (!this.plural)
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -147,7 +144,7 @@ export class GooGirl extends Monster {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -158,13 +155,13 @@ export class GooGirl extends Monster {
             }
         }
         this.statScreenRefresh();
-        this.outputText("\n", false);
+        this.outx("\n", false);
         this.combatRoundOver();
     }
 
     // Play –
     private gooPlay(): void {
-        this.outputText(
+        this.outx(
             "The goo-girl lunges, wrapping her slimy arms around your waist in a happy hug, hot muck quivering excitedly against you. She looks up, empty eyes confused by your lack of enthusiasm and forms her mouth into a petulant pout before letting go.  You shiver in the cold air, regretting the loss of her embrace.",
             false
         );
@@ -174,7 +171,7 @@ export class GooGirl extends Monster {
 
     // Throw –
     private gooThrow(): void {
-        this.outputText(
+        this.outx(
             "The girl reaches into her torso, pulls a large clump of goo out, and chucks it at you like a child throwing mud. The slime splatters on your chest and creeps under your " +
                 this.player.armorName +
                 ", tickling your skin like fingers dancing across your body.",
@@ -188,7 +185,7 @@ export class GooGirl extends Monster {
 
     // Engulf –
     private gooEngulph(): void {
-        this.outputText(
+        this.outx(
             "The goo-girl gleefully throws her entire body at you and, before you can get out of the way, she has engulfed you in her oozing form! Tendrils of " +
                 this.skinTone +
                 " slime slide up your nostrils and through your lips, filling your lungs with the girl's muck. You begin suffocating!",
@@ -214,7 +211,7 @@ export class GooGirl extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nThe goo-girl seems confused but doesn't mind.");
+            this.outx("\n\nThe goo-girl seems confused but doesn't mind.");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.lake.gooGirlScene.getBeatByGooGirl();
@@ -224,22 +221,22 @@ export class GooGirl extends Monster {
     public teased(lustDelta: number): void {
         if (this.lust <= 99) {
             if (lustDelta <= 0)
-                this.outputText(
+                this.outx(
                     "\nThe goo-girl looks confused by your actions, as if she's trying to understand what you're doing.",
                     false
                 );
             else if (lustDelta < 13)
-                this.outputText(
+                this.outx(
                     "\nThe curious goo has begun stroking herself openly, trying to understand the meaning of your actions by imitating you.",
                     false
                 );
             else
-                this.outputText(
+                this.outx(
                     "\nThe girl begins to understand your intent. She opens and closes her mouth, as if panting, while she works slimy fingers between her thighs and across her jiggling nipples.",
                     false
                 );
         } else
-            this.outputText(
+            this.outx(
                 "\nIt appears the goo-girl has gotten lost in her mimicry, squeezing her breasts and jilling her shiny " +
                     this.skinTone +
                     " clit, her desire to investigate you forgotten.",

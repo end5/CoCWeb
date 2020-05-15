@@ -23,22 +23,22 @@ export class PhoukaWhiskey extends Consumable {
     public canUse(): boolean {
         switch (this.phoukaWhiskeyAcceptable(this.game.player)) {
             case -4:
-                this.outputText(
+                this.outx(
                     "You stare at the bottle for a moment, but decide not to risk harming one of the children growing inside you.\n\n"
                 );
                 return false;
             case -3:
-                this.outputText(
+                this.outx(
                     "You stare at the bottle for a moment, but decide not to risk harming either of the children growing inside you.\n\n"
                 );
                 return false;
             case -2:
-                this.outputText(
+                this.outx(
                     "You stare at the bottle for a moment, but decide not to risk harming the child growing inside your colon.\n\n"
                 );
                 return false;
             case -1:
-                this.outputText(
+                this.outx(
                     "You stare at the bottle for a moment, but decide not to risk harming the child growing inside your womb.\n\n"
                 );
                 return false;
@@ -51,23 +51,23 @@ export class PhoukaWhiskey extends Consumable {
         this.game.player.slimeFeed();
         switch (this.phoukaWhiskeyDrink(this.game.player)) {
             case 0: // Player isn't pregnant
-                this.outputText(
+                this.outx(
                     "You uncork the bottle and drink some whiskey, hoping it will let you relax for a while.\n\nIt's strong stuff and afterwards you worry a bit less about the future.  Surely things will right themselves in the end."
                 );
                 this.game.dynStats("cor", Utils.rand(2) + 1, "lus", Utils.rand(8) + 1); // These gains are permanent
                 break;
             case 1: // Child is a phouka or satyr, loves alcohol
-                this.outputText(
+                this.outx(
                     "You uncork the bottle and drink some whiskey, hoping it will help with the gnawing hunger for alcohol you've had since this baby started growing inside you.\n\nYou down the booze in one shot and a wave of contentment washes over you.  It seems your passenger enjoyed the meal."
                 );
                 break;
             case 2: // Child is a faerie but will become a phouka with this drink
-                this.outputText(
+                this.outx(
                     "At first you feel your baby struggle against the whiskey, then it seems to grow content and enjoy it."
                 );
                 break;
             case 3: // Child is a faerie, hates phouka whiskey
-                this.outputText(
+                this.outx(
                     "You feel queasy and want to throw up.  There's a pain in your belly and you realize the baby you're carrying didn't like that at all."
                 );
         }
@@ -137,7 +137,7 @@ export class PhoukaWhiskey extends Consumable {
                 4,
                 256 * speedChange + intChange
             );
-            this.outputText("\n\nOh, it tastes so good.  This stuff just slides down your throat.");
+            this.outx("\n\nOh, it tastes so good.  This stuff just slides down your throat.");
             this.game.dynStats(
                 "lib",
                 libidoChange,
@@ -193,15 +193,15 @@ export class PhoukaWhiskey extends Consumable {
         ); // Get back all the stats you lost
         player.removeStatusAffect(StatusAffects.PhoukaWhiskeyAffect);
         if (numDrunk > 3)
-            this.outputText(
+            this.outx(
                 "\n<b>The dizzy sensation dies away and is replaced by a throbbing pain that starts in your skull and then seems to run all through your body, seizing up your joints and making your stomach turn.  The world feels like it’s off kilter and you aren’t in any shape to face it.  You suppose you could down another whiskey, but right now that doesn’t seem like such a good idea.</b>\n"
             );
         else if (numDrunk > 1)
-            this.outputText(
+            this.outx(
                 "\n<b>The fuzzy, happy feeling ebbs away.  With it goes the warmth and carefree feelings.  Your head aches and you wonder if you should have another whiskey, just to tide you over</b>\n"
             );
         else
-            this.outputText(
+            this.outx(
                 "\n<b>The fuzzy, happy feeling ebbs away.  The weight of the world’s problems seems to settle on you once more.  It was nice while it lasted and you wouldn’t mind having another whiskey.</b>\n"
             );
         this.game.statScreenRefresh();

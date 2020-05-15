@@ -15,13 +15,13 @@ export class Boat extends AbstractLakeContent {
 
     public discoverBoat(): void {
         this.player.createStatusAffect(StatusAffects.BoatDiscovery, 0, 0, 0, 0);
-        this.outputText("You journey around the lake, seeking demons to fight", true);
-        if (this.player.cor > 60) this.outputText(" or fuck");
-        this.outputText(
+        this.outx("You journey around the lake, seeking demons to fight", true);
+        if (this.player.cor > 60) this.outx(" or fuck");
+        this.outx(
             ".  The air is fresh, and the grass is cool and soft under your feet.   Soft waves lap against the muddy sand of the lake-shore, as if radiating outward from the lake.   You pass around a few bushes carefully, being wary of hidden 'surprises', and come upon a small dock.  The dock is crafted from old growth trees lashed together with some crude rope.  Judging by the appearance of the rope, it is very old and has not been seen to in quite some time.  Tied to the dock is a small rowboat, only about seven feet long and three feet wide.   The boat appears in much better condition than the dock, and appears to be brand new.\n\n",
             false
         );
-        this.outputText(
+        this.outx(
             "<b>You have discovered the lake boat!</b>\n(You may return and use the boat to explore the lake's interior by using the 'places' menu.)",
             false
         );
@@ -39,17 +39,13 @@ export class Boat extends AbstractLakeContent {
             kGAMECLASS.helScene.helSexualAmbush();
             return;
         }
-        this.outputText(
+        this.outx(
             "You reach the dock without any incident and board the small rowboat.  The water is calm and placid, perfect for rowing.  ",
             true
         );
         if (this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0) {
-            this.outputText(
-                "The water appears somewhat muddy and has a faint pungent odor.  ",
-                false
-            );
-            if (this.player.inte > 40)
-                this.outputText("You realize what it smells like – sex.  ");
+            this.outx("The water appears somewhat muddy and has a faint pungent odor.  ", false);
+            if (this.player.inte > 40) this.outx("You realize what it smells like – sex.  ");
         }
         // 3% chance of finding lost daughters
         if (
@@ -60,7 +56,7 @@ export class Boat extends AbstractLakeContent {
             kGAMECLASS.izmaScene.findLostIzmaKids();
             return;
         }
-        this.outputText(
+        this.outx(
             "You set out, wondering if you'll find any strange islands or creatures in the lake.\n\n",
             false
         );
@@ -96,14 +92,14 @@ export class Boat extends AbstractLakeContent {
         // RUN CHOSEN EVENT
         switch (selector) {
             case 0:
-                this.outputText(
+                this.outx(
                     "You row for nearly an hour, until your arms practically burn with exhaustion from all the rowing.",
                     false
                 );
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             case 1:
-                this.outputText(
+                this.outx(
                     "You give up on finding anything interesting, and decide to go check up on your camp.",
                     false
                 );

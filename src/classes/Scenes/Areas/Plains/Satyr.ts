@@ -16,10 +16,10 @@ import { StatusAffects } from "../../../StatusAffects";
 export class Satyr extends Monster {
     // Attacks (Z)
     private satyrAttack(): void {
-        this.outputText("The satyr swings at you with one knuckled fist.  ");
+        this.outx("The satyr swings at you with one knuckled fist.  ");
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Satyr.rand(3) < 1) {
-            this.outputText(
+            this.outx(
                 this.capitalA + this.short + " completely misses you with a blind punch!\n",
                 false
             );
@@ -31,25 +31,21 @@ export class Satyr extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         ) {
-            this.outputText(
-                "He snarls as you duck his blow and it swishes harmlessly through the air."
-            );
+            this.outx("He snarls as you duck his blow and it swishes harmlessly through the air.");
         } else {
             let damage: number = Math.floor(
                 this.str + this.weaponAttack - Satyr.rand(this.player.tou)
             );
             if (damage > 0) {
                 damage = this.player.takeDamage(damage);
-                this.outputText(
-                    "It feels like you just got hit with a wooden club! (" + damage + ")"
-                );
-            } else this.outputText("You successfully block it.");
+                this.outx("It feels like you just got hit with a wooden club! (" + damage + ")");
+            } else this.outx("You successfully block it.");
         }
         this.combatRoundOver();
     }
 
     private satyrBate(): void {
-        this.outputText(
+        this.outx(
             "He glares at you, panting while his tongue hangs out and begins to masturbate.  You can nearly see his lewd thoughts reflected in his eyes, as beads of pre form on his massive cock and begin sliding down the erect shaft."
         );
         // (small Libido based Lust increase, and increase lust)
@@ -59,31 +55,31 @@ export class Satyr extends Monster {
     }
 
     public satyrCharge(): void {
-        this.outputText(
+        this.outx(
             "Lowering his horns, the satyr digs his hooves on the ground and begins snorting; he's obviously up to something.  "
         );
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Satyr.rand(3) < 1) {
-            this.outputText(
+            this.outx(
                 this.capitalA + this.short + " completely misses you due to blindness!\n",
                 false
             );
         } else if (this.combatMiss()) {
-            this.outputText(
+            this.outx(
                 "He charges at you with a loud bleat, but you nimbly dodge and strike a vicious blow with your [weapon] in return that sends him crashing into the ground, hollering in pain. (5)"
             );
             this.HP -= 5;
         } else if (this.combatEvade()) {
-            this.outputText(
+            this.outx(
                 "He charges at you with a loud bleat, but using your evasive skills, you nimbly dodge and strike a vicious blow with your [weapon] in return that sends him crashing into the ground, hollering in pain. (5)"
             );
             this.HP -= 5;
         } else if (this.combatFlexibility()) {
-            this.outputText(
+            this.outx(
                 "He charges at you with a loud bleat, but using your flexibility, you nimbly dodge and strike a vicious blow with your [weapon] in return that sends him crashing into the ground, hollering in pain. (5)"
             );
             this.HP -= 5;
         } else if (this.combatMisdirect()) {
-            this.outputText(
+            this.outx(
                 "He charges at you with a loud bleat, but using your misdirecting skills, you nimbly dodge and strike a vicious blow with your [weapon] in return that sends him crashing into the ground, hollering in pain. (5)"
             );
             this.HP -= 5;
@@ -93,27 +89,25 @@ export class Satyr extends Monster {
             );
             if (damage > 0) {
                 damage = this.player.takeDamage(damage);
-                this.outputText(
+                this.outx(
                     "He charges at you with a loud bleat, catching you off-guard and sending you flying into the ground."
                 );
                 if (this.player.findPerk(PerkLib.Resolute) < 0) {
-                    this.outputText(
+                    this.outx(
                         "  The pain of the impact is so big you feel completely dazed, almost seeing stars."
                     );
                     this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
                 }
                 // stun PC + hp damage if hit, hp damage dependent on str if miss
-                this.outputText(" (" + damage + ")");
+                this.outx(" (" + damage + ")");
             } else
-                this.outputText(
-                    "He charges at you, but you successfully deflect it at the last second."
-                );
+                this.outx("He charges at you, but you successfully deflect it at the last second.");
         }
         this.combatRoundOver();
     }
 
     private bottleChug(): void {
-        this.outputText(
+        this.outx(
             "He whips a bottle of wine seemingly from nowhere and begins chugging it down, then lets out a bellowing belch towards you.  The smell is so horrible you cover your nose in disgust, yet you feel hot as you inhale some of the fetid scent."
         );
         // (damage PC lust very slightly and raise the satyr's lust.)
@@ -124,11 +118,11 @@ export class Satyr extends Monster {
 
     // 5:(Only executed at high lust)
     private highLustChugRape(): void {
-        this.outputText(
+        this.outx(
             "Panting with barely-contained lust, the Satyr charges at you and tries to ram you into the ground.  "
         );
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Satyr.rand(3) < 1) {
-            this.outputText(
+            this.outx(
                 this.capitalA + this.short + " completely misses you due to blindness!\n",
                 false
             );
@@ -138,11 +132,11 @@ export class Satyr extends Monster {
             this.combatMisdirect() ||
             this.combatEvade()
         ) {
-            this.outputText(
+            this.outx(
                 "As he charges you, you grab him by the horns and spin around, sending him away."
             );
         } else {
-            this.outputText(
+            this.outx(
                 "You fall with a <b>THUD</b> and the Satyr doesn't even bother to undress you before he begins rubbing his massive cock on your body until he comes, soiling your [armor] and " +
                     this.player.skinFurScales() +
                     " with slimy, hot cum.  As it rubs into your body, you shiver with unwanted arousal."
@@ -172,7 +166,7 @@ export class Satyr extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nThe satyr laughs heartily at your eagerness...");
+            this.outx("\n\nThe satyr laughs heartily at your eagerness...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.plains.satyrScene.loseToSatyr();

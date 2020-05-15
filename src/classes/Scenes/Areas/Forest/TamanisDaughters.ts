@@ -17,37 +17,37 @@ export class TamanisDaughters extends Goblin {
     private midRoundMadness(): void {
         const selector: number = TamanisDaughters.rand(4);
         if (selector == 0) {
-            this.outputText(
+            this.outx(
                 "A slender hand reaches inside your " + this.player.armorName + " and gives your ",
                 false
             );
             if (this.player.balls > 0) {
                 if (TamanisDaughters.rand(2) == 0)
-                    this.outputText(this.player.multiCockDescriptLight(), false);
-                else this.outputText(this.player.ballsDescriptLight(), false);
-            } else this.outputText(this.player.multiCockDescriptLight(), false);
-            this.outputText(
+                    this.outx(this.player.multiCockDescriptLight(), false);
+                else this.outx(this.player.ballsDescriptLight(), false);
+            } else this.outx(this.player.multiCockDescriptLight(), false);
+            this.outx(
                 " a gentle squeeze.  You twist away but your breathing gets a little heavier.\n\n",
                 false
             );
         } else if (selector == 1) {
-            this.outputText(
+            this.outx(
                 "A girl latches onto your " +
                     this.player.legs() +
                     " and begins caressing your body lovingly, humming happily.  You quickly shake her loose but the attention makes you blush a little more.\n\n",
                 false
             );
         } else if (selector == 2) {
-            this.outputText(
+            this.outx(
                 'One of your daughters launches onto your back and presses her hard, pierced nipples against your neck.  She whispers in your ear, "<i>Twist my nipples dad!</i>"\n\n',
                 false
             );
-            this.outputText(
+            this.outx(
                 "You reach back and throw her off, but her perverted taunts still leave you feeling a little hot under the collar.\n\n",
                 false
             );
         } else
-            this.outputText(
+            this.outx(
                 "A daughter lays down in front of you and starts jilling herself on the spot.  It's impossible to not glance down and see her or hear her pleasured moans.  You step away to remove the distraction but it definitely causes some discomfort in your " +
                     this.player.armorName +
                     ".\n\n",
@@ -64,11 +64,11 @@ export class TamanisDaughters extends Goblin {
             if (TamanisDaughters.rand(4) == 0) this.goblinDrugAttack(); // Tamani already there - chance of potion
         } else if (TamanisDaughters.rand(6) == 0) {
             TamainsDaughtersScene.tamaniPresent = true;
-            this.outputText(
+            this.outx(
                 'A high-pitched yet familiar voice calls out, "<i><b>So this is where you skanks ran off to---wait a second.  Are you trying to poach Tamani\'s man!?</b></i>"\n\n',
                 false
             );
-            this.outputText(
+            this.outx(
                 "You can see Tamani lurking around the rear of the goblin pack, visibly berating her daughters.  On one hand it sounds like she might help you, but knowing goblins, she'll probably forget about her anger and help them subdue you for more cum...\n\n",
                 false
             );
@@ -124,7 +124,7 @@ export class TamanisDaughters extends Goblin {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText(
+            this.outx(
                 '\n\nYour foes seem visibly disgusted and leave, telling you to, "<i>quit being so fucking gross...</i>"'
             );
             this.game.cleanupAfterCombat();

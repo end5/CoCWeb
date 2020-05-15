@@ -15,7 +15,7 @@ import { StatusAffects } from "../../StatusAffects";
 
 export class Anemone extends Monster {
     public eAttack(): void {
-        this.outputText(
+        this.outx(
             "Giggling playfully, the anemone launches several tentacles at you.  Most are aimed for your crotch, but a few attempt to caress your chest and face.\n",
             false
         );
@@ -68,7 +68,7 @@ export class Anemone extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nYour foe doesn't seem to mind at all...");
+            this.outx("\n\nYour foe doesn't seem to mind at all...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.anemoneScene.loseToAnemone();
@@ -76,7 +76,7 @@ export class Anemone extends Monster {
     }
 
     public outputAttack(damage: number): void {
-        this.outputText(
+        this.outx(
             "You jink and dodge valiantly but the tentacles are too numerous and coming from too many directions.  A few get past your guard and caress your skin, leaving a tingling, warm sensation that arouses you further.",
             false
         );

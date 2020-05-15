@@ -18,7 +18,7 @@ export class HellHound extends Monster {
     protected hellhoundFire(): void {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
-            this.outputText(
+            this.outx(
                 this.capitalA +
                     this.short +
                     " completely misses you with a wave of dark fire! Thank the gods it's blind!",
@@ -28,7 +28,7 @@ export class HellHound extends Monster {
             return;
         }
         /* if(player.hasStatusAffect(StatusAffects.Web_dash_Silence) >= 0) {
-            outputText("You reach inside yourself to breathe flames, but as you ready to release a torrent of fire, it backs up in your throat, blocked by the webbing across your mouth.  It causes you to cry out as the sudden, heated force explodes in your own throat.\n", false);
+            outx("You reach inside yourself to breathe flames, but as you ready to release a torrent of fire, it backs up in your throat, blocked by the webbing across your mouth.  It causes you to cry out as the sudden, heated force explodes in your own throat.\n", false);
             changeFatigue(10);
             takeDamage(10+rand(20));
             enemyAI();
@@ -39,7 +39,7 @@ export class HellHound extends Monster {
             this.player.spe >= 35 &&
             HellHound.rand(3) != 0
         ) {
-            this.outputText(
+            this.outx(
                 "Both the hellhound's heads breathe in deeply before blasting a wave of dark fire at you.  You easily avoid the wave, diving to the side and making the most of your talents at evasion.",
                 false
             );
@@ -48,7 +48,7 @@ export class HellHound extends Monster {
             HellHound.rand(100) < 20 &&
             this.player.armorName == "red, high-society bodysuit"
         ) {
-            this.outputText(
+            this.outx(
                 "Using Raphael's teachings and the movement afforded by your bodysuit, you anticipate and sidestep " +
                     this.a +
                     this.short +
@@ -60,7 +60,7 @@ export class HellHound extends Monster {
             this.player.spe > 30 &&
             HellHound.rand(10) != 0
         ) {
-            this.outputText(
+            this.outx(
                 "Both the hellhound's heads breathe in deeply before blasting a wave of dark fire at you.  You twist and drop with incredible flexibility, watching the fire blow harmlessly overhead.",
                 false
             );
@@ -68,7 +68,7 @@ export class HellHound extends Monster {
             // Determine the damage to be taken
             let temp: number = 15 + HellHound.rand(10);
             temp = this.player.takeDamage(temp);
-            this.outputText(
+            this.outx(
                 "Both the hellhound's heads breathe in deeply before blasting a wave of dark fire at you. While the flames don't burn much, the unnatural heat fills your body with arousal. (" +
                     temp +
                     " damage)",
@@ -93,7 +93,7 @@ export class HellHound extends Monster {
                 this.hellhoundFire();
                 return;
             } else {
-                this.outputText(
+                this.outx(
                     "The hellhound sniffs your scent again, seemingly gaining more and more energy as he circles faster around you.",
                     false
                 );
@@ -101,7 +101,7 @@ export class HellHound extends Monster {
             }
         } else {
             this.spe += 40;
-            this.outputText(
+            this.outx(
                 "The hellhound keeps his four eyes on you as he sniffs the ground where you were moments ago. He raises his heads back up and gives you a fiery grin - he seems to have acquired your scent!  It'll be hard to get away now...",
                 false
             );
@@ -114,13 +114,13 @@ export class HellHound extends Monster {
                 return;
             }
             else {
-                outputText("The hellhound sniffs your scent again, seemingly gaining more and more energy as he circles faster around you.");
+                outx("The hellhound sniffs your scent again, seemingly gaining more and more energy as he circles faster around you.");
                 spe = 100;
             }
         }
         else {
             spe += 40;
-            outputText("The hellhound keeps his four eyes on you as he sniffs the ground where you were moments ago. He raises his heads back up and gives you a firey grin - He seems to have aquired you scent!  Running away will now be much more difficult...");
+            outx("The hellhound keeps his four eyes on you as he sniffs the ground where you were moments ago. He raises his heads back up and gives you a firey grin - He seems to have aquired you scent!  Running away will now be much more difficult...");
         }
         if(player.HP <= 0) {
             doNext(endHpLoss);
@@ -135,13 +135,13 @@ export class HellHound extends Monster {
 
     public defeated(hpVictory: boolean): void {
         if (hpVictory) {
-            this.outputText(
+            this.outx(
                 "The hellhound's flames dim and the heads let out a whine before the creature slumps down, defeated and nearly unconscious.",
                 true
             );
             // Rape if not naga, turned on, and girl that can fit!
             if (this.player.hasVagina() && this.player.lust >= 33 && !this.player.isNaga()) {
-                this.outputText(
+                this.outx(
                     "  You find yourself musing that you could probably take advantage of the poor 'doggy'.  Do you fuck it?",
                     false
                 );
@@ -161,22 +161,22 @@ export class HellHound extends Monster {
                 this.game.cleanupAfterCombat();
             }
         } else {
-            this.outputText(
+            this.outx(
                 "Unable to bear hurting you anymore, the hellhound's flames dim as he stops his attack. The two heads look at you, whining plaintively.  The hellhound slowly pads over to you and nudges its noses at your crotch.  It seems he wishes to pleasure you.\n\n",
                 true
             );
             let temp2;
             if (this.player.gender > 0 && this.player.lust >= 33) {
-                this.outputText(
+                this.outx(
                     "You realize your desires aren't quite sated.  You could let it please you",
                     false
                 );
                 // Rape if not naga, turned on, and girl that can fit!
                 if (this.player.hasVagina() && this.player.lust >= 33 && !this.player.isNaga()) {
-                    this.outputText(" or make it fuck you");
+                    this.outx(" or make it fuck you");
                     temp2 = this.game.mountain.hellHoundScene.hellHoundPropahRape;
                 }
-                this.outputText(".  What do you do?");
+                this.outx(".  What do you do?");
                 this.game.simpleChoices(
                     "Lick",
                     this.game.mountain.hellHoundScene.hellHoundGetsRaped,
@@ -190,7 +190,7 @@ export class HellHound extends Monster {
                     this.game.cleanupAfterCombat
                 );
             } else {
-                this.outputText(
+                this.outx(
                     "You turn away, not really turned on enough to be interested in such an offer.",
                     false
                 );
@@ -201,7 +201,7 @@ export class HellHound extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nThe hellhound snorts and leaves you to your fate.", false);
+            this.outx("\n\nThe hellhound snorts and leaves you to your fate.", false);
             this.doNext(this.game.cleanupAfterCombat);
         } else {
             this.game.mountain.hellHoundScene.hellhoundRapesPlayer();

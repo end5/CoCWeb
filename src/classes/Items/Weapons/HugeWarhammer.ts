@@ -21,7 +21,7 @@ export class HugeWarhammer extends Weapon {
 
     public canUse(): boolean {
         if (this.game.player.str >= 80) return true;
-        this.outputText("You aren't strong enough to handle such a heavy weapon!  ");
+        this.outx("You aren't strong enough to handle such a heavy weapon!  ");
         return false;
     }
 
@@ -31,7 +31,7 @@ export class HugeWarhammer extends Weapon {
                 if (player.str<80){
                     if (printReason){
                         clearOutput();
-                        outputText("You aren't strong enough to handle such a heavy weapon!  ");
+                        outx("You aren't strong enough to handle such a heavy weapon!  ");
                     }
                     return false;
                 } else return true;

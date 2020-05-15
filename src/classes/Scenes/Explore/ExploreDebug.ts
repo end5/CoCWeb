@@ -83,7 +83,7 @@ export class ExploreDebug extends BaseContent {
         this.clearOutput();
         this.menu();
 
-        this.outputText("<b>Monsters</b> &nbsp; combat each monster.\n\n");
+        this.outx("<b>Monsters</b> &nbsp; combat each monster.\n\n");
         this.addButton(0, "Monsters", this.exploreDebugMonsters);
     }
 
@@ -332,7 +332,7 @@ export class ExploreDebug extends BaseContent {
         this.menu();
 
         if (monsterIdx == 0) {
-            this.outputText(
+            this.outx(
                 "<b>WARNING.</b> You are going to fight (probably) all the monsters. " +
                     "You won't be penalized for defeat or awarded for victory. " +
                     "Even though the monsters' victory and defeat events are removed, " +
@@ -342,7 +342,7 @@ export class ExploreDebug extends BaseContent {
         }
 
         if (monsterIdx >= this.allMonsters.length) {
-            this.outputText("You have fought every monster.");
+            this.outx("You have fought every monster.");
         } else {
             const m: Monster = this.allMonsters[monsterIdx]();
             m.onDefeated = (hpVictory: boolean): void => {
@@ -363,9 +363,9 @@ export class ExploreDebug extends BaseContent {
                 this.statScreenRefresh();
                 this.exploreDebugMonsters(monsterIdx + 1);
             };
-            this.outputText("You are going to fight " + m.a + " " + m.short + ".");
+            this.outx("You are going to fight " + m.a + " " + m.short + ".");
             this.addButton(0, "Fight", (): void => {
-                this.outputText("\n\nStarting combat...");
+                this.outx("\n\nStarting combat...");
                 this.startCombat(m);
             });
             this.addButton(1, "Skip", this.exploreDebugMonsters, monsterIdx + 1);

@@ -24,55 +24,49 @@ export class CorruptedDrider extends AbstractSpiderMorph {
     // Drider kiss!
     public driderKiss(): void {
         let temp: number;
-        this.outputText(
+        this.outx(
             "The corrupted drider closes in on your web-bound form, cooing happily at you while you struggle with the sticky fibers.\n\n",
             false
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && CorruptedDrider.rand(3) < 2) {
-            this.outputText("She's too blind to get anywhere near you.\n", false);
+            this.outx("She's too blind to get anywhere near you.\n", false);
         }
         // Dodge
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
-            this.outputText(
+            this.outx(
                 'Somehow, you manage to drag yourself out of the way.  She sighs and licks her lips.  "<i>',
                 false
             );
             temp = CorruptedDrider.rand(4);
             if (temp == 0)
-                this.outputText(
-                    'I just wanted to give my delicious morsel a kiss...</i>"\n',
-                    false
-                );
-            else if (temp == 1) this.outputText("Why won't you let me kiss you?</i>\"\n", false);
+                this.outx('I just wanted to give my delicious morsel a kiss...</i>"\n', false);
+            else if (temp == 1) this.outx("Why won't you let me kiss you?</i>\"\n", false);
             else if (temp == 2)
-                this.outputText('Mmm, do you have to squirm so much, prey?</i>"\n', false);
+                this.outx('Mmm, do you have to squirm so much, prey?</i>"\n', false);
             else
-                this.outputText(
+                this.outx(
                     'Just look at my glossy, dripping lips.  Imagine how great it would feel to have them locked against you.  Why resist?</i>"\n',
                     false
                 );
         }
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && CorruptedDrider.rand(100) < 10) {
-            this.outputText(
+            this.outx(
                 'Somehow, you manage to evade her lusty attack.  She sighs and licks her lips.  "<i>',
                 false
             );
             temp = CorruptedDrider.rand(4);
             if (temp == 0)
-                this.outputText(
-                    'I just wanted to give my delicious morsel a kiss...</i>"\n',
-                    false
-                );
-            else if (temp == 1) this.outputText("Why won't you let me kiss you?</i>\"\n", false);
+                this.outx('I just wanted to give my delicious morsel a kiss...</i>"\n', false);
+            else if (temp == 1) this.outx("Why won't you let me kiss you?</i>\"\n", false);
             else if (temp == 2)
-                this.outputText('Mmm, do you have to squirm so much, prey?</i>"\n', false);
+                this.outx('Mmm, do you have to squirm so much, prey?</i>"\n', false);
             else
-                this.outputText(
+                this.outx(
                     'Just look at my glossy, dripping lips.  Imagine how great it would feel to have them locked against you.  Why resist?</i>"\n',
                     false
                 );
@@ -83,57 +77,51 @@ export class CorruptedDrider extends AbstractSpiderMorph {
             CorruptedDrider.rand(100) < 10 &&
             this.player.armorName == "red, high-society bodysuit"
         ) {
-            this.outputText(
+            this.outx(
                 'You manage to misdirect her lusty attack, avoiding it at the last second.  She sighs and licks her lips.  "<i>',
                 false
             );
             temp = CorruptedDrider.rand(4);
             if (temp == 0)
-                this.outputText(
-                    'I just wanted to give my delicious morsel a kiss...</i>"\n',
-                    false
-                );
-            else if (temp == 1) this.outputText("Why won't you let me kiss you?</i>\"\n", false);
+                this.outx('I just wanted to give my delicious morsel a kiss...</i>"\n', false);
+            else if (temp == 1) this.outx("Why won't you let me kiss you?</i>\"\n", false);
             else if (temp == 2)
-                this.outputText('Mmm, do you have to squirm so much, prey?</i>"\n', false);
+                this.outx('Mmm, do you have to squirm so much, prey?</i>"\n', false);
             else
-                this.outputText(
+                this.outx(
                     'Just look at my glossy, dripping lips.  Imagine how great it would feel to have them locked against you.  Why resist?</i>"\n',
                     false
                 );
         }
         // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && CorruptedDrider.rand(100) < 6) {
-            this.outputText(
+            this.outx(
                 'You manage to twist your cat-like body out of the way at the last second, avoiding it at the last second.  She sighs and licks her lips.  "<i>',
                 false
             );
             temp = CorruptedDrider.rand(4);
             if (temp == 0)
-                this.outputText(
-                    'I just wanted to give my delicious morsel a kiss...</i>"\n',
-                    false
-                );
-            else if (temp == 1) this.outputText("Why won't you let me kiss you?</i>\"\n", false);
+                this.outx('I just wanted to give my delicious morsel a kiss...</i>"\n', false);
+            else if (temp == 1) this.outx("Why won't you let me kiss you?</i>\"\n", false);
             else if (temp == 2)
-                this.outputText('Mmm, do you have to squirm so much, prey?</i>"\n', false);
+                this.outx('Mmm, do you have to squirm so much, prey?</i>"\n', false);
             else
-                this.outputText(
+                this.outx(
                     'Just look at my glossy, dripping lips.  Imagine how great it would feel to have them locked against you.  Why resist?</i>"\n',
                     false
                 );
         } else if (this.player.findStatusAffect(StatusAffects.DriderKiss) < 0) {
             // (HIT? + 10 lust)
             this.game.dynStats("lus", 10);
-            this.outputText("Before you can move, she's right on top of you, leaning ");
-            if (this.player.tallness < 72) this.outputText("down");
-            else this.outputText("over");
-            this.outputText(
+            this.outx("Before you can move, she's right on top of you, leaning ");
+            if (this.player.tallness < 72) this.outx("down");
+            else this.outx("over");
+            this.outx(
                 " to plant a sloppy, wet kiss upon your lips.  Her glossy lip-venom oozes everywhere, dribbling down your collective chins and sliding into your mouth.  You shudder, trying to resist, but your tongue betrays you.  It slides between her moist, puffy entrance, lapping at her venom and making love to her tongue.",
                 false
             );
             if (this.player.lust <= 99)
-                this.outputText(
+                this.outx(
                     "  Somehow, you work up the willpower to back away, but your body slowly begins to burn hotter and harder, afflicted with a slowly-building lust.",
                     false
                 );
@@ -145,14 +133,14 @@ export class CorruptedDrider extends AbstractSpiderMorph {
             if (this.player.statusAffectv1(StatusAffects.DriderKiss) == 1) {
                 // (HIT? + 15 lust)
                 this.game.dynStats("lus", 15);
-                this.outputText(
+                this.outx(
                     "Again, the drider ties your mouth up in her syrupy lip-lock, seeming to bind your mouth as effectively as her webs bind your body.  Her sweet venom bubbles and froths at the corners of the oral embrace, dripping over her many-breasted bosom and your " +
                         this.player.chestDesc() +
                         ".",
                     false
                 );
                 if (this.player.hasCock())
-                    this.outputText(
+                    this.outx(
                         "  " +
                             this.SMultiCockDesc() +
                             " spews a rope of pre-cum into your " +
@@ -161,7 +149,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                         false
                     );
                 if (this.player.hasVagina())
-                    this.outputText(
+                    this.outx(
                         "  Fem-cum dribbles down your " +
                             this.player.legs() +
                             " while your " +
@@ -169,16 +157,16 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                             " gets so hard you think it'll explode.",
                         false
                     );
-                this.outputText(
+                this.outx(
                     '  This time, the drider is the one to break the kiss.  She asks, "<i>Are you ready, my horny little morsel?</i>"\n',
                     false
                 );
                 if (this.player.lust <= 99)
-                    this.outputText("You shake your head 'no' and stand your ground!\n", false);
+                    this.outx("You shake your head 'no' and stand your ground!\n", false);
             }
             // (Get hit 3rd+ time)
             else {
-                this.outputText(
+                this.outx(
                     "This time you barely move.  Your body is too entranced by the idea of another venom-laced kiss to resist.  Glorious purple goo washes into your mouth as her lips meet yours, sealing tight but letting your tongue enter her mouth to swirl around and feel the venom drip from her fangs.  It's heavenly!  Your " +
                         this.player.skin() +
                         " grows hot and tingly, and you ache to be touched so badly.  Your " +
@@ -189,23 +177,22 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                 // (HIT? + 20 lust)
                 this.game.dynStats("lus", 20);
                 if (this.player.hasCock() || this.player.hasVagina()) {
-                    this.outputText(
+                    this.outx(
                         "  The moisture in your crotch only gets worse.  At this point, a ",
                         false
                     );
-                    if (this.player.wetness() < 3 && this.player.cumQ() < 200)
-                        this.outputText("small");
+                    if (this.player.wetness() < 3 && this.player.cumQ() < 200) this.outx("small");
                     else if (this.player.wetness() < 5 && this.player.cumQ() < 500)
-                        this.outputText("large");
-                    else this.outputText("massive");
-                    this.outputText(
+                        this.outx("large");
+                    else this.outx("massive");
+                    this.outx(
                         " wet stain that reeks of your sheer sexual ache has formed in your " +
                             this.player.armorName +
                             ".",
                         false
                     );
                     if (this.player.lust <= 99)
-                        this.outputText(
+                        this.outx(
                             "  Amazingly, you resist her and pull back, panting for breath.",
                             false
                         );
@@ -219,21 +206,21 @@ export class CorruptedDrider extends AbstractSpiderMorph {
         // -Masturbate - (Lowers lust by 50, raises PC lust)
         this.lust -= 30;
         this.game.dynStats("lus", 10 + this.player.lib / 20);
-        this.outputText(
+        this.outx(
             'The spider-woman skitters back and gives you a lusty, hungry expression.  She shudders and moans, "<i>Mmm, just watch what you\'re missing out on...</i>"\n\n',
             false
         );
-        this.outputText(
+        this.outx(
             "As soon as she finishes, her large clit puffs up, balloon-like.  A second later, it slides forward, revealing nine inches of glossy, girl-spunk-soaked shaft.  Nodules ring the corrupted penis' surface, while the tiny cum-slit perched atop the tip dribbles heavy flows of pre-cum.  She pumps at the fleshy organ while her other hand paws at her jiggling breasts, tugging on the hard ",
             false
         );
-        if (this.nipplesPierced > 0) this.outputText("pierced ");
-        this.outputText(
+        if (this.nipplesPierced > 0) this.outx("pierced ");
+        this.outx(
             "nipple-flesh.  Arching her back in a lurid pose, she cries out in high-pitched bliss, her cock pulsing in her hand and erupting out a stream of seed that lands in front of her.\n\n",
             false
         );
 
-        this.outputText(
+        this.outx(
             "The display utterly distracts you until it finishes, and as you adopt your combat pose once more, you find your own needs harder to ignore, while hers seem to be sated, for now.\n",
             false
         );
@@ -276,7 +263,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nThe drider licks her lips in anticipation...");
+            this.outx("\n\nThe drider licks her lips in anticipation...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.swamp.corruptedDriderScene.loseToDrider();

@@ -17,7 +17,7 @@ export class MaleSpiderMorph extends AbstractSpiderMorph {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nThe spider flashes a predatory grin while she waits it out...");
+            this.outx("\n\nThe spider flashes a predatory grin while she waits it out...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.swamp.maleSpiderMorphScene.loseToMaleSpiderMorph();

@@ -48,7 +48,7 @@ export class Armor extends Useable {
     // For most clothes if the modArmorName is set then it's Exgartuan's doing. The comfortable clothes are the exception, they override this function.
 
     public useText(): void {
-        this.outputText("You equip " + this.longName + ".  ");
+        this.outx("You equip " + this.longName + ".  ");
     }
 
     public playerEquip(): Armor {
@@ -71,7 +71,7 @@ export class Armor extends Useable {
             {
                 if (output) clearOutput();
                 if (canUse(player, true)) {
-                    if(output) outputText("You equip your " + _name + ".  ");
+                    if(output) outx("You equip your " + _name + ".  ");
                 var  oldArmor:Armor = player.armor;
                     oldArmor.unequip(player, returnOldItem, output);
                     player.setArmorHiddenField(this);
@@ -87,7 +87,7 @@ export class Armor extends Useable {
                     if (itype != undefined) {
                         game.itemSwapping = true;
                         if (output && itype == this)
-                            outputText("You have your old set of " + longName + " left over.  ");
+                            outx("You have your old set of " + longName + " left over.  ");
                         game.inventory.takeItem(this, false);
                     }
                 }

@@ -28,7 +28,7 @@ export class MinotaurMob extends Monster {
         if (MinotaurMob.rand(2) == 0) {
             teased = true;
             if (MinotaurMob.rand(5) > 0) {
-                this.outputText(
+                this.outx(
                     'The biggest lifts his loincloth, giving you a perfect view of his veiny hardness.  Pre-cum visibly bubbles from his flared tip, splattering wetly on the rocks and filling the air with his bestial musk.  He says, "<i>See how much I need you?</i>"\n',
                     false
                 );
@@ -36,7 +36,7 @@ export class MinotaurMob extends Monster {
             }
             // crit)
             else {
-                this.outputText(
+                this.outx(
                     "The largest bull in the crowd flaps his cum-soaked loincloth up and wraps a massive, muscled hand around his incredible erection.  Shaking it back and forth, he flicks his bubbling pre-cum in your direction, letting it spatter noisily against the rocks around you.  A few droplets even land on your skin, fogging the air with minotaur pheromones.\n",
                     false
                 );
@@ -47,35 +47,35 @@ export class MinotaurMob extends Monster {
         if (MinotaurMob.rand(2) == 0) {
             teased = true;
             if (MinotaurMob.rand(5) > 0) {
-                this.outputText(
+                this.outx(
                     '"<i>Hey, slut, look at this!</i>" taunts one of the beast-men.  He shakes his hips lewdly, spinning his thick horse-cock in wide circles and sending his potent pre flying through the air.  Droplets rain down around you, filling the air with even more of that delicious smell.\n',
                     false
                 );
                 damage = 3 + this.player.lib / 30;
             } else {
-                this.outputText(
+                this.outx(
                     '"<i>Mom, you may as well spread your thighs now, I got a treat for ya!</i>" announces a well-built minotaur.  He shifts his coverings and pumps on his swollen shaft, tugging hard enough over the iron-hard erection to blast out huge blobs of pre-seed in your direction.  ',
                     false
                 );
                 if (this.player.spe / 5 + MinotaurMob.rand(20) > 20) {
-                    this.outputText(
+                    this.outx(
                         "You avoid most of them, the blobs splattering against the mountain and still getting a little on you.  Regardless, the air stinks of their heavy spunk.",
                         false
                     );
                     damage = 6 + this.player.lib / 20;
                 } else {
-                    this.outputText(
+                    this.outx(
                         "You try to avoid them, but one catches you in the face, a little getting into your mouth.  You swallow it reflexively and salivate some more, your eyes darting to look at the stained rocks around you.  Are you really considering licking it up from the ground?",
                         false
                     );
                     damage = 15 + this.player.lib / 20;
                 }
             }
-            this.outputText("\n", false);
+            this.outx("\n", false);
         }
         // (Minitaur pre-cum tease)
         if (!teased || MinotaurMob.rand(3) == 0) {
-            this.outputText(
+            this.outx(
                 "The smallest of the beastmen, the minitaur, moans and begs, \"<i>Please Mom, can we please fuck you?  I... I need it so bad.</i>\"  He raises the edge of his loincloth to show exactly what he's talking about.  His member is limp but leaking.  What really catches your eyes sits behind that drizzling shaft - a pair of balls looking swollen and pent up beyond belief.  A sticky web of his leavings hangs between his genitals and his loincloth, showing you just how much he's been leaking at the thought of fucking you.  Fanning the sopping garment, he inadvertently blows a wave of his pheromones your way.\n",
                 false
             );
@@ -86,72 +86,71 @@ export class MinotaurMob extends Monster {
         // UNIVERSAL pre-cum RESULT:
         // (Low damage taken)
         if (damage <= 8) {
-            this.outputText(
+            this.outx(
                 "Though your body is tingling from the show the horny beasts are giving you, it doesn't effect you as much as it could have.",
                 false
             );
-            if (this.player.lust > 99)
-                this.outputText("  Still, you're too horny to fight any longer.");
+            if (this.player.lust > 99) this.outx("  Still, you're too horny to fight any longer.");
         }
         // (Medium damage taken)
         else if (damage <= 14) {
-            this.outputText(
+            this.outx(
                 "The powerful pheromones and scents hanging in the air around you make your body flush hotly.  Your " +
                     this.player.nippleDescript(0) +
                     "s grow harder",
                 false
             );
             if (this.player.lust > 70)
-                this.outputText(", though you didn't think such a thing was possible");
+                this.outx(", though you didn't think such a thing was possible");
             else
-                this.outputText(
+                this.outx(
                     ", feeling like two bullets scraping along the inside of your " +
                         this.player.armorName,
                     false
                 );
-            this.outputText(
+            this.outx(
                 ", but it... it could have been worse.  You shudder as a little fantasy of letting them dribble it all over your body works through your mind.",
                 false
             );
             if (this.player.lust > 99)
-                this.outputText("  Fuck it, they smell so good.  You want, no, NEED more.");
-            else this.outputText("  A growing part of you wants to experience that.");
+                this.outx("  Fuck it, they smell so good.  You want, no, NEED more.");
+            else this.outx("  A growing part of you wants to experience that.");
         }
         // (high damage taken)
         else {
-            this.outputText("All that potent pre-ejaculate makes your cunny ");
-            if (this.player.wetness() <= 1) this.outputText("moisten");
-            else if (this.player.wetness() <= 2) this.outputText("drip");
-            else if (this.player.wetness() <= 3) this.outputText("drool");
-            else this.outputText("juice itself");
-            this.outputText(" in need.");
+            this.outx("All that potent pre-ejaculate makes your cunny ");
+            if (this.player.wetness() <= 1) this.outx("moisten");
+            else if (this.player.wetness() <= 2) this.outx("drip");
+            else if (this.player.wetness() <= 3) this.outx("drool");
+            else this.outx("juice itself");
+            this.outx(" in need.");
             if (this.player.minotaurNeed()) {
-                this.outputText("  You need a fix so bad!");
+                this.outx("  You need a fix so bad!");
                 this.game.dynStats("lus", 5);
             } else {
-                this.outputText(
+                this.outx(
                     "  You can understand firsthand just how potent and addictive that fluid is...",
                     false
                 );
             }
             if (this.player.hasCock())
-                this.outputText(
+                this.outx(
                     "  " +
                         this.SMultiCockDesc() +
                         " twitches and dribbles its own pre-seed, but it doesn't smell anywhere near as good!",
                     false
                 );
-            this.outputText(
+            this.outx(
                 "  Shuddering and moaning, your body is wracked by ever-increasing arousal.  Fantasies of crawling under the beast-men's soaked legs and lapping at their drooling erections inundate your mind, your body shivering and shaking in response.  ",
                 false
             );
             if (this.player.lust <= 99)
-                this.outputText(
+                this.outx(
                     "You pull back from the brink with a start.  It'll take more than a little drugged pre-cum to bring you down!",
                     false
                 );
             else
-                this.outputText(
+                this.outx(
                     "You sigh and let your tongue loll out.  It wouldn't so bad, would it?",
                     false
                 );
@@ -162,7 +161,7 @@ export class MinotaurMob extends Monster {
     // Grope
     private minotaurGangGropeAttack(): void {
         this.game.spriteSelect(94);
-        this.outputText(
+        this.outx(
             "Strong hands come from behind and slide under your equipment to squeeze your " +
                 this.chestDesc() +
                 ".  The brutish fingers immediately locate and pinch at your " +
@@ -170,16 +169,15 @@ export class MinotaurMob extends Monster {
                 "s, the sensitive flesh on your chest lighting up with pain and pleasure.  You arch your back in surprise, utterly stunned by the violation of your body.  After a moment you regain your senses and twist away, but the damage is already done.  You're breathing a bit quicker now",
             false
         );
-        if (this.player.lust >= 80)
-            this.outputText(", and your pussy is absolutely soaking wet");
-        this.outputText(".");
+        if (this.player.lust >= 80) this.outx(", and your pussy is absolutely soaking wet");
+        this.outx(".");
         this.game.dynStats("lus", 5 + this.player.sens / 10);
         this.combatRoundOver();
     }
     // Gang Grope
     private minotaurGangGangGropeAttack(): void {
         this.game.spriteSelect(94);
-        this.outputText(
+        this.outx(
             "Before you can react, hands reach out from multiple angles and latch onto your body.  One pair squeezes at your " +
                 this.game.buttDescript() +
                 ", the strong grip massaging your cheeks with loving touches.  Another set of hands are sliding along your tummy, reaching down for, but not quite touching, the juicy delta below.  Palms encircle your " +
@@ -194,7 +192,7 @@ export class MinotaurMob extends Monster {
     private minotaurGangWaste(): void {
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00329] = 1;
         this.game.spriteSelect(94);
-        this.outputText(
+        this.outx(
             "\"<i>Oh man I can't wait to go hilt-deep in that pussy... I'm going to wreck her,</i>\" promises one bull to his brother.  The other laughs and snorts, telling him how he'll have to do the deed during sloppy seconds.  It quickly escalates, and soon, every single one of the beast-men is taunting the others, bickering over how and when they'll get to have you.  While they're wasting their time, it's your chance to act!",
             false
         );
@@ -217,7 +215,7 @@ export class MinotaurMob extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText(
+            this.outx(
                 "\n\nThe minutaurs share a laugh while you cum, but their throbbing erections don't subside in the slightest."
             );
             this.doNext(this.game.endLustLoss);

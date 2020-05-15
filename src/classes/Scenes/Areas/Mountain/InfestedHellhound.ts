@@ -21,15 +21,15 @@ import { HellHound } from "./HellHound";
 export class InfestedHellhound extends HellHound {
     // [Extra special attack]
     private hellHoundWormCannon(): void {
-        this.outputText(
+        this.outx(
             "The thing rears up onto its hind legs, revealing its more humanoid stature, and allowing it to use its flexible paws to caress its twinned-penises.  It lurches forwards powerfully, its thickness twitching and flaring as it launches a wave of worm-filled canine cum at you.",
             false
         );
-        this.outputText("\n", false);
+        this.outx("\n", false);
         if (InfestedHellhound.rand(2) == 0) {
             // Get hit – 10+ lust
             this.game.dynStats("lus", 5 + this.player.lib / 20);
-            this.outputText(
+            this.outx(
                 "Taken off-guard by the unexpected sexual display, you fail to move out of the way, and the wormy jism splatters you from the chest down.",
                 false
             );
@@ -37,7 +37,7 @@ export class InfestedHellhound extends HellHound {
                 this.player.findStatusAffect(StatusAffects.Infested) >= 0 &&
                 this.player.totalCocks() > 0
             ) {
-                this.outputText(
+                this.outx(
                     "  The worms inside you begin moving and squirming. A few of your cum-soaked parasites crawl out from your shivering " +
                         this.multiCockDescriptLight() +
                         " as if attempting to meet the new arrivals.  You desperately want to brush them away, but the pleasure in your crotch is too good to fight, and you find yourself staying your hand as each and every one of the new worms makes it way into your " +
@@ -46,33 +46,33 @@ export class InfestedHellhound extends HellHound {
                     false
                 );
                 if (this.player.balls > 0)
-                    this.outputText(
+                    this.outx(
                         "  Your " +
                             this.ballsDescriptLight() +
                             " grow weightier as the worms settle into their new home, arousing you beyond measure.",
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "  You can feel them shifting around inside you as they adjust to their new home, arousing you beyond measure.",
                         false
                     );
                 this.game.dynStats("lus", 10);
             } else if (this.player.totalCocks() > 0) {
-                this.outputText(
+                this.outx(
                     "  The worms wriggle and squirm all over you, working their way towards your groin.  It tickles pleasantly, but you brush them away before they can get inside you.  The thought of being turned into a worm-dispensing cum fountain is horrifying, but it leaves you hard.",
                     false
                 );
                 this.game.dynStats("lus", 5 + Math.round(this.player.cor / 20));
             } else if (this.player.hasVagina())
-                this.outputText(
+                this.outx(
                     "  Thankfully, the worms don't seem to want anything to do with you, and rapidly drop down to the ground.",
                     false
                 );
         }
         // Sidestep
         else {
-            this.outputText(
+            this.outx(
                 "You sidestep the gush of wormy fluid, letting it splatter against the rocks behind you.",
                 false
             );
@@ -82,16 +82,15 @@ export class InfestedHellhound extends HellHound {
                 this.player.hasCock()
             ) {
                 if (this.player.hasCock()) {
-                    this.outputText(
+                    this.outx(
                         "  Despite avoiding the torrent of infected seed, your own wormy ",
                         false
                     );
-                    if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-                    else this.outputText(this.multiCockDescriptLight(), false);
-                    this.outputText(" wriggle");
-                    if (this.player.balls == 0 && this.player.cockTotal() == 1)
-                        this.outputText("s");
-                    this.outputText(
+                    if (this.player.balls > 0) this.outx(this.ballsDescriptLight(), false);
+                    else this.outx(this.multiCockDescriptLight(), false);
+                    this.outx(" wriggle");
+                    if (this.player.balls == 0 && this.player.cockTotal() == 1) this.outx("s");
+                    this.outx(
                         " hotly, expelling a few of your own worms in response along with a dribble of thick pre-cum.   You wonder what it would feel like to let his worms crawl inside you...",
                         false
                     );
@@ -99,7 +98,7 @@ export class InfestedHellhound extends HellHound {
                 } else {
                     CocSettings.error("Infested but no cock!");
                     this.game.dynStats("lus", 5);
-                    this.outputText(
+                    this.outx(
                         "  The idea of being covered in the beast's infested seed arouses you slightly, but you shake your head violently and clear away the unwelcome thought.",
                         false
                     );
@@ -111,7 +110,7 @@ export class InfestedHellhound extends HellHound {
                 this.player.findStatusAffect(StatusAffects.WormsHalf) < 0
             ) {
                 this.game.dynStats("lus", 5);
-                this.outputText(
+                this.outx(
                     "  The idea of being covered in the beast's infested seed arouses you slightly, but you shake your head violently and clear away the unwelcome thought.",
                     false
                 );
@@ -124,18 +123,18 @@ export class InfestedHellhound extends HellHound {
 
     public defeated(hpVictory: boolean): void {
         if (hpVictory) {
-            this.outputText(
+            this.outx(
                 "The hellhound's flames dim and the heads let out a whine before the creature slumps down, defeated, unconscious, and yet still drooling worms.",
                 true
             );
             this.game.cleanupAfterCombat();
         } else {
-            this.outputText(
+            this.outx(
                 "Unable to bear its unnatural arousal, the infested hellhound's flames dim as he stops his attack. The two heads look at you, whining plaintively.  The hellhound slowly pads over to you and nudges its noses at your crotch.  It seems he wishes to pleasure you.\n\n",
                 true
             );
             if (this.player.gender > 0 && this.player.lust >= 33) {
-                this.outputText(
+                this.outx(
                     "You realize your desires aren't quite sated.  You could let it please you.  Do you?",
                     false
                 );
@@ -152,7 +151,7 @@ export class InfestedHellhound extends HellHound {
                     this.game.cleanupAfterCombat
                 );
             } else {
-                this.outputText(
+                this.outx(
                     "You turn away, not really turned on enough to be interested in such an offer from such a beast.",
                     false
                 );
@@ -163,7 +162,7 @@ export class InfestedHellhound extends HellHound {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText(
+            this.outx(
                 "\n\nThe infested hellhound's heads both grin happily as it advances towards you...",
                 false
             );

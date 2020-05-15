@@ -17,7 +17,7 @@ export class CommonItem extends ItemType {
     public clearOutput(): void {
         kGAMECLASS.clearOutput();
     }
-    public outputText(text: string): void {
-        kGAMECLASS.outputText(text);
+    public outx(text: string): void {
+        kGAMECLASS.outx(text);
     }
 }

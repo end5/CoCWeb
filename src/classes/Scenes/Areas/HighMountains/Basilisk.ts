@@ -36,13 +36,13 @@ export class Basilisk extends Monster {
     // (Check vs. Intelligence/Sensitivity, loss = recurrent speed loss each
     // round, one time lust increase):
     private compulsion(): void {
-        this.outputText(
+        this.outx(
             "The basilisk opens its mouth and, staring at you, utters words in its strange, dry, sibilant tongue.  The sounds bore into your mind, working and buzzing at the edges of your resolve, suggesting, compelling, then demanding you look into the basilisk's eyes.  ",
             false
         );
         // Success:
         if (this.player.inte / 5 + Basilisk.rand(20) < 24) {
-            this.outputText(
+            this.outx(
                 "You can't help yourself... you glimpse the reptile's grey, slit eyes. You look away quickly, but you can picture them in your mind's eye, staring in at your thoughts, making you feel sluggish and unable to coordinate. Something about the helplessness of it feels so good... you can't banish the feeling that really, you want to look in the basilisk's eyes forever, for it to have total control over you.",
                 false
             );
@@ -53,7 +53,7 @@ export class Basilisk extends Monster {
         }
         // Failure:
         else {
-            this.outputText(
+            this.outx(
                 "You concentrate, focus your mind and resist the basilisk's psychic compulsion.",
                 false
             );
@@ -67,7 +67,7 @@ export class Basilisk extends Monster {
             this.str + 20 - Math.random() * (this.player.tou + this.player.armorDef)
         );
         damage = this.player.takeDamage(damage);
-        this.outputText(
+        this.outx(
             "The basilisk suddenly whips its tail at you, swiping your " +
                 this.player.feet() +
                 " from under you!  You quickly stagger upright, being sure to hold the creature's feet in your vision. (" +
@@ -75,7 +75,7 @@ export class Basilisk extends Monster {
                 ")",
             false
         );
-        if (damage == 0) this.outputText("  The fall didn't harm you at all.");
+        if (damage == 0) this.outx("  The fall didn't harm you at all.");
         this.game.combatRoundOver();
     }
 
@@ -99,7 +99,7 @@ export class Basilisk extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nThe basilisk smirks, but waits for you to finish...");
+            this.outx("\n\nThe basilisk smirks, but waits for you to finish...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.highMountains.basiliskScene.loseToBasilisk();

@@ -59,7 +59,7 @@ export class Equipable extends Consumable {
         if (this.game.debug && !(this instanceof GooArmor)) {
             if (output) {
                 this.clearOutput();
-                this.outputText(
+                this.outx(
                     "You cannot equip anything in debug mode.  Please restart the game in normal mode to equip items."
                 );
             }

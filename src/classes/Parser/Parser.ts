@@ -1061,9 +1061,9 @@ export class Parser {
             ret = this.enterParserScene("startup");
 
             // HORRIBLE HACK
-            // since we're initially called via a outputText command, the content of the first page's text will be overwritten
+            // since we're initially called via a outx command, the content of the first page's text will be overwritten
             // when we return. Therefore, in a horrible hack, we return the contents of mainTest.htmlText as the ret value, so
-            // the outputText call overwrites the window content with the exact same content.
+            // the outx call overwrites the window content with the exact same content.
 
             // trace("WARNING: Returning: ", ret);
             this._ownerClass.currentText = ret;

@@ -46,7 +46,7 @@ export class Weapon extends Useable {
     }
 
     public useText(): void {
-        this.outputText("You equip " + this.longName + ".  ");
+        this.outx("You equip " + this.longName + ".  ");
     }
 
     public playerEquip(): Weapon {
@@ -68,7 +68,7 @@ export class Weapon extends Useable {
                 if (canUse(player,output)){
                 var  oldWeapon:Weapon = player.weapon;
                     if (output) {
-                        outputText("You equip your " + longName + ".  ");
+                        outx("You equip your " + longName + ".  ");
                     }
                     oldWeapon.unequip(player, returnOldItem, output);
                     player.setWeaponHiddenField(this);
@@ -83,7 +83,7 @@ export class Weapon extends Useable {
                 var  itype:ItemType = unequipReturnItem(player, output);
                     if (itype != undefined) {
                         if (output && itype == this)
-                            outputText("You still have " + itype.longName + " left over.  ");
+                            outx("You still have " + itype.longName + " left over.  ");
                         game.itemSwapping = true;
                         game.inventory.takeItem(this, false);
                     }

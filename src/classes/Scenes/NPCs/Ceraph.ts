@@ -22,17 +22,17 @@ export class Ceraph extends Monster {
         this.game.spriteSelect(7);
         if (this.findStatusAffect(StatusAffects.Uber) < 0) {
             if (Ceraph.rand(2) == 0) {
-                this.outputText(
+                this.outx(
                     'Ceraph winks and says, "<i>Have you ever cum without being touched? You will.</i>"\n\n',
                     false
                 );
             } else {
-                this.outputText(
+                this.outx(
                     'Ceraph titters, "<i>Let me show you the true power of an Omnibus.</i>"\n\n',
                     false
                 );
             }
-            this.outputText(
+            this.outx(
                 "Despite her sultry tease, you can tell she's starting to build up to something big...",
                 false
             );
@@ -42,18 +42,18 @@ export class Ceraph extends Monster {
             if (this.statusAffectv1(StatusAffects.Uber) == 0) {
                 this.addStatusValue(StatusAffects.Uber, 1, 1);
                 if (Ceraph.rand(2) == 0)
-                    this.outputText(
+                    this.outx(
                         "The demonic hermaphrodite begins forging demonic symbols in the air before her, each glowing brilliant pink before they blur away in a haze.",
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "The demonette makes obscene motions with her hands, as if masturbating an imaginary cock or vagina while her hands are wreathed in pink flames.",
                         false
                     );
-                this.outputText("  <b>She's about to unleash something huge!</b>");
+                this.outx("  <b>She's about to unleash something huge!</b>");
                 if (this.player.inte > 50)
-                    this.outputText(
+                    this.outx(
                         "  You should probably wait so you'll have a chance to avoid whatever's coming.",
                         false
                     );
@@ -63,18 +63,18 @@ export class Ceraph extends Monster {
                 this.removeStatusAffect(StatusAffects.Uber);
                 // (Avoid!)
                 if (this.flags[kFLAGS.IN_COMBAT_USE_PLAYER_WAITED_FLAG] == 1) {
-                    this.outputText(
+                    this.outx(
                         "She throws her hands out, palms facing you, and a rush of pink flame washes towards you.  Thanks to your decision to wait, it's easy to avoid the onrushing flames and her attack.\n\n",
                         false
                     );
-                    this.outputText(
+                    this.outx(
                         'Ceraph sighs and asks, "<i>Why would you move?  It would make you feel soooo good!</i>"',
                         false
                     );
                 }
                 // (AUTO-LOSE)
                 else {
-                    this.outputText(
+                    this.outx(
                         "She throws her hands out, palms facing you, and a rush of pink flame washes towards you.  Too busy with your own attack to effectively dodge, you're hit full on by the pink fire.  Incredibly, it doesn't burn.  The fire actually seems to flow inside you, disappearing into your skin.  You stumble, confused for a second, but then it hits you.  Every inch of your body is buzzing with pleasure, practically squirming and convulsing with sexual delight.  You collapse, twitching and heaving, feeling the constant sensation of sexual release running from your head to your " +
                             this.player.feet() +
                             ".  Too horny and pleasured to resist, you lie down and tremble, occasionally rubbing yourself to enhance the bliss.",
@@ -89,13 +89,13 @@ export class Ceraph extends Monster {
     // [SPECIAL] – Whip Binding
     private ceraphSpecial2(): void {
         if (this.player.findStatusAffect(StatusAffects.Bound) < 0) {
-            this.outputText(
+            this.outx(
                 "Ceraph snaps her whip at you, lightning fast.  Unable to avoid the blinding speed of her attack, you find yourself wrapped from head to toe in the strong leather of her whip.  Remarkably, the fire dies out everywhere the whip touches you, leaving you bound but unharmed.",
                 false
             );
             // If player has l2 piercing
             if (this.flags[kFLAGS.PC_FETISH] >= 2) {
-                this.outputText("  Gods this turns you on!");
+                this.outx("  Gods this turns you on!");
                 this.game.dynStats("lus", 5);
             }
             this.player.createStatusAffect(StatusAffects.Bound, 2 + Ceraph.rand(5), 0, 0, 0);
@@ -103,7 +103,7 @@ export class Ceraph extends Monster {
         // [SPECIAL WHILE PC RESTRAINED]
         else {
             if (Ceraph.rand(2) == 0) {
-                this.outputText(
+                this.outx(
                     "Ceraph cuddles up against you, embracing you tenderly.  Her more-than-ample bosom crushes against your flank, and her demonic prick grinds and rubs against your " +
                         this.player.skinDesc +
                         ", smearing it with her juices.  Her hands slide over your bound form, sneaking underneath your " +
@@ -115,24 +115,23 @@ export class Ceraph extends Monster {
             }
             // [SPECIAL 2 WHILE PC RESTRAINED]
             else {
-                this.outputText(
+                this.outx(
                     "Ceraph blows hot kisses in your ear and slides and rubs against you as she slips over to embrace your front.  She holds up a finger, licks it, and wiggles it back and forth.  It begins to glow pink, dimly at first and then with increasing luminosity.  Once it's reached a brilliant intensity, the sparkling digit is roughly inserted into your mouth.  You can feel the dark magic soaking into your body just like water soaks into a sponge.  ",
                     false
                 );
-                if (this.player.lust < 33)
-                    this.outputText("It makes you feel warm and flushed.");
+                if (this.player.lust < 33) this.outx("It makes you feel warm and flushed.");
                 else if (this.player.lust < 60)
-                    this.outputText(
+                    this.outx(
                         "It gets inside you and turns you on, stoking the flames of your desire.",
                         false
                     );
                 else if (this.player.lust < 80)
-                    this.outputText(
+                    this.outx(
                         "It makes you very horny, and you begin to wonder if it's worth resisting.",
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "It makes you ache and tremble with need, practically begging for another touch.",
                         false
                     );
@@ -144,27 +143,27 @@ export class Ceraph extends Monster {
 
     // (Struggle)
     public ceraphBindingStruggle(): void {
-        this.outputText("", true);
-        this.outputText("You wriggle in the tight binding, trying your best to escape.  ");
+        this.outx("", true);
+        this.outx("You wriggle in the tight binding, trying your best to escape.  ");
         if (this.player.statusAffectv1(StatusAffects.Bound) - 1 <= 0) {
-            this.outputText(
+            this.outx(
                 "With a mighty twist and stretch, the whip gives and uncurls from you all at once.  You've regained your freedom",
                 false
             );
             if (this.flags[kFLAGS.PC_FETISH] >= 2) {
-                this.outputText(", though you miss the tight leathery embrace");
+                this.outx(", though you miss the tight leathery embrace");
             }
-            this.outputText("!");
+            this.outx("!");
             this.player.removeStatusAffect(StatusAffects.Bound);
             this.combatRoundOver();
             return;
         } else {
-            this.outputText(
+            this.outx(
                 "Despite your frantic struggling, all you manage to do is chafe against her impressively taut leather whip.",
                 false
             );
             if (this.flags[kFLAGS.PC_FETISH] >= 2) {
-                this.outputText(
+                this.outx(
                     "  You get nice and hot from being so effectively restrained, maybe you should just accept it?",
                     false
                 );
@@ -172,35 +171,35 @@ export class Ceraph extends Monster {
             this.player.addStatusValue(StatusAffects.Bound, 1, -1);
             // Strong characters break free faster
             if (this.player.str > 65 && Ceraph.rand(this.player.str) > 45) {
-                this.outputText(
+                this.outx(
                     "  Though you didn't break free, it seems like your mighty struggles loosened the whip slightly...",
                     false
                 );
                 this.player.addStatusValue(StatusAffects.Bound, 1, -1);
             }
         }
-        this.outputText("\n\n", false);
+        this.outx("\n\n", false);
         this.doAI();
     }
 
     // (Wait)
     public ceraphBoundWait(): void {
-        this.outputText("", true);
-        this.outputText(
+        this.outx("", true);
+        this.outx(
             "Why bother resisting?  The feeling of the leather wrapped tightly around you, digging into your " +
                 this.player.skinDesc +
                 ", is intoxicating.",
             false
         );
         if (this.flags[kFLAGS.PC_FETISH] >= 2) {
-            this.outputText(
+            this.outx(
                 "  You squirm inside the bindings as you get more and more turned on, hoping that Ceraph will strip away your armor and force you to parade around as her bound, naked pet.",
                 false
             );
             this.game.dynStats("lus", 5);
         }
         this.game.dynStats("lus", this.player.lib / 20 + 5 + Ceraph.rand(5));
-        this.outputText("\n\n", false);
+        this.outx("\n\n", false);
         this.doAI();
     }
 
@@ -208,11 +207,11 @@ export class Ceraph extends Monster {
     private ceraphSpecial3(): void {
         // [Mini-cum] – takes place of double-attack if very horny
         if (this.lust >= 75) {
-            this.outputText(
+            this.outx(
                 "Ceraph spreads her legs and buries three fingers in her sopping twat, her thumb vigorously rubbing against the base of her bumpy prick.  Her other hand wraps around the meaty pole and begins jerking it rapidly.  In one practiced movement she stops jerking long enough to wrap the whip around her nodule-studded demon-cock, using it like a cockring.  The organ swells thanks to the forced blood-flow, and after a few more seconds of intense masturbation, the demoness cums hard.  Her cunny squirts all over her hand, dripping clear feminine drool down her thighs.  Ceraph's masculine endowment pulses and twitches, blasting out two big squirts of jizm before it slows to a trickle.\n",
                 false
             );
-            this.outputText(
+            this.outx(
                 "Letting out a throaty sigh, the demon unties her self-induced binding and gives you a wink.  Did you really just stand there and watch the whole thing?  Amazingly Ceraph actually seems stronger after such a crude display...",
                 false
             );
@@ -224,12 +223,12 @@ export class Ceraph extends Monster {
             this.HP += 20;
             this.lust = 33;
             this.game.dynStats("lus", 3);
-            this.outputText("\n", false);
+            this.outx("\n", false);
             this.combatRoundOver();
             return;
         }
         let damage = 0;
-        this.outputText(
+        this.outx(
             "The demoness weaves her whip in the air until you can practically hear it slithering like a snake, cutting the air as it weaves back and forth, still magically alight with flames.  In a blink she lashes out twice in quick succession!\n",
             false
         );
@@ -237,7 +236,7 @@ export class Ceraph extends Monster {
         this.doNext(this.game.playerMenu);
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Ceraph.rand(10) != 9) {
-            this.outputText(
+            this.outx(
                 this.capitalA + this.short + " completely misses you with a blind attack!",
                 false
             );
@@ -248,12 +247,12 @@ export class Ceraph extends Monster {
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             if (this.player.spe - this.spe < 8)
-                this.outputText(
+                this.outx(
                     "You narrowly avoid " + this.a + this.short + "'s " + this.weaponVerb + "!",
                     false
                 );
             if (this.player.spe - this.spe >= 8 && this.player.spe - this.spe < 20)
-                this.outputText(
+                this.outx(
                     "You dodge " +
                         this.a +
                         this.short +
@@ -263,14 +262,14 @@ export class Ceraph extends Monster {
                     false
                 );
             if (this.player.spe - this.spe >= 20)
-                this.outputText(
+                this.outx(
                     "You deftly avoid " + this.a + this.short + "'s slow " + this.weaponVerb + ".",
                     false
                 );
         }
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Ceraph.rand(100) < 10) {
-            this.outputText(
+            this.outx(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
                     this.a +
                     this.short +
@@ -282,7 +281,7 @@ export class Ceraph extends Monster {
             Ceraph.rand(100) < 15 &&
             this.player.armorName == "red, high-society bodysuit"
         ) {
-            this.outputText(
+            this.outx(
                 "With Raphael's teachings and the easy movement afforded by your bodysuit, you easily anticipate and sidestep " +
                     this.a +
                     this.short +
@@ -304,7 +303,7 @@ export class Ceraph extends Monster {
                 damage = 0;
                 // Due to toughness or amor...
                 if (Ceraph.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
-                    this.outputText(
+                    this.outx(
                         "Your " +
                             this.player.armorName +
                             " absorb and deflect every " +
@@ -316,7 +315,7 @@ export class Ceraph extends Monster {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "You deflect and block every " +
                             this.weaponVerb +
                             " " +
@@ -327,7 +326,7 @@ export class Ceraph extends Monster {
                     );
             }
             if (damage > 0 && damage < 6) {
-                this.outputText(
+                this.outx(
                     "You are struck a glancing blow by " +
                         this.a +
                         this.short +
@@ -338,13 +337,10 @@ export class Ceraph extends Monster {
                 );
             }
             if (damage > 5 && damage < 11) {
-                this.outputText(
-                    this.capitalA + this.short + " wounds you! (" + damage + ")",
-                    false
-                );
+                this.outx(this.capitalA + this.short + " wounds you! (" + damage + ")", false);
             }
             if (damage > 10 && damage < 21) {
-                this.outputText(
+                this.outx(
                     this.capitalA +
                         this.short +
                         " staggers you with the force of " +
@@ -358,7 +354,7 @@ export class Ceraph extends Monster {
                 );
             }
             if (damage > 20) {
-                this.outputText(
+                this.outx(
                     this.capitalA +
                         this.short +
                         " <b>mutilates</b> you with " +
@@ -373,11 +369,11 @@ export class Ceraph extends Monster {
             }
         }
         this.game.statScreenRefresh();
-        this.outputText("\n", false);
+        this.outx("\n", false);
         // SECOND ATTACK HERE------
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Ceraph.rand(10) != 9) {
-            this.outputText(
+            this.outx(
                 this.capitalA + this.short + " completely misses you with a blind attack!",
                 false
             );
@@ -388,12 +384,12 @@ export class Ceraph extends Monster {
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             if (this.player.spe - this.spe < 8)
-                this.outputText(
+                this.outx(
                     "You narrowly avoid " + this.a + this.short + "'s " + this.weaponVerb + "!",
                     false
                 );
             if (this.player.spe - this.spe >= 8 && this.player.spe - this.spe < 20)
-                this.outputText(
+                this.outx(
                     "You dodge " +
                         this.a +
                         this.short +
@@ -403,14 +399,14 @@ export class Ceraph extends Monster {
                     false
                 );
             if (this.player.spe - this.spe >= 20)
-                this.outputText(
+                this.outx(
                     "You deftly avoid " + this.a + this.short + "'s slow " + this.weaponVerb + ".",
                     false
                 );
         }
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Ceraph.rand(100) < 10) {
-            this.outputText(
+            this.outx(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
                     this.a +
                     this.short +
@@ -422,7 +418,7 @@ export class Ceraph extends Monster {
             Ceraph.rand(100) < 15 &&
             this.player.armorName == "red, high-society bodysuit"
         ) {
-            this.outputText(
+            this.outx(
                 "With Raphael's teachings and the easy movement afforded by your bodysuit, you easily anticipate and sidestep " +
                     this.a +
                     this.short +
@@ -443,7 +439,7 @@ export class Ceraph extends Monster {
                 damage = 0;
                 // Due to toughness or amor...
                 if (Ceraph.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
-                    this.outputText(
+                    this.outx(
                         "Your " +
                             this.player.armorName +
                             " absorb and deflect every " +
@@ -455,7 +451,7 @@ export class Ceraph extends Monster {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "You deflect and block every " +
                             this.weaponVerb +
                             " " +
@@ -466,7 +462,7 @@ export class Ceraph extends Monster {
                     );
             }
             if (damage > 0 && damage < 6) {
-                this.outputText(
+                this.outx(
                     "You are struck a glancing blow by " +
                         this.a +
                         this.short +
@@ -477,13 +473,10 @@ export class Ceraph extends Monster {
                 );
             }
             if (damage > 5 && damage < 11) {
-                this.outputText(
-                    this.capitalA + this.short + " wounds you! (" + damage + ")",
-                    false
-                );
+                this.outx(this.capitalA + this.short + " wounds you! (" + damage + ")", false);
             }
             if (damage > 10 && damage < 21) {
-                this.outputText(
+                this.outx(
                     this.capitalA +
                         this.short +
                         " staggers you with the force of " +
@@ -497,7 +490,7 @@ export class Ceraph extends Monster {
                 );
             }
             if (damage > 20) {
-                this.outputText(
+                this.outx(
                     this.capitalA +
                         this.short +
                         " <b>mutilates</b> you with " +
@@ -512,7 +505,7 @@ export class Ceraph extends Monster {
             }
         }
         this.game.statScreenRefresh();
-        this.outputText("\n", false);
+        this.outx("\n", false);
         this.combatRoundOver();
     }
 
@@ -548,7 +541,7 @@ export class Ceraph extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nYour foe doesn't seem disgusted enough to leave...");
+            this.outx("\n\nYour foe doesn't seem disgusted enough to leave...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.ceraphScene.loseFUCKME();

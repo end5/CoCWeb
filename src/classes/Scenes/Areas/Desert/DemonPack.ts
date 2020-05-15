@@ -23,7 +23,7 @@ export class DemonPack extends Monster {
 
     public defeated(hpVictory: boolean): void {
         if (hpVictory) {
-            this.outputText(
+            this.outx(
                 "You strike out and the last of the demons tumbles to the ground with a thud. You stand there for a second surrounded by dead or unconscious demons feeling like a god of battle. Then you realize that if a god of battle does exist he lives on a demonic plane like this, so to avoid insulting him you take your hands off your hips and your " +
                     this.player.legs() +
                     " off the head of the demon leader before you start to search the bodies.",
@@ -31,7 +31,7 @@ export class DemonPack extends Monster {
             );
             this.game.dynStats("lus", 1);
         } else {
-            this.outputText(
+            this.outx(
                 "The demons stop attacking, and reach out to touch your body. Some are already masturbating like it's the only thing in the world and you know that right now, if you wanted to, you could make each and every one of them fuck you."
             );
         }
@@ -40,13 +40,13 @@ export class DemonPack extends Monster {
         } else if (hpVictory) {
             this.game.cleanupAfterCombat();
         } else {
-            this.outputText("  Do you rape them?", true);
+            this.outx("  Do you rape them?", true);
             this.game.doYesNo(this.rapeDemons, this.game.cleanupAfterCombat);
         }
     }
 
     private rapeDemons(): void {
-        this.outputText(
+        this.outx(
             "You open your arms and step into the throng of eager demons. They jump eagerly to touch you, becoming more and more lust-frenzied every second. You take the nearest demon and throw it to the ground and without a moment's thought the rest of the group leap to join you in a thoughtless madness of lust...",
             true
         );
@@ -56,45 +56,42 @@ export class DemonPack extends Monster {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (this.player.gender == 0) {
             if (hpVictory) {
-                this.outputText(
+                this.outx(
                     "You collapse before the demons, who laugh at your utter lack of male or female endowments, beating you until you pass out.",
                     true
                 );
             } else {
-                this.outputText(
+                this.outx(
                     "You offer yourself to the demons, who promptly begin laughing at your lack of endowments.  They fall on you as one, beating you into unconsciousness.",
                     true
                 );
             }
             this.game.cleanupAfterCombat();
         } else if (hpVictory) {
-            this.outputText(
+            this.outx(
                 "The demons finally beat you down and you collapse onto the sand of the oasis. Almost immediately you feel demonic hands pressing and probing your prone form. You hear the leader of the group say something in a strange tongue but you have a feeling you know what it means. The demons dive onto your inert body with intent and begin to press themselves against you...",
                 true
             );
             this.doNext(this.game.desert.oasis.oasisSexing);
         } else {
-            this.outputText(
-                "You struggle to keep your mind on the fight and fail to do so. ",
-                true
-            );
+            this.outx("You struggle to keep your mind on the fight and fail to do so. ", true);
             if (pcCameWorms) {
-                this.outputText(
+                this.outx(
                     "\n\nThe demons joke and smile, obviously unconcerned with your state.\n\n",
                     false
                 );
             }
             if (this.player.cocks.length > 0) {
-                if (this.player.cockTotal() > 1) this.outputText("Each of y");
-                else this.outputText("Y");
-                this.outputText("our " + this.player.multiCockDescriptLight() + " throbs ", false);
-                if (this.player.hasVagina()) this.outputText(" and your ");
+                if (this.player.cockTotal() > 1) this.outx("Each of y");
+                else this.outx("Y");
+                this.outx("our " + this.player.multiCockDescriptLight() + " throbs ", false);
+                if (this.player.hasVagina()) this.outx(" and your ");
             }
             if (this.player.vaginas.length > 0) {
-                if (!this.player.hasCock()) this.outputText("Your ");
-                this.outputText(this.game.vaginaDescript(0) + " burns ", false);
+                if (!this.player.hasCock()) this.outx("Your ");
+                this.outx(this.game.vaginaDescript(0) + " burns ", false);
             }
-            this.outputText(
+            this.outx(
                 "with arousal.  You make a grab for the nearest demon and catch a handful of jiggly breast. You try desperately to use your other arm to pull her closer to slake your thirst but you both go tumbling to the ground. The demonic leader laughs out loud and the rest of the tribe falls on you, grabbing for anything it can find.",
                 false
             );
@@ -103,21 +100,20 @@ export class DemonPack extends Monster {
     }
 
     public teased(lustDelta: number): void {
-        this.outputText("\n", false);
-        if (lustDelta == 0)
-            this.outputText("\n" + this.capitalA + this.short + " seems unimpressed.");
+        this.outx("\n", false);
+        if (lustDelta == 0) this.outx("\n" + this.capitalA + this.short + " seems unimpressed.");
         else if (lustDelta > 0 && lustDelta < 5)
-            this.outputText(
+            this.outx(
                 "The demons lessen somewhat in the intensity of their attack, and some even eye up your assets as they strike at you.",
                 false
             );
         else if (lustDelta >= 5 && lustDelta < 10)
-            this.outputText(
+            this.outx(
                 "The demons are obviously steering clear from damaging anything you might use to fuck and they're starting to leave their hands on you just a little longer after each blow. Some are starting to cop quick feels with their other hands and you can smell the demonic lust of a dozen bodies on the air.",
                 false
             );
         else if (lustDelta >= 10)
-            this.outputText(
+            this.outx(
                 "The demons are less and less willing to hit you and more and more willing to just stroke their hands sensuously over you. The smell of demonic lust is thick on the air and part of the group just stands there stroking themselves openly.",
                 false
             );

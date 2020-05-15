@@ -26,23 +26,23 @@ export class Jojo extends Monster {
     private selfCorruption(): void {
         switch (this.game.monk) {
             case 2:
-                this.outputText("Jojo looks lost in thought for a moment, and fails to attack.  ");
+                this.outx("Jojo looks lost in thought for a moment, and fails to attack.  ");
                 this.lust += 4;
                 break;
             case 3:
-                this.outputText(
+                this.outx(
                     "Jojo blushes as he fights you, distracted by a stray thought.  You think you see a bulge in the loose cloth of his pants.  "
                 );
                 this.lust += 8;
                 break;
             case 4:
-                this.outputText(
+                this.outx(
                     "Jojo stumbles, shakes his head, and pulls one of his hands away from the stiff tent in his pants.  "
                 );
                 this.lust += 10;
                 break;
             default:
-                this.outputText(
+                this.outx(
                     "Jojo frantically jerks his " +
                         this.cockDescriptShort(0) +
                         ", stroking the " +
@@ -56,19 +56,19 @@ export class Jojo extends Monster {
             this.doNext(this.game.endLustVictory);
             return;
         } else if (this.lust >= 85)
-            this.outputText(
+            this.outx(
                 "The mouse is panting and softly whining, each movement seeming to make his bulge more pronounced.  You don't think he can hold out much longer.  "
             );
         else if (this.lust >= 70)
-            this.outputText(
+            this.outx(
                 "The mouse is having trouble moving due to the rigid protrusion from his groin.  "
             );
         else if (this.lust >= 60)
-            this.outputText(
+            this.outx(
                 "The mouse's eyes constantly dart over your most sexual parts, betraying his lust.  "
             );
         else if (this.lust > 50)
-            this.outputText("The mouse's skin remains flushed with the beginnings of arousal.  ");
+            this.outx("The mouse's skin remains flushed with the beginnings of arousal.  ");
         this.doNext(this.game.playerMenu);
     }
 

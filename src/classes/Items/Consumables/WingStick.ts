@@ -18,13 +18,13 @@ export class WingStick extends Consumable {
 
     public canUse(): boolean {
         if (this.game.inCombat) return true;
-        this.outputText("There's no one to throw it at!");
+        this.outx("There's no one to throw it at!");
         return false;
     }
 
     public useItem(): boolean {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "You toss a wingstick at your foe!  It flies straight and true, almost as if it has a mind of its own as it arcs towards " +
                 this.game.monster.a +
                 this.game.monster.short +
@@ -32,9 +32,9 @@ export class WingStick extends Consumable {
         );
         if (this.game.monster.spe - 80 > Utils.rand(100) + 1) {
             // 1% dodge for each point of speed over 80
-            this.outputText("Somehow " + this.game.monster.a + this.game.monster.short + "'");
-            if (!this.game.monster.plural) this.outputText("s");
-            this.outputText(
+            this.outx("Somehow " + this.game.monster.a + this.game.monster.short + "'");
+            if (!this.game.monster.plural) this.outx("s");
+            this.outx(
                 " incredible speed allows " +
                     this.game.monster.pronoun2 +
                     " to avoid the spinning blades!  The deadly device shatters when it impacts something in the distance."
@@ -42,7 +42,7 @@ export class WingStick extends Consumable {
         } else {
             // Not dodged
             const damage: number = 40 + Utils.rand(61);
-            this.outputText(
+            this.outx(
                 this.game.monster.capitalA +
                     this.game.monster.short +
                     " is hit with the wingstick!  It breaks apart as it lacerates " +

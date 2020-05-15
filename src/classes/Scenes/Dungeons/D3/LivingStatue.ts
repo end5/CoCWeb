@@ -52,14 +52,12 @@ export class LivingStatue extends Monster {
     }
 
     protected handleStun(): boolean {
-        this.game.outputText(
-            "The stone giant's unforgiving flesh seems incapable of being stunned."
-        );
+        this.game.outx("The stone giant's unforgiving flesh seems incapable of being stunned.");
         return true;
     }
 
     protected handleFear(): boolean {
-        this.game.outputText("The stone giant cares little for your attempted intimidation.");
+        this.game.outx("The stone giant cares little for your attempted intimidation.");
         return true;
     }
 
@@ -69,7 +67,7 @@ export class LivingStatue extends Monster {
 
     private concussiveBlow(): void {
         // Maybe replace this with passive stun? TERRIBLE IDEA
-        this.outputText(
+        this.outx(
             "The giant raises his hammer for an obvious downward strike. His marble muscles flex as he swings it downward. You're able to hop out of the way of the clearly telegraphed attack, but nothing could prepare you for the shockwave it emits as it craters the ground."
         );
 
@@ -79,39 +77,39 @@ export class LivingStatue extends Monster {
 
         // Stun success
         if (LivingStatue.rand(2) == 0 && this.player.findStatusAffect(StatusAffects.Stunned) < 0) {
-            this.outputText(
+            this.outx(
                 " <b>The vibrations leave you rattled and stunned. It'll take you a moment to recover!</b>"
             );
             this.player.createStatusAffect(StatusAffects.Stunned, 2, 0, 0, 0);
         }
         // Fail
         else {
-            this.outputText(
+            this.outx(
                 " You shake off the vibrations immediately. It'll take more than that to stop you!"
             );
         }
 
-        this.outputText(" (" + damage + ")");
+        this.outx(" (" + damage + ")");
     }
 
     private dirtKick(): void {
-        this.outputText(
+        this.outx(
             "The animated sculpture brings its right foot around, dragging it through the gardens at a high enough speed to tear a half score of bushes out by the root. A cloud of shrubbery and dirt washes over you!"
         );
 
         // blind
         if (LivingStatue.rand(2) == 0 && this.player.findStatusAffect(StatusAffects.Blind) < 0) {
             this.player.createStatusAffect(StatusAffects.Blind, 2, 0, 0, 0);
-            this.outputText(" <b>You are blinded!</b>");
+            this.outx(" <b>You are blinded!</b>");
         } else {
             // Not blind
-            this.outputText(" You close your eyes until it passes and resume the fight!");
+            this.outx(" You close your eyes until it passes and resume the fight!");
         }
     }
 
     private backhand(): void {
         // Knocks you away and forces you to spend a turn running back to do melee attacks.
-        this.outputText(
+        this.outx(
             "The marble golem's visage twists into a grimace of irritation, and it swings its hand at you in a vicious backhand."
         );
 
@@ -126,10 +124,10 @@ export class LivingStatue extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         )
-            this.outputText(" You slide underneath the surprise swing!");
+            this.outx(" You slide underneath the surprise swing!");
         else {
             // Get hit
-            this.outputText(
+            this.outx(
                 " It chits you square in the chest. The momentum sends you flying through the air. You land with a crunch against a wall. <b>You'll have to run back to the giant to engage it in melee once more.</b>"
             );
 
@@ -137,13 +135,13 @@ export class LivingStatue extends Monster {
             this.createStatusAffect(StatusAffects.KnockedBack, 0, 0, 0, 0); // Applying to mob as a "used ability" marker
             damage = this.player.takeDamage(damage);
 
-            this.outputText(" (" + damage + ")");
+            this.outx(" (" + damage + ")");
         }
     }
 
     private overhandSmash(): void {
         // High damage, lowish accuracy.
-        this.outputText(
+        this.outx(
             "Raising its hammer high overhead, the giant swiftly brings its hammer down in a punishing strike!"
         );
 
@@ -163,17 +161,17 @@ export class LivingStatue extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         )
-            this.outputText(" You're able to sidestep it just in time.");
+            this.outx(" You're able to sidestep it just in time.");
         else {
             // Hit
-            this.outputText(" The concussive strike impacts you with bonecrushing force.");
+            this.outx(" The concussive strike impacts you with bonecrushing force.");
             damage = this.player.takeDamage(damage);
-            this.outputText(" (" + damage + ")");
+            this.outx(" (" + damage + ")");
         }
     }
 
     private disarm(): void {
-        this.outputText(
+        this.outx(
             "The animated statue spins its hammer around, striking at your [weapon] with its haft."
         );
 
@@ -184,10 +182,10 @@ export class LivingStatue extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         )
-            this.outputText(" You manage to hold onto your equipment, for now.");
+            this.outx(" You manage to hold onto your equipment, for now.");
         // Oh noes!
         else {
-            this.outputText(
+            this.outx(
                 " Your equipment flies off into the bushes! You'll have to fight another way. (" +
                     this.player.takeDamage(this.str + this.weaponAttack) +
                     ")"
@@ -205,7 +203,7 @@ export class LivingStatue extends Monster {
 
     private cycloneStrike(): void {
         // Difficult to avoid, moderate damage.
-        this.outputText(
+        this.outx(
             "Twisting back, the giant abruptly launches into a circular spin. Its hammer stays low enough to the ground that its circular path is tearing a swath of destruction through the once pristine garden, and it's coming in your direction!"
         );
 
@@ -226,12 +224,12 @@ export class LivingStatue extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         )
-            this.outputText(" By the grace of the gods, you somehow avoid the spinning hammer.");
+            this.outx(" By the grace of the gods, you somehow avoid the spinning hammer.");
         else {
             // Hit
-            this.outputText(" You're squarely struck by the spinning hammer.");
+            this.outx(" You're squarely struck by the spinning hammer.");
             damage = this.player.takeDamage(damage);
-            this.outputText(" (" + damage + ")");
+            this.outx(" (" + damage + ")");
         }
     }
 

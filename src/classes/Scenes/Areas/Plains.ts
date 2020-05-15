@@ -17,7 +17,7 @@ export class Plains extends BaseContent {
     public satyrScene: SatyrScene = new SatyrScene();
 
     public explorePlains(): void {
-        this.outputText("", true);
+        this.outx("", true);
         this.flags[kFLAGS.TIMES_EXPLORED_PLAINS]++;
         // Dem Kangasluts!  Force Sheila relationship phase!
         if (
@@ -134,13 +134,13 @@ export class Plains extends BaseContent {
     private plainsLoot(): void {
         if (Plains.rand(2) == 0) {
             // OVI
-            this.outputText(
+            this.outx(
                 "While exploring the plains you nearly trip over a discarded, hexagonal bottle.  "
             );
             this.inventory.takeItem(this.consumables.OVIELIX, this.camp.returnToCampUseOneHour);
         } else {
             // FIND KANGAAA
-            this.outputText(
+            this.outx(
                 "While exploring the plains you come across a strange-looking plant.  As you peer at it, you realize it has some fruit you can get at.  "
             );
             this.inventory.takeItem(this.consumables.KANGAFT, this.camp.returnToCampUseOneHour);

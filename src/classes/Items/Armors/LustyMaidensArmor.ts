@@ -34,64 +34,64 @@ export class LustyMaidensArmor extends Armor {
     public canUse(): boolean {
         if (this.game.player.biggestTitSize() < CoC.BREAST_CUP_A) {
             // {No titties}
-            this.outputText(
+            this.outx(
                 "You slide the bikini top over your chest and buckle it into place, but the material hangs almost comically across your flat chest.  The cold chain dangles away from you, swaying around ridiculously before smacking, cold and hard into your [nipples].  This simply won't do - it doesn't fit you, and you switch back to your old armor.\n\n"
             );
             return false;
         }
         if (this.game.player.biggestTitSize() < CoC.BREAST_CUP_D) {
             // {Too small titties}
-            this.outputText(
+            this.outx(
                 "You slide the bikini top over your chest, shivering when the cold chains catch on your nipples, stiffening them nicely. The material nicely accentuates your chest, but there's a definite problem.  Your [chest] aren't big enough!  Sure, they look nice done up in glittering silver and gold trim.  If only the metal wasn't hanging loosely around your underbust, flopping around whenever you move.  It doesn't even look that sexy on you!  You'll need a bigger chest to truly make use of this armor.  For now, you switch back to your old equipment.\n\n"
             );
             return false;
         }
-        this.outputText(
+        this.outx(
             "You slide the bikini top over your more than ample chest, shivering at the touch of the cold metal on your sensitive nipples.  It stretches taut around each of your globes, and by the time you're snapping the narrow leather strap behind your back, the exotic metal bra has grown warm enough to make your chest tingle pleasantly.  Your hands find their way to your jiggling, gilded mounds and grab hold, fingers sinking into the shimmering flesh without meaning to.  Your nipples scrape along a diaphanous inner lining so pleasantly that a moan slips out of your mouth as you admire how your cleavage bulges out above the glittery cups.  A narrow band of steel with a shiny black leather thong underneath connects the two halfs of the top, padded for comfort but pulled away from you by the sheer size of your straining bosoms."
         );
-        this.outputText(
+        this.outx(
             "\n\nAs you examine the material, you realize that leather band isn't just padding.  It's as slippery as butter on grease and has a subtle indentation, one that would let it perfectly cushion something round, thick... and throbbing.  Your cheeks color when you catch yourself thinking of titfucking some beast while dressed in this outfit, taking a thick load of monster or dick-girl seed right over your cleavage, face, and hair.  You could even line it up with your mouth and drink down a few swallows if you wanted to."
         );
-        this.outputText(
+        this.outx(
             "\n\nYou shake your head and smile ruefully - maybe once you finish getting dressed!  There's still a bottom to put on, after all.  Regardless, one of your hands keeps coming to rest on your boob, idly groping and fondling your heavy tit whenever you have a free moment.  This sure is some fun armor!"
         );
         this.game.dynStats("lus", 25, "resisted", false);
-        this.outputText(
+        this.outx(
             "\n\nNow, the bottom is a leather thong and skirt combination.  The thong itself is leather dyed radiant white, with intricate gold filigree covering the front triangle.  On the back triangle, there's a similar pattern, though you could swear that from a distance the pattern looks a bit like arrows pointing towards where your [asshole] will be with golden sperm surrounding them. No, that has to be your imagination.  All this time in this strange land must really be getting to you!  Both pieces are molded to accentuate the female form, with a crease in the gusset that will rest over your vagina, ensuring "
         );
         if (this.game.player.hasCock() || this.game.player.balls > 0) {
-            this.outputText("that it won't fit you ");
+            this.outx("that it won't fit you ");
             if (this.game.player.hasCock())
-                this.outputText("or your " + this.game.player.multiCockDescriptLight());
-            else this.outputText("or your [balls]");
-            this.outputText(" at all!  <b>You put your old gear back on with a sigh</b>.");
+                this.outx("or your " + this.game.player.multiCockDescriptLight());
+            else this.outx("or your [balls]");
+            this.outx(" at all!  <b>You put your old gear back on with a sigh</b>.");
             return false;
         } else if (!this.game.player.hasVagina()) {
-            this.outputText(
+            this.outx(
                 "that it will dig uncomfortably into your featureless groin.  <b>You put your old gear back on with a sigh</b>."
             );
             return false;
         }
-        this.outputText("your [vagina] is prominently displaying your camel-toe for all to see.");
-        this.outputText(
+        this.outx("your [vagina] is prominently displaying your camel-toe for all to see.");
+        this.outx(
             "\n\nYou don't give it a second thought, sliding the white thong snugly into place.  Snug warmth slides right up against your mound, the perfectly formed crease slipping right into your labia, where it belongs, "
         );
         if (this.game.player.vaginas[0].virgin) {
-            this.outputText(
+            this.outx(
                 "a tight seal over your chastity, displaying your womanly status while guarding your maidenhead at the same time.  A smug, smile tugs at the corners of your mouth - who would take your virginity when they can tit-fuck your tits or fuck your butt?"
             );
-            if (this.game.player.cor < 33) this.outputText("  Wait, that isn't right...");
+            if (this.game.player.cor < 33) this.outx("  Wait, that isn't right...");
         } else {
-            this.outputText(
+            this.outx(
                 "a tight seal over your previously-claimed cunt.  Regret fills you when you realize you could have kept your chastity intact simply by servicing the lusty studs and monsters with your ass and tits."
             );
         }
         if (this.game.player.wetness() >= 3)
-            this.outputText(
+            this.outx(
                 "  The moisture you normally drip seems to soak right into the gusset instead of running down your [legs] like normal, giving you a much more chaste appearance in spite of the lewd garments that even now seem to shape your femininity and [butt] into perfectly arousing shapes."
             );
 
-        this.outputText(
+        this.outx(
             "\n\nLast is the chain skirt - perhaps the easiest part to put on.  It's barely three inches long, such that it exposes your [butt] almost entirely, and when you bend over, fully.  The bottom of your vaginal crease can be spied as well, and should you desire to show yourself off, a simple stretch or tug would put you completely on display.  You wiggle about, watching the reflective material ripple almost hypnotically, one hand still on your boobs, mauling at your own tits with passion.  THIS is how a chaste champion should dress - perfectly modest but full of erotic energy to overwhelm her enemies with!\n\n"
         );
         return true;
@@ -131,7 +131,7 @@ export class LustyMaidensArmor extends Armor {
         if (player == undefined) player = this.game.player;
         if (monster == undefined) monster = this.game.monster;
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "You make sure " +
                 monster.a +
                 monster.short +
@@ -142,7 +142,7 @@ export class LustyMaidensArmor extends Armor {
                 " exposed to the air"
         );
         if (monster.lust < 50)
-            this.outputText(
+            this.outx(
                 ", soft and not yet ready.  You purr throatily as you touch the burgeoning boner, tracing your thumb across the sensitive urethral bulge.  It pulses slowly at your touch, and the base begins to fill with blood, thickening against your palm.  You splay your remaining fingers just under the " +
                     monster.cockHead() +
                     ", tickling around the glans until that too is flooding with blood, expanding under your caresses until it slowly lifts away from " +
@@ -150,7 +150,7 @@ export class LustyMaidensArmor extends Armor {
                     " abdomen."
             );
         else if (monster.lust < 100)
-            this.outputText(
+            this.outx(
                 ", nicely turgid but quite ready to feel the sensuous pleasure of your girls' tight squeeze.  You lean over the defeated foe and kiss the rod just under the " +
                     monster.cockHead() +
                     ", smiling when it expands under your slow kisses.  Your fingers move up to play with the sensitive, urethral bulge that runs along the underside, and in no time, " +
@@ -161,7 +161,7 @@ export class LustyMaidensArmor extends Armor {
                     " member is lifting up on its own."
             );
         else
-            this.outputText(
+            this.outx(
                 ", bouncing with each beat of " +
                     monster.pronoun3 +
                     " heart, thick beads of pre dribbling from " +
@@ -174,7 +174,7 @@ export class LustyMaidensArmor extends Armor {
                     monster.pronoun1 +
                     "'s saved up for you."
             );
-        this.outputText(
+        this.outx(
             "\n\nYour own moistness has risen to uncomfortable levels, and the sticky seal of your g-string's curvy front panel slips oh-so-slightly across your hot, hard clitty, something that makes your [legs] weak and your arms quake.  The leather fold on the front of your undergarments is so slippery that each movement has it shifting and shuffling across your nethers, a tiny bit at a time.  Already, you have your [butt] up in the air, shaking it back and forth for more of the delicious friction.  The motion only exacerbates the jiggling your [chest] are doing inside their tight containment.  " +
                 monster.capitalA +
                 monster.short +
@@ -185,7 +185,7 @@ export class LustyMaidensArmor extends Armor {
                 " enjoys the inadvertent show you're giving."
         );
 
-        this.outputText(
+        this.outx(
             "\n\n\"<i>Such lascivious behavior!  I'll have to make sure you're thoroughly purified,</i>\" you state matter-of-factly with a feigned serious look on your blushing [face].  To put proof to your taunt, you grab the throbbing shaft by the base and aim it straight up, dropping your [chest] down on either side.  The slippery, self-lubricating leather that joins the cups of your sexy, chainmail bra together loops over the top of the " +
                 monster.cockDescriptShort(0) +
                 " to properly restrain it, pinned in the slick, sweaty valley you call your cleavage.  It thrums happily against your " +
@@ -193,19 +193,18 @@ export class LustyMaidensArmor extends Armor {
                 " when you compress the jiggly flesh around it, leaning down to let it feel pleasure that rivals any pussy, no matter how wet or skilled."
         );
 
-        this.outputText(
+        this.outx(
             "\n\nYou smile at your defeated foe as you begin to bob over " +
                 monster.pronoun2 +
                 ", and you find more words coming from your lips without meaning to speak.  \"<i>That's better.  You really shouldn't go around trying to fuck everyone like that!  Pussies are "
         );
-        if (!player.hasVirginVagina())
-            this.outputText("a gift too fine for a selfish brute like you");
-        else this.outputText("sacred and to be shared only with a cherished loved one");
-        this.outputText(
+        if (!player.hasVirginVagina()) this.outx("a gift too fine for a selfish brute like you");
+        else this.outx("sacred and to be shared only with a cherished loved one");
+        this.outx(
             "!  Now, I'm going to squeeze all the impure thoughts out of you through your cock, so you just lie there and focus on letting them out all over my breasts.</i>\""
         );
 
-        this.outputText(
+        this.outx(
             "\n\n" +
                 monster.capitalA +
                 monster.short +
@@ -216,7 +215,7 @@ export class LustyMaidensArmor extends Armor {
                 " base"
         );
         if (monster.balls > 0)
-            this.outputText(
+            this.outx(
                 " and fondle " +
                     monster.pronoun3 +
                     " balls one-handed, squeezing the virile orbs to try and coax more of " +
@@ -224,7 +223,7 @@ export class LustyMaidensArmor extends Armor {
                     " dirty, perverted thoughts to distill into salty seed"
             );
         else if (monster.short == "anemone")
-            this.outputText(
+            this.outx(
                 " and stroke " +
                     monster.pronoun3 +
                     " taint, even brushing over the featureless spot where an asshole would be, if she had one, to try and coax more of " +
@@ -232,7 +231,7 @@ export class LustyMaidensArmor extends Armor {
                     " dirty, perverted thoughts to distill into salty seed"
             );
         else
-            this.outputText(
+            this.outx(
                 " and stroke " +
                     monster.pronoun3 +
                     " taint, even brushing close to " +
@@ -241,7 +240,7 @@ export class LustyMaidensArmor extends Armor {
                     monster.pronoun3 +
                     " dirty, perverted thoughts to distill into salty seed"
             );
-        this.outputText(
+        this.outx(
             ".  A startled moan slips out of " +
                 monster.pronoun3 +
                 " lips, but you're just getting warmed up.  You dive down onto " +
@@ -253,31 +252,30 @@ export class LustyMaidensArmor extends Armor {
                 " straight into your mouth with a smooth gulp."
         );
         if (monster.cockArea(0) >= 80)
-            this.outputText(
+            this.outx(
                 "  It's so big and strong that it pushes right into your throat, stretching out your neck in the shape of the intruding cock."
             );
-        this.outputText(
+        this.outx(
             "  The strong, pulsing cock feels so good inside your mouth, like it belongs there, and you can't help but think that you're doing a good deed by helping " +
                 monster.a +
                 monster.short +
                 " empty every last perverse desire onto your purifying breasts."
         );
 
-        this.outputText(
+        this.outx(
             "\n\nUp and down, up and down, you slide across the expansive member with unhurried, slow strokes, each time making your [chest] bounce beautifully.  Your [nipples] are so hard"
         );
-        if (player.hasFuckableNipples() || player.lactationQ() >= 100)
-            this.outputText(", dripping,");
-        this.outputText(
+        if (player.hasFuckableNipples() || player.lactationQ() >= 100) this.outx(", dripping,");
+        this.outx(
             " and sensitive, scraping around the nebulous inner lining of your bikini and occasionally catching on the metal that feels even warmer than normal.  Behind you, your [butt] is bouncing happily to the rhythm your corruption-devouring breasts have set, the thong digging tightly into your [vagina] in the most exquisite way.  You feel so hot and sensual, but still secure in the knowledge that you won't have to worry about such a creature ravaging your "
         );
-        if (player.hasVirginVagina()) this.outputText("maidenhead");
-        else this.outputText("sloppy gash");
-        this.outputText(
+        if (player.hasVirginVagina()) this.outx("maidenhead");
+        else this.outx("sloppy gash");
+        this.outx(
             ".  Still, you're not sure how much hotter you can get before you're cumming all over your g-string, letting your own dark thoughts seep into your magical underwear."
         );
 
-        this.outputText(
+        this.outx(
             "\n\nBelow you, " +
                 monster.a +
                 monster.short +
@@ -287,24 +285,24 @@ export class LustyMaidensArmor extends Armor {
                 monster.pronoun3 +
                 " passion mounts.  You pull back"
         );
-        if (monster.cockArea(0) >= 80) this.outputText(" with a messy cough to clear your throat");
-        this.outputText(
+        if (monster.cockArea(0) >= 80) this.outx(" with a messy cough to clear your throat");
+        this.outx(
             " and tease, \"<i>Oh, you're going to cum already, aren't you?  Well, go ahead then.</i>\"  You pump your [chest] faster against the twitching rod and smile when a thick bead of pre sloughs off into your squishy boobs, smearing across your " +
                 player.skin() +
                 '.  You kiss it, licking the dollop that slips out of the dilating cum-slit before commanding, "<i>Cum for me, ' +
                 monster.mf("boy", "girl") +
                 '.  Let it allll out.</i>"'
         );
-        this.outputText("\n\n" + monster.capitalA + monster.short + " groans and shakes");
+        this.outx("\n\n" + monster.capitalA + monster.short + " groans and shakes");
         if (monster.balls > 0)
-            this.outputText(
+            this.outx(
                 ", " +
                     monster.pronoun3 +
                     " balls pumping and bouncing in " +
                     monster.pronoun3 +
                     " sack"
             );
-        this.outputText(
+        this.outx(
             ", " +
                 monster.pronoun3 +
                 ' urethra swollen with the heavy load about to explode out of it.  "<i>Drain out all that nasty jizz,</i>" you quip as you bottom your breasts down on ' +
@@ -315,10 +313,10 @@ export class LustyMaidensArmor extends Armor {
                 monster.pronoun3 +
                 " naughty thoughts thanks to your cleavage gets you so fucking hot that your [hips] begin to shake spastically."
         );
-        this.outputText(
+        this.outx(
             "\n\nYou do your best to hold on to the pumping cock while it fires spastic ropes into your mouth, but the way your undies are digging into your [vagina] and grinding across your [clit], you simply lack the control to keep it up.  You throw back your head and cry out ecstatically, taking the next ejaculation in a long line across your cheek, up your nose, and onto your forehead.  Again and again, long ropes of tainted jizz spatter all over your face, dripping messily over the exposed tops of your teats.  You lick your lips while you cream the inside of your [armor] with girlish love-goo, feeling such immense pleasure at letting your own impure desires out into the armor.  More jets, weaker than the early ones, crest from the bouncing cock-tip to fall weakly over your well-slicked mammaries."
         );
-        this.outputText(
+        this.outx(
             "\n\nYou seize " +
                 monster.a +
                 monster.short +
@@ -337,7 +335,7 @@ export class LustyMaidensArmor extends Armor {
                 " behind you."
         );
 
-        this.outputText(
+        this.outx(
             "\n\nThe stink of sperm slowly fades as you move, almost seeming to absorb into your skin.  It leaves you with a healthy glow and a surety to your movements, sure that your revealing armor is going to protect you."
         );
         // Slimefeed, minus slight corruption if PC is a virgin, raise sensitivity

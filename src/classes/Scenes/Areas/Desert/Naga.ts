@@ -19,12 +19,12 @@ export class Naga extends Monster {
     protected nagaPoisonBiteAttack(): void {
         // (Deals damage over 4-5 turns, invariably reducing
         // your speed. It wears off once combat is over.)
-        this.outputText(
+        this.outx(
             "The naga strikes with the speed of a cobra, sinking her fangs into your flesh!  ",
             false
         );
         if (this.player.findStatusAffect(StatusAffects.NagaVenom) < 0) {
-            this.outputText(
+            this.outx(
                 "The venom's effects are almost instantaneous; your vision begins to blur and it becomes increasingly harder to stand.",
                 false
             );
@@ -41,7 +41,7 @@ export class Naga extends Monster {
             }
             this.player.takeDamage(5 + Naga.rand(5));
         } else {
-            this.outputText(
+            this.outx(
                 "The venom's effects intensify as your vision begins to blur and it becomes increasingly harder to stand.",
                 false
             );
@@ -61,7 +61,7 @@ export class Naga extends Monster {
     // 2b)  Ability - Constrict - entangles player, raises lust
     // every turn until you break free
     protected nagaConstrict(): void {
-        this.outputText(
+        this.outx(
             "The naga draws close and suddenly wraps herself around you, binding you in place! You can't help but feel strangely aroused by the sensation of her scales rubbing against your body. All you can do is struggle as she begins to squeeze tighter!",
             false
         );
@@ -73,10 +73,10 @@ export class Naga extends Monster {
     // 2c) Abiliy - Tail Whip - minus ??? HP
     // (base it on toughness?)
     protected nagaTailWhip(): void {
-        this.outputText("The naga tenses and twists herself forcefully.  ");
+        this.outx("The naga tenses and twists herself forcefully.  ");
         // [if evaded]
         if (this.player.findPerk(PerkLib.Evade) && Naga.rand(6) == 0) {
-            this.outputText(
+            this.outx(
                 "You see her tail whipping toward you and evade it at the last second. You quickly roll back onto your feet.",
                 false
             );
@@ -85,7 +85,7 @@ export class Naga extends Monster {
             Naga.rand(100) < 10 &&
             this.player.armorName == "red, high-society bodysuit"
         ) {
-            this.outputText(
+            this.outx(
                 "Using Raphael's teachings and the movement afforded by your bodysuit, you anticipate and sidestep " +
                     this.a +
                     this.short +
@@ -93,12 +93,12 @@ export class Naga extends Monster {
                 false
             );
         } else if (this.player.spe > Naga.rand(300)) {
-            this.outputText(
+            this.outx(
                 "You see her tail whipping toward you and jump out of the way at the last second. You quickly roll back onto your feet.",
                 false
             );
         } else {
-            this.outputText(
+            this.outx(
                 "Before you can even think, you feel a sharp pain at your side as the naga's tail slams into you and shoves you into the sands. You pick yourself up, wincing at the pain in your side.",
                 false
             );
@@ -106,7 +106,7 @@ export class Naga extends Monster {
             if (this.player.armorDef < 10) damage += 10 - this.player.armorDef;
             damage += Naga.rand(3);
             damage = this.player.takeDamage(damage);
-            this.outputText(" (" + damage + ")", false);
+            this.outx(" (" + damage + ")", false);
         }
         this.combatRoundOver();
     }
@@ -117,7 +117,7 @@ export class Naga extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText(
+            this.outx(
                 "\n\nThe naga's eyes go wide and she turns to leave, no longer interested in you.",
                 false
             );

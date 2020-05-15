@@ -17,7 +17,7 @@ export class SharkGirl extends Monster {
     private sharkTease(): void {
         this.game.spriteSelect(70);
         if (SharkGirl.rand(2) == 0) {
-            this.outputText(
+            this.outx(
                 'You charge at the shark girl, prepared to strike again, but stop dead in your tracks when she bends over and wiggles her toned ass towards you. It distracts you long enough for her tail to swing out and smack you to the ground. She coos, "<i>Aw... You really do like me!</i>"',
                 false
             );
@@ -25,7 +25,7 @@ export class SharkGirl extends Monster {
             this.player.takeDamage(4 + SharkGirl.rand(4));
             this.game.dynStats("lus", 10 + this.player.lib / 20);
         } else {
-            this.outputText(
+            this.outx(
                 "You pull your " +
                     this.player.weaponName +
                     " back, getting a running start to land another attack. The Shark girl smirks and pulls up her bikini top, shaking her perky breasts in your direction. You stop abruptly, aroused by the sight just long enough for the shark girl to kick you across the face and knock you to the ground.  She teases, \"<i>Aw, don't worry baby, you're gonna get the full package in a moment!</i>\"",
@@ -43,7 +43,7 @@ export class SharkGirl extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nYour foe doesn't seem disgusted enough to leave...");
+            this.outx("\n\nYour foe doesn't seem disgusted enough to leave...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.boat.sharkGirlScene.sharkLossRape();

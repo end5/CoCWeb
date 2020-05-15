@@ -19,7 +19,7 @@ export class Akbal extends Monster {
         let damage = 0;
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
-            this.outputText(
+            this.outx(
                 this.capitalA +
                     this.short +
                     " seems to have no problem guiding his attacks towards you, despite his blindness.\n",
@@ -32,12 +32,12 @@ export class Akbal extends Monster {
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             if (this.player.spe - this.spe < 8)
-                this.outputText(
+                this.outx(
                     "You narrowly avoid " + this.a + this.short + "'s " + this.weaponVerb + "!",
                     false
                 );
             if (this.player.spe - this.spe >= 8 && this.player.spe - this.spe < 20)
-                this.outputText(
+                this.outx(
                     "You dodge " +
                         this.a +
                         this.short +
@@ -47,7 +47,7 @@ export class Akbal extends Monster {
                     false
                 );
             if (this.player.spe - this.spe >= 20)
-                this.outputText(
+                this.outx(
                     "You deftly avoid " + this.a + this.short + "'s slow " + this.weaponVerb + ".",
                     false
                 );
@@ -56,7 +56,7 @@ export class Akbal extends Monster {
         }
         // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Akbal.rand(100) < 10) {
-            this.outputText(
+            this.outx(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
                     this.a +
                     this.short +
@@ -68,7 +68,7 @@ export class Akbal extends Monster {
         }
         // Determine if flexibilitied
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Akbal.rand(100) < 10) {
-            this.outputText(
+            this.outx(
                 "Using your cat-like agility, you twist out of the way of " +
                     this.a +
                     this.short +
@@ -89,15 +89,15 @@ export class Akbal extends Monster {
                     this.player.armorDef
             );
             if (damage <= 0) {
-                this.outputText("Akbal lunges forwards but with your toughness");
+                this.outx("Akbal lunges forwards but with your toughness");
                 if (this.player.armorDef > 0)
-                    this.outputText(
+                    this.outx(
                         " and " + this.player.armorName + ", he fails to deal any damage.",
                         false
                     );
-                else this.outputText(" he fails to deal any damage.");
+                else this.outx(" he fails to deal any damage.");
             } else {
-                this.outputText(
+                this.outx(
                     "Akbal rushes at you, his claws like lightning as they leave four red-hot lines of pain across your stomach.",
                     false
                 );
@@ -114,14 +114,14 @@ export class Akbal extends Monster {
                     this.player.armorDef
             );
             if (damage == 0) {
-                this.outputText("Akbal lunges forwards but between your toughness ");
+                this.outx("Akbal lunges forwards but between your toughness ");
                 if (this.player.armorDef > 0)
-                    this.outputText(
+                    this.outx(
                         "and " + this.player.armorName + ", he fails to deal any damage.",
                         false
                     );
             } else {
-                this.outputText(
+                this.outx(
                     "Akbal snarls as he flies towards you, snapping his ivory teeth on your arm. You scream out in pain as you throw him off.",
                     false
                 );
@@ -143,7 +143,7 @@ export class Akbal extends Monster {
     public akbalLustAttack(): void {
         // *Lust Attack -
         if (this.player.findStatusAffect(StatusAffects.Whispered) < 0) {
-            this.outputText(
+            this.outx(
                 "You hear whispering in your head. Akbal begins speaking to you as he circles you, telling all the ways he'll dominate you once he beats the fight out of you.",
                 false
             );
@@ -153,7 +153,7 @@ export class Akbal extends Monster {
         }
         // Continuous Lust Attack -
         else {
-            this.outputText(
+            this.outx(
                 "The whispering in your head grows, many voices of undetermined sex telling you all the things the demon wishes to do to you. You can only blush.",
                 false
             );
@@ -167,7 +167,7 @@ export class Akbal extends Monster {
         // *Special Attack A -
         if (Akbal.rand(2) == 0 && this.player.spe > 20) {
             const speedChange: number = (this.player.spe / 5) * -1;
-            this.outputText(
+            this.outx(
                 "Akbal's eyes fill with light, and a strange sense of fear begins to paralyze your limbs.",
                 false
             );
@@ -179,7 +179,7 @@ export class Akbal extends Monster {
         }
         // *Special Attack B -
         else {
-            this.outputText(
+            this.outx(
                 "Akbal releases an ear-splitting roar, hurling a torrent of emerald green flames towards you.\n",
                 false
             );
@@ -190,17 +190,14 @@ export class Akbal extends Monster {
                 Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
             ) {
                 if (this.player.spe - this.spe < 8)
-                    this.outputText(
-                        "You narrowly avoid " + this.a + this.short + "'s fire!",
-                        false
-                    );
+                    this.outx("You narrowly avoid " + this.a + this.short + "'s fire!", false);
                 if (this.player.spe - this.spe >= 8 && this.player.spe - this.spe < 20)
-                    this.outputText(
+                    this.outx(
                         "You dodge " + this.a + this.short + "'s fire with superior quickness!",
                         false
                     );
                 if (this.player.spe - this.spe >= 20)
-                    this.outputText(
+                    this.outx(
                         "You deftly avoid " + this.a + this.short + "'s slow fire-breath.",
                         false
                     );
@@ -209,7 +206,7 @@ export class Akbal extends Monster {
             }
             // Determine if evaded
             if (this.player.findPerk(PerkLib.Evade) >= 0 && Akbal.rand(100) < 20) {
-                this.outputText(
+                this.outx(
                     "Using your skills at evading attacks, you anticipate and sidestep " +
                         this.a +
                         this.short +
@@ -221,7 +218,7 @@ export class Akbal extends Monster {
             }
             // Determine if flexibilitied
             if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Akbal.rand(100) < 10) {
-                this.outputText(
+                this.outx(
                     "Using your cat-like agility, you contort your body to avoid " +
                         this.a +
                         this.short +
@@ -231,7 +228,7 @@ export class Akbal extends Monster {
                 this.game.combatRoundOver();
                 return;
             }
-            this.outputText(
+            this.outx(
                 "You are burned badly by the flames! (" + this.player.takeDamage(40) + ")",
                 false
             );
@@ -241,10 +238,9 @@ export class Akbal extends Monster {
 
     // *Support ability -
     public akbalHeal(): void {
-        if (this.HPRatio() >= 1)
-            this.outputText("Akbal licks himself, ignoring you for now.");
+        if (this.HPRatio() >= 1) this.outx("Akbal licks himself, ignoring you for now.");
         else
-            this.outputText(
+            this.outx(
                 "Akbal licks one of his wounds, and you scowl as the injury quickly heals itself.",
                 false
             );

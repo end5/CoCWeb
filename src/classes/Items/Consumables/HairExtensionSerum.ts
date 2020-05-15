@@ -18,27 +18,27 @@ export class HairExtensionSerum extends Consumable {
 
     public canUse(): boolean {
         if (this.game.flags[kFLAGS.INCREASED_HAIR_GROWTH_SERUM_TIMES_APPLIED] <= 2) return true;
-        this.outputText(
+        this.outx(
             "<b>No way!</b>  Your head itches like mad from using the rest of these, and you will NOT use another.\n"
         );
         return false;
     }
 
     public useItem(): boolean {
-        this.outputText(
+        this.outx(
             "You open the bottle of hair extension serum and follow the directions carefully, massaging it into your scalp and being careful to keep it from getting on any other skin.  You wash off your hands with lakewater just to be sure."
         );
         if (this.game.flags[kFLAGS.INCREASED_HAIR_GROWTH_TIME_REMAINING] <= 0) {
-            this.outputText("\n\nThe tingling on your head lets you know that it's working!");
+            this.outx("\n\nThe tingling on your head lets you know that it's working!");
             this.game.flags[kFLAGS.INCREASED_HAIR_GROWTH_TIME_REMAINING] = 7;
             this.game.flags[kFLAGS.INCREASED_HAIR_GROWTH_SERUM_TIMES_APPLIED] = 1;
         } else if (this.game.flags[kFLAGS.INCREASED_HAIR_GROWTH_SERUM_TIMES_APPLIED] == 1) {
-            this.outputText(
+            this.outx(
                 "\n\nThe tingling intensifies, nearly making you feel like tiny invisible faeries are massaging your scalp."
             );
             this.game.flags[kFLAGS.INCREASED_HAIR_GROWTH_SERUM_TIMES_APPLIED]++;
         } else if (this.game.flags[kFLAGS.INCREASED_HAIR_GROWTH_SERUM_TIMES_APPLIED] == 2) {
-            this.outputText(
+            this.outx(
                 "\n\nThe tingling on your scalp is intolerable!  It's like your head is a swarm of angry ants, though you could swear your hair is growing so fast that you can feel it weighing you down more and more!"
             );
             this.game.flags[kFLAGS.INCREASED_HAIR_GROWTH_SERUM_TIMES_APPLIED]++;
@@ -48,7 +48,7 @@ export class HairExtensionSerum extends Consumable {
             this.game.player.hairType != 4
         ) {
             this.game.flags[kFLAGS.HAIR_GROWTH_STOPPED_BECAUSE_LIZARD] = 0;
-            this.outputText(
+            this.outx(
                 "\n\n<b>Somehow you know that your " +
                     this.game.player.hairDescript() +
                     " is growing again.</b>"

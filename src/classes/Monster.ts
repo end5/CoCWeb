@@ -37,8 +37,8 @@ export class Monster extends Creature {
     protected get player(): Player {
         return this.game.player;
     }
-    protected outputText(text: string, clear = false): void {
-        this.game.outputText(text, clear);
+    protected outx(text: string, clear = false): void {
+        this.game.outx(text, clear);
     }
     protected combatRoundOver(): void {
         this.game.combatRoundOver();
@@ -635,7 +635,7 @@ export class Monster extends Creature {
                 this.outputAttack(damage);
                 this.postAttack(damage);
                 this.game.statScreenRefresh();
-                this.outputText("\n", false);
+                this.outx("\n", false);
             }
             if (this.statusAffectv1(StatusAffects.Attacks) >= 0) {
                 this.addStatusValue(StatusAffects.Attacks, 1, -1);
@@ -657,7 +657,7 @@ export class Monster extends Creature {
         if (damage > 0) {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
                 if (!this.plural)
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -665,7 +665,7 @@ export class Monster extends Creature {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -681,7 +681,7 @@ export class Monster extends Creature {
         if (damage <= 0) {
             // Due to toughness or amor...
             if (Monster.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
-                this.outputText(
+                this.outx(
                     "You absorb and deflect every " +
                         this.weaponVerb +
                         " with your " +
@@ -691,7 +691,7 @@ export class Monster extends Creature {
                 );
             else {
                 if (this.plural)
-                    this.outputText(
+                    this.outx(
                         "You deflect and block every " +
                             this.weaponVerb +
                             " " +
@@ -701,7 +701,7 @@ export class Monster extends Creature {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "You deflect and block every " +
                             this.weaponVerb +
                             " " +
@@ -712,18 +712,18 @@ export class Monster extends Creature {
                     );
             }
         } else if (damage < 6)
-            this.outputText(
+            this.outx(
                 "You are struck a glancing blow by " + this.a + this.short + "! (" + damage + ")",
                 false
             );
         else if (damage < 11) {
-            this.outputText(this.capitalA + this.short + " wound");
-            if (!this.plural) this.outputText("s");
-            this.outputText(" you! (" + damage + ")", false);
+            this.outx(this.capitalA + this.short + " wound");
+            if (!this.plural) this.outx("s");
+            this.outx(" you! (" + damage + ")", false);
         } else if (damage < 21) {
-            this.outputText(this.capitalA + this.short + " stagger");
-            if (!this.plural) this.outputText("s");
-            this.outputText(
+            this.outx(this.capitalA + this.short + " stagger");
+            if (!this.plural) this.outx("s");
+            this.outx(
                 " you with the force of " +
                     this.pronoun3 +
                     " " +
@@ -734,9 +734,9 @@ export class Monster extends Creature {
                 false
             );
         } else if (damage > 20) {
-            this.outputText(this.capitalA + this.short + " <b>mutilate", false);
-            if (!this.plural) this.outputText("s");
-            this.outputText(
+            this.outx(this.capitalA + this.short + " <b>mutilate", false);
+            if (!this.plural) this.outx("s");
+            this.outx(
                 "</b> you with " +
                     this.pronoun3 +
                     " powerful " +
@@ -755,7 +755,7 @@ export class Monster extends Creature {
     protected handleBlind(): boolean {
         if (Monster.rand(3) < 2) {
             if (this.weaponVerb == "tongue-slap")
-                this.outputText(
+                this.outx(
                     this.capitalA +
                         this.short +
                         " completely misses you with a thrust from " +
@@ -764,7 +764,7 @@ export class Monster extends Creature {
                     false
                 );
             else
-                this.outputText(
+                this.outx(
                     this.capitalA + this.short + " completely misses you with a blind attack!\n",
                     false
                 );
@@ -778,12 +778,12 @@ export class Monster extends Creature {
      */
     protected outputPlayerDodged(dodge: number): void {
         if (dodge == 1)
-            this.outputText(
+            this.outx(
                 "You narrowly avoid " + this.a + this.short + "'s " + this.weaponVerb + "!\n",
                 false
             );
         else if (dodge == 2)
-            this.outputText(
+            this.outx(
                 "You dodge " +
                     this.a +
                     this.short +
@@ -793,10 +793,10 @@ export class Monster extends Creature {
                 false
             );
         else {
-            this.outputText("You deftly avoid " + this.a + this.short);
-            if (this.plural) this.outputText("'");
-            else this.outputText("'s");
-            this.outputText(" slow " + this.weaponVerb + ".\n", false);
+            this.outx("You deftly avoid " + this.a + this.short);
+            if (this.plural) this.outx("'");
+            else this.outx("'s");
+            this.outx(" slow " + this.weaponVerb + ".\n", false);
         }
     }
 
@@ -813,14 +813,14 @@ export class Monster extends Creature {
             this.player.findPerk(PerkLib.Evade) >= 0 &&
             Monster.rand(100) < 10
         ) {
-            this.outputText(
+            this.outx(
                 "Using your skills at evading attacks, you anticipate and sidestep " +
                     this.a +
                     this.short +
                     "'"
             );
-            if (!this.plural) this.outputText("s");
-            this.outputText(" attack.\n", false);
+            if (!this.plural) this.outx("s");
+            this.outx(" attack.\n", false);
             return true;
         }
         // ("Misdirection"
@@ -829,7 +829,7 @@ export class Monster extends Creature {
             Monster.rand(100) < 10 &&
             this.player.armorName == "red, high-society bodysuit"
         ) {
-            this.outputText(
+            this.outx(
                 "Using Raphael's teachings, you anticipate and sidestep " +
                     this.a +
                     this.short +
@@ -840,15 +840,15 @@ export class Monster extends Creature {
         }
         // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Monster.rand(100) < 6) {
-            this.outputText(
+            this.outx(
                 "With your incredible flexibility, you squeeze out of the way of " +
                     this.a +
                     this.short +
                     "",
                 false
             );
-            if (this.plural) this.outputText("' attacks.\n", false);
-            else this.outputText("'s attack.\n", false);
+            if (this.plural) this.outx("' attacks.\n", false);
+            else this.outx("'s attack.\n", false);
             return true;
         }
         return false;
@@ -867,7 +867,7 @@ export class Monster extends Creature {
             this.game.player.statusAffectv2(StatusAffects.Exgartuan) == 0 &&
             Monster.rand(3) == 0
         ) {
-            if (this.game.exgartuan.exgartuanCombatUpdate()) this.game.outputText("\n\n", false);
+            if (this.game.exgartuan.exgartuanCombatUpdate()) this.game.outx("\n\n", false);
         }
         if (this.findStatusAffect(StatusAffects.Constricted) >= 0) {
             if (!this.handleConstricted()) return;
@@ -892,7 +892,7 @@ export class Monster extends Creature {
          mainClassPtr.doNext(3);
          return;
          }
-         mainClassPtr.outputText("Lust Placeholder!!");
+         mainClassPtr.outx("Lust Placeholder!!");
          mainClassPtr.doNext(3);
          return;*/
         //
@@ -905,12 +905,12 @@ export class Monster extends Creature {
      */
     protected handleConstricted(): boolean {
         // Enemy struggles -
-        this.game.outputText(
+        this.game.outx(
             "Your prey pushes at your tail, twisting and writhing in an effort to escape from your tail's tight bonds.",
             false
         );
         if (this.statusAffectv1(StatusAffects.Constricted) <= 0) {
-            this.game.outputText(
+            this.game.outx(
                 "  " +
                     this.capitalA +
                     this.short +
@@ -931,13 +931,13 @@ export class Monster extends Creature {
         if (this.statusAffectv1(StatusAffects.Fear) == 0) {
             if (this.plural) {
                 this.removeStatusAffect(StatusAffects.Fear);
-                this.game.outputText(
+                this.game.outx(
                     "Your foes shake free of their fear and ready themselves for battle.",
                     false
                 );
             } else {
                 this.removeStatusAffect(StatusAffects.Fear);
-                this.game.outputText(
+                this.game.outx(
                     "Your foe shakes free of its fear and readies itself for battle.",
                     false
                 );
@@ -945,12 +945,12 @@ export class Monster extends Creature {
         } else {
             this.addStatusValue(StatusAffects.Fear, 1, -1);
             if (this.plural)
-                this.game.outputText(
+                this.game.outx(
                     this.capitalA + this.short + " are too busy shivering with fear to fight.",
                     false
                 );
             else
-                this.game.outputText(
+                this.game.outx(
                     this.capitalA + this.short + " is too busy shivering with fear to fight.",
                     false
                 );
@@ -964,12 +964,8 @@ export class Monster extends Creature {
      */
     protected handleStun(): boolean {
         if (this.plural)
-            this.game.outputText(
-                "Your foes are too dazed from your last hit to strike back!",
-                false
-            );
-        else
-            this.game.outputText("Your foe is too dazed from your last hit to strike back!");
+            this.game.outx("Your foes are too dazed from your last hit to strike back!", false);
+        else this.game.outx("Your foe is too dazed from your last hit to strike back!");
         if (this.statusAffectv1(StatusAffects.Stunned) <= 0)
             this.removeStatusAffect(StatusAffects.Stunned);
         else this.addStatusValue(StatusAffects.Stunned, 1, -1);
@@ -1008,9 +1004,9 @@ export class Monster extends Creature {
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (hpVictory) {
             this.player.HP = 1;
-            this.outputText("Your wounds are too great to bear, and you fall unconscious.", true);
+            this.outx("Your wounds are too great to bear, and you fall unconscious.", true);
         } else {
-            this.outputText(
+            this.outx(
                 "Your desire reaches uncontrollable levels, and you end up openly masturbating.\n\nThe lust and pleasure cause you to black out for hours on end.",
                 true
             );
@@ -1020,7 +1016,7 @@ export class Monster extends Creature {
         this.game.clearStatuses(false);
         let temp: number = Monster.rand(10) + 1;
         if (temp > this.player.gems) temp = this.player.gems;
-        this.outputText(
+        this.outx(
             "\n\nYou'll probably wake up in eight hours or so, missing " + temp + " gems.",
             false
         );
@@ -1068,7 +1064,7 @@ export class Monster extends Creature {
             // Imp mob uber interrupt!
             if (this.findStatusAffect(StatusAffects.ImpUber) >= 0) {
                 // TODO move to proper class
-                this.outputText(
+                this.outx(
                     "\nThe imps in the back stumble over their spell, their loincloths tenting obviously as your display interrupts their casting.  One of them spontaneously orgasms, having managed to have his spell backfire.  He falls over, weakly twitching as a growing puddle of whiteness surrounds his defeated form.",
                     false
                 );
@@ -1085,9 +1081,9 @@ export class Monster extends Creature {
     protected outputDefaultTeaseReaction(lustDelta: number): void {
         if (this.plural) {
             if (lustDelta == 0)
-                this.outputText("\n\n" + this.capitalA + this.short + " seem unimpressed.", false);
+                this.outx("\n\n" + this.capitalA + this.short + " seem unimpressed.", false);
             if (lustDelta > 0 && lustDelta < 4)
-                this.outputText(
+                this.outx(
                     "\n" +
                         this.capitalA +
                         this.short +
@@ -1097,12 +1093,12 @@ export class Monster extends Creature {
                     false
                 );
             if (lustDelta >= 4 && lustDelta < 10)
-                this.outputText(
+                this.outx(
                     "\n" + this.capitalA + this.short + " definitely seem to be enjoying the show.",
                     false
                 );
             if (lustDelta >= 10 && lustDelta < 15)
-                this.outputText(
+                this.outx(
                     "\n" +
                         this.capitalA +
                         this.short +
@@ -1114,7 +1110,7 @@ export class Monster extends Creature {
                     false
                 );
             if (lustDelta >= 15 && lustDelta < 20)
-                this.outputText(
+                this.outx(
                     "\n" +
                         this.capitalA +
                         this.short +
@@ -1124,7 +1120,7 @@ export class Monster extends Creature {
                     false
                 );
             if (lustDelta >= 20)
-                this.outputText(
+                this.outx(
                     "\n" +
                         this.capitalA +
                         this.short +
@@ -1139,10 +1135,10 @@ export class Monster extends Creature {
                 );
         } else {
             if (lustDelta == 0)
-                this.outputText("\n" + this.capitalA + this.short + " seems unimpressed.", false);
+                this.outx("\n" + this.capitalA + this.short + " seems unimpressed.", false);
             if (lustDelta > 0 && lustDelta < 4) {
                 if (this.plural)
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -1152,7 +1148,7 @@ export class Monster extends Creature {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -1163,7 +1159,7 @@ export class Monster extends Creature {
                     );
             }
             if (lustDelta >= 4 && lustDelta < 10)
-                this.outputText(
+                this.outx(
                     "\n" +
                         this.capitalA +
                         this.short +
@@ -1172,7 +1168,7 @@ export class Monster extends Creature {
                 );
             if (lustDelta >= 10 && lustDelta < 15) {
                 if (this.plural)
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -1184,7 +1180,7 @@ export class Monster extends Creature {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -1198,7 +1194,7 @@ export class Monster extends Creature {
             }
             if (lustDelta >= 15 && lustDelta < 20) {
                 if (this.plural)
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -1208,7 +1204,7 @@ export class Monster extends Creature {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -1220,7 +1216,7 @@ export class Monster extends Creature {
             }
             if (lustDelta >= 20) {
                 if (this.plural)
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -1234,7 +1230,7 @@ export class Monster extends Creature {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         "\n" +
                             this.capitalA +
                             this.short +
@@ -1254,7 +1250,7 @@ export class Monster extends Creature {
     protected applyTease(lustDelta: number): void {
         this.lust += lustDelta;
         lustDelta = Math.round(lustDelta * 10) / 10;
-        this.outputText(" (" + lustDelta + ")", false);
+        this.outx(" (" + lustDelta + ")", false);
     }
 
     public generateDebugDescription(): string {
@@ -1593,22 +1589,20 @@ export class Monster extends Creature {
         if (this.findStatusAffect(StatusAffects.CoonWhip) >= 0) {
             if (this.statusAffectv2(StatusAffects.CoonWhip) <= 0) {
                 this.armorDef += this.statusAffectv1(StatusAffects.CoonWhip);
-                this.outputText("<b>Tail whip wears off!</b>\n\n");
+                this.outx("<b>Tail whip wears off!</b>\n\n");
                 this.removeStatusAffect(StatusAffects.CoonWhip);
             } else {
                 this.addStatusValue(StatusAffects.CoonWhip, 2, -1);
-                this.outputText("<b>Tail whip is currently reducing your foe");
-                if (this.plural) this.outputText("s'");
-                else this.outputText("'s");
-                this.outputText(
-                    " armor by " + this.statusAffectv1(StatusAffects.CoonWhip) + ".</b>\n\n"
-                );
+                this.outx("<b>Tail whip is currently reducing your foe");
+                if (this.plural) this.outx("s'");
+                else this.outx("'s");
+                this.outx(" armor by " + this.statusAffectv1(StatusAffects.CoonWhip) + ".</b>\n\n");
             }
         }
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.addStatusValue(StatusAffects.Blind, 1, -1);
             if (this.statusAffectv1(StatusAffects.Blind) <= 0) {
-                this.outputText(
+                this.outx(
                     "<b>" +
                         this.capitalA +
                         this.short +
@@ -1618,7 +1612,7 @@ export class Monster extends Creature {
                 );
                 this.removeStatusAffect(StatusAffects.Blind);
             } else
-                this.outputText(
+                this.outx(
                     "<b>" +
                         this.capitalA +
                         this.short +
@@ -1628,14 +1622,14 @@ export class Monster extends Creature {
                 );
         }
         if (this.findStatusAffect(StatusAffects.Earthshield) >= 0) {
-            this.outputText(
+            this.outx(
                 "<b>" + this.capitalA + this.short + " is protected by a shield of rocks!</b>\n\n"
             );
         }
         if (this.findStatusAffect(StatusAffects.Sandstorm) >= 0) {
             // Blinded:
             if (this.player.findStatusAffect(StatusAffects.Blind) >= 0) {
-                this.outputText(
+                this.outx(
                     "<b>You blink the sand from your eyes, but you're sure that more will get you if you don't end it soon!</b>\n\n"
                 );
                 this.player.removeStatusAffect(StatusAffects.Blind);
@@ -1645,34 +1639,29 @@ export class Monster extends Creature {
                     this.statusAffectv1(StatusAffects.Sandstorm) % 4 == 0
                 ) {
                     this.player.createStatusAffect(StatusAffects.Blind, 0, 0, 0, 0);
-                    this.outputText(
-                        "<b>The sand is in your eyes!  You're blinded this turn!</b>\n\n"
-                    );
+                    this.outx("<b>The sand is in your eyes!  You're blinded this turn!</b>\n\n");
                 } else {
-                    this.outputText(
+                    this.outx(
                         "<b>The grainy mess cuts at any exposed flesh and gets into every crack and crevice of your armor."
                     );
                     const temp: number = this.player.takeDamage(1 + Monster.rand(2));
-                    this.outputText(" (" + temp + ")");
-                    this.outputText("</b>\n\n");
+                    this.outx(" (" + temp + ")");
+                    this.outx("</b>\n\n");
                 }
             }
             this.addStatusValue(StatusAffects.Sandstorm, 1, 1);
         }
         if (this.findStatusAffect(StatusAffects.Stunned) >= 0) {
-            this.outputText(
-                "<b>" + this.capitalA + this.short + " is still stunned!</b>\n\n",
-                false
-            );
+            this.outx("<b>" + this.capitalA + this.short + " is still stunned!</b>\n\n", false);
         }
         if (this.findStatusAffect(StatusAffects.Shell) >= 0) {
             if (this.statusAffectv1(StatusAffects.Shell) >= 0) {
-                this.outputText(
+                this.outx(
                     "<b>A wall of many hues shimmers around " + this.a + this.short + ".</b>\n\n"
                 );
                 this.addStatusValue(StatusAffects.Shell, 1, -1);
             } else {
-                this.outputText(
+                this.outx(
                     "<b>The magical barrier " +
                         this.a +
                         this.short +
@@ -1686,7 +1675,7 @@ export class Monster extends Creature {
             this.addStatusValue(StatusAffects.IzmaBleed, 1, -1);
             // Heal wounds
             if (this.statusAffectv1(StatusAffects.IzmaBleed) <= 0) {
-                this.outputText(
+                this.outx(
                     "The wounds you left on " +
                         this.a +
                         this.short +
@@ -1700,7 +1689,7 @@ export class Monster extends Creature {
                 let store: number = (this.eMaxHP() * (3 + Monster.rand(4))) / 100;
                 store = this.game.doDamage(store);
                 if (this.plural)
-                    this.outputText(
+                    this.outx(
                         this.capitalA +
                             this.short +
                             " bleed profusely from the jagged wounds your weapon left behind. (" +
@@ -1709,7 +1698,7 @@ export class Monster extends Creature {
                         false
                     );
                 else
-                    this.outputText(
+                    this.outx(
                         this.capitalA +
                             this.short +
                             " bleeds profusely from the jagged wounds your weapon left behind. (" +
@@ -1730,7 +1719,7 @@ export class Monster extends Creature {
                 // First:
                 case 1:
                     if (this.plural)
-                        this.outputText(
+                        this.outx(
                             "One of " +
                                 this.a +
                                 this.short +
@@ -1748,7 +1737,7 @@ export class Monster extends Creature {
                             false
                         );
                     else
-                        this.outputText(
+                        this.outx(
                             this.capitalA +
                                 this.short +
                                 " pants and crosses " +
@@ -1770,7 +1759,7 @@ export class Monster extends Creature {
                 // Second:
                 case 2:
                     if (this.plural)
-                        this.outputText(
+                        this.outx(
                             this.capitalA +
                                 this.short +
                                 " moan out loud, " +
@@ -1783,7 +1772,7 @@ export class Monster extends Creature {
                             false
                         );
                     else
-                        this.outputText(
+                        this.outx(
                             this.capitalA +
                                 this.short +
                                 " moans out loud, " +
@@ -1797,7 +1786,7 @@ export class Monster extends Creature {
                 // Third:
                 case 3:
                     if (this.plural)
-                        this.outputText(
+                        this.outx(
                             this.capitalA +
                                 this.short +
                                 " pump " +
@@ -1808,7 +1797,7 @@ export class Monster extends Creature {
                             false
                         );
                     else
-                        this.outputText(
+                        this.outx(
                             this.capitalA +
                                 this.short +
                                 " pumps " +
@@ -1822,7 +1811,7 @@ export class Monster extends Creature {
                 // Fourth:
                 case 4:
                     if (this.plural)
-                        this.outputText(
+                        this.outx(
                             this.capitalA +
                                 this.short +
                                 " close " +
@@ -1833,7 +1822,7 @@ export class Monster extends Creature {
                             false
                         );
                     else
-                        this.outputText(
+                        this.outx(
                             this.capitalA +
                                 this.short +
                                 " closes " +
@@ -1847,7 +1836,7 @@ export class Monster extends Creature {
                 // Fifth and repeat:
                 default:
                     if (this.plural)
-                        this.outputText(
+                        this.outx(
                             "Drops of pre-cum roll steadily out of their dicks.  It's a marvel " +
                                 this.pronoun1 +
                                 " haven't given in to " +
@@ -1856,7 +1845,7 @@ export class Monster extends Creature {
                             false
                         );
                     else
-                        this.outputText(
+                        this.outx(
                             "Drops of pre-cum roll steadily out of " +
                                 this.a +
                                 this.short +
@@ -1878,36 +1867,36 @@ export class Monster extends Creature {
         }
         if (this.findStatusAffect(StatusAffects.PCTailTangle) >= 0) {
             // when Entwined
-            this.outputText(
+            this.outx(
                 "You are bound tightly in the kitsune's tails.  <b>The only thing you can do is try to struggle free!</b>\n\n"
             );
-            this.outputText(
+            this.outx(
                 "Stimulated by the coils of fur, you find yourself growing more and more aroused...\n\n"
             );
             this.game.dynStats("lus", 5 + this.player.sens / 10);
         }
         if (this.findStatusAffect(StatusAffects.QueenBind) >= 0) {
-            this.outputText("You're utterly restrained by the Harpy Queen's magical ropes!\n\n");
+            this.outx("You're utterly restrained by the Harpy Queen's magical ropes!\n\n");
             if (this.flags[kFLAGS.PC_FETISH] >= 2) this.game.dynStats("lus", 3);
         }
         if (this.short === "secretarial succubus" || this.short === "milky succubus") {
             if (this.player.lust < 45)
-                this.outputText(
+                this.outx(
                     "There is something in the air around your opponent that makes you feel warm.\n\n",
                     false
                 );
             if (this.player.lust >= 45 && this.player.lust < 70)
-                this.outputText(
+                this.outx(
                     "You aren't sure why but you have difficulty keeping your eyes off your opponent's lewd form.\n\n",
                     false
                 );
             if (this.player.lust >= 70 && this.player.lust < 90)
-                this.outputText(
+                this.outx(
                     "You blush when you catch yourself staring at your foe's rack, watching it wobble with every step she takes.\n\n",
                     false
                 );
             if (this.player.lust >= 90)
-                this.outputText(
+                this.outx(
                     "You have trouble keeping your greedy hands away from your groin.  It would be so easy to just lay down and masturbate to the sight of your curvy enemy.  The succubus looks at you with a sexy, knowing expression.\n\n",
                     false
                 );
@@ -1916,38 +1905,38 @@ export class Monster extends Creature {
         // [LUST GAINED PER ROUND] - Omnibus
         if (this.findStatusAffect(StatusAffects.LustAura) >= 0) {
             if (this.player.lust < 33)
-                this.outputText(
+                this.outx(
                     "Your groin tingles warmly.  The demon's aura is starting to get to you.\n\n",
                     false
                 );
             if (this.player.lust >= 33 && this.player.lust < 66)
-                this.outputText(
+                this.outx(
                     "You blush as the demon's aura seeps into you, arousing you more and more.\n\n",
                     false
                 );
             if (this.player.lust >= 66) {
-                this.outputText(
+                this.outx(
                     "You flush bright red with desire as the lust in the air worms its way inside you.  ",
                     false
                 );
                 const temp = Monster.rand(4);
                 if (temp == 0)
-                    this.outputText(
+                    this.outx(
                         "You have a hard time not dropping to your knees to service her right now.\n\n",
                         false
                     );
                 if (temp == 2)
-                    this.outputText(
+                    this.outx(
                         "The urge to bury your face in her breasts and suckle her pink nipples nearly overwhelms you.\n\n",
                         false
                     );
                 if (temp == 1)
-                    this.outputText(
+                    this.outx(
                         "You swoon and lick your lips, tasting the scent of the demon's pussy in the air.\n\n",
                         false
                     );
                 if (temp == 3)
-                    this.outputText(
+                    this.outx(
                         "She winks at you and licks her lips, and you can't help but imagine her tongue sliding all over your body.  You regain composure moments before throwing yourself at her.  That was close.\n\n",
                         false
                     );
@@ -1959,47 +1948,46 @@ export class Monster extends Creature {
     public handleAwardItemText(itype?: ItemType): void {
         // New Function, override this function in child classes if you want a monster to output special item drop text
         if (itype != undefined)
-            this.outputText("\nThere is " + itype.longName + " on your defeated opponent.  ");
+            this.outx("\nThere is " + itype.longName + " on your defeated opponent.  ");
     }
 
     public handleAwardText(): void {
         // New Function, override this function in child classes if you want a monster to output special gem and XP text
         // This function doesn’t add the gems or XP to the player, it just provides the output text
         if (this.gems == 1)
-            this.outputText(
+            this.outx(
                 "\n\nYou snag a single gem and " +
                     this.XP +
                     " XP as you walk away from your victory."
             );
         else if (this.gems > 1)
-            this.outputText(
+            this.outx(
                 "\n\nYou grab " + this.gems + " gems and " + this.XP + " XP from your victory."
             );
-        else if (this.gems == 0)
-            this.outputText("\n\nYou gain " + this.XP + " XP from the battle.");
+        else if (this.gems == 0) this.outx("\n\nYou gain " + this.XP + " XP from the battle.");
     }
 
     public handleCombatLossText(inDungeon: boolean, gemsLost: number): number {
         // New Function, override this function in child classes if you want a monster to output special text after the player loses in combat
         // This function doesn’t take the gems away from the player, it just provides the output text
         if (!inDungeon) {
-            this.outputText("\n\nYou'll probably come to your senses in eight hours or so");
-            if (this.player.gems > 1) this.outputText(", missing " + gemsLost + " gems.");
-            else if (this.player.gems == 1) this.outputText(", missing your only gem.");
-            else this.outputText(".");
+            this.outx("\n\nYou'll probably come to your senses in eight hours or so");
+            if (this.player.gems > 1) this.outx(", missing " + gemsLost + " gems.");
+            else if (this.player.gems == 1) this.outx(", missing your only gem.");
+            else this.outx(".");
         } else {
-            this.outputText("\n\nSomehow you came out of that alive");
+            this.outx("\n\nSomehow you came out of that alive");
             if (this.player.gems > 1)
-                this.outputText(
+                this.outx(
                     ", but after checking your gem pouch, you realize you're missing " +
                         gemsLost +
                         " gems."
                 );
             else if (this.player.gems == 1)
-                this.outputText(
+                this.outx(
                     ", but after checking your gem pouch, you realize you're missing your only gem."
                 );
-            else this.outputText(".");
+            else this.outx(".");
         }
         return 8; // This allows different monsters to delay the player by different amounts of time after a combat loss. Normal loss causes an eight hour blackout
     }

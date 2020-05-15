@@ -121,7 +121,7 @@ export class CharCreation extends BaseContent {
         // flags[kFLAGS.CUSTOM_PC_ENABLED] = 0;
 
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "You grew up in the small village of Ingnam, a remote village with rich traditions, buried deep in the wilds.  Every year for as long as you can remember, your village has chosen a champion to send to the cursed Demon Realm.  Legend has it that in years Ingnam has failed to produce a champion, chaos has reigned over the countryside.  Children disappear, crops wilt, and disease spreads like wildfire.  This year, <b>you</b> have been selected to be the champion.\n\nWhat is your name?"
         );
 
@@ -295,7 +295,7 @@ export class CharCreation extends BaseContent {
                 this.flags[kFLAGS.NEW_GAME_PLUS_BONUS_STORED_ITEMS] = this.player.gems;
             }
             this.newGameGo();
-            this.outputText("\n\n\n<b>You must select a name.</b>");
+            this.outx("\n\n\n<b>You must select a name.</b>");
             // this.mainView.mainText.appendChild(input);
             return;
         }
@@ -304,14 +304,14 @@ export class CharCreation extends BaseContent {
         this.customPlayerProfile = this.customName(input.value);
         this.menu();
         if (this.customPlayerProfile != undefined) {
-            this.outputText(
+            this.outx(
                 "This name, like you, is special.  Do you live up to your name or continue on, assuming it to be coincidence?"
             );
             this.addButton(0, "SpecialName", () => this.useCustomProfile(input.value));
             this.addButton(1, "Continue On", this.noCustomProfile);
         } else {
             // Proceed with normal character creation
-            this.outputText("\n\n\n\nAre you a man or a woman?");
+            this.outx("\n\n\n\nAre you a man or a woman?");
             this.addButton(0, "Man", this.isAMan);
             this.addButton(1, "Woman", this.isAWoman);
         }
@@ -321,17 +321,17 @@ export class CharCreation extends BaseContent {
         this.clearOutput();
         if (this.specialName(name) != undefined) {
             this.clearOutput();
-            this.outputText(
+            this.outx(
                 "Your name defines everything about you, and as such, it is time to wake...\n\n"
             );
             this.flags[kFLAGS.HISTORY_PERK_SELECTED] = 1;
             this.completeCharacterCreation(); // Skip character creation, customPlayerProfile will be called in completeCharacterCreation
         } else {
             // After character creation the fact that customPlayerProfile is not undefined will activate a custom player setup
-            this.outputText(
+            this.outx(
                 "There is something different about you, but first, what is your basic gender?  An individual such as you may later overcome this, of course..."
             );
-            this.outputText("\n\n\n\nAre you a man or a woman?");
+            this.outx("\n\n\n\nAre you a man or a woman?");
             this.menu();
             this.addButton(0, "Man", this.isAMan);
             this.addButton(1, "Woman", this.isAWoman);
@@ -341,7 +341,7 @@ export class CharCreation extends BaseContent {
     private noCustomProfile(): void {
         this.clearOutput();
         this.customPlayerProfile = undefined;
-        this.outputText(
+        this.outx(
             "Your name carries little significance beyond it being your name.  What is your gender?"
         );
         this.menu();
@@ -445,7 +445,7 @@ export class CharCreation extends BaseContent {
         this.player.cocks[0].knotMultiplier = 1;
         this.player.gender = GENDER_MALE;
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "You are a man.  Your upbringing has provided you an advantage in strength and toughness.\n\nWhat type of build do you have?"
         );
         this.simpleChoices(
@@ -478,7 +478,7 @@ export class CharCreation extends BaseContent {
         this.player.createVagina();
         this.player.gender = GENDER_FEMALE;
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "You are a woman.  Your upbringing has provided you an advantage in speed and intellect.\n\nWhat type of build do you have?"
         );
         this.simpleChoices(
@@ -602,7 +602,7 @@ export class CharCreation extends BaseContent {
 
     private chooseComplexion(): void {
         this.clearOutput();
-        this.outputText("What is your complexion?");
+        this.outx("What is your complexion?");
         this.menu();
         this.addButton(0, "Light", this.setComplexion, "light");
         this.addButton(1, "Olive", this.setComplexion, "olive");
@@ -614,7 +614,7 @@ export class CharCreation extends BaseContent {
         // And choose hair
         this.player.skinTone = choice;
         this.clearOutput();
-        this.outputText("You selected a " + choice + " complexion.\n\nWhat color is your hair?");
+        this.outx("You selected a " + choice + " complexion.\n\nWhat color is your hair?");
         this.menu();
         this.addButton(0, "Blonde", this.setHair, "blonde");
         this.addButton(1, "Brown", this.setHair, "brown");
@@ -628,13 +628,13 @@ export class CharCreation extends BaseContent {
     private setHair(choice: string): void {
         this.player.hairColor = choice;
         this.clearOutput();
-        this.outputText("You have " + this.hairDescript() + ".");
+        this.outx("You have " + this.hairDescript() + ".");
         this.chooseEndowment(false);
     }
 
     private chooseEndowment(clear: boolean): void {
         if (clear) this.clearOutput();
-        this.outputText("Every person is born with a gift.  What's yours?");
+        this.outx("Every person is born with a gift.  What's yours?");
         this.menu();
         this.addButton(0, "Strength", this.confirmEndowmentStrength);
         this.addButton(1, "Toughness", this.confirmEndowmentThoughness);
@@ -655,7 +655,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentStrength(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Are you stronger than normal? (+5 Strength)\n\nStrength increases your combat damage, and your ability to hold on to an enemy or pull yourself away."
         );
         this.menu();
@@ -665,7 +665,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentThoughness(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Are you unusually tough? (+5 Toughness)\n\nToughness gives you more HP and increases the chances an attack against you will fail to wound you."
         );
         this.menu();
@@ -675,7 +675,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentSpeed(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Are you very quick?  (+5 Speed)\n\nSpeed makes it easier to escape combat and grapples.  It also boosts your chances of evading an enemy attack and successfully catching up to enemies who try to run."
         );
         this.menu();
@@ -685,7 +685,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentSmarts(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Are you a quick learner?  (+5 Intellect)\n\nIntellect can help you avoid dangerous monsters or work with machinery.  It will also boost the power of any spells you may learn in your travels."
         );
         this.menu();
@@ -695,7 +695,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentLibido(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Do you have an unusually high sex-drive?  (+5 Libido)\n\nLibido affects how quickly your lust builds over time.  You may find a high libido to be more trouble than it's worth..."
         );
         this.menu();
@@ -705,7 +705,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentTouch(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Is your skin unusually sensitive?  (+5 Sensitivity)\n\nSensitivity affects how easily touches and certain magics will raise your lust.  Very low sensitivity will make it difficult to orgasm."
         );
         this.menu();
@@ -715,7 +715,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentBigCock(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             'Do you have a big cock?  (+2" Cock Length)\n\nA bigger cock will make it easier to get off any sexual partners, but only if they can take your size.'
         );
         this.menu();
@@ -725,7 +725,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentMessyOrgasms(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Are your orgasms particularly messy?  (+50% Cum Multiplier)\n\nA higher cum multiplier will cause your orgasms to be messier."
         );
         this.menu();
@@ -735,7 +735,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentBigBreasts(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Are your breasts bigger than average? (DD cups)\n\nLarger breasts will allow you to lactate greater amounts, tit-fuck larger cocks, and generally be a sexy bitch."
         );
         this.menu();
@@ -745,7 +745,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentBigClit(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             'Do you have a big clit?  (1" Long)\n\nA large enough clit may eventually become as large as a cock.  It also makes you gain lust much faster during oral or manual stimulation.'
         );
         this.menu();
@@ -755,7 +755,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentFertile(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Is your family particularly fertile?  (+15% Fertility)\n\nA high fertility will cause you to become pregnant much more easily.  Pregnancy may result in: Strange children, larger bust, larger hips, a bigger ass, and other weirdness."
         );
         this.menu();
@@ -765,7 +765,7 @@ export class CharCreation extends BaseContent {
 
     private confirmEndowmentWetVagina(): void {
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Does your pussy get particularly wet?  (+1 Vaginal Wetness)\n\nVaginal wetness will make it easier to take larger cocks, in turn helping you bring the well-endowed to orgasm quicker."
         );
         this.menu();
@@ -866,11 +866,11 @@ export class CharCreation extends BaseContent {
         this.clearOutput();
         if (this.flags[kFLAGS.HISTORY_PERK_SELECTED] != 0) {
             // This flag can only be non-zero if chooseHistory is called from camp.as
-            this.outputText(
+            this.outx(
                 "<b>New history perks are available during creation.  Since this character was created before they were available, you may choose one now!</b>\n\n"
             );
         }
-        this.outputText(
+        this.outx(
             "Before you became a champion, you had other plans for your life.  What were you doing before?"
         );
         this.menu();
@@ -889,47 +889,47 @@ export class CharCreation extends BaseContent {
         this.clearOutput();
         switch (choice) {
             case PerkLib.HistoryAlchemist:
-                this.outputText(
+                this.outx(
                     "You spent some time as an alchemist's assistant, and alchemical items always seem to be more reactive in your hands.  Is this your history?"
                 );
                 break;
             case PerkLib.HistoryFighter:
-                this.outputText(
+                this.outx(
                     "You spent much of your time fighting other children, and you had plans to find work as a guard when you grew up.  You do 10% more damage with physical attacks.  Is this your history?"
                 );
                 break;
             case PerkLib.HistoryHealer:
-                this.outputText(
+                this.outx(
                     "You often spent your free time with the village healer, learning how to tend to wounds.  Healing items and effects are 20% more effective.  Is this your history?"
                 );
                 break;
             case PerkLib.HistoryReligious:
-                this.outputText(
+                this.outx(
                     "You spent a lot of time at the village temple, and learned how to meditate.  The 'masturbation' option is replaced with 'meditate' when corruption is at or below 66.  Is this your history?"
                 );
                 break;
             case PerkLib.HistoryScholar:
-                this.outputText(
+                this.outx(
                     "You spent much of your time in school, and even begged the richest man in town, Mr. Savin, to let you read some of his books.  You are much better at focusing, and spellcasting uses 20% less fatigue.  Is this your history?"
                 );
                 break;
             case PerkLib.HistorySlacker:
-                this.outputText(
+                this.outx(
                     "You spent a lot of time slacking, avoiding work, and otherwise making a nuisance of yourself.  Your efforts at slacking have made you quite adept at resting, and your fatigue comes back 20% faster.  Is this your history?"
                 );
                 break;
             case PerkLib.HistorySlut:
-                this.outputText(
+                this.outx(
                     "You managed to spend most of your time having sex.  Quite simply, when it came to sex, you were the village bicycle - everyone got a ride.  Because of this, your body is a bit more resistant to penetrative stretching, and has a higher upper limit on what exactly can be inserted.  Is this your history?"
                 );
                 break;
             case PerkLib.HistorySmith:
-                this.outputText(
+                this.outx(
                     "You managed to get an apprenticeship with the local blacksmith.  Because of your time spent at the blacksmith's side, you've learned how to fit armor for maximum protection.  Is this your history?"
                 );
                 break;
             default:
-                this.outputText(
+                this.outx(
                     "You managed to find work as a whore.  Because of your time spent trading seduction for profit, you're more effective at teasing (+15% tease damage).  Is this your history?"
                 );
         }
@@ -970,25 +970,25 @@ export class CharCreation extends BaseContent {
         this.statScreenRefresh();
         this.model.time.hours = 11;
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "You are prepared for what is to come.  Most of the last year has been spent honing your body and mind to prepare for the challenges ahead.  You are the Champion of Ingnam.  The one who will journey to the demon realm and guarantee the safety of your friends and family, even though you'll never see them again.  You wipe away a tear as you enter the courtyard and see Elder Nomur waiting for you.  You are ready.\n\n"
         );
-        this.outputText(
+        this.outx(
             "The walk to the tainted cave is long and silent.  Elder Nomur does not speak.  There is nothing left to say.  The two of you journey in companionable silence.  Slowly the black rock of Mount Ilgast looms closer and closer, and the temperature of the air drops.   You shiver and glance at the Elder, noticing he doesn't betray any sign of the cold.  Despite his age of nearly 80, he maintains the vigor of a man half his age.  You're glad for his strength, as assisting him across this distance would be draining, and you must save your energy for the trials ahead.\n\n"
         );
-        this.outputText(
+        this.outx(
             "The entrance of the cave gapes open, sharp stalactites hanging over the entrance, giving it the appearance of a monstrous mouth.  Elder Nomur stops and nods to you, gesturing for you to proceed alone.\n\n"
         );
-        this.outputText("The cave is unusually warm and damp, ");
+        this.outx("The cave is unusually warm and damp, ");
         if (this.player.gender == GENDER_FEMALE)
-            this.outputText(
+            this.outx(
                 "and your body seems to feel the same way, flushing as you feel a warmth and dampness between your thighs. "
             );
         else
-            this.outputText(
+            this.outx(
                 "and your body reacts with a sense of growing warmth focusing in your groin, your manhood hardening for no apparent reason. "
             );
-        this.outputText(
+        this.outx(
             "You were warned of this and press forward, ignoring your body's growing needs.  A glowing purple-pink portal swirls and flares with demonic light along the back wall.  Cringing, you press forward, keenly aware that your body seems to be anticipating coming in contact with the tainted magical construct.  Closing your eyes, you gather your resolve and leap forwards.  Vertigo overwhelms you and you black out..."
         );
         this.showStats();
@@ -1001,16 +1001,16 @@ export class CharCreation extends BaseContent {
         this.hideUpDown();
         this.dynStats("lus", 40, "cor", 2);
         this.model.time.hours = 18;
-        this.outputText(
+        this.outx(
             "You wake with a splitting headache and a body full of burning desire.  A shadow darkens your view momentarily and your training kicks in.  You roll to the side across the bare ground and leap to your feet.  A surprised looking imp stands a few feet away, holding an empty vial.  He's completely naked, an improbably sized pulsing red cock hanging between his spindly legs.  You flush with desire as a wave of lust washes over you, your mind reeling as you fight "
         );
         if (this.player.gender == GENDER_FEMALE)
-            this.outputText("the urge to chase down his rod and impale yourself on it.\n\n");
+            this.outx("the urge to chase down his rod and impale yourself on it.\n\n");
         else
-            this.outputText(
+            this.outx(
                 "the urge to ram your cock down his throat.  The strangeness of the thought surprises you.\n\n"
             );
-        this.outputText(
+        this.outx(
             "The imp says, \"<i>I'm amazed you aren't already chasing down my cock, human.  The last Champion was an eager whore for me by the time she woke up.  This lust draft made sure of it.</i>\""
         );
         this.doNext(this.arrivalPartThree);
@@ -1020,13 +1020,13 @@ export class CharCreation extends BaseContent {
         this.clearOutput();
         this.hideUpDown();
         this.dynStats("lus", -30);
-        this.outputText(
+        this.outx(
             "The imp shakes the empty vial to emphasize his point.  You reel in shock at this revelation - you've just entered the demon realm and you've already been drugged!  You tremble with the aching need in your groin, but resist, righteous anger lending you strength.\n\nIn desperation you leap towards the imp, watching with glee as his cocky smile changes to an expression of sheer terror.  The smaller creature is no match for your brute strength as you pummel him mercilessly.  You pick up the diminutive demon and punt him into the air, frowning grimly as he spreads his wings and begins speeding into the distance.\n\n"
         );
-        this.outputText(
+        this.outx(
             'The imp says, "<i>FOOL!  You could have had pleasure unending... but should we ever cross paths again you will regret humiliating me!  Remember the name Zetaz, as you\'ll soon face the wrath of my master!</i>"\n\n'
         );
-        this.outputText(
+        this.outx(
             "Your pleasure at defeating the demon ebbs as you consider how you've already been defiled.  You swear to yourself you will find the demon responsible for doing this to you and the other Champions, and destroy him AND his pet imp."
         );
         this.doNext(this.arrivalPartFour);
@@ -1035,14 +1035,14 @@ export class CharCreation extends BaseContent {
     private arrivalPartFour(): void {
         this.clearOutput();
         this.hideUpDown();
-        this.outputText(
+        this.outx(
             "You look around, surveying the hellish landscape as you plot your next move.  The portal is a few yards away, nestled between a formation of rocks.  It does not seem to exude the arousing influence it had on the other side.  The ground and sky are both tinted different shades of red, though the earth beneath your feet feels as normal as any other lifeless patch of dirt.   You settle on the idea of making a camp here and fortifying this side of the portal.  No demons will ravage your beloved hometown on your watch.\n\nIt does not take long to set up your tent and a few simple traps.  You'll need to explore and gather more supplies to fortify it any further.  Perhaps you will even manage to track down the demons who have been abducting the other champions!"
         );
         this.doNext(this.playerMenu);
     }
 
     private customAnnetta(): void {
-        this.outputText(
+        this.outx(
             "You're a rather well-endowed hermaphrodite that sports a thick, dog-knotted cock, an unused pussy, and a nice, stretchy butt-hole.  You've also got horns and demonic high-heels on your feet.  It makes you wonder why you would ever get chosen to be champion!"
         );
         // Specific Character "Gender: Herm
@@ -1092,7 +1092,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customAria(): void {
-        this.outputText(
+        this.outx(
             "It's really no surprise that you were sent through the portal to deal with the demons - you look enough like one as-is.  Your numerous fetish-inducing piercings, magical fox-tails, and bimbo-licious personality were all the motivation the elders needed to keep you from corrupting the village youth."
         );
         // 2/26/2013 8:18:21 rdolave@gmail.com Character Creation "female DD breasts feminity 100 butt size 5 hip size 5 body thickness 10 clit I would like her nipples pierced with Ceraphs piercing
@@ -1158,7 +1158,7 @@ export class CharCreation extends BaseContent {
             this.player.clitLength = 0.25;
         }
         this.player.gender = 3;
-        this.outputText(
+        this.outx(
             "You're quite the foxy herm, and as different as you were compared to the rest of Ingnam, it's no suprise you were sent through first."
         );
     }
@@ -1221,13 +1221,13 @@ export class CharCreation extends BaseContent {
         this.player.cor = 30;
         this.player.lib = 30;
         this.player.sens = 10;
-        this.outputText(
+        this.outx(
             "As a wandering mage you had found your way into no small amount of trouble in the search for knowledge.  A strange tome here, a ritual there, most people found your pale form unsettling. They would be further troubled if they could see your feet!  Lets not even begin on the blood magic.  Yes, your interest in examining every aspect of magic has run you down a strange path, so when you wandered into Ingram and began to hear of the exile of the Champion, and the superstitions that surrounded it you were intrigued, as every little rumor and ritual often had a grain of truth.  You snuck into the cave prior to the ritual, where the old man supposedly led every Champion, and there you found a strange portal that emanated a certain degree of spacial transparency -  more than the portal's own.  Within it must have been a whole new world!  Throwing caution to the wind, your curiosities engulfing you, you dove in with nary a thought for the consequences."
         );
     }
 
     private customCharaun(): void {
-        this.outputText(
+        this.outx(
             "As a gifted fox with a juicy, thick knot, a wet cunt, and magical powers, you have no problems with being chosen as champion."
         );
         // Herm, Fox Cock: (27"l x 1.4"w, knot multiplier 3.6), No Balls, Cum Multiplier: 7,500, Vaginal Wetness: 5, Clit length: 0.5, Virgin, Fertility: 15 9-tailed "enlightened" kitsune( a pure-blooded kitsune with the "Enlightened Nine-tails" perk and magic specials)
@@ -1277,7 +1277,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customCharlie(): void {
-        this.outputText(
+        this.outx(
             "You're strong, smart, fast, and tough.  It also helps that you've got four dongs well beyond what others have lurking in their trousers.  With your wings, bow, weapon, and tough armor, you're a natural for protecting the town."
         );
         this.player.gender = 1;
@@ -1360,7 +1360,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customCody(): void {
-        this.outputText(
+        this.outx(
             "Your orange and black tiger stripes make you cut a more imposing visage than normal, and with your great strength, armor, and claymore, you're a natural pick for champion."
         );
         // well to start off the name would be Cody
@@ -1419,13 +1419,13 @@ export class CharCreation extends BaseContent {
         this.player.itemSlot4.unlocked = true;
         this.player.itemSlot4.setItemAndQty(this.armors.BIMBOSK, 1);
         this.player.itemSlot5.unlocked = true;
-        this.outputText(
+        this.outx(
             "You've got large breasts prone to lactation.  You aren't sure WHY you got chosen as a champion, but with your considerable strength, you're sure you'll do a good job protecting Ingnam."
         );
     }
 
     private customGundam(): void {
-        this.outputText(
+        this.outx(
             "You're fabulously rich, thanks to a rather well-placed bet on who would be the champion.  Hopefully you can buy yourself out of any trouble you might get in."
         );
         this.player.gems = 1500 + CharCreation.rand(1000);
@@ -1434,7 +1434,7 @@ export class CharCreation extends BaseContent {
 
     private customHikari(): void {
         // Character Creation If possible I would like a herm with a cat cock that is 10 inches by 4 inches. Anything else is up to you. I would like a herm catmorph with two large d breasts and shoulder length hair. Also if possible I would like to start with some gel armor. Everything else is fair game. Hikari
-        this.outputText(
+        this.outx(
             "As a herm with a super-thick cat-cock, D-cup breasts, and out-of-this-world armor, you're a natural pick for champion."
         );
         if (!this.player.hasCock()) this.player.createCock();
@@ -1449,7 +1449,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customIsaac(): void {
-        this.outputText(
+        this.outx(
             "Born of a disgraced priestess, Isaac was raised alone until she was taken by illness.  He worked a number of odd jobs until he was eventually chosen as champion."
         );
         // - gift: fast
@@ -1523,7 +1523,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customKatti(): void {
-        this.outputText(
+        this.outx(
             "You have big breasts with big, fuckable nipples on them, and no matter what, your vagina always seems to be there to keep you company."
         );
         // Gender: Female
@@ -1602,7 +1602,7 @@ export class CharCreation extends BaseContent {
 
     private customLucina(): void {
         // 428347355782040 Character Creation Female,wetness=wet, Looseness=normal,not a virgin, Fertility high i guess i dont really care can be up to you. for her face normal human, ears i want Elvin, no tails, just normal skin, body thickness i want to be slender, body tone kinda athletic but not too much, hair i want really long i think like a 30 on the codex number i think and her hair color light blonde, i want her to have normal D size breast with you can choose how you want them really though i dont think i really care, nipple size i dont care, her skin color a fair light light color but not too pale, for her starting equipment i want im not sure what i want her to wear but basically i want a Elvin archer with a bow. so maybe you can do something about the clothing. i just want a Elvin character in the game since theres goblins plus another archer besides kelt a female one add to that. Lucina
-        this.outputText(
+        this.outx(
             "You're a blond, fair-skinned lass with a well-made bow and the skills to use it.  You have D-cup breasts and a very moist cunt that's seen a little action.  You're fit and trim, but not too thin, nor too well-muscled.  All in all, you're a good fit for championing your village's cause."
         );
         if (!this.player.hasVagina()) this.player.createVagina();
@@ -1692,7 +1692,7 @@ export class CharCreation extends BaseContent {
     private customMara(): void {
         // #226096893686530
         // For the custom PC Profile can you make a Bimbo Bunny girl (no bunny feet) (named Mara) dont really care about clothes i can get what i want pretty quickly and I change from time to time.
-        this.outputText(
+        this.outx(
             "You're a bunny-girl with bimbo-tier curves, jiggly and soft, a curvy, wet girl with a bit of a flirty past."
         );
         this.player.gender = 2;
@@ -1727,7 +1727,7 @@ export class CharCreation extends BaseContent {
     private customMihari(): void {
         // [Values will be listed as if taken from Minerva]
         // I'm kinda going under the assumption you are letting us go hog wild if not, take what's allowed and do what you wish out of what's below
-        this.outputText(
+        this.outx(
             "The portal is not something you fear, not with your imposing armor and inscribed spellblade.  You're much faster and stronger than every champion that came before you, but will it be enough?"
         );
         // Core Stats:
@@ -1789,7 +1789,7 @@ export class CharCreation extends BaseContent {
 
     private customMirvanna(): void {
         // Any equine or dragonny attributes accompanying it a big plus! As I'm a dragon-unicorn furry (Qilin~). Bonus points if you add a horn type for unicorn horn.
-        this.outputText(
+        this.outx(
             "You're an equine dragon-herm with a rather well-proportioned body.  Ingnam is certainly going to miss having you whoring yourself out around town.  You don't think they'll miss cleaning up all the messy sex, though."
         );
         this.player.gender = 3;
@@ -1911,13 +1911,13 @@ export class CharCreation extends BaseContent {
         this.player.tou = 15;
 
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "Your exotic appearance caused you some trouble growing up, but you buried your nose in books until it came time to go through the portal."
         );
     }
 
     private customNavorn(): void {
-        this.outputText(
+        this.outx(
             "There's been something special about you since day one, whether it's your numerous sexual endowments or your supernatural abilities.  You're a natural pick for champion."
         );
         // Character Creation "Herm same number and types of cocks from email sent earlier.
@@ -2106,7 +2106,7 @@ export class CharCreation extends BaseContent {
         this.player.str = 40;
         // full chain
         this.player.setArmor(this.armors.FULLCHN);
-        this.outputText(
+        this.outx(
             "As a German-Shepherd morph, the rest of the village never really knew what to do with you... until they sent you through the portal to face whatever's on the other side..."
         );
     }
@@ -2117,7 +2117,7 @@ export class CharCreation extends BaseContent {
         this.player.clitLength = 0.25;
         this.player.fertility = 4;
         this.player.spe += 20;
-        this.outputText(
+        this.outx(
             "You're more of a scout than a fighter, but you still feel confident you can handle your responsibilities as champion.  After all, what's to worry about when you can outrun everything you encounter?  You have olive skin, deep red hair, and a demonic tail and wings to blend in with the locals."
         );
         // Perk is speed, she was a scout, and it'd be neat (if possible) to give her something akin to the Runner perk. She might not start out very strong or tough, but at least she's fast.
@@ -2146,7 +2146,7 @@ export class CharCreation extends BaseContent {
 
     private customRannRayla(): void {
         // Specific Character Virgin female. Max femininity. Thin with a little muscle. Size C breasts. Long red hair. Light colored skin. 5'5" tall.  Rann Rayla
-        this.outputText(
+        this.outx(
             "You're a young, fiery redhead who's utterly feminine.  You've got C-cup breasts and long red hair.  Being a champion can't be that bad, right?"
         );
         this.player.createVagina();
@@ -2167,7 +2167,7 @@ export class CharCreation extends BaseContent {
 
     private customRope(): void {
         // 529315025394020 Character Creation Neuter (no genitals) "50-50 masculine-feminine ratio. Shark teeth." Rope
-        this.outputText(
+        this.outx(
             "Despite outward appearances, you're actually something of a neuter, with shark-like teeth, an androgynous face, and a complete lack of genitalia."
         );
         if (this.player.hasCock()) this.player.removeCock(0, 1);
@@ -2178,7 +2178,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customSera(): void {
-        this.outputText(
+        this.outx(
             "You're something of a shemale - three rows of C-cup breasts matched with three, plump, juicy cocks.  Some decent sized balls, bat wings, and cat-like ears round out the package."
         );
         this.player.gender = 1;
@@ -2275,7 +2275,7 @@ export class CharCreation extends BaseContent {
         this.player.tou = 25;
         this.player.inte = 25;
         this.player.spe = 25;
-        this.outputText(
+        this.outx(
             "You are a literal angel from beyond, and you take the place of a vilage's champion for your own reasons..."
         );
     }
@@ -2291,7 +2291,7 @@ export class CharCreation extends BaseContent {
         if (this.player.findStatusAffect(StatusAffects.BonusVCapacity) < 0)
             this.player.createStatusAffect(StatusAffects.BonusVCapacity, 0, 0, 0, 0);
         else this.player.addStatusValue(StatusAffects.BonusVCapacity, 1, 5 + CharCreation.rand(10));
-        this.outputText(
+        this.outx(
             "As a Kitsune, you always got weird looks, but none could doubt your affinity for magic..."
         );
     }
@@ -2401,7 +2401,7 @@ export class CharCreation extends BaseContent {
         this.flags[kFLAGS.VALARIA_AT_CAMP] = 1;
 
         this.player.gems += 30000;
-        this.outputText(
+        this.outx(
             "You're something of a powerhouse, and you wager that between your odd mutations, power strong enough to threaten the village order, and talents, you're the natural choice to send through the portal."
         );
 
@@ -2471,7 +2471,7 @@ export class CharCreation extends BaseContent {
     }
 
     private customTyriana(): void {
-        this.outputText(
+        this.outx(
             "Your many, posh tits, incredible fertility, and well-used cunt made you more popular than the village bicycle.  With your cat-like ears, paws, and tail, you certainly had a feline appeal.  It's time to see how you fare in the next chapter of your life."
         );
         // "Gender: Female
@@ -2629,7 +2629,7 @@ export class CharCreation extends BaseContent {
         this.player.inte += 2;
         this.player.spe += 2;
         this.player.gems += 300;
-        this.outputText(
+        this.outx(
             "You're something of a powerhouse, and you wager that between your odd mutations, power strong enough to threaten the village order, and talents, you're the natural choice to send through the portal."
         );
     }
@@ -2653,7 +2653,7 @@ export class CharCreation extends BaseContent {
             player.cocks[0].knotMultiplier = 1;
             player.createBreastRow();
             player.breastRows[0].breastRating = 0;
-            outputText("\n\n\n\n\nYou are a man.  Your upbringing has provided you an advantage in strength and toughness.\n\nWhat type of build do you have?", true);
+            outx("\n\n\n\n\nYou are a man.  Your upbringing has provided you an advantage in strength and toughness.\n\nWhat type of build do you have?", true);
             simpleChoices("Lean", 10003, "Average", 10002, "Thick", 10005, "Girly", 10004, "", 0);
             player.gender = 1;
             player.hairLength=1;
@@ -2670,7 +2670,7 @@ export class CharCreation extends BaseContent {
             player.createVagina();
             player.tallness = 67;
             player.breastRows[0].breastRating = 3;
-            outputText("\n\n\n\n\nYou are a woman.  Your upbringing has provided you an advantage in speed and intellect.\n\nWhat type of build do you have?", true);
+            outx("\n\n\n\n\nYou are a woman.  Your upbringing has provided you an advantage in speed and intellect.\n\nWhat type of build do you have?", true);
             simpleChoices("Slender", 10003, "Average", 10002, "Curvy", 10005, "Tomboyish", 10006, "", 0);
             player.gender = 2;
         }
@@ -2754,7 +2754,7 @@ export class CharCreation extends BaseContent {
 
         // Choose complexion
         if(eventNo == 10007) {
-            outputText("\n\n\n\n\nWhat is your complexion?", true);
+            outx("\n\n\n\n\nWhat is your complexion?", true);
             simpleChoices("Light", 10008, "Olive", 10009, "Dark", 10010, "Ebony", 10011, "", 0);
         }
         if(eventNo == 10008) {
@@ -2774,7 +2774,7 @@ export class CharCreation extends BaseContent {
             eventParser(10012);
         }
         if(eventNo == 10012) {
-            outputText("\n\n\nYou selected a " + player.skinTone + " complexion.\n\nWhat color is your hair?", true);
+            outx("\n\n\nYou selected a " + player.skinTone + " complexion.\n\nWhat color is your hair?", true);
             choices("Blonde", 10013, "Brown", 10014, "Black", 10015, "Red", 10016, "Gray", 10017, "White", 10018, "Auburn", 10019, "", 0, "", 0, "", 0);
         }
         // Set blonde hair
@@ -2814,80 +2814,80 @@ export class CharCreation extends BaseContent {
         }
         // Gender endowment choices
         if(eventNo == 10020) {
-            outputText("You have " + hairDescript() + ".", true);
-            outputText("\n\nEvery person is born with a gift.  What's yours?", true);
+            outx("You have " + hairDescript() + ".", true);
+            outx("\n\nEvery person is born with a gift.  What's yours?", true);
             if(player.gender == 1) choices("Strength", 10021, "Toughness", 10022, "Speed", 10023, "Smarts", 10024, "Libido", 10025, "Touch", 10026, "Big Cock", 10027, "Lots of Jizz", 10028, "", 0, "", 0);
             if(player.gender == 2) choices("Strength", 10021, "Toughness", 10022, "Speed", 10023, "Smarts", 10024, "Libido", 10025, "Touch", 10026, "Big Breasts", 10029, "Big Clit", 10030, "Fertile", 10031, "Wet Vagina", 10032);
         }
         // Strong
         if(eventNo == 10021) {
-            outputText("Are you stronger than normal? (+5 Strength)\n\nStrength increases your combat damage, and your ability to hold on to an enemy or pull yourself away.\n", true);
+            outx("Are you stronger than normal? (+5 Strength)\n\nStrength increases your combat damage, and your ability to hold on to an enemy or pull yourself away.\n", true);
             doYesNo(10033, 10020);
             temp = 1;
         }
         // Tough
         if(eventNo == 10022) {
-            outputText("Are you unusually tough? (+5 Toughness)\n\nToughness gives you more HP and increases the chances an attack against you will fail to wound you.\n", true);
+            outx("Are you unusually tough? (+5 Toughness)\n\nToughness gives you more HP and increases the chances an attack against you will fail to wound you.\n", true);
             doYesNo(10033, 10020);
             temp = 2;
         }
         // Fast
         if(eventNo == 10023) {
-            outputText("Are you very quick?  (+5 Speed)\n\nSpeed makes it easier to escape combat and grapples.  It also boosts your chances of evading an enemy attack and successfully catching up to enemies who try to run.\n", true);
+            outx("Are you very quick?  (+5 Speed)\n\nSpeed makes it easier to escape combat and grapples.  It also boosts your chances of evading an enemy attack and successfully catching up to enemies who try to run.\n", true);
             doYesNo(10033, 10020);
             temp = 3;
         }
         // Smart
         if(eventNo == 10024) {
-            outputText("Are you a quick learner?  (+5 Intellect)\n\nIntellect can help you avoid dangerous monsters or work with machinery.  It will also boost the power of any spells you may learn in your travels.\n", true);
+            outx("Are you a quick learner?  (+5 Intellect)\n\nIntellect can help you avoid dangerous monsters or work with machinery.  It will also boost the power of any spells you may learn in your travels.\n", true);
             doYesNo(10033, 10020);
             temp = 4;
         }
         // Libido
         if(eventNo == 10025) {
-            outputText("Do you have an unusually high sex-drive?  (+5 Libido)\n\nLibido affects how quickly your lust builds over time.  You may find a high libido to be more trouble than it's worth...\n", true);
+            outx("Do you have an unusually high sex-drive?  (+5 Libido)\n\nLibido affects how quickly your lust builds over time.  You may find a high libido to be more trouble than it's worth...\n", true);
             temp = 5;
             doYesNo(10033, 10020);
         }
         // Light Touch
         if(eventNo == 10026) {
-            outputText("Is your skin unusually sensitive?  (+5 Sensitivity)\n\nSensitivity affects how easily touches and certain magics will raise your lust.  Very low sensitivity will make it difficult to orgasm.\n", true);
+            outx("Is your skin unusually sensitive?  (+5 Sensitivity)\n\nSensitivity affects how easily touches and certain magics will raise your lust.  Very low sensitivity will make it difficult to orgasm.\n", true);
             temp = 6;
             doYesNo(10033, 10020);
         }
         // Big Cock
         if(eventNo == 10027) {
-            outputText("Do you have a big cock?  (+2\" Cock Length)\n\nA bigger cock will make it easier to get off any sexual partners, but only if they can take your size.\n", true);
+            outx("Do you have a big cock?  (+2\" Cock Length)\n\nA bigger cock will make it easier to get off any sexual partners, but only if they can take your size.\n", true);
             temp = 7;
             doYesNo(10033, 10020);
         }
         // Messy Orgasms
         if(eventNo == 10028) {
-            outputText("Are your orgasms particularly messy?  (+50% Cum Multiplier)\n\nA higher cum multiplier will cause your orgasms to be messier.\n", true);
+            outx("Are your orgasms particularly messy?  (+50% Cum Multiplier)\n\nA higher cum multiplier will cause your orgasms to be messier.\n", true);
             doYesNo(10033, 10020);
             temp = 8;
         }
         // Big Tits
         if(eventNo == 10029) {
-            outputText("Are your breasts bigger than average? (DD cups)\n\nLarger breasts will allow you to lactate greater amounts, tit-fuck larger cocks, and generally be a sexy bitch.\n", true);
+            outx("Are your breasts bigger than average? (DD cups)\n\nLarger breasts will allow you to lactate greater amounts, tit-fuck larger cocks, and generally be a sexy bitch.\n", true);
             doYesNo(10033, 10020);
             temp = 9;
         }
         // Big clit
         if(eventNo == 10030) {
-            outputText("Do you have a big clit?  (1\" Long)\n\nA large enough clit may eventually become as large as a cock.  It also makes you gain lust much faster during oral or manual stimulation.\n", true);
+            outx("Do you have a big clit?  (1\" Long)\n\nA large enough clit may eventually become as large as a cock.  It also makes you gain lust much faster during oral or manual stimulation.\n", true);
             doYesNo(10033, 10020);
             temp = 10;
         }
         // Fertility
         if(eventNo == 10031) {
-            outputText("Is your family particularly fertile?  (+15% Fertility)\n\nA high fertility will cause you to become pregnant much more easily.  Pregnancy may result in: Strange children, larger bust, larger hips, a bigger ass, and other weirdness.\n", true);
+            outx("Is your family particularly fertile?  (+15% Fertility)\n\nA high fertility will cause you to become pregnant much more easily.  Pregnancy may result in: Strange children, larger bust, larger hips, a bigger ass, and other weirdness.\n", true);
             temp = 11;
             doYesNo(10033, 10020);
         }
         // Wet pussy
         if(eventNo == 10032) {
-            outputText("Does your pussy get particularly wet?  (+1 Vaginal Wetness)\n\nVaginal wetness will make it easier to take larger cocks, in turn helping you bring the well-endowed to orgasm quicker.\n", true);
+            outx("Does your pussy get particularly wet?  (+1 Vaginal Wetness)\n\nVaginal wetness will make it easier to take larger cocks, in turn helping you bring the well-endowed to orgasm quicker.\n", true);
             doYesNo(10033, 10020);
             temp = 12;
         }
@@ -2986,12 +2986,12 @@ export class CharCreation extends BaseContent {
                 }
 
                 newGameGo(e);
-                outputText("\n\n\n<b>You must select a name.</b>", false);
+                outx("\n\n\n<b>You must select a name.</b>", false);
                 return;
             }
             else if(customName(mainView.nameBox.text)) {
                 clearOutput();
-                outputText("This name, like you, is special.  Do you live up to your name or continue on, assuming it to be coincidence?");
+                outx("This name, like you, is special.  Do you live up to your name or continue on, assuming it to be coincidence?");
                 mainView.nameBox.visible = false;
                 menu();
                 addButton(0,"SpecialName",useCustomProfile);
@@ -3000,7 +3000,7 @@ export class CharCreation extends BaseContent {
             }
             player.short = mainView.nameBox.text;
             mainView.nameBox.visible = false;
-            outputText("\n\n\n\nAre you a man or a woman?", true);
+            outx("\n\n\n\nAre you a man or a woman?", true);
             simpleChoices("Man", 10000, "Woman", 10001, "", 0, "", 0, "", 0);
         }
         // New Game+
@@ -3019,55 +3019,55 @@ export class CharCreation extends BaseContent {
         //  HISTORIEZ
         // ======================
         if(eventNo == 10036) {
-            outputText("Before you became a champion, you had other plans for your life.  What were you doing before?", true);
+            outx("Before you became a champion, you had other plans for your life.  What were you doing before?", true);
             choices("Alchemy",10037,"Fighting",10038,"Healing",10039,"Religion",10040,"Schooling",10041,"Slacking",10042,"Slutting",10046,"Smithing",10043,"Whoring",10047,"",0);
             return;
         }
         // Alchemy
         if(eventNo == 10037) {
-            outputText("You spent some time as an alchemist's assistant, and alchemical items always seem to be more reactive in your hands.  Is this your history?", true);
+            outx("You spent some time as an alchemist's assistant, and alchemical items always seem to be more reactive in your hands.  Is this your history?", true);
             temp = 10037;
             doYesNo(10044,10036);
             return;
         }
         // Fightan'
         if(eventNo == 10038) {
-            outputText("You spent much of your time fighting other children, and you had plans to find work as a guard when you grew up.  You do 10% more damage with physical attacks.  Is this your history?", true);
+            outx("You spent much of your time fighting other children, and you had plans to find work as a guard when you grew up.  You do 10% more damage with physical attacks.  Is this your history?", true);
             temp = 10038;
             doYesNo(10044,10036);
             return;
         }
         // Healin'
         if(eventNo == 10039) {
-            outputText("You often spent your free time with the village healer, learning how to tend to wounds.  Healing items and effects are 20% more effective.  Is this your history?", true);
+            outx("You often spent your free time with the village healer, learning how to tend to wounds.  Healing items and effects are 20% more effective.  Is this your history?", true);
             temp = 10039;
             doYesNo(10044,10036);
             return;
         }
         // Religions
         if(eventNo == 10040) {
-            outputText("You spent a lot of time at the village temple, and learned how to meditate.  The 'masturbation' option is replaced with 'meditate' when corruption is at or below 66.  Is this your history?", true);
+            outx("You spent a lot of time at the village temple, and learned how to meditate.  The 'masturbation' option is replaced with 'meditate' when corruption is at or below 66.  Is this your history?", true);
             temp = 10040;
             doYesNo(10044,10036);
             return;
         }
         // Scholar
         if(eventNo == 10041) {
-            outputText("You spent much of your time in school, and even begged the richest man in town, Mr. Savin, to let you read some of his books.  You are much better at focusing, and spellcasting uses 20% less fatigue.  Is this your history?", true);
+            outx("You spent much of your time in school, and even begged the richest man in town, Mr. Savin, to let you read some of his books.  You are much better at focusing, and spellcasting uses 20% less fatigue.  Is this your history?", true);
             temp = 10041;
             doYesNo(10044,10036);
             return;
         }
         // Slacker
         if(eventNo == 10042) {
-            outputText("You spent a lot of time slacking, avoiding work, and otherwise making a nuisance of yourself.  Your efforts at slacking have made you quite adept at resting, and your fatigue comes back 20% faster.  Is this your history?", true);
+            outx("You spent a lot of time slacking, avoiding work, and otherwise making a nuisance of yourself.  Your efforts at slacking have made you quite adept at resting, and your fatigue comes back 20% faster.  Is this your history?", true);
             temp = 10042;
             doYesNo(10044,10036);
             return;
         }
         // Smith
         if(eventNo == 10043) {
-            outputText("You managed to get an apprenticeship with the local blacksmith.  Because of your time spent at the blacksmith's side, you've learned how to fit armor for maximum protection.  Is this your history?", true);
+            outx("You managed to get an apprenticeship with the local blacksmith.  Because of your time spent at the blacksmith's side, you've learned how to fit armor for maximum protection.  Is this your history?", true);
             temp = 10043;
             doYesNo(10044,10036);
             return;
@@ -3118,13 +3118,13 @@ export class CharCreation extends BaseContent {
             }
             statScreenRefresh();
             model.time.hours = 11;
-            outputText("You are prepared for what is to come.  Most of the last year has been spent honing your body and mind to prepare for the challenges ahead.  You are the Champion of Ingnam.  The one who will journey to the demon realm and guarantee the safety of your friends and family, even though you'll never see them again.  You wipe away a tear as you enter the courtyard and see Elder Nomur waiting for you.  You are ready.\n\n", true);
-            outputText("The walk to the tainted cave is long and silent.  Elder Nomur does not speak.  There is nothing left to say.  The two of you journey in companionable silence.  Slowly the black rock of Mount Ilgast looms closer and closer, and the temperature of the air drops.   You shiver and glance at the Elder, noticing he doesn't betray any sign of the cold.  Despite his age of nearly 80, he maintains the vigor of a man half his age.  You're glad for his strength, as assisting him across this distance would be draining, and you must save your energy for the trials ahead.\n\n", false);
-            outputText("The entrance of the cave gapes open, sharp stalactites hanging over the entrance, giving it the appearance of a monstrous mouth.  Elder Nomur stops and nods to you, gesturing for you to proceed alone.\n\n", false);
-            outputText("The cave is unusually warm and damp, ");
-            if(player.gender == 2) outputText("and your body seems to feel the same way, flushing as you feel a warmth and dampness between your thighs. ");
-            else outputText("and your body reacts with a sense of growing warmth focusing in your groin, your manhood hardening for no apparent reason. ");
-            outputText("You were warned of this and press forward, ignoring your body's growing needs.  A glowing purple-pink portal swirls and flares with demonic light along the back wall.  Cringing, you press forward, keenly aware that your body seems to be anticipating coming in contact with the tainted magical construct.  Closing your eyes, you gather your resolve and leap forwards.  Vertigo overwhelms you and you black out...");
+            outx("You are prepared for what is to come.  Most of the last year has been spent honing your body and mind to prepare for the challenges ahead.  You are the Champion of Ingnam.  The one who will journey to the demon realm and guarantee the safety of your friends and family, even though you'll never see them again.  You wipe away a tear as you enter the courtyard and see Elder Nomur waiting for you.  You are ready.\n\n", true);
+            outx("The walk to the tainted cave is long and silent.  Elder Nomur does not speak.  There is nothing left to say.  The two of you journey in companionable silence.  Slowly the black rock of Mount Ilgast looms closer and closer, and the temperature of the air drops.   You shiver and glance at the Elder, noticing he doesn't betray any sign of the cold.  Despite his age of nearly 80, he maintains the vigor of a man half his age.  You're glad for his strength, as assisting him across this distance would be draining, and you must save your energy for the trials ahead.\n\n", false);
+            outx("The entrance of the cave gapes open, sharp stalactites hanging over the entrance, giving it the appearance of a monstrous mouth.  Elder Nomur stops and nods to you, gesturing for you to proceed alone.\n\n", false);
+            outx("The cave is unusually warm and damp, ");
+            if(player.gender == 2) outx("and your body seems to feel the same way, flushing as you feel a warmth and dampness between your thighs. ");
+            else outx("and your body reacts with a sense of growing warmth focusing in your groin, your manhood hardening for no apparent reason. ");
+            outx("You were warned of this and press forward, ignoring your body's growing needs.  A glowing purple-pink portal swirls and flares with demonic light along the back wall.  Cringing, you press forward, keenly aware that your body seems to be anticipating coming in contact with the tainted magical construct.  Closing your eyes, you gather your resolve and leap forwards.  Vertigo overwhelms you and you black out...");
             showStats();
             dynStats("lus", +15);
             doNext(startNewGame);
@@ -3132,14 +3132,14 @@ export class CharCreation extends BaseContent {
         }
         // Slut
         if(eventNo == 10046) {
-            outputText("You managed to spend most of your time having sex.  Quite simply, when it came to sex, you were the village bicycle - everyone got a ride.  Because of this, your body is a bit more resistant to penetrative stretching, and has a higher upper limit on what exactly can be inserted.  Is this your history?", true);
+            outx("You managed to spend most of your time having sex.  Quite simply, when it came to sex, you were the village bicycle - everyone got a ride.  Because of this, your body is a bit more resistant to penetrative stretching, and has a higher upper limit on what exactly can be inserted.  Is this your history?", true);
             temp = 10046;
             doYesNo(10044,10036);
             return;
         }
         // Whore
         if(eventNo == 10047) {
-            outputText("You managed to find work as a whore.  Because of your time spent trading seduction for profit, you're more effective at teasing (+15% tease damage).  Is this your history?", true);
+            outx("You managed to find work as a whore.  Because of your time spent trading seduction for profit, you're more effective at teasing (+15% tease damage).  Is this your history?", true);
             temp = 10047;
             doYesNo(10044,10036);
             return;

@@ -21,7 +21,7 @@ export class OvipositionElixir extends Consumable {
 
     public canUse(): boolean {
         if (this.game.player.hasVagina()) return true;
-        this.outputText(
+        this.outx(
             "You pop the cork and prepare to drink the stuff, but the smell nearly makes you gag.  You cork it hastily.\n\n"
         );
         return false;
@@ -42,24 +42,24 @@ export class OvipositionElixir extends Consumable {
      */
     public useItem(): boolean {
         this.game.player.slimeFeed();
-        this.outputText(
+        this.outx(
             "You pop the cork and gulp down the thick greenish fluid.  The taste is unusual and unlike anything you've tasted before."
         );
         if (this.game.player.pregnancyType == PregnancyStore.PREGNANCY_GOO_STUFFED) {
-            this.outputText(
+            this.outx(
                 "\n\nFor a moment you feel even more bloated than you already are.  That feeling is soon replaced by a dull throbbing pain.  It seems that with Valeria's goo filling your womb the ovielixir is unable to work its magic on you."
             );
             return false;
         }
         if (this.game.player.pregnancyType == PregnancyStore.PREGNANCY_WORM_STUFFED) {
-            this.outputText(
+            this.outx(
                 "\n\nFor a moment you feel even more bloated than you already are.  That feeling is soon replaced by a dull throbbing pain.  It seems that with the worms filling your womb the ovielixir is unable to work its magic on you."
             );
             return false;
         }
         if (this.game.player.pregnancyIncubation == 0) {
             // If the player is not pregnant, get preggers with eggs!
-            this.outputText(
+            this.outx(
                 "\n\nThe elixir has an immediate effect on your belly, causing it to swell out slightly as if pregnant.  You guess you'll be laying eggs sometime soon!"
             );
             this.game.player.knockUp(
@@ -86,7 +86,7 @@ export class OvipositionElixir extends Consumable {
                     // 1 in 2 chance!
                     if (Utils.rand(3) == 0) {
                         this.game.player.addStatusValue(StatusAffects.Eggs, 2, 1);
-                        this.outputText(
+                        this.outx(
                             "\n\nYour pregnant belly suddenly feels heavier and more bloated than before.  You wonder what the elixir just did."
                         );
                         changeOccurred = true;
@@ -94,7 +94,7 @@ export class OvipositionElixir extends Consumable {
                 }
                 // Chance of quantity increase!
                 if (Utils.rand(2) == 0) {
-                    this.outputText(
+                    this.outx(
                         "\n\nA rumble radiates from your uterus as it shifts uncomfortably and your belly gets a bit larger."
                     );
                     this.game.player.addStatusValue(StatusAffects.Eggs, 3, Utils.rand(4) + 1);
@@ -108,7 +108,7 @@ export class OvipositionElixir extends Consumable {
             this.game.player.pregnancyType != PregnancyStore.PREGNANCY_BUNNY
         ) {
             // If no changes, speed up pregnancy.
-            this.outputText(
+            this.outx(
                 "\n\nYou gasp as your pregnancy suddenly leaps forwards, your belly bulging outward a few inches as it gets closer to time for birthing."
             );
             let newIncubation: number =

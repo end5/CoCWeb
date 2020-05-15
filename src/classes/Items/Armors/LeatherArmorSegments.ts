@@ -19,7 +19,7 @@ export class LeatherArmorSegments extends Armor {
         );
     }
     public removeText(): void {
-        this.outputText(
+        this.outx(
             "You have your old set of " + this.game.armors.LEATHRA.longName + " left over.  "
         );
     }
@@ -32,7 +32,7 @@ export class LeatherArmorSegments extends Armor {
     /*
             protected  unequipReturnItem(player:Player,output: boolean):ItemType
             {
-                outputText("You have your old set of " + game.armors.LEATHRA.longName + " left over.  ");
+                outx("You have your old set of " + game.armors.LEATHRA.longName + " left over.  ");
                 return game.armors.LEATHRA;
             }
     */

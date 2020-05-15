@@ -30,7 +30,7 @@ export class GroPlus extends Consumable {
         const gpCock = this.game.player.cockTotal() > 0 ? this.growPlusCock : undefined;
         const gpNipples = this.game.player.totalNipples() > 0 ? this.growPlusNipples : undefined;
         this.clearOutput();
-        this.outputText(
+        this.outx(
             "You ponder the needle in your hand knowing it will enlarge the injection site.  What part of your body will you use it on?  "
         );
         this.game.choices(
@@ -61,20 +61,20 @@ export class GroPlus extends Consumable {
     private growPlusBalls(): void {
         this.clearOutput();
         this.game.player.slimeFeed();
-        this.outputText(
+        this.outx(
             "You sink the needle deep into your " +
                 this.game.player.sackDescript() +
                 ".  It hurts like hell, but you push down the plunger and the pain vanishes as the needles contents flow into you.\n\n"
         );
         // 1 in 4 BIG growth.
         if (Utils.rand(4) == 0) {
-            this.outputText(
+            this.outx(
                 "You feel a trembling in your " +
                     this.game.player.ballsDescriptLight() +
                     " as the chemicals start to go to work.  You can tell they're going to be VERY effective.\n"
             );
             this.game.player.ballSize += Utils.rand(4) + 2;
-            this.outputText(
+            this.outx(
                 "They shift, stretching your " +
                     this.game.player.sackDescript() +
                     " tight as they gain inches of size.  You step to steady yourself as your center of balance shifts due to your newly enlarged " +
@@ -83,7 +83,7 @@ export class GroPlus extends Consumable {
             );
         } else {
             this.game.player.ballSize += Utils.rand(2) + 1;
-            this.outputText(
+            this.outx(
                 "You feel your testicles shift, pulling the skin of your " +
                     this.game.player.sackDescript() +
                     " a little bit as they grow to " +
@@ -92,7 +92,7 @@ export class GroPlus extends Consumable {
             );
         }
         if (this.game.player.ballSize > 10)
-            this.outputText(
+            this.outx(
                 "Walking gets even tougher with the swollen masses between your legs.  Maybe this was a bad idea."
             );
         this.game.dynStats("lus", 10);
@@ -102,7 +102,7 @@ export class GroPlus extends Consumable {
     private growPlusBreasts(): void {
         this.clearOutput();
         this.game.player.slimeFeed();
-        this.outputText(
+        this.outx(
             "You sink the needle into the flesh of your " +
                 this.game.player.allBreastsDescript() +
                 " injecting each with a portion of the needle.\n\n"
@@ -123,11 +123,11 @@ export class GroPlus extends Consumable {
     private growPlusClit(): void {
         this.clearOutput();
         this.game.player.slimeFeed();
-        this.outputText(
+        this.outx(
             "You sink the needle into your clit, nearly crying with how much it hurts.  You push down the plunger and the pain vanishes as your clit starts to grow.\n\n"
         );
         this.game.player.clitLength++;
-        this.outputText(
+        this.outx(
             "Your " +
                 this.game.player.clitDescript() +
                 " stops growing after an inch of new flesh surges free of your netherlips.  It twitches, feeling incredibly sensitive."
@@ -139,13 +139,13 @@ export class GroPlus extends Consumable {
     private growPlusCock(): void {
         this.clearOutput();
         this.game.player.slimeFeed();
-        this.outputText(
+        this.outx(
             "You sink the needle into the base of your " +
                 this.game.player.multiCockDescriptLight() +
                 ".  It hurts like hell, but as you depress the plunger, the pain vanishes, replaced by a tingling pleasure as the chemicals take effect.\n\n"
         );
         if (this.game.player.cocks.length == 1) {
-            this.outputText(
+            this.outx(
                 "Your " +
                     this.game.player.cockDescript(0) +
                     " twitches and thickens, pouring more than an inch of thick new length from your "
@@ -156,7 +156,7 @@ export class GroPlus extends Consumable {
         }
         // MULTI
         else {
-            this.outputText(
+            this.outx(
                 "Your " +
                     this.game.player.multiCockDescriptLight() +
                     " twitch and thicken, each member pouring out more than an inch of new length from your "
@@ -167,8 +167,8 @@ export class GroPlus extends Consumable {
                 this.game.player.cocks[i].cockThickness += 0.5;
             }
         }
-        if (this.game.player.hasSheath()) this.outputText("sheath.");
-        else this.outputText("crotch.");
+        if (this.game.player.hasSheath()) this.outx("sheath.");
+        else this.outx("crotch.");
         this.game.dynStats("sen", 2, "lus", 10);
         this.game.inventory.itemGoNext();
     }
@@ -176,13 +176,13 @@ export class GroPlus extends Consumable {
     private growPlusNipples(): void {
         this.clearOutput();
         this.game.player.slimeFeed();
-        this.outputText(
+        this.outx(
             "You sink the needle into each of your " +
                 this.game.player.nippleDescript(0) +
                 "s in turn, dividing the fluid evenly between them.  Though each injection hurts, the pain is quickly washed away by the potent chemical cocktail.\n\n"
         );
         // Grow nipples
-        this.outputText(
+        this.outx(
             "Your nipples engorge, prodding hard against the inside of your " +
                 this.game.player.armorName +
                 ".  Abruptly you realize they've grown more than an additional quarter-inch.\n\n"
@@ -200,7 +200,7 @@ export class GroPlus extends Consumable {
             }
             // Talk about if anything was changed.
             if (nowFuckable)
-                this.outputText(
+                this.outx(
                     "Your " +
                         this.game.player.allBreastsDescript() +
                         " tingle with warmth that slowly migrates to your nipples, filling them with warmth.  You pant and moan, rubbing them with your fingers.  A trickle of wetness suddenly coats your finger as it slips inside the nipple.  Shocked, you pull the finger free.  <b>You now have fuckable nipples!</b>\n\n"
@@ -211,7 +211,7 @@ export class GroPlus extends Consumable {
 
     private growPlusCancel(): void {
         this.clearOutput();
-        this.outputText("You put the vial away.\n\n");
+        this.outx("You put the vial away.\n\n");
         this.game.inventory.returnItemToInventory(this);
     }
 }

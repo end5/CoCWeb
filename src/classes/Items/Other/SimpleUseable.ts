@@ -25,7 +25,7 @@ export class SimpleUseable extends Useable {
         if (this.canUseFunction != undefined) {
             this.canUseFunction();
         } else {
-            this.outputText(this.canUseText);
+            this.outx(this.canUseText);
         }
         return false;
     }

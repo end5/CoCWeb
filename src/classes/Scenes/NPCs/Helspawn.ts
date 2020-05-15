@@ -41,12 +41,12 @@ export class Helspawn extends Monster {
     private helspawnTwinStrikes(): void {
         // if Bowmander
         if (this.flags[kFLAGS.HELSPAWN_WEAPON] == "bow")
-            this.outputText(
+            this.outx(
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                     " leaps back out of your reach and nocks a pair of blunted arrows, drawing them back together and loosing them at once!\n"
             );
         else
-            this.outputText(
+            this.outx(
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                     " lunges at you, scimitar cleaving through the air toward your throat!\n"
             );
@@ -57,7 +57,7 @@ export class Helspawn extends Monster {
     // Called Shot (Bowmander Only)
     // Super-high chance of hitting. On hit, speed debuff
     private calledShot(): void {
-        this.outputText(
+        this.outx(
             this.flags[kFLAGS.HELSPAWN_NAME] +
                 " draws back her bowstring, spending an extra second aiming before letting fly!"
         );
@@ -73,9 +73,9 @@ export class Helspawn extends Monster {
                     this.combatFlexibility() ||
                     this.combatMisdirect()))
         )
-            this.outputText("\nYou avoid the hit!");
+            this.outx("\nYou avoid the hit!");
         else {
-            this.outputText(
+            this.outx(
                 "\nOne of her arrows smacks right into your [leg], nearly bowling you over.  God DAMN that hurt! You're going to be limping for a while!"
             );
             let affect: number = 20 + Helspawn.rand(5);
@@ -100,14 +100,14 @@ export class Helspawn extends Monster {
                 }
             }
             damage = this.player.takeDamage(damage);
-            this.outputText(" (" + damage + ")");
+            this.outx(" (" + damage + ")");
         }
     }
 
     // Berzerkergang (Berzerkermander Only)
     // Gives Helspawn the benefit of the Berzerk special ability
     private helSpawnBerserk(): void {
-        this.outputText(
+        this.outx(
             this.flags[kFLAGS.HELSPAWN_NAME] +
                 " lets out a savage warcry, throwing her head back in primal exaltation before charging back into the fray with utter bloodlust in her wild eyes!"
         );
@@ -122,7 +122,7 @@ export class Helspawn extends Monster {
             this.str - Helspawn.rand(this.player.tou) - this.player.armorDef
         );
         // Stuns a bitch
-        this.outputText(
+        this.outx(
             this.flags[kFLAGS.HELSPAWN_NAME] +
                 " lashes out with her shield, trying to knock you back!"
         );
@@ -134,17 +134,17 @@ export class Helspawn extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         )
-            this.outputText("\nYou evade the strike.");
+            this.outx("\nYou evade the strike.");
         else {
-            this.outputText(
+            this.outx(
                 "\nHer shield catches you right in the face, sending you tumbling to the ground and leaving you open to attack!"
             );
             damage = this.player.takeDamage(damage);
             if (Helspawn.rand(2) == 0 && this.player.findStatusAffect(StatusAffects.Stunned) < 0) {
                 this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
-                this.outputText(" <b>The hit stuns you.</b>");
+                this.outx(" <b>The hit stuns you.</b>");
             }
-            this.outputText(" (" + damage + ")");
+            this.outx(" (" + damage + ")");
         }
     }
 
@@ -152,7 +152,7 @@ export class Helspawn extends Monster {
     private tailWhipShitYo(): void {
         // Light physical, armor piercing (fire, bitch). Random chance to get this on top of any other attack
         let damage: number = Math.floor(this.str - Helspawn.rand(this.player.tou));
-        this.outputText(
+        this.outx(
             "\n" +
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                 " whips at you with her tail, trying to sear you with her brilliant flames!"
@@ -165,32 +165,32 @@ export class Helspawn extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         )
-            this.outputText("\nYou evade the strike.");
+            this.outx("\nYou evade the strike.");
         else {
-            this.outputText(
+            this.outx(
                 "\n" +
                     this.flags[kFLAGS.HELSPAWN_NAME] +
                     "'s tail catches you as you try to dodge.  Your [armor] sizzles, and you leap back with a yelp as she gives you a light burning."
             );
             damage = this.player.takeDamage(damage);
-            this.outputText(" (" + damage + ")");
+            this.outx(" (" + damage + ")");
         }
     }
 
     // Tease (Sluttymander Only)
     private sluttyMander(): void {
         // Medium Lust damage
-        this.outputText(
+        this.outx(
             this.flags[kFLAGS.HELSPAWN_NAME] +
                 " jumps just out of reach before spinning around, planting her weapon in the ground as she turns her backside to you and gives her sizable ass a rhythmic shake, swaying her full hips hypnotically."
         );
         // if no effect:
         if (Helspawn.rand(2) == 0)
-            this.outputText(
+            this.outx(
                 '\nWhat the fuck is she trying to do?  You walk over and give her a sharp kick in the kiester, "<i>Keep your head in the game, kiddo.  Pick up your weapon!</i>"'
             );
         else {
-            this.outputText(
+            this.outx(
                 "\nDat ass.  You lean back, enjoying the show as the slutty little salamander slips right past your guard, practically grinding up against you until you can feel a fire boiling in your loins!"
             );
             let lustDelta: number = this.player.lustVuln * (10 + this.player.lib / 10);
@@ -199,14 +199,14 @@ export class Helspawn extends Monster {
             // lustDown.visible = false;
             // lustUp.visible = true;
             lustDelta = Math.round(lustDelta * 10) / 10;
-            this.outputText(" (" + lustDelta + ")", false);
+            this.outx(" (" + lustDelta + ")", false);
         }
     }
 
     // Focus (Chastemander Only)
     // Self-healing & lust restoration
     private helSpawnFocus(): void {
-        this.outputText(
+        this.outx(
             "Seeing a momentary lull in the melee, " +
                 this.flags[kFLAGS.HELSPAWN_NAME] +
                 ' slips out of reach, stumbling back and clutching at the bruises forming all over her body.  "<i>Come on, ' +

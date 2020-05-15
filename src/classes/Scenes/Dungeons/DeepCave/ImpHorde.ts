@@ -22,7 +22,7 @@ export class ImpHorde extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText("\n\nYour foes don't seem put off enough to leave...");
+            this.outx("\n\nYour foes don't seem put off enough to leave...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.loseToImpMob();

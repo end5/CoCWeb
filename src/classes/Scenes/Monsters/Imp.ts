@@ -29,7 +29,7 @@ export class Imp extends Monster {
         if (this.findStatusAffect(StatusAffects.KitsuneFight) >= 0) {
             this.game.forest.kitsuneScene.loseKitsuneImpFight();
         } else if (pcCameWorms) {
-            this.outputText("\n\nThe imp grins at your already corrupted state...", false);
+            this.outx("\n\nThe imp grins at your already corrupted state...", false);
             this.player.lust = 100;
             this.doNext(this.game.impScene.impRapesYou);
         } else {
@@ -38,38 +38,36 @@ export class Imp extends Monster {
     }
 
     protected lustMagicAttack(): void {
-        this.outputText(
-            "You see " + this.a + this.short + " make sudden arcane gestures at you!\n\n"
-        );
+        this.outx("You see " + this.a + this.short + " make sudden arcane gestures at you!\n\n");
         this.game.dynStats("lus", this.player.lib / 10 + this.player.cor / 10 + 10);
-        if (this.player.lust < 30) this.outputText("You feel strangely warm.  ");
+        if (this.player.lust < 30) this.outx("You feel strangely warm.  ");
         if (this.player.lust >= 30 && this.player.lust < 60)
-            this.outputText(
+            this.outx(
                 "Blood rushes to your groin as a surge of arousal hits you, making your knees weak.  "
             );
         if (this.player.lust >= 60)
-            this.outputText(
+            this.outx(
                 "Images of yourself fellating and fucking the imp assault your mind, unnaturally arousing you.  "
             );
         if (this.player.cocks.length > 0) {
             if (this.player.lust >= 60)
-                this.outputText(
+                this.outx(
                     "You feel your " + this.player.multiCockDescriptLight() + " dribble pre-cum."
                 );
             else if (this.player.lust >= 30 && this.player.cocks.length == 1)
-                this.outputText(
+                this.outx(
                     "Your " + this.player.cockDescript(0) + " hardens, distracting you further."
                 );
             else if (this.player.lust >= 30 && this.player.cocks.length > 1)
-                this.outputText(
+                this.outx(
                     "Your " + this.player.multiCockDescriptLight() + " harden uncomfortably."
                 );
-            if (this.player.hasVagina()) this.outputText("  ");
+            if (this.player.hasVagina()) this.outx("  ");
         }
         if (this.player.lust >= 60 && this.player.hasVagina()) {
             switch (this.player.vaginas[0].vaginalWetness) {
                 case VAGINA_WETNESS_NORMAL:
-                    this.outputText(
+                    this.outx(
                         "Your " +
                             this.game.allVaginaDescript() +
                             " dampen" +
@@ -78,10 +76,10 @@ export class Imp extends Monster {
                     );
                     break;
                 case VAGINA_WETNESS_WET:
-                    this.outputText("Your crotch becomes sticky with girl-lust.");
+                    this.outx("Your crotch becomes sticky with girl-lust.");
                     break;
                 case VAGINA_WETNESS_SLICK:
-                    this.outputText(
+                    this.outx(
                         "Your " +
                             this.game.allVaginaDescript() +
                             " become" +
@@ -90,12 +88,10 @@ export class Imp extends Monster {
                     );
                     break;
                 case VAGINA_WETNESS_DROOLING:
-                    this.outputText(
-                        "Thick runners of girl-lube stream down the insides of your thighs."
-                    );
+                    this.outx("Thick runners of girl-lube stream down the insides of your thighs.");
                     break;
                 case VAGINA_WETNESS_SLAVERING:
-                    this.outputText(
+                    this.outx(
                         "Your " +
                             this.game.allVaginaDescript() +
                             " instantly soak" +
@@ -105,7 +101,7 @@ export class Imp extends Monster {
                 default: // Dry vaginas are unaffected
             }
         }
-        this.outputText("\n");
+        this.outx("\n");
         if (this.player.lust > 99) this.doNext(this.game.endLustLoss);
         else this.doNext(this.game.playerMenu);
     }

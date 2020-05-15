@@ -41,7 +41,7 @@ export class Bog extends BaseContent {
         else if (Bog.rand(2) == 0) this.chameleonGirlScene.encounterChameleon();
         else {
             this.clearOutput();
-            this.outputText(
+            this.outx(
                 "You wander around through the humid muck, but you don't run into anything interesting."
             );
             this.doNext(this.camp.returnToCampUseOneHour);

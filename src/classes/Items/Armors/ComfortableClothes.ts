@@ -28,7 +28,7 @@ export class ComfortableClothes extends Armor {
             protected  unequipReturnItem(player:Player,output: boolean):ItemType
             {
                 if (output && player.armorName != player.armor.name){
-                    outputText("The " + player.armorName + " revert into a pair of comfortable clothes, as if by magic.  ");
+                    outx("The " + player.armorName + " revert into a pair of comfortable clothes, as if by magic.  ");
                 }
                 return this;
             }

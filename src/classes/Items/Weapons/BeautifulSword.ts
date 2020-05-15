@@ -25,7 +25,7 @@ export class BeautifulSword extends Weapon {
 
     public canUse(): boolean {
         if (this.game.player.cor < 35) return true;
-        this.outputText(
+        this.outx(
             "You grab hold of the handle of the sword only to have it grow burning hot.  You're forced to let it go lest you burn yourself.  Something within the sword must be displeased.  "
         );
         return false;
@@ -37,7 +37,7 @@ export class BeautifulSword extends Weapon {
                 if (player.cor >= 35) {
                     if (output) {
                         clearOutput();
-                        outputText("You grab hold of the handle of the sword only to have it grow burning hot.  You're forced to let it go lest you burn yourself.  Something within the sword must be displeased.  ");
+                        outx("You grab hold of the handle of the sword only to have it grow burning hot.  You're forced to let it go lest you burn yourself.  Something within the sword must be displeased.  ");
                     }
                     return false;
                 } else {

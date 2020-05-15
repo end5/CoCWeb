@@ -72,7 +72,7 @@ export class FetishCultist extends Monster {
         }
         // Talk abouts it mang!
         if (changed)
-            this.outputText(
+            this.outx(
                 "The fetish cultist's clothing shifts and twists, taking on the appearance of a " +
                     this.armorName +
                     ".\n\n",
@@ -87,37 +87,37 @@ export class FetishCultist extends Monster {
         // Two text variants!
         if (FetishCultist.rand(2) == 0) {
             if (this.armorName == FetishCultist.PERVY_NUNS_CLOTHING)
-                this.outputText(
+                this.outx(
                     "She suddenly stops chanting and spreads her legs, opening her loose pussy wide with one hand while moaning like a whore.  She toys with her breasts and fondles one of her nipples with her other hand.\n\nDespite yourself,  you can't help but be aroused by the scene.",
                     false
                 );
             if (this.armorName == FetishCultist.NOBLES_CLOTHING)
-                this.outputText(
+                this.outx(
                     "She suddenly blushes and start giggling, saying: 'Really my lord!' in a suave, submitting voice while pulling down her skirt.  The movement lets you get an even better look down her cleavage, and her breasts appear even fuller than before.\n\nDespite yourself, you can't help but be aroused by the scene.",
                     false
                 );
             if (this.armorName == FetishCultist.SWIMSUIT)
-                this.outputText(
+                this.outx(
                     "She does a series of lewd stretches, showing off her tightly-clad, sexy body in every possible detail.  In particular, her excited, blood-gorged pussy lips, clearly outlined, seem to be begging for you to come and grope them... and that's just for a start.  Despite yourself, you can't help but be aroused by the scene.",
                     false
                 );
             if (this.armorName == FetishCultist.TEACHERS_OUTFIT)
-                this.outputText(
+                this.outx(
                     'Obviously very flexible, she arches her back with one hand on her hip, displaying her firm round ass while looking at you with a lascivious expression.  She says in a sexy voice, "<i>Maybe we should have a... private talk after class...</i>"  Despite yourself, you can\'t help but be aroused by the scene.',
                     false
                 );
             if (this.armorName == FetishCultist.NAUGHTY_NURSES_UNIFORM)
-                this.outputText(
+                this.outx(
                     'Still displaying her figure in her tight suit, she asks with a lewd smile, "<i>Is there one of your needs I could satisfy, my dear?</i>"  She grabs one of her firm, full breasts, "<i>Are you thirsty, maybe?</i>"  Despite yourself, you can\'t help but be aroused by the scene.',
                     false
                 );
             if (this.armorName == FetishCultist.FETISHY_OUTFIT)
-                this.outputText(
+                this.outx(
                     "She suddenly starts posing in sexy outfits.  Despite yourself, you can't help but be aroused by it.",
                     false
                 );
         } else {
-            this.outputText(
+            this.outx(
                 "She suddenly starts mauling her shapely breasts, her fingers nearly disappearing briefly in the soft, full flesh, while fingering herself eagerly, emitting a variety of lewd noises.  You are entranced by the scene, the sexual excitement she's experiencing penetrating your body in warm waves coming from your groin.",
                 false
             );
@@ -128,50 +128,47 @@ export class FetishCultist extends Monster {
     }
     private cultistLustTransfer(): void {
         if (this.lust <= 30 || FetishCultist.rand(2) == 0) {
-            this.outputText("Her eyes glaze over, ");
-            if (this.player.cor < 40) this.outputText("and you're almost afraid to know ");
-            else this.outputText("and you wish you knew ");
-            this.outputText(
+            this.outx("Her eyes glaze over, ");
+            if (this.player.cor < 40) this.outx("and you're almost afraid to know ");
+            else this.outx("and you wish you knew ");
+            this.outx(
                 "what she is thinking of since you can almost feel her own lust building.",
                 false
             );
             this.lust += 10;
         } else {
-            this.outputText(
+            this.outx(
                 "Her eyes glaze over and you feel your mind suddenly becoming filled with a blur of every sexual perversion you could possibly think of, and then some.",
                 false
             );
             if (this.player.vaginas.length > 0) {
-                this.outputText(
+                this.outx(
                     "  You feel your " +
                         this.vaginaDescript(0) +
                         " soaking itself in a sudden burst",
                     false
                 );
                 if (this.player.cockTotal() > 0)
-                    this.outputText(
+                    this.outx(
                         ", while a sudden influx of pre-cum blurts out and streams down your " +
                             this.player.multiCockDescriptLight() +
                             ", painfully hardened by a vast amount of blood rushing to your groin",
                         false
                     );
-                this.outputText(".");
+                this.outx(".");
             } else if (this.player.cockTotal() > 0)
-                this.outputText(
+                this.outx(
                     "  A sudden influx of pre-cum blurts out and streams down your " +
                         this.player.multiCockDescriptLight() +
                         ", painfully hardened by a vast amount of blood rushing to your groin.",
                     false
                 );
             if (this.player.gender == 0)
-                this.outputText(
+                this.outx(
                     "  Your genderless body is suddenly filled by a perverted warmth.",
                     false
                 );
-            this.outputText(
-                "\n\nYou notice that the young woman seems to have calmed down some.",
-                false
-            );
+            this.outx("\n\nYou notice that the young woman seems to have calmed down some.", false);
             this.game.dynStats("lus", (this.lust / 3) * (1 + this.player.cor / 300));
             this.lust -= 50;
             if (this.lust < 0) this.lust = 10;
@@ -185,18 +182,18 @@ export class FetishCultist extends Monster {
         if (this.player.findStatusAffect(StatusAffects.Feeder) >= 0)
             temp2 = this.game.lake.fetishCultistScene.fetishCultistHasAMilkFetish;
         if (hpVictory) {
-            this.outputText(
+            this.outx(
                 "Hurt too much to continue controlling her powers, the cultist collapses helplessly.",
                 true
             );
         } else {
-            this.outputText(
+            this.outx(
                 "Overwhelmed by her lusts, the cultist loses the ability to control herself and collapses.",
                 true
             );
         }
         if (this.player.lust >= 33 && this.player.gender > 0) {
-            this.outputText(
+            this.outx(
                 "  You realize she'd make a perfect receptacle for your lusts.  Do you have your way with her?",
                 false
             );
@@ -214,7 +211,7 @@ export class FetishCultist extends Monster {
             );
         } else {
             if (temp2 != undefined) {
-                this.outputText(
+                this.outx(
                     "  She looks like she might take some of your milk if you offered it to her.  What do you do?",
                     false
                 );
@@ -239,10 +236,7 @@ export class FetishCultist extends Monster {
             super.won(hpVictory, pcCameWorms);
         } else {
             if (pcCameWorms) {
-                this.outputText(
-                    "\n\nThe cultist giggles as she watches you struggling.\n\n",
-                    false
-                );
+                this.outx("\n\nThe cultist giggles as she watches you struggling.\n\n", false);
             }
             this.game.lake.fetishCultistScene.cultistRapesYou();
         }

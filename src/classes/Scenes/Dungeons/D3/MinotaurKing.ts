@@ -133,26 +133,26 @@ export class MinotaurKing extends Monster {
     }
 
     private backhand(): void {
-        this.outputText(
+        this.outx(
             "Feinting with his axe, the Minotaur King flings a powerful backhand in your direction."
         );
 
         let damage: number = this.str + this.weaponAttack - MinotaurKing.rand(this.player.tou);
 
         if (damage <= 0 || this.combatMiss() || this.combatFlexibility()) {
-            this.outputText(" Luckily, you dodge aside.");
+            this.outx(" Luckily, you dodge aside.");
         } else if (this.combatEvade()) {
-            this.outputText(" Luckily, you evade.");
+            this.outx(" Luckily, you evade.");
         } else if (this.combatMisdirect()) {
-            this.outputText(" Luckily, you misdirect his attack.");
+            this.outx(" Luckily, you misdirect his attack.");
         } else {
             damage = this.player.takeDamage(damage);
-            this.outputText(" Damn, that hurts! (" + damage + ")");
+            this.outx(" Damn, that hurts! (" + damage + ")");
         }
     }
 
     private headbutt(): void {
-        this.outputText(
+        this.outx(
             "<i>“Settle down,”</i> the brute growls, moments before attempting to slam his forehead into your own."
         );
 
@@ -160,20 +160,18 @@ export class MinotaurKing extends Monster {
             (this.str + this.weaponAttack) / 2 - MinotaurKing.rand(this.player.tou);
 
         if (damage <= 0 || this.combatMiss() || this.combatFlexibility()) {
-            this.outputText(" Luckily, you dodge aside.");
+            this.outx(" Luckily, you dodge aside.");
         } else if (this.combatEvade()) {
-            this.outputText(" Luckily, you evade.");
+            this.outx(" Luckily, you evade.");
         } else if (this.combatMisdirect()) {
-            this.outputText(" Luckily, you misdirect his attack.");
+            this.outx(" Luckily, you misdirect his attack.");
         } else {
             this._lastRoundStun = true;
             damage = this.player.takeDamage(damage);
-            this.outputText(
-                " He impacts with stunning force, leaving you reeling! (" + damage + ")"
-            );
+            this.outx(" He impacts with stunning force, leaving you reeling! (" + damage + ")");
             // {Stun for one turn, minor HP damage}
             if (this.player.findPerk(PerkLib.Resolute) < 0) {
-                this.outputText(" <b>You're left stunned by the force of the blow!</b>");
+                this.outx(" <b>You're left stunned by the force of the blow!</b>");
                 this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
             }
         }
@@ -181,24 +179,21 @@ export class MinotaurKing extends Monster {
 
     private dickslap(): void {
         // Used after stunning PC.
-        this.outputText(
+        this.outx(
             "Before you can completely regain your wits, the brute is on you, easily holding your hand in one hand while he none-too-gently smacks his cock into your face, dragging his musky member back and forth across your cheeks before finally breaking contact."
         );
         if (this._orgasms > 0) {
-            this.outputText(" Strands of his");
-            if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0) this.outputText(" god-like");
-            this.outputText(
-                " spunk hang from your nose until your tongue lashes out to collect them."
-            );
-            if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0)
-                this.outputText(" Delicious.");
-            else this.outputText(" Why did you do that? And why did it feel so good.");
+            this.outx(" Strands of his");
+            if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0) this.outx(" god-like");
+            this.outx(" spunk hang from your nose until your tongue lashes out to collect them.");
+            if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0) this.outx(" Delicious.");
+            else this.outx(" Why did you do that? And why did it feel so good.");
         }
         this.game.dynStats("lus", 15 + this.player.lib / 20);
     }
 
     private battleaxe(): void {
-        this.outputText(
+        this.outx(
             "The Minotaur King carries his axe as if it weighed no more than a feather, brandishing it back and forth with such casual movements that you barely register his swing"
         );
         let damage: number = this.str + this.weaponAttack - MinotaurKing.rand(this.player.tou);
@@ -209,10 +204,10 @@ export class MinotaurKing extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         ) {
-            this.outputText(" in time to avoid it.");
+            this.outx(" in time to avoid it.");
         } else {
             damage = this.player.takeDamage(damage);
-            this.outputText(". By the time you notice, it’s too late. (" + damage + ")");
+            this.outx(". By the time you notice, it’s too late. (" + damage + ")");
         }
     }
 
@@ -222,38 +217,38 @@ export class MinotaurKing extends Monster {
 
         this._milkDrinks++;
         // Full HP restore.
-        this.outputText(
+        this.outx(
             "Staggering back, the King wastes no time in appropriating his willing slave, lifting her up to his face as easily as one might heft a stein of fresh-brewed beer. One of her huge tits easily fits against the oversized minotaur’s lips, and you see him noisily gulping down a quick, milky pick-me-up. By the time he finishes, his wounds are closing, but his cock is twitching and leaking pre-cum like water from a sieve."
         );
-        this.outputText(
+        this.outx(
             "\n\n<b>He looks like he’d be easier to arouse. Whatever’s in her milk may restore his wounds, but leave him vulnerable to his animalistic needs.</b>"
         );
     }
 
     // copypasta I dun even give a fuck ¯\_(ツ)_/¯
     private minoPheromones(): void {
-        this.outputText(
+        this.outx(
             "The minotaur smiles at you and lifts his loincloth, flicking it at you.  Thick ropes of pre-cum fly through the air, ",
             false
         );
         // sometimes get hit with the pre for stronger effect!
         if (MinotaurKing.rand(3) == 0) {
-            this.outputText(
+            this.outx(
                 "slapping into your face before you can react!  You wipe the slick snot-like stuff out of your eyes and nose, ",
                 false
             );
             if (this.player.lust > 75) {
-                this.outputText("swallowing it into your mouth without thinking.  ");
+                this.outx("swallowing it into your mouth without thinking.  ");
                 this.game.dynStats("lus", 15 + this.player.lib / 10);
             } else {
-                this.outputText(
+                this.outx(
                     "feeling your heart beat with desire as your tongue licks the residue from your lips.  ",
                     false
                 );
                 this.game.dynStats("lus", 7.5 + this.player.lib / 20);
             }
-        } else this.outputText("right past your head.  ");
-        this.outputText(
+        } else this.outx("right past your head.  ");
+        this.outx(
             "The animalistic scent of it seems to get inside you, the musky aroma burning a path of liquid heat to your groin.",
             false
         );
@@ -263,12 +258,12 @@ export class MinotaurKing extends Monster {
             this.flags[kFLAGS.MINOTAUR_CUM_ADDICTION_STATE] == 2
         ) {
             if (MinotaurKing.rand(2) == 0)
-                this.outputText(
+                this.outx(
                     "\n<b>You shiver with need, wanting nothing more than to bury your face under that loincloth and slurp out every drop of goopey goodness.</b>",
                     false
                 );
             else
-                this.outputText(
+                this.outx(
                     "\n<b>You groan and lick your lips over and over, craving the taste of him in your mouth.</b>",
                     false
                 );
@@ -279,21 +274,21 @@ export class MinotaurKing extends Monster {
     public lustDump(): void {
         this._orgasms++;
 
-        this.outputText(
+        this.outx(
             "The incredibly-aroused minotaur staggers, then looks down at the log of tumescence between his legs. It’s twitching, bouncing in the air with every beat of his heart. It must ache to be that hard, to be so full of lust it looks ready to erupt. One of his hands reaches toward it, and he drops to one knee. Have you done it? Have you defeated the brute once and for all?"
         );
-        this.outputText(
+        this.outx(
             "\n\nA monstrous hand closes around Excellia’s torso, lifting her into the air. The curvy cow-slut does the only thing she can in such a situation - she moos and spreads her legs, a gleeful smile plastered across her excited visage. The Minotaur King doesn’t wait a second, impaling her on the spot, sliding what looks like three feet of virile cock deep into his favorite slut. His balls slap against her bulging belly once he’s fully inside, getting a coating of pussy-juice for their trouble."
         );
-        this.outputText(
+        this.outx(
             "\n\nThe brute fucks her casually, using her like little more than a super-sized sex-toy. Every sheath-hilting clap of hips to ass sends jiggles through the nubile slave. Flecks of pussy-juice and pre-cum froth around the entrance to her gaped cunt while stray droplets slick the floor below. It’s a bestial mating, the kind that leaves no room for words on either partner’s face. The kind that has the cow-girl quivering and shaking in the throes of indescribable ecstasy, rendered incapable of something as simple as moaning."
         );
-        this.outputText(
+        this.outx(
             "\n\nExcellia’s master joins her a second later. There’s little change in the sound of his grunts. You wouldn’t even know if it wasn’t for the sudden ballooning of her belly and the cascade of cum between her legs, coating her lord’s legs in a veneer of lusty white. The amount of spunk is absolutely gobsmacking. You watch in awe as Excellia’s formerly taut belly stretches into a gravid dome. She looks like she could give birth any moment now, yet there’s nothing in her womb but gallon upon gallon of tainted minotaur spunk."
         );
         if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0)
-            this.outputText(" You’re jealous. All that cum must feel exquisite!");
-        this.outputText(
+            this.outx(" You’re jealous. All that cum must feel exquisite!");
+        this.outx(
             "\n\nWhatever spell this forceful mating cast, it breaks the moment Excellia slides off her lord’s still-hard phallus. You close your mouth and ready your grip on your [weapon] as the Minotaur King straightens, breathing heavily. He looks a little woozy for the effort, but still good to fight. Maybe if you can bring him back to the peak, he’ll fall for good?"
         );
         this.lust = 0;
@@ -303,18 +298,18 @@ export class MinotaurKing extends Monster {
         if (this.player.hasCock()) {
             const sel: number = MinotaurKing.rand(3);
             if (sel == 0) {
-                this.outputText(
+                this.outx(
                     "Excellia crawls over to you while you’re distracted with her lord and wraps her arms around your waist, crushing her milk-swollen tits against your crotch. You can feel their warmth through your [armor], promising nothing but bliss in their embrace. When you push her away, you become aware of the rivers of milk she poured down your"
                 );
-                if (this.player.isNaga()) this.outputText(" [leg]");
-                else this.outputText(" [legs]");
-                this.outputText(", a reminder of the woman’s insane fuckability.");
+                if (this.player.isNaga()) this.outx(" [leg]");
+                else this.outx(" [legs]");
+                this.outx(", a reminder of the woman’s insane fuckability.");
             } else if (sel == 1) {
-                this.outputText(
+                this.outx(
                     "Turning about, the cow-slave aims her bubbly ass in your direction and lifts her tail, revealing both her dripping delta and the puckered star of her asshole. She looks back over her shoulder and sensuously slides her tongue across her gold-gilt lips, blowing you a pouty kiss once her mouth is suitably shiny. If she meant to distract you, she was at least partially successful."
                 );
             } else {
-                this.outputText(
+                this.outx(
                     "Excellia rises up onto her knees and arches her back to display her monumental mammaries, letting their chocolatey nipples jut accusingly in your direction. Her fingers travel to them, squeezing out thin flows of milk that she gathers and smears across each orb in turn, rubbing it into her skin like high-grade massage oil. When she’s finished, her tits are shining, and you’re a little hotter under the collar."
                 );
             }
@@ -324,7 +319,7 @@ export class MinotaurKing extends Monster {
     }
 
     protected handleStun(): boolean {
-        this.outputText(
+        this.outx(
             "It only takes the muscled monarch a moment to recover from the stun. It looks like he’s too much of a juggernaught to be stopped by those kinds of hits."
         );
         return true;

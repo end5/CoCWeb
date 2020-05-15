@@ -15,7 +15,7 @@ import { StatusAffects } from "../../../StatusAffects";
 export class Kelt extends Monster {
     // Trample - once every five turns
     private keltTramplesJoo(): void {
-        this.outputText(
+        this.outx(
             "Before you know what's what, Kelt is galloping toward you, kicking up a cloud of dust in his wake.  He's trying to trample you!  "
         );
         // Miss:
@@ -25,9 +25,7 @@ export class Kelt extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         ) {
-            this.outputText(
-                "You roll out of the way at the last moment, avoiding his dangerous hooves."
-            );
+            this.outx("You roll out of the way at the last moment, avoiding his dangerous hooves.");
             this.combatRoundOver();
             return;
         }
@@ -40,14 +38,14 @@ export class Kelt extends Monster {
 
         // Block:
         if (damage <= 0) {
-            this.outputText(
+            this.outx(
                 "Incredibly, you brace yourself and dig in your [feet].  Kelt slams into you, but you grind his momentum to a half.  His mouth flaps uncomprehendingly for a moment before he backs up, flushing from being so close to you."
             );
             this.lust += 5;
         }
         // Hit:
         else {
-            this.outputText(
+            this.outx(
                 "You can't get out of the way in time, and you're knocked down!  Kelt tramples overtop of you!  (" +
                     damage +
                     ")"
@@ -59,7 +57,7 @@ export class Kelt extends Monster {
     // Arrow Attack
     private keltShootBow(): void {
         this.createStatusAffect(StatusAffects.BowCooldown, 3, 0, 0, 0);
-        this.outputText(
+        this.outx(
             "Kelt knocks and fires an arrow almost faster than you can track.  He's lost none of his talent with a bow, even after everything you've put him through.  "
         );
 
@@ -70,7 +68,7 @@ export class Kelt extends Monster {
             this.combatFlexibility() ||
             this.combatMisdirect()
         ) {
-            this.outputText("You manage to avoid the missile by the skin of your teeth!");
+            this.outx("You manage to avoid the missile by the skin of your teeth!");
             this.combatRoundOver();
             return;
         }
@@ -86,13 +84,13 @@ export class Kelt extends Monster {
         );
         if (damage < 0) damage = 0;
         if (damage == 0) {
-            this.outputText("You deflect the hit, preventing it from damaging you.");
+            this.outx("You deflect the hit, preventing it from damaging you.");
             this.combatRoundOver();
             return;
         }
         // Hit:
         damage = this.player.takeDamage(damage);
-        this.outputText("The arrow bites into you before you can react. (" + damage + ")");
+        this.outx("The arrow bites into you before you can react. (" + damage + ")");
         this.combatRoundOver();
     }
 
@@ -101,25 +99,23 @@ export class Kelt extends Monster {
         const select: number = Kelt.rand(3);
         // (1)
         if (select == 0)
-            this.outputText(
+            this.outx(
                 "Kelt flashes his cockiest smile and gestures downward.  \"<i>Did you forget why you're here, slut?  Taking me by surprise once doesn't make you any less of a whore.</i>\""
             );
         // (2)
         else if (select == 2)
-            this.outputText(
+            this.outx(
                 "Grinning, Kelt runs by, trailing a cloud of his musk and pheremones behind you.  You have to admit, they get you a little hot under the collar..."
             );
         // (3)
         else {
-            this.outputText(
+            this.outx(
                 'Kelt snarls, "<i>Why don\'t you just masturbate like the slut that you are until I come over there and punish you?</i>"  '
             );
             if (this.player.lust >= 80)
-                this.outputText(
-                    "Your hand moves towards your groin seemingly of its own volition."
-                );
+                this.outx("Your hand moves towards your groin seemingly of its own volition.");
             else
-                this.outputText(
+                this.outx(
                     "Your hands twitch towards your groin but you arrest them.  Still, the idea seems to buzz at the back of your brain, exciting you."
                 );
         }
@@ -131,11 +127,11 @@ export class Kelt extends Monster {
     // DayDream "Attack"
     private dayDreamKelly(): void {
         if (Kelt.rand(2) == 0)
-            this.outputText(
+            this.outx(
                 "Kelt pauses mid-draw, looking you up and down.  He licks his lips for a few moments before shaking his head to rouse himself from his lusty stupor.  He must miss the taste of your sperm."
             );
         else
-            this.outputText(
+            this.outx(
                 "Flaring 'his' nostrils, Kelt inhales deeply, his eyelids fluttering closed as he gives a rather lady-like moan.   His hands roam over his stiff nipples, tweaking them slightly before he recovers."
             );
         this.lust += 5;
@@ -165,9 +161,7 @@ export class Kelt extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         if (pcCameWorms) {
-            this.outputText(
-                "\n\nKelt recoils for a moment before assuming a look of superiority..."
-            );
+            this.outx("\n\nKelt recoils for a moment before assuming a look of superiority...");
             this.doNext(this.game.endLustLoss);
         } else {
             this.game.farm.kelly.keltFucksShitUp();
