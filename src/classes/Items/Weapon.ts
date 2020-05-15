@@ -46,7 +46,7 @@ export class Weapon extends Useable {
     }
 
     public useText(): void {
-        this.outx("You equip " + this.longName + ".  ");
+        this.outx(`You equip ${this.longName}.  `);
     }
 
     public playerEquip(): Weapon {

@@ -583,14 +583,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         switch (this.flags[kFLAGS.KATHERINE_CLOTHES_WORN]) {
             case Katherine.KBIT_CLOTHES_UNIFORM: // Guard Uniform
                 this.outx(
-                    "She’s wearing a suit of leather armor with some chainmail patches over a properly fitting pair of leggings and a tunic" +
-                        (this.hasCock()
-                            ? ", just tight enough to make it clear she’s a herm"
-                            : "") +
-                        ".  On one hip she sports a broadsword in a scabbard - nothing fancy, but clearly well-made and ready to be used.  On the other hip is her persuader, a leather wrapped wooden club." +
-                        (milky
+                    `She’s wearing a suit of leather armor with some chainmail patches over a properly fitting pair of leggings and a tunic${
+                        this.hasCock() ? ", just tight enough to make it clear she’s a herm" : ""
+                    }.  On one hip she sports a broadsword in a scabbard - nothing fancy, but clearly well-made and ready to be used.  On the other hip is her persuader, a leather wrapped wooden club.${
+                        milky
                             ? "  You detect the faint smell of milk in the air when she's near."
-                            : "")
+                            : ""
+                    }`
                 );
                 break;
             case Katherine.KBIT_CLOTHES_C_CLOTH: // Blouse and Skirt
@@ -605,8 +604,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         "  The blouse is a little damp thanks to leakage from her bountiful bosom."
                     );
                 this.outx(
-                    "  From the waist down, she wears a matching skirt that ends at her knees." +
-                        (this.hasCock() ? this.skirtDescription() : "")
+                    `  From the waist down, she wears a matching skirt that ends at her knees.${
+                        this.hasCock() ? this.skirtDescription() : ""
+                    }`
                 );
                 break;
             case Katherine.KBIT_CLOTHES_BODYSUIT: // Bodysuit
@@ -620,9 +620,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 break;
             case Katherine.KBIT_CLOTHES_B_DRESS: // Elegant Long Dress
                 this.outx(
-                    "She’s wearing the ballroom dress you gave her with pride.  Its sequined bodice draws attention to her chest while the floor length skirts " +
-                        (this.hasCock() ? "completely conceal her masculine additions and " : "") +
-                        "draw the eye to her hips."
+                    `She’s wearing the ballroom dress you gave her with pride.  Its sequined bodice draws attention to her chest while the floor length skirts ${
+                        this.hasCock() ? "completely conceal her masculine additions and " : ""
+                    }draw the eye to her hips.`
                 );
                 if (milky)
                     this.outx(
@@ -642,21 +642,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outx("She’s wearing the snug tube top you gave her, which is ");
                 this.tightTopDescption();
                 this.outx(
-                    (milky
-                        ? ", the thin fabric a little damp thanks to leakage from her bosom"
-                        : "") + ".  "
+                    `${
+                        milky
+                            ? ", the thin fabric a little damp thanks to leakage from her bosom"
+                            : ""
+                    }.  `
                 );
                 if (this.canWearMiniSkirt())
                     this.outx(
-                        "From the waist down, she wears a pair of skintight shorts, which are " +
-                            (this.hasCock()
+                        `From the waist down, she wears a pair of skintight shorts, which are ${
+                            this.hasCock()
                                 ? "barely able to hold her unlady-like bulge in place."
-                                : "tight enough to prove to any passerby that she truly is a lady.")
+                                : "tight enough to prove to any passerby that she truly is a lady."
+                        }`
                     );
                 else
                     this.outx(
-                        "From the waist down, she wears a matching skirt that ends at her knees." +
-                            (this.hasCock() ? this.skirtDescription() : "")
+                        `From the waist down, she wears a matching skirt that ends at her knees.${
+                            this.hasCock() ? this.skirtDescription() : ""
+                        }`
                     );
                 break;
             case Katherine.KBIT_CLOTHES_NURSECL: // Nurse’s Outfit
@@ -665,21 +669,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
                 this.tightTopDescption();
                 this.outx(
-                    (milky
-                        ? ", the white fabric a little damp thanks to leakage from her bosom"
-                        : "") + ".  "
+                    `${
+                        milky
+                            ? ", the white fabric a little damp thanks to leakage from her bosom"
+                            : ""
+                    }.  `
                 );
                 if (this.canWearMiniSkirt())
                     this.outx(
-                        "From the waist down, she wears a tight white miniskirt that " +
-                            (this.hasCock()
+                        `From the waist down, she wears a tight white miniskirt that ${
+                            this.hasCock()
                                 ? "barely conceals her unlady-like bulge."
-                                : "will flash her panties at passersby if she takes a long stride.")
+                                : "will flash her panties at passersby if she takes a long stride."
+                        }`
                     );
                 else
                     this.outx(
-                        "From the waist down, she wears a matching white skirt that ends at her knees." +
-                            (this.hasCock() ? this.skirtDescription() : "")
+                        `From the waist down, she wears a matching white skirt that ends at her knees.${
+                            this.hasCock() ? this.skirtDescription() : ""
+                        }`
                     );
                 this.outx(
                     "  The outfit, and Kath herself, are topped off with the cute little white hat that sits between her fuzzy black ears."
@@ -834,9 +842,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("", true);
         // [If Player chooses 'Scylla' button]
         this.outx(
-            "Scylla smiles when she sees you approaching, and politely greets you.  “<i>Why, hello, " +
-                this.player.short +
-                "; it's good to see you.  Do you need something?</i>”\n\n",
+            `Scylla smiles when she sees you approaching, and politely greets you.  “<i>Why, hello, ${this.player.short}; it's good to see you.  Do you need something?</i>”\n\n`,
             false
         );
 
@@ -951,9 +957,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] == 1) {
             // Regular menu
             this.outx(
-                ", and she smiles when she sees you.  “<i>" +
-                    this.player.short +
-                    "!  Did you come to see me?</i>”"
+                `, and she smiles when she sees you.  “<i>${this.player.short}!  Did you come to see me?</i>”`
             );
             if (checkTraining && this.flags[kFLAGS.KATHERINE_TRAINING] > 2) {
                 // You have talked to at least one of Edryn, Urta or the desk sargeant
@@ -984,11 +988,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "When you open the door to Kath’s place you see Kath and Urta both sitting together on the bed.  As soon as they spot you Kath crooks her finger and scoots over, leaving a space between her and Urta.\n\n"
                 );
                 this.outx(
-                    "Once you’re seated Urta laughs and says, “<i>so your big plan worked.  You got us fucking, " +
-                        (this.flags[kFLAGS.KATHERINE_URTA_DATE] == Katherine.KDATE_LOTS
+                    `Once you’re seated Urta laughs and says, “<i>so your big plan worked.  You got us fucking, ${
+                        this.flags[kFLAGS.KATHERINE_URTA_DATE] == Katherine.KDATE_LOTS
                             ? "hell you encouraged us to fuck every chance we got!  So"
-                            : "so") +
-                        " it should be no surprise that we’ve become close.</i>”\n\n"
+                            : "so"
+                    } it should be no surprise that we’ve become close.</i>”\n\n`
                 );
                 this.outx(
                     "“<i>Really close,</i>” says Katherine, grinding her hip up against yours.\n\n"
@@ -997,9 +1001,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "“<i>So anyway,</i>” Urta continues, “<i>we both still love you, especially since we only met each other because of you.  But now we love each other too.  I figure you must have expected this, so don’t pretend to be surprised.</i>”\n\n"
                 );
                 this.outx(
-                    "“<i>How do you want to celebrate?</i>” asks Kath.  You can see the matching pair of " +
-                        (this.hasCock() ? "bulges" : "smiles") +
-                        ", one to each side.  They both put their arms around you, pressing their breasts against you deliberately.  But hey, who are you to argue?  A threesome seems like an awfully good idea."
+                    `“<i>How do you want to celebrate?</i>” asks Kath.  You can see the matching pair of ${
+                        this.hasCock() ? "bulges" : "smiles"
+                    }, one to each side.  They both put their arms around you, pressing their breasts against you deliberately.  But hey, who are you to argue?  A threesome seems like an awfully good idea.`
                 );
                 this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] = 32;
                 let button = 0;
@@ -1022,8 +1026,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
                 this.clothes();
                 this.outx(
-                    "\n\nShe stands next to her bed, waiting for you to " +
-                        (this.playerMaster() ? "tell her what to do." : "make the first move.")
+                    `\n\nShe stands next to her bed, waiting for you to ${
+                        this.playerMaster() ? "tell her what to do." : "make the first move."
+                    }`
                 );
                 this.katherineMenu();
             }
@@ -1064,7 +1069,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (this.playerMaster()) this.outx("Yes [master].  Please come back soon.</i>”\n\n");
         else
             this.outx(
-                "Alright " + this.player.short + " but next time I want to have some fun.</i>”\n\n"
+                `Alright ${this.player.short} but next time I want to have some fun.</i>”\n\n`
             );
         this.doNext(this.telAdre.telAdreMenu);
     }
@@ -1081,14 +1086,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (this.isAt(Katherine.KLOC_URTAS_APT)) {
             // This option happens if you and Urta have no children
             this.outx(
-                "apartment.  A few knocks on the door and " +
-                    (this.hasCock() ? "a sheepish looking pair of herms" : "your sheepish lovers") +
-                    " answer the door.\n\n"
+                `apartment.  A few knocks on the door and ${
+                    this.hasCock() ? "a sheepish looking pair of herms" : "your sheepish lovers"
+                } answer the door.\n\n`
             );
             this.outx(
-                "“<i>" +
-                    this.player.short +
-                    ", speak of the devil,</i>” Urta says, sounding relieved.  “<i>For a second there I thought we had actually been loud enough that a neighbour came over to complain.</i>”\n\n"
+                `“<i>${this.player.short}, speak of the devil,</i>” Urta says, sounding relieved.  “<i>For a second there I thought we had actually been loud enough that a neighbour came over to complain.</i>”\n\n`
             );
             this.outx(
                 "Kath says, “<i>We just finished cleaning up, so I was just about to head home for the night.  Where did you want to go?</i>”"
@@ -1113,11 +1116,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         "house.  Letting yourself in with the spare key you sneak upstairs and peek into the master bedroom.\n\n"
                     );
                     this.outx(
-                        "You can smell the sex from the doorway.  On the bed you can see both your girls, " +
-                            (this.hasCock()
+                        `You can smell the sex from the doorway.  On the bed you can see both your girls, ${
+                            this.hasCock()
                                 ? "each bloated with the other's cum"
-                                : "Urta's horsecock still buried inside Kath; Kath's belly still bloated with Urta's seed") +
-                            ".  They're hugging each other tight and their tails are moving back and forth lazily.\n\n"
+                                : "Urta's horsecock still buried inside Kath; Kath's belly still bloated with Urta's seed"
+                        }.  They're hugging each other tight and their tails are moving back and forth lazily.\n\n`
                     );
                     this.outx("You could say hello or you could just let yourself out quietly.");
                     this.simpleChoices(
@@ -1138,26 +1141,20 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         "house.  Letting yourself in with the spare key you sneak upstairs and peek into the master bedroom.\n\n"
                     );
                     this.outx(
-                        "You see Urta sitting with Kath in front of a large mirror.  It looks like she's helping dry Kath's hair with a towel while Katherine " +
-                            this.clothesChoice(
-                                "finishes adjusting her blouse",
-                                "finishes strightening out her sheer bodysuit",
-                                "does up the last few buttons on her long dress",
-                                "fiddles with her spider silk robe, seemingly trying to find a way to show off more of her skin",
-                                "adjusts her tube top, making sure the outline of her bra shows through the tight fabric",
-                                "adjusts the sexy nurse's outfit you gave her and plays with the little white hat that's sitting on her lap"
-                            ) +
-                            ".\n\n"
+                        `You see Urta sitting with Kath in front of a large mirror.  It looks like she's helping dry Kath's hair with a towel while Katherine ${this.clothesChoice(
+                            "finishes adjusting her blouse",
+                            "finishes strightening out her sheer bodysuit",
+                            "does up the last few buttons on her long dress",
+                            "fiddles with her spider silk robe, seemingly trying to find a way to show off more of her skin",
+                            "adjusts her tube top, making sure the outline of her bra shows through the tight fabric",
+                            "adjusts the sexy nurse's outfit you gave her and plays with the little white hat that's sitting on her lap"
+                        )}.\n\n`
                     );
                     this.outx(
                         "Kath spots you in the mirror and waves you in happily, trying to jump up and hug you.\n\n"
                     );
                     this.outx(
-                        "Urta holds Kath in her seat while she picks up a comb and finishes working on Kath's " +
-                            this.hairColor +
-                            " locks.  “<i>Hold still you horny pussy, I'm almost done.  You want to look your best for " +
-                            this.player.short +
-                            ", don't you?</i>”\n\n"
+                        `Urta holds Kath in her seat while she picks up a comb and finishes working on Kath's ${this.hairColor} locks.  “<i>Hold still you horny pussy, I'm almost done.  You want to look your best for ${this.player.short}, don't you?</i>”\n\n`
                     );
                     this.outx(
                         "Urta gives each of you a kiss and shakes her head when Kath wraps herself around you.  “<i>Where do you get the energy Kath?</i>” she asks.  “<i>You want sex even more than I do.</i>”  You feel Kath blush a little at Urta's comment, but a quick scratch of her ears and she goes back to snuggling in your arms.\n\n"
@@ -1186,23 +1183,24 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     const kids: number = this.getGame().urtaPregs.urtaKids();
                     if (kids == 1)
                         this.outx(
-                            "your child.  " +
-                                (this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] == 1 ? "He" : "She") +
-                                "'s sitting in Katherine's lap, head mashed against her breasts like " +
-                                (this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] == 1 ? "he" : "she") +
-                                " hasn't got a care in the world.\n\n"
+                            `your child.  ${
+                                this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] == 1 ? "He" : "She"
+                            }'s sitting in Katherine's lap, head mashed against her breasts like ${
+                                this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] == 1 ? "he" : "she"
+                            } hasn't got a care in the world.\n\n`
                         );
                     else
                         this.outx(
-                            (kids > 5 ? "a few of your kids" : "a pile of your children") +
-                                ".  They're lying all over Kath, playing with her ears and tail while she scratches their heads and gives them little kisses."
+                            `${
+                                kids > 5 ? "a few of your kids" : "a pile of your children"
+                            }.  They're lying all over Kath, playing with her ears and tail while she scratches their heads and gives them little kisses.`
                         );
                     this.outx(
-                        "When Kath spots you she gives you a big smile and you hear “<i>" +
-                            (this.player.hasVagina() ? "Mommy" : "Daddy") +
-                            "!</i>” from your offspring, who " +
-                            (kids > 1 ? "run over and hug" : "runs over and hugs") +
-                            " your legs.\n\n"
+                        `When Kath spots you she gives you a big smile and you hear “<i>${
+                            this.player.hasVagina() ? "Mommy" : "Daddy"
+                        }!</i>” from your offspring, who ${
+                            kids > 1 ? "run over and hug" : "runs over and hugs"
+                        } your legs.\n\n`
                     );
                     this.outx("Kath comes over and hugs you too, whispering, “<i>");
                     if (kids == 1)
@@ -1214,11 +1212,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         this.outx(this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] == 1 ? "him" : "her");
                     else this.outx("them");
                     this.outx(
-                        "them, “<i>Okay, you've " +
-                            (kids == 1 ? "" : "all ") +
-                            "had fun with aunt Katherine, now move it.  Chores don't do themselves and I'm not going to raise a " +
-                            (kids == 1 ? "lazy fox" : "pack of lazy foxes") +
-                            ".</i>”  There's little grumbling as "
+                        `them, “<i>Okay, you've ${
+                            kids == 1 ? "" : "all "
+                        }had fun with aunt Katherine, now move it.  Chores don't do themselves and I'm not going to raise a ${
+                            kids == 1 ? "lazy fox" : "pack of lazy foxes"
+                        }.</i>”  There's little grumbling as `
                     );
                     if (kids == 1)
                         this.outx(
@@ -1250,12 +1248,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private urtaPlusKathCuddle(): void {
         if (this.player.spe > 75) {
             this.outx(
-                "\n\nYou creep over to the bed and stroke Kath's tail.  She and Urta both nearly jump out of their skin.  Urta gives you a good smack in the shoulder as soon as she realizes who you are and what you just did.  “<i>" +
-                    this.player.short +
-                    "!  Are you a frigging ghost or something?  Ow, gods, you just made Kath "
+                `\n\nYou creep over to the bed and stroke Kath's tail.  She and Urta both nearly jump out of their skin.  Urta gives you a good smack in the shoulder as soon as she realizes who you are and what you just did.  “<i>${this.player.short}!  Are you a frigging ghost or something?  Ow, gods, you just made Kath `
             );
             if (this.hasCock()) this.outx("yank her knot right out of me.</i>”\n\n");
-            else this.outx("dig her " + this.catGirl("nails", "claws") + " in.</i>”\n\n");
+            else this.outx(`dig her ${this.catGirl("nails", "claws")} in.</i>”\n\n`);
             this.outx("Kath looks sheepish and says, “<i>Sorry, sorry, I thought it was ");
             if (this.getGame().urtaPregs.urtaKids() == 1)
                 this.outx(
@@ -1271,11 +1267,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "\n\nYou creep over to the bed and stroke Kath's tail.  She and Urta both start giggling and Urta pats your hand, saying, “<i>Hey baby, nice try, but you're not as quiet as you think you are.  Care to join us?</i>”\n\n"
             );
             this.outx(
-                "Kath " +
-                    (this.hasCock()
+                `Kath ${
+                    this.hasCock()
                         ? "gently removes her knot from Urta's pussy"
-                        : "slides off Urta's cock") +
-                    " and rolls on her back so she can see you.  “<i>I hope you don't mind - we've been taking care of each other.</i>”\n\n"
+                        : "slides off Urta's cock"
+                } and rolls on her back so she can see you.  “<i>I hope you don't mind - we've been taking care of each other.</i>”\n\n`
             );
             this.outx(
                 "As if you couldn't tell.  Still, you take a seat on the edge of the bed and give each of them scratches.\n\n"
@@ -1283,14 +1279,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outx("Kath twists and turns under your touch and says, ");
         }
         this.outx(
-            "“<i>I'm feeling really good right now " +
-                this.playerText() +
-                ", but if you want to do something, I'm game.</i>”\n\n"
+            `“<i>I'm feeling really good right now ${this.playerText()}, but if you want to do something, I'm game.</i>”\n\n`
         );
         this.outx(
-            "Urta laughs and says, “<i>Oh yeah, and leave me with this mess, huh?</i>”  She scoops a little cum up from the bed and rubs it between her fingers.  “<i>I suppose I could take care of it tomorrow morning if it means you get a good dose of pussy, " +
-                this.player.short +
-                ".</i>”"
+            `Urta laughs and says, “<i>Oh yeah, and leave me with this mess, huh?</i>”  She scoops a little cum up from the bed and rubs it between her fingers.  “<i>I suppose I could take care of it tomorrow morning if it means you get a good dose of pussy, ${this.player.short}.</i>”`
         );
         this.simpleChoices(
             "Back to Kath's",
@@ -1314,30 +1306,29 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (this.flags[kFLAGS.KATHERINE_UNLOCKED] == 4) {
             // First encounter since training
             this.outx(
-                "“<i>" +
-                    this.player.short +
-                    "!</i>” she calls out, running straight into your arms.  “<i>I’ve been hoping to run into you - here,</i>” she says, thrusting a key into your hand.  “<i>I was so excited when I saw you at the gate; I completely forgot to give you this.  It's a key to my new place.</i>”  She beams proudly as she speaks the words.\n\n“<i>Please come by any time, that way we can get up to anything we want,</i>” she adds before kissing you and wrapping her tail around your waist.  She whispers the directions to her new place in your ear, then releases you and steps back.\n\n“<i>Now, as for right now, y"
+                `“<i>${this.player.short}!</i>” she calls out, running straight into your arms.  “<i>I’ve been hoping to run into you - here,</i>” she says, thrusting a key into your hand.  “<i>I was so excited when I saw you at the gate; I completely forgot to give you this.  It's a key to my new place.</i>”  She beams proudly as she speaks the words.\n\n“<i>Please come by any time, that way we can get up to anything we want,</i>” she adds before kissing you and wrapping her tail around your waist.  She whispers the directions to her new place in your ear, then releases you and steps back.\n\n“<i>Now, as for right now, y`
             );
             this.flags[kFLAGS.KATHERINE_UNLOCKED] = 5;
         } else {
             // Normal introduction
             this.outx(
-                "When she reaches you Katherine skids to a stop.  “<i>" +
-                    (this.playerMaster() ? "[master]" : "Hi " + this.player.short) +
-                    "!</i>” she says, grinning ear to ear.  “<i>Y"
+                `When she reaches you Katherine skids to a stop.  “<i>${
+                    this.playerMaster() ? "[master]" : `Hi ${this.player.short}`
+                }!</i>” she says, grinning ear to ear.  “<i>Y`
             );
         }
         this.outx(
-            "ou’ve got good timing.  We were due to take a break anyway.</i>”  Before she says any more Katherine stands up straight, casually places her hands behind her back and shifts her body to emphasize her breasts and the " +
-                (this.hasCock() ? "bulge of her crotch" : "curve of her hips") +
-                ".  “<i>So... how do I look?</i>” she asks with a purr.\n\n"
+            `ou’ve got good timing.  We were due to take a break anyway.</i>”  Before she says any more Katherine stands up straight, casually places her hands behind her back and shifts her body to emphasize her breasts and the ${
+                this.hasCock() ? "bulge of her crotch" : "curve of her hips"
+            }.  “<i>So... how do I look?</i>” she asks with a purr.\n\n`
         );
 
         this.katherinesAppearance(false); // This will output most of the encounter text
         this.outx(
-            "Totally naked, tail waving with pleasure, Katherine stretches, giving you a very good show of all her most private parts.  “<i>Like what you see, my love?</i>” she purrs.\n\nYes, you do, you tell her.  Her uniform suits her just fine, and you can certainly appreciate her new flirty attitude.  You motion for her to give a little twirl.  The cat" +
-                this.catGirl(" girl", "-morph") +
-                " does as you indicate, pirouetting with surprising elegance in a slow circle, grinning at you as she resumes facing you.  “<i>You should really come and see me after work.</i>” she winks, even as she bends down and, with a wiggle of her ass, starts gathering her clothes up again.  You can’t help but feel a bit disappointed as she begins to redress.\n\n“<i>But... I still got a little time, if you maybe want to do something else...?</i>” she purrs with a sultry wink.\n\n"
+            `Totally naked, tail waving with pleasure, Katherine stretches, giving you a very good show of all her most private parts.  “<i>Like what you see, my love?</i>” she purrs.\n\nYes, you do, you tell her.  Her uniform suits her just fine, and you can certainly appreciate her new flirty attitude.  You motion for her to give a little twirl.  The cat${this.catGirl(
+                " girl",
+                "-morph"
+            )} does as you indicate, pirouetting with surprising elegance in a slow circle, grinning at you as she resumes facing you.  “<i>You should really come and see me after work.</i>” she winks, even as she bends down and, with a wiggle of her ass, starts gathering her clothes up again.  You can’t help but feel a bit disappointed as she begins to redress.\n\n“<i>But... I still got a little time, if you maybe want to do something else...?</i>” she purrs with a sultry wink.\n\n`
         );
         let getOral;
         let penetratePussy;
@@ -1390,40 +1381,36 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         If Kath and Urta reach 31 affection (they are lovers), then there should be a chance each day that Kath hangs out at Urta’s table instead. If so it can be assumed that Kath will be as drunk as Urta is when the player walks in.*/
     public barDescription(): void {
         this.outx(
-            "\n\nYou see Katherine sitting alone in her usual booth, nursing something that " +
-                (this.pregSize() == 0 ? "looks like a cream liqueur" : "is probably a milkshake") +
-                ".  She’s wearing " +
-                this.clothesChoice(
-                    "a matching blouse and skirt",
-                    "her sheer bodysuit",
-                    "the elegant long dress",
-                    "her spider silk robe",
-                    "that revealing tube top",
-                    "the sexy nurse’s outfit"
-                ) +
-                (this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] < 0
-                    ? ", just like you told her to."
-                    : ".")
+            `\n\nYou see Katherine sitting alone in her usual booth, nursing something that ${
+                this.pregSize() == 0 ? "looks like a cream liqueur" : "is probably a milkshake"
+            }.  She’s wearing ${this.clothesChoice(
+                "a matching blouse and skirt",
+                "her sheer bodysuit",
+                "the elegant long dress",
+                "her spider silk robe",
+                "that revealing tube top",
+                "the sexy nurse’s outfit"
+            )}${
+                this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] < 0 ? ", just like you told her to." : "."
+            }`
         );
     }
 
     public barApproach(): void {
         this.clearOutput();
         this.outx(
-            "Kath sits up as you approach, preening herself and " +
-                this.clothesChoice(
-                    "adjusting her blouse",
-                    "stretching to show off the bodysuit",
-                    "adjusting her dress",
-                    "adjusting the spider silk robe",
-                    "smothing out the tube top",
-                    "adjusting her cute nurse’s hat"
-                ) +
-                " as you navigate your way to her table." +
-                (this.isMilky()
+            `Kath sits up as you approach, preening herself and ${this.clothesChoice(
+                "adjusting her blouse",
+                "stretching to show off the bodysuit",
+                "adjusting her dress",
+                "adjusting the spider silk robe",
+                "smothing out the tube top",
+                "adjusting her cute nurse’s hat"
+            )} as you navigate your way to her table.${
+                this.isMilky()
                     ? "  Her hands subconsciously move to her breasts and you note the damp spots over her nipples."
-                    : "") +
-                "\n\n"
+                    : ""
+            }\n\n`
         );
         this.outx(
             "When you sit down Kath asks you what you want to do and takes a sip of her drink."
@@ -1439,9 +1426,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "She finally regains some composure and says, “<i>I’ve been waiting for you to turn up!  It feels like so much has happened these last few days.  Oh, I’m such a screwup - I told you I had an apartment but I didn’t say where.</i>”\n\n"
         );
         this.outx(
-            "She pulls a key and a scrap of paper out and hands them to you.  “<i>There we go.  A key to my place and directions.  Please come over and see me " +
-                this.playerText() +
-                ", I’ll be lonely if you don’t.</i>”\n\n"
+            `She pulls a key and a scrap of paper out and hands them to you.  “<i>There we go.  A key to my place and directions.  Please come over and see me ${this.playerText()}, I’ll be lonely if you don’t.</i>”\n\n`
         );
         this.outx(
             "You laugh, give her a scratch behind the ear and let her lead you back to her table."
@@ -1459,20 +1444,20 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "When you walk into the Wet Bitch you see Kath and Urta sitting together at Urta's table.  As soon as Kath spots you she waves you over enthusiastically.\n\n"
         );
         this.outx(
-            "Urta offers you the seat next to her and Kath shifts over so she's on your other side.  “<i>So your big plan worked,</i>” says Urta with a grin that runs from ear to ear.  “<i>You got us fucking, " +
-                (this.flags[kFLAGS.KATHERINE_URTA_DATE] == Katherine.KDATE_LOTS
+            `Urta offers you the seat next to her and Kath shifts over so she's on your other side.  “<i>So your big plan worked,</i>” says Urta with a grin that runs from ear to ear.  “<i>You got us fucking, ${
+                this.flags[kFLAGS.KATHERINE_URTA_DATE] == Katherine.KDATE_LOTS
                     ? "hell you encouraged us to fuck every chance we got!  So"
-                    : "so") +
-                " it should be no surprise that we’ve become close.</i>”\n\n"
+                    : "so"
+            } it should be no surprise that we’ve become close.</i>”\n\n`
         );
         this.outx("“<i>Really close,</i>” says Katherine, grinding her hip up against yours.\n\n");
         this.outx(
             "“<i>So anyway,</i>” Urta continues, “<i>we both still love you, especially since we only met each other because of you.  But now we love each other too.  I figure you must have expected this, so don’t pretend to be surprised.</i>”\n\n"
         );
         this.outx(
-            "“<i>How do you want to celebrate?</i>” asks Kath.  You can see the matching pair of " +
-                (this.hasCock() ? "bulges" : "smiles") +
-                ", one to each side.  They both put their arms around you, pressing their breasts against you deliberately.  But hey, who are you to argue?  A threesome seems like an awfully good idea."
+            `“<i>How do you want to celebrate?</i>” asks Kath.  You can see the matching pair of ${
+                this.hasCock() ? "bulges" : "smiles"
+            }, one to each side.  They both put their arms around you, pressing their breasts against you deliberately.  But hey, who are you to argue?  A threesome seems like an awfully good idea.`
         );
         this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] = 32;
         let button = 0;
@@ -1593,10 +1578,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             return;
         }
         this.outx(
-            (this.isAt(Katherine.KLOC_KATHS_APT)
-                ? "She sits on the edge of the bed"
-                : "She leans back in her chair") +
-                " and says “<i>I’d love to talk.  What’s on your mind?</i>”"
+            `${
+                this.isAt(Katherine.KLOC_KATHS_APT)
+                    ? "She sits on the edge of the bed"
+                    : "She leans back in her chair"
+            } and says “<i>I’d love to talk.  What’s on your mind?</i>”`
         );
         this.menu();
         this.addButton(0, "Gangs", this.talkGangs);
@@ -1841,9 +1827,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "Kath sighs and then continues, “<i>There’s a reason everyone says something difficult is like herding cats.  We, along with a few other races, tend to be a lot more independent.  We’re even a little proud that we don’t listen to someone just because they say they’re in charge.  New gangs are always forming because we’d rather follow someone we can see and deal with.  Sure, the gang leaders play favorites and take the best food and so on, but at least we know who they are any where it goes.  We know who to complain to when things go wrong.</i>”\n\n"
         );
         this.outx(
-            "“<i>The short version is that there are no easy answers, at least to Tel’Adre’s troubles.</i>”  She lets go of you and flops back " +
-                (this.isAt(Katherine.KLOC_KATHS_APT) ? "onto the bed" : "into her chair") +
-                ".  “<i>Now that you’ve got me all wound up thinking about the city I hope you’re going to help me take my mind off it.</i>”"
+            `“<i>The short version is that there are no easy answers, at least to Tel’Adre’s troubles.</i>”  She lets go of you and flops back ${
+                this.isAt(Katherine.KLOC_KATHS_APT) ? "onto the bed" : "into her chair"
+            }.  “<i>Now that you’ve got me all wound up thinking about the city I hope you’re going to help me take my mind off it.</i>”`
         );
         this.katSexMenu();
     }
@@ -1876,9 +1862,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else
             this.outx(
-                "She gets up, walks slowly around the table and sits " +
-                    (this.player.isNaga() ? "atop your tail" : "on your knee") +
-                    ". She wraps her arms around your neck, pressing"
+                `She gets up, walks slowly around the table and sits ${
+                    this.player.isNaga() ? "atop your tail" : "on your knee"
+                }. She wraps her arms around your neck, pressing`
             );
         this.outx(
             " her body up against yours and asks, “<i>Would you like me to show you just how much I appreciate you?</i>”"
@@ -1901,9 +1887,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else
             this.outx(
-                "She leans back further and her foot brushes against your " +
-                    (this.player.isNaga() ? "tail" : "leg") +
-                    ".  “<i>You know, we could be there right now.  Just say the word and we could start testing how tight the cords under my bed are.</i>”"
+                `She leans back further and her foot brushes against your ${
+                    this.player.isNaga() ? "tail" : "leg"
+                }.  “<i>You know, we could be there right now.  Just say the word and we could start testing how tight the cords under my bed are.</i>”`
             );
         this.katSexMenu();
     }
@@ -1927,9 +1913,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             : undefined;
         if (optionBodysuit == undefined)
             this.outx(
-                "Looking over your " +
-                    this.catGirl("cat girl", "feline") +
-                    " lover you wonder what it would look like if her lithe body were to be stuffed into one of those curve-hugging bodysuits.\n\n"
+                `Looking over your ${this.catGirl(
+                    "cat girl",
+                    "feline"
+                )} lover you wonder what it would look like if her lithe body were to be stuffed into one of those curve-hugging bodysuits.\n\n`
             );
         if (optionDress == undefined)
             this.outx(
@@ -1937,13 +1924,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         if (optionSSRobe == undefined)
             this.outx(
-                (optionBodysuit == undefined || optionDress == undefined ? "Another" : "A") +
-                    " strange thought crosses your mind: What if you got a really fine silk robe for her to wear?  Perhaps even spider silk?  The soft, lustrous fabric " +
-                    this.catGirl(
-                        "sliding over her skin would drive her wild",
-                        "would compliment her fur nicely"
-                    ) +
-                    ".\n\n"
+                `${
+                    optionBodysuit == undefined || optionDress == undefined ? "Another" : "A"
+                } strange thought crosses your mind: What if you got a really fine silk robe for her to wear?  Perhaps even spider silk?  The soft, lustrous fabric ${this.catGirl(
+                    "sliding over her skin would drive her wild",
+                    "would compliment her fur nicely"
+                )}.\n\n`
             );
         if (optionTubeTop == undefined)
             this.outx(
@@ -1951,12 +1937,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         if (optionNurseOutfit == undefined)
             this.outx(
-                (this.flags[kFLAGS.GIVEN_AMILY_NURSE_OUTFIT] > 0
-                    ? "You remember what happened when you gave your mouse-girl one of those sexy nurse outfits"
-                    : "Out there in the wilds you’ve seen those sexy nurse outfits here and there") +
-                    ". You shiver at the thought of combining that obscene clothing with your " +
-                    this.catGirl("cat girl", "feline") +
-                    " lover and her sex drive.\n\n"
+                `${
+                    this.flags[kFLAGS.GIVEN_AMILY_NURSE_OUTFIT] > 0
+                        ? "You remember what happened when you gave your mouse-girl one of those sexy nurse outfits"
+                        : "Out there in the wilds you’ve seen those sexy nurse outfits here and there"
+                }. You shiver at the thought of combining that obscene clothing with your ${this.catGirl(
+                    "cat girl",
+                    "feline"
+                )} lover and her sex drive.\n\n`
             );
         this.outx("You decide to give Katherine a little input on her clothing choices.");
         this.choices(
@@ -1985,9 +1973,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private talkClothesNoPreference(): void {
         this.outx(
-            "\n\nYou walk over to Kath and start playing with her tail.  She laughs and jumps into your arms, frisky and ready for fun.  You tell her that the next time she gets dressed she" +
-                (this.submissiveness() > 1 ? "'s allowed to choose" : " should pick out") +
-                " whatever she likes.  As far as you’re concerned, everything in her wardrobe looks great on her.  You, of course, prefer her completely naked.\n\n"
+            `\n\nYou walk over to Kath and start playing with her tail.  She laughs and jumps into your arms, frisky and ready for fun.  You tell her that the next time she gets dressed she${
+                this.submissiveness() > 1 ? "'s allowed to choose" : " should pick out"
+            } whatever she likes.  As far as you’re concerned, everything in her wardrobe looks great on her.  You, of course, prefer her completely naked.\n\n`
         );
         this.outx(
             "Kath wiggles against your body and says, “<i>When you’re around I prefer naked too.  What a funny coincidence.  Oh, and since you bring it up...</i>”"
@@ -2030,15 +2018,15 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("Kath giggles and says, “<i>I guess it's good camouflage then.</i>”  ");
         if (this.hasCock())
             this.outx(
-                "The bulge pressing against your " +
-                    (this.player.isNaga() ? "tail" : "leg") +
-                    " suggests how much she appreciates your compliments."
+                `The bulge pressing against your ${
+                    this.player.isNaga() ? "tail" : "leg"
+                } suggests how much she appreciates your compliments.`
             );
         else
             this.outx(
-                "She grinds her pelvis against your " +
-                    (this.player.isNaga() ? "tail" : "leg") +
-                    ", her tail curling around your waist.  Clearly your kitten loves compliments."
+                `She grinds her pelvis against your ${
+                    this.player.isNaga() ? "tail" : "leg"
+                }, her tail curling around your waist.  Clearly your kitten loves compliments.`
             );
         this.katSexMenu();
     }
@@ -2050,25 +2038,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("Kath giggles and says, “<i>I guess it's good camouflage then.</i>”  ");
         if (this.hasCock())
             this.outx(
-                "The bulge pressing against your " +
-                    (this.player.isNaga() ? "tail" : "leg") +
-                    " suggests how much she appreciates your compliments."
+                `The bulge pressing against your ${
+                    this.player.isNaga() ? "tail" : "leg"
+                } suggests how much she appreciates your compliments.`
             );
         else
             this.outx(
-                "She grinds her pelvis against your " +
-                    (this.player.isNaga() ? "tail" : "leg") +
-                    ", her tail curling around your waist.  Clearly your kitten loves compliments."
+                `She grinds her pelvis against your ${
+                    this.player.isNaga() ? "tail" : "leg"
+                }, her tail curling around your waist.  Clearly your kitten loves compliments.`
             );
         this.outx(
             "\n\nYou continue to massage her ears and tell her that you'd like to see her wearing it a little more often.\n\n"
         );
         this.outx(
-            "She nuzzles against your neck and says, “<i>" +
-                (this.playerMaster()
+            `She nuzzles against your neck and says, “<i>${
+                this.playerMaster()
                     ? "Yes [master], I'll wear whatever you like"
-                    : "I'll wear whatever you like [name]") +
-                ".</i>”"
+                    : "I'll wear whatever you like [name]"
+            }.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = Katherine.KBIT_CLOTHES_C_CLOTH;
         this.katSexMenu();
@@ -2081,25 +2069,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("Kath giggles and says, “<i>I guess it's good camouflage then.</i>”  ");
         if (this.hasCock())
             this.outx(
-                "The bulge pressing against your " +
-                    (this.player.isNaga() ? "tail" : "leg") +
-                    " suggests how much she appreciates your compliments."
+                `The bulge pressing against your ${
+                    this.player.isNaga() ? "tail" : "leg"
+                } suggests how much she appreciates your compliments.`
             );
         else
             this.outx(
-                "She grinds her pelvis against your " +
-                    (this.player.isNaga() ? "tail" : "leg") +
-                    ", her tail curling around your waist.  Clearly your kitten loves compliments."
+                `She grinds her pelvis against your ${
+                    this.player.isNaga() ? "tail" : "leg"
+                }, her tail curling around your waist.  Clearly your kitten loves compliments.`
             );
         this.outx(
             "\n\nYou continue to massage her ears and tell her that you want her to wear the blouse all the time.  If you want her to put on something else you'll tell her.\n\n"
         );
         this.outx(
-            "She nuzzles against your neck and says, “<i>" +
-                (this.playerMaster()
+            `She nuzzles against your neck and says, “<i>${
+                this.playerMaster()
                     ? "Yes [master], I'll wear whatever you like"
-                    : "I'll wear whatever you tell me to [name]") +
-                ".</i>”"
+                    : "I'll wear whatever you tell me to [name]"
+            }.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = -Katherine.KBIT_CLOTHES_C_CLOTH;
         this.katSexMenu();
@@ -2136,9 +2124,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "\n\nYou wrap your arms around her and tell her the bodysuit looks amazing on her.  It’s always a good day when you find her wearing it.\n\n"
         );
         this.outx(
-            "Kath snuggles up next to you with a happy little purr.  The " +
-                (this.hasCock() ? "bulge in the" : "heat emanating") +
-                " crotch of the bodysuit suggests how much she appreciates your compliments."
+            `Kath snuggles up next to you with a happy little purr.  The ${
+                this.hasCock() ? "bulge in the" : "heat emanating"
+            } crotch of the bodysuit suggests how much she appreciates your compliments.`
         );
         this.katSexMenu();
     }
@@ -2151,9 +2139,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "As you stroke her ear you say that she should wear it more often - it’s a shame to leave it hanging in her wardrobe when she could be parading around town with it.  The bodysuit was built to show off her tight ass and perky breasts.  The sight of her bending over to inspect some produce in the market will make people’s days.  For a lovely girl like her wearing a nearly transparent bodysuit is a public service.\n\n"
         );
         this.outx(
-            "She hugs you close and purrs.  “<i>" +
-                (this.playerMaster() ? "Yes [master]" : "Alright [name]") +
-                ", if that’s what you like then you’ll be seeing a lot more of my sexy ass stuffed into this tight little number.</i>”"
+            `She hugs you close and purrs.  “<i>${
+                this.playerMaster() ? "Yes [master]" : "Alright [name]"
+            }, if that’s what you like then you’ll be seeing a lot more of my sexy ass stuffed into this tight little number.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = Katherine.KBIT_CLOTHES_BODYSUIT;
         this.katSexMenu();
@@ -2205,9 +2193,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.hasCock())
             this.outx(
-                "the rigid protrusion" +
-                    this.cockMultiple(" under her dress tells", "s under her dress tell") +
-                    " you she’d be willing to try some dancing as long as it’s the horizontal kind."
+                `the rigid protrusion${this.cockMultiple(
+                    " under her dress tells",
+                    "s under her dress tell"
+                )} you she’d be willing to try some dancing as long as it’s the horizontal kind.`
             );
         else
             this.outx(
@@ -2218,9 +2207,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private talkClothesDressSuggest(): void {
         this.outx(
-            "\n\nYou wrap your arms around her and tell her the dress looks amazing on her.  She should wear it more often - it’s a shame to leave it sitting in the wardrobe when she could be parading around town with it.  A cat " +
-                this.catGirl("girl", "morph") +
-                " lady like her is exactly what the people of Tel’Adre need to see to remind them how beautiful and elegant cats can be.\n\n"
+            `\n\nYou wrap your arms around her and tell her the dress looks amazing on her.  She should wear it more often - it’s a shame to leave it sitting in the wardrobe when she could be parading around town with it.  A cat ${this.catGirl(
+                "girl",
+                "morph"
+            )} lady like her is exactly what the people of Tel’Adre need to see to remind them how beautiful and elegant cats can be.\n\n`
         );
         this.outx(
             "She hugs you close and purrs.  You know she’s going to wear her long dress wherever she goes, adding a little touch of class to the city."
@@ -2268,9 +2258,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "\n\nYou brush your hands over the fine silk and Katherine purrs appreciatively at your attention.  You slip a hand inside the robe and ask if she’s ever thought of ditching her underwear and walking the streets with nothing more than this thin silk between her and the world.\n\n"
         );
         this.outx(
-            "Kath gives you a kiss and says “<i>You’re such a bad influence on me " +
-                this.playerText() +
-                ".</i>”"
+            `Kath gives you a kiss and says “<i>You’re such a bad influence on me ${this.playerText()}.</i>”`
         );
         this.katSexMenu();
     }
@@ -2280,9 +2268,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "\n\nYou brush your hands over the fine silk and tell her the robe looks wonderful, like it was built to hug her body.  You give her a kiss and ask if she could wear it a little more often.  You do love seeing her in silk.\n\n"
         );
         this.outx(
-            "Kath gives you a hug and says, “<i>I’m always willing to do things that make you happy " +
-                this.playerText() +
-                ".</i>”"
+            `Kath gives you a hug and says, “<i>I’m always willing to do things that make you happy ${this.playerText()}.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = Katherine.KBIT_CLOTHES_SS_ROBE;
         this.katherineMenu();
@@ -2296,9 +2282,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "While she tries to think of something to say you tug on the belt, undoing it and letting the front of the robe fall open.  “<i>Easy access,</i>” you say, answering your own question.  You let your hand roam around between her skin and the robe and Kath’s pupils start to dilate.  You tell her that you want her to wear this robe all the time so that whenever and wherever you find her it takes only one tug to expose her.\n\n"
         );
         this.outx(
-            "Kath shivers and you feel the heat rising from " +
-                (this.hasCock() ? "the large bulge in " : "") +
-                "her panties.  It seems your sex kitten may have an exhibitionist streak."
+            `Kath shivers and you feel the heat rising from ${
+                this.hasCock() ? "the large bulge in " : ""
+            }her panties.  It seems your sex kitten may have an exhibitionist streak.`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = -Katherine.KBIT_CLOTHES_SS_ROBE;
         this.katSexMenu();
@@ -2307,25 +2293,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private talkClothesTubeTop(): void {
         if (this.flags[kFLAGS.KATHERINE_CLOTHES_WORN] == Katherine.KBIT_CLOTHES_TUBETOP)
             this.outx(
-                "\n\nYou tell Kath that the tube top she’s wearing really shows off her figure.  A bare midriff suits her.  " +
-                    (this.pregSize() > 0
+                `\n\nYou tell Kath that the tube top she’s wearing really shows off her figure.  A bare midriff suits her.  ${
+                    this.pregSize() > 0
                         ? "Katherine puts a hand to her belly, acting a little self-conscious.  Then she shakes it off,"
-                        : "She") +
-                    " takes a few poses for you and does a little twirl."
+                        : "She"
+                } takes a few poses for you and does a little twirl.`
             );
         else {
             this.outx(
-                "\n\nYou ask Kath about the tube top you got for her.  Kath grins and motions for you to wait.  She pops open her wardrobe, turns her back to you and slips off her old outfit.  She slips into the tube top itself and then " +
-                    this.clothesLowerChoice(
-                        "pulls on the tight shorts that came with it.",
-                        "rests her hand on the large bulge in her panties.  Her hand reaches over the folded short shorts and she pulls on the skirt that matches her blouse.",
-                        "",
-                        "",
-                        ""
-                    ) +
-                    (this.pregSize() > 0
+                `\n\nYou ask Kath about the tube top you got for her.  Kath grins and motions for you to wait.  She pops open her wardrobe, turns her back to you and slips off her old outfit.  She slips into the tube top itself and then ${this.clothesLowerChoice(
+                    "pulls on the tight shorts that came with it.",
+                    "rests her hand on the large bulge in her panties.  Her hand reaches over the folded short shorts and she pulls on the skirt that matches her blouse.",
+                    "",
+                    "",
+                    ""
+                )}${
+                    this.pregSize() > 0
                         ? "  Looking at herself in the mirror she puts her hand on her exposed belly for a moment, lost in thought."
-                        : "")
+                        : ""
+                }`
             );
             this.flags[kFLAGS.KATHERINE_CLOTHES_WORN] = Katherine.KBIT_CLOTHES_TUBETOP;
         }
@@ -2346,24 +2332,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private talkClothesTubeTopCompliment(): void {
         this.outx(
-            "\n\nYou take up position behind her and just hold her" +
-                (this.pregSize() > 0
+            `\n\nYou take up position behind her and just hold her${
+                this.pregSize() > 0
                     ? ", lacing your fingers over her belly and kissing"
-                    : " and kiss") +
-                " the nape of her neck.  Kath breaks the silence first: “<i>I think this outfit makes me look a little slutty, but I like looking a little slutty for you.</i>”"
+                    : " and kiss"
+            } the nape of her neck.  Kath breaks the silence first: “<i>I think this outfit makes me look a little slutty, but I like looking a little slutty for you.</i>”`
         );
         this.katSexMenu();
     }
 
     private talkClothesTubeTopSuggest(): void {
         this.outx(
-            "\n\nYou take up position behind her" +
-                (this.pregSize() > 0
+            `\n\nYou take up position behind her${
+                this.pregSize() > 0
                     ? " and just hold her, lacing your fingers over her belly and kissing"
-                    : ", just hold her and kiss") +
-                " the nape of her neck.  You ask if she could wear this outfit a little more often, she looks so young and sensual wearing clothes that bare so much " +
-                this.catGirl("skin", "fur") +
-                ".\n\n"
+                    : ", just hold her and kiss"
+            } the nape of her neck.  You ask if she could wear this outfit a little more often, she looks so young and sensual wearing clothes that bare so much ${this.catGirl(
+                "skin",
+                "fur"
+            )}.\n\n`
         );
         this.outx("Kath just purrs and says, “<i>I’d love to.</i>”");
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = Katherine.KBIT_CLOTHES_TUBETOP;
@@ -2372,18 +2359,18 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private talkClothesTubeTopInsist(): void {
         this.outx(
-            "\n\nYou take up position behind her" +
-                (this.pregSize() > 0
+            `\n\nYou take up position behind her${
+                this.pregSize() > 0
                     ? " and just hold her, lacing your fingers over her belly and kissing"
-                    : ", just hold her and kiss") +
-                " the nape of her neck.  You tell her you expect to see her wearing this all the time.  It shows off her body and lets everyone know what a sex fiend she is" +
-                (this.pregSize() > 0 ? ", particularly now with her swollen belly" : "") +
-                ".\n\n"
+                    : ", just hold her and kiss"
+            } the nape of her neck.  You tell her you expect to see her wearing this all the time.  It shows off her body and lets everyone know what a sex fiend she is${
+                this.pregSize() > 0 ? ", particularly now with her swollen belly" : ""
+            }.\n\n`
         );
         this.outx(
-            "Kath grinds her ass against you and says, “<i>" +
-                (this.playerMaster() ? "Yes [master]" : "Sure thing lover") +
-                ".  But right now I’d like a good reason to take these clothes off again.</i>”"
+            `Kath grinds her ass against you and says, “<i>${
+                this.playerMaster() ? "Yes [master]" : "Sure thing lover"
+            }.  But right now I’d like a good reason to take these clothes off again.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = -Katherine.KBIT_CLOTHES_TUBETOP;
         this.katSexMenu();
@@ -2442,9 +2429,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You squeeze her breasts and tell her that you love knowing that she’s doing just that.\n\n"
         );
         this.outx(
-            "“<i>Alright then " +
-                this.playerText() +
-                ",</i>” she says, putting her hands over yours, “<i>I guess the people of Tel’Adre are going to be seeing more of me.</i>”"
+            `“<i>Alright then ${this.playerText()},</i>” she says, putting her hands over yours, “<i>I guess the people of Tel’Adre are going to be seeing more of me.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = Katherine.KBIT_CLOTHES_NURSECL;
         this.katherineMenu();
@@ -2464,9 +2449,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "That draws a sharp intake of breath and you reach under that skirt to feel her wetness firsthand.\n\n"
         );
         this.outx(
-            "“<i>Yes " +
-                this.playerText() +
-                ", I understand.  I’ll put my body on display for everyone to see - they won’t know it’s all for you, but I don’t care.  I want to look like a slut for you.</i>”\n\n"
+            `“<i>Yes ${this.playerText()}, I understand.  I’ll put my body on display for everyone to see - they won’t know it’s all for you, but I don’t care.  I want to look like a slut for you.</i>”\n\n`
         );
         this.outx(
             "Running your finger up and down her slit you try to decide what else you want to do with this sex kitten."
@@ -2628,9 +2611,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             if (this.flags[kFLAGS.COTTON_KID_COUNT] > 0) {
                 this.outx(
-                    "\n\nThen you mention the child" +
-                        (this.flags[kFLAGS.COTTON_KID_COUNT] > 1 ? "ren you've" : " you") +
-                        " had with Cotton.  Kath's jaw drops.  “<i>Whoa, really?  From what I've heard all those girls who work at the gym take really good care of their bodies - and that includes taking herbs or using magic to make sure they never get knocked up.  Most of them don't even want to think about what a baby will do to their abs.</i>”\n\n"
+                    `\n\nThen you mention the child${
+                        this.flags[kFLAGS.COTTON_KID_COUNT] > 1 ? "ren you've" : " you"
+                    } had with Cotton.  Kath's jaw drops.  “<i>Whoa, really?  From what I've heard all those girls who work at the gym take really good care of their bodies - and that includes taking herbs or using magic to make sure they never get knocked up.  Most of them don't even want to think about what a baby will do to their abs.</i>”\n\n`
                 );
                 this.outx(
                     "You smile and tell her Cotton <b>was</b> using herbs.  Kath grins and says “<i>Lots of power in that package, huh?  Can't say I'm too surpised.  I guess I'm lucky my parents paid to get me full-blown magical protection.  They didn't want to wind up with a dozen grandkids the minute I figured out how good it feels to have sex.</i>”"
@@ -2670,11 +2653,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             if (edrynKids > 0)
                 this.outx(
-                    "  You tell Katherine that in fact you’ve fathered " +
-                        (edrynKids > 1 ? edrynKids + " children" : "a child") +
-                        " with Edryn.  “<i>She’s got " +
-                        (edrynKids > 1 ? edrynKids + " kids" : "a kid") +
-                        "?</i>” Kath blurts.  “<i>Wow - I’d never have guessed.</i>”"
+                    `  You tell Katherine that in fact you’ve fathered ${
+                        edrynKids > 1 ? `${edrynKids} children` : "a child"
+                    } with Edryn.  “<i>She’s got ${
+                        edrynKids > 1 ? `${edrynKids} kids` : "a kid"
+                    }?</i>” Kath blurts.  “<i>Wow - I’d never have guessed.</i>”`
                 );
             this.outx(
                 "\n\nKatherine seems pleased with your frankness about the whole thing.  She’s obviously enjoying the fact that she knows a little secret about one of the girls at work."
@@ -2723,9 +2706,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.flags[kFLAGS.KATHERINE_HELIA_AFFECTION] = 1;
         } else {
             this.outx(
-                "You bring Kath up to date about things that have been happening at your camp.  You talk some more about Helia and Kath once again mentions she’d like to meet your salamander lover" +
-                    (this.flags[kFLAGS.HELSPAWN_AGE] > 0 ? " and her daughter" : "") +
-                    ".  It might be your imagination but you think Katherine wants to prove something to you."
+                `You bring Kath up to date about things that have been happening at your camp.  You talk some more about Helia and Kath once again mentions she’d like to meet your salamander lover${
+                    this.flags[kFLAGS.HELSPAWN_AGE] > 0 ? " and her daughter" : ""
+                }.  It might be your imagination but you think Katherine wants to prove something to you.`
             );
         }
         this.katherineMenu();
@@ -2737,39 +2720,38 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             // She doesn’t know about you and Urta
             const urtaKids: number = this.getGame().urtaPregs.urtaKids();
             this.outx(
-                "You decide to tell Katherine about Urta.  It’s amazing it hasn’t come up since they work together.  After you explain things Katherine " +
-                    (this.knownLovers() > 2
+                `You decide to tell Katherine about Urta.  It’s amazing it hasn’t come up since they work together.  After you explain things Katherine ${
+                    this.knownLovers() > 2
                         ? "laughs and says, “<i>You took Urta as a lover too?  You are one busy champion.  Don’t worry about it, I’m certainly not going to leave you.</i>”"
-                        : "gives you a worried look and asks what this means for the two of you.  When you tell her you have no intention of leaving she jumps into your arms and squeezes most of the air out of your lungs.") +
-                    "\n\n"
+                        : "gives you a worried look and asks what this means for the two of you.  When you tell her you have no intention of leaving she jumps into your arms and squeezes most of the air out of your lungs."
+                }\n\n`
             );
             this.outx(
                 "You tell Kath the story of how Urta met you coming into Tel’Adre that first day and how later on the two of you ‘met’ in the alley behind this bar.  Once she’s heard the story Kath says, “<i>I know how she felt.  It really hurts when you think no one wants you.</i>”"
             );
             if (urtaKids > 0)
                 this.outx(
-                    "\n\nKath just about chokes when you tell her you and Urta " +
-                        (urtaKids == 1
-                            ? "have a kid"
-                            : "have had " + urtaKids + " children together") +
-                        ".  “<i>You’re the mystery dad?  Everybody knows Urta " +
-                        (urtaKids == 1 ? "has a kid" : "has kids") +
-                        " but I never knew you were the " +
-                        this.player.genderText(
-                            "father.",
-                            "mother.",
-                            "father?  Or mother?  Other parent, anyway.",
-                            "fathe... um... how did that work exactly?"
-                        ) +
-                        "</i>”"
+                    `\n\nKath just about chokes when you tell her you and Urta ${
+                        urtaKids == 1 ? "have a kid" : `have had ${urtaKids} children together`
+                    }.  “<i>You’re the mystery dad?  Everybody knows Urta ${
+                        urtaKids == 1 ? "has a kid" : "has kids"
+                    } but I never knew you were the ${this.player.genderText(
+                        "father.",
+                        "mother.",
+                        "father?  Or mother?  Other parent, anyway.",
+                        "fathe... um... how did that work exactly?"
+                    )}</i>”`
                 );
             this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] = 1;
         } else if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] == 1)
             // She knows about you and Urta
             this.outx(
-                "You bring up Urta and Kath smiles.  “<i>Yeah, Urta and I have been talking about you.  It’s weird, I always thought I’d get really angry and go after any girl who’s been fucking my " +
-                    this.player.genderText("guy", "girl", "girl", "lover") +
-                    " but it just didn’t happen.  I actually feel just fine about you and her.</i>”"
+                `You bring up Urta and Kath smiles.  “<i>Yeah, Urta and I have been talking about you.  It’s weird, I always thought I’d get really angry and go after any girl who’s been fucking my ${this.player.genderText(
+                    "guy",
+                    "girl",
+                    "girl",
+                    "lover"
+                )} but it just didn’t happen.  I actually feel just fine about you and her.</i>”`
             );
         else if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] <= 10)
             // They’ve had some sex in training/while drunk
@@ -2803,9 +2785,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else {
             // Kath has decided she loves Urta too
             this.outx(
-                "When you mention Urta Kath gets up and gives you a hug.  “<i>I was a girl who never thought anyone was going to love her cause of a big doggie dick.  Now I’ve got you and you got me together with Urta too.  I’m so happy, everyday I get a workout - who needs a gym?  And I’ve always got someone I can go home with, someone I can talk to, someone I can just hug and hold on to.  Thank you so much " +
-                    this.playerText() +
-                    ".</i>”"
+                `When you mention Urta Kath gets up and gives you a hug.  “<i>I was a girl who never thought anyone was going to love her cause of a big doggie dick.  Now I’ve got you and you got me together with Urta too.  I’m so happy, everyday I get a workout - who needs a gym?  And I’ve always got someone I can go home with, someone I can talk to, someone I can just hug and hold on to.  Thank you so much ${this.playerText()}.</i>”`
             );
         }
         this.katherineMenu();
@@ -2827,9 +2807,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "\n\nYou stroke Kath’s tail and tell her that you don’t mind if your favorite herms need to blow off a little steam together.  As long as they don’t wear each other out that is.\n\n"
         );
         this.outx(
-            "Kath giggles and says, “<i>That’s good - oh and you don’t have anything to worry about " +
-                this.playerText() +
-                ", we’re both so horny that we’re almost always up for some fun.</i>”"
+            `Kath giggles and says, “<i>That’s good - oh and you don’t have anything to worry about ${this.playerText()}, we’re both so horny that we’re almost always up for some fun.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_URTA_DATE] = Katherine.KDATE_WHENEVER;
         this.katherineMenu();
@@ -2841,7 +2819,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         this.outx("“<i>You mean you want us to uh, spend more time together?</i>”\n\n");
         this.outx("You let your fingers move a little closer to Kath’s ");
-        if (this.hasCock()) this.outx("cock" + this.cockMultiple("", "s") + " and ");
+        if (this.hasCock()) this.outx(`cock${this.cockMultiple("", "s")} and `);
         this.outx(
             "pussy and then say that yes, you would like that.  You know that you aren’t always in town so whenever either of them needs to scratch an itch they should really get together.\n\n"
         );
@@ -2864,29 +2842,28 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outx("lies back on her bed and stares off into space for a while");
             else
                 this.outx(
-                    "takes another sip of her drink and looks to see if Vala’s around somewhere" +
-                        (this.getGame().isValaAtBar()
+                    `takes another sip of her drink and looks to see if Vala’s around somewhere${
+                        this.getGame().isValaAtBar()
                             ? ".  Vala catches her looking and comes over to see if Kath needs another drink.  Kath, embarrassed at getting caught, orders another one"
-                            : "")
+                            : ""
+                    }`
                 );
             this.outx(
                 ".\n\nAfter a long silence Kath says, “<i>So she’s new to town, she’s dealing with all sorts of issues and she probably doesn’t know many people here.  It’s a good thing no one took advantage of her.</i>”\n\n"
             );
             if (this.flags[kFLAGS.TIMES_FUCKED_VALA_IN_DUNGEON] > 0)
                 this.outx(
-                    "You decide it would be best not to mention " +
-                        (this.flags[kFLAGS.TIMES_FUCKED_VALA_IN_DUNGEON] == 1
+                    `You decide it would be best not to mention ${
+                        this.flags[kFLAGS.TIMES_FUCKED_VALA_IN_DUNGEON] == 1
                             ? "that time"
-                            : "those times") +
-                        " you took advantage of Vala, back when she was mindfucked and tied up.\n\n"
+                            : "those times"
+                    } you took advantage of Vala, back when she was mindfucked and tied up.\n\n`
                 );
             if (this.isAt(Katherine.KLOC_KATHS_APT))
                 this.outx("She puts her head in your lap and says");
             else this.outx("She takes another sip of her drink and squeezes your hand, saying");
             this.outx(
-                ", “<i>I wonder; maybe I should keep an eye on her.  What do you think " +
-                    this.playerText() +
-                    "?</i>”"
+                `, “<i>I wonder; maybe I should keep an eye on her.  What do you think ${this.playerText()}?</i>”`
             );
             this.flags[kFLAGS.KATHERINE_VALA_AFFECTION] = 1;
         } else {
@@ -2931,9 +2908,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "\n\nYou stroke Kath’s tail and tell her that you don’t mind if she wants to blow off a little steam with Vala.  They’re both horny and they both need it.  As long as they don’t wear each other out that is.  You want to be sure they’ve got enough energy for threesomes with you.\n\n"
         );
         this.outx(
-            "Kath giggles and says, “<i>I’m glad you feel that way " +
-                this.playerText() +
-                ".  Some people get really possessive, but you know both of us are hooked on you.</i>”"
+            `Kath giggles and says, “<i>I’m glad you feel that way ${this.playerText()}.  Some people get really possessive, but you know both of us are hooked on you.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_VALA_DATE] = Katherine.KDATE_WHENEVER;
         this.katherineMenu();
@@ -2958,17 +2933,18 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         this.outx("You ask Katherine why she hangs out at the Wet Bitch after work.\n\n");
         this.outx(
-            "She smiles and replies that they make a mean plate of fries.  Then more seriously she says, “<i>There are a few other bars in Tel’Adre, but since Urta " +
-                (this.isAt(Katherine.KLOC_KATHS_APT) ? "goes there it's" : "comes here this is") +
-                " sort of the unofficial watch bar.  For average people it means starting fights or robbing drunks is a bad idea but for Watch officers it means " +
-                (this.isAt(Katherine.KLOC_KATHS_APT) ? "it's" : "this is") +
-                " a good place for gossip and stories or for just hanging out after work.</i>”\n\n"
+            `She smiles and replies that they make a mean plate of fries.  Then more seriously she says, “<i>There are a few other bars in Tel’Adre, but since Urta ${
+                this.isAt(Katherine.KLOC_KATHS_APT) ? "goes there it's" : "comes here this is"
+            } sort of the unofficial watch bar.  For average people it means starting fights or robbing drunks is a bad idea but for Watch officers it means ${
+                this.isAt(Katherine.KLOC_KATHS_APT) ? "it's" : "this is"
+            } a good place for gossip and stories or for just hanging out after work.</i>”\n\n`
         );
         this.outx(
-            (this.isAt(Katherine.KLOC_KATHS_APT)
-                ? "She scoots closer to you and says"
-                : "She takes a sip from her mug and adds") +
-                ", “<i>when I joined up I thought I would just head home and sleep after shifts but sometimes it helps, talking to people who have the same job as you.  Besides, it turns out it’s hard to get drinks at home in Tel’Adre.  The city worries so much about demonic liquors that only a few merchants can sell the stuff legally and they charge nearly as much as the bars.</i>”"
+            `${
+                this.isAt(Katherine.KLOC_KATHS_APT)
+                    ? "She scoots closer to you and says"
+                    : "She takes a sip from her mug and adds"
+            }, “<i>when I joined up I thought I would just head home and sleep after shifts but sometimes it helps, talking to people who have the same job as you.  Besides, it turns out it’s hard to get drinks at home in Tel’Adre.  The city worries so much about demonic liquors that only a few merchants can sell the stuff legally and they charge nearly as much as the bars.</i>”`
         );
         this.katherineMenu();
     }
@@ -2986,10 +2962,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             this.outx("Is fewer people looking her way really an advantage?\n\n");
             this.outx(
-                (this.isAt(Katherine.KLOC_KATHS_APT)
-                    ? "Kath shifts her bum on the bed, her tail undulating slowly."
-                    : "Kath takes a long sip from her mug before giving you a guilty grin.") +
-                    "  “<i>I do kinda like it when strangers check me out,</i>” she admits, and you suspect under that fur she's blushing.  You give her thigh a little rub and tell her it's all right to show off."
+                `${
+                    this.isAt(Katherine.KLOC_KATHS_APT)
+                        ? "Kath shifts her bum on the bed, her tail undulating slowly."
+                        : "Kath takes a long sip from her mug before giving you a guilty grin."
+                }  “<i>I do kinda like it when strangers check me out,</i>” she admits, and you suspect under that fur she's blushing.  You give her thigh a little rub and tell her it's all right to show off.`
             );
         } else {
             this.outx("You ask Kath how’s she finding things as a cat girl.\n\n");
@@ -2997,11 +2974,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "She rubs her hands against her cheeks and grins at you.  “<i>It’s so different than I expected.  I really wasn’t sure I wanted this at first, but I’m glad you convinced me.  I mean there wasn’t anything wrong with being a cat-morph, but I like some of the advantages.</i>”\n\n"
             );
             this.outx(
-                "She takes a moment to " +
-                    (this.isAt(Katherine.KLOC_KATHS_APT)
+                `She takes a moment to ${
+                    this.isAt(Katherine.KLOC_KATHS_APT)
                         ? "scoot backward on the bed and cross her legs"
-                        : "rearrange herself in her seat and take a sip of her drink") +
-                    " before continuing.  “<i>I’m not shedding anymore.  It sounds like nothing, but you try keeping an apartment clean when every day there are little black hairs all through your blankets and clothes.  Oh and clothes!  They feel so different now.  I finally see why so many hairless races value silk; it’s so smooth against my skin.  But the big thing is that my black fur always soaked up the sun.  That’s fine when you just want to relax but when you’re patrolling the streets it’s murder.</i>”\n\n"
+                        : "rearrange herself in her seat and take a sip of her drink"
+                } before continuing.  “<i>I’m not shedding anymore.  It sounds like nothing, but you try keeping an apartment clean when every day there are little black hairs all through your blankets and clothes.  Oh and clothes!  They feel so different now.  I finally see why so many hairless races value silk; it’s so smooth against my skin.  But the big thing is that my black fur always soaked up the sun.  That’s fine when you just want to relax but when you’re patrolling the streets it’s murder.</i>”\n\n`
             );
             this.outx(
                 "She gets a guilty look and adds, “<i>I like the attention too.  There are lots of cat morphs in this city but I’ve only seen a couple of cat girls, and both of them are like you, visitors from another world.  Anyway, it makes me feel special... and I kind of like knowing people are looking my way - not cause I might take their wallet but because they’re interested in me.  They’re wondering what I am, how I ended up looking like this, maybe what I’m like in bed.</i>”"
@@ -3020,9 +2997,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "She looks a little confused, so you explain that it might send the wrong message.\n\n"
             );
             this.outx(
-                "Katherine gives you a hug and says, “<i>Okay " +
-                    this.player.short +
-                    ", I won't call you [master] anymore... but I'm still up for just about anything.</i>” \n\n"
+                `Katherine gives you a hug and says, “<i>Okay ${this.player.short}, I won't call you [master] anymore... but I'm still up for just about anything.</i>” \n\n`
             );
             this.outx(
                 "You suck her tongue into your mouth and rub her ears appreciatively.  Looks like she'll still do exactly what you want - perfect.\n\n"
@@ -3117,9 +3092,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             if (canShareWithVala && this.milkOption(Katherine.KBIT_MILK_SHARE_WITH_VALA))
                 sharingArray.push("Vala");
             this.outx(
-                "\n\n<b>Right now Katherine only shares her milk with " +
-                    Katherine.formatStringArray(sharingArray) +
-                    ".</b>"
+                `\n\n<b>Right now Katherine only shares her milk with ${Katherine.formatStringArray(
+                    sharingArray
+                )}.</b>`
             );
         }
         this.menu();
@@ -3160,9 +3135,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private talkMilkShareWithHelenaAnswer(reallyStop: boolean): void {
         if (reallyStop) {
             this.outx(
-                "\n\nKath looks relieved.  “<i>Thank" +
-                    (this.playerMaster() ? " you [master]" : "s " + this.player.short) +
-                    ", you're the best.</i>”"
+                `\n\nKath looks relieved.  “<i>Thank${
+                    this.playerMaster() ? " you [master]" : `s ${this.player.short}`
+                }, you're the best.</i>”`
             );
             this.milkOptionClear(Katherine.KBIT_MILK_SHARE_WITH_HELENA);
         } else {
@@ -3267,9 +3242,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You laugh and tell her she'll enjoy it, you just know she will.  Besides, it doesn't pay to keep all that cream bottled up.  It's much better for her if she has it drawn out regularly.\n\n"
             );
             this.outx(
-                "Kath looks a little conflicted, but finally she says, “<i>Yes, yes " +
-                    this.playerText() +
-                    ", if that's what you want.  It'll be strange asking people if they want my milk, I mean that's not normal.</i>”\n\n"
+                `Kath looks a little conflicted, but finally she says, “<i>Yes, yes ${this.playerText()}, if that's what you want.  It'll be strange asking people if they want my milk, I mean that's not normal.</i>”\n\n`
             );
             this.outx(
                 "You say that you know she'll get the hang of it.  Just offer to the people she's sure want some; soon enough she'll be getting requests from her other friends who've secretly wanted a taste for a while.\n\n"
@@ -3368,19 +3341,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "You tell Kath that from now on she's not to keep her breasts in check.  The sky's the limit.\n\n"
                 );
                 this.outx(
-                    "Kath shakes her head and smiles, “<i>" +
-                        (this.playerMaster()
+                    `Kath shakes her head and smiles, “<i>${
+                        this.playerMaster()
                             ? "Yes [master], I guess you can't get enough?"
-                            : "Can't get enough?  Alright " + this.player.short + ",") +
-                        "I'll just let them make as much as they like.  But don't blame me if I get so full I try to force feed you.</i>”\n\n"
+                            : `Can't get enough?  Alright ${this.player.short},`
+                    }I'll just let them make as much as they like.  But don't blame me if I get so full I try to force feed you.</i>”\n\n`
                 );
                 this.talkMilkMenu();
                 return;
         }
         this.outx(
-            "\n\nKath smiles and says, “<i>" +
-                (this.playerMaster() ? "Yes [master]" : "Alright " + this.player.short) +
-                ", I'll do that."
+            `\n\nKath smiles and says, “<i>${
+                this.playerMaster() ? "Yes [master]" : `Alright ${this.player.short}`
+            }, I'll do that.`
         );
         if (this.breasts.lactationLevel > this.breasts.preventLactationIncrease) {
             this.outx(
@@ -3427,18 +3400,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private dateGotoKaths(): void {
         if (this.isAt(Katherine.KLOC_URTAS_APT)) {
             this.outx(
-                "\n\nYou offer to walk her home.  Kath smiles at you, but before she steps out the door Urta grabs her from behind, giving the cat " +
-                    this.catGirl("girl", "morph") +
-                    " a big hug.  Then Urta steps out and gives you a hug too.\n\n"
+                `\n\nYou offer to walk her home.  Kath smiles at you, but before she steps out the door Urta grabs her from behind, giving the cat ${this.catGirl(
+                    "girl",
+                    "morph"
+                )} a big hug.  Then Urta steps out and gives you a hug too.\n\n`
             );
             this.outx(
                 "As she goes back inside Urta says, “<i>You take care of each other - and don't do anything I wouldn't do.</i>”"
             );
         } else if (this.isAt(Katherine.KLOC_URTAS_HOME)) {
             this.outx(
-                "\n\nYou have to wait while Kath cleans herself up, but she tries to be quick about it.  You sit on the edge of the bed and rub the back of Urta's neck.  Urta groans and lies down flat in the puddle of cum, saying, “<i>Thanks " +
-                    this.player.short +
-                    ", I'll be fine.  I'm really comfy.</i>”\n\n"
+                `\n\nYou have to wait while Kath cleans herself up, but she tries to be quick about it.  You sit on the edge of the bed and rub the back of Urta's neck.  Urta groans and lies down flat in the puddle of cum, saying, “<i>Thanks ${this.player.short}, I'll be fine.  I'm really comfy.</i>”\n\n`
             );
             this.outx(
                 "As Kath tracks down the last piece of her clothing you hear gentle snoring from Urta.  You and Kath tiptoe out, leaving Urta to her well deserved rest."
@@ -3462,8 +3434,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         this.clothes();
         this.outx(
-            "\n\nShe stands next to her bed, waiting for you to " +
-                (this.playerMaster() ? "tell her what to do." : "make the first move.")
+            `\n\nShe stands next to her bed, waiting for you to ${
+                this.playerMaster() ? "tell her what to do." : "make the first move."
+            }`
         );
         this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_KATHS_APT;
         this.katherineMenu();
@@ -3472,18 +3445,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private dateGotoBar(): void {
         if (this.isAt(Katherine.KLOC_URTAS_APT)) {
             this.outx(
-                "\n\nYou offer to take Kath back to the Wet Bitch.  Kath smiles at you, but before she steps out the door Urta grabs her from behind, giving the cat " +
-                    this.catGirl("girl", "morph") +
-                    " a big hug.  Then Urta steps out and gives you a hug too.\n\n"
+                `\n\nYou offer to take Kath back to the Wet Bitch.  Kath smiles at you, but before she steps out the door Urta grabs her from behind, giving the cat ${this.catGirl(
+                    "girl",
+                    "morph"
+                )} a big hug.  Then Urta steps out and gives you a hug too.\n\n`
             );
             this.outx(
                 "As she goes back inside Urta says, “<i>You take care of each other - and don't do anything I wouldn't do.</i>”"
             );
         } else if (this.isAt(Katherine.KLOC_URTAS_HOME)) {
             this.outx(
-                "\n\nYou have to wait while Kath cleans herself up, but she tries to be quick about it.  You sit on the edge of the bed and rub the back of Urta's neck.  Urta groans and lies down flat in the puddle of cum, saying, “<i>Thanks " +
-                    this.player.short +
-                    ", I'll be fine.  I'm really comfy.</i>”\n\n"
+                `\n\nYou have to wait while Kath cleans herself up, but she tries to be quick about it.  You sit on the edge of the bed and rub the back of Urta's neck.  Urta groans and lies down flat in the puddle of cum, saying, “<i>Thanks ${this.player.short}, I'll be fine.  I'm really comfy.</i>”\n\n`
             );
             this.outx(
                 "As Kath tracks down the last piece of her clothing you hear gentle snoring from Urta.  You and Kath tiptoe out, leaving Urta to her well deserved rest."
@@ -3491,11 +3463,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else {
             this.outx("\n\nYou ask Kath if she feels like wandering back to the bar.\n\n");
             this.outx(
-                "She says, “<i>There are fun things we could do right here.</i>”  Before you can reply she’s hopped into your arms and says, “<i>Of course I’m sure you’ve got something fun in mind when you suggested going there." +
-                    (this.pregSize() == 0
+                `She says, “<i>There are fun things we could do right here.</i>”  Before you can reply she’s hopped into your arms and says, “<i>Of course I’m sure you’ve got something fun in mind when you suggested going there.${
+                    this.pregSize() == 0
                         ? "  Or are you just planning to get me toasted so you can have your way with me?"
-                        : "") +
-                    "</i>”"
+                        : ""
+                }</i>”`
             );
         }
         this.doNext(this.takeKathToTheBar);
@@ -3507,15 +3479,16 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "\n\nThe two of you walk through the streets of Tel'Adre arm in arm.  Kath enjoys the walk while you think about what you'd like to do with her once you reach the bar.\n\n"
         );
         this.outx(
-            "When you walk through the doors of the Wet Bitch Kath stops at the bar and buys a " +
-                (this.pregSize() > 0
+            `When you walk through the doors of the Wet Bitch Kath stops at the bar and buys a ${
+                this.pregSize() > 0
                     ? "milkshake"
-                    : "brown, creamy looking drink with ice cubes in it") +
-                ", which she starts sipping luxuriously.\n\n"
+                    : "brown, creamy looking drink with ice cubes in it"
+            }, which she starts sipping luxuriously.\n\n`
         );
         this.outx(
-            "Since it happens to be free you both take a seat at her usual booth and you feel Kath's leg rub against " +
-                (this.player.isNaga() ? "yours." : "your tail.")
+            `Since it happens to be free you both take a seat at her usual booth and you feel Kath's leg rub against ${
+                this.player.isNaga() ? "yours." : "your tail."
+            }`
         );
         this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_BAR;
         this.katherineMenu();
@@ -3555,9 +3528,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         this.outx("You grin and tell Kath that since you’re here she can indulge.\n\n");
         this.outx(
-            "She gives you a smile and waves over the waitress.  When the next tumbler arrives she takes a sip and says, “<i>I bet you’re just trying to get me drunk cause you think I’ll get horny.</i>”  You rub " +
-                (this.player.isNaga() ? "the tip of your tail" : "your toe") +
-                " against the inside of Katherine’s leg.  She tips back the tumbler, swallows, smiles and orders another.\n\n"
+            `She gives you a smile and waves over the waitress.  When the next tumbler arrives she takes a sip and says, “<i>I bet you’re just trying to get me drunk cause you think I’ll get horny.</i>”  You rub ${
+                this.player.isNaga() ? "the tip of your tail" : "your toe"
+            } against the inside of Katherine’s leg.  She tips back the tumbler, swallows, smiles and orders another.\n\n`
         );
         this.outx("In no time you see the telltale signs that your girlfriend is now wasted.");
         this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_BAR_DRUNK;
@@ -3591,12 +3564,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "girl, standing maybe 5' 2\" tall.  She has a pair of cat ears and a tail, both covered in black fur.  Her skin is milky white and"
             );
         this.outx(
-            " her shoulder-length hair, often worn forward and obscuring one of her leaf-green eyes, " +
-                (this.furry && this.hairColor == "jet black" ? "are " : "is ")
+            ` her shoulder-length hair, often worn forward and obscuring one of her leaf-green eyes, ${
+                this.furry && this.hairColor == "jet black" ? "are " : "is "
+            }`
         );
         if (!this.furry && this.hairColor == "jet black")
             this.outx("just as black as the fur on her ears and tail.\n\n");
-        else this.outx(this.hairColor + ".\n\n");
+        else this.outx(`${this.hairColor}.\n\n`);
 
         this.clothes(); // Outputs a full description of the clothes she’s currently wearing
         switch (this.flags[kFLAGS.KATHERINE_CLOTHES_WORN]) {
@@ -3644,44 +3618,41 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx(".\n\n");
 
         this.outx(
-            "Two " +
-                this.breasts.adj() +
-                " " +
-                this.breasts.cup() +
-                " breasts" +
-                (this.breasts.milkIsFull() ? ", laden with cream," : "") +
-                " sit on her chest" +
-                (this.breasts.milkIsOverflowing()
+            `Two ${this.breasts.adj()} ${this.breasts.cup()} breasts${
+                this.breasts.milkIsFull() ? ", laden with cream," : ""
+            } sit on her chest${
+                this.breasts.milkIsOverflowing()
                     ? ".  Her nipples stand at attention, ready for milking"
-                    : "")
+                    : ""
+            }`
         );
         if (this.hasCock()) {
             this.outx(
-                ", while just below her belly button sits the unmistakable form of an animalistic penis sheath.  Shyly, her " +
-                    this.cockMultiple("phallus begins ", "phalli begin ") +
-                    "to slip from its length; a " +
-                    this.cockMultiple("", "pair of ") +
-                    this.cockType() +
-                    " cock" +
-                    this.cockMultiple(" ", "s ") +
-                    this.cockWidth() +
-                    '" thick and ' +
-                    this.cockLength +
-                    '" long reveal' +
-                    this.cockMultiple("s itself, with a ", " themselves, with ") +
-                    this.knotSize +
-                    '" thick knot' +
-                    this.cockMultiple(" at its base.  ", "s at their bases.  ")
+                `, while just below her belly button sits the unmistakable form of an animalistic penis sheath.  Shyly, her ${this.cockMultiple(
+                    "phallus begins ",
+                    "phalli begin "
+                )}to slip from its length; a ${this.cockMultiple(
+                    "",
+                    "pair of "
+                )}${this.cockType()} cock${this.cockMultiple(
+                    " ",
+                    "s "
+                )}${this.cockWidth()}" thick and ${this.cockLength}" long reveal${this.cockMultiple(
+                    "s itself, with a ",
+                    " themselves, with "
+                )}${this.knotSize}" thick knot${this.cockMultiple(
+                    " at its base.  ",
+                    "s at their bases.  "
+                )}`
             );
             if (this.ballSize == 0)
-                this.outx("Just beneath Kath’s " + this.cockMultiple("cock is", "twin cocks is"));
+                this.outx(`Just beneath Kath’s ${this.cockMultiple("cock is", "twin cocks is")}`);
             else
                 this.outx(
-                    "A pair of " +
-                        this.ballSize +
-                        '" wide balls sway below her cock' +
-                        this.cockMultiple("", "s") +
-                        ", hanging just above"
+                    `A pair of ${this.ballSize}" wide balls sway below her cock${this.cockMultiple(
+                        "",
+                        "s"
+                    )}, hanging just above`
                 );
         } else this.outx(" and between her legs rests");
         this.outx(" her wet, eager cunt.\n\n");
@@ -3698,9 +3669,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "Totally naked, tail waving with pleasure, Katherine stretches, giving you a very good show of all her most private parts.  “<i>Like what you see, dearest?</i>” she purrs.\n\n"
             );
             this.outx(
-                "Oh yes, you tell her.  The clothes look good on her and what they hid is even better.  “<i>I do like the sound of that,</i>” she replies, “<i>but it is a bit chilly in here.</i>”  Her tail twitches with pent up energy and she slides her hands down her sides, " +
-                    this.catGirl("stroking her milky white skin", "smoothing her shiny fur coat") +
-                    " before asking, “<i>Can you think of a way to keep me warm?</i>”\n\n"
+                `Oh yes, you tell her.  The clothes look good on her and what they hid is even better.  “<i>I do like the sound of that,</i>” she replies, “<i>but it is a bit chilly in here.</i>”  Her tail twitches with pent up energy and she slides her hands down her sides, ${this.catGirl(
+                    "stroking her milky white skin",
+                    "smoothing her shiny fur coat"
+                )} before asking, “<i>Can you think of a way to keep me warm?</i>”\n\n`
             );
             this.outx(
                 "She starts to collect her clothes, putting them back on almost as seductively as she removed them.\n\n"
@@ -3881,9 +3853,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         ) {
             // If min size on all Kat parts reached:
             this.outx(
-                "She looks at the jar and then visibly thinks about it, but shakes her head.  “<i>I'm sorry, " +
-                    this.playerText() +
-                    ", but I don't think it's possible for that stuff to make any of my remaining parts shrink any more..."
+                `She looks at the jar and then visibly thinks about it, but shakes her head.  “<i>I'm sorry, ${this.playerText()}, but I don't think it's possible for that stuff to make any of my remaining parts shrink any more...`
             );
             if (this.playerMaster()) this.outx("</i>”\n\nYou sigh and put the jar away.  ");
             else
@@ -3901,15 +3871,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             breasts =
                 breasts.cupSize > CoC.BREAST_CUP_A ? this.useRreductoOnKatsBreasts : undefined;
             this.outx(
-                "You extract the small jar of salve and offer it to her.   Her face lights up in delight.  “<i>Reducto?!  For me?  It's so expensive!</i>”  At your nod, she yowls happily and snatches it up, " +
-                    this.clothesLowerChoice(
-                        "yanking down her shorts",
-                        "raising her skirt and pulling down her panties",
-                        "opening the folds of her bodysuit",
-                        "raising her dress and pulling down her panties",
-                        "untying her robe and pulling down her panties"
-                    ) +
-                    " to expose her sheath.  All of a sudden, she stops abruptly and looks up at you, a dangerous gleam in her eye.  “<i>Would you like to... help me apply it?</i>” she asks, softly.  You nod your head"
+                `You extract the small jar of salve and offer it to her.   Her face lights up in delight.  “<i>Reducto?!  For me?  It's so expensive!</i>”  At your nod, she yowls happily and snatches it up, ${this.clothesLowerChoice(
+                    "yanking down her shorts",
+                    "raising her skirt and pulling down her panties",
+                    "opening the folds of her bodysuit",
+                    "raising her dress and pulling down her panties",
+                    "untying her robe and pulling down her panties"
+                )} to expose her sheath.  All of a sudden, she stops abruptly and looks up at you, a dangerous gleam in her eye.  “<i>Would you like to... help me apply it?</i>” she asks, softly.  You nod your head`
             );
             if (this.player.lib > 50) this.outx(" with a salacious grin");
             this.outx(" and she happily plunks down on ");
@@ -3923,8 +3891,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "her bed and strips off the rest of her clothes in a seductive little dance.  Then she hands you the precious jar of ointment and waits for you to begin.\n\n"
                 );
             this.outx(
-                "You kneel before her, looking at her " +
-                    (this.isAt(Katherine.KLOC_STREETS) ? "sheath " : "naked body ")
+                `You kneel before her, looking at her ${
+                    this.isAt(Katherine.KLOC_STREETS) ? "sheath " : "naked body "
+                }`
             );
             if (this.player.lib > 50)
                 this.outx("and planning exactly what you're going to do to it.");
@@ -3951,23 +3920,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.cockNumber > 1)
             this.outx(
-                "each of her " +
-                    this.cockType() +
-                    " cocks, and rubbing one finger across the exposed tips.  The cat wriggles and squirms, and quickly blooms under your care, until all " +
-                    this.cockLength +
-                    " inches of both shafts are exposed.  Her knots just barely visible as a bulge at the base of each cock, you start to stroke them next.  Katherine coos and moans as your fingers glide up and down, and the responsive flesh starts to swell like red, hard balloons.  They puff up and up, swelling to full size, " +
-                    this.knotSize +
-                    " inches in diameter.  With the subjects prepared, you stop, leaving Katherine hovering at the edge of release.\n\n"
+                `each of her ${this.cockType()} cocks, and rubbing one finger across the exposed tips.  The cat wriggles and squirms, and quickly blooms under your care, until all ${
+                    this.cockLength
+                } inches of both shafts are exposed.  Her knots just barely visible as a bulge at the base of each cock, you start to stroke them next.  Katherine coos and moans as your fingers glide up and down, and the responsive flesh starts to swell like red, hard balloons.  They puff up and up, swelling to full size, ${
+                    this.knotSize
+                } inches in diameter.  With the subjects prepared, you stop, leaving Katherine hovering at the edge of release.\n\n`
             );
         else
             this.outx(
-                "her " +
-                    this.cockType() +
-                    " cock, and rubbing one finger across the exposed tip.  The cat wriggles and squirms, and quickly blooms under your care, until all " +
-                    this.cockLength +
-                    " inches of her shaft is exposed.  Knot just barely visible as a bulge at the base of her cock, you start to stroke it next.  Katherine coos and moans as your fingers glide up and down, and the responsive flesh starts to swell like a red, hard balloon.  It puffs up and up, swelling to full size, " +
-                    this.knotSize +
-                    " inches in diameter.  With the subject prepared, you stop, leaving Katherine hovering at the edge of release.\n\n"
+                `her ${this.cockType()} cock, and rubbing one finger across the exposed tip.  The cat wriggles and squirms, and quickly blooms under your care, until all ${
+                    this.cockLength
+                } inches of her shaft is exposed.  Knot just barely visible as a bulge at the base of her cock, you start to stroke it next.  Katherine coos and moans as your fingers glide up and down, and the responsive flesh starts to swell like a red, hard balloon.  It puffs up and up, swelling to full size, ${
+                    this.knotSize
+                } inches in diameter.  With the subject prepared, you stop, leaving Katherine hovering at the edge of release.\n\n`
             );
 
         this.outx(
@@ -4014,26 +3979,31 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.player.lib > 50)
             this.outx(
-                "allow her to continue until " +
-                    (this.ballSize > 0 ? "her scrotum tightens up and " : "") +
-                    "it looks like she'll blow her load with one more touch, and then "
+                `allow her to continue until ${
+                    this.ballSize > 0 ? "her scrotum tightens up and " : ""
+                }it looks like she'll blow her load with one more touch, and then `
             );
         this.outx(
-            "clear your throat noisily to regain her focus.  Blushing " +
-                this.catGirl("a brilliant red", "red underneath her sable fur") +
-                ", she guiltily withdraws her hand from her shivering cock" +
-                this.cockMultiple("", "s") +
-                ".\n\n"
+            `clear your throat noisily to regain her focus.  Blushing ${this.catGirl(
+                "a brilliant red",
+                "red underneath her sable fur"
+            )}, she guiltily withdraws her hand from her shivering cock${this.cockMultiple(
+                "",
+                "s"
+            )}.\n\n`
         );
 
         this.outx(
-            "With a playful eyebrow, you take a knee in front of the throbbing-hard member" +
-                this.cockMultiple("", "s") +
-                " and uncap the salve.  As if to tease, you dip into it and then, at a glacial pace, draw the paste closer to her shaft" +
-                this.cockMultiple("", "s") +
-                " while remarking how cold it is compared to the desert air.  She quivers at the comment, setting her " +
-                this.cockMultiple("cock", "twin cocks") +
-                " to bobbing"
+            `With a playful eyebrow, you take a knee in front of the throbbing-hard member${this.cockMultiple(
+                "",
+                "s"
+            )} and uncap the salve.  As if to tease, you dip into it and then, at a glacial pace, draw the paste closer to her shaft${this.cockMultiple(
+                "",
+                "s"
+            )} while remarking how cold it is compared to the desert air.  She quivers at the comment, setting her ${this.cockMultiple(
+                "cock",
+                "twin cocks"
+            )} to bobbing`
         );
         if (this.player.lib > 50)
             this.outx(
@@ -4042,44 +4012,53 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx(".\n\n");
 
         this.outx(
-            "Gingerly, you lift your unemployed hand up and tilt her " +
-                this.cockType("puppy pecker", "kitty cock") +
-                this.cockMultiple("", "s") +
-                " toward her face and chest; she shivers as you touch the sensitive underside" +
-                this.cockMultiple("", "s") +
-                ".  As you hold her in that position, "
+            `Gingerly, you lift your unemployed hand up and tilt her ${this.cockType(
+                "puppy pecker",
+                "kitty cock"
+            )}${this.cockMultiple(
+                "",
+                "s"
+            )} toward her face and chest; she shivers as you touch the sensitive underside${this.cockMultiple(
+                "",
+                "s"
+            )}.  As you hold her in that position, `
         );
         if (this.player.lib > 50)
             this.outx(
                 "staring at Katherine with a lewd smirk as she trembles and tries to maintain control, "
             );
         this.outx(
-            "you bring the occupied hand up and begin rubbing the paste into the shaft" +
-                this.cockMultiple("", "s") +
-                " proper with brisk up-and-down strokes."
+            `you bring the occupied hand up and begin rubbing the paste into the shaft${this.cockMultiple(
+                "",
+                "s"
+            )} proper with brisk up-and-down strokes.`
         );
         if (this.player.lib > 50)
             this.outx(
-                "  Barely any time has passed before Katherine, with a husky groan of protest and acquiescence mingled, begins unloading her steamy cargo; the first squirt  " +
-                    (this.isAt(Katherine.KLOC_STREETS) ? "stains her shirt" : "coats her chest") +
-                    " while the later and more energetic ones after it reach all the way to her neck and spatter on her chin."
+                `  Barely any time has passed before Katherine, with a husky groan of protest and acquiescence mingled, begins unloading her steamy cargo; the first squirt  ${
+                    this.isAt(Katherine.KLOC_STREETS) ? "stains her shirt" : "coats her chest"
+                } while the later and more energetic ones after it reach all the way to her neck and spatter on her chin.`
             );
         this.outx("  Katherine trembles ");
         if (this.player.lib > 50) this.outx("and her orgasm continues ");
         this.outx(
-            "as you apply a goodly amount of paste, smearing it over every inch of the twitching cock" +
-                this.cockMultiple("", "s") +
-                " and mingling it with the copious pre-cum from her errant masturbation.  Suddenly a gasp interrupts the chorus of low moans from your felid companion, as the effects begin.  Her shaft" +
-                this.cockMultiple(" spasms and shrinks, ", "s spasm and shrink, ")
+            `as you apply a goodly amount of paste, smearing it over every inch of the twitching cock${this.cockMultiple(
+                "",
+                "s"
+            )} and mingling it with the copious pre-cum from her errant masturbation.  Suddenly a gasp interrupts the chorus of low moans from your felid companion, as the effects begin.  Her shaft${this.cockMultiple(
+                " spasms and shrinks, ",
+                "s spasm and shrink, "
+            )}`
         );
         if (this.player.lib > 50)
             this.outx("still pushing out the aftershocks of her climax onto her belly, ");
         this.outx("ending up two inches shorter than before.\n\n");
 
         this.outx(
-            "“<i>God, that was... uughh,</i>” Katherine groans, wiping her " +
-                this.catGirl("skin", "fur") +
-                ".  “<i>I'm still so hard and horny, too... feels like I'll never go soft now.  Do you maybe... wanna help me with that?</i>”  She turns a hopeful"
+            `“<i>God, that was... uughh,</i>” Katherine groans, wiping her ${this.catGirl(
+                "skin",
+                "fur"
+            )}.  “<i>I'm still so hard and horny, too... feels like I'll never go soft now.  Do you maybe... wanna help me with that?</i>”  She turns a hopeful`
         );
         if (this.player.lib > 50) this.outx(", if fatigued,");
         this.outx(" look on you.\n\n");
@@ -4098,30 +4077,28 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         if (this.isAt(Katherine.KLOC_STREETS))
             this.outx(
-                "With a little help from you, she " +
-                    this.clothesLowerChoice(
-                        "wriggles out of her shorts",
-                        "strips off her panties and raises her skirt",
-                        "strips off her bodysuit",
-                        "strips off her panties and raises her skirt",
-                        "unties her robe"
-                    ) +
-                    ", exposing her swollen testes.  "
+                `With a little help from you, she ${this.clothesLowerChoice(
+                    "wriggles out of her shorts",
+                    "strips off her panties and raises her skirt",
+                    "strips off her bodysuit",
+                    "strips off her panties and raises her skirt",
+                    "unties her robe"
+                )}, exposing her swollen testes.  `
             );
         this.outx(
-            "You wonder for a moment if the " +
-                this.catGirl("hair", "fur") +
-                " on her " +
-                (this.ballSize > 3 ? "distended" : "") +
-                " sack will interfere with the process, then decide it can't hurt to try.  Uncertainly, you open the jar and begin smearing your fingers with the salve, which you then start painting across Katherine's balls.  The hermaphrodite " +
-                this.catGirl("cat girl", "feline") +
-                " shivers at your touch, but bites her lip and says nothing as you massage the shrinking cream into her semen-factories, rolling the globular orbs around in the palm of your hand to ensure a thorough, even coating.\n\n"
+            `You wonder for a moment if the ${this.catGirl("hair", "fur")} on her ${
+                this.ballSize > 3 ? "distended" : ""
+            } sack will interfere with the process, then decide it can't hurt to try.  Uncertainly, you open the jar and begin smearing your fingers with the salve, which you then start painting across Katherine's balls.  The hermaphrodite ${this.catGirl(
+                "cat girl",
+                "feline"
+            )} shivers at your touch, but bites her lip and says nothing as you massage the shrinking cream into her semen-factories, rolling the globular orbs around in the palm of your hand to ensure a thorough, even coating.\n\n`
         );
 
         this.outx(
-            "You finish applying the salve and watch as they visibly shrink, contracting in on themselves until they have lost two inches in diameter.  It's at that point you realize the man-meat above them is jutting straight up from her sheath, pre-cum starting to bubble from the pointy tip" +
-                this.cockMultiple("", "s") +
-                ".  “<i>Uh... I think shrinking my balls put their contents under pressure.  You wanna help me vent some?</i>” she meekly suggests, coloring and biting her lip in either embarrassment or anticipation.\n\n"
+            `You finish applying the salve and watch as they visibly shrink, contracting in on themselves until they have lost two inches in diameter.  It's at that point you realize the man-meat above them is jutting straight up from her sheath, pre-cum starting to bubble from the pointy tip${this.cockMultiple(
+                "",
+                "s"
+            )}.  “<i>Uh... I think shrinking my balls put their contents under pressure.  You wanna help me vent some?</i>” she meekly suggests, coloring and biting her lip in either embarrassment or anticipation.\n\n`
         );
         // use 1x Reducto, reduce Kat ball size by two inches, increase PC lust by small value, go to Kat sex menu
         this.ballSize -= 2;
@@ -4134,11 +4111,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private useRreductoOnKatsBreasts(): void {
         this.clearOutput();
         this.outx(
-            "You get on the bed next to Kath and place the jar on her belly.  As you coat your hands with the cool cream Kath closes her eyes and begins to purr.  There seems to be no change as you rub the ointment into her " +
-                this.breasts.adj() +
-                " " +
-                this.breasts.cup() +
-                " breasts.  Only when the jar is nearly exhausted do they start to firm up and contract."
+            `You get on the bed next to Kath and place the jar on her belly.  As you coat your hands with the cool cream Kath closes her eyes and begins to purr.  There seems to be no change as you rub the ointment into her ${this.breasts.adj()} ${this.breasts.cup()} breasts.  Only when the jar is nearly exhausted do they start to firm up and contract.`
         );
         if (this.breasts.lactating()) {
             this.outx(
@@ -4165,9 +4138,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else if (this.breasts.cupSize == CoC.BREAST_CUP_B)
             this.outx(
-                "“<i>Back to my natural size.  Nice, I’ve missed the balance I had when they were this big.  Thank you so much " +
-                    this.playerText() +
-                    ".</i>”"
+                `“<i>Back to my natural size.  Nice, I’ve missed the balance I had when they were this big.  Thank you so much ${this.playerText()}.</i>”`
             );
         else if (this.breasts.cupSize == CoC.BREAST_CUP_DD_BIG)
             this.outx(
@@ -4175,18 +4146,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else if (this.breasts.cupSize > CoC.BREAST_CUP_DD_BIG)
             this.outx(
-                "“<i>Oh thank Marae.  And thank you too " +
-                    this.playerText() +
-                    ".  I can feel some of the muscles in my lower back starting to relax.</i>”"
+                `“<i>Oh thank Marae.  And thank you too ${this.playerText()}.  I can feel some of the muscles in my lower back starting to relax.</i>”`
             );
         else
             this.outx(
                 "“<i>Yes, I think I’ll get used to these smaller sweater puppies pretty quickly.</i>”"
             );
         this.outx(
-            "\n\nShe lies back on the bed and spreads her legs wide, her cock" +
-                this.cockMultiple("", "s") +
-                " aimed at the ceiling.  “<i>Now since you’ve pawed my breasts and got me all excited I hope you aren’t planning on leaving anytime soon.</i>”"
+            `\n\nShe lies back on the bed and spreads her legs wide, her cock${this.cockMultiple(
+                "",
+                "s"
+            )} aimed at the ceiling.  “<i>Now since you’ve pawed my breasts and got me all excited I hope you aren’t planning on leaving anytime soon.</i>”`
         );
         this.dynStats("lus", 10 + this.player.lib / 20);
         this.player.consumeItem(this.consumables.REDUCTO);
@@ -4199,51 +4169,46 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("You hold out your bulbous canine pepper and ask if she'd like to eat it.\n\n");
         if (!this.hasCock()) {
             this.outx(
-                "“<i>I'm pretty sure that won't have any effect on me,</i>” she replies.  “<i>But they do taste nice, so as long as you don't mind...</i>”  She smiles and and takes the pepper, munching it down.  With a moan she " +
-                    this.clothesLowerChoice(
-                        "pushes a hand down her shorts",
-                        "hikes up her skirt",
-                        "opens the folds of her bodysuit",
-                        "hikes up her dress",
-                        "parts her robe"
-                    ) +
-                    " and starts rubbing her clit.\n\n"
+                `“<i>I'm pretty sure that won't have any effect on me,</i>” she replies.  “<i>But they do taste nice, so as long as you don't mind...</i>”  She smiles and and takes the pepper, munching it down.  With a moan she ${this.clothesLowerChoice(
+                    "pushes a hand down her shorts",
+                    "hikes up her skirt",
+                    "opens the folds of her bodysuit",
+                    "hikes up her dress",
+                    "parts her robe"
+                )} and starts rubbing her clit.\n\n`
             );
             this.outx(
-                "“<i>Oh please " +
-                    this.playerText() +
-                    ", don't leave me to deal with this feeling on my own.</i>”"
+                `“<i>Oh please ${this.playerText()}, don't leave me to deal with this feeling on my own.</i>”`
             );
             this.dynStats("lus", 10 + this.player.lib / 20);
             this.player.consumeItem(this.consumables.BULBYPP);
             this.katSexMenu();
         } else if (!this.hasBalls()) {
             this.outx(
-                "“<i>Funny, I was just getting used to not having them</i>” she replies.  She gives you a friendly wink and then takes the pepper, munching it down.  She moans and clutches her groin through her " +
-                    this.clothesLowerChoice("shorts", "skirt", "bodysuit", "dress", "robe") +
-                    "; as you watch her hand is forced away from her body as her testes regrow and descend."
+                `“<i>Funny, I was just getting used to not having them</i>” she replies.  She gives you a friendly wink and then takes the pepper, munching it down.  She moans and clutches her groin through her ${this.clothesLowerChoice(
+                    "shorts",
+                    "skirt",
+                    "bodysuit",
+                    "dress",
+                    "robe"
+                )}; as you watch her hand is forced away from her body as her testes regrow and descend.`
             );
             if (!this.hasDogCock()) {
                 if (this.cockNumber > 1)
                     this.outx(
-                        " At the same time her cocks stretch outwards, absorbing their barbs. In a few moments Kath is once again sporting a pair of " +
-                            this.cockAdj() +
-                            " canine cocks."
+                        ` At the same time her cocks stretch outwards, absorbing their barbs. In a few moments Kath is once again sporting a pair of ${this.cockAdj()} canine cocks.`
                     );
                 else
                     this.outx(
-                        " At the same time her cock stretches outwards, absorbing its barbs. In a few moments Kath is once again sporting a " +
-                            this.cockAdj() +
-                            " canine cock."
+                        ` At the same time her cock stretches outwards, absorbing its barbs. In a few moments Kath is once again sporting a ${this.cockAdj()} canine cock.`
                     );
                 this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             }
             this.outx(
-                "\n\nKath rubs her newly formed balls and you see a " +
-                    this.cockAdj() +
-                    "bulge developing as her " +
-                    this.cockMultiple("cock stands", "twin cocks stand") +
-                    " to attention.  She gives you a toothy smile and asks, “<i>So... you wanna give them a test run?</i>”\n\n"
+                `\n\nKath rubs her newly formed balls and you see a ${this.cockAdj()}bulge developing as her ${this.cockMultiple(
+                    "cock stands",
+                    "twin cocks stand"
+                )} to attention.  She gives you a toothy smile and asks, “<i>So... you wanna give them a test run?</i>”\n\n`
             );
             this.ballSize = 1;
             this.dynStats("lus", 10 + this.player.lib / 20);
@@ -4251,28 +4216,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.katSexMenu();
         } else if (this.ballSize < 5) {
             this.outx(
-                "“<i>Oh, sure, why not?  Bigger balls have got to be better, right?</i>” she replies.  Her tone is sarcastic, but she gives you a friendly wink and then takes the pepper, munching it down.  With a moan " +
-                    this.clothesLowerChoice(
-                        "and an arched back, she produces a new swell in her tight shorts as you look on",
-                        "she raises her skirt, allowing you to watch as she produces a new swell in her tight panties",
-                        "and an arched back, she produces a new swell in the crotch of her semi-transparent bodysuit",
-                        "she raises her skirt, allowing you to watch as she produces a new swell in her tight panties",
-                        "she unties her robe, allowing you to watch as she produces a new swell in her tight panties"
-                    ) +
-                    ", her balls visibly growing.  They roughly double in size, then stop, leaving the cat herm panting.  "
+                `“<i>Oh, sure, why not?  Bigger balls have got to be better, right?</i>” she replies.  Her tone is sarcastic, but she gives you a friendly wink and then takes the pepper, munching it down.  With a moan ${this.clothesLowerChoice(
+                    "and an arched back, she produces a new swell in her tight shorts as you look on",
+                    "she raises her skirt, allowing you to watch as she produces a new swell in her tight panties",
+                    "and an arched back, she produces a new swell in the crotch of her semi-transparent bodysuit",
+                    "she raises her skirt, allowing you to watch as she produces a new swell in her tight panties",
+                    "she unties her robe, allowing you to watch as she produces a new swell in her tight panties"
+                )}, her balls visibly growing.  They roughly double in size, then stop, leaving the cat herm panting.  `
             );
             if (!this.hasDogCock()) {
                 if (this.cockNumber > 1)
                     this.outx(
-                        " At the same time her cocks stretch outwards, absorbing their barbs.  In a few moments Kath is once again sporting a pair of " +
-                            this.cockAdj() +
-                            " canine cocks.  "
+                        ` At the same time her cocks stretch outwards, absorbing their barbs.  In a few moments Kath is once again sporting a pair of ${this.cockAdj()} canine cocks.  `
                     );
                 else
                     this.outx(
-                        " At the same time her cock stretches outwards, absorbing its barbs.  In a few moments Kath is once again sporting a " +
-                            this.cockAdj() +
-                            " canine cock.  "
+                        ` At the same time her cock stretches outwards, absorbing its barbs.  In a few moments Kath is once again sporting a ${this.cockAdj()} canine cock.  `
                     );
                 this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             }
@@ -4289,32 +4248,28 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "She looks at the bulbous pepper and then shakes her head.  “<i>No thank you.  Any bigger and I'm going to have trouble walking, and I think I make enough of a mess as it is.  Thank you for the offer, though.  Was there anything else?</i>” she adds, trying to be diplomatic.\n\n"
             );
             this.outx(
-                "You give Kath a big grin and tell her you’d like to see her grow larger.  Lots of people in Mareth have balls bigger than her and they can still move around.  You move closer and start to fondle her " +
-                    this.ballAdj() +
-                    " dangling orbs through her " +
-                    this.clothesLowerChoice(
-                        "shorts",
-                        "skirt",
-                        "semi-transparent bodysuit",
-                        "dress",
-                        "robe"
-                    ) +
-                    ".\n\n"
+                `You give Kath a big grin and tell her you’d like to see her grow larger.  Lots of people in Mareth have balls bigger than her and they can still move around.  You move closer and start to fondle her ${this.ballAdj()} dangling orbs through her ${this.clothesLowerChoice(
+                    "shorts",
+                    "skirt",
+                    "semi-transparent bodysuit",
+                    "dress",
+                    "robe"
+                )}.\n\n`
             );
             this.outx(
-                "Kath pants as her " +
-                    this.cockMultiple("cock begins", "cocks begin") +
-                    " to swell.  “<i>I... I suppose I could try it.  As long as you still think I’m pretty.</i>”\n\n"
+                `Kath pants as her ${this.cockMultiple(
+                    "cock begins",
+                    "cocks begin"
+                )} to swell.  “<i>I... I suppose I could try it.  As long as you still think I’m pretty.</i>”\n\n`
             );
             this.outx(
                 "You continue to massage her nuts and tell her that’s not enough.  She agreed so quickly that she must secretly want this.\n\n"
             );
             this.outx(
-                "Kath twists and turns in place, as if part of her wants to escape.  Finally, after a sharp intake of breath your obedient little " +
-                    this.catGirl("cat girl", "kitty") +
-                    " says, “<i>Yes.  Yes, " +
-                    this.playerText() +
-                    ", I want it.  If you want me to have bigger balls then I want them too.</i>”\n\n"
+                `Kath twists and turns in place, as if part of her wants to escape.  Finally, after a sharp intake of breath your obedient little ${this.catGirl(
+                    "cat girl",
+                    "kitty"
+                )} says, “<i>Yes.  Yes, ${this.playerText()}, I want it.  If you want me to have bigger balls then I want them too.</i>”\n\n`
             );
             this.outx(
                 "You just smile and use your free hand to push the fat little pepper between Kath’s lips.  She tries to take it but you slide it in and out as if it’s a tiny cock.  You tell her to suck on it and she does.  When you finally release your grip Kath sucks the pepper into her mouth and munches on it hungrily.\n\n"
@@ -4325,22 +4280,16 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             if (!this.hasDogCock()) {
                 if (this.cockNumber > 1)
                     this.outx(
-                        "At the same time her cocks stretch outwards, absorbing their barbs.  In a few moments Kath is once again sporting a pair of " +
-                            this.cockAdj() +
-                            " canine cocks.  "
+                        `At the same time her cocks stretch outwards, absorbing their barbs.  In a few moments Kath is once again sporting a pair of ${this.cockAdj()} canine cocks.  `
                     );
                 else
                     this.outx(
-                        "At the same time her cock stretches outwards, absorbing its barbs.  In a few moments Kath is once again sporting a " +
-                            this.cockAdj() +
-                            " canine cock.  "
+                        `At the same time her cock stretches outwards, absorbing its barbs.  In a few moments Kath is once again sporting a ${this.cockAdj()} canine cock.  `
                     );
                 this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             }
             this.outx(
-                "Katherine wraps her arms around you for support.  When the change seems to have run its course she spreads her legs to accommodate her " +
-                    this.ballAdj() +
-                    " ballsack and whispers in your ear, “<i>So... you wanna give them a test run?</i>”\n\n"
+                `Katherine wraps her arms around you for support.  When the change seems to have run its course she spreads her legs to accommodate her ${this.ballAdj()} ballsack and whispers in your ear, “<i>So... you wanna give them a test run?</i>”\n\n`
             );
             this.addSubmissive(Katherine.KBIT_SUB_GROW_BIG_BALLS); // Have made her supersize her balls at least once
             this.ballSize += 2;
@@ -4353,22 +4302,20 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             if (this.submissiveness() >= 4) {
                 // Too big even for submissive Kath
                 this.outx(
-                    "She gets down on her knees and begs you.  “<i>Please " +
-                        this.playerText() +
-                        " - I already have problems whenever I try to chase criminals.  If they get any bigger I might lose my job.  Thank you for offering, but don’t these monsters make enough cum for us both?  Please can’t we do something else?</i>” she adds with a worried smile, trying to be diplomatic."
+                    `She gets down on her knees and begs you.  “<i>Please ${this.playerText()} - I already have problems whenever I try to chase criminals.  If they get any bigger I might lose my job.  Thank you for offering, but don’t these monsters make enough cum for us both?  Please can’t we do something else?</i>” she adds with a worried smile, trying to be diplomatic.`
                 );
                 if (this.player.cor >= 75) {
                     this.outx(
-                        "\n\nIt certainly would be fun to give your " +
-                            this.catGirl("cat girl", "feline") +
-                            " fucktoy such enormous balls that she wouldn’t be able to move.  On the other hand if she loses her job then you’ll have to take care of her.  Screw that - you still get all the sex you want from her as is and you don’t have to pay.\n\n"
+                        `\n\nIt certainly would be fun to give your ${this.catGirl(
+                            "cat girl",
+                            "feline"
+                        )} fucktoy such enormous balls that she wouldn’t be able to move.  On the other hand if she loses her job then you’ll have to take care of her.  Screw that - you still get all the sex you want from her as is and you don’t have to pay.\n\n`
                     );
                     this.outx(
-                        "You scratch her ear and assure her it’s all right.  Kath purrs and presses against you, her cock" +
-                            this.cockMultiple(
-                                " beginning to slide from its sheath.",
-                                "s beginning to slide from their sheaths."
-                            )
+                        `You scratch her ear and assure her it’s all right.  Kath purrs and presses against you, her cock${this.cockMultiple(
+                            " beginning to slide from its sheath.",
+                            "s beginning to slide from their sheaths."
+                        )}`
                     );
                 }
             } else {
@@ -4397,42 +4344,43 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         } else {
             this.outx(
-                "“<i>It's sure to give me a " +
-                    this.cockMultiple("dog cock", "set of dog cocks") +
-                    " again.  That doesn't mean I'm saying no, I kinda got used to having one" +
-                    this.cockMultiple("", " and then two of 'em") +
-                    ".</i>”  At this she starts to sniff along the pepper's length.  “<i>I guess what I means is I like having a nice " +
-                    this.cockMultiple("hard cock", "pair of hard cocks") +
-                    " and somewhere to stuff " +
-                    this.cockMultiple("it", "them") +
-                    ".  Maybe that makes me a slutty herm, but I could care less.</i>”\n\n"
+                `“<i>It's sure to give me a ${this.cockMultiple(
+                    "dog cock",
+                    "set of dog cocks"
+                )} again.  That doesn't mean I'm saying no, I kinda got used to having one${this.cockMultiple(
+                    "",
+                    " and then two of 'em"
+                )}.</i>”  At this she starts to sniff along the pepper's length.  “<i>I guess what I means is I like having a nice ${this.cockMultiple(
+                    "hard cock",
+                    "pair of hard cocks"
+                )} and somewhere to stuff ${this.cockMultiple(
+                    "it",
+                    "them"
+                )}.  Maybe that makes me a slutty herm, but I could care less.</i>”\n\n`
             );
             this.outx(
-                "You feed the canine pepper into her mouth and Kath rolls it around before snapping her jaws shut and giving you a spicy peck on the cheek.  Quickly, she " +
-                    this.clothesLowerChoice(
-                        "slips off her pants",
-                        "raises her skirt and slips off her panties",
-                        "open the folds of her bodysuit",
-                        "raises her skirt and slips off her panties",
-                        "unties her robe and slips off her panties"
-                    ) +
-                    ", exposing her barbed prick" +
-                    this.cockMultiple("", "s") +
-                    ".\n\n"
+                `You feed the canine pepper into her mouth and Kath rolls it around before snapping her jaws shut and giving you a spicy peck on the cheek.  Quickly, she ${this.clothesLowerChoice(
+                    "slips off her pants",
+                    "raises her skirt and slips off her panties",
+                    "open the folds of her bodysuit",
+                    "raises her skirt and slips off her panties",
+                    "unties her robe and slips off her panties"
+                )}, exposing her barbed prick${this.cockMultiple("", "s")}.\n\n`
             );
             this.outx(
-                "The pepper doesn't disappoint and you watch the magic stretch her cock" +
-                    this.cockMultiple("", "s") +
-                    " outwards, absorbing " +
-                    this.cockMultiple("its", "their") +
-                    " barbs.  Kath once again sports a " +
-                    this.cockMultiple("", "pair of") +
-                    this.cockAdj() +
-                    " canine cock" +
-                    this.cockMultiple("", "s") +
-                    " and a happy, horny grin to go with " +
-                    this.cockMultiple("it", "them") +
-                    "."
+                `The pepper doesn't disappoint and you watch the magic stretch her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} outwards, absorbing ${this.cockMultiple(
+                    "its",
+                    "their"
+                )} barbs.  Kath once again sports a ${this.cockMultiple(
+                    "",
+                    "pair of"
+                )}${this.cockAdj()} canine cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} and a happy, horny grin to go with ${this.cockMultiple("it", "them")}.`
             );
             this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             this.player.consumeItem(this.consumables.CANINEP);
@@ -4448,50 +4396,41 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You hold out your double canine pepper and ask if she'd like to eat it.\n\n"
             );
             this.outx(
-                "“<i>I'm pretty sure that won't have any effect on me,</i>” she replies.  “<i>But they do taste nice, so as long as you don't mind...</i>”  She smiles and and takes the pepper, munching it down.  With a moan she " +
-                    this.clothesLowerChoice(
-                        "pushes a hand down her shorts",
-                        "hikes up her skirt",
-                        "opens the folds of her bodysuit",
-                        "hikes up her dress",
-                        "parts her robe"
-                    ) +
-                    " and starts rubbing her clit.\n\n"
+                `“<i>I'm pretty sure that won't have any effect on me,</i>” she replies.  “<i>But they do taste nice, so as long as you don't mind...</i>”  She smiles and and takes the pepper, munching it down.  With a moan she ${this.clothesLowerChoice(
+                    "pushes a hand down her shorts",
+                    "hikes up her skirt",
+                    "opens the folds of her bodysuit",
+                    "hikes up her dress",
+                    "parts her robe"
+                )} and starts rubbing her clit.\n\n`
             );
             this.outx(
-                "“<i>Oh please " +
-                    this.playerText() +
-                    ", don't leave me to deal with this feeling on my own.</i>”"
+                `“<i>Oh please ${this.playerText()}, don't leave me to deal with this feeling on my own.</i>”`
             );
         } else if (this.cockNumber == 1) {
             this.outx(
                 "You hold out your double canine pepper and ask if she'd like to eat it.\n\n"
             );
             this.outx(
-                "“<i>Double your fun, huh?  Okay... this is a really weird thing, but if it makes you happy,</i>” she notes.  She takes the pepper and, pausing only to " +
-                    this.clothesLowerChoice(
-                        "slip her pants down",
-                        "raise her skirt and slip off her panties",
-                        "open the folds of her bodysuit",
-                        "raise her skirt and slip off her panties",
-                        "untie her robe and slip off her panties"
-                    ) +
-                    " to expose her sheath, polishes the pepper off with a smack of her lips for good measure.  “<i>Mmm... Not bad.  Oh!</i>”  She gasps and then arches her back suddenly.\n\n"
+                `“<i>Double your fun, huh?  Okay... this is a really weird thing, but if it makes you happy,</i>” she notes.  She takes the pepper and, pausing only to ${this.clothesLowerChoice(
+                    "slip her pants down",
+                    "raise her skirt and slip off her panties",
+                    "open the folds of her bodysuit",
+                    "raise her skirt and slip off her panties",
+                    "untie her robe and slip off her panties"
+                )} to expose her sheath, polishes the pepper off with a smack of her lips for good measure.  “<i>Mmm... Not bad.  Oh!</i>”  She gasps and then arches her back suddenly.\n\n`
             );
             this.outx(
-                "Your gaze goes to her crotch, where her " +
-                    this.cockType("canine", "kitty") +
-                    " cock slides free with deceptive slowness, crowning itself at " +
-                    this.cockLength +
-                    " inches and filling its knot to " +
-                    this.knotSize +
-                    " inches thick as it pops free.  "
+                `Your gaze goes to her crotch, where her ${this.cockType(
+                    "canine",
+                    "kitty"
+                )} cock slides free with deceptive slowness, crowning itself at ${
+                    this.cockLength
+                } inches and filling its knot to ${this.knotSize} inches thick as it pops free.  `
             );
             if (!this.hasDogCock()) {
                 this.outx(
-                    "At the same time her cock stretches outwards, absorbing its barbs.  In a few moments Kath is once again sporting a " +
-                        this.cockAdj() +
-                        " canine cock.  "
+                    `At the same time her cock stretches outwards, absorbing its barbs.  In a few moments Kath is once again sporting a ${this.cockAdj()} canine cock.  `
                 );
                 this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             }
@@ -4515,20 +4454,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
             }
             this.outx(
-                "She eats it daintily, swallows, and then develops a peculiar expression.  As she pants loudly, you can see her cocks starting to " +
-                    this.clothesLowerChoice(
-                        "poke out of her pants",
-                        "lift the edge of her skirt",
-                        "stretch the thin fabric of her bodysuit",
-                        "lift the edge of her dress",
-                        "part the folds of her robe"
-                    )
+                `She eats it daintily, swallows, and then develops a peculiar expression.  As she pants loudly, you can see her cocks starting to ${this.clothesLowerChoice(
+                    "poke out of her pants",
+                    "lift the edge of her skirt",
+                    "stretch the thin fabric of her bodysuit",
+                    "lift the edge of her dress",
+                    "part the folds of her robe"
+                )}`
             );
             if (!this.hasDogCock()) {
                 this.outx(
-                    ".  The tips begins to change, expanding and losing their feline barbs.  In a few moments Kath is once again sporting a set of twin " +
-                        this.cockAdj() +
-                        " canine cocks"
+                    `.  The tips begins to change, expanding and losing their feline barbs.  In a few moments Kath is once again sporting a set of twin ${this.cockAdj()} canine cocks`
                 );
                 this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             }
@@ -4552,20 +4488,16 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You wave an overly large canine pepper in front of Katherine's nose and she drinks in the spicy scent.\n\n"
             );
             this.outx(
-                "“<i>I'm pretty sure that won't have any effect on me,</i>” she says.  “<i>But they do taste nice, so as long as you don't mind...</i>”  She smiles and and takes the pepper, munching it down.  With a moan she " +
-                    this.clothesLowerChoice(
-                        "pushes a hand down her shorts",
-                        "hikes up her skirt",
-                        "opens the folds of her bodysuit",
-                        "hikes up her dress",
-                        "parts her robe"
-                    ) +
-                    " and starts rubbing her clit.\n\n"
+                `“<i>I'm pretty sure that won't have any effect on me,</i>” she says.  “<i>But they do taste nice, so as long as you don't mind...</i>”  She smiles and and takes the pepper, munching it down.  With a moan she ${this.clothesLowerChoice(
+                    "pushes a hand down her shorts",
+                    "hikes up her skirt",
+                    "opens the folds of her bodysuit",
+                    "hikes up her dress",
+                    "parts her robe"
+                )} and starts rubbing her clit.\n\n`
             );
             this.outx(
-                "“<i>Oh please " +
-                    this.playerText() +
-                    ", don't leave me to deal with this feeling on my own.</i>”"
+                `“<i>Oh please ${this.playerText()}, don't leave me to deal with this feeling on my own.</i>”`
             );
             this.dynStats("lus", 10 + this.player.lib / 20);
             this.player.consumeItem(this.consumables.LARGEPP);
@@ -4575,24 +4507,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You ask if Katherine would really like to make her cock bigger, holding up the overly large canine pepper from your inventory.\n\n"
             );
             this.outx(
-                "“<i>Yes!  Please!</i>” she says, clearly excited.  She snatches it from your hands and wolfs it down noisily, licking her fingers and then pulling her pants down with obvious excitement.  Her cock" +
-                    this.cockMultiple("", "s") +
-                    " immediately thrust" +
-                    this.cockMultiple("s", "") +
-                    " from her sheath, growing to full size and then a full two inches further before stopping.  "
+                `“<i>Yes!  Please!</i>” she says, clearly excited.  She snatches it from your hands and wolfs it down noisily, licking her fingers and then pulling her pants down with obvious excitement.  Her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} immediately thrust${this.cockMultiple(
+                    "s",
+                    ""
+                )} from her sheath, growing to full size and then a full two inches further before stopping.  `
             );
             if (!this.hasDogCock()) {
                 if (this.cockNumber > 1)
                     this.outx(
-                        "At the same time they stretch outwards, absorbing their barbs.  In a few moments Kath is once again sporting a pair of " +
-                            this.cockAdj() +
-                            " canine cocks.  "
+                        `At the same time they stretch outwards, absorbing their barbs.  In a few moments Kath is once again sporting a pair of ${this.cockAdj()} canine cocks.  `
                     );
                 else
                     this.outx(
-                        "At the same time it stretches outwards, absorbing its barbs.  In a few moments Kath is once again sporting a " +
-                            this.cockAdj() +
-                            " canine cock.  "
+                        `At the same time it stretches outwards, absorbing its barbs.  In a few moments Kath is once again sporting a ${this.cockAdj()} canine cock.  `
                     );
                 this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             }
@@ -4609,12 +4539,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "She looks at the pepper eagerly, then visibly reins herself in.  “<i>I'm sorry...  I really would like to eat it, but I have to be practical,</i>” she says.\n\n"
             );
             this.outx(
-                "You step forward, putting a finger on her lips to silence her.  You trace that finger down her body, slowly dragging it between her breasts and over her navel until it reaches the " +
-                    this.cockMultiple(
-                        "root of her prick. A bit of gentle rubbing and her shaft begins",
-                        "little hollow between the roots of her pricks.  A bit of gentle rubbing and her shafts begin"
-                    ) +
-                    " to rise, drawing moans of pleasure from your lover.\n\n"
+                `You step forward, putting a finger on her lips to silence her.  You trace that finger down her body, slowly dragging it between her breasts and over her navel until it reaches the ${this.cockMultiple(
+                    "root of her prick. A bit of gentle rubbing and her shaft begins",
+                    "little hollow between the roots of her pricks.  A bit of gentle rubbing and her shafts begin"
+                )} to rise, drawing moans of pleasure from your lover.\n\n`
             );
             if (this.flags[kFLAGS.KATHERINE_URTA_TIMES_SEX] > 0) {
                 this.outx("You ask Katherine if she thinks you love Urta.\n\n");
@@ -4625,56 +4553,64 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "You keep rubbing and slowly push Kath back until she’s up against the wall.  You tell her Urta could use a friend in the Watch, someone who really understands what it’s like to have such a huge... burden.\n\n"
                 );
                 this.outx(
-                    "Kath’s tail flicks against the wall.  She opens her mouth to say something and your free hand pops the pepper between her lips.  She freezes and you remind her how good it will taste, how nice it will feel when her " +
-                        this.cockMultiple("dick gets", "dicks get") +
-                        " even bigger.\n\n"
+                    `Kath’s tail flicks against the wall.  She opens her mouth to say something and your free hand pops the pepper between her lips.  She freezes and you remind her how good it will taste, how nice it will feel when her ${this.cockMultiple(
+                        "dick gets",
+                        "dicks get"
+                    )} even bigger.\n\n`
                 );
             } else {
                 this.outx(
-                    "You tell Katherine that you've been right so far.  Every extra inch of cock has made her sexier.  You love that cute, embarrassed look on her face when she tries to hide her huge schlong" +
-                        this.cockMultiple("", "s") +
-                        " from view.\n\n"
+                    `You tell Katherine that you've been right so far.  Every extra inch of cock has made her sexier.  You love that cute, embarrassed look on her face when she tries to hide her huge schlong${this.cockMultiple(
+                        "",
+                        "s"
+                    )} from view.\n\n`
                 );
                 this.outx(
                     "She wriggles under your finger and finally says, “<i>I guess I can do it... I'll do it for you.</i>”\n\n"
                 );
                 this.outx(
-                    "You keep rubbing and slowly push Kath back until she’s up against the wall.  You tell her that you want her to do this for <b>her</b>.  You want her to see how much fun a " +
-                        this.cockMultiple("massive cock", "pair of massive cocks") +
-                        " can be.  Then you press the pepper against her lips until she opens her mouth and allows you to rub it against her tongue.\n\n"
+                    `You keep rubbing and slowly push Kath back until she’s up against the wall.  You tell her that you want her to do this for <b>her</b>.  You want her to see how much fun a ${this.cockMultiple(
+                        "massive cock",
+                        "pair of massive cocks"
+                    )} can be.  Then you press the pepper against her lips until she opens her mouth and allows you to rub it against her tongue.\n\n`
                 );
             }
             this.outx("She stares into your eyes and you say, “<i>I love you.</i>”\n\n");
             this.outx(
-                "Kath crunches down on the pepper, pulls it from your fingers and wolfs it down.  Beneath her clothes you see the " +
-                    this.cockMultiple("bulge", "twin bulges") +
-                    " expanding.  Kath gives you a pained smile as her genitals balloon inside her panties.\n\n"
+                `Kath crunches down on the pepper, pulls it from your fingers and wolfs it down.  Beneath her clothes you see the ${this.cockMultiple(
+                    "bulge",
+                    "twin bulges"
+                )} expanding.  Kath gives you a pained smile as her genitals balloon inside her panties.\n\n`
             );
             this.outx(
-                "With the transformation complete Kath quickly disrobes to get a better look at her new cock" +
-                    this.cockMultiple(".  It is", "s.  They are") +
-                    " indeed larger, having gained a good two inches in length."
+                `With the transformation complete Kath quickly disrobes to get a better look at her new cock${this.cockMultiple(
+                    ".  It is",
+                    "s.  They are"
+                )} indeed larger, having gained a good two inches in length.`
             );
             if (!this.hasDogCock()) {
                 this.outx(
-                    "  The effects of the pepper have also changed " +
-                        this.cockMultiple("it", "them") +
-                        " back into canine cocks."
+                    `  The effects of the pepper have also changed ${this.cockMultiple(
+                        "it",
+                        "them"
+                    )} back into canine cocks.`
                 );
                 this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             }
             this.outx(
-                "  Kath smiles and strokes " +
-                    this.cockMultiple("her", "each") +
-                    this.cockAdj() +
-                    "shaft with one hand" +
-                    this.cockMultiple(" while straightening her tail with the other", "") +
-                    ".\n\n"
+                `  Kath smiles and strokes ${this.cockMultiple(
+                    "her",
+                    "each"
+                )}${this.cockAdj()}shaft with one hand${this.cockMultiple(
+                    " while straightening her tail with the other",
+                    ""
+                )}.\n\n`
             );
             this.outx(
-                "“<i>I wasn’t sure I wanted this, but it feels good.  Do you like it?</i>” she asks, " +
-                    this.cockMultiple("pointing her cock", "leveling both her cocks") +
-                    " at you.  “<i>Maybe you could show me how much, hmmm?  Be a shame to let the chance go to waste...</i>” she purrs.\n\n"
+                `“<i>I wasn’t sure I wanted this, but it feels good.  Do you like it?</i>” she asks, ${this.cockMultiple(
+                    "pointing her cock",
+                    "leveling both her cocks"
+                )} at you.  “<i>Maybe you could show me how much, hmmm?  Be a shame to let the chance go to waste...</i>” she purrs.\n\n`
             );
             this.dynStats("lus", 10 + this.player.lib / 20);
             this.addSubmissive(Katherine.KBIT_SUB_GROW_BIG_DICK); // Have made her supersize her cock(s) at least once
@@ -4685,15 +4621,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else if (kathSubEnough) {
             // Too big, even for submissive Kath
             this.outx(
-                "She looks at the pepper and then looks down at her already enormous package.  “<i>Please " +
-                    this.playerText() +
-                    "</i>” she cries, getting to her knees.  “<i>I can’t get any bigger. I know you want me to have " +
-                    this.cockMultiple("a massive cock", "a pair of massive cocks") +
-                    " but I’m already so big.  I have to be careful when I stretch - otherwise I’ll topple forward into the ground.  If I smell whisker fruit or a woman in heat I start to feel faint!  I already grew as big as " +
-                    (this.flags[kFLAGS.KATHERINE_URTA_TIMES_SEX] > 0 ? "Urta" : "most centaurs") +
-                    " for you " +
-                    this.playerText() +
-                    ", please don’t make me grow any more.</i>”\n\n"
+                `She looks at the pepper and then looks down at her already enormous package.  “<i>Please ${this.playerText()}</i>” she cries, getting to her knees.  “<i>I can’t get any bigger. I know you want me to have ${this.cockMultiple(
+                    "a massive cock",
+                    "a pair of massive cocks"
+                )} but I’m already so big.  I have to be careful when I stretch - otherwise I’ll topple forward into the ground.  If I smell whisker fruit or a woman in heat I start to feel faint!  I already grew as big as ${
+                    this.flags[kFLAGS.KATHERINE_URTA_TIMES_SEX] > 0 ? "Urta" : "most centaurs"
+                } for you ${this.playerText()}, please don’t make me grow any more.</i>”\n\n`
             );
             this.outx(
                 "She puts her arms around your legs and adds, “<i>I know I can satisfy you.  Let me show you.</i>”"
@@ -4732,14 +4665,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.submissiveness() < 3) {
             this.outx(
-                "Kath’s mouth falls open and puts a hand to her chest.  “<i>You want me to change what I am?  " +
-                    this.playerText() +
-                    ", I know you like me the way I am, otherwise why do you keep coming back?  I love you and I never asked you to change into a cat, even though I’ve heard humans can do that sort of thing.</i>”\n\n"
+                `Kath’s mouth falls open and puts a hand to her chest.  “<i>You want me to change what I am?  ${this.playerText()}, I know you like me the way I am, otherwise why do you keep coming back?  I love you and I never asked you to change into a cat, even though I’ve heard humans can do that sort of thing.</i>”\n\n`
             );
             this.outx(
-                "She picks the items up and hands them back to you.  “<i>No, I love you a lot " +
-                    this.playerText() +
-                    ", but I don’t think I’m ready for that.  I’ll never be able to work up the courage to visit my parents if I’m not even their daughter anymore.</i>”\n\n"
+                `She picks the items up and hands them back to you.  “<i>No, I love you a lot ${this.playerText()}, but I don’t think I’m ready for that.  I’ll never be able to work up the courage to visit my parents if I’m not even their daughter anymore.</i>”\n\n`
             );
             this.outx(
                 "She takes your hands and rubs them against her face and whiskers, presses them to her breasts and then holds them to her hips.  “<i>Are you sure you don’t like me this way?</i>”"
@@ -4761,9 +4690,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "Kath’s mouth falls open and puts a hand to her chest.  “<i>You want me to change what I am?</i>”  You nod.\n\n"
             );
             this.outx(
-                "She asks, “<i>But " +
-                    this.playerText() +
-                    ", I know you like me the way I am, otherwise why do you keep coming back?</i>”  You tell her you do enjoy every minute you spend with her, but this could make things even better.\n\n"
+                `She asks, “<i>But ${this.playerText()}, I know you like me the way I am, otherwise why do you keep coming back?</i>”  You tell her you do enjoy every minute you spend with her, but this could make things even better.\n\n`
             );
             this.outx(
                 "Tears well up in the corners of Kath’s eyes.  “<i>I love you and I never asked you to change into a cat, even though I’ve heard humans can do that sort of thing.</i>”  You ask her how many humans she’s run into in Tel’Adre?  Every day you see goblins, imps, bees, canines, cats, centaurs, equines... the list goes on.  But how often do you see anything that reminds you of your village and the world you came from?\n\n"
@@ -4802,9 +4729,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "It doesn’t take long before Kath starts to rub her palms against each other.  She shudders and her paws reform, her digits lengthen and soon she has almost entirely human hands.\n\n"
         );
         this.outx(
-            "Kath is still staring at her new human fingernails when the fur starts to fall off her hands, then her arms, torso and legs.  She brushes herself off and you can see the fur has disappeared from everywhere except her ears, tail and groin.  The " +
-                this.hairColor +
-                " hair on her head is also unaffected by the concoction.\n\n"
+            `Kath is still staring at her new human fingernails when the fur starts to fall off her hands, then her arms, torso and legs.  She brushes herself off and you can see the fur has disappeared from everywhere except her ears, tail and groin.  The ${this.hairColor} hair on her head is also unaffected by the concoction.\n\n`
         );
         this.outx(
             "“<i>It feels so weird,</i>” she says in a whisper.  Instead of fur her body is now covered in milky white skin.  As she stares at her own arm another change begins.  “<i>Ahh,</i>” says Katherine as her nose twitches like that of a rabbit.  It warps as if being manipulated by some unseen sculptor.  When it finally stops twitching Kath has a human nose and beneath it a human mouth - only the little fangs give a clue that it was once different.\n\n"
@@ -4817,9 +4742,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "“<i>Even though I’ve done this before it’s hard to wrap my head around how different every little thing feels,</i>” she says, sliding her fingers over the skin of her naked breasts and down her belly.\n\n"
             );
             this.outx(
-                "She skips across the floor and throws herself into your arms.  “<i>Well " +
-                    this.playerText() +
-                    " I hope you enjoy another taste of home.  And I hope you want to make love to me again and again because my body might look human but my libido is all feline.</i>”\n\n"
+                `She skips across the floor and throws herself into your arms.  “<i>Well ${this.playerText()} I hope you enjoy another taste of home.  And I hope you want to make love to me again and again because my body might look human but my libido is all feline.</i>”\n\n`
             );
         } else {
             // First time
@@ -4827,9 +4750,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "“<i>That’s so different,</i>” she says, twisting and turning in place and touching her still furry ears, “<i>and yet it’s still mostly the same.</i>”\n\n"
             );
             this.outx(
-                "Of course Katherine being Katherine she soon slides a hand over her newly naked breasts.  “<i>Oh we are going to have to do a lot of experimenting " +
-                    this.playerText() +
-                    ".  Everything feels so different!  Even...</i>” she sweeps her hand through the air, “<i>even the air feels different now.</i>”\n\n"
+                `Of course Katherine being Katherine she soon slides a hand over her newly naked breasts.  “<i>Oh we are going to have to do a lot of experimenting ${this.playerText()}.  Everything feels so different!  Even...</i>” she sweeps her hand through the air, “<i>even the air feels different now.</i>”\n\n`
             );
             this.outx(
                 "She gives you a big hug and says, “<i>I’m going to have some explaining to do at work tomorrow.  And I’m going to have to get used to how all my clothes feel now.</i>”  She runs her hands down your back until she can squeeze your ass, then says, “<i>But right now I <b>really</b> want to find out how something else feels.</i>”\n\n"
@@ -4854,42 +4775,36 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (!this.hasCock()) {
             this.outx(
-                "“<i>I'm pretty sure that won't have any effect on me,</i>” she says.  “<i>But they do taste nice, so as long as you don't mind...</i>”  She smiles and and takes the pepper, munching it down.  With a moan she " +
-                    this.clothesLowerChoice(
-                        "pushes a hand down her shorts",
-                        "hikes up her skirt",
-                        "opens the folds of her bodysuit",
-                        "hikes up her dress",
-                        "parts her robe"
-                    ) +
-                    " and starts rubbing her clit.\n\n"
+                `“<i>I'm pretty sure that won't have any effect on me,</i>” she says.  “<i>But they do taste nice, so as long as you don't mind...</i>”  She smiles and and takes the pepper, munching it down.  With a moan she ${this.clothesLowerChoice(
+                    "pushes a hand down her shorts",
+                    "hikes up her skirt",
+                    "opens the folds of her bodysuit",
+                    "hikes up her dress",
+                    "parts her robe"
+                )} and starts rubbing her clit.\n\n`
             );
             this.outx(
-                "“<i>Oh please " +
-                    this.playerText() +
-                    ", don't leave me to deal with this feeling on my own.</i>”"
+                `“<i>Oh please ${this.playerText()}, don't leave me to deal with this feeling on my own.</i>”`
             );
             this.dynStats("lus", 10 + this.player.lib / 20);
             this.player.consumeItem(this.consumables.KNOTTYP);
         } else if (this.knotSize >= 6) {
             // Original size - it won’t grow any further
             this.outx(
-                "Kath gestures towards her cock" +
-                    this.cockMultiple("", "s") +
-                    " and says, “<i>I don’t think it can get any bigger.  I ate a ton of those peppers all at once and they never pushed me past this.</i>”\n\n"
+                `Kath gestures towards her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} and says, “<i>I don’t think it can get any bigger.  I ate a ton of those peppers all at once and they never pushed me past this.</i>”\n\n`
             );
             this.outx(
-                "She takes the pepper and examines it more closely and then pops it in her mouth.  Once she’s finished chewing she adds, “<i>They do taste good.</i>”  She looks at you again and says, “<i>Thank you " +
-                    this.playerText() +
-                    "; even though I’m not starving in an alley anymore that sure hit the spot.</i>”\n\n"
+                `She takes the pepper and examines it more closely and then pops it in her mouth.  Once she’s finished chewing she adds, “<i>They do taste good.</i>”  She looks at you again and says, “<i>Thank you ${this.playerText()}; even though I’m not starving in an alley anymore that sure hit the spot.</i>”\n\n`
             );
             if (this.hasDogCock())
                 this.outx(
-                    "Kath sits there and you watch for a short while, but the only indication that she just ate a magic imbued pepper " +
-                        this.cockMultiple(
-                            "is her rock solid erection.",
-                            "are her rock solid twin erections."
-                        )
+                    `Kath sits there and you watch for a short while, but the only indication that she just ate a magic imbued pepper ${this.cockMultiple(
+                        "is her rock solid erection.",
+                        "are her rock solid twin erections."
+                    )}`
                 );
             else {
                 this.outx(
@@ -4897,15 +4812,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
                 if (this.cockNumber > 1)
                     this.outx(
-                        "Her cocks stretch outwards, absorbing their barbs and getting fatter along their whole length.  In a few moments Kath is once again sporting a pair of " +
-                            this.cockAdj() +
-                            " canine cocks."
+                        `Her cocks stretch outwards, absorbing their barbs and getting fatter along their whole length.  In a few moments Kath is once again sporting a pair of ${this.cockAdj()} canine cocks.`
                     );
                 else
                     this.outx(
-                        "Her cock stretches outwards, absorbing its barbs and getting fatter along its whole length.  In a few moments Kath is once again sporting a " +
-                            this.cockAdj() +
-                            " canine cock."
+                        `Her cock stretches outwards, absorbing its barbs and getting fatter along its whole length.  In a few moments Kath is once again sporting a ${this.cockAdj()} canine cock.`
                     );
                 this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             }
@@ -4917,20 +4828,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "Kath takes the pepper a little uncertainly.  “<i>It brings back some good memories, from after I met you; it also brings back memories of being an outcast among my own kind.</i>”\n\n"
             );
             this.outx(
-                "She tries to give the pepper back but you close your hand around hers and tell her to concentrate on the good memories.  She knows you won’t think she’s ugly.  The two of you got along just fine when she had a massive knot.  In a way it’s what brought you two together." +
-                    (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 10
+                `She tries to give the pepper back but you close your hand around hers and tell her to concentrate on the good memories.  She knows you won’t think she’s ugly.  The two of you got along just fine when she had a massive knot.  In a way it’s what brought you two together.${
+                    this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 10
                         ? "  Besides, wouldn’t it be fun to share it with Urta?"
-                        : "") +
-                    "\n\n"
+                        : ""
+                }\n\n`
             );
             if (this.submissiveness() < 1) {
                 this.outx(
                     "Kath shakes her head and says, “<i>I don’t know if I’m ready for that.  I spent so long hating my giant knot.</i>”\n\n"
                 );
                 this.outx(
-                    'You tease her 4" knot' +
-                        this.cockMultiple("", "s") +
-                        " with your fingers.  Kath’s body wriggles and she smiles at you but she pushes the pepper back into your free hand.\n\n"
+                    `You tease her 4" knot${this.cockMultiple(
+                        "",
+                        "s"
+                    )} with your fingers.  Kath’s body wriggles and she smiles at you but she pushes the pepper back into your free hand.\n\n`
                 );
                 this.outx(
                     "“<i>Maybe some other time love,</i>” she says, “<i>right now I’ve got something else on my mind.</i>”\n\n"
@@ -4940,9 +4852,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
             } else {
                 this.outx(
-                    "Kath takes the pepper and then hugs you close.  “<i>Okay " +
-                        this.playerText() +
-                        ", I’m doing this for you.  If you think I’m more fun with a giant size knot...</i>” she slowly bites into the pepper and swallows it down, “<i>... then so be it.</i>”"
+                    `Kath takes the pepper and then hugs you close.  “<i>Okay ${this.playerText()}, I’m doing this for you.  If you think I’m more fun with a giant size knot...</i>” she slowly bites into the pepper and swallows it down, “<i>... then so be it.</i>”`
                 );
                 if (!this.hasDogCock()) {
                     this.outx(
@@ -4950,31 +4860,28 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
                     if (this.cockNumber > 1)
                         this.outx(
-                            "Her cocks stretch outwards, absorbing their barbs and getting fatter along their whole length.  In a few moments Kath is once again sporting a pair of " +
-                                this.cockAdj() +
-                                " canine cocks."
+                            `Her cocks stretch outwards, absorbing their barbs and getting fatter along their whole length.  In a few moments Kath is once again sporting a pair of ${this.cockAdj()} canine cocks.`
                         );
                     else
                         this.outx(
-                            "Her cock stretches outwards, absorbing its barbs and getting fatter along its whole length.  In a few moments Kath is once again sporting a " +
-                                this.cockAdj() +
-                                " canine cock."
+                            `Her cock stretches outwards, absorbing its barbs and getting fatter along its whole length.  In a few moments Kath is once again sporting a ${this.cockAdj()} canine cock.`
                         );
                     this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
                 }
                 this.outx(
-                    "\n\nIt takes almost a minute before Kath’s knot" +
-                        this.cockMultiple(" reacts", "s react") +
-                        " to the pepper.  When the change comes it happens quickly - her knot" +
-                        this.cockMultiple(" just inflates", "s just inflate") +
-                        " without any fanfare, gaining a few inches.\n\n"
+                    `\n\nIt takes almost a minute before Kath’s knot${this.cockMultiple(
+                        " reacts",
+                        "s react"
+                    )} to the pepper.  When the change comes it happens quickly - her knot${this.cockMultiple(
+                        " just inflates",
+                        "s just inflate"
+                    )} without any fanfare, gaining a few inches.\n\n`
                 );
                 this.outx(
-                    "Kath watches it happen almost without any reaction.  You would guess she’s eaten so many her body has developed a resistance to the effects.  Apart from the knot" +
-                        this.cockMultiple(
-                            ", which is throbbing slowly, the only indication that she just ate a magic imbued pepper is her rock solid erection.",
-                            "s, which are throbbing slowly, the only indications that she just ate a magic imbued pepper are her rock solid twin erections."
-                        )
+                    `Kath watches it happen almost without any reaction.  You would guess she’s eaten so many her body has developed a resistance to the effects.  Apart from the knot${this.cockMultiple(
+                        ", which is throbbing slowly, the only indication that she just ate a magic imbued pepper is her rock solid erection.",
+                        "s, which are throbbing slowly, the only indications that she just ate a magic imbued pepper are her rock solid twin erections."
+                    )}`
                 );
                 this.knotSize += 2;
                 if (this.knotSize > 6) this.knotSize = 6;
@@ -4985,19 +4892,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else {
             // Knot is < 4", Always willing to grow if you ask
             this.outx(
-                "Kath takes the pepper and laughs.  “<i>How could I forget?  I don’t even remember how many of these I ate trying to make my cock just a bit bigger.</i>”  She rubs the base of " +
-                    this.cockMultiple("her cock", "one cock then the other") +
-                    " and says, “<i>You want me to fill out a bit more?  Does it feel good when I knot you?</i>”\n\n"
+                `Kath takes the pepper and laughs.  “<i>How could I forget?  I don’t even remember how many of these I ate trying to make my cock just a bit bigger.</i>”  She rubs the base of ${this.cockMultiple(
+                    "her cock",
+                    "one cock then the other"
+                )} and says, “<i>You want me to fill out a bit more?  Does it feel good when I knot you?</i>”\n\n`
             );
             this.outx(
-                "You just smile and Kath licks the pepper experimentally.  “<i>I never thought I’d eat another one of these,</i>” she says.  She shakes her head before popping the pepper into her mouth.  Apart from her cock" +
-                    this.cockMultiple("", "s") +
-                    " standing to attention nothing seems to happen but Kath smiles and says, “<i>Yeah, I can feel it.  When " +
-                    this.cockMultiple(
-                        "this bad boy kicks in my knot is",
-                        "these bad boys kick in my knots are each"
-                    ) +
-                    " going to puff out to the size of an apple.</i>”\n\n"
+                `You just smile and Kath licks the pepper experimentally.  “<i>I never thought I’d eat another one of these,</i>” she says.  She shakes her head before popping the pepper into her mouth.  Apart from her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} standing to attention nothing seems to happen but Kath smiles and says, “<i>Yeah, I can feel it.  When ${this.cockMultiple(
+                    "this bad boy kicks in my knot is",
+                    "these bad boys kick in my knots are each"
+                )} going to puff out to the size of an apple.</i>”\n\n`
             );
             if (!this.hasDogCock()) {
                 this.outx(
@@ -5005,31 +4912,28 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
                 if (this.cockNumber > 1)
                     this.outx(
-                        "Her cocks stretch outwards, absorbing their barbs and getting fatter along their whole length.  In a few moments Kath is once again sporting a pair of " +
-                            this.cockAdj() +
-                            " canine cocks."
+                        `Her cocks stretch outwards, absorbing their barbs and getting fatter along their whole length.  In a few moments Kath is once again sporting a pair of ${this.cockAdj()} canine cocks.`
                     );
                 else
                     this.outx(
-                        "Her cock stretches outwards, absorbing its barbs and getting fatter along its whole length.  In a few moments Kath is once again sporting a " +
-                            this.cockAdj() +
-                            " canine cock."
+                        `Her cock stretches outwards, absorbing its barbs and getting fatter along its whole length.  In a few moments Kath is once again sporting a ${this.cockAdj()} canine cock.`
                     );
                 this.flags[kFLAGS.KATHERINE_DICK_FORM] = 0;
             }
             this.outx(
-                "It takes almost a minute before Kath’s knot" +
-                    this.cockMultiple(" reacts", "s react") +
-                    " to the pepper.  When the change comes it happens quickly - her knot" +
-                    this.cockMultiple(" just inflates", "s just inflate") +
-                    " without any fanfare, gaining a few inches.\n\n"
+                `It takes almost a minute before Kath’s knot${this.cockMultiple(
+                    " reacts",
+                    "s react"
+                )} to the pepper.  When the change comes it happens quickly - her knot${this.cockMultiple(
+                    " just inflates",
+                    "s just inflate"
+                )} without any fanfare, gaining a few inches.\n\n`
             );
             this.outx(
-                "Kath watches it happen almost without any reaction.  You would guess she’s eaten so many her body has developed a resistance to the effects.  Apart from the knot" +
-                    this.cockMultiple(
-                        ", which is slowly shrinking, the only indication that she just ate a magic imbued pepper is her rock solid erection.",
-                        "s, which are slowly shrinking, the only indications that she just ate a magic imbued pepper are her rock solid twin erections."
-                    )
+                `Kath watches it happen almost without any reaction.  You would guess she’s eaten so many her body has developed a resistance to the effects.  Apart from the knot${this.cockMultiple(
+                    ", which is slowly shrinking, the only indication that she just ate a magic imbued pepper is her rock solid erection.",
+                    "s, which are slowly shrinking, the only indications that she just ate a magic imbued pepper are her rock solid twin erections."
+                )}`
             );
             this.knotSize += 2;
             if (this.knotSize > 4) this.knotSize = 4;
@@ -5038,11 +4942,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         }
         if (this.hasCock())
             this.outx(
-                "\n\nHer tail flicks against your leg.  She looks down at her erection" +
-                    this.cockMultiple("", "s") +
-                    ", looks to you and then looks back at her erection" +
-                    this.cockMultiple("", "s") +
-                    " again."
+                `\n\nHer tail flicks against your leg.  She looks down at her erection${this.cockMultiple(
+                    "",
+                    "s"
+                )}, looks to you and then looks back at her erection${this.cockMultiple(
+                    "",
+                    "s"
+                )} again.`
             );
         this.katSexMenu();
     }
@@ -5055,9 +4961,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             if (this.submissiveness() < 6) {
                 this.outx(
-                    "Kath shakes her head and says, “<i>I don’t really want to lose this " +
-                        this.playerText() +
-                        ".  I hope you understand, I mean I was born a herm and it’s kind of part of me.</i>”\n\n"
+                    `Kath shakes her head and says, “<i>I don’t really want to lose this ${this.playerText()}.  I hope you understand, I mean I was born a herm and it’s kind of part of me.</i>”\n\n`
                 );
                 this.katherineMenu();
                 return;
@@ -5068,9 +4972,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
                 } else {
                     this.outx(
-                        "Kath shakes her head and says, “<i>I don’t really want to lose this " +
-                            this.playerText() +
-                            ".  I hope you understand, I mean I was born a herm and it’s kind of part of me.</i>”\n\n"
+                        `Kath shakes her head and says, “<i>I don’t really want to lose this ${this.playerText()}.  I hope you understand, I mean I was born a herm and it’s kind of part of me.</i>”\n\n`
                     );
                     this.outx(
                         "You rub her ears and tell her that you know it's something she's never been without - but it's easy enough to grow back.  Purified incubus drafts have got to be one of the most common potions they sell in Tel'Adre's shops.  Plus, she'll finally get to find out what it's like to be a woman and just a woman.  You ask her how many times, growing up, did she wonder at how it might feel?\n\n"
@@ -5087,9 +4989,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     this.addSubmissive(Katherine.KBIT_SUB_REM_COCK); // Have removed her cock at least once
                 }
                 this.outx(
-                    " cracks it open and gulps it down.  You both watch her semi-erect shaft for signs of a change.  Kath lets out a strangled “<i>Meyowr!</i>”  Her eyes squeeze shut and you smile as her cock retracts into her body" +
-                        (this.hasBalls() ? ", dragging her balls inward as it goes" : "") +
-                        ".  A huge spurt of wasted cum drenches the floor but Kath is so caught up in the transformation that she barely notices.  In seconds there's nothing left of her male half and her pussy shifts upwards slightly, becoming more prominent.  Katherine's legs fall open and her slit glistens invitingly.\n\n"
+                    ` cracks it open and gulps it down.  You both watch her semi-erect shaft for signs of a change.  Kath lets out a strangled “<i>Meyowr!</i>”  Her eyes squeeze shut and you smile as her cock retracts into her body${
+                        this.hasBalls() ? ", dragging her balls inward as it goes" : ""
+                    }.  A huge spurt of wasted cum drenches the floor but Kath is so caught up in the transformation that she barely notices.  In seconds there's nothing left of her male half and her pussy shifts upwards slightly, becoming more prominent.  Katherine's legs fall open and her slit glistens invitingly.\n\n`
                 );
                 this.outx(
                     "When she recovers Kath pants, “<i>Well, I'm all woman, just like you wanted.  Now please, please take me!  I'm feeling super horny right now, like there's something I've got to get out of my system.</i>”"
@@ -5107,14 +5009,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "She takes the egg and thinks about it for a second before replying.  “<i>Okay, it always did feel a little weird having two cocks.  Sometimes it felt nice too, but if you think I look better with just one then I’ll give this a shot.</i>”\n\n"
             );
             this.outx(
-                "Kath carefully cracks open the egg and downs the contents in one gulp.  She has time to wipe her mouth and say, “<i>kind of sugary,</i>” before you hear a loud grumble from her belly.  Kath grabs the knots of her cocks as they both swell to full size.  The two knots seem to stick together like they’re coated with gum or resin.  Then, before your eyes they begin to knit back together.  Kath moans as the effect spreads up the length of her cocks.  In less than a minute Katherine is left with a single " +
-                    this.cockType("doggy dick", "kitty cock") +
-                    " where once there were two.\n\n"
+                `Kath carefully cracks open the egg and downs the contents in one gulp.  She has time to wipe her mouth and say, “<i>kind of sugary,</i>” before you hear a loud grumble from her belly.  Kath grabs the knots of her cocks as they both swell to full size.  The two knots seem to stick together like they’re coated with gum or resin.  Then, before your eyes they begin to knit back together.  Kath moans as the effect spreads up the length of her cocks.  In less than a minute Katherine is left with a single ${this.cockType(
+                    "doggy dick",
+                    "kitty cock"
+                )} where once there were two.\n\n`
             );
             this.outx(
-                "“<i>Wow - I thought that would hurt at least a little.  It just tickled like crazy and now it feels like someone’s been rubbing my cock.</i>”  Katherine smiles at you and adds, “<i>I could really use a hand getting this thing back under control " +
-                    this.playerText() +
-                    ".</i>”"
+                `“<i>Wow - I thought that would hurt at least a little.  It just tickled like crazy and now it feels like someone’s been rubbing my cock.</i>”  Katherine smiles at you and adds, “<i>I could really use a hand getting this thing back under control ${this.playerText()}.</i>”`
             );
             this.cockNumber = 1;
         }
@@ -5131,9 +5032,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You show Kath the bottle of Incubi Draft and tell her that it’s been purified.  Kath takes it eagerly and examines the cloudy liquid.\n\n"
             );
             this.outx(
-                "“<i>Mmmm - I can't wait.  I don't even know what hole I want to fuck first.  Thank you so much " +
-                    this.playerText() +
-                    "</i>”\n\n"
+                `“<i>Mmmm - I can't wait.  I don't even know what hole I want to fuck first.  Thank you so much ${this.playerText()}</i>”\n\n`
             );
             this.outx(
                 "She strips off her clothes in record time and downs the bottle in a single swig.  She closes her eyes, uses her fingers to trace the outline of her pussy lips and says “<i>Not long now, I can feel it coming.</i>”\n\n"
@@ -5166,47 +5065,43 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.submissiveness() >= 4 ||
                 (this.submissiveness() >= 2 && this.flags[kFLAGS.KATHERINE_URTA_TIMES_SEX] > 0); // May as well test this just once
             this.outx(
-                "You show Kath the bottle of Incubi Draft and tell her that it’s been purified.  A single bottle should be enough to add an inch or two to her " +
-                    this.cockType("canine member", "kitty cock") +
-                    ".  \n\n"
+                `You show Kath the bottle of Incubi Draft and tell her that it’s been purified.  A single bottle should be enough to add an inch or two to her ${this.cockType(
+                    "canine member",
+                    "kitty cock"
+                )}.  \n\n`
             );
             if (this.cockLength < 16) {
                 this.cockLength += 2;
                 if (this.cockLength > 16) this.cockLength = 16;
                 this.outx(
-                    "Kath takes it and eagerly examines the cloudy liquid.  “<i>Yes!  Please!</i>” she says, clearly excited.  She pops the cock, careful not to spill any of the strange liquid, then tips it back.  “<i>Mmmmm, salty!  But I can deal with that,</i>” she says suggestively.  She pulls down her pants so that you both have the chance to watch her shaft" +
-                        this.cockMultiple("", "s") +
-                        " twitch and stretch.  The magical fluid doesn't take long to do its work, and soon Kath is proudly rubbing her new " +
-                        this.cockLength +
-                        '" shaft' +
-                        this.cockMultiple("", "s") +
-                        " between her fingers.  "
+                    `Kath takes it and eagerly examines the cloudy liquid.  “<i>Yes!  Please!</i>” she says, clearly excited.  She pops the cock, careful not to spill any of the strange liquid, then tips it back.  “<i>Mmmmm, salty!  But I can deal with that,</i>” she says suggestively.  She pulls down her pants so that you both have the chance to watch her shaft${this.cockMultiple(
+                        "",
+                        "s"
+                    )} twitch and stretch.  The magical fluid doesn't take long to do its work, and soon Kath is proudly rubbing her new ${
+                        this.cockLength
+                    }" shaft${this.cockMultiple("", "s")} between her fingers.  `
                 );
                 this.outx(
-                    "She moans and licks some of her precum off her fingertips.  In a low, seductive purr Kath says, “<i>" +
-                        this.playerText() +
-                        ", I think I got a bit of an incubus' appetite too.  Could we do something fun, maybe - oh, right now?</i>”"
+                    `She moans and licks some of her precum off her fingertips.  In a low, seductive purr Kath says, “<i>${this.playerText()}, I think I got a bit of an incubus' appetite too.  Could we do something fun, maybe - oh, right now?</i>”`
                 );
             } else if (this.cockLength < 20 && kathSubEnough) {
                 this.outx(
-                    "She looks at the bottle, rolling it from side to side in her hands, but then visibly reins herself in.  “<i>I'm sorry " +
-                        this.playerText() +
-                        "...  I have to be practical,</i>” she says, “<i>and on a little kitten like me a bigger cock is just going to be trouble.  I'll probably trip over myself.</i>”\n\n"
+                    `She looks at the bottle, rolling it from side to side in her hands, but then visibly reins herself in.  “<i>I'm sorry ${this.playerText()}...  I have to be practical,</i>” she says, “<i>and on a little kitten like me a bigger cock is just going to be trouble.  I'll probably trip over myself.</i>”\n\n`
                 );
                 this.outx(
-                    "You step forward and kiss her deeply to stop her.  You give her crotch a pat" +
-                        this.clothesLowerChoice(
-                            " through her tight shorts ",
-                            ", grinding her skirt against her concealed prick",
-                            " through her semi-transparent bodysuit",
-                            ", grinding her dress against her concealed prick",
-                            ", soon sliding your fingers inside her robe, allowing you to feel the swell developing in her tight panties"
-                        ) +
-                        " and say, “<i>Little kitten is overthinking this.  Bigger <b>is</b> better, at least where my lover's cock" +
-                        this.cockMultiple(" is", "s are") +
-                        " concerned.</i>”  A bit of gentle rubbing through her clothes and her shaft" +
-                        this.cockMultiple(" grows", "s grow") +
-                        " hot and stiff.\n\n"
+                    `You step forward and kiss her deeply to stop her.  You give her crotch a pat${this.clothesLowerChoice(
+                        " through her tight shorts ",
+                        ", grinding her skirt against her concealed prick",
+                        " through her semi-transparent bodysuit",
+                        ", grinding her dress against her concealed prick",
+                        ", soon sliding your fingers inside her robe, allowing you to feel the swell developing in her tight panties"
+                    )} and say, “<i>Little kitten is overthinking this.  Bigger <b>is</b> better, at least where my lover's cock${this.cockMultiple(
+                        " is",
+                        "s are"
+                    )} concerned.</i>”  A bit of gentle rubbing through her clothes and her shaft${this.cockMultiple(
+                        " grows",
+                        "s grow"
+                    )} hot and stiff.\n\n`
                 );
                 this.outx("“<i>Too much,</i>” is her only reply.\n\n");
                 if (this.flags[kFLAGS.KATHERINE_URTA_TIMES_SEX] > 0) {
@@ -5216,23 +5111,26 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         "You keep rubbing and slowly push Kath back until she’s up against the wall.  You tell her Urta could use a friend in the Watch, someone who really understands what it’s like to have such a huge... burden.\n\n"
                     );
                     this.outx(
-                        "Kath’s tail flicks against the wall.  She opens her mouth to say something and you hold the bottle up in front of her eyes.  She freezes and you remind her how good it will taste, how nice it will feel when her " +
-                            this.cockMultiple("dick gets", "dicks get") +
-                            " even bigger.\n\n"
+                        `Kath’s tail flicks against the wall.  She opens her mouth to say something and you hold the bottle up in front of her eyes.  She freezes and you remind her how good it will taste, how nice it will feel when her ${this.cockMultiple(
+                            "dick gets",
+                            "dicks get"
+                        )} even bigger.\n\n`
                     );
                 } else {
                     this.outx(
-                        "You tell Katherine that you've been right so far.  Every extra inch of cock has made her sexier.  You love that cute, embarrassed look on her face when she tries to hide her huge schlong" +
-                            this.cockMultiple("", "s") +
-                            " from view.\n\n"
+                        `You tell Katherine that you've been right so far.  Every extra inch of cock has made her sexier.  You love that cute, embarrassed look on her face when she tries to hide her huge schlong${this.cockMultiple(
+                            "",
+                            "s"
+                        )} from view.\n\n`
                     );
                     this.outx(
                         "She wriggles under your finger and finally says, “<i>I guess I can do it... I'll do it for you.</i>”\n\n"
                     );
                     this.outx(
-                        "You keep rubbing and slowly push Kath back until she’s up against the wall.  You tell her that you want her to do this for <b>her</b>.  You want her to see how much fun a " +
-                            this.cockMultiple("massive cock", "pair of massive cocks") +
-                            " can be.  Then you hold the bottle up in front of her eyes.\n\n"
+                        `You keep rubbing and slowly push Kath back until she’s up against the wall.  You tell her that you want her to do this for <b>her</b>.  You want her to see how much fun a ${this.cockMultiple(
+                            "massive cock",
+                            "pair of massive cocks"
+                        )} can be.  Then you hold the bottle up in front of her eyes.\n\n`
                     );
                 }
                 this.cockLength += 2;
@@ -5242,19 +5140,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "She stares at the thick, white fluid as though it's casting a spell on her.  She takes it, pops the cock and drinks it all.  She smiles and says, “<i>I love you.</i>”\n\n"
                 );
                 this.outx(
-                    "You laugh and quickly strip off her clothes.  As her " +
-                        this.cockMultiple("cock comes", "twin shafts come") +
-                        " into view Kath gasps and you watch " +
-                        this.cockMultiple("it", "them") +
-                        " lengthen.  " +
-                        this.cockMultiple("It now sticks", "They now stick") +
-                        " out almost horizontally from Kath's crotch and you stroke " +
-                        this.cockMultiple("her shaft", "one, then the other") +
-                        " as Kath pants.  You would say she's now " +
-                        this.cockLength +
-                        '" long' +
-                        this.cockMultiple("", "... twice over") +
-                        ".\n\n"
+                    `You laugh and quickly strip off her clothes.  As her ${this.cockMultiple(
+                        "cock comes",
+                        "twin shafts come"
+                    )} into view Kath gasps and you watch ${this.cockMultiple(
+                        "it",
+                        "them"
+                    )} lengthen.  ${this.cockMultiple(
+                        "It now sticks",
+                        "They now stick"
+                    )} out almost horizontally from Kath's crotch and you stroke ${this.cockMultiple(
+                        "her shaft",
+                        "one, then the other"
+                    )} as Kath pants.  You would say she's now ${
+                        this.cockLength
+                    }" long${this.cockMultiple("", "... twice over")}.\n\n`
                 );
                 this.outx(
                     "Kath smiles and looks deep into your eyes, the hornyness written all over her face.  “<i>I wasn’t sure I wanted this, but it feels good.  Do you like it?</i>” she asks, “<i>maybe you could show me how much, hmmm?  Be a shame to let the chance go to waste...</i>”\n\n"
@@ -5262,17 +5162,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             } else if (kathSubEnough) {
                 // Too big, even for submissive Kath
                 this.outx(
-                    "She looks at the bottle and then looks down at her already enormous package.  “<i>Please " +
-                        this.playerText() +
-                        "</i>” she cries, getting to her knees.  “<i>I can’t get any bigger.  I know you want me to have " +
-                        this.cockMultiple("a massive cock", "a pair of massive cocks") +
-                        " but I’m already so big.  I have to be careful when I stretch - otherwise I’ll topple forward into the ground.  If I smell whisker fruit or a woman in heat I start to feel faint!  I already grew as big as " +
-                        (this.flags[kFLAGS.KATHERINE_URTA_TIMES_SEX] > 0
-                            ? "Urta"
-                            : "most centaurs") +
-                        " for you " +
-                        this.playerText() +
-                        ", please don’t make me grow any more.</i>”\n\n"
+                    `She looks at the bottle and then looks down at her already enormous package.  “<i>Please ${this.playerText()}</i>” she cries, getting to her knees.  “<i>I can’t get any bigger.  I know you want me to have ${this.cockMultiple(
+                        "a massive cock",
+                        "a pair of massive cocks"
+                    )} but I’m already so big.  I have to be careful when I stretch - otherwise I’ll topple forward into the ground.  If I smell whisker fruit or a woman in heat I start to feel faint!  I already grew as big as ${
+                        this.flags[kFLAGS.KATHERINE_URTA_TIMES_SEX] > 0 ? "Urta" : "most centaurs"
+                    } for you ${this.playerText()}, please don’t make me grow any more.</i>”\n\n`
                 );
                 this.outx(
                     "She puts her arms around your legs and adds, “<i>I know I can satisfy you.  Let me show you.</i>”"
@@ -5281,9 +5176,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 return;
             } else if (this.flags[kFLAGS.KATHERINE_UNLOCKED] >= 4) {
                 this.outx(
-                    "She looks at the bottle but closes her eyes and shakes her head.  “<i>I'm sorry...  I really would like a bigger " +
-                        this.cockMultiple("one", "pair") +
-                        ", but I have to be practical.  I'm nearly a foot and a half long already!  Momma didn't raise me to be a size queen, and I’m almost as long as Urta.  I mean I like Urta, I just don’t think I need a cock quite that big,</i>” she says.\n\n"
+                    `She looks at the bottle but closes her eyes and shakes her head.  “<i>I'm sorry...  I really would like a bigger ${this.cockMultiple(
+                        "one",
+                        "pair"
+                    )}, but I have to be practical.  I'm nearly a foot and a half long already!  Momma didn't raise me to be a size queen, and I’m almost as long as Urta.  I mean I like Urta, I just don’t think I need a cock quite that big,</i>” she says.\n\n`
                 );
                 this.outx(
                     "“<i>It is nice to know you’re thinking of me,</i>” she adds, quickly trying to make nice with you."
@@ -5295,9 +5191,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 return;
             } else {
                 this.outx(
-                    "She looks at the bottle but closes her eyes and shakes her head.  “<i>I'm sorry...  I really would like a bigger " +
-                        this.cockMultiple("one", "pair") +
-                        ", but I have to be practical.  I'm nearly a foot and a half long already!  Momma didn't raise me to be a size queen, and if I get much longer I'll be like that poor sap who leads the guard - can't get a date because there's nobody big enough for me to stick my cock in,</i>” she declares, crossing her arms and looking firm.\n\n"
+                    `She looks at the bottle but closes her eyes and shakes her head.  “<i>I'm sorry...  I really would like a bigger ${this.cockMultiple(
+                        "one",
+                        "pair"
+                    )}, but I have to be practical.  I'm nearly a foot and a half long already!  Momma didn't raise me to be a size queen, and if I get much longer I'll be like that poor sap who leads the guard - can't get a date because there's nobody big enough for me to stick my cock in,</i>” she declares, crossing her arms and looking firm.\n\n`
                 );
                 this.outx(
                     "“<i>Though if you have anything else you're thinking of giving, I'm sure we can salvage the gesture.  Otherwise, thank you for thinking of me,</i>” she adds, quickly trying to make nice with you."
@@ -5330,11 +5227,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "She shifts her ass from side to side, concentrating intently.  “<i>It does feel a bit bigger.  Not swollen, just naturally bigger.</i>”\n\n"
             );
             this.outx(
-                "You give her a light smack on the ass and she hops into your arms, snuggling against your neck. “<i>Thank you " +
-                    this.playerText() +
-                    ", I can't wait to try it out.  I mean I really can't wait,</i>” she says, grinding her hardening cock" +
-                    this.cockMultiple("", "s") +
-                    " against you."
+                `You give her a light smack on the ass and she hops into your arms, snuggling against your neck. “<i>Thank you ${this.playerText()}, I can't wait to try it out.  I mean I really can't wait,</i>” she says, grinding her hardening cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} against you.`
             );
             this.ballSize--; // Already 0 or less, so go lower
         } else if (this.ballSize < 5) {
@@ -5342,15 +5238,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You ask if she's ever wanted to shoot longer, thicker streams of cum.  This stuff will give her giant gonads and enough seed to fill a wash tub.\n\n"
             );
             this.outx(
-                "Laughing and smiling at your sales pitch she replies, “<i>Oh, sure, why not?  Bigger balls have got to be better, right?</i>”  She gives you a friendly wink and then takes the bottle, pops the top and downs it in one motion.  With a moan " +
-                    this.clothesLowerChoice(
-                        "and an arched back, she produces a new swell in her tight shorts as you look on",
-                        "she raises her skirt, allowing you to watch as she produces a new swell in her tight panties",
-                        "and an arched back, she produces a new swell in the crotch of her semi-transparent bodysuit",
-                        "she raises her skirt, allowing you to watch as she produces a new swell in her tight panties",
-                        "she unties her robe, allowing you to watch as she produces a new swell in her tight panties"
-                    ) +
-                    ", her balls visibly growing.  They roughly double in size, then stop, leaving the cat herm panting.  "
+                `Laughing and smiling at your sales pitch she replies, “<i>Oh, sure, why not?  Bigger balls have got to be better, right?</i>”  She gives you a friendly wink and then takes the bottle, pops the top and downs it in one motion.  With a moan ${this.clothesLowerChoice(
+                    "and an arched back, she produces a new swell in her tight shorts as you look on",
+                    "she raises her skirt, allowing you to watch as she produces a new swell in her tight panties",
+                    "and an arched back, she produces a new swell in the crotch of her semi-transparent bodysuit",
+                    "she raises her skirt, allowing you to watch as she produces a new swell in her tight panties",
+                    "she unties her robe, allowing you to watch as she produces a new swell in her tight panties"
+                )}, her balls visibly growing.  They roughly double in size, then stop, leaving the cat herm panting.  `
             );
             this.outx(
                 "She throws you a sultry look.  “<i>So... you wanna give them a test run?</i>” she purrs."
@@ -5365,67 +5259,57 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "She looks at the bottle and then shakes her head.  “<i>No thank you.  Any bigger and I'm going to have trouble walking, and I think I make enough of a mess as it is.  Thanks for the offer, though.  Was there anything else?</i>” she adds, trying to be diplomatic.\n\n"
             );
             this.outx(
-                "You give Kath a big grin and tell her you’d like to see her grow larger.  Lots of people in Mareth have balls bigger than her and they can still move around.  You move closer and start to fondle her " +
-                    this.ballAdj() +
-                    " dangling orbs through her " +
-                    this.clothesLowerChoice(
-                        "shorts",
-                        "skirt",
-                        "semi-transparent bodysuit",
-                        "dress",
-                        "robe"
-                    ) +
-                    ".\n\n"
+                `You give Kath a big grin and tell her you’d like to see her grow larger.  Lots of people in Mareth have balls bigger than her and they can still move around.  You move closer and start to fondle her ${this.ballAdj()} dangling orbs through her ${this.clothesLowerChoice(
+                    "shorts",
+                    "skirt",
+                    "semi-transparent bodysuit",
+                    "dress",
+                    "robe"
+                )}.\n\n`
             );
             this.outx(
-                "Kath pants as her " +
-                    this.cockMultiple("cock begins", "cocks begin") +
-                    " to harden.  “<i>I... I suppose I could try it.  As long as you still think I’m pretty.</i>”\n\n"
+                `Kath pants as her ${this.cockMultiple(
+                    "cock begins",
+                    "cocks begin"
+                )} to harden.  “<i>I... I suppose I could try it.  As long as you still think I’m pretty.</i>”\n\n`
             );
             this.outx(
                 "You continue to massage her nuts and tell her that’s not enough.  She agreed so quickly that she must secretly want this.\n\n"
             );
             this.outx(
-                "Kath twists and turns in place, as if part of her wants to escape.  Finally, after a sharp intake of breath your obedient little " +
-                    this.catGirl("cat girl", "kitty") +
-                    " says, “<i>Yes.  Yes, " +
-                    this.playerText() +
-                    ", I want it.  If you want me to have bigger balls then I want them too.</i>”\n\n"
+                `Kath twists and turns in place, as if part of her wants to escape.  Finally, after a sharp intake of breath your obedient little ${this.catGirl(
+                    "cat girl",
+                    "kitty"
+                )} says, “<i>Yes.  Yes, ${this.playerText()}, I want it.  If you want me to have bigger balls then I want them too.</i>”\n\n`
             );
             this.outx(
                 "You just smile and hand Kath the bottle.  She takes it and rips out the cork, drinking like she's dying of thirst.\n\n"
             );
             this.outx(
-                "It doesn’t take long before you feel her scrotum expand.  It throbs and pushes your fingers apart, each of her testes growing by about two inches.  They finally stop at " +
-                    this.ballSize +
-                    '" across - each.  Bigger than even the stallions and bulls in your village.'
+                `It doesn’t take long before you feel her scrotum expand.  It throbs and pushes your fingers apart, each of her testes growing by about two inches.  They finally stop at ${this.ballSize}" across - each.  Bigger than even the stallions and bulls in your village.`
             );
             this.outx(
-                "Katherine wraps her arms around you for support.  When the change seems to have run its course she spreads her legs to accommodate her " +
-                    this.ballAdj() +
-                    " ballsack and whispers in your ear, “<i>So... you wanna give them a test run?</i>”"
+                `Katherine wraps her arms around you for support.  When the change seems to have run its course she spreads her legs to accommodate her ${this.ballAdj()} ballsack and whispers in your ear, “<i>So... you wanna give them a test run?</i>”`
             );
         } else {
             // Too big
             if (this.submissiveness() >= 4) {
                 // Too big even for submissive Kath
                 this.outx(
-                    "She gets down on her knees and begs you.  “<i>Please " +
-                        this.playerText() +
-                        " - I already have problems whenever I try to chase criminals.  If they get any bigger I might lose my job.  Thank you for offering, but don’t these monsters make enough cum for us both?  Please can’t we do something else?</i>” she adds with a worried smile, trying to be diplomatic."
+                    `She gets down on her knees and begs you.  “<i>Please ${this.playerText()} - I already have problems whenever I try to chase criminals.  If they get any bigger I might lose my job.  Thank you for offering, but don’t these monsters make enough cum for us both?  Please can’t we do something else?</i>” she adds with a worried smile, trying to be diplomatic.`
                 );
                 if (this.player.cor >= 75) {
                     this.outx(
-                        "\n\nIt certainly would be fun to give your " +
-                            this.catGirl("cat girl", "feline") +
-                            " fucktoy such enormous balls that she wouldn’t be able to move.  On the other hand if she loses her job then you’ll have to take care of her.  Screw that - you still get all the sex you want from her as is and you don’t have to pay.\n\n"
+                        `\n\nIt certainly would be fun to give your ${this.catGirl(
+                            "cat girl",
+                            "feline"
+                        )} fucktoy such enormous balls that she wouldn’t be able to move.  On the other hand if she loses her job then you’ll have to take care of her.  Screw that - you still get all the sex you want from her as is and you don’t have to pay.\n\n`
                     );
                     this.outx(
-                        "You scratch her ear and assure her it’s all right.  Kath purrs and presses against you, her cock" +
-                            this.cockMultiple(
-                                " beginning to slide from its sheath.",
-                                "s beginning to slide from their sheaths."
-                            )
+                        `You scratch her ear and assure her it’s all right.  Kath purrs and presses against you, her cock${this.cockMultiple(
+                            " beginning to slide from its sheath.",
+                            "s beginning to slide from their sheaths."
+                        )}`
                     );
                 }
             } else {
@@ -5454,11 +5338,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You show Kath the bottle of Succubus’ Milk and tell her that it’s been purified.  Kath takes it and tips the bottle from side to side, examining the cloudy liquid inside.\n\n"
             );
             this.outx(
-                "“<i>So this stuff is supposed to make my breasts bigger.</i>”  She cups her " +
-                    this.breasts.adj() +
-                    " " +
-                    this.breasts.cup() +
-                    "s and asks “<i>"
+                `“<i>So this stuff is supposed to make my breasts bigger.</i>”  She cups her ${this.breasts.adj()} ${this.breasts.cup()}s and asks “<i>`
             );
             if (this.breasts.cupSize == CoC.BREAST_CUP_A)
                 this.outx(
@@ -5493,9 +5373,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             } else {
                 // She's now up to BREAST_CUP_DD_BIG
                 this.outx(
-                    "Oof.  These puppies are a lot heavier" +
-                        (this.breasts.lactating() ? ", especially with the milk" : "") +
-                        ".  Now I understand why some girls complain about lower back problems.</i>”\n\n"
+                    `Oof.  These puppies are a lot heavier${
+                        this.breasts.lactating() ? ", especially with the milk" : ""
+                    }.  Now I understand why some girls complain about lower back problems.</i>”\n\n`
                 );
                 this.outx(
                     "She bounces up and down a few times and watches her new rack react to her motion.  “<i>Yeah, I can do this.  But I’ll need some stronger bras, that’s for sure.</i>”\n\n"
@@ -5507,16 +5387,15 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "You can feel Kath’s nipples starting to harden.  You point out that girls with big breasts do like to show them off, so maybe just enough changes to keep her from popping loose in public.\n\n"
                 );
                 this.outx(
-                    "“<i>Okay " +
-                        this.playerText() +
-                        ", if you like the idea of your " +
-                        this.catGirl("girl", "feline lover") +
-                        " parading through town, drawing every eye, then I can certainly do that.</i>”\n\n"
+                    `“<i>Okay ${this.playerText()}, if you like the idea of your ${this.catGirl(
+                        "girl",
+                        "feline lover"
+                    )} parading through town, drawing every eye, then I can certainly do that.</i>”\n\n`
                 );
                 this.outx(
-                    "She starts to grind her breasts against you, then she shifts her hips forward and starts to grind her " +
-                        (this.hasCock() ? "cock" : "pussy") +
-                        " against you too.  She purrs and says, “<i>I’ve never had to push my hips this far forward to reach you.  I think I need to experiment a little to get the hang of it.</i>”\n\n"
+                    `She starts to grind her breasts against you, then she shifts her hips forward and starts to grind her ${
+                        this.hasCock() ? "cock" : "pussy"
+                    } against you too.  She purrs and says, “<i>I’ve never had to push my hips this far forward to reach you.  I think I need to experiment a little to get the hang of it.</i>”\n\n`
                 );
             }
             this.outx("Kath seems to be in a loving mood, why disappoint her?\n\n");
@@ -5527,30 +5406,28 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outx(
                 "You tell Katherine to disrobe.  You have a present for her.  She hops on the bed and takes her clothes off slowly, giving you a nice little striptease.  When she’s finished you place the bottle of succubi’ milk in her hand.\n\n"
             );
-            this.outx("“<i>But " + this.playerText() + " I’m so big ...</i>”\n\n");
+            this.outx(`“<i>But ${this.playerText()} I’m so big ...</i>”\n\n`);
             this.outx(
-                "You cut her off by cupping her breasts in your hands.  She sucks in a breath as your thumbs begin to knead her nipples" +
-                    (this.breasts.lactating() ? ", drawing forth a few beads of cream" : "") +
-                    ".  You tell her that with every cup size she gets more attractive to you.  Kath squirms and moans but you keep rolling her engorged nipples around until you smell the girlcum beginning to drip from her vulva.\n\n"
+                `You cut her off by cupping her breasts in your hands.  She sucks in a breath as your thumbs begin to knead her nipples${
+                    this.breasts.lactating() ? ", drawing forth a few beads of cream" : ""
+                }.  You tell her that with every cup size she gets more attractive to you.  Kath squirms and moans but you keep rolling her engorged nipples around until you smell the girlcum beginning to drip from her vulva.\n\n`
             );
             this.outx(
                 "You tell her that deep down she wants to drink, she wants to see what will happen to her breasts with another dose.  Kath’s eyes open and she stares at you lustily.  Her hands move quickly, yanking the cork and dumping the milk into her mouth.\n\n"
             );
             this.outx(
-                "She swallows and asks, “<i>What have I done?</i>” before her " +
-                    (this.breasts.cupSize == CoC.BREAST_CUP_DD_BIG ? "tits" : "boobs") +
-                    " begin to swell beneath your fingers.  In just a few moments they " +
-                    (this.breasts.cupSize == CoC.BREAST_CUP_DD
+                `She swallows and asks, “<i>What have I done?</i>” before her ${
+                    this.breasts.cupSize == CoC.BREAST_CUP_DD_BIG ? "tits" : "boobs"
+                } begin to swell beneath your fingers.  In just a few moments they ${
+                    this.breasts.cupSize == CoC.BREAST_CUP_DD
                         ? "are well and truly boobs"
-                        : "have expanded to epic proportions") +
-                    ".  “<i>Oh Marae!  I’m so top heavy.</i>”  Kath leans back and adjusts her posture to support her expanded rack.\n\n"
+                        : "have expanded to epic proportions"
+                }.  “<i>Oh Marae!  I’m so top heavy.</i>”  Kath leans back and adjusts her posture to support her expanded rack.\n\n`
             );
             this.outx(
-                "You kiss her and work your fingers into her mammaries.  Kath mewls and asks, “<i>I suppose you want me to show these off, huh?</i>”  You squeeze a little harder" +
-                    (this.breasts.lactating() ? ", forcing out a bit more of her milk" : "") +
-                    ".  “<i>Okay " +
-                    this.playerText() +
-                    ".  When I’m off duty everyone in town will think I’m a big breasted slut.  Guys will try to hire me on the street.  But you’d better fuck me all the time, cause I’m going to be <b>horny</b>.</i>”\n\n"
+                `You kiss her and work your fingers into her mammaries.  Kath mewls and asks, “<i>I suppose you want me to show these off, huh?</i>”  You squeeze a little harder${
+                    this.breasts.lactating() ? ", forcing out a bit more of her milk" : ""
+                }.  “<i>Okay ${this.playerText()}.  When I’m off duty everyone in town will think I’m a big breasted slut.  Guys will try to hire me on the street.  But you’d better fuck me all the time, cause I’m going to be <b>horny</b>.</i>”\n\n`
             );
             this.breasts.cupSize++;
             this.addSubmissive(Katherine.KBIT_SUB_GROW_BIG_BOOBS); // Have grown her breasts to E-Cup or larger
@@ -5561,13 +5438,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outx(
                 "You tell Katherine to disrobe.  You have a present for her.  She hops on the bed and takes her clothes off slowly, teasing you with her striptease.  When she’s finished you place the bottle of succubus’ milk in her hand.\n\n"
             );
-            this.outx("“<i>But " + this.playerText() + " I’m so big ...</i>”\n\n");
+            this.outx(`“<i>But ${this.playerText()} I’m so big ...</i>”\n\n`);
             this.outx(
-                "You try to cup her breasts but there’s so much titflesh you can’t even hold them in your hands.  Kath puts the succubus’ milk aside and says, “<i>See?  I’m so big you can’t even rub my whole chest at once.  Please don’t make me bigger " +
-                    this.playerText() +
-                    "; you’ll snap my spine.</i>”  She starts to peel off your clothes and adds, “<i>Let’s just pretend your " +
-                    (this.player.hasCock() ? "cock" : "love") +
-                    " was the present you wanted to give me.</i>”\n\n"
+                `You try to cup her breasts but there’s so much titflesh you can’t even hold them in your hands.  Kath puts the succubus’ milk aside and says, “<i>See?  I’m so big you can’t even rub my whole chest at once.  Please don’t make me bigger ${this.playerText()}; you’ll snap my spine.</i>”  She starts to peel off your clothes and adds, “<i>Let’s just pretend your ${
+                    this.player.hasCock() ? "cock" : "love"
+                } was the present you wanted to give me.</i>”\n\n`
             );
         } else {
             // Too big - she needs to be more submissive
@@ -5575,24 +5450,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "You show Kath the bottle of Succubus’ Milk and tell her that it’s been purified.  Kath takes it and tips the bottle from side to side, examining the cloudy liquid inside.\n\n"
             );
             this.outx(
-                "She cups her huge tits and says, “<i>I think maybe DD-cups are big enough.  Any more and I’m going to start looking like I spread my legs for a living.  Besides, even these puppies bounce like crazy whenever I have to chase criminals." +
-                    (this.breasts.lactating()
+                `She cups her huge tits and says, “<i>I think maybe DD-cups are big enough.  Any more and I’m going to start looking like I spread my legs for a living.  Besides, even these puppies bounce like crazy whenever I have to chase criminals.${
+                    this.breasts.lactating()
                         ? "  I usually end up with my breastplate soaked by the time I catch them."
-                        : "") +
-                    "</i>”\n\n"
+                        : ""
+                }</i>”\n\n`
             );
             this.outx("Kath wraps her arms around you and rubs her whiskers against your face.  ");
             if (this.hasCock())
                 this.outx(
-                    "You can feel her cock getting erect " +
-                        this.clothesLowerChoice(
-                            "inside her pants",
-                            "under her skirt",
-                            "inside her bodysuit",
-                            "under her dress",
-                            "under her robe"
-                        ) +
-                        "; it"
+                    `You can feel her cock getting erect ${this.clothesLowerChoice(
+                        "inside her pants",
+                        "under her skirt",
+                        "inside her bodysuit",
+                        "under her dress",
+                        "under her robe"
+                    )}; it`
                 );
             else this.outx("It");
             this.outx(
@@ -5617,16 +5490,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         }
         this.outx(
-            "She " +
-                this.clothesChoice(
-                    "undoes her blouse",
-                    "opens the top half of her bodysuit",
-                    "undoes the upper half of her dress",
-                    "opens her robe",
-                    "lifts up her tube top",
-                    "undoes the buttons on her nurse's shirt"
-                ) +
-                " and removes her bra, exposing her breasts.\n\n"
+            `She ${this.clothesChoice(
+                "undoes her blouse",
+                "opens the top half of her bodysuit",
+                "undoes the upper half of her dress",
+                "opens her robe",
+                "lifts up her tube top",
+                "undoes the buttons on her nurse's shirt"
+            )} and removes her bra, exposing her breasts.\n\n`
         );
         if (this.breasts.lactationLevel < BreastStore.LACTATION_MODERATE) {
             // Always willing to go up to moderate
@@ -5636,11 +5507,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
             } else {
                 this.outx(
-                    "Tossing back the bottle she adds, “<i>" +
-                        (this.submissiveness() >= 3
+                    `Tossing back the bottle she adds, “<i>${
+                        this.submissiveness() >= 3
                             ? "Let's face it, I'm not very good at denying you anything"
-                            : "This will be different") +
-                        ",</i>” before looking down at her chest.\n\n"
+                            : "This will be different"
+                    },</i>” before looking down at her chest.\n\n`
                 );
                 this.breasts.lactationLevel = BreastStore.LACTATION_NONE; // Initially Kath is at LACTATION_DISABLED. This way incrementing it will bring it to LACTATION_LIGHT
             }
@@ -5649,7 +5520,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             if (this.breasts.cupSize < CoC.BREAST_CUP_D) {
                 this.breasts.cupSize++;
-                this.outx("  You'd say she's a " + this.breasts.cup() + " now.");
+                this.outx(`  You'd say she's a ${this.breasts.cup()} now.`);
             }
             this.outx(
                 "  A few drops of thick white cream drip from Kath's nipples and she shudders involuntarily.\n\n"
@@ -5678,31 +5549,28 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else if (this.submissiveness() < 3) {
             // Not sub enough to go higher
             this.outx(
-                "Kath cups her mammaries and gives them a gentle squeeze.  A few droplets of creamy liquid dribble from her nipples.  Kath sighs and wipes away the wetness with her fingers, saying, “<i>I don't think I should, " +
-                    this.playerText() +
-                    ".  I'm already so full all the time - even bumping into someone is enough for me to start leaking.  If I have any more of that stuff I'll smell like milk all the time, my bras will be soaked with it.  Any time I walk down the street I'll be a target for milk thieves.</i>”\n\n"
+                `Kath cups her mammaries and gives them a gentle squeeze.  A few droplets of creamy liquid dribble from her nipples.  Kath sighs and wipes away the wetness with her fingers, saying, “<i>I don't think I should, ${this.playerText()}.  I'm already so full all the time - even bumping into someone is enough for me to start leaking.  If I have any more of that stuff I'll smell like milk all the time, my bras will be soaked with it.  Any time I walk down the street I'll be a target for milk thieves.</i>”\n\n`
             );
             this.outx(
                 "Before you can reply she pushes your hand and the bottle against your chest and says, “<i>I bet I've got so much milk you can't drink it all,</i> in a sultry tone.”\n\n"
             );
         } else if (this.breasts.lactationLevel == BreastStore.LACTATION_EPIC) {
             this.outx(
-                "Kath cups her mammaries and gives them a gentle squeeze.  A stream of cream drips from her nipples, drenching her fingers and " +
-                    this.catGirl("running over", "soaking into the fur of") +
-                    " her belly before seeping into " +
-                    this.clothesLowerChoice(
-                        "her pants",
-                        "her skirt",
-                        "the lower half of her bodysuit",
-                        "the lower half of her dress",
-                        "the lower half of her robe"
-                    ) +
-                    " and sheets.\n\n"
+                `Kath cups her mammaries and gives them a gentle squeeze.  A stream of cream drips from her nipples, drenching her fingers and ${this.catGirl(
+                    "running over",
+                    "soaking into the fur of"
+                )} her belly before seeping into ${this.clothesLowerChoice(
+                    "her pants",
+                    "her skirt",
+                    "the lower half of her bodysuit",
+                    "the lower half of her dress",
+                    "the lower half of her robe"
+                )} and sheets.\n\n`
             );
             this.outx(
-                "“<i>I think it would be a waste of that bottle at this point,</i>” she says.  “<i>There's no way I could pump out more cream than I do now.  Speaking of which I've got two breasts here that are aching to be emptied; would you help a " +
-                    (this.hasCock() ? "herm" : "girl") +
-                    " out?</i>”\n\n"
+                `“<i>I think it would be a waste of that bottle at this point,</i>” she says.  “<i>There's no way I could pump out more cream than I do now.  Speaking of which I've got two breasts here that are aching to be emptied; would you help a ${
+                    this.hasCock() ? "herm" : "girl"
+                } out?</i>”\n\n`
             );
         } else {
             switch (
@@ -5726,20 +5594,16 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             if (!this.doneSubmissive(Katherine.KBIT_SUB_HIGH_LACTATION)) {
                 // First time turbocharging her mammaries
                 this.outx(
-                    "Kath cups her mammaries and gives them a gentle squeeze.  A few droplets of creamy liquid dribble from her nipples.  Kath sighs and wipes away the wetness with her fingers, saying, “<i>I don't think I should, " +
-                        this.playerText() +
-                        ".  I'm already so full all the time - even bumping into someone is enough for me to start leaking.  If I have any more of that stuff I'll smell like milk all the time, my bras will be soaked with it.  Any time I walk down the street I'll be a target for milk thieves.</i>”\n\n"
+                    `Kath cups her mammaries and gives them a gentle squeeze.  A few droplets of creamy liquid dribble from her nipples.  Kath sighs and wipes away the wetness with her fingers, saying, “<i>I don't think I should, ${this.playerText()}.  I'm already so full all the time - even bumping into someone is enough for me to start leaking.  If I have any more of that stuff I'll smell like milk all the time, my bras will be soaked with it.  Any time I walk down the street I'll be a target for milk thieves.</i>”\n\n`
                 );
                 this.outx(
-                    "She tries to hand the bottle back but you ignore her and " +
-                        this.clothesLowerChoice(
-                            "slide your hand under her belt and into her pants",
-                            "slip your hand under her skirt",
-                            "push your fingers into the crotch of her bodysuit",
-                            "slip your hand under her dress",
-                            "slide your hand inside her her robe"
-                        ) +
-                        ".  You start to play with her clit and find Kath's pussy is already wet.  She squirms at your touch and bites her lower lip.  You ask her if the idea of spilling milk everywhere is turning her on.\n\n"
+                    `She tries to hand the bottle back but you ignore her and ${this.clothesLowerChoice(
+                        "slide your hand under her belt and into her pants",
+                        "slip your hand under her skirt",
+                        "push your fingers into the crotch of her bodysuit",
+                        "slip your hand under her dress",
+                        "slide your hand inside her her robe"
+                    )}.  You start to play with her clit and find Kath's pussy is already wet.  She squirms at your touch and bites her lower lip.  You ask her if the idea of spilling milk everywhere is turning her on.\n\n`
                 );
                 this.outx("“<i>No,</i>” she purrs quietly.\n\n");
                 this.outx(
@@ -5769,9 +5633,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 if (this.breasts.cupSize < CoC.BREAST_CUP_DD_BIG) {
                     this.breasts.cupSize++;
                     this.outx(
-                        "  They expand between your fingers, plumping up nicely.  They're as firm as ever, but you'd say Katherine's a " +
-                            this.breasts.cup() +
-                            " now."
+                        `  They expand between your fingers, plumping up nicely.  They're as firm as ever, but you'd say Katherine's a ${this.breasts.cup()} now.`
                     );
                 }
                 this.outx(
@@ -5791,9 +5653,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "It’s time to make your cat girl back into a cat morph.  You pull out the ingredients and lay them one by one on Katherine’s bed.  The whisker fruit, the vial of hair extension serum and the honey from the bees of the forest.  Kath watches with interest, until you finally tell her this should regrow her fur and turn her back into a cat morph.\n\n"
         );
         this.outx(
-            "Kath fetches a drinking cup for you to mix the ingredients.  “<i>By the way " +
-                this.playerText() +
-                ", I’ve really enjoyed not having fur.  I didn’t expect it but it didn’t feel strange after a while.</i>”  She makes a show of undressing and runs her hands over her supple skin.  “<i>Are you sure you want to change me back?</i>”\n\n"
+            `Kath fetches a drinking cup for you to mix the ingredients.  “<i>By the way ${this.playerText()}, I’ve really enjoyed not having fur.  I didn’t expect it but it didn’t feel strange after a while.</i>”  She makes a show of undressing and runs her hands over her supple skin.  “<i>Are you sure you want to change me back?</i>”\n\n`
         );
         this.simpleChoices(
             "Change Her",
@@ -5824,25 +5684,23 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "Kath touches her face as her nose changes shape, turning back into the flat little muzzle she started life with.  Her hands change too, the fingernails drawing themselves down into her skin to form retractable claws, the palms reforming into little pads.\n\n"
         );
         this.outx(
-            "The fur takes longest to return but when it finally does Kath stands in front of you and does a sexy little dance.  “<i>Okay, I’m back to the way nature intended.  " +
-                (this.hairColor == "jet black"
+            `The fur takes longest to return but when it finally does Kath stands in front of you and does a sexy little dance.  “<i>Okay, I’m back to the way nature intended.  ${
+                this.hairColor == "jet black"
                     ? ""
-                    : "She runs a hand through her " + this.hairColor + " hair.  Well, mostly.  ") +
-                "Anyway, I hope you like what you see.</i>”\n\n"
+                    : `She runs a hand through her ${this.hairColor} hair.  Well, mostly.  `
+            }Anyway, I hope you like what you see.</i>”\n\n`
         );
         this.outx(
             "You sit down on her bed and scratch Kath’s newly grown fur.  She giggles, purrs and sits on your lap, her toned ass grinding against your "
         );
-        if (this.player.hasCock()) this.outx("cock" + (this.player.cocks.length > 1 ? "s" : ""));
+        if (this.player.hasCock()) this.outx(`cock${this.player.cocks.length > 1 ? "s" : ""}`);
         else this.outx("crotch");
-        this.outx((this.player.hasVagina() ? " and moistening your cunt" : "") + ".\n\n");
+        this.outx(`${this.player.hasVagina() ? " and moistening your cunt" : ""}.\n\n`);
         this.outx(
-            "“<i>Make me scream " +
-                this.playerText() +
-                ",</i>” she begs, “<i>show me how you love me.  Fuck my fuzzy, tight little ass 'til my "
+            `“<i>Make me scream ${this.playerText()},</i>” she begs, “<i>show me how you love me.  Fuck my fuzzy, tight little ass 'til my `
         );
         if (this.hasCock())
-            this.outx((this.hasBalls() ? "balls are" : "prostate's") + " empty and my ");
+            this.outx(`${this.hasBalls() ? "balls are" : "prostate's"} empty and my `);
         this.outx("pussy’s drenched.</i>”\n\n");
         this.furry = true;
         this.dynStats("lus", 10 + this.player.lib / 20);
@@ -5861,9 +5719,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "“<i>Yes. I like the feel of soft fabrics so much more now.  I can deal with the desert heat so much better I’ve even thought of telling other cats how good it feels.</i>”\n\n"
         );
         this.outx(
-            "She moves in close and kisses you on the lips, cheeks, neck and finally on your ear, which she nibbles slightly.  She whispers, “<i>But the best reason of all is that it gives you a little taste of home, a little something to look forward to when you come to town.  So please " +
-                this.playerText() +
-                ", take care of your favorite cat girl.  Make love to me 'til I can’t take any more.</i>”"
+            `She moves in close and kisses you on the lips, cheeks, neck and finally on your ear, which she nibbles slightly.  She whispers, “<i>But the best reason of all is that it gives you a little taste of home, a little something to look forward to when you come to town.  So please ${this.playerText()}, take care of your favorite cat girl.  Make love to me 'til I can’t take any more.</i>”`
         );
         this.katSexMenu();
     }
@@ -5885,14 +5741,15 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.katherineMenu(); // Back to Katherine menu
         } else {
             this.outx(
-                "You put the salve and the egg down and give Katherine a hug.  As you stroke her tail and massage her back Kath gets more and more excited.  When you feel her erection pressing hard against " +
-                    (this.player.isNaga() ? "the side of your tail" : "your thigh") +
-                    " you let go.\n\n"
+                `You put the salve and the egg down and give Katherine a hug.  As you stroke her tail and massage her back Kath gets more and more excited.  When you feel her erection pressing hard against ${
+                    this.player.isNaga() ? "the side of your tail" : "your thigh"
+                } you let go.\n\n`
             );
             this.outx(
-                "Kath strips off her clothes and jumps on the bed, lust in her eyes.  You climb in between her thighs, pressing both her knees to the bed.  A little attention to her cock" +
-                    this.cockMultiple("", "s") +
-                    " and she’s purring like a big kitten.\n\n"
+                `Kath strips off her clothes and jumps on the bed, lust in her eyes.  You climb in between her thighs, pressing both her knees to the bed.  A little attention to her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} and she’s purring like a big kitten.\n\n`
             );
             this.outx(
                 "You take the jar of reducto and place it on Kath’s belly.  She opens her eyes and watches as you unscrew the lid.  You tell her that you <b>know</b> she would look more attractive without a scrotum dangling in front of her pussy.\n\n"
@@ -5912,37 +5769,35 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
                 else {
                     this.outx(
-                        "Knowing that Kath is willing to put herself in your hands " +
-                            this.player.genderText(
-                                "gives you wood",
-                                "makes you wet",
-                                "gives you wood and makes your pussy wet",
-                                "creates lusty feelings you are ill equipped to deal with"
-                            ) +
-                            ". You look forward to twisting this young slut’s body even more as time goes on"
+                        `Knowing that Kath is willing to put herself in your hands ${this.player.genderText(
+                            "gives you wood",
+                            "makes you wet",
+                            "gives you wood and makes your pussy wet",
+                            "creates lusty feelings you are ill equipped to deal with"
+                        )}. You look forward to twisting this young slut’s body even more as time goes on`
                     );
                 }
             }
             this.outx(
-                ".\n\nYou crack the egg and slowly pour its contents into the jar.  As the liquid comes in contact with the salve it dissolves it, like fat melting on a hot skillet.  You’re left with a jar full of thick, bubbling off-white liquid.  You take Katherine’s dick" +
-                    this.cockMultiple("", "s") +
-                    " in one hand while you use the other to drizzle the mixture onto Kath’s scrotum where her skin absorbs it readily.\n\n"
+                `.\n\nYou crack the egg and slowly pour its contents into the jar.  As the liquid comes in contact with the salve it dissolves it, like fat melting on a hot skillet.  You’re left with a jar full of thick, bubbling off-white liquid.  You take Katherine’s dick${this.cockMultiple(
+                    "",
+                    "s"
+                )} in one hand while you use the other to drizzle the mixture onto Kath’s scrotum where her skin absorbs it readily.\n\n`
             );
             this.outx(
                 "Kath says, “<i>Oh - it feels so cold,</i>” and her body squirms beneath you.  You toss aside the empty jar and wait for the results.  The flesh of her scrotum becomes smoother and begins to shrink.  You realize you can’t even make out her testicles any more.  As Kath moans her ballsack pulls inward and becomes completely flat.  It’s as if she never had balls.\n\n"
             );
             this.outx(
-                "Kath wriggles and squirms beneath you and moans, “<i>too much - too full!</i>” before thrusting her hips violently upwards.  Her knot" +
-                    this.cockMultiple(
-                        " balloons out to its fullest and her cock sprays semen against the ceiling.  You stroke her cock",
-                        "s balloon out to their fullest and her cocks spray semen against the ceiling.  You stroke her cocks"
-                    ) +
-                    " experimentally and are rewarded with another, smaller blast.\n\n"
+                `Kath wriggles and squirms beneath you and moans, “<i>too much - too full!</i>” before thrusting her hips violently upwards.  Her knot${this.cockMultiple(
+                    " balloons out to its fullest and her cock sprays semen against the ceiling.  You stroke her cock",
+                    "s balloon out to their fullest and her cocks spray semen against the ceiling.  You stroke her cocks"
+                )} experimentally and are rewarded with another, smaller blast.\n\n`
             );
             this.outx(
-                "Kath begins to gently probe her crotch as drips of cum splat on the bed.  “<i>It’s so strange,</i>” she says, tiredness in her voice.  “<i>I still feel like a herm, sort of.  It’s just different.</i>”  She runs her finger over her pussy and strokes her deflating cock" +
-                    this.cockMultiple("", "s") +
-                    " and says, “<i>"
+                `Kath begins to gently probe her crotch as drips of cum splat on the bed.  “<i>It’s so strange,</i>” she says, tiredness in her voice.  “<i>I still feel like a herm, sort of.  It’s just different.</i>”  She runs her finger over her pussy and strokes her deflating cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} and says, “<i>`
             );
             if (!this.doneSubmissive(Katherine.KBIT_SUB_REM_BALLS))
                 this.outx("I really wasn’t sure, but I guess you were right.  ");
@@ -5966,15 +5821,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.hasCock())
             this.outx(
-                "a telltale swelling " +
-                    this.clothesLowerChoice(
-                        "in her pants",
-                        "beneath her skirt",
-                        "in the crotch of her bodysuit",
-                        "beneath her dress",
-                        "beneath her robe"
-                    ) +
-                    ".\n\n"
+                `a telltale swelling ${this.clothesLowerChoice(
+                    "in her pants",
+                    "beneath her skirt",
+                    "in the crotch of her bodysuit",
+                    "beneath her dress",
+                    "beneath her robe"
+                )}.\n\n`
             );
         else this.outx("her nipples have grow as hard as diamonds.\n\n");
         if (!this.hasCock() || !this.hasDogCock()) {
@@ -5992,34 +5845,34 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (doneBefore)
             this.outx(
-                this.cockMultiple("", "s") +
-                    ".  Is that what you want, " +
-                    this.playerText() +
-                    "?</i>”"
+                `${this.cockMultiple("", "s")}.  Is that what you want, ${this.playerText()}?</i>”`
             );
         else {
             this.outx(
-                this.cockMultiple(
+                `${this.cockMultiple(
                     ".  It’s been with me so long I’ve really gotten used to having this big smooth tip and a knot to go with it",
                     "s.  It... well, they’ve been with me so long I’ve really got used to having these big smooth tips and the knots to go with them"
-                ) + ".</i>”\n\n"
+                )}.</i>”\n\n`
             );
             this.outx(
-                "She rubs at her crotch absentmindedly as she continues.  “<i>When I first ate those peppers I thought of my cock, or at least the knot, as a curse.  You were the first person who didn’t run away screaming when you saw it.</i>”  She gives you a big smile and says, “<i>" +
-                    this.cockMultiple("It’s a", "They’re") +
-                    " part of me now.  Added by strange magic produce, but part of me nonetheless.</i>”\n\n"
+                `She rubs at her crotch absentmindedly as she continues.  “<i>When I first ate those peppers I thought of my cock, or at least the knot, as a curse.  You were the first person who didn’t run away screaming when you saw it.</i>”  She gives you a big smile and says, “<i>${this.cockMultiple(
+                    "It’s a",
+                    "They’re"
+                )} part of me now.  Added by strange magic produce, but part of me nonetheless.</i>”\n\n`
             );
             this.outx(
-                "Her cock" +
-                    this.cockMultiple(" has", "s have") +
-                    " surely swollen to full size by now and Kath lets out a deep, rolling purr.  “<i>Now how about you put that fruit away and I show you once again just how much you mean to me?</i>”"
+                `Her cock${this.cockMultiple(
+                    " has",
+                    "s have"
+                )} surely swollen to full size by now and Kath lets out a deep, rolling purr.  “<i>Now how about you put that fruit away and I show you once again just how much you mean to me?</i>”`
             );
         }
         if (this.submissiveness() >= 1) {
             this.outx(
-                "\n\nYou walk toward Kath, holding the fruit up under her nose.  She sniffs at it and begins to pull off her clothes.  Once she’s naked she sits on the edge of the bed, her legs spread wide and her cock" +
-                    this.cockMultiple("", "s") +
-                    " bouncing in time with her heartbeat.\n\n"
+                `\n\nYou walk toward Kath, holding the fruit up under her nose.  She sniffs at it and begins to pull off her clothes.  Once she’s naked she sits on the edge of the bed, her legs spread wide and her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} bouncing in time with her heartbeat.\n\n`
             );
             if (!doneBefore)
                 this.outx(
@@ -6033,66 +5886,68 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     "  Doesn’t she want to try out a kitty cock?  See what sex is like with the cock nature intended her to have?"
                 );
             this.outx(
-                "\n\nKath’s purring gets lower and lower in pitch.  Finally she bites down on the fruit, gently tugs it from your fingers and sucks on its juicy pulp.  When only the hard pit is left Kath flings it into the waste bin.  It sails right in and Kath pumps her fist.  She says, “<i>Nailed it,</i>” and then doubles over, clutching at her " +
-                    this.cockMultiple("member", "twin members") +
-                    ".\n\n"
+                `\n\nKath’s purring gets lower and lower in pitch.  Finally she bites down on the fruit, gently tugs it from your fingers and sucks on its juicy pulp.  When only the hard pit is left Kath flings it into the waste bin.  It sails right in and Kath pumps her fist.  She says, “<i>Nailed it,</i>” and then doubles over, clutching at her ${this.cockMultiple(
+                    "member",
+                    "twin members"
+                )}.\n\n`
             );
             this.outx(
-                "You watch, amazed, as Kath’s cock" +
-                    this.cockMultiple(
-                        " narrows along its entire length.  The tip  becomes",
-                        "s narrow along their entire length.  The tips become"
-                    ) +
-                    " more and more pointed and little protrusions form, developing into the barbs that will bring her mates ecstasy.  Her dick" +
-                    this.cockMultiple(" is", "s are") +
-                    " now only about an inch around" +
-                    (this.cockLength > 12
-                        ? ", rather narrow for " + this.cockMultiple("its", "their") + " length"
-                        : "") +
-                    ".\n\n"
+                `You watch, amazed, as Kath’s cock${this.cockMultiple(
+                    " narrows along its entire length.  The tip  becomes",
+                    "s narrow along their entire length.  The tips become"
+                )} more and more pointed and little protrusions form, developing into the barbs that will bring her mates ecstasy.  Her dick${this.cockMultiple(
+                    " is",
+                    "s are"
+                )} now only about an inch around${
+                    this.cockLength > 12
+                        ? `, rather narrow for ${this.cockMultiple("its", "their")} length`
+                        : ""
+                }.\n\n`
             );
             this.outx("Then the changes reach her knot");
             if (this.cockNumber > 1) {
                 this.outx(
-                    "s.  They shrink down to nothing, then inflate again.  They do this several times, eliciting a deep moan of pleasure from Katherine each time.  Finally they stabilize, " +
-                        (this.knotSize == 2
+                    `s.  They shrink down to nothing, then inflate again.  They do this several times, eliciting a deep moan of pleasure from Katherine each time.  Finally they stabilize, ${
+                        this.knotSize == 2
                             ? "refusing to shrink any smaller than they were before"
-                            : "having lost a little of their previous girth")
+                            : "having lost a little of their previous girth"
+                    }`
                 );
             } else {
                 this.outx(
-                    ".  It shrinks down to nothing, then inflates again.  It does this several times, eliciting a deep moan of pleasure from Katherine each time.  Finally it stabilizes, " +
-                        (this.knotSize == 2
+                    `.  It shrinks down to nothing, then inflates again.  It does this several times, eliciting a deep moan of pleasure from Katherine each time.  Finally it stabilizes, ${
+                        this.knotSize == 2
                             ? "refusing to shrink any smaller than it was before"
-                            : "having lost a little of its previous girth")
+                            : "having lost a little of its previous girth"
+                    }`
                 );
             }
             this.outx(".\n\n");
             this.outx(
-                "When it's over Kath feels up and down her shaft" +
-                    this.cockMultiple("", "s") +
-                    ".  "
+                `When it's over Kath feels up and down her shaft${this.cockMultiple("", "s")}.  `
             );
             if (!doneBefore)
                 this.outx(
-                    "“<i>That’s so weird.  How come I still have " +
-                        this.cockMultiple("a knot", "knots") +
-                        "?</i>”  She traces her " +
-                        this.catGirl("nails", "claws") +
-                        " along the soft bulge of her knot" +
-                        this.cockMultiple("", "s") +
-                        " and then smiles at you.  “<i>Guess I ate so many of those peppers that I get to keep " +
-                        this.cockMultiple("it", "them") +
-                        ".</i>”\n\n"
+                    `“<i>That’s so weird.  How come I still have ${this.cockMultiple(
+                        "a knot",
+                        "knots"
+                    )}?</i>”  She traces her ${this.catGirl(
+                        "nails",
+                        "claws"
+                    )} along the soft bulge of her knot${this.cockMultiple(
+                        "",
+                        "s"
+                    )} and then smiles at you.  “<i>Guess I ate so many of those peppers that I get to keep ${this.cockMultiple(
+                        "it",
+                        "them"
+                    )}.</i>”\n\n`
                 );
             this.outx(
-                "She puts her arms around you and kisses you hard.  “<i>And now " +
-                    this.playerText() +
-                    ", do you feel like trying out your new pussy cat?  " +
-                    (doneBefore
-                        ? "Nubs and knot" + this.cockMultiple("", "s") + ", all in one"
-                        : "She’s got an all new kind of prick for you to test out") +
-                    ".</i>”"
+                `She puts her arms around you and kisses you hard.  “<i>And now ${this.playerText()}, do you feel like trying out your new pussy cat?  ${
+                    doneBefore
+                        ? `Nubs and knot${this.cockMultiple("", "s")}, all in one`
+                        : "She’s got an all new kind of prick for you to test out"
+                }.</i>”`
             );
             this.flags[kFLAGS.KATHERINE_DICK_FORM] = 1;
             this.addSubmissive(Katherine.KBIT_SUB_CAT_DICK); // Have given her a cat dick at least once
@@ -6110,30 +5965,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You get Kath to stand in front of the mirror and tell her to close her eyes.  When she does you pull out the bodysuit and press it against her.\n\n"
         );
         this.outx(
-            "Kath’s eyes fly open and she feels the thin, sheer fabric with her fingers.  “<i>Oh " +
-                this.playerText() +
-                " it’s so nice.</i>”  She bites her lip as she studies herself in mirror.  Still totally flustered she speaks again.  “<i>I already know how much you love me " +
-                this.playerText() +
-                ", you don’t have to shower me with such lovely gifts to keep me - I’m already yours.  This must have been so expensive!</i>”\n\n"
+            `Kath’s eyes fly open and she feels the thin, sheer fabric with her fingers.  “<i>Oh ${this.playerText()} it’s so nice.</i>”  She bites her lip as she studies herself in mirror.  Still totally flustered she speaks again.  “<i>I already know how much you love me ${this.playerText()}, you don’t have to shower me with such lovely gifts to keep me - I’m already yours.  This must have been so expensive!</i>”\n\n`
         );
         this.outx(
-            "You walk up beside her and put an arm around her waist.  As you rub her side you tell her that the bodysuit is as much a gift for you as for her.  You’re looking forward to seeing it filled in by her toned body.  " +
-                this.catGirl(
-                    "Kath blushes a deep crimson and then",
-                    "You feel the heat of a blush under her fur before Kath"
-                ) +
-                " goes back to studying herself.\n\n"
+            `You walk up beside her and put an arm around her waist.  As you rub her side you tell her that the bodysuit is as much a gift for you as for her.  You’re looking forward to seeing it filled in by her toned body.  ${this.catGirl(
+                "Kath blushes a deep crimson and then",
+                "You feel the heat of a blush under her fur before Kath"
+            )} goes back to studying herself.\n\n`
         );
         this.outx(
-            "To get her started you " +
-                this.clothesLowerChoice(
-                    "run your finger inside the waist of her pants",
-                    "run your finger inside the waistband of her skirt",
-                    "",
-                    "tug gently on the straps of her dress",
-                    "run your finger along the low cut top of her robe"
-                ) +
-                ".  Kath takes the hint and starts undressing eagerly.  She slips into the bodysuit, which has a convenient little hole for her tail.  When she looks back in the mirror she gasps.  “<i>Oh... wow, I knew this would be a little see through, but you can see almost everything!</i>”\n\n"
+            `To get her started you ${this.clothesLowerChoice(
+                "run your finger inside the waist of her pants",
+                "run your finger inside the waistband of her skirt",
+                "",
+                "tug gently on the straps of her dress",
+                "run your finger along the low cut top of her robe"
+            )}.  Kath takes the hint and starts undressing eagerly.  She slips into the bodysuit, which has a convenient little hole for her tail.  When she looks back in the mirror she gasps.  “<i>Oh... wow, I knew this would be a little see through, but you can see almost everything!</i>”\n\n`
         );
         this.outx(
             "Of course you knew how thin the bodysuit was.  You slide a hand along the sheer fabric, tracing her curves right through her clothes.  "
@@ -6142,25 +5989,26 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("The fabric prevents you from actually seeing Katherine’s ");
         if (this.hasCock())
             this.outx(
-                "cock" +
-                    this.cockMultiple("", "s") +
-                    (this.ballSize > 3 ? " or " + this.ballAdj() + " balls" : "")
+                `cock${this.cockMultiple("", "s")}${
+                    this.ballSize > 3 ? ` or ${this.ballAdj()} balls` : ""
+                }`
             );
         else this.outx("pussy lips");
         this.outx(
-            " but it’s so taut that it outlines every detail" +
-                (this.hasCock() ? "" : ", giving her a highly visible cameltoe") +
-                ".\n\n"
+            ` but it’s so taut that it outlines every detail${
+                this.hasCock() ? "" : ", giving her a highly visible cameltoe"
+            }.\n\n`
         );
         if (this.hasCock())
             this.outx(
-                "Trapped against her body the bulge grows higher and higher, the " +
-                    (this.pregSize() > 5
+                `Trapped against her body the bulge grows higher and higher, the ${
+                    this.pregSize() > 5
                         ? "tips climbing the curve of her pregnant belly"
-                        : "rising tip" +
-                          this.cockMultiple("", "s") +
-                          " getting nearer and nearer to her breasts") +
-                    ".  "
+                        : `rising tip${this.cockMultiple(
+                              "",
+                              "s"
+                          )} getting nearer and nearer to her breasts`
+                }.  `
             );
         this.outx(
             "You tell Kath that the outfit really looks great and you look forward to seeing her parade around town in it.\n\n"
@@ -6169,9 +6017,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "Her tail swishes back and forth and Kath gives in to the feeling of your hands massaging her body.  Her nipples tent the gossamer fabric and you realize that you could probably make her cum while she’s still wearing the outfit.\n\n"
         );
         this.outx(
-            "“<i>Do you really want me to walk around town like this?</i>” she pants.  “<i>Everyone will " +
-                (this.hasCock() ? "know I’m a herm" : "see everything") +
-                ".</i>”"
+            `“<i>Do you really want me to walk around town like this?</i>” she pants.  “<i>Everyone will ${
+                this.hasCock() ? "know I’m a herm" : "see everything"
+            }.</i>”`
         );
         this.giveClothing(Katherine.KBIT_CLOTHES_BODYSUIT);
         this.player.consumeItem(this.armors.T_BSUIT);
@@ -6195,9 +6043,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You tell her that’s exactly what you want.  She has an incredible body and she should learn to show off a little.  The sight of her bending over to inspect some produce in the market will make people’s days.  For a lovely girl like her wearing a transparent bodysuit is a public service.\n\n"
         );
         this.outx(
-            "Kath sighs contentedly and says, “<i>" +
-                (this.playerMaster() ? "Yes [master]" : "Alright " + this.player.short) +
-                ", if that’s what you like then expect to see me wearing this a lot.  Now, if you don’t mind I think I should get undressed again because I think things are about to get messy.  After all I still need to thank you for this wonderful gift.</i>”"
+            `Kath sighs contentedly and says, “<i>${
+                this.playerMaster() ? "Yes [master]" : `Alright ${this.player.short}`
+            }, if that’s what you like then expect to see me wearing this a lot.  Now, if you don’t mind I think I should get undressed again because I think things are about to get messy.  After all I still need to thank you for this wonderful gift.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = Katherine.KBIT_CLOTHES_BODYSUIT;
         this.katSexMenu();
@@ -6225,17 +6073,16 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx(
             "As you grope her breasts you add that when you’re out there fighting monsters you want to <b>know</b> that her perky breasts, her tight butt and her delightful "
         );
-        if (this.hasCock()) this.outx("cock" + this.cockMultiple("", "s"));
+        if (this.hasCock()) this.outx(`cock${this.cockMultiple("", "s")}`);
         else this.outx("pussy");
         this.outx(
             " are on display.  Whenever she’s not on duty you want her proudly strutting her stuff wherever she goes.\n\n"
         );
         this.outx(
-            "Kath becomes putty in your arms and says, “<i>Yes!  I’ll do it all for you " +
-                this.playerText() +
-                ".  But right now I still have to thank you.  This bodysuit feels sooo good pressed against " +
-                this.catGirl("my skin", "me") +
-                ", but when you’re pressed against me it feels even better.</i>”"
+            `Kath becomes putty in your arms and says, “<i>Yes!  I’ll do it all for you ${this.playerText()}.  But right now I still have to thank you.  This bodysuit feels sooo good pressed against ${this.catGirl(
+                "my skin",
+                "me"
+            )}, but when you’re pressed against me it feels even better.</i>”`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = -Katherine.KBIT_CLOTHES_BODYSUIT;
         this.katSexMenu();
@@ -6247,28 +6094,24 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You get Kath to stand in front of the mirror and tell her to close her eyes.  When she does you pull out the elegant ballroom dress and press it against her.\n\n"
         );
         this.outx(
-            "It takes Kath quite a while to find her voice.  When she does she hugs you tightly and says, “<i>It’s beautiful!</i>”  There are tears in her eyes and she’s starting to sniffle.  “<i>I’ll look like a princess in this dress,</i>” she says, slowly stroking the floor length skirt.  “<i>Oh, you can’t spend so much on me " +
-                this.playerText() +
-                " - you’ve already given me a whole new life!  I should be the one giving you presents.</i>”\n\n"
+            `It takes Kath quite a while to find her voice.  When she does she hugs you tightly and says, “<i>It’s beautiful!</i>”  There are tears in her eyes and she’s starting to sniffle.  “<i>I’ll look like a princess in this dress,</i>” she says, slowly stroking the floor length skirt.  “<i>Oh, you can’t spend so much on me ${this.playerText()} - you’ve already given me a whole new life!  I should be the one giving you presents.</i>”\n\n`
         );
         this.outx(
-            "You laugh and tell her she’s always giving you presents, you’re just providing a new kind of wrapping.  She grins and says, “<i>Awww " +
-                this.playerText() +
-                " you’re so good to me.</i>”  She undresses and redresses quite quickly, considering how long the numerous buttons on the dress take to get right.\n\n"
+            `You laugh and tell her she’s always giving you presents, you’re just providing a new kind of wrapping.  She grins and says, “<i>Awww ${this.playerText()} you’re so good to me.</i>”  She undresses and redresses quite quickly, considering how long the numerous buttons on the dress take to get right.\n\n`
         );
         this.outx(
-            "“<i>I’ve never gone to a big party, but now I’ve got the perfect dress for it.  I think I was wrong before, princesses are going to be jealous,</i>” she says as she twirls left and right, watching the long dress flow in the mirror.  “<i>It’s perfect - it really is." +
-                (this.hasCock()
+            `“<i>I’ve never gone to a big party, but now I’ve got the perfect dress for it.  I think I was wrong before, princesses are going to be jealous,</i>” she says as she twirls left and right, watching the long dress flow in the mirror.  “<i>It’s perfect - it really is.${
+                this.hasCock()
                     ? "  I bet even if I was rock hard under this gown no one could tell I’m a herm."
-                    : "") +
-                "</i>”\n\n"
+                    : ""
+            }</i>”\n\n`
         );
         this.outx(
-            "She twirls a few more times before grabbing your arms and leading you in a silent dance.  “<i>" +
-                (this.hasCock()
+            `She twirls a few more times before grabbing your arms and leading you in a silent dance.  “<i>${
+                this.hasCock()
                     ? "I am all woman, but in this dress I finally feel like it"
-                    : "In this dress I feel like I’m all woman, just like I wanted to be when I was really young and kids picked on me") +
-                ".</i>”  You don’t know the slow dance she’s taking you through, but it doesn’t seem to matter.  Kath finally snaps out of her fantasy and says, “<i>This dress is so special; I don’t want anything to happen to it.  Maybe I should only put it on for special occasions.</i>”"
+                    : "In this dress I feel like I’m all woman, just like I wanted to be when I was really young and kids picked on me"
+            }.</i>”  You don’t know the slow dance she’s taking you through, but it doesn’t seem to matter.  Kath finally snaps out of her fantasy and says, “<i>This dress is so special; I don’t want anything to happen to it.  Maybe I should only put it on for special occasions.</i>”`
         );
         this.giveClothing(Katherine.KBIT_CLOTHES_B_DRESS);
         this.player.consumeItem(this.armors.B_DRESS);
@@ -6315,11 +6158,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You put your hands on Kath’s shoulders and tell her you bought this dress so you could both enjoy it, not so that it could hang in her wardrobe all day.  She thinks it makes her look great and you couldn’t agree more.  In fact she should wear it all the time and show the people of Tel’Adre what a cat with class looks like.\n\n"
         );
         this.outx(
-            "Kath smiles and asks, “<i>Do you insist?</i>”  You reach a little higher and play with her ears.  " +
-                (this.hasCock()
+            `Kath smiles and asks, “<i>Do you insist?</i>”  You reach a little higher and play with her ears.  ${
+                this.hasCock()
                     ? "You can’t see it, but you know that under the gown her shaft is hardening.  "
-                    : "") +
-                "“<i>Oh yes,</i>” she says, falling into your arms, “<i>if you’re going to put it like that I’m not going to argue.  I promise I’ll wear it every day.  Now it’s time for me to start thanking you.  It’s going to take months before I feel I’ve showed you how much this means to me, but here’s how it’s going to start.  I’m going to sit on the bed and you can pick any way you want to open your present.</i>”\n\n"
+                    : ""
+            }“<i>Oh yes,</i>” she says, falling into your arms, “<i>if you’re going to put it like that I’m not going to argue.  I promise I’ll wear it every day.  Now it’s time for me to start thanking you.  It’s going to take months before I feel I’ve showed you how much this means to me, but here’s how it’s going to start.  I’m going to sit on the bed and you can pick any way you want to open your present.</i>”\n\n`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = -Katherine.KBIT_CLOTHES_B_DRESS;
         this.katSexMenu();
@@ -6331,9 +6174,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You get Kath to stand in front of the mirror and tell her to close her eyes.  When she does you pull out the three pieces of the skimpy nurse outfit and press them against her.\n\n"
         );
         this.outx(
-            "Katherine takes each of the three pieces in turn and studies them.  “<i>This is really, really racy.  Oh sure, it covers everything; I won’t get in any trouble... but wow.</i>”  She holds the tiny white top against her " +
-                this.breasts.cup() +
-                "s and gives you a toothy smile.  “<i>"
+            `Katherine takes each of the three pieces in turn and studies them.  “<i>This is really, really racy.  Oh sure, it covers everything; I won’t get in any trouble... but wow.</i>”  She holds the tiny white top against her ${this.breasts.cup()}s and gives you a toothy smile.  “<i>`
         );
         if (this.breasts.cupSize < CoC.BREAST_CUP_C)
             this.outx(
@@ -6356,9 +6197,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else
             this.outx(
-                "“<i>I’m sorry " +
-                    this.playerText() +
-                    ", but there’s just no way.  It wouldn’t even cover me when I’m soft.  I think I’ll wear the skirt I’ve already got with this.  Otherwise I’ll expose myself with every step.</i>”\n\n"
+                `“<i>I’m sorry ${this.playerText()}, but there’s just no way.  It wouldn’t even cover me when I’m soft.  I think I’ll wear the skirt I’ve already got with this.  Otherwise I’ll expose myself with every step.</i>”\n\n`
             );
         this.outx("Katherine strips off her ");
         if (this.canWearMiniSkirt())
@@ -6373,14 +6212,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         this.outx(".  When she’s finished a vision of naughtiness stands before you.\n\n");
         this.outx(
-            "She walks toward you, her hips swaying from side to side.  “<i>I know it’s racy, skimpy, probably even outright slutty, but I love how it looks.  " +
-                this.catGirl(
-                    "It feels nice walking around with all this exposed skin",
-                    "I really like how the whiteness of the outfit contrasts with the blackness of my fur"
-                ) +
-                ".  She slides her arms around your waist and you feel a great deal of heat radiating from under that skirt.  Mmmm, you’re too good to me " +
-                this.playerText() +
-                ".  Let me show you how much I appreciate you...</i>”\n\n"
+            `She walks toward you, her hips swaying from side to side.  “<i>I know it’s racy, skimpy, probably even outright slutty, but I love how it looks.  ${this.catGirl(
+                "It feels nice walking around with all this exposed skin",
+                "I really like how the whiteness of the outfit contrasts with the blackness of my fur"
+            )}.  She slides her arms around your waist and you feel a great deal of heat radiating from under that skirt.  Mmmm, you’re too good to me ${this.playerText()}.  Let me show you how much I appreciate you...</i>”\n\n`
         );
         this.giveClothing(Katherine.KBIT_CLOTHES_NURSECL);
         this.player.consumeItem(this.armors.NURSECL);
@@ -6402,9 +6237,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "She asks about the runes and you tell her the robe is meant to improve spellcasting somehow, though you’re not sure how it does that.  “<i>I’m no sorcerer,</i>” she says, “<i>if I had any talent they would have tried recruiting me for the tower.  It’s almost a shame having me wear this.</i>”\n\n"
         );
         this.outx(
-            "You convince her to put it on anyway.  She strips and then pulls on the robe.  “<i>It’s so smooth!  It feels like the wind brushing against my " +
-                this.catGirl("skin", "fur") +
-                ".  It makes me feel like I’m completely naked.</i>”\n\n"
+            `You convince her to put it on anyway.  She strips and then pulls on the robe.  “<i>It’s so smooth!  It feels like the wind brushing against my ${this.catGirl(
+                "skin",
+                "fur"
+            )}.  It makes me feel like I’m completely naked.</i>”\n\n`
         );
         this.outx(
             "Katherine strikes a commanding pose and looks at herself in the mirror, then she seems to deflate slightly.  Looking very shy she says, “<i>I don’t know if I should wear this around town.  It seems way too special.</i>”"
@@ -6435,23 +6271,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.hasCock())
             this.outx(
-                "her cock" +
-                    this.cockMultiple(" begins", "s begin") +
-                    " to press against " +
-                    (this.player.isNaga() ? "the front of your tail" : "your inner thighs")
+                `her cock${this.cockMultiple(" begins", "s begin")} to press against ${
+                    this.player.isNaga() ? "the front of your tail" : "your inner thighs"
+                }`
             );
         else
             this.outx(
-                "she begins to press her crotch against " +
-                    (this.player.isNaga() ? "the front of your tail" : "your legs")
+                `she begins to press her crotch against ${
+                    this.player.isNaga() ? "the front of your tail" : "your legs"
+                }`
             );
         this.outx(
             ".  Once she’s sufficiently aroused you tell her she should wear these clothes around town, get used to them, and treat the inhabitants of Tel’Adre to the fine view she’ll provide.\n\n"
         );
         this.outx(
-            "Kath gives you a quick kiss and says, “<i>You win " +
-                this.playerText() +
-                ", as always.  But I know these robes are very special indeed.  I can’t possibly repay you for everything you’ve done for me, except to keep loving you more and more each day.</i>”  She suddenly hops up and wraps her legs around you at waist level.  She holds your head against her breasts and adds, “<i>Now with that in mind...</i>”\n\n"
+            `Kath gives you a quick kiss and says, “<i>You win ${this.playerText()}, as always.  But I know these robes are very special indeed.  I can’t possibly repay you for everything you’ve done for me, except to keep loving you more and more each day.</i>”  She suddenly hops up and wraps her legs around you at waist level.  She holds your head against her breasts and adds, “<i>Now with that in mind...</i>”\n\n`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = Katherine.KBIT_CLOTHES_SS_ROBE;
         this.katSexMenu();
@@ -6467,15 +6301,15 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.hasCock())
             this.outx(
-                "her cock" +
-                    this.cockMultiple(" begins", "s begin") +
-                    " to press against " +
-                    (this.player.isNaga() ? "the front of your tail" : "your inner thighs")
+                `her cock${this.cockMultiple(" begins", "s begin")} to press against ${
+                    this.player.isNaga() ? "the front of your tail" : "your inner thighs"
+                }`
             );
         else
             this.outx(
-                "she begins to press her crotch against " +
-                    (this.player.isNaga() ? "the front of your tail" : "your legs")
+                `she begins to press her crotch against ${
+                    this.player.isNaga() ? "the front of your tail" : "your legs"
+                }`
             );
         this.outx(
             ".\n\nKath gives you a quick kiss and says, “<i>I can’t possibly repay you for everything you’ve done for me, except to keep loving you more and more each day.  Now with that in mind...</i>”\n\n"
@@ -6493,15 +6327,15 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.hasCock())
             this.outx(
-                "her cock" +
-                    this.cockMultiple(" begins", "s begin") +
-                    " to press against " +
-                    (this.player.isNaga() ? "the front of your tail" : "your inner thighs")
+                `her cock${this.cockMultiple(" begins", "s begin")} to press against ${
+                    this.player.isNaga() ? "the front of your tail" : "your inner thighs"
+                }`
             );
         else
             this.outx(
-                "she begins to press her crotch against " +
-                    (this.player.isNaga() ? "the front of your tail" : "your legs")
+                `she begins to press her crotch against ${
+                    this.player.isNaga() ? "the front of your tail" : "your legs"
+                }`
             );
         this.outx(
             ".  Once she’s sufficiently aroused you tell her she should wear these clothes around town, get used to them, and treat the inhabitants of Tel’Adre to the fine view she’ll provide.\n\n"
@@ -6510,9 +6344,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "Kath continues to purr like a chainsaw and you decide to press for more.  You tell her that since silk is one of the best things to wear in the heat of the desert there’s no reason for her to ever <b>not</b> wear the robes.  In fact, you expect her to wear them all the time.  She tries to argue but you press a finger to her lips and tell her to promise.\n\n"
         );
         this.outx(
-            "Kath gives you a quick kiss and says, “<i>You win " +
-                this.playerText() +
-                ", as always.  But I know these robes are very special indeed.  I can’t possibly repay you for everything you’ve done for me, except to keep loving you more and more each day.</i>”  She suddenly hops up and wraps her legs around you at waist level.  She holds your head against her breasts and adds, “<i>Now with that in mind...</i>”\n\n"
+            `Kath gives you a quick kiss and says, “<i>You win ${this.playerText()}, as always.  But I know these robes are very special indeed.  I can’t possibly repay you for everything you’ve done for me, except to keep loving you more and more each day.</i>”  She suddenly hops up and wraps her legs around you at waist level.  She holds your head against her breasts and adds, “<i>Now with that in mind...</i>”\n\n`
         );
         this.flags[kFLAGS.KATHERINE_CLOTHES_PREF] = -Katherine.KBIT_CLOTHES_SS_ROBE;
         this.katSexMenu();
@@ -6524,11 +6356,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You get Kath to stand in front of the mirror and tell her to close her eyes.  When she does you pull out the tube top and accompanying tight shorts and press them against her.\n\n"
         );
         this.outx(
-            "Kath takes the snug top and stretches it across her " +
-                this.breasts.adj() +
-                " breasts.  “<i>I’ve seen outfits like this in some of the shops around here.  Thank you " +
-                this.playerText() +
-                ", I’m sure it will look good on me.</i>”\n\n"
+            `Kath takes the snug top and stretches it across her ${this.breasts.adj()} breasts.  “<i>I’ve seen outfits like this in some of the shops around here.  Thank you ${this.playerText()}, I’m sure it will look good on me.</i>”\n\n`
         );
         this.outx(
             "She then takes the tight, stretchy shorts and holds them in front of her hips.  "
@@ -6539,48 +6367,45 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else if (this.canWearMiniSkirt())
             this.outx(
-                "“<i>These are so tight!  I think I can fit my cock" +
-                    this.cockMultiple("", "s") +
-                    (this.hasBalls() ? " and balls" : "") +
-                    " inside them, but it will be a near thing.  And if I grow much bigger I’m going to have to start wearing a skirt just for comfort.</i>”\n\n"
+                `“<i>These are so tight!  I think I can fit my cock${this.cockMultiple("", "s")}${
+                    this.hasBalls() ? " and balls" : ""
+                } inside them, but it will be a near thing.  And if I grow much bigger I’m going to have to start wearing a skirt just for comfort.</i>”\n\n`
             );
         else
             this.outx(
-                "“<i>These are so tight!  There’s no way I can fit my cock" +
-                    this.cockMultiple("", "s") +
-                    (this.hasBalls() ? " and balls" : "") +
-                    " inside them.  All it would take is a whiff of whisker fruit and my cock" +
-                    this.cockMultiple("", "s") +
-                    " would pop right out.</i>”  She " +
-                    (this.flags[kFLAGS.KATHERINE_CLOTHES_WORN] == Katherine.KBIT_CLOTHES_C_CLOTH
+                `“<i>These are so tight!  There’s no way I can fit my cock${this.cockMultiple(
+                    "",
+                    "s"
+                )}${
+                    this.hasBalls() ? " and balls" : ""
+                } inside them.  All it would take is a whiff of whisker fruit and my cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} would pop right out.</i>”  She ${
+                    this.flags[kFLAGS.KATHERINE_CLOTHES_WORN] == Katherine.KBIT_CLOTHES_C_CLOTH
                         ? "gestures at the knee length skirt she’s currently wearing with her blouse."
-                        : "goes to her wardrobe and fetches the knee length skirt she usually wears with her blouse.") +
-                    "  “<i>I think I’ll wear this with it.  They even look like they go together.</i>”\n\n"
+                        : "goes to her wardrobe and fetches the knee length skirt she usually wears with her blouse."
+                }  “<i>I think I’ll wear this with it.  They even look like they go together.</i>”\n\n`
             );
         this.outx("She strips off her ");
         if (this.canWearMiniSkirt())
             this.outx(
-                "clothes and then struggles in turn with both the tube top and the tight shorts.  She has to roll on the floor to force them up the last few inches of her thighs.  Then she hops up and starts posing in the mirror, her " +
-                    this.breasts.adj() +
-                    " breasts on display in the stretchy, clingy fabric and her " +
-                    (this.hasCock() ? "masculine additions" : "pussy") +
-                    " outlined by the form fitting shorts."
+                `clothes and then struggles in turn with both the tube top and the tight shorts.  She has to roll on the floor to force them up the last few inches of her thighs.  Then she hops up and starts posing in the mirror, her ${this.breasts.adj()} breasts on display in the stretchy, clingy fabric and her ${
+                    this.hasCock() ? "masculine additions" : "pussy"
+                } outlined by the form fitting shorts.`
             );
         else
             this.outx(
-                (this.flags[kFLAGS.KATHERINE_CLOTHES_WORN] == Katherine.KBIT_CLOTHES_C_CLOTH
-                    ? "blouse"
-                    : "clothes, quickly slips on her knee length skirt") +
-                    " and then struggles with the tube top.  When it’s finally on right she starts posing in the mirror, her " +
-                    this.breasts.adj() +
-                    " breasts on display in the stretchy, clingy fabric."
+                `${
+                    this.flags[kFLAGS.KATHERINE_CLOTHES_WORN] == Katherine.KBIT_CLOTHES_C_CLOTH
+                        ? "blouse"
+                        : "clothes, quickly slips on her knee length skirt"
+                } and then struggles with the tube top.  When it’s finally on right she starts posing in the mirror, her ${this.breasts.adj()} breasts on display in the stretchy, clingy fabric.`
             );
         this.outx(
-            "\n\nYou come up behind her and rub her exposed" +
-                (this.pregSize() > 4 ? ", bulging" : "") +
-                " midriff.  Kath’s tail starts to dance and she falls back against you, purring.  “<i>Oh " +
-                this.playerText() +
-                ", I just got into this lovely outfit you gave me.  Do you want me out of it so soon?</i>”\n\n"
+            `\n\nYou come up behind her and rub her exposed${
+                this.pregSize() > 4 ? ", bulging" : ""
+            } midriff.  Kath’s tail starts to dance and she falls back against you, purring.  “<i>Oh ${this.playerText()}, I just got into this lovely outfit you gave me.  Do you want me out of it so soon?</i>”\n\n`
         );
         this.giveClothing(Katherine.KBIT_CLOTHES_TUBETOP);
         this.player.consumeItem(this.armors.TUBETOP);
@@ -6594,20 +6419,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "“<i>For me?</i>” she asks, surprised.  Kath takes the small bottle from your hand and examines it closely.  “<i>Well - only one way to see how it looks.</i>”\n\n"
         );
         this.outx(
-            "She dashes to the washbasin and rinses her hair before carefully applying the dye.  Over the next few minutes her " +
-                this.hairColor +
-                " hair changes gradually until her entire head is covered in " +
-                dyeColor +
-                " strands"
+            `She dashes to the washbasin and rinses her hair before carefully applying the dye.  Over the next few minutes her ${this.hairColor} hair changes gradually until her entire head is covered in ${dyeColor} strands`
         );
         this.hairColor = dyeColor;
     }
 
     private giveKatDyeEnd(): void {
         this.outx(
-            "She spins round and hugs you.  “<i>Thank you " +
-                this.playerText() +
-                ".  Does it look as good as you hoped?</i>”\n\n"
+            `She spins round and hugs you.  “<i>Thank you ${this.playerText()}.  Does it look as good as you hoped?</i>”\n\n`
         );
         this.outx(
             "You assure her it does but you get the feeling Kath would prefer it if you showed your approval more physically."
@@ -6619,9 +6438,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.giveKatDyeBegin("rich auburn");
         this.player.consumeItem(this.consumables.AUBURND);
         this.outx(
-            ".\n\nKath takes a look in the mirror and tries combing her hair several different ways.  “<i>It’s not that flashy, but it looks good on me.  There’s a nice contrast with my " +
-                this.catGirl("skin", "fur") +
-                ".</i>”\n\n"
+            `.\n\nKath takes a look in the mirror and tries combing her hair several different ways.  “<i>It’s not that flashy, but it looks good on me.  There’s a nice contrast with my ${this.catGirl(
+                "skin",
+                "fur"
+            )}.</i>”\n\n`
         );
         this.giveKatDyeEnd();
     }
@@ -6638,18 +6458,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outx("You step up behind her and wrap your arms around her at waist level.  ");
             if (this.hasCock()) {
                 this.outx(
-                    "You rub the insides of her thighs and soon her cock" +
-                        this.cockMultiple(" stands", "s stand") +
-                        " at attention.  You whisper in Katherine’s ear that there are still some things that make her stand out.\n\n"
+                    `You rub the insides of her thighs and soon her cock${this.cockMultiple(
+                        " stands",
+                        "s stand"
+                    )} at attention.  You whisper in Katherine’s ear that there are still some things that make her stand out.\n\n`
                 );
                 this.outx(
                     "She grinds her ass against you and purrs.  “<i>Before I met you I had a hard time believing my huge cock and knot were a blessing - and now I feel like thanking you again for changing my mind.</i>”"
                 );
             } else
                 this.outx(
-                    "Katherine sinks back into your arms and says, “<i>I love you so much " +
-                        this.playerText() +
-                        ",</i>” in a deep, happy purr."
+                    `Katherine sinks back into your arms and says, “<i>I love you so much ${this.playerText()},</i>” in a deep, happy purr.`
                 );
             this.katSexMenu();
         } else {
@@ -6665,12 +6484,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.giveKatDyeBegin("light blonde");
         this.player.consumeItem(this.consumables.BLOND_D);
         this.outx(
-            ".\n\nKath takes a look in the mirror and tries combing her hair several different ways.  “<i>When I was a little kitty I was always jealous of felines with lighter colored fur.  " +
-                this.catGirl(
-                    "Now I’ve got blonde hair and no fur, except on my ears and tail.  They’re the ones who ought to be jealous now",
-                    "I think it looks good on me, especially since there’s such a contrast with my fur"
-                ) +
-                ".</i>”\n\n"
+            `.\n\nKath takes a look in the mirror and tries combing her hair several different ways.  “<i>When I was a little kitty I was always jealous of felines with lighter colored fur.  ${this.catGirl(
+                "Now I’ve got blonde hair and no fur, except on my ears and tail.  They’re the ones who ought to be jealous now",
+                "I think it looks good on me, especially since there’s such a contrast with my fur"
+            )}.</i>”\n\n`
         );
         this.giveKatDyeEnd();
     }
@@ -6706,12 +6523,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.giveKatDyeBegin("deep purple");
         this.player.consumeItem(this.consumables.PURPDYE);
         this.outx(
-            ".\n\nKath takes a look in the mirror and tries combing her hair several different ways.  “<i>It’s not as bright as the colors I would have picked, but it looks does look good.  " +
-                this.catGirl(
-                    "I guess it’s the opposite of the black fur and bright pink hair I used to have.  Now I’ve got dark purple hair and light skin",
-                    "My fur is so dark the purple still stands out.  Not many girls could say that"
-                ) +
-                ".</i>”\n\n"
+            `.\n\nKath takes a look in the mirror and tries combing her hair several different ways.  “<i>It’s not as bright as the colors I would have picked, but it looks does look good.  ${this.catGirl(
+                "I guess it’s the opposite of the black fur and bright pink hair I used to have.  Now I’ve got dark purple hair and light skin",
+                "My fur is so dark the purple still stands out.  Not many girls could say that"
+            )}.</i>”\n\n`
         );
         this.giveKatDyeEnd();
     }
@@ -6729,12 +6544,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.giveKatDyeBegin("snow white");
         this.player.consumeItem(this.consumables.WHITEDY);
         this.outx(
-            ".\n\nKath takes a look in the mirror and tries combing her hair several different ways.  “<i>When I was a little kitty I was always jealous of felines with lighter colored fur.  " +
-                this.catGirl(
-                    "Now I’ve got snow white hair and only a little bit of black fur on my ears and tail.  They’re the ones who ought to be jealous now.  In this desert heat I win!",
-                    "I think it looks good on me but the contrast is something else.  It almost hurts my eyes looking at my shoulders and it’s going to be even worse in sunlight.  No one is going to walk into me now."
-                ) +
-                "</i>”\n\n"
+            `.\n\nKath takes a look in the mirror and tries combing her hair several different ways.  “<i>When I was a little kitty I was always jealous of felines with lighter colored fur.  ${this.catGirl(
+                "Now I’ve got snow white hair and only a little bit of black fur on my ears and tail.  They’re the ones who ought to be jealous now.  In this desert heat I win!",
+                "I think it looks good on me but the contrast is something else.  It almost hurts my eyes looking at my shoulders and it’s going to be even worse in sunlight.  No one is going to walk into me now."
+            )}</i>”\n\n`
         );
         this.giveKatDyeEnd();
     }
@@ -6749,16 +6562,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else if (this.isAt(Katherine.KLOC_BAR)) {
             this.outx("You ask Kath if she’s in the mood to have a little fun.\n\n");
             this.outx(
-                "“<i>What ever could you mean by that " +
-                    this.playerText() +
-                    "?</i>” she asks playfully.\n\n"
+                `“<i>What ever could you mean by that ${this.playerText()}?</i>” she asks playfully.\n\n`
             );
             this.outx(
-                "You point out that there’s an alleyway behind the bar.  If she needed a refresher course on catching miscreants you could give her a hand." +
-                    (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 10
+                `You point out that there’s an alleyway behind the bar.  If she needed a refresher course on catching miscreants you could give her a hand.${
+                    this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 10
                         ? "  You glance over at Urta’s table and add that maybe you could go and talk to captain Urta about improper procedures."
-                        : "") +
-                    "\n\n"
+                        : ""
+                }\n\n`
             );
         } else {
             this.outx("You ask Katherine if she's in the mood to have sex.\n\n");
@@ -6936,9 +6747,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else if (this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] > 10) {
             // Willing to bang Kath (when sober)
             this.outx(
-                "Urta hugs her back and asks, “<i>" +
-                    this.player.short +
-                    ", Kath - Looking to get in a little trouble?</i>” before scratching behind Kath’s ears.\n\n"
+                `Urta hugs her back and asks, “<i>${this.player.short}, Kath - Looking to get in a little trouble?</i>” before scratching behind Kath’s ears.\n\n`
             );
             this.outx(
                 "Kath winks at you, gives Urta a kiss and says, “<i>only the best kind of trouble,</i>” in a slightly slurred voice."
@@ -6960,19 +6769,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else {
             // Not willing to bang Kath (while sober) just yet
             this.outx(
-                "Urta pushes Kath back gently.  “<i>Whoa - " +
-                    this.player.short +
-                    " I think someone’s had a bit much.</i>”\n\n"
+                `Urta pushes Kath back gently.  “<i>Whoa - ${this.player.short} I think someone’s had a bit much.</i>”\n\n`
             );
             this.outx(
                 "Kath smiles and her eyes wander downward, clearly checking out Urta’s chest and then her cock.  Her voice slightly slurred Kath says, “<i>I like you cap'n,</i>” before Urta can lift her up, haul her back to her booth and dump Katherine in her usual seat.\n\n"
             );
             this.outx(
-                "Urta turns to you and whispers, “<i>You’d better do something about her.  She’s going to start humping a table leg if you don’t give her some relief.  It’s a real shame, 'cause I could go for some relief from you too.</i>”" +
-                    (this.getGame().urta.pregnancy.isPregnant
+                `Urta turns to you and whispers, “<i>You’d better do something about her.  She’s going to start humping a table leg if you don’t give her some relief.  It’s a real shame, 'cause I could go for some relief from you too.</i>”${
+                    this.getGame().urta.pregnancy.isPregnant
                         ? "  She rubs her pregnant belly absentmindedly as she stares at you and Kath."
-                        : "") +
-                    "\n\n"
+                        : ""
+                }\n\n`
             );
             this.outx(
                 "As she walks away Kath props her head up on her hands and looks at you dreamily."
@@ -6986,9 +6793,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         if (this.getGame().urta.urtaDrunk()) {
             this.outx(
-                "Katherine looks over at Urta’s table and sees that the captain is obviously sloshed.  She finishes off her drink and whispers, “<i>Now " +
-                    this.playerText() +
-                    ", I think we both know that if I go over there Urta is going to pound me into the floor.</i>”\n\n"
+                `Katherine looks over at Urta’s table and sees that the captain is obviously sloshed.  She finishes off her drink and whispers, “<i>Now ${this.playerText()}, I think we both know that if I go over there Urta is going to pound me into the floor.</i>”\n\n`
             );
             this.outx("You smile and say, “<i>Only if you ask nicely.</i>”\n\n");
             this.outx(
@@ -7030,16 +6835,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private katherineSeeVala(): void {
         this.clearOutput();
         this.outx(
-            "Kath looks like she’s ready for some fun but before you get started something else catches your eye.  You note that Vala is sitting at one end of the bar, her tray propped up beside her.  It looks like a slow night and Vala seems bored.  " +
-                (this.flags[kFLAGS.KATHERINE_VALA_AFFECTION] < 5
+            `Kath looks like she’s ready for some fun but before you get started something else catches your eye.  You note that Vala is sitting at one end of the bar, her tray propped up beside her.  It looks like a slow night and Vala seems bored.  ${
+                this.flags[kFLAGS.KATHERINE_VALA_AFFECTION] < 5
                     ? "You decide it’s time to expand their horizons and"
-                    : "You know they enjoy each other’s company so you") +
-                " motion for her to come over.\n\n"
+                    : "You know they enjoy each other’s company so you"
+            } motion for her to come over.\n\n`
         );
         this.outx(
-            "Vala flies over quickly.  When she arrives you pat the seat next to you. You’re sitting between your submissive cat " +
-                this.catGirl("girl", "morph") +
-                " on one side and your supersized faerie on the other.  You certainly walked a strange path to wind up here."
+            `Vala flies over quickly.  When she arrives you pat the seat next to you. You’re sitting between your submissive cat ${this.catGirl(
+                "girl",
+                "morph"
+            )} on one side and your supersized faerie on the other.  You certainly walked a strange path to wind up here.`
         );
         this.menu();
         this.addButton(0, "Fist Them", this.telAdre.katherineThreesome.fistKathAndVala);
@@ -7064,9 +6870,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "Kath's tail twitches excitedly and she polishes off her drink, eager to see what you have in mind.\n\n"
             );
             this.outx(
-                "You take her hand and lead her outside, to " +
-                    (this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0 ? "that familiar" : "the") +
-                    " alleyway behind the Wet Bitch.\n\n"
+                `You take her hand and lead her outside, to ${
+                    this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0 ? "that familiar" : "the"
+                } alleyway behind the Wet Bitch.\n\n`
             );
             this.outx(
                 "She looks a little worried about getting caught, but she's too excited to refuse you.\n\n"
@@ -7074,13 +6880,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.flags[kFLAGS.KATHERINE_LOCATION] = Katherine.KLOC_STREETS;
         }
         this.outx(
-            "You suggest that maybe you could try penetrating one of Katherine's holes.  Without further ado, she strips herself off until she's wearing nothing but a lecherous grin.  She then turns around and " +
-                (this.isAt(Katherine.KLOC_KATHS_APT)
+            `You suggest that maybe you could try penetrating one of Katherine's holes.  Without further ado, she strips herself off until she's wearing nothing but a lecherous grin.  She then turns around and ${
+                this.isAt(Katherine.KLOC_KATHS_APT)
                     ? "perches on the edge of her bed"
-                    : "leans on a crate") +
-                ", waving her tail to freely show off both her tailhole and her already-dripping cunt" +
-                (this.hasBalls() ? " above her dangling balls" : "") +
-                ".  “<i>So, come on in,</i>” she purrs.\n\n"
+                    : "leans on a crate"
+            }, waving her tail to freely show off both her tailhole and her already-dripping cunt${
+                this.hasBalls() ? " above her dangling balls" : ""
+            }.  “<i>So, come on in,</i>” she purrs.\n\n`
         );
         const vagina = this.penetrateKatsVag;
         const anus = this.pcPenetratesKatAnally;
@@ -7112,10 +6918,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You don't even need to think about it.  Your eyes are locked on the cat-herm's silken, sopping wet pussycat pussy, which is already dribbling femlube down her "
         );
         this.outx(
-            (this.hasBalls()
-                ? this.ballAdj() + " scrotum"
-                : this.catGirl("milky white", "black, furry") + " thighs") +
-                " and puddling it onto the ground in anticipation.  Slipping off your garments, you saunter forward and gently stroke her damp lips, stage-whispering to her that it seems an obvious choice which hole you should take.  Katherine gives a playful giggle, a mewl of arousal, and "
+            `${
+                this.hasBalls()
+                    ? `${this.ballAdj()} scrotum`
+                    : `${this.catGirl("milky white", "black, furry")} thighs`
+            } and puddling it onto the ground in anticipation.  Slipping off your garments, you saunter forward and gently stroke her damp lips, stage-whispering to her that it seems an obvious choice which hole you should take.  Katherine gives a playful giggle, a mewl of arousal, and `
         );
         if (this.isAt(Katherine.KLOC_STREETS)) this.outx("positions herself over a nearby barrel");
         else if (this.isAt(Katherine.KLOC_KATHS_APT)) this.outx("kneels at the edge of her bed");
@@ -7124,44 +6931,43 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx(" so that it's easier for her to support the two of you.\n\n");
 
         this.outx(
-            "As soon as she's ready, you waste no time in sliding your " +
-                this.cockDescript(x) +
-                " home, causing her to yowl in delight at being filled.  Her slippery walls, soft and slick like greased velvet, seem to ripple as if to purposefully swallow your cock, eager to have you bury yourself to the hilt.  Sopping wet as they are they pose no resistance, allowing you to glide in smooth as butter, yet they grip you and try in vain to hold you in.  Your thrusts and surges elicit the lewdest squelches and slurps, her slobbering cunny drooling all over your shaft and "
+            `As soon as she's ready, you waste no time in sliding your ${this.cockDescript(
+                x
+            )} home, causing her to yowl in delight at being filled.  Her slippery walls, soft and slick like greased velvet, seem to ripple as if to purposefully swallow your cock, eager to have you bury yourself to the hilt.  Sopping wet as they are they pose no resistance, allowing you to glide in smooth as butter, yet they grip you and try in vain to hold you in.  Your thrusts and surges elicit the lewdest squelches and slurps, her slobbering cunny drooling all over your shaft and `
         );
-        if (this.player.balls > 0) this.outx((this.hasBalls() ? "both sets of " : "") + "balls");
+        if (this.player.balls > 0) this.outx(`${this.hasBalls() ? "both sets of " : ""}balls`);
         else this.outx(this.hasBalls() ? "her balls" : "her thighs");
         this.outx(".\n\n");
 
         this.outx(
-            "“<i>Oh, yeah!  Yes - AH!  It feels so good!</i>” Katherine yowls mindlessly, babbling in her delight at your penetrations.  You, for your part, just grab her " +
-                this.catGirl("supple skin", "silken fur") +
-                ", hold onto her narrow hips and keep on thrusting.  While you may have started out firmly in charge, as the pace picks up the cat-herm is the one to take the lead; she pushes back against you, bucking and thrashing so wildly you find yourself having to hang on for dear life as she fucks you senseless.  If it weren't for how wet she is, she'd be rubbing your cock raw from friction and the vice-like grip around your shaft.  " +
-                (this.hasCock()
-                    ? "You can just make out the way her cock" +
-                      this.cockMultiple(" flails", "s flail") +
-                      " around, stiff as iron with knot" +
-                      this.cockMultiple("", "s") +
-                      " swollen to full size - she"
-                    : "She") +
-                " can't be much further from climax...\n\n"
+            `“<i>Oh, yeah!  Yes - AH!  It feels so good!</i>” Katherine yowls mindlessly, babbling in her delight at your penetrations.  You, for your part, just grab her ${this.catGirl(
+                "supple skin",
+                "silken fur"
+            )}, hold onto her narrow hips and keep on thrusting.  While you may have started out firmly in charge, as the pace picks up the cat-herm is the one to take the lead; she pushes back against you, bucking and thrashing so wildly you find yourself having to hang on for dear life as she fucks you senseless.  If it weren't for how wet she is, she'd be rubbing your cock raw from friction and the vice-like grip around your shaft.  ${
+                this.hasCock()
+                    ? `You can just make out the way her cock${this.cockMultiple(
+                          " flails",
+                          "s flail"
+                      )} around, stiff as iron with knot${this.cockMultiple(
+                          "",
+                          "s"
+                      )} swollen to full size - she`
+                    : "She"
+            } can't be much further from climax...\n\n`
         );
 
         this.outx(
-            "And, indeed, she's not.  Arching her back in a way that would break a human spine, she lets out an ear splitting scream of ecstasy, making you unconsciously recall nights of being woken up by courting cats back in Ingnam.  " +
-                (this.hasCock()
-                    ? "Cum gushes like a river from her cock" +
-                      this.cockMultiple("", "s") +
-                      " and her"
-                    : "Her") +
-                " cunny floods over with femspray, splattering you and soaking " +
-                (this.hasCock() ? "the ground and" : "") +
-                " everything from your waist down.  As if signalled by her orgasm, your own climax seizes you by surprise.  "
+            `And, indeed, she's not.  Arching her back in a way that would break a human spine, she lets out an ear splitting scream of ecstasy, making you unconsciously recall nights of being woken up by courting cats back in Ingnam.  ${
+                this.hasCock()
+                    ? `Cum gushes like a river from her cock${this.cockMultiple("", "s")} and her`
+                    : "Her"
+            } cunny floods over with femspray, splattering you and soaking ${
+                this.hasCock() ? "the ground and" : ""
+            } everything from your waist down.  As if signalled by her orgasm, your own climax seizes you by surprise.  `
         );
         if (this.player.hasVagina())
             this.outx(
-                "Your " +
-                    this.vaginaDescript() +
-                    " releases its own girl-cum in sympathy, even as y"
+                `Your ${this.vaginaDescript()} releases its own girl-cum in sympathy, even as y`
             );
         else this.outx("Y");
         this.outx(
@@ -7223,9 +7029,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         this.outx(this.images.showImage("katherine-fuck-her-bungholio"));
         this.outx(
-            "Thinking it over, your gaze falls upon the cat's " +
-                this.catGirl("inviting", "ebony") +
-                " pucker, and you smile to yourself before telling Katherine that you want a shot at her back door.  "
+            `Thinking it over, your gaze falls upon the cat's ${this.catGirl(
+                "inviting",
+                "ebony"
+            )} pucker, and you smile to yourself before telling Katherine that you want a shot at her back door.  `
         );
         if (this.hasAlready(Katherine.KBIT_TRIED_RECEIVE_ANAL))
             this.outx(
@@ -7257,11 +7064,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else this.outx(this.catGirl("with inviting pale flesh", "in luxurious-looking fur"));
         this.outx(
-            ", and you take this opportunity to run your hands appreciatively " +
-                this.catGirl("over that smooth bottom", "through the soft hair") +
-                ".  She coos and wriggles in delight, drawing your attention back to the matter at hand.  Katherine's vagina is already drooling in anticipation, despite her nervousness, and it's a simple matter for you to expose yourself and gather up some of her juices in the palm of your hand.  You painstakingly rub the juices into your " +
-                this.cockDescript(x) +
-                ", bringing it to full mast even as you get it nice and slick.  Then, you start massaging what's left of your handful of girl-lube into Katherine's tight asshole, making her squeak and moan as you get her wet.  Finally, you ask if she's ready.\n\n"
+            `, and you take this opportunity to run your hands appreciatively ${this.catGirl(
+                "over that smooth bottom",
+                "through the soft hair"
+            )}.  She coos and wriggles in delight, drawing your attention back to the matter at hand.  Katherine's vagina is already drooling in anticipation, despite her nervousness, and it's a simple matter for you to expose yourself and gather up some of her juices in the palm of your hand.  You painstakingly rub the juices into your ${this.cockDescript(
+                x
+            )}, bringing it to full mast even as you get it nice and slick.  Then, you start massaging what's left of your handful of girl-lube into Katherine's tight asshole, making her squeak and moan as you get her wet.  Finally, you ask if she's ready.\n\n`
         );
 
         this.outx(
@@ -7269,27 +7077,28 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "No further encouragement needed, you press forward and begin sinking yourself into her tight" +
-                this.catGirl("", " black") +
-                " tailhole.  She moans like a virgin, her " +
-                (this.hasCock()
-                    ? this.cockAdj() +
-                      this.cockType(" dog-cock", " kitty-cock") +
-                      this.cockMultiple("", "s") +
-                      " visibly jolting and her "
-                    : "") +
-                "empty kitty-cunt clenching in sympathy as you slide yourself in.  Her anal walls lock around you like a vice of heated silk, gripping you and squeezing as if already trying to wring every last drop of cum out of you.  But you forge on, sliding inch after inch into her bowels until you can slide no more.  Then, slowly, you try to extract yourself - fighting every inch of the way, as her virgin-tight ass tries to suck you back.  Finally drawing out most of what you put inside, you slide yourself home again, slamming harder and faster into her hips, then pulling out, repeating this over and over.\n\n"
+            `No further encouragement needed, you press forward and begin sinking yourself into her tight${this.catGirl(
+                "",
+                " black"
+            )} tailhole.  She moans like a virgin, her ${
+                this.hasCock()
+                    ? `${
+                          this.cockAdj() +
+                          this.cockType(" dog-cock", " kitty-cock") +
+                          this.cockMultiple("", "s")
+                      } visibly jolting and her `
+                    : ""
+            }empty kitty-cunt clenching in sympathy as you slide yourself in.  Her anal walls lock around you like a vice of heated silk, gripping you and squeezing as if already trying to wring every last drop of cum out of you.  But you forge on, sliding inch after inch into her bowels until you can slide no more.  Then, slowly, you try to extract yourself - fighting every inch of the way, as her virgin-tight ass tries to suck you back.  Finally drawing out most of what you put inside, you slide yourself home again, slamming harder and faster into her hips, then pulling out, repeating this over and over.\n\n`
         );
 
         this.outx(
-            (this.hasCock() ? "Your kitty" : "The herm cat") +
-                " gasps and moans, thrusting her sparsely-fleshed ass back to try and meet your hips as you continue to push, her inner walls milking and squeezing.  “<i>Ah!  Do you - oh! - know what the - yeah, yeah, fuck me like that, fuck me there! - advantage of a " +
-                (this.hasCock()
+            `${
+                this.hasCock() ? "Your kitty" : "The herm cat"
+            } gasps and moans, thrusting her sparsely-fleshed ass back to try and meet your hips as you continue to push, her inner walls milking and squeezing.  “<i>Ah!  Do you - oh! - know what the - yeah, yeah, fuck me like that, fuck me there! - advantage of a ${
+                this.hasCock()
                     ? "herm - yesyesyes! - girlfriend"
-                    : "- yesyesyes! - girlfriend who was a herm") +
-                " is, " +
-                this.playerText() +
-                "?</i>” she manages to gasp out.\n\n"
+                    : "- yesyesyes! - girlfriend who was a herm"
+            } is, ${this.playerText()}?</i>” she manages to gasp out.\n\n`
         );
 
         this.outx(
@@ -7297,19 +7106,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "“<i>The advantage is - oh! ah! - " +
-                (this.hasCock()
+            `“<i>The advantage is - oh! ah! - ${
+                this.hasCock()
                     ? "I've got both sets of bits, so - ah! ah! AH! - it's good for me, like it'd be good for a guy"
-                    : "I had the same bits, so - ah! ah! AH! - I know exactly what you like") +
-                "!</i>”  She lets out an excited yowl of bliss as you thrust particularly hard.  “<i>Ohh... "
+                    : "I had the same bits, so - ah! ah! AH! - I know exactly what you like"
+            }!</i>”  She lets out an excited yowl of bliss as you thrust particularly hard.  “<i>Ohh... `
         );
         if (this.hasCock())
             this.outx(
-                "You're squeezing my prostate, rubbing all the parts in my ass that make my cock" +
-                    this.cockMultiple("", "s") +
-                    " jump, it's so good back there... so hard, so hot!  Fuck me, fuck me like an animal!</i>” she screams, starting to jerk her own hips, knot-swollen cock" +
-                    this.cockMultiple("", "s") +
-                    " spewing pre-cum as she mock-humps"
+                `You're squeezing my prostate, rubbing all the parts in my ass that make my cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} jump, it's so good back there... so hard, so hot!  Fuck me, fuck me like an animal!</i>” she screams, starting to jerk her own hips, knot-swollen cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} spewing pre-cum as she mock-humps`
             );
         else
             this.outx(
@@ -7330,33 +7141,37 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.isAt(Katherine.KLOC_STREETS))
             this.outx(
-                "raining femcum down onto the ground below" +
-                    (this.hasCock()
-                        ? " and her " +
-                          this.cockMultiple("cock sprays", "cocks spray") +
-                          " cum all along the crate and ground"
-                        : "")
+                `raining femcum down onto the ground below${
+                    this.hasCock()
+                        ? ` and her ${this.cockMultiple(
+                              "cock sprays",
+                              "cocks spray"
+                          )} cum all along the crate and ground`
+                        : ""
+                }`
             );
         else if (this.isAt(Katherine.KLOC_KATHS_APT))
             this.outx(
-                "the rain of femcum " +
-                    (this.hasCock()
-                        ? "mixing with the sprays of semen from her cock" +
-                          this.cockMultiple("", "s") +
-                          ", soaking her belly,"
-                        : "soaking her") +
-                    " sheets and bed"
+                `the rain of femcum ${
+                    this.hasCock()
+                        ? `mixing with the sprays of semen from her cock${this.cockMultiple(
+                              "",
+                              "s"
+                          )}, soaking her belly,`
+                        : "soaking her"
+                } sheets and bed`
             );
         // At the lake
         else
             this.outx(
-                "raining femcum down onto the ground below" +
-                    (this.hasCock()
-                        ? " and her " +
-                          this.cockMultiple("cock sprays", "cocks spray") +
-                          " cum all over the grass"
-                        : "") +
-                    ".  It gathers into a slow moving stream that flows to the shore and mixes with the already polluted waters of the lake"
+                `raining femcum down onto the ground below${
+                    this.hasCock()
+                        ? ` and her ${this.cockMultiple(
+                              "cock sprays",
+                              "cocks spray"
+                          )} cum all over the grass`
+                        : ""
+                }.  It gathers into a slow moving stream that flows to the shore and mixes with the already polluted waters of the lake`
             );
         this.outx(
             ".  Finally, you are spent, and pull yourself wetly from your gasping lover's ass.\n\n"
@@ -7367,11 +7182,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.player.cumQ() >= 1500) this.outx(", absently cradling her distended belly");
         this.outx(
-            ".  “<i>What a fuck... can't say I don't prefer it in my pussy, but I'll always be up for " +
-                (this.hasAlready(Katherine.KBIT_TRIED_RECEIVE_ANAL)
-                    ? "more of that"
-                    : "another go") +
-                " if you want.</i>”"
+            `.  “<i>What a fuck... can't say I don't prefer it in my pussy, but I'll always be up for ${
+                this.hasAlready(Katherine.KBIT_TRIED_RECEIVE_ANAL) ? "more of that" : "another go"
+            } if you want.</i>”`
         );
         if (this.player.cumQ() >= 1500)
             this.outx(
@@ -7394,11 +7207,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
             else
                 this.outx(
-                    "you tell Kath that you want her to lick up all that " +
-                        (this.hasCock() ? "" : "fem") +
-                        "cum she just sprayed.  You’ve heard it’s good for keeping her " +
-                        this.catGirl("her skin soft and smooth", "fur nice and shiny") +
-                        ".  She looks unsure, but starts licking the sheets.  You rub the back of her neck to encourage her and soon Katherine is lapping away at her own juices.  Leaving Kath to her meal, you walk back out onto the streets of Tel’Adre."
+                    `you tell Kath that you want her to lick up all that ${
+                        this.hasCock() ? "" : "fem"
+                    }cum she just sprayed.  You’ve heard it’s good for keeping her ${this.catGirl(
+                        "her skin soft and smooth",
+                        "fur nice and shiny"
+                    )}.  She looks unsure, but starts licking the sheets.  You rub the back of her neck to encourage her and soon Katherine is lapping away at her own juices.  Leaving Kath to her meal, you walk back out onto the streets of Tel’Adre.`
                 );
         } else {
             // At the lake
@@ -7425,12 +7239,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         const x: number = this.player.cockThatFits(70);
         this.outx(
-            "You unfasten your " +
-                this.player.armorName +
-                ", exposing " +
-                (this.player.cocks.length == 2
+            `You unfasten your ${this.player.armorName}, exposing ${
+                this.player.cocks.length == 2
                     ? "both your hardening cocks"
-                    : "your collection of hardening cocks")
+                    : "your collection of hardening cocks"
+            }`
         );
         if (this.isAt(Katherine.KLOC_KATHS_APT))
             this.outx(
@@ -7443,21 +7256,27 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             if (this.isAt(Katherine.KLOC_LAKE)) this.outx("of the lakeshore");
         }
         this.outx(
-            ".  While stroking Kath’s " +
-                this.catGirl("soft skin", "fur") +
-                " you tell her that she has two delectable holes and you want to fill them both.\n\n"
+            `.  While stroking Kath’s ${this.catGirl(
+                "soft skin",
+                "fur"
+            )} you tell her that she has two delectable holes and you want to fill them both.\n\n`
         );
 
         this.outx(
-            "Her eyes open wide but so do her thighs.  " +
-                (this.hasCock()
-                    ? "Her cock" +
-                      this.cockMultiple(" strains", "s strain") +
-                      " against her " +
-                      this.clothesLowerChoice("pants", "skirt", "bodysuit", "dress", "robe") +
-                      ".  You"
-                    : "You tease her by rubbing them gently, then you") +
-                " pull the clothes off your horny kitty and tell her you want her down on all fours.  Kath eagerly complies, kneeling "
+            `Her eyes open wide but so do her thighs.  ${
+                this.hasCock()
+                    ? `Her cock${this.cockMultiple(
+                          " strains",
+                          "s strain"
+                      )} against her ${this.clothesLowerChoice(
+                          "pants",
+                          "skirt",
+                          "bodysuit",
+                          "dress",
+                          "robe"
+                      )}.  You`
+                    : "You tease her by rubbing them gently, then you"
+            } pull the clothes off your horny kitty and tell her you want her down on all fours.  Kath eagerly complies, kneeling `
         );
         if (this.isAt(Katherine.KLOC_STREETS)) this.outx("in the soft dirt of the alley");
         else if (this.isAt(Katherine.KLOC_KATHS_APT)) this.outx("on top of her bed");
@@ -7476,21 +7295,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         // At the lake
         else this.outx("dig into the sand and s");
         this.outx(
-            "he lets out a low, feral meow.  Taking that as your cue you raise your hips slightly and press your slick cockhead against her pucker. " +
-                (this.player.cocks.length == 2 ? "Your lower cock" : "One of your other cocks") +
-                " nestles between the pink folds of her pussy.\n\n"
+            `he lets out a low, feral meow.  Taking that as your cue you raise your hips slightly and press your slick cockhead against her pucker. ${
+                this.player.cocks.length == 2 ? "Your lower cock" : "One of your other cocks"
+            } nestles between the pink folds of her pussy.\n\n`
         );
 
         this.outx(
-            "As soon as Kath feels both cocks seating against their targets she tries to push back.  You’re having none of it though.  You tighten your hands on her " +
-                this.catGirl("smooth", "fuzzy") +
-                " hips, stopping her and making it clear this fucking is going to happen at your pace.  Kath’s head sinks until her forehead rests on her balled up hands and she mewls plaintively, like a kitten begging for cream.\n\n"
+            `As soon as Kath feels both cocks seating against their targets she tries to push back.  You’re having none of it though.  You tighten your hands on her ${this.catGirl(
+                "smooth",
+                "fuzzy"
+            )} hips, stopping her and making it clear this fucking is going to happen at your pace.  Kath’s head sinks until her forehead rests on her balled up hands and she mewls plaintively, like a kitten begging for cream.\n\n`
         );
 
         this.outx(
-            "Your " +
-                (this.player.balls > 0 ? "balls twitch" : "prostate twitches") +
-                ", letting you know there’s plenty of cream for this sex kitten.\n\n"
+            `Your ${
+                this.player.balls > 0 ? "balls twitch" : "prostate twitches"
+            }, letting you know there’s plenty of cream for this sex kitten.\n\n`
         );
 
         this.outx("You ");
@@ -7521,16 +7341,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         }
 
         this.outx(
-            "\n\nYou’re about to " +
-                (this.hasCock()
-                    ? "reach down and give Kath’s cock" + this.cockMultiple("", "s")
-                    : "give Kath's nipples") +
-                " some attention when you feel her tense and hear a squirting noise.  Looks like she managed to cum before you did.  "
+            `\n\nYou’re about to ${
+                this.hasCock()
+                    ? `reach down and give Kath’s cock${this.cockMultiple("", "s")}`
+                    : "give Kath's nipples"
+            } some attention when you feel her tense and hear a squirting noise.  Looks like she managed to cum before you did.  `
         );
         if (this.hasCock())
             this.outx(
-                "Against your uppermost cock you can feel the pounding of Kath’s prostate as " +
-                    (this.hasBalls() ? "she empties her balls" : "it forces out her load")
+                `Against your uppermost cock you can feel the pounding of Kath’s prostate as ${
+                    this.hasBalls() ? "she empties her balls" : "it forces out her load"
+                }`
             );
         else
             this.outx(
@@ -7545,19 +7366,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outx("The dirt beneath her is already turning into a sticky mud puddle");
             else if (this.isAt(Katherine.KLOC_KATHS_APT))
                 this.outx(
-                    "The bed sheets are soaked" +
-                        (this.cumQ() > 1500
+                    `The bed sheets are soaked${
+                        this.cumQ() > 1500
                             ? ".  In fact Kath’s cum is pooling on the floor too,"
-                            : "")
+                            : ""
+                    }`
                 );
             // At the lake
             else this.outx("A good amount of gritty semen slides down the beach and into the lake");
             this.outx(
-                " so there’s no sense in stopping now.  In fact you hope you can " +
-                    (this.player.cor < 50 ? "encourage" : "force") +
-                    " your " +
-                    this.catGirl("pet cat girl", "feline friend") +
-                    " to add another helping to the mess.\n\n"
+                ` so there’s no sense in stopping now.  In fact you hope you can ${
+                    this.player.cor < 50 ? "encourage" : "force"
+                } your ${this.catGirl(
+                    "pet cat girl",
+                    "feline friend"
+                )} to add another helping to the mess.\n\n`
             );
         }
 
@@ -7573,76 +7396,75 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (wombShot) {
             const cockLength: number = Math.round(this.player.cocks[x].cockLength);
             this.outx(
-                "You feel something amazing.  Inside Kath’s pussy there’s a tightness right at the tip of your cock.  It’s like a tiny donut is sliding over your cock head.  Then it gives way.  You hear a sharp intake of breath as your cock springs forward.  You realize " +
-                    (cockLength <= 16
+                `You feel something amazing.  Inside Kath’s pussy there’s a tightness right at the tip of your cock.  It’s like a tiny donut is sliding over your cock head.  Then it gives way.  You hear a sharp intake of breath as your cock springs forward.  You realize ${
+                    cockLength <= 16
                         ? "your cockhead is"
-                        : "the first " + (cockLength - 14) + " inches of your cock are") +
-                    " now nestled inside Katherine’s womb.\n\n"
+                        : `the first ${cockLength - 14} inches of your cock are`
+                } now nestled inside Katherine’s womb.\n\n`
             );
         }
 
         this.outx(
-            "The sensation overcomes you and your " +
-                (this.player.balls > 0
+            `The sensation overcomes you and your ${
+                this.player.balls > 0
                     ? "balls pull tight against your groin"
-                    : "engorged prostate squeezes") +
-                " firing the first of many salvos into Katherine’s limp body.\n\n"
+                    : "engorged prostate squeezes"
+            } firing the first of many salvos into Katherine’s limp body.\n\n`
         );
 
         this.outx("You fire your load into both Kath’s holes");
         if (this.player.cocks.length > 2)
             this.outx(
-                " while at the same time your other cock" +
-                    (this.player.cocks.length > 3 ? "s " : " ") +
-                    (this.hasCock()
-                        ? (this.player.cocks.length > 3 ? "add" : "adds") + " to the"
-                        : "create a") +
-                    " mess beneath her"
+                ` while at the same time your other cock${
+                    this.player.cocks.length > 3 ? "s " : " "
+                }${
+                    this.hasCock()
+                        ? `${this.player.cocks.length > 3 ? "add" : "adds"} to the`
+                        : "create a"
+                } mess beneath her`
             );
         if (this.player.cumQ() < 500)
             this.outx(
-                ".  The eruption is soon over, and with no outward signs.  Only your cocks, deep inside Kath’s " +
-                    (wombShot ? "womb" : "pussy") +
-                    " and colon can feel the pools of your sticky deposits."
+                `.  The eruption is soon over, and with no outward signs.  Only your cocks, deep inside Kath’s ${
+                    wombShot ? "womb" : "pussy"
+                } and colon can feel the pools of your sticky deposits.`
             );
         else if (this.player.cumQ() < 1500)
             this.outx(
-                ".  The eruption is soon over, and Kath’s belly bulges from your twin deposits.  Your cocks, deep inside Kath’s " +
-                    (wombShot ? "womb" : "pussy") +
-                    " and colon can feel the pools of hot, sticky liquid.  They’re under pressure, but still sealed in by your erections."
+                `.  The eruption is soon over, and Kath’s belly bulges from your twin deposits.  Your cocks, deep inside Kath’s ${
+                    wombShot ? "womb" : "pussy"
+                } and colon can feel the pools of hot, sticky liquid.  They’re under pressure, but still sealed in by your erections.`
             );
         else {
             this.outx(
-                ".  Again and again your " +
-                    (this.player.balls > 0 ? "balls contract" : "prostate contracts") +
-                    ", fighting ever greater resistance as every void inside Kath is packed with your juices.  You no longer have to support Katherine’s hips - her cum stuffed belly rests against the "
+                `.  Again and again your ${
+                    this.player.balls > 0 ? "balls contract" : "prostate contracts"
+                }, fighting ever greater resistance as every void inside Kath is packed with your juices.  You no longer have to support Katherine’s hips - her cum stuffed belly rests against the `
             );
             if (this.isAt(Katherine.KLOC_STREETS))
-                this.outx((this.hasCock() ? "spermy" : "femcum soaked") + " mud");
+                this.outx(`${this.hasCock() ? "spermy" : "femcum soaked"} mud`);
             else if (this.isAt(Katherine.KLOC_KATHS_APT))
-                this.outx((this.hasCock() ? "" : "fem") + "cum soaked sheets");
+                this.outx(`${this.hasCock() ? "" : "fem"}cum soaked sheets`);
             // At the lake
-            else this.outx((this.hasCock() ? "spermy" : "femcum soaked") + " sand of the beach");
+            else this.outx(`${this.hasCock() ? "spermy" : "femcum soaked"} sand of the beach`);
             this.outx(
                 ".  Anyone would take her to be pregnant, days from delivering twins or triplets.\n\n"
             );
 
             if (this.player.cumQ() >= 3000) {
                 this.outx(
-                    "Even your iron erections are unable to hold back the flood from your unnaturally bountiful " +
-                        (this.player.balls > 0 ? "balls" : "prostate") +
-                        ". Kath’s skin is so taut " +
-                        this.catGirl(
-                            "you can see stretch marks developing",
-                            "that her belly fur begins to lighten.  Looking closely you can see that each hair is being forced to stand on end"
-                        ) +
-                        ".\n\n"
+                    `Even your iron erections are unable to hold back the flood from your unnaturally bountiful ${
+                        this.player.balls > 0 ? "balls" : "prostate"
+                    }. Kath’s skin is so taut ${this.catGirl(
+                        "you can see stretch marks developing",
+                        "that her belly fur begins to lighten.  Looking closely you can see that each hair is being forced to stand on end"
+                    )}.\n\n`
                 );
 
                 this.outx(
-                    "Then you feel the first trickles running back along your cocks.  Your " +
-                        (this.player.balls > 0 ? "balls pump" : "prostate pumps") +
-                        " again and the trickle becomes a torrent.  You now have to hold on to Kath’s hips just so she doesn’t launch off of you.\n\n"
+                    `Then you feel the first trickles running back along your cocks.  Your ${
+                        this.player.balls > 0 ? "balls pump" : "prostate pumps"
+                    } again and the trickle becomes a torrent.  You now have to hold on to Kath’s hips just so she doesn’t launch off of you.\n\n`
                 );
             }
 
@@ -7696,16 +7518,18 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private pcPenetratesKatDoublyNormalEnd(): void {
         this.clearOutput();
         this.outx(
-            "You’re not done with Kath yet.  With some effort you pull her up until she’s sitting on your lap" +
-                (this.player.cumQ() >= 1500
+            `You’re not done with Kath yet.  With some effort you pull her up until she’s sitting on your lap${
+                this.player.cumQ() >= 1500
                     ? ", her belly wobbling obscenely in front of you both"
-                    : "") +
-                ". When you " +
-                (this.hasCock()
-                    ? "take hold of " +
-                      this.cockMultiple("her flaccid cock", "both her flaccid cocks")
-                    : "firmly grip her clit") +
-                " it snaps her out of her reverie.\n\n"
+                    : ""
+            }. When you ${
+                this.hasCock()
+                    ? `take hold of ${this.cockMultiple(
+                          "her flaccid cock",
+                          "both her flaccid cocks"
+                      )}`
+                    : "firmly grip her clit"
+            } it snaps her out of her reverie.\n\n`
         );
 
         this.outx(
@@ -7713,54 +7537,51 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "You begin to work her " +
-                (this.hasCock()
-                    ? "softening shaft" + this.cockMultiple("", "s")
-                    : "nub back and forth") +
-                " and Kath squirms.  “<i>No, I didn’t mean now.  " +
-                (this.hasCock() ? "I’m empty!" : "I just came!") +
-                "</i>”\n\n"
+            `You begin to work her ${
+                this.hasCock()
+                    ? `softening shaft${this.cockMultiple("", "s")}`
+                    : "nub back and forth"
+            } and Kath squirms.  “<i>No, I didn’t mean now.  ${
+                this.hasCock() ? "I’m empty!" : "I just came!"
+            }</i>”\n\n`
         );
 
         this.outx(
-            "You keep " +
-                (this.hasCock()
-                    ? "stroking her cock" + this.cockMultiple(",", "s,")
-                    : "playing with her clit, rolling it around ") +
-                " faster and faster.  Kath pants and moans but she's too tired to get away.  " +
-                (this.hasCock()
-                    ? "Her prick" +
-                      this.cockMultiple(" grows", "s grow") +
-                      " hard and hot in your hands"
-                    : "You feel the heat developing within her pussy and her ass") +
-                ".\n\n"
+            `You keep ${
+                this.hasCock()
+                    ? `stroking her cock${this.cockMultiple(",", "s,")}`
+                    : "playing with her clit, rolling it around "
+            } faster and faster.  Kath pants and moans but she's too tired to get away.  ${
+                this.hasCock()
+                    ? `Her prick${this.cockMultiple(" grows", "s grow")} hard and hot in your hands`
+                    : "You feel the heat developing within her pussy and her ass"
+            }.\n\n`
         );
 
         this.outx(
-            "It takes many minutes of furious stroking to build Kath back to a point where she can cum.  All the while she writhes in your arms, lost in a mixture pain and pleasure.  When she does finally cum her hips thrust forward, " +
-                (this.hasCock()
-                    ? "trying to bury her cock" +
-                      this.cockMultiple(
+            `It takes many minutes of furious stroking to build Kath back to a point where she can cum.  All the while she writhes in your arms, lost in a mixture pain and pleasure.  When she does finally cum her hips thrust forward, ${
+                this.hasCock()
+                    ? `trying to bury her cock${this.cockMultiple(
                           " in an imaginary pussy",
                           "s in a pair of imaginary pussies"
-                      ) +
-                      " but succeeding only in "
-                    : "") +
-                "pulling her free of your cocks.\n\n"
+                      )} but succeeding only in `
+                    : ""
+            }pulling her free of your cocks.\n\n`
         );
 
         this.outx(
-            "Kath lands in the puddle of " +
-                (this.hasCock() ? "spooge" : "fluids") +
-                " and begins to add to it" +
-                (this.hasCock()
-                    ? " in almost every way possible.  Her cock" +
-                      this.cockMultiple(" blasts a stream", "s blast twin streams") +
-                      " into the air while"
-                    : ",") +
-                " her pussy and pucker discharg" +
-                (this.hasCock() ? "e" : "ing") +
-                " the loads you provided earlier.\n\n"
+            `Kath lands in the puddle of ${
+                this.hasCock() ? "spooge" : "fluids"
+            } and begins to add to it${
+                this.hasCock()
+                    ? ` in almost every way possible.  Her cock${this.cockMultiple(
+                          " blasts a stream",
+                          "s blast twin streams"
+                      )} into the air while`
+                    : ","
+            } her pussy and pucker discharg${
+                this.hasCock() ? "e" : "ing"
+            } the loads you provided earlier.\n\n`
         );
 
         if (this.isAt(Katherine.KLOC_STREETS))
@@ -7818,9 +7639,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outx("“<i>Oh please don’t!  I couldn’t take it.</i>”\n\n");
 
             this.outx(
-                "She doesn’t sound as pissed off as she did before.  You smile to yourself and begin tracing your fingers seductively " +
-                    this.catGirl("over her silky skin", "through her soft fur") +
-                    ".  Time to heap on some more praise.  You tell her you’ve never felt as satisfied as you do right now.  The sight of her cum filled form makes you want her all the more.  You press against her belly once again; Kath lowers her head and takes shallow breaths while she waits for you to finish."
+                `She doesn’t sound as pissed off as she did before.  You smile to yourself and begin tracing your fingers seductively ${this.catGirl(
+                    "over her silky skin",
+                    "through her soft fur"
+                )}.  Time to heap on some more praise.  You tell her you’ve never felt as satisfied as you do right now.  The sight of her cum filled form makes you want her all the more.  You press against her belly once again; Kath lowers her head and takes shallow breaths while she waits for you to finish.`
             );
             this.addSubmissive(Katherine.KBIT_SUB_HIGH_CUM);
         } else {
@@ -7830,9 +7652,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "The pressure in her gut lessens.  Looking over Kath’s shoulder you can see her drooling thick ropes of your cum onto the " +
-                    (this.isAt(Katherine.KLOC_KATHS_APT) ? "bed" : "ground") +
-                    ".  She smacks the ground with her fist a few times and you ease up, giving her a chance to recover.\n\n"
+                `The pressure in her gut lessens.  Looking over Kath’s shoulder you can see her drooling thick ropes of your cum onto the ${
+                    this.isAt(Katherine.KLOC_KATHS_APT) ? "bed" : "ground"
+                }.  She smacks the ground with her fist a few times and you ease up, giving her a chance to recover.\n\n`
             );
 
             this.outx(
@@ -7840,9 +7662,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "You only stop when your cocks soften enough that the load in her womb starts to leak out, relieving the pressure.  Kath coughs to clear her throat and you tell her she did well, she let you fill her whole body with cum like a good girl.  After catching her breath Kath replies, “<i>I’m glad you enjoyed it " +
-                    this.playerText() +
-                    ".  It’s such a strange ride for me.</i>”\n\n"
+                `You only stop when your cocks soften enough that the load in her womb starts to leak out, relieving the pressure.  Kath coughs to clear her throat and you tell her she did well, she let you fill her whole body with cum like a good girl.  After catching her breath Kath replies, “<i>I’m glad you enjoyed it ${this.playerText()}.  It’s such a strange ride for me.</i>”\n\n`
             );
 
             this.outx(
@@ -7854,9 +7674,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "You smile to yourself and begin tracing your fingers seductively " +
-                    this.catGirl("over her silky skin", "through her soft fur") +
-                    ", telling Kath that if she keeps talking like that she’ll get an encore for sure.  She purrs in reply - you can’t tell if she’s asking for another helping or just enjoying what your fingers are doing."
+                `You smile to yourself and begin tracing your fingers seductively ${this.catGirl(
+                    "over her silky skin",
+                    "through her soft fur"
+                )}, telling Kath that if she keeps talking like that she’ll get an encore for sure.  She purrs in reply - you can’t tell if she’s asking for another helping or just enjoying what your fingers are doing.`
             );
         }
         this.outx(
@@ -7872,16 +7693,18 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outx(".  Finally Kath stands on rubbery legs and");
         }
         this.outx(
-            "you put your arms around her.  Katherine gives you a delighted smile and you tell her " +
-                (firstTime
+            `you put your arms around her.  Katherine gives you a delighted smile and you tell her ${
+                firstTime
                     ? "that it will be much easier and much sexier for her"
-                    : "you’re already looking forward to") +
-                " next time.\n\n"
+                    : "you’re already looking forward to"
+            } next time.\n\n`
         );
 
         this.outx(
-            "She blushes and gives you a kiss.  On the way back to camp you wonder what other tricks you can teach your submissive " +
-                this.catGirl("cat girl.", "kitty.")
+            `She blushes and gives you a kiss.  On the way back to camp you wonder what other tricks you can teach your submissive ${this.catGirl(
+                "cat girl.",
+                "kitty."
+            )}`
         );
         this.player.orgasm();
         this.orgasm();
@@ -7897,23 +7720,24 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         this.outx(this.images.showImage("katherine-fuck-and-suck"));
         this.outx(
-            "You think it over, then find your gaze drifting to Katherine's sheath and the " +
-                this.cockType() +
-                " cockflesh within.  "
+            `You think it over, then find your gaze drifting to Katherine's sheath and the ${this.cockType()} cockflesh within.  `
         );
         if (this.hasAlready(Katherine.KBIT_TRIED_RECEIVE_SUCK_N_FUCK))
             this.outx(
-                "It's quite the sight when she curls up and swallows her own shaft, so you ask her if she'd like another suck 'n fuck.\n\nHer eyes light up and her cock" +
-                    this.cockMultiple("", "s") +
-                    " jump at the suggestion.  She absentmindedly runs a finger around her knot" +
-                    this.cockMultiple("", "s") +
-                    " and says, “<i>Sure, I'm game.</i>”"
+                `It's quite the sight when she curls up and swallows her own shaft, so you ask her if she'd like another suck 'n fuck.\n\nHer eyes light up and her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} jump at the suggestion.  She absentmindedly runs a finger around her knot${this.cockMultiple(
+                    "",
+                    "s"
+                )} and says, “<i>Sure, I'm game.</i>”`
             );
         else
             this.outx(
-                "Recalling how you helped the poor herm shrink down her monster knot" +
-                    this.cockMultiple("", "s") +
-                    ", and remembering the flexibility of the cats you've seen, you find a very kinky idea coming to you.  You ask Katherine if she'd be willing to try a suck 'n fuck.\n\n“<i>Excuse me?</i>” she asks, raising an eyebrow.  You quickly explain the idea: that you penetrate her vagina at the same time that she performs oral sex on her own cock, at which her eyes light up.  “<i>Sounds kinky - but also genius!  Sure, I'm game.</i>”"
+                `Recalling how you helped the poor herm shrink down her monster knot${this.cockMultiple(
+                    "",
+                    "s"
+                )}, and remembering the flexibility of the cats you've seen, you find a very kinky idea coming to you.  You ask Katherine if she'd be willing to try a suck 'n fuck.\n\n“<i>Excuse me?</i>” she asks, raising an eyebrow.  You quickly explain the idea: that you penetrate her vagina at the same time that she performs oral sex on her own cock, at which her eyes light up.  “<i>Sounds kinky - but also genius!  Sure, I'm game.</i>”`
             );
         this.outx("  She smiles, and ");
         if (this.isAt(Katherine.KLOC_STREETS))
@@ -7922,13 +7746,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         else this.outx("sits down on her bed and spreads her legs");
 
         this.outx(
-            ".\n\nStill smiling, she begins to gently stroke her sheath" +
-                (this.hasBalls() ? ", balls" : "") +
-                " and pussy, coaxing out her " +
-                this.cockType("dog", "cat") +
-                " cock" +
-                this.cockMultiple("", "s") +
-                ".  Making sure she's positioned so that she's not going to tumble off in mid-fuck, she takes hold of her thighs and bends over... and over... until she has practically pressed her nose into her own crotch."
+            `.\n\nStill smiling, she begins to gently stroke her sheath${
+                this.hasBalls() ? ", balls" : ""
+            } and pussy, coaxing out her ${this.cockType("dog", "cat")} cock${this.cockMultiple(
+                "",
+                "s"
+            )}.  Making sure she's positioned so that she's not going to tumble off in mid-fuck, she takes hold of her thighs and bends over... and over... until she has practically pressed her nose into her own crotch.`
         );
         if (this.player.findPerk(PerkLib.Flexibility) < 0)
             this.outx("  The sight is enough to make your spine wince in sympathy.");
@@ -7938,24 +7761,29 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "  You watch how she does it, resolving to test your body and see if you can bend like that."
             );
         this.outx(
-            "  Having loosened up, she straightens her back until her mouth is hovering in front of the tip of her " +
-                this.cockMultiple("", "topmost ") +
-                this.cockType("dog", "cat") +
-                " cock.  Her cat-like tongue, long, flat, and bristly looking, reaches out to stroke the " +
-                this.cockType("rubbery, conical", "narrow, barbed") +
-                " tip, slurping around it and getting it nice and slick.  Then, she opens her mouth and starts bending forward again, gulping down all " +
-                this.cockLength +
-                " inches of " +
-                this.cockType("dog", "cat") +
-                " cock until she reaches the knot.  A moment's hesitation, to muster her courage, and then she engulfs it as well, pressing her nose flat against her own " +
-                (this.hasBalls() ? "ballsack" : "taint") +
-                ".\n\n"
+            `  Having loosened up, she straightens her back until her mouth is hovering in front of the tip of her ${this.cockMultiple(
+                "",
+                "topmost "
+            )}${this.cockType(
+                "dog",
+                "cat"
+            )} cock.  Her cat-like tongue, long, flat, and bristly looking, reaches out to stroke the ${this.cockType(
+                "rubbery, conical",
+                "narrow, barbed"
+            )} tip, slurping around it and getting it nice and slick.  Then, she opens her mouth and starts bending forward again, gulping down all ${
+                this.cockLength
+            } inches of ${this.cockType(
+                "dog",
+                "cat"
+            )} cock until she reaches the knot.  A moment's hesitation, to muster her courage, and then she engulfs it as well, pressing her nose flat against her own ${
+                this.hasBalls() ? "ballsack" : "taint"
+            }.\n\n`
         );
 
         this.outx(
-            "This is your moment, and you step forward, gently but firmly taking hold of her thighs, positioning your " +
-                this.cockDescript(x) +
-                " against her slavering cunt.  Certain you are in position, you slide it home.  She shudders and audibly slurps on her cock as you sheathe yourself in her slick, velvety, burning hot nether lips.  You pull back and thrust home again, even as she begins to bob her head.\n\n"
+            `This is your moment, and you step forward, gently but firmly taking hold of her thighs, positioning your ${this.cockDescript(
+                x
+            )} against her slavering cunt.  Certain you are in position, you slide it home.  She shudders and audibly slurps on her cock as you sheathe yourself in her slick, velvety, burning hot nether lips.  You pull back and thrust home again, even as she begins to bob her head.\n\n`
         );
 
         this.outx(
@@ -7967,12 +7795,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "It's impossible to describe just how kinky this is; her hot, wet walls wrapped like a silken vise around your cock, her head bobbing and gurgling on her own right in front of you" +
-                this.cockMultiple(
-                    "",
-                    ", and her lower shaft waving in the air between you as if to conduct the performance"
-                ) +
-                ".  You thrust into her harder and harder; you can feel your climax coming... but she's the one who comes first.  With a muffled yowl, she squirts femcum from her cunt, splattering your belly in her juices.  The cry is cut off and her lips and cheeks visibly bulge as her knot suddenly inflates, trapping her cock in her own mouth and forcing her to drink every last drop as her balls release their cargo into her.  "
+            `It's impossible to describe just how kinky this is; her hot, wet walls wrapped like a silken vise around your cock, her head bobbing and gurgling on her own right in front of you${this.cockMultiple(
+                "",
+                ", and her lower shaft waving in the air between you as if to conduct the performance"
+            )}.  You thrust into her harder and harder; you can feel your climax coming... but she's the one who comes first.  With a muffled yowl, she squirts femcum from her cunt, splattering your belly in her juices.  The cry is cut off and her lips and cheeks visibly bulge as her knot suddenly inflates, trapping her cock in her own mouth and forcing her to drink every last drop as her balls release their cargo into her.  `
         );
         // This was previously based on Kath's ball size
         const kathCum: number = this.cumQ();
@@ -8033,11 +7859,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "You stay like that until her knot shrinks down and, with a wet popping sound, she uncurls herself.  “<i>" +
-                (this.hasAlready(Katherine.KBIT_TRIED_RECEIVE_SUCK_N_FUCK)
+            `You stay like that until her knot shrinks down and, with a wet popping sound, she uncurls herself.  “<i>${
+                this.hasAlready(Katherine.KBIT_TRIED_RECEIVE_SUCK_N_FUCK)
                     ? "By Marae, was that ever good"
-                    : "Boy, that was really something") +
-                ",</i>” she declares in an amazed tone"
+                    : "Boy, that was really something"
+            },</i>” she declares in an amazed tone`
         );
         if (kathCum > 500 || playerCum > 250) {
             this.outx(", slapping her ");
@@ -8069,16 +7895,15 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         ) {
             // At the bar
             this.outx(
-                "As you wait for Katherine to finish off her drink you start rubbing " +
-                    (this.player.isNaga() ? "the tip of your tail" : "your toe") +
-                    " up and down her leg.\n\n"
+                `As you wait for Katherine to finish off her drink you start rubbing ${
+                    this.player.isNaga() ? "the tip of your tail" : "your toe"
+                } up and down her leg.\n\n`
             );
             this.outx(
-                "Kath shivers as you go over all the things you'd like to do with her, but you notice she's most excited when you talk about letting her feed her " +
-                    this.cockType() +
-                    " cock" +
-                    this.cockMultiple("", "s") +
-                    " into your body.\n\n"
+                `Kath shivers as you go over all the things you'd like to do with her, but you notice she's most excited when you talk about letting her feed her ${this.cockType()} cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} into your body.\n\n`
             );
         } else this.letKatKnotYouCommonDialogue(false); // Either at her apartment or behind Oswald's
         // [Vagina] [Anus] [Double Penetrate] [Sucked 'n' Fucked]
@@ -8135,28 +7960,26 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 Katherine.KBIT_TRIED_GIVE_SUCK_N_FUCK
         );
         this.outx(
-            "You ask Katherine if she'd like to penetrate you.  She " +
-                (hasPenetrated ? "" : "looks startled, then ") +
-                "grins like the proverbial cat that ate the canary.  “<i>Well, all right then...</i>” she declares, swiftly stripping off her clothes.  “<i>Get undressed, turn around and kneel on the " +
-                (this.isAt(Katherine.KLOC_KATHS_APT) ? "bed" : "ground") +
-                ".</i>”  Her " +
-                this.cockType() +
-                " cock" +
-                this.cockMultiple(" is", "s are") +
-                " already starting to peek out of her sheath, as if to echo her instructions.\n\n"
+            `You ask Katherine if she'd like to penetrate you.  She ${
+                hasPenetrated ? "" : "looks startled, then "
+            }grins like the proverbial cat that ate the canary.  “<i>Well, all right then...</i>” she declares, swiftly stripping off her clothes.  “<i>Get undressed, turn around and kneel on the ${
+                this.isAt(Katherine.KLOC_KATHS_APT) ? "bed" : "ground"
+            }.</i>”  Her ${this.cockType()} cock${this.cockMultiple(
+                " is",
+                "s are"
+            )} already starting to peek out of her sheath, as if to echo her instructions.\n\n`
         );
         this.outx(
             "You do as you are told, but you can't resist teasing her about wanting 'doggy-style' sex.\n\n"
         );
         this.outx(
-            "The " +
-                this.cockType("mismatched ", "") +
-                "herm steps up behind you and gives you a playful slap on your " +
-                this.buttDescript() +
-                ".  “<i>Well, I"
+            `The ${this.cockType(
+                "mismatched ",
+                ""
+            )}herm steps up behind you and gives you a playful slap on your ${this.buttDescript()}.  “<i>Well, I`
         );
-        if (this.hasDogCock()) this.outx("'ve got " + this.cockMultiple("a dog dick", "dog dicks"));
-        else this.outx(" had " + this.cockMultiple("a dog dick", "dog dicks") + " for a long time");
+        if (this.hasDogCock()) this.outx(`'ve got ${this.cockMultiple("a dog dick", "dog dicks")}`);
+        else this.outx(` had ${this.cockMultiple("a dog dick", "dog dicks")} for a long time`);
         this.outx(", so I'm just doing it the way nature intended,</i>” she cracks.");
         // (if player has anus & vagina:
         if (this.player.hasVagina()) this.outx("  “<i>So, which hole do you want me to use?</i>”");
@@ -8174,20 +7997,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         )
             this.letKatKnotYouCommonDialogue(true); // At the bar
         this.outx(
-            "You indicate to Katherine that you want it in your " + this.vaginaDescript() + ".\n\n"
+            `You indicate to Katherine that you want it in your ${this.vaginaDescript()}.\n\n`
         );
 
         this.outx(
-            "Her furry hands promptly begin to rub possessively over your " +
-                this.assDescript() +
-                ", slowly moving up to take hold of your " +
-                this.hipDescript() +
-                ".  “<i>Well, all right... if that's what you want...</i>”  You feel her running " +
-                this.cockMultiple("her ", "the topmost ") +
-                this.cockLength +
-                '" cock against your sensitive pussy lips, letting you feel its ' +
-                this.cockType("rubbery-smooth", "barb-covered") +
-                " length, then, drawing back her hips, she suddenly thrusts it home without any hesitation."
+            `Her furry hands promptly begin to rub possessively over your ${this.assDescript()}, slowly moving up to take hold of your ${this.hipDescript()}.  “<i>Well, all right... if that's what you want...</i>”  You feel her running ${this.cockMultiple(
+                "her ",
+                "the topmost "
+            )}${
+                this.cockLength
+            }" cock against your sensitive pussy lips, letting you feel its ${this.cockType(
+                "rubbery-smooth",
+                "barb-covered"
+            )} length, then, drawing back her hips, she suddenly thrusts it home without any hesitation.`
         );
         if (this.cockNumber > 1) {
             this.outx("  Her second cock slaps lewdly against your ");
@@ -8264,8 +8086,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("\n\n");
 
         this.outx(
-            "You shudder and gasp as your own climax suddenly rocks through you, femcum splashing from your " +
-                this.vaginaDescript()
+            `You shudder and gasp as your own climax suddenly rocks through you, femcum splashing from your ${this.vaginaDescript()}`
         );
         if (this.player.hasCock()) {
             this.outx(" and your cocks spurting ");
@@ -8274,8 +8095,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             else if (this.player.cumQ() < 250) this.outx("puddles");
             else
                 this.outx(
-                    "a veritable lake of spunk " +
-                        (this.isAt(Katherine.KLOC_KATHS_APT) ? "onto the bed" : "into the alleyway")
+                    `a veritable lake of spunk ${
+                        this.isAt(Katherine.KLOC_KATHS_APT) ? "onto the bed" : "into the alleyway"
+                    }`
                 );
         }
         this.outx(".\n\n");
@@ -8285,33 +8107,34 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.cockNumber > 1)
             this.outx(
-                ", with more spurting from her second cock to glaze your belly and the " +
-                    (this.isAt(Katherine.KLOC_KATHS_APT) ? "sheets" : "ground") +
-                    " below"
+                `, with more spurting from her second cock to glaze your belly and the ${
+                    this.isAt(Katherine.KLOC_KATHS_APT) ? "sheets" : "ground"
+                } below`
             );
         this.outx(".  ");
         // These cum volumes were previously based on Kath's ball size
         if (this.cumQ() <= 500)
             this.outx(
-                "She makes a surprisingly large amount of cum for " +
-                    (this.hasBalls() ? "such small balls" : "a herm without balls") +
-                    ", and you can feel it sloshing and slurping inside you, leaving you deliciously full of cat-cream."
+                `She makes a surprisingly large amount of cum for ${
+                    this.hasBalls() ? "such small balls" : "a herm without balls"
+                }, and you can feel it sloshing and slurping inside you, leaving you deliciously full of cat-cream.`
             );
         else if (this.cumQ() <= 1500)
             this.outx(
-                "Jet after jet of cum sprays inside you," +
-                    (this.pregSize() > 0 ? "" : " flooding all the way up into your womb;") +
-                    " by the time the " +
-                    this.cockType("dog-dicked cat", "barbed tip") +
-                    " stops, your belly is starting to bulge from all she's given you."
+                `Jet after jet of cum sprays inside you,${
+                    this.pregSize() > 0 ? "" : " flooding all the way up into your womb;"
+                } by the time the ${this.cockType(
+                    "dog-dicked cat",
+                    "barbed tip"
+                )} stops, your belly is starting to bulge from all she's given you.`
             );
         else {
             this.outx(
-                "She cums and she cums and she cums; how can she hold this much spooge inside her " +
-                    (this.hasBalls() ? "balls" : "prostate") +
-                    "?  Your " +
-                    (this.pregSize() > 0 ? "pussy" : "womb") +
-                    " is flooded until by the time she finishes, you look certifiably pregnant and "
+                `She cums and she cums and she cums; how can she hold this much spooge inside her ${
+                    this.hasBalls() ? "balls" : "prostate"
+                }?  Your ${
+                    this.pregSize() > 0 ? "pussy" : "womb"
+                } is flooded until by the time she finishes, you look certifiably pregnant and `
             );
             if (this.knotSize >= 6)
                 this.outx("only her huge knot is keeping everything plugged inside you.");
@@ -8370,36 +8193,36 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         )
             this.letKatKnotYouCommonDialogue(true); // At the bar
         this.outx(
-            "You indicate to Katherine that you want it in your " + this.assholeDescript() + ".\n\n"
+            `You indicate to Katherine that you want it in your ${this.assholeDescript()}.\n\n`
         );
 
         this.outx(
-            "“<i>Well, I can't say I'm a big fan of the idea, but okay...</i>”  Her" +
-                this.catGirl("", " furry") +
-                " hands promptly begin to rub possessively over your " +
-                this.buttDescript() +
-                ", slowly moving up to take hold of your " +
-                this.hipDescript() +
-                ".  “<i>... if that's what you want.</i>”  You feel her rubbing her " +
-                this.cockMultiple("", "bottom-most ") +
-                "cock against your anus, letting your cheeks feel its " +
-                this.cockType("rubbery-smooth", "barb-covered") +
-                " length, then, drawing back her hips, she suddenly thrusts it between them without any hesitation" +
-                this.cockMultiple("", ", as her upper cock bounces along your back") +
-                ".\n\n"
+            `“<i>Well, I can't say I'm a big fan of the idea, but okay...</i>”  Her${this.catGirl(
+                "",
+                " furry"
+            )} hands promptly begin to rub possessively over your ${this.buttDescript()}, slowly moving up to take hold of your ${this.hipDescript()}.  “<i>... if that's what you want.</i>”  You feel her rubbing her ${this.cockMultiple(
+                "",
+                "bottom-most "
+            )}cock against your anus, letting your cheeks feel its ${this.cockType(
+                "rubbery-smooth",
+                "barb-covered"
+            )} length, then, drawing back her hips, she suddenly thrusts it between them without any hesitation${this.cockMultiple(
+                "",
+                ", as her upper cock bounces along your back"
+            )}.\n\n`
         );
 
         this.outx(
-            "“<i>Gonna - mmm - need just a bit of lube here...</i>” she mumbles, dragging her cock" +
-                this.cockMultiple("", "s") +
-                " between your buttcheeks.  As she says it, her body matches deed to her word and the " +
-                this.cockType("puppy pecker", "kitty cock") +
-                " begins drooling a slick, warm fluid into your asscrack" +
-                this.cockMultiple(
-                    "",
-                    ", as well as onto your cheeks, with the other bouncing around above them"
-                ) +
-                ".  With soft hands, she rubs the goo into your pucker and all over her pointed shaft, then there's a void of sensation as she pulls it from your asscheeks.  Before you can react, she pushes them open again and rams her cock into your anus!"
+            `“<i>Gonna - mmm - need just a bit of lube here...</i>” she mumbles, dragging her cock${this.cockMultiple(
+                "",
+                "s"
+            )} between your buttcheeks.  As she says it, her body matches deed to her word and the ${this.cockType(
+                "puppy pecker",
+                "kitty cock"
+            )} begins drooling a slick, warm fluid into your asscrack${this.cockMultiple(
+                "",
+                ", as well as onto your cheeks, with the other bouncing around above them"
+            )}.  With soft hands, she rubs the goo into your pucker and all over her pointed shaft, then there's a void of sensation as she pulls it from your asscheeks.  Before you can react, she pushes them open again and rams her cock into your anus!`
         );
         // (butt hymen check + stretch check)
         const butts: number = this.player.ass.analLooseness;
@@ -8412,9 +8235,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
         this.outx(
-            "Fingers digging into your hips, she begins to thrust back and forth inside you" +
-                this.cockMultiple("", ", her secondary cock slapping wetly against your back") +
-                ".  She grunts and groans, “<i>Oh- Oh yeah, you're unbelievable!"
+            `Fingers digging into your hips, she begins to thrust back and forth inside you${this.cockMultiple(
+                "",
+                ", her secondary cock slapping wetly against your back"
+            )}.  She grunts and groans, “<i>Oh- Oh yeah, you're unbelievable!`
         );
         // [(player has high harpy/shark/cat/dog/bunny score)
         if (
@@ -8425,9 +8249,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.player.bunnyScore() >= 4
         )
             this.outx(
-                "  Mmm... yeah, that's it, moan for me, you little slut; who's the alpha bitch, huh?  Katherine's your alpha - go on, say it!</i>” she yells out, pounding herself into you with greater force and her " +
-                    this.catGirl("sharp nails dig in", "claws extend") +
-                    " just far enough to begin biting into your flesh, pinpricks of pain to counter the pleasure.\n\n"
+                `  Mmm... yeah, that's it, moan for me, you little slut; who's the alpha bitch, huh?  Katherine's your alpha - go on, say it!</i>” she yells out, pounding herself into you with greater force and her ${this.catGirl(
+                    "sharp nails dig in",
+                    "claws extend"
+                )} just far enough to begin biting into your flesh, pinpricks of pain to counter the pleasure.\n\n`
             );
         else this.outx("</i>”\n\n");
 
@@ -8466,18 +8291,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
         this.outx("You shudder and gasp as your own climax suddenly rocks through you");
         if (this.player.hasVagina())
-            this.outx(", femcum splashing from your " + this.vaginaDescript());
+            this.outx(`, femcum splashing from your ${this.vaginaDescript()}`);
         if (this.player.cockTotal() > 0) {
             this.outx(
-                (this.player.hasVagina() ? " and " : ", ") + this.sMultiCockDesc() + " spurting "
+                `${(this.player.hasVagina() ? " and " : ", ") + this.sMultiCockDesc()} spurting `
             );
             if (this.player.cumQ() < 25) this.outx("drops");
             else if (this.player.cumQ() < 100) this.outx("splashes");
             else if (this.player.cumQ() < 250) this.outx("puddles");
             else
                 this.outx(
-                    "a veritable lake of spunk" +
-                        (this.isAt(Katherine.KLOC_KATHS_APT) ? "onto the bed" : "into the alleyway")
+                    `a veritable lake of spunk${
+                        this.isAt(Katherine.KLOC_KATHS_APT) ? "onto the bed" : "into the alleyway"
+                    }`
                 );
         }
         this.outx(" as your asshole wrings the invader.\n\n");
@@ -8487,29 +8313,30 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.cockNumber > 1)
             this.outx(
-                ", with more spurting from her second cock to glaze your back and drool off onto the " +
-                    (this.isAt(Katherine.KLOC_KATHS_APT) ? "sheets" : "ground") +
-                    " below you"
+                `, with more spurting from her second cock to glaze your back and drool off onto the ${
+                    this.isAt(Katherine.KLOC_KATHS_APT) ? "sheets" : "ground"
+                } below you`
             );
         this.outx(".  ");
         // These cum volumes were previously based on Kath's ball size
         if (this.cumQ() <= 500)
             this.outx(
-                "She makes a surprisingly large amount of cum for " +
-                    (this.hasBalls() ? "such small balls" : "a herm without balls") +
-                    ", and you can feel it sloshing and slurping inside you, leaving you deliciously full of cat-cream."
+                `She makes a surprisingly large amount of cum for ${
+                    this.hasBalls() ? "such small balls" : "a herm without balls"
+                }, and you can feel it sloshing and slurping inside you, leaving you deliciously full of cat-cream.`
             );
         else if (this.cumQ() <= 1500)
             this.outx(
-                "Jet after jet of cum sprays inside you, flooding all the way up into your bowels; by the time the " +
-                    this.cockType("dog-dicked cat", "barbed tip") +
-                    " stops, your belly is starting to bulge from all the cum she's given you."
+                `Jet after jet of cum sprays inside you, flooding all the way up into your bowels; by the time the ${this.cockType(
+                    "dog-dicked cat",
+                    "barbed tip"
+                )} stops, your belly is starting to bulge from all the cum she's given you.`
             );
         else {
             this.outx(
-                "She cums and she cums and she cums; how can she hold this much spooge inside her " +
-                    (this.hasBalls() ? "balls" : "prostate") +
-                    "?  Your stomach is flooded with cum until, by the time she finishes, you look certifiably pregnant and "
+                `She cums and she cums and she cums; how can she hold this much spooge inside her ${
+                    this.hasBalls() ? "balls" : "prostate"
+                }?  Your stomach is flooded with cum until, by the time she finishes, you look certifiably pregnant and `
             );
             if (this.knotSize >= 6)
                 this.outx("only her huge knot is keeping everything plugged inside you");
@@ -8565,23 +8392,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("You indicate to Katherine that you want it in both holes.\n\n");
 
         this.outx(
-            (doneBefore
-                ? "She grins from ear to ear and says, "
-                : "She starts in shock at the proposal, then slowly, she nods her head.  ") +
-                "“<i>All right... if that's what you want.</i>”  " +
-                (doneBefore ? "Her " : "Despite her tone, her ") +
-                this.catGirl("soft", "furry") +
-                " hands promptly begin to rub possessively over your " +
-                this.assDescript() +
-                ", slowly moving up to take hold of your " +
-                this.hipDescript() +
-                ".  “<i>Hmm... this is so kinky" +
-                (doneBefore ? "" : ", but I think it just might work") +
-                "...</i>” she murmurs, mostly to herself, and you feel her running her " +
-                this.cockAdj() +
-                "cocks against your sensitive pussy lips and your tingling anus, letting you feel their " +
-                this.cockType("rubbery-smooth", "barb-covered") +
-                " length, then, drawing back her hips, she suddenly thrusts the bottom one home without any hesitation.  The other slides along your asscrack harmlessly."
+            `${
+                doneBefore
+                    ? "She grins from ear to ear and says, "
+                    : "She starts in shock at the proposal, then slowly, she nods her head.  "
+            }“<i>All right... if that's what you want.</i>”  ${
+                doneBefore ? "Her " : "Despite her tone, her "
+            }${this.catGirl(
+                "soft",
+                "furry"
+            )} hands promptly begin to rub possessively over your ${this.assDescript()}, slowly moving up to take hold of your ${this.hipDescript()}.  “<i>Hmm... this is so kinky${
+                doneBefore ? "" : ", but I think it just might work"
+            }...</i>” she murmurs, mostly to herself, and you feel her running her ${this.cockAdj()}cocks against your sensitive pussy lips and your tingling anus, letting you feel their ${this.cockType(
+                "rubbery-smooth",
+                "barb-covered"
+            )} length, then, drawing back her hips, she suddenly thrusts the bottom one home without any hesitation.  The other slides along your asscrack harmlessly.`
         );
         this.player.cuntChange(this.cockArea(), true, true, false);
         // [check vag hymen and stretch it]
@@ -8592,19 +8417,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "Fingers digging into your hips, she begins to thrust back and forth inside of you, dragging one shaft through your pussy and the other through your cheeks.  “<i>Mmm, you're so good... I could come from this alone,</i>” she moans.  As if to echo the sentiment, a slow stream of pre-cum infiltrates your asscrack.  “<i>Ahh, here it comes...</i>”  She pulls her shafts out just as you feel a minute stiffening of the knots at their bases, and you can hear her smearing her pre-cum and your copious girl-lube along her lengths.  Your " +
-                this.assholeDescript() +
-                " does not go neglected either; after she's done rubbing herself to slickness, a palmful of warm gooeyness is pushed into it.  She must already be drooling a huge amount if she's got this much to donate!  Almost on cue, she confirms your hunch with a moan.  “<i>Ahhh, gotta put it in now!  I can't hold back anymore, I'm sorry!</i>”  A hot pressure on both holes is the only warning you get before her twin talents are forced into you, sliding easily into your already wet vagina and pushing past your ring by virtue of the tapered shape and the slickness."
+            `Fingers digging into your hips, she begins to thrust back and forth inside of you, dragging one shaft through your pussy and the other through your cheeks.  “<i>Mmm, you're so good... I could come from this alone,</i>” she moans.  As if to echo the sentiment, a slow stream of pre-cum infiltrates your asscrack.  “<i>Ahh, here it comes...</i>”  She pulls her shafts out just as you feel a minute stiffening of the knots at their bases, and you can hear her smearing her pre-cum and your copious girl-lube along her lengths.  Your ${this.assholeDescript()} does not go neglected either; after she's done rubbing herself to slickness, a palmful of warm gooeyness is pushed into it.  She must already be drooling a huge amount if she's got this much to donate!  Almost on cue, she confirms your hunch with a moan.  “<i>Ahhh, gotta put it in now!  I can't hold back anymore, I'm sorry!</i>”  A hot pressure on both holes is the only warning you get before her twin talents are forced into you, sliding easily into your already wet vagina and pushing past your ring by virtue of the tapered shape and the slickness.`
         );
         this.player.buttChange(this.cockArea(), true, true, false);
         this.outx("\n\n");
 
         this.outx(
-            "She begins thrusting at once, grunting and groaning as if she were already near her peak.  “<i>Oh- Oh yeah, you're unbelievable!  " +
-                (doneBefore ? "" : "It's so weird, ") +
-                "I'm fucking two holes at once" +
-                (doneBefore ? "; it's like I was born to do this" : ", but it's so good") +
-                "!</i>” she cries out.  Her usually firm grip is shaky and unreliable, further evidence of the trouble she's having in controlling her climax.\n\n"
+            `She begins thrusting at once, grunting and groaning as if she were already near her peak.  “<i>Oh- Oh yeah, you're unbelievable!  ${
+                doneBefore ? "" : "It's so weird, "
+            }I'm fucking two holes at once${
+                doneBefore ? "; it's like I was born to do this" : ", but it's so good"
+            }!</i>” she cries out.  Her usually firm grip is shaky and unreliable, further evidence of the trouble she's having in controlling her climax.\n\n`
         );
 
         this.outx(
@@ -8621,27 +8444,28 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         // These cum volumes were previously based on Kath's ball size
         if (this.cumQ() <= 500)
             this.outx(
-                "She makes a surprisingly large amount of cum for " +
-                    (this.hasBalls() ? "such small balls" : "a herm without balls") +
-                    ", and you can feel it sloshing and slurping inside you, leaving you deliciously full of cat-cream."
+                `She makes a surprisingly large amount of cum for ${
+                    this.hasBalls() ? "such small balls" : "a herm without balls"
+                }, and you can feel it sloshing and slurping inside you, leaving you deliciously full of cat-cream.`
             );
         else if (this.cumQ() <= 1500)
             this.outx(
-                "Jet after jet of cum sprays inside you, flooding all the way " +
-                    (this.pregSize() > 0
+                `Jet after jet of cum sprays inside you, flooding all the way ${
+                    this.pregSize() > 0
                         ? "inside, splattering against your cervix and filling your"
-                        : "up into your womb and") +
-                    " bowels; by the time the " +
-                    this.cockType("dog-dicked cat", "barbed tip") +
-                    " stops, your belly is starting to bulge from all the cum she's given you."
+                        : "up into your womb and"
+                } bowels; by the time the ${this.cockType(
+                    "dog-dicked cat",
+                    "barbed tip"
+                )} stops, your belly is starting to bulge from all the cum she's given you.`
             );
         else {
             this.outx(
-                "She cums and she cums and she cums; how can she hold this much spooge inside her " +
-                    (this.hasBalls() ? "balls" : "prostate") +
-                    "?  Your " +
-                    (this.pregSize() > 0 ? "pussy" : "womb") +
-                    " and your stomach are flooded with cum until, by the time she finishes, you look certifiably pregnant and "
+                `She cums and she cums and she cums; how can she hold this much spooge inside her ${
+                    this.hasBalls() ? "balls" : "prostate"
+                }?  Your ${
+                    this.pregSize() > 0 ? "pussy" : "womb"
+                } and your stomach are flooded with cum until, by the time she finishes, you look certifiably pregnant and `
             );
             if (this.knotSize >= 6)
                 this.outx("only her huge knots are keeping everything plugged inside you.");
@@ -8683,18 +8507,18 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx(" as she fills you with a smaller, second load of jizz.");
         if (this.player.hasCock())
             this.outx(
-                "  " +
-                    this.SMultiCockDesc() +
-                    (this.player.cocks.length > 1
+                `  ${this.SMultiCockDesc()}${
+                    this.player.cocks.length > 1
                         ? " celebrate with arcs of their"
-                        : " celebrates with arcs of its") +
-                    " own semen, spraying them in a patter on her legs and the ground in front of you."
+                        : " celebrates with arcs of its"
+                } own semen, spraying them in a patter on her legs and the ground in front of you.`
             );
         this.outx(
-            "  The cat-woman gasps and twitches as her new ejaculation reverberates through her body, but forms no words, only looking up at the " +
-                (this.isAt(Katherine.KLOC_STREETS)
+            `  The cat-woman gasps and twitches as her new ejaculation reverberates through her body, but forms no words, only looking up at the ${
+                this.isAt(Katherine.KLOC_STREETS)
                     ? "walls overhead."
-                    : "ceiling with a glazed expression.")
+                    : "ceiling with a glazed expression."
+            }`
         );
         this.outx("\n\n");
 
@@ -8726,57 +8550,56 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         )
             this.letKatKnotYouCommonDialogue(true); // At the bar
         this.outx(
-            "As you crouch, trying to figure out how you want your herm lover to take you, you start when you feel Katherine's fingers suddenly caressing your " +
-                this.cockDescript(x) +
-                ".\n\n"
+            `As you crouch, trying to figure out how you want your herm lover to take you, you start when you feel Katherine's fingers suddenly caressing your ${this.cockDescript(
+                x
+            )}.\n\n`
         );
 
         this.outx(
-            "“<i>Hmm... I think you deserve a special treat, my sweet.  " +
-                (this.isAt(Katherine.KLOC_KATHS_APT)
+            `“<i>Hmm... I think you deserve a special treat, my sweet.  ${
+                this.isAt(Katherine.KLOC_KATHS_APT)
                     ? "Lie back on the bed"
-                    : "Roll over onto your back") +
-                "...</i>” Katherine purrs, giving you a stroke to make you as stiff as possible before releasing you.\n\n"
+                    : "Roll over onto your back"
+            }...</i>” Katherine purrs, giving you a stroke to make you as stiff as possible before releasing you.\n\n`
         );
 
         this.outx(
-            (doneBefore ? "Knowing" : "Wondering") +
-                " what she has in mind, you do as you are told, " +
-                (this.isAt(Katherine.KLOC_KATHS_APT)
+            `${
+                doneBefore ? "Knowing" : "Wondering"
+            } what she has in mind, you do as you are told, ${
+                this.isAt(Katherine.KLOC_KATHS_APT)
                     ? "lying back on the bed with your head on the pillow, your cock pointing at the ceiling"
-                    : "rolling onto your back and lying there with your prick aimed at the sky") +
-                " and your " +
-                (this.player.isNaga() ? "tail flat" : "legs spread") +
-                ".  Katherine advances toward you and kneels down, reaching over your stomach and petting your " +
-                this.chestDesc() +
-                " with a smile.  “<i>You're very special to me, you know that?  Well, to prove it, I'm going to show you a real good time...</i>”  She grins, passing her tongue over her lips with exaggerated anticipation.\n\n"
+                    : "rolling onto your back and lying there with your prick aimed at the sky"
+            } and your ${
+                this.player.isNaga() ? "tail flat" : "legs spread"
+            }.  Katherine advances toward you and kneels down, reaching over your stomach and petting your ${this.chestDesc()} with a smile.  “<i>You're very special to me, you know that?  Well, to prove it, I'm going to show you a real good time...</i>”  She grins, passing her tongue over her lips with exaggerated anticipation.\n\n`
         );
 
         this.outx(
-            "As you watch, she bends over from where she's sitting until she can lick your " +
-                this.cockDescript(x) +
-                ", her long, feline tongue running up and down its length, tickling the head.  The sensation is strange; bristly, but not sharp, so it's like being stroked by lots of little tongues at the same time.  Pre-cum begins flowing from your cock-tip like water bubbling from an underground spring, and your feline lover visibly savors the taste before leaning back upright, smacking her lips and smiling at your protest.\n\n"
+            `As you watch, she bends over from where she's sitting until she can lick your ${this.cockDescript(
+                x
+            )}, her long, feline tongue running up and down its length, tickling the head.  The sensation is strange; bristly, but not sharp, so it's like being stroked by lots of little tongues at the same time.  Pre-cum begins flowing from your cock-tip like water bubbling from an underground spring, and your feline lover visibly savors the taste before leaning back upright, smacking her lips and smiling at your protest.\n\n`
         );
 
         this.outx(
             "“<i>Naughty, naughty; have you forgotten who's fucking whom, this time?</i>” she purrs at you, one hand slipping forward to caress "
         );
-        if (this.player.hasVagina()) this.outx("your " + this.vaginaDescript());
+        if (this.player.hasVagina()) this.outx(`your ${this.vaginaDescript()}`);
         else this.outx("between your asscheeks");
         this.outx(
-            ".  Taking hold of your " +
-                this.hipDescript() +
-                ", she slides her cock" +
-                this.cockMultiple("", "s") +
-                " forward until she's hovering at the entrance to your "
+            `.  Taking hold of your ${this.hipDescript()}, she slides her cock${this.cockMultiple(
+                "",
+                "s"
+            )} forward until she's hovering at the entrance to your `
         );
         if (this.cockNumber > 1 && this.player.hasVagina())
-            this.outx(this.vaginaDescript() + " and " + this.assholeDescript());
+            this.outx(`${this.vaginaDescript()} and ${this.assholeDescript()}`);
         else this.outx(this.player.assholeOrPussy());
         this.outx(
-            ".  Taking a bit of the pre-cum drooling from your prick, she slathers it over her cock" +
-                this.cockMultiple("", "s") +
-                ".  Then, without further ado, she slides herself into you."
+            `.  Taking a bit of the pre-cum drooling from your prick, she slathers it over her cock${this.cockMultiple(
+                "",
+                "s"
+            )}.  Then, without further ado, she slides herself into you.`
         );
         if (this.player.hasVagina()) {
             if (this.cockNumber > 1) this.player.buttChange(this.cockArea(), true, true, false);
@@ -8785,15 +8608,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("\n\n");
 
         this.outx(
-            "“<i>Now, then, let's give this a shot...</i>” she murmurs to herself, beginning to slowly rock back and forth within you, sliding her cock" +
-                this.cockMultiple("", "s") +
-                " out and then thrusting home, her knot" +
-                this.cockMultiple("", "s") +
-                " starting to swell and stretching you out in all the right ways... if only she wasn't going so slow, this would be so great.  But any complaints about the pace are lost when she bends over again and starts to lap at your " +
-                this.cockDescript(x) +
-                ", running her tongue over and around it several times before she takes it into her mouth, swallowing inch after inch of your shaft until her nose is pressed flat into the base of your belly.  She lets out a muffled grunt that might be “<i>right</i>”, then tries to manage the task of picking up the pace of her thrusts while sucking and slurping on your " +
-                this.cockDescript(x) +
-                " at the same time.\n\n"
+            `“<i>Now, then, let's give this a shot...</i>” she murmurs to herself, beginning to slowly rock back and forth within you, sliding her cock${this.cockMultiple(
+                "",
+                "s"
+            )} out and then thrusting home, her knot${this.cockMultiple(
+                "",
+                "s"
+            )} starting to swell and stretching you out in all the right ways... if only she wasn't going so slow, this would be so great.  But any complaints about the pace are lost when she bends over again and starts to lap at your ${this.cockDescript(
+                x
+            )}, running her tongue over and around it several times before she takes it into her mouth, swallowing inch after inch of your shaft until her nose is pressed flat into the base of your belly.  She lets out a muffled grunt that might be “<i>right</i>”, then tries to manage the task of picking up the pace of her thrusts while sucking and slurping on your ${this.cockDescript(
+                x
+            )} at the same time.\n\n`
         );
 
         this.outx(
@@ -8805,7 +8630,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx(
             " flaring inside you and anchoring you together.  You rock back and forth, thrusting your hips awkwardly in an effort to fuck and be fucked as hard as possible, and feel the oh-so-sweet sensation of release boiling away "
         );
-        if (this.player.balls > 0) this.outx("in your " + this.ballsDescriptLight());
+        if (this.player.balls > 0) this.outx(`in your ${this.ballsDescriptLight()}`);
         else this.outx("at the base of your spine");
         this.outx("...\n\n");
 
@@ -8822,11 +8647,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         if (this.cumQ() > 1500)
             this.outx(
-                " and her " +
-                    (this.hasBalls()
+                ` and her ${
+                    this.hasBalls()
                         ? "swollen balls keep on going; by the time they finally run"
-                        : "massive prostate keeps on going; by the time it finally runs") +
-                    " dry, your belly is so heavy with deposited cum that you look like you're having triplets"
+                        : "massive prostate keeps on going; by the time it finally runs"
+                } dry, your belly is so heavy with deposited cum that you look like you're having triplets`
             );
         this.outx(
             ".  She slumps forward with a groan of blissed-out relief, spent from her climax.\n\n"
@@ -8848,9 +8673,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         // (Very High:
         else
             this.outx(
-                "You can see a hint of panic at the titanic cascade of fluids coming from your " +
-                    this.cockDescript(x) +
-                    ", but it's drowned out by sudden steely-eyed determination to drink every last drop.  Her belly swells out like a waterskin being held in a waterfall, rivulets of cum flooding from her overwhelmed mouth, but she manages to avoid pulling your cock out until you're finished.  Then she weakly manages to detach herself and gives you a triumphant expression, and a faint burp.\n\n"
+                `You can see a hint of panic at the titanic cascade of fluids coming from your ${this.cockDescript(
+                    x
+                )}, but it's drowned out by sudden steely-eyed determination to drink every last drop.  Her belly swells out like a waterskin being held in a waterfall, rivulets of cum flooding from her overwhelmed mouth, but she manages to avoid pulling your cock out until you're finished.  Then she weakly manages to detach herself and gives you a triumphant expression, and a faint burp.\n\n`
             );
 
         this.outx("With a groan she allows herself to collapse atop you, ");
@@ -8874,10 +8699,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("Once her knot");
         if (this.cockNumber > 1 && this.player.hasVagina()) this.outx("s");
         this.outx(
-            " deflate and you detach, you clean yourself off, get dressed, and head back out" +
-                (this.isAt(Katherine.KLOC_KATHS_APT)
+            ` deflate and you detach, you clean yourself off, get dressed, and head back out${
+                this.isAt(Katherine.KLOC_KATHS_APT)
                     ? ", leaving Kath passed out on her bed."
-                    : " into the street.")
+                    : " into the street."
+            }`
         );
         // lust -100, slimefeed, Player returns to Tel'Adre Menu Screen or to camp, if code insists on it
         this.player.slimeFeed();
@@ -8902,9 +8728,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "Kath's tail twitches excitedly and she polishes off her drink, eager to see what you have in mind.\n\n"
             );
             this.outx(
-                "You take her hand and lead her outside, to " +
-                    (this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0 ? "that familiar" : "the") +
-                    " alleyway behind the Wet Bitch.\n\n"
+                `You take her hand and lead her outside, to ${
+                    this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0 ? "that familiar" : "the"
+                } alleyway behind the Wet Bitch.\n\n`
             );
             this.outx(
                 "She looks a little worried about getting caught, but she's too excited to refuse you.\n\n"
@@ -8933,30 +8759,33 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (doneBefore)
             this.outx(
-                "“<i>Alright, I mean, if you're okay with the knot" +
-                    this.cockMultiple("", "s, and the twin cocks,") +
-                    " I'm okay with you giving me head...  I just feel bad leaving you with nothing.</i>”\n\n"
+                `“<i>Alright, I mean, if you're okay with the knot${this.cockMultiple(
+                    "",
+                    "s, and the twin cocks,"
+                )} I'm okay with you giving me head...  I just feel bad leaving you with nothing.</i>”\n\n`
             );
         else
             this.outx(
-                "“<i>But... " +
-                    this.player.short +
-                    ", are you sure?  I mean, with the knot" +
-                    this.cockMultiple("", "s... I mean, now that I have two cocks") +
-                    ", that's a lot to work with...  And I don't want to leave you with nothing, either...</i>”\n\n"
+                `“<i>But... ${
+                    this.player.short
+                }, are you sure?  I mean, with the knot${this.cockMultiple(
+                    "",
+                    "s... I mean, now that I have two cocks"
+                )}, that's a lot to work with...  And I don't want to leave you with nothing, either...</i>”\n\n`
             );
         this.outx(
             "You reassure her that you don't mind at all - in fact, you want to do this and probably will like doing it.\n\n"
         );
 
         this.outx(
-            "Avoiding eye contact and " +
-                this.catGirl("blushing bright red", "apparently blushing under the fur") +
-                ", Katherine answers, “<i>Okay.  " +
-                (doneBefore
+            `Avoiding eye contact and ${this.catGirl(
+                "blushing bright red",
+                "apparently blushing under the fur"
+            )}, Katherine answers, “<i>Okay.  ${
+                doneBefore
                     ? "If you want another dose, who am I to argue?  Just be careful,"
-                    : "If this is really what you want.  Just please, be careful, especially") +
-                " for your own good, okay?</i>”\n\n"
+                    : "If this is really what you want.  Just please, be careful, especially"
+            } for your own good, okay?</i>”\n\n`
         );
 
         if (this.isAt(Katherine.KLOC_KATHS_APT)) {
@@ -8979,22 +8808,23 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             else this.outx("broad stone wall"); // Centaurs and those 8'6 or taller
         }
         this.outx(
-            ".  Contrary to what she said, she seems pretty eager and, in just a few moments, you have clear vision and access to " +
-                this.cockMultiple("her cock and", "both her cocks as well as") +
-                "her already-wet vagina" +
-                (this.ballSize >= 5
+            `.  Contrary to what she said, she seems pretty eager and, in just a few moments, you have clear vision and access to ${this.cockMultiple(
+                "her cock and",
+                "both her cocks as well as"
+            )}her already-wet vagina${
+                this.ballSize >= 5
                     ? " although her pendulous testicles obscure your view of it somewhat"
-                    : "") +
-                ".\n\n"
+                    : ""
+            }.\n\n`
         );
 
         if (this.cockNumber == 1) {
             this.outx(
-                "The puss' pussy is your first target, as you approach her sitting position; as your tongue slowly licks " +
-                    (this.hasBalls()
+                `The puss' pussy is your first target, as you approach her sitting position; as your tongue slowly licks ${
+                    this.hasBalls()
                         ? "her balls you gently pull them upwards and to the side"
-                        : "the underside of her cock it rises higher and higher") +
-                    ", completely revealing her increasingly moist pussy.  You tease her about getting so excited but work to please nevertheless"
+                        : "the underside of her cock it rises higher and higher"
+                }, completely revealing her increasingly moist pussy.  You tease her about getting so excited but work to please nevertheless`
             );
             if (this.player.cor >= 70)
                 this.outx(
@@ -9003,28 +8833,29 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outx(".\n\n");
 
             this.outx(
-                "With a teasing lick, you circle around her clit and slowly move away, then back towards it.  Her cock seems to grow even harder and starts to drip pre-cum, threatening to dirty " +
-                    (this.cockLength < 10 ? "your face" : "your hair") +
-                    ".  A loud, frustrated mewl from above prompts you to start gently sucking on her clit, rewarding you with a stifled moan and the twitching of the small cat-morph's thighs.  You continue your attentions without pause, slipping the tip of your tongue inside her pussy to taste the generously flowing juices.\n\n"
+                `With a teasing lick, you circle around her clit and slowly move away, then back towards it.  Her cock seems to grow even harder and starts to drip pre-cum, threatening to dirty ${
+                    this.cockLength < 10 ? "your face" : "your hair"
+                }.  A loud, frustrated mewl from above prompts you to start gently sucking on her clit, rewarding you with a stifled moan and the twitching of the small cat-morph's thighs.  You continue your attentions without pause, slipping the tip of your tongue inside her pussy to taste the generously flowing juices.\n\n`
             );
 
             this.outx(
-                "Deciding this part had enough attention for the moment, y" +
-                    (this.hasBalls()
+                `Deciding this part had enough attention for the moment, y${
+                    this.hasBalls()
                         ? "ou slowly move up to her balls, gently sucking each one inside your mouth.  Y"
-                        : "") +
-                    "ou allow your tongue to slide out and wrap about the lower part of her member, just below the barely recognizable thickening of her penis that marks the place where her knot will soon bulge" +
-                    (this.knotSize >= 6 ? " enormously" : "") +
-                    ".  "
+                        : ""
+                }ou allow your tongue to slide out and wrap about the lower part of her member, just below the barely recognizable thickening of her penis that marks the place where her knot will soon bulge${
+                    this.knotSize >= 6 ? " enormously" : ""
+                }.  `
             );
             this.outx(
-                "Katherine moans again as you slowly trace the bottom side of her penis up towards the " +
-                    this.cockType("conical, pointy", "narrow, bumpy") +
-                    " head.  You gently suck on the tip before slipping one of your fingers inside the cat-morph's pussy.  She can't help herself and you feel her squirming, her thighs reflexively wrapping around your hand before she forcibly parts them.  Slowly, you bob your head up and down her cock" +
-                    (this.cockLength >= 14
+                `Katherine moans again as you slowly trace the bottom side of her penis up towards the ${this.cockType(
+                    "conical, pointy",
+                    "narrow, bumpy"
+                )} head.  You gently suck on the tip before slipping one of your fingers inside the cat-morph's pussy.  She can't help herself and you feel her squirming, her thighs reflexively wrapping around your hand before she forcibly parts them.  Slowly, you bob your head up and down her cock${
+                    this.cockLength >= 14
                         ? ", experiencing minor problems actually deepthroating the thing"
-                        : "") +
-                    ".  All the while, you finger her pussy - your hands are positively soaked by her secretions.  Grabbing her cock with the same hand that is now coated in her own juices, you start to jerk her off as you go back down on her clit; your other hand slips inside the cat-morph.\n\n"
+                        : ""
+                }.  All the while, you finger her pussy - your hands are positively soaked by her secretions.  Grabbing her cock with the same hand that is now coated in her own juices, you start to jerk her off as you go back down on her clit; your other hand slips inside the cat-morph.\n\n`
             );
             this.outx(
                 "She mewls again, clearly doing her best to resist and prolong the pleasure.  After a while of molesting her clit and cock simultaneously, you decide it's time to get somewhat more serious.\n\n"
@@ -9036,20 +8867,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             // [Naga tongue]
             if (this.player.tongueType == TONUGE_SNAKE)
                 this.outx(
-                    (this.hasBalls()
-                        ? "The hand that was so far fingering her pushes her balls to the side, as you slowly move down and down her erection.  You"
-                        : "You slowly move your tongue down and down her erection and") +
-                        " gently hum into it before going nearly all the way down to the base, Katherine's eyes opening wide.  Your long, flexible forked tongue slips out and down" +
-                        (this.hasBalls() ? ", sliding along the side of her left testicle" : "") +
-                        " before finding your target: the cat-girl's clitoris.  Your other hand starts to gently tease her lower lips as you slowly move it, mostly pleasing her with your throat muscles and long, flexible tongue.\n\n"
+                    `${
+                        this.hasBalls()
+                            ? "The hand that was so far fingering her pushes her balls to the side, as you slowly move down and down her erection.  You"
+                            : "You slowly move your tongue down and down her erection and"
+                    } gently hum into it before going nearly all the way down to the base, Katherine's eyes opening wide.  Your long, flexible forked tongue slips out and down${
+                        this.hasBalls() ? ", sliding along the side of her left testicle" : ""
+                    } before finding your target: the cat-girl's clitoris.  Your other hand starts to gently tease her lower lips as you slowly move it, mostly pleasing her with your throat muscles and long, flexible tongue.\n\n`
                 );
             // [Demonic tongue]
             else if (this.player.tongueType == TONUGE_DEMONIC)
                 this.outx(
-                    (this.hasBalls()
-                        ? "The hand that was so far fingering her pushes her balls to the side, as you slowly move down and down her erection.  Stopping just before the place"
-                        : "You slowly move your tongue down and down her erection.  When it reaches the spot") +
-                        " where her knot usually pops out, you decide to give the girl a treat.  Slowly, your incredibly long flexible tongue moves towards your kittenish partner's pussy, giving it a long, sloppy lick.  Katherine's hips shiver and she only barely stops herself from pushing them forward.  Rewarding that show of self-control, you move your tongue up to wrap it around the very base of her penis just as the entire length of your inhuman muscle slips from your mouth; you manage to get the tip of it down, then brush it against the cat-girl's vagina.  Katherine just stares at you wide-eyed as you slip your demonic appendage inside her pussy, effectively pleasing nearly all of her lower's body erogenous zones at once.\n\n"
+                    `${
+                        this.hasBalls()
+                            ? "The hand that was so far fingering her pushes her balls to the side, as you slowly move down and down her erection.  Stopping just before the place"
+                            : "You slowly move your tongue down and down her erection.  When it reaches the spot"
+                    } where her knot usually pops out, you decide to give the girl a treat.  Slowly, your incredibly long flexible tongue moves towards your kittenish partner's pussy, giving it a long, sloppy lick.  Katherine's hips shiver and she only barely stops herself from pushing them forward.  Rewarding that show of self-control, you move your tongue up to wrap it around the very base of her penis just as the entire length of your inhuman muscle slips from your mouth; you manage to get the tip of it down, then brush it against the cat-girl's vagina.  Katherine just stares at you wide-eyed as you slip your demonic appendage inside her pussy, effectively pleasing nearly all of her lower's body erogenous zones at once.\n\n`
                 );
             // ([Normal tongue]
             else
@@ -9109,11 +8942,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             }
 
             this.outx(
-                "After molesting her with your tongue you pull away for a moment and announce that the cat-girl is very welcome to cum soon, " +
-                    (doneBefore
+                `After molesting her with your tongue you pull away for a moment and announce that the cat-girl is very welcome to cum soon, ${
+                    doneBefore
                         ? "as you're happy to do this to her again and again"
-                        : "since this probably won't be a one time offer and she doesn't have to postpone things so desperately") +
-                    ".\n\n"
+                        : "since this probably won't be a one time offer and she doesn't have to postpone things so desperately"
+                }.\n\n`
             );
 
             this.outx(
@@ -9149,19 +8982,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
 
                 this.outx(
-                    "\n\nYour " +
-                        (this.player.isNaga() ? "tail" : "fingers") +
-                        " get squeezed and drenched while you feel her erection twitch and pulse within your mouth.  You complete your motion, diving to the very verge of her knot and sucking on her intensely as she blows her seed into your mouth and down your throat.\n\n"
+                    `\n\nYour ${
+                        this.player.isNaga() ? "tail" : "fingers"
+                    } get squeezed and drenched while you feel her erection twitch and pulse within your mouth.  You complete your motion, diving to the very verge of her knot and sucking on her intensely as she blows her seed into your mouth and down your throat.\n\n`
                 );
 
                 this.outx("You greedily swallow your hermaphrodite lover's semen; ");
                 if (this.cumQ() <= 500)
                     this.outx(
-                        "its quite a large amount given " +
-                            (this.hasBalls()
+                        `its quite a large amount given ${
+                            this.hasBalls()
                                 ? "the size of her balls"
-                                : "that she doesn't have testicles") +
-                            ", substituting for a decent warm drink at least."
+                                : "that she doesn't have testicles"
+                        }, substituting for a decent warm drink at least.`
                     );
                 else if (this.cumQ() <= 1500)
                     this.outx(
@@ -9169,10 +9002,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
                 else
                     this.outx(
-                        (this.hasBalls()
-                            ? "as suggested by the size of her testicles,"
-                            : "her prostate must have been working overtime, as") +
-                            " Katherine cums - a lot.  Wave after wave of semen gushes down your throat, filling your belly to the point of stretching."
+                        `${
+                            this.hasBalls()
+                                ? "as suggested by the size of her testicles,"
+                                : "her prostate must have been working overtime, as"
+                        } Katherine cums - a lot.  Wave after wave of semen gushes down your throat, filling your belly to the point of stretching.`
                     );
                 this.outx(
                     "  Slowly, you pull her cock out of your mouth while Katherine smiles at you and purrs gratefully."
@@ -9181,15 +9015,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             // (Demon tongue)
             else if (this.player.tongueType == TONUGE_DEMONIC) {
                 this.outx(
-                    "You separate the place where the knot should appear with your own fingers and dive down her shaft.  You're going to pleasure most of her anyway, as you repeat your trick, wrapping your demonic appendage around the base of her cock with your other hand as your long tongue slides out to lick and play with her " +
-                        (this.hasBalls()
-                            ? "balls.  Sliding it along her testicles"
-                            : "clit.  That") +
-                        " seems to start igniting her orgasm - the bulge of her knot gets bigger, although it looks like you have a few moments.  You slide down further, " +
-                        (this.hasBalls()
+                    `You separate the place where the knot should appear with your own fingers and dive down her shaft.  You're going to pleasure most of her anyway, as you repeat your trick, wrapping your demonic appendage around the base of her cock with your other hand as your long tongue slides out to lick and play with her ${
+                        this.hasBalls() ? "balls.  Sliding it along her testicles" : "clit.  That"
+                    } seems to start igniting her orgasm - the bulge of her knot gets bigger, although it looks like you have a few moments.  You slide down further, ${
+                        this.hasBalls()
                             ? "rolling her balls and then lifting them to push"
-                            : "pushing") +
-                        " the tip of your tongue inside her pussy.  You can taste her feminine juices dripping out as her vagina starts to clench, her inner walls twitching and her knot bulging to full size"
+                            : "pushing"
+                    } the tip of your tongue inside her pussy.  You can taste her feminine juices dripping out as her vagina starts to clench, her inner walls twitching and her knot bulging to full size`
                 );
                 // ([If 6 inches knot]
                 if (this.knotSize >= 6)
@@ -9204,23 +9036,23 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
                 if (this.cumQ() <= 500)
                     this.outx(
-                        "She practically thrashes around in orgasm as you tease her " +
-                            (this.hasBalls() ? "balls" : "clit") +
-                            " with your tongue, your mouth milking her and devouring the cum she releases quite easily."
+                        `She practically thrashes around in orgasm as you tease her ${
+                            this.hasBalls() ? "balls" : "clit"
+                        } with your tongue, your mouth milking her and devouring the cum she releases quite easily.`
                     );
                 else if (this.cumQ() <= 1500)
                     this.outx(
-                        "Your tongue has no problems sliding across and teasing her " +
-                            (this.hasBalls() ? "balls" : "clit") +
-                            " as your mouth drinks her dick-milk.  There is quite a lot of it, but you don't complain."
+                        `Your tongue has no problems sliding across and teasing her ${
+                            this.hasBalls() ? "balls" : "clit"
+                        } as your mouth drinks her dick-milk.  There is quite a lot of it, but you don't complain.`
                     );
                 else
                     this.outx(
-                        "Katherine's " +
-                            (this.hasBalls()
+                        `Katherine's ${
+                            this.hasBalls()
                                 ? "large testicles quiver on your tongue as they discharge their"
-                                : "prostate must have been working overtime to produce such a massive") +
-                            " load.  You can feel it seeping inside you, slightly stretching your belly as you struggle to swallow it all."
+                                : "prostate must have been working overtime to produce such a massive"
+                        } load.  You can feel it seeping inside you, slightly stretching your belly as you struggle to swallow it all.`
                     );
                 this.outx(
                     "  All the while, her pussy rhythmically squeezes your tongue and covers it with girl-cum.\n\n"
@@ -9233,11 +9065,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             // ([Normal tongue]
             else {
                 this.outx(
-                    "Deciding to follow her advice, you dive down to the girl's soaking-wet vagina" +
-                        (this.hasBalls()
+                    `Deciding to follow her advice, you dive down to the girl's soaking-wet vagina${
+                        this.hasBalls()
                             ? ", gently fondling her testicles as you softly roll them in your hand"
-                            : "") +
-                        ".  You start eating her out, licking her insides, and teasing her clit as your other hand jerks your hermaphrodite cat lover off.\n\n"
+                            : ""
+                    }.  You start eating her out, licking her insides, and teasing her clit as your other hand jerks your hermaphrodite cat lover off.\n\n`
                 );
 
                 this.outx(
@@ -9252,11 +9084,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         // Double Cock Scene
         else {
             this.outx(
-                "Seeing one of her cocks bob and twitch as your face gets closer you decide to reward the eagerness and start with it.  You open your lips and lick the tip before slowly sliding down her crown and then lower, onto the shaft and down to the base.  Then, you pull your lips up, assaulting her with your tongue all along the way.  Her " +
-                    this.cockType() +
-                    " cock leaves your mouth with a loud slurp and you quickly go down the other one.  Katherine strokes your " +
-                    this.hairDescript() +
-                    ", very gently helping push you down her shaft.\n\n"
+                `Seeing one of her cocks bob and twitch as your face gets closer you decide to reward the eagerness and start with it.  You open your lips and lick the tip before slowly sliding down her crown and then lower, onto the shaft and down to the base.  Then, you pull your lips up, assaulting her with your tongue all along the way.  Her ${this.cockType()} cock leaves your mouth with a loud slurp and you quickly go down the other one.  Katherine strokes your ${this.hairDescript()}, very gently helping push you down her shaft.\n\n`
             );
 
             this.outx(
@@ -9291,17 +9119,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             // ([Demon tongue]
             if (this.player.tongueType == TONUGE_DEMONIC)
                 this.outx(
-                    "The opportunity for some extra service doesn't escape you; you suck her clit in with your lips as the long, prehensile organ you house in your mouth slides up against " +
-                        (this.hasBalls() ? "her balls, rolling them and assaulting " : "") +
-                        "the base of one of her erections, slowly wrapping around it.  After getting a good tongue-grip on it, you slither further around and past it to do the same to her other cock.  Then, slowly, you start to stroke the twin canine penises with the wet muscle, causing Katherine to shake with helpless pleasure.  Continuing to suck on her clit meanwhile, your large flexible tongue also gives her twin penises a dream jerk-off.\n\n"
+                    `The opportunity for some extra service doesn't escape you; you suck her clit in with your lips as the long, prehensile organ you house in your mouth slides up against ${
+                        this.hasBalls() ? "her balls, rolling them and assaulting " : ""
+                    }the base of one of her erections, slowly wrapping around it.  After getting a good tongue-grip on it, you slither further around and past it to do the same to her other cock.  Then, slowly, you start to stroke the twin canine penises with the wet muscle, causing Katherine to shake with helpless pleasure.  Continuing to suck on her clit meanwhile, your large flexible tongue also gives her twin penises a dream jerk-off.\n\n`
                 );
 
             this.outx(
-                "Slowly, you draw away from her, admiring your handiwork.  Katherine's erections are leaking pre-cum generously, while her pussy is drenching her seat and trickling copious fluid onto " +
-                    (this.hasBalls()
+                `Slowly, you draw away from her, admiring your handiwork.  Katherine's erections are leaking pre-cum generously, while her pussy is drenching her seat and trickling copious fluid onto ${
+                    this.hasBalls()
                         ? "the underside of her balls.  Her thighs"
-                        : "her thighs.  Those") +
-                    " are gently shaking and her stare lacks focus.\n\n"
+                        : "her thighs.  Those"
+                } are gently shaking and her stare lacks focus.\n\n`
             );
 
             this.outx("“<i>Umm... please, continue.  I'm so close...</i>”\n\n");
@@ -9335,17 +9163,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
             } else {
                 this.outx(
-                    "Your tongue quickly slides out of your mouth, twitching sinuously as Katherine's eyes go wide at the sight of it easily wrapping around both her erections.  You" +
-                        (this.hasBalls()
+                    `Your tongue quickly slides out of your mouth, twitching sinuously as Katherine's eyes go wide at the sight of it easily wrapping around both her erections.  You${
+                        this.hasBalls()
                             ? "r hand starts playing with her balls as the other fingers"
-                            : " start fingering") +
-                        " her dripping wet cunt, pumping in and out as you feel her knots swell larger under your tongue.\n\n"
+                            : " start fingering"
+                    } her dripping wet cunt, pumping in and out as you feel her knots swell larger under your tongue.\n\n`
                 );
 
                 this.outx(
-                    "Her erections release in unison, and thick rivulets of semen cover your face, tongue and even the inside of your mouth.  Her " +
-                        (this.hasBalls() ? "testicles twitch and pulse in your hand as her" : "") +
-                        " cunt grabs tightly at your fingers, covering them with her girlcum."
+                    `Her erections release in unison, and thick rivulets of semen cover your face, tongue and even the inside of your mouth.  Her ${
+                        this.hasBalls() ? "testicles twitch and pulse in your hand as her" : ""
+                    } cunt grabs tightly at your fingers, covering them with her girlcum.`
                 );
                 if (this.cumQ() > 1500)
                     this.outx(
@@ -9368,10 +9196,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
         this.outx(
-            "She kisses you again, her hands running down your back.  You worry that if this keeps going you may end up going another round immediately; separating yourself from the cat-herm with a kiss, " +
-                (this.isAt(Katherine.KLOC_DESERT)
+            `She kisses you again, her hands running down your back.  You worry that if this keeps going you may end up going another round immediately; separating yourself from the cat-herm with a kiss, ${
+                this.isAt(Katherine.KLOC_DESERT)
                     ? "you pack up the supplies and prepare for the trip back to Tel’Adre."
-                    : "you go your separate ways.")
+                    : "you go your separate ways."
+            }`
         );
         this.orgasm(); // minus lust, slimefeed, Player returns to camp
         this.flags[kFLAGS.KATHERINE_TIMES_SEXED]++;
@@ -9477,10 +9306,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
         this.outx(
-            "She kisses you again, her hands running down your back.  You worry that if this keeps going you may end up going another round immediately; separating yourself from the cat-herm with a kiss, " +
-                (this.isAt(Katherine.KLOC_DESERT)
+            `She kisses you again, her hands running down your back.  You worry that if this keeps going you may end up going another round immediately; separating yourself from the cat-herm with a kiss, ${
+                this.isAt(Katherine.KLOC_DESERT)
                     ? "you pack up the supplies and prepare for the trip back to Tel’Adre."
-                    : "you go your separate ways.")
+                    : "you go your separate ways."
+            }`
         );
         this.orgasm(); // minus lust, slimefeed, Player returns to camp
         this.flags[kFLAGS.KATHERINE_TIMES_SEXED]++;
@@ -9494,11 +9324,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         // Scene can happen in the streets or at Kath's apartment
         this.clearOutput();
         this.outx(
-            "You tell Katherine you'd like to see what she can do with her tongue.  The black cat blinks in surprise, then grins widely.  “<i>Well, that can be arranged...</i>”  She purrs, taking you by the arm and " +
-                (this.isAt(Katherine.KLOC_KATHS_APT)
+            `You tell Katherine you'd like to see what she can do with her tongue.  The black cat blinks in surprise, then grins widely.  “<i>Well, that can be arranged...</i>”  She purrs, taking you by the arm and ${
+                this.isAt(Katherine.KLOC_KATHS_APT)
                     ? "guiding you to her bed"
-                    : "leading you around to a specific crate") +
-                ".  Once you are seated and both of you are naked, she kneels in front of you.  “<i>Now, let's see what you have, my dear...</i>” she says, tail waving in the way that only a happy cat's does.\n\n"
+                    : "leading you around to a specific crate"
+            }.  Once you are seated and both of you are naked, she kneels in front of you.  “<i>Now, let's see what you have, my dear...</i>” she says, tail waving in the way that only a happy cat's does.\n\n`
         );
         if (this.player.hasCock() && (this.player.gender == 1 || Katherine.rand(2) == 0))
             this.doNext(this.katherineLicksAllTheBoyPenises);
@@ -9510,17 +9340,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         this.outx(this.images.showImage("katherine-eats-out-your-vagoo"));
         this.outx(
-            "She gently strokes the lips of your " +
-                this.vaginaDescript() +
-                ", then leans in and gives it a deep, wet lick.  You can't restrain a shiver at the sensation; Katherine's tongue is unlike anything you've seen in this world so far, broad and bristly, but not so hard that it hurts.  It's like lots of little tongues all licking you at the same time.\n\n"
+            `She gently strokes the lips of your ${this.vaginaDescript()}, then leans in and gives it a deep, wet lick.  You can't restrain a shiver at the sensation; Katherine's tongue is unlike anything you've seen in this world so far, broad and bristly, but not so hard that it hurts.  It's like lots of little tongues all licking you at the same time.\n\n`
         );
 
         this.outx(
-            "Without hesitation, she licks you again, and again, deep strokes that slide up from the very base of your cunny all the way to the tip, lingering on your " +
-                this.clitDescript() +
-                " and teasing your lovebutton.  You can't help but wrap your " +
-                this.player.legs() +
-                " around her head and pull her into your crotch, thrusting her face right into your cunt.\n\n"
+            `Without hesitation, she licks you again, and again, deep strokes that slide up from the very base of your cunny all the way to the tip, lingering on your ${this.clitDescript()} and teasing your lovebutton.  You can't help but wrap your ${this.player.legs()} around her head and pull her into your crotch, thrusting her face right into your cunt.\n\n`
         );
 
         this.outx(
@@ -9529,9 +9353,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
         if (this.player.cocks.length > 0)
             this.outx(
-                "At the same time your cock" +
-                    (this.player.cocks.length > 1 ? "s release their" : " releases its") +
-                    " load into the air, causing semen to rain down on the pair of you.\n\n"
+                `At the same time your cock${
+                    this.player.cocks.length > 1 ? "s release their" : " releases its"
+                } load into the air, causing semen to rain down on the pair of you.\n\n`
             );
 
         this.outx(
@@ -9552,13 +9376,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         this.outx(this.images.showImage("katherine-gives-you-blowjobs"));
         this.outx(
-            "She takes your shaft eagerly, gently stroking it with her fingers to coax it erect, then leaning in to lick the head with her softly bristled tongue, caressing and suckling at the " +
-                this.player.cockHead(x) +
-                "."
+            `She takes your shaft eagerly, gently stroking it with her fingers to coax it erect, then leaning in to lick the head with her softly bristled tongue, caressing and suckling at the ${this.player.cockHead(
+                x
+            )}.`
         );
         if (this.player.hasVagina()) {
             this.outx("  One of her hands slides down your shaft");
-            if (this.player.balls > 0) this.outx(", past your " + this.ballsDescriptLight() + ",");
+            if (this.player.balls > 0) this.outx(`, past your ${this.ballsDescriptLight()},`);
             this.outx(
                 " and gently begins to stroke your cunny, twiddling her fingers to heighten your pleasure by manipulating both sets of organs at once."
             );
@@ -9578,9 +9402,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.player.hasVagina()) {
             this.outx(
-                "  Her fingers stroke and piston inside you with the synchronicity only another hermaphrodite could have perfected, rolling your " +
-                    this.clitDescript() +
-                    " and sending further sparks of pleasure coursing through your brain."
+                `  Her fingers stroke and piston inside you with the synchronicity only another hermaphrodite could have perfected, rolling your ${this.clitDescript()} and sending further sparks of pleasure coursing through your brain.`
             );
         }
         this.outx("\n\n");
@@ -9603,20 +9425,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else
             this.outx(
-                "  You can see a hint of panic in her eyes at the titanic cascade of fluids coming from your " +
-                    this.cockDescript(x) +
-                    ", but it's drowned out by her determination to drink every last drop.  Her belly swells out like a waterskin being held in a waterfall, rivulets of cum flooding from her overwhelmed mouth, but she manages to hold on without taking the cock out of her mouth before you're finished.  Afterward, she detaches herself breathlessly from your cock and gives you a triumphant expression, and a faint burp."
+                `  You can see a hint of panic in her eyes at the titanic cascade of fluids coming from your ${this.cockDescript(
+                    x
+                )}, but it's drowned out by her determination to drink every last drop.  Her belly swells out like a waterskin being held in a waterfall, rivulets of cum flooding from her overwhelmed mouth, but she manages to hold on without taking the cock out of her mouth before you're finished.  Afterward, she detaches herself breathlessly from your cock and gives you a triumphant expression, and a faint burp.`
             );
         this.outx("\n\n");
 
         this.outx(
-            "Weakly, she collapses onto her " +
-                this.catGirl("smooth", "furry") +
-                "  behind on the ground, smiling up at you.  “<i>I take it you enjoyed that?</i>” she teases.  You admit she did very well, " +
-                (this.isAt(Katherine.KLOC_KATHS_APT)
+            `Weakly, she collapses onto her ${this.catGirl(
+                "smooth",
+                "furry"
+            )}  behind on the ground, smiling up at you.  “<i>I take it you enjoyed that?</i>” she teases.  You admit she did very well, ${
+                this.isAt(Katherine.KLOC_KATHS_APT)
                     ? "gently stroking her hair in thanks"
-                    : "helping her up and to her own 'bed'") +
-                ", then get dressed and head back out into Tel'Adre's streets."
+                    : "helping her up and to her own 'bed'"
+            }, then get dressed and head back out into Tel'Adre's streets.`
         );
         // lust -100 regardless of sex, return to wherever
         this.player.orgasm();
@@ -9641,9 +9464,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "Kath's tail twitches excitedly and she polishes off her drink, eager to see what you have in mind.\n\n"
             );
             this.outx(
-                "You take her hand and lead her outside, to " +
-                    (this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0 ? "that familiar" : "the") +
-                    " alleyway behind the Wet Bitch.\n\n"
+                `You take her hand and lead her outside, to ${
+                    this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0 ? "that familiar" : "the"
+                } alleyway behind the Wet Bitch.\n\n`
             );
             this.outx(
                 "She looks a little worried about getting caught, but she's too excited to refuse you.\n\nAs you stand there in the alley you "
@@ -9664,31 +9487,27 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
         this.outx(
-            "\n\nKatherine grins and " +
-                (this.isAt(Katherine.KLOC_KATHS_APT)
+            `\n\nKatherine grins and ${
+                this.isAt(Katherine.KLOC_KATHS_APT)
                     ? "stretches out on her bed"
-                    : "sits on the ground") +
-                "; then bends over in a way that looks like she could lick her butt.  “<i>Flexible enough for you?</i>”\n\n"
+                    : "sits on the ground"
+            }; then bends over in a way that looks like she could lick her butt.  “<i>Flexible enough for you?</i>”\n\n`
         );
 
         this.outx(
-            "You can't resist a laugh; it looks like she is.  Carefully removing and setting your " +
-                this.player.armorName +
-                " aside, "
+            `You can't resist a laugh; it looks like she is.  Carefully removing and setting your ${this.player.armorName} aside, `
         );
         if (this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX)) {
             this.outx(
-                "you position yourself the same as last time; Kath's legs wrapped around your lower body, her honeypot aligned with your own.  She carefully slides " +
-                    this.cockMultiple("one of ", "") +
-                    "her " +
-                    this.cockType() +
-                    "-pecker" +
-                    this.cockMultiple("", "s") +
-                    " towards your " +
-                    this.vaginaDescript() +
-                    ".  You do the same, pointing the tip of your " +
-                    this.cockDescript(x) +
-                    " to her drooling cunt.  You can hear her breathing softly, keeping herself calm, and you try to do the same.\n\n"
+                `you position yourself the same as last time; Kath's legs wrapped around your lower body, her honeypot aligned with your own.  She carefully slides ${this.cockMultiple(
+                    "one of ",
+                    ""
+                )}her ${this.cockType()}-pecker${this.cockMultiple(
+                    "",
+                    "s"
+                )} towards your ${this.vaginaDescript()}.  You do the same, pointing the tip of your ${this.cockDescript(
+                    x
+                )} to her drooling cunt.  You can hear her breathing softly, keeping herself calm, and you try to do the same.\n\n`
             );
             this.outx(
                 "Kath moans as the tips of both your cock and hers slip into place.  In a worried tone she says, “<i>um... after last time I don't think I'll be able to hold back.  We're probably going to wind up knotted like this.</i>”  Rather than replying you just shove your cock a little deeper.\n\nKatherine gives you a quick hug, then she"
@@ -9703,30 +9522,26 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outx("You do as she says, ");
             if (this.player.isNaga()) this.outx("curling your naga tail back");
             else if (this.player.isGoo()) this.outx("shifting your gooey blob");
-            else this.outx("lifting your " + this.player.leg() + " up");
+            else this.outx(`lifting your ${this.player.leg()} up`);
             this.outx(
-                " so she has access to both your " +
-                    this.vaginaDescript(0) +
-                    " and your " +
-                    this.cockDescript(x) +
-                    ".\n\n"
+                ` so she has access to both your ${this.vaginaDescript(
+                    0
+                )} and your ${this.cockDescript(x)}.\n\n`
             );
             this.outx(
-                "Katherine lies down across from you and wraps her legs around your own lower body, her honeypot aligned with your own.  “<i>Okay... now push your dick down like this...</i>” she says, shoving " +
-                    this.cockMultiple("one of ", "") +
-                    "her own " +
-                    this.cockType() +
-                    "-pecker" +
-                    this.cockMultiple("", "s") +
-                    " towards your " +
-                    this.vaginaDescript() +
-                    ", slowly teasing you with the tip.\n\n"
+                `Katherine lies down across from you and wraps her legs around your own lower body, her honeypot aligned with your own.  “<i>Okay... now push your dick down like this...</i>” she says, shoving ${this.cockMultiple(
+                    "one of ",
+                    ""
+                )}her own ${this.cockType()}-pecker${this.cockMultiple(
+                    "",
+                    "s"
+                )} towards your ${this.vaginaDescript()}, slowly teasing you with the tip.\n\n`
             );
 
             this.outx(
-                "You repeat the gesture, pointing the tip of your " +
-                    this.cockDescript(x) +
-                    " to her drooling cunt.  You can hear her breathing softly, keeping herself calm, and try to do the same... which is when something occurs to you, and you ask her what the two of you are supposed to do about her knot.  You're not sure that the two of you tying yourselves in this position would be such a good idea, after all.\n\n"
+                `You repeat the gesture, pointing the tip of your ${this.cockDescript(
+                    x
+                )} to her drooling cunt.  You can hear her breathing softly, keeping herself calm, and try to do the same... which is when something occurs to you, and you ask her what the two of you are supposed to do about her knot.  You're not sure that the two of you tying yourselves in this position would be such a good idea, after all.\n\n`
             );
 
             this.outx(
@@ -9738,13 +9553,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "Shivering with delight as her hot, soaking wet walls envelop your " +
-                Appearance.cockNoun(CockTypesEnum.HUMAN) +
-                " and her " +
-                this.cockType("rubbery, pointy dog", "narrow, barbed kitty") +
-                "-cock slides into your " +
-                this.vaginaDescript() +
-                ", you need no further encouragement, eagerly pumping your hips against hers, trying to push into her and push her into you without letting either cock slip free of its appointed hole.  Katherine gyrates her hips, attempting to stimulate both your parts, panting in pleasure.\n\n"
+            `Shivering with delight as her hot, soaking wet walls envelop your ${Appearance.cockNoun(
+                CockTypesEnum.HUMAN
+            )} and her ${this.cockType(
+                "rubbery, pointy dog",
+                "narrow, barbed kitty"
+            )}-cock slides into your ${this.vaginaDescript()}, you need no further encouragement, eagerly pumping your hips against hers, trying to push into her and push her into you without letting either cock slip free of its appointed hole.  Katherine gyrates her hips, attempting to stimulate both your parts, panting in pleasure.\n\n`
         );
 
         this.outx(
@@ -9758,20 +9572,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "“<i>" +
-                (this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX) ? "Mmmm" : "S-Sorry") +
-                "...</i>” Katherine replies, holding back a moan and a thrust.  She pushes herself away just enough to let her knot slip free and continues gyrating her hips.  You resume working yours in turn, matching her pace so that her cock slides fully inside you and you can slide your cock fully inside her - at least, as fully as possible without once again taking in her knot... or not.  Katherine gasps and pulls you all the way inside her once more, once again slipping her knot inside you.  You cry out in pleasure; you can't bring yourself to care that you've been knotted once again, you're just too delighted to be truly full at last, to be fully sheathed at last - it's indescribable!\n\n"
+            `“<i>${
+                this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX) ? "Mmmm" : "S-Sorry"
+            }...</i>” Katherine replies, holding back a moan and a thrust.  She pushes herself away just enough to let her knot slip free and continues gyrating her hips.  You resume working yours in turn, matching her pace so that her cock slides fully inside you and you can slide your cock fully inside her - at least, as fully as possible without once again taking in her knot... or not.  Katherine gasps and pulls you all the way inside her once more, once again slipping her knot inside you.  You cry out in pleasure; you can't bring yourself to care that you've been knotted once again, you're just too delighted to be truly full at last, to be fully sheathed at last - it's indescribable!\n\n`
         );
 
         this.outx(
-            "“<i>S-Sorry " +
-                this.player.short +
-                (this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX)
+            `“<i>S-Sorry ${this.player.short}${
+                this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX)
                     ? ", but I'm not pulling out"
-                    : ", I just can't... ah... I promise I'll pull out before we tie") +
-                ",</i>” Katherine says, doing her best to bump against you with all the strength she can muster.  You just automatically tell her it's all right, too lost in thrusting back against her with all your strength, mashing pelvis against pelvis with bestial desire, spurred on by instincts older than humanity.  With a final yowl of pleasure, you feel Katherine's knot swell inside you and her pussy clench around your " +
-                this.cockDescript(x) +
-                ".  Then a flood of feline cum and juices splashes in and against you, prompting a cry of your own; you surrender to your own climax, cum "
+                    : ", I just can't... ah... I promise I'll pull out before we tie"
+            },</i>” Katherine says, doing her best to bump against you with all the strength she can muster.  You just automatically tell her it's all right, too lost in thrusting back against her with all your strength, mashing pelvis against pelvis with bestial desire, spurred on by instincts older than humanity.  With a final yowl of pleasure, you feel Katherine's knot swell inside you and her pussy clench around your ${this.cockDescript(
+                x
+            )}.  Then a flood of feline cum and juices splashes in and against you, prompting a cry of your own; you surrender to your own climax, cum `
         );
         if (this.player.cumQ() <= 50) this.outx("surging");
         else if (this.player.cumQ() <= 250) this.outx("gushing");
@@ -9781,9 +9594,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         else if (this.player.wetness() <= 4) this.outx("spurting");
         else this.outx("gushing");
         this.outx(
-            " from your cunt, striving to milk your " +
-                this.catGirl("cat girl", "anthropomorphic") +
-                " lover and be milked by her in turn.\n\n"
+            ` from your cunt, striving to milk your ${this.catGirl(
+                "cat girl",
+                "anthropomorphic"
+            )} lover and be milked by her in turn.\n\n`
         );
 
         if (this.cumQ() <= 500)
@@ -9822,9 +9636,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (this.cumQ() > 1500)
             this.outx(", and not because your swollen stomach is weighing you down, either");
         this.outx(
-            ".  Katherine's knotty cock has locked her into your " +
-                this.vaginaDescript() +
-                ", leaving you tied together like a dog and his bitch.  "
+            `.  Katherine's knotty cock has locked her into your ${this.vaginaDescript()}, leaving you tied together like a dog and his bitch.  `
         );
         if (this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX)) {
             this.outx(
@@ -9840,9 +9652,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "Katherine gulps audibly.  “<i>S-Sorry " +
-                    this.player.short +
-                    ".  It's just that... it felt so good... and I got carried away... sorry...</i>”  You tell her it's a bit disappointing, but you'll both live.  Besides, it's not as if it wasn't enjoyable.\n\n"
+                `Katherine gulps audibly.  “<i>S-Sorry ${this.player.short}.  It's just that... it felt so good... and I got carried away... sorry...</i>”  You tell her it's a bit disappointing, but you'll both live.  Besides, it's not as if it wasn't enjoyable.\n\n`
             );
 
             this.outx(
@@ -9854,14 +9664,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "Once she's done with your pussy, she moves on to your " +
-                this.cockDescript(x) +
-                ", taking the tip into her mouth and suckling on it to drain the last bits of cum from your shaft, then she lets go of your " +
-                this.player.cockHead(x) +
-                " and begins licking the shaft, cleaning you all the way from the base up"
+            `Once she's done with your pussy, she moves on to your ${this.cockDescript(
+                x
+            )}, taking the tip into her mouth and suckling on it to drain the last bits of cum from your shaft, then she lets go of your ${this.player.cockHead(
+                x
+            )} and begins licking the shaft, cleaning you all the way from the base up`
         );
         if (this.player.balls > 0)
-            this.outx(", and even licking your " + this.ballsDescriptLight() + " clean");
+            this.outx(`, and even licking your ${this.ballsDescriptLight()} clean`);
         this.outx(".  You moan and shudder and buck your hips at her ministrations; your ");
         if (this.player.balls > 0) this.outx("balls are still depleted");
         else this.outx("cock is still almost totally empty");
@@ -9870,9 +9680,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "Realizing your cock is hardening up again, Katherine gives you a mischievous grin and opens her maw to take in all of you deep into her throat, giving your " +
-                this.cockDescript(x) +
-                " a loud, wet slurp before sucking on you sharply.\n\n"
+            `Realizing your cock is hardening up again, Katherine gives you a mischievous grin and opens her maw to take in all of you deep into her throat, giving your ${this.cockDescript(
+                x
+            )} a loud, wet slurp before sucking on you sharply.\n\n`
         );
 
         this.outx(
@@ -9890,11 +9700,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("You nod again unthinkingly.\n\n");
 
         this.outx(
-            "Katherine rolls you on your back and begins licking your belly, cleaning you of the sweat produced by your vigorous fucking earlier.  She moves through your " +
-                this.chestDesc() +
-                ", stopping shortly to give each of your " +
-                this.nippleDescript(0) +
-                "s a little peck.  Then she continues to your neck and face.\n\n"
+            `Katherine rolls you on your back and begins licking your belly, cleaning you of the sweat produced by your vigorous fucking earlier.  She moves through your ${this.chestDesc()}, stopping shortly to give each of your ${this.nippleDescript(
+                0
+            )}s a little peck.  Then she continues to your neck and face.\n\n`
         );
 
         this.outx(
@@ -9902,21 +9710,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.player.isNaga() || this.player.tailType == TAIL_TYPE_DEMONIC)
             this.outx("the tip of your tail");
-        else this.outx("your " + this.buttDescript());
+        else this.outx(`your ${this.buttDescript()}`);
         this.outx(
-            ", she finishes.  Katherine grins and happily declares, “<i>There you go, you're clean now!" +
-                (this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX)
+            `, she finishes.  Katherine grins and happily declares, “<i>There you go, you're clean now!${
+                this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX)
                     ? ""
-                    : "Sorry for breaking my promise and knotting you.") +
-                "</i>”\n\n"
+                    : "Sorry for breaking my promise and knotting you."
+            }</i>”\n\n`
         );
 
         this.outx(
-            "Sitting up, you can't resist reaching over and ruffling her ears in a way that the cats you've met always liked, telling her that if this is how she'll apologize for " +
-                (this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX)
+            `Sitting up, you can't resist reaching over and ruffling her ears in a way that the cats you've met always liked, telling her that if this is how she'll apologize for ${
+                this.hasAlready(Katherine.KBIT_TRIED_DOUBLE_HELIX)
                     ? "knotting you, you don't mind her doing so again and again"
-                    : "it, you don't mind her doing so again") +
-                ".\n\n"
+                    : "it, you don't mind her doing so again"
+            }.\n\n`
         );
 
         this.outx(
@@ -9979,12 +9787,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         }
 
         if (this.breasts.lactationLevel == BreastStore.LACTATION_NONE) {
-            this.outx(this.breasts.adj() + " breasts.\n\n");
+            this.outx(`${this.breasts.adj()} breasts.\n\n`);
             if (!this.milkOption(Katherine.KBIT_MILK_TOLD_PLAYER_SHES_DRY)) {
                 this.outx(
-                    "“<i>I'm sorry " +
-                        this.playerText() +
-                        ", I've kind of run out.  I didn't even notice I was drying up and then one day my breasts just didn't feel as full.</i>”\n\n"
+                    `“<i>I'm sorry ${this.playerText()}, I've kind of run out.  I didn't even notice I was drying up and then one day my breasts just didn't feel as full.</i>”\n\n`
                 );
                 this.outx(
                     "She looks worried, probably afraid you'll be unhappy with her, but then she brightens up and adds, "
@@ -9996,38 +9802,37 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         } else if (this.breasts.milkIsOverflowing()) {
             if (this.breasts.lactationLevel >= BreastStore.LACTATION_STRONG) {
-                this.outx(this.breasts.adj() + ", milk-laden breasts.\n\n");
+                this.outx(`${this.breasts.adj()}, milk-laden breasts.\n\n`);
                 this.outx(
-                    "You can see the telltale stains from where Katherine's breasts have leaked some of their massive load.  Your favorite " +
-                        this.catGirl("cat girl", "kitty") +
-                        " even smells like cream.\n\n"
+                    `You can see the telltale stains from where Katherine's breasts have leaked some of their massive load.  Your favorite ${this.catGirl(
+                        "cat girl",
+                        "kitty"
+                    )} even smells like cream.\n\n`
                 );
                 this.outx(
-                    "“<i>Yes, yes, yes!  Oh, " +
-                        this.playerText() +
-                        " I'm so full.  I'm stuffed with cream and it's all because of you.  Please " +
-                        (this.playerMaster()
+                    `“<i>Yes, yes, yes!  Oh, ${this.playerText()} I'm so full.  I'm stuffed with cream and it's all because of you.  Please ${
+                        this.playerMaster()
                             ? "drain me, [master], don't leave me like this."
-                            : "help me.") +
-                        "</i>”\n\n"
+                            : "help me."
+                    }</i>”\n\n`
                 );
             } else {
-                this.outx(this.breasts.adj() + ", milk-laden breasts.\n\n");
+                this.outx(`${this.breasts.adj()}, milk-laden breasts.\n\n`);
                 this.outx(
                     "“<i>Oh thank you!  I need this, I'm always so full.  If I had any more milk saved up I'd almost need to feed it to someone.</i>”\n\n"
                 );
             }
         } else if (this.breasts.milkIsFull()) {
-            this.outx(this.breasts.adj() + " breasts.\n\n");
+            this.outx(`${this.breasts.adj()} breasts.\n\n`);
             this.outx(
                 "“<i>Mmmm - I've been hoping you'd stop by.  When my breasts fill up my nipples get stiff and sensitive, like they want some attention.</i>”\n\n"
             );
         } else {
-            this.outx(this.breasts.adj() + " breasts.\n\n");
+            this.outx(`${this.breasts.adj()} breasts.\n\n`);
             this.outx(
-                "“<i>I don't really <b>need</b> a milking... but I'll never turn you down" +
-                    (this.playerMaster() ? ", [master]" : "") +
-                    " - especially when you're offering to suck on my nipples.</i>”\n\n"
+                `“<i>I don't really <b>need</b> a milking... but I'll never turn you down${
+                    this.playerMaster() ? ", [master]" : ""
+                } - especially when you're offering to suck on my nipples.</i>”\n\n`
             );
         }
 
@@ -10037,29 +9842,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.isAt(Katherine.KLOC_BAR_URTA_REFUSED)
         ) {
             this.outx(
-                "You get up and move to Katherine's side of the booth.  Before you can even sit down Kath has begun " +
-                    this.clothesChoice(
-                        "sliping off her blouse",
-                        "wriggling out of the upper part of her bodysuit",
-                        "opening the bodice of her dress",
-                        "opening the top of her silk robe",
-                        "removing her tube top",
-                        "removing her nurse's top"
-                    ) +
-                    ".  The flicking of Kath's tail tells you how excited she is as she finally removes her bra and exposes her chest.\n\n"
+                `You get up and move to Katherine's side of the booth.  Before you can even sit down Kath has begun ${this.clothesChoice(
+                    "sliping off her blouse",
+                    "wriggling out of the upper part of her bodysuit",
+                    "opening the bodice of her dress",
+                    "opening the top of her silk robe",
+                    "removing her tube top",
+                    "removing her nurse's top"
+                )}.  The flicking of Kath's tail tells you how excited she is as she finally removes her bra and exposes her chest.\n\n`
             );
         } else if (this.isAt(Katherine.KLOC_KATHS_APT)) {
             this.outx(
-                "Kath puts on a little show as she " +
-                    this.clothesChoice(
-                        "slips off her blouse",
-                        "wriggles out of the upper part of her bodysuit",
-                        "opens the bodice of her dress",
-                        "opens the top of her silk robe",
-                        "removes her tube top",
-                        "removes her nurse's top"
-                    ) +
-                    ".  The flicking of Kath's tail tells you how excited she is as she finally removes her bra and exposes her chest.\n\n"
+                `Kath puts on a little show as she ${this.clothesChoice(
+                    "slips off her blouse",
+                    "wriggles out of the upper part of her bodysuit",
+                    "opens the bodice of her dress",
+                    "opens the top of her silk robe",
+                    "removes her tube top",
+                    "removes her nurse's top"
+                )}.  The flicking of Kath's tail tells you how excited she is as she finally removes her bra and exposes her chest.\n\n`
             );
         } else {
             // She must have been on patrol
@@ -10070,11 +9871,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
         if (this.player.cor < 25) {
             this.outx(
-                "Gently, you guide Kath's hands to her sides.  She leans back, content to let you take the lead.  You hold her breasts in your hands and stroke her nipples with your thumbs.  They were erect to begin with, but now they turn a deeper pink, begging for more attention.  When you seal your lips against her " +
-                    (Katherine.rand(2) == 0 ? "left" : "right") +
-                    " nipple Kath closes her eyes and purrs.\n\n"
+                `Gently, you guide Kath's hands to her sides.  She leans back, content to let you take the lead.  You hold her breasts in your hands and stroke her nipples with your thumbs.  They were erect to begin with, but now they turn a deeper pink, begging for more attention.  When you seal your lips against her ${
+                    Katherine.rand(2) == 0 ? "left" : "right"
+                } nipple Kath closes her eyes and purrs.\n\n`
             );
-            this.outx("You massage her " + this.breasts.adj() + " mammaries, ");
+            this.outx(`You massage her ${this.breasts.adj()} mammaries, `);
             if (this.breasts.lactationLevel == BreastStore.LACTATION_NONE) {
                 this.outx(
                     "sucking gently and enjoying Katherine's thick, rich cream.  If you keep this up then hopefully someday soon Kath's breasts will fill with even more cream."
@@ -10102,15 +9903,15 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         } else if (this.player.cor < 75) {
             this.outx(
-                "Eager to begin you push Kath's hands away and replace them with your own.  She leans back, her eyes begging for more.  You rub her nipples and give her breasts a little squeeze" +
-                    (this.breasts.milkIsFull()
+                `Eager to begin you push Kath's hands away and replace them with your own.  She leans back, her eyes begging for more.  You rub her nipples and give her breasts a little squeeze${
+                    this.breasts.milkIsFull()
                         ? ", watching the creamy droplets cascade from her bosom.  You give her a devilish grin and fix"
-                        : " before fixing") +
-                    " your lips to her " +
-                    (Katherine.rand(2) == 0 ? "left" : "right") +
-                    " nipple.  Kath sighs as you begin to suckle.\n\n"
+                        : " before fixing"
+                } your lips to her ${
+                    Katherine.rand(2) == 0 ? "left" : "right"
+                } nipple.  Kath sighs as you begin to suckle.\n\n`
             );
-            this.outx("You stroke her " + this.breasts.adj() + " mammaries");
+            this.outx(`You stroke her ${this.breasts.adj()} mammaries`);
             if (this.breasts.lactationLevel == BreastStore.LACTATION_NONE) {
                 this.outx(" and suck vigorously, keen to bring back her heavenly cream.\n\n");
             } else if (
@@ -10140,14 +9941,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             if (this.breasts.lactationLevel == BreastStore.LACTATION_NONE) {
                 this.outx(
-                    "So her body decided to stop making cream, did it?  You know how to fix that!  You start rolling her nipples between your thumbs and fingers, yanking and pinching hard enough to draw little mewls from Katherine.  You knead her titflesh to remind her what it's for.  Finally you latch on to her " +
-                        (Katherine.rand(2) == 0 ? "left" : "right") +
-                        " nipple and begin to suck - hard.\n\n"
+                    `So her body decided to stop making cream, did it?  You know how to fix that!  You start rolling her nipples between your thumbs and fingers, yanking and pinching hard enough to draw little mewls from Katherine.  You knead her titflesh to remind her what it's for.  Finally you latch on to her ${
+                        Katherine.rand(2) == 0 ? "left" : "right"
+                    } nipple and begin to suck - hard.\n\n`
                 );
                 this.outx(
-                    "You kneed her " +
-                        this.breasts.adj() +
-                        " mammaries, hoping that with enough abuse you can force them to start producing again.\n\n"
+                    `You kneed her ${this.breasts.adj()} mammaries, hoping that with enough abuse you can force them to start producing again.\n\n`
                 );
             } else if (
                 (this.breasts.milkIsOverflowing() &&
@@ -10168,14 +9967,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
                 }
                 this.outx(
-                    " onto her " +
-                        (Katherine.rand(2) == 0 ? "left" : "right") +
-                        " nipple, ready to begin your feast in earnest.\n\n"
+                    ` onto her ${
+                        Katherine.rand(2) == 0 ? "left" : "right"
+                    } nipple, ready to begin your feast in earnest.\n\n`
                 );
                 this.outx(
-                    "You kneed her " +
-                        this.breasts.adj() +
-                        " mammaries to force the creamy goodness into your mouth."
+                    `You kneed her ${this.breasts.adj()} mammaries to force the creamy goodness into your mouth.`
                 );
                 if (this.breasts.lactationLevel >= BreastStore.LACTATION_HEAVY)
                     this.outx(
@@ -10183,14 +9980,12 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
             } else {
                 this.outx(
-                    "You cup her breasts and give them a squeeze to get things moving.  A few drops of kitty cream appear on the tips of her nipples which you lick off with your tongue.  Katherine sighs contentedly, so you give her nipples a good hard pinch to remind her who she's dealing with.  She lets out a cute little mewl and you latch onto her " +
-                        (Katherine.rand(2) == 0 ? "left" : "right") +
-                        " nipple, ready to begin your feast in earnest.\n\n"
+                    `You cup her breasts and give them a squeeze to get things moving.  A few drops of kitty cream appear on the tips of her nipples which you lick off with your tongue.  Katherine sighs contentedly, so you give her nipples a good hard pinch to remind her who she's dealing with.  She lets out a cute little mewl and you latch onto her ${
+                        Katherine.rand(2) == 0 ? "left" : "right"
+                    } nipple, ready to begin your feast in earnest.\n\n`
                 );
                 this.outx(
-                    "You kneed her " +
-                        this.breasts.adj() +
-                        " mammaries to force the creamy goodness into your mouth and Kath's succulent nipples do not disappoint."
+                    `You kneed her ${this.breasts.adj()} mammaries to force the creamy goodness into your mouth and Kath's succulent nipples do not disappoint.`
                 );
             }
             this.outx(
@@ -10206,21 +10001,20 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "In a drowsy, blissful tone Kath says, “<i>Mmmm, you wanted my cream?  I'm happy to oblige.</i>”\n\n"
             );
             this.outx(
-                "To make sure she doesn't dry up you suckle for a few more minutes, switching from nipple to nipple while your fingers tease the sensitive undersides of her " +
-                    this.breasts.adj() +
-                    " breasts."
+                `To make sure she doesn't dry up you suckle for a few more minutes, switching from nipple to nipple while your fingers tease the sensitive undersides of her ${this.breasts.adj()} breasts.`
             );
         }
 
         this.outx(
-            "When you finally pull away Kath sighs contentedly.  “<i>Thank" +
-                (this.playerMaster() ? " you [master]" : "s " + this.player.short)
+            `When you finally pull away Kath sighs contentedly.  “<i>Thank${
+                this.playerMaster() ? " you [master]" : `s ${this.player.short}`
+            }`
         );
         if (this.breasts.lactationLevel == BreastStore.LACTATION_NONE) {
             this.outx(
-                ", I hope I start making milk again, it's a shame you don't get a reward for all that effort,</i>” she says, rubbing her sore nipples" +
-                    (this.isAt(Katherine.KLOC_KATHS_APT) ? "" : " before covering herself up") +
-                    "."
+                `, I hope I start making milk again, it's a shame you don't get a reward for all that effort,</i>” she says, rubbing her sore nipples${
+                    this.isAt(Katherine.KLOC_KATHS_APT) ? "" : " before covering herself up"
+                }.`
             );
             if (this.isAt(Katherine.KLOC_KATHS_APT))
                 this.outx(
@@ -10239,22 +10033,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     );
                 else
                     this.outx(
-                        "  You leave her breasts exposed and shift her shoulders so her chest is on display for all to see.  You get a few appreciative smiles and some raised glasses as the patrons commit Kath's " +
-                            this.breasts.adj() +
-                            " breasts to memory."
+                        `  You leave her breasts exposed and shift her shoulders so her chest is on display for all to see.  You get a few appreciative smiles and some raised glasses as the patrons commit Kath's ${this.breasts.adj()} breasts to memory.`
                     );
                 this.outx(
-                    "  After a little catnap she comes around and takes in the bar.  She puts " +
-                        this.clothesChoice(
-                            "her bra and blouse back on",
-                            "on her bra and wriggles back into the bodysuit",
-                            "on her bra and does up the bodice of her dress",
-                            "her bra back on and closes up her robe",
-                            "her bra and tube top back on",
-                            "her bra and nurse's top back on"
-                        ) +
-                        (this.player.cor < 75 ? "" : ", looking a little sheepish") +
-                        ".\n\n"
+                    `  After a little catnap she comes around and takes in the bar.  She puts ${this.clothesChoice(
+                        "her bra and blouse back on",
+                        "on her bra and wriggles back into the bodysuit",
+                        "on her bra and does up the bodice of her dress",
+                        "her bra back on and closes up her robe",
+                        "her bra and tube top back on",
+                        "her bra and nurse's top back on"
+                    )}${this.player.cor < 75 ? "" : ", looking a little sheepish"}.\n\n`
                 );
             } else if (this.isAt(Katherine.KLOC_KATHS_APT)) {
                 this.outx("\n\n");
@@ -10274,9 +10063,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
         } else {
             this.outx(
-                ", that was just what I wanted,</i>” she says, as she " +
-                    (this.isAt(Katherine.KLOC_KATHS_APT) ? "" : "covers up and ") +
-                    "snuggles up against you.\n\n"
+                `, that was just what I wanted,</i>” she says, as she ${
+                    this.isAt(Katherine.KLOC_KATHS_APT) ? "" : "covers up and "
+                }snuggles up against you.\n\n`
             );
             if (this.isAt(Katherine.KLOC_KATHS_APT))
                 this.outx(
@@ -10295,11 +10084,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.flags[kFLAGS.NIAMH_STATUS] == 0
             )
                 this.outx(
-                    "You notice " +
-                        (this.flags[kFLAGS.MET_NIAMH] == 0
-                            ? "the huge breasted cat girl"
-                            : "Niamh") +
-                        " rubbing her own mammaries enviously.  "
+                    `You notice ${
+                        this.flags[kFLAGS.MET_NIAMH] == 0 ? "the huge breasted cat girl" : "Niamh"
+                    } rubbing her own mammaries enviously.  `
                 );
             this.outx(
                 "Unfortunately you have places to be, portals to check on.  You give Katherine a kiss and her tail a little stroke before heading back to camp."
@@ -10323,11 +10110,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.clearOutput();
         this.outx(this.images.showImage("katherine-suckles-you"));
         this.outx(
-            "Feeling your " +
-                this.chestDesc() +
-                " and the milky goodness within, you ask Katherine if she likes milk the way her fellows do.  When the cat-morph gives you a puzzled look, you remove the upper part of your " +
-                this.player.armorName +
-                " and, fondling your tits with a smirk, tell her that you could use a little relief.\n\n"
+            `Feeling your ${this.chestDesc()} and the milky goodness within, you ask Katherine if she likes milk the way her fellows do.  When the cat-morph gives you a puzzled look, you remove the upper part of your ${
+                this.player.armorName
+            } and, fondling your tits with a smirk, tell her that you could use a little relief.\n\n`
         );
 
         this.outx("Katherine's eyes widen with shock, and she smiles in disbelieving delight, ");
@@ -10338,23 +10123,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         ) {
             // At the bar
             this.outx(
-                "moving to your side of the bench.  She cups your breasts and lifts them to get a sense of how much milk you've got stored up.  “<i>Of course I love milk.  What a silly question - and you know I love your milk most of all, " +
-                    this.playerText() +
-                    "</i>”\n\n"
+                `moving to your side of the bench.  She cups your breasts and lifts them to get a sense of how much milk you've got stored up.  “<i>Of course I love milk.  What a silly question - and you know I love your milk most of all, ${this.playerText()}</i>”\n\n`
             );
             this.outx(
-                "Katherine starts to play with your nipples and runs her " +
-                    this.catGirl("smooth fingers", "finger pads") +
-                    " over your breasts, causing a trickle of milk to leak out.\n\n"
+                `Katherine starts to play with your nipples and runs her ${this.catGirl(
+                    "smooth fingers",
+                    "finger pads"
+                )} over your breasts, causing a trickle of milk to leak out.\n\n`
             );
             this.outx("Not wanting to wait any longer you");
         } else {
             this.outx(
-                "quickly striding over and waiting, impatiently, as you " +
-                    (this.isAt(Katherine.KLOC_KATHS_APT)
+                `quickly striding over and waiting, impatiently, as you ${
+                    this.isAt(Katherine.KLOC_KATHS_APT)
                         ? "position yourself on her bed"
-                        : "find a comfortable position and sit down") +
-                    ".  Once you have, she wastes no time in plopping down in front of you.  She nuzzles her cheek against your breast but then, to your amazement, shyly backs away.\n\n"
+                        : "find a comfortable position and sit down"
+                }.  Once you have, she wastes no time in plopping down in front of you.  She nuzzles her cheek against your breast but then, to your amazement, shyly backs away.\n\n`
             );
             this.outx(
                 "“<i>I... um... is this really okay?</i>” she asks, her voice barely above a whisper.  With a hint of exasperation you roll "
@@ -10363,9 +10147,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.outx("your eyes and");
         }
         this.outx(
-            " gently take her by the cheeks, insistently bringing her head close so that her lips are bumping right against your " +
-                this.nippleDescript(0) +
-                "s.  She takes the obvious hint and eagerly swallows it, eyes closing as she leans in and starts to suckle.  Purring with contentment, she sends the most delicious vibrations into your breasts, her rough, bristly tongue stroking and caressing to help coax your body into giving up its sweet, rich milk.\n\n"
+            ` gently take her by the cheeks, insistently bringing her head close so that her lips are bumping right against your ${this.nippleDescript(
+                0
+            )}s.  She takes the obvious hint and eagerly swallows it, eyes closing as she leans in and starts to suckle.  Purring with contentment, she sends the most delicious vibrations into your breasts, her rough, bristly tongue stroking and caressing to help coax your body into giving up its sweet, rich milk.\n\n`
         );
 
         this.outx(
@@ -10411,11 +10195,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.flags[kFLAGS.NIAMH_STATUS] == 0
             )
                 this.outx(
-                    ".  You notice " +
-                        (this.flags[kFLAGS.MET_NIAMH] == 0
-                            ? "the huge breasted cat girl"
-                            : "Niamh") +
-                        " rubbing her own mammaries enviously"
+                    `.  You notice ${
+                        this.flags[kFLAGS.MET_NIAMH] == 0 ? "the huge breasted cat girl" : "Niamh"
+                    } rubbing her own mammaries enviously`
                 );
         }
         this.outx(
@@ -10497,20 +10279,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You blink your eyes.  Ugh - even that hurts!  You can’t see anyone in front of you, but then you hear someone take a step towards you.  A male cat morph, perhaps even one of the ones who was threatening the younger woman, stands over you with a wooden plank in one hand."
         );
         this.outx(
-            "\n\nA soft voice calls out, “<i>Don’t! You hit " +
-                this.player.mf("him", "her") +
-                " awfully hard last time.  Evelyn will give you the boot if you kill " +
-                this.player.mf("him", "her") +
-                ".</i>”"
+            `\n\nA soft voice calls out, “<i>Don’t! You hit ${this.player.mf(
+                "him",
+                "her"
+            )} awfully hard last time.  Evelyn will give you the boot if you kill ${this.player.mf(
+                "him",
+                "her"
+            )}.</i>”`
         );
         this.outx(
-            "\n\nHe rolls his eyes, tosses the plank to the side and says, “<i>Fine - But if " +
-                this.player.mf("he", "she") +
-                "’s awake " +
-                this.player.mf("he", "she") +
-                " could get away.  You stay here and watch " +
-                this.player.mf("him", "her") +
-                ".</i>”"
+            `\n\nHe rolls his eyes, tosses the plank to the side and says, “<i>Fine - But if ${this.player.mf(
+                "he",
+                "she"
+            )}’s awake ${this.player.mf(
+                "he",
+                "she"
+            )} could get away.  You stay here and watch ${this.player.mf("him", "her")}.</i>”`
         );
         this.outx(
             "\n\n“<i>You’ll put some milk aside for me, right?</i>” the voice asks, worried but hopeful."
@@ -10841,9 +10625,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             "You cross your arms and tell Evelyn that her little ambush isn’t going to work a second time.  They can either scram, now, and set up in some other alley, or they can try and take you."
         );
         this.outx(
-            "\n\nSome of the cats look like they’re sizing you up but Evelyn speaks quickly to keep them in line.  “<i>This one’s more trouble than " +
-                this.player.mf("he", "she") +
-                "’s worth.  Grab the stuff and we'll set up somewhere else.  There’s more fish in the sea.</i>”"
+            `\n\nSome of the cats look like they’re sizing you up but Evelyn speaks quickly to keep them in line.  “<i>This one’s more trouble than ${this.player.mf(
+                "he",
+                "she"
+            )}’s worth.  Grab the stuff and we'll set up somewhere else.  There’s more fish in the sea.</i>”`
         );
         this.outx(
             "\n\nWhile she’s talking you see Kath wink at you.  You wait for the cat morph gang to clear out then walk out onto the street.  Soon enough you hear some footsteps behind you. Katherine is there, alone.  “<i>Hi,</i>” she says.  “<i>I, um, was wondering if I’d see you again.</i>”"
@@ -10980,9 +10765,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 "Kath's tail twitches excitedly and she polishes off her drink, eager to see what you have in mind.\n\n"
             );
             this.outx(
-                "You take her hand and lead her outside, to " +
-                    (this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0 ? "that familiar" : "the") +
-                    " alleyway behind the Wet Bitch.\n\n"
+                `You take her hand and lead her outside, to ${
+                    this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0 ? "that familiar" : "the"
+                } alleyway behind the Wet Bitch.\n\n`
             );
             this.outx(
                 "She looks a little worried about getting caught, but she's too excited to refuse you.\n\n"
@@ -11001,18 +10786,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx(".  Her tail, trapped between your body and hers, flicks back and forth");
         if (this.player.hasCock())
             this.outx(
-                ", causing your " +
-                    this.player.multiCockDescriptLight() +
-                    " to rise to the occasion."
+                `, causing your ${this.player.multiCockDescriptLight()} to rise to the occasion.`
             );
         else if (this.player.hasVagina()) this.outx(", teasing your hot little slit.");
         // (genderless)
         else this.outx("in a seductive manner.");
 
         this.outx(
-            "\n\nOnce Kath’s nipples are rock hard you slide your fingers down the soft " +
-                this.catGirl("skin", "fur") +
-                " of her belly until they find "
+            `\n\nOnce Kath’s nipples are rock hard you slide your fingers down the soft ${this.catGirl(
+                "skin",
+                "fur"
+            )} of her belly until they find `
         );
         if (!this.hasCock()) {
             this.outx(
@@ -11023,80 +10807,75 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         } else if (this.cockNumber > 1) {
             this.outx(
-                "the tips of her hot shafts.  A few strokes and you’ve spread her copious precum over both of her cocks.  While one hand continues to pleasure her pricks the other goes lower, slipping " +
-                    (this.flags[kFLAGS.KATHERINE_UNLOCKED] < 1
+                `the tips of her hot shafts.  A few strokes and you’ve spread her copious precum over both of her cocks.  While one hand continues to pleasure her pricks the other goes lower, slipping ${
+                    this.flags[kFLAGS.KATHERINE_UNLOCKED] < 1
                         ? "under her belt and into her pants."
-                        : "into her moist snatch.")
+                        : "into her moist snatch."
+                }`
             );
             this.outx(
-                "\n\nThe heat is intense and Kath’s " +
-                    this.knotAdj() +
-                    " knots swell at your ministrations.  Kath’s hips jerk forward, looking for a pussy or two to pack them into."
+                `\n\nThe heat is intense and Kath’s ${this.knotAdj()} knots swell at your ministrations.  Kath’s hips jerk forward, looking for a pussy or two to pack them into.`
             );
         } else {
             this.outx(
-                "the tip of her hot shaft.  A few strokes and you’ve spread her copious precum over most of her cock.  While one hand pleasures her prick the other goes lower, slipping " +
-                    (this.flags[kFLAGS.KATHERINE_UNLOCKED] < 1
+                `the tip of her hot shaft.  A few strokes and you’ve spread her copious precum over most of her cock.  While one hand pleasures her prick the other goes lower, slipping ${
+                    this.flags[kFLAGS.KATHERINE_UNLOCKED] < 1
                         ? "under her belt and into her pants."
-                        : "into her moist snatch.")
+                        : "into her moist snatch."
+                }`
             );
             this.outx(
-                "\n\nThe heat is intense and Kath’s " +
-                    this.knotAdj() +
-                    " knot swells at your ministrations.  Kath’s hips jerk forward, looking for a pussy to pack it into."
+                `\n\nThe heat is intense and Kath’s ${this.knotAdj()} knot swells at your ministrations.  Kath’s hips jerk forward, looking for a pussy to pack it into.`
             );
         }
         if (this.hasCock()) {
             this.outx(
-                "\n\nKath’s next moan comes from the bottom of her lungs.  Thanks to you she’s already horny and now you decide to overload her senses.  Your fingers " +
-                    (this.hasBalls() ? "cup her balls" : "tease her clit") +
-                    " for just a moment before slipping " +
-                    (this.cockNumber < 2 ? "back " : "") +
-                    "into her dripping cunt."
+                `\n\nKath’s next moan comes from the bottom of her lungs.  Thanks to you she’s already horny and now you decide to overload her senses.  Your fingers ${
+                    this.hasBalls() ? "cup her balls" : "tease her clit"
+                } for just a moment before slipping ${
+                    this.cockNumber < 2 ? "back " : ""
+                }into her dripping cunt.`
             );
             this.outx(
                 "\n\nHer head tilts back, and she tries to find your mouth with her own.  As your tongues entwine, you begin to slide your fingers in and out of her slit, making sure to rub hard against her tiny nub.  Your other hand "
             );
             if (this.cockNumber > 1) {
                 this.outx(
-                    "works up and down her " +
-                        this.cockAdj() +
-                        "shafts, alternating from one to the other.  Soon you can feel them both twitching, ready to fire their loads into a pair of fertile pussies."
+                    `works up and down her ${this.cockAdj()}shafts, alternating from one to the other.  Soon you can feel them both twitching, ready to fire their loads into a pair of fertile pussies.`
                 );
                 this.outx("\n\nYou aim Katherine’s dicks");
             } else {
                 this.outx(
-                    "works up and down her " +
-                        this.cockAdj() +
-                        "shaft.  Soon you can feel it twitching, ready to fire its load into a fertile pussy."
+                    `works up and down her ${this.cockAdj()}shaft.  Soon you can feel it twitching, ready to fire its load into a fertile pussy.`
                 );
                 this.outx("\n\nYou aim Katherine’s dick");
             }
             this.outx(
-                " at the " +
-                    (this.isAt(Katherine.KLOC_DESERT) ? "ground" : "wall") +
-                    ".  You pull your fingers from her pussy and rub her wetness over " +
-                    (this.hasBalls() ? "her fuzzy balls" : "her growing knot") +
-                    ".  Pulling your head back you tell Kath to cum for you.  She gasps and you feel " +
-                    (this.hasBalls()
-                        ? "that " + this.ballAdj() + " ballsack contract"
-                        : "her cock" + this.cockMultiple("", "s") + " twitch and harden") +
-                    " as Kath lets loose with who knows how much pent up cum."
+                ` at the ${
+                    this.isAt(Katherine.KLOC_DESERT) ? "ground" : "wall"
+                }.  You pull your fingers from her pussy and rub her wetness over ${
+                    this.hasBalls() ? "her fuzzy balls" : "her growing knot"
+                }.  Pulling your head back you tell Kath to cum for you.  She gasps and you feel ${
+                    this.hasBalls()
+                        ? `that ${this.ballAdj()} ballsack contract`
+                        : `her cock${this.cockMultiple("", "s")} twitch and harden`
+                } as Kath lets loose with who knows how much pent up cum.`
             );
             this.outx(
                 "\n\nYou’re not done with her yet.  As the first shot splatters against the "
             );
             if (this.isAt(Katherine.KLOC_DESERT))
-                this.outx((this.model.time.hours <= 18 ? "hot" : "cool") + " sand");
+                this.outx(`${this.model.time.hours <= 18 ? "hot" : "cool"} sand`);
             else this.outx(this.isAt(Katherine.KLOC_KATHS_APT) ? "plaster" : "brickwork");
             this.outx(
-                " you slip your fingers back to her cunt and attack her clit.  Despite already being in the midst of one orgasm, Kath’s body tenses up even more.  It feels like a cup of water gushes from her pussy and the next blast from her cock" +
-                    this.cockMultiple("", "s") +
-                    " is even stronger, " +
-                    (this.isAt(Katherine.KLOC_DESERT)
+                ` you slip your fingers back to her cunt and attack her clit.  Despite already being in the midst of one orgasm, Kath’s body tenses up even more.  It feels like a cup of water gushes from her pussy and the next blast from her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} is even stronger, ${
+                    this.isAt(Katherine.KLOC_DESERT)
                         ? "arcing a good six inches further "
-                        : "hitting the wall a good six inches higher") +
-                    " than the first."
+                        : "hitting the wall a good six inches higher"
+                } than the first.`
             );
         } else
             this.outx(
@@ -11116,21 +10895,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else {
             this.outx(
-                "Not one to pass up a helpless young " +
-                    (this.hasCock() ? "herm" : "girl") +
-                    " you " +
-                    (this.flags[kFLAGS.KATHERINE_UNLOCKED] < 1
+                `Not one to pass up a helpless young ${this.hasCock() ? "herm" : "girl"} you ${
+                    this.flags[kFLAGS.KATHERINE_UNLOCKED] < 1
                         ? "strip all Katherine’s clothes off.  You"
-                        : "") +
-                    " play with her tail, eventually growing bored and pushing the tip deep inside her pussy.\n\n"
+                        : ""
+                } play with her tail, eventually growing bored and pushing the tip deep inside her pussy.\n\n`
             );
             if (this.hasCock())
                 this.outx(
-                    "Next you run your hand" +
-                        (this.isAt(Katherine.KLOC_DESERT)
+                    `Next you run your hand${
+                        this.isAt(Katherine.KLOC_DESERT)
                             ? this.cockMultiple(" along her cock", "s along her cocks")
-                            : " over the wall") +
-                        ", collect some of her still warm spunk"
+                            : " over the wall"
+                    }, collect some of her still warm spunk`
                 );
             else this.outx("Next you collect some of her femcum on your fingers");
             this.outx(
@@ -11139,9 +10916,7 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         }
         if (this.isAt(Katherine.KLOC_DESERT))
             this.outx(
-                "\n\nWith training over for now you get Katherine to pack up her equipment and lead her back to Tel'Adre.  When you reach her alley Kath throws herself on the pile of softer scraps she's collected and says <i>“Please come back soon " +
-                    this.player.short +
-                    ", I'll do better next time.”</i>"
+                `\n\nWith training over for now you get Katherine to pack up her equipment and lead her back to Tel'Adre.  When you reach her alley Kath throws herself on the pile of softer scraps she's collected and says <i>“Please come back soon ${this.player.short}, I'll do better next time.”</i>`
             );
         this.orgasm();
         this.flags[kFLAGS.KATHERINE_TIMES_SEXED]++;
@@ -11218,9 +10993,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     public bathTime(): void {
         this.clearOutput();
         this.outx(
-            "You don’t want to dive into the lust polluted lake but you do feel that Kath needs a little swim.  You just smile at Katherine and " +
-                (this.player.isNaga() ? "slither" : this.player.mf("walk", "strut")) +
-                " towards the nearest stream of clean mountain water.  On the way you peel off each piece of equipment and clothing in turn.  You can sense Kath’s eyes staring at you the whole way.\n\n"
+            `You don’t want to dive into the lust polluted lake but you do feel that Kath needs a little swim.  You just smile at Katherine and ${
+                this.player.isNaga() ? "slither" : this.player.mf("walk", "strut")
+            } towards the nearest stream of clean mountain water.  On the way you peel off each piece of equipment and clothing in turn.  You can sense Kath’s eyes staring at you the whole way.\n\n`
         );
 
         this.outx(
@@ -11236,19 +11011,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            (this.player.balls > 0 ? "Your balls try to retract, y" : "Y") +
-                "our nipples harden and you can tell Kath’s are doing the same."
+            `${
+                this.player.balls > 0 ? "Your balls try to retract, y" : "Y"
+            }our nipples harden and you can tell Kath’s are doing the same.`
         );
         if (this.hasCock()) {
             this.outx(
-                "  Her cock" +
-                    this.cockMultiple(
-                        " refuses to go soft - it grinds ",
-                        "s refuse to go soft - they grind "
-                    )
+                `  Her cock${this.cockMultiple(
+                    " refuses to go soft - it grinds ",
+                    "s refuse to go soft - they grind "
+                )}`
             );
             if (this.player.isNaga()) this.outx("against your scaly underbelly");
-            else this.outx("between your " + (this.player.isTaur() ? "front " : "") + " legs");
+            else this.outx(`between your ${this.player.isTaur() ? "front " : ""} legs`);
             this.outx(" like a red hot poker.");
         }
         if (this.player.isTaur()) {
@@ -11291,21 +11066,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private bathTimeCentaurRide(): void {
         this.outx(
-            "\n\nKath holds you for a while, just grinding against you slowly and laying kiss after kiss on your lips and neck.  Finally she lets go and walks along your flank.  She stops beside you, pets your side and jumps onto your back.  She reaches around your torso and " +
-                (this.player.hasBreasts()
+            `\n\nKath holds you for a while, just grinding against you slowly and laying kiss after kiss on your lips and neck.  Finally she lets go and walks along your flank.  She stops beside you, pets your side and jumps onto your back.  She reaches around your torso and ${
+                this.player.hasBreasts()
                     ? "starts to play with your breasts"
-                    : "runs her hands over your manly chest") +
-                ".  Not satisfied with just that Kath begins grinding against you, " +
-                (this.hasCock()
-                    ? "the " + this.cockMultiple("tip of her cock", "tips of her cocks")
-                    : "her pussy") +
-                " grinding against what would be your ass if you were a human.  As a centaur it’s the sensitive spot where your spine curves.  Her " +
-                (this.hasCock()
-                    ? "cockhead" + this.cockMultiple(" keeps", "s keep")
-                    : "groin keeps") +
-                " rubbing against the small depression there, creating lovely sensations that travel in both directions.  At one end of your body your cock" +
-                (this.player.cocks.length > 1 ? "s grow" : " grows") +
-                " even harder, at the other your throw your head back and start to moan.\n\n"
+                    : "runs her hands over your manly chest"
+            }.  Not satisfied with just that Kath begins grinding against you, ${
+                this.hasCock()
+                    ? `the ${this.cockMultiple("tip of her cock", "tips of her cocks")}`
+                    : "her pussy"
+            } grinding against what would be your ass if you were a human.  As a centaur it’s the sensitive spot where your spine curves.  Her ${
+                this.hasCock() ? `cockhead${this.cockMultiple(" keeps", "s keep")}` : "groin keeps"
+            } rubbing against the small depression there, creating lovely sensations that travel in both directions.  At one end of your body your cock${
+                this.player.cocks.length > 1 ? "s grow" : " grows"
+            } even harder, at the other your throw your head back and start to moan.\n\n`
         );
 
         this.outx(
@@ -11315,34 +11088,34 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx("You can feel Kath’s ");
         if (this.hasCock())
             this.outx(
-                this.cockAdj() +
-                    "prick" +
-                    this.cockMultiple(" ", "s ") +
-                    (this.hasBalls() ? "and her " + this.ballAdj() + " balls" : "") +
-                    " pressing against your back,"
+                `${this.cockAdj()}prick${this.cockMultiple(" ", "s ")}${
+                    this.hasBalls() ? `and her ${this.ballAdj()} balls` : ""
+                } pressing against your back,`
             );
         else this.outx("pussy growing wetter");
         this.outx(
-            " as she gets closer and closer to cumming.  Meanwhile your own cock" +
-                (this.player.cocks.length > 1 ? "s are resting" : " is resting") +
-                " ignored in the glacial river water.  You hear a purr and then two warm feet close around your " +
-                (this.player.cocks.length > 1 ? "upper " : "") +
-                "shaft.  Kath is using her feline flexibility to give you a footjob while at the same moment she grinds her " +
-                (this.hasCock() ? "cock" + this.cockMultiple("", "s") : "vulva") +
-                " against your spine, strokes your chest and licks your neck.\n\n"
+            ` as she gets closer and closer to cumming.  Meanwhile your own cock${
+                this.player.cocks.length > 1 ? "s are resting" : " is resting"
+            } ignored in the glacial river water.  You hear a purr and then two warm feet close around your ${
+                this.player.cocks.length > 1 ? "upper " : ""
+            }shaft.  Kath is using her feline flexibility to give you a footjob while at the same moment she grinds her ${
+                this.hasCock() ? `cock${this.cockMultiple("", "s")}` : "vulva"
+            } against your spine, strokes your chest and licks your neck.\n\n`
         );
 
         this.outx(
-            "Katherine’s feet begin to stroke your " +
-                (this.player.cocks.length > 1 ? "cocks" : "manhood") +
-                " rapidly; if it weren’t for the river she would probably be rubbing you raw.  Then you feel her "
+            `Katherine’s feet begin to stroke your ${
+                this.player.cocks.length > 1 ? "cocks" : "manhood"
+            } rapidly; if it weren’t for the river she would probably be rubbing you raw.  Then you feel her `
         );
         if (this.hasCock())
             this.outx(
-                (this.hasBalls() ? "balls contract" : "her thighs clench") +
-                    " and her cock" +
-                    this.cockMultiple(" sprays a copious load", "s spray copious loads") +
-                    " of hot cum"
+                `${
+                    this.hasBalls() ? "balls contract" : "her thighs clench"
+                } and her cock${this.cockMultiple(
+                    " sprays a copious load",
+                    "s spray copious loads"
+                )} of hot cum`
             );
         else this.outx("thigh muscles tighten and her pussy releases a spray of hot femcum");
         this.outx(
@@ -11350,22 +11123,23 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "She only just succeeds.  As she collapses forward onto your back" +
-                (this.hasCock() ? ", slapping wetly into her own spunk," : "") +
-                " her feet weakly slide down towards the base of your " +
-                (this.player.cocks.length > 1 ? "largest " : "") +
-                " cock one last time.  You’re so close that’s all you needed.\n\n"
+            `She only just succeeds.  As she collapses forward onto your back${
+                this.hasCock() ? ", slapping wetly into her own spunk," : ""
+            } her feet weakly slide down towards the base of your ${
+                this.player.cocks.length > 1 ? "largest " : ""
+            } cock one last time.  You’re so close that’s all you needed.\n\n`
         );
 
         if (this.player.cumQ() <= 500)
             this.outx(
-                "You stand there as your cock" +
-                    this.cockMultiple(" fires", "s fire") +
-                    " a few streams of your seed into the river" +
-                    (this.hasCock() && this.player.cumQ() + 500 < this.cumQ()
+                `You stand there as your cock${this.cockMultiple(
+                    " fires",
+                    "s fire"
+                )} a few streams of your seed into the river${
+                    this.hasCock() && this.player.cumQ() + 500 < this.cumQ()
                         ? ".  Compared to Kath’s excessive load your performance seems almost emasculating"
-                        : "") +
-                    ".\n\n"
+                        : ""
+                }.\n\n`
             );
         else if (this.player.cumQ() <= 1500)
             this.outx(
@@ -11373,27 +11147,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else if (this.player.cumQ() <= 3000)
             this.outx(
-                "Your cum launches out of your cock" +
-                    (this.player.cocks.length > 1 ? "s" : "") +
-                    " so forcefully that you can feel its warmth licking against the backs of your front knees.  With nothing to contain " +
-                    (this.player.cocks.length > 1
+                `Your cum launches out of your cock${
+                    this.player.cocks.length > 1 ? "s" : ""
+                } so forcefully that you can feel its warmth licking against the backs of your front knees.  With nothing to contain ${
+                    this.player.cocks.length > 1
                         ? "them your cocks bounce back and forth like out of control firehoses"
-                        : "it your penis bounces back and forth like an out of control firehose") +
-                    ".\n\n"
+                        : "it your penis bounces back and forth like an out of control firehose"
+                }.\n\n`
             );
         else
             this.outx(
-                "Your overproductive " +
-                    (this.player.balls > 0
-                        ? "testes outdo themselves"
-                        : "prostate outdoes itself") +
-                    ".  Without an ass, mouth or vagina to contain " +
-                    (this.player.balls > 0
+                `Your overproductive ${
+                    this.player.balls > 0 ? "testes outdo themselves" : "prostate outdoes itself"
+                }.  Without an ass, mouth or vagina to contain ${
+                    this.player.balls > 0
                         ? "their deluge they just keep"
-                        : "its deluge it just keeps") +
-                    " firing and contracting.  Your cock" +
-                    (this.player.cocks.length > 1 ? "s jerk and bounce" : " jerks and bounces") +
-                    " so violently that your belly will probably sport some bruises after this.  The water grows warm around you and changes color noticeably downstream.  You have to wonder just how much magic is used up each time you cum.\n\n"
+                        : "its deluge it just keeps"
+                } firing and contracting.  Your cock${
+                    this.player.cocks.length > 1 ? "s jerk and bounce" : " jerks and bounces"
+                } so violently that your belly will probably sport some bruises after this.  The water grows warm around you and changes color noticeably downstream.  You have to wonder just how much magic is used up each time you cum.\n\n`
             );
 
         this.outx(
@@ -11417,15 +11189,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
         if (this.hasCock())
             this.outx(
-                "You can feel her cock" +
-                    this.cockMultiple("", "s") +
-                    " sliding against your inner thighs while Kath’s fingers tease your [vagOrAss].  She waits until your legs begin to tremble before sinking " +
-                    this.cockMultiple("", "one of ") +
-                    "her " +
-                    this.cockAdj() +
-                    "shaft" +
-                    this.cockMultiple("", "s") +
-                    " into your [vagOrAss].\n\n"
+                `You can feel her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} sliding against your inner thighs while Kath’s fingers tease your [vagOrAss].  She waits until your legs begin to tremble before sinking ${this.cockMultiple(
+                    "",
+                    "one of "
+                )}her ${this.cockAdj()}shaft${this.cockMultiple("", "s")} into your [vagOrAss].\n\n`
             );
         else
             this.outx(
@@ -11433,37 +11203,38 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
         this.outx(
-            "Once Katherine’s " +
-                (this.hasCock() ? "cock" : "fist") +
-                " is inside you there’s no stopping her.  She starts to pound you and only the fact that she has to push the water from between your bodies keeps her from hurting you.  Your knees begin to quiver as Kath delivers a savage " +
-                (this.hasCock()
+            `Once Katherine’s ${
+                this.hasCock() ? "cock" : "fist"
+            } is inside you there’s no stopping her.  She starts to pound you and only the fact that she has to push the water from between your bodies keeps her from hurting you.  Your knees begin to quiver as Kath delivers a savage ${
+                this.hasCock()
                     ? "fucking you thought only a minotaur could manage"
-                    : "fisting, almost as if she's trying to prove she can still fuck you") +
-                ".  Perhaps this stream is a little bit more lust polluted than you first thought.\n\n"
+                    : "fisting, almost as if she's trying to prove she can still fuck you"
+            }.  Perhaps this stream is a little bit more lust polluted than you first thought.\n\n`
         );
 
         this.outx(
-            "She’s so lost in lust that she doesn’t talk or moan, though you are moaning enough for both of you.  At last you collapse forward, powerless to stop her as she drives home with one last thrust, her " +
-                (this.hasCock() ? "knot" : "arm") +
-                " sinking into your [vagOrAss]" +
-                (this.hasCock() ? "" : "all the way up to the elbow") +
-                ".\n\n"
+            `She’s so lost in lust that she doesn’t talk or moan, though you are moaning enough for both of you.  At last you collapse forward, powerless to stop her as she drives home with one last thrust, her ${
+                this.hasCock() ? "knot" : "arm"
+            } sinking into your [vagOrAss]${
+                this.hasCock() ? "" : "all the way up to the elbow"
+            }.\n\n`
         );
 
         if (this.hasCock()) {
             this.outx(
-                "Your belly expands with each squirt as her " +
-                    (this.hasBalls()
-                        ? this.ballAdj() + "testicles empty"
-                        : "bountiful prostate empties") +
-                    " into your"
+                `Your belly expands with each squirt as her ${
+                    this.hasBalls()
+                        ? `${this.ballAdj()}testicles empty`
+                        : "bountiful prostate empties"
+                } into your`
             );
             if (this.player.hasVagina() && this.player.isPregnant()) {
                 this.outx(
-                    "vagina, her semen gushing against your sealed cervix.  The pressure is so great you feel streams of it seeping out around her knot, jetting into the waters around you." +
-                        (this.cumQ() > 500
+                    `vagina, her semen gushing against your sealed cervix.  The pressure is so great you feel streams of it seeping out around her knot, jetting into the waters around you.${
+                        this.cumQ() > 500
                             ? "  Her cum is under such pressure that you can feel a small second bump forming above your belly as the uppermost part of your vagina swells up with Kath’s cum."
-                            : "")
+                            : ""
+                    }`
                 );
             } else {
                 // Can use common text for when Kath has big balls
@@ -11474,10 +11245,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 else this.outx("rectum, her semen inflating inch after inch of your intestines.");
                 if (this.cumQ() > 500)
                     this.outx(
-                        "Your belly is soon pressed against the cool stream bed, inflated with your girlfriend’s cum." +
-                            (this.cumQ() > 1500
+                        `Your belly is soon pressed against the cool stream bed, inflated with your girlfriend’s cum.${
+                            this.cumQ() > 1500
                                 ? "  It starts to get painful as Kath’s titanic orbs do their best to fill her mate.  Any more and you’re sure the muscles of your abdomen would give out."
-                                : "")
+                                : ""
+                        }`
                     );
             }
             if (this.cockNumber > 1)
@@ -11495,49 +11267,52 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                     : "fingers flexing deep inside your colon"
             );
         this.outx(
-            " is too much.  You gasp as your own orgasm overtakes you, your [vagOrAss] clenching on Kath’s " +
-                (this.hasCock() ? "cock, milking out the last few drops." : "forearm.")
+            ` is too much.  You gasp as your own orgasm overtakes you, your [vagOrAss] clenching on Kath’s ${
+                this.hasCock() ? "cock, milking out the last few drops." : "forearm."
+            }`
         );
         if (this.player.hasCock()) {
             if (this.player.cumQ() <= 500)
                 this.outx(
-                    "  Your own cock" +
-                        this.cockMultiple(" fires", "s fire") +
-                        " a few streams of your seed into the river." +
-                        (this.player.cumQ() + 500 < this.cumQ()
+                    `  Your own cock${this.cockMultiple(
+                        " fires",
+                        "s fire"
+                    )} a few streams of your seed into the river.${
+                        this.player.cumQ() + 500 < this.cumQ()
                             ? "  Compared to Kath’s excessive load your performance seems almost emasculating."
-                            : "")
+                            : ""
+                    }`
                 );
             else if (this.player.cumQ() <= 1500)
                 this.outx(
-                    "  Jet after jet erupts from your own cock" +
-                        this.cockMultiple("", "s") +
-                        " into the river.  It leaves you feeling a little weak."
+                    `  Jet after jet erupts from your own cock${this.cockMultiple(
+                        "",
+                        "s"
+                    )} into the river.  It leaves you feeling a little weak.`
                 );
             else if (this.player.cumQ() <= 3000)
                 this.outx(
-                    "  Your cum launches out of your cock" +
-                        (this.player.cocks.length > 1 ? "s" : "") +
-                        " so forcefully that you can feel its warmth licking against the backs of your front knees.  With nothing to contain " +
-                        (this.player.cocks.length > 1
+                    `  Your cum launches out of your cock${
+                        this.player.cocks.length > 1 ? "s" : ""
+                    } so forcefully that you can feel its warmth licking against the backs of your front knees.  With nothing to contain ${
+                        this.player.cocks.length > 1
                             ? "them your cocks bounce back and forth like out of control firehoses."
-                            : "it your penis bounces back and forth like an out of control firehose.")
+                            : "it your penis bounces back and forth like an out of control firehose."
+                    }`
                 );
             else
                 this.outx(
-                    "  Your overproductive " +
-                        (this.player.balls > 0
+                    `  Your overproductive ${
+                        this.player.balls > 0
                             ? "testes outdo themselves"
-                            : "prostate outdoes itself") +
-                        ".  Without an ass, mouth or vagina to contain " +
-                        (this.player.balls > 0
+                            : "prostate outdoes itself"
+                    }.  Without an ass, mouth or vagina to contain ${
+                        this.player.balls > 0
                             ? "their deluge they just keep"
-                            : "its deluge it just keeps") +
-                        " firing and contracting.  Your cock" +
-                        (this.player.cocks.length > 1
-                            ? "s jerk and bounce"
-                            : " jerks and bounces") +
-                        " so violently that your belly will probably sport some bruises after this.  The water grows warm around you and changes color noticeably downstream.  You have to wonder just how much magic is used up each time you cum."
+                            : "its deluge it just keeps"
+                    } firing and contracting.  Your cock${
+                        this.player.cocks.length > 1 ? "s jerk and bounce" : " jerks and bounces"
+                    } so violently that your belly will probably sport some bruises after this.  The water grows warm around you and changes color noticeably downstream.  You have to wonder just how much magic is used up each time you cum.`
                 );
         }
 
@@ -11547,17 +11322,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "You know that staying here after producing that kind of racket is unwise.  Using the strength inherent in your centaur body you force yourself back to your feet.  It’s hard to walk with your cum-stuffed belly; harder still when you have to climb out of the river and the water no longer supports your " +
-                    (this.cumQ() > 500 ? "bulging stomach" : "weight") +
-                    ".\n\n"
+                `You know that staying here after producing that kind of racket is unwise.  Using the strength inherent in your centaur body you force yourself back to your feet.  It’s hard to walk with your cum-stuffed belly; harder still when you have to climb out of the river and the water no longer supports your ${
+                    this.cumQ() > 500 ? "bulging stomach" : "weight"
+                }.\n\n`
             );
 
             this.outx(
-                "Katherine is no help at all.  She’s still locked to your [vagOrAss] and still in a post-orgasmic stupor.  You have to carefully bend down and collect all your clothes and equipment, and hers as well." +
-                    (this.cumQ() > 500
+                `Katherine is no help at all.  She’s still locked to your [vagOrAss] and still in a post-orgasmic stupor.  You have to carefully bend down and collect all your clothes and equipment, and hers as well.${
+                    this.cumQ() > 500
                         ? "  With every bend your overstuffed belly gurgles and complains."
-                        : "") +
-                    "\n\n"
+                        : ""
+                }\n\n`
             );
 
             this.outx(
@@ -11591,18 +11366,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private bathTimeFuckKath(): void {
         this.outx(
-            "\n\nThe sensation causes your " +
-                (this.hasCock() ? "own " : "") +
-                "cock" +
-                (this.player.cocks.length > 1 ? "" : "s") +
-                " to prod Kath’s belly" +
-                (this.hasCock() && this.player.hasVagina()
+            `\n\nThe sensation causes your ${this.hasCock() ? "own " : ""}cock${
+                this.player.cocks.length > 1 ? "" : "s"
+            } to prod Kath’s belly${
+                this.hasCock() && this.player.hasVagina()
                     ? " and you roll your hips so that Kath’s cock sinks into your folds"
-                    : "") +
-                ".  " +
-                (this.hasCock()
+                    : ""
+            }.  ${
+                this.hasCock()
                     ? "She purrs and tries to drive her shaft deeper but you have other plans.\n\n"
-                    : "")
+                    : ""
+            }`
         );
 
         this.outx(
@@ -11611,11 +11385,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         if (this.player.cor < 75) this.outx("let her know that for now you are going to lead");
         else this.outx("make it clear that you are the one in charge here");
         this.outx(
-            ".  Once Kath stops fighting back you turn your attention to her chest.  In this cold water her " +
-                this.breasts.adj() +
-                " breasts are slippery, firm and topped with hardened nubs.  You tweak her nipples and Kath’s tail wraps itself around " +
-                (this.player.isNaga() ? "your tail" : "one of your legs") +
-                ", begging for more.\n\n"
+            `.  Once Kath stops fighting back you turn your attention to her chest.  In this cold water her ${this.breasts.adj()} breasts are slippery, firm and topped with hardened nubs.  You tweak her nipples and Kath’s tail wraps itself around ${
+                this.player.isNaga() ? "your tail" : "one of your legs"
+            }, begging for more.\n\n`
         );
 
         this.outx(
@@ -11623,8 +11395,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "Kath flexes the muscles of her perky ass and wonderful cunt and you enjoy every sensation as your " +
-                this.catGirl("", "feline ")
+            `Kath flexes the muscles of her perky ass and wonderful cunt and you enjoy every sensation as your ${this.catGirl(
+                "",
+                "feline "
+            )}`
         );
         if (this.player.cor < 25) this.outx("mate and lover");
         else if (this.player.cor < 75) this.outx("partner");
@@ -11632,12 +11406,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         this.outx(" does her best to make you cum using only her love canal.\n\n");
 
         this.outx(
-            (this.player.balls > 0
-                ? "Your balls have retracted as far as they will go and you decide it’s time.  "
-                : "") +
-                "You take Kath’s hands and place them on her head, lacing her fingers together.  You whisper to her that she has to stay perfectly still.  Then your hands slide down her body, over her soft " +
-                this.catGirl("skin", "black fur") +
-                ".  In turn you massage tha back of her neck, fondle her breasts and stroke her belly before firmly taking hold of her shapely hips once again.\n\n"
+            `${
+                this.player.balls > 0
+                    ? "Your balls have retracted as far as they will go and you decide it’s time.  "
+                    : ""
+            }You take Kath’s hands and place them on her head, lacing her fingers together.  You whisper to her that she has to stay perfectly still.  Then your hands slide down her body, over her soft ${this.catGirl(
+                "skin",
+                "black fur"
+            )}.  In turn you massage tha back of her neck, fondle her breasts and stroke her belly before firmly taking hold of her shapely hips once again.\n\n`
         );
 
         this.outx(
@@ -11645,9 +11421,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "The muscles inside her vagina do their level best to entice you, but you wait until Kath starts to plead for your cock.  “<i>Please" +
-                (this.playerMaster() ? " [master]" : "") +
-                " - take me, use me, fuck me!</i>” she moans.  Then she repeats it again and again as if it’s some kind of mantra.\n\n"
+            `The muscles inside her vagina do their level best to entice you, but you wait until Kath starts to plead for your cock.  “<i>Please${
+                this.playerMaster() ? " [master]" : ""
+            } - take me, use me, fuck me!</i>” she moans.  Then she repeats it again and again as if it’s some kind of mantra.\n\n`
         );
 
         if (this.player.cor < 25)
@@ -11692,30 +11468,31 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         else {
             if (this.player.cumQ() > 3000)
                 this.outx(
-                    "Your overproductive " +
-                        (this.player.balls > 0
+                    `Your overproductive ${
+                        this.player.balls > 0
                             ? "testes outdo themselves"
-                            : "prostate outdoes itself") +
-                        ".  "
+                            : "prostate outdoes itself"
+                    }.  `
                 );
             this.outx(
                 "Your cum launches out of your cock so forcefully that you have to hold Kath’s hips tightly to keep the two of your from being forced apart.  Your cum hammers against Kath’s cervix"
             );
             if (this.pregSize() > 0)
                 this.outx(
-                    ", but with nowhere to go it forces her vagina open and then coats both " +
-                        (this.player.isNaga() ? "her legs and your tail" : "your legs and hers") +
-                        " with warm, sticky semen"
+                    `, but with nowhere to go it forces her vagina open and then coats both ${
+                        this.player.isNaga() ? "her legs and your tail" : "your legs and hers"
+                    } with warm, sticky semen`
                 );
             else
                 this.outx(
                     " and forces it open.  Your hands can feel the flesh on Kath’s hips stretch and pull, trying to provide more skin for her rapidly expanding belly"
                 );
             this.outx(
-                ".  Kath mewls at the feeling of being filled by so much seed." +
-                    (this.player.cumQ() > 3000
+                `.  Kath mewls at the feeling of being filled by so much seed.${
+                    this.player.cumQ() > 3000
                         ? "  The water grows warm around you and changes color noticeably downstream.  You have to wonder just how much magic is used up each time you cum."
-                        : "")
+                        : ""
+                }`
             );
         }
 
@@ -11743,21 +11520,22 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         // You took away her cock. This is your fault
         this.clearOutput();
         this.outx(
-            "Kath hugs you tight and you feel her fingers sliding across your " +
-                (this.player.hasVagina() ? "clit" : "nipples") +
-                ".  You return the favor, eager to please your lusty cat " +
-                this.catGirl("girl", "morph") +
-                ".\n\n"
+            `Kath hugs you tight and you feel her fingers sliding across your ${
+                this.player.hasVagina() ? "clit" : "nipples"
+            }.  You return the favor, eager to please your lusty cat ${this.catGirl(
+                "girl",
+                "morph"
+            )}.\n\n`
         );
         this.outx(
             "The two of you grind your breasts together and your fingers race to see who will jill the other off first.\n\n"
         );
         this.outx(
-            "Seconds become minutes and there's no end in sight.  You realize that the glacial stream is hindering your efforts.  You're so cold you can barely feel Kath's body pressing against yours.  Her fingers are still rubbing you" +
-                (this.player.hasVagina()
+            `Seconds become minutes and there's no end in sight.  You realize that the glacial stream is hindering your efforts.  You're so cold you can barely feel Kath's body pressing against yours.  Her fingers are still rubbing you${
+                this.player.hasVagina()
                     ? "r clit but even that bundle of nerves"
-                    : ", but every bit of your skin") +
-                " is growing numb.  Your own hand is starting to cramp up and the only reason you're certain it's still rubbing against her pussy is that her thighs are keeping it in place.\n\n"
+                    : ", but every bit of your skin"
+            } is growing numb.  Your own hand is starting to cramp up and the only reason you're certain it's still rubbing against her pussy is that her thighs are keeping it in place.\n\n`
         );
         this.outx(
             "You look at Kath's face and see that the lust in her eyes has faded - for once - and her lips are starting to turn blue.  From her expression you guess you're in no better shape.\n\n"
@@ -11777,69 +11555,71 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             // Genderless or Male - get this out of the way since it will be a little different
             if (this.player.hasCock()) {
                 this.outx(
-                    "\n\nKath's " +
-                        this.cockMultiple("staff slides", "staves slide") +
-                        (this.player.isNaga()
-                            ? " against your scaly behind"
-                            : " between your legs") +
-                        ", leaving little streaks of precum" +
-                        (this.player.isNaga() ? "." : " on your inner thighs.")
+                    `\n\nKath's ${this.cockMultiple("staff slides", "staves slide")}${
+                        this.player.isNaga() ? " against your scaly behind" : " between your legs"
+                    }, leaving little streaks of precum${
+                        this.player.isNaga() ? "." : " on your inner thighs."
+                    }`
                 );
                 if (this.player.balls > 0)
                     this.outx(
-                        "  " +
-                            (this.player.isNaga()
+                        `  ${
+                            this.player.isNaga()
                                 ? "Her hands slide down your side and she wraps her fingers around"
-                                : "She slides her cock" +
-                                  this.cockMultiple("", "s") +
-                                  " back and forth, rubbing " +
-                                  this.cockMultiple("it", "them") +
-                                  " against") +
-                            " your scrotum, teasing you with her sharp " +
-                            this.catGirl("nails", "claws") +
-                            " until your cock" +
-                            (this.player.cocks.length > 1 ? "s are" : "is") +
-                            " standing fully erect."
+                                : `She slides her cock${this.cockMultiple(
+                                      "",
+                                      "s"
+                                  )} back and forth, rubbing ${this.cockMultiple(
+                                      "it",
+                                      "them"
+                                  )} against`
+                        } your scrotum, teasing you with her sharp ${this.catGirl(
+                            "nails",
+                            "claws"
+                        )} until your cock${
+                            this.player.cocks.length > 1 ? "s are" : "is"
+                        } standing fully erect.`
                     );
             } else
                 this.outx(
-                    "\n\nMaddened by the " +
-                        (this.player.isNaga()
+                    `\n\nMaddened by the ${
+                        this.player.isNaga()
                             ? "lack of genitals on your snake half you grind the upper part of your tail against"
-                            : "sensations from your flat, nearly featureless crotch you close your legs around") +
-                        " Kath’s " +
-                        this.cockMultiple("staff", "staves") +
-                        "."
+                            : "sensations from your flat, nearly featureless crotch you close your legs around"
+                    } Kath’s ${this.cockMultiple("staff", "staves")}.`
                 );
             this.outx(
-                "  She purrs deeply and kisses you, then " +
-                    (this.player.isNaga()
+                `  She purrs deeply and kisses you, then ${
+                    this.player.isNaga()
                         ? "her hands slide up and down your hips, tickling your scales"
-                        : "she shifts her hips, driving her cock" +
-                          this.cockMultiple("", "s") +
-                          " between your thighs") +
-                    " while her tail whips around your rear, almost as if it’s seeking out your asshole.\n\n"
+                        : `she shifts her hips, driving her cock${this.cockMultiple(
+                              "",
+                              "s"
+                          )} between your thighs`
+                } while her tail whips around your rear, almost as if it’s seeking out your asshole.\n\n`
             );
 
             this.outx("Kath presses herself against you and the feeling of her ");
             if (this.furry)
                 this.outx(
-                    "slick fur rubbing against your " +
-                        (this.player.skinType == SKIN_TYPE_FUR ? "own" : "skin")
+                    `slick fur rubbing against your ${
+                        this.player.skinType == SKIN_TYPE_FUR ? "own" : "skin"
+                    }`
                 );
             else
                 this.outx(
-                    "wet skin " +
-                        (this.player.skinType == SKIN_TYPE_FUR
+                    `wet skin ${
+                        this.player.skinType == SKIN_TYPE_FUR
                             ? "rubbing against your fur"
-                            : "sliding over your body")
+                            : "sliding over your body"
+                    }`
                 );
             this.outx(
-                " overloads your senses.  " +
-                    (this.player.cor < 75
+                ` overloads your senses.  ${
+                    this.player.cor < 75
                         ? "You close your eyes and lose yourself in the sensual feelings, the icy water forgotten."
-                        : "Your ability to fight back drains away and you curse your lack of planning - you’re so aroused that you can’t take advantage of Kath.  In fact she’s the one taking the lead!") +
-                    "\n\n"
+                        : "Your ability to fight back drains away and you curse your lack of planning - you’re so aroused that you can’t take advantage of Kath.  In fact she’s the one taking the lead!"
+                }\n\n`
             );
 
             this.outx(
@@ -11847,31 +11627,34 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "\n\nThen " +
-                    this.cockMultiple(
-                        "that lovely hot cock of hers disappears",
-                        "those lovely hot cocks of hers disappear"
-                    ) +
-                    (this.player.isNaga()
+                `\n\nThen ${this.cockMultiple(
+                    "that lovely hot cock of hers disappears",
+                    "those lovely hot cocks of hers disappear"
+                )}${
+                    this.player.isNaga()
                         ? ", no longer grinding against your tail"
-                        : " from between your legs") +
-                    ".  You open your eyes just as Kath wraps her arms around you tightly.  She spoons you and the tip of her " +
-                    this.cockMultiple("", "upper ") +
-                    "cock plants itself against your anus.\n\n"
+                        : " from between your legs"
+                }.  You open your eyes just as Kath wraps her arms around you tightly.  She spoons you and the tip of her ${this.cockMultiple(
+                    "",
+                    "upper "
+                )}cock plants itself against your anus.\n\n`
             );
 
             if (this.hasDogCock()) {
                 this.outx(
-                    "Katherine starts to move her hips and cock" +
-                        this.cockMultiple("", "s") +
-                        " in small circular motions.  Gradually your pucker is forced open and finally Kath gets the head inside.  Wasting no time she tightens her grip on you, pulling your body back and forcing " +
-                        this.cockMultiple("her cock", "one of her cocks") +
-                        " deep into your colon"
+                    `Katherine starts to move her hips and cock${this.cockMultiple(
+                        "",
+                        "s"
+                    )} in small circular motions.  Gradually your pucker is forced open and finally Kath gets the head inside.  Wasting no time she tightens her grip on you, pulling your body back and forcing ${this.cockMultiple(
+                        "her cock",
+                        "one of her cocks"
+                    )} deep into your colon`
                 );
                 if (this.cockNumber > 1)
                     this.outx(
-                        " while the other continues to grind " +
-                            (this.player.isNaga() ? "against your scales" : "between your legs")
+                        ` while the other continues to grind ${
+                            this.player.isNaga() ? "against your scales" : "between your legs"
+                        }`
                     );
             } // Feline cock
             else
@@ -11888,23 +11671,26 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "Her hands alternate between teasing your hard nipples and stroking " +
-                    (this.player.isNaga() ? "the lower part of your belly" : "your groin") +
-                    ".  Sometimes she teases your pisshole with the tip of her finger.  It doesn’t take long before you forget all about the monsters that live in the lake.\n\n"
+                `Her hands alternate between teasing your hard nipples and stroking ${
+                    this.player.isNaga() ? "the lower part of your belly" : "your groin"
+                }.  Sometimes she teases your pisshole with the tip of her finger.  It doesn’t take long before you forget all about the monsters that live in the lake.\n\n`
             );
 
             this.outx(
-                "She draws her cock back until only the head remains inside you, then she forces its hot length up your colon again" +
-                    this.cockType("", "its tiny barbs teasing your rectum") +
-                    ".  When she takes hold of your hips and yanks back hard you realize that the only reason she isn’t fucking you harder is that with each stroke she needs to push the water out of the way.\n\n"
+                `She draws her cock back until only the head remains inside you, then she forces its hot length up your colon again${this.cockType(
+                    "",
+                    "its tiny barbs teasing your rectum"
+                )}.  When she takes hold of your hips and yanks back hard you realize that the only reason she isn’t fucking you harder is that with each stroke she needs to push the water out of the way.\n\n`
             );
 
             this.outx(
-                "When Kath bottoms out her knot presses against your sphincter and you start to get off on the risk of being tied to your favorite cat " +
-                    this.catGirl("girl", "morph") +
-                    " out here.  You can feel her pounding heartbeat through her cock" +
-                    this.cockMultiple("", "s") +
-                    " and know she’s about to cum.\n\n"
+                `When Kath bottoms out her knot presses against your sphincter and you start to get off on the risk of being tied to your favorite cat ${this.catGirl(
+                    "girl",
+                    "morph"
+                )} out here.  You can feel her pounding heartbeat through her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} and know she’s about to cum.\n\n`
             );
 
             this.outx(
@@ -11912,9 +11698,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
             if (this.hasBalls())
                 this.outx(
-                    this.ballAdj() +
-                        (this.ballSize <= 3 && this.cumQ() > 500 ? "but prolific " : "") +
-                        "balls"
+                    `${
+                        this.ballAdj() +
+                        (this.ballSize <= 3 && this.cumQ() > 500 ? "but prolific " : "")
+                    }balls`
                 );
             else this.outx("overactive prostate");
             this.outx(
@@ -11938,43 +11725,47 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outx("\n\n");
                 if (this.player.cumQ() <= 500)
                     this.outx(
-                        "Your own cock" +
-                            this.cockMultiple(" fires", "s fire") +
-                            " a few streams of your seed into the river." +
-                            (this.player.cumQ() + 500 < this.cumQ()
+                        `Your own cock${this.cockMultiple(
+                            " fires",
+                            "s fire"
+                        )} a few streams of your seed into the river.${
+                            this.player.cumQ() + 500 < this.cumQ()
                                 ? "  Compared to Kath’s excessive load your performance seems almost emasculating."
-                                : "")
+                                : ""
+                        }`
                     );
                 else if (this.player.cumQ() <= 1500)
                     this.outx(
-                        "Jet after jet erupts from your own cock" +
-                            this.cockMultiple("", "s") +
-                            " into the river.  It leaves you feeling a little weak."
+                        `Jet after jet erupts from your own cock${this.cockMultiple(
+                            "",
+                            "s"
+                        )} into the river.  It leaves you feeling a little weak.`
                     );
                 else if (this.player.cumQ() <= 3000)
                     this.outx(
-                        "Your cum launches out of your cock" +
-                            (this.player.cocks.length > 1 ? "s" : "") +
-                            " so forcefully that " +
-                            (this.player.cocks.length > 1
+                        `Your cum launches out of your cock${
+                            this.player.cocks.length > 1 ? "s" : ""
+                        } so forcefully that ${
+                            this.player.cocks.length > 1
                                 ? "your cocks bounce back and forth like out of control firehoses."
-                                : "your penis bounces back and forth like an out of control firehose.")
+                                : "your penis bounces back and forth like an out of control firehose."
+                        }`
                     );
                 else
                     this.outx(
-                        "Your overproductive " +
-                            (this.player.balls > 0
+                        `Your overproductive ${
+                            this.player.balls > 0
                                 ? "testes outdo themselves"
-                                : "prostate outdoes itself") +
-                            ".  Without an ass, mouth or vagina to contain " +
-                            (this.player.balls > 0
+                                : "prostate outdoes itself"
+                        }.  Without an ass, mouth or vagina to contain ${
+                            this.player.balls > 0
                                 ? "their deluge they just keep"
-                                : "its deluge it just keeps") +
-                            " firing and contracting.  Your cock" +
-                            (this.player.cocks.length > 1
+                                : "its deluge it just keeps"
+                        } firing and contracting.  Your cock${
+                            this.player.cocks.length > 1
                                 ? "s jerk and bounce"
-                                : " jerks and bounces") +
-                            " so violently that your belly will probably sport some bruises after this.  The water grows warm around you and changes color noticeably downstream.  You have to wonder just how much magic is used up each time you cum."
+                                : " jerks and bounces"
+                        } so violently that your belly will probably sport some bruises after this.  The water grows warm around you and changes color noticeably downstream.  You have to wonder just how much magic is used up each time you cum.`
                     );
             }
 
@@ -11987,15 +11778,13 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "“<i>" +
-                    (this.playerMaster()
+                `“<i>${
+                    this.playerMaster()
                         ? "Thank you [master], I’m sorry if I got a bit carried away"
-                        : "Thanks [name], you’re the best") +
-                    ",</i>” she purrs.  You drag your sex kitten back to the river bank and gather your clothes in case you need to make a run for it." +
-                    (this.player.hasCock()
-                        ? ""
-                        : "  Despite your lack of endowments you feel sated.") +
-                    "  Kath is so relaxed she might qualify as a liquid"
+                        : "Thanks [name], you’re the best"
+                },</i>” she purrs.  You drag your sex kitten back to the river bank and gather your clothes in case you need to make a run for it.${
+                    this.player.hasCock() ? "" : "  Despite your lack of endowments you feel sated."
+                }  Kath is so relaxed she might qualify as a liquid`
             );
             if (this.hasAlready(Katherine.KBIT_TRIED_BATH))
                 this.outx(" and you know she'll always be up for another trip to the lake.");
@@ -12009,9 +11798,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         } else {
             // Female or Herm
             this.outx(
-                "\n\nIn response you roll your hips so that Kath’s " +
-                    this.cockMultiple("", "uppermost ") +
-                    " cock sinks into your folds.  She purrs and tries to drive her shaft deeper but you hold her still and smile at her.  You fully intend to take the reigns on this little outing and Kath is going to have to fall in line.\n\n"
+                `\n\nIn response you roll your hips so that Kath’s ${this.cockMultiple(
+                    "",
+                    "uppermost "
+                )} cock sinks into your folds.  She purrs and tries to drive her shaft deeper but you hold her still and smile at her.  You fully intend to take the reigns on this little outing and Kath is going to have to fall in line.\n\n`
             );
 
             this.outx(
@@ -12019,58 +11809,54 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "Now that she’s cooperating you decide it’s time to reward Katherine.  You turn your attention to her chest.  In this cold water her " +
-                    this.breasts.adj() +
-                    " breasts are slippery, firm and topped with hardened nubs.  You tweak her nipples and Kath’s tail wraps itself around " +
-                    (this.player.isNaga() ? "your tail" : "one of your legs") +
-                    ", begging for more.\n\n"
+                `Now that she’s cooperating you decide it’s time to reward Katherine.  You turn your attention to her chest.  In this cold water her ${this.breasts.adj()} breasts are slippery, firm and topped with hardened nubs.  You tweak her nipples and Kath’s tail wraps itself around ${
+                    this.player.isNaga() ? "your tail" : "one of your legs"
+                }, begging for more.\n\n`
             );
 
             if (this.player.hasCock()) {
                 this.outx(
-                    "The cold stream is starting to affect even your lust fueled shaft" +
-                        (this.player.cocks.length > 1 ? "s" : "") +
-                        ".  It’s almost as if your body understands that right now your pussy is going to be doing all the work.  Your masculine member" +
-                        (this.player.cocks.length > 1 ? "s flag" : " flags") +
-                        " as more and more blood is diverted to the muscles of your love tunnel" +
-                        (this.player.isPregnant()
+                    `The cold stream is starting to affect even your lust fueled shaft${
+                        this.player.cocks.length > 1 ? "s" : ""
+                    }.  It’s almost as if your body understands that right now your pussy is going to be doing all the work.  Your masculine member${
+                        this.player.cocks.length > 1 ? "s flag" : " flags"
+                    } as more and more blood is diverted to the muscles of your love tunnel${
+                        this.player.isPregnant()
                             ? ""
-                            : ", your estrogen soaked ovaries and the walls of your fertile womb") +
-                        ".\n\n"
+                            : ", your estrogen soaked ovaries and the walls of your fertile womb"
+                    }.\n\n`
                 );
             }
 
             this.outx(
-                "Kath tenses the muscles of her hips and her cock" +
-                    this.cockMultiple(" rocks and shifts", "s rock and shift") +
-                    " inside you in a pleasing manner.  In return you run your fingers around the base of " +
-                    this.cockMultiple("her cock", "each of her cocks in turn") +
-                    " and then " +
-                    (this.hasBalls()
-                        ? "cup her " +
-                          this.ballAdj() +
-                          " balls.  Katherine sighs as you roll them between your fingers and gently tug them away from her body."
-                        : "slide your index and middle fingers inside her ass.  You find her cum-stuffed prostate and begin to massage the hot bump.  You swear you can almost feel it building up a larger load in response.")
+                `Kath tenses the muscles of her hips and her cock${this.cockMultiple(
+                    " rocks and shifts",
+                    "s rock and shift"
+                )} inside you in a pleasing manner.  In return you run your fingers around the base of ${this.cockMultiple(
+                    "her cock",
+                    "each of her cocks in turn"
+                )} and then ${
+                    this.hasBalls()
+                        ? `cup her ${this.ballAdj()} balls.  Katherine sighs as you roll them between your fingers and gently tug them away from her body.`
+                        : "slide your index and middle fingers inside her ass.  You find her cum-stuffed prostate and begin to massage the hot bump.  You swear you can almost feel it building up a larger load in response."
+                }`
             );
 
             this.outx(
-                "Your other hand clasps around " +
-                    this.cockMultiple(
-                        "Kath’s heavy knot",
-                        "the heavy knot Kath has aimed at your pussy"
-                    ) +
-                    ".  Out here in the wild you just can’t afford to let her knot you, fun as it might be.  You kiss Kath deeply and start to grind your clit against the top of her knot.  Her tongue dives into your mouth as if it too is desperate to pull you closer.\n\n"
+                `Your other hand clasps around ${this.cockMultiple(
+                    "Kath’s heavy knot",
+                    "the heavy knot Kath has aimed at your pussy"
+                )}.  Out here in the wild you just can’t afford to let her knot you, fun as it might be.  You kiss Kath deeply and start to grind your clit against the top of her knot.  Her tongue dives into your mouth as if it too is desperate to pull you closer.\n\n`
             );
 
             this.outx(
-                "With your hand in the way her cock can go no deeper.  You try to make it up to her by flexing your muscles, gently milking her " +
-                    this.cockAdj() +
-                    "erection.  Katherine throws her head back and starts to beg.  “<i>Oh please " +
-                    this.playerText() +
-                    "!  Please let me go, let me fuck you.  I need to go deeper.</i>”  Her cock" +
-                    this.cockMultiple(" is", "s are") +
-                    " throbbing and leaking globs of warm pre into your cunt" +
-                    this.cockMultiple(".", " and the stream.")
+                `With your hand in the way her cock can go no deeper.  You try to make it up to her by flexing your muscles, gently milking her ${this.cockAdj()}erection.  Katherine throws her head back and starts to beg.  “<i>Oh please ${this.playerText()}!  Please let me go, let me fuck you.  I need to go deeper.</i>”  Her cock${this.cockMultiple(
+                    " is",
+                    "s are"
+                )} throbbing and leaking globs of warm pre into your cunt${this.cockMultiple(
+                    ".",
+                    " and the stream."
+                )}`
             );
 
             if (
@@ -12103,92 +11889,95 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "You look into her dilated and lust filled pupils and decide that it’s time.  Holding your pussy and Katherine’s knot perfectly still you use your hands to make her cum.  You " +
-                (this.hasBalls()
+            `You look into her dilated and lust filled pupils and decide that it’s time.  Holding your pussy and Katherine’s knot perfectly still you use your hands to make her cum.  You ${
+                this.hasBalls()
                     ? "stroke her balls more vigorously than before while your"
-                    : "slip another finger inside her ass and start to milk her prostate with more energy than before.  Your") +
-                " other hand rolls her inflated knot" +
-                this.cockMultiple("", "s") +
-                " from side to side.\n\n"
+                    : "slip another finger inside her ass and start to milk her prostate with more energy than before.  Your"
+            } other hand rolls her inflated knot${this.cockMultiple(
+                "",
+                "s"
+            )} from side to side.\n\n`
         );
 
         this.outx(
-            "Kath’s eyes roll back and you feel her " +
-                (this.hasBalls() ? "balls yank upwards" : "prostate jump beneath your fingers") +
-                ".  You press your sex against the front of Kath’s knot, knowing the first load is on the way.\n\n"
+            `Kath’s eyes roll back and you feel her ${
+                this.hasBalls() ? "balls yank upwards" : "prostate jump beneath your fingers"
+            }.  You press your sex against the front of Kath’s knot, knowing the first load is on the way.\n\n`
         );
 
         this.outx(
-            "Your sex kitten doesn’t disappoint.  Your " +
-                (this.player.isPregnant() ? "cunt" : "cervix") +
-                " is forced open as torrents of cum flow into you, " +
-                (this.player.isPregnant()
+            `Your sex kitten doesn’t disappoint.  Your ${
+                this.player.isPregnant() ? "cunt" : "cervix"
+            } is forced open as torrents of cum flow into you, ${
+                this.player.isPregnant()
                     ? "rebounding off you sealed cervix and fountaining from your sex"
-                    : "filling your womb" + this.fertileText(" and seeking out your eggs", "")) +
-                this.cockMultiple(
-                    ".",
-                    ".  Her other dick coats your thighs in spunk as it squirts its seed into the stream."
-                ) +
-                "\n\n"
+                    : `filling your womb${this.fertileText(" and seeking out your eggs", "")}`
+            }${this.cockMultiple(
+                ".",
+                ".  Her other dick coats your thighs in spunk as it squirts its seed into the stream."
+            )}\n\n`
         );
 
         if (this.cumQ() <= 500) this.outx("After a few blasts Kath goes limp in your arms. You");
         else if (this.cumQ() > 500)
             this.outx(
-                "Kath goes limp in your arms after filling you with a hefty deposit" +
-                    (this.player.isPregnant()
+                `Kath goes limp in your arms after filling you with a hefty deposit${
+                    this.player.isPregnant()
                         ? ""
-                        : " that makes you look like you’re four months pregnant") +
-                    ".  You"
+                        : " that makes you look like you’re four months pregnant"
+                }.  You`
             );
         else if (this.cumQ() > 1500)
             this.outx(
-                "Kath’s " +
-                    (this.hasBalls() ? "balls just keep" : "prostate just keeps") +
-                    " contracting, forcing buckets of sperm into your pussy.  The backflow " +
-                    this.cockMultiple("", "mixes with the stream from her free cock and ") +
-                    "warms the water around you" +
-                    (this.player.isPregnant()
+                `Kath’s ${
+                    this.hasBalls() ? "balls just keep" : "prostate just keeps"
+                } contracting, forcing buckets of sperm into your pussy.  The backflow ${this.cockMultiple(
+                    "",
+                    "mixes with the stream from her free cock and "
+                )}warms the water around you${
+                    this.player.isPregnant()
                         ? ""
-                        : " and your belly is stretched until you look seven months pregnant.  As the last of her load is forced inside your belly button pops out") +
-                    ".  With the eruption over, you"
+                        : " and your belly is stretched until you look seven months pregnant.  As the last of her load is forced inside your belly button pops out"
+                }.  With the eruption over, you`
             );
         else if (this.cumQ() > 3000)
             this.outx(
-                "You have to hold on to Kath to keep from being forced off by her high pressure cum.  " +
-                    (this.player.isPregnant()
+                `You have to hold on to Kath to keep from being forced off by her high pressure cum.  ${
+                    this.player.isPregnant()
                         ? ""
-                        : "Kath’s huge load seems to fill your womb in an instant.  Then it expands your belly still further, forcing the air from your lungs.  In moments you look nine months pregnant and your belly button has become a hard nub that rubs against the " +
-                          this.catGirl("skin", "fur") +
-                          " of Katherine’s belly.  ") +
-                    "An amazing amount of Kath’s seed spills from your pussy" +
-                    this.cockMultiple("", ", mixing with the stream from her free cock") +
-                    ".  It doesn’t just warm the stream around you but makes it feel slightly sticky and colors the water downstream.  With the eruption over, you"
+                        : `Kath’s huge load seems to fill your womb in an instant.  Then it expands your belly still further, forcing the air from your lungs.  In moments you look nine months pregnant and your belly button has become a hard nub that rubs against the ${this.catGirl(
+                              "skin",
+                              "fur"
+                          )} of Katherine’s belly.  `
+                }An amazing amount of Kath’s seed spills from your pussy${this.cockMultiple(
+                    "",
+                    ", mixing with the stream from her free cock"
+                )}.  It doesn’t just warm the stream around you but makes it feel slightly sticky and colors the water downstream.  With the eruption over, you`
             );
         this.outx(
-            " carry your spent " +
-                (this.player.cor < 75 ? "girlfriend" : "fucktoy") +
-                " to the shore and wait for her to recover.\n\n"
+            ` carry your spent ${
+                this.player.cor < 75 ? "girlfriend" : "fucktoy"
+            } to the shore and wait for her to recover.\n\n`
         );
 
         if (this.player.hasCock())
             this.outx(
-                "It's only when you flop onto the sandy ground that you realize your cock" +
-                    (this.player.cocks.length > 1 ? "s" : "") +
-                    " never fired a shot.  The icy water and lack of stimulation resulted in only your female half cumming.  You " +
-                    (this.player.balls > 0
+                `It's only when you flop onto the sandy ground that you realize your cock${
+                    this.player.cocks.length > 1 ? "s" : ""
+                } never fired a shot.  The icy water and lack of stimulation resulted in only your female half cumming.  You ${
+                    this.player.balls > 0
                         ? "feel your balls.  Although they're"
-                        : "insert a finger and massage your prostate.  Although it's") +
-                    " still filled with cum you feel no particular desire to get off.  How strange.  Perhaps in future you'll find some way to take advantage of this weird situation.  "
+                        : "insert a finger and massage your prostate.  Although it's"
+                } still filled with cum you feel no particular desire to get off.  How strange.  Perhaps in future you'll find some way to take advantage of this weird situation.  `
             );
         this.outx(
             "Katherine purrs and hugs you close, asking, “<i>Did you like it?  Did it feel great for you too?</i>”\n\n"
         );
 
         this.outx(
-            "You assure her it was good for you too" +
-                (this.player.hasCock() ? ", despite the fact you didn't cum" : "") +
-                ", then you both get dressed and head back to Tel’Adre."
+            `You assure her it was good for you too${
+                this.player.hasCock() ? ", despite the fact you didn't cum" : ""
+            }, then you both get dressed and head back to Tel’Adre.`
         );
 
         if (!this.hasAlready(Katherine.KBIT_TRIED_BATH))
@@ -12206,17 +11995,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
     private bathTimePenetratedDenial(): void {
         this.clearOutput();
         this.outx(
-            "With your fingers you slowly and carefully squeeze the cock inside you just beyond its knot.  You can feel her " +
-                (this.hasBalls()
+            `With your fingers you slowly and carefully squeeze the cock inside you just beyond its knot.  You can feel her ${
+                this.hasBalls()
                     ? "balls twitching, but they don’t fire"
-                    : "prostate twitching, but it doesn’t fire") +
-                ".\n\n"
+                    : "prostate twitching, but it doesn’t fire"
+            }.\n\n`
         );
 
         this.outx(
-            "You start to draw away from Kath, allowing her cock to slide out of your cunt and into the cold water.  She mewls and begs “<i>I’m sooo close.  Please" +
-                (this.playerMaster() ? "[master]" : "") +
-                "!</i>”\n\n"
+            `You start to draw away from Kath, allowing her cock to slide out of your cunt and into the cold water.  She mewls and begs “<i>I’m sooo close.  Please${
+                this.playerMaster() ? "[master]" : ""
+            }!</i>”\n\n`
         );
 
         this.outx(
@@ -12224,17 +12013,19 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "“<i>Please, please, please,</i>” is all she can say.  Through " +
-                (this.hasBalls()
+            `“<i>Please, please, please,</i>” is all she can say.  Through ${
+                this.hasBalls()
                     ? "your hand you can feel her balls descending again"
-                    : "your fingers you can feel the muscles around her prostate softening") +
-                ".  The glacial stream is doing its work quickly.  Her knot" +
-                this.cockMultiple(" recedes", "s recede") +
-                " and her cock" +
-                this.cockMultiple(" starts", "s start") +
-                " to shrivel.  Kath crosses her legs and clutches her " +
-                (this.hasBalls() ? "balls" : "crotch") +
-                ", rubbing desperately to try and make the pain of her aborted orgasm go away.\n\n"
+                    : "your fingers you can feel the muscles around her prostate softening"
+            }.  The glacial stream is doing its work quickly.  Her knot${this.cockMultiple(
+                " recedes",
+                "s recede"
+            )} and her cock${this.cockMultiple(
+                " starts",
+                "s start"
+            )} to shrivel.  Kath crosses her legs and clutches her ${
+                this.hasBalls() ? "balls" : "crotch"
+            }, rubbing desperately to try and make the pain of her aborted orgasm go away.\n\n`
         );
 
         this.outx(
@@ -12242,38 +12033,40 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
 
         this.outx(
-            "You drag Kath out of the stream and then ‘help’ her by " +
-                (this.hasBalls()
-                    ? "rolling her " +
-                      this.ballAdj() +
-                      " balls around with your hands.  You think they’re a little heavier than they were before.  You keep rubbing"
-                    : "slipping your fingers back inside her ass.  You think her prostate has become slightly heavier than it was before.  You keep massaging it") +
-                " until she starts to develop another " +
-                this.cockMultiple("erection", "pair of erections") +
-                ", then you stop.  Kath slams her fist into the ground in frustration and whimpers.\n\n"
+            `You drag Kath out of the stream and then ‘help’ her by ${
+                this.hasBalls()
+                    ? `rolling her ${this.ballAdj()} balls around with your hands.  You think they’re a little heavier than they were before.  You keep rubbing`
+                    : "slipping your fingers back inside her ass.  You think her prostate has become slightly heavier than it was before.  You keep massaging it"
+            } until she starts to develop another ${this.cockMultiple(
+                "erection",
+                "pair of erections"
+            )}, then you stop.  Kath slams her fist into the ground in frustration and whimpers.\n\n`
         );
 
         this.outx(
-            "You hold her down until she’s got her lust under control, then you both get dressed and head back to Tel’Adre.  Only when the gates of the city are in view do you " +
-                this.clothesLowerChoice(
-                    "pull down her pants",
-                    "reach under her skirt",
-                    "slide your hand inside her bodysuit and free her cock" +
-                        this.cockMultiple("", "s"),
-                    "reach under her dress",
-                    "slip a hand inside her robe and free her cock" + this.cockMultiple("", "s")
-                ) +
-                ".  You grab Katherine’s waist with your other hand and start " +
-                this.cockMultiple("stroking her cock", "alternately stroking her cocks") +
-                " furiously.\n\n"
+            `You hold her down until she’s got her lust under control, then you both get dressed and head back to Tel’Adre.  Only when the gates of the city are in view do you ${this.clothesLowerChoice(
+                "pull down her pants",
+                "reach under her skirt",
+                `slide your hand inside her bodysuit and free her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )}`,
+                "reach under her dress",
+                `slip a hand inside her robe and free her cock${this.cockMultiple("", "s")}`
+            )}.  You grab Katherine’s waist with your other hand and start ${this.cockMultiple(
+                "stroking her cock",
+                "alternately stroking her cocks"
+            )} furiously.\n\n`
         );
 
         this.outx(
-            "She whines and pants at the unexpected attention.  In seconds her cock" +
-                this.cockMultiple(" is", "s are") +
-                " rock hard.  You whisper in her ear that now she can cum for you.  Kath’s knees lock up again and you point her cock" +
-                this.cockMultiple("", "s") +
-                " at the desert sands.  "
+            `She whines and pants at the unexpected attention.  In seconds her cock${this.cockMultiple(
+                " is",
+                "s are"
+            )} rock hard.  You whisper in her ear that now she can cum for you.  Kath’s knees lock up again and you point her cock${this.cockMultiple(
+                "",
+                "s"
+            )} at the desert sands.  `
         );
         if (this.cumQ() <= 500)
             this.outx(
@@ -12281,23 +12074,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else if (this.cumQ() <= 1500)
             this.outx(
-                "Kath goes limp in your arms but her cock" +
-                    this.cockMultiple("", "s") +
-                    " continue to discharge their overdue payload.  Numerous shots of cum splatter the ground ahead, producing a large cum puddle."
+                `Kath goes limp in your arms but her cock${this.cockMultiple(
+                    "",
+                    "s"
+                )} continue to discharge their overdue payload.  Numerous shots of cum splatter the ground ahead, producing a large cum puddle.`
             );
         else if (this.cumQ() <= 3000)
             this.outx(
-                "Kath’s " +
-                    (this.hasBalls()
+                `Kath’s ${
+                    this.hasBalls()
                         ? "balls just keep contracting"
-                        : "prostate seems to produce an unending supply") +
-                    ", launching buckets of sperm onto the dry desert sand.  By the time she’s finished the cum has formed a pool on the sand, a pool that’s slowly sliding towards lower ground."
+                        : "prostate seems to produce an unending supply"
+                }, launching buckets of sperm onto the dry desert sand.  By the time she’s finished the cum has formed a pool on the sand, a pool that’s slowly sliding towards lower ground.`
             );
         else
             this.outx(
-                "Katherine’s sperm just keeps flowing from her cockhead" +
-                    this.cockMultiple(" in one continuous stream", "s in two continuous streams") +
-                    ".  You could probably have got her a job with Tel’Adre’s fire department, no training required.  When she finally finishes there’s a river of cum flowing across the dry sand."
+                `Katherine’s sperm just keeps flowing from her cockhead${this.cockMultiple(
+                    " in one continuous stream",
+                    "s in two continuous streams"
+                )}.  You could probably have got her a job with Tel’Adre’s fire department, no training required.  When she finally finishes there’s a river of cum flowing across the dry sand.`
             );
 
         this.outx(
@@ -12320,16 +12115,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "When you grab her and lock her arm behind her back she pretends to struggle and improvises a little roleplay, saying, “<i>" +
-                    this.clothesChoice(
-                        "Hey!  I know I was making eyes at you back at the bar, but what kind of girl do you think I am?",
-                        "Please - I’m just a dancer, I work in the club down the street!",
-                        "Oh no, a ruffian!  Please don’t hurt me, I’m just coming home from the ball.",
-                        "I’m warning you - I’m a sorceress from the academy and if you don’t let go I’m going to use my magics on you.",
-                        "Hey!  I know I was making eyes at you back at the bar, but what kind of girl do you think I am?",
-                        "No, please!  I work down at the hospital, I take care of people!"
-                    ) +
-                    "</i>”  You laugh as you tie up your compliant pussy - it seems she likes this little game.\n\n"
+                `When you grab her and lock her arm behind her back she pretends to struggle and improvises a little roleplay, saying, “<i>${this.clothesChoice(
+                    "Hey!  I know I was making eyes at you back at the bar, but what kind of girl do you think I am?",
+                    "Please - I’m just a dancer, I work in the club down the street!",
+                    "Oh no, a ruffian!  Please don’t hurt me, I’m just coming home from the ball.",
+                    "I’m warning you - I’m a sorceress from the academy and if you don’t let go I’m going to use my magics on you.",
+                    "Hey!  I know I was making eyes at you back at the bar, but what kind of girl do you think I am?",
+                    "No, please!  I work down at the hospital, I take care of people!"
+                )}</i>”  You laugh as you tie up your compliant pussy - it seems she likes this little game.\n\n`
             );
         } else {
             this.outx(
@@ -12342,55 +12135,51 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             this.player.gems -= 40;
 
             this.outx(
-                "“<i>What’s up " +
-                    this.playerText() +
-                    "?</i>” she asks, her ears swivelling toward you.\n\n"
+                `“<i>What’s up ${this.playerText()}?</i>” she asks, her ears swivelling toward you.\n\n`
             );
 
             this.outx(
                 "Rather than answering you walk up to her, spin her around and lock her arms behind her.\n\n"
             );
 
-            this.outx("“<i>Oh!  " + this.playerText() + " - what are you doing?</i>”\n\n");
+            this.outx(`“<i>Oh!  ${this.playerText()} - what are you doing?</i>”\n\n`);
 
             this.outx(
-                "You start tying her wrists together with one of the silk scarves.  Kath wriggles, but she’s not really trying to escape.  Her tail is flicking back and forth, smacking against your " +
-                    (this.player.isNaga() ? "tail" : "legs") +
-                    ", so she’s definitely excited.\n\n"
+                `You start tying her wrists together with one of the silk scarves.  Kath wriggles, but she’s not really trying to escape.  Her tail is flicking back and forth, smacking against your ${
+                    this.player.isNaga() ? "tail" : "legs"
+                }, so she’s definitely excited.\n\n`
             );
         }
 
         this.outx(
-            "You push her onto the bed and flip her on her back" +
-                this.clothesLowerChoice(
-                    ".  It doesn’t take much effort to pull her pants and panties off",
-                    ", flip up her skirt and remove her panties",
-                    ", your fingers quickly locating the concealed slit in the crotch of her bodysuit",
-                    ", flip up her skirt and remove her panties",
-                    ", open the lower portion of her robe and relieve Kath of her panties"
-                ) +
-                ".  She keeps struggling playfully but you’ve soon tied her legs to opposite sides of the bedframe.  If she weren’t a cat " +
-                this.catGirl("girl", "morph") +
-                " doing the splits like this would be mildly uncomfortable.  Katherine obviously doesn’t mind and you can feel the heat radiating " +
-                this.catGirl("from her skin", "through her fur") +
-                " as she grows flushed with excitement.  At last you untie her wrists just long enough to re-tie them to the head of the bed.\n\n"
+            `You push her onto the bed and flip her on her back${this.clothesLowerChoice(
+                ".  It doesn’t take much effort to pull her pants and panties off",
+                ", flip up her skirt and remove her panties",
+                ", your fingers quickly locating the concealed slit in the crotch of her bodysuit",
+                ", flip up her skirt and remove her panties",
+                ", open the lower portion of her robe and relieve Kath of her panties"
+            )}.  She keeps struggling playfully but you’ve soon tied her legs to opposite sides of the bedframe.  If she weren’t a cat ${this.catGirl(
+                "girl",
+                "morph"
+            )} doing the splits like this would be mildly uncomfortable.  Katherine obviously doesn’t mind and you can feel the heat radiating ${this.catGirl(
+                "from her skin",
+                "through her fur"
+            )} as she grows flushed with excitement.  At last you untie her wrists just long enough to re-tie them to the head of the bed.\n\n`
         );
 
         this.outx(
-            "You take a moment to appreciate what lies before you.  Katherine is spread - eagled on the bed, her legs and hips naked" +
-                (this.hasCock()
-                    ? ", her hard cock" + this.cockMultiple("", "s") + " aimed at the ceiling"
-                    : "") +
-                " and her pussy wet and glistening.  " +
-                this.clothesChoice(
-                    "Inside her blouse",
-                    "Through her sheer bodysuit",
-                    "Beneath the embroidery of her elegant dress",
-                    "Inside the folds of her silken robe",
-                    "Concealed only by her tight tube top",
-                    "Concealed only by the skimpy white nurse’s top"
-                ) +
-                " you can see her chest rising and falling, her nipples poking against the fabric.  "
+            `You take a moment to appreciate what lies before you.  Katherine is spread - eagled on the bed, her legs and hips naked${
+                this.hasCock()
+                    ? `, her hard cock${this.cockMultiple("", "s")} aimed at the ceiling`
+                    : ""
+            } and her pussy wet and glistening.  ${this.clothesChoice(
+                "Inside her blouse",
+                "Through her sheer bodysuit",
+                "Beneath the embroidery of her elegant dress",
+                "Inside the folds of her silken robe",
+                "Concealed only by her tight tube top",
+                "Concealed only by the skimpy white nurse’s top"
+            )} you can see her chest rising and falling, her nipples poking against the fabric.  `
         );
         if (this.doneSubmissive(Katherine.KBIT_SUB_BED_BOND)) {
             this.outx(
@@ -12398,24 +12187,26 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "Keeping to her character Kath pants, “<i>" +
-                    this.clothesChoice(
-                        "Just cause I brought you home doesn’t mean I put out on the first date.  You seem like a nice " +
-                            this.player.mf("guy", "girl") +
-                            ", let’s talk about this, huh?",
-                        "I just shake my ass for money " +
-                            this.player.mf("mister", "miss") +
-                            ".  I’m not really that much of a slut.  Please let me go, I’ll... I’ll give you free tickets to my next show!",
-                        "No, no, no.  I wanted to meet a " +
-                            this.player.mf("gentleman", "lady") +
-                            ".  A ruffian like you, you just can’t be my first!",
-                        "Don’t do this - I could teach you a spell to get off, I could pay for someone else to sleep with you, just don’t - uh - fuck me.",
-                        "Just cause I brought you home doesn’t mean I put out on the first date. You seem like a nice " +
-                            this.player.mf("guy", "girl") +
-                            ", let’s talk about this, huh?",
-                        "I know people say if you can’t get a date get a nurse, but they still expect you to ask me out.  I’m a really naughty nurse but I do expect a little romance."
-                    ) +
-                    "</i>”\n\n"
+                `Keeping to her character Kath pants, “<i>${this.clothesChoice(
+                    `Just cause I brought you home doesn’t mean I put out on the first date.  You seem like a nice ${this.player.mf(
+                        "guy",
+                        "girl"
+                    )}, let’s talk about this, huh?`,
+                    `I just shake my ass for money ${this.player.mf(
+                        "mister",
+                        "miss"
+                    )}.  I’m not really that much of a slut.  Please let me go, I’ll... I’ll give you free tickets to my next show!`,
+                    `No, no, no.  I wanted to meet a ${this.player.mf(
+                        "gentleman",
+                        "lady"
+                    )}.  A ruffian like you, you just can’t be my first!`,
+                    "Don’t do this - I could teach you a spell to get off, I could pay for someone else to sleep with you, just don’t - uh - fuck me.",
+                    `Just cause I brought you home doesn’t mean I put out on the first date. You seem like a nice ${this.player.mf(
+                        "guy",
+                        "girl"
+                    )}, let’s talk about this, huh?`,
+                    "I know people say if you can’t get a date get a nurse, but they still expect you to ask me out.  I’m a really naughty nurse but I do expect a little romance."
+                )}</i>”\n\n`
             );
         } else
             this.outx(
@@ -12423,35 +12214,38 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
         this.outx(
-            "You laugh and blow on her " +
-                (this.hasCock() ? "cock" + this.cockMultiple("", "s") : "clit") +
-                ", causing Kath to strain against her bonds.  You tell her that she should consider her position.  She’s bound hand and foot to her own bed and only you can help her reach orgasm.  You take her tail and start gently stroking the underside.  Kath rolls her hips and purrs.  Then you stop, moving to stroke her still covered breasts and give her a kiss.  You ask her how it feels, being completely at your mercy.\n\n"
+            `You laugh and blow on her ${
+                this.hasCock() ? `cock${this.cockMultiple("", "s")}` : "clit"
+            }, causing Kath to strain against her bonds.  You tell her that she should consider her position.  She’s bound hand and foot to her own bed and only you can help her reach orgasm.  You take her tail and start gently stroking the underside.  Kath rolls her hips and purrs.  Then you stop, moving to stroke her still covered breasts and give her a kiss.  You ask her how it feels, being completely at your mercy.\n\n`
         );
 
         if (this.doneSubmissive(Katherine.KBIT_SUB_BED_BOND))
             this.outx(
-                "“<i>" +
-                    this.clothesChoice(
-                        "Oh " +
-                            this.player.mf("mister", "miss") +
-                            " - that feels good.  I never sleep with someone on the first date but I think I’ll make an exception for you.",
-                        "OK, OK!  " +
-                            (this.player.hasCock() && this.pregSize() == 0
-                                ? "Just don’t knock me up.  I’ve still got to be able to spin around that pole or I’ll lose my job."
-                                : "I get so horny spinning around that pole - maybe you can help me let off some steam." +
-                                  (this.pregSize() == 0
+                `“<i>${this.clothesChoice(
+                    `Oh ${this.player.mf(
+                        "mister",
+                        "miss"
+                    )} - that feels good.  I never sleep with someone on the first date but I think I’ll make an exception for you.`,
+                    `OK, OK!  ${
+                        this.player.hasCock() && this.pregSize() == 0
+                            ? "Just don’t knock me up.  I’ve still got to be able to spin around that pole or I’ll lose my job."
+                            : `I get so horny spinning around that pole - maybe you can help me let off some steam.${
+                                  this.pregSize() == 0
                                       ? "  Just don’t let any guys fuck me, Kay?"
-                                      : "")),
-                        "Let me go!  I was born to sleep with " +
-                            this.player.mf("lords and gentlemen", "baronesses and ladies") +
-                            ".  There is no way a dirty ruffian like you - hah! - can make me feel this good.",
-                        "It’s not fair, my magic just doesn’t work when I’m this horny.  I suppose I have no choice, I am at your mercy.  So please help me get off.  There won’t be any reprisals if you make it good for me.",
-                        "Oh " +
-                            this.player.mf("mister", "miss") +
-                            " - that feels good.  I never sleep with someone on the first date but I think I’ll make an exception for you.",
-                        "Mmmm, you’ve got me.  Okay hot stuff, let’s see if you’re as good at ‘digital exams’ as I am."
-                    ) +
-                    "</i>”"
+                                      : ""
+                              }`
+                    }`,
+                    `Let me go!  I was born to sleep with ${this.player.mf(
+                        "lords and gentlemen",
+                        "baronesses and ladies"
+                    )}.  There is no way a dirty ruffian like you - hah! - can make me feel this good.`,
+                    "It’s not fair, my magic just doesn’t work when I’m this horny.  I suppose I have no choice, I am at your mercy.  So please help me get off.  There won’t be any reprisals if you make it good for me.",
+                    `Oh ${this.player.mf(
+                        "mister",
+                        "miss"
+                    )} - that feels good.  I never sleep with someone on the first date but I think I’ll make an exception for you.`,
+                    "Mmmm, you’ve got me.  Okay hot stuff, let’s see if you’re as good at ‘digital exams’ as I am."
+                )}</i>”`
             );
         else
             this.outx(
@@ -12459,132 +12253,125 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
         this.outx(
-            "\n\nAt first you barely touch her " +
-                (this.hasCock() ? "cock" + this.cockMultiple("", "s") + " or " : "") +
-                "pussy.  Instead you tease her by stroking her breasts and running your hands over her belly and thighs.  Kath wriggles in place and the bedframe creaks but the silk scarves are strong enough to hold her.\n\n"
+            `\n\nAt first you barely touch her ${
+                this.hasCock() ? `cock${this.cockMultiple("", "s")} or ` : ""
+            }pussy.  Instead you tease her by stroking her breasts and running your hands over her belly and thighs.  Kath wriggles in place and the bedframe creaks but the silk scarves are strong enough to hold her.\n\n`
         );
 
         this.outx(
-            "When you finally get back to blowing on her " +
-                (this.hasCock() ? "cock" + this.cockMultiple("", "s") : "clit") +
-                " Kath starts to beg for more.  You stop everything and sit next to her on the bed.  You stroke her ear and tell her that she’s broken your concentration - you can't even remember what you were doing just now.  Kath whimpers and bites her tongue.  After giving her another quick kiss you start over.\n\n"
+            `When you finally get back to blowing on her ${
+                this.hasCock() ? `cock${this.cockMultiple("", "s")}` : "clit"
+            } Kath starts to beg for more.  You stop everything and sit next to her on the bed.  You stroke her ear and tell her that she’s broken your concentration - you can't even remember what you were doing just now.  Kath whimpers and bites her tongue.  After giving her another quick kiss you start over.\n\n`
         );
 
         this.outx(
-            "This time it’s even harder for Kath.  When you start blowing on her " +
-                (this.hasCock()
-                    ? "cock" +
-                      this.cockMultiple("", "s") +
-                      " you see precum oozing from the tip" +
-                      this.cockMultiple("", "s")
-                    : "clit you see femcum oozing from her pussy") +
-                " like a fountain.  " +
-                (this.hasCock()
-                    ? "You could take her pulse by watching her knot" +
-                      this.cockMultiple("", "s") +
-                      " expanding and contracting.  "
-                    : "") +
-                "Katherine must love being tied up - she’s so close to cumming that when you start massaging " +
-                (this.hasCock()
-                    ? "the base of her knot" +
-                      this.cockMultiple(" it inflates and hardens", "s they inflate and harden")
-                    : "her inner labia her legs start to shiver") +
-                " almost immediately.\n\n"
+            `This time it’s even harder for Kath.  When you start blowing on her ${
+                this.hasCock()
+                    ? `cock${this.cockMultiple(
+                          "",
+                          "s"
+                      )} you see precum oozing from the tip${this.cockMultiple("", "s")}`
+                    : "clit you see femcum oozing from her pussy"
+            } like a fountain.  ${
+                this.hasCock()
+                    ? `You could take her pulse by watching her knot${this.cockMultiple(
+                          "",
+                          "s"
+                      )} expanding and contracting.  `
+                    : ""
+            }Katherine must love being tied up - she’s so close to cumming that when you start massaging ${
+                this.hasCock()
+                    ? `the base of her knot${this.cockMultiple(
+                          " it inflates and hardens",
+                          "s they inflate and harden"
+                      )}`
+                    : "her inner labia her legs start to shiver"
+            } almost immediately.\n\n`
         );
 
         this.outx(
-            "You slow your pace once again and whisper in Katherine’s ear that you aren’t going to play with her " +
-                (this.hasCock()
-                    ? "cock" +
-                      this.cockMultiple("", "s") +
-                      (this.hasBalls() ? ", her balls" : "") +
-                      " or her "
-                    : "") +
-                "pussy.  You’re going to prove how much she loves this by making her cum some other way.  She whimpers and you see tears forming at the corners of her eyes.\n\n"
+            `You slow your pace once again and whisper in Katherine’s ear that you aren’t going to play with her ${
+                this.hasCock()
+                    ? `cock${this.cockMultiple("", "s")}${
+                          this.hasBalls() ? ", her balls" : ""
+                      } or her `
+                    : ""
+            }pussy.  You’re going to prove how much she loves this by making her cum some other way.  She whimpers and you see tears forming at the corners of her eyes.\n\n`
         );
 
         this.outx(
-            "You go back to her ears and start teasing them with your fingers.  " +
-                (this.hasCock()
-                    ? "With every heartbeat her cock" +
-                      this.cockMultiple("", "s") +
-                      " jump but she doesn’t cum"
-                    : "Each time she takes a breath you hear her pussy dripping juice onto the sheets") +
-                ".  You switch to rubbing her nipples and Kath lets out a deep moan."
+            `You go back to her ears and start teasing them with your fingers.  ${
+                this.hasCock()
+                    ? `With every heartbeat her cock${this.cockMultiple(
+                          "",
+                          "s"
+                      )} jump but she doesn’t cum`
+                    : "Each time she takes a breath you hear her pussy dripping juice onto the sheets"
+            }.  You switch to rubbing her nipples and Kath lets out a deep moan.`
         );
         if (this.breasts.lactating())
             this.outx(
-                "  In no time " +
-                    this.clothesChoice(
-                        "her blouse",
-                        "the upper part of her bodysuit",
-                        "the bodice of her dress",
-                        "the upper part of her robe",
-                        "her tube top",
-                        "her nurse's top"
-                    ) +
-                    "is soaked with rich, sugary cream and"
+                `  In no time ${this.clothesChoice(
+                    "her blouse",
+                    "the upper part of her bodysuit",
+                    "the bodice of her dress",
+                    "the upper part of her robe",
+                    "her tube top",
+                    "her nurse's top"
+                )}is soaked with rich, sugary cream and`
             );
         else this.outx("  By now");
         this.outx(
-            " her " +
-                (this.hasCock() ? "cock" + this.cockMultiple(" is", "s are") : "pussy is") +
-                " glazed from top to bottom with a thick coat of " +
-                (this.hasCock() ? "pre" : "fem") +
-                "cum." +
-                (this.hasCock()
-                    ? "  " +
-                      this.cockMultiple(
+            ` her ${
+                this.hasCock() ? `cock${this.cockMultiple(" is", "s are")}` : "pussy is"
+            } glazed from top to bottom with a thick coat of ${this.hasCock() ? "pre" : "fem"}cum.${
+                this.hasCock()
+                    ? `  ${this.cockMultiple(
                           "It continues to leak like a lazy volcano",
                           "They continue to leak like lazy volcanoes"
-                      )
-                    : "") +
-                ".\n\n"
+                      )}`
+                    : ""
+            }.\n\n`
         );
 
         this.outx(
-            "If her ears won’t do it and her breasts don’t cut it there’s one part of Kath’s body you know will set her off.  You take her tail and start to stroke it.  When you rub the muscles near the base Kath’s hips launch upwards and you hear a " +
-                (this.hasCock()
-                    ? "sound like a bucket of water being poured onto a wood floor.  The stream" +
-                      this.cockMultiple(
+            `If her ears won’t do it and her breasts don’t cut it there’s one part of Kath’s body you know will set her off.  You take her tail and start to stroke it.  When you rub the muscles near the base Kath’s hips launch upwards and you hear a ${
+                this.hasCock()
+                    ? `sound like a bucket of water being poured onto a wood floor.  The stream${this.cockMultiple(
                           " she fires is so powerful it hits the ceiling and spatters",
                           "s she fires are so powerful they hit the ceiling and spatter"
-                      ) +
-                      " all over the place like a cum sprinkler system"
-                    : "scream that starts at high pitched before passing out of the range of human hearing") +
-                ".\n\n"
+                      )} all over the place like a cum sprinkler system`
+                    : "scream that starts at high pitched before passing out of the range of human hearing"
+            }.\n\n`
         );
 
         this.outx(
-            (this.hasCock()
-                ? "It takes several more shots to drain Katherine’s " +
-                  (this.hasBalls() ? this.ballAdj() + " balls" : "unnatural prostate") +
-                  ".  When it’s over the whole apartment is soaked in cum"
-                : "Kath goes through several more orgasms before she's drained of energy.  When it's over the bedsheets are drenched") +
-                " and Kath is panting and laughing like a crazy person.  " +
-                (this.hasCock()
+            `${
+                this.hasCock()
+                    ? `It takes several more shots to drain Katherine’s ${
+                          this.hasBalls() ? `${this.ballAdj()} balls` : "unnatural prostate"
+                      }.  When it’s over the whole apartment is soaked in cum`
+                    : "Kath goes through several more orgasms before she's drained of energy.  When it's over the bedsheets are drenched"
+            } and Kath is panting and laughing like a crazy person.  ${
+                this.hasCock()
                     ? "Her body, directly beneath the rain of cum dripping from the ceiling, is coated head to toe.  "
-                    : "") +
-                "When she recovers enough to be sensible she looks over at you and says "
+                    : ""
+            }When she recovers enough to be sensible she looks over at you and says `
         );
         if (this.doneSubmissive(Katherine.KBIT_SUB_BED_BOND))
             this.outx(
-                "“<i>" +
-                    this.clothesChoice(
-                        "Oh baby!  No one’s ever made me cum like that.  Just give me a few minutes to recover.  I want to pay you back, you’re a keeper.",
-                        "That was great.  You want a job?  Cause if I add this to my act I’ll get a lot more gems every show.",
-                        "You win, you rapscallion.  You made your point, you’ve forced me to cum.  If you untie me now all will be forgiven.  I must admit you have some skill in the art of lovemaking.",
-                        "I did promise no reprisals if you made me feel good, didn’t I?  I guess you got what you wanted.  Now let me go, I have to get cleaned up for tomorrow.",
-                        "Oh baby!  No one’s ever made me cum like that.  Just give me a few minutes to recover.  I want to pay you back, you’re a keeper.",
-                        "Too bad it’s over.  Ever thought of going professional?  You come to the hospital, we give you a cute little outfit like this.  There are a lot of patients, doctors and nurses who could use some relief."
-                    ) +
-                    "</i>”"
+                `“<i>${this.clothesChoice(
+                    "Oh baby!  No one’s ever made me cum like that.  Just give me a few minutes to recover.  I want to pay you back, you’re a keeper.",
+                    "That was great.  You want a job?  Cause if I add this to my act I’ll get a lot more gems every show.",
+                    "You win, you rapscallion.  You made your point, you’ve forced me to cum.  If you untie me now all will be forgiven.  I must admit you have some skill in the art of lovemaking.",
+                    "I did promise no reprisals if you made me feel good, didn’t I?  I guess you got what you wanted.  Now let me go, I have to get cleaned up for tomorrow.",
+                    "Oh baby!  No one’s ever made me cum like that.  Just give me a few minutes to recover.  I want to pay you back, you’re a keeper.",
+                    "Too bad it’s over.  Ever thought of going professional?  You come to the hospital, we give you a cute little outfit like this.  There are a lot of patients, doctors and nurses who could use some relief."
+                )}</i>”`
             );
         else
             this.outx(
-                "“<i>Oh " +
-                    this.playerText() +
-                    ", that was amazing.  I’m so... spent.  Let me up and I’ll try to find the strength to do something for you.</i>”"
+                `“<i>Oh ${this.playerText()}, that was amazing.  I’m so... spent.  Let me up and I’ll try to find the strength to do something for you.</i>”`
             );
 
         const x: number = this.player.cockThatFits(70);
@@ -12596,17 +12383,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "You position yourself on the bed and line " +
-                    (this.player.cocks.length > 1 ? "up one of your dicks" : "your cock") +
-                    " with Kath’s slit.  " +
-                    (this.hasCock()
+                `You position yourself on the bed and line ${
+                    this.player.cocks.length > 1 ? "up one of your dicks" : "your cock"
+                } with Kath’s slit.  ${
+                    this.hasCock()
                         ? "Her cum is still dripping on your back when you push inside her.  "
-                        : "") +
-                    "She’s incredibly wet and her pussy opens itself before you, " +
-                    (this.hasCock()
+                        : ""
+                }She’s incredibly wet and her pussy opens itself before you, ${
+                    this.hasCock()
                         ? "almost like it’s jealous of the treatment her male side received"
-                        : "begging for more even though she's shaking her head") +
-                    ".\n\n"
+                        : "begging for more even though she's shaking her head"
+                }.\n\n`
             );
 
             this.outx(
@@ -12616,16 +12403,14 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outx("flat tummy and ask her where she wants your seed.\n\n");
                 if (this.doneSubmissive(Katherine.KBIT_SUB_BED_BOND))
                     this.outx(
-                        "“<i>" +
-                            this.clothesChoice(
-                                "That’s what you wanted all along, isn’t it?  You want to knock up a dumb slut you found at the bar.  Well I can’t stop you, so do your best stud!",
-                                "Fuck!  You’ll ruin everything.  Everyone at the club is gonna see my big fat belly and I’ll wind up serving drinks 'til I pop.  But since I can’t stop you I’m gonna enjoy this.",
-                                "Oh no!  You’re going to fuck a bastard into me.  Oh, my life is going to be over, why does this have to feel so good?",
-                                "Mmmm, I guess my class is going to learn firsthand about pregnancy and babies.  Come on then, put a little apprentice inside me!",
-                                "That’s what you wanted all along, isn’t it?  You want to knock up a dumb slut you found at the bar.  Well I can’t stop you, so do your best stud!",
-                                "Oh yes!  All the girls at the hospital will be soooo jealous.  I can’t wait for all the doctors to start fighting over my pregnant cunt.  Unless you want to have me?  Every day, every night - I don’t care, just give me more of this!"
-                            ) +
-                            "</i>”"
+                        `“<i>${this.clothesChoice(
+                            "That’s what you wanted all along, isn’t it?  You want to knock up a dumb slut you found at the bar.  Well I can’t stop you, so do your best stud!",
+                            "Fuck!  You’ll ruin everything.  Everyone at the club is gonna see my big fat belly and I’ll wind up serving drinks 'til I pop.  But since I can’t stop you I’m gonna enjoy this.",
+                            "Oh no!  You’re going to fuck a bastard into me.  Oh, my life is going to be over, why does this have to feel so good?",
+                            "Mmmm, I guess my class is going to learn firsthand about pregnancy and babies.  Come on then, put a little apprentice inside me!",
+                            "That’s what you wanted all along, isn’t it?  You want to knock up a dumb slut you found at the bar.  Well I can’t stop you, so do your best stud!",
+                            "Oh yes!  All the girls at the hospital will be soooo jealous.  I can’t wait for all the doctors to start fighting over my pregnant cunt.  Unless you want to have me?  Every day, every night - I don’t care, just give me more of this!"
+                        )}</i>”`
                     );
                 else
                     this.outx(
@@ -12638,22 +12423,18 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outx("Her hips buck and some drool runs from the corner of her mouth.  ");
                 if (this.doneSubmissive(Katherine.KBIT_SUB_BED_BOND))
                     this.outx(
-                        "“<i>" +
-                            this.clothesChoice(
-                                "You know I do stud.  I love getting knocked up and parading my big belly around town.  I’m sure not going to bars for the drinks right now.  Mommy",
-                                "No, no.  This was an accident.  I have to stay fit for my job at the club.  But since I’m huge anyway please pump some more cum inside me.  Maybe it’ll help with the stretch marks.  Mommy",
-                                "Ugh!  This is a noble baby growing in my womb, but why am I wishing it was yours?  Oh, I hope my child learns to fuck like you do and not like his father.  Please don’t stop, mommy",
-                                "Yes, I do.  It’s my duty to produce more adepts for the tower.  You must find me when my womb is empty, I would like to carry your child.  Now fill me, mommy",
-                                "You know I do stud.  I love getting knocked up and parading my big belly around town.  I’m sure not going to bars for the drinks right now.  Mommy",
-                                "Mmmm, the doctors and the male nurses don’t let us go very long without a bun in the oven.  Hot little teases like me get fertility shots to make whole litters of new nurses!  Don’t you dare stop before you fill me, mommy"
-                            ) +
-                            " needs so much cum!</i>”"
+                        `“<i>${this.clothesChoice(
+                            "You know I do stud.  I love getting knocked up and parading my big belly around town.  I’m sure not going to bars for the drinks right now.  Mommy",
+                            "No, no.  This was an accident.  I have to stay fit for my job at the club.  But since I’m huge anyway please pump some more cum inside me.  Maybe it’ll help with the stretch marks.  Mommy",
+                            "Ugh!  This is a noble baby growing in my womb, but why am I wishing it was yours?  Oh, I hope my child learns to fuck like you do and not like his father.  Please don’t stop, mommy",
+                            "Yes, I do.  It’s my duty to produce more adepts for the tower.  You must find me when my womb is empty, I would like to carry your child.  Now fill me, mommy",
+                            "You know I do stud.  I love getting knocked up and parading my big belly around town.  I’m sure not going to bars for the drinks right now.  Mommy",
+                            "Mmmm, the doctors and the male nurses don’t let us go very long without a bun in the oven.  Hot little teases like me get fertility shots to make whole litters of new nurses!  Don’t you dare stop before you fill me, mommy"
+                        )} needs so much cum!</i>”`
                     );
                 else
                     this.outx(
-                        "“<i>Oh " +
-                            this.playerText() +
-                            ", don’t stop now.  I need that cum.  I need your hot love inside me.</i>”"
+                        `“<i>Oh ${this.playerText()}, don’t stop now.  I need that cum.  I need your hot love inside me.</i>”`
                     );
             }
             this.outx(
@@ -12661,25 +12442,27 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "You force it as deep as you can, " +
-                    (pcLen < 15
+                `You force it as deep as you can, ${
+                    pcLen < 15
                         ? "trying to make it as good for her as it is for you"
-                        : "rubbing the tip against Kath’s cervix and causing her eyes to roll back in her skull") +
-                    ".  When you cum "
+                        : "rubbing the tip against Kath’s cervix and causing her eyes to roll back in her skull"
+                }.  When you cum `
             );
             if (this.player.cumQ() <= 500)
                 this.outx(
-                    "you feel a small pool of sperm form around the tip of your cock." +
-                        (this.pregSize() == 0
+                    `you feel a small pool of sperm form around the tip of your cock.${
+                        this.pregSize() == 0
                             ? "  You’re sure you can feel Kath’s cervix sucking some of it in."
-                            : "")
+                            : ""
+                    }`
                 );
             else if (this.player.cumQ() <= 1500)
                 this.outx(
-                    "your sperm streams from your cock and starts to pool inside Katherine.  " +
-                        (this.pregSize() == 0
+                    `your sperm streams from your cock and starts to pool inside Katherine.  ${
+                        this.pregSize() == 0
                             ? "Her belly starts to swell and you give her formerly flat belly a little rub while Kath purrs."
-                            : "With her cervix blocking the way forward most of your cum bubbles back out of Kath’s pussy.")
+                            : "With her cervix blocking the way forward most of your cum bubbles back out of Kath’s pussy."
+                    }`
                 );
             else if (this.player.cumQ() <= 3000) {
                 this.outx("your seed flows into Kath like a river.  ");
@@ -12691,32 +12474,35 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         );
                     else
                         this.outx(
-                            "and you sink into her a bit further as the " +
-                                (pcLen == 15 ? "tip" : "first " + (pcLen - 15) + " inches") +
-                                " of your cock slide into her womb"
+                            `and you sink into her a bit further as the ${
+                                pcLen == 15 ? "tip" : `first ${pcLen - 15} inches`
+                            } of your cock slide into her womb`
                         );
                     this.outx(
                         ".  Kath’s belly grows larger and larger, taking all the cum you can give her until she looks five months pregnant and her belly button pops out, signaling that she can hold no more"
                     );
                 } else
                     this.outx(
-                        "Since her womb is already filled with a child it’s her vagina that takes the brunt of it.  Before your eyes a small hard bulge forms just above her cock" +
-                            this.cockMultiple("", "s") +
-                            " as the upper end of her birth canal is forced wide open by the flood from your " +
-                            (this.player.balls > 0 ? "balls" : "prostate")
+                        `Since her womb is already filled with a child it’s her vagina that takes the brunt of it.  Before your eyes a small hard bulge forms just above her cock${this.cockMultiple(
+                            "",
+                            "s"
+                        )} as the upper end of her birth canal is forced wide open by the flood from your ${
+                            this.player.balls > 0 ? "balls" : "prostate"
+                        }`
                     );
                 this.outx(
                     ".  The rest of your cum flows back around your cock, pouring out onto the bed."
                 );
             } else {
                 this.outx(
-                    "your " +
-                        (this.player.balls > 0 ? "overactive balls" : "unnatural prostate") +
-                        ", fueled by the strange magic of this world, inject" +
-                        (this.player.balls > 0 ? "" : "s") +
-                        " an impossible amount of sperm into your cat " +
-                        this.catGirl("girl", "morph") +
-                        " lover.  The breath is forced from Kath’s lungs and "
+                    `your ${
+                        this.player.balls > 0 ? "overactive balls" : "unnatural prostate"
+                    }, fueled by the strange magic of this world, inject${
+                        this.player.balls > 0 ? "" : "s"
+                    } an impossible amount of sperm into your cat ${this.catGirl(
+                        "girl",
+                        "morph"
+                    )} lover.  The breath is forced from Kath’s lungs and `
                 );
                 if (this.pregSize() == 0) {
                     this.outx("in an instant her cervix is forced open.  ");
@@ -12726,20 +12512,20 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                         );
                     else
                         this.outx(
-                            "You sink into her a bit further as the " +
-                                (pcLen == 15 ? "tip" : "first " + (pcLen - 15) + " inches") +
-                                " of your cock slide into her womb"
+                            `You sink into her a bit further as the ${
+                                pcLen == 15 ? "tip" : `first ${pcLen - 15} inches`
+                            } of your cock slide into her womb`
                         );
                     this.outx(
-                        ".  Kath’s belly grows larger and larger, taking in all the cum you can give her and growing by leaps and bounds.  She soon looks five or six months pregnant and her belly button pops out.  But your cum " +
-                            (this.player.balls > 0 ? "factories aren't" : "factory isn't") +
-                            " done.\n\n"
+                        `.  Kath’s belly grows larger and larger, taking in all the cum you can give her and growing by leaps and bounds.  She soon looks five or six months pregnant and her belly button pops out.  But your cum ${
+                            this.player.balls > 0 ? "factories aren't" : "factory isn't"
+                        } done.\n\n`
                     );
 
                     this.outx(
-                        "Your " +
-                            (this.player.balls > 0 ? "balls fire" : "prostate fires") +
-                            " even higher pressure blasts, overcoming all resistance from Kath’s tortured belly and inflating her taut tummy until she looks nine months pregnant.   "
+                        `Your ${
+                            this.player.balls > 0 ? "balls fire" : "prostate fires"
+                        } even higher pressure blasts, overcoming all resistance from Kath’s tortured belly and inflating her taut tummy until she looks nine months pregnant.   `
                     );
                     if (this.player.cor < 25)
                         this.outx(
@@ -12762,25 +12548,27 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             }
 
             this.outx(
-                "\n\nWhen it’s over you collapse on top of your cat " +
-                    this.catGirl("girl", "morph") +
-                    " lover.  You feel completely spent and you enjoy the feeling of your sperm leaking slowly from inside her body.\n\n"
+                `\n\nWhen it’s over you collapse on top of your cat ${this.catGirl(
+                    "girl",
+                    "morph"
+                )} lover.  You feel completely spent and you enjoy the feeling of your sperm leaking slowly from inside her body.\n\n`
             );
 
             this.outx(
-                "As you lie there you " +
-                    (this.hasCock()
-                        ? "realize there’s a " +
-                          this.cockMultiple(" hot, hard bulge", "pair of hot, hard bulges") +
-                          " between the two of you.  "
-                        : "notice that Kath's nippes are rock hard once again") +
-                    "It looks like Kath enjoyed herself so much that she " +
-                    (this.hasCock() ? "wants round two" : "needs to cum again") +
-                    ".  You don’t want to disappoint so you roll off her and start to " +
-                    (this.hasCock()
-                        ? "stroke her cock" + this.cockMultiple(" and her knot", "s and knots")
-                        : "massage her throbbing clit") +
-                    ".\n\n"
+                `As you lie there you ${
+                    this.hasCock()
+                        ? `realize there’s a ${this.cockMultiple(
+                              " hot, hard bulge",
+                              "pair of hot, hard bulges"
+                          )} between the two of you.  `
+                        : "notice that Kath's nippes are rock hard once again"
+                }It looks like Kath enjoyed herself so much that she ${
+                    this.hasCock() ? "wants round two" : "needs to cum again"
+                }.  You don’t want to disappoint so you roll off her and start to ${
+                    this.hasCock()
+                        ? `stroke her cock${this.cockMultiple(" and her knot", "s and knots")}`
+                        : "massage her throbbing clit"
+                }.\n\n`
             );
 
             this.outx(
@@ -12789,11 +12577,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
             if (this.player.cor < 25)
                 this.outx(
-                    "You consider it, but you know Kath will end up loving it." +
-                        (this.doneSubmissive(Katherine.KBIT_SUB_BED_BOND)
+                    `You consider it, but you know Kath will end up loving it.${
+                        this.doneSubmissive(Katherine.KBIT_SUB_BED_BOND)
                             ? ""
-                            : "  She’s obviously turned on from being tied up, from letting you take control.") +
-                        "  You give her a smile and continue to stroke her gently"
+                            : "  She’s obviously turned on from being tied up, from letting you take control."
+                    }  You give her a smile and continue to stroke her gently`
                 );
             else if (this.player.cor < 75)
                 this.outx(
@@ -12801,24 +12589,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
             else
                 this.outx(
-                    "How does she think this works?  She’s tied to the bed, you’ve got her " +
-                        (this.hasCock()
-                            ? "cock" + this.cockMultiple("", "s") + " in hand"
-                            : "clit between your fingers") +
-                        ".  If you want her to cum then she’s going to cum!  You stop just long enough to give Kath a wicked smile and then you start to " +
-                        (this.hasCock()
-                            ? "jerk her cock" + this.cockMultiple("", "s")
-                            : "work her clit") +
-                        " in earnest"
+                    `How does she think this works?  She’s tied to the bed, you’ve got her ${
+                        this.hasCock()
+                            ? `cock${this.cockMultiple("", "s")} in hand`
+                            : "clit between your fingers"
+                    }.  If you want her to cum then she’s going to cum!  You stop just long enough to give Kath a wicked smile and then you start to ${
+                        this.hasCock()
+                            ? `jerk her cock${this.cockMultiple("", "s")}`
+                            : "work her clit"
+                    } in earnest`
                 );
             this.outx(
-                ".  Kath moans and tries to escape but her tail sweeps from side to side, showing you she couldn’t be happier.  When her hips launch off the bed you " +
-                    (this.hasCock()
-                        ? "aim her cock" +
-                          this.cockMultiple("", "s") +
-                          " at the ceiling and once again she gets coated in a shower of her own cum"
-                        : "lean in and give her a long deep kiss") +
-                    ".\n\n"
+                `.  Kath moans and tries to escape but her tail sweeps from side to side, showing you she couldn’t be happier.  When her hips launch off the bed you ${
+                    this.hasCock()
+                        ? `aim her cock${this.cockMultiple(
+                              "",
+                              "s"
+                          )} at the ceiling and once again she gets coated in a shower of her own cum`
+                        : "lean in and give her a long deep kiss"
+                }.\n\n`
             );
 
             this.outx(
@@ -12837,120 +12626,111 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
             this.outx(
-                "You position yourself above Katherine and slowly lower your " +
-                    (this.player.hasVagina() ? "pussy" : "ass") +
-                    " onto her " +
-                    (dPen
+                `You position yourself above Katherine and slowly lower your ${
+                    this.player.hasVagina() ? "pussy" : "ass"
+                } onto her ${
+                    dPen
                         ? "upper shaft.  A moment later you feel her lower shaft start to force its way into your ass"
-                        : "shaft") +
-                    ".  Kath mewls as her oversensitive cock" +
-                    (dPen ? "s disappear into your holes" : " disappears into your cunt") +
-                    ".\n\n"
+                        : "shaft"
+                }.  Kath mewls as her oversensitive cock${
+                    dPen ? "s disappear into your holes" : " disappears into your cunt"
+                }.\n\n`
             );
 
             if (this.doneSubmissive(Katherine.KBIT_SUB_BED_BOND))
                 this.outx(
-                    "“<i>" +
-                        this.clothesChoice(
-                            "Oh " +
-                                this.player.mf("mister", "miss") +
-                                ", I’m never going to have to pick up at that bar again.  It’s love at first fuck but please, no more.",
-                            "No!  I can’t do it again!  I’ll dance for you all the time but don’t do this or I won’t be able to walk straight for a week.",
-                            "Ugh, untie me rogue!  I already admitted I enjoyed this - how much more must I suffer?  My rod" +
-                                this.cockMultiple("", "s") +
-                                " will not remain stiff for you long.",
-                            "Twice?  No " +
-                                this.player.mf("mister", "miss") +
-                                ", please - we can meet again, I would like that, but I have a class to teach in the morning.",
-                            "Oh " +
-                                this.player.mf("mister", "miss") +
-                                ", I’m never going to have to pick up at that bar again.  It’s love at first fuck but please, no more.",
-                            "I’m really tired, could we maybe have round two tomorrow?  Please, pretty please?  I’m a medical professional and I can tell you cocks aren’t supposed to cum again so soon."
-                        ) +
-                        "</i>”"
+                    `“<i>${this.clothesChoice(
+                        `Oh ${this.player.mf(
+                            "mister",
+                            "miss"
+                        )}, I’m never going to have to pick up at that bar again.  It’s love at first fuck but please, no more.`,
+                        "No!  I can’t do it again!  I’ll dance for you all the time but don’t do this or I won’t be able to walk straight for a week.",
+                        `Ugh, untie me rogue!  I already admitted I enjoyed this - how much more must I suffer?  My rod${this.cockMultiple(
+                            "",
+                            "s"
+                        )} will not remain stiff for you long.`,
+                        `Twice?  No ${this.player.mf(
+                            "mister",
+                            "miss"
+                        )}, please - we can meet again, I would like that, but I have a class to teach in the morning.`,
+                        `Oh ${this.player.mf(
+                            "mister",
+                            "miss"
+                        )}, I’m never going to have to pick up at that bar again.  It’s love at first fuck but please, no more.`,
+                        "I’m really tired, could we maybe have round two tomorrow?  Please, pretty please?  I’m a medical professional and I can tell you cocks aren’t supposed to cum again so soon."
+                    )}</i>”`
                 );
             else
                 this.outx(
-                    "“<i>" +
-                        this.playerText() +
-                        ", please don’t.  Not so soon.  I can’t cum anymore.  Just let me recover or my " +
-                        (this.hasBalls() ? "balls are" : "prostate is") +
-                        " going to turn inside out.</i>”"
+                    `“<i>${this.playerText()}, please don’t.  Not so soon.  I can’t cum anymore.  Just let me recover or my ${
+                        this.hasBalls() ? "balls are" : "prostate is"
+                    } going to turn inside out.</i>”`
                 );
 
             this.outx(
-                "\n\nYou put an end to her babbling by kissing her while you allow your " +
-                    (dPen
+                `\n\nYou put an end to her babbling by kissing her while you allow your ${
+                    dPen
                         ? "holes to swallow her cocks"
-                        : (this.player.hasVagina() ? "pussy" : "rectum") +
-                          " to swallow up her cock") +
-                    ".  Kath’s hips weakly try to push more inside, but her hot and solid knot" +
-                    (dPen ? "s prevent" : " prevents") +
-                    " it.\n\n"
+                        : `${this.player.hasVagina() ? "pussy" : "rectum"} to swallow up her cock`
+                }.  Kath’s hips weakly try to push more inside, but her hot and solid knot${
+                    dPen ? "s prevent" : " prevents"
+                } it.\n\n`
             );
 
             this.outx(
-                "You rock forward and back, enjoying the feeling of Katherine’s " +
-                    (dPen
+                `You rock forward and back, enjoying the feeling of Katherine’s ${
+                    dPen
                         ? "staves grinding against one another inside you"
-                        : "staff probing your depths") +
-                    ".  Your hands roam over Kath’s breasts, the sperm soaked " +
-                    this.clothesChoice(
-                        "blouse",
-                        "bodysuit",
-                        "dress",
-                        "robe",
-                        "tube top",
-                        "nurse’s uniform"
-                    ) +
-                    " doing little to conceal her " +
-                    this.breasts.adj() +
-                    " mounds.\n\n"
+                        : "staff probing your depths"
+                }.  Your hands roam over Kath’s breasts, the sperm soaked ${this.clothesChoice(
+                    "blouse",
+                    "bodysuit",
+                    "dress",
+                    "robe",
+                    "tube top",
+                    "nurse’s uniform"
+                )} doing little to conceal her ${this.breasts.adj()} mounds.\n\n`
             );
 
             this.outx(
-                "Kath soon forgets her complaints and starts trying to move beneath you.  Although it’s difficult you pull yourself off her shaft" +
-                    (dPen ? "s" : "") +
-                    " and remind her that you and only you are going to decide when she gets to cum.  Kath lets out the most needy moan you’ve ever heard, but when you lower yourself again you find her hips have locked in place.\n\n"
+                `Kath soon forgets her complaints and starts trying to move beneath you.  Although it’s difficult you pull yourself off her shaft${
+                    dPen ? "s" : ""
+                } and remind her that you and only you are going to decide when she gets to cum.  Kath lets out the most needy moan you’ve ever heard, but when you lower yourself again you find her hips have locked in place.\n\n`
             );
 
             this.outx(
-                "You’re starting to feel that familiar throbbing as you rock against Katherine’s knot" +
-                    (dPen ? "s" : "") +
-                    " and you decide it’s time to make this kitty blow her load.  Reaching underneath her cock you first rub your palm gently against her pussy.  Then you " +
-                    (this.hasBalls()
-                        ? "slide your hand upwards and take hold of her " +
-                          this.ballAdj() +
-                          " balls.  They’re"
-                        : "push your fingers past her sphincter and start to massage her prostate.  It’s") +
-                    " boiling hot - probably working overtime to rebuild Kath’s supplies of sperm.\n\n"
+                `You’re starting to feel that familiar throbbing as you rock against Katherine’s knot${
+                    dPen ? "s" : ""
+                } and you decide it’s time to make this kitty blow her load.  Reaching underneath her cock you first rub your palm gently against her pussy.  Then you ${
+                    this.hasBalls()
+                        ? `slide your hand upwards and take hold of her ${this.ballAdj()} balls.  They’re`
+                        : "push your fingers past her sphincter and start to massage her prostate.  It’s"
+                } boiling hot - probably working overtime to rebuild Kath’s supplies of sperm.\n\n`
             );
 
             this.outx(
-                "As your fingers expertly massage her sperm " +
-                    (this.hasBalls() ? "factories" : "factory") +
-                    " you innocently ask, “<i>You said you couldn’t cum again.  Does it still feel that way, or was I right after all?</i>”  Kath seems to be lost in a dream world, so you try something else and yell out a command: “<i>Kath - CUM!</i>”\n\n"
+                `As your fingers expertly massage her sperm ${
+                    this.hasBalls() ? "factories" : "factory"
+                } you innocently ask, “<i>You said you couldn’t cum again.  Does it still feel that way, or was I right after all?</i>”  Kath seems to be lost in a dream world, so you try something else and yell out a command: “<i>Kath - CUM!</i>”\n\n`
             );
 
             this.outx(
-                "At that her body stiffens and her " +
-                    (this.hasBalls() ? "balls try to pull toward her body" : "prostate contracts") +
-                    ".  You decide to make things a little more intense and you " +
-                    (this.hasBalls()
-                        ? "hold her balls in place"
-                        : "pinch one end of her prostate") +
-                    ", making it harder for her to pump out her latest load.  Kath’s head starts thrashing from side to side and you feel her " +
-                    (this.hasBalls() ? "balls'" : "prostate’s") +
-                    " contractions go into overdrive as she fights for the chance to fill you.\n\n"
+                `At that her body stiffens and her ${
+                    this.hasBalls() ? "balls try to pull toward her body" : "prostate contracts"
+                }.  You decide to make things a little more intense and you ${
+                    this.hasBalls() ? "hold her balls in place" : "pinch one end of her prostate"
+                }, making it harder for her to pump out her latest load.  Kath’s head starts thrashing from side to side and you feel her ${
+                    this.hasBalls() ? "balls'" : "prostate’s"
+                } contractions go into overdrive as she fights for the chance to fill you.\n\n`
             );
 
             this.orgasm(); // Kath has already cum once, so reduce her load to the minimum amount.
             this.outx(
-                "Your belly starts to swell with Kath’s red hot seed but since she’s already emptied her " +
-                    (this.hasBalls() ? "balls" : "prostate") +
-                    " once tonight you don’t end up as completely stuffed as usual.  Kath gasps and pants like a fish out of water and with the last of your strength you untie her and press her hands to your " +
-                    (this.cumQ() > 500 ? "swollen " : "") +
-                    "belly.\n\n"
+                `Your belly starts to swell with Kath’s red hot seed but since she’s already emptied her ${
+                    this.hasBalls() ? "balls" : "prostate"
+                } once tonight you don’t end up as completely stuffed as usual.  Kath gasps and pants like a fish out of water and with the last of your strength you untie her and press her hands to your ${
+                    this.cumQ() > 500 ? "swollen " : ""
+                }belly.\n\n`
             );
 
             this.outx(
@@ -12971,29 +12751,27 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
     private drunkFuck(): void {
         this.outx(
-            "The waitress brings over one last drink and Kath slams it back in one shot.  She’s got an obvious " +
-                this.clothesLowerChoice(
-                    "tent in her pants",
-                    "bulge under her skirt",
-                    "bulge in the crotch of her bodysuit",
-                    "bulge under her dress",
-                    "bulge inside her robe"
-                ) +
-                " and she gives you a crooked smile as she gets up.\n\n"
+            `The waitress brings over one last drink and Kath slams it back in one shot.  She’s got an obvious ${this.clothesLowerChoice(
+                "tent in her pants",
+                "bulge under her skirt",
+                "bulge in the crotch of her bodysuit",
+                "bulge under her dress",
+                "bulge inside her robe"
+            )} and she gives you a crooked smile as she gets up.\n\n`
         );
 
         this.outx(
-            "You take her hand, but instead of heading for the alley as you expected Kath pulls you toward one of the empty backrooms.  She’s so excited she's practically skipping.  You get inside, lock the door and Kath pounces you.  She uses the very techniques you " +
-                (this.flags[kFLAGS.KATHERINE_TRAINING] == 1 ? "and Urta " : "") +
-                "taught her to pin your arm behind your back while she relieves you of your clothes, all the while giggling to herself.\n\n"
+            `You take her hand, but instead of heading for the alley as you expected Kath pulls you toward one of the empty backrooms.  She’s so excited she's practically skipping.  You get inside, lock the door and Kath pounces you.  She uses the very techniques you ${
+                this.flags[kFLAGS.KATHERINE_TRAINING] == 1 ? "and Urta " : ""
+            }taught her to pin your arm behind your back while she relieves you of your clothes, all the while giggling to herself.\n\n`
         );
 
         this.outx(
-            "Once you’re naked she " +
-                (this.player.hasVagina()
+            `Once you’re naked she ${
+                this.player.hasVagina()
                     ? "starts roughly playing with your clit"
-                    : "jabs a finger and then two inside your ass") +
-                ".  She’s not gentle, aiming only to get you hotter and hotter.  Kath leans in close and whispers, “<i>It’s my turn now.  You wanted me - so for now I’m callin the shots.</i>”  She "
+                    : "jabs a finger and then two inside your ass"
+            }.  She’s not gentle, aiming only to get you hotter and hotter.  Kath leans in close and whispers, “<i>It’s my turn now.  You wanted me - so for now I’m callin the shots.</i>”  She `
         );
         if (this.player.hasVagina())
             this.outx("keeps attacking your clit until you feel your juices running down your leg");
@@ -13006,30 +12784,26 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
 
         this.outx(".\n\nOnly when you’re having trouble even standing does Kath release your arm");
         if (!this.player.hasVagina())
-            this.outx(
-                " and yank her " + (this.player.hasCock() ? "fingers" : "fist") + " from your ass"
-            );
+            this.outx(` and yank her ${this.player.hasCock() ? "fingers" : "fist"} from your ass`);
         this.outx(
-            ", and that’s just so she can " +
-                this.clothesLowerChoice(
-                    "undo her pants",
-                    "raise her skirt",
-                    "pull open the hidden slit in her bodysuit",
-                    "raise her dress",
-                    "open her robe"
-                ) +
-                ", pull aside her panties and grab your hips with both hands.  Just a moment later your "
+            `, and that’s just so she can ${this.clothesLowerChoice(
+                "undo her pants",
+                "raise her skirt",
+                "pull open the hidden slit in her bodysuit",
+                "raise her dress",
+                "open her robe"
+            )}, pull aside her panties and grab your hips with both hands.  Just a moment later your `
         );
         const dPen: boolean = this.cockNumber > 1 && this.player.hasVagina();
         if (dPen) this.outx("cunt and ass get");
         else if (this.player.hasVagina()) this.outx("cunt gets");
         else this.outx("ass gets");
         this.outx(
-            " split wide open as Kath pulls you back onto her shaft" +
-                (dPen
+            ` split wide open as Kath pulls you back onto her shaft${
+                dPen
                     ? "s, burying herself to the hilt in both your holes"
-                    : ", burying herself to the hilt") +
-                ".\n\n"
+                    : ", burying herself to the hilt"
+            }.\n\n`
         );
 
         this.outx(
@@ -13043,21 +12817,21 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
         );
         if (this.player.hasCock())
             this.outx(
-                "The constant battering overcomes you and " +
-                    (this.player.cocks.length > 1 ? "your cocks start" : "your cock starts") +
-                    " to spray, coating the door " +
-                    (this.player.cumQ() > 1000 ? "and then the floor " : "") +
-                    "with your sticky semen"
+                `The constant battering overcomes you and ${
+                    this.player.cocks.length > 1 ? "your cocks start" : "your cock starts"
+                } to spray, coating the door ${
+                    this.player.cumQ() > 1000 ? "and then the floor " : ""
+                }with your sticky semen`
             );
         else if (this.player.hasVagina())
             this.outx(
-                "All that thrusting " +
-                    (this.player.isPregnant() && this.player.pregnancyIncubation < 100
+                `All that thrusting ${
+                    this.player.isPregnant() && this.player.pregnancyIncubation < 100
                         ? "along with the bouncing of your huge belly "
-                        : "") +
-                    "overcomes you and the walls of your pussy " +
-                    (dPen ? "and ass " : "") +
-                    "clamp down on Kath’s spear"
+                        : ""
+                }overcomes you and the walls of your pussy ${
+                    dPen ? "and ass " : ""
+                }clamp down on Kath’s spear`
             );
         else
             this.outx(
@@ -13065,25 +12839,25 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
         this.outx(
-            ".\n\nKath laughs like a madwoman and starts to hammer you even harder.  You feel her swollen knot" +
-                (dPen ? "s" : "") +
-                " fighting against your spasming passage" +
-                (dPen ? "s, trying to force their" : ", trying to force its") +
-                " way inside.  Katherine lets out a yowl and pulls back with all her strength.  Her knot" +
-                (dPen
+            `.\n\nKath laughs like a madwoman and starts to hammer you even harder.  You feel her swollen knot${
+                dPen ? "s" : ""
+            } fighting against your spasming passage${
+                dPen ? "s, trying to force their" : ", trying to force its"
+            } way inside.  Katherine lets out a yowl and pulls back with all her strength.  Her knot${
+                dPen
                     ? "s, already near their final size, smash through your defenses, your muscles unable to hold them"
-                    : ", already near its final size, smashes through your defenses, your muscles unable to hold it") +
-                " at bay.  At last Kath stops moving.  She must be enjoying the feeling as your "
+                    : ", already near its final size, smashes through your defenses, your muscles unable to hold it"
+            } at bay.  At last Kath stops moving.  She must be enjoying the feeling as your `
         );
         if (dPen) this.outx("pussy and rectum ripple");
         else if (this.player.hasVagina()) this.outx("pussy ripples");
         else this.outx("ass ripples");
-        this.outx(" along the length of her shaft" + (dPen ? "s" : "") + ".\n\n");
+        this.outx(` along the length of her shaft${dPen ? "s" : ""}.\n\n`);
 
         this.outx(
-            "In a whisper so quiet you almost miss it Kath says, “<i>My turn!</i>”  Your knees buckle as your kitten’s cock" +
-                (dPen ? "s discharge" : " discharges") +
-                " a tidal wave of spooge into your "
+            `In a whisper so quiet you almost miss it Kath says, “<i>My turn!</i>”  Your knees buckle as your kitten’s cock${
+                dPen ? "s discharge" : " discharges"
+            } a tidal wave of spooge into your `
         );
         if (this.player.hasVagina())
             this.outx(
@@ -13096,21 +12870,17 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 : ""
         );
         this.outx(
-            ".  After several long, hard blasts your belly has swollen up as Kath’s turbocharged " +
-                (this.hasBalls() ? "testicles do their" : "prostate does its") +
-                " best to change you into a balloon.  When she’s spent Kath falls backwards, dragging you with her.  You wind up " +
-                (this.player.isTaur()
+            `.  After several long, hard blasts your belly has swollen up as Kath’s turbocharged ${
+                this.hasBalls() ? "testicles do their" : "prostate does its"
+            } best to change you into a balloon.  When she’s spent Kath falls backwards, dragging you with her.  You wind up ${
+                this.player.isTaur()
                     ? "with your belly on the ground, all four legs splayed out,"
-                    : "sitting in Kath’s lap") +
-                " still feeling her heartbeat through the veins of her knot" +
-                (dPen ? "s" : "") +
-                ".\n\n"
+                    : "sitting in Kath’s lap"
+            } still feeling her heartbeat through the veins of her knot${dPen ? "s" : ""}.\n\n`
         );
 
         this.outx(
-            "From behind you come a worried voice.  “<i>I’m sorry " +
-                this.playerText() +
-                ", I really went out of control there.  I shouldn’t have, but you got me so drunk and horny... anyway, I’m sorry.</i>”\n\n"
+            `From behind you come a worried voice.  “<i>I’m sorry ${this.playerText()}, I really went out of control there.  I shouldn’t have, but you got me so drunk and horny... anyway, I’m sorry.</i>”\n\n`
         );
 
         if (this.player.cor < 25)
@@ -13119,9 +12889,10 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else if (this.player.cor < 75)
             this.outx(
-                "You’d have a much easier time being mad or punishing your cat " +
-                    this.catGirl("girl", "morph") +
-                    " if that hadn’t been so enjoyable."
+                `You’d have a much easier time being mad or punishing your cat ${this.catGirl(
+                    "girl",
+                    "morph"
+                )} if that hadn’t been so enjoyable.`
             );
         else
             this.outx(
@@ -13129,9 +12900,9 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
 
         this.outx(
-            "\n\nWhen the knot" +
-                (dPen ? "s finally come" : " finally comes") +
-                " free you get up, get dressed and walk out into the bar.  Several patrons, many sporting erections, give you applause.  Kath, still lying on the floor in a puddle of cum, tries to shrink down to nothing.  Even though she’s almost fully clothed she pulls a broken chair in front of her to try and hide from the bar.\n\n"
+            `\n\nWhen the knot${
+                dPen ? "s finally come" : " finally comes"
+            } free you get up, get dressed and walk out into the bar.  Several patrons, many sporting erections, give you applause.  Kath, still lying on the floor in a puddle of cum, tries to shrink down to nothing.  Even though she’s almost fully clothed she pulls a broken chair in front of her to try and hide from the bar.\n\n`
         );
 
         if (this.player.cor < 25)
@@ -13144,28 +12915,26 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
             );
         else {
             this.outx(
-                "You give Katherine an evil grin and stride back into the room.  The other patrons watch, some stroking their erections or slipping fingers into their pussies.  “<i>" +
-                    this.playerText() +
-                    " - what are you doing?</i>” she asks, quite worried.  You pull her up in front of you and stand behind her, much as she stood behind you moments ago." +
-                    (this.player.hasCock()
+                `You give Katherine an evil grin and stride back into the room.  The other patrons watch, some stroking their erections or slipping fingers into their pussies.  “<i>${this.playerText()} - what are you doing?</i>” she asks, quite worried.  You pull her up in front of you and stand behind her, much as she stood behind you moments ago.${
+                    this.player.hasCock()
                         ? "  Your partially deflated cock rubs against her backside, but that’s not what she should be worried about."
-                        : "")
+                        : ""
+                }`
             );
 
             this.outx(
-                "You put your arms under hers and " +
-                    this.clothesChoice(
-                        "start to unbutton her blouse, exposing her bra",
-                        "begin to play with her breasts right through her sheer bodysuit.  Her nipples harden and stick out of the stretchy fabric",
-                        "pull down the front of her ballroom dress, exposing her bra",
-                        "pull the top of her robe open, exposing her bra",
-                        "lift her tube top up, exposing her bra",
-                        "undo the few buttons on the sexy nurse’s top, exposing her bra"
-                    ) +
-                    (this.breasts.milkIsFull()
+                `You put your arms under hers and ${this.clothesChoice(
+                    "start to unbutton her blouse, exposing her bra",
+                    "begin to play with her breasts right through her sheer bodysuit.  Her nipples harden and stick out of the stretchy fabric",
+                    "pull down the front of her ballroom dress, exposing her bra",
+                    "pull the top of her robe open, exposing her bra",
+                    "lift her tube top up, exposing her bra",
+                    "undo the few buttons on the sexy nurse’s top, exposing her bra"
+                )}${
+                    this.breasts.milkIsFull()
                         ? ".  You feel her creamy goodness leaking out and see a few grins and surprised expressions among the crowd"
-                        : "") +
-                    ".\n\n"
+                        : ""
+                }.\n\n`
             );
 
             this.outx(
@@ -13181,10 +12950,11 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 this.outx("You give her a quick kiss and leave the bar, whistling.");
             } else {
                 this.outx(
-                    "You ignore her of course.  " +
-                        (this.doneSubmissive(Katherine.KBIT_SUB_PUBLIC_EXHIBITION)
+                    `You ignore her of course.  ${
+                        this.doneSubmissive(Katherine.KBIT_SUB_PUBLIC_EXHIBITION)
                             ? "You know your pet loves it when you force her to do things."
-                            : "It’s time for Kath to learn a new trick.  You’ve always thought her body could please a crowd, but after today’s behavior you’ve decided to prove it!")
+                            : "It’s time for Kath to learn a new trick.  You’ve always thought her body could please a crowd, but after today’s behavior you’ve decided to prove it!"
+                    }`
                 );
 
                 this.outx(
@@ -13200,92 +12970,92 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
 
                 this.outx(
-                    "Kath gulps but turns back to the crowd and " +
-                        this.clothesChoice(
-                            "starts unbuttoning her blouse slowly",
-                            "starts unlacing her bodysuit",
-                            "starts unlacing her long dress",
-                            "starts untying the knot of her robe",
-                            "starts running her fingers under the bottom edge of her tube top",
-                            "pulls the front of her nurse’s top open again"
-                        ) +
-                        ".  The crowd loves it and Kath, perhaps feeling a little bold thanks to the booze still in her system, starts to get into it and starts to sway back and forth, her cat-like flexibility allowing her hips to move through a hypnotic pattern that silences the crowd." +
-                        (this.getGame().isValaAtBar()
+                    `Kath gulps but turns back to the crowd and ${this.clothesChoice(
+                        "starts unbuttoning her blouse slowly",
+                        "starts unlacing her bodysuit",
+                        "starts unlacing her long dress",
+                        "starts untying the knot of her robe",
+                        "starts running her fingers under the bottom edge of her tube top",
+                        "pulls the front of her nurse’s top open again"
+                    )}.  The crowd loves it and Kath, perhaps feeling a little bold thanks to the booze still in her system, starts to get into it and starts to sway back and forth, her cat-like flexibility allowing her hips to move through a hypnotic pattern that silences the crowd.${
+                        this.getGame().isValaAtBar()
                             ? "  You even see a certain faerie waitress paused mid-flight with a tray of drinks.  You see her eyes following every move that Kath’s hips make."
-                            : "")
+                            : ""
+                    }`
                 );
 
                 this.outx(
-                    "\n\nYou have to smile watching Katherine dancing in front of all these people.  This is something she would never have done before you met her.  As her hips gyrate Kath " +
-                        this.clothesChoice(
-                            "pulls off her blouse and starts to play with her breasts.  After a few cheers and cries of “<i>More!</i>” she removes the bra as well",
-                            "pulls her shoulders out of the unlaced top of her bodysuit.  Without missing a beat she gets her arms free and pushes the silky fabric down until the bodysuit covers only her legs, ass and belly",
-                            "finishes unlacing the dress and pulls her arms free, letting the top of the dress fall away.  She starts to play with her breasts and after a few cheers and cries of “<i>More!</i>” she removes the bra as well",
-                            "undoes the knot and opens the front of her robe, giving the audience a lovely view of her bra and panties",
-                            "pulls the tube top over her head and starts to play with her breasts.  After a few cheers and cries of “<i>More!</i>” she removes the bra as well",
-                            "slips out of the nurse’s top and starts to play with her breasts.  After a few cheers and cries of “<i>More!</i>” she removes the bra as well"
-                        ) +
-                        ".\n\n"
+                    `\n\nYou have to smile watching Katherine dancing in front of all these people.  This is something she would never have done before you met her.  As her hips gyrate Kath ${this.clothesChoice(
+                        "pulls off her blouse and starts to play with her breasts.  After a few cheers and cries of “<i>More!</i>” she removes the bra as well",
+                        "pulls her shoulders out of the unlaced top of her bodysuit.  Without missing a beat she gets her arms free and pushes the silky fabric down until the bodysuit covers only her legs, ass and belly",
+                        "finishes unlacing the dress and pulls her arms free, letting the top of the dress fall away.  She starts to play with her breasts and after a few cheers and cries of “<i>More!</i>” she removes the bra as well",
+                        "undoes the knot and opens the front of her robe, giving the audience a lovely view of her bra and panties",
+                        "pulls the tube top over her head and starts to play with her breasts.  After a few cheers and cries of “<i>More!</i>” she removes the bra as well",
+                        "slips out of the nurse’s top and starts to play with her breasts.  After a few cheers and cries of “<i>More!</i>” she removes the bra as well"
+                    )}.\n\n`
                 );
 
                 this.outx(
-                    "With every eye in the place locked on her body Kath lets out a sexy purr " +
-                        this.clothesChoice(
-                            ", loosens her skirt and slowly slides it over her hips.  She poses before kicking off her panties, leaving herself totally naked in front of the crowd",
-                            "and works the bodysuit down over her hips, leaving herself totally naked in front of the crowd",
-                            "and wiggles her body, working herself out of the dress and leaving herself totally naked in front of the crowd",
-                            "and allows the spider silk robe to slide off her shoulders and drop to the ground.  With a twirl she pulls off her bra and slides off her panties, leaving herself totally naked in front of the crowd",
-                            this.clothesLowerChoice(
-                                "and slides the skintight shorts down her legs.  Her panties soon follow, ",
-                                ", loosens her skirt and slowly slides it over her hips.  She poses before kicking off her panties,",
-                                "",
-                                "",
-                                ""
-                            ) + " leaving herself totally naked in front of the crowd",
-                            "and unfastens the sexy nurse’s skirt, letting it drop to the floor.  She poses for the crowd, naked save for the little white nurse’s cap resting on her head"
-                        ) +
-                        ".\n\n"
+                    `With every eye in the place locked on her body Kath lets out a sexy purr ${this.clothesChoice(
+                        ", loosens her skirt and slowly slides it over her hips.  She poses before kicking off her panties, leaving herself totally naked in front of the crowd",
+                        "and works the bodysuit down over her hips, leaving herself totally naked in front of the crowd",
+                        "and wiggles her body, working herself out of the dress and leaving herself totally naked in front of the crowd",
+                        "and allows the spider silk robe to slide off her shoulders and drop to the ground.  With a twirl she pulls off her bra and slides off her panties, leaving herself totally naked in front of the crowd",
+                        `${this.clothesLowerChoice(
+                            "and slides the skintight shorts down her legs.  Her panties soon follow, ",
+                            ", loosens her skirt and slowly slides it over her hips.  She poses before kicking off her panties,",
+                            "",
+                            "",
+                            ""
+                        )} leaving herself totally naked in front of the crowd`,
+                        "and unfastens the sexy nurse’s skirt, letting it drop to the floor.  She poses for the crowd, naked save for the little white nurse’s cap resting on her head"
+                    )}.\n\n`
                 );
 
                 this.outx(
-                    "With Katherine nude and distracted you sneak up behind her and grab " +
-                        this.cockMultiple("her cock with both hands", "both her cocks") +
-                        ".  She lets out a surprised meow as you fondle her member" +
-                        (this.hasBalls() ? ", her balls" : "") +
-                        " and her dripping pussy.\n\n"
+                    `With Katherine nude and distracted you sneak up behind her and grab ${this.cockMultiple(
+                        "her cock with both hands",
+                        "both her cocks"
+                    )}.  She lets out a surprised meow as you fondle her member${
+                        this.hasBalls() ? ", her balls" : ""
+                    } and her dripping pussy.\n\n`
                 );
 
                 this.outx(
-                    "The crowd starts to cheer as you smear Kath’s cock" +
-                        this.cockMultiple("", "s") +
-                        " with her own pussy juice."
+                    `The crowd starts to cheer as you smear Kath’s cock${this.cockMultiple(
+                        "",
+                        "s"
+                    )} with her own pussy juice.`
                 );
                 if (this.getGame().isValaAtBar())
                     this.outx(
-                        "   You notice Vala has put down her tray.  One of her hands is under her skirt and she has a zoned out happy look on her face as she watches you molest your " +
-                            this.catGirl("cat girl.", "feline lover.")
+                        `   You notice Vala has put down her tray.  One of her hands is under her skirt and she has a zoned out happy look on her face as she watches you molest your ${this.catGirl(
+                            "cat girl.",
+                            "feline lover."
+                        )}`
                     );
                 this.outx(
-                    "  Katherine starts playing with her own breasts and grins at her audience" +
-                        (this.breasts.lactating()
+                    `  Katherine starts playing with her own breasts and grins at her audience${
+                        this.breasts.lactating()
                             ? ".  Every time she gives them a little squeeze some cream leaks out and dribbles down her front.  She"
-                            : ".  Then she") +
-                        " closes her eyes and leans back against you, losing herself in the feeling of her fingers and yours as they pleasure the most sensitive areas of her body.\n\n"
+                            : ".  Then she"
+                    } closes her eyes and leans back against you, losing herself in the feeling of her fingers and yours as they pleasure the most sensitive areas of her body.\n\n`
                 );
 
                 this.outx(
-                    "Having cum recently Kath is able to put on quite the show.  Even with your hands working her shaft" +
-                        this.cockMultiple("", "s") +
-                        " and occasionally dipping into her cunt it still takes minutes before you feel " +
-                        this.cockMultiple("that knot", "those knots") +
-                        " of hers firming up.  Kath’s hips jerk forward and you aim " +
-                        this.cockMultiple(
-                            "her shaft toward the ceiling.  When Kath cums a thick stream of semen under high pressure blasts from the tip of her cock, striking the wall above the door and raining down in thick, heavy droplets",
-                            "her upper cock to the left and her lower cock to the right.  When Kath cums twin streams of semen under high pressure blast from the tips of her cocks - one striking the wall on the left of the door, one striking the wall on the right"
-                        ) +
-                        ".  The whole bar applauds as Katherine unloads.  As the final squirts bubble from her member" +
-                        this.cockMultiple("", "s") +
-                        " Kath falls to her knees and her tongue hangs from the side of her mouth.\n\n"
+                    `Having cum recently Kath is able to put on quite the show.  Even with your hands working her shaft${this.cockMultiple(
+                        "",
+                        "s"
+                    )} and occasionally dipping into her cunt it still takes minutes before you feel ${this.cockMultiple(
+                        "that knot",
+                        "those knots"
+                    )} of hers firming up.  Kath’s hips jerk forward and you aim ${this.cockMultiple(
+                        "her shaft toward the ceiling.  When Kath cums a thick stream of semen under high pressure blasts from the tip of her cock, striking the wall above the door and raining down in thick, heavy droplets",
+                        "her upper cock to the left and her lower cock to the right.  When Kath cums twin streams of semen under high pressure blast from the tips of her cocks - one striking the wall on the left of the door, one striking the wall on the right"
+                    )}.  The whole bar applauds as Katherine unloads.  As the final squirts bubble from her member${this.cockMultiple(
+                        "",
+                        "s"
+                    )} Kath falls to her knees and her tongue hangs from the side of her mouth.\n\n`
                 );
 
                 this.outx(
@@ -13293,14 +13063,15 @@ export class Katherine extends TelAdreAbstractContent implements TimeAwareInterf
                 );
 
                 this.outx(
-                    "You stride out of the bar" +
-                        (this.getGame().isValaAtBar()
+                    `You stride out of the bar${
+                        this.getGame().isValaAtBar()
                             ? ", pausing only to pull Vala into your arms to quickly kiss her and grope her ass. She sighs, winks and tells you to come back later. You"
-                            : " and") +
-                        " head for home, knowing you’ve " +
-                        (this.doneSubmissive(Katherine.KBIT_SUB_PUBLIC_EXHIBITION)
+                            : " and"
+                    } head for home, knowing you’ve ${
+                        this.doneSubmissive(Katherine.KBIT_SUB_PUBLIC_EXHIBITION)
                             ? "once again helped Kath see how much fun showing off can be."
-                            : "opened Kath up to some new possibilities.")
+                            : "opened Kath up to some new possibilities."
+                    }`
                 );
                 this.addSubmissive(Katherine.KBIT_SUB_PUBLIC_EXHIBITION);
             }

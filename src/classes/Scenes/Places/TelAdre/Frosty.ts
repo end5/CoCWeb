@@ -13,9 +13,10 @@ export class Frosty extends TelAdreAbstractContent {
         if (this.flags[kFLAGS.MET_FROSTY] == 0) {
             this.flags[kFLAGS.MET_FROSTY] = 1;
             this.outx(
-                "You approach the pink girl and as she sees you walking towards her, she immediately makes a beeline for you. Before you know it, the girl is right in front of you, jamming one of her fliers right in your face and speaking fast and hyperactivily to you. “<i>Hello " +
-                    this.player.mf("sir", "madam") +
-                    ", would you like to come to ‘Frosty Cake’s Cupcake stand’? I’m Frosty- Nice to meet you- I recently opened a sweets-stand and can’t wait to have loyal customers such as you coming to my stand every day and buying all kinds of super delicious cupcakes!”</i> You have to take a step back to process everything she just blurted out; you also take the flyer from her just so she stops pushing it against your face. “<i>So do you wanna come to my stand, do ya, do ya, do ya!?</i>” You answer her with an uncertain “<i>yes</i>”, still wondering what she just said."
+                `You approach the pink girl and as she sees you walking towards her, she immediately makes a beeline for you. Before you know it, the girl is right in front of you, jamming one of her fliers right in your face and speaking fast and hyperactivily to you. “<i>Hello ${this.player.mf(
+                    "sir",
+                    "madam"
+                )}, would you like to come to ‘Frosty Cake’s Cupcake stand’? I’m Frosty- Nice to meet you- I recently opened a sweets-stand and can’t wait to have loyal customers such as you coming to my stand every day and buying all kinds of super delicious cupcakes!”</i> You have to take a step back to process everything she just blurted out; you also take the flyer from her just so she stops pushing it against your face. “<i>So do you wanna come to my stand, do ya, do ya, do ya!?</i>” You answer her with an uncertain “<i>yes</i>”, still wondering what she just said.`
             );
             this.outx(
                 "\n\nHowever, you can’t think for long as she grabs you by the hand to lead and whisk you out the front door of the bakery and to her food-stand that is just outside. It’s a tiny little booth, decorated in bright happy colors and streamers. A sign on the front reads:\n<i>“Frosty Cake’s Cupcake Stand!!!!”</i> in a bubbly rainbow colored chalk writing. She positions you right in front of it and jumps over the counter to the cashier side of it. “<i>Hello customer, how may I help you? My first customer!</i>” The last part comes out as a whispered squeal that doesn't do much to hide her excitement."
@@ -31,9 +32,10 @@ export class Frosty extends TelAdreAbstractContent {
                 "\n\n“<i>Well duh-</i>” she crosses her eyes with that last word. “<i>-how else do you think the bakery would let someone run a stand outside their store, I give them 10% of my profits and they let me run this booth.</i>” Her explanation still makes you uncertain whether you should buy a cupcake or not and it shows like marker written across your face. She sees your look of uncertainty and now looks a bit hurt at your hesitance, but she does see where you’re coming from."
             );
             this.outx(
-                "\n\n“<i>Well, " +
-                    this.player.mf("sir", "madam") +
-                    ", I was thinking of a new business plan last night. You could... be a... beta tester for it. All you have to do is sign these agreement papers.</i>”"
+                `\n\n“<i>Well, ${this.player.mf(
+                    "sir",
+                    "madam"
+                )}, I was thinking of a new business plan last night. You could... be a... beta tester for it. All you have to do is sign these agreement papers.</i>”`
             );
 
             this.outx(
@@ -235,9 +237,7 @@ export class Frosty extends TelAdreAbstractContent {
     public frostysLimitedSpecialMenu(): void {
         this.clearOutput();
         this.outx(
-            "Frosty spins the menu with a fingertip and stops it with the palm of her hand. She goes back to her business while you look over the menu.  The lettering and style of it has changed into something more appealing and seductive:\n\n1. Hand – 5 points\n2. Mouth - 15 points\nSPECIAL: Eat Me Out - 1 point\n\n<b>Current points: " +
-                this.frostyPoints() +
-                "</b>"
+            `Frosty spins the menu with a fingertip and stops it with the palm of her hand. She goes back to her business while you look over the menu.  The lettering and style of it has changed into something more appealing and seductive:\n\n1. Hand – 5 points\n2. Mouth - 15 points\nSPECIAL: Eat Me Out - 1 point\n\n<b>Current points: ${this.frostyPoints()}</b>`
         );
         this.frostySpecialsMenu();
     }

@@ -70,15 +70,13 @@ export class OmnibusOverseer extends Monster {
                 );
             } else {
                 this.outx(
-                    "The milk splashes into your " +
-                        this.player.armorName +
-                        ", soaking you effectively.  "
+                    `The milk splashes into your ${this.player.armorName}, soaking you effectively.  `
                 );
                 if (this.player.cocks.length > 0) {
                     this.outx(
-                        "Your " +
-                            this.cockDescript(0) +
-                            " gets hard as the milk lubricates and stimulates it.  "
+                        `Your ${this.cockDescript(
+                            0
+                        )} gets hard as the milk lubricates and stimulates it.  `
                     );
                     this.game.dynStats("lus", 5);
                 }
@@ -91,7 +89,7 @@ export class OmnibusOverseer extends Monster {
             }
             this.game.dynStats("lus", 7 + this.player.sens / 20);
             if (this.player.biggestLactation() > 1)
-                this.outx("Milk dribbles from your " + this.allBreastsDescript() + " in sympathy.");
+                this.outx(`Milk dribbles from your ${this.allBreastsDescript()} in sympathy.`);
         }
         this.game.combatRoundOver();
     }

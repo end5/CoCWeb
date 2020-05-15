@@ -82,48 +82,38 @@ export class CorruptedGlade extends BaseContent {
             if (this.player.cocks.length == 1) {
                 // Single Cawk
                 this.outx(
-                    "You grin to yourself as you decide to see just how close to a pussy these perverted little flowers are.  The thick stem bends with ease as you grasp it and bend it towards your groin, your other hand fumbling to open your " +
-                        this.player.armorName +
-                        ".  In seconds you free yourself and gingerly bring the folds closer, the musky scent that fills the air rapidly bringing you to a full, throbbing hardness.  The first touch of petals to your skin slicks you with the flower's silky secretions, allowing you to easily slip between the petals.  Though the flower looks fairly deep, you quickly feel yourself bottom out inside the petal's slippery grip.  Shrugging, you decide to make the best of it and begin thrusting into the plant, enjoying the unusual sensations along the front-most parts of your " +
-                        this.cockDescript(0) +
-                        ".  As you pound away, you begin to notice a change in the rear of the flower.\n\n"
+                    `You grin to yourself as you decide to see just how close to a pussy these perverted little flowers are.  The thick stem bends with ease as you grasp it and bend it towards your groin, your other hand fumbling to open your ${
+                        this.player.armorName
+                    }.  In seconds you free yourself and gingerly bring the folds closer, the musky scent that fills the air rapidly bringing you to a full, throbbing hardness.  The first touch of petals to your skin slicks you with the flower's silky secretions, allowing you to easily slip between the petals.  Though the flower looks fairly deep, you quickly feel yourself bottom out inside the petal's slippery grip.  Shrugging, you decide to make the best of it and begin thrusting into the plant, enjoying the unusual sensations along the front-most parts of your ${this.cockDescript(
+                        0
+                    )}.  As you pound away, you begin to notice a change in the rear of the flower.\n\n`
                 );
 
                 this.outx(
-                    "It feels as if something is opening up, and the tip of your cock begins slipping through a tight ring, bulging the plant's stem noticeably.  The sudden change worries you enough to pull back for a moment, your " +
-                        this.cockDescript(0) +
-                        " nearly clearing the opening before dozens of tiny whip-like tendrils burst from the flower, wrapping your maleness with painful tightness.  They constrict further and with a burst of movement, slam the flower down onto your " +
-                        this.cockDescript(0) +
-                        ", pulling you further and further into the stem with painful force.  You struggle briefly but the pain it causes your over-stimulated member is too much, so you just give up, letting the pussy-like plant draw the last of you inside its stem, the silken flowers cupping around your "
+                    `It feels as if something is opening up, and the tip of your cock begins slipping through a tight ring, bulging the plant's stem noticeably.  The sudden change worries you enough to pull back for a moment, your ${this.cockDescript(
+                        0
+                    )} nearly clearing the opening before dozens of tiny whip-like tendrils burst from the flower, wrapping your maleness with painful tightness.  They constrict further and with a burst of movement, slam the flower down onto your ${this.cockDescript(
+                        0
+                    )}, pulling you further and further into the stem with painful force.  You struggle briefly but the pain it causes your over-stimulated member is too much, so you just give up, letting the pussy-like plant draw the last of you inside its stem, the silken flowers cupping around your `
                 );
                 if (this.player.balls > 0) this.outx("balls and gently squeezing them.\n\n");
                 else this.outx("groin and gently squeezing your taint.\n\n");
 
                 this.outx(
-                    "You feel a flood of wetness surge up from the depths of the plant, surrounding your member with even more fluid as the stem begins constricting and squeezing.  Gently at first, and then with increasing insistence, a suction builds inside the stem, drawing more and more blood into your " +
-                        this.cockDescript(0) +
-                        ".  The stem, now heavily distended by your massive member, continues rippling, squeezing, and sucking your over-engorged meat-pole, overwhelming your mind with sensation far beyond normal.  You'd wonder just what kind of tactile-enhancing fluids that plant excretes, if you weren't already mindlessly pistoning against the tainted plant, still locked inside it by tight little tentacles.\n\n"
+                    `You feel a flood of wetness surge up from the depths of the plant, surrounding your member with even more fluid as the stem begins constricting and squeezing.  Gently at first, and then with increasing insistence, a suction builds inside the stem, drawing more and more blood into your ${this.cockDescript(
+                        0
+                    )}.  The stem, now heavily distended by your massive member, continues rippling, squeezing, and sucking your over-engorged meat-pole, overwhelming your mind with sensation far beyond normal.  You'd wonder just what kind of tactile-enhancing fluids that plant excretes, if you weren't already mindlessly pistoning against the tainted plant, still locked inside it by tight little tentacles.\n\n`
                 );
             } else {
                 // Multicock
                 this.outx(
-                    "You grin to yourself as you decide to see just how close to a pussy these perverted little flowers are.  The thick stems bend with ease as you grab a few with your hand and pull them towards your groin, your other hand fumbling to open your " +
-                        this.player.armorName +
-                        ".  In seconds you free yourself, and gingerly bring the folds closer.  The musky scent filling the air rapidly brings your " +
-                        this.multiCockDescriptLight() +
-                        " to a full, throbbing hardness.  The first touch of petals to your skin slicks you with the flower's silky secretions, allowing you to easily slip between the petals.  Though the flowers look fairly deep, you quickly feel yourself bottom out inside the petals' slippery grip.  Shrugging, you decide to make the best of it and begin thrusting into the plant, enjoying the unusual sensations along the front-most parts of your " +
-                        this.multiCockDescriptLight() +
-                        ".  As you pound away, you begin to notice a change in the rear of the flowers.\n\n"
+                    `You grin to yourself as you decide to see just how close to a pussy these perverted little flowers are.  The thick stems bend with ease as you grab a few with your hand and pull them towards your groin, your other hand fumbling to open your ${
+                        this.player.armorName
+                    }.  In seconds you free yourself, and gingerly bring the folds closer.  The musky scent filling the air rapidly brings your ${this.multiCockDescriptLight()} to a full, throbbing hardness.  The first touch of petals to your skin slicks you with the flower's silky secretions, allowing you to easily slip between the petals.  Though the flowers look fairly deep, you quickly feel yourself bottom out inside the petals' slippery grip.  Shrugging, you decide to make the best of it and begin thrusting into the plant, enjoying the unusual sensations along the front-most parts of your ${this.multiCockDescriptLight()}.  As you pound away, you begin to notice a change in the rear of the flowers.\n\n`
                 );
 
                 this.outx(
-                    "They seem to be gradually opening up, allowing the smallest of your cock-tips to begin slipping through an opening in the backs of the flowers and into the stems.  Shocked by this unexpected development, you pull the bundle of flowers from your " +
-                        this.multiCockDescriptLight() +
-                        ", but whiplike tendrils shoot forth from deep within the flowers, wrapping tightly around your manhoods, painfully squeezing as they drag your " +
-                        this.multiCockDescriptLight() +
-                        " back into the tight vaginal openings.  They pull tighter as they force you deeper inside the plant, pulling the full length of each of your members into the constricting stalks.   Wrapped tightly around your base, the tendrils form effective cock-rings, making each of your " +
-                        this.multiCockDescriptLight() +
-                        " overfill with blood.\n\n"
+                    `They seem to be gradually opening up, allowing the smallest of your cock-tips to begin slipping through an opening in the backs of the flowers and into the stems.  Shocked by this unexpected development, you pull the bundle of flowers from your ${this.multiCockDescriptLight()}, but whiplike tendrils shoot forth from deep within the flowers, wrapping tightly around your manhoods, painfully squeezing as they drag your ${this.multiCockDescriptLight()} back into the tight vaginal openings.  They pull tighter as they force you deeper inside the plant, pulling the full length of each of your members into the constricting stalks.   Wrapped tightly around your base, the tendrils form effective cock-rings, making each of your ${this.multiCockDescriptLight()} overfill with blood.\n\n`
                 );
 
                 this.outx(
@@ -131,29 +121,27 @@ export class CorruptedGlade extends BaseContent {
                 );
             }
             this.outx(
-                "You cum, and cum, and cum, the evidence of your pleasure devoured by the plant's sucking, squeezing gullet.  The orgasm drags on for what feels like forever, your " +
-                    this.player.legs() +
-                    " eventually giving out, your hips the only muscle that seems to work as they twitch into the air, as if begging for more.  You are milked of a few last big spurts, at last collapsing.\n\n"
+                `You cum, and cum, and cum, the evidence of your pleasure devoured by the plant's sucking, squeezing gullet.  The orgasm drags on for what feels like forever, your ${this.player.legs()} eventually giving out, your hips the only muscle that seems to work as they twitch into the air, as if begging for more.  You are milked of a few last big spurts, at last collapsing.\n\n`
             );
 
             this.outx(
-                "The tendrils encircling your genitals do not release; instead they pull tighter, one of " +
-                    (this.player.cocks.length > 1 ? "each plant's tiny" : "the tiny plant's") +
-                    " appendages penetrating your urethra" +
-                    (this.player.cocks.length > 1 ? "s" : "") +
-                    ", squirming up your cum slicked passage" +
-                    (this.player.cocks.length > 1 ? "s" : "") +
-                    " with uncomfortable slowness.  You lay there, too weak to resist it or fight, hoping that whatever the plants are doing won't hurt much.  You feel it twisting and coiling inside you... until it stops.  You feel a sharp pinch, and then it withdraws, seemingly satisfied.  The tendrils unwrap, allowing the plants to spring back up, exposing your still over-engorged and sensitive member" +
-                    (this.player.cocks.length > 1 ? "s" : "") +
-                    ".\n\n"
+                `The tendrils encircling your genitals do not release; instead they pull tighter, one of ${
+                    this.player.cocks.length > 1 ? "each plant's tiny" : "the tiny plant's"
+                } appendages penetrating your urethra${
+                    this.player.cocks.length > 1 ? "s" : ""
+                }, squirming up your cum slicked passage${
+                    this.player.cocks.length > 1 ? "s" : ""
+                } with uncomfortable slowness.  You lay there, too weak to resist it or fight, hoping that whatever the plants are doing won't hurt much.  You feel it twisting and coiling inside you... until it stops.  You feel a sharp pinch, and then it withdraws, seemingly satisfied.  The tendrils unwrap, allowing the plants to spring back up, exposing your still over-engorged and sensitive member${
+                    this.player.cocks.length > 1 ? "s" : ""
+                }.\n\n`
             );
 
             this.outx(
-                "You lay there for some time until your muscle control returns, your cock" +
-                    (this.player.cocks.length > 1 ? "s" : "") +
-                    " still slightly over-large " +
-                    (this.player.balls >= 2 ? "and your " + this.ballsDescriptLight() : "and") +
-                    " feeling sore from the exertion.  At least you hope it's just from the exertion and not from whatever the plant did.\n\n"
+                `You lay there for some time until your muscle control returns, your cock${
+                    this.player.cocks.length > 1 ? "s" : ""
+                } still slightly over-large ${
+                    this.player.balls >= 2 ? `and your ${this.ballsDescriptLight()}` : "and"
+                } feeling sore from the exertion.  At least you hope it's just from the exertion and not from whatever the plant did.\n\n`
             );
             if (this.player.cumQ() < 25)
                 this.outx(
@@ -210,9 +198,7 @@ export class CorruptedGlade extends BaseContent {
         if (this.player.vaginas.length > 0 && CorruptedGlade.rand(2) == 0) {
             // Vaginal Variant 50% of the time
             this.outx(
-                "You saunter over to a dangling group of perverted looking vines, discarding your " +
-                    this.player.armorName +
-                    " along the way. Running your fingertips along the bulbous-tipped tentacle-like vines, you find one that looks "
+                `You saunter over to a dangling group of perverted looking vines, discarding your ${this.player.armorName} along the way. Running your fingertips along the bulbous-tipped tentacle-like vines, you find one that looks `
             );
             const tentacle: number = CorruptedGlade.rand(3); // Big, medium or small size tentacle
             let tentacleSize = 0;
@@ -287,43 +273,44 @@ export class CorruptedGlade extends BaseContent {
             }
             // resume secksings
             this.outx(
-                this.vaginaDescript(0) +
-                    ". Pulling gently, you manage to yank a bit more vine free, allowing it to brush against the damp forest loam. That same soft earth makes the perfect cushion for you as you lay down, spreading your legs. With both hands you grasp the vine, guiding it towards the entrance of your " +
-                    this.vaginaDescript(0) +
-                    ". The beaded moisture that covers the vine tingles tantalizingly at the first contact with your lips.\n\n"
+                `${this.vaginaDescript(
+                    0
+                )}. Pulling gently, you manage to yank a bit more vine free, allowing it to brush against the damp forest loam. That same soft earth makes the perfect cushion for you as you lay down, spreading your legs. With both hands you grasp the vine, guiding it towards the entrance of your ${this.vaginaDescript(
+                    0
+                )}. The beaded moisture that covers the vine tingles tantalizingly at the first contact with your lips.\n\n`
             );
 
             if (tentacle == 0)
                 // Small
                 this.outx(
-                    "With a sexy little sigh, you slip the mushroom-like tip between your nether-lips, feeling it bulge a little as it penetrates you. The vine's lubricants combine with your own, turning your horny cunt into a sloppy little slip-and-slide. You take it all the way to your cervix, easily handling its smaller size as you begin to use it like a favorite dildo. Deep inside your " +
-                        this.vaginaDescript(0) +
-                        ", the vine's lubricants begin to make your passage tingle, intensifying until your entire channel is overloaded with clit-like levels of sensation.\n\n"
+                    `With a sexy little sigh, you slip the mushroom-like tip between your nether-lips, feeling it bulge a little as it penetrates you. The vine's lubricants combine with your own, turning your horny cunt into a sloppy little slip-and-slide. You take it all the way to your cervix, easily handling its smaller size as you begin to use it like a favorite dildo. Deep inside your ${this.vaginaDescript(
+                        0
+                    )}, the vine's lubricants begin to make your passage tingle, intensifying until your entire channel is overloaded with clit-like levels of sensation.\n\n`
                 );
             if (tentacle == 1)
                 // Medium
                 this.outx(
-                    "With a soft grunt, you manage to wrangle the fat tip of the vine between your nether-lips, feeling the swollen bulge pulse inside you penetrate yourself with it. The vine's lubricants combine with your own, turning your horny cunt into a sloppy slip-and-slide. You force in the rest of the vine's length, taking it all the way to your cervix, enjoying the feeling of fullness it gives you as you begin pumping it in and out like an obscene green dildo. Deep inside your " +
-                        this.vaginaDescript(0) +
-                        ", the vine's lubricants begin to make your passage tingle, intensifying until your entire channel is overloaded with clit-like levels of sensation.\n\n"
+                    `With a soft grunt, you manage to wrangle the fat tip of the vine between your nether-lips, feeling the swollen bulge pulse inside you penetrate yourself with it. The vine's lubricants combine with your own, turning your horny cunt into a sloppy slip-and-slide. You force in the rest of the vine's length, taking it all the way to your cervix, enjoying the feeling of fullness it gives you as you begin pumping it in and out like an obscene green dildo. Deep inside your ${this.vaginaDescript(
+                        0
+                    )}, the vine's lubricants begin to make your passage tingle, intensifying until your entire channel is overloaded with clit-like levels of sensation.\n\n`
                 );
             if (tentacle == 2)
                 // Large
                 this.outx(
-                    "With a desperate grunt, you barely manage to force the obscene cock-head of the vine between your nether-lips. The swollen bulge pulses inside you, stretching you uncomfortably as it reacts to the warmth and tightness of your " +
-                        this.vaginaDescript(0) +
-                        ". The vine's lubricants begin to combine with your own, rapidly transforming your horny cunt into a sloppy slip-and-slide. You manage to cram the vine the rest of the way inside, bottoming it out against your cervix, reveling in the feeling of being stretched so wide, as you begin pumping it in and out of your " +
-                        this.vaginaDescript(0) +
-                        " like an over-sized sex-toy. Deep inside your " +
-                        this.vaginaDescript(0) +
-                        ", the vine's lubricants begin to make your passage tingle, intensifying until your entire channel is overloaded with clit-like levels of sensation.\n\n"
+                    `With a desperate grunt, you barely manage to force the obscene cock-head of the vine between your nether-lips. The swollen bulge pulses inside you, stretching you uncomfortably as it reacts to the warmth and tightness of your ${this.vaginaDescript(
+                        0
+                    )}. The vine's lubricants begin to combine with your own, rapidly transforming your horny cunt into a sloppy slip-and-slide. You manage to cram the vine the rest of the way inside, bottoming it out against your cervix, reveling in the feeling of being stretched so wide, as you begin pumping it in and out of your ${this.vaginaDescript(
+                        0
+                    )} like an over-sized sex-toy. Deep inside your ${this.vaginaDescript(
+                        0
+                    )}, the vine's lubricants begin to make your passage tingle, intensifying until your entire channel is overloaded with clit-like levels of sensation.\n\n`
                 );
             if (this.player.cuntChange(tentacleSize, true)) this.outx("\n\n"); // Stretch cuuuuunt and newline if it gets stretched
 
             this.outx(
-                "The rest of the world disappears as your mind tries to cope with the sensation overload coming from your groin. You're dimly aware of your hands pumping the slippery vine in and out, in and out, over and over.  Hips bucking, " +
-                    this.vaginaDescript(0) +
-                    " squeezing, thighs trembling, you achieve the first of many orgasms.  Incredibly, the sensitivity of your groin redoubles, nearly blacking you out from the pleasure.  Cumming over and over, you writhe in the dirt, pumping the corrupted prick-vine in and out of your spasming cunt.  Your eyes roll back in your head when the vine begins pumping you full of its strange fluid, and you finally lose your battle to remain conscious.\n\n"
+                `The rest of the world disappears as your mind tries to cope with the sensation overload coming from your groin. You're dimly aware of your hands pumping the slippery vine in and out, in and out, over and over.  Hips bucking, ${this.vaginaDescript(
+                    0
+                )} squeezing, thighs trembling, you achieve the first of many orgasms.  Incredibly, the sensitivity of your groin redoubles, nearly blacking you out from the pleasure.  Cumming over and over, you writhe in the dirt, pumping the corrupted prick-vine in and out of your spasming cunt.  Your eyes roll back in your head when the vine begins pumping you full of its strange fluid, and you finally lose your battle to remain conscious.\n\n`
             );
 
             this.outx(
@@ -343,11 +330,9 @@ export class CorruptedGlade extends BaseContent {
             if (CorruptedGlade.rand(4) == 0 && this.player.hipRating <= 10) {
                 // +hip up to 10
                 this.outx(
-                    "A strange shifting occurs below your waist, making your " +
-                        this.player.armorName +
-                        " feel tight.  <b>Your hips have grown larger</b>, becoming " +
-                        this.hipDescript() +
-                        ".  "
+                    `A strange shifting occurs below your waist, making your ${
+                        this.player.armorName
+                    } feel tight.  <b>Your hips have grown larger</b>, becoming ${this.hipDescript()}.  `
                 );
                 this.player.hipRating += CorruptedGlade.rand(3) + 1;
                 this.player.fertility++;
@@ -380,7 +365,7 @@ export class CorruptedGlade extends BaseContent {
                         ? this.cockDescript(0)
                         : this.multiCockDescriptLight()
                 );
-                if (this.player.vaginas.length > 0) this.outx(" and " + this.vaginaDescript(0));
+                if (this.player.vaginas.length > 0) this.outx(` and ${this.vaginaDescript(0)}`);
             } else if (this.player.vaginas.length > 0)
                 // Vagina
                 this.outx(this.vaginaDescript(0));
@@ -399,11 +384,9 @@ export class CorruptedGlade extends BaseContent {
             // +butt up to 10
             if (CorruptedGlade.rand(4) == 0 && this.player.buttRating <= 10) {
                 this.outx(
-                    "A strange shifting occurs on your backside, making your " +
-                        this.player.armorName +
-                        " feel tight.  <b>Your butt has grown larger</b>, becoming a " +
-                        this.buttDescript() +
-                        ".  "
+                    `A strange shifting occurs on your backside, making your ${
+                        this.player.armorName
+                    } feel tight.  <b>Your butt has grown larger</b>, becoming a ${this.buttDescript()}.  `
                 );
                 this.player.buttRating += CorruptedGlade.rand(3) + 1;
             }
@@ -417,9 +400,9 @@ export class CorruptedGlade extends BaseContent {
                     if (this.player.cocks.length == 1) {
                         // Single cawks
                         this.outx(
-                            "Your feel your " +
-                                this.cockDescript(0) +
-                                " bending and flexing of its own volition... looking down, you see it morph into a green vine-like shape.  <b>You now have a tentacle cock!</b>  "
+                            `Your feel your ${this.cockDescript(
+                                0
+                            )} bending and flexing of its own volition... looking down, you see it morph into a green vine-like shape.  <b>You now have a tentacle cock!</b>  `
                         );
                         // Set primary cock flag
                         this.player.cocks[0].cockType = CockTypesEnum.TENTACLE;
@@ -427,9 +410,7 @@ export class CorruptedGlade extends BaseContent {
                     if (this.player.cockTotal() > 1) {
                         // multi
                         this.outx(
-                            "Your feel your " +
-                                this.multiCockDescriptLight() +
-                                " bending and flexing of their own volition... looking down, you watch them morph into flexible vine-like shapes.  <b>You now have green tentacle cocks!</b>  "
+                            `Your feel your ${this.multiCockDescriptLight()} bending and flexing of their own volition... looking down, you watch them morph into flexible vine-like shapes.  <b>You now have green tentacle cocks!</b>  `
                         );
                         for (const cock of this.player.cocks) {
                             cock.cockType = CockTypesEnum.TENTACLE;

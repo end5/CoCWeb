@@ -33,11 +33,7 @@ export class BreastStore extends Utils implements SaveAwareInterface {
         super();
         this._breastFlag = breastFlag;
         if (this._breastFlag < 1 || this._breastFlag > BreastStore.MAX_FLAG_VALUE)
-            trace(
-                "Error: BreastStore created with invalid flag value. BreastStore(" +
-                    breastFlag +
-                    ")"
-            );
+            trace(`Error: BreastStore created with invalid flag value. BreastStore(${breastFlag})`);
     }
 
     // Implementation of SaveAwareInterface
@@ -62,24 +58,9 @@ export class BreastStore extends Utils implements SaveAwareInterface {
 
     public updateBeforeSave(game: CoC): void {
         if (this._breastFlag < 1 || this._breastFlag > BreastStore.MAX_FLAG_VALUE) return;
-        game.flags[this._breastFlag] =
-            BreastStore.BREAST_STORE_VERSION_1 +
-            "^" +
-            this.rows +
-            "^" +
-            this.cupSize +
-            "^" +
-            this.lactationLevel +
-            "^" +
-            this.nippleLength +
-            "^" +
-            this._fullness +
-            "^" +
-            this._timesMilked +
-            "^" +
-            this.preventLactationIncrease +
-            "^" +
-            this.preventLactationDecrease;
+        game.flags[
+            this._breastFlag
+        ] = `${BreastStore.BREAST_STORE_VERSION_1}^${this.rows}^${this.cupSize}^${this.lactationLevel}^${this.nippleLength}^${this._fullness}^${this._timesMilked}^${this.preventLactationIncrease}^${this.preventLactationDecrease}`;
     }
     // End of Interface Implementation
 
@@ -88,28 +69,28 @@ export class BreastStore extends Utils implements SaveAwareInterface {
         let descript: string = BreastStore.rand(2) == 0 ? Appearance.breastSize(size) : ""; // Add a description of the breast size 50% of the time
         switch (BreastStore.rand(10)) {
             case 1:
-                if (lactation > 2) return descript + "milk-udders";
+                if (lactation > 2) return `${descript}milk-udders`;
                 break;
             case 2:
                 if (lactation > 1.5) descript += "milky ";
-                if (size > 4) return descript + "tits";
+                if (size > 4) return `${descript}tits`;
                 break;
             case 4:
             case 5:
             case 6:
-                return descript + "tits";
+                return `${descript}tits`;
             case 7:
-                if (lactation >= 2.5) return descript + "udders";
+                if (lactation >= 2.5) return `${descript}udders`;
                 if (lactation >= 1) descript += "milk ";
-                return descript + "jugs";
+                return `${descript}jugs`;
             case 8:
-                if (size > 6) return descript + "love-pillows";
-                return descript + "boobs";
+                if (size > 6) return `${descript}love-pillows`;
+                return `${descript}boobs`;
             case 9:
-                if (size > 6) return descript + "tits";
+                if (size > 6) return `${descript}tits`;
             default:
         }
-        return descript + "breasts";
+        return `${descript}breasts`;
     }
 
     public get cupSize(): number {
@@ -220,9 +201,8 @@ export class BreastStore extends Utils implements SaveAwareInterface {
     } // The cup size alone
 
     public description(useAdj = false, isMale = false): string {
-        if (this._cupSize == CoC.BREAST_CUP_FLAT)
-            return "flat" + (isMale ? " manly," : "") + " chest";
-        return (useAdj ? this.adj() + " " : "") + this.cup() + " breasts";
+        if (this._cupSize == CoC.BREAST_CUP_FLAT) return `flat${isMale ? " manly," : ""} chest`;
+        return `${(useAdj ? `${this.adj()} ` : "") + this.cup()} breasts`;
     }
 
     public breastDesc(): string {

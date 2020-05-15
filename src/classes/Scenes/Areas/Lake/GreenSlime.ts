@@ -14,9 +14,7 @@ import { StatusAffects } from "../../../StatusAffects";
 export class GreenSlime extends Monster {
     public defeated(hpVictory: boolean): void {
         this.outx(
-            "You smile in satisfaction as the " +
-                this.short +
-                " collapses, unable to continue fighting.",
+            `You smile in satisfaction as the ${this.short} collapses, unable to continue fighting.`,
             true
         );
         // Boobfeed.

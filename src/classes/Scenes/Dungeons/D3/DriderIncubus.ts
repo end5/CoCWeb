@@ -201,7 +201,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
             this.outx(" Using your skills at misdirection, you avoid the strike.");
         } else {
             this.player.takeDamage(damage);
-            this.outx(" The weapon bites deep. (" + damage + ")");
+            this.outx(` The weapon bites deep. (${damage})`);
         }
     }
 
@@ -293,9 +293,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
                 damage = this.player.takeDamage(damage);
                 // Hit
                 this.outx(
-                    " You go flying back into a pair of oiled-up slavegirls. They gasp in surprise as you tear your way back to the fight. Too late, they attempt to caress you, barely touching your [leg] before you’re back in the fight. (" +
-                        damage +
-                        ")"
+                    ` You go flying back into a pair of oiled-up slavegirls. They gasp in surprise as you tear your way back to the fight. Too late, they attempt to caress you, barely touching your [leg] before you’re back in the fight. (${damage})`
                 );
             } else {
                 this.outx(" You successfully manage to block the kick!");
@@ -340,7 +338,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
                     this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
                 }
 
-                this.outx(" (" + damage + ")");
+                this.outx(` (${damage})`);
             }
 
             this.outx(" You hear the crack of wood striking");
@@ -368,7 +366,7 @@ export class DriderIncubus extends AbstractSpiderMorph {
             this.outx(" Using your skills at misdirection, you avoid the strike.");
         } else {
             this.player.takeDamage(damage);
-            this.outx(" The weapon bites deep. (" + damage + ")");
+            this.outx(` The weapon bites deep. (${damage})`);
         }
     }
 

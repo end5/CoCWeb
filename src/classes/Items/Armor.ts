@@ -48,7 +48,7 @@ export class Armor extends Useable {
     // For most clothes if the modArmorName is set then it's Exgartuan's doing. The comfortable clothes are the exception, they override this function.
 
     public useText(): void {
-        this.outx("You equip " + this.longName + ".  ");
+        this.outx(`You equip ${this.longName}.  `);
     }
 
     public playerEquip(): Armor {

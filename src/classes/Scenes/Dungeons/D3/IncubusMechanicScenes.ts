@@ -355,27 +355,27 @@ export class IncubusMechanicScenes extends BaseContent {
         if (this.silly()) this.outx(" tab C with slot buttfuck");
         else this.outx(" your eager tool with the corrupted anus");
         this.outx(
-            " and steadily push. At first, his asshole shuts you out. The sphincter is just too tightly clenched for anything, let alone something so full and thick, to fit inside. You give up on the push and begin rocking your [hips] back and forth, getting his soon-to-be-stretched hole used to the idea of having you inside him. A droplet of pre-cum escapes your " +
-                this.player.cockHead(x) +
-                " as you work, smearing over him."
+            ` and steadily push. At first, his asshole shuts you out. The sphincter is just too tightly clenched for anything, let alone something so full and thick, to fit inside. You give up on the push and begin rocking your [hips] back and forth, getting his soon-to-be-stretched hole used to the idea of having you inside him. A droplet of pre-cum escapes your ${this.player.cockHead(
+                x
+            )} as you work, smearing over him.`
         );
 
         this.outx(
-            "\n\nThe incubus's now-slickened pucker quivers, and that's all the opening you need. Your " +
-                this.player.cockHead(x) +
-                " slips in during a moment of looseness. In that second, you turn his crinkly rosebud into a smoothly stretched o-ring. The incubus moans, though whether in pleasure or pain, you cannot tell. You slap his ass and feel him clamp down on you with renewed vigor, briefly arresting your progress, but he can't squeeze that hard all the time. His asshole relaxes after a few seconds and lets another inch in."
+            `\n\nThe incubus's now-slickened pucker quivers, and that's all the opening you need. Your ${this.player.cockHead(
+                x
+            )} slips in during a moment of looseness. In that second, you turn his crinkly rosebud into a smoothly stretched o-ring. The incubus moans, though whether in pleasure or pain, you cannot tell. You slap his ass and feel him clamp down on you with renewed vigor, briefly arresting your progress, but he can't squeeze that hard all the time. His asshole relaxes after a few seconds and lets another inch in.`
         );
 
         this.outx(
-            "\n\n\"<i>Just relax and let it happen,</i>\" you instruct as you slowly squeeze another inch inside him. The incubus' insides are just so... so tight around your length and so warm compared to the outside air. You lean down over him, listening to him grunt, enjoying the feel of his entrance slowly slackening as he obeys. A huge blob of pre or cum (you can't be sure which) splatters into the growing puddle below him as your " +
-                this.player.cockHead(x) +
-                " inexpertly milks his prostate. The incubus shakes from head to toe, and you feed yourself in to the halfway point."
+            `\n\n"<i>Just relax and let it happen,</i>" you instruct as you slowly squeeze another inch inside him. The incubus' insides are just so... so tight around your length and so warm compared to the outside air. You lean down over him, listening to him grunt, enjoying the feel of his entrance slowly slackening as he obeys. A huge blob of pre or cum (you can't be sure which) splatters into the growing puddle below him as your ${this.player.cockHead(
+                x
+            )} inexpertly milks his prostate. The incubus shakes from head to toe, and you feed yourself in to the halfway point.`
         );
 
         this.outx(
-            "\n\nYou enjoy the muscular tightness of the demon's tainted anus for a moment, but he has ideas of his own. An inch of cock vanishes inside him, pulled inside by contractions a human could never manage. Gods, it feels good, and he's just getting started. He's pulling you inside him like some kind of sucking vacuum, drawing the entirety of your length inside him in seconds. You gasp, barely having the presence of mind to paddle his rosy asscheeks for his disobedience, but that only encourages him. Muscular ripples roll around your " +
-                this.cockDescript(x) +
-                " in a way that conjures up the image of the inside of a tornado - a suckling, insatiable vortex that's twisting and stroking until it pulls everything inside it."
+            `\n\nYou enjoy the muscular tightness of the demon's tainted anus for a moment, but he has ideas of his own. An inch of cock vanishes inside him, pulled inside by contractions a human could never manage. Gods, it feels good, and he's just getting started. He's pulling you inside him like some kind of sucking vacuum, drawing the entirety of your length inside him in seconds. You gasp, barely having the presence of mind to paddle his rosy asscheeks for his disobedience, but that only encourages him. Muscular ripples roll around your ${this.cockDescript(
+                x
+            )} in a way that conjures up the image of the inside of a tornado - a suckling, insatiable vortex that's twisting and stroking until it pulls everything inside it.`
         );
 
         this.outx(
@@ -383,17 +383,17 @@ export class IncubusMechanicScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\nNo! He's not going to win, even if him 'winning' is just making you cum into his asshole. You put your hands on his near-bruised bottom and pull away, struggling with all your might to extract your " +
-                this.cockDescript(x) +
-                " from his hungry asshole. It's slow going, and tremendously pleasurable, but you manage to extract yourself with a noisy 'schliiiiiiiiick' that never seems to end. When you finally pop your " +
-                this.player.cockHead(x) +
-                " out, you adjust your positioning and thrust with all your might, slapping your [hips] into his curvy backside with enough force to audibly slap. You hear the echo of your dominance rebound off the walls of Lethice's fortress, washing over her prone lieutenant."
+            `\n\nNo! He's not going to win, even if him 'winning' is just making you cum into his asshole. You put your hands on his near-bruised bottom and pull away, struggling with all your might to extract your ${this.cockDescript(
+                x
+            )} from his hungry asshole. It's slow going, and tremendously pleasurable, but you manage to extract yourself with a noisy 'schliiiiiiiiick' that never seems to end. When you finally pop your ${this.player.cockHead(
+                x
+            )} out, you adjust your positioning and thrust with all your might, slapping your [hips] into his curvy backside with enough force to audibly slap. You hear the echo of your dominance rebound off the walls of Lethice's fortress, washing over her prone lieutenant.`
         );
 
         this.outx(
-            "\n\nYou can actually feel your " +
-                this.player.cockHead(x) +
-                " nearly mashing his prostate flat as it grinds past. Shuddering, the incubus loses his focus, and his butthole slackens. You don't give him a chance for a second wind, bouncing back off and immediately starting your next thrust. Your hold is firm, and your strokes sure. His ass bounces beautifully with each prick-hilting slam against it. Down below, the demon's nubby phallus is bobbing back and forth like a pendulum, practically pissing out streams of pre-cum each time you bottom out. He's getting awful close, and all he can do is gasp and drool."
+            `\n\nYou can actually feel your ${this.player.cockHead(
+                x
+            )} nearly mashing his prostate flat as it grinds past. Shuddering, the incubus loses his focus, and his butthole slackens. You don't give him a chance for a second wind, bouncing back off and immediately starting your next thrust. Your hold is firm, and your strokes sure. His ass bounces beautifully with each prick-hilting slam against it. Down below, the demon's nubby phallus is bobbing back and forth like a pendulum, practically pissing out streams of pre-cum each time you bottom out. He's getting awful close, and all he can do is gasp and drool.`
         );
 
         this.outx(
@@ -405,15 +405,15 @@ export class IncubusMechanicScenes extends BaseContent {
         this.outx('\n\nYour own pleasure rising, you start fuck him even faster. "<i>No.</i>"');
 
         this.outx(
-            "\n\nThe incubus's dick-flopping diminishes as it begins to properly engorge once more, aiming higher with each beat of the demon's heart as he nears his orgasm. You push him down a bit so that your " +
-                this.cockDescript(x) +
-                " will press more powerfully across his prostate, panting from your own exertion. It's enough. The demon mewls out a long, high-pitched moan and erupts, painting a line of white up his overalls all the way to his chin. The next blobs of cum splatter off his chin. Each new ejaculation seems a little larger than the one before. You're doing your best to milk him from behind, and he's doing his best to whimper like a bitch and paint his face. A smile breaks across your face. It's more than a fair trade."
+            `\n\nThe incubus's dick-flopping diminishes as it begins to properly engorge once more, aiming higher with each beat of the demon's heart as he nears his orgasm. You push him down a bit so that your ${this.cockDescript(
+                x
+            )} will press more powerfully across his prostate, panting from your own exertion. It's enough. The demon mewls out a long, high-pitched moan and erupts, painting a line of white up his overalls all the way to his chin. The next blobs of cum splatter off his chin. Each new ejaculation seems a little larger than the one before. You're doing your best to milk him from behind, and he's doing his best to whimper like a bitch and paint his face. A smile breaks across your face. It's more than a fair trade.`
         );
 
         this.outx(
-            "\n\nEventually, the spent demon finishes, dribbling semen so weak that it's practically clear into a salty puddle between his knees. You don't slow or stop. In fact, your " +
-                this.cockDescript(x) +
-                " feels bigger and harder than it was a few seconds. The velvety folds of the demon's pre-slickened asshole are caressing you wonderfully, slowly egging you towards a climax of your own. You fuck him hard enough to knock him off-balance, dropping his cheek into his own spooge-puddle. Then, you cum, flooding your toy's asshole with its reward for a job well done."
+            `\n\nEventually, the spent demon finishes, dribbling semen so weak that it's practically clear into a salty puddle between his knees. You don't slow or stop. In fact, your ${this.cockDescript(
+                x
+            )} feels bigger and harder than it was a few seconds. The velvety folds of the demon's pre-slickened asshole are caressing you wonderfully, slowly egging you towards a climax of your own. You fuck him hard enough to knock him off-balance, dropping his cheek into his own spooge-puddle. Then, you cum, flooding your toy's asshole with its reward for a job well done.`
         );
 
         /// /Low cum exit
@@ -459,9 +459,9 @@ export class IncubusMechanicScenes extends BaseContent {
         this.outx("The incubus slumps down into the puddled semen, gasping in exhaustion.");
 
         this.outx(
-            "\n\nYou wipe your " +
-                this.cockDescript(x) +
-                " off on his practically glowing bottom before turning to re-dress. When you turn back, he's gone, though a trail of white drops indicates the direction of his flight. It looks like he fled towards the cliff, perhaps growing wings. Oh well, that's one less obstacle between you and Lethice."
+            `\n\nYou wipe your ${this.cockDescript(
+                x
+            )} off on his practically glowing bottom before turning to re-dress. When you turn back, he's gone, though a trail of white drops indicates the direction of his flight. It looks like he fled towards the cliff, perhaps growing wings. Oh well, that's one less obstacle between you and Lethice.`
         );
 
         this.player.orgasm();
@@ -579,8 +579,7 @@ export class IncubusMechanicScenes extends BaseContent {
 
         // ALL CONTINUE TO THIS:
         this.outx(
-            "\n\nYou dare not delay any further. Your [vagina] is so hot and slick with lube that it feels almost like it's steaming. It aches for penetration. Lifting yourself up off your [legs], you guide your wanton honeypot up until it's poised just above the " +
-                this.monster.cockDescriptShort()
+            `\n\nYou dare not delay any further. Your [vagina] is so hot and slick with lube that it feels almost like it's steaming. It aches for penetration. Lifting yourself up off your [legs], you guide your wanton honeypot up until it's poised just above the ${this.monster.cockDescriptShort()}`
         );
         if (this.player.wetness() <= 2)
             this.outx(
@@ -592,15 +591,11 @@ export class IncubusMechanicScenes extends BaseContent {
             );
         else this.outx(", letting your lubricant drip over it");
         this.outx(
-            ". You stuff two fingers inside and stroke deep before pulling them out and using them to spread you wide open. The " +
-                this.monster.cockDescriptShort() +
-                " pulsates with every beat of its demonic owner's heart, needing you every bit as much as you now need it."
+            `. You stuff two fingers inside and stroke deep before pulling them out and using them to spread you wide open. The ${this.monster.cockDescriptShort()} pulsates with every beat of its demonic owner's heart, needing you every bit as much as you now need it.`
         );
 
         this.outx(
-            "\n\nLetting your [legs] go slack, you press down upon the incubus' length. His " +
-                this.monster.cockHead() +
-                " presses poignantly at your entrance, throbbing gently. Small blooms of warm tickle over your lips, warm and wet as he leaks his liquid excitement into your nethers, lubricating you further. You relax a bit more"
+            `\n\nLetting your [legs] go slack, you press down upon the incubus' length. His ${this.monster.cockHead()} presses poignantly at your entrance, throbbing gently. Small blooms of warm tickle over your lips, warm and wet as he leaks his liquid excitement into your nethers, lubricating you further. You relax a bit more`
         );
 
         const mCockArea: number = this.monster.cockArea(0);
@@ -621,9 +616,7 @@ export class IncubusMechanicScenes extends BaseContent {
         // Decent Fit - Player cunt can fit between 95% - 149% of the total cock area
         else if (pCuntArea >= mCockArea * 0.95) {
             this.outx(
-                " and feel the girthy boner slowly start to slide through your clinging lips. He's so big and yet fits so well. It's like his " +
-                    this.monster.cockDescriptShort() +
-                    " was made to violate your channel - to slip and to slide through you while keeping you oh-so-pleasantly full. You're so busy enjoying the agonizingly slow pleasure that you barely notice when you bottom out above his balls"
+                ` and feel the girthy boner slowly start to slide through your clinging lips. He's so big and yet fits so well. It's like his ${this.monster.cockDescriptShort()} was made to violate your channel - to slip and to slide through you while keeping you oh-so-pleasantly full. You're so busy enjoying the agonizingly slow pleasure that you barely notice when you bottom out above his balls`
             );
             if (cType == this.MECHANIC_HORZ_GOG)
                 this.outx(", your belly bulging with his equine shape");
@@ -635,9 +628,7 @@ export class IncubusMechanicScenes extends BaseContent {
         else if (pCuntArea >= mCockArea * 0.5) {
             tightFit = true;
             this.outx(
-                " and feel the girthy boner slowly pry your lips further apart. He's so goddamn big that it feels like it's barely fitting inside. The first inch eventually slips into your tightly-clinging lips, forcing an inadvertent clench to run up the length of your channel. Your [vagina] noisily squelches around the slowly inserting member. You're stretched so full, and you're loving every moment of it. His " +
-                    this.monster.cockDescriptShort() +
-                    " is so goddamn filling, and you've only taken the first few inches! The feel of him sliding through you is so fulfilling, so all-consuming, that you barely notice your [butt] touching down against his crotch"
+                ` and feel the girthy boner slowly pry your lips further apart. He's so goddamn big that it feels like it's barely fitting inside. The first inch eventually slips into your tightly-clinging lips, forcing an inadvertent clench to run up the length of your channel. Your [vagina] noisily squelches around the slowly inserting member. You're stretched so full, and you're loving every moment of it. His ${this.monster.cockDescriptShort()} is so goddamn filling, and you've only taken the first few inches! The feel of him sliding through you is so fulfilling, so all-consuming, that you barely notice your [butt] touching down against his crotch`
             );
             if (cType == this.MECHANIC_HORZ_GOG)
                 this.outx(", your belly bulging with his equine shape");
@@ -649,18 +640,14 @@ export class IncubusMechanicScenes extends BaseContent {
         else {
             tightFit = true;
             this.outx(
-                " and feel the immensely girthy boner butt up against your lips, too wide to slip even the tiniest bit inside. Grunting in frustration, you grind against him, slicking his head further and applying more force. You push harder and harder, actually bending his rigid shaft slightly from the force. He groans in pain and pleasure. Suddenly, your voice joins his. His " +
-                    this.monster.cockHead() +
-                    " finally powers through your sopping gates and into your tunnel, stretching it painfully wide as it goes. The intensity of the combined pain and pleasure shocks you so badly that you nearly faint, and your [legs] go limp, forcing your body to slide down the belly-stretching meat-pole. You quiver and cry, sobbing words that sometimes sound like no and sometimes sound like yes, filled with more cock than you ever hoped to handle."
+                ` and feel the immensely girthy boner butt up against your lips, too wide to slip even the tiniest bit inside. Grunting in frustration, you grind against him, slicking his head further and applying more force. You push harder and harder, actually bending his rigid shaft slightly from the force. He groans in pain and pleasure. Suddenly, your voice joins his. His ${this.monster.cockHead()} finally powers through your sopping gates and into your tunnel, stretching it painfully wide as it goes. The intensity of the combined pain and pleasure shocks you so badly that you nearly faint, and your [legs] go limp, forcing your body to slide down the belly-stretching meat-pole. You quiver and cry, sobbing words that sometimes sound like no and sometimes sound like yes, filled with more cock than you ever hoped to handle.`
             );
         }
         this.player.cuntChange(this.monster.cockArea(0), false, false, false);
 
         // Merge together
         this.outx(
-            "\n\nYou hold yourself atop him and let your abdominal muscles flutter around the incubus' " +
-                this.monster.cockDescriptShort() +
-                " like an organic sextoy, getting used to holding him inside you. Turning to look back over your shoulders, you place a hand upon his chest feel his well-defined muscles. You stop to admire his nipple, tugging at it a little bit. He growls in irritation, but you just squeeze his dick with your"
+            `\n\nYou hold yourself atop him and let your abdominal muscles flutter around the incubus' ${this.monster.cockDescriptShort()} like an organic sextoy, getting used to holding him inside you. Turning to look back over your shoulders, you place a hand upon his chest feel his well-defined muscles. You stop to admire his nipple, tugging at it a little bit. He growls in irritation, but you just squeeze his dick with your`
         );
         if (tightFit) this.outx(" well-stretched");
         else this.outx(" stuffed");
@@ -678,17 +665,14 @@ export class IncubusMechanicScenes extends BaseContent {
         );
 
         this.outx(
-            '\n\n"<i>I really did consider ending your life, demon, but you were just doing your job.</i>" Your pussy spasms with pleasure, and you begin sliding up once more, this time going most of the way up before slowly sliding back down. You settle into a nice slow rhythm as you talk, interrupting your own words the occasional pleasured moan or breathless ' +
-                this.player.mf("gasp", "giggle") +
-                '. "<i>With a talented cock like this, I might have to keep you around.</i>" You feel your [vagina] gush its approval around his girth. His ' +
-                this.monster.cockDescriptShort() +
-                " feels too good not to keep around. Riding it would be the perfect way to clear your head in the morning or settle down for a nice, well-fucked sleep."
+            `\n\n"<i>I really did consider ending your life, demon, but you were just doing your job.</i>" Your pussy spasms with pleasure, and you begin sliding up once more, this time going most of the way up before slowly sliding back down. You settle into a nice slow rhythm as you talk, interrupting your own words the occasional pleasured moan or breathless ${this.player.mf(
+                "gasp",
+                "giggle"
+            )}. "<i>With a talented cock like this, I might have to keep you around.</i>" You feel your [vagina] gush its approval around his girth. His ${this.monster.cockDescriptShort()} feels too good not to keep around. Riding it would be the perfect way to clear your head in the morning or settle down for a nice, well-fucked sleep.`
         );
 
         this.outx(
-            '\n\nThe demon grunts, "<i>I... I would accept that.</i>" His dick swells a little inside you, expanding with his ardor. "<i>If you have any machines, I would gladly keep them working for you. Just... ung... right there, baby... uh... just let me do this with you every day.</i>" His hips shudder slightly underneath you. They start to thrust until you push them down with your hand, holding them in place. You\'re in charge here, and this ' +
-                this.monster.cockDescriptShort() +
-                " is going to have to stay in your [vagina], making you feel good until you feel you've gotten your feel of pussy-pleasing pleasure."
+            `\n\nThe demon grunts, "<i>I... I would accept that.</i>" His dick swells a little inside you, expanding with his ardor. "<i>If you have any machines, I would gladly keep them working for you. Just... ung... right there, baby... uh... just let me do this with you every day.</i>" His hips shudder slightly underneath you. They start to thrust until you push them down with your hand, holding them in place. You're in charge here, and this ${this.monster.cockDescriptShort()} is going to have to stay in your [vagina], making you feel good until you feel you've gotten your feel of pussy-pleasing pleasure.`
         );
 
         this.outx("\n\nGods, your clit is so hard right now!");
@@ -733,9 +717,7 @@ export class IncubusMechanicScenes extends BaseContent {
         }
 
         this.outx(
-            "\n\nThe feeling triggers your own climax. Your [vagina] clenches down around his " +
-                this.monster.cockDescriptShort() +
-                " and gushes out around it, splattering the demon's crotch and legs the whole way down to his hooves. Arcs of femcum actually jet across the air"
+            `\n\nThe feeling triggers your own climax. Your [vagina] clenches down around his ${this.monster.cockDescriptShort()} and gushes out around it, splattering the demon's crotch and legs the whole way down to his hooves. Arcs of femcum actually jet across the air`
         );
         if (this.player.wetness() < 4) this.outx(", even though you aren't normally a squirter");
         this.outx(
@@ -754,9 +736,7 @@ export class IncubusMechanicScenes extends BaseContent {
             );
         else
             this.outx(
-                " When you rise, it amazes you just how many inches of cock are sliding out of your well-used snatch. The " +
-                    this.monster.cockHead() +
-                    " eventually slips free, and you watch in awe at how his musky semen runs out from your gaped, thoroughly creamed lips. By the time you dress, he's vanished, but you recall hearing him panting something about seeing you at camp."
+                ` When you rise, it amazes you just how many inches of cock are sliding out of your well-used snatch. The ${this.monster.cockHead()} eventually slips free, and you watch in awe at how his musky semen runs out from your gaped, thoroughly creamed lips. By the time you dress, he's vanished, but you recall hearing him panting something about seeing you at camp.`
             );
 
         this.outx(
@@ -842,9 +822,7 @@ export class IncubusMechanicScenes extends BaseContent {
             );
 
             this.outx(
-                "\n\nLeering down at you, the incubus swiftly tears away your [armor], his fingers suddenly razor-sharp claws. He is precise in his attentions, leaving your [skin] pristine and unbroken. You get the impression he doesn't want damaged goods. He regards your " +
-                    this.multiCockDescriptLight() +
-                    " with interest, judging them."
+                `\n\nLeering down at you, the incubus swiftly tears away your [armor], his fingers suddenly razor-sharp claws. He is precise in his attentions, leaving your [skin] pristine and unbroken. You get the impression he doesn't want damaged goods. He regards your ${this.multiCockDescriptLight()} with interest, judging them.`
             );
 
             // Small cocks
@@ -897,9 +875,7 @@ export class IncubusMechanicScenes extends BaseContent {
         // Multicock
         if (this.player.cocks.length > 1) {
             this.outx(
-                "\n\nThe incubus gathers your " +
-                    this.multiCockDescriptLight() +
-                    " together in his hands, pressing them together into a column of compressed cock. His touch feels so nice that you piston your [hips] against him, trying to fuck his hands, but he holds you firmly. A warm tightness, pleasant and yet entirely unyielding presses down against your tips, so tight that whimper at the slight pinch of pain. You crane your head, careful not to lose your mouth's grip on its leaking fixation. What you see nearly makes you spit it out."
+                `\n\nThe incubus gathers your ${this.multiCockDescriptLight()} together in his hands, pressing them together into a column of compressed cock. His touch feels so nice that you piston your [hips] against him, trying to fuck his hands, but he holds you firmly. A warm tightness, pleasant and yet entirely unyielding presses down against your tips, so tight that whimper at the slight pinch of pain. You crane your head, careful not to lose your mouth's grip on its leaking fixation. What you see nearly makes you spit it out.`
             );
 
             this.outx(
@@ -993,9 +969,10 @@ export class IncubusMechanicScenes extends BaseContent {
     private maleLossToMechanicIII(): void {
         this.clearOutput();
         this.outx(
-            "The champion finally got to cum once Lethice had her turn, but by that point, pussy was all " +
-                this.player.mf("he", "she") +
-                " could think about. Release came more frequently with the demon queen's permission. It didn't really matter, though. The champion was addicted to riding on the edge of climax, broken into nothing more than a demonic vibrator."
+            `The champion finally got to cum once Lethice had her turn, but by that point, pussy was all ${this.player.mf(
+                "he",
+                "she"
+            )} could think about. Release came more frequently with the demon queen's permission. It didn't really matter, though. The champion was addicted to riding on the edge of climax, broken into nothing more than a demonic vibrator.`
         );
         this.getGame().gameOver();
     }

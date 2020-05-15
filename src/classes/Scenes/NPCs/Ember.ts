@@ -27,19 +27,22 @@ export class Ember extends Monster {
     private emberReactsToLustiness(): void {
         // (if PC uses any attack designed to increase Ember's lust)
         this.outx(
-            "The dragon moans, weaving softly from side to side, eyes glazed and tongue lolling at the intimate prospect of sex... but then, to your surprise, " +
-                this.emberMF("he", "she") +
-                " visibly shakes it off and recomposes " +
-                this.emberMF("him", "her") +
-                "self, frowning at you."
+            `The dragon moans, weaving softly from side to side, eyes glazed and tongue lolling at the intimate prospect of sex... but then, to your surprise, ${this.emberMF(
+                "he",
+                "she"
+            )} visibly shakes it off and recomposes ${this.emberMF(
+                "him",
+                "her"
+            )}self, frowning at you.`
         );
         this.outx(
             "\n\n\"<i>W-what do you think you're doing!?  I'm not some ordinary monster!  Don't think you can seduce me out of a battle!</i>\""
         );
         this.outx(
-            "\n\nDespite Ember's initial display; you realize that, Ember was still a ways from " +
-                this.emberMF("his", "her") +
-                " peak arousal.  The dragon flies off in a huff, irritated that you would stoop to fighting in a such a manner."
+            `\n\nDespite Ember's initial display; you realize that, Ember was still a ways from ${this.emberMF(
+                "his",
+                "her"
+            )} peak arousal.  The dragon flies off in a huff, irritated that you would stoop to fighting in a such a manner.`
         );
         if (this.player.lib >= 50) this.outx("  How boring.");
         this.gems = 0;
@@ -51,14 +54,15 @@ export class Ember extends Monster {
     private emberAttack(): void {
         // Basic attack, average damage, average accuracy
         this.outx(
-            "With a growl, the dragon lashes out in a ferocious splay-fingered slash, " +
-                this.emberMF("his", "her") +
-                " claws poised to rip into your flesh.  "
+            `With a growl, the dragon lashes out in a ferocious splay-fingered slash, ${this.emberMF(
+                "his",
+                "her"
+            )} claws poised to rip into your flesh.  `
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Ember.rand(2) == 0) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind attack!",
+                `${this.capitalA + this.short} completely misses you with a blind attack!`,
                 false
             );
         }
@@ -79,7 +83,7 @@ export class Ember extends Monster {
             else {
                 damage = this.player.takeDamage(damage);
                 this.outx("Ember's claws rip into you, leaving stinging wounds.");
-                this.outx(" (" + damage + ")");
+                this.outx(` (${damage})`);
             }
         }
         this.combatRoundOver();
@@ -90,23 +94,28 @@ export class Ember extends Monster {
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Ember.rand(2) == 0) {
             // Blind Ember:
             this.outx(
-                "The blinded dragon tracks you with difficulty as you sprint around the landscape; seeing an opportunity, you strafe around " +
-                    this.emberMF("his", "her") +
-                    " side, planting yourself behind a large flat boulder near " +
-                    this.emberMF("him", "her") +
-                    " and pelting " +
-                    this.emberMF("him", "her") +
-                    " with a small rock.  The scream as the dragon turns the magical conflagration toward you, only to have it hit the rock and blow up in " +
-                    this.emberMF("his", "her") +
-                    " face, is quite satisfying."
+                `The blinded dragon tracks you with difficulty as you sprint around the landscape; seeing an opportunity, you strafe around ${this.emberMF(
+                    "his",
+                    "her"
+                )} side, planting yourself behind a large flat boulder near ${this.emberMF(
+                    "him",
+                    "her"
+                )} and pelting ${this.emberMF(
+                    "him",
+                    "her"
+                )} with a small rock.  The scream as the dragon turns the magical conflagration toward you, only to have it hit the rock and blow up in ${this.emberMF(
+                    "his",
+                    "her"
+                )} face, is quite satisfying.`
             );
             // (Ember HP damage)
             this.game.doDamage(50);
         } else {
             this.outx(
-                "Ember inhales deeply, then " +
-                    this.emberMF("his", "her") +
-                    " jaws open up, releasing streams of fire, ice and lightning; magical rather than physical, the gaudy displays lose cohesion and amalgamate into a column of raw energy as they fly at you."
+                `Ember inhales deeply, then ${this.emberMF(
+                    "his",
+                    "her"
+                )} jaws open up, releasing streams of fire, ice and lightning; magical rather than physical, the gaudy displays lose cohesion and amalgamate into a column of raw energy as they fly at you.`
             );
             if (
                 this.combatMiss() ||
@@ -123,7 +132,7 @@ export class Ember extends Monster {
                 );
                 let damage: number = 100 + Ember.rand(100);
                 damage = this.player.takeDamage(damage);
-                this.outx(" (" + damage + ")");
+                this.outx(` (${damage})`);
             }
         }
         this.combatRoundOver();
@@ -134,18 +143,20 @@ export class Ember extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind tail-slap!",
+                `${this.capitalA + this.short} completely misses you with a blind tail-slap!`,
                 false
             );
             this.combatRoundOver();
             return;
         }
         this.outx(
-            "Ember suddenly spins on " +
-                this.emberMF("his", "her") +
-                " heel, the long tail that splays behind " +
-                this.emberMF("him", "her") +
-                " lashing out like a whip.  As it hurtles through the air towards you, your attention focuses on the set of spikes suddenly protruding from its tip!"
+            `Ember suddenly spins on ${this.emberMF(
+                "his",
+                "her"
+            )} heel, the long tail that splays behind ${this.emberMF(
+                "him",
+                "her"
+            )} lashing out like a whip.  As it hurtles through the air towards you, your attention focuses on the set of spikes suddenly protruding from its tip!`
         );
         if (
             this.combatMiss() ||
@@ -158,9 +169,10 @@ export class Ember extends Monster {
             if (Ember.rand(2) == 0) this.outx("duck under");
             else this.outx("leap over");
             this.outx(
-                " the tail at the last moment, causing Ember to lose control of " +
-                    this.emberMF("his", "her") +
-                    " own momentum and stumble."
+                ` the tail at the last moment, causing Ember to lose control of ${this.emberMF(
+                    "his",
+                    "her"
+                )} own momentum and stumble.`
             );
         } else {
             let damage: number = Math.floor(
@@ -174,7 +186,7 @@ export class Ember extends Monster {
                 "  The tail slams into you with bone-cracking force, knocking you heavily to the ground even as the spines jab you wickedly.  You gasp for breath in pain and shock, but manage to struggle to your feet again."
             );
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         this.combatRoundOver();
     }
@@ -184,9 +196,10 @@ export class Ember extends Monster {
         // Effect: Stuns the PC for one turn and deals some damage, not much though. (Note: PC's version of this does something different and Ember has no cooldown to use this again. Obviously do not spam or peeps will rage.)
         // Description:
         this.outx(
-            "Ember bares " +
-                this.emberMF("his", "her") +
-                " teeth and releases a deafening roar; a concussive blast of force heads straight for you!"
+            `Ember bares ${this.emberMF(
+                "his",
+                "her"
+            )} teeth and releases a deafening roar; a concussive blast of force heads straight for you!`
         );
         this.outx(
             "  Try as you might, you can't seem to protect yourself; and the blast hits you like a stone, throwing you to the ground."
@@ -201,7 +214,7 @@ export class Ember extends Monster {
         this.createStatusAffect(StatusAffects.StunCooldown, 4, 0, 0, 0);
         let damage: number = 10 + Ember.rand(10);
         damage = this.player.takeDamage(damage);
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
         this.combatRoundOver();
     }
 
@@ -238,12 +251,13 @@ export class Ember extends Monster {
         this.a = " ";
         this.short = "Ember";
         this.imageName = "ember";
-        this.long =
-            "You are currently 'battling' Ember, the dragon, in a playfight.  At least, that was the intention.  The way " +
-            this.emberMF("he", "she") +
-            " lashes " +
-            this.emberMF("his", "her") +
-            " tail along the ground, with claws spread and teeth bared ferociously, makes you wonder.";
+        this.long = `You are currently 'battling' Ember, the dragon, in a playfight.  At least, that was the intention.  The way ${this.emberMF(
+            "he",
+            "she"
+        )} lashes ${this.emberMF(
+            "his",
+            "her"
+        )} tail along the ground, with claws spread and teeth bared ferociously, makes you wonder.`;
         // this.plural = false;
         const gender: number = this.game.flags[kFLAGS.EMBER_GENDER];
         if (gender == 0) {

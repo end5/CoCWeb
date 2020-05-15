@@ -37,7 +37,7 @@ export class Amily extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Amily.rand(3) < 2) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind attack!\n",
+                `${this.capitalA + this.short} completely misses you with a blind attack!\n`,
                 false
             );
             this.game.combatRoundOver();
@@ -102,51 +102,30 @@ export class Amily extends Monster {
             // Due to toughness or amor...
             if (Amily.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                 this.outx(
-                    "Your " +
-                        this.player.armorName +
-                        " absorb and deflect every " +
-                        this.weaponVerb +
-                        " from " +
-                        this.a +
-                        this.short +
-                        ".",
+                    `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`,
                     false
                 );
             else
                 this.outx(
-                    "You deflect and block every " +
-                        this.weaponVerb +
-                        " " +
-                        this.a +
-                        this.short +
-                        " throws at you.",
+                    `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
                     false
                 );
         }
         // Got hit!
         else {
             damage = this.player.takeDamage(damage);
-            this.outx(
-                "Amily dashes at you and swipes her knife, cutting you (" + damage + ").",
-                false
-            );
+            this.outx(`Amily dashes at you and swipes her knife, cutting you (${damage}).`, false);
         }
         if (damage > 0) {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
                 if (!this.plural)
                     this.outx(
-                        "\n" +
-                            this.capitalA +
-                            this.short +
-                            " brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.",
+                        `\n${this.capitalA}${this.short} brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.`,
                         false
                     );
                 else
                     this.outx(
-                        "\n" +
-                            this.capitalA +
-                            this.short +
-                            " brush against your exposed skin and jerk back in surprise, coloring slightly from seeing so much of you revealed.",
+                        `\n${this.capitalA}${this.short} brush against your exposed skin and jerk back in surprise, coloring slightly from seeing so much of you revealed.`,
                         false
                     );
                 this.lust += 10 * this.lustVuln;
@@ -221,7 +200,7 @@ export class Amily extends Monster {
                         "Amily dashes at you and slashes at you twice in the time it would take most to throw a single blow",
                         false
                     );
-                this.outx(" (" + damage + ")!", false);
+                this.outx(` (${damage})!`, false);
             }
         }
         // Dodge all!
@@ -240,9 +219,9 @@ export class Amily extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Amily.rand(3) < 2) {
             this.outx(
-                this.capitalA +
-                    this.short +
-                    " completely misses you with a blind attack from her dartgun!\n",
+                `${
+                    this.capitalA + this.short
+                } completely misses you with a blind attack from her dartgun!\n`,
                 false
             );
             this.game.combatRoundOver();

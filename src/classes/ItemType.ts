@@ -77,20 +77,16 @@ export class ItemType {
         this._value = _value;
         if (ItemType.ITEM_LIBRARY[_id] != undefined) {
             CocSettings.error(
-                "Duplicate itemid " +
-                    _id +
-                    ", old item is " +
+                `Duplicate itemid ${_id}, old item is ${
                     (ItemType.ITEM_LIBRARY[_id] as ItemType).longName
+                }`
             );
         }
         if (ItemType.ITEM_SHORT_LIBRARY[this._shortName] != undefined) {
             trace(
-                "WARNING: Item with duplicate shortname: '" +
-                    _id +
-                    "' and '" +
-                    (ItemType.ITEM_SHORT_LIBRARY[this._shortName] as ItemType)._id +
-                    "' share " +
-                    this._shortName
+                `WARNING: Item with duplicate shortname: '${_id}' and '${
+                    (ItemType.ITEM_SHORT_LIBRARY[this._shortName] as ItemType)._id
+                }' share ${this._shortName}`
             );
         }
         ItemType.ITEM_LIBRARY[_id] = this;
@@ -98,6 +94,6 @@ export class ItemType {
     }
 
     public toString(): string {
-        return '"' + this._id + '"';
+        return `"${this._id}"`;
     }
 }

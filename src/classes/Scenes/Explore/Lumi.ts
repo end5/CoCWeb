@@ -148,9 +148,7 @@ export class Lumi extends BaseContent {
         if (itype == this.consumables.L_DRAFT) cost = 15;
         if (this.player.gems >= cost) {
             this.outx(
-                "You pay Lumi the gems, and she hands you " +
-                    itype.longName +
-                    ' saying, "<i>Here ya go!</i>"\n\n',
+                `You pay Lumi the gems, and she hands you ${itype.longName} saying, "<i>Here ya go!</i>"\n\n`,
                 false
             );
             this.player.gems -= cost;
@@ -313,9 +311,7 @@ export class Lumi extends BaseContent {
             );
         else if (this.temp == 0)
             this.outx(
-                "She starts grabbing things from around the table, seemingly at random, and adds them to " +
-                    itype.longName +
-                    '.  To your alarm, there is soon a large cloud of smoke coming off it! There is a strong smell to the smoke and it makes it hard to breathe.  Lumi grabs a mask out of a drawer and puts it on, continuing with her work unperturbed.  She suddenly stops and you wonder if she is done, but she takes off her mask and inhales deeply of the smoke, then keels over!  As you go over to help her she suddenly stands up, waves away some of the smoke, and says, "<i>All dun!</i>"\n\n',
+                `She starts grabbing things from around the table, seemingly at random, and adds them to ${itype.longName}.  To your alarm, there is soon a large cloud of smoke coming off it! There is a strong smell to the smoke and it makes it hard to breathe.  Lumi grabs a mask out of a drawer and puts it on, continuing with her work unperturbed.  She suddenly stops and you wonder if she is done, but she takes off her mask and inhales deeply of the smoke, then keels over!  As you go over to help her she suddenly stands up, waves away some of the smoke, and says, "<i>All dun!</i>"\n\n`,
                 false
             );
         else if (this.temp == 1)
@@ -325,15 +321,7 @@ export class Lumi extends BaseContent {
             );
         else if (this.temp == 2)
             this.outx(
-                "She adds a few things to the tray before moving down the table.  She adds some reagents to a bubbling chemical reaction, and then adds some more ingredients to that.  You wonder why she just left " +
-                    itype.longName +
-                    " there to work on something else.  Then Lumi moves back across the table, past where " +
-                    itype.longName +
-                    " sits, to start adding things to something else.  Before you have a chance to complain, she moves back to " +
-                    itype.longName +
-                    " and continues.  You decide that it's probably best not to ask about her work ethic and just let her do her thing; she has more experience than you, after all.\n\nPOP! You look over in surprise as the first thing she worked on makes a small explosion.  POW! Now the second experiment has blown up!  You start to move in alarm, wondering if Lumi really knows what she's doing; just before " +
-                    itype.longName +
-                    ' seems to explode with an incredible BOOM.  Lumi stops moving for a moment, looking straight ahead before saying, "<i>Dat was a gud one, Lumi dun!</i>"\n\n',
+                `She adds a few things to the tray before moving down the table.  She adds some reagents to a bubbling chemical reaction, and then adds some more ingredients to that.  You wonder why she just left ${itype.longName} there to work on something else.  Then Lumi moves back across the table, past where ${itype.longName} sits, to start adding things to something else.  Before you have a chance to complain, she moves back to ${itype.longName} and continues.  You decide that it's probably best not to ask about her work ethic and just let her do her thing; she has more experience than you, after all.\n\nPOP! You look over in surprise as the first thing she worked on makes a small explosion.  POW! Now the second experiment has blown up!  You start to move in alarm, wondering if Lumi really knows what she's doing; just before ${itype.longName} seems to explode with an incredible BOOM.  Lumi stops moving for a moment, looking straight ahead before saying, "<i>Dat was a gud one, Lumi dun!</i>"\n\n`,
                 false
             );
         this.inventory.takeItem(nextItem, this.lumiEnhance, this.lumiLabChoices);

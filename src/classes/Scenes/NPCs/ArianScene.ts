@@ -169,7 +169,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.ARIAN_BREASTS] == 0) return "chest";
 
         // Tits ahoy!
-        if (ArianScene.rand(2) == 0) buffer += this.arianChestAdjective() + " ";
+        if (ArianScene.rand(2) == 0) buffer += `${this.arianChestAdjective()} `;
 
         // Name 'dose titays
         const temp: number = ArianScene.rand(10);
@@ -505,9 +505,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 );
 
                 this.outx(
-                    '\n\n"<i>One minute!</i>"  You hear a feminine voice yell from inside.  After hearing the clicking of a latch the door slowly opens to reveal what looks like a tan-furred female ferret looking at you with bespectacled brown eyes; she is not very tall, and her body is clad in loose comfortable robes that hide her curves well.  She adjusts her glasses and asks, "<i>How may I help you, ' +
-                        this.player.mf("sir", "ma'am") +
-                        '?</i>"'
+                    `\n\n"<i>One minute!</i>"  You hear a feminine voice yell from inside.  After hearing the clicking of a latch the door slowly opens to reveal what looks like a tan-furred female ferret looking at you with bespectacled brown eyes; she is not very tall, and her body is clad in loose comfortable robes that hide her curves well.  She adjusts her glasses and asks, "<i>How may I help you, ${this.player.mf(
+                        "sir",
+                        "ma'am"
+                    )}?</i>"`
                 );
 
                 this.outx(
@@ -515,9 +516,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 );
 
                 this.outx(
-                    "\n\nThe ferret girl slowly closes the door behind you, closing the latch before she dusts her robes and turns to you.  \"<i>I'm afraid we haven't been properly introduced just yet, " +
-                        this.player.mf("sir", "ma'am") +
-                        '.  My name is Laika and I\'m one of master Arian\'s aides.</i>"  She curtsies with a smile and adds, "<i>Pleased to meet you... umm....</i>"  You smile and tell her your name.  She closes her eyes and nods.  "<i>Ah, yes, [name]....</i>"  Suddenly she opens her eyes wide open.  "<i>Wait a moment... [name]!?</i>"  She advances on you, threatening you with a wooden spoon.  "<i>You! You\'re the one who helped master Arian get away!</i>"  She yells with a frown, poking your [chest] with her spoon.'
+                    `\n\nThe ferret girl slowly closes the door behind you, closing the latch before she dusts her robes and turns to you.  "<i>I'm afraid we haven't been properly introduced just yet, ${this.player.mf(
+                        "sir",
+                        "ma'am"
+                    )}.  My name is Laika and I'm one of master Arian's aides.</i>"  She curtsies with a smile and adds, "<i>Pleased to meet you... umm....</i>"  You smile and tell her your name.  She closes her eyes and nods.  "<i>Ah, yes, [name]....</i>"  Suddenly she opens her eyes wide open.  "<i>Wait a moment... [name]!?</i>"  She advances on you, threatening you with a wooden spoon.  "<i>You! You're the one who helped master Arian get away!</i>"  She yells with a frown, poking your [chest] with her spoon.`
                 );
 
                 this.outx(
@@ -644,14 +646,16 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                         "Figuring that Arian would enjoy your company, you make your way with confidence through the streets leading to the lizan's home.  Soon enough, you find yourself standing before the stately home in which he and his ferret associates dwell.  You pound heartily on the knocker to announce your presence."
                     );
                     this.outx(
-                        '\n\n"<i>Coming!</i>"  You hear Laika yell.  Shortly after the ferret girl opens the door and greets you.  "<i>Hello [name].  Came to visit ' +
-                            this.arianMF("master", "mistress") +
-                            ' Arian?  Please come in!</i>"  She motions for you to enter the house.  You thank her for the polite invitation and step through the doorway.  The sound of dishes being washed draws your attention to the nearby kitchen, where you see Boon diligently washing a pan.  He looks up and waves at you with a soapy hand.  You return the gesture.'
+                        `\n\n"<i>Coming!</i>"  You hear Laika yell.  Shortly after the ferret girl opens the door and greets you.  "<i>Hello [name].  Came to visit ${this.arianMF(
+                            "master",
+                            "mistress"
+                        )} Arian?  Please come in!</i>"  She motions for you to enter the house.  You thank her for the polite invitation and step through the doorway.  The sound of dishes being washed draws your attention to the nearby kitchen, where you see Boon diligently washing a pan.  He looks up and waves at you with a soapy hand.  You return the gesture.`
                     );
                     this.outx(
-                        "\n\n\"<i>Sorry to leave you unattended [name], but we're kinda busy; do you think you can make the way to " +
-                            this.arianMF("master", "mistress") +
-                            " Arian's room by yourself?</i>\"  Laika asks."
+                        `\n\n"<i>Sorry to leave you unattended [name], but we're kinda busy; do you think you can make the way to ${this.arianMF(
+                            "master",
+                            "mistress"
+                        )} Arian's room by yourself?</i>"  Laika asks.`
                     );
                     this.outx(
                         "\n\nYou assure the ferrets that it's fine, and you understand how busy they are.  Remembering where Arian's room is from the last time you visited, you proceed to make your way to it, finding the door to be closed, as usual.  You slowly rap your knuckles on the closed door, trying to announce your presence without being a nuisance at the same time."
@@ -971,9 +975,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nYou pull the covers off his face and say, "<i>Well... we\'ll have to fix that then.</i>"  You slip off his bed and begin stripping off your [armor].  Arian shyly does the same, stripping off his robes until he is laying in his bed, completely naked.'
             );
             this.outx(
-                "\n\nOnce you toss your [armor] on the floor, however, Arian's eyes widen as he realizes you're not entirely female; he eyes your " +
-                    this.multiCockDescriptLight() +
-                    " and the moistening pussy between your legs with equal parts wonder and arousal."
+                `\n\nOnce you toss your [armor] on the floor, however, Arian's eyes widen as he realizes you're not entirely female; he eyes your ${this.multiCockDescriptLight()} and the moistening pussy between your legs with equal parts wonder and arousal.`
             );
             this.outx(
                 '\n\n"<i>I... you... I never... wow....</i>"  You call Arian\'s name, breaking his trance.  "<i>S-Sorry for staring,</i>" he quickly apologizes, but you just chuckle at his reaction and tell him he doesn\'t have to worry about this.'
@@ -1021,9 +1023,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nArian gets up and off the bed, not minding that he's exposing himself completely; then slowly walks toward his work desk and opens a drawer.  Reaching inside, he pulls out a mysterious bottle labelled with a pink egg.  He turns to look at you as he uncorks the bottle and then downs its contents."
         );
         this.outx(
-            "\n\nIt barely takes a second for the effects to start.  As soon as he puts the bottle back inside the drawer, he collapses on the nearby chair.  At first you consider calling for help, but any thought of doing so leaves your mind when you see Arian's shaft visibly shrinking, soon entering the recesses of his genital slit.  As soon as his shaft disappears inside, his genital slit closes up, the skin connecting and leaving only smooth scales in his groin; lower, between his - or should it be her now? - legs, another slit opens up, soon spreading open as a small erect clit emerges from the wet folds.  Moisture leaks, wetting the wooden chair; the smell of aroused female fills the small bedroom and you feel your blood surging to your " +
-                this.multiCockDescriptLight() +
-                "."
+            `\n\nIt barely takes a second for the effects to start.  As soon as he puts the bottle back inside the drawer, he collapses on the nearby chair.  At first you consider calling for help, but any thought of doing so leaves your mind when you see Arian's shaft visibly shrinking, soon entering the recesses of his genital slit.  As soon as his shaft disappears inside, his genital slit closes up, the skin connecting and leaving only smooth scales in his groin; lower, between his - or should it be her now? - legs, another slit opens up, soon spreading open as a small erect clit emerges from the wet folds.  Moisture leaks, wetting the wooden chair; the smell of aroused female fills the small bedroom and you feel your blood surging to your ${this.multiCockDescriptLight()}.`
         );
         this.outx(
             "\n\nThe transformation is not over yet though; a throaty feminine moan precedes the appearance of a pair of small perky breasts, complete with sensitive little nipples.  You watch in a daze as the transformation finishes, Arian's face growing softer, rounder, girly; the same happens to her body, her hips grow larger, as does her butt, becoming fuller and attractive, giving her a beautiful, if slender, figure."
@@ -1080,9 +1080,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nArian gets up and strips off his robes, exposing himself completely, then slowly walks toward his work desk and opens a drawer.  Reaching inside, he pulls out a mysterious bottle labelled with a pink egg.  He turns to look at you and uncorks the bottle, then downs the whole bottle."
         );
         this.outx(
-            "\n\nIt barely takes a second for the effects to start.  As soon as he puts the bottle back inside the drawer, he collapses on the nearby chair.  At first you consider calling for help, but any thought of doing so leaves your mind when you see Arian's shaft visibly shrinking, soon entering the recesses of his genital slit.  As soon as his shaft disappears inside, his genital slit closes up, the skin connecting and leaving only smooth scales in his groin; lower, between his - or should it be her now? - legs, another slit opens up, soon spreading open as a small erect clit emerges from the wet folds.  Moisture leaks, wetting the wooden chair; the smell of aroused female fills the small bedroom, and you feel your blood surging to your " +
-                this.multiCockDescriptLight() +
-                "."
+            `\n\nIt barely takes a second for the effects to start.  As soon as he puts the bottle back inside the drawer, he collapses on the nearby chair.  At first you consider calling for help, but any thought of doing so leaves your mind when you see Arian's shaft visibly shrinking, soon entering the recesses of his genital slit.  As soon as his shaft disappears inside, his genital slit closes up, the skin connecting and leaving only smooth scales in his groin; lower, between his - or should it be her now? - legs, another slit opens up, soon spreading open as a small erect clit emerges from the wet folds.  Moisture leaks, wetting the wooden chair; the smell of aroused female fills the small bedroom, and you feel your blood surging to your ${this.multiCockDescriptLight()}.`
         );
         this.outx(
             "\n\nThe transformation is not over yet though; a throaty feminine moan precedes the appearance of a pair of small perky breasts, complete with sensitive little nipples.  You watch in a daze as the transformation finishes, Arian's face growing softer, rounder, girly; the same happens to her body, her hips grows larger as does her butt, becoming fuller and attractive, giving her a beautiful, if slender, figure."
@@ -1991,35 +1989,40 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nArian drops [Arian eir] bags and opens [Arian eir] arms, inviting the twins into a hug, which they happily accept."
         );
         this.outx(
-            "\n\n\"<i>I'm happy for you, " +
-                this.arianMF("master", "mistress") +
-                ', I really am,</i>" Boon says.'
+            `\n\n"<i>I'm happy for you, ${this.arianMF(
+                "master",
+                "mistress"
+            )}, I really am,</i>" Boon says.`
         );
         this.outx(
-            "\n\n\"<i>Make sure you're taking care of yourself, " +
-                this.arianMF("master", "mistress") +
-                ".  Don't forget to bathe regularly and eat well... and contact us once in awhile... and visit on the holidays,</i>\" Laika says, sniffing."
+            `\n\n"<i>Make sure you're taking care of yourself, ${this.arianMF(
+                "master",
+                "mistress"
+            )}.  Don't forget to bathe regularly and eat well... and contact us once in awhile... and visit on the holidays,</i>" Laika says, sniffing.`
         );
 
         this.outx(
-            "\n\nArian smiles at [Arian eir] pupils.  \"<i>I'm not your " +
-                this.arianMF("master", "mistress") +
-                " anymore.  From now on you're full-fledged mages.  Remember all that you learned, and I'm sure you'll be okay.</i>\""
+            `\n\nArian smiles at [Arian eir] pupils.  "<i>I'm not your ${this.arianMF(
+                "master",
+                "mistress"
+            )} anymore.  From now on you're full-fledged mages.  Remember all that you learned, and I'm sure you'll be okay.</i>"`
         );
         this.outx(
             "\n\nBoon is the first to break the hug, followed shortly by Laika.  The twins then turn to you."
         );
 
         this.outx(
-            '\n\n"<i>Please, [name], take good care of the ' +
-                this.arianMF("mas", "mis") +
-                "... err... Arian.  [Arian Ey] might be a handful sometimes, but [Arian ey]'s a really good person,</i>\" Boon says with a bow."
+            `\n\n"<i>Please, [name], take good care of the ${this.arianMF(
+                "mas",
+                "mis"
+            )}... err... Arian.  [Arian Ey] might be a handful sometimes, but [Arian ey]'s a really good person,</i>" Boon says with a bow.`
         );
 
         this.outx(
-            '\n\n"<i>If ' +
-                this.arianMF("master", "mistress") +
-                "... I mean... if Arian gives you any trouble call us and we'll come running to give [Arian em] a good scolding,</i>\" Laika says with a bow."
+            `\n\n"<i>If ${this.arianMF(
+                "master",
+                "mistress"
+            )}... I mean... if Arian gives you any trouble call us and we'll come running to give [Arian em] a good scolding,</i>" Laika says with a bow.`
         );
         this.outx('\n\n"<i>Please don\'t sic Laika on me!</i>" Arian pleads.');
         this.outx(
@@ -2193,7 +2196,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         // Blow:
         // Arian must have a cock.
         if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0)
-            this.addButton(3, "Blow " + this.arianMF("Him", "Her"), this.suckAriansDick);
+            this.addButton(3, `Blow ${this.arianMF("Him", "Her")}`, this.suckAriansDick);
 
         // PC must have a vagina.
         if (this.player.hasVagina()) {
@@ -2265,7 +2268,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0) this.outx(" and ");
             }
             if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0) {
-                this.outx(this.arianMF("his", "her") + " erecting ");
+                this.outx(`${this.arianMF("his", "her")} erecting `);
                 if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] > 0) this.outx("pair of reptilian pricks");
                 else this.outx("reptilian prick");
             }
@@ -2282,9 +2285,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nYou begin jerking yourself off, using slow, careful strokes to bring precum dribbling from your cock, smearing it across your shaft in an effort to lube it for your lizan lover.  Finally deciding you've made yourself slick enough, unable to resist making your move, you take hold of [Arian eir] butt for support and begin pushing your " +
-                    this.cockDescript(x) +
-                    " against [Arian eir] virginal back door.  Arian lets out a girly yelp and [Arian eir] sphincter suddenly clenches up, halting your entry.  You ask what's wrong."
+                `\n\nYou begin jerking yourself off, using slow, careful strokes to bring precum dribbling from your cock, smearing it across your shaft in an effort to lube it for your lizan lover.  Finally deciding you've made yourself slick enough, unable to resist making your move, you take hold of [Arian eir] butt for support and begin pushing your ${this.cockDescript(
+                    x
+                )} against [Arian eir] virginal back door.  Arian lets out a girly yelp and [Arian eir] sphincter suddenly clenches up, halting your entry.  You ask what's wrong.`
             );
             this.outx(
                 "\n\n\"<i>N-nothing... you just surprised me... that's all.</i>\"  Even though [Arian ey]'s not admitting it, you can tell that Arian is very tense.  You lean over the nervous lizan and envelop [Arian em] in a soft hug, telling [Arian em] it's okay; you're not going to hurt [Arian em], you're going to make [Arian em] feel very good, but first [Arian ey] needs to relax or this will be painful when it shouldn't be."
@@ -2332,9 +2335,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             // (High Cum Amount)
             else {
                 this.outx(
-                    "\n\nFor a moment you hesitate....  Arian is clearly inexperienced and you know your load is nothing if not enormous; you worry if the inexperienced lizan will be able to handle you, but your worries are soon forgotten; it's much too late to worry about it now.  Your spunk jets inside the moaning lizan like a fire hose, dowsing both your and [Arian eir] flames of lust with its immense output of white, creamy goodness.  Arian's belly protrudes like a gravid woman's belly - no, actually, it's even wider, and yet the lizan's lewd little hole never tires as it milks you, even though by now Arian is beyond full - copious amounts of cum leak from around your " +
-                        this.cockDescript(x) +
-                        " as [Arian eir] ass fails to contain it all."
+                    `\n\nFor a moment you hesitate....  Arian is clearly inexperienced and you know your load is nothing if not enormous; you worry if the inexperienced lizan will be able to handle you, but your worries are soon forgotten; it's much too late to worry about it now.  Your spunk jets inside the moaning lizan like a fire hose, dowsing both your and [Arian eir] flames of lust with its immense output of white, creamy goodness.  Arian's belly protrudes like a gravid woman's belly - no, actually, it's even wider, and yet the lizan's lewd little hole never tires as it milks you, even though by now Arian is beyond full - copious amounts of cum leak from around your ${this.cockDescript(
+                        x
+                    )} as [Arian eir] ass fails to contain it all.`
                 );
             }
             this.outx(
@@ -2449,9 +2452,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.arianFollower()) this.outx("tent");
             else this.outx("bedchamber");
             this.outx(
-                ".  You sink your fingers into the smoothly scaled skin of [Arian eir] butt, and promptly thrust your " +
-                    this.cockDescript(x) +
-                    " into [Arian eir] back passage; not with the gentleness you showed Arian as an anal virgin, but not with brutal force, either.  The practice the lizan's had with pleasuring your cock with [Arian eir] ass is obvious - you slide in as if it's been lubed, with what little resistance it poses quickly giving way under the insistent pressure of your thrusts.  It's not as painfully tight as it was, the looseness letting you move more freely without fear of hurting your lover, but at the same time it grips you like a well-trained pussy, holding you deliciously tight and eagerly sucking you into its depths."
+                `.  You sink your fingers into the smoothly scaled skin of [Arian eir] butt, and promptly thrust your ${this.cockDescript(
+                    x
+                )} into [Arian eir] back passage; not with the gentleness you showed Arian as an anal virgin, but not with brutal force, either.  The practice the lizan's had with pleasuring your cock with [Arian eir] ass is obvious - you slide in as if it's been lubed, with what little resistance it poses quickly giving way under the insistent pressure of your thrusts.  It's not as painfully tight as it was, the looseness letting you move more freely without fear of hurting your lover, but at the same time it grips you like a well-trained pussy, holding you deliciously tight and eagerly sucking you into its depths.`
             );
 
             this.outx(
@@ -2471,7 +2474,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nArian's ass tightens around your " + this.cockDescript(x) + " as [Arian eir] "
+                `\n\nArian's ass tightens around your ${this.cockDescript(x)} as [Arian eir] `
             );
             if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0) {
                 if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] == 0) this.outx("cock spews its load");
@@ -2482,9 +2485,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.ARIAN_VAGINA] > 0)
                 this.outx(" contracting pussy paints your lower body with lizan femcum");
             this.outx(
-                ".  Arian is only capable of moaning and shuddering as [Arian eir] powerful orgasm rocks the poor lizan to [Arian eir] core.  The extra tightness of [Arian eir] contracting butthole increases the friction on your " +
-                    this.cockDescript(x) +
-                    ", pushing you ever closer to the climax."
+                `.  Arian is only capable of moaning and shuddering as [Arian eir] powerful orgasm rocks the poor lizan to [Arian eir] core.  The extra tightness of [Arian eir] contracting butthole increases the friction on your ${this.cockDescript(
+                    x
+                )}, pushing you ever closer to the climax.`
             );
 
             this.outx(
@@ -2504,16 +2507,16 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             // (Medium Cum Amount)
             else if (this.player.cumQ() < 1000)
                 this.outx(
-                    "\n\nArian's butt feels so good that you can't help but paint it in white.  Gob after gob of searing hot cum flows from your " +
-                        this.player.cockHead(x) +
-                        " and into the lizan's willing bowels.  You can't help but continue thrusting inside [Arian eir] deliciously slick insides, even as Arian's distended sphincter tries its best to hold you in place.  By the time you're done, Arian looks like [Arian ey]'s three months pregnant; after a few final thrusts, you're confident you've given [Arian em] all that you can muster for the moment and pull out of the lizan's hungry ass."
+                    `\n\nArian's butt feels so good that you can't help but paint it in white.  Gob after gob of searing hot cum flows from your ${this.player.cockHead(
+                        x
+                    )} and into the lizan's willing bowels.  You can't help but continue thrusting inside [Arian eir] deliciously slick insides, even as Arian's distended sphincter tries its best to hold you in place.  By the time you're done, Arian looks like [Arian ey]'s three months pregnant; after a few final thrusts, you're confident you've given [Arian em] all that you can muster for the moment and pull out of the lizan's hungry ass.`
                 );
             // (High Cum Amount)
             else {
                 this.outx(
-                    "\n\nYou bury yourself as deep as you can into the lizan's behind and brace yourself, holding onto [Arian eir] hips as the first of many jets of cum finally escapes your throbbing " +
-                        this.cockDescript(x) +
-                        ".  You can feel the groaning lizan shudder with each blast that you pump into [Arian eir] inviting interior; each of your sticky ropes of cum filling [Arian em] up until [Arian eir] belly looks as big as a beach ball.  Arian's contracted sphincter tries its best to hold your prodigious load in, but it can't hope to contain it all; soon white jism explodes from around the seal of your cock.  Trails of your pleasure run down the lizan's legs to soak the bedsheets along with the lizan's own fluids.  One final jet pushes Arian off your shaft, and you gaze at the messy results of your recent activities."
+                    `\n\nYou bury yourself as deep as you can into the lizan's behind and brace yourself, holding onto [Arian eir] hips as the first of many jets of cum finally escapes your throbbing ${this.cockDescript(
+                        x
+                    )}.  You can feel the groaning lizan shudder with each blast that you pump into [Arian eir] inviting interior; each of your sticky ropes of cum filling [Arian em] up until [Arian eir] belly looks as big as a beach ball.  Arian's contracted sphincter tries its best to hold your prodigious load in, but it can't hope to contain it all; soon white jism explodes from around the seal of your cock.  Trails of your pleasure run down the lizan's legs to soak the bedsheets along with the lizan's own fluids.  One final jet pushes Arian off your shaft, and you gaze at the messy results of your recent activities.`
                 );
             }
 
@@ -2582,9 +2585,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nYou almost blink in surprise; you were just throwing the term buttslut around as a joke, you didn't think Arian was really like that.  Still, there are far more important matters - like digging your way into the depths of Arian's greedy little ass with your " +
-                    this.cockDescript(x) +
-                    "!  You squeeze the lizan's scaly butt and begin to rut [Arian em] like an animal, thrusting your way in and out of [Arian eir] back passage with all the eagerness you can muster."
+                `\n\nYou almost blink in surprise; you were just throwing the term buttslut around as a joke, you didn't think Arian was really like that.  Still, there are far more important matters - like digging your way into the depths of Arian's greedy little ass with your ${this.cockDescript(
+                    x
+                )}!  You squeeze the lizan's scaly butt and begin to rut [Arian em] like an animal, thrusting your way in and out of [Arian eir] back passage with all the eagerness you can muster.`
             );
 
             this.outx(
@@ -2614,15 +2617,16 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nYou can feel the pressure on [Arian eir] sphincter increasing and guess Arian must be close to another orgasm; you're not very far yourself, and if [Arian ey] keeps squeezing and massaging your " +
-                    this.cockDescript(x) +
-                    " like this, you feel you'll blow any moment now.  Before you finally reach the inevitable abyss of your orgasm, you decide to lean over [Arian em], hugging [Arian eir] midriff just so you can pound [Arian em] harder.  It's surprising that Arian only seems to be feeling pleasure, others would be screaming in pain with how rough you're being, yet Arian bucks back against you with all [Arian eir] might, trying to get you deeper.  You ask [Arian em] if [Arian ey]'s really okay, if it doesn't hurt [Arian em] even a bit?"
+                `\n\nYou can feel the pressure on [Arian eir] sphincter increasing and guess Arian must be close to another orgasm; you're not very far yourself, and if [Arian ey] keeps squeezing and massaging your ${this.cockDescript(
+                    x
+                )} like this, you feel you'll blow any moment now.  Before you finally reach the inevitable abyss of your orgasm, you decide to lean over [Arian em], hugging [Arian eir] midriff just so you can pound [Arian em] harder.  It's surprising that Arian only seems to be feeling pleasure, others would be screaming in pain with how rough you're being, yet Arian bucks back against you with all [Arian eir] might, trying to get you deeper.  You ask [Arian em] if [Arian ey]'s really okay, if it doesn't hurt [Arian em] even a bit?`
             );
 
             this.outx(
-                '\n\n"<i>No! Ah, yes!  Cum inside me, [name]!  I need your seed inside my naughty ass.  I need to feel you filling me up, using me like the buttslut I am!  I want to cum with you!</i>"  You lift a brow, of all the people you know, Arian is the last one you\'d expect to hear this from... what would [Arian eir] apprentices say if they heard their ' +
-                    this.arianMF("master", "mistress") +
-                    " begging to be used like that?  \"<i>Ah... I don't care, just fill me up with your hot, slimy spunk!</i>\"  It would seem the lizan mage is too far gone to give you a straight answer.  You'll have to talk to [Arian em] after this."
+                `\n\n"<i>No! Ah, yes!  Cum inside me, [name]!  I need your seed inside my naughty ass.  I need to feel you filling me up, using me like the buttslut I am!  I want to cum with you!</i>"  You lift a brow, of all the people you know, Arian is the last one you'd expect to hear this from... what would [Arian eir] apprentices say if they heard their ${this.arianMF(
+                    "master",
+                    "mistress"
+                )} begging to be used like that?  "<i>Ah... I don't care, just fill me up with your hot, slimy spunk!</i>"  It would seem the lizan mage is too far gone to give you a straight answer.  You'll have to talk to [Arian em] after this.`
             );
 
             this.outx(
@@ -2644,9 +2648,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             // (High Cum amount)
             else {
                 this.outx(
-                    '\n\nYou have no doubt Arian will appreciate your prodigious load, so you make sure to press as deep as you can into [Arian eir] ass to ensure [Arian ey] will keep it all inside, then finally let your cum flow out of you and into the cock and cum hungry ass, eagerly massaging your shaft.  "<i>I can feel it!  It\'s going to be a big one!  Shoot it!</i>" [Arian ey] screams in ecstasy.  You groan and begin dumping obscene amounts of seed into your lizan lover.  The first few jets inflate [Arian eir] belly slightly, and you dart a hand to feel it expand with every subsequent blast of sticky jism.  "<i>So much cum!  So good... more!</i>"  Arian demands, blissed out by your pumping appendage.  [Arian Eir] ass never stops its assault on your ' +
-                        this.cockDescript(x) +
-                        ' intent on massaging you as you orgasm, even as you fill Arian beyond full and some cum begins backflowing out of [Arian eir] ass.  "<i>Hmm, yesss... so full....</i>"  You pound into [Arian em] a few more times, ensuring you spill every last drop of cum.'
+                    `\n\nYou have no doubt Arian will appreciate your prodigious load, so you make sure to press as deep as you can into [Arian eir] ass to ensure [Arian ey] will keep it all inside, then finally let your cum flow out of you and into the cock and cum hungry ass, eagerly massaging your shaft.  "<i>I can feel it!  It's going to be a big one!  Shoot it!</i>" [Arian ey] screams in ecstasy.  You groan and begin dumping obscene amounts of seed into your lizan lover.  The first few jets inflate [Arian eir] belly slightly, and you dart a hand to feel it expand with every subsequent blast of sticky jism.  "<i>So much cum!  So good... more!</i>"  Arian demands, blissed out by your pumping appendage.  [Arian Eir] ass never stops its assault on your ${this.cockDescript(
+                        x
+                    )} intent on massaging you as you orgasm, even as you fill Arian beyond full and some cum begins backflowing out of [Arian eir] ass.  "<i>Hmm, yesss... so full....</i>"  You pound into [Arian em] a few more times, ensuring you spill every last drop of cum.`
                 );
             }
             this.outx(
@@ -3029,11 +3033,11 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
         this.outx(
-            "Her walls grip you tightly, almost painfully, as a flood of juices hit the " +
-                this.player.cockHead(x) +
-                " of your " +
-                this.cockDescript(x) +
-                " with the force of a tidal wave, only to spill around her spread nethers and run down your lower body.  Her sopping wet pussy works overtime, trying its best to pull you in as deep as possible, intent on sucking all the cum out of "
+            `Her walls grip you tightly, almost painfully, as a flood of juices hit the ${this.player.cockHead(
+                x
+            )} of your ${this.cockDescript(
+                x
+            )} with the force of a tidal wave, only to spill around her spread nethers and run down your lower body.  Her sopping wet pussy works overtime, trying its best to pull you in as deep as possible, intent on sucking all the cum out of `
         );
         if (this.player.balls == 0) this.outx("you");
         else this.outx("your [balls]");
@@ -3064,9 +3068,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         // (High Cum amount)
         else {
             this.outx(
-                "\n\nYou threaten to blow the poor lizan straight off your " +
-                    this.cockDescript(x) +
-                    " with the sheer force of your cum.  Hosing down her walls to the point she can't hope to contain all of your powerful jets, you draw her close, and Arian groans, returning the gesture with a tight hug of her own.  \"<i>Ugh, my belly... so much... so good,</i>\" she moans, and you continue to torment her body with your prodigious load.  The sheets under the two of you have since turned into a wet mess of mixed juices, covering both of your lower bodies in the aftermath of you tryst; and it's not until you thrust into her a couple more times, to ensure you're completely spent, that you collapse on top of her, slightly propped up by the protruding, pregnant-looking belly you've given her."
+                `\n\nYou threaten to blow the poor lizan straight off your ${this.cockDescript(
+                    x
+                )} with the sheer force of your cum.  Hosing down her walls to the point she can't hope to contain all of your powerful jets, you draw her close, and Arian groans, returning the gesture with a tight hug of her own.  "<i>Ugh, my belly... so much... so good,</i>" she moans, and you continue to torment her body with your prodigious load.  The sheets under the two of you have since turned into a wet mess of mixed juices, covering both of your lower bodies in the aftermath of you tryst; and it's not until you thrust into her a couple more times, to ensure you're completely spent, that you collapse on top of her, slightly propped up by the protruding, pregnant-looking belly you've given her.`
             );
         }
 
@@ -3137,7 +3141,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             else this.outx(" hardens");
             this.outx(" to full mast.");
         } else {
-            this.outx(this.arianMF("his", "her") + " cock");
+            this.outx(`${this.arianMF("his", "her")} cock`);
             if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] > 0) this.outx("s peek out of their");
             else this.outx(" peeks out of its");
             this.outx(" hiding place, rising to full mast.");
@@ -3553,7 +3557,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("kneels between your [legs]");
         this.outx(", aligning the tip of ");
         if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] > 0) this.outx("each of ");
-        this.outx(this.arianMF("his", "her") + " ");
+        this.outx(`${this.arianMF("his", "her")} `);
         this.outx("shaft");
         if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] > 0) this.outx("s");
         this.outx(" with your [vagina]");
@@ -3756,9 +3760,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         const x: number = this.player.cockThatFits(this.flags[kFLAGS.ARIAN_CAPACITY]);
         const y: number = this.player.cockThatFits2(this.flags[kFLAGS.ARIAN_CAPACITY]);
         this.outx(
-            "You look over your feminine lizard lover, and feel your " +
-                this.multiCockDescriptLight() +
-                " starting to stir in your [armor].  Since you have enough tools for the job, and Arian has enough holes, you ask if Arian would be willing to let you fuck her in both her ass and pussy at the same time?"
+            `You look over your feminine lizard lover, and feel your ${this.multiCockDescriptLight()} starting to stir in your [armor].  Since you have enough tools for the job, and Arian has enough holes, you ask if Arian would be willing to let you fuck her in both her ass and pussy at the same time?`
         );
 
         this.outx(
@@ -3849,9 +3851,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nThat's better, you say.  With that, you start to thrust yourself into her two holes.  Penetrating both of Arian's holes is a unique feeling; her ass hugs your " +
-                this.cockDescript(y) +
-                " tightly, trying to prevent you from moving as it does its best to keep you hilted deeply within; while her pussy, so slick and moist, massages your shaft expertly. For a moment you wonder if you even have to move."
+            `\n\nThat's better, you say.  With that, you start to thrust yourself into her two holes.  Penetrating both of Arian's holes is a unique feeling; her ass hugs your ${this.cockDescript(
+                y
+            )} tightly, trying to prevent you from moving as it does its best to keep you hilted deeply within; while her pussy, so slick and moist, massages your shaft expertly. For a moment you wonder if you even have to move.`
         );
 
         this.outx(
@@ -3859,9 +3861,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\n\"<i>What do you think I'm trying to do!?  Now get in here and paint my womb white!</i>\" Arian snaps, bracing herself on her bed and allowing her ass and pussy both to suck you in with surprising force.  As soon as you're hilted within both holes, her ass clamps shut on your " +
-                this.cockDescript(y) +
-                ", while her pussy's contractions begin truly milking you for all you're worth.  Stuck as you are, you have no option but to sit back and enjoy her contractions as you feel yourself nearing the edge of an inevitable orgasm."
+            `\n\n"<i>What do you think I'm trying to do!?  Now get in here and paint my womb white!</i>" Arian snaps, bracing herself on her bed and allowing her ass and pussy both to suck you in with surprising force.  As soon as you're hilted within both holes, her ass clamps shut on your ${this.cockDescript(
+                y
+            )}, while her pussy's contractions begin truly milking you for all you're worth.  Stuck as you are, you have no option but to sit back and enjoy her contractions as you feel yourself nearing the edge of an inevitable orgasm.`
         );
 
         this.outx(
@@ -3871,9 +3873,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         // (Low Cum Amount)
         if (this.player.cumQ() <= 250) {
             this.outx(
-                "\n\nYour " +
-                    this.multiCockDescriptLight() +
-                    " explode inside Arian's eager holes, giving them the liquid warmth they so crave.  The massage that your two cocks are receiving only enhance the intense feeling, and you find yourself cumming more than usual.  They don't stop massaging you for more, even as you stop unloading."
+                `\n\nYour ${this.multiCockDescriptLight()} explode inside Arian's eager holes, giving them the liquid warmth they so crave.  The massage that your two cocks are receiving only enhance the intense feeling, and you find yourself cumming more than usual.  They don't stop massaging you for more, even as you stop unloading.`
             );
 
             this.outx(
@@ -3883,18 +3883,16 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         // (Medium Cum Amount)
         else if (this.player.cumQ() <= 1000) {
             this.outx(
-                "\n\nLiquid lust floods Arian's insides, as your " +
-                    this.multiCockDescriptLight() +
-                    " do their best to relieve "
+                `\n\nLiquid lust floods Arian's insides, as your ${this.multiCockDescriptLight()} do their best to relieve `
             );
             if (this.player.balls == 0) this.outx("themselves");
             else this.outx("your [balls]");
             this.outx(
-                " of their load; a load Arian is not only pleased to accept, but also eager to relieve you of every single stray drop off.  The tightness of her ass, pressing down on your " +
-                    this.cockDescript(y) +
-                    ", her pussy milking on your " +
-                    this.cockDescript(x) +
-                    ".  How could anyone refuse such an invitation?  You let yourself go, stuffing the eager lizan with more cum than you thought yourself capable of producing."
+                ` of their load; a load Arian is not only pleased to accept, but also eager to relieve you of every single stray drop off.  The tightness of her ass, pressing down on your ${this.cockDescript(
+                    y
+                )}, her pussy milking on your ${this.cockDescript(
+                    x
+                )}.  How could anyone refuse such an invitation?  You let yourself go, stuffing the eager lizan with more cum than you thought yourself capable of producing.`
             );
 
             this.outx('\n\n"<i>M-more,</i>" Arian pleads, even as her belly starts to distend.');
@@ -3902,9 +3900,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         // (High Cum Amount)
         else {
             this.outx(
-                "\n\nYou cum with such force, that if Arian's ass wasn't clamping down on your " +
-                    this.cockDescript(y) +
-                    " so tightly, you'd be sure she was going to get pushed off.  \"<i>So much cum!  Yesssss!</i>\" Arian moans, as you quickly give her usually lithe belly a very blatant bump.  Even though your prodigious amount of cum is enough to completely fill the eager lizan-girl, her ass and pussy work overtime to ensure you're completely spent; and you have no desire to resist."
+                `\n\nYou cum with such force, that if Arian's ass wasn't clamping down on your ${this.cockDescript(
+                    y
+                )} so tightly, you'd be sure she was going to get pushed off.  "<i>So much cum!  Yesssss!</i>" Arian moans, as you quickly give her usually lithe belly a very blatant bump.  Even though your prodigious amount of cum is enough to completely fill the eager lizan-girl, her ass and pussy work overtime to ensure you're completely spent; and you have no desire to resist.`
             );
 
             this.outx(
@@ -3912,9 +3910,9 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
         this.outx(
-            "\n\nArian's ass goes slack around your " +
-                this.cockDescript(y) +
-                ", and Arian slowly slides off your shaft to plop on her bed; eyes closed in bliss, as she takes a short nap."
+            `\n\nArian's ass goes slack around your ${this.cockDescript(
+                y
+            )}, and Arian slowly slides off your shaft to plop on her bed; eyes closed in bliss, as she takes a short nap.`
         );
 
         // (if ArianDblPenChat == 0)
@@ -4370,9 +4368,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                     );
 
                 this.outx(
-                    "\n\nYou can't resist reaching down and gently tweaking the exposed tip.  Mmm... your little " +
-                        this.arianMF("boy-toy", "herm-toy") +
-                        " is going to be a very naughty thing from now on, you tease, unless [Arian ey] intends to start wearing a loincloth?"
+                    `\n\nYou can't resist reaching down and gently tweaking the exposed tip.  Mmm... your little ${this.arianMF(
+                        "boy-toy",
+                        "herm-toy"
+                    )} is going to be a very naughty thing from now on, you tease, unless [Arian ey] intends to start wearing a loincloth?`
                 );
 
                 this.outx(
@@ -5162,9 +5161,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou shake your head and tell [Arian em] you'd rather [Arian ey] didn't lick your butt.  Why don't you go and get [Arian em] some candy instead?  \"<i>Candy!?  I love candy!  You can smear chocolate on yourself and I could lick it clean! Then we'd get chocolate flavored cloud ice-cream with " +
-                this.player.race() +
-                ' musk!  What a great idea!  Get your undies off so I can get started!</i>"  [Arian Ey] pounces on you, effectively removing your underpants and exposing your '
+            `\n\nYou shake your head and tell [Arian em] you'd rather [Arian ey] didn't lick your butt.  Why don't you go and get [Arian em] some candy instead?  "<i>Candy!?  I love candy!  You can smear chocolate on yourself and I could lick it clean! Then we'd get chocolate flavored cloud ice-cream with ${this.player.race()} musk!  What a great idea!  Get your undies off so I can get started!</i>"  [Arian Ey] pounces on you, effectively removing your underpants and exposing your `
         );
         if (this.player.hasCock()) {
             this.outx(this.multiCockDescriptLight());
@@ -5408,9 +5405,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     private arianSpellPlace(spell: string): void {
         this.clearOutput();
         this.outx(
-            "You tell Arian that you want [Arian em] to place the " +
-                spell +
-                " spell in your talisman for you."
+            `You tell Arian that you want [Arian em] to place the ${spell} spell in your talisman for you.`
         );
 
         this.outx(
@@ -5438,9 +5433,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\n(<b>Your talisman has been imbued with the " +
-                spell +
-                ". You can use it from the M. Specials menu in combat.</b>)\n\n"
+            `\n\n(<b>Your talisman has been imbued with the ${spell}. You can use it from the M. Specials menu in combat.</b>)\n\n`
         );
         this.clearCharges();
         if (spell == "Shielding Spell") {
@@ -5489,9 +5482,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nInside, you find the " +
-                this.arianMF("male", "girly") +
-                " lizan standing naked before [Arian eir] bed, stretching [Arian eir] arms and tail as widely as they can and groaning with satisfaction as [Arian eir] joints pop.  Apparently not having noticed you arrive, [Arian ey] hums to [Arian emself] as [Arian ey] busies [Arian emself] with the covers of [Arian eir] bed, bending over and letting you get a good look at [Arian eir] sweet ass.  You appreciate the view for a few moments, and then gently cough to announce your presence."
+            `\n\nInside, you find the ${this.arianMF(
+                "male",
+                "girly"
+            )} lizan standing naked before [Arian eir] bed, stretching [Arian eir] arms and tail as widely as they can and groaning with satisfaction as [Arian eir] joints pop.  Apparently not having noticed you arrive, [Arian ey] hums to [Arian emself] as [Arian ey] busies [Arian emself] with the covers of [Arian eir] bed, bending over and letting you get a good look at [Arian eir] sweet ass.  You appreciate the view for a few moments, and then gently cough to announce your presence.`
         );
 
         this.outx(
@@ -5551,17 +5545,13 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            '\n\nArian sighs in happiness at your close contact.  "<i>It feels so good to have your ' +
-                this.player.skinFurScales() +
-                ' against my scales.  So warm...</i>" [Arian ey] sidles up against you, [Arian eir] tail draping over your waist as [Arian ey] sinks into your embrace.  You just squeeze [Arian em] a little tighter and hold [Arian em] close, saying nothing aside from a quiet whisper to sleep well.  "<i>Good night, [name],</i>" [Arian ey] whispers back, before extending a hand toward the globe illuminating the tent and snapping [Arian eir] fingers, shutting down the light.'
+            `\n\nArian sighs in happiness at your close contact.  "<i>It feels so good to have your ${this.player.skinFurScales()} against my scales.  So warm...</i>" [Arian ey] sidles up against you, [Arian eir] tail draping over your waist as [Arian ey] sinks into your embrace.  You just squeeze [Arian em] a little tighter and hold [Arian em] close, saying nothing aside from a quiet whisper to sleep well.  "<i>Good night, [name],</i>" [Arian ey] whispers back, before extending a hand toward the globe illuminating the tent and snapping [Arian eir] fingers, shutting down the light.`
         );
 
         // (if AnalXP <33)
         if (this.flags[kFLAGS.ARIAN_ANAL_XP] < 33) {
             this.outx(
-                "\n\nA strange sensation, combined with a soft sound, stirs you from your sleep.  You realize that Arian is stirring in [Arian eir] sleep, softly mumbling to [Arian em]self as [Arian eir] tail gently swishes to and fro under the covers, sometimes accidentally running its warm length over your " +
-                    this.player.skinFurScales() +
-                    "."
+                `\n\nA strange sensation, combined with a soft sound, stirs you from your sleep.  You realize that Arian is stirring in [Arian eir] sleep, softly mumbling to [Arian em]self as [Arian eir] tail gently swishes to and fro under the covers, sometimes accidentally running its warm length over your ${this.player.skinFurScales()}.`
             );
 
             this.outx(
@@ -5756,9 +5746,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
             );
             this.outx('\n\n"<i>More than full... I want to be as big as Miss Turkey...</i>"');
             this.outx(
-                "\n\nIs that so, you ask?  Does [Arian ey] really want a big squishy belly, stuffed full of hot, salty " +
-                    this.player.mf("man", "herm") +
-                    "-goo?"
+                `\n\nIs that so, you ask?  Does [Arian ey] really want a big squishy belly, stuffed full of hot, salty ${this.player.mf(
+                    "man",
+                    "herm"
+                )}-goo?`
             );
             this.outx(
                 '\n\n"<i>Hmm, yessss... put the sauce inside me,</i>" Arian hisses in obvious pleasure.'
@@ -5850,9 +5841,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 );
 
                 this.outx(
-                    "\n\nArian promptly nuzzles your " +
-                        this.multiCockDescriptLight() +
-                        ", rubbing [Arian eir] face all over "
+                    `\n\nArian promptly nuzzles your ${this.multiCockDescriptLight()}, rubbing [Arian eir] face all over `
                 );
                 if (this.player.cockTotal() == 1) this.outx("it");
                 else this.outx("them");
@@ -5901,9 +5890,10 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                     '\n\nArian scratches [Arian eir] chin, smiling nervously.  "<i>Well, I wouldn\'t be opposed, if you want to.</i>"'
                 );
                 this.outx(
-                    "\n\nYou promptly seize the lizan in a tight embrace, already guiding your [cock smallest] towards " +
-                        this.arianMF("his naughty boy-pussy", "her tail-hole") +
-                        " with a smile on your face.  You teasingly muse aloud about who was saying you were giving [Arian em] the choice to say no?"
+                    `\n\nYou promptly seize the lizan in a tight embrace, already guiding your [cock smallest] towards ${this.arianMF(
+                        "his naughty boy-pussy",
+                        "her tail-hole"
+                    )} with a smile on your face.  You teasingly muse aloud about who was saying you were giving [Arian em] the choice to say no?`
                 );
                 this.outx(
                     '\n\nArian jumps a bit at being suddenly grabbed, but doesn\'t resist, instead, [Arian ey] positions [Arian emself] to give you easy access to [Arian eir] rosebud.  "<i>Drat!  And here I thought I would be able to escape punishment from getting you all worked up,</i>"  Arian replies with a smile.'
@@ -5974,14 +5964,16 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                 );
                 if (this.flags[kFLAGS.ARIAN_VAGINA] > 0) {
                     this.outx(
-                        this.arianMF("his", "her") +
-                            " pussy is squirting her juices all over your lower body"
+                        `${this.arianMF(
+                            "his",
+                            "her"
+                        )} pussy is squirting her juices all over your lower body`
                     );
                     if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0) {
                         this.outx(" and ");
                     } else this.outx("; ");
                 } else if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0) {
-                    this.outx(this.arianMF("his", "her") + " ");
+                    this.outx(`${this.arianMF("his", "her")} `);
                     if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] > 0) this.outx("twin shafts are");
                     else this.outx("shaft is");
                     this.outx(" squirting white ropes of lizan cum all over the bedsheets;");
@@ -6084,7 +6076,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nYou smile and can't resist stroking your fingers across the lizan's still naked ass, squeezing the round plumpness of [Arian eir] cheeks and stroking [Arian eir] slutty butt-pucker, just to see how [Arian ey]'ll] react.  Arian whimpers, "
                 );
                 if (this.flags[kFLAGS.ARIAN_COCK_SIZE] > 0) {
-                    this.outx(this.arianMF("his", "her") + " ");
+                    this.outx(`${this.arianMF("his", "her")} `);
                     if (this.flags[kFLAGS.ARIAN_COCK_SIZE] >= 3) this.outx("exposed ");
                     this.outx("bulbous shaft");
                     if (this.flags[kFLAGS.ARIAN_DOUBLE_COCK] > 0) this.outx("s begin");
@@ -6245,14 +6237,12 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
     private pickAnEggArian(color = "pink"): void {
         this.clearOutput();
         this.flags[kFLAGS.ARIAN_EGG_COLOR] = color;
-        this.outx("You tell Arian you'd like her to make you a " + color + " egg.");
+        this.outx(`You tell Arian you'd like her to make you a ${color} egg.`);
         this.outx(
             '\n\n"<i>All right,</i>" Arian replies, closing her eyes and beginning to focus her magic.'
         );
         this.outx(
-            "\n\nYou watch in wonder as a " +
-                color +
-                " light seems to gather within Arian's belly, slowly fading away.  The lizan mage smiles and opens her eyes, tail waving lazily behind her in happiness.  \"<i>It's done.  I tried to get all my eggs imbued, but I won't know if I was successful or not until they're laid.</i>\""
+            `\n\nYou watch in wonder as a ${color} light seems to gather within Arian's belly, slowly fading away.  The lizan mage smiles and opens her eyes, tail waving lazily behind her in happiness.  "<i>It's done.  I tried to get all my eggs imbued, but I won't know if I was successful or not until they're laid.</i>"`
         );
 
         this.outx(
@@ -6337,9 +6327,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou nod your head, and begin sorting through the eggs.  Most of them look like common eggs, not that much different from large chicken eggs.  Eventually, you find one that seems to be appropriate.  Separating this egg from the others, you check one more time and find out that Arian only managed to lay one " +
-                color +
-                ' egg.  Still, that\'s good enough for you.  You take the egg and turn to place it gently on the nearby counter.  When you turn to check up on Arian though you spot the lizan, casually lifting one of the "<i>normal</i>" eggs, sizing it up.'
+            `\n\nYou nod your head, and begin sorting through the eggs.  Most of them look like common eggs, not that much different from large chicken eggs.  Eventually, you find one that seems to be appropriate.  Separating this egg from the others, you check one more time and find out that Arian only managed to lay one ${color} egg.  Still, that's good enough for you.  You take the egg and turn to place it gently on the nearby counter.  When you turn to check up on Arian though you spot the lizan, casually lifting one of the "<i>normal</i>" eggs, sizing it up.`
         );
 
         this.outx(
@@ -6355,9 +6343,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou politely refuse, telling her that she probably needs it more than you do, since she just went through labor.  Anyways you should probably be going.  You thank the lizan for the " +
-                color +
-                " egg and tell her to enjoy her... meal... and point out that, while you personally appreciate the view, she should probably put on some clothes later."
+            `\n\nYou politely refuse, telling her that she probably needs it more than you do, since she just went through labor.  Anyways you should probably be going.  You thank the lizan for the ${color} egg and tell her to enjoy her... meal... and point out that, while you personally appreciate the view, she should probably put on some clothes later.`
         );
         this.outx(
             '\n\nArian gasps and quickly covers herself, smiling nervously to you.  "<i>Thank you for pointing that out, [name].  Although,</i>" she giggles nervously.  "<i>If you\'d rather I stay naked, I\'m willing to do that for you...</i>"  You give the idea some thought... but decide to tell her that you\'d prefer she put on some clothes next time you visit.  Otherwise you miss out on having her sensuously strip for you, you laugh.'
@@ -6526,9 +6512,7 @@ export class ArianScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nArian pants, still winded, though her breathing seems to have returned to a more normal level.  She can't help but grin at your compliment.  \"<i>Don't be silly, [name].  I'm the lucky one.  But I'm really glad you think so highly of me.</i>\"  Why shouldn't you?  She gave up her birth-gender, just to better please you - why, any girl who passed up a chance to snap up someone as sweet as Arian was a fool, but they'll never amend their mistake, because she's all yours now.  With that you slither around in the bed so that you can glomp onto your girlfriend, rubbing your " +
-                this.player.skinFurScales() +
-                " cheek against her own smooth scales, hugging her tightly to you."
+            `\n\nArian pants, still winded, though her breathing seems to have returned to a more normal level.  She can't help but grin at your compliment.  "<i>Don't be silly, [name].  I'm the lucky one.  But I'm really glad you think so highly of me.</i>"  Why shouldn't you?  She gave up her birth-gender, just to better please you - why, any girl who passed up a chance to snap up someone as sweet as Arian was a fool, but they'll never amend their mistake, because she's all yours now.  With that you slither around in the bed so that you can glomp onto your girlfriend, rubbing your ${this.player.skinFurScales()} cheek against her own smooth scales, hugging her tightly to you.`
         );
 
         this.outx(

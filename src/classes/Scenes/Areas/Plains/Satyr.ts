@@ -20,7 +20,7 @@ export class Satyr extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Satyr.rand(3) < 1) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind punch!\n",
+                `${this.capitalA + this.short} completely misses you with a blind punch!\n`,
                 false
             );
         }
@@ -38,7 +38,7 @@ export class Satyr extends Monster {
             );
             if (damage > 0) {
                 damage = this.player.takeDamage(damage);
-                this.outx("It feels like you just got hit with a wooden club! (" + damage + ")");
+                this.outx(`It feels like you just got hit with a wooden club! (${damage})`);
             } else this.outx("You successfully block it.");
         }
         this.combatRoundOver();
@@ -60,7 +60,7 @@ export class Satyr extends Monster {
         );
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Satyr.rand(3) < 1) {
             this.outx(
-                this.capitalA + this.short + " completely misses you due to blindness!\n",
+                `${this.capitalA + this.short} completely misses you due to blindness!\n`,
                 false
             );
         } else if (this.combatMiss()) {
@@ -99,7 +99,7 @@ export class Satyr extends Monster {
                     this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
                 }
                 // stun PC + hp damage if hit, hp damage dependent on str if miss
-                this.outx(" (" + damage + ")");
+                this.outx(` (${damage})`);
             } else
                 this.outx("He charges at you, but you successfully deflect it at the last second.");
         }
@@ -123,7 +123,7 @@ export class Satyr extends Monster {
         );
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Satyr.rand(3) < 1) {
             this.outx(
-                this.capitalA + this.short + " completely misses you due to blindness!\n",
+                `${this.capitalA + this.short} completely misses you due to blindness!\n`,
                 false
             );
         } else if (
@@ -137,9 +137,7 @@ export class Satyr extends Monster {
             );
         } else {
             this.outx(
-                "You fall with a <b>THUD</b> and the Satyr doesn't even bother to undress you before he begins rubbing his massive cock on your body until he comes, soiling your [armor] and " +
-                    this.player.skinFurScales() +
-                    " with slimy, hot cum.  As it rubs into your body, you shiver with unwanted arousal."
+                `You fall with a <b>THUD</b> and the Satyr doesn't even bother to undress you before he begins rubbing his massive cock on your body until he comes, soiling your [armor] and ${this.player.skinFurScales()} with slimy, hot cum.  As it rubs into your body, you shiver with unwanted arousal.`
             );
             // large-ish sensitivity based lust increase if hit.)(This also relieves him of some of his lust, though not completely.)
             this.lust -= 50;

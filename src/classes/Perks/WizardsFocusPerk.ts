@@ -7,7 +7,7 @@ import { PerkType } from "../PerkType";
 
 export class WizardsFocusPerk extends PerkType {
     public desc(params?: PerkClass): string {
-        if (params) return "Increases your spell effect modifier by " + params.value1 * 100 + "%.";
+        if (params) return `Increases your spell effect modifier by ${params.value1 * 100}%.`;
         return "";
     }
 

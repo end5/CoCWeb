@@ -487,9 +487,10 @@ export class HelFollower extends NPCAwareContent {
             this.outx(".");
 
             this.outx(
-                '\n\n<i>"Yay!  My special little cutie is back!</i>"  Sophie exclaims, giggling as she wraps her feathered arms around you.  "<i>Is my ' +
-                    this.player.mf("hunk", "babe") +
-                    " interested in like, some 'fun'?\"</i>"
+                `\n\n<i>"Yay!  My special little cutie is back!</i>"  Sophie exclaims, giggling as she wraps her feathered arms around you.  "<i>Is my ${this.player.mf(
+                    "hunk",
+                    "babe"
+                )} interested in like, some 'fun'?"</i>`
             );
 
             this.outx(
@@ -965,9 +966,10 @@ export class HelFollower extends NPCAwareContent {
                 "You run a hand through Hel's hair and ask the recent addition to your camp if she'd like to talk."
             );
             this.outx(
-                '\n\n<i>"Sounds good to me, ' +
-                    this.player.mf("bud", "babe") +
-                    ',"</i> Hel grins, leading you by the arm to a rock near her hammock.  The two of you sit yourselves down, with Hel locking her fingers through yours in her lap.  <i>"So what\'s on your mind, lover mine?"</i>'
+                `\n\n<i>"Sounds good to me, ${this.player.mf(
+                    "bud",
+                    "babe"
+                )},"</i> Hel grins, leading you by the arm to a rock near her hammock.  The two of you sit yourselves down, with Hel locking her fingers through yours in her lap.  <i>"So what's on your mind, lover mine?"</i>`
             );
 
             this.outx(
@@ -1321,8 +1323,8 @@ export class HelFollower extends NPCAwareContent {
                 // [Display Message: You {gained/lost} X gems in the game!]
             }
             if (this.player.gems + gems < 0) gems = this.player.gems;
-            if (gems < 0) this.outx("\n\nYou lost " + gems + " gems in the game!");
-            else this.outx("\n\nYou gained " + gems + " gems in the game!");
+            if (gems < 0) this.outx(`\n\nYou lost ${gems} gems in the game!`);
+            else this.outx(`\n\nYou gained ${gems} gems in the game!`);
             this.player.gems += gems;
             this.statScreenRefresh();
         } else {
@@ -1449,9 +1451,7 @@ export class HelFollower extends NPCAwareContent {
                 "As the sun sets over the camp, you see Helia standing over her hammock, stretching and yawning, ready to turn in for the night.  You approach her, sliding your arms around her supple waist and burying your face in her soft crimson locks, holding your lover close.  Hel giggles girlishly as you give her a long hug, nuzzling into the nape of her neck."
             );
             this.outx(
-                "\n\nWith a bit of effort, Hel turns around in your embrace and starts to fiddle with your [armor], slowly pulling it off, leaving your bare flesh pressed against her own.  You breathe in the woodsmoke scent of her hair; rub your " +
-                    this.player.skinFurScales() +
-                    " along her smooth flesh; gasp lightly as her long tail wraps lovingly around your [legs], drawing you even closer, letting your face rest against her yielding chest."
+                `\n\nWith a bit of effort, Hel turns around in your embrace and starts to fiddle with your [armor], slowly pulling it off, leaving your bare flesh pressed against her own.  You breathe in the woodsmoke scent of her hair; rub your ${this.player.skinFurScales()} along her smooth flesh; gasp lightly as her long tail wraps lovingly around your [legs], drawing you even closer, letting your face rest against her yielding chest.`
             );
             this.outx(
                 "\n\nKissing and nipping along your arm and neck, Hel gently pulls you into the hammock, leaving you resting atop the salamander, your limbs and tail"
@@ -1488,9 +1488,10 @@ export class HelFollower extends NPCAwareContent {
                 "You sweep your salamander lover up in your arms, holding the fiery redhead close against you.  Hel lets out a happy gasp, quickly locking her strong arms around your neck and wrapping her warm tail around your waist, binding you to her.  She nuzzles into your neck, kissing and nipping gently at your tender flesh as she hooks one of her legs around you.  Smiling, you cup Hel's cheeks and give her a kiss, letting her long, slender tongue wrap around your own."
             );
             this.outx(
-                '\n\n<i>"Oh, [name],"</i> Hel sighs happily, holding you tight.  <i>"My wonderful, ' +
-                    this.player.mf("handsome", "beautiful") +
-                    ' [name]."</i>'
+                `\n\n<i>"Oh, [name],"</i> Hel sighs happily, holding you tight.  <i>"My wonderful, ${this.player.mf(
+                    "handsome",
+                    "beautiful"
+                )} [name]."</i>`
             );
         }
         // [If PC is <6ft Tall]
@@ -1808,11 +1809,9 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nWell, alrighty then.  Popping [oneCock] out of your genital slit, you give it a little stroke; though it hardly needs any encouragement to get hard, with the femlube soaking into you and Hel's big tits resting atop your binding body.  You release her from your naga-hug, and Hel grunts as she flops onto her back, her legs spread perfectly for you.  In between her soaked thighs you slither, plopping your " +
-                this.cockDescript(x) +
-                " onto her twat and sliding yourself between her lips in a single, fluid motion.  Hel rolls her head back and moans as you enter her, digging the very tips of her claws into the " +
-                this.player.skinFurScales() +
-                " of your back."
+            `\n\nWell, alrighty then.  Popping [oneCock] out of your genital slit, you give it a little stroke; though it hardly needs any encouragement to get hard, with the femlube soaking into you and Hel's big tits resting atop your binding body.  You release her from your naga-hug, and Hel grunts as she flops onto her back, her legs spread perfectly for you.  In between her soaked thighs you slither, plopping your ${this.cockDescript(
+                x
+            )} onto her twat and sliding yourself between her lips in a single, fluid motion.  Hel rolls her head back and moans as you enter her, digging the very tips of her claws into the ${this.player.skinFurScales()} of your back.`
         );
 
         this.outx(
@@ -1828,15 +1827,15 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nUnable to move much in your serpentine embrace, Hel begins to rapidly contract her vaginal and anal muscles, squeezing and grinding against your " +
-                this.cockDescript(x) +
-                " and tip.  Content to close your eyes and bask in the pleasures of your lover, ready to lose yourself in pleasure.  You relax, leaning back on yourself as you buck your hips into your lover's sweet hot box, flick your tail inside her ass, and play your tongue around her mouth, tasting her warm saliva and the aftertaste of beer."
+            `\n\nUnable to move much in your serpentine embrace, Hel begins to rapidly contract her vaginal and anal muscles, squeezing and grinding against your ${this.cockDescript(
+                x
+            )} and tip.  Content to close your eyes and bask in the pleasures of your lover, ready to lose yourself in pleasure.  You relax, leaning back on yourself as you buck your hips into your lover's sweet hot box, flick your tail inside her ass, and play your tongue around her mouth, tasting her warm saliva and the aftertaste of beer.`
         );
 
         this.outx(
-            "\n\nYou cum easily, only a small grunt escaping your lips as Hel's delicious cunt brings you over, pulling your " +
-                this.cockDescript(x) +
-                " deep into her and tightening your hold around her.  The sudden squeeze is the last hurrah as you empty your "
+            `\n\nYou cum easily, only a small grunt escaping your lips as Hel's delicious cunt brings you over, pulling your ${this.cockDescript(
+                x
+            )} deep into her and tightening your hold around her.  The sudden squeeze is the last hurrah as you empty your `
         );
         if (this.player.balls > 0) this.outx("[balls]");
         else this.outx("load");
@@ -1913,23 +1912,21 @@ export class HelFollower extends NPCAwareContent {
         if (x < 0) x = this.player.smallestCockIndex();
         this.clearOutput();
         this.outx(
-            "You trot around your lover, your powerful centaur frame brushing lightly against her.  Hel grins, reaching out to pet your flanks and running her claws across your " +
-                this.player.skinFurScales() +
-                '.  "<i>You\'ve got a helluva body,</i>" she smiles, and with an invitation from you, swings up onto your back, wrapping her arms tightly around your waist as you break out into a canter around camp.'
+            `You trot around your lover, your powerful centaur frame brushing lightly against her.  Hel grins, reaching out to pet your flanks and running her claws across your ${this.player.skinFurScales()}.  "<i>You've got a helluva body,</i>" she smiles, and with an invitation from you, swings up onto your back, wrapping her arms tightly around your waist as you break out into a canter around camp.`
         );
 
         this.outx(
-            "\n\nShe nudges you toward her part of camp.  When you arrive, Hel leaps off and grabs some ropes from her pack.  You raise an eyebrow, but allow her to tie them around your equine half, creating a makeshift harness underneath you.  Once done, Hel lowers herself to her knees and, pushing aside your [armor], takes hold of your " +
-                this.cockDescript(x) +
-                ".  She gives it an experimental stroke, running her warm, leathery palm and scaled fingers across your length until you let out a little whinny and stamp your hooves."
+            `\n\nShe nudges you toward her part of camp.  When you arrive, Hel leaps off and grabs some ropes from her pack.  You raise an eyebrow, but allow her to tie them around your equine half, creating a makeshift harness underneath you.  Once done, Hel lowers herself to her knees and, pushing aside your [armor], takes hold of your ${this.cockDescript(
+                x
+            )}.  She gives it an experimental stroke, running her warm, leathery palm and scaled fingers across your length until you let out a little whinny and stamp your hooves.`
         );
 
         this.outx(
-            "\n\nHel pats your flank with her free hand, but doesn't let up, instead adding her long, slender tongue to the mix.  She flicks it along the " +
-                this.player.cockHead(x) +
-                " of your " +
-                this.cockDescript(x) +
-                ", sending shivers of pleasure up your rigid shaft.  You ache to do something here, to add to your own pleasure or return it to your partner, "
+            `\n\nHel pats your flank with her free hand, but doesn't let up, instead adding her long, slender tongue to the mix.  She flicks it along the ${this.player.cockHead(
+                x
+            )} of your ${this.cockDescript(
+                x
+            )}, sending shivers of pleasure up your rigid shaft.  You ache to do something here, to add to your own pleasure or return it to your partner, `
         );
         // if no boobs:
         if (this.player.biggestTitSize() < 3)
@@ -1943,19 +1940,19 @@ export class HelFollower extends NPCAwareContent {
         this.outx(".");
 
         this.outx(
-            "\n\nAfter a few mind-hazing minutes of salamander hand-job, Hel takes the " +
-                this.player.cockHead(x) +
-                " of your cock into her mouth, slurping up the tip of your " +
-                this.cockDescript(x) +
-                ".  Your breath catches in your throat as the first inches of your cockmeat are engulfed in the hot, wet embrace of Helia's mouth.  Her lizard-tongue wastes no time in flicking across your " +
-                this.player.cockHead(x) +
-                ", the forked tip playing across your urethra, drawing forth a thick dollop of pre that soon smears her cheeks with white.  She pumps your cock into her mouth, licking and sucking on your crown as her pistoning hands force thicker globs of sticky precum out of you, eagerly swallowing every drop - but only after savoring it, rolling each drop around in her mouth until her entire gob is a sticky mess, thick webs of seed coating her lips each time she swallows another appetizing taste."
+            `\n\nAfter a few mind-hazing minutes of salamander hand-job, Hel takes the ${this.player.cockHead(
+                x
+            )} of your cock into her mouth, slurping up the tip of your ${this.cockDescript(
+                x
+            )}.  Your breath catches in your throat as the first inches of your cockmeat are engulfed in the hot, wet embrace of Helia's mouth.  Her lizard-tongue wastes no time in flicking across your ${this.player.cockHead(
+                x
+            )}, the forked tip playing across your urethra, drawing forth a thick dollop of pre that soon smears her cheeks with white.  She pumps your cock into her mouth, licking and sucking on your crown as her pistoning hands force thicker globs of sticky precum out of you, eagerly swallowing every drop - but only after savoring it, rolling each drop around in her mouth until her entire gob is a sticky mess, thick webs of seed coating her lips each time she swallows another appetizing taste.`
         );
 
         this.outx(
-            "\n\nThen as quickly as it began, Hel's blowjob comes to a halt.  The salamander pops your prick out of her maw and, giving it one last kiss on the " +
-                this.player.cockHead(x) +
-                ", lets it fall aside as she moves.  You lean around yourself awkwardly as your lover ducks beneath your horse-half, clambering into her harness.  Hel disappears from view, completely obscured by your own body; all you can feel of her is her weight pulling down on your back and her powerful scaled legs hooking around your thighs, spreading wide as she grabs your cock again.  You groan pleasurably as the tip brushes her lower lips, the heat of her inhuman pussy radiating out to set your nerves ablaze."
+            `\n\nThen as quickly as it began, Hel's blowjob comes to a halt.  The salamander pops your prick out of her maw and, giving it one last kiss on the ${this.player.cockHead(
+                x
+            )}, lets it fall aside as she moves.  You lean around yourself awkwardly as your lover ducks beneath your horse-half, clambering into her harness.  Hel disappears from view, completely obscured by your own body; all you can feel of her is her weight pulling down on your back and her powerful scaled legs hooking around your thighs, spreading wide as she grabs your cock again.  You groan pleasurably as the tip brushes her lower lips, the heat of her inhuman pussy radiating out to set your nerves ablaze.`
         );
 
         this.outx(
@@ -1971,9 +1968,9 @@ export class HelFollower extends NPCAwareContent {
         this.outx("\n\nTHWACK!");
 
         this.outx(
-            "\n\nYou start forward as a rough tail-slap lands on your flank.  You reflexively step forward, your equine muscles acting on instinct...  which only serves to rock Hel off and down again on your " +
-                this.cockDescript(x) +
-                ", her impromptu harness moving her like a swing. You arch your back as the movement hammers Hel down on your cock like a free-swinging onahole, but the moment of pleasure lurches out of control when she gives you another hard tail-swat, and another; your insticts carry you forward until you reach a full canter. Shudders and twitches wrack your body as your own motions rock Hel on and off your [cock], slamming her back down on your shaft again and again."
+            `\n\nYou start forward as a rough tail-slap lands on your flank.  You reflexively step forward, your equine muscles acting on instinct...  which only serves to rock Hel off and down again on your ${this.cockDescript(
+                x
+            )}, her impromptu harness moving her like a swing. You arch your back as the movement hammers Hel down on your cock like a free-swinging onahole, but the moment of pleasure lurches out of control when she gives you another hard tail-swat, and another; your insticts carry you forward until you reach a full canter. Shudders and twitches wrack your body as your own motions rock Hel on and off your [cock], slamming her back down on your shaft again and again.`
         );
 
         this.outx(
@@ -1981,9 +1978,9 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nAs Hel lets out another high-pitched shriek of pleasure, you finally feel yourself hurtling over the edge of bliss. You rear yourself up as you cum, staggering on your hind legs as the first searing spurt of spooge squirts into the screaming salamander.  A huge spurt of cum jets out of your " +
-                this.cockDescript(x) +
-                ", smearing Hel's spasming walls white with your potent seed.  As your prick fires off again and again, you slowly bring yourself to a halt, your prick still twitching inside Hel's cum-soaked box.  When you've brought yourself to a complete stop, you feel a sudden lightness as Hel flops out of her harness, quickly surrounded by a small pool of jizz leaking out of her."
+            `\n\nAs Hel lets out another high-pitched shriek of pleasure, you finally feel yourself hurtling over the edge of bliss. You rear yourself up as you cum, staggering on your hind legs as the first searing spurt of spooge squirts into the screaming salamander.  A huge spurt of cum jets out of your ${this.cockDescript(
+                x
+            )}, smearing Hel's spasming walls white with your potent seed.  As your prick fires off again and again, you slowly bring yourself to a halt, your prick still twitching inside Hel's cum-soaked box.  When you've brought yourself to a complete stop, you feel a sudden lightness as Hel flops out of her harness, quickly surrounded by a small pool of jizz leaking out of her.`
         );
 
         this.outx(
@@ -2000,9 +1997,7 @@ export class HelFollower extends NPCAwareContent {
     private femtaurPlusCampHel(): void {
         this.clearOutput();
         this.outx(
-            "You trot around your lover, your powerful centaur frame brushing lightly against her. Hel grins, reaching out to pet your flanks and running her claws across your " +
-                this.player.skinFurScales() +
-                ".  \"<i>You've got a helluva body,</i>\" she smiles, and with an invitation from you, swings up onto your back, wrapping her arms tightly around your waist as you break out into a canter around camp.  She gives you a gentle nudge toward a certain pile of your gear, and it doesn't take but a moment for you to notice she's urging you toward the special toys Whitney gave you for your equine-like body's needs."
+            `You trot around your lover, your powerful centaur frame brushing lightly against her. Hel grins, reaching out to pet your flanks and running her claws across your ${this.player.skinFurScales()}.  "<i>You've got a helluva body,</i>" she smiles, and with an invitation from you, swings up onto your back, wrapping her arms tightly around your waist as you break out into a canter around camp.  She gives you a gentle nudge toward a certain pile of your gear, and it doesn't take but a moment for you to notice she's urging you toward the special toys Whitney gave you for your equine-like body's needs.`
         );
 
         this.outx(
@@ -2102,9 +2097,7 @@ export class HelFollower extends NPCAwareContent {
 
         // {Make an INT or STR check, whichever is higher:
         this.outx(
-            "\n\nYou toss your [armor] aside and assume your own battle stance, your powerful muscles tightening beneath your " +
-                this.player.skinFurScales() +
-                ", ready to spring into action.  You move slowly, cautiously; you and Hel begin to circle each other like predators observing their prey, each watching the other for any momentary lapse, any split-second vulnerabilities.  Suddenly, Hel lashes out, a quick one-two jab at you, narrowly blocked in your guard.  You grind your feet into the ground, deflecting her inhumanly-strong blows as best you can.  She launches a third strike, but you duck aside, spinning into her guard and delivering a hard jab to her gut.  The salamander recoils, swinging her fiery tail at you as she gets some distance, staggering back from the hit.  You exchange another quick flurry of blows, punches connecting, blocked, or dodged in rapid succession.  The fight drags on, neither of you able to land a telling blow, your strikes deflected or dodged, your prowess in battle nearly matched."
+            `\n\nYou toss your [armor] aside and assume your own battle stance, your powerful muscles tightening beneath your ${this.player.skinFurScales()}, ready to spring into action.  You move slowly, cautiously; you and Hel begin to circle each other like predators observing their prey, each watching the other for any momentary lapse, any split-second vulnerabilities.  Suddenly, Hel lashes out, a quick one-two jab at you, narrowly blocked in your guard.  You grind your feet into the ground, deflecting her inhumanly-strong blows as best you can.  She launches a third strike, but you duck aside, spinning into her guard and delivering a hard jab to her gut.  The salamander recoils, swinging her fiery tail at you as she gets some distance, staggering back from the hit.  You exchange another quick flurry of blows, punches connecting, blocked, or dodged in rapid succession.  The fight drags on, neither of you able to land a telling blow, your strikes deflected or dodged, your prowess in battle nearly matched.`
         );
         this.fatigue(5 + HelFollower.rand(20));
         // If INT check succeeds:
@@ -2517,11 +2510,11 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou feel hands wandering across your body, Hel slowly, sensuously, pulling off your [armor].  Soon, the two of you are bare, clothes and weapons discarded all around the succubus.  You push Hel over, grinding your hard " +
-                this.cockDescript(x) +
-                " between her legs.  As you grope the salamander girl's body, you gesture at Vapula and tell her to come closer so that you can stroke her, too.  You begin caressing each other, spending a few moments in languid pleasure until your " +
-                this.cockDescript(x) +
-                " looks ready to explode."
+            `\n\nYou feel hands wandering across your body, Hel slowly, sensuously, pulling off your [armor].  Soon, the two of you are bare, clothes and weapons discarded all around the succubus.  You push Hel over, grinding your hard ${this.cockDescript(
+                x
+            )} between her legs.  As you grope the salamander girl's body, you gesture at Vapula and tell her to come closer so that you can stroke her, too.  You begin caressing each other, spending a few moments in languid pleasure until your ${this.cockDescript(
+                x
+            )} looks ready to explode.`
         );
 
         // Combine, Body
@@ -2540,19 +2533,19 @@ export class HelFollower extends NPCAwareContent {
         this.outx("\n\nAnd with a mighty thrust, you claim her pussy.");
 
         this.outx(
-            "\n\nYou don't take any precautions as you brutally plow your salamander lover.  She's more than used to hard and torrid fucks, and her gushing cunt is doing an excellent job at swallowing your " +
-                this.cockDescript(x) +
-                " as it ferociously thrusts up and down.  You hug Hel close, holding her tight in your arms as you repeatedly impale her on your spear.  Every time your cock claps against her, she reflexively responds by pounding Vapula's ass with her own tail, making the succubus moan and grip you tighter.  The way your purple slut stimulates you only entices you to pound Hel harder and faster; the scaly girl screams in agonizing pleasure, her vagina contracting at a mad pace in order to squeeze your " +
-                this.cockDescript(x) +
-                " and milk you of everything you have; her arms are clamping you like a vise and her hands are scratching your back with a passionate, lust-induced fury.  You tighten your grip on Hel's shoulders, crushing her soft chest against yours and using her smooth shoulders as leverage to pump faster.  The internal fire that seems to boil within the reptile girl's body is making you feverishly mad with desire, leaving you oblivious of anything but your ferocious embrace.  The three of you undulate rhythmically against each other, entranced in a feverish sex dance."
+            `\n\nYou don't take any precautions as you brutally plow your salamander lover.  She's more than used to hard and torrid fucks, and her gushing cunt is doing an excellent job at swallowing your ${this.cockDescript(
+                x
+            )} as it ferociously thrusts up and down.  You hug Hel close, holding her tight in your arms as you repeatedly impale her on your spear.  Every time your cock claps against her, she reflexively responds by pounding Vapula's ass with her own tail, making the succubus moan and grip you tighter.  The way your purple slut stimulates you only entices you to pound Hel harder and faster; the scaly girl screams in agonizing pleasure, her vagina contracting at a mad pace in order to squeeze your ${this.cockDescript(
+                x
+            )} and milk you of everything you have; her arms are clamping you like a vise and her hands are scratching your back with a passionate, lust-induced fury.  You tighten your grip on Hel's shoulders, crushing her soft chest against yours and using her smooth shoulders as leverage to pump faster.  The internal fire that seems to boil within the reptile girl's body is making you feverishly mad with desire, leaving you oblivious of anything but your ferocious embrace.  The three of you undulate rhythmically against each other, entranced in a feverish sex dance.`
         );
 
         // [If Multicock 2+]
         if (y >= 0)
             this.outx(
-                "\n\nYou feel a hand darting to your " +
-                    this.cockDescript(y) +
-                    ".  Completely thrilled by the scaly beast ramming her ass, Vapula has grabbed your second member and is now jerking it off furiously, occasionally leaning down to give it a lick when Hel's tail gives her freedom to do so.  You welcome your slut's efforts and force her to deepthroat you with one hand while the other still holds the salamander girl.  With two voluptuous cock-rings being wrapped around your genitals in such an exquisite way, it won't be long before you've given up your seed."
+                `\n\nYou feel a hand darting to your ${this.cockDescript(
+                    y
+                )}.  Completely thrilled by the scaly beast ramming her ass, Vapula has grabbed your second member and is now jerking it off furiously, occasionally leaning down to give it a lick when Hel's tail gives her freedom to do so.  You welcome your slut's efforts and force her to deepthroat you with one hand while the other still holds the salamander girl.  With two voluptuous cock-rings being wrapped around your genitals in such an exquisite way, it won't be long before you've given up your seed.`
             );
         // [/Multicock]
 
@@ -2561,9 +2554,9 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nThis libertine orgy cannot last indefinitely, and even your girls are trembling convulsively, ready to reach their climax. You manage to slide your " +
-                this.cockDescript(x) +
-                " up the reptile girl's twat a few more times before blasting her with your spooge.  You fill Hel's interior, pouring cum like a torrent into her womb"
+            `\n\nThis libertine orgy cannot last indefinitely, and even your girls are trembling convulsively, ready to reach their climax. You manage to slide your ${this.cockDescript(
+                x
+            )} up the reptile girl's twat a few more times before blasting her with your spooge.  You fill Hel's interior, pouring cum like a torrent into her womb`
         );
         // [IF cum production massive:
         if (this.player.cumQ() >= 750)
@@ -2575,9 +2568,9 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nSeeing how much pleasure you're giving them is quite touching, and you give each of them a long, ardent kiss, letting each girl know how the other tastes like.  At last, when your " +
-                this.cockDescript(x) +
-                " has unloaded its last rope of jism, you pull out and break the kiss.  Hel pants and sighs, utterly drained; you see her tail popping out of Vapula's ass, and the released succubus just falls on her back, cunt exposed and mouth open in blissful exhaustion."
+            `\n\nSeeing how much pleasure you're giving them is quite touching, and you give each of them a long, ardent kiss, letting each girl know how the other tastes like.  At last, when your ${this.cockDescript(
+                x
+            )} has unloaded its last rope of jism, you pull out and break the kiss.  Hel pants and sighs, utterly drained; you see her tail popping out of Vapula's ass, and the released succubus just falls on her back, cunt exposed and mouth open in blissful exhaustion.`
         );
 
         this.outx(
@@ -2599,38 +2592,38 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nThe display of two horny girls eating out each other is quite arousing and your " +
-                this.cockDescript(x) +
-                " is already erect while your "
+            `\n\nThe display of two horny girls eating out each other is quite arousing and your ${this.cockDescript(
+                x
+            )} is already erect while your `
         );
         if (this.player.balls > 0) this.outx("[balls] are");
         else this.outx("groin is");
         this.outx(
-            " slowly filling back with more spunk for them.  You happily stride toward the couple of sluts, your junk ready for some more hole-filling.  Hel's tail is still lifted, the shining scales twisting hypnotically as the reptile girl gives and receives pleasure from both ends.  Her enticing butthole seems to be begging for a nice hard cock to be pierced with.  With a lust-filled grin, you grab her hot, bountiful buttocks for leverage and harshly jam her insides with your " +
-                this.cockDescript(x) +
-                ", knowing the fiery girl won't mind your rough ways. You utterly bury your " +
-                this.cockDescript(x) +
-                " inside her; her asshole obviously used to monstrous members as you have no difficulty sliding everything you can down her slippery colon.  Vapula trembles below her as you adamantly push the salamander girl back and forth with your enthusiastic dick-assaults to her backside."
+            ` slowly filling back with more spunk for them.  You happily stride toward the couple of sluts, your junk ready for some more hole-filling.  Hel's tail is still lifted, the shining scales twisting hypnotically as the reptile girl gives and receives pleasure from both ends.  Her enticing butthole seems to be begging for a nice hard cock to be pierced with.  With a lust-filled grin, you grab her hot, bountiful buttocks for leverage and harshly jam her insides with your ${this.cockDescript(
+                x
+            )}, knowing the fiery girl won't mind your rough ways. You utterly bury your ${this.cockDescript(
+                x
+            )} inside her; her asshole obviously used to monstrous members as you have no difficulty sliding everything you can down her slippery colon.  Vapula trembles below her as you adamantly push the salamander girl back and forth with your enthusiastic dick-assaults to her backside.`
         );
 
         this.outx(
-            "\n\nThe hell-girl and the reptile-girl grind against each other, completely giving to their own pleasure as you have your way with both.  Completely mad with burning lust, Hel raises her head and lets out a huge feminine roar, expressing all her joy and desire with this single, continuous cry of pleasure, and you can swear some sparkles are escaping out of her sweltering tail.  Always eager for more cock inside her, the buttslut wraps her scaly appendage around your back and clamps you against her ass, the blazing heat steaming out of her only serving to redouble your lust.  You pound Hel like there's no tomorrow, working her blistering ass like you were the last dick she'd ever take.  She clings to you desperately and impales her butt further on your " +
-                this.cockDescript(x) +
-                ", as if afraid you might pull out.  Though you'd never give up such a fantastic, near bone-melting ass!"
+            `\n\nThe hell-girl and the reptile-girl grind against each other, completely giving to their own pleasure as you have your way with both.  Completely mad with burning lust, Hel raises her head and lets out a huge feminine roar, expressing all her joy and desire with this single, continuous cry of pleasure, and you can swear some sparkles are escaping out of her sweltering tail.  Always eager for more cock inside her, the buttslut wraps her scaly appendage around your back and clamps you against her ass, the blazing heat steaming out of her only serving to redouble your lust.  You pound Hel like there's no tomorrow, working her blistering ass like you were the last dick she'd ever take.  She clings to you desperately and impales her butt further on your ${this.cockDescript(
+                x
+            )}, as if afraid you might pull out.  Though you'd never give up such a fantastic, near bone-melting ass!`
         );
 
         this.outx(
-            "\n\nYour hot anal embrace knows no bounds but that of your respective staminas, and with a raging groan of pleasure, you cum. The huge, sticky jet of hot spunk splatters against her colon, making her screech in delight.  Your " +
-                this.cockDescript(x) +
-                " twitches as it releases rope after rope of jism.  Your semen nearly vaporizes as it hits the reptile's interior; you can actually see steam escaping from her cock-filled anal ring.  Her ass clenches and wobbles insanely, desperate to receive everything you have; unfortunately, there is only so much baby-batter that can fit her backdoor, and the few spurts of cum that escape are quickly gulped by Vapula as they rain in sticky globs of goo down Hel's thighs."
+            `\n\nYour hot anal embrace knows no bounds but that of your respective staminas, and with a raging groan of pleasure, you cum. The huge, sticky jet of hot spunk splatters against her colon, making her screech in delight.  Your ${this.cockDescript(
+                x
+            )} twitches as it releases rope after rope of jism.  Your semen nearly vaporizes as it hits the reptile's interior; you can actually see steam escaping from her cock-filled anal ring.  Her ass clenches and wobbles insanely, desperate to receive everything you have; unfortunately, there is only so much baby-batter that can fit her backdoor, and the few spurts of cum that escape are quickly gulped by Vapula as they rain in sticky globs of goo down Hel's thighs.`
         );
 
         this.outx(
-            "\n\nSince your salamander lover wants your cum so much, you keep your " +
-                this.cockDescript(x) +
-                " buried in her until it stops pulsing, her anal hotness accelerating and intensifying your orgasm.  At last, you pull out and plunge your cum-coated junk in Vapula's waiting mouth below.  The two girls had been squirting so often that the succubus' face is now sopping with juices.  In her current state of pleasure, Vapula doesn't protest and engulfs all your dickflesh at once, sucking the remaining bits of goo out of your urethra.  You let the demoness feed until she is sated and your " +
-                this.cockDescript(x) +
-                " is only covered with her saliva."
+            `\n\nSince your salamander lover wants your cum so much, you keep your ${this.cockDescript(
+                x
+            )} buried in her until it stops pulsing, her anal hotness accelerating and intensifying your orgasm.  At last, you pull out and plunge your cum-coated junk in Vapula's waiting mouth below.  The two girls had been squirting so often that the succubus' face is now sopping with juices.  In her current state of pleasure, Vapula doesn't protest and engulfs all your dickflesh at once, sucking the remaining bits of goo out of your urethra.  You let the demoness feed until she is sated and your ${this.cockDescript(
+                x
+            )} is only covered with her saliva.`
         );
 
         this.outx(
@@ -2793,18 +2786,14 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nTenderly, Kiha plants a kiss in the nape of your neck, her long forked tongue tickling your " +
-                this.player.skinFurScales() +
-                ".  You turn and return her kisses, locking lips with the dragoness, your tongues entwining to the rhythm of the feet servicing your [cock]."
+            `\n\nTenderly, Kiha plants a kiss in the nape of your neck, her long forked tongue tickling your ${this.player.skinFurScales()}.  You turn and return her kisses, locking lips with the dragoness, your tongues entwining to the rhythm of the feet servicing your [cock].`
         );
         this.outx(
             '\n\n"<i>Oh, come on,</i>" Hel groans as you and Kiha share the long, passionate kiss. Then, more quietly, "<i>You two are so cute together....</i>"'
         );
 
         this.outx(
-            "\n\nKiha gives the salamander a grave look, but soon softens, nuzzling her chin in your " +
-                this.hairDescript() +
-                ".  Hel sighs, but leans down to give you each a quick kiss on the head; her foot never misses a beat, though, and combined with Kiha's sensual massaging, you realize you're dangerously close to the edge again.  You grit your teeth and let loose an animalistic growl, the only forewarning the distracted lizards get before the first burst issues forth from your [cockHead], smearing the sole of Hel's foot with creamy seed.  The salamander makes a happy gasp as another squirt of cum smears her clawed toes, a particularly strong arc fountaining so high that it smears her thighs."
+            `\n\nKiha gives the salamander a grave look, but soon softens, nuzzling her chin in your ${this.hairDescript()}.  Hel sighs, but leans down to give you each a quick kiss on the head; her foot never misses a beat, though, and combined with Kiha's sensual massaging, you realize you're dangerously close to the edge again.  You grit your teeth and let loose an animalistic growl, the only forewarning the distracted lizards get before the first burst issues forth from your [cockHead], smearing the sole of Hel's foot with creamy seed.  The salamander makes a happy gasp as another squirt of cum smears her clawed toes, a particularly strong arc fountaining so high that it smears her thighs.`
         );
 
         this.outx(
@@ -3052,9 +3041,7 @@ export class HelFollower extends NPCAwareContent {
         // increase Helia capacity.
         this.flags[kFLAGS.HELIA_ANAL_TRAINING] = 1;
         if (this.player.biggestCockArea() < this.helAnalCapacity()) {
-            this.outx(
-                "then maybe I can handle you, my hung " + this.player.mf("stud", "breeder") + "."
-            );
+            this.outx(`then maybe I can handle you, my hung ${this.player.mf("stud", "breeder")}.`);
         } else {
             this.outx("then maybe we can see about trying something bigger.");
         }
@@ -3138,18 +3125,17 @@ export class HelFollower extends NPCAwareContent {
             "\n\nThe goblin contraption down below chooses that moment to spin up with a high-pitched whine, visible rocking and rattling around as the rest of the reservoir is rapidly empty straight into Helia’s newly-pliant asshole. She giggles as she’s filled with the elasticity inducing mutagen and rubs her pussy, cumming noisily as her belly button pops out to form an outtie. Ladyspunk pours in an unchecked river from between her legs, washing over the balls. Clouds of dust kick up as her spasming feet settle down, the medial ring long devoured by her hungry butthole. Helia starts to thumb at her clit midway through the anal massacre, eventually curling her tail around to stuff it straight up her wanton hole. Steam fogs the air around her as she lewdly tailfucks herself, chanting, “<i>Fucking yess! Fuck me, [name]! Fuck my ass! Spitroast me on that cock!</i>”"
         );
         this.outx(
-            "\n\nYou jack off with hungry strokes as you listen to her orgasmic chatter, spurred on by the slutty salamanders smutty mouth. You’re dripping pre-cum from [eachCock] quite readily by the time the steam clears and you see Helia standing there, her lower torso distorted by the veiny intrudor. She’s rubbing her belly and sighing quite happily, but she does have enough sense to crook a finger in your direction, panting, “<i>Bring that bad boy over here, " +
-                this.player.mf("stud", "’stud’") +
-                ". I’m gonna suck out the cream filling.</i>”"
+            `\n\nYou jack off with hungry strokes as you listen to her orgasmic chatter, spurred on by the slutty salamanders smutty mouth. You’re dripping pre-cum from [eachCock] quite readily by the time the steam clears and you see Helia standing there, her lower torso distorted by the veiny intrudor. She’s rubbing her belly and sighing quite happily, but she does have enough sense to crook a finger in your direction, panting, “<i>Bring that bad boy over here, ${this.player.mf(
+                "stud",
+                "’stud’"
+            )}. I’m gonna suck out the cream filling.</i>”`
         );
         this.outx("\n\nStaggering up, still stroking your [cock biggest], you ");
         if (this.player.str < 50) this.outx("strain to ");
         this.outx(
-            "heft it up, pressing the [cockHead biggest] on Helia’s thirsty lips. She sandwitches the " +
-                HelFollower.num2Text(
-                    Math.round(this.player.cocks[this.player.biggestCockIndex()].cockLength)
-                ) +
-                "-thick shaft in between her tits and left arm while her right tickles the sensitive underside. Her tongue slides around your urethra, collecting every single drop of pre-cum and stimulating nerve endings you didn’t even know you had. You groan and flex powerfully, preparing to dump a thick load into the hot salamander’s mouth. She spreads her lips around your cum-slit and kisses your cock hard, sucking powerfully, drawing the bubbling tide of wide straight out of your [balls] with her hungry movements."
+            `heft it up, pressing the [cockHead biggest] on Helia’s thirsty lips. She sandwitches the ${HelFollower.num2Text(
+                Math.round(this.player.cocks[this.player.biggestCockIndex()].cockLength)
+            )}-thick shaft in between her tits and left arm while her right tickles the sensitive underside. Her tongue slides around your urethra, collecting every single drop of pre-cum and stimulating nerve endings you didn’t even know you had. You groan and flex powerfully, preparing to dump a thick load into the hot salamander’s mouth. She spreads her lips around your cum-slit and kisses your cock hard, sucking powerfully, drawing the bubbling tide of wide straight out of your [balls] with her hungry movements.`
         );
         this.outx(
             "\n\nYou sigh when the pressure inside you is relieved, pushed straight into Helia’s cock-thirsty lips. Her cheeks bulge as she takes in your load, and she swallows it almost immediately. She’s forced to repeat it again and again"
@@ -3189,9 +3175,7 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nThe heat of your lover's body pressed to yours, the feeling of her supple leathery scales caressing your " +
-                this.player.skinFurScales() +
-                ' makes your mind skip a beat before you mumble, "<i>Uh, Saturday?</i>"'
+            `\n\nThe heat of your lover's body pressed to yours, the feeling of her supple leathery scales caressing your ${this.player.skinFurScales()} makes your mind skip a beat before you mumble, "<i>Uh, Saturday?</i>"`
         );
 
         this.outx(
@@ -3306,8 +3290,9 @@ export class HelFollower extends NPCAwareContent {
         if (this.isabellaFollower()) list.push("Isabella");
         list.push("a handful of her wide-hipped and winged half-sisters, the phoenixes");
         this.outx(
-            HelFollower.formatStringArray(list) +
-                '. You turn to Helia and cock a grin as you see the surprise etched on her face, followed by the growing smile.  "<i>Happy birthday, Helia!</i>" they all shout out at once, raising mugs frothing over with beer.'
+            `${HelFollower.formatStringArray(
+                list
+            )}. You turn to Helia and cock a grin as you see the surprise etched on her face, followed by the growing smile.  "<i>Happy birthday, Helia!</i>" they all shout out at once, raising mugs frothing over with beer.`
         );
         /*
             addToList("Edryn");
@@ -3340,9 +3325,7 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nKiri slips out of the crowd to plant a quick kiss on your cheek, followed by Hakon vigorously shaking your hand, great claws scoring your " +
-                this.player.skinFurScales() +
-                " as he thanks you again for the rescue, and for "
+            `\n\nKiri slips out of the crowd to plant a quick kiss on your cheek, followed by Hakon vigorously shaking your hand, great claws scoring your ${this.player.skinFurScales()} as he thanks you again for the rescue, and for `
         );
         if (this.flags[kFLAGS.HARPY_QUEEN_EXECUTED] > 0)
             this.outx("finally killing that bitch of a queen");
@@ -3407,14 +3390,17 @@ export class HelFollower extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n\"<i>How're you holding up, " +
-                this.player.mf("son", "kid") +
-                '?</i>" Hakon says, clapping you on the shoulder and passing you another beer.  "<i>Hel tells me you\'re quite a handful.  Treating my girl right, I hope?</i>"'
+            `\n\n"<i>How're you holding up, ${this.player.mf(
+                "son",
+                "kid"
+            )}?</i>" Hakon says, clapping you on the shoulder and passing you another beer.  "<i>Hel tells me you're quite a handful.  Treating my girl right, I hope?</i>"`
         );
 
         this.outx(
-            "\n\nYou falter at that, not quite sure how to address your lover's father in that regard, but the old salamander just laughs and gives you another rough shoulder-clap.  \"<i>Just teasing, " +
-                this.player.mf("boy", "girl")
+            `\n\nYou falter at that, not quite sure how to address your lover's father in that regard, but the old salamander just laughs and gives you another rough shoulder-clap.  "<i>Just teasing, ${this.player.mf(
+                "boy",
+                "girl"
+            )}`
         );
         this.outx(
             ".  We salamanders are a bit more open about that sort of thing, though, if you haven't noticed.  Helia's regaled us with more than a few of her 'stories,' let me tell you. Isn't that right, sweetheart?</i>\""

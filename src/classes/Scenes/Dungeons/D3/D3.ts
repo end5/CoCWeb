@@ -320,7 +320,7 @@ export class D3 extends BaseContent {
 
         if (this.rooms[roomName] == undefined) {
             this.clearOutput();
-            this.outx("Error: Couldn't find the room indexed as: " + roomName);
+            this.outx(`Error: Couldn't find the room indexed as: ${roomName}`);
             this.menu();
             return;
         }
@@ -328,9 +328,7 @@ export class D3 extends BaseContent {
         const tRoom: Room = this.rooms[roomName];
 
         if (tRoom.RoomFunction == undefined) {
-            this.outx(
-                "Error: Room entry function for room indexed as '" + roomName + "' was not set."
-            );
+            this.outx(`Error: Room entry function for room indexed as '${roomName}' was not set.`);
             return;
         }
 
@@ -413,9 +411,10 @@ export class D3 extends BaseContent {
                 );
                 if (this.flags[kFLAGS.BENOIT_AFFECTION] == 100)
                     this.outx(
-                        "  This can only be the hall that " +
-                            this.getGame().bazaar.benoit.benoitMF("Benoit", "Benoite") +
-                            " once worked in."
+                        `  This can only be the hall that ${this.getGame().bazaar.benoit.benoitMF(
+                            "Benoit",
+                            "Benoite"
+                        )} once worked in.`
                     );
                 this.outx(
                     "  You get the fright of your life when you think you see a number of depthless pools of grey revolve up to meet yours- but they don’t freeze you, you note as you reflexively turn away. The tinted glass must carry some sort of anti-petrifying charm, and further it must be reflective on the other side, because no one below seems to realize you’re standing there. Relaxing a bit, you continue to absorb the massive room. At the end furthest away from you two huge piles have been created- one of eggs, a massed assortment of every color and size imaginable, and one of pure junk, presumably everything the basilisks have found whilst scavenging and considered worth keeping. The detritus of a dozen collapsed civilizations must be down there, collected for the demons’ perusal by their scaly custodians. Directly below you, you can see archways like the one you just passed under, through which the basilisks ebb and flow."
@@ -518,7 +517,7 @@ export class D3 extends BaseContent {
         // Should actually be handled by the fallthrough of doNext(1) in the takeItem shit
 
         this.clearOutput();
-        this.outx("You pluck out " + item!.longName + " ");
+        this.outx(`You pluck out ${item!.longName} `);
 
         this.flags[kFLAGS.D3_EGGS_AVAILABLE] += eggMask;
         this.inventory.takeItem(item!, this.playerMenu); // playerMenu is equivalent to doNext(1)

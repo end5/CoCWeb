@@ -168,9 +168,10 @@ export class UrtaPregs extends NPCAwareContent {
                 // Horny:
                 if (this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] == 0) {
                     this.outx(
-                        "  Her cock audibly clonks against the table's underside, but she just grins at the sound, fully confident in who she is now.  \"<i>Wanna come back to my place, lover" +
-                            this.player.mf("-boy", "") +
-                            '?  They say sex is good for the baby - and really good for the mommy...</i>"  She croons, teasingly rubbing your [legs] with her foot.'
+                        `  Her cock audibly clonks against the table's underside, but she just grins at the sound, fully confident in who she is now.  "<i>Wanna come back to my place, lover${this.player.mf(
+                            "-boy",
+                            ""
+                        )}?  They say sex is good for the baby - and really good for the mommy...</i>"  She croons, teasingly rubbing your [legs] with her foot.`
                     );
                     this.urtaSexMenu();
                 } else {
@@ -374,9 +375,10 @@ export class UrtaPregs extends NPCAwareContent {
         // [1st time:
         if (this.flags[kFLAGS.URTA_TIMES_BIRTHED] == 0) {
             this.outx(
-                '\n\nA perky-looking young female mouse-morph, her nurse\'s outfit stretched a little tighter over her breasts than is considered professional, a small name tag with "Splinter" clipped onto one hem, looks up at you with a welcoming grin.  "<i>Hello, ' +
-                    this.player.mf("mister", "miss") +
-                    '; please state the nature of the problem.</i>"  You explain your reason and her eyes widen with understanding.  "<i>Ah, I see.  Please, follow me, [name]; I will take you to Urta\'s room.</i>"  She promptly gets up out of her seat - allowing you to see a rather unladylike bulge at her crotch, though you have no idea if she\'s a herm or merely an effeminate male - and starts walking, with you following close behind.'
+                `\n\nA perky-looking young female mouse-morph, her nurse's outfit stretched a little tighter over her breasts than is considered professional, a small name tag with "Splinter" clipped onto one hem, looks up at you with a welcoming grin.  "<i>Hello, ${this.player.mf(
+                    "mister",
+                    "miss"
+                )}; please state the nature of the problem.</i>"  You explain your reason and her eyes widen with understanding.  "<i>Ah, I see.  Please, follow me, [name]; I will take you to Urta's room.</i>"  She promptly gets up out of her seat - allowing you to see a rather unladylike bulge at her crotch, though you have no idea if she's a herm or merely an effeminate male - and starts walking, with you following close behind.`
             );
         }
         // Else:
@@ -845,9 +847,7 @@ export class UrtaPregs extends NPCAwareContent {
                 "\n\nYou smile at her compliment and tell her that the baby's finally kicking now, asking her if she wants to feel it..."
             );
             this.outx(
-                "\n\nUrta squeals in glee and immediately glomps onto your bloated belly, rubbing her hands and her cheek excitedly across its " +
-                    this.player.skinFurScales() +
-                    " surface in hopes of feeling her child moving around inside you.  You groan at Urta's tight hug, she throws you slightly off-balance, but you manage to remain steady.  From inside you, you feel the baby shifting in your increasingly tight womb, and Urta looks up at you in shock, glee dancing in her eyes.  \"<i>I felt it!  It's moving in there!"
+                `\n\nUrta squeals in glee and immediately glomps onto your bloated belly, rubbing her hands and her cheek excitedly across its ${this.player.skinFurScales()} surface in hopes of feeling her child moving around inside you.  You groan at Urta's tight hug, she throws you slightly off-balance, but you manage to remain steady.  From inside you, you feel the baby shifting in your increasingly tight womb, and Urta looks up at you in shock, glee dancing in her eyes.  "<i>I felt it!  It's moving in there!`
             );
             if (this.urtaKids() == 0)
                 this.outx(" Oh, [name], we really are going to be parents...");
@@ -1197,9 +1197,10 @@ export class UrtaPregs extends NPCAwareContent {
         if (kGAMECLASS.telAdre.edryn.pregnancy.isPregnant)
             this.outx(" and her pregnant belly jiggling from the motions");
         this.outx(
-            ", a faint smile on her face.  \"<i>Hey there, [name]; can you do me a favor, please?  Urta's been getting deliveries to her place, but I got an unexpected call, so I'm too busy to take her groceries to her today - you're her " +
-                this.player.mf("boyfriend", "girlfriend") +
-                '; can you please take this for me?</i>"  The centauress asks.'
+            `, a faint smile on her face.  "<i>Hey there, [name]; can you do me a favor, please?  Urta's been getting deliveries to her place, but I got an unexpected call, so I'm too busy to take her groceries to her today - you're her ${this.player.mf(
+                "boyfriend",
+                "girlfriend"
+            )}; can you please take this for me?</i>"  The centauress asks.`
         );
 
         this.outx(
@@ -2083,9 +2084,10 @@ export class UrtaPregs extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>Mmm... baby-daddy likes that, does ' +
-                this.player.mf("he", "she") +
-                '?</i>"  Urta giggles, giving you another long lick for emphasis.  You moan and buck against her tongue, trying to work your way inside that foxy muzzle.  She licks and laps, but keeps positioning herself so you can\'t enter her mouth, no matter how much you try. She looks mischievously at you as she slurps up the precum drooling from your [cockHead biggest], then she rears her head back and looks you in the eye.  "<i>You taste... yummy!</i>"  She grins, then opens her mouth and hungrily engulfs your cock, practically inhaling it in her sudden eagerness to swallow, tongue eagerly slurping and slathering your shaft as she gulps it down.'
+            `\n\n"<i>Mmm... baby-daddy likes that, does ${this.player.mf(
+                "he",
+                "she"
+            )}?</i>"  Urta giggles, giving you another long lick for emphasis.  You moan and buck against her tongue, trying to work your way inside that foxy muzzle.  She licks and laps, but keeps positioning herself so you can't enter her mouth, no matter how much you try. She looks mischievously at you as she slurps up the precum drooling from your [cockHead biggest], then she rears her head back and looks you in the eye.  "<i>You taste... yummy!</i>"  She grins, then opens her mouth and hungrily engulfs your cock, practically inhaling it in her sudden eagerness to swallow, tongue eagerly slurping and slathering your shaft as she gulps it down.`
         );
 
         this.outx(
@@ -2101,9 +2103,7 @@ export class UrtaPregs extends NPCAwareContent {
         );
         if (this.player.cockTotal() > 2)
             this.outx(
-                "The rest of your " +
-                    this.multiCockDescriptLight() +
-                    " are as erect as your [cock biggest] dribbling pre along their lengths as they slap Urta during her frenzied bobs.  "
+                `The rest of your ${this.multiCockDescriptLight()} are as erect as your [cock biggest] dribbling pre along their lengths as they slap Urta during her frenzied bobs.  `
             );
         this.outx(
             "You tell Urta that you're getting close; if she keeps up with this you won't last much longer."
@@ -2582,9 +2582,7 @@ export class UrtaPregs extends NPCAwareContent {
         );
         if (this.player.cockTotal() > 1)
             this.outx(
-                "  Especially not if your " +
-                    this.multiCockDescriptLight() +
-                    " have anything to say about it, throbbing at the mere feeling of Urta's wet tongue."
+                `  Especially not if your ${this.multiCockDescriptLight()} have anything to say about it, throbbing at the mere feeling of Urta's wet tongue.`
             );
         else if (this.player.cockTotal() == 1)
             this.outx(
@@ -2629,13 +2627,14 @@ export class UrtaPregs extends NPCAwareContent {
         if (this.urtaKids() == 1) this.outx("our child");
         else this.outx("our babies");
         this.outx(
-            '?</i>"  Urta asks, tail wagging excitedly at the thought.  "<i>Why, of course, [name] - ' +
-                this.urtaKidsText("he'll", "she'll", "they'll") +
-                " be so happy to see " +
-                this.urtaKidsText("his", "her", "their") +
-                " " +
-                this.player.mf("father", "other-mother") +
-                "!  Come on, let's get going!</i>\"  She insists, immediately getting up from her seat"
+            `?</i>"  Urta asks, tail wagging excitedly at the thought.  "<i>Why, of course, [name] - ${this.urtaKidsText(
+                "he'll",
+                "she'll",
+                "they'll"
+            )} be so happy to see ${this.urtaKidsText("his", "her", "their")} ${this.player.mf(
+                "father",
+                "other-mother"
+            )}!  Come on, let's get going!</i>"  She insists, immediately getting up from her seat`
         );
         if (this.flags[kFLAGS.URTA_TIME_SINCE_LAST_CAME] == 0)
             this.outx(
@@ -2662,9 +2661,10 @@ export class UrtaPregs extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>Welcome home, ma\'am.</i>" she politely says, then turns to look you over.  "<i>' +
-                this.player.mf("Sir", "Ma'am") +
-                '?</i>"  You quickly say your name, extending your hand for a handshake.  The skunkette... Lianna, grabs your hand give you a firm shake.  "<i>I\'ve heard a lot about you, [name].  It\'s a pleasure to finally meet you in person.</i>"  Her eyes keep roaming your body.  Urta coughs.  Realizing she was blocking the doorway, Lianna quickly moves away to let you enter.  "<i>Sorry...</i>"'
+            `\n\n"<i>Welcome home, ma'am.</i>" she politely says, then turns to look you over.  "<i>${this.player.mf(
+                "Sir",
+                "Ma'am"
+            )}?</i>"  You quickly say your name, extending your hand for a handshake.  The skunkette... Lianna, grabs your hand give you a firm shake.  "<i>I've heard a lot about you, [name].  It's a pleasure to finally meet you in person.</i>"  Her eyes keep roaming your body.  Urta coughs.  Realizing she was blocking the doorway, Lianna quickly moves away to let you enter.  "<i>Sorry...</i>"`
         );
 
         this.outx(
@@ -2757,7 +2757,7 @@ export class UrtaPregs extends NPCAwareContent {
         this.clearOutput();
         this.outx("You announce to your ");
         if (this.urtaKids() == 1) this.outx("child");
-        else this.outx(UrtaPregs.num2Text(this.urtaKids()) + " kids");
+        else this.outx(`${UrtaPregs.num2Text(this.urtaKids())} kids`);
         this.outx(" that you and Urta have something important to tell them.");
 
         // If UrtaKids <8:
@@ -2856,18 +2856,23 @@ export class UrtaPregs extends NPCAwareContent {
         );
         if (this.urtaKids() > 1) this.outx("s");
         this.outx(
-            ' from the safety of the kitchen, leaving you to handle the incoming charge.  It takes a bit of effort to keep from losing your balance as your brood tackles you, hugging you in affection.  "<i>All right, all right, let your ' +
-                this.player.mf("father", "other-mother") +
-                ' go, or do you not want to play?</i>" Urta says, smirking with amusement as she closes the front door.  With a groan and a bit of prying the little fox'
+            ` from the safety of the kitchen, leaving you to handle the incoming charge.  It takes a bit of effort to keep from losing your balance as your brood tackles you, hugging you in affection.  "<i>All right, all right, let your ${this.player.mf(
+                "father",
+                "other-mother"
+            )} go, or do you not want to play?</i>" Urta says, smirking with amusement as she closes the front door.  With a groan and a bit of prying the little fox`
         );
         if (this.urtaKids() > 1) this.outx("es do");
         else this.outx(" does");
         this.outx(
-            " eventually clamor" +
-                this.urtaKidsText("s", "s", "") +
-                " off of you, but not before taking your hands in " +
-                this.urtaKidsText("his", "her", "their") +
-                " own.  "
+            ` eventually clamor${this.urtaKidsText(
+                "s",
+                "s",
+                ""
+            )} off of you, but not before taking your hands in ${this.urtaKidsText(
+                "his",
+                "her",
+                "their"
+            )} own.  `
         );
         if (this.urtaKids() > 1) this.outx("They");
         else if (this.flags[kFLAGS.URTA_FIRSTBORN_GENDER] >= 2) this.outx("She");
@@ -3041,43 +3046,61 @@ export class UrtaPregs extends NPCAwareContent {
             else this.outx("She");
         } else this.outx("They");
         this.outx(
-            " mutter" +
-                this.urtaKidsText("s", "s", "") +
-                " rebelliously, but then perk" +
-                this.urtaKidsText("s", "s", "") +
-                " up at the sight of you.  Immediately " +
-                this.urtaKidsText("he", "she", "they") +
-                " start" +
-                this.urtaKidsText("s", "s", "") +
-                " pulling off " +
-                this.urtaKidsText("his", "her", "their") +
-                " clothes and then, naked as the day " +
-                this.urtaKidsText("he was", "she was", "they were") +
-                " born, swarm" +
-                this.urtaKidsText("s", "s", "") +
-                " you, hugging you tightly.  You dole out comforting pats and playful strokes, then instruct " +
-                this.urtaKidsText("him", "her", "them") +
-                " to get into the tub.  Mournful eyes look at you, but, seeing you won't be swayed, " +
-                this.urtaKidsText("he leaps", "she leaps", "they leap") +
-                " with a splash into the bathtub.  Once in the water, " +
-                this.urtaKidsText("he", "she", "they") +
-                " start" +
-                this.urtaKidsText("s", "s", "") +
-                " to enjoy " +
-                this.urtaKidsText("himself", "herself", "themselves") +
-                ", merrily kicking and splashing about in what is, for " +
-                this.urtaKidsText("him", "her", "them") +
-                ", a decent-sized pool.  This gives you an opportunity to note the sex of your little rugrat" +
-                this.urtaKidsText("", "", "s") +
-                "."
+            ` mutter${this.urtaKidsText(
+                "s",
+                "s",
+                ""
+            )} rebelliously, but then perk${this.urtaKidsText(
+                "s",
+                "s",
+                ""
+            )} up at the sight of you.  Immediately ${this.urtaKidsText(
+                "he",
+                "she",
+                "they"
+            )} start${this.urtaKidsText("s", "s", "")} pulling off ${this.urtaKidsText(
+                "his",
+                "her",
+                "their"
+            )} clothes and then, naked as the day ${this.urtaKidsText(
+                "he was",
+                "she was",
+                "they were"
+            )} born, swarm${this.urtaKidsText(
+                "s",
+                "s",
+                ""
+            )} you, hugging you tightly.  You dole out comforting pats and playful strokes, then instruct ${this.urtaKidsText(
+                "him",
+                "her",
+                "them"
+            )} to get into the tub.  Mournful eyes look at you, but, seeing you won't be swayed, ${this.urtaKidsText(
+                "he leaps",
+                "she leaps",
+                "they leap"
+            )} with a splash into the bathtub.  Once in the water, ${this.urtaKidsText(
+                "he",
+                "she",
+                "they"
+            )} start${this.urtaKidsText("s", "s", "")} to enjoy ${this.urtaKidsText(
+                "himself",
+                "herself",
+                "themselves"
+            )}, merrily kicking and splashing about in what is, for ${this.urtaKidsText(
+                "him",
+                "her",
+                "them"
+            )}, a decent-sized pool.  This gives you an opportunity to note the sex of your little rugrat${this.urtaKidsText(
+                "",
+                "",
+                "s"
+            )}.`
         );
 
         // If any UrtaKids=Male:
         if (this.flags[kFLAGS.URTA_KIDS_MALES] > 0) {
             this.outx(
-                "\n\nYou have " +
-                    UrtaPregs.num2Text(this.flags[kFLAGS.URTA_KIDS_MALES]) +
-                    " vulpine son"
+                `\n\nYou have ${UrtaPregs.num2Text(this.flags[kFLAGS.URTA_KIDS_MALES])} vulpine son`
             );
             if (this.flags[kFLAGS.URTA_KIDS_MALES] > 1) this.outx("s");
             this.outx(".");
@@ -3117,9 +3140,9 @@ export class UrtaPregs extends NPCAwareContent {
         // If any UrtaKids=Herm:
         if (this.flags[kFLAGS.URTA_KIDS_HERMS] > 0) {
             this.outx(
-                "\n\nYou have " +
-                    UrtaPregs.num2Text(this.flags[kFLAGS.URTA_KIDS_HERMS]) +
-                    " vulpine, hermaphroditic daughter"
+                `\n\nYou have ${UrtaPregs.num2Text(
+                    this.flags[kFLAGS.URTA_KIDS_HERMS]
+                )} vulpine, hermaphroditic daughter`
             );
             if (this.flags[kFLAGS.URTA_KIDS_HERMS] > 1) this.outx("s");
             this.outx(".");
@@ -3156,9 +3179,9 @@ export class UrtaPregs extends NPCAwareContent {
         // If any UrtaKids=Female:
         if (this.flags[kFLAGS.URTA_KIDS_FEMALES] > 0) {
             this.outx(
-                "\n\nYou have " +
-                    UrtaPregs.num2Text(this.flags[kFLAGS.URTA_KIDS_FEMALES]) +
-                    " vulpine daughter"
+                `\n\nYou have ${UrtaPregs.num2Text(
+                    this.flags[kFLAGS.URTA_KIDS_FEMALES]
+                )} vulpine daughter`
             );
             if (this.flags[kFLAGS.URTA_KIDS_FEMALES] > 1) this.outx("s");
             this.outx(".");
@@ -3204,11 +3227,15 @@ export class UrtaPregs extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nLuckily Lianna arrives, carrying the folded clothes and naked... very naked.  She sits beside you and gently asks, \"<i>How's it going?  " +
-                this.urtaKidsText("He", "She", "They") +
-                " didn't try to splash you, did " +
-                this.urtaKidsText("he", "she", "they") +
-                '?</i>"  Just as she finishes posing the question, your '
+            `\n\nLuckily Lianna arrives, carrying the folded clothes and naked... very naked.  She sits beside you and gently asks, "<i>How's it going?  ${this.urtaKidsText(
+                "He",
+                "She",
+                "They"
+            )} didn't try to splash you, did ${this.urtaKidsText(
+                "he",
+                "she",
+                "they"
+            )}?</i>"  Just as she finishes posing the question, your `
         );
         if (this.flags[kFLAGS.URTA_LATESTBORN_GENDER] >= 2) this.outx("daughter");
         else this.outx("son");
@@ -3220,9 +3247,11 @@ export class UrtaPregs extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou apologize for that, noting that " +
-                this.urtaKidsText("he", "she", "they") +
-                " got you the same way earlier.  You then flick your "
+            `\n\nYou apologize for that, noting that ${this.urtaKidsText(
+                "he",
+                "she",
+                "they"
+            )} got you the same way earlier.  You then flick your `
         );
         if (this.flags[kFLAGS.URTA_LATESTBORN_GENDER] >= 2) this.outx("daughter");
         else this.outx("son");
@@ -3230,9 +3259,11 @@ export class UrtaPregs extends NPCAwareContent {
         if (this.flags[kFLAGS.URTA_LATESTBORN_GENDER] >= 2) this.outx("her");
         else this.outx("him");
         this.outx(
-            " to apologize to Lianna for that.  \"<i>It's all right, [name].  " +
-                this.urtaKidsText("He's just a kid", "She's just a kid", "They're just kids") +
-                ", you can't expect to bathe kids and not get wet.</i>\"  You think you have a pretty clear idea of why Urta picked Lianna to care for the children.  Casually, you ask if Lianna's got any younger siblings; she seems like she's got a lot of practice at this.  She shakes her head, \"<i>This is the first time I got a job where kids are involved.  Either way, it's a lot easier than taking care of minotaurs.</i>\"  You can't help but wonder if she really did somehow take care of minotaurs at one point, or if this is just some colloquial expression."
+            ` to apologize to Lianna for that.  "<i>It's all right, [name].  ${this.urtaKidsText(
+                "He's just a kid",
+                "She's just a kid",
+                "They're just kids"
+            )}, you can't expect to bathe kids and not get wet.</i>"  You think you have a pretty clear idea of why Urta picked Lianna to care for the children.  Casually, you ask if Lianna's got any younger siblings; she seems like she's got a lot of practice at this.  She shakes her head, "<i>This is the first time I got a job where kids are involved.  Either way, it's a lot easier than taking care of minotaurs.</i>"  You can't help but wonder if she really did somehow take care of minotaurs at one point, or if this is just some colloquial expression.`
         );
 
         this.outx(
@@ -3364,9 +3395,7 @@ export class UrtaPregs extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nLianna returns to her scrubbing and massaging, no longer self-conscious about letting her breasts rub against your back.  You groan appreciatively; not only is Lianna quite skilled at easing your tension, but you can feel her soft, pillowy breasts rubbing all over your " +
-                this.player.skinFurScales() +
-                ', the perky nipples stirring up not-unwelcome feelings in your loins.  "<i>Ok, all done here.</i>"  She pats you on the back.  You get up and stretch, listening to your joints cracking, and thank her for her efforts.  "<i>You\'re welcome, now it\'s your turn,</i>" she declares, taking a seat on the bench herself.  "<i>Use the floral shampoo, please.</i>"'
+            `\n\nLianna returns to her scrubbing and massaging, no longer self-conscious about letting her breasts rub against your back.  You groan appreciatively; not only is Lianna quite skilled at easing your tension, but you can feel her soft, pillowy breasts rubbing all over your ${this.player.skinFurScales()}, the perky nipples stirring up not-unwelcome feelings in your loins.  "<i>Ok, all done here.</i>"  She pats you on the back.  You get up and stretch, listening to your joints cracking, and thank her for her efforts.  "<i>You're welcome, now it's your turn,</i>" she declares, taking a seat on the bench herself.  "<i>Use the floral shampoo, please.</i>"`
         );
 
         this.outx(
@@ -3394,33 +3423,51 @@ export class UrtaPregs extends NPCAwareContent {
     private takeTheKidsForWalk(): void {
         this.clearOutput();
         this.outx(
-            "\"<i>You'd like to see " +
-                this.urtaKidsText("him", "her", "them") +
-                "?  Sure, but first I need to get " +
-                this.urtaKidsText("him", "her", "them") +
-                ' ready.</i>"   You ask her where she plans on taking ' +
-                this.urtaKidsText("him", "her", "them") +
-                "."
+            `"<i>You'd like to see ${this.urtaKidsText(
+                "him",
+                "her",
+                "them"
+            )}?  Sure, but first I need to get ${this.urtaKidsText(
+                "him",
+                "her",
+                "them"
+            )} ready.</i>"   You ask her where she plans on taking ${this.urtaKidsText(
+                "him",
+                "her",
+                "them"
+            )}.`
         );
 
         this.outx(
-            "\n\n\"<i>I'm just taking " +
-                this.urtaKidsText("him", "her", "them") +
-                ' for a walk.  Kids need fresh air sometimes, too,</i>"  Lianna states matter-of-factly, exiting the kitchen and heading off to the backyard.'
+            `\n\n"<i>I'm just taking ${this.urtaKidsText(
+                "him",
+                "her",
+                "them"
+            )} for a walk.  Kids need fresh air sometimes, too,</i>"  Lianna states matter-of-factly, exiting the kitchen and heading off to the backyard.`
         );
 
         this.outx(
-            "\n\nYou suggest that you could take " +
-                this.urtaKidsText("him", "her", "them") +
-                ' for a walk instead.  "<i>You sure?  ' +
-                this.urtaKidsText("A kid", "A kid", "Kids") +
-                " can be a handful sometimes... though yours usually behave" +
-                this.urtaKidsText("s", "s", "") +
-                ".</i>\"  You insist you'd like to do so; " +
-                this.urtaKidsText("he", "she", "they") +
-                " might enjoy having you along anyway.  \"<i>Fine, I'll just get " +
-                this.urtaKidsText("him", "her", "them") +
-                ' ready and you can be on your way.</i>"'
+            `\n\nYou suggest that you could take ${this.urtaKidsText(
+                "him",
+                "her",
+                "them"
+            )} for a walk instead.  "<i>You sure?  ${this.urtaKidsText(
+                "A kid",
+                "A kid",
+                "Kids"
+            )} can be a handful sometimes... though yours usually behave${this.urtaKidsText(
+                "s",
+                "s",
+                ""
+            )}.</i>"  You insist you'd like to do so; ${this.urtaKidsText(
+                "he",
+                "she",
+                "they"
+            )} might enjoy having you along anyway.  "<i>Fine, I'll just get ${this.urtaKidsText(
+                "him",
+                "her",
+                "them"
+            )} ready and you can be on your way.</i>"`
         );
 
         this.outx("\n\nMaking sure your child");
@@ -3428,19 +3475,22 @@ export class UrtaPregs extends NPCAwareContent {
         this.outx(" are suitably dressed for a traipse around a desert city, you usher your kit");
         if (this.urtaKids() > 1) this.outx("s");
         this.outx(
-            ' out the door and into the street.  "<i>Can ' +
-                this.urtaKidsText("I", "I", "we") +
-                ' get some ice cream?!</i>"'
+            ` out the door and into the street.  "<i>Can ${this.urtaKidsText(
+                "I",
+                "I",
+                "we"
+            )} get some ice cream?!</i>"`
         );
         if (this.urtaKids() > 1)
-            this.outx('  "<i>Yeah, can we ' + this.player.mf("daddy", "mommy") + '?!</i>"');
+            this.outx(`  "<i>Yeah, can we ${this.player.mf("daddy", "mommy")}?!</i>"`);
         this.outx("  Your child");
         if (this.urtaKids() > 1) this.outx("ren plead");
         else this.outx(" pleads");
         this.outx(
-            ".  Well, the vendors down at the market would make for a suitably far destination, which should give Lianna plenty of time for herself, and you yourself wouldn't mind some ice cream either at that, so it's decided.  \"<i>Yay! You're the best " +
-                this.player.mf("dad", "mom") +
-                ' ever!</i>" '
+            `.  Well, the vendors down at the market would make for a suitably far destination, which should give Lianna plenty of time for herself, and you yourself wouldn't mind some ice cream either at that, so it's decided.  "<i>Yay! You're the best ${this.player.mf(
+                "dad",
+                "mom"
+            )} ever!</i>" `
         );
         if (this.urtaKids() > 1) this.outx("a chorus of excited cheers sounds out.");
         else this.outx("an excited cheer sounds out.");
@@ -3450,28 +3500,36 @@ export class UrtaPregs extends NPCAwareContent {
         this.outx(" staring up at you.");
 
         this.outx(
-            "\n\nYou take a meandering path to the markets, making sure you keep a vigilant eye on your curious offspring lest " +
-                this.urtaKidsText("he", "she", "they") +
-                " run off and get " +
-                this.urtaKidsText("him", "her", "them") +
-                "sel" +
-                this.urtaKidsText("f", "f", "ves") +
-                " into too much trouble.  Some of the denizens who recognize you, if only as Urta's mate, give you their regards."
+            `\n\nYou take a meandering path to the markets, making sure you keep a vigilant eye on your curious offspring lest ${this.urtaKidsText(
+                "he",
+                "she",
+                "they"
+            )} run off and get ${this.urtaKidsText("him", "her", "them")}sel${this.urtaKidsText(
+                "f",
+                "f",
+                "ves"
+            )} into too much trouble.  Some of the denizens who recognize you, if only as Urta's mate, give you their regards.`
         );
 
         this.outx(
             "\n\nEventually you make it to the market; it's not bustling at this time of day which makes it easier to keep an eye on your offspring as "
         );
         if (this.urtaKids() > 1) this.outx("they fan out and curiously inspect");
-        else this.outx(this.urtaKidsText("he", "she", "") + " runs off to curiously inspect");
+        else this.outx(`${this.urtaKidsText("he", "she", "")} runs off to curiously inspect`);
         this.outx(
-            " various produce, clothing and trinket stalls.  " +
-                this.urtaKidsText("He knows", "She knows", "They know") +
-                " what " +
-                this.urtaKidsText("he is", "she is", "they are") +
-                " here for, however and " +
-                this.urtaKidsText("doesn't", "doesn't", "don't") +
-                " give you much of a chance to browse before a furred paw takes your hand and drags you off in the direction of the ice cream shop tucked away in a sheltered and cool part of the bazaar.  Once you're inside, you take a look around as your child"
+            ` various produce, clothing and trinket stalls.  ${this.urtaKidsText(
+                "He knows",
+                "She knows",
+                "They know"
+            )} what ${this.urtaKidsText(
+                "he is",
+                "she is",
+                "they are"
+            )} here for, however and ${this.urtaKidsText(
+                "doesn't",
+                "doesn't",
+                "don't"
+            )} give you much of a chance to browse before a furred paw takes your hand and drags you off in the direction of the ice cream shop tucked away in a sheltered and cool part of the bazaar.  Once you're inside, you take a look around as your child`
         );
         if (this.urtaKids() > 1) this.outx("ren");
         this.outx(" run");
@@ -3479,9 +3537,11 @@ export class UrtaPregs extends NPCAwareContent {
         this.outx(" up and press");
         if (this.urtaKids() == 1) this.outx("es");
         this.outx(
-            " " +
-                this.urtaKidsText("his face", "her face", "their faces") +
-                " against the frosty glass of the counter, almost drooling in anticipation.  This shop must have some magical element to it to keep their frozen treats cold in the middle of the desert.  There's some credence to this as the shops owner leans over the counter to greet you."
+            ` ${this.urtaKidsText(
+                "his face",
+                "her face",
+                "their faces"
+            )} against the frosty glass of the counter, almost drooling in anticipation.  This shop must have some magical element to it to keep their frozen treats cold in the middle of the desert.  There's some credence to this as the shops owner leans over the counter to greet you.`
         );
 
         this.outx(
@@ -3499,9 +3559,11 @@ export class UrtaPregs extends NPCAwareContent {
         this.outx("\n\nYour child");
         if (this.urtaKids() > 1) this.outx("ren");
         this.outx(
-            " don't bother waiting or savouring their ice cream and neither do you, it's damned hot walking around this desert.  There's less cause for mischief too, " +
-                this.urtaKidsText("his", "her", "their") +
-                " face"
+            ` don't bother waiting or savouring their ice cream and neither do you, it's damned hot walking around this desert.  There's less cause for mischief too, ${this.urtaKidsText(
+                "his",
+                "her",
+                "their"
+            )} face`
         );
         if (this.urtaKids() == 1) this.outx("buried in cone");
         else this.outx("s buried in their cones");
@@ -3512,23 +3574,25 @@ export class UrtaPregs extends NPCAwareContent {
         this.outx('\n\n"<i>How did it go?</i>"');
 
         this.outx(
-            "\n\nWithout a hitch, you reply.  The " +
-                UrtaPregs.num2Text(this.urtaKids() + 1) +
-                ' of you stopped for some ice cream along the way.  "<i>Good, now off you go.  Bathtime.</i>"  She states, ushering your little fox'
+            `\n\nWithout a hitch, you reply.  The ${UrtaPregs.num2Text(
+                this.urtaKids() + 1
+            )} of you stopped for some ice cream along the way.  "<i>Good, now off you go.  Bathtime.</i>"  She states, ushering your little fox`
         );
         if (this.urtaKids() > 1) this.outx("es");
         this.outx(
-            " towards the bathroom.  There is a " +
-                this.urtaKidsText("shrill protest", "shrill protest", "chorus of shrill protests") +
-                ", but " +
-                this.urtaKidsText("he", "she", "they") +
-                " clearly understand"
+            ` towards the bathroom.  There is a ${this.urtaKidsText(
+                "shrill protest",
+                "shrill protest",
+                "chorus of shrill protests"
+            )}, but ${this.urtaKidsText("he", "she", "they")} clearly understand`
         );
         if (this.urtaKids() == 1) this.outx("s");
         this.outx(
-            " that Lianna is not one to be trifled with and so " +
-                this.urtaKidsText("he", "she", "they") +
-                " march"
+            ` that Lianna is not one to be trifled with and so ${this.urtaKidsText(
+                "he",
+                "she",
+                "they"
+            )} march`
         );
         if (this.urtaKids() == 1) this.outx("s");
         this.outx(
@@ -3716,9 +3780,10 @@ export class UrtaPregs extends NPCAwareContent {
         this.outx("and ask if that's what pushed her to studying humans and Marethians.");
 
         this.outx(
-            "\n\nShe shrugs.  \"<i>I guess, though what I have is genuine curiosity.  Maybe someday one of your kids will ask why they don't look like " +
-                this.player.mf("daddy", "mommy") +
-                ".  Wouldn't you want to have an answer to that question?</i>\"  She smiles."
+            `\n\nShe shrugs.  "<i>I guess, though what I have is genuine curiosity.  Maybe someday one of your kids will ask why they don't look like ${this.player.mf(
+                "daddy",
+                "mommy"
+            )}.  Wouldn't you want to have an answer to that question?</i>"  She smiles.`
         );
         this.outx(
             "\n\nNodding your head absently at the thought, you ask if her efforts have borne any fruit yet."
@@ -4285,15 +4350,13 @@ export class UrtaPregs extends NPCAwareContent {
                 '\n\n"<i>I need to get something first.</i>"  She ducks out into her closet once more, rummaging through it until she emerges with a box full of cock-rings.  Okay, this doesn\'t look so inviting...'
             );
             this.outx(
-                "\n\nShe ducks close to you and analyses your " +
-                    this.multiCockDescriptLight() +
-                    ".  \"<i>I think this one should do.</i>\"  She says, caressing your [cock biggest].  You murmur appreciatively at the stimulus, but you don't forget what's coming next even as your traitorous flesh erects itself for her.  She fishes for a cock-ring and attaches it to your other dick"
+                `\n\nShe ducks close to you and analyses your ${this.multiCockDescriptLight()}.  "<i>I think this one should do.</i>"  She says, caressing your [cock biggest].  You murmur appreciatively at the stimulus, but you don't forget what's coming next even as your traitorous flesh erects itself for her.  She fishes for a cock-ring and attaches it to your other dick`
             );
             if (this.player.cockTotal() > 2) this.outx("s");
             this.outx(
-                ", effectively binding them at their base.  You groan hollowly at this; though this certainly will mean less mess, you're not so sure you're going to enjoy the sensation of trying to cum through the " +
-                    UrtaPregs.num2Text(this.player.cockTotal() - 1) +
-                    " cocks that have been blocked up.  Satisfied with her work, she looks at your [cock biggest]."
+                `, effectively binding them at their base.  You groan hollowly at this; though this certainly will mean less mess, you're not so sure you're going to enjoy the sensation of trying to cum through the ${UrtaPregs.num2Text(
+                    this.player.cockTotal() - 1
+                )} cocks that have been blocked up.  Satisfied with her work, she looks at your [cock biggest].`
             );
         }
         this.outx(

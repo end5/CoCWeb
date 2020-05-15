@@ -33,7 +33,7 @@ export class Sheila extends Monster {
             );
             damage = 3 + Sheila.rand(10);
             damage = kGAMECLASS.doDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         // Miss:
         else if (
@@ -74,7 +74,7 @@ export class Sheila extends Monster {
             );
             if (damage < 1) damage = 2;
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         this.spe += 30;
         this.combatRoundOver();
@@ -98,7 +98,7 @@ export class Sheila extends Monster {
             // (small Sheila HP loss)
             damage = 3 + Sheila.rand(10);
             damage = kGAMECLASS.doDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         // Hit:
         else {
@@ -119,7 +119,7 @@ export class Sheila extends Monster {
             );
             if (damage < 1) damage = 2;
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
             kGAMECLASS.fatigue(10 + Sheila.rand(6));
         }
         this.spe += 60;
@@ -187,9 +187,7 @@ export class Sheila extends Monster {
     // 2: Tittymonster
     private tittyMonsterAttack(): void {
         this.outx(
-            "Sheila giggles and strokes her " +
-                this.game.sheilaScene.sheilaCup() +
-                " breasts, trying to entice you."
+            `Sheila giggles and strokes her ${this.game.sheilaScene.sheilaCup()} breasts, trying to entice you.`
         );
         // results, no new pg
         // [(sheila corruption < 20; 'miss')
@@ -308,18 +306,12 @@ export class Sheila extends Monster {
         // [(sheila corruption < 100; hit, 'light damage')]
         if (this.game.sheilaScene.sheilaCorruption() < 100) {
             this.outx(
-                "The silence is broken with a giggle as the demon catches you in an embrace, pressing her " +
-                    this.game.sheilaScene.sheilaCup() +
-                    " breasts into you.  You shiver as she drags the perky nipples over your " +
-                    this.player.skinFurScales() +
-                    ", but push her away."
+                `The silence is broken with a giggle as the demon catches you in an embrace, pressing her ${this.game.sheilaScene.sheilaCup()} breasts into you.  You shiver as she drags the perky nipples over your ${this.player.skinFurScales()}, but push her away.`
             );
             this.game.dynStats("lus", 15 + this.player.sens / 20 + this.player.lib / 20);
         } else if (this.game.sheilaScene.sheilaCorruption() < 300) {
             this.outx(
-                "A sigh ends the silence as your body is partially enfolded in the hot valley of an aroused Sheila's cleavage. As the demon grabs you and pushes her tits into you, the skin-on-" +
-                    this.player.skinFurScales() +
-                    " contact makes you shiver, and your attempts to get free meet with some resistance... or rather, a lack of resistance, as the soft, yielding breast flesh quivers and heats to your touch without moving the demon overmuch.  You accidentally brush her nipples several times before you can escape, unleashing horny moans from Sheila that linger in your mind."
+                `A sigh ends the silence as your body is partially enfolded in the hot valley of an aroused Sheila's cleavage. As the demon grabs you and pushes her tits into you, the skin-on-${this.player.skinFurScales()} contact makes you shiver, and your attempts to get free meet with some resistance... or rather, a lack of resistance, as the soft, yielding breast flesh quivers and heats to your touch without moving the demon overmuch.  You accidentally brush her nipples several times before you can escape, unleashing horny moans from Sheila that linger in your mind.`
             );
             this.game.dynStats("lus", 25 + this.player.sens / 20 + this.player.lib / 20);
         } else {
@@ -383,23 +375,17 @@ export class Sheila extends Monster {
         this.imageName = "sheila";
 
         if (sheilaDemon) {
-            this.long =
-                "Sheila is a slim, somewhat athletic woman, over six feet in height.  Her smooth, dark skin is exposed from her head to her clawed feet, and she makes no effort to conceal anything your eyes might linger on.  The " +
-                this.game.sheilaScene.sheilaCup() +
-                " breasts on her chest" +
-                (this.game.sheilaScene.sheilaCorruption() <= 40
+            this.long = `Sheila is a slim, somewhat athletic woman, over six feet in height.  Her smooth, dark skin is exposed from her head to her clawed feet, and she makes no effort to conceal anything your eyes might linger on.  The ${this.game.sheilaScene.sheilaCup()} breasts on her chest${
+                this.game.sheilaScene.sheilaCorruption() <= 40
                     ? " are firm, squeezable teardrops; she runs a hand absently over one from time to time."
-                    : " jiggle as she moves, and she shoves them out to make sure you see just how lewd her body has become since your first meeting.") +
-                "  Straight, jaw-length auburn hair frames her face along with two long, smooth ears that stick out sideways.  Her only nods to civilization are a dangling purple earring and the finger rings that she wears on her hands, and the wild woman stares openly at you, touching herself.";
+                    : " jiggle as she moves, and she shoves them out to make sure you see just how lewd her body has become since your first meeting."
+            }  Straight, jaw-length auburn hair frames her face along with two long, smooth ears that stick out sideways.  Her only nods to civilization are a dangling purple earring and the finger rings that she wears on her hands, and the wild woman stares openly at you, touching herself.`;
         } else {
-            this.long =
-                "Sheila is a slim, somewhat athletic woman, over six feet in height.  Most of her lightly-tanned skin is hidden, either by her vest and shorts or by the fuzzy fur that covers her legs from the thighs down to her prominent nails.  Her " +
-                this.game.sheilaScene.sheilaCup() +
-                " breasts are briefly defined against the white of her shirt as she sways on her feet, " +
-                (this.game.sheilaScene.sheilaCorruption() <= 40
+            this.long = `Sheila is a slim, somewhat athletic woman, over six feet in height.  Most of her lightly-tanned skin is hidden, either by her vest and shorts or by the fuzzy fur that covers her legs from the thighs down to her prominent nails.  Her ${this.game.sheilaScene.sheilaCup()} breasts are briefly defined against the white of her shirt as she sways on her feet, ${
+                this.game.sheilaScene.sheilaCorruption() <= 40
                     ? "small, round things that match her slender frame."
-                    : "swollen, jiggling globes that stand in contrast to her slender body and tell a tale of all the corruption that has been pumped into her.") +
-                "  Her straight, jaw-length auburn hair hangs unrestrained, falling around the fuzzy ears that stick out sideways from her head.  The hat she usually wears is hanging on her back by a string, pushed off to prevent its being lost in the chaos.  Something about slipping a rope around her own neck just to keep a hat tells you that Sheila's mind isn't really staying in the fight - though it could also be the desperate, faraway look in her eyes.";
+                    : "swollen, jiggling globes that stand in contrast to her slender body and tell a tale of all the corruption that has been pumped into her."
+            }  Her straight, jaw-length auburn hair hangs unrestrained, falling around the fuzzy ears that stick out sideways from her head.  The hat she usually wears is hanging on her back by a string, pushed off to prevent its being lost in the chaos.  Something about slipping a rope around her own neck just to keep a hat tells you that Sheila's mind isn't really staying in the fight - though it could also be the desperate, faraway look in her eyes.`;
         }
 
         // this.plural = false;

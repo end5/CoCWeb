@@ -37,9 +37,10 @@ export class MinotaurKingScenes extends BaseContent {
             "\n\n<i>“Careful not to damage my property, oh King of the Minotaurs. Remember within whose feast-hall you dwell,”</i> a chilly, yet feminine voice calls."
         );
         this.outx(
-            "\n\nEars twitching in irritation, the royal brute inclines his head ever so slightly. <i>“Your property, yes. I’ll not damage your precious floors, but this one... this Champion... " +
-                this.player.mf("he", "she") +
-                " will be mine.”</i> The corners of the minotaur’s lips quirk upward in time with his tremendous erection. <i>“Do not make this more painful than it has to be.”</i>"
+            `\n\nEars twitching in irritation, the royal brute inclines his head ever so slightly. <i>“Your property, yes. I’ll not damage your precious floors, but this one... this Champion... ${this.player.mf(
+                "he",
+                "she"
+            )} will be mine.”</i> The corners of the minotaur’s lips quirk upward in time with his tremendous erection. <i>“Do not make this more painful than it has to be.”</i>`
         );
         this.outx(
             "\n\nYou’ve got a metric fuckton of muscle in between you and the end of this sick, twisted journey. Once more, you’ll have to fight."
@@ -116,18 +117,12 @@ export class MinotaurKingScenes extends BaseContent {
             "\n\nYou grab the monarch’s masturbating hands and pull them from your prize, a task made easier by his physical exhaustion. He grumbles weakly, but when your fingers make contact, he abruptly goes quiet, realizing that someone else may do him the favor of bringing him off. Little does he know just what you have planned. His jet-black member is slicker than you would have thought possible, coated with layer upon layer of jism. Your hands feel buttery after the briefest contact, like you’ve dipped them in a vat of grease."
         );
         this.outx(
-            "\n\nHis bulging flare and unique anatomy help you to wrangle the rebelliously twitching boner, aiding you in holding still while you line [cock " +
-                cockIdx +
-                "] up with the dribbling slit. His flesh is hot in your hands, and his free-flowing fluids feel like bathing warm oil on your [cockHead " +
-                cockIdx +
-                "]. You tremble, awash in the delirious desire to thrust it home all at once, to impale this massive beast-cock on your smaller length in one massive stroke."
+            `\n\nHis bulging flare and unique anatomy help you to wrangle the rebelliously twitching boner, aiding you in holding still while you line [cock ${cockIdx}] up with the dribbling slit. His flesh is hot in your hands, and his free-flowing fluids feel like bathing warm oil on your [cockHead ${cockIdx}]. You tremble, awash in the delirious desire to thrust it home all at once, to impale this massive beast-cock on your smaller length in one massive stroke.`
         );
         this.outx(
-            "\n\nBut you hold back for now, starting by gently easing your [cockHead " +
-                cockIdx +
-                "] into the welcoming embrace of the Minotaur King’s larger erection. He grunts in discomfort at the sensation, weakly craning his head up to watch you, but after a second he slumps right back down on the ground, moaning. He’s too turned on to care that you’re feeding inch after inch of your penis into his own; he’d accept anything that would get him off at this point. What a slut."
+            `\n\nBut you hold back for now, starting by gently easing your [cockHead ${cockIdx}] into the welcoming embrace of the Minotaur King’s larger erection. He grunts in discomfort at the sensation, weakly craning his head up to watch you, but after a second he slumps right back down on the ground, moaning. He’s too turned on to care that you’re feeding inch after inch of your penis into his own; he’d accept anything that would get him off at this point. What a slut.`
         );
-        this.outx("\n\nYou waver momentarily, bathing your [cock " + cockIdx + "]");
+        this.outx(`\n\nYou waver momentarily, bathing your [cock ${cockIdx}]`);
         if (this.player.balls > 0) this.outx(" and [balls]");
         this.outx(
             " in the steady flow of pre that leaks around your dong, savoring this moment for what it is. You might not get another chance to do something like this once you take down Lethice, and you want it to be memorable. Grinning up at her, you mouth, <i>“You’re next,”</i> and resume feeding the rest of yourself into your cylindrical fucktube."
@@ -182,9 +177,7 @@ export class MinotaurKingScenes extends BaseContent {
             "When you try to pull out, there’s a problem: your knot. It inflated while you were cumming, and now that you’ve finished, it has expanded to lock you inside your unusual mate. No matter how you tug or pull, you can’t seem to extricate yourself from the cream-filled cow-man, and worse still, he’s starting to moan and squirm. Getting filled full of your spunk must have been more enjoyable for him than you thought."
         );
         this.outx(
-            "\n\nThe Minotaur King is moaning, and his cock is getting still harder in your hands, making it even harder to pull yourself free. Panicked now, you tug in vain, anything to get free before your cum and a wave of bovine beast-cum flows back into you. Your [feet] slip in the puddled juices, and the surging bull’s member pulls you over onto his chest, still joined at the crotch. He catches you, holding you an angle so as not to damage either of your members, and then you feel it: pre-cum mixed with your liquid relief pushing back into your [cock " +
-                cockIdx +
-                "]."
+            `\n\nThe Minotaur King is moaning, and his cock is getting still harder in your hands, making it even harder to pull yourself free. Panicked now, you tug in vain, anything to get free before your cum and a wave of bovine beast-cum flows back into you. Your [feet] slip in the puddled juices, and the surging bull’s member pulls you over onto his chest, still joined at the crotch. He catches you, holding you an angle so as not to damage either of your members, and then you feel it: pre-cum mixed with your liquid relief pushing back into your [cock ${cockIdx}].`
         );
         this.outx(
             "\n\nOrgasmic pressure has reversed the liquid flow, and the moment his hips lift from the floor, carrying you with them, the pressure redoubles, turning your urethra into a minotaur cum pipeline. Some of your own is mixed in of course, but you’ve never had the alabaster jism applied to your body so directly. You sag bonelessly into the brute’s grip as he turns you into his personal twinkie"
@@ -538,22 +531,16 @@ export class MinotaurKingScenes extends BaseContent {
         if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0) this.outx(" wonderful");
         else this.outx(" sort of... nice... sexy even");
         this.outx(
-            ", or you might have had second thoughts. Her creampied honeypot ought to feel like teflon-treated silk against your [cock " +
-                x +
-                "]. It glitters in the flickering, bedroom light of Lethice’s throne room, beckoning you to plunge inside and see just how good it will feel."
+            `, or you might have had second thoughts. Her creampied honeypot ought to feel like teflon-treated silk against your [cock ${x}]. It glitters in the flickering, bedroom light of Lethice’s throne room, beckoning you to plunge inside and see just how good it will feel.`
         );
         this.outx(
             "\n\n<i>“Hrmmm, again?”</i> Excellia dreamily coos, lifting her ass up into position. <i>“...yes sir, I’m always rarin’ for a fuck.”</i> She happily sighs and wiggles her ass in your direction, completely unaware that you’re the one advancing toward her ass with a aching cock"
         );
         if (this.player.balls > 0) {
-            this.outx(
-                " and " + MinotaurKingScenes.num2Text(this.player.balls) + " balls full of cum"
-            );
+            this.outx(` and ${MinotaurKingScenes.num2Text(this.player.balls)} balls full of cum`);
         } else this.outx(" and a load of backed-up cum");
         this.outx(
-            ". You don’t see much point in correcting her, not when she’s presenting so enthusiastically. Grabbing hold of her tail, you yank her into position, positioning your [cockHead " +
-                x +
-                "] just outside the cream-drizzling gates of her cunt."
+            `. You don’t see much point in correcting her, not when she’s presenting so enthusiastically. Grabbing hold of her tail, you yank her into position, positioning your [cockHead ${x}] just outside the cream-drizzling gates of her cunt.`
         );
         this.outx("\n\nExcellia moans, <i>“So gentle, Lord! Please, don’t make me wait!”</i>");
         this.outx(
@@ -578,9 +565,7 @@ export class MinotaurKingScenes extends BaseContent {
             );
         this.outx(" You can see why the overgrown beast-man keeps her around.");
         this.outx(
-            "\n\nThe quivering cow-slut’s cunt is fucking magic too. It feels like her muscles are pulling you deeper with every thrust, coaxing your [cock " +
-                x +
-                "] to sprout another inch if only to better fill. Gods, you’re getting harder and harder. She feels so damned good that it’s making your head spin, making it impossible to do anything but grab hold of her ass and squeeze like your life depends on it. In this moment, bereft of anything but the sinful squelches emanating from Excellia’s too-moist muff, you feel like you love her, or at least her pussy."
+            `\n\nThe quivering cow-slut’s cunt is fucking magic too. It feels like her muscles are pulling you deeper with every thrust, coaxing your [cock ${x}] to sprout another inch if only to better fill. Gods, you’re getting harder and harder. She feels so damned good that it’s making your head spin, making it impossible to do anything but grab hold of her ass and squeeze like your life depends on it. In this moment, bereft of anything but the sinful squelches emanating from Excellia’s too-moist muff, you feel like you love her, or at least her pussy.`
         );
         this.outx(
             "\n\nFuck, you could love almost anyone right now. If the crowd around you wasn’t composed of soulless abominations, you’d probably love them too. You knead her ass some more, watching it give beneath your fingers. Your digits nearly disappear into the cushy, fuckable asscheeks, and you grunt in approval. It’s hypnotic. You’re still fucking her, of course. You couldn’t stop if you wanted to, but there’s a strange disconnect between your hips and the rest of your awareness, like there’s so much pleasure that you’ve gone with numb it."
@@ -589,9 +574,7 @@ export class MinotaurKingScenes extends BaseContent {
             "\n\nArcs of electric bliss hum and sizzle through your [cock] from second to second, popping in starbursts behind your eyes that make it hard to focus on anything but the swaying ass in front of you. You ravage Excellia on autopilot, groaning in delight as realization finally dawns on you - all the minotaur cum inside of her is affecting you, somehow. And there’s so much of the stuff! Creamy white blobs slop out whenever you pull out or thrust in, but there’s always more inside her to bathe your member, cocooning it in layer after layer of narcotic aphrodisiac."
         );
         this.outx(
-            "\n\nPart of you wants to stop, but that part of you is getting smaller with every thrust. This is wonderful, the raw, almost feral feeling of an athletic fuck unbounded by civilization or decency. Excellia’s pussy was designed to glove your [cock " +
-                x +
-                "] perfectly, to match its ravenous thrusting with a sordid massage. Faintly, you hear cheering and the greedy slut begging for more. She wants you to cum inside of her; you can tell. Everything from her body-language to the pitch of her delirious voice is begging you to feed her overactive ovaries their second meal of the hour. Her body is ravenous for cum, even when she’s so stuffed with it that it won’t stop pouring out."
+            `\n\nPart of you wants to stop, but that part of you is getting smaller with every thrust. This is wonderful, the raw, almost feral feeling of an athletic fuck unbounded by civilization or decency. Excellia’s pussy was designed to glove your [cock ${x}] perfectly, to match its ravenous thrusting with a sordid massage. Faintly, you hear cheering and the greedy slut begging for more. She wants you to cum inside of her; you can tell. Everything from her body-language to the pitch of her delirious voice is begging you to feed her overactive ovaries their second meal of the hour. Her body is ravenous for cum, even when she’s so stuffed with it that it won’t stop pouring out.`
         );
         this.outx(
             "\n\nYou need to get off more than you ever thought possible. Logically, you want this over quickly so that you can fu- face Lethice in all her naked glory. You bet you’ll even get to squeeze her tits at least once before you take her down... Those purple orbs beckon for your fingertips. But then there’s the ecstatic undulations wreathing you in fleshy heaven, caressing your nerves with individualized attention, playing your body like a harp. How could you possibly want this to end? You’ve grown so addicted to this pleasure in such a short time that ever leaving it seems an alien concept to your cunt-obsessed mind. You want to fuck this pussy <i>forever.</i>"
@@ -633,9 +616,7 @@ export class MinotaurKingScenes extends BaseContent {
                 " Excellia’s muscular control is no match for the sheer virility of your load. The gates of her cunt give out in short order, releasing a flood of Champion-diluted minotaur spunk onto the ground. She whimpers and cries out in ecstasy, driven to the peak again and again by the continuous flooding of her womb with your seed."
             );
         this.outx(
-            "\n\nPivoting on your prick, dragging her velvety dicksleeve in a delightful 180 on your length, Excellia crawls atop you, still shaking. Her pussy is still squeezing and clenching down around your [cock " +
-                x +
-                "], keeping your attention focused solely on the itch between your thighs. Your overstimulated crotch has no choice but to climax once more, orgasming to the insatiable mynx’s demands. There’s not much to left to give her, but that doesn’t stop you from writhing in ecstasy, or groping her tits in wild excitement."
+            `\n\nPivoting on your prick, dragging her velvety dicksleeve in a delightful 180 on your length, Excellia crawls atop you, still shaking. Her pussy is still squeezing and clenching down around your [cock ${x}], keeping your attention focused solely on the itch between your thighs. Your overstimulated crotch has no choice but to climax once more, orgasming to the insatiable mynx’s demands. There’s not much to left to give her, but that doesn’t stop you from writhing in ecstasy, or groping her tits in wild excitement.`
         );
         this.outx(
             "\n\nYou aren’t sure how many more times you give it to her, but by the time you finally manage to extract yourself from her wanton lips, the Minotaur King has been dragged into the crowd."
@@ -690,9 +671,10 @@ export class MinotaurKingScenes extends BaseContent {
             "\n\nYou push back against the hand holding you back, grabbing hold of the oozing cock in both hands to pull the blunted tip to your mouth. Spongy flare brushes your lower lip, glazing in a layer of spunky cockdrool. Rather than lick it off, you leave it there and open wide, letting the lubricating juices do what they were meant to do: help ease a dick into a too-small hole. Just getting the tip inside has your jaw aching and your mouth stretched into an impossibly slutty ‘O,’ but once you get past that, the going gets easier."
         );
         this.outx(
-            "\n\n<i>“Atta " +
-                this.player.mf("boy", "girl") +
-                ",”</i> the triumphant beast-man croons. <i>“This is where you belong.”</i>"
+            `\n\n<i>“Atta ${this.player.mf(
+                "boy",
+                "girl"
+            )},”</i> the triumphant beast-man croons. <i>“This is where you belong.”</i>`
         );
         this.outx(
             "\n\nYou can hardly disagree. With his cock captive, no pre-cum will be wasted. The freely-spilling droplets have no choice but to slip down the length of your tongue and into your throat, where they can be swallowed. Your head might as well be filled with thick, pink cotton balls at this point, and every swallow, every eager gulp, adds more, blotting out worry and concern. Those anxious thoughts have no room to form, not when your head is so full of cock, literally and figuratively. Just thinking about it makes you want to smile and giggle, but there’s no room for that in a maw increasingly stuffed with phallus."

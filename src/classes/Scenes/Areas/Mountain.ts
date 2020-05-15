@@ -207,8 +207,10 @@ export class Mountain extends BaseContent {
                 }
                 if (this.player.gender > 0) {
                     this.outx(
-                        'A goblin saunters out of the bushes with a dangerous glint in her eyes.\n\nShe says, "<i>Time to get fucked, ' +
-                            this.player.mf("stud", "slut"),
+                        `A goblin saunters out of the bushes with a dangerous glint in her eyes.\n\nShe says, "<i>Time to get fucked, ${this.player.mf(
+                            "stud",
+                            "slut"
+                        )}`,
                         true
                     );
                     this.outx('.</i>"', false);

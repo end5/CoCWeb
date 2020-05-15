@@ -125,9 +125,9 @@ export class Farm extends BaseContent {
             if (this.player.hasKeyItem("Breast Milker - Installed At Whitney's Farm") >= 0) {
                 if (this.player.findStatusAffect(StatusAffects.Milked) >= 0) {
                     this.outx(
-                        "\n\n<b>Your " +
-                            this.nippleDescript(0) +
-                            "s are currently too sore to be milked.  You'll have to wait a while.</b>",
+                        `\n\n<b>Your ${this.nippleDescript(
+                            0
+                        )}s are currently too sore to be milked.  You'll have to wait a while.</b>`,
                         false
                     );
                 } else if (this.flags[kFLAGS.WHITNEY_FLIPPED_OUT_OVER_KELLY] == 0)
@@ -433,9 +433,7 @@ export class Farm extends BaseContent {
                     false
                 );
                 this.outx(
-                    '"<i>Ya might wanna get that looked at darlin\',</i>" she says, gesturing at milky wetness dripping from the front of your ' +
-                        this.player.armorName +
-                        ".\n\n",
+                    `"<i>Ya might wanna get that looked at darlin',</i>" she says, gesturing at milky wetness dripping from the front of your ${this.player.armorName}.\n\n`,
                     false
                 );
                 if (this.player.cor < 33) this.outx("You blush with shame");
@@ -447,9 +445,7 @@ export class Farm extends BaseContent {
                         false
                     );
                 this.outx(
-                    " as her words sink in.   Runners of milk leak down your " +
-                        this.allBreastsDescript() +
-                        ", released by the stress of being so exposed.   In no time flat you're soaked in milk.\n\n",
+                    ` as her words sink in.   Runners of milk leak down your ${this.allBreastsDescript()}, released by the stress of being so exposed.   In no time flat you're soaked in milk.\n\n`,
                     false
                 );
                 this.outx(
@@ -677,7 +673,7 @@ export class Farm extends BaseContent {
             // -Bulbous Pepper (+ball size or fresh balls)
             if (this.temp == 4) itype = this.consumables.BULBYPP;
         }
-        trace("FARM SHIT: " + itype!.shortName);
+        trace(`FARM SHIT: ${itype!.shortName}`);
         this.inventory.takeItem(itype!, this.camp.returnToCampUseTwoHours);
     }
 
@@ -913,9 +909,7 @@ export class Farm extends BaseContent {
             if (this.player.cor < 50) this.outx("You shiver nervously when you step inside.");
             else this.outx("You smile eagerly as you walk inside.");
             this.outx(
-                "  The barn is filled with the earthy smells of earth, wood, and grease.  It's clean for the most part, though the floor is just packed dirt and the stalls look old and well-used.  A bank of machinery along the wall thrums and pulses as if it's a living creature.  Hoses and cables run from it in a dozen places, disappearing into the walls.   There is even a set of stout wooden doorways along the west wall.  That must be where the farm's intelligent denizens stay.  You notice each of the stalls have name-plates on them, and there is even one that says " +
-                    this.player.short +
-                    ".  It must be for you.\n\n",
+                `  The barn is filled with the earthy smells of earth, wood, and grease.  It's clean for the most part, though the floor is just packed dirt and the stalls look old and well-used.  A bank of machinery along the wall thrums and pulses as if it's a living creature.  Hoses and cables run from it in a dozen places, disappearing into the walls.   There is even a set of stout wooden doorways along the west wall.  That must be where the farm's intelligent denizens stay.  You notice each of the stalls have name-plates on them, and there is even one that says ${this.player.short}.  It must be for you.\n\n`,
                 false
             );
         }
@@ -931,14 +925,12 @@ export class Farm extends BaseContent {
                 this.player.totalCocks() == 0
             )
                 this.outx(
-                    "  Your " +
-                        this.nippleDescript(0) +
-                        "s are engorged and ready to be taken care of.",
+                    `  Your ${this.nippleDescript(0)}s are engorged and ready to be taken care of.`,
                     false
                 );
             // If cocks
             else if (this.player.totalCocks() > 0) {
-                this.outx("Your " + this.multiCockDescriptLight() + " erect", false);
+                this.outx(`Your ${this.multiCockDescriptLight()} erect`, false);
                 if (this.player.totalCocks() > 1) this.outx("s");
                 this.outx(" and throb");
                 if (this.player.totalCocks() == 1) this.outx("s");
@@ -950,11 +942,7 @@ export class Farm extends BaseContent {
                 this.player.cockTotal() > 0
             ) {
                 this.outx(
-                    "Your " +
-                        this.nippleDescript(0) +
-                        "s and " +
-                        this.multiCockDescriptLight() +
-                        " grow",
+                    `Your ${this.nippleDescript(0)}s and ${this.multiCockDescriptLight()} grow`,
                     false
                 );
                 this.outx(" hard and ready of ");
@@ -988,9 +976,9 @@ export class Farm extends BaseContent {
             if (this.player.findStatusAffect(StatusAffects.BreastsMilked) < 0)
                 this.player.createStatusAffect(StatusAffects.BreastsMilked, 0, 0, 0, 0);
             this.outx(
-                "You manage to grab the suction cups in spite of your constrictive bindings and pull them to your " +
-                    this.nippleDescript(0) +
-                    "s.  They latch on immediately, ",
+                `You manage to grab the suction cups in spite of your constrictive bindings and pull them to your ${this.nippleDescript(
+                    0
+                )}s.  They latch on immediately, `,
                 false
             );
             if (this.player.nippleLength <= 1.5)
@@ -1001,22 +989,20 @@ export class Farm extends BaseContent {
                     false
                 );
             this.outx(
-                "There is a mechanical lurching noise as the suction builds rapidly.  Your nipple swells out to " +
-                    Math.floor(this.player.nippleLength * 1.5 * 10) / 10 +
-                    " inches of length, turning purplish from the strain.   You can feel something welling up inside your " +
-                    this.allBreastsDescript() +
-                    ", building as it moves towards your " +
-                    this.nippleDescript(0) +
-                    "s.\n\n",
+                `There is a mechanical lurching noise as the suction builds rapidly.  Your nipple swells out to ${
+                    Math.floor(this.player.nippleLength * 1.5 * 10) / 10
+                } inches of length, turning purplish from the strain.   You can feel something welling up inside your ${this.allBreastsDescript()}, building as it moves towards your ${this.nippleDescript(
+                    0
+                )}s.\n\n`,
                 false
             );
         }
         // Apply repeat alternate
         else if (application == 1) {
             this.outx(
-                "You stretch down and grab onto the suction cups, pulling them up to your eager nipples.  They latch on, slapping tight against you as the vacuum pressure seals them tightly against your body.  You can feel your " +
-                    this.nippleDescript(0) +
-                    "s pulling tight, nearly doubling in size from the intense pressure.  ",
+                `You stretch down and grab onto the suction cups, pulling them up to your eager nipples.  They latch on, slapping tight against you as the vacuum pressure seals them tightly against your body.  You can feel your ${this.nippleDescript(
+                    0
+                )}s pulling tight, nearly doubling in size from the intense pressure.  `,
                 false
             );
             if (this.player.nippleLength >= 3)
@@ -1025,20 +1011,18 @@ export class Farm extends BaseContent {
                     false
                 );
             this.outx(
-                "The sensitive flesh of your " +
-                    this.allBreastsDescript() +
-                    " fill with a burgeoning pressure that centers around the tubes connected to your nips.\n\n",
+                `The sensitive flesh of your ${this.allBreastsDescript()} fill with a burgeoning pressure that centers around the tubes connected to your nips.\n\n`,
                 false
             );
         }
         // Version 3
         else if (application == 2) {
             this.outx(
-                "Despite the tightness of your harness, you manage to reach down to grab the clear cups of the breast milker.  The cups twitch and move in your hands as you bring them up, ready to milk you.  You begin holding them against your " +
-                    this.nippleDescript(0) +
-                    "s and with a sudden lurch the suction pulls against you, pressing the breast-milker's cups tightly against your chest, stretching your " +
-                    this.nippleDescript(0) +
-                    "s to nearly twice their normal length.  You feel a building pressure as the machine sucks you relentlessly, drawing your milk to the surface.\n\n",
+                `Despite the tightness of your harness, you manage to reach down to grab the clear cups of the breast milker.  The cups twitch and move in your hands as you bring them up, ready to milk you.  You begin holding them against your ${this.nippleDescript(
+                    0
+                )}s and with a sudden lurch the suction pulls against you, pressing the breast-milker's cups tightly against your chest, stretching your ${this.nippleDescript(
+                    0
+                )}s to nearly twice their normal length.  You feel a building pressure as the machine sucks you relentlessly, drawing your milk to the surface.\n\n`,
                 false
             );
         }
@@ -1062,9 +1046,9 @@ export class Farm extends BaseContent {
             this.dynStats("lus", 15);
             if (milksplosion == 0) {
                 this.outx(
-                    "A few drops of milk bud on the tips of your " +
-                        this.nippleDescript(0) +
-                        "s, growing larger as they roll down to the edge of the tube.  It feels as if a ",
+                    `A few drops of milk bud on the tips of your ${this.nippleDescript(
+                        0
+                    )}s, growing larger as they roll down to the edge of the tube.  It feels as if a `,
                     false
                 );
                 if (this.player.totalBreasts() == 2) this.outx("pair");
@@ -1078,22 +1062,20 @@ export class Farm extends BaseContent {
             // Lightish2
             else if (milksplosion == 1) {
                 this.outx(
-                    "A tiny spurt of milk erupts from each of your " +
-                        this.nippleDescript(0) +
-                        "s before the hungry machinery devours it, sucking it down the clear tubes that lead back to the Whitney's machinery.  You unconsciously moan from the pleasure, feeling more than a little turned on by the pulsing suckling feeling the devices provide.  You spray your milk out in tiny streams, emptying your " +
-                        this.allBreastsDescript() +
-                        " off their motherly fluids. An hour later your harness loosens, easing you to the floor as the milking-cups drop off your painfully sensitive " +
-                        this.nippleDescript(0) +
-                        ".\n\n",
+                    `A tiny spurt of milk erupts from each of your ${this.nippleDescript(
+                        0
+                    )}s before the hungry machinery devours it, sucking it down the clear tubes that lead back to the Whitney's machinery.  You unconsciously moan from the pleasure, feeling more than a little turned on by the pulsing suckling feeling the devices provide.  You spray your milk out in tiny streams, emptying your ${this.allBreastsDescript()} off their motherly fluids. An hour later your harness loosens, easing you to the floor as the milking-cups drop off your painfully sensitive ${this.nippleDescript(
+                        0
+                    )}.\n\n`,
                     false
                 );
             }
             // Lightish3
             else if (milksplosion == 2) {
                 this.outx(
-                    "The tips of your " +
-                        this.nippleDescript(0) +
-                        "s swell for a moment before releasing tiny streams of milk into the suctioning cups.  It rapidly drains away, down the tubes towards the collection device.  The sensation is pleasurable and intense, but long before the machine finishes with you, your milk supply dries up.  The constant pulsing suckling does not abate, stretching and abusing your poor teats for the better part of an hour.  In spite of the pain and sensitivity, you enjoy it, but when the harness finally lowers yourself to the floor, you find yourself already anticipating the next session.\n\n",
+                    `The tips of your ${this.nippleDescript(
+                        0
+                    )}s swell for a moment before releasing tiny streams of milk into the suctioning cups.  It rapidly drains away, down the tubes towards the collection device.  The sensation is pleasurable and intense, but long before the machine finishes with you, your milk supply dries up.  The constant pulsing suckling does not abate, stretching and abusing your poor teats for the better part of an hour.  In spite of the pain and sensitivity, you enjoy it, but when the harness finally lowers yourself to the floor, you find yourself already anticipating the next session.\n\n`,
                     false
                 );
             }
@@ -1104,31 +1086,27 @@ export class Farm extends BaseContent {
             // MEDIUMLICIOUS
             if (milksplosion == 0) {
                 this.outx(
-                    "Drops of your milk roll down the edge of the milk-cups as you begin lactating into them.  Milk sprays in solid streams from your nipples, forming a puddle at the bottom of the cup as the machinery siphons it through the clear tube towards the reservoir.   You moan hotly as the milking progresses, emptying your " +
-                        this.allBreastsDescript() +
-                        " of their creamy cargo.  For an hour your world is reduced to the sensation of suction and release, though towards the end nothing is coming out but tiny milk-drops.  At long last the harness lowers you to the floor, letting the cups pop off your abused " +
-                        this.nippleDescript(0) +
-                        "s.  You feel a little bit sore and sensitive, but overwhelmingly aroused by the experience.\n\n",
+                    `Drops of your milk roll down the edge of the milk-cups as you begin lactating into them.  Milk sprays in solid streams from your nipples, forming a puddle at the bottom of the cup as the machinery siphons it through the clear tube towards the reservoir.   You moan hotly as the milking progresses, emptying your ${this.allBreastsDescript()} of their creamy cargo.  For an hour your world is reduced to the sensation of suction and release, though towards the end nothing is coming out but tiny milk-drops.  At long last the harness lowers you to the floor, letting the cups pop off your abused ${this.nippleDescript(
+                        0
+                    )}s.  You feel a little bit sore and sensitive, but overwhelmingly aroused by the experience.\n\n`,
                     false
                 );
             }
             /// /Medium 2
             if (milksplosion == 1) {
                 this.outx(
-                    "A tight stream of milk erupts from your " +
-                        this.nippleDescript(0) +
-                        "s, pouring into the bottom of the hungry nipple-cups.  It pools there as the tubes work to suction it away.  They turn white and the machinery thrums as it works to keep up with you.  The tugging and releasing of the suction as you squirt out your milk is highly erotic, making you wriggle in the harness with sensual delight.  Unfortunately with all the straps you can't do anything about the heat in your groin.  After an hour of milking, when your output has dropped to barely a trickle, you're slowly lowered to the floor and released when the milking cycle completes.\n\n",
+                    `A tight stream of milk erupts from your ${this.nippleDescript(
+                        0
+                    )}s, pouring into the bottom of the hungry nipple-cups.  It pools there as the tubes work to suction it away.  They turn white and the machinery thrums as it works to keep up with you.  The tugging and releasing of the suction as you squirt out your milk is highly erotic, making you wriggle in the harness with sensual delight.  Unfortunately with all the straps you can't do anything about the heat in your groin.  After an hour of milking, when your output has dropped to barely a trickle, you're slowly lowered to the floor and released when the milking cycle completes.\n\n`,
                     false
                 );
             }
             // Medium 3
             if (milksplosion == 2) {
                 this.outx(
-                    "Fat drops of milk pour out of your " +
-                        this.nippleDescript(0) +
-                        "s, pooling in the milking-cups as the machine begins to extract your creamy breast-milk.   The milk flow begins streaming out of you it bursts of fluid as the machinery switches to a pulsating suction.  You groan happily as your " +
-                        this.allBreastsDescript() +
-                        " empty, relieving you of pent up pressure.   The feeling is enjoyable in more than just that way, and you feel yourself getting ",
+                    `Fat drops of milk pour out of your ${this.nippleDescript(
+                        0
+                    )}s, pooling in the milking-cups as the machine begins to extract your creamy breast-milk.   The milk flow begins streaming out of you it bursts of fluid as the machinery switches to a pulsating suction.  You groan happily as your ${this.allBreastsDescript()} empty, relieving you of pent up pressure.   The feeling is enjoyable in more than just that way, and you feel yourself getting `,
                     false
                 );
                 if (this.player.totalCocks() == 0) {
@@ -1156,9 +1134,9 @@ export class Farm extends BaseContent {
             // High Output2
             if (milksplosion == 1) {
                 this.outx(
-                    "Your " +
-                        this.nippleDescript(0) +
-                        " swell up like tiny balloons for a moment before they unleash a torrent of your milk.  The nipple-cylinders instantly flood to capacity, and the milking machinery chugs loudly as it tries to suck it all down the tubes, barely keeping up with you.  You pant and writhe in the harness, each pulse of milk sending a growing sensation of your warmth to your groin that makes you ",
+                    `Your ${this.nippleDescript(
+                        0
+                    )} swell up like tiny balloons for a moment before they unleash a torrent of your milk.  The nipple-cylinders instantly flood to capacity, and the milking machinery chugs loudly as it tries to suck it all down the tubes, barely keeping up with you.  You pant and writhe in the harness, each pulse of milk sending a growing sensation of your warmth to your groin that makes you `,
                     false
                 );
                 if (this.player.totalCocks() == 0) {
@@ -1187,11 +1165,9 @@ export class Farm extends BaseContent {
             milksplosion = Farm.rand(2);
             if (milksplosion == 0) {
                 this.outx(
-                    "Your " +
-                        this.nippleDescript(0) +
-                        "s twitch and pulse for but a moment, then unleash a torrent of milk, totally filling the tubes.  The machinery lurches, struggling to keep up as you flood the tubes.   An alarm starts blaring as milk begins leaking out around the edges – Whitney's machinery just can't keep up!  You can hear footsteps in the barn, and a pair of soft hands hold the cups against your chest.   The machinery is shut down, but another pair of hands begins massaging your " +
-                        this.allBreastsDescript() +
-                        ", pumping wave after wave of milk through the tubes, unaided by the machinery.  You practically ",
+                    `Your ${this.nippleDescript(
+                        0
+                    )}s twitch and pulse for but a moment, then unleash a torrent of milk, totally filling the tubes.  The machinery lurches, struggling to keep up as you flood the tubes.   An alarm starts blaring as milk begins leaking out around the edges – Whitney's machinery just can't keep up!  You can hear footsteps in the barn, and a pair of soft hands hold the cups against your chest.   The machinery is shut down, but another pair of hands begins massaging your ${this.allBreastsDescript()}, pumping wave after wave of milk through the tubes, unaided by the machinery.  You practically `,
                     false
                 );
                 if (this.player.hasVagina()) this.outx("cream yourself");
@@ -1225,7 +1201,7 @@ export class Farm extends BaseContent {
         if (liters < 0) liters = 1337;
         // Pay 4 gem for every half-liter.
         payout = Math.floor(liters * 2 * 4);
-        this.outx("The machinery displays " + liters + " liters of milk", false);
+        this.outx(`The machinery displays ${liters} liters of milk`, false);
         // If already at cap
         if (this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] >= cap) {
             this.outx(
@@ -1241,11 +1217,9 @@ export class Farm extends BaseContent {
             // Keep track of how much is paid
             this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] += payout;
             this.outx(
-                " and automatically dispenses " +
-                    Farm.num2Text(payout) +
-                    " gem" +
-                    (payout == 1 ? "" : "s") +
-                    ".  Whitney really went all out with this setup!",
+                ` and automatically dispenses ${Farm.num2Text(payout)} gem${
+                    payout == 1 ? "" : "s"
+                }.  Whitney really went all out with this setup!`,
                 false
             );
             // Display a warning that you've capped out.
@@ -1259,9 +1233,7 @@ export class Farm extends BaseContent {
         // High production = stupid cow.
         if (liters > 2) {
             this.outx(
-                "\n\nYou feel woozy and lightheaded from the intense milking, and have difficulty focusing on anything but the residue of fluids coating your " +
-                    this.allBreastsDescript() +
-                    ".",
+                `\n\nYou feel woozy and lightheaded from the intense milking, and have difficulty focusing on anything but the residue of fluids coating your ${this.allBreastsDescript()}.`,
                 false
             );
             // Being a cow makes you less dumb
@@ -1304,9 +1276,7 @@ export class Farm extends BaseContent {
         // Horny
         else {
             this.outx(
-                "Overwhelmed with your desire, you don't even bother to cover up and make yourself decent, you just run out of the barn, " +
-                    this.allBreastsDescript() +
-                    " jiggling and wet, heading straight for camp."
+                `Overwhelmed with your desire, you don't even bother to cover up and make yourself decent, you just run out of the barn, ${this.allBreastsDescript()} jiggling and wet, heading straight for camp.`
             );
             if (this.farmCorruption.whitneyCorruption() < 90)
                 this.outx(
@@ -1336,9 +1306,7 @@ export class Farm extends BaseContent {
             if (this.player.cor < 50) this.outx("You shiver nervously when you step inside.  ");
             else this.outx("You smile eagerly as you walk inside.  ");
             this.outx(
-                "The barn is filled with the earthy smells of earth, wood, and grease.  It's clean for the most part, though the floor is just packed dirt and the stalls look old and well-used.  A bank of machinery along the wall thrums and pulses as if it's a living creature.  Hoses and cables run from it in a dozen places, disappearing into the walls.   There is even a set of stout wooden doorways along the west wall.  That must be where the farm's intelligent denizens stay.  You notice each of the stalls have name-plates on them, and there is even one that says " +
-                    this.player.short +
-                    ".  It must be for you.\n\n",
+                `The barn is filled with the earthy smells of earth, wood, and grease.  It's clean for the most part, though the floor is just packed dirt and the stalls look old and well-used.  A bank of machinery along the wall thrums and pulses as if it's a living creature.  Hoses and cables run from it in a dozen places, disappearing into the walls.   There is even a set of stout wooden doorways along the west wall.  That must be where the farm's intelligent denizens stay.  You notice each of the stalls have name-plates on them, and there is even one that says ${this.player.short}.  It must be for you.\n\n`,
                 false
             );
         }
@@ -1348,7 +1316,7 @@ export class Farm extends BaseContent {
                 "You walk over to the barn, eagerly anticipating your session with the 'milker'.  ",
                 false
             );
-            this.outx("Your " + this.multiCockDescriptLight() + " erect", false);
+            this.outx(`Your ${this.multiCockDescriptLight()} erect`, false);
             if (this.player.cockTotal() == 1) this.outx("s");
             this.outx(" and throb");
             if (this.player.cockTotal() == 1) this.outx("s");
@@ -1415,16 +1383,14 @@ export class Farm extends BaseContent {
             if (Farm.rand(2) == 0) {
                 if (this.player.cockTotal() == 1)
                     this.outx(
-                        "The hose's 'tip' is many times longer than your member, and about thrice as thick.  The 'opening' is filled with something wet and pink.  It squirms and wriggles, looking very much alive.  Where did Whitney get this stuff?    It tentatively presses against your " +
-                            this.cockDescript(0) +
-                            ", sucking wetly as the material inside slurps you down.  The feeling is immediate and intense, like being surrounded by hundreds of eager tongues, all writhing together along your length.\n\n",
+                        `The hose's 'tip' is many times longer than your member, and about thrice as thick.  The 'opening' is filled with something wet and pink.  It squirms and wriggles, looking very much alive.  Where did Whitney get this stuff?    It tentatively presses against your ${this.cockDescript(
+                            0
+                        )}, sucking wetly as the material inside slurps you down.  The feeling is immediate and intense, like being surrounded by hundreds of eager tongues, all writhing together along your length.\n\n`,
                         false
                     );
                 else
                     this.outx(
-                        "The hoses' 'tips' are many times longer than your members, and about thrice as thick.  The openings are each filled with something wet and pink.  They squirm and wriggle, looking very much alive.  Where did Whitney get this stuff?   They tentatively press against your " +
-                            this.multiCockDescriptLight() +
-                            ", sucking wetly as the material inside slurps you down.  The feeling is immediate and intense, like being surrounded by hundreds of eager tongues, all writhing together along your lengths at once.\n\n",
+                        `The hoses' 'tips' are many times longer than your members, and about thrice as thick.  The openings are each filled with something wet and pink.  They squirm and wriggle, looking very much alive.  Where did Whitney get this stuff?   They tentatively press against your ${this.multiCockDescriptLight()}, sucking wetly as the material inside slurps you down.  The feeling is immediate and intense, like being surrounded by hundreds of eager tongues, all writhing together along your lengths at once.\n\n`,
                         false
                     );
             }
@@ -1432,20 +1398,16 @@ export class Farm extends BaseContent {
             else {
                 if (this.player.cockTotal() == 1)
                     this.outx(
-                        "The hose's opening, while much larger than your " +
-                            this.cockDescript(0) +
-                            ", is packed full of some slimy looking pink flesh.  It wriggles hungrily as it snakes up, noisily slobbering over your tip.  Your body, tired of the foreplay, thrusts forwards, rocking the harness back and forth.  The effort is wasted, as the hose stops and slowly repositions itself under you, having to reset before it can begin 'milking'.  You sigh and hold perfectly still as it bumps back against you.    Your muscles twitch but you hold steady as it slowly slides forwards, effortlessly taking your " +
-                            this.cockDescript(0) +
-                            " inside.  The stimulation is intense and immediate.  The suction kicks in, making you swell larger than normal.  You feel like every inch is covered in tiny wet massaging fingers and tongues.\n\n",
+                        `The hose's opening, while much larger than your ${this.cockDescript(
+                            0
+                        )}, is packed full of some slimy looking pink flesh.  It wriggles hungrily as it snakes up, noisily slobbering over your tip.  Your body, tired of the foreplay, thrusts forwards, rocking the harness back and forth.  The effort is wasted, as the hose stops and slowly repositions itself under you, having to reset before it can begin 'milking'.  You sigh and hold perfectly still as it bumps back against you.    Your muscles twitch but you hold steady as it slowly slides forwards, effortlessly taking your ${this.cockDescript(
+                            0
+                        )} inside.  The stimulation is intense and immediate.  The suction kicks in, making you swell larger than normal.  You feel like every inch is covered in tiny wet massaging fingers and tongues.\n\n`,
                         false
                     );
                 else
                     this.outx(
-                        "The hoses' openings, while much larger than your " +
-                            this.multiCockDescriptLight() +
-                            ", are packed full of some slimy looking pink flesh.  They wriggles hungrily as they snake up, noisily slobbering over your tip.  Your body, tired of the foreplay, thrusts forwards, rocking the harness back and forth.  The effort is wasted, as the hoses stop and slowly reposition themselves under you, having to reset before they can begin 'milking'.  You sigh and hold perfectly still as they bump back against you.    Your muscles twitch but you hold steady as they slowly slide forward, effortlessly taking your " +
-                            this.multiCockDescript() +
-                            " inside.  The stimulation is intense and immediate.  The suction kicks in, making you swell larger than normal.  You feel like every inch is covered in tiny wet massaging fingers and tongues.\n\n",
+                        `The hoses' openings, while much larger than your ${this.multiCockDescriptLight()}, are packed full of some slimy looking pink flesh.  They wriggles hungrily as they snake up, noisily slobbering over your tip.  Your body, tired of the foreplay, thrusts forwards, rocking the harness back and forth.  The effort is wasted, as the hoses stop and slowly reposition themselves under you, having to reset before they can begin 'milking'.  You sigh and hold perfectly still as they bump back against you.    Your muscles twitch but you hold steady as they slowly slide forward, effortlessly taking your ${this.multiCockDescript()} inside.  The stimulation is intense and immediate.  The suction kicks in, making you swell larger than normal.  You feel like every inch is covered in tiny wet massaging fingers and tongues.\n\n`,
                         false
                     );
             }
@@ -1454,11 +1416,9 @@ export class Farm extends BaseContent {
             if (Farm.rand(2) == 0) {
                 if (this.player.cockTotal() == 1) {
                     this.outx(
-                        "The mechanical snake's receptacle yawns open, showing an interior filled with wriggling pink material and dripping mucusy wetness.  It wiggles, closing the distance to your " +
-                            this.cockDescript(0) +
-                            " in a flash.  Pausing just below your " +
-                            this.player.cockHead() +
-                            ", it slowly flows upward, engulfing you with slick pleasure.  It sucks hard, sliding up ",
+                        `The mechanical snake's receptacle yawns open, showing an interior filled with wriggling pink material and dripping mucusy wetness.  It wiggles, closing the distance to your ${this.cockDescript(
+                            0
+                        )} in a flash.  Pausing just below your ${this.player.cockHead()}, it slowly flows upward, engulfing you with slick pleasure.  It sucks hard, sliding up `,
                         false
                     );
                     if (this.player.hasKnot(0)) this.outx("past your knot");
@@ -1469,11 +1429,7 @@ export class Farm extends BaseContent {
                     );
                 } else {
                     this.outx(
-                        "The mechanical snake's receptacles yawn open, showing an interior filled with wriggling pink material and dripping mucusy wetness.  They wiggle, closing the distance to your " +
-                            this.multiCockDescriptLight() +
-                            " in a flash.  Pausing just below your " +
-                            this.player.cockHead() +
-                            "s, they slowly flow upward, engulfing you with slick pleasure.  They suck hard, sliding up ",
+                        `The mechanical snake's receptacles yawn open, showing an interior filled with wriggling pink material and dripping mucusy wetness.  They wiggle, closing the distance to your ${this.multiCockDescriptLight()} in a flash.  Pausing just below your ${this.player.cockHead()}s, they slowly flow upward, engulfing you with slick pleasure.  They suck hard, sliding up `,
                         false
                     );
                     this.outx("to your base");
@@ -1487,24 +1443,16 @@ export class Farm extends BaseContent {
             else {
                 if (this.player.cockTotal() == 1)
                     this.outx(
-                        "The dick-milker's opening looks well suited to take your " +
-                            this.cockDescript(0) +
-                            ", just about a perfect match for someone hung like you.  As it closes with your groin, you get a better look at the internals.  It looks... alive.  The inside is filled with slime-slick flesh, pinkish in color and jiggling hungrily.  What the hell did Whitney put inside this thing anyway?  The dripping opening rubs against you tentatively, wetting your " +
-                            this.cockDescript(0) +
-                            " with slipperiness.  You resist the urge to push forwards, knowing it would be futile with the restraints binding you so tightly.  It sucks your " +
-                            this.player.cockHead() +
-                            " inside, making you groan and swell as your maleness is slowly pulled inside the mechanized fuck-hole.   Squelching noises echo through the barn, mixed with pleasured moans.\n\n",
+                        `The dick-milker's opening looks well suited to take your ${this.cockDescript(
+                            0
+                        )}, just about a perfect match for someone hung like you.  As it closes with your groin, you get a better look at the internals.  It looks... alive.  The inside is filled with slime-slick flesh, pinkish in color and jiggling hungrily.  What the hell did Whitney put inside this thing anyway?  The dripping opening rubs against you tentatively, wetting your ${this.cockDescript(
+                            0
+                        )} with slipperiness.  You resist the urge to push forwards, knowing it would be futile with the restraints binding you so tightly.  It sucks your ${this.player.cockHead()} inside, making you groan and swell as your maleness is slowly pulled inside the mechanized fuck-hole.   Squelching noises echo through the barn, mixed with pleasured moans.\n\n`,
                         false
                     );
                 else
                     this.outx(
-                        "The dick-milkers' openings look well suited to take your " +
-                            this.multiCockDescriptLight() +
-                            ", just about a perfect match for someone hung like you.  As they close with your groin, you get a better look at the internals.  They look... alive.  The inside is filled with slime-slick flesh, pinkish in color and jiggling hungrily.  What the hell did Whitney put inside these things anyway?  The dripping openings rub against you tentatively, wetting your " +
-                            this.multiCockDescriptLight() +
-                            " with slipperiness.  You resist the urge to push forwards, knowing it would be futile with the restraints binding you so tightly.  They suck your " +
-                            this.player.cockHead() +
-                            "s inside, making you groan and swell as your multitude of malenesses is slowly pulled inside the mechanized fuck-hole.   Squelching noises echo through the barn, mixed with pleasured moans.\n\n",
+                        `The dick-milkers' openings look well suited to take your ${this.multiCockDescriptLight()}, just about a perfect match for someone hung like you.  As they close with your groin, you get a better look at the internals.  They look... alive.  The inside is filled with slime-slick flesh, pinkish in color and jiggling hungrily.  What the hell did Whitney put inside these things anyway?  The dripping openings rub against you tentatively, wetting your ${this.multiCockDescriptLight()} with slipperiness.  You resist the urge to push forwards, knowing it would be futile with the restraints binding you so tightly.  They suck your ${this.player.cockHead()}s inside, making you groan and swell as your multitude of malenesses is slowly pulled inside the mechanized fuck-hole.   Squelching noises echo through the barn, mixed with pleasured moans.\n\n`,
                         false
                     );
             }
@@ -1513,24 +1461,16 @@ export class Farm extends BaseContent {
             if (Farm.rand(2) == 0) {
                 if (this.player.cockTotal() == 1)
                     this.outx(
-                        "The hose's hole spreads wide as it closes in on your crotch, revealing the organic pinkish interior.   Somehow you doubt it'll be able to take all of your mammoth member, but the artificial pussy seems intent on trying.   It pushes against your " +
-                            this.cockDescript(0) +
-                            "'s " +
-                            this.player.cockHead() +
-                            ", stretching wide and struggling to fit.  The feelings of slippery flesh writhing about you overwhelms your body, making you go limp in the harness.   The suction slowly pulls you inside, an inch at a time, while the soft 'flesh' of the device hugs your " +
-                            this.cockDescript(0) +
-                            " with its many wriggling 'tongues'.\n\n",
+                        `The hose's hole spreads wide as it closes in on your crotch, revealing the organic pinkish interior.   Somehow you doubt it'll be able to take all of your mammoth member, but the artificial pussy seems intent on trying.   It pushes against your ${this.cockDescript(
+                            0
+                        )}'s ${this.player.cockHead()}, stretching wide and struggling to fit.  The feelings of slippery flesh writhing about you overwhelms your body, making you go limp in the harness.   The suction slowly pulls you inside, an inch at a time, while the soft 'flesh' of the device hugs your ${this.cockDescript(
+                            0
+                        )} with its many wriggling 'tongues'.\n\n`,
                         false
                     );
                 else
                     this.outx(
-                        "The hoses' holes spread wide as they close in on your crotch, revealing their organic pinkish interiors.   Somehow you doubt they'll be able to take all of your mammoth members, but the artificial pussies seem intent on trying.   They push against your " +
-                            this.multiCockDescriptLight() +
-                            "' " +
-                            this.player.cockHead() +
-                            "s, stretching wide and struggling to fit.  The feelings of slippery flesh writhing about you overwhelms your body, making you go limp in the harness.   The suction slowly pulls you inside, an inch at a time, while the soft 'flesh' of the devices hugs your " +
-                            this.multiCockDescript() +
-                            " with its many wriggling 'tongues'.\n\n",
+                        `The hoses' holes spread wide as they close in on your crotch, revealing their organic pinkish interiors.   Somehow you doubt they'll be able to take all of your mammoth members, but the artificial pussies seem intent on trying.   They push against your ${this.multiCockDescriptLight()}' ${this.player.cockHead()}s, stretching wide and struggling to fit.  The feelings of slippery flesh writhing about you overwhelms your body, making you go limp in the harness.   The suction slowly pulls you inside, an inch at a time, while the soft 'flesh' of the devices hugs your ${this.multiCockDescript()} with its many wriggling 'tongues'.\n\n`,
                         false
                     );
             }
@@ -1538,20 +1478,14 @@ export class Farm extends BaseContent {
             else {
                 if (this.player.cockTotal() == 1)
                     this.outx(
-                        "The milker's opening dilates wide, struggling to spread enough to accommodate your sheer size.  It closes the gap, waving back and forth like a cobra.  It pauses, brushing its squirming interior against your " +
-                            this.player.cockHead() +
-                            " experimentally.  You squirm as its lubricants begin coating you, but do your best to hold still for the organic-looking pump mechanism.  It starts pushing against you, almost painfully, as your distended cock resists fitting into the tubular hole.  With a sigh of anguished pleasure you're crammed into the tube, squeezed tight by wiggling tendrils. The ever-increasing suction pulls the tube further and further down your length.  It bottoms out, pressing tightly against your crotch and squeezing the entirety of your " +
-                            this.cockDescript(0) +
-                            " with inhuman flesh.\n\n",
+                        `The milker's opening dilates wide, struggling to spread enough to accommodate your sheer size.  It closes the gap, waving back and forth like a cobra.  It pauses, brushing its squirming interior against your ${this.player.cockHead()} experimentally.  You squirm as its lubricants begin coating you, but do your best to hold still for the organic-looking pump mechanism.  It starts pushing against you, almost painfully, as your distended cock resists fitting into the tubular hole.  With a sigh of anguished pleasure you're crammed into the tube, squeezed tight by wiggling tendrils. The ever-increasing suction pulls the tube further and further down your length.  It bottoms out, pressing tightly against your crotch and squeezing the entirety of your ${this.cockDescript(
+                            0
+                        )} with inhuman flesh.\n\n`,
                         false
                     );
                 else
                     this.outx(
-                        "The milkers' openings dilate wide, struggling to spread enough to accommodate your sheer size.  They close the gap, waving back and forth like a cobra.  Pausing, they brush their squirming interiors against your " +
-                            this.multiCockDescriptLight() +
-                            " experimentally.  You squirm as the lubricants begin coating you, but do your best to hold still for the organic-looking pump mechanisms.  They start pushing against you, almost painfully, as your distended cocks resist fitting into the tubular holes.  With a sigh of anguished pleasure you're crammed into the tubes, squeezed tight by wiggling tendrils.  The ever-increasing suction pulls the tubes further and further down your lengths.  They bottom out, pressing tightly against your crotch and squeezing the entirety of your " +
-                            this.multiCockDescriptLight() +
-                            " with inhuman flesh.\n\n",
+                        `The milkers' openings dilate wide, struggling to spread enough to accommodate your sheer size.  They close the gap, waving back and forth like a cobra.  Pausing, they brush their squirming interiors against your ${this.multiCockDescriptLight()} experimentally.  You squirm as the lubricants begin coating you, but do your best to hold still for the organic-looking pump mechanisms.  They start pushing against you, almost painfully, as your distended cocks resist fitting into the tubular holes.  With a sigh of anguished pleasure you're crammed into the tubes, squeezed tight by wiggling tendrils.  The ever-increasing suction pulls the tubes further and further down your lengths.  They bottom out, pressing tightly against your crotch and squeezing the entirety of your ${this.multiCockDescriptLight()} with inhuman flesh.\n\n`,
                         false
                     );
             }
@@ -1575,24 +1509,18 @@ export class Farm extends BaseContent {
         if (this.player.hasKeyItem("Cock Milker: Anal Attachment") >= 0) {
             if (this.player.cockTotal() == 1)
                 this.outx(
-                    "A sudden splash of wetness hits your backside, instantly soaking your " +
-                        this.player.skinDesc +
-                        " with slippery lubricants.  You feel something narrow touch against your " +
-                        this.assholeDescript() +
-                        ", workings its way past the clenching muscles and into your body.  The violation would bother you more if it didn't seem to amplify the feelings radiating down your shaft, but then it starts to change.  You feel it swelling up inside, somehow inflating.  It stretches you wide, pressing against the knot of your prostate, milking out a thick flow of cum.   It pushes tighter and tighter, making you drip and drizzle in a steady flow before deflating, allowing your abused body to relax.  You sigh, but are kept rock hard by the feverish milking of your dick.\n\nEventually the probe inflates again, squeezing out another drizzle of thick spooge, the hose on your " +
-                        this.cockDescript(0) +
-                        " noisily sucking it down.  You're kept like that for quite a while – never feeling a true orgasm, but forced to expel cum over and over by always increasing waves of pressure in your ass.  You babble incoherently, pleasure-drunk, not even noticing a green light on the far side of the wall come on.  One thing you do notice is that the cock-tube isn't slowing down its ministrations.  You're finally allowed to cum!\n\n",
+                    `A sudden splash of wetness hits your backside, instantly soaking your ${
+                        this.player.skinDesc
+                    } with slippery lubricants.  You feel something narrow touch against your ${this.assholeDescript()}, workings its way past the clenching muscles and into your body.  The violation would bother you more if it didn't seem to amplify the feelings radiating down your shaft, but then it starts to change.  You feel it swelling up inside, somehow inflating.  It stretches you wide, pressing against the knot of your prostate, milking out a thick flow of cum.   It pushes tighter and tighter, making you drip and drizzle in a steady flow before deflating, allowing your abused body to relax.  You sigh, but are kept rock hard by the feverish milking of your dick.\n\nEventually the probe inflates again, squeezing out another drizzle of thick spooge, the hose on your ${this.cockDescript(
+                        0
+                    )} noisily sucking it down.  You're kept like that for quite a while – never feeling a true orgasm, but forced to expel cum over and over by always increasing waves of pressure in your ass.  You babble incoherently, pleasure-drunk, not even noticing a green light on the far side of the wall come on.  One thing you do notice is that the cock-tube isn't slowing down its ministrations.  You're finally allowed to cum!\n\n`,
                     false
                 );
             else
                 this.outx(
-                    "A sudden splash of wetness hits your backside, instantly soaking your " +
-                        this.player.skinDesc +
-                        " with slippery lubricants.  You feel something narrow touch against your " +
-                        this.assholeDescript() +
-                        ", workings its way past the clenching muscles and into your body.  The violation would bother you more if it didn't seem to amplify the feelings radiating down your shafts, but then it starts to change.  You feel it swelling up inside, somehow inflating.  It stretches you wide, pressing against the knot of your prostate, milking out a thick flow of cum.   It pushes tighter and tighter, making you drip and drizzle in a steady flow before deflating, allowing your abused body to relax.  You sigh, but are kept rock hard by the feverish milking of your dicks.\n\nEventually the probe inflates again, squeezing out another drizzle of thick spooge, the hoses on your " +
-                        this.multiCockDescriptLight() +
-                        " noisily sucking it down.  You're kept like that for quite a while – never feeling a true orgasm, but forced to expel cum over and over by always increasing waves of pressure in your ass.  You babble incoherently, pleasure-drunk, not even noticing a green light on the far side of the wall come on.  One thing you do notice is that the cock-tubes are no longer slowing down their ministrations.  You're finally allowed to cum!\n\n",
+                    `A sudden splash of wetness hits your backside, instantly soaking your ${
+                        this.player.skinDesc
+                    } with slippery lubricants.  You feel something narrow touch against your ${this.assholeDescript()}, workings its way past the clenching muscles and into your body.  The violation would bother you more if it didn't seem to amplify the feelings radiating down your shafts, but then it starts to change.  You feel it swelling up inside, somehow inflating.  It stretches you wide, pressing against the knot of your prostate, milking out a thick flow of cum.   It pushes tighter and tighter, making you drip and drizzle in a steady flow before deflating, allowing your abused body to relax.  You sigh, but are kept rock hard by the feverish milking of your dicks.\n\nEventually the probe inflates again, squeezing out another drizzle of thick spooge, the hoses on your ${this.multiCockDescriptLight()} noisily sucking it down.  You're kept like that for quite a while – never feeling a true orgasm, but forced to expel cum over and over by always increasing waves of pressure in your ass.  You babble incoherently, pleasure-drunk, not even noticing a green light on the far side of the wall come on.  One thing you do notice is that the cock-tubes are no longer slowing down their ministrations.  You're finally allowed to cum!\n\n`,
                     false
                 );
         }
@@ -1623,8 +1551,9 @@ export class Farm extends BaseContent {
                 );
                 if (cumQ > 500) this.outx("thick ");
                 this.outx(
-                    "spurts of spunk.  Wriggling cilia convulse around you, licking your head as it flares wide, filling with blood and pouring out cum.  You moan and scream with delight, babbling happily as you watch your cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end; the harness lowers you to the ground and releases you, but the squishy walls of your demon machine lover don't cease their ministrations on your tender " +
-                        Appearance.cockNoun(CockTypesEnum.HUMAN),
+                    `spurts of spunk.  Wriggling cilia convulse around you, licking your head as it flares wide, filling with blood and pouring out cum.  You moan and scream with delight, babbling happily as you watch your cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end; the harness lowers you to the ground and releases you, but the squishy walls of your demon machine lover don't cease their ministrations on your tender ${Appearance.cockNoun(
+                        CockTypesEnum.HUMAN
+                    )}`,
                     false
                 );
                 if (this.player.cockTotal() > 1) this.outx("s");
@@ -1634,11 +1563,7 @@ export class Farm extends BaseContent {
                 // [(if enough for payout)
                 if (cumQ > 100) this.outx("and a clatter of gems drop into the plate ");
                 this.outx(
-                    "as the machine measures your contribution, but it barely registers in the back of your mind as your " +
-                        this.multiCockDescriptLight() +
-                        " harden again from the unending, expertly-given stimulation of the animate tubes.  You try to pull the milker off your " +
-                        this.multiCockDescriptLight() +
-                        ", but with ",
+                    `as the machine measures your contribution, but it barely registers in the back of your mind as your ${this.multiCockDescriptLight()} harden again from the unending, expertly-given stimulation of the animate tubes.  You try to pull the milker off your ${this.multiCockDescriptLight()}, but with `,
                     false
                 );
                 // [(big dix)
@@ -1650,50 +1575,34 @@ export class Farm extends BaseContent {
                     this.outx(" and ");
                 }
                 this.outx(
-                    "how tired you are, you can't break the suction.  Every time you get a good grip and start to pull, the suction shoots a shiver of pleasure down " +
-                        this.sMultiCockDesc() +
-                        " and robs you of your focus and muscle control.  Practically helpless against the tubes, you feel your " +
-                        this.multiCockDescriptLight() +
-                        " get harder and harder, leaking out more pre-cum.\n\n",
+                    `how tired you are, you can't break the suction.  Every time you get a good grip and start to pull, the suction shoots a shiver of pleasure down ${this.sMultiCockDesc()} and robs you of your focus and muscle control.  Practically helpless against the tubes, you feel your ${this.multiCockDescriptLight()} get harder and harder, leaking out more pre-cum.\n\n`,
                     false
                 );
             }
             // (big skeet, ordinarily would be helper-assisted)
             else {
                 this.outx(
-                    "An eruption of jism boils out, splattering with loud wet noises into the tube.  You can feel the pressure build up, pushing back against your " +
-                        this.multiCockDescriptLight() +
-                        " as the machinery fails to keep up with the gushes of white fluid erupting inside it.  Your eyes cross from the pleasure and you start drooling all over yourself, not even noticing that you're about to blast the milker off your member.  The machinery grinds as it struggles to keep up, then pops off as it overflows with semen.  You don't even notice, instead focusing on the feeling of ejecting sticky globs from your " +
-                        this.multiCockDescriptLight() +
-                        ".\n\n",
+                    `An eruption of jism boils out, splattering with loud wet noises into the tube.  You can feel the pressure build up, pushing back against your ${this.multiCockDescriptLight()} as the machinery fails to keep up with the gushes of white fluid erupting inside it.  Your eyes cross from the pleasure and you start drooling all over yourself, not even noticing that you're about to blast the milker off your member.  The machinery grinds as it struggles to keep up, then pops off as it overflows with semen.  You don't even notice, instead focusing on the feeling of ejecting sticky globs from your ${this.multiCockDescriptLight()}.\n\n`,
                     false
                 );
 
                 this.outx(
-                    "Jism splatters on the floor below you as you discharge rivers of spunk.  Liters upon liters of the stuff spill out of your throbbing " +
-                        this.multiCockDescriptLight() +
-                        ", coating the outside of the ejected suction tubes to match the inside.  Eventually you spend your reserve and the cum flow reduces to a trickle.  Stupid with pleasure, you don't notice the suction tube",
+                    `Jism splatters on the floor below you as you discharge rivers of spunk.  Liters upon liters of the stuff spill out of your throbbing ${this.multiCockDescriptLight()}, coating the outside of the ejected suction tubes to match the inside.  Eventually you spend your reserve and the cum flow reduces to a trickle.  Stupid with pleasure, you don't notice the suction tube`,
                     false
                 );
                 if (this.player.cockTotal() > 1) this.outx("s");
                 this.outx(
-                    " wriggling back into place on your " +
-                        this.multiCockDescriptLight() +
-                        " as the harness lets you down into the puddle you made.  Only when the velvet walls of the demon machine resume their caresses do you take something as amiss with the situation.\n\n",
+                    ` wriggling back into place on your ${this.multiCockDescriptLight()} as the harness lets you down into the puddle you made.  Only when the velvet walls of the demon machine resume their caresses do you take something as amiss with the situation.\n\n`,
                     false
                 );
 
                 this.outx(
-                    "A loud 'ding' sounds and a clatter of gems drop into the plate as the machine measures your contribution, but it barely registers in the back of your mind as " +
-                        this.sMultiCockDesc() +
-                        " hardens again from the unending, expertly-given stimulation of the animate tube",
+                    `A loud 'ding' sounds and a clatter of gems drop into the plate as the machine measures your contribution, but it barely registers in the back of your mind as ${this.sMultiCockDesc()} hardens again from the unending, expertly-given stimulation of the animate tube`,
                     false
                 );
                 if (this.player.cockTotal() > 1) this.outx("s");
                 this.outx(
-                    ".  You try to pull the milker off your " +
-                        this.multiCockDescriptLight() +
-                        ", but the outside of the tubing is slick with your semen",
+                    `.  You try to pull the milker off your ${this.multiCockDescriptLight()}, but the outside of the tubing is slick with your semen`,
                     false
                 );
                 // [(big dix)
@@ -1704,11 +1613,7 @@ export class Farm extends BaseContent {
                     if (this.player.cockTotal() > 1) this.outx("s");
                 }
                 this.outx(
-                    ".  Every time you get a good grip and start to pull, a shiver of pleasure shoots down " +
-                        this.sMultiCockDesc() +
-                        " and robs you of your focus and muscle control.  Practically helpless against the tubes, you feel " +
-                        this.sMultiCockDesc() +
-                        " get harder and harder as the machine sucks out more pre-cum along with the milky aftershocks of your last massive orgasm.\n\n",
+                    `.  Every time you get a good grip and start to pull, a shiver of pleasure shoots down ${this.sMultiCockDesc()} and robs you of your focus and muscle control.  Practically helpless against the tubes, you feel ${this.sMultiCockDesc()} get harder and harder as the machine sucks out more pre-cum along with the milky aftershocks of your last massive orgasm.\n\n`,
                     false
                 );
             }
@@ -1722,16 +1627,12 @@ export class Farm extends BaseContent {
         if (cumQ < 10) {
             if (this.player.cockTotal() == 1)
                 this.outx(
-                    "The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out tiny squirts of spunk.  Wriggling cilia convulse around you, licking your " +
-                        this.player.cockHead() +
-                        " as it flares wide, filling with blood and dripping out a little cum.  You moan and scream with delight, babbling happily as you watch your insignificant amount of cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end, and your cock starts to soften inside its squishy prison.  The harness slowly loosens, lowering you to the ground and releasing you.\n\n",
+                    `The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out tiny squirts of spunk.  Wriggling cilia convulse around you, licking your ${this.player.cockHead()} as it flares wide, filling with blood and dripping out a little cum.  You moan and scream with delight, babbling happily as you watch your insignificant amount of cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end, and your cock starts to soften inside its squishy prison.  The harness slowly loosens, lowering you to the ground and releasing you.\n\n`,
                     false
                 );
             else
                 this.outx(
-                    "The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out tiny squirts of spunk.  Wriggling cilia convulse around you, licking your " +
-                        this.player.cockHead() +
-                        "s as they flare wide, filling with blood and dripping out a little cum.  You moan and scream with delight, babbling happily as you watch your insignificant amount of cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end, and your cocks start to soften inside their squishy prisons.  The harness slowly loosens, lowering you to the ground and releasing you.\n\n",
+                    `The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out tiny squirts of spunk.  Wriggling cilia convulse around you, licking your ${this.player.cockHead()}s as they flare wide, filling with blood and dripping out a little cum.  You moan and scream with delight, babbling happily as you watch your insignificant amount of cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end, and your cocks start to soften inside their squishy prisons.  The harness slowly loosens, lowering you to the ground and releasing you.\n\n`,
                     false
                 );
             this.fatigue(5);
@@ -1740,16 +1641,12 @@ export class Farm extends BaseContent {
         else if (cumQ < 100) {
             if (this.player.cockTotal() == 1)
                 this.outx(
-                    "The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out thick spurts of spunk.  Wriggling cilia convulse around you, licking your " +
-                        this.player.cockHead() +
-                        " as it flares wide, filling with blood and pouring out cum.  You moan and scream with delight, babbling happily as you watch your cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end, and your cock starts to soften inside its squishy prison.  The harness slowly loosens, lowering you to the ground and releasing you.\n\n",
+                    `The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out thick spurts of spunk.  Wriggling cilia convulse around you, licking your ${this.player.cockHead()} as it flares wide, filling with blood and pouring out cum.  You moan and scream with delight, babbling happily as you watch your cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end, and your cock starts to soften inside its squishy prison.  The harness slowly loosens, lowering you to the ground and releasing you.\n\n`,
                     false
                 );
             else
                 this.outx(
-                    "The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out thick spurts of spunk.  Wriggling cilia convulse around you, licking your " +
-                        this.player.cockHead() +
-                        "s as they flare wide, filling with blood and pouring out cum.  You moan and scream with delight, babbling happily as you watch your cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end, and your cocks start to soften inside their squishy prisons.  The harness slowly loosens, lowering you to the ground and releasing you.\n\n",
+                    `The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out thick spurts of spunk.  Wriggling cilia convulse around you, licking your ${this.player.cockHead()}s as they flare wide, filling with blood and pouring out cum.  You moan and scream with delight, babbling happily as you watch your cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end, and your cocks start to soften inside their squishy prisons.  The harness slowly loosens, lowering you to the ground and releasing you.\n\n`,
                     false
                 );
             this.fatigue(10);
@@ -1762,8 +1659,8 @@ export class Farm extends BaseContent {
                     false
                 );
                 if (this.player.balls > 0)
-                    this.outx("bloated " + this.ballsDescriptLight() + " are", false);
-                else this.outx("sensitive " + this.cockDescript(0) + " is", false);
+                    this.outx(`bloated ${this.ballsDescriptLight()} are`, false);
+                else this.outx(`sensitive ${this.cockDescript(0)} is`, false);
                 this.outx(" finally relieved of ");
                 if (this.player.balls > 0) this.outx("their ");
                 else this.outx("its ");
@@ -1777,8 +1674,8 @@ export class Farm extends BaseContent {
                     false
                 );
                 if (this.player.balls > 0)
-                    this.outx("bloated " + this.ballsDescriptLight() + " are", false);
-                else this.outx("sensitive " + this.multiCockDescriptLight() + " are", false);
+                    this.outx(`bloated ${this.ballsDescriptLight()} are`, false);
+                else this.outx(`sensitive ${this.multiCockDescriptLight()} are`, false);
                 this.outx(
                     " finally relieved of their pent up seed.  The machine suckles noisily, visibly turning some of the tubes in the wall solid white as the cock-pump's motors work hard to keep up with your impressive output.  Eventually it does come to an end.  Your jets of jism taper off and your dicks start to go soft inside the squirming machinery.  In response you feel it slip off you, retracting into the wall as the harness gently drops you back to the ground.\n\n",
                     false
@@ -1804,32 +1701,24 @@ export class Farm extends BaseContent {
         else {
             if (this.player.cockTotal() == 1) {
                 this.outx(
-                    "An eruption of jism boils out, splattering with loud wet noises into the tube.  You can feel the pressure build up, pressing back against your " +
-                        this.cockDescript(0) +
-                        " as the machinery fails to keep up with the gushes of white fluid erupting inside it.  Your eyes cross from the pleasure and you start drooling all over yourself, not even noticing that you're about to blast the milker off your member.  The machinery grinds as it struggles to keep up, blaring out alarms.  You don't even notice, instead focusing on the feeling of depositing sticky globs inside the milker-tube, pushing it halfway off your " +
-                        this.cockDescript(0) +
-                        ".\n\n",
+                    `An eruption of jism boils out, splattering with loud wet noises into the tube.  You can feel the pressure build up, pressing back against your ${this.cockDescript(
+                        0
+                    )} as the machinery fails to keep up with the gushes of white fluid erupting inside it.  Your eyes cross from the pleasure and you start drooling all over yourself, not even noticing that you're about to blast the milker off your member.  The machinery grinds as it struggles to keep up, blaring out alarms.  You don't even notice, instead focusing on the feeling of depositing sticky globs inside the milker-tube, pushing it halfway off your ${this.cockDescript(
+                        0
+                    )}.\n\n`,
                     false
                 );
                 this.outx(
-                    "Hurried footsteps enter the barn, and a pair of firm hands grab onto your bouncing " +
-                        this.multiCockDescriptLight() +
-                        ", pulling the milker back against your groin and splattering spunk around the seal from the added pressure.  The machine-suction totally cuts off, but you don't even care.  You just keep cumming, pumping the thick white cream down the tubes by the force of your orgasm alone.   Eventually your incredible orgasm winds down, and the hands release you, allowing the tube to pop off.  It slowly retracts to the wall as your harness is lowered, dropping your exhausted body in a wet heap on the ground.  When you regain your senses, your mysterious helper is gone.\n\n",
+                    `Hurried footsteps enter the barn, and a pair of firm hands grab onto your bouncing ${this.multiCockDescriptLight()}, pulling the milker back against your groin and splattering spunk around the seal from the added pressure.  The machine-suction totally cuts off, but you don't even care.  You just keep cumming, pumping the thick white cream down the tubes by the force of your orgasm alone.   Eventually your incredible orgasm winds down, and the hands release you, allowing the tube to pop off.  It slowly retracts to the wall as your harness is lowered, dropping your exhausted body in a wet heap on the ground.  When you regain your senses, your mysterious helper is gone.\n\n`,
                     false
                 );
             } else {
                 this.outx(
-                    "An eruption of jism boils out, splattering with loud wet noises into the tube.  You can feel the pressure build up, pressing back against your " +
-                        this.multiCockDescriptLight() +
-                        " as the machinery fails to keep up with the gushes of white fluid erupting inside it.  Your eyes cross from the pleasure and you start drooling all over yourself, not even noticing that you're about to blast the milkers off your members.  The machinery grinds as it struggles to keep up, blaring out alarms.  You don't even notice, instead focusing on the feeling of depositing sticky globs inside the milker-tubes, pushing them halfway off your " +
-                        this.multiCockDescriptLight() +
-                        ".\n\n",
+                    `An eruption of jism boils out, splattering with loud wet noises into the tube.  You can feel the pressure build up, pressing back against your ${this.multiCockDescriptLight()} as the machinery fails to keep up with the gushes of white fluid erupting inside it.  Your eyes cross from the pleasure and you start drooling all over yourself, not even noticing that you're about to blast the milkers off your members.  The machinery grinds as it struggles to keep up, blaring out alarms.  You don't even notice, instead focusing on the feeling of depositing sticky globs inside the milker-tubes, pushing them halfway off your ${this.multiCockDescriptLight()}.\n\n`,
                     false
                 );
                 this.outx(
-                    "Hurried footsteps enter the barn, and a pair of firm hands grab onto your bouncing " +
-                        this.multiCockDescriptLight() +
-                        ", pulling the milkers back against your groin and splattering spunk around the seal from the added pressure.  The machine-suction totally cuts off, but you don't even care.  You just keep cumming, pumping the thick white cream down the tubes by the force of your orgasm alone.   Eventually your incredible orgasm winds down, and the hands release you, allowing the tubes to pop off.  They slowly retracts to the wall as your harness is lowered, dropping your exhausted body in a wet heap on the ground.  When you regain your senses, your mysterious helper is gone.\n\n",
+                    `Hurried footsteps enter the barn, and a pair of firm hands grab onto your bouncing ${this.multiCockDescriptLight()}, pulling the milkers back against your groin and splattering spunk around the seal from the added pressure.  The machine-suction totally cuts off, but you don't even care.  You just keep cumming, pumping the thick white cream down the tubes by the force of your orgasm alone.   Eventually your incredible orgasm winds down, and the hands release you, allowing the tubes to pop off.  They slowly retracts to the wall as your harness is lowered, dropping your exhausted body in a wet heap on the ground.  When you regain your senses, your mysterious helper is gone.\n\n`,
                     false
                 );
             }
@@ -1856,8 +1745,8 @@ export class Farm extends BaseContent {
         }
         // Get rid of extra digits
         cumQ = Math.floor(cumQ);
-        if (cumQ > 100) this.outx(cumQ / 1000 + " Ls.  ", false);
-        else this.outx(cumQ + " mLs.  ", false);
+        if (cumQ > 100) this.outx(`${cumQ / 1000} Ls.  `, false);
+        else this.outx(`${cumQ} mLs.  `, false);
 
         // Calculate payout
         if (cumQ > 100) {
@@ -1878,8 +1767,8 @@ export class Farm extends BaseContent {
         }
         if (payout > 0) {
             if (this.player.cumQ() < 1000) this.player.modCumMultiplier(1);
-            if (payout == 1) this.outx(Farm.Num2Text(payout) + " gem rolls ", false);
-            else this.outx(Farm.Num2Text(payout) + " gems roll", false);
+            if (payout == 1) this.outx(`${Farm.Num2Text(payout)} gem rolls `, false);
+            else this.outx(`${Farm.Num2Text(payout)} gems roll`, false);
 
             this.outx(
                 "out into a collection plate.  Whitney really put a lot of work into this! ",
@@ -1902,9 +1791,7 @@ export class Farm extends BaseContent {
             }
 
             this.outx(
-                "ou see a few sparkling gems in your trail of cum on the floor. You reach down and pick up all " +
-                    gems +
-                    " of them</b>, and then you are",
+                `ou see a few sparkling gems in your trail of cum on the floor. You reach down and pick up all ${gems} of them</b>, and then you are`,
                 false
             );
 
@@ -1919,9 +1806,7 @@ export class Farm extends BaseContent {
 
     private cowBadEnd1(): void {
         this.outx(
-            "You moo with delight, fondling your dripping " +
-                this.allBreastsDescript() +
-                " as you relax in your stall.   You know there was something uh, important or something that you were going to do - besides getting your udders milked!  Mmmmm, all your worries about that other thing just melt away when you're in your harness, spraying out milk...\n\n",
+            `You moo with delight, fondling your dripping ${this.allBreastsDescript()} as you relax in your stall.   You know there was something uh, important or something that you were going to do - besides getting your udders milked!  Mmmmm, all your worries about that other thing just melt away when you're in your harness, spraying out milk...\n\n`,
             true
         );
         this.outx(
@@ -1938,9 +1823,7 @@ export class Farm extends BaseContent {
     private cowBadEnd2(): void {
         this.outx("", true);
         this.outx(
-            "A day later, you slosh back into the barn with your breasts painfully full and ready to be emptied.  Your cum-filled belly joins your tits in dragging on the floor while you daydream about your time in the minotaur caves last night.  The first one claimed your " +
-                this.assholeDescript() +
-                ", brutalizing it over and over while the beast emptied his vast reservoirs of seed into your rectum.  Before the beast's equine-like cock could be stuffed halfway inside you, a slightly smaller minotaur was in front of your face, smearing your lips with a thick coating of his tasty pre.  Like a good cow, you opened wide for the bull and gratefully accepted his thick loads, feeling the narcotic-like spunk shut down your ability to think about anything but sex.\n\n",
+            `A day later, you slosh back into the barn with your breasts painfully full and ready to be emptied.  Your cum-filled belly joins your tits in dragging on the floor while you daydream about your time in the minotaur caves last night.  The first one claimed your ${this.assholeDescript()}, brutalizing it over and over while the beast emptied his vast reservoirs of seed into your rectum.  Before the beast's equine-like cock could be stuffed halfway inside you, a slightly smaller minotaur was in front of your face, smearing your lips with a thick coating of his tasty pre.  Like a good cow, you opened wide for the bull and gratefully accepted his thick loads, feeling the narcotic-like spunk shut down your ability to think about anything but sex.\n\n`,
             false
         );
         this.outx(
@@ -1961,17 +1844,13 @@ export class Farm extends BaseContent {
         const cumQ: number = this.player.cumQ();
         this.outx("", true);
         this.outx(
-            "As you roll onto your back the machine delivers an encore performance on your swollen " +
-                this.multiCockDescriptLight() +
-                ", down to the very same orgasm denial.  Wracked by pleasure but now freed to move, you find yourself trying to thrust aganst the tubes, as best as your feeble grip and exhaustion will allow, in order to try to override the machine's will and achieve release.  Nevertheless, the suction expertly mainpulates your arousal and you can do little except endure it as another oversized batch of cum wells up",
+            `As you roll onto your back the machine delivers an encore performance on your swollen ${this.multiCockDescriptLight()}, down to the very same orgasm denial.  Wracked by pleasure but now freed to move, you find yourself trying to thrust aganst the tubes, as best as your feeble grip and exhaustion will allow, in order to try to override the machine's will and achieve release.  Nevertheless, the suction expertly mainpulates your arousal and you can do little except endure it as another oversized batch of cum wells up`,
             false
         );
         // [(balls)
-        if (this.player.balls > 0) this.outx(" in your " + this.ballsDescriptLight(), false);
+        if (this.player.balls > 0) this.outx(` in your ${this.ballsDescriptLight()}`, false);
         this.outx(
-            ".  As before, the machine works you on and off for roughly an hour before the wall light once again turns green and the suction on your " +
-                this.multiCockDescriptLight() +
-                " intensifies.  Your hips take over as you buck against the machine and push out another ",
+            `.  As before, the machine works you on and off for roughly an hour before the wall light once again turns green and the suction on your ${this.multiCockDescriptLight()} intensifies.  Your hips take over as you buck against the machine and push out another `,
             false
         );
         if (cumQ < 100) this.outx("trickle");
@@ -2025,62 +1904,50 @@ export class Farm extends BaseContent {
         // [(if vag)
         if (this.player.hasVagina()) {
             this.outx(
-                "  Another tube, likewise capped with a thick, firm end instead of a suction cup, reaches your " +
-                    this.vaginaDescript(0) +
-                    " and pushes inside, secreting more of the fluid.  ",
+                `  Another tube, likewise capped with a thick, firm end instead of a suction cup, reaches your ${this.vaginaDescript(
+                    0
+                )} and pushes inside, secreting more of the fluid.  `,
                 false
             );
             this.player.cuntChange(15, true);
             // [(bigclit)
             if (this.player.clitLength > 3)
                 this.outx(
-                    "A smaller suction tube fastens over your " +
-                        this.clitDescript() +
-                        " as it rouses from the vaginal stimulation.",
+                    `A smaller suction tube fastens over your ${this.clitDescript()} as it rouses from the vaginal stimulation.`,
                     false
                 );
         }
         // [(lactation, no nipplecunts)
         if (this.player.biggestLactation() >= 1 && !this.player.hasFuckableNipples()) {
             this.outx(
-                "  Some tubes of the cup-type latch onto your " +
-                    this.nippleDescript(0) +
-                    "s, then begin suction of their own. You feel your breastmilk shift toward the nipples, then begin to dribble into the tubes.",
+                `  Some tubes of the cup-type latch onto your ${this.nippleDescript(
+                    0
+                )}s, then begin suction of their own. You feel your breastmilk shift toward the nipples, then begin to dribble into the tubes.`,
                 false
             );
         }
         // [(nipplecunts)
         if (this.player.hasFuckableNipples()) {
             this.outx(
-                "  More tubes snake up to your " +
-                    this.biggestBreastSizeDescript() +
-                    " and work their way into your " +
-                    this.nippleDescript(0) +
-                    "s.",
+                `  More tubes snake up to your ${this.biggestBreastSizeDescript()} and work their way into your ${this.nippleDescript(
+                    0
+                )}s.`,
                 false
             );
         }
         this.outx(
-            "  " +
-                this.SMultiCockDesc() +
-                " becomes enormously hard again in a matter of seconds as you absorb the secretions.  You quickly deduce what it is you're tasting; the demon-designed tubing is feeding your own semen back into you, laced with some kind of chemical!\n\n",
+            `  ${this.SMultiCockDesc()} becomes enormously hard again in a matter of seconds as you absorb the secretions.  You quickly deduce what it is you're tasting; the demon-designed tubing is feeding your own semen back into you, laced with some kind of chemical!\n\n`,
             false
         );
 
         this.outx(
-            "Under the effects of this new drug, " +
-                this.sMultiCockDesc() +
-                " inflates, engorging with blood until it's much larger than usual",
+            `Under the effects of this new drug, ${this.sMultiCockDesc()} inflates, engorging with blood until it's much larger than usual`,
             false
         );
         // [(balls)
         if (this.player.balls > 0)
             this.outx(
-                " and your " +
-                    this.sackDescript() +
-                    " stretches as your " +
-                    this.ballsDescriptLight() +
-                    " nearly double in size",
+                ` and your ${this.sackDescript()} stretches as your ${this.ballsDescriptLight()} nearly double in size`,
                 false
             );
         this.outx(
@@ -2114,7 +1981,7 @@ export class Farm extends BaseContent {
         }
         // [(lactation)
         if (this.player.biggestTitSize() > 1) {
-            this.outx("  Your milk sprays out of your " + this.nippleDescript(0) + "s", false);
+            this.outx(`  Your milk sprays out of your ${this.nippleDescript(0)}s`, false);
             // [(nipplecunts)
             if (this.player.hasFuckableNipples())
                 this.outx(
@@ -2136,38 +2003,29 @@ export class Farm extends BaseContent {
         );
 
         this.outx(
-            "For several hours this continues, " +
-                this.sMultiCockDesc() +
-                " swelling to nearly twice its previous size and your orgasms coming one after another without a break as you pump your hips, knowing or caring about nothing except getting off on your machine lover and being fed in turn.  Your load each time is increased rather than decreased, with the cups growing multiple fleshy overflow valves and working overtime to vent the excess pressure every time you ejaculate.  ",
+            `For several hours this continues, ${this.sMultiCockDesc()} swelling to nearly twice its previous size and your orgasms coming one after another without a break as you pump your hips, knowing or caring about nothing except getting off on your machine lover and being fed in turn.  Your load each time is increased rather than decreased, with the cups growing multiple fleshy overflow valves and working overtime to vent the excess pressure every time you ejaculate.  `,
             false
         );
         // [(corruption > 90, high demonscore)
         if (this.player.cor > 90) {
             this.outx(
-                "After literally hundreds of orgasms, the machine once again begins carefully regulating its suction, denying your release.  Repeatedly it teases your " +
-                    this.multiCockDescriptLight(),
+                `After literally hundreds of orgasms, the machine once again begins carefully regulating its suction, denying your release.  Repeatedly it teases your ${this.multiCockDescriptLight()}`,
                 false
             );
             // [(vag)
-            if (this.player.hasVagina()) this.outx(" and " + this.vaginaDescript(0), false);
+            if (this.player.hasVagina()) this.outx(` and ${this.vaginaDescript(0)}`, false);
             this.outx(
-                " to the edge of orgasm and then backs off.  All the pumping in the world can't seem to get you over it, and your frustration mounts as the minutes roll by.  A sharper pressure than usual forms at the base of your " +
-                    this.multiCockDescriptLight() +
-                    " as you fruitlessly grind into the tubes, wishing more than anything to climax; the green light on the wall steadfastedly refuses to light up, mocking your attempts.  From the new pressure an odd strength flows through the rest of your body, increasing your sexual fervor and giving you a second wind, and you finally manage to get a good grip on the tubes, nearly slamming them back and forth on your shaft",
+                ` to the edge of orgasm and then backs off.  All the pumping in the world can't seem to get you over it, and your frustration mounts as the minutes roll by.  A sharper pressure than usual forms at the base of your ${this.multiCockDescriptLight()} as you fruitlessly grind into the tubes, wishing more than anything to climax; the green light on the wall steadfastedly refuses to light up, mocking your attempts.  From the new pressure an odd strength flows through the rest of your body, increasing your sexual fervor and giving you a second wind, and you finally manage to get a good grip on the tubes, nearly slamming them back and forth on your shaft`,
                 false
             );
             if (this.player.cockTotal() > 1) this.outx("s");
             this.outx(
-                ".  This damn demon machine can't stop you from getting off anymore; with a violent shove you bury " +
-                    this.sMultiCockDesc() +
-                    " into the mouth",
+                `.  This damn demon machine can't stop you from getting off anymore; with a violent shove you bury ${this.sMultiCockDesc()} into the mouth`,
                 false
             );
             if (this.player.cockTotal() > 1) this.outx("s");
             this.outx(
-                " as your orgasm lets fly!  A truly miraculous amount of semen erupts from your " +
-                    this.multiCockDescriptLight() +
-                    ", blowing off the covers of the overflow valves entirely. Jizz shoots across the room as you feel the bulge of pressure slide up your shaft and out of your urethra; a large pink crystal falls out of an open valve-hole and onto the wet floor with a 'plop'.  ",
+                ` as your orgasm lets fly!  A truly miraculous amount of semen erupts from your ${this.multiCockDescriptLight()}, blowing off the covers of the overflow valves entirely. Jizz shoots across the room as you feel the bulge of pressure slide up your shaft and out of your urethra; a large pink crystal falls out of an open valve-hole and onto the wet floor with a 'plop'.  `,
                 false
             );
         }
@@ -2185,9 +2043,7 @@ export class Farm extends BaseContent {
             );
             if (this.player.cockTotal() > 1) this.outx("es");
             this.outx(
-                ' pushing massive loads of semen down the tubes and out of the release valves in a firework pattern. Whitney shrinks back as some of the spooge squirts across the barn and comes to a stop less than a foot from her. The canine woman screams volubly enough to wake the entire farm. "<i>Dammit, ' +
-                    this.player.short +
-                    '; just... DAMMIT!</i>" You spare her not even a thought as you anticipate your next injection of the tainted chemicals and work up another batch of jizz.',
+                ` pushing massive loads of semen down the tubes and out of the release valves in a firework pattern. Whitney shrinks back as some of the spooge squirts across the barn and comes to a stop less than a foot from her. The canine woman screams volubly enough to wake the entire farm. "<i>Dammit, ${this.player.short}; just... DAMMIT!</i>" You spare her not even a thought as you anticipate your next injection of the tainted chemicals and work up another batch of jizz.`,
                 false
             );
             this.dynStats("lib", 20, "sen", 10, "lus", 80, "cor", 20);
@@ -2211,9 +2067,7 @@ export class Farm extends BaseContent {
                     false
                 );
             this.outx(
-                '.  Just in time she backs up and pulls a pitchfork down from the wall. "<i>I expect I was wrong about you when we met, ' +
-                    this.player.short +
-                    ".  Get on out of here now and never come back or I'll make sure you never go anywhere again.</i>\"  Scowling, you break off your advance and head toward the door.  Though you definitely want to fuck her, giving yourself a chance to adjust to your magnificent new body might not be a bad idea either.  After all, no matter what she says you can always come back... meanwhile you vow to find something or someone to rape or turn into your personal cock-milker.  With an amazing ",
+                `.  Just in time she backs up and pulls a pitchfork down from the wall. "<i>I expect I was wrong about you when we met, ${this.player.short}.  Get on out of here now and never come back or I'll make sure you never go anywhere again.</i>"  Scowling, you break off your advance and head toward the door.  Though you definitely want to fuck her, giving yourself a chance to adjust to your magnificent new body might not be a bad idea either.  After all, no matter what she says you can always come back... meanwhile you vow to find something or someone to rape or turn into your personal cock-milker.  With an amazing `,
                 false
             );
             if (this.player.totalCocks() == 1) this.outx("dick");
@@ -2235,9 +2089,7 @@ export class Farm extends BaseContent {
         );
 
         this.outx(
-            '"<i>Oh, hey there, ' +
-                this.player.short +
-                ',</i>" Whitney says, leaning heavily on her pitchfork.  "<i>Not much, just trying to figure out... Hey, now!</i>" she says, eying up your powerful centaur frame.  ',
+            `"<i>Oh, hey there, ${this.player.short},</i>" Whitney says, leaning heavily on her pitchfork.  "<i>Not much, just trying to figure out... Hey, now!</i>" she says, eying up your powerful centaur frame.  `,
             false
         );
         if (this.player.cor < 50) this.outx("You shift awkwardly and ask her what's wrong.");
@@ -2256,9 +2108,7 @@ export class Farm extends BaseContent {
         this.outx("You shrug. Sure.\n\n", false);
 
         this.outx(
-            '"<i>See, the two of them left some rather personal belongings behind,</i>" Whitney says, swinging the barn door open.  Inside, lying in the middle of a stall are what looks like a tall, slender totem with a giant rubber horsecock sticking out of it and a fake mare standing on reinforced wooden legs with a glistening, horsey onahole between its thighs.  Oh, my.  "<i>So, ' +
-                this.player.short +
-                ", since you look to have the right build for 'em... they're yours.</i>\"\n\n",
+            `"<i>See, the two of them left some rather personal belongings behind,</i>" Whitney says, swinging the barn door open.  Inside, lying in the middle of a stall are what looks like a tall, slender totem with a giant rubber horsecock sticking out of it and a fake mare standing on reinforced wooden legs with a glistening, horsey onahole between its thighs.  Oh, my.  "<i>So, ${this.player.short}, since you look to have the right build for 'em... they're yours.</i>"\n\n`,
             false
         );
 

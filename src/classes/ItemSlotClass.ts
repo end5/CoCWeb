@@ -20,7 +20,7 @@ export class ItemSlotClass {
             (quant == 0 && itype != ItemType.NOTHING) ||
             (quant > 0 && itype == ItemType.NOTHING)
         ) {
-            CocSettings.error("Inconsistent setItemAndQty call: " + quant + " " + itype);
+            CocSettings.error(`Inconsistent setItemAndQty call: ${quant} ${itype}`);
             quant = 0;
             itype = ItemType.NOTHING;
         }

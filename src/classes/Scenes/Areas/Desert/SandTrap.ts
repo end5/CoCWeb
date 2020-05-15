@@ -79,7 +79,7 @@ export class SandTrap extends Monster {
             );
             this.game.dynStats("lus", damage);
             damage = Math.round((damage * this.game.lustPercent()) / 10) / 10;
-            this.outx(" (" + damage + " lust)");
+            this.outx(` (${damage} lust)`);
         }
     }
 

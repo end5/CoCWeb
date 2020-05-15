@@ -27,18 +27,14 @@ export class Goblin extends Monster {
         if (color != "blue") {
             if (this.short == "Tamani's daughters")
                 this.outx(
-                    "Tamani uncorks a glass bottle full of " +
-                        color +
-                        " fluid and swings her arm, flinging a wave of fluid at you.",
+                    `Tamani uncorks a glass bottle full of ${color} fluid and swings her arm, flinging a wave of fluid at you.`,
                     false
                 );
             else
                 this.outx(
-                    this.capitalA +
-                        this.short +
-                        " uncorks a glass bottle full of " +
-                        color +
-                        " fluid and swings her arm, flinging a wave of fluid at you.",
+                    `${
+                        this.capitalA + this.short
+                    } uncorks a glass bottle full of ${color} fluid and swings her arm, flinging a wave of fluid at you.`,
                     false
                 );
         }
@@ -59,9 +55,9 @@ export class Goblin extends Monster {
                 this.outx("\n", false);
             } else {
                 this.outx(
-                    this.capitalA +
-                        this.short +
-                        " pulls out a blue vial and uncaps it, swiftly downing its contents.",
+                    `${
+                        this.capitalA + this.short
+                    } pulls out a blue vial and uncaps it, swiftly downing its contents.`,
                     false
                 );
                 if (this.HPRatio() < 1) {
@@ -121,23 +117,23 @@ export class Goblin extends Monster {
         const det: number = Goblin.rand(3);
         if (det == 0)
             this.outx(
-                this.capitalA +
-                    this.short +
-                    ' runs her hands along her leather-clad body and blows you a kiss. "<i>Why not walk on the wild side?</i>" she asks.',
+                `${
+                    this.capitalA + this.short
+                } runs her hands along her leather-clad body and blows you a kiss. "<i>Why not walk on the wild side?</i>" she asks.`,
                 false
             );
         if (det == 1)
             this.outx(
-                this.capitalA +
-                    this.short +
-                    " grabs her heel and lifts it to her head in an amazing display of flexibility.  She caresses her snatch and gives you a come hither look.",
+                `${
+                    this.capitalA + this.short
+                } grabs her heel and lifts it to her head in an amazing display of flexibility.  She caresses her snatch and gives you a come hither look.`,
                 false
             );
         if (det == 2)
             this.outx(
-                this.capitalA +
-                    this.short +
-                    " bends over, putting on a show and jiggling her heart-shaped ass at you.  She looks over her shoulder and sucks on her finger, batting her eyelashes.",
+                `${
+                    this.capitalA + this.short
+                } bends over, putting on a show and jiggling her heart-shaped ass at you.  She looks over her shoulder and sucks on her finger, batting her eyelashes.`,
                 false
             );
         this.game.dynStats("lus", Goblin.rand(this.player.lib / 10) + 8);

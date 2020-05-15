@@ -45,9 +45,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         this.spriteSelect(40);
         this.outx(this.images.showImage("marae-first-encounter"));
         this.outx(
-            "Like a hidden emerald jewel, a small island appears in the distance.  You wager that you're somewhere near the center of this lake.  How coincidental.   You row closer, eager to get out of the boat and stretch your " +
-                this.player.legs() +
-                ".  The rowboat grounds itself in the moist earth of the island, coming to a dead stop.   You climb out, noting that this island is little more than a raised mound of earth and grass, with a small tree perched atop its apex.  ",
+            `Like a hidden emerald jewel, a small island appears in the distance.  You wager that you're somewhere near the center of this lake.  How coincidental.   You row closer, eager to get out of the boat and stretch your ${this.player.legs()}.  The rowboat grounds itself in the moist earth of the island, coming to a dead stop.   You climb out, noting that this island is little more than a raised mound of earth and grass, with a small tree perched atop its apex.  `,
             false
         );
         // Dungeon operational
@@ -291,9 +289,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 // Repeat corrupt meeting
                 else {
                     this.outx(
-                        'Marae smiles and leans forwards, cupping her breasts in her hands.  Amazingly, she flows out from the tree, standing as a free woman before you.  She massages her G-sized breasts, winking lewdly and pinching her shining purplish nipples, squeezing out droplets of honey-colored sap.  She blows you a kiss while the flower at her groin opens welcomingly.  She moans, "<i>Reconsider my offer yet, ' +
-                            this.player.short +
-                            "?  I won't force you, but don't you want to spend eternity in heaven with a living goddess?</i>\"",
+                        `Marae smiles and leans forwards, cupping her breasts in her hands.  Amazingly, she flows out from the tree, standing as a free woman before you.  She massages her G-sized breasts, winking lewdly and pinching her shining purplish nipples, squeezing out droplets of honey-colored sap.  She blows you a kiss while the flower at her groin opens welcomingly.  She moans, "<i>Reconsider my offer yet, ${this.player.short}?  I won't force you, but don't you want to spend eternity in heaven with a living goddess?</i>"`,
                         false
                     );
                     // Yes - accept, No- run
@@ -355,11 +351,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
 
         if (this.player.cocks.length == 0) {
             this.outx(
-                "A building sense of pressure grows in your groin, bulging the flesh of your crotch out.  You ignore it, focusing on suckling more of the sweet fluids from your goddess' breasts.   The warmth in your middle feels like it's dripping down into that new bulge, making it tingle with sensitivity.  You ignore it, and lash your tongue across the slippery nipple in your mouth, being rewarded with another warm blast of syrupy sap.   Your mind fills with an impenetrable haze of lust, overcoming any logic with thoughts of raw sex intermingled with animal desire. You're pulled back again by that unholy strength, fighting to get one last lick on that nipple.  Your " +
-                    this.player.legs() +
-                    " and " +
-                    this.hipDescript() +
-                    " shake with lust, driven mad by sweet desire.  Marae reaches down to cup your groin, and blinds you with intense sensation.  She guides your gaze down to a new appendage that's sprouted from your needy groin – <b>a tentacle dick</b>!  It wavers to and fro, coiling on itself and tasting the air like a snake.\n\n",
+                `A building sense of pressure grows in your groin, bulging the flesh of your crotch out.  You ignore it, focusing on suckling more of the sweet fluids from your goddess' breasts.   The warmth in your middle feels like it's dripping down into that new bulge, making it tingle with sensitivity.  You ignore it, and lash your tongue across the slippery nipple in your mouth, being rewarded with another warm blast of syrupy sap.   Your mind fills with an impenetrable haze of lust, overcoming any logic with thoughts of raw sex intermingled with animal desire. You're pulled back again by that unholy strength, fighting to get one last lick on that nipple.  Your ${this.player.legs()} and ${this.hipDescript()} shake with lust, driven mad by sweet desire.  Marae reaches down to cup your groin, and blinds you with intense sensation.  She guides your gaze down to a new appendage that's sprouted from your needy groin – <b>a tentacle dick</b>!  It wavers to and fro, coiling on itself and tasting the air like a snake.\n\n`,
                 false
             );
             this.player.createCock();
@@ -368,13 +360,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             this.player.cocks[0].cockType = CockTypesEnum.TENTACLE;
         } else {
             this.outx(
-                "You drink deeply, suckling her thick syrupy milk with strength born of an instantaneous addiction.  The desire to attain more of her 'milk' overrides any other thoughts, clouding over them like a dense morning fog.  The slick nipples feel like they tense and squirm in your mouth as you draw every last bit of their delicious cargo into your greedy gullet.  You " +
-                    this.hipDescript() +
-                    " twitch and squirm, throbbing and hard, making your " +
-                    this.multiCockDescriptLight() +
-                    " bob in the air.   Heedless of your groin's incessant begging, you work the nipple in your mouth as if it was your whole world, trying to pleasure as much as suckle.  You can feel your " +
-                    this.multiCockDescriptLight() +
-                    " squirming in the air  as if reaching for her.  Wait, squirming!?  You're pulled back from her nipple and given the chance to look down, where ",
+                `You drink deeply, suckling her thick syrupy milk with strength born of an instantaneous addiction.  The desire to attain more of her 'milk' overrides any other thoughts, clouding over them like a dense morning fog.  The slick nipples feel like they tense and squirm in your mouth as you draw every last bit of their delicious cargo into your greedy gullet.  You ${this.hipDescript()} twitch and squirm, throbbing and hard, making your ${this.multiCockDescriptLight()} bob in the air.   Heedless of your groin's incessant begging, you work the nipple in your mouth as if it was your whole world, trying to pleasure as much as suckle.  You can feel your ${this.multiCockDescriptLight()} squirming in the air  as if reaching for her.  Wait, squirming!?  You're pulled back from her nipple and given the chance to look down, where `,
                 false
             );
             if (this.player.tentacleCocks() < this.player.cockTotal()) {
@@ -394,17 +380,13 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 }
             }
             this.outx(
-                "<b>you see your " +
-                    this.multiCockDescriptLight() +
-                    " waving around, seeking a nearby orifice to fuck!</b>\n\n",
+                `<b>you see your ${this.multiCockDescriptLight()} waving around, seeking a nearby orifice to fuck!</b>\n\n`,
                 false
             );
         }
 
         this.outx(
-            '"<i>Yum,</i>" whispers Marae, throwing you against her tree and advancing confidently, "<i>nothing feels quite as good as burying a squirming tentacle into some hot wet cunt\'s pussy and asshole.</i>" She beckons you closer and begins advancing on you.  Your body edges closer of its own volition, as if she has a hook buried in your groin and pulling you away from the tree, towards her needy flower.   When she closes within a few feet, your ' +
-                this.multiCockDescript() +
-                " splits into a dozen different appendages, each waving in the air with licentious intent.  Before you can react, they lash forwards, wrapping her arms and legs tightly, hauling her onto two central tendrils.  In seconds, your primary tentacle-dick buries itself up to her cervix, pressing roughly against her internal opening while it squirms like a trapped snake inside her cunt.  The secondary cock-vine manages to penetrate her bum with ease, tingling as lubricant splatters around the rough penetration.\n\n",
+            `"<i>Yum,</i>" whispers Marae, throwing you against her tree and advancing confidently, "<i>nothing feels quite as good as burying a squirming tentacle into some hot wet cunt's pussy and asshole.</i>" She beckons you closer and begins advancing on you.  Your body edges closer of its own volition, as if she has a hook buried in your groin and pulling you away from the tree, towards her needy flower.   When she closes within a few feet, your ${this.multiCockDescript()} splits into a dozen different appendages, each waving in the air with licentious intent.  Before you can react, they lash forwards, wrapping her arms and legs tightly, hauling her onto two central tendrils.  In seconds, your primary tentacle-dick buries itself up to her cervix, pressing roughly against her internal opening while it squirms like a trapped snake inside her cunt.  The secondary cock-vine manages to penetrate her bum with ease, tingling as lubricant splatters around the rough penetration.\n\n`,
             false
         );
 
@@ -475,9 +457,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 if (this.player.cocks.length > 1) this.outx("largest ");
                 this.outx(this.cockDescript(0), false);
                 this.outx(
-                    "'s tip.  Immediately a powerful suction draws your " +
-                        this.cockDescript(0) +
-                        " inside the tentacle-maw, burying you up to the base in squirming pleasure.   Marae watches the plant go to work, squeezing teasingly until you orgasm.  It takes mere moments for the gifted tentacle to achieve its goal.  Your cum makes a tasty treat for the plant-beast, and it sucks and sucks until your body feels empty and drained.\n\n",
+                    `'s tip.  Immediately a powerful suction draws your ${this.cockDescript(
+                        0
+                    )} inside the tentacle-maw, burying you up to the base in squirming pleasure.   Marae watches the plant go to work, squeezing teasingly until you orgasm.  It takes mere moments for the gifted tentacle to achieve its goal.  Your cum makes a tasty treat for the plant-beast, and it sucks and sucks until your body feels empty and drained.\n\n`,
                     false
                 );
                 this.outx(
@@ -494,21 +476,19 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     false
                 );
                 this.outx(
-                    "You feel warm, enclosed in comfort and pleasure.  Is this heaven?  No, your head is throbbing and your eyes are closed... you open them and discover you're still lying at the base of the tree.  That greedy tentacle is still locked around your " +
-                        this.cockDescript(0) +
-                        " pinning it in the throes of orgasm.  You watch thick bulges of cum pump up the tentacle, evidence of a truly garguantuan fluid output.  It goes on and on, and you realize the pleasure ought to drive you mad.\n\n",
+                    `You feel warm, enclosed in comfort and pleasure.  Is this heaven?  No, your head is throbbing and your eyes are closed... you open them and discover you're still lying at the base of the tree.  That greedy tentacle is still locked around your ${this.cockDescript(
+                        0
+                    )} pinning it in the throes of orgasm.  You watch thick bulges of cum pump up the tentacle, evidence of a truly garguantuan fluid output.  It goes on and on, and you realize the pleasure ought to drive you mad.\n\n`,
                     false
                 );
                 this.outx(
-                    "Marae steps into your field of view, and pulls the tentacle free.  Your " +
-                        this.cockDescript(0) +
-                        " twitches pitifully, blasting a few massive loads onto your belly as your orgasm withers and dies from lack of stimulation.\n\n",
+                    `Marae steps into your field of view, and pulls the tentacle free.  Your ${this.cockDescript(
+                        0
+                    )} twitches pitifully, blasting a few massive loads onto your belly as your orgasm withers and dies from lack of stimulation.\n\n`,
                     false
                 );
                 this.outx(
-                    "\"<i>Sorry about the pain, I had to tweak your body to make you a true breeder.  You can go now stud.  I expect the monsters ought to worry about you now, or they'll all have dripping twats and swollen bellies,</i>\" apologizes Marae.  She turns away from you, returning to the embrace of her tree's tentacles, sinking into debauchery.  You stagger into your boat and row away, oblivious to the stream to pre-cum dripping from your " +
-                        this.multiCockDescript() +
-                        ".",
+                    `"<i>Sorry about the pain, I had to tweak your body to make you a true breeder.  You can go now stud.  I expect the monsters ought to worry about you now, or they'll all have dripping twats and swollen bellies,</i>" apologizes Marae.  She turns away from you, returning to the embrace of her tree's tentacles, sinking into debauchery.  You stagger into your boat and row away, oblivious to the stream to pre-cum dripping from your ${this.multiCockDescript()}.`,
                     false
                 );
                 this.player.createPerk(PerkLib.MaraesGiftStud, 0, 0, 0, 0);
@@ -517,9 +497,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             // FEM)
             else {
                 this.outx(
-                    "She extends a hand expectantly, watching with detached concentration while a tentacle lowers from the tree into her palm.  A swift slash of her free hand cuts your " +
-                        this.player.armorName +
-                        " free, exposing your ",
+                    `She extends a hand expectantly, watching with detached concentration while a tentacle lowers from the tree into her palm.  A swift slash of her free hand cuts your ${this.player.armorName} free, exposing your `,
                     false
                 );
                 if (this.player.gender == 0) {
@@ -529,7 +507,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     );
                     this.player.createVagina();
                     this.player.genderCheck();
-                } else this.outx(this.vaginaDescript(0) + ".  ", false);
+                } else this.outx(`${this.vaginaDescript(0)}.  `, false);
                 this.outx(
                     "She guides the tentacle forwards, letting it brush your nether-lips.  Without any guidance from its mistress, the bulbous plant-member buries itself inside you, sliding in easily until it's pushing hard against your womb.  A quick blast of fluid sends cramps spasming up your gut, forcing your cervix to dilate.  It wastes no time, flowing into your unprotected womb.  As soon as it reaches the back of your womb, thick bulges begin sliding down the exposed portion of the tentacle.  It stretches you wide, almost painfully so, as they pass through your lips and work up your passage.  They begin exploding in your cunt, one after the other, cum-bombs bursting in your womb, filling you to the brink.  Your belly swells out, giving you the appearance of a pregnant woman.  Finished with its nasty work, the plant-prick pulls free leaving your puffy pussy lips slightly agape.  A small runner of a thick green substance slowly slides out.",
                     false
@@ -545,9 +523,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     false
                 );
                 this.outx(
-                    "You are dropped from the tree, and with little choice, you waddle to your boat, doing your best to cover up your violated " +
-                        this.vaginaDescript(0) +
-                        ".",
+                    `You are dropped from the tree, and with little choice, you waddle to your boat, doing your best to cover up your violated ${this.vaginaDescript(
+                        0
+                    )}.`,
                     false
                 );
                 this.player.createPerk(PerkLib.MaraesGiftFertility, 0, 0, 0, 0);
@@ -587,12 +565,11 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
         this.outx(
-            ".  The old dinghy's cutting through the water with amazing speed, leaving foot-high waves in its wake.  Marae's island grows larger with each passing second, almost taunting you with your inability to get away.   By now the root-like vines have crept over the gunwales, and they wriggle at you, seemingly in warning.  Getting in the water is definitely not a good idea right now. The bone-chilling scrape of sand on wood grates at your ears.  You've arrived.  There's no point in putting off the inevitable.  You straighten up your " +
-                this.player.armorName,
+            `.  The old dinghy's cutting through the water with amazing speed, leaving foot-high waves in its wake.  Marae's island grows larger with each passing second, almost taunting you with your inability to get away.   By now the root-like vines have crept over the gunwales, and they wriggle at you, seemingly in warning.  Getting in the water is definitely not a good idea right now. The bone-chilling scrape of sand on wood grates at your ears.  You've arrived.  There's no point in putting off the inevitable.  You straighten up your ${this.player.armorName}`,
             false
         );
         if (this.player.weaponName != "fists")
-            this.outx(", adjust your " + this.player.weaponName + ",", false);
+            this.outx(`, adjust your ${this.player.weaponName},`, false);
         this.outx(
             " and step out of the boat onto the small, sandy beach that rings the island.  The tentacles that dragged your boat ashore are gone, leaving the well-used vessel in pristine condition, or as close as any such water-craft can be.  Looking up, you behold the monstrous, demonic-tree that sprouts from the island's apex.   It has no leaves, only small, teat-like protrusions that sprout from some of the 'branches', which in truth have more in common with tentacles than plant-life.  The squirming mass of sexual shrubbery stays in constant motion, and its intertwined tentacles occasionally bulge and flex as they spurt thick, jism-like sap over one-another.\n\n",
             false
@@ -606,9 +583,10 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         // (STOLE)
         if (this.player.hasKeyItem("Marae's Lethicite") >= 0) {
             this.outx(
-                "Welcome back, sneak-thief.  What kind of " +
-                    this.player.mf("gentleman", "lady") +
-                    " is offered sex and then ransacks a god's soul?  Honestly, that right-right theeeeeree-oh yeah right there-is true depravity.</i>",
+                `Welcome back, sneak-thief.  What kind of ${this.player.mf(
+                    "gentleman",
+                    "lady"
+                )} is offered sex and then ransacks a god's soul?  Honestly, that right-right theeeeeree-oh yeah right there-is true depravity.</i>`,
                 false
             );
         }
@@ -618,9 +596,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0
         ) {
             this.outx(
-                "Hey there " +
-                    this.player.short +
-                    ".  I didn't think I'd manage to snag you again so soon.  Are you enjoying my gifts?  I've been feeling kind of lonely without anyone around here to play with.</i>",
+                `Hey there ${this.player.short}.  I didn't think I'd manage to snag you again so soon.  Are you enjoying my gifts?  I've been feeling kind of lonely without anyone around here to play with.</i>`,
                 false
             );
         }
@@ -695,51 +671,39 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             if (this.player.tallness > 48) this.outx("at your crotch");
             else this.outx("against your belly");
             this.outx(
-                ", and her sap-drooling teats are crushed into you.  Unbidden, your own " +
-                    this.nippleDescript(0) +
-                    "s grow hard under your " +
-                    this.player.armorName +
-                    ".  Marae glances down knowingly and begins to undo your gear, tossing it aside with almost bored contempt.  The sharp edges of her fingernails trace down your abdomen, circle your belly-button, and then slide wide to caress your " +
-                    this.hipDescript() +
-                    ".  The unexpected shift makes you gasp and rock against her, trying to get her fingertips between your " +
-                    this.player.legs() +
-                    ".  The goddess laughs and whispers, \"<i>No dear, that's a dick's job.</i>\"\n\n",
+                `, and her sap-drooling teats are crushed into you.  Unbidden, your own ${this.nippleDescript(
+                    0
+                )}s grow hard under your ${
+                    this.player.armorName
+                }.  Marae glances down knowingly and begins to undo your gear, tossing it aside with almost bored contempt.  The sharp edges of her fingernails trace down your abdomen, circle your belly-button, and then slide wide to caress your ${this.hipDescript()}.  The unexpected shift makes you gasp and rock against her, trying to get her fingertips between your ${this.player.legs()}.  The goddess laughs and whispers, "<i>No dear, that's a dick's job.</i>"\n\n`,
                 false
             );
 
             this.outx(
-                "Your heart hammers in your chest, flushing your " +
-                    this.player.skinDesc +
-                    " with heat from the goddess' presence and perfect, knowing touches.   There's no way you could resist her at this point, even if you wanted to.  Her smooth, flawless hands grab your shoulders and push down with a gentle but firm pressure that brooks no resistance.  Your " +
-                    this.player.legs() +
-                    " fold underneath Marae's guidance, allowing you to take a proper, worshipful stance.  A confused, half-formed thought claws its way out of the arousal that's swimming through your brain, but you shake your head in irritation and begin to lick your lips while you gawk at Marae's proud new shaft.\n\n",
+                `Your heart hammers in your chest, flushing your ${
+                    this.player.skinDesc
+                } with heat from the goddess' presence and perfect, knowing touches.   There's no way you could resist her at this point, even if you wanted to.  Her smooth, flawless hands grab your shoulders and push down with a gentle but firm pressure that brooks no resistance.  Your ${this.player.legs()} fold underneath Marae's guidance, allowing you to take a proper, worshipful stance.  A confused, half-formed thought claws its way out of the arousal that's swimming through your brain, but you shake your head in irritation and begin to lick your lips while you gawk at Marae's proud new shaft.\n\n`,
                 false
             );
 
             this.outx(
-                "Marae runs her slender fingers through your " +
-                    this.hairDescript() +
-                    ", pulling your " +
-                    this.player.face() +
-                    " closer and closer until you smell the fragrance of her nectar and make out every detail of her impeccably smooth penis.  The goddess commands, \"<i>Worship it as you would worship me.</i>\"  You nod, feeling remarkably obedient as you lean forwards to take her in your mouth.   A bead of moisture rolls down the tip, smearing over your lower lip as you open up to encapsulate the suddenly hermaphroditic goddess' prick.  Her pre is sweet, though it doesn't surprise you considering it's coming from part of a flower.  It reminds you a little of honey, though there is an undercurrent of something else that you can't quite place.\n\n",
+                `Marae runs her slender fingers through your ${this.hairDescript()}, pulling your ${this.player.face()} closer and closer until you smell the fragrance of her nectar and make out every detail of her impeccably smooth penis.  The goddess commands, "<i>Worship it as you would worship me.</i>"  You nod, feeling remarkably obedient as you lean forwards to take her in your mouth.   A bead of moisture rolls down the tip, smearing over your lower lip as you open up to encapsulate the suddenly hermaphroditic goddess' prick.  Her pre is sweet, though it doesn't surprise you considering it's coming from part of a flower.  It reminds you a little of honey, though there is an undercurrent of something else that you can't quite place.\n\n`,
                 false
             );
 
             this.outx(
-                "Bobbing back and forth, you begin to fellate the goddess of fertility with unthinking, flawless precision.  Marae's hands continue to toy with your " +
-                    this.hairDescript() +
-                    ", wrenching it painfully once when you accidentally bump her with your teeth.  You whimper submissively and work harder, and your goddess rewards you by sending a tentacle to your groin.  The rounded tip nuzzles against you through your " +
-                    this.player.armorName +
-                    ", but quickly angles itself to slip inside.  It curls around your body, coating you with slippery fluids as it works its way back towards your " +
-                    this.vaginaDescript(0) +
-                    ".\n\n",
+                `Bobbing back and forth, you begin to fellate the goddess of fertility with unthinking, flawless precision.  Marae's hands continue to toy with your ${this.hairDescript()}, wrenching it painfully once when you accidentally bump her with your teeth.  You whimper submissively and work harder, and your goddess rewards you by sending a tentacle to your groin.  The rounded tip nuzzles against you through your ${
+                    this.player.armorName
+                }, but quickly angles itself to slip inside.  It curls around your body, coating you with slippery fluids as it works its way back towards your ${this.vaginaDescript(
+                    0
+                )}.\n\n`,
                 false
             );
 
             this.outx(
-                "The tentacle squirts something slippery and warm over your outer lips before arching up to pass inside you.  A half-articulated hum of pleasure escapes through your throat to vibrate Marae's plant-like prick.  She grunts and deposits a fat bead of nectar in your mouth, and trickles of the goddess' vaginal fluids start to slide down her inner thighs.  Marae's hips start to pump into you in time with the tentacle that's worming its way inside your " +
-                    this.vaginaDescript(0) +
-                    ".",
+                `The tentacle squirts something slippery and warm over your outer lips before arching up to pass inside you.  A half-articulated hum of pleasure escapes through your throat to vibrate Marae's plant-like prick.  She grunts and deposits a fat bead of nectar in your mouth, and trickles of the goddess' vaginal fluids start to slide down her inner thighs.  Marae's hips start to pump into you in time with the tentacle that's worming its way inside your ${this.vaginaDescript(
+                    0
+                )}.`,
                 false
             );
             this.player.cuntChange(12, true, true, false);
@@ -750,7 +714,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
 
             this.outx("Marae grunts and pulls on ");
             if (this.player.horns > 0) this.outx("your horns");
-            else this.outx("your " + this.hairDescript(), false);
+            else this.outx(`your ${this.hairDescript()}`, false);
             this.outx(
                 ", shoving her thick clit-cock deep inside your throat.  You reflexively swallow down the bulging fuck-meat and ",
                 false
@@ -759,9 +723,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             else if (this.player.cor < 66) this.outx("work to ");
             else this.outx("easily ");
             this.outx(
-                "suppress your gag reflex as her cock grows thick in your mouth and begins to dump its cream down your wanton gullet.  The slippery tentacle goes into overdrive while Marae cums, pumping away at your " +
-                    this.vaginaDescript(0) +
-                    " with incredibly violent fervor.   Your belly bubbles as it's stuffed full of goddess-cum, and your pussy clamps down hard on its invader while it spurts out its own syrupy load into your womb.   Swooning with lust, you orgasm from the twin violations, squirming on Marae's rod while she packs you with nectar."
+                `suppress your gag reflex as her cock grows thick in your mouth and begins to dump its cream down your wanton gullet.  The slippery tentacle goes into overdrive while Marae cums, pumping away at your ${this.vaginaDescript(
+                    0
+                )} with incredibly violent fervor.   Your belly bubbles as it's stuffed full of goddess-cum, and your pussy clamps down hard on its invader while it spurts out its own syrupy load into your womb.   Swooning with lust, you orgasm from the twin violations, squirming on Marae's rod while she packs you with nectar.`
             );
             this.outx(
                 "\n\nThe goddess pulls back with a satisfied sigh, dragging her length out of your throat and shivering from the sensations of your hot, oral vice on her twitching member.  You look up at her with eyes full of adoration, feeling your gut churn from the quantity of her deposit.  Marae ruffles your hair and pulls the tentacle back with a suddenness that makes you feel empty and void.   You feel a little drowsy and close your eyes while your goddess watches over you.  Everything is perfect...",
@@ -781,18 +745,16 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             else if (this.player.cor > 50) this.outx("indecision");
             else this.outx("worry");
             this.outx(
-                ".  Marae's advance seems like an inexorable march to your eyes, and before you have a chance to react, she's crushed against you in a full-body hug.  Her tongue digs into your mouth, rooting out your tongue and melting your resistance in an overwhelming, lust-powered assault.  You vision swims for a moment when she releases you and pulls back.  It's hard to focus with the busty, nude image of fertility beckoning you.  It makes " +
-                    this.sMultiCockDesc() +
-                    ' strain to reach her, but she dances back with a knowing smile and says, "<i>Not yet my eager little subject.  Let me undress you, THEN you can worship me.</i>"\n\n',
+                `.  Marae's advance seems like an inexorable march to your eyes, and before you have a chance to react, she's crushed against you in a full-body hug.  Her tongue digs into your mouth, rooting out your tongue and melting your resistance in an overwhelming, lust-powered assault.  You vision swims for a moment when she releases you and pulls back.  It's hard to focus with the busty, nude image of fertility beckoning you.  It makes ${this.sMultiCockDesc()} strain to reach her, but she dances back with a knowing smile and says, "<i>Not yet my eager little subject.  Let me undress you, THEN you can worship me.</i>"\n\n`,
                 false
             );
 
             this.outx(
-                "Vines whip out, sliding under your " +
-                    this.player.armorName +
-                    ", undoing clasps, and removing it until you stand naked and exposed to Marae.  She smirks and crooks her finger at you in a 'come hither' gesture.  You lurch forward, as if pulled on an invisible string until you're standing inches away from her, your " +
-                    this.cockDescript(0) +
-                    " rubbing her belly",
+                `Vines whip out, sliding under your ${
+                    this.player.armorName
+                }, undoing clasps, and removing it until you stand naked and exposed to Marae.  She smirks and crooks her finger at you in a 'come hither' gesture.  You lurch forward, as if pulled on an invisible string until you're standing inches away from her, your ${this.cockDescript(
+                    0
+                )} rubbing her belly`,
                 false
             );
             if (this.player.cockTotal() == 2)
@@ -805,41 +767,33 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "Marae extends her arms, and the twin tentacles crawl forward like snakes as they wriggle down her appendages.  You thrust your crotch forwards, presenting it to the goddess, and only wonder why for a brief second before you toss away the nagging, useless thought.  Why would anything but pleasuring the living goddess before you matter?  Her corruptive aura floats in the air, filling you with the desire to submit to your queen and obey her every whim.  " +
-                    this.SMultiCockDesc() +
-                    " twitches and starts to drip pre-cum, itching to fulfill your deity's desires.\n\n",
+                `Marae extends her arms, and the twin tentacles crawl forward like snakes as they wriggle down her appendages.  You thrust your crotch forwards, presenting it to the goddess, and only wonder why for a brief second before you toss away the nagging, useless thought.  Why would anything but pleasuring the living goddess before you matter?  Her corruptive aura floats in the air, filling you with the desire to submit to your queen and obey her every whim.  ${this.SMultiCockDesc()} twitches and starts to drip pre-cum, itching to fulfill your deity's desires.\n\n`,
                 false
             );
 
             this.outx(
-                "The tentacle on her right arm convulses, then splits open along four joints.  The tip folds open to reveal a pink, wriggling interior that promises pleasures mortal minds weren't meant to comprehend.  Meanwhile, while you're distracted by the eager plant-hole, the other tentacle slips behind you and climbs up your " +
-                    this.player.leg() +
-                    ", leaving a trail of slime in its wake.   It slides between your cheeks and prods at your " +
-                    this.assholeDescript() +
-                    ".  You jerk forwards in surprise, but Marae pushes your " +
-                    this.hipDescript() +
-                    " back, allowing it to work its way inside.",
+                `The tentacle on her right arm convulses, then splits open along four joints.  The tip folds open to reveal a pink, wriggling interior that promises pleasures mortal minds weren't meant to comprehend.  Meanwhile, while you're distracted by the eager plant-hole, the other tentacle slips behind you and climbs up your ${this.player.leg()}, leaving a trail of slime in its wake.   It slides between your cheeks and prods at your ${this.assholeDescript()}.  You jerk forwards in surprise, but Marae pushes your ${this.hipDescript()} back, allowing it to work its way inside.`,
                 false
             );
             this.player.buttChange(12, true, true, false);
             this.outx(
-                "  The open plant-hole dives for your groin while you're distracted, hits your " +
-                    this.cockDescript(0) +
-                    " and devours it with a greedy sluuuuurp.",
+                `  The open plant-hole dives for your groin while you're distracted, hits your ${this.cockDescript(
+                    0
+                )} and devours it with a greedy sluuuuurp.`,
                 false
             );
             if (this.player.cockTotal() == 2)
                 this.outx(
-                    "  Another vine that may as well be the first's twin snakes from between the goddess' legs and jumps onto your " +
-                        this.cockDescript(1) +
-                        ".",
+                    `  Another vine that may as well be the first's twin snakes from between the goddess' legs and jumps onto your ${this.cockDescript(
+                        1
+                    )}.`,
                     false
                 );
             else if (this.player.cockTotal() > 2)
                 this.outx(
-                    "  More 'open' vines shimmy forth from between Marae's legs and jump up onto your " +
-                        Appearance.cockNoun(CockTypesEnum.HUMAN) +
-                        "s.",
+                    `  More 'open' vines shimmy forth from between Marae's legs and jump up onto your ${Appearance.cockNoun(
+                        CockTypesEnum.HUMAN
+                    )}s.`,
                     false
                 );
 
@@ -866,52 +820,42 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.outx(".  ");
             }
             this.outx(
-                "A hot, slippery pressure touches something inside your " +
-                    this.assholeDescript() +
-                    " and makes you squirt even harder.  Marae's minions have found your prostate!  You grunt and groan, but the orgasm doesn't seem to stop.  The goddess teases, \"<i>What?  You didn't think I'd actually let you cum on me did you?</i>\"\n\n",
+                `A hot, slippery pressure touches something inside your ${this.assholeDescript()} and makes you squirt even harder.  Marae's minions have found your prostate!  You grunt and groan, but the orgasm doesn't seem to stop.  The goddess teases, "<i>What?  You didn't think I'd actually let you cum on me did you?</i>"\n\n`,
                 false
             );
 
             this.outx(
-                "It doesn't matter, you're giving her what she wants.  You cum until your " +
-                    this.player.legs() +
-                    " give out and you're sprawled on your back, " +
-                    this.sMultiCockDesc() +
-                    " being milked of its seed by the slurping, cunt-tentacles.  Every time you start to come down, the one in your backdoor rubs you just right and forces out another load.  Marae steps over your " +
-                    this.player.face() +
-                    " and drops down, allowing you to lick the nectar that drips from her sensitive, flower-like folds while you cum.  It's sweet, potent, and refreshing.  It makes it easy to keep cumming but hard to stay awake, and your eyes roll back as you pass out from an overload of pleasure.",
+                `It doesn't matter, you're giving her what she wants.  You cum until your ${this.player.legs()} give out and you're sprawled on your back, ${this.sMultiCockDesc()} being milked of its seed by the slurping, cunt-tentacles.  Every time you start to come down, the one in your backdoor rubs you just right and forces out another load.  Marae steps over your ${this.player.face()} and drops down, allowing you to lick the nectar that drips from her sensitive, flower-like folds while you cum.  It's sweet, potent, and refreshing.  It makes it easy to keep cumming but hard to stay awake, and your eyes roll back as you pass out from an overload of pleasure.`,
                 false
             );
         }
         // [Hermz]  Marae grows vinecawks for DP under her flowercunt and sexes.
         else {
             this.outx(
-                "Marae coos with pleasure and allows a nectar-slicked tentacle to slip free of her flower.   Her sweet, corrupted smell filters through the air, like pollen carried on a spring breeze.  You watch, breathlessly staring as she advances, trailing a single finger around the entrance of her plant-like pussy in a provocative manner.  Amber fluid leaks down her thighs, showing you just how ready for sex she is.   The stickiness of your crotch combined with the tightness of " +
-                    this.sMultiCockDesc() +
-                    " makes it difficult to focus.  Your body is reacting to Marae in a way that's making it hard to focus or think, and though you know she's incredibly dangerous since her fall from grace, you have a hard time caring.\n\n",
+                `Marae coos with pleasure and allows a nectar-slicked tentacle to slip free of her flower.   Her sweet, corrupted smell filters through the air, like pollen carried on a spring breeze.  You watch, breathlessly staring as she advances, trailing a single finger around the entrance of her plant-like pussy in a provocative manner.  Amber fluid leaks down her thighs, showing you just how ready for sex she is.   The stickiness of your crotch combined with the tightness of ${this.sMultiCockDesc()} makes it difficult to focus.  Your body is reacting to Marae in a way that's making it hard to focus or think, and though you know she's incredibly dangerous since her fall from grace, you have a hard time caring.\n\n`,
                 false
             );
 
             this.outx(
-                "The goddess closes with deliberately slow, hip-swaying steps that make your " +
-                    this.cockDescript(0) +
-                    " tremble and leave no doubt that she's the goddess of fertility.  Marae giggles and wraps her arms around you, planting a firm, wet kiss on your lips while she undoes your " +
-                    this.player.armorName +
-                    ".  Your gear hits the ground with a dull thump, and then her taut green nipples are pressed against your own",
+                `The goddess closes with deliberately slow, hip-swaying steps that make your ${this.cockDescript(
+                    0
+                )} tremble and leave no doubt that she's the goddess of fertility.  Marae giggles and wraps her arms around you, planting a firm, wet kiss on your lips while she undoes your ${
+                    this.player.armorName
+                }.  Your gear hits the ground with a dull thump, and then her taut green nipples are pressed against your own`,
                 false
             );
             if (this.player.hasFuckableNipples())
                 this.outx(
-                    ", slipping inside your cunt-like nipples with ease.  You moan into her ear at the unexpected penetration and shiver from the tingling shocks of pleasure in your " +
-                        this.breastDescript(0) +
-                        ".",
+                    `, slipping inside your cunt-like nipples with ease.  You moan into her ear at the unexpected penetration and shiver from the tingling shocks of pleasure in your ${this.breastDescript(
+                        0
+                    )}.`,
                     false
                 );
             else this.outx(".");
             this.outx(
-                "  Hammering in your chest, your heart beats fast enough to flush your whole body when your " +
-                    this.cockDescript(0) +
-                    " manages to slip between Marae's legs.  It doesn't penetrate, merely trapping itself between her fluid-lubed thighs",
+                `  Hammering in your chest, your heart beats fast enough to flush your whole body when your ${this.cockDescript(
+                    0
+                )} manages to slip between Marae's legs.  It doesn't penetrate, merely trapping itself between her fluid-lubed thighs`,
                 false
             );
             if (this.player.cockTotal() == 2)
@@ -926,9 +870,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "She's easy to push down into the soft grasses of the island, and her legs part to allow you better access.  Your " +
-                    this.cockDescript(0) +
-                    " doesn't need to be told what to do, and it slips into her waiting wetness as if it was made for her.  ",
+                `She's easy to push down into the soft grasses of the island, and her legs part to allow you better access.  Your ${this.cockDescript(
+                    0
+                )} doesn't need to be told what to do, and it slips into her waiting wetness as if it was made for her.  `,
                 false
             );
             if (this.player.cocks[0].cockThickness > 5 || this.player.cockArea(0) > 100)
@@ -938,17 +882,18 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 );
             else
                 this.outx(
-                    "She feels perfect.  A velvet vice of hot, slippery wetness clutches tightly around your " +
-                        this.cockDescript(0) +
-                        ".  It almost feels like it's actually gripping you, cradling your cock in her ambrosia-slicked box.",
+                    `She feels perfect.  A velvet vice of hot, slippery wetness clutches tightly around your ${this.cockDescript(
+                        0
+                    )}.  It almost feels like it's actually gripping you, cradling your cock in her ambrosia-slicked box.`,
                     false
                 );
             if (this.player.cockTotal() > 1) {
                 if (this.player.cockTotal() > 2) this.outx("  Another ");
                 else this.outx("Your other ");
                 this.outx(
-                    Appearance.cockNoun(CockTypesEnum.HUMAN) +
-                        " prods at her tight pucker, and with a slight adjustment, you're able to line it up.  It's wet!  Inch after inch slides in with incredible ease, violating her slippery butthole until you've completely double-penetrated her.",
+                    `${Appearance.cockNoun(
+                        CockTypesEnum.HUMAN
+                    )} prods at her tight pucker, and with a slight adjustment, you're able to line it up.  It's wet!  Inch after inch slides in with incredible ease, violating her slippery butthole until you've completely double-penetrated her.`,
                     false
                 );
             }
@@ -960,13 +905,11 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 this.outx("Drops of feminine arousal run down your thighs");
             else
                 this.outx(
-                    "Trails of viscous feminine fluid leak from your " + this.vaginaDescript(0),
+                    `Trails of viscous feminine fluid leak from your ${this.vaginaDescript(0)}`,
                     false
                 );
             this.outx(
-                ", reminding you of your unused femsex.  Marae grunts underneath you, and while at first you assume it's from the penetration, the prodding of two cock-like protrusions at your lusty holes corrects your misguided assumptions.  You pull back and begin to fuck her in earnest, and with each long rock back, you can see she's grown tentacles from underneath her ass, like two prehensile tails.  They push forwards and spear you, arresting your movement while you try to cope with the sudden stretching of two of your orifices.  Warmth radiates from the twin intruders along with a slippery fullness.  They're pumping something inside you that tingles and makes " +
-                    this.sMultiCockDesc() +
-                    " bounce and drip.",
+                `, reminding you of your unused femsex.  Marae grunts underneath you, and while at first you assume it's from the penetration, the prodding of two cock-like protrusions at your lusty holes corrects your misguided assumptions.  You pull back and begin to fuck her in earnest, and with each long rock back, you can see she's grown tentacles from underneath her ass, like two prehensile tails.  They push forwards and spear you, arresting your movement while you try to cope with the sudden stretching of two of your orifices.  Warmth radiates from the twin intruders along with a slippery fullness.  They're pumping something inside you that tingles and makes ${this.sMultiCockDesc()} bounce and drip.`,
                 false
             );
             this.player.cuntChange(12, true, true, false);
@@ -974,33 +917,29 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             this.outx("\n\n", false);
 
             this.outx(
-                "Marae laughs and teases, \"<i>If this is how you fuck it's no wonder I haven't met your children yet.  If you're going to be my disciple you need to fuck your partners hard until you're stuffing them with cum.  Then you need to do it again.  Alternatively you should be bouncing on their cock and milking it with your " +
-                    this.vaginaDescript(0) +
-                    " until your womb is packed so full you can't walk.  Now show me how you'll do it, or I might keep you here until you're properly trained!</i>\"\n\n",
+                `Marae laughs and teases, "<i>If this is how you fuck it's no wonder I haven't met your children yet.  If you're going to be my disciple you need to fuck your partners hard until you're stuffing them with cum.  Then you need to do it again.  Alternatively you should be bouncing on their cock and milking it with your ${this.vaginaDescript(
+                    0
+                )} until your womb is packed so full you can't walk.  Now show me how you'll do it, or I might keep you here until you're properly trained!</i>"\n\n`,
                 false
             );
 
             this.outx(
-                "You happily thrust forwards, ramming your " +
-                    this.cockDescript(0) +
-                    " into her cunt with such force that a wet slap echoes over the lake and her fluids splatter your abdomen.  ",
+                `You happily thrust forwards, ramming your ${this.cockDescript(
+                    0
+                )} into her cunt with such force that a wet slap echoes over the lake and her fluids splatter your abdomen.  `,
                 false
             );
             if (this.player.cockTotal() > 1)
                 this.outx(
-                    "Her asshole is squelching and dripping from your " +
-                        this.cockDescript(1) +
-                        ", actually squirting more lubricant than her pussy from the violent fucking!  ",
+                    `Her asshole is squelching and dripping from your ${this.cockDescript(
+                        1
+                    )}, actually squirting more lubricant than her pussy from the violent fucking!  `,
                     false
                 );
             this.outx(
-                "In spite of the obscene amount of pleasure " +
-                    this.sMultiCockDesc() +
-                    " is getting, you focus on obeying your goddess, and you work the muscles in your " +
-                    this.vaginaDescript(0) +
-                    " and " +
-                    this.assholeDescript() +
-                    " to pleasure her tentacles.  Muffled sloshes and spurts reach your ears, and you realize just how successful your efforts are.  Marae's pinching her nipples and arching her back, and a moment later a wave of pleasure hits you upside the head with the force of a hammer-blow.\n\n",
+                `In spite of the obscene amount of pleasure ${this.sMultiCockDesc()} is getting, you focus on obeying your goddess, and you work the muscles in your ${this.vaginaDescript(
+                    0
+                )} and ${this.assholeDescript()} to pleasure her tentacles.  Muffled sloshes and spurts reach your ears, and you realize just how successful your efforts are.  Marae's pinching her nipples and arching her back, and a moment later a wave of pleasure hits you upside the head with the force of a hammer-blow.\n\n`,
                 false
             );
 
@@ -1008,16 +947,14 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             if (this.player.balls > 0) this.outx("rapidly contracting balls");
             else this.outx("tentacle-squeezed prostate");
             this.outx(
-                " and erupts into Marae's womb.  Your hips rock forward, grazing her cervix with your " +
-                    this.player.cockHead() +
-                    " to better fill her uterus.  ",
+                ` and erupts into Marae's womb.  Your hips rock forward, grazing her cervix with your ${this.player.cockHead()} to better fill her uterus.  `,
                 false
             );
             if (this.player.cockTotal() > 1)
                 this.outx(
-                    "The " +
-                        this.cockDescript(1) +
-                        " in her ass spasms and explodes with its brother, glazing her slippery colon with a coating of syrupy spunk.  ",
+                    `The ${this.cockDescript(
+                        1
+                    )} in her ass spasms and explodes with its brother, glazing her slippery colon with a coating of syrupy spunk.  `,
                     false
                 );
             if (this.player.cockTotal() > 2) {
@@ -1063,9 +1000,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         // [Dudes]
         if (this.player.gender == 1) {
             this.outx(
-                "You awaken in the midst of a powerful orgasm.  Jism boils out of " +
-                    this.sMultiCockDesc() +
-                    ", pumping into the tight, sucking tentacle-hole.  Your eyes open wider, and your head clears while you rock your hips in bliss.  You're hanging upside down, suspended in the tentacle tree!  Marae isn't far from you, and she's busy deep-throating the fattest tentacle you've seen while another pair are working her openings.  She turns to you, aware of your wakefulness, and removes the oral intruder, though it manages to squirt a layer of spunk into her face in defiance.   The goddess smirks and slaps it, scolding it before she speaks, \"<i>",
+                `You awaken in the midst of a powerful orgasm.  Jism boils out of ${this.sMultiCockDesc()}, pumping into the tight, sucking tentacle-hole.  Your eyes open wider, and your head clears while you rock your hips in bliss.  You're hanging upside down, suspended in the tentacle tree!  Marae isn't far from you, and she's busy deep-throating the fattest tentacle you've seen while another pair are working her openings.  She turns to you, aware of your wakefulness, and removes the oral intruder, though it manages to squirt a layer of spunk into her face in defiance.   The goddess smirks and slaps it, scolding it before she speaks, "<i>`,
                 false
             );
             // (FORK STUD vs NO STUD)
@@ -1088,9 +1023,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "Breathless and panting, you give Marae a nod of thanks as her tentacles lower you back towards your equipment.  They plant you on shaky " +
-                    this.player.feet() +
-                    " and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae nor the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, \"<i>Thanks for visiting and giving my tree so much of your sperm!  Once its fruit is ready I might come plant one at your camp!  Bye now, and don't forget to knock up all the prettiest girls!</i>\"\n\n",
+                `Breathless and panting, you give Marae a nod of thanks as her tentacles lower you back towards your equipment.  They plant you on shaky ${this.player.feet()} and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae nor the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, "<i>Thanks for visiting and giving my tree so much of your sperm!  Once its fruit is ready I might come plant one at your camp!  Bye now, and don't forget to knock up all the prettiest girls!</i>"\n\n`,
                 false
             );
             if (this.player.findPerk(PerkLib.MaraesGiftStud) >= 0) {
@@ -1137,9 +1070,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "Breathless and panting, you give Marae a confused nod as her tentacles lower you back towards your equipment.  They plant you on shaky " +
-                    this.player.feet() +
-                    " and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae nor the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, \"<I>Thanks for visiting and letting my little friend try out your pussy!  Once I get it to flower I might swing by and plant one for you at your camp!  Bye now, and don't forget to have lots of babies!</i>\"\n\n",
+                `Breathless and panting, you give Marae a confused nod as her tentacles lower you back towards your equipment.  They plant you on shaky ${this.player.feet()} and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae nor the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, "<I>Thanks for visiting and letting my little friend try out your pussy!  Once I get it to flower I might swing by and plant one for you at your camp!  Bye now, and don't forget to have lots of babies!</i>"\n\n`,
                 false
             );
 
@@ -1155,9 +1086,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         // [HERMS]
         else {
             this.outx(
-                "You awaken in the midst of a powerful orgasm.  Jism boils out of " +
-                    this.sMultiCockDesc() +
-                    ", pumping into the tight, sucking tentacle-hole.  Plant-spooge is pumping into your clenching birth-canal, and you can feel it worming its way into your over-packed womb.  Your eyes open wider, and your head clears while you rock your hips in bliss.  You're hanging upside down, suspended in the tentacle tree!  Marae isn't far from you, and she's busy deep-throating the fattest tentacle you've seen while another pair are working her openings.  She turns to you, aware of your wakefulness, and removes the oral intruder, though it manages to squirt a layer of spunk into her face in defiance.   The goddess smirks and slaps it, scolding it before she speaks, \"<i>",
+                `You awaken in the midst of a powerful orgasm.  Jism boils out of ${this.sMultiCockDesc()}, pumping into the tight, sucking tentacle-hole.  Plant-spooge is pumping into your clenching birth-canal, and you can feel it worming its way into your over-packed womb.  Your eyes open wider, and your head clears while you rock your hips in bliss.  You're hanging upside down, suspended in the tentacle tree!  Marae isn't far from you, and she's busy deep-throating the fattest tentacle you've seen while another pair are working her openings.  She turns to you, aware of your wakefulness, and removes the oral intruder, though it manages to squirt a layer of spunk into her face in defiance.   The goddess smirks and slaps it, scolding it before she speaks, "<i>`,
                 false
             );
 
@@ -1188,9 +1117,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 );
 
                 this.outx(
-                    "Breathless and panting, you give Marae a nod of thanks as her tentacles lower you back towards your equipment.  They plant you on shaky " +
-                        this.player.feet() +
-                        " and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae nor the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, \"<i>Thanks for visiting and giving my tree so much of your sperm!  Once its fruit is ready I might come plant one at your camp!  Bye now, and don't forget to have lots of sex!</i>\"\n\n",
+                    `Breathless and panting, you give Marae a nod of thanks as her tentacles lower you back towards your equipment.  They plant you on shaky ${this.player.feet()} and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae nor the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, "<i>Thanks for visiting and giving my tree so much of your sperm!  Once its fruit is ready I might come plant one at your camp!  Bye now, and don't forget to have lots of sex!</i>"\n\n`,
                     false
                 );
                 if (this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0)
@@ -1210,9 +1137,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 );
 
                 this.outx(
-                    "Breathless and panting, you give Marae a nod of thanks as her tentacles lower you back towards your equipment.  They plant you on shaky " +
-                        this.player.feet() +
-                        " and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae nor the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, \"<i>Thanks for visiting and giving my tree so much of your sperm!  Once its fruit is ready I might come plant one at your camp!  Bye now, and don't forget to have lots of sex!</i>\"\n\n",
+                    `Breathless and panting, you give Marae a nod of thanks as her tentacles lower you back towards your equipment.  They plant you on shaky ${this.player.feet()} and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae nor the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, "<i>Thanks for visiting and giving my tree so much of your sperm!  Once its fruit is ready I might come plant one at your camp!  Bye now, and don't forget to have lots of sex!</i>"\n\n`,
                     false
                 );
                 this.player.createPerk(PerkLib.MaraesGiftStud, 0, 0, 0, 0);
@@ -1231,9 +1156,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 );
 
                 this.outx(
-                    "Breathless and panting, you give Marae a nod of thanks as her tentacles lower you back towards your equipment.  They plant you on shaky " +
-                        this.player.feet() +
-                        " and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae or the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, \"<i>Thanks for visiting and giving my tree so much of your sperm!  Once its fruit is ready I might come plant one at your camp!  Bye now, and don't forget to have lots of sex!</i>\"\n\n",
+                    `Breathless and panting, you give Marae a nod of thanks as her tentacles lower you back towards your equipment.  They plant you on shaky ${this.player.feet()} and uncoil slowly, stroking your body as they depart.  They must like you.  You get dressed in a hurry, but neither Marae or the tree are paying you any attention any more.   The boat isn't far, and as you're climbing into it the goddess calls out her goodbyes, "<i>Thanks for visiting and giving my tree so much of your sperm!  Once its fruit is ready I might come plant one at your camp!  Bye now, and don't forget to have lots of sex!</i>"\n\n`,
                     false
                 );
                 this.player.createPerk(PerkLib.MaraesGiftFertility, 0, 0, 0, 0);

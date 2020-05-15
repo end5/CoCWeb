@@ -257,7 +257,7 @@ export class Lethice extends Monster {
         let damage: number = 100 + Lethice.rand(25);
         damage = this.player.takeDamage(damage);
 
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
     }
 
     private wingbuffet(): void {
@@ -296,12 +296,10 @@ export class Lethice extends Monster {
             damage = this.player.takeDamage(damage);
             if (damage <= 5) {
                 this.outx(
-                    " She barely scratches you. She’ll need stronger weapons than that to take you down. (" +
-                        damage +
-                        ")"
+                    ` She barely scratches you. She’ll need stronger weapons than that to take you down. (${damage})`
                 );
             } else {
-                this.outx(" Damn, that hurts! (" + damage + ")");
+                this.outx(` Damn, that hurts! (${damage})`);
             }
         }
     }
@@ -474,9 +472,7 @@ export class Lethice extends Monster {
             let damage: number = 70 - Lethice.rand(this.player.tou);
             damage = this.player.takeDamage(damage);
             this.outx(
-                " Several of the big, stout horns slam into you, given all the more force thanks to the crushing waves of demons pushing them forward. You yelp in pain as they score your flesh! (" +
-                    damage +
-                    ")"
+                ` Several of the big, stout horns slam into you, given all the more force thanks to the crushing waves of demons pushing them forward. You yelp in pain as they score your flesh! (${damage})`
             );
         }
     }
@@ -494,9 +490,7 @@ export class Lethice extends Monster {
             damage = this.player.takeDamage(damage);
 
             this.outx(
-                " You squirm out of their crushing embrace, trying to crawl away on the ground, but if they can't squeeze you down the demons seem happy to trample you! You scream in alarm and pain as dozens of feet, hooves, claws, and other appendages come crushing down on you! (" +
-                    damage +
-                    ")"
+                ` You squirm out of their crushing embrace, trying to crawl away on the ground, but if they can't squeeze you down the demons seem happy to trample you! You scream in alarm and pain as dozens of feet, hooves, claws, and other appendages come crushing down on you! (${damage})`
             );
         }
     }
@@ -840,7 +834,7 @@ export class Lethice extends Monster {
                 this.player.growTits(2, this.player.breastRows.length, false, 2);
             }
 
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
     }
 
@@ -882,7 +876,7 @@ export class Lethice extends Monster {
 
         damage = this.player.takeDamage(damage);
 
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
     }
 
     private sonicwhip(): void {
@@ -892,7 +886,7 @@ export class Lethice extends Monster {
 
         let damage: number = 75 + this.weaponAttack + this.str;
         damage = this.player.takeDamage(damage);
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
     }
 
     private whipchoke(): void {
@@ -921,7 +915,7 @@ export class Lethice extends Monster {
 
             this.player.createStatusAffect(StatusAffects.WhipSilence, 3, 0, 0, 0);
 
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
     }
 

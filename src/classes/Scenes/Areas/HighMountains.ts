@@ -105,7 +105,7 @@ export class HighMountains extends BaseContent {
             this.spriteSelect(44);
             return;
         }
-        trace("Chooser goin for" + chooser);
+        trace(`Chooser goin for${chooser}`);
 
         // Generic harpy
         if (chooser == 0) {
@@ -238,9 +238,7 @@ export class HighMountains extends BaseContent {
         this.spriteSelect(90);
         this.flags[kFLAGS.EGGS_BOUGHT]++;
         this.outx(
-            "You take " +
-                itype.longName +
-                ", and the harpy nods in regards to your decision.  Prepping her cart back up for the road, she gives you a final wave goodbye before heading back down through the mountains.\n\n"
+            `You take ${itype.longName}, and the harpy nods in regards to your decision.  Prepping her cart back up for the road, she gives you a final wave goodbye before heading back down through the mountains.\n\n`
         );
         this.inventory.takeItem(itype, this.chickenHarpy);
     }

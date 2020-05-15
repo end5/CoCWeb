@@ -38,7 +38,7 @@ export class Imp extends Monster {
     }
 
     protected lustMagicAttack(): void {
-        this.outx("You see " + this.a + this.short + " make sudden arcane gestures at you!\n\n");
+        this.outx(`You see ${this.a}${this.short} make sudden arcane gestures at you!\n\n`);
         this.game.dynStats("lus", this.player.lib / 10 + this.player.cor / 10 + 10);
         if (this.player.lust < 30) this.outx("You feel strangely warm.  ");
         if (this.player.lust >= 30 && this.player.lust < 60)
@@ -51,28 +51,20 @@ export class Imp extends Monster {
             );
         if (this.player.cocks.length > 0) {
             if (this.player.lust >= 60)
-                this.outx(
-                    "You feel your " + this.player.multiCockDescriptLight() + " dribble pre-cum."
-                );
+                this.outx(`You feel your ${this.player.multiCockDescriptLight()} dribble pre-cum.`);
             else if (this.player.lust >= 30 && this.player.cocks.length == 1)
-                this.outx(
-                    "Your " + this.player.cockDescript(0) + " hardens, distracting you further."
-                );
+                this.outx(`Your ${this.player.cockDescript(0)} hardens, distracting you further.`);
             else if (this.player.lust >= 30 && this.player.cocks.length > 1)
-                this.outx(
-                    "Your " + this.player.multiCockDescriptLight() + " harden uncomfortably."
-                );
+                this.outx(`Your ${this.player.multiCockDescriptLight()} harden uncomfortably.`);
             if (this.player.hasVagina()) this.outx("  ");
         }
         if (this.player.lust >= 60 && this.player.hasVagina()) {
             switch (this.player.vaginas[0].vaginalWetness) {
                 case VAGINA_WETNESS_NORMAL:
                     this.outx(
-                        "Your " +
-                            this.game.allVaginaDescript() +
-                            " dampen" +
-                            (this.player.vaginas.length > 1 ? "" : "s") +
-                            " perceptibly."
+                        `Your ${this.game.allVaginaDescript()} dampen${
+                            this.player.vaginas.length > 1 ? "" : "s"
+                        } perceptibly.`
                     );
                     break;
                 case VAGINA_WETNESS_WET:
@@ -80,11 +72,9 @@ export class Imp extends Monster {
                     break;
                 case VAGINA_WETNESS_SLICK:
                     this.outx(
-                        "Your " +
-                            this.game.allVaginaDescript() +
-                            " become" +
-                            (this.player.vaginas.length > 1 ? "" : "s") +
-                            " sloppy and wet."
+                        `Your ${this.game.allVaginaDescript()} become${
+                            this.player.vaginas.length > 1 ? "" : "s"
+                        } sloppy and wet.`
                     );
                     break;
                 case VAGINA_WETNESS_DROOLING:
@@ -92,11 +82,9 @@ export class Imp extends Monster {
                     break;
                 case VAGINA_WETNESS_SLAVERING:
                     this.outx(
-                        "Your " +
-                            this.game.allVaginaDescript() +
-                            " instantly soak" +
-                            (this.player.vaginas.length > 1 ? "" : "s") +
-                            " your groin."
+                        `Your ${this.game.allVaginaDescript()} instantly soak${
+                            this.player.vaginas.length > 1 ? "" : "s"
+                        } your groin.`
                     );
                 default: // Dry vaginas are unaffected
             }

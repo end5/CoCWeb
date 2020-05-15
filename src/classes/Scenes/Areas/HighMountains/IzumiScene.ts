@@ -101,9 +101,7 @@ export class IzumiScene extends BaseContent {
             );
 
             this.outx(
-                "“<i>Hey, it’s you! How’s it going, " +
-                    this.heightDesc() +
-                    "? Killed any demon kings yet?</i>” Izumi ribs. “<i>Let me guess.. You’re here to take revenge on the big bad Oni, grr argh, right? Or...</i>”  She pauses for a second to shift around into a more comfortable position that - completely inadvertently, you’re sure - ends up with her showing off much more of her thighs and impressive bust.  “<i>Could it be you just came back to ask for another turn, hmm?</i>”\n\n"
+                `“<i>Hey, it’s you! How’s it going, ${this.heightDesc()}? Killed any demon kings yet?</i>” Izumi ribs. “<i>Let me guess.. You’re here to take revenge on the big bad Oni, grr argh, right? Or...</i>”  She pauses for a second to shift around into a more comfortable position that - completely inadvertently, you’re sure - ends up with her showing off much more of her thighs and impressive bust.  “<i>Could it be you just came back to ask for another turn, hmm?</i>”\n\n`
             );
         } else if (this.flags[kFLAGS.IZUMI_LAST_ENCOUNTER] == 2) {
             this.outx(
@@ -371,9 +369,9 @@ export class IzumiScene extends BaseContent {
         this.outx("  If she notices, then she doesn’t seem to care.\n\n");
 
         this.outx(
-            "“<i>Better, right?</i>” she asks, and you nod.  “<i>Sorry, I didn’t realize the smoke was getting to you at first.  It’s been a while since I’ve seen anything but a minotaur or a demon, at least ones that seem more interested in polite conversation than reaming everything in sight.</i>”  She grimaces, briefly.  “<i>So, what’s your story, " +
-                this.heightDesc(false) +
-                "?</i>”  Whoever she is, she seems friendly enough"
+            `“<i>Better, right?</i>” she asks, and you nod.  “<i>Sorry, I didn’t realize the smoke was getting to you at first.  It’s been a while since I’ve seen anything but a minotaur or a demon, at least ones that seem more interested in polite conversation than reaming everything in sight.</i>”  She grimaces, briefly.  “<i>So, what’s your story, ${this.heightDesc(
+                false
+            )}?</i>”  Whoever she is, she seems friendly enough`
         );
         if (this.player.tallness <= 96) this.outx(" - if a little... imposing -");
         else this.outx(",");
@@ -616,9 +614,7 @@ export class IzumiScene extends BaseContent {
             );
 
             this.outx(
-                "“<i>Oh, you think you can take me?  That’s cute, " +
-                    this.heightDesc() +
-                    ".  That’s real cute,</i>” Izumi says, breaking off the conversation.  She picks herself up from the floor, abruptly breaking off the conversation to wander around the cave, flexing her muscles and rotating her joints as though preparing to exercise - all the while, her grin growing increasingly confident, more... ravenous.\n\n"
+                `“<i>Oh, you think you can take me?  That’s cute, ${this.heightDesc()}.  That’s real cute,</i>” Izumi says, breaking off the conversation.  She picks herself up from the floor, abruptly breaking off the conversation to wander around the cave, flexing her muscles and rotating her joints as though preparing to exercise - all the while, her grin growing increasingly confident, more... ravenous.\n\n`
             );
 
             if (this.player.tone <= 75)
@@ -776,9 +772,7 @@ export class IzumiScene extends BaseContent {
         );
 
         this.outx(
-            "“<i>So, you’re ashamed of this, are you?</i>”  Izumi suddenly asks.  You don’t respond, so she stares down at you.  “<i>Answer.</i>”  She commands, her tone imperious.  You can’t bring yourself to speak, so you simply nod, burying your face in her silk-covered bust.  “<i>Good.  You answer when I ask you something, " +
-                this.heightDesc() +
-                "</i>”  She nods approvingly and resumes her slow, gentle strokes.  The casual, unhurried pace of her handjob is beginning to drive you insane; it’s certainly pleasurable, but it’s also agonizingly slow, and you long for her to just speed up even the tiniest bit...\n\n"
+            `“<i>So, you’re ashamed of this, are you?</i>”  Izumi suddenly asks.  You don’t respond, so she stares down at you.  “<i>Answer.</i>”  She commands, her tone imperious.  You can’t bring yourself to speak, so you simply nod, burying your face in her silk-covered bust.  “<i>Good.  You answer when I ask you something, ${this.heightDesc()}</i>”  She nods approvingly and resumes her slow, gentle strokes.  The casual, unhurried pace of her handjob is beginning to drive you insane; it’s certainly pleasurable, but it’s also agonizingly slow, and you long for her to just speed up even the tiniest bit...\n\n`
         );
 
         this.outx(
@@ -861,9 +855,7 @@ export class IzumiScene extends BaseContent {
             }
 
             this.outx(
-                "“<i>Hah!  Oh yeah, thar she blows!</i>”  Izumi crows, staring fixatedly at your spasming dick like a woman possessed.  “<i>Now ain’t that a pretty sight... Yeesh, and you just keep cumming and cumming.  Did being teased feel that good, " +
-                    this.heightDesc() +
-                    "?</i>”  She grins. You can’t seem to find the energy to respond, panting for breath as you stare in confusion at your already-deflated cock, your balls aching from the strain of such a forceful ejaculation.\n\n"
+                `“<i>Hah!  Oh yeah, thar she blows!</i>”  Izumi crows, staring fixatedly at your spasming dick like a woman possessed.  “<i>Now ain’t that a pretty sight... Yeesh, and you just keep cumming and cumming.  Did being teased feel that good, ${this.heightDesc()}?</i>”  She grins. You can’t seem to find the energy to respond, panting for breath as you stare in confusion at your already-deflated cock, your balls aching from the strain of such a forceful ejaculation.\n\n`
             );
         }
 
@@ -880,7 +872,7 @@ export class IzumiScene extends BaseContent {
     // Male/Herm scene for cocks <= 10"
     protected surrenderMediumCock(): void {
         this.outx(
-            "“<i>Huh.  Not bad, " + this.heightDesc() + "; I gotta say, I thought you people’d be"
+            `“<i>Huh.  Not bad, ${this.heightDesc()}; I gotta say, I thought you people’d be`
         );
         if (this.player.isTaur()) this.outx(" bigger");
         else this.outx(" smaller");
@@ -1041,9 +1033,7 @@ export class IzumiScene extends BaseContent {
     // Urtadicks itt
     protected surrenderLargeCock(): void {
         this.outx(
-            "Izumi grunts in surprise as your [cock biggest] flops free of its confinement.  “<i>Damn.  This is pretty impressive, you know?</i>”  She frowns, running an exploratory hand across the length of your flesh.  “<i>Let me guess, you got a bit too frisky with one of the natives?  Maybe didn’t think to boil the water before you drank it?  Look, no offence, but there is no way this thing is legit, " +
-                this.heightDesc() +
-                ".</i>”\n\n"
+            `Izumi grunts in surprise as your [cock biggest] flops free of its confinement.  “<i>Damn.  This is pretty impressive, you know?</i>”  She frowns, running an exploratory hand across the length of your flesh.  “<i>Let me guess, you got a bit too frisky with one of the natives?  Maybe didn’t think to boil the water before you drank it?  Look, no offence, but there is no way this thing is legit, ${this.heightDesc()}.</i>”\n\n`
         );
 
         this.outx(
@@ -1088,9 +1078,7 @@ export class IzumiScene extends BaseContent {
         );
 
         this.outx(
-            "“<i>It’s good, right?</i>”  Izumi’s voice penetrates your thoughts, and you open your eyes to see her gazing up at you, amber irises glittering in the half-light of the fire.  “<i>You know, there’s one more level to this... but looking at the state you’re in, there’s no way you could endure it for long.  In terms of pleasure, it outclasses what I’ve been doing up to now completely. Do you want to see it?</i>”  You don’t even have to think about it.  You nod your head, unsure if you can manage the difficult task of speaking, and Izumi giggles.  “<i>Alright, " +
-                this.heightDesc() +
-                ", but don’t say I didn’t warn you.  Here we go...</i>”\n\n"
+            `“<i>It’s good, right?</i>”  Izumi’s voice penetrates your thoughts, and you open your eyes to see her gazing up at you, amber irises glittering in the half-light of the fire.  “<i>You know, there’s one more level to this... but looking at the state you’re in, there’s no way you could endure it for long.  In terms of pleasure, it outclasses what I’ve been doing up to now completely. Do you want to see it?</i>”  You don’t even have to think about it.  You nod your head, unsure if you can manage the difficult task of speaking, and Izumi giggles.  “<i>Alright, ${this.heightDesc()}, but don’t say I didn’t warn you.  Here we go...</i>”\n\n`
         );
 
         this.outx(
@@ -1245,9 +1233,7 @@ export class IzumiScene extends BaseContent {
             );
 
             this.outx(
-                "“<i>Look, " +
-                    this.heightDesc() +
-                    ", I know I’m kind of an intimidating specimen, but you don’t really need to be scared.</i>” She smirks.  “<i>You keep shivering in fear like that and I’m liable to take offence, yeah?</i>”  You blink again in confusion before realization finally dawns.  Izumi has absolutely no idea how much this is turning you on.  The idea of your secret arousal going completely unnoticed is surprisingly erotic, and that thought turns out to be just enough to push you over the edge.  You wince and bite your lip to stifle your moans, quivering in the throes of a miniature orgasm, even though you’ve really yet to be even touched... and on a whim, you decide to keep eye contact with Izumi for the entire thing.\n\n"
+                `“<i>Look, ${this.heightDesc()}, I know I’m kind of an intimidating specimen, but you don’t really need to be scared.</i>” She smirks.  “<i>You keep shivering in fear like that and I’m liable to take offence, yeah?</i>”  You blink again in confusion before realization finally dawns.  Izumi has absolutely no idea how much this is turning you on.  The idea of your secret arousal going completely unnoticed is surprisingly erotic, and that thought turns out to be just enough to push you over the edge.  You wince and bite your lip to stifle your moans, quivering in the throes of a miniature orgasm, even though you’ve really yet to be even touched... and on a whim, you decide to keep eye contact with Izumi for the entire thing.\n\n`
             );
 
             this.outx(
@@ -1412,9 +1398,7 @@ export class IzumiScene extends BaseContent {
             );
 
             this.outx(
-                "“<i>Good girl,</i>” Izumi says, kindly, giving you a gentle kiss on the forehead as you rest your fatigued body against her bust. She reaches down between your legs and gives your still-throbbing pussy a couple of wet, slapping pats, as though congratulating it on a job well done... The impacts unfortunately causing you to yelp and tense up again as another mini-orgasm rolls through you. “<i>Hah!  Sorry.  Didn’t think you would still be that sensitive. But, you did good, " +
-                    this.heightDesc() +
-                    ".</i>” She releases you, finally, and you slide to the floor, struggling to stand as Izumi hands you your clothes.\n\n"
+                `“<i>Good girl,</i>” Izumi says, kindly, giving you a gentle kiss on the forehead as you rest your fatigued body against her bust. She reaches down between your legs and gives your still-throbbing pussy a couple of wet, slapping pats, as though congratulating it on a job well done... The impacts unfortunately causing you to yelp and tense up again as another mini-orgasm rolls through you. “<i>Hah!  Sorry.  Didn’t think you would still be that sensitive. But, you did good, ${this.heightDesc()}.</i>” She releases you, finally, and you slide to the floor, struggling to stand as Izumi hands you your clothes.\n\n`
             );
 
             this.outx(
@@ -1476,9 +1460,7 @@ export class IzumiScene extends BaseContent {
             );
 
             this.outx(
-                "One hand now actively engaged in exploring your nethers, Izumi begins to grope your [chest] in earnest, nibbling on your neck as she grips a nipple between thumb and forefinger and squeezes, almost painfully tweaking and pulling at the sensitive flesh.  She pulls gently but insistently at your [nipple] in a rhythmic motion.  “Haha, say... you ever been milked, " +
-                    this.heightDesc() +
-                    "?”  She murmurs, ominously. \n\n"
+                `One hand now actively engaged in exploring your nethers, Izumi begins to grope your [chest] in earnest, nibbling on your neck as she grips a nipple between thumb and forefinger and squeezes, almost painfully tweaking and pulling at the sensitive flesh.  She pulls gently but insistently at your [nipple] in a rhythmic motion.  “Haha, say... you ever been milked, ${this.heightDesc()}?”  She murmurs, ominously. \n\n`
             );
 
             if (this.player.lactationQ() > 0)
@@ -1575,9 +1557,7 @@ export class IzumiScene extends BaseContent {
         );
 
         this.outx(
-            "“<i>Alright. Let’s get this party started, then.</i>”  Izumi releases you and stands.  You start to follow, thankful of the opportunity to stretch out your strained muscles, but Izumi places a hand firmly on your head and pushes you back down.  “<i>Oh no,</i>” she says, smiling at you. “<i>No, you just sit right back down. You’re going to be staying on your knees for a while, " +
-                this.heightDesc() +
-                ".</i>”  Her words send a chill of excitement rushing through you, so you obediently adopt a kneeling position, waiting patiently.  Izumi’s smirk only grows wider as she pats you on the head.  Then she turns towards the assembled crowd of lurking masturbators.\n\n"
+            `“<i>Alright. Let’s get this party started, then.</i>”  Izumi releases you and stands.  You start to follow, thankful of the opportunity to stretch out your strained muscles, but Izumi places a hand firmly on your head and pushes you back down.  “<i>Oh no,</i>” she says, smiling at you. “<i>No, you just sit right back down. You’re going to be staying on your knees for a while, ${this.heightDesc()}.</i>”  Her words send a chill of excitement rushing through you, so you obediently adopt a kneeling position, waiting patiently.  Izumi’s smirk only grows wider as she pats you on the head.  Then she turns towards the assembled crowd of lurking masturbators.\n\n`
         );
 
         this.outx(
@@ -1615,9 +1595,7 @@ export class IzumiScene extends BaseContent {
         if (this.player.hasMuzzle()) this.outx(" muzzle");
         else this.outx(" face");
         this.outx(
-            "-fuck, tears of exertion streaming down your face.  “<i>Tongue his balls, then you get to come up for air,</i>” she commands, and you comply.  A few seconds later, you’re rewarded with the distinct hot, gloopy sensation of the imp blowing his load into your throat - and, much to your lust-addled surprise, a quick shoulder-squeeze from Izumi.  “<i>Sorry if I’m being a little rough, " +
-                this.heightDesc() +
-                ". Just playing the part, you know?</i>”  She whispers, reassuringly.\n\n"
+            `-fuck, tears of exertion streaming down your face.  “<i>Tongue his balls, then you get to come up for air,</i>” she commands, and you comply.  A few seconds later, you’re rewarded with the distinct hot, gloopy sensation of the imp blowing his load into your throat - and, much to your lust-addled surprise, a quick shoulder-squeeze from Izumi.  “<i>Sorry if I’m being a little rough, ${this.heightDesc()}. Just playing the part, you know?</i>”  She whispers, reassuringly.\n\n`
         );
 
         this.outx(
@@ -2080,9 +2058,7 @@ export class IzumiScene extends BaseContent {
         this.outx(".\n\n");
 
         this.outx(
-            "“<i>Well, " +
-                this.heightDesc() +
-                ", you really are weird... no dick </i>or<i> pussy.  I, err...</i>”  She says, the confusion caused your evident lack of equipment spreading across her face.  “<i>I gotta say, I’m fresh out of ideas over here.</i>”\n\n"
+            `“<i>Well, ${this.heightDesc()}, you really are weird... no dick </i>or<i> pussy.  I, err...</i>”  She says, the confusion caused your evident lack of equipment spreading across her face.  “<i>I gotta say, I’m fresh out of ideas over here.</i>”\n\n`
         );
 
         this.outx(
@@ -2436,9 +2412,7 @@ export class IzumiScene extends BaseContent {
         );
 
         this.outx(
-            "You advance on Izumi, noting the hungry light in her eyes as you remove your [armor].  Her half-discarded kimono acts as a sort of blanket, softening the ground as you crawl in between the enormous woman’s thighs, positioning yourself to thrust into your new conquest.  “<i>Yeah, let’s do it, " +
-                this.heightDesc() +
-                "... I’m ready, so show me what you’ve got.</i>”  She murmurs, half to herself, and you’re only too happy to oblige.\n\n"
+            `You advance on Izumi, noting the hungry light in her eyes as you remove your [armor].  Her half-discarded kimono acts as a sort of blanket, softening the ground as you crawl in between the enormous woman’s thighs, positioning yourself to thrust into your new conquest.  “<i>Yeah, let’s do it, ${this.heightDesc()}... I’m ready, so show me what you’ve got.</i>”  She murmurs, half to herself, and you’re only too happy to oblige.\n\n`
         );
 
         this.outx(

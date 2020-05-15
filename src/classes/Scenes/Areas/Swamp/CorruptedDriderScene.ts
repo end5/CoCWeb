@@ -35,9 +35,7 @@ export class CorruptedDriderScene extends BaseContent {
                 false
             );
             this.outx(
-                "You catch a blur of movement to the side, but by the time you turn for a better look, it's gone.  How odd.  Turning your eyes back to your path, you're shocked to see the form of a massive spider-woman in front of you.  She isn't just some humanoid spider-morph - she's a full-fledged drider, with a giant spider's body from the waist down and eight spindly legs supporting her.  Her eyes practically glow bright " +
-                    drider.skinTone +
-                    " while her venom-soaked lips twist into a cruel, confident smile.\n\n",
+                `You catch a blur of movement to the side, but by the time you turn for a better look, it's gone.  How odd.  Turning your eyes back to your path, you're shocked to see the form of a massive spider-woman in front of you.  She isn't just some humanoid spider-morph - she's a full-fledged drider, with a giant spider's body from the waist down and eight spindly legs supporting her.  Her eyes practically glow bright ${drider.skinTone} while her venom-soaked lips twist into a cruel, confident smile.\n\n`,
                 false
             );
 
@@ -59,9 +57,7 @@ export class CorruptedDriderScene extends BaseContent {
             );
 
             this.outx(
-                "As far as you're aware, it's unlikely you'll be able to scare your stalker off, and so you simply wait for them to show themselves.  You search with your eyes and, noisily clearing your throat, make it clear you're aware of their presence.  Soft chuckling chimes around you, seeming to originate from several places in the scrub, but nothing appears.  You turn about and call again, raising your " +
-                    this.player.weaponName +
-                    ".  A gentle tap on the shoulder answers you, but when you look the vista is equally as desolate as the first time.  And where the hell is that laughing coming from?\n\n",
+                `As far as you're aware, it's unlikely you'll be able to scare your stalker off, and so you simply wait for them to show themselves.  You search with your eyes and, noisily clearing your throat, make it clear you're aware of their presence.  Soft chuckling chimes around you, seeming to originate from several places in the scrub, but nothing appears.  You turn about and call again, raising your ${this.player.weaponName}.  A gentle tap on the shoulder answers you, but when you look the vista is equally as desolate as the first time.  And where the hell is that laughing coming from?\n\n`,
                 false
             );
 
@@ -95,9 +91,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.spriteSelect(77);
         this.outx("", true);
         this.outx(
-            "All eight of the drider's black and " +
-                this.monster.hairColor +
-                " striped legs collapse under her weight while she struggles ",
+            `All eight of the drider's black and ${this.monster.hairColor} striped legs collapse under her weight while she struggles `,
             false
         );
         if (this.monster.HP < 1)
@@ -228,27 +222,21 @@ export class CorruptedDriderScene extends BaseContent {
         // situation when she kisses you with potent, envenomed lips.  Get
         // moderately hypno'ed into cumming into her over and over again?
         this.outx(
-            "Eager to plumb the depths of this greedy spider's snatch, you practically tear your way out of your " +
-                this.player.armorName +
-                " in your hurry to get naked.  Through it all ",
+            `Eager to plumb the depths of this greedy spider's snatch, you practically tear your way out of your ${this.player.armorName} in your hurry to get naked.  Through it all `,
             false
         );
         if (this.monster.lust > 99) {
             this.outx("she looks ");
             if (this.player.tallness > 72) this.outx("up ");
             this.outx(
-                "at you with her " +
-                    this.monster.skinTone +
-                    " eyes opened wide and her tongue hanging from her mouth, panting lewdly.  Carapace-clad digits sink into her dripping honey-pot over and over while she watches, deep in her own lusty haze.  She retracts her engorged demon-cock so as to have better access to that feminine hole.",
+                `at you with her ${this.monster.skinTone} eyes opened wide and her tongue hanging from her mouth, panting lewdly.  Carapace-clad digits sink into her dripping honey-pot over and over while she watches, deep in her own lusty haze.  She retracts her engorged demon-cock so as to have better access to that feminine hole.`,
                 false
             );
         } else {
             this.outx("she looks ");
             if (this.player.tallness > 72) this.outx("up ");
             this.outx(
-                "at you with a look of disgust in her " +
-                    this.monster.skinTone +
-                    " eyes.  She folds her arms across her many-bosomed, quadratically endowed chest with disdain",
+                `at you with a look of disgust in her ${this.monster.skinTone} eyes.  She folds her arms across her many-bosomed, quadratically endowed chest with disdain`,
                 false
             );
             if (this.monster.nipplesPierced > 0)
@@ -282,31 +270,25 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Still fondling one of the four nicely-sized tits, you push the spider-bitch back, admiring the drider's flexibility as she leans back over her inhuman lower body, giving you an even better view of her intoxicatingly sweet-smelling pussy.  You take " +
-                this.oMultiCockDesc() +
-                " in hand and rub the " +
-                this.player.cockHead(x) +
-                " along the slick lips of her pussy, shuddering slightly as her wetness rubs the sensitive glans.  Gasping, you slowly spread her molten-hot pussy around your girth, reveling in the tight embrace of her slick walls.  The drider squirms in your grip with her breasts bouncing deliciously and whole body trembling.  Spreading as easily as her cunt, the drider's venom-glossed lips slowly open into a wordless 'o' of rapturous pleasure.\n\n",
+            `Still fondling one of the four nicely-sized tits, you push the spider-bitch back, admiring the drider's flexibility as she leans back over her inhuman lower body, giving you an even better view of her intoxicatingly sweet-smelling pussy.  You take ${this.oMultiCockDesc()} in hand and rub the ${this.player.cockHead(
+                x
+            )} along the slick lips of her pussy, shuddering slightly as her wetness rubs the sensitive glans.  Gasping, you slowly spread her molten-hot pussy around your girth, reveling in the tight embrace of her slick walls.  The drider squirms in your grip with her breasts bouncing deliciously and whole body trembling.  Spreading as easily as her cunt, the drider's venom-glossed lips slowly open into a wordless 'o' of rapturous pleasure.\n\n`,
             false
         );
 
         this.outx(
-            "Half an inch at a time, you sink ever-deeper inside the seemingly bottomless pit that is the spider-girl's steamy sex.  Reveling in the taming of the aggressive predator's sticky snatch, you postpone the eventual hilting as long as possible.  For her part, she doesn't seem to mind you having your way with her.  All eight of her spindly legs are scrabbling pitifully in the dirt, doing little more than nervelessly convulsing in uncontrolled pleasure.  The spider-woman's arms close behind your back, the sharp tips of her nails trying to claw deep furrows into your " +
-                this.player.skinFurScales() +
-                ".  At long last, your waist presses against her own to feel the oozing slipperiness of her nethers.  Your " +
-                this.cockDescript(x) +
-                " is totally buried in her tunnel, and now that you're holding still, you can feel the tiny folds inside her vagina slowly moving and gliding along your length, stroking your " +
-                this.cockDescript(x) +
-                " like dozens of tongues.\n\n",
+            `Half an inch at a time, you sink ever-deeper inside the seemingly bottomless pit that is the spider-girl's steamy sex.  Reveling in the taming of the aggressive predator's sticky snatch, you postpone the eventual hilting as long as possible.  For her part, she doesn't seem to mind you having your way with her.  All eight of her spindly legs are scrabbling pitifully in the dirt, doing little more than nervelessly convulsing in uncontrolled pleasure.  The spider-woman's arms close behind your back, the sharp tips of her nails trying to claw deep furrows into your ${this.player.skinFurScales()}.  At long last, your waist presses against her own to feel the oozing slipperiness of her nethers.  Your ${this.cockDescript(
+                x
+            )} is totally buried in her tunnel, and now that you're holding still, you can feel the tiny folds inside her vagina slowly moving and gliding along your length, stroking your ${this.cockDescript(
+                x
+            )} like dozens of tongues.\n\n`,
             false
         );
 
         this.outx(
-            "Compelled by your body's instincts, you draw back your " +
-                this.hipDescript() +
-                " to expose the bulk of your pussy-soaked shaft.  The spider-woman moans disappointedly, her voice filled with so much wanton desire that your " +
-                this.player.cockHead(x) +
-                " twitches in response.  You fondle the drider's lower pair of breasts with both hands, circling and squeezing the delectable mounds while you begin to repeatedly impale her squelching pussy, watching the upper row of pale breasts bounce and jiggle above your busy fingers.",
+            `Compelled by your body's instincts, you draw back your ${this.hipDescript()} to expose the bulk of your pussy-soaked shaft.  The spider-woman moans disappointedly, her voice filled with so much wanton desire that your ${this.player.cockHead(
+                x
+            )} twitches in response.  You fondle the drider's lower pair of breasts with both hands, circling and squeezing the delectable mounds while you begin to repeatedly impale her squelching pussy, watching the upper row of pale breasts bounce and jiggle above your busy fingers.`,
             false
         );
         if (this.monster.nipplesPierced > 0)
@@ -334,22 +316,21 @@ export class CorruptedDriderScene extends BaseContent {
                 );
         } else
             this.outx(
-                "Your " +
-                    this.cockDescript(x) +
-                    " seems to bulge inside her, giving itself over to the silken caresses of her glorious vagina.",
+                `Your ${this.cockDescript(
+                    x
+                )} seems to bulge inside her, giving itself over to the silken caresses of her glorious vagina.`,
                 false
             );
         this.outx(
-            "  The more you fuck the arachnid hussy's wanton slit, the more animated she becomes, until she finally breaks her wordless silence by crying, \"<i>Yes " +
-                this.player.mf("master", "mistress") +
-                ", dominate me!  I've been such a naughty bitch.  Use me like your cheap whore!  Fuck my holes full of cum, and leave me defiled in a puddle of spunk-laced mud!</i>\"\n\n",
+            `  The more you fuck the arachnid hussy's wanton slit, the more animated she becomes, until she finally breaks her wordless silence by crying, "<i>Yes ${this.player.mf(
+                "master",
+                "mistress"
+            )}, dominate me!  I've been such a naughty bitch.  Use me like your cheap whore!  Fuck my holes full of cum, and leave me defiled in a puddle of spunk-laced mud!</i>"\n\n`,
             false
         );
 
         this.outx(
-            "Invigorated by the rising tide of desire inside her, the drider pulls her torso up, crushing her tits into your palms so hard that her flesh bulges out through your fingers.  You smile down at the slutty spider and squeeze them hard enough to give her a taste of pain in response.  She pants, and her four " +
-                this.monster.skinTone +
-                "-hued eyes gaze at you, so full of desire that you have a hard time not cumming on the spot while you lock onto those half-lidded, luminous orbs.  You let go of her breasts and reach back to squeeze the smooth skin of her butt, feeling the joint between her human and arachnid halves just under her curvy derriere.\n\n",
+            `Invigorated by the rising tide of desire inside her, the drider pulls her torso up, crushing her tits into your palms so hard that her flesh bulges out through your fingers.  You smile down at the slutty spider and squeeze them hard enough to give her a taste of pain in response.  She pants, and her four ${this.monster.skinTone}-hued eyes gaze at you, so full of desire that you have a hard time not cumming on the spot while you lock onto those half-lidded, luminous orbs.  You let go of her breasts and reach back to squeeze the smooth skin of her butt, feeling the joint between her human and arachnid halves just under her curvy derriere.\n\n`,
             false
         );
 
@@ -360,20 +341,19 @@ export class CorruptedDriderScene extends BaseContent {
         if (this.monster.nipplesPierced > 0) this.outx("pierced");
         else this.outx("white-skinned");
         this.outx(
-            " breasts mash against your " +
-                this.allChestDesc() +
-                ', sweaty skin sliding back and forth and drawing gasps from each of you every time one of her nipples brushes one of yours.  She coos, "<i>Please fuck my slutty drider-cunt harder, ' +
-                this.player.mf("master", "mistress") +
-                "!  It was so naughty and cruel when I tried to rape you.  Don't let me cum... deny me over and over until I'm your good little spider-pet that'll do anything for release!</i>\"  She emphasizes every sentence by clamping her quim down on your " +
-                this.cockDescript(x) +
-                ", the dozens of lubricant-soaked folds rolling back and forth, milking you until you cannot help but ejaculate inside her.\n\n",
+            ` breasts mash against your ${this.allChestDesc()}, sweaty skin sliding back and forth and drawing gasps from each of you every time one of her nipples brushes one of yours.  She coos, "<i>Please fuck my slutty drider-cunt harder, ${this.player.mf(
+                "master",
+                "mistress"
+            )}!  It was so naughty and cruel when I tried to rape you.  Don't let me cum... deny me over and over until I'm your good little spider-pet that'll do anything for release!</i>"  She emphasizes every sentence by clamping her quim down on your ${this.cockDescript(
+                x
+            )}, the dozens of lubricant-soaked folds rolling back and forth, milking you until you cannot help but ejaculate inside her.\n\n`,
             false
         );
 
         this.outx(
-            "Your back arches in orgasmic pleasure, fingers squeezing her butt tightly enough that your pale lover's derriere will show your hand-prints for some time.  She shudders slightly as your " +
-                this.cockDescript(x) +
-                " is forced as far inside her lewdly-textured vagina as possible, milking your penis with repeated strokes while your urethra bulges with the first load.  You release what feels like a torrent into her passage; the heavy spurt is quickly swallowed by the drider, disappearing deep inside her as if drawn away on an unseen current.  The sudden suction and increase in the movement of her folds makes your next rope of jizz feel even bigger, but it too disappears into the drider's seemingly-bottomless body.",
+            `Your back arches in orgasmic pleasure, fingers squeezing her butt tightly enough that your pale lover's derriere will show your hand-prints for some time.  She shudders slightly as your ${this.cockDescript(
+                x
+            )} is forced as far inside her lewdly-textured vagina as possible, milking your penis with repeated strokes while your urethra bulges with the first load.  You release what feels like a torrent into her passage; the heavy spurt is quickly swallowed by the drider, disappearing deep inside her as if drawn away on an unseen current.  The sudden suction and increase in the movement of her folds makes your next rope of jizz feel even bigger, but it too disappears into the drider's seemingly-bottomless body.`,
             false
         );
         if (this.player.cumQ() > 1000)
@@ -384,34 +364,31 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx("\n\n", false);
 
         this.outx(
-            "While you're distracted by the repeated contrast of tension and relief emanating from " +
-                this.sMultiCockDesc() +
-                ", the drider leans up and kisses your neck, humming against your throat as you squirt the last of your orgasmic goop into her vagina.  You slump into her arms, spent by the effort of fucking her so fast and cumming so hard.  As you lie there, her lips sucking hard enough to leave hickeys on your neck with every crushing, passionate kiss, you feel the patterns of glossy fluid tingling on your " +
-                this.player.skin() +
-                ".  A jolt of fear runs up your spine, and you try to push away from her envenomed affections.  It doesn't work!  You can barely lift your arms, let alone pull out of the amorous arachnid's embrace!\n\n",
+            `While you're distracted by the repeated contrast of tension and relief emanating from ${this.sMultiCockDesc()}, the drider leans up and kisses your neck, humming against your throat as you squirt the last of your orgasmic goop into her vagina.  You slump into her arms, spent by the effort of fucking her so fast and cumming so hard.  As you lie there, her lips sucking hard enough to leave hickeys on your neck with every crushing, passionate kiss, you feel the patterns of glossy fluid tingling on your ${this.player.skin()}.  A jolt of fear runs up your spine, and you try to push away from her envenomed affections.  It doesn't work!  You can barely lift your arms, let alone pull out of the amorous arachnid's embrace!\n\n`,
             false
         );
 
         this.outx(
-            '"<i>Mmmmm,</i>" hums the drider into your collarbone, smearing more of her toxic lip-gloss onto you as she goes.  "<i>Such a good ' +
-                this.player.mf("master", "mistress") +
-                "!  You punished me so well!  Now just relax... I've been dripping out a special venom that'll help you teach me the rest of my lesson, and I need to make sure that every... single... drop... slips inside that sexy bloodstream of yours.</i>\"\n\n",
+            `"<i>Mmmmm,</i>" hums the drider into your collarbone, smearing more of her toxic lip-gloss onto you as she goes.  "<i>Such a good ${this.player.mf(
+                "master",
+                "mistress"
+            )}!  You punished me so well!  Now just relax... I've been dripping out a special venom that'll help you teach me the rest of my lesson, and I need to make sure that every... single... drop... slips inside that sexy bloodstream of yours.</i>"\n\n`,
             false
         );
 
         this.outx(
-            "You wiggle futilely, using the last of your strength to try to break free, but it's no use - she's too strong, or the venom has made you too weak.  Dimly, you're aware of your " +
-                this.cockDescript(x) +
-                " pulsating inside her, hard as iron and burning hot with lust, even though you just came.  The spider-woman continues to kiss you, and with every peck of her lips, you feel yourself sagging deeper into her embrace until you lay your head down on her breast, your only movements the slight twitches of your body as it tries to deal with the poison-induced need to copulate.  You feel the warmth of her breath on your neck when she stops, cradling you in her arms.\n\n",
+            `You wiggle futilely, using the last of your strength to try to break free, but it's no use - she's too strong, or the venom has made you too weak.  Dimly, you're aware of your ${this.cockDescript(
+                x
+            )} pulsating inside her, hard as iron and burning hot with lust, even though you just came.  The spider-woman continues to kiss you, and with every peck of her lips, you feel yourself sagging deeper into her embrace until you lay your head down on her breast, your only movements the slight twitches of your body as it tries to deal with the poison-induced need to copulate.  You feel the warmth of her breath on your neck when she stops, cradling you in her arms.\n\n`,
             false
         );
 
         this.outx(
-            "The drider cocks her head to the side so you can see her luminous " +
-                this.monster.skinTone +
-                " eyes boring into you while she whispers, \"<i>Don't try to fight it, dear.  While there's enough of my normal venom in there to keep your " +
-                this.cockDescript(x) +
-                " hard enough to cum a few more times for me, the real magic is in the secondary chemicals my demonic friends were kind enough to teach me how to excrete.  You can feel it relaxing your muscles can't you?  Well, the beauty is that it isn't just your muscles relaxing... your mind is getting nice and relaxed too.  So open and pliable that you'll soon be a horny puddle of putty for me to play with.</i>\"\n\n",
+            `The drider cocks her head to the side so you can see her luminous ${
+                this.monster.skinTone
+            } eyes boring into you while she whispers, "<i>Don't try to fight it, dear.  While there's enough of my normal venom in there to keep your ${this.cockDescript(
+                x
+            )} hard enough to cum a few more times for me, the real magic is in the secondary chemicals my demonic friends were kind enough to teach me how to excrete.  You can feel it relaxing your muscles can't you?  Well, the beauty is that it isn't just your muscles relaxing... your mind is getting nice and relaxed too.  So open and pliable that you'll soon be a horny puddle of putty for me to play with.</i>"\n\n`,
             false
         );
 
@@ -432,11 +409,12 @@ export class CorruptedDriderScene extends BaseContent {
             );
         else
             this.outx(
-                "No, that's not right.  You're not some rutting beast, you're the champion.  Sure, you've got your " +
-                    this.cockDescript(x) +
-                    " locked hilt-deep inside her squirming slit, but that doesn't mean you're some kind of " +
-                    this.player.mf("stud", "slut") +
-                    " who jumps on a cunt without a second thought, does it?  You blink your eyes while you try to think.  She does have a point though, if you hadn't been in such a hurry for some sex, you wouldn't be sagging into her tits and feeling so awfully relaxed.\n\n",
+                `No, that's not right.  You're not some rutting beast, you're the champion.  Sure, you've got your ${this.cockDescript(
+                    x
+                )} locked hilt-deep inside her squirming slit, but that doesn't mean you're some kind of ${this.player.mf(
+                    "stud",
+                    "slut"
+                )} who jumps on a cunt without a second thought, does it?  You blink your eyes while you try to think.  She does have a point though, if you hadn't been in such a hurry for some sex, you wouldn't be sagging into her tits and feeling so awfully relaxed.\n\n`,
                 false
             );
 
@@ -471,9 +449,9 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Gods!  It's getting so hard to think with that tight cunt clutching at your cock and the soft, feminine enunciations constantly interrupting your thoughts.  How can she concentrate with the stink of sex hanging so thick in the air?  Your " +
-                this.cockDescript(x) +
-                " is so horny, why aren't you fucking her yet?  You shudder weakly and remember ",
+            `Gods!  It's getting so hard to think with that tight cunt clutching at your cock and the soft, feminine enunciations constantly interrupting your thoughts.  How can she concentrate with the stink of sex hanging so thick in the air?  Your ${this.cockDescript(
+                x
+            )} is so horny, why aren't you fucking her yet?  You shudder weakly and remember `,
             false
         );
         if (this.player.cor > 80 && this.player.lib > 50)
@@ -503,9 +481,9 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            'You moan, "<i>N-no...</i>" but a small burst of pre-cum chooses that moment to erupt from your ' +
-                this.cockDescript(x) +
-                ", still nestled inside the squirming spider-cunt.  It feels heavenly, and while you try to struggle in your weakened state, the warm embrace of her pussy's many cock-milking folds is turning your penis into a cum-drooling behemoth on the edge of exploding.  Oh gods, is she going to do it?  Damn, you want to put her in her place, but you're so weak right now.  Even worse, her pussy has you so close, so very close.\n\n",
+            `You moan, "<i>N-no...</i>" but a small burst of pre-cum chooses that moment to erupt from your ${this.cockDescript(
+                x
+            )}, still nestled inside the squirming spider-cunt.  It feels heavenly, and while you try to struggle in your weakened state, the warm embrace of her pussy's many cock-milking folds is turning your penis into a cum-drooling behemoth on the edge of exploding.  Oh gods, is she going to do it?  Damn, you want to put her in her place, but you're so weak right now.  Even worse, her pussy has you so close, so very close.\n\n`,
             false
         );
 
@@ -515,9 +493,9 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "A plaintive whining, almost exactly like that of an animal, vocalizes subconsciously.  Your " +
-                this.cockDescript(x) +
-                " feels afire, constantly leaking pre-cum while you're held immobile in your spidery mistress' arms; you lick your lips and start to beg, mumbling out your desire to cum for her, anything for her, so long as she lets your dick orgasm again and again.  You want to climax so bad, but you want her to control your cock so much more.  It's always getting you in trouble, and it feels so good to let her use you as her cum-drooling mount.\n\n",
+            `A plaintive whining, almost exactly like that of an animal, vocalizes subconsciously.  Your ${this.cockDescript(
+                x
+            )} feels afire, constantly leaking pre-cum while you're held immobile in your spidery mistress' arms; you lick your lips and start to beg, mumbling out your desire to cum for her, anything for her, so long as she lets your dick orgasm again and again.  You want to climax so bad, but you want her to control your cock so much more.  It's always getting you in trouble, and it feels so good to let her use you as her cum-drooling mount.\n\n`,
             false
         );
 
@@ -527,9 +505,10 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "When she pulls away, her face is covered in a huge blush, and she's panting out loud and interrupting her words with quiet moans as she talks, \"<i>That's a good " +
-                this.player.mf("boy", "girl") +
-                ".  Even though you're a stupid pussy-slave, bound to let your cock lead you into every hungry snatch you see, you know how to obey a smarter woman's cunt, don't you?  Let me hear you beg like the animal you are.  Whine for mistress while her cunt fucks your dick, show me with every fiber of your being how much you love to submit, to obey, and to beg to be allowed to cum.</i>\"\n\n",
+            `When she pulls away, her face is covered in a huge blush, and she's panting out loud and interrupting her words with quiet moans as she talks, "<i>That's a good ${this.player.mf(
+                "boy",
+                "girl"
+            )}.  Even though you're a stupid pussy-slave, bound to let your cock lead you into every hungry snatch you see, you know how to obey a smarter woman's cunt, don't you?  Let me hear you beg like the animal you are.  Whine for mistress while her cunt fucks your dick, show me with every fiber of your being how much you love to submit, to obey, and to beg to be allowed to cum.</i>"\n\n`,
             false
         );
 
@@ -547,16 +526,17 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            'The drider moans louder and responds, "<i>Yes, oooh, good ' +
-                this.player.mf("boy", "girl") +
-                ".  You're so hard, so very hard.  You're oozing out cum even though you're not allowed to fuck me, and you love it.  I bet you don't even mind not getting to orgasm - so long as you're helpless and hilt-deep in a cunt, you're happy, aren't you?  Oohhh, I'm gonna... gonna... cum soon.  Luckily for you, I want you to squirt inside me.  I want that cock creaming my pussy as soon as I... ohhhh... so good... s-soon as I command it...  You'll do that for me, won't you?  You'll obey me completely, utterly, and pump every drop of your jism into my soon-to-be-pregnant pussy, right?</i>\"\n\n",
+            `The drider moans louder and responds, "<i>Yes, oooh, good ${this.player.mf(
+                "boy",
+                "girl"
+            )}.  You're so hard, so very hard.  You're oozing out cum even though you're not allowed to fuck me, and you love it.  I bet you don't even mind not getting to orgasm - so long as you're helpless and hilt-deep in a cunt, you're happy, aren't you?  Oohhh, I'm gonna... gonna... cum soon.  Luckily for you, I want you to squirt inside me.  I want that cock creaming my pussy as soon as I... ohhhh... so good... s-soon as I command it...  You'll do that for me, won't you?  You'll obey me completely, utterly, and pump every drop of your jism into my soon-to-be-pregnant pussy, right?</i>"\n\n`,
             false
         );
 
         this.outx(
-            "You mewl out an affirmation, forgetting how to speak with all the venom pumping through you and the mind-crushing levels of arousal pouring out of your " +
-                this.cockDescript(x) +
-                ".\n\n",
+            `You mewl out an affirmation, forgetting how to speak with all the venom pumping through you and the mind-crushing levels of arousal pouring out of your ${this.cockDescript(
+                x
+            )}.\n\n`,
             false
         );
 
@@ -589,18 +569,17 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx("\n\n", false);
 
         this.outx(
-            "While it seems to go on and on, your orgasm eventually ends, leaving you to hang limp while your still-hard dick is massaged by a much wetter spider-cunt.  The " +
-                this.monster.hairColor +
-                "-haired beauty dreamily says, \"<i>Mmmm... good job, pet.  Now, let that nice hard dick do the thinking for you and keep fucking my hot cunt until it goes dry.  Maybe a few hours after you finish, you'll be able to remember that you used to be a " +
-                this.player.mf("man", "woman") +
-                ' before you became my livestock.</i>"\n\n',
+            `While it seems to go on and on, your orgasm eventually ends, leaving you to hang limp while your still-hard dick is massaged by a much wetter spider-cunt.  The ${
+                this.monster.hairColor
+            }-haired beauty dreamily says, "<i>Mmmm... good job, pet.  Now, let that nice hard dick do the thinking for you and keep fucking my hot cunt until it goes dry.  Maybe a few hours after you finish, you'll be able to remember that you used to be a ${this.player.mf(
+                "man",
+                "woman"
+            )} before you became my livestock.</i>"\n\n`,
             false
         );
 
         this.outx(
-            "The blissful arachnid rolls onto her side with you still locked inside her and falls asleep, her " +
-                this.monster.hairColor +
-                " tresses ",
+            `The blissful arachnid rolls onto her side with you still locked inside her and falls asleep, her ${this.monster.hairColor} tresses `,
             false
         );
         if (this.player.cumQ() <= 1000) this.outx("splayed across the ground");
@@ -623,27 +602,21 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx("<b>Sometime Later...</b>\n", false);
 
         this.outx(
-            "Pistoning your hips violently, you continue to ravage the unconscious spider, fucking her in a brutal, beast-like manner that centers entirely upon your own pleasure.  You cum, dumping a fresh batch of jizz into her already-stuffed twat, grinning when a few more rivulets of ooze roll over her inflamed pussy-lips to drip into the growing puddle.  Still hard, " +
-                this.sMultiCockDesc() +
-                " continues to twitch, hungry for more, and you don't deny it.  You grab the arachnid bitch and stuff your dick into her mouth, shivering while her venom seeps into your dick, keeping you hard and ready to blow.  Whatever special, immobilizing venom she had earlier, it seems exhausted, and the only response your body has to the onslaught of toxin is to erupt, spouting a huge load of semen into her mouth.\n\n",
+            `Pistoning your hips violently, you continue to ravage the unconscious spider, fucking her in a brutal, beast-like manner that centers entirely upon your own pleasure.  You cum, dumping a fresh batch of jizz into her already-stuffed twat, grinning when a few more rivulets of ooze roll over her inflamed pussy-lips to drip into the growing puddle.  Still hard, ${this.sMultiCockDesc()} continues to twitch, hungry for more, and you don't deny it.  You grab the arachnid bitch and stuff your dick into her mouth, shivering while her venom seeps into your dick, keeping you hard and ready to blow.  Whatever special, immobilizing venom she had earlier, it seems exhausted, and the only response your body has to the onslaught of toxin is to erupt, spouting a huge load of semen into her mouth.\n\n`,
             false
         );
 
         this.outx(
-            "A low growl rips through your throat as you pull back and plaster her face white, coating the caked-on residue of a few previous loads with fresh moisture.  You shift position and force your " +
-                this.cockDescript(x) +
-                " between her two pairs of breasts, sandwiching it in there for the titty-fuck of a lifetime.  Pistoning back and forth, humping the glorious orbs relentlessly, you give yourself over completely to your sore dick, letting your world dissolve into the feelings of each of the spider-woman's orifices around your member.\n\n",
+            `A low growl rips through your throat as you pull back and plaster her face white, coating the caked-on residue of a few previous loads with fresh moisture.  You shift position and force your ${this.cockDescript(
+                x
+            )} between her two pairs of breasts, sandwiching it in there for the titty-fuck of a lifetime.  Pistoning back and forth, humping the glorious orbs relentlessly, you give yourself over completely to your sore dick, letting your world dissolve into the feelings of each of the spider-woman's orifices around your member.\n\n`,
             false
         );
 
         this.outx("<b>Even later...</b>\n", false);
 
         this.outx(
-            "You collapse into the dirt, not even caring that it stinks of dried cum and girl-jizz.  You've completely emptied out every speck of sperm from your " +
-                this.ballsDescriptLight() +
-                ", and you even kept going for a while after that.  It wasn't until " +
-                this.sMultiCockDesc() +
-                " went soft at last that you found enough peace to lie down.  ",
+            `You collapse into the dirt, not even caring that it stinks of dried cum and girl-jizz.  You've completely emptied out every speck of sperm from your ${this.ballsDescriptLight()}, and you even kept going for a while after that.  It wasn't until ${this.sMultiCockDesc()} went soft at last that you found enough peace to lie down.  `,
             false
         );
         if (this.player.cor > 80 && this.player.lib > 50)
@@ -680,24 +653,14 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Avoiding the desperate drider's spindly legs, you walk around to grab onto her limp torso, pulling it over until she lands on her back with her lewd figure in full display.  The girl pauses hesitantly, cupping one of her heaving tits in her hand while placing a finger to her lips with the other as she waits for you to make your move - in her current state, it's unlikely she can retaliate even if she wanted to.  The drider's corrupted cock twitches with excitement, a thick rod standing tall amidst the collapsed heap of its owner.  A bead of pre-cum oozes from the tip as evidence of your quick work, reminding you it would be rude to leave the job unfinished.  Swaying your " +
-                this.hipDescript() +
-                " enticingly, you move slowly down towards her lower torso, reaching over and propping yourself on top of the spider-woman with your " +
-                this.assDescript() +
-                " pressing against her slick devil-dick.  You look into her eager eyes, the aroused pet almost screaming for relief with her pained stare and the equally responsive cock grinding along your " +
-                this.vaginaDescript(0) +
-                ".  Reaching behind you, you grab the base of her member and pull, eliciting a yelp and an involuntary thrust from your victim that almost forces her tip inside.  It misses, however, and instead slips out in front of you, the nubs of her cock pushing along your lips and accidentally brushing along your " +
-                this.clitDescript() +
-                ".  You stifle a moan - she'll pay for that.\n\n",
+            `Avoiding the desperate drider's spindly legs, you walk around to grab onto her limp torso, pulling it over until she lands on her back with her lewd figure in full display.  The girl pauses hesitantly, cupping one of her heaving tits in her hand while placing a finger to her lips with the other as she waits for you to make your move - in her current state, it's unlikely she can retaliate even if she wanted to.  The drider's corrupted cock twitches with excitement, a thick rod standing tall amidst the collapsed heap of its owner.  A bead of pre-cum oozes from the tip as evidence of your quick work, reminding you it would be rude to leave the job unfinished.  Swaying your ${this.hipDescript()} enticingly, you move slowly down towards her lower torso, reaching over and propping yourself on top of the spider-woman with your ${this.assDescript()} pressing against her slick devil-dick.  You look into her eager eyes, the aroused pet almost screaming for relief with her pained stare and the equally responsive cock grinding along your ${this.vaginaDescript(
+                0
+            )}.  Reaching behind you, you grab the base of her member and pull, eliciting a yelp and an involuntary thrust from your victim that almost forces her tip inside.  It misses, however, and instead slips out in front of you, the nubs of her cock pushing along your lips and accidentally brushing along your ${this.clitDescript()}.  You stifle a moan - she'll pay for that.\n\n`,
             false
         );
 
         this.outx(
-            "Holding on to the top portion of the drider's thick member, you squeeze her in between your upper legs, pressing the demonic dong against your labia and inner thighs, both hot with desire.  Sliding upwards, you begin to bounce on top of the drider in a cowgirl-like position, grinding against her length while your " +
-                this.buttDescript() +
-                " slaps against her soaking pussy with every downward thrust.  The arachnid-morph convulses and moans along with your movements, unable to handle the feeling of your warmth against her heated member and the expertise of your hands fondling her tip, your fingers soaked with her leaking pre.  Riding your new pet victoriously, you make sure that the spider-woman can't escape the confines of your " +
-                this.hipDescript() +
-                ".\n\n",
+            `Holding on to the top portion of the drider's thick member, you squeeze her in between your upper legs, pressing the demonic dong against your labia and inner thighs, both hot with desire.  Sliding upwards, you begin to bounce on top of the drider in a cowgirl-like position, grinding against her length while your ${this.buttDescript()} slaps against her soaking pussy with every downward thrust.  The arachnid-morph convulses and moans along with your movements, unable to handle the feeling of your warmth against her heated member and the expertise of your hands fondling her tip, your fingers soaked with her leaking pre.  Riding your new pet victoriously, you make sure that the spider-woman can't escape the confines of your ${this.hipDescript()}.\n\n`,
             false
         );
 
@@ -727,13 +690,11 @@ export class CorruptedDriderScene extends BaseContent {
                 false
             );
         this.outx(
-            ".  With your free hand you massage one of her top breasts, your forearm pressing against the one below it.  The drider has no choice but to satisfy your hunger for her motherly tits, holding the back of your head with her hard gloved hand and groping your " +
-                this.assDescript() +
-                " with the other.  You begin to gyrate your hips in a sideways motion, allowing the demon-cock inside of you to grind against your inner walls with every bump protruding from its dark body.  The spider-woman bites her bottom lip as she forces herself not to paint your " +
-                this.vaginaDescript(0) +
-                " with her fervent seed.  You take your time switching through various techniques, slapping your butt against her groin or squeezing your thighs together and tightening your muscles against her thickness. Each advance is met with her lustful thrusting, the spider's cock pumping in and out in accordance to your own hip movements.  The slick juices of her cunt mix with yours, and you dwell in the pleasure of your " +
-                this.vaginaDescript(0) +
-                " filled with her own hot sex.\n\n",
+            `.  With your free hand you massage one of her top breasts, your forearm pressing against the one below it.  The drider has no choice but to satisfy your hunger for her motherly tits, holding the back of your head with her hard gloved hand and groping your ${this.assDescript()} with the other.  You begin to gyrate your hips in a sideways motion, allowing the demon-cock inside of you to grind against your inner walls with every bump protruding from its dark body.  The spider-woman bites her bottom lip as she forces herself not to paint your ${this.vaginaDescript(
+                0
+            )} with her fervent seed.  You take your time switching through various techniques, slapping your butt against her groin or squeezing your thighs together and tightening your muscles against her thickness. Each advance is met with her lustful thrusting, the spider's cock pumping in and out in accordance to your own hip movements.  The slick juices of her cunt mix with yours, and you dwell in the pleasure of your ${this.vaginaDescript(
+                0
+            )} filled with her own hot sex.\n\n`,
             false
         );
 
@@ -761,9 +722,7 @@ export class CorruptedDriderScene extends BaseContent {
         // *Summary:  Roll the drider over and squat on an ovipositor - reuse anal intro? (fuck you bitch, i'm taking your shitty kids to the lake and turning them pink)
         this.player.slimeFeed();
         this.outx(
-            "Eyeing the small lump of the spider's retracted ovipositor, you resolve to have a little fun with it, even if it means giving the spider exactly what she wants in a way that she doesn't.  You tear off your " +
-                this.player.armorName +
-                " while the drider watches with ",
+            `Eyeing the small lump of the spider's retracted ovipositor, you resolve to have a little fun with it, even if it means giving the spider exactly what she wants in a way that she doesn't.  You tear off your ${this.player.armorName} while the drider watches with `,
             false
         );
         if (this.monster.HP < 1) this.outx("hate");
@@ -774,21 +733,17 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Like this, you're treated to a perfect view of ALL of the web-woman's endowments.  Her four D-cup tits flatten slightly against her torso now that she's on her back, hanging slightly to the side.  At her crotch, you can see her glistening, black-lipped sex puffing up, the tip of her large button already peeking out of her tempting box.  Just below that, the black and " +
-                this.monster.hairColor +
-                "-striped exoskeleton of her spider-half starts, merging down into an bulbous, arachnid shape.  At the very bottom of it all is the huge bulk of her abdomen, covered with numerous spinnerets and with a wide, mostly-retracted organ near the back.\n\n",
+            `Like this, you're treated to a perfect view of ALL of the web-woman's endowments.  Her four D-cup tits flatten slightly against her torso now that she's on her back, hanging slightly to the side.  At her crotch, you can see her glistening, black-lipped sex puffing up, the tip of her large button already peeking out of her tempting box.  Just below that, the black and ${this.monster.hairColor}-striped exoskeleton of her spider-half starts, merging down into an bulbous, arachnid shape.  At the very bottom of it all is the huge bulk of her abdomen, covered with numerous spinnerets and with a wide, mostly-retracted organ near the back.\n\n`,
             false
         );
 
         this.outx("The spider's look of ");
         if (this.monster.HP < 1) {
             this.outx(
-                "hate fades slightly when she sees you eyeing her ovipositor, and with a sigh of annoyance, allows the segmented organ to slowly slide out from her body.  It grows to just over two feet in length, swaying sinuously in the air, though you can tell it isn't completely engorged yet.  Still, your " +
-                    this.vaginaDescript(),
+                `hate fades slightly when she sees you eyeing her ovipositor, and with a sigh of annoyance, allows the segmented organ to slowly slide out from her body.  It grows to just over two feet in length, swaying sinuously in the air, though you can tell it isn't completely engorged yet.  Still, your ${this.vaginaDescript()}`,
                 false
             );
-            if (this.player.hasCock())
-                this.outx(" and " + this.sMultiCockDesc() + " twitch", false);
+            if (this.player.hasCock()) this.outx(` and ${this.sMultiCockDesc()} twitch`, false);
             else this.outx(" twitches");
             this.outx(
                 " at the thought of trying to pack all of that meaty, alien pole inside you.\n\n",
@@ -796,12 +751,10 @@ export class CorruptedDriderScene extends BaseContent {
             );
         } else {
             this.outx(
-                "lust only deepens when she sees you eyeing her ovipositor, and with a twinkle in her eyes, she releases a hiss of pleasure.  The organ pulsates once, then practically explodes before your eyes, lancing just over two feet into the air and waving back and forth sinuously, like a snake.  In a way, the tubular, segmented shaft reminds you of a monstrously thick cock, something that might even give a minotaur pause. Your " +
-                    this.vaginaDescript(),
+                `lust only deepens when she sees you eyeing her ovipositor, and with a twinkle in her eyes, she releases a hiss of pleasure.  The organ pulsates once, then practically explodes before your eyes, lancing just over two feet into the air and waving back and forth sinuously, like a snake.  In a way, the tubular, segmented shaft reminds you of a monstrously thick cock, something that might even give a minotaur pause. Your ${this.vaginaDescript()}`,
                 false
             );
-            if (this.player.hasCock())
-                this.outx(" and  " + this.sMultiCockDesc() + " twitch", false);
+            if (this.player.hasCock()) this.outx(` and  ${this.sMultiCockDesc()} twitch`, false);
             else this.outx(" twitches");
             this.outx(
                 " in anticipation - you can't wait to feel that thing going inside you!\n\n",
@@ -815,9 +768,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Shifting back a bit, you place the entrance to your " +
-                this.vaginaDescript() +
-                " against the wiggling tip.  The drider sighs and warm green goop gushes inside you eagerly, spreading your canal wide and making you gasp with pleasure.  Subtly, you begin sliding your hips, seeking to soak in more sensation for your slit.  Cooing in delight, the drider grabs at her four ",
+            `Shifting back a bit, you place the entrance to your ${this.vaginaDescript()} against the wiggling tip.  The drider sighs and warm green goop gushes inside you eagerly, spreading your canal wide and making you gasp with pleasure.  Subtly, you begin sliding your hips, seeking to soak in more sensation for your slit.  Cooing in delight, the drider grabs at her four `,
             false
         );
         if (this.monster.nipplesPierced > 0) this.outx("pierced ");
@@ -827,16 +778,12 @@ export class CorruptedDriderScene extends BaseContent {
         );
         this.player.cuntChange(30, true, true, false);
         this.outx(
-            "  You gasp, arching your back and sliding your " +
-                this.vaginaDescript() +
-                " forward, as if your quim could somehow devour the entire length on its own.\n\n",
+            `  You gasp, arching your back and sliding your ${this.vaginaDescript()} forward, as if your quim could somehow devour the entire length on its own.\n\n`,
             false
         );
 
         this.outx(
-            "Once you get about halfway down the drider's ovipositor, it stops sliding in so easily, leaving you to hump away at the drider's abdomen in a futile quest for further penetration.  You mewl in disappointment and prepare to pull back and fuck the portion you've already taken like no tomorrow.  The flexible shaft undulates, then pistons forward, spear-like.  You feel your " +
-                this.vaginaDescript() +
-                " stretching wide, then relaxing as one of the segmented rings nestles into your canal's sopping embrace.  A fresh gush of green slime sprays out of your tightly-stretched labia, strings of the stuff shooting fanwise over the drider's glossy, black abdomen.",
+            `Once you get about halfway down the drider's ovipositor, it stops sliding in so easily, leaving you to hump away at the drider's abdomen in a futile quest for further penetration.  You mewl in disappointment and prepare to pull back and fuck the portion you've already taken like no tomorrow.  The flexible shaft undulates, then pistons forward, spear-like.  You feel your ${this.vaginaDescript()} stretching wide, then relaxing as one of the segmented rings nestles into your canal's sopping embrace.  A fresh gush of green slime sprays out of your tightly-stretched labia, strings of the stuff shooting fanwise over the drider's glossy, black abdomen.`,
             false
         );
         this.player.cuntChange(50, true, true, false);
@@ -848,9 +795,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "You look back in irritation, though your displeasure is stolen away by another fierce push of the woman's massive organ.  It stretches you so nicely while it fills you with sloppy green goo, the excess squeezing out from your lips in three squirts as another fat ring pops inside you.  You shudder and look down, watching as the ovipositor begins to wriggle and squirm, twisting about inside you in a relentless drive to impale your " +
-                this.vaginaDescript() +
-                " with its entire length.  Even before you finish adjusting to the last one, the next segment is thrown against you, squeezing out gushes of the verdant egg-lube while it works its way inside you.  Though you've almost got the entire thing lodged deep in your twat at this point, it still manages to squirm back and forth, working half of the ring in at a time, until it too pops into place, stuffing you utterly.\n\n",
+            `You look back in irritation, though your displeasure is stolen away by another fierce push of the woman's massive organ.  It stretches you so nicely while it fills you with sloppy green goo, the excess squeezing out from your lips in three squirts as another fat ring pops inside you.  You shudder and look down, watching as the ovipositor begins to wriggle and squirm, twisting about inside you in a relentless drive to impale your ${this.vaginaDescript()} with its entire length.  Even before you finish adjusting to the last one, the next segment is thrown against you, squeezing out gushes of the verdant egg-lube while it works its way inside you.  Though you've almost got the entire thing lodged deep in your twat at this point, it still manages to squirm back and forth, working half of the ring in at a time, until it too pops into place, stuffing you utterly.\n\n`,
             false
         );
 
@@ -860,13 +805,11 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "There's a moment of terrific, agonizing pain that forces you farther onto your back, and then it vanishes, the only signal of its passage a muffled slosh coming from your belly.  You shiver, feeling strange, unexpected bliss welling up from your loins, just in time for the next egg to traverse your ovipositor-gaped, goo-spewing cunny.  Even before this one can squeeze through your abused cervix, another backs up behind... and another... and another.  Your poor, stretched-out pussy clenches, shooting spasms of pleasure through your whole body that make you grunt and moan.  Lost in your orgasm, you throw your head back to howl, only to find the drider's cock, graduated from its larval clitoris, twitching and spewing its foul steaming load directly where you just laid your head.  Several ropes of the demonic jizz land in your " +
-                this.hairDescript() +
-                " and even patter on your forehead, but you can't be put out to care right now.",
+            `There's a moment of terrific, agonizing pain that forces you farther onto your back, and then it vanishes, the only signal of its passage a muffled slosh coming from your belly.  You shiver, feeling strange, unexpected bliss welling up from your loins, just in time for the next egg to traverse your ovipositor-gaped, goo-spewing cunny.  Even before this one can squeeze through your abused cervix, another backs up behind... and another... and another.  Your poor, stretched-out pussy clenches, shooting spasms of pleasure through your whole body that make you grunt and moan.  Lost in your orgasm, you throw your head back to howl, only to find the drider's cock, graduated from its larval clitoris, twitching and spewing its foul steaming load directly where you just laid your head.  Several ropes of the demonic jizz land in your ${this.hairDescript()} and even patter on your forehead, but you can't be put out to care right now.`,
             false
         );
         if (this.player.hasCock()) {
-            this.outx("  Your own " + this.multiCockDescriptLight() + " retaliate", false);
+            this.outx(`  Your own ${this.multiCockDescriptLight()} retaliate`, false);
             if (this.player.cockTotal() == 1) this.outx("s");
             this.outx(" automatically, dumping ");
             if (this.player.cumQ() < 500) this.outx("scores of");
@@ -879,9 +822,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Vocalizing like an animal, you climax over and over in a seemingly endless rut, swiveling your hips while your muscles milk the ovipositor, practically pulling the eggs into your hungry womb.  When the last one is packed tightly into your uterus, your " +
-                this.vaginaDescript() +
-                " keeps milking it, a hollow ring of disappointment penetrating your fog as you realize the pleasure has come to an end.  The thick, egg-laying organ slowly shrivels, shrinking down enough that it slides free.  As it's pulled out, a river of slime comes with it, released to pour out of your overstuffed cooch.\n\n",
+            `Vocalizing like an animal, you climax over and over in a seemingly endless rut, swiveling your hips while your muscles milk the ovipositor, practically pulling the eggs into your hungry womb.  When the last one is packed tightly into your uterus, your ${this.vaginaDescript()} keeps milking it, a hollow ring of disappointment penetrating your fog as you realize the pleasure has come to an end.  The thick, egg-laying organ slowly shrivels, shrinking down enough that it slides free.  As it's pulled out, a river of slime comes with it, released to pour out of your overstuffed cooch.\n\n`,
             false
         );
 
@@ -913,9 +854,7 @@ export class CorruptedDriderScene extends BaseContent {
         // *Summary: Force the drider onto her back and then fish out her ovipositor, jerk it off, then climb on top for some egg-based buttlovin'
         this.outx("", true);
         this.outx(
-            "Eyeing the small lump of the spider's retracted ovipositor, you resolve to have a little fun with it, even if it means giving the spider exactly what she wants in a way that she doesn't.  You tear off your " +
-                this.player.armorName +
-                " while the drider watches with ",
+            `Eyeing the small lump of the spider's retracted ovipositor, you resolve to have a little fun with it, even if it means giving the spider exactly what she wants in a way that she doesn't.  You tear off your ${this.player.armorName} while the drider watches with `,
             false
         );
         if (this.monster.HP < 1) this.outx("hate");
@@ -926,21 +865,17 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Like this, you're treated to a perfect view of ALL of the web-woman's endowments.  Her four D-cup tits flatten slightly against her torso now that she's on her back, hanging slightly to the side.  At her crotch, you can see her glistening, black-lipped sex puffing up, the tip of her large button already peeking out of her tempting box.  Just below that, the black and " +
-                this.monster.hairColor +
-                "-striped exoskeleton of her spider-half starts, merging down into an bulbous, arachnid shape.  At the very bottom of it all is the huge bulk of her abdomen, covered with numerous spinnerets and with a wide, mostly-retracted organ near the back.\n\n",
+            `Like this, you're treated to a perfect view of ALL of the web-woman's endowments.  Her four D-cup tits flatten slightly against her torso now that she's on her back, hanging slightly to the side.  At her crotch, you can see her glistening, black-lipped sex puffing up, the tip of her large button already peeking out of her tempting box.  Just below that, the black and ${this.monster.hairColor}-striped exoskeleton of her spider-half starts, merging down into an bulbous, arachnid shape.  At the very bottom of it all is the huge bulk of her abdomen, covered with numerous spinnerets and with a wide, mostly-retracted organ near the back.\n\n`,
             false
         );
 
         this.outx("The spider's look of ");
         if (this.monster.HP < 1) {
             this.outx(
-                "hate fades slightly when she sees you eyeing her ovipositor, and with a sigh of annoyance, allows the segmented organ to slowly slide out from her body.  It grows to just over two feet in length, swaying sinuously in the air, though you can tell it isn't completely engorged yet.  Still, your " +
-                    this.assholeDescript(),
+                `hate fades slightly when she sees you eyeing her ovipositor, and with a sigh of annoyance, allows the segmented organ to slowly slide out from her body.  It grows to just over two feet in length, swaying sinuously in the air, though you can tell it isn't completely engorged yet.  Still, your ${this.assholeDescript()}`,
                 false
             );
-            if (this.player.hasCock())
-                this.outx(" and " + this.sMultiCockDesc() + " twitch", false);
+            if (this.player.hasCock()) this.outx(` and ${this.sMultiCockDesc()} twitch`, false);
             else this.outx(" twitches");
             this.outx(
                 " at the thought of trying to pack all of that meaty, alien pole inside you.\n\n",
@@ -948,12 +883,10 @@ export class CorruptedDriderScene extends BaseContent {
             );
         } else {
             this.outx(
-                "lust only deepens when she sees you eyeing her ovipositor, and with a twinkle in her eyes, she releases a hiss of pleasure.  The organ pulsates once, then practically explodes before your eyes, lancing just over two feet into the air and waving back and forth sinuously, like a snake.  In a way, the tubular, segmented shaft reminds you of a monstrously thick cock, something that might even give a minotaur pause. Your " +
-                    this.assholeDescript(),
+                `lust only deepens when she sees you eyeing her ovipositor, and with a twinkle in her eyes, she releases a hiss of pleasure.  The organ pulsates once, then practically explodes before your eyes, lancing just over two feet into the air and waving back and forth sinuously, like a snake.  In a way, the tubular, segmented shaft reminds you of a monstrously thick cock, something that might even give a minotaur pause. Your ${this.assholeDescript()}`,
                 false
             );
-            if (this.player.hasCock())
-                this.outx(" and  " + this.sMultiCockDesc() + " twitch", false);
+            if (this.player.hasCock()) this.outx(` and  ${this.sMultiCockDesc()} twitch`, false);
             else this.outx(" twitches");
             this.outx(
                 " in anticipation - you can't wait to feel that thing going inside you!\n\n",
@@ -967,18 +900,12 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Climbing over the drider's bulbous body, you bend over to present your " +
-                this.assDescript() +
-                " to the twitching ovipositor, beckoning her to slide inside your twitching " +
-                this.assholeDescript() +
-                " as you stand atop its owner.  The sprawled-out spider looks up past all of her body to watch you, leaving you waiting.  Nothing happens at first.  You're just there, ass in the air and waiting to be violated, encouraging it on your own terms, but she doesn't do anything at all.  She simply watches you.  It isn't until a scowl of irritation makes its way across your face that she acts.\n\n",
+            `Climbing over the drider's bulbous body, you bend over to present your ${this.assDescript()} to the twitching ovipositor, beckoning her to slide inside your twitching ${this.assholeDescript()} as you stand atop its owner.  The sprawled-out spider looks up past all of her body to watch you, leaving you waiting.  Nothing happens at first.  You're just there, ass in the air and waiting to be violated, encouraging it on your own terms, but she doesn't do anything at all.  She simply watches you.  It isn't until a scowl of irritation makes its way across your face that she acts.\n\n`,
             false
         );
 
         this.outx(
-            "The ovipositor lurches over, bending and flexing to reach up to your exposed hole, barely touching you while it explores your cheeks.   You pant and grab your " +
-                this.buttDescript() +
-                ", pulling yourself wide to expose the clenching, dark circle that is your pucker.  It rubs across your hand before finally finding its way into your anal cleavage, ridges sliding between your backside and flopping against your ring while it blindly tries to get adjusted.  The moist, dripping slime it exudes quickly turns your ass into a green-glazed slip-'n-slide.  A sudden shock of sensation alerts you that yes, the ovipositor has finally found your asshole.\n\n",
+            `The ovipositor lurches over, bending and flexing to reach up to your exposed hole, barely touching you while it explores your cheeks.   You pant and grab your ${this.buttDescript()}, pulling yourself wide to expose the clenching, dark circle that is your pucker.  It rubs across your hand before finally finding its way into your anal cleavage, ridges sliding between your backside and flopping against your ring while it blindly tries to get adjusted.  The moist, dripping slime it exudes quickly turns your ass into a green-glazed slip-'n-slide.  A sudden shock of sensation alerts you that yes, the ovipositor has finally found your asshole.\n\n`,
             false
         );
 
@@ -993,9 +920,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
         if (this.player.hasCock()) {
             this.outx(
-                "  The warm organ brushes past your prostate, the slippery caress making " +
-                    this.sMultiCockDesc() +
-                    " dribble a ",
+                `  The warm organ brushes past your prostate, the slippery caress making ${this.sMultiCockDesc()} dribble a `,
                 false
             );
             if (this.player.cumQ() < 500) this.outx("drop");
@@ -1003,19 +928,15 @@ export class CorruptedDriderScene extends BaseContent {
             this.outx(" of pre-cum down its length.");
         }
         if (this.player.hasVagina()) {
-            this.outx("  Your " + this.vaginaDescript(0) + " quivers", false);
+            this.outx(`  Your ${this.vaginaDescript(0)} quivers`, false);
             if (this.player.wetness() >= 3) this.outx(" and drips");
             this.outx(
-                " sympathetically with the sensation, and your " +
-                    this.clitDescript() +
-                    " peeks from the wet lips.",
+                ` sympathetically with the sensation, and your ${this.clitDescript()} peeks from the wet lips.`,
                 false
             );
         }
         this.outx(
-            "  Yet you are not denied the anal pleasure you crave, as the widening bands now filling you are each pushing out harder than the one before.  At the stimulation, her own demonic clit swells as if posessed, nodulates, and hardens into dick form, poking up from her pussy and drooling a slime of pre-cum onto her abdomen.  The second ring rolls over your anal g-spot and you gasp, nearly losing your grip.  The third knocks your " +
-                this.player.legs() +
-                " out from under you, and you collapse atop your partner, squeezing oozing dick",
+            `  Yet you are not denied the anal pleasure you crave, as the widening bands now filling you are each pushing out harder than the one before.  At the stimulation, her own demonic clit swells as if posessed, nodulates, and hardens into dick form, poking up from her pussy and drooling a slime of pre-cum onto her abdomen.  The second ring rolls over your anal g-spot and you gasp, nearly losing your grip.  The third knocks your ${this.player.legs()} out from under you, and you collapse atop your partner, squeezing oozing dick`,
             false
         );
         if (this.player.hasCock()) this.outx("s");
@@ -1064,33 +985,27 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx("Writhing happily, you sigh ");
         if (this.player.hasCock())
             this.outx(
-                "while your " +
-                    this.multiCockDescriptLight() +
-                    " dribbles white, wasted goo onto the black and " +
-                    this.monster.hairColor +
-                    " striped carapace below",
+                `while your ${this.multiCockDescriptLight()} dribbles white, wasted goo onto the black and ${
+                    this.monster.hairColor
+                } striped carapace below`,
                 false
             );
         else if (this.player.hasVagina())
             this.outx(
-                "while your " +
-                    this.vaginaDescript(0) +
-                    " dribbles fem-slime onto the black and " +
-                    this.monster.hairColor +
-                    " striped carapace below",
+                `while your ${this.vaginaDescript(0)} dribbles fem-slime onto the black and ${
+                    this.monster.hairColor
+                } striped carapace below`,
                 false
             );
         else
             this.outx(
-                "while your fingers tweak your " +
-                    this.nippleDescript(0) +
-                    "s and your starved sphincter sucks at its slimy, squirming stuffing",
+                `while your fingers tweak your ${this.nippleDescript(
+                    0
+                )}s and your starved sphincter sucks at its slimy, squirming stuffing`,
                 false
             );
         this.outx(
-            ".  Without warning, the ovipositor dilates, pulling your " +
-                this.assholeDescript() +
-                " even wider.  An explosion of warmth goes off in your guts, and you realize that your term as an incubator has begun with a sense of perverse delight.\n\n",
+            `.  Without warning, the ovipositor dilates, pulling your ${this.assholeDescript()} even wider.  An explosion of warmth goes off in your guts, and you realize that your term as an incubator has begun with a sense of perverse delight.\n\n`,
             false
         );
 
@@ -1125,9 +1040,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Gradually, you're lifted off the carapace by your inflating abdomen.  Your belly gurgles, making you burp as you're filled with enough eggs to make you feel uncomfortable and compressed.  The " +
-                this.player.skinFurScales() +
-                " of your stomach is drum-tight by the time you slide off the wilting ovipositor, and the bottom portion of it is soaked in the last of your partner's orgasm.  You look positively pregnant as you stagger upright and make for your garments, trying to ignore the exhausted drider's jibes.\n\n",
+            `Gradually, you're lifted off the carapace by your inflating abdomen.  Your belly gurgles, making you burp as you're filled with enough eggs to make you feel uncomfortable and compressed.  The ${this.player.skinFurScales()} of your stomach is drum-tight by the time you slide off the wilting ovipositor, and the bottom portion of it is soaked in the last of your partner's orgasm.  You look positively pregnant as you stagger upright and make for your garments, trying to ignore the exhausted drider's jibes.\n\n`,
             false
         );
 
@@ -1154,9 +1067,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx("", true);
         const x: number = this.player.smallestCockIndex();
         this.outx(
-            "Quickly shedding your " +
-                this.player.armorName +
-                ", you eye up the incapacitated drider, wondering how best to take advantage of your successes.  A remarkably nasty thought strikes you, and your lips nearly curl into a devious grin then and there.  You stride toward your trophy, taking pleasure in the simmering hatred in her eyes as she glares up at you.  A sudden bout of mocking laughter stops your progress; the drider seems to have noticed ",
+            `Quickly shedding your ${this.player.armorName}, you eye up the incapacitated drider, wondering how best to take advantage of your successes.  A remarkably nasty thought strikes you, and your lips nearly curl into a devious grin then and there.  You stride toward your trophy, taking pleasure in the simmering hatred in her eyes as she glares up at you.  A sudden bout of mocking laughter stops your progress; the drider seems to have noticed `,
             false
         );
         if (this.player.cockTotal() == 1) this.outx("your");
@@ -1179,11 +1090,11 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Any satisfaction the drider could have gleaned is quickly replaced with complete trepidation as you swivel her spinneret toward you, grabbing your " +
-                this.cockDescript(x) +
-                " and lining it up with the onyx protrusion.  She manages to choke out a protest before you plunge into the depths, the tight recesses squeezing you wonderfully.  A strangled, gurgly scream peals from the oversensitized girl, both her arms and legs flailing about.  You push up to your pelvis into her spinneret, then slowly—so slowly—draw back, the sensation leaving the drider to claw deep divots into the mossy ground.  You draw out to the " +
-                this.player.cockHead(x) +
-                ', then thrust back in, taking your sweet time with the motions.  Her eyes roll back into her head, and another gurgle rumbles in her throat.  You have to wonder if she can even form coherent thoughts, in this state.  No matter; she insulted you, after all.  She begins hissing something through her clenched teeth, and while unintelligible at first, you can eventually make out, "<i>Fuck you... fuck you... fuck you...</i>" like some sort of vulgar mantra.\n\n',
+            `Any satisfaction the drider could have gleaned is quickly replaced with complete trepidation as you swivel her spinneret toward you, grabbing your ${this.cockDescript(
+                x
+            )} and lining it up with the onyx protrusion.  She manages to choke out a protest before you plunge into the depths, the tight recesses squeezing you wonderfully.  A strangled, gurgly scream peals from the oversensitized girl, both her arms and legs flailing about.  You push up to your pelvis into her spinneret, then slowly—so slowly—draw back, the sensation leaving the drider to claw deep divots into the mossy ground.  You draw out to the ${this.player.cockHead(
+                x
+            )}, then thrust back in, taking your sweet time with the motions.  Her eyes roll back into her head, and another gurgle rumbles in her throat.  You have to wonder if she can even form coherent thoughts, in this state.  No matter; she insulted you, after all.  She begins hissing something through her clenched teeth, and while unintelligible at first, you can eventually make out, "<i>Fuck you... fuck you... fuck you...</i>" like some sort of vulgar mantra.\n\n`,
             false
         );
 
@@ -1207,9 +1118,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
         if (this.player.biggestTitSize() >= 3)
             this.outx(
-                "  The semi-sticky stuff soaks into the cleavage of your " +
-                    this.player.allBreastsDescript() +
-                    ", the feeling surprisingly enjoyable.  You even knead the web in a bit, biting your bottom lip from the sensation.",
+                `  The semi-sticky stuff soaks into the cleavage of your ${this.player.allBreastsDescript()}, the feeling surprisingly enjoyable.  You even knead the web in a bit, biting your bottom lip from the sensation.`,
                 false
             );
         this.outx(
@@ -1218,24 +1127,22 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "As gently as you can, you slide off of the drider's body and move around in front of her, falling to a kneel next to her head.  No sense in foreplay, you figure - she's asleep and you're ridiculously horny. Leaving her upside-down, you slide your " +
-                this.cockDescript(x) +
-                " between her lips slowly, like a baker making a delicious crème brûlée.  Upon entry, however, caution is scattered in the wind, abandoned because of the feeling of her glorious gob, enveloping, envenomating, lubricating, and teasing the shaft.  Although aware of how bad of an idea it is, you're compelled to thrust as deep as you can into your knocked-out sex aid.  Happily, she's too out of it to react to the face-fucking",
+            `As gently as you can, you slide off of the drider's body and move around in front of her, falling to a kneel next to her head.  No sense in foreplay, you figure - she's asleep and you're ridiculously horny. Leaving her upside-down, you slide your ${this.cockDescript(
+                x
+            )} between her lips slowly, like a baker making a delicious crème brûlée.  Upon entry, however, caution is scattered in the wind, abandoned because of the feeling of her glorious gob, enveloping, envenomating, lubricating, and teasing the shaft.  Although aware of how bad of an idea it is, you're compelled to thrust as deep as you can into your knocked-out sex aid.  Happily, she's too out of it to react to the face-fucking`,
             false
         );
         if (this.player.balls > 0)
             this.outx(
-                ", even giggling a little as your " +
-                    this.ballsDescriptLight() +
-                    " slap against her nose",
+                `, even giggling a little as your ${this.ballsDescriptLight()} slap against her nose`,
                 false
             );
         this.outx(".\n\n", false);
 
         this.outx(
-            "Her tongue idly licks and teases your " +
-                this.cockDescript(x) +
-                ", each passionate thrust jiggling her hefty tits.  It's not long before your limit is reached.  Planting a hand on each side of her head, you slam your groin into her chin.  She gurgles in pleasure from your continuing rough treatment, and her pleasured sounds only increase when your first load is shot down her throat.",
+            `Her tongue idly licks and teases your ${this.cockDescript(
+                x
+            )}, each passionate thrust jiggling her hefty tits.  It's not long before your limit is reached.  Planting a hand on each side of her head, you slam your groin into her chin.  She gurgles in pleasure from your continuing rough treatment, and her pleasured sounds only increase when your first load is shot down her throat.`,
             false
         );
         if (this.player.cumQ() < 50) this.outx("  She easily keeps in rhythm with your spurts.");
@@ -1265,9 +1172,9 @@ export class CorruptedDriderScene extends BaseContent {
         }
         this.outx("\n\n", false);
         this.outx(
-            "Your lust sated, you disengage from her with a little pop, leaving her to lick her lips happily and groan unintelligible babble.  You wipe your " +
-                this.cockDescript(x) +
-                " off on her hair to clean it off a bit, then redress and head out.  With a glance at the snoozing drider over your shoulder, you head out of the smelly swamp and start back towards camp.",
+            `Your lust sated, you disengage from her with a little pop, leaving her to lick her lips happily and groan unintelligible babble.  You wipe your ${this.cockDescript(
+                x
+            )} off on her hair to clean it off a bit, then redress and head out.  With a glance at the snoozing drider over your shoulder, you head out of the smelly swamp and start back towards camp.`,
             false
         );
         this.player.orgasm();
@@ -1280,9 +1187,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.spriteSelect(77);
         this.outx("", true);
         this.outx(
-            "You fall to the ground, defeated by the agile arachnid-woman as she slowly advances towards you, her engorged clit growing larger and larger as it throbs in your direction.  You've managed to find yourself crumpled face down in the dirt, your " +
-                this.buttDescript() +
-                " in full display of the aroused drider while she grins lustfully at your broken figure.  Grunting, you begin to pull yourself off the ground, only to hear your attacker 'tsk' before feeling the warm stickiness of her web launch upon your limbs, gluing your hands to your ankles and leaving you completely vulnerable.  You struggle against the bindings, but to no avail.  Lifting your head, you turn to see the drider stroking her now fully-enlarged demon cock, replacing the hardened clit that once adorned her moist pussy.\n\n",
+            `You fall to the ground, defeated by the agile arachnid-woman as she slowly advances towards you, her engorged clit growing larger and larger as it throbs in your direction.  You've managed to find yourself crumpled face down in the dirt, your ${this.buttDescript()} in full display of the aroused drider while she grins lustfully at your broken figure.  Grunting, you begin to pull yourself off the ground, only to hear your attacker 'tsk' before feeling the warm stickiness of her web launch upon your limbs, gluing your hands to your ankles and leaving you completely vulnerable.  You struggle against the bindings, but to no avail.  Lifting your head, you turn to see the drider stroking her now fully-enlarged demon cock, replacing the hardened clit that once adorned her moist pussy.\n\n`,
             false
         );
         this.outx('"<i>You just had to make it harder for yourself, didn\'t you?</i>"\n\n', false);
@@ -1303,20 +1208,14 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx("\n\n", false);
 
         this.outx(
-            '"<i>Ungh, if I knew your ass was this eager to s-swallow my cock I wouldn\'t have wasted my time tying you up...</i>"  She gasps, clearly the more impassioned of the two of you as she manages to bottom out inside of your ' +
-                this.buttDescript() +
-                ".  You have very little time to regain your breath as the horny drider-woman begins to thrust in and out of your " +
-                this.assholeDescript() +
-                " with fevered abandon, tongue lolling out of her open mouth while you're forced to bounce against her crotch, your ",
+            `"<i>Ungh, if I knew your ass was this eager to s-swallow my cock I wouldn't have wasted my time tying you up...</i>"  She gasps, clearly the more impassioned of the two of you as she manages to bottom out inside of your ${this.buttDescript()}.  You have very little time to regain your breath as the horny drider-woman begins to thrust in and out of your ${this.assholeDescript()} with fevered abandon, tongue lolling out of her open mouth while you're forced to bounce against her crotch, your `,
             false
         );
         if (this.player.balls > 0) this.outx(this.ballsDescriptLight(), false);
         else if (this.player.hasVagina()) this.outx(this.vaginaDescript(0), false);
         else this.outx("taint");
         this.outx(
-            " slapping against her slavering cunt.  She grabs on to your " +
-                this.hipDescript() +
-                ", using you as leverage to pump her pole inside of you while you jerk against the ground, eyes closed tight while your cheek rubs against the cold dirt.\n\n",
+            ` slapping against her slavering cunt.  She grabs on to your ${this.hipDescript()}, using you as leverage to pump her pole inside of you while you jerk against the ground, eyes closed tight while your cheek rubs against the cold dirt.\n\n`,
             false
         );
 
@@ -1341,9 +1240,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "With a more gentle movement of her body, the arachnid-morph begins to ease into your " +
-                this.assholeDescript() +
-                ", the ridges of her ovipositor grinding against your opening.  The bulging appendage is far thicker than the drider's demonic dick, and the constant jerking and shuddering of the egg-laying organ causes your body to drag along the moist dirt to keep up with the movements of the cock-like extension.  The drider's length feels as if it stretches on infinitely, the arachnid-tentacle dipping further and further inside until it stops inside of you, beginning to expand uncomfortably against your inner walls.  Your mouth hangs open; the feeling of the growing stalk as it tenses is driving you insane.  The carapaced body of the drider lowers onto you, her weight resting upon your back while the woman groans in pleasure.\n\n",
+            `With a more gentle movement of her body, the arachnid-morph begins to ease into your ${this.assholeDescript()}, the ridges of her ovipositor grinding against your opening.  The bulging appendage is far thicker than the drider's demonic dick, and the constant jerking and shuddering of the egg-laying organ causes your body to drag along the moist dirt to keep up with the movements of the cock-like extension.  The drider's length feels as if it stretches on infinitely, the arachnid-tentacle dipping further and further inside until it stops inside of you, beginning to expand uncomfortably against your inner walls.  Your mouth hangs open; the feeling of the growing stalk as it tenses is driving you insane.  The carapaced body of the drider lowers onto you, her weight resting upon your back while the woman groans in pleasure.\n\n`,
             false
         );
 
@@ -1353,9 +1250,7 @@ export class CorruptedDriderScene extends BaseContent {
         if (this.player.HP < 1) this.outx("abused");
         else this.outx("hungry");
         this.outx(
-            " asshole, her eggs squeezing along and filling you up inside.  You yelp as the seemingly endless onslaught of spherical objects force their way inside, the drider effortlessly pumping in and out of you to help the process along.  The arachnid-woman pants and curses while she jerks off her nubbed member, using both of her hands to double the pleasure of being inside of you.  You're pushed and shoved against the ground while your attacker slams against your " +
-                this.assDescript() +
-                " with wild abandon, and with one final push she's sent over the edge, shuddering in orgasmic delight as ropes of cum fly out of her thick length and land ",
+            ` asshole, her eggs squeezing along and filling you up inside.  You yelp as the seemingly endless onslaught of spherical objects force their way inside, the drider effortlessly pumping in and out of you to help the process along.  The arachnid-woman pants and curses while she jerks off her nubbed member, using both of her hands to double the pleasure of being inside of you.  You're pushed and shoved against the ground while your attacker slams against your ${this.assDescript()} with wild abandon, and with one final push she's sent over the edge, shuddering in orgasmic delight as ropes of cum fly out of her thick length and land `,
             false
         );
         if (this.player.tallness < 66) this.outx("in front of you");
@@ -1366,10 +1261,10 @@ export class CorruptedDriderScene extends BaseContent {
         );
         if (this.player.tallness < 66)
             this.outx(
-                this.player.face() + ", sliding down across your cheeks and along your lips",
+                `${this.player.face()}, sliding down across your cheeks and along your lips`,
                 false
             );
-        else this.outx("chest, trickling between your " + this.nippleDescript(0) + "s", false);
+        else this.outx(`chest, trickling between your ${this.nippleDescript(0)}s`, false);
         this.outx(
             ".  She pulls out her ovipositor slowly, though the bulge in your stomach remains as evidence of her work.",
             false
@@ -1414,8 +1309,7 @@ export class CorruptedDriderScene extends BaseContent {
             ".  It seems that, regardless of their slenderness, she can still put an impressive amount of weight behind her legs.  They ",
             false
         );
-        if (!this.player.isNaga())
-            this.outx("pull your own " + this.player.feet() + " apart", false);
+        if (!this.player.isNaga()) this.outx(`pull your own ${this.player.feet()} apart`, false);
         else this.outx("scrape inquisitively at your scales");
         this.outx(
             ", her body climbing atop you.  Before you can realize her plans her spinneret is at work, ",
@@ -1425,7 +1319,7 @@ export class CorruptedDriderScene extends BaseContent {
             this.outx("coating your ");
             if (this.player.isTaur()) this.outx("rear ");
             this.outx(
-                this.player.legs() + " and pinning you in that prone, separated position",
+                `${this.player.legs()} and pinning you in that prone, separated position`,
                 false
             );
         } else
@@ -1460,9 +1354,7 @@ export class CorruptedDriderScene extends BaseContent {
             );
             if (this.player.biggestTitSize() > 4)
                 this.outx(
-                    "With pain and then a pop, your " +
-                        this.player.allBreastsDescript() +
-                        " squash out to the sides as she presses your torso into your knees.  ",
+                    `With pain and then a pop, your ${this.player.allBreastsDescript()} squash out to the sides as she presses your torso into your knees.  `,
                     false
                 );
             this.outx(
@@ -1476,9 +1368,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
         if (this.player.hasCock() && this.monster.nipplesPierced > 0)
             this.outx(
-                "  Chains brush over " +
-                    this.sMultiCockDesc() +
-                    " as her chest passes your crotch.",
+                `  Chains brush over ${this.sMultiCockDesc()} as her chest passes your crotch.`,
                 false
             );
         this.outx(
@@ -1487,9 +1377,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
         if (this.player.biggestTitSize() > 3)
             this.outx(
-                "  Venom dribbles down the cleavage of your " +
-                    this.biggestBreastSizeDescript() +
-                    " as she approaches your vulnerable face.  Her own quartet of matronly tits comes to rest on them as her torso appears over their horizon.",
+                `  Venom dribbles down the cleavage of your ${this.biggestBreastSizeDescript()} as she approaches your vulnerable face.  Her own quartet of matronly tits comes to rest on them as her torso appears over their horizon.`,
                 false
             );
         this.outx("\n\n", false);
@@ -1511,18 +1399,12 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx("And the more you drink, the less you mind that.\n\n", false);
 
         this.outx(
-            "Eventually she decides you've had enough, or perhaps grows impatient.  Her mouth closes, and her body rises.  Yours, incapable of either, merely burns.  The entirety of your body desires her, and your mind has a difficult time coming up with counterarguments.  Venom flows through you, commandeering your sensibilities and trading them in for a desire thus far unquenched.  She stands tall above you, straddling your body with her arachnid behind.  Something moist and ridged stretches out, caressing your thighs.  The degree to which you hope it's a cock is nearly immeasurable.  \"<i>I think you'll make a delectable little nest, morsel,</i>\" the drider croons.  \"<i>Let's start.</i>\"  Though you can't shift your head down to look at what she has in her behind, you can feel it.  It slaps messily against your thighs, searching out your " +
-                this.vaginaDescript() +
-                ".  The caress the tentacle gives your slit is mockingly affectionate, but any illusions of gentility that may have persisted are soon ended by the thrust that delves greedily and deeply into your " +
-                this.vaginaDescript() +
-                ".  If there is any small mercy, it's that the insatiable lust flooding your mind may wind up sated after all.\n\n",
+            `Eventually she decides you've had enough, or perhaps grows impatient.  Her mouth closes, and her body rises.  Yours, incapable of either, merely burns.  The entirety of your body desires her, and your mind has a difficult time coming up with counterarguments.  Venom flows through you, commandeering your sensibilities and trading them in for a desire thus far unquenched.  She stands tall above you, straddling your body with her arachnid behind.  Something moist and ridged stretches out, caressing your thighs.  The degree to which you hope it's a cock is nearly immeasurable.  "<i>I think you'll make a delectable little nest, morsel,</i>" the drider croons.  "<i>Let's start.</i>"  Though you can't shift your head down to look at what she has in her behind, you can feel it.  It slaps messily against your thighs, searching out your ${this.vaginaDescript()}.  The caress the tentacle gives your slit is mockingly affectionate, but any illusions of gentility that may have persisted are soon ended by the thrust that delves greedily and deeply into your ${this.vaginaDescript()}.  If there is any small mercy, it's that the insatiable lust flooding your mind may wind up sated after all.\n\n`,
             false
         );
 
         this.outx(
-            'The thick, vile appendage twists inside of you as it advances.  Slick and obscene in its girth, each individual segmented ridge is palpable against your walls.  The prick practically breathes inside of you, pulsing with life and the ravenous desires that embody a phallus.  As it pushes it twists about in an attempt to wriggle in deeper, inadvertently showing the flexibility of its form.  "<i>How many eggs have you lain, snack?</i>" the drider coos.  Her fingers rub her sizeable swollen clit forebodingly.  It grows increasingly large, acquiring veins and bulges where no clit should.  "<i>How swollen has your belly grown?</i>"  Her tongue flicks across her venomous full lips.  "<i>Time to enjoy it again.</i>"  You can\'t see the tentacle shoved into your ' +
-                this.vaginaDescript() +
-                ", but you are increasingly certain that it is in not, in fact, a dick.",
+            `The thick, vile appendage twists inside of you as it advances.  Slick and obscene in its girth, each individual segmented ridge is palpable against your walls.  The prick practically breathes inside of you, pulsing with life and the ravenous desires that embody a phallus.  As it pushes it twists about in an attempt to wriggle in deeper, inadvertently showing the flexibility of its form.  "<i>How many eggs have you lain, snack?</i>" the drider coos.  Her fingers rub her sizeable swollen clit forebodingly.  It grows increasingly large, acquiring veins and bulges where no clit should.  "<i>How swollen has your belly grown?</i>"  Her tongue flicks across her venomous full lips.  "<i>Time to enjoy it again.</i>"  You can't see the tentacle shoved into your ${this.vaginaDescript()}, but you are increasingly certain that it is in not, in fact, a dick.`,
             false
         );
         this.player.cuntChange(50, true, true, false);
@@ -1532,16 +1414,11 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "From her crotch a cock has erupted, demonic and terrible.  It drips with sweat and musk, dribbling onto your collarbone.  The position you're in has never seemed more ominous - or more exciting.  Her cockhead smacks against your lower lip, pre-cum bouncing off and lightly spattering on your forehead.  Venom-addled, breathing in her fragrant spunk sends a quake up your body.  Inadvertently your hips start to seize, your " +
-                this.vaginaDescript() +
-                " shuddering in surprising pleasure.",
+            `From her crotch a cock has erupted, demonic and terrible.  It drips with sweat and musk, dribbling onto your collarbone.  The position you're in has never seemed more ominous - or more exciting.  Her cockhead smacks against your lower lip, pre-cum bouncing off and lightly spattering on your forehead.  Venom-addled, breathing in her fragrant spunk sends a quake up your body.  Inadvertently your hips start to seize, your ${this.vaginaDescript()} shuddering in surprising pleasure.`,
             false
         );
         if (this.player.hasCock())
-            this.outx(
-                "  Even your " + this.cockDescript(0) + " spurts some pre-cum of its own.",
-                false
-            );
+            this.outx(`  Even your ${this.cockDescript(0)} spurts some pre-cum of its own.`, false);
         this.outx(
             "  There's some shame in having a small orgasm from nothing more than the scent of sperm, but you place the blame solely on your intoxicated state.\n\n",
             false
@@ -1554,11 +1431,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "You suspect she is not waiting for an answer, given that her prick pushes at the entrance to your throat.  Horny and helpless, you start sucking.  It seems like a good idea, and the obscenity of the act arouses you.  Chitin-covered fingers wriggle into your hair as she moans, and her heady breath seems echoed by the beast lodged between your legs, long since settled but preparing for its obscene duty.  The appendage is buried as deep as it can go, practically kissing your womb.  This intimacy is soon interrupted by the equivalent of an obscene tongue.  The bulge comes slowly; it pushes aside the walls of your " +
-                this.vaginaDescript() +
-                " without mercy, the ovipositor forcing your hole into an all-access VIP club for its fertilized cargo.  No matter how your pussy contracts, there's only one direction those eggs are going right now: in.  Belching into your belly, the first egg pushes all the way and sits heavy inside of you. Already the entrance of your " +
-                this.vaginaDescript() +
-                " can feel the next one coming, but her thrust distracts you.\n\n",
+            `You suspect she is not waiting for an answer, given that her prick pushes at the entrance to your throat.  Horny and helpless, you start sucking.  It seems like a good idea, and the obscenity of the act arouses you.  Chitin-covered fingers wriggle into your hair as she moans, and her heady breath seems echoed by the beast lodged between your legs, long since settled but preparing for its obscene duty.  The appendage is buried as deep as it can go, practically kissing your womb.  This intimacy is soon interrupted by the equivalent of an obscene tongue.  The bulge comes slowly; it pushes aside the walls of your ${this.vaginaDescript()} without mercy, the ovipositor forcing your hole into an all-access VIP club for its fertilized cargo.  No matter how your pussy contracts, there's only one direction those eggs are going right now: in.  Belching into your belly, the first egg pushes all the way and sits heavy inside of you. Already the entrance of your ${this.vaginaDescript()} can feel the next one coming, but her thrust distracts you.\n\n`,
             false
         );
 
@@ -1586,9 +1459,7 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx("You don't mind, though.\n\n", false);
 
         this.outx(
-            "You like it.  The venom coursing through your veins makes sure of that.  It's not an intense feeling, not an overwhelming need to fuck fuck fuck now forever always, but you like this sex.  You like this drider.  You like her cock in your throat, smearing the thickest of your saliva over your lips.  You like the weight of that fifth egg being added to the pile in your womb - and then, there's six. You like your helplessness, the restrained limbs occasionally spasming in a desperate need to move.  It's sedentary and unusual, a sexual experience you don't frequently have.  In some ways the slothful use of your " +
-                this.vaginaDescript() +
-                " would be more at home against your lips, while the aggressive rape of your throat is expected for your crotch.  As far as this drider seems to be concerned, the two may as well have swapped places.\n\n",
+            `You like it.  The venom coursing through your veins makes sure of that.  It's not an intense feeling, not an overwhelming need to fuck fuck fuck now forever always, but you like this sex.  You like this drider.  You like her cock in your throat, smearing the thickest of your saliva over your lips.  You like the weight of that fifth egg being added to the pile in your womb - and then, there's six. You like your helplessness, the restrained limbs occasionally spasming in a desperate need to move.  It's sedentary and unusual, a sexual experience you don't frequently have.  In some ways the slothful use of your ${this.vaginaDescript()} would be more at home against your lips, while the aggressive rape of your throat is expected for your crotch.  As far as this drider seems to be concerned, the two may as well have swapped places.\n\n`,
             false
         );
 
@@ -1640,20 +1511,16 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx("", true);
         if (this.player.lust > 99)
             this.outx(
-                "Unable to resist the desire coursing through your body, you strip off your " +
-                    this.player.armorName +
-                    " and start stroking " +
-                    this.sMultiCockDesc() +
-                    ", displaying it in the hope that it will draw the drider's attention, while at the same time just trying to get yourself off and attain release.",
+                `Unable to resist the desire coursing through your body, you strip off your ${
+                    this.player.armorName
+                } and start stroking ${this.sMultiCockDesc()}, displaying it in the hope that it will draw the drider's attention, while at the same time just trying to get yourself off and attain release.`,
                 false
             );
         else {
             this.outx(
-                "You slump down, too beat up to mount an effective defense, let alone stay up on your " +
-                    this.player.feet() +
-                    ".  The drider skitters over to you and effortlessly peels you out of your " +
-                    this.player.armorName +
-                    ", exposing your ",
+                `You slump down, too beat up to mount an effective defense, let alone stay up on your ${this.player.feet()}.  The drider skitters over to you and effortlessly peels you out of your ${
+                    this.player.armorName
+                }, exposing your `,
                 false
             );
             if (this.player.lust < 50) this.outx("soft");
@@ -1661,9 +1528,7 @@ export class CorruptedDriderScene extends BaseContent {
             this.outx("member");
             if (this.player.cockTotal() > 1) this.outx("s");
             this.outx(
-                " to the air.  She squeezes " +
-                    this.oMultiCockDesc() +
-                    " in her hand and pumps it, smiling while you stiffen and twitch precipitously in her grasp.",
+                ` to the air.  She squeezes ${this.oMultiCockDesc()} in her hand and pumps it, smiling while you stiffen and twitch precipitously in her grasp.`,
                 false
             );
         }
@@ -1672,38 +1537,30 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
         if (this.monster.nipplesPierced > 0)
-            this.outx(", the crossed chains digging into your " + this.chestDesc(), false);
+            this.outx(`, the crossed chains digging into your ${this.chestDesc()}`, false);
         this.outx(
             ".  The warmth of her nodule-covered cock pulsates on your belly, smearing you with a trail of pre-cum while she arranges your entwined bodies.\n\n",
             false
         );
 
         this.outx(
-            "Lines of webbing burst from the arachnid abdomen, snapping into tree limbs before pulling taut.  The drider's eight legs clitter and clack, four of them folding around your back while your world rotates 90 degrees.  The two of you are pulled into the trees by the sticky strands, hanging sideways, almost upside-down, in the leaves.  The four-eyed monster-girl blinks asynchronously and smiles, shifting you slightly to bring " +
-                this.oMultiCockDesc() +
-                " against her moist lips.  You exhale, an intense, animalistic thrill shivering through you from the feeling of having your " +
-                this.cockDescript(x) +
-                " lodged in a woman's entrance.  She leans down and bites into your neck, releasing a surge of toxin into your bloodstream.  It boils like fire, making you twitch and squirm in her many-limbed clutches.  The pain fades quickly, but in its place it leaves behind a molten, liquid lust, filling " +
-                this.sMultiCockDesc() +
-                " to its absolute maximum size, as hard as it can possibly be.\n\n",
+            `Lines of webbing burst from the arachnid abdomen, snapping into tree limbs before pulling taut.  The drider's eight legs clitter and clack, four of them folding around your back while your world rotates 90 degrees.  The two of you are pulled into the trees by the sticky strands, hanging sideways, almost upside-down, in the leaves.  The four-eyed monster-girl blinks asynchronously and smiles, shifting you slightly to bring ${this.oMultiCockDesc()} against her moist lips.  You exhale, an intense, animalistic thrill shivering through you from the feeling of having your ${this.cockDescript(
+                x
+            )} lodged in a woman's entrance.  She leans down and bites into your neck, releasing a surge of toxin into your bloodstream.  It boils like fire, making you twitch and squirm in her many-limbed clutches.  The pain fades quickly, but in its place it leaves behind a molten, liquid lust, filling ${this.sMultiCockDesc()} to its absolute maximum size, as hard as it can possibly be.\n\n`,
             false
         );
 
         this.outx(
-            "The " +
-                this.monster.hairColor +
-                '-haired dominatrix pulls back, a single drop of blood clinging to one of her fangs while she hisses, "<i>Mmm, fresh meat is always so tasty... not to mention... firm...</i>"\n\n',
+            `The ${this.monster.hairColor}-haired dominatrix pulls back, a single drop of blood clinging to one of her fangs while she hisses, "<i>Mmm, fresh meat is always so tasty... not to mention... firm...</i>"\n\n`,
             false
         );
 
         this.outx(
-            "You look at her with fear, but your " +
-                this.hipDescript() +
-                " start to twitch against her, rubbing your " +
-                this.player.cockHead(x) +
-                " up and down the slippery slit.  A slow exhale of pleasure escapes the spider's purple lips while her legs squeeze tighter against you, trying to push your " +
-                this.cockDescript(x) +
-                " home.  The drider gasps when at last, you slip between her juicy outer labia, slurping deep into her cunny with a lurid squelch.  Finally held within her depths, your muscles all slacken, save for those you need to pump your hips against her, futilely trying to fuck her hot quim even though you have zero leverage.\n\n",
+            `You look at her with fear, but your ${this.hipDescript()} start to twitch against her, rubbing your ${this.player.cockHead(
+                x
+            )} up and down the slippery slit.  A slow exhale of pleasure escapes the spider's purple lips while her legs squeeze tighter against you, trying to push your ${this.cockDescript(
+                x
+            )} home.  The drider gasps when at last, you slip between her juicy outer labia, slurping deep into her cunny with a lurid squelch.  Finally held within her depths, your muscles all slacken, save for those you need to pump your hips against her, futilely trying to fuck her hot quim even though you have zero leverage.\n\n`,
             false
         );
 
@@ -1713,59 +1570,45 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Wait, eggs?  While you try to chew over the thought, you're battling with your raging, venom-enhanced libido in order to think about something other than how good her pussy feels.  Fuck it!  You go back to grinding against your mistress, nuzzling at her neck while she twists her spider-half around you, holding you tightly in her chitin and bringing her abdomen up behind you.  A weird, wet appendage rubs over your exposed " +
-                this.buttDescript() +
-                ", slapping at your cheeks until it finds the cleft between them.  Sliding deeper, it bumps into your sphincter, spurts something warm, wet, and sticky against it, then pushes through.",
+            `Wait, eggs?  While you try to chew over the thought, you're battling with your raging, venom-enhanced libido in order to think about something other than how good her pussy feels.  Fuck it!  You go back to grinding against your mistress, nuzzling at her neck while she twists her spider-half around you, holding you tightly in her chitin and bringing her abdomen up behind you.  A weird, wet appendage rubs over your exposed ${this.buttDescript()}, slapping at your cheeks until it finds the cleft between them.  Sliding deeper, it bumps into your sphincter, spurts something warm, wet, and sticky against it, then pushes through.`,
             false
         );
         this.player.buttChange(8, true, true, false);
         this.outx(
-            "  You shudder from the anal violation and twist against the legs holding you in place, but with your " +
-                this.cockDescript(x) +
-                " locked inside her, it's a useless endeavor.  It isn't shaped like a dick, and besides, that's currently dripping on your belly.  Oh gods... she mentioned eggs.\n\n",
+            `  You shudder from the anal violation and twist against the legs holding you in place, but with your ${this.cockDescript(
+                x
+            )} locked inside her, it's a useless endeavor.  It isn't shaped like a dick, and besides, that's currently dripping on your belly.  Oh gods... she mentioned eggs.\n\n`,
             false
         );
 
         this.outx(
-            "The strange organ keeps forcing its way deeper, slipping the steadily-widening, rib-like segments of its bulk into your " +
-                this.assholeDescript() +
-                ".  ",
+            `The strange organ keeps forcing its way deeper, slipping the steadily-widening, rib-like segments of its bulk into your ${this.assholeDescript()}.  `,
             false
         );
         this.outx(
-            "  Once it gets deep enough to push on your prostate, an upsurge of pleasure hits you hard enough to make " +
-                this.sMultiCockDesc() +
-                " dribble.  You moan against the drider's neck, pulsing pathetically inside the spider-woman's slit.  You know you'll soon be giving her exactly what she wants - all of it - and there's nothing you can do about it.\n\n",
+            `  Once it gets deep enough to push on your prostate, an upsurge of pleasure hits you hard enough to make ${this.sMultiCockDesc()} dribble.  You moan against the drider's neck, pulsing pathetically inside the spider-woman's slit.  You know you'll soon be giving her exactly what she wants - all of it - and there's nothing you can do about it.\n\n`,
             false
         );
 
         this.outx(
-            "Another inch slides inside you, filling you uncomfortably full.  You shiver, clutching at your spidery mistress while she prepares both to deposit and to withdraw from the bank of you.   While you hang there, on the very edge of orgasm, it stops going deeper.  You've been given a reprieve, but it doesn't last long.  The drider kisses your forehead, her venomy lips spiking the sensitivity of your skin once again.  Suddenly, the fat tube in your " +
-                this.assholeDescript() +
-                " is dilating, stretching you wider.  Goo races up it, pumping into your guts, paving the way for the bigger bulk of the coming egg.  It stops at your pucker, battering against your muscles' resistance until it pops inside you, slamming into your prostate so hard that a huge rope of dick-milk erupts into the spider-woman's wet vagina.",
+            `Another inch slides inside you, filling you uncomfortably full.  You shiver, clutching at your spidery mistress while she prepares both to deposit and to withdraw from the bank of you.   While you hang there, on the very edge of orgasm, it stops going deeper.  You've been given a reprieve, but it doesn't last long.  The drider kisses your forehead, her venomy lips spiking the sensitivity of your skin once again.  Suddenly, the fat tube in your ${this.assholeDescript()} is dilating, stretching you wider.  Goo races up it, pumping into your guts, paving the way for the bigger bulk of the coming egg.  It stops at your pucker, battering against your muscles' resistance until it pops inside you, slamming into your prostate so hard that a huge rope of dick-milk erupts into the spider-woman's wet vagina.`,
             false
         );
         this.player.buttChange(50, true, true, false);
         this.outx("\n\n", false);
 
         this.outx(
-            "The egg travels further up your butt, eventually flowing out the end of her stalk-like organ to rest deep in your digestive tract, ensconced in a bubble of slime.  Before you can adjust to this new sensation, another egg slips through your now-widened ring.  It squishes past your anal g-spot, rubbing it just as hard as the first, but before it even finishes traveling up your intestines, a third egg is forced inside you.  " +
-                this.SMultiCockDesc() +
-                " begins to cum wildly, squirting and leaking a torrent of jizz.  The first few ropes blast out with incredible force, hosing down her cunt",
+            `The egg travels further up your butt, eventually flowing out the end of her stalk-like organ to rest deep in your digestive tract, ensconced in a bubble of slime.  Before you can adjust to this new sensation, another egg slips through your now-widened ring.  It squishes past your anal g-spot, rubbing it just as hard as the first, but before it even finishes traveling up your intestines, a third egg is forced inside you.  ${this.SMultiCockDesc()} begins to cum wildly, squirting and leaking a torrent of jizz.  The first few ropes blast out with incredible force, hosing down her cunt`,
             false
         );
         if (this.player.cockTotal() > 1) this.outx(" and belly");
         this.outx(
-            ".  Then, the constant application and release of pressure on your prostate utterly destroys the orgasmic timing of your muscles' contractions, making " +
-                this.sMultiCockDesc() +
-                " release a weak, but constant trickle of cum.\n\n",
+            `.  Then, the constant application and release of pressure on your prostate utterly destroys the orgasmic timing of your muscles' contractions, making ${this.sMultiCockDesc()} release a weak, but constant trickle of cum.\n\n`,
             false
         );
 
         this.outx(
-            "You quickly lose track of how many of the drider's eggs have gone inside you.  Feeling the numerous bulges in your abdomen, you give up entirely.  Your ass is going to be full of eggs and you've probably cum enough for her to make a whole 'nother batch.  Shuddering while the ovipositor is withdrawn, you sag, exhausted, barely realizing that the drider is hosing down your " +
-                this.chestDesc() +
-                " with her arachnid herm-spunk, the nodules ringing her dick pulsing in time with the blasts of thick spooge.  Some sticks to your chin, but you're so drained from your rough treatment that you barely react.\n\n",
+            `You quickly lose track of how many of the drider's eggs have gone inside you.  Feeling the numerous bulges in your abdomen, you give up entirely.  Your ass is going to be full of eggs and you've probably cum enough for her to make a whole 'nother batch.  Shuddering while the ovipositor is withdrawn, you sag, exhausted, barely realizing that the drider is hosing down your ${this.chestDesc()} with her arachnid herm-spunk, the nodules ringing her dick pulsing in time with the blasts of thick spooge.  Some sticks to your chin, but you're so drained from your rough treatment that you barely react.\n\n`,
             false
         );
         this.outx(
@@ -1790,9 +1633,7 @@ export class CorruptedDriderScene extends BaseContent {
     public birthSpiderEggsFromAnusITSBLEEDINGYAYYYYY(): void {
         this.spriteSelect(77);
         this.outx(
-            "\nYour gut rumbles dangerously.  As if by instinct, you drop down and bend over, supporting half your weight on your hands while you lower your " +
-                this.buttDescript() +
-                " to just above ground level.  You grunt suddenly, your pregnant asshole dilating wide as a heavy weight seems to settle atop it, just inside you.  Clenching and tingling, your pucker slowly opens, releasing a torrent of green goop, along with a spherical white egg.  It drops into the messy puddle, cushioned from the fall by the heavy slime still leaking from your slightly agape anus.\n\n",
+            `\nYour gut rumbles dangerously.  As if by instinct, you drop down and bend over, supporting half your weight on your hands while you lower your ${this.buttDescript()} to just above ground level.  You grunt suddenly, your pregnant asshole dilating wide as a heavy weight seems to settle atop it, just inside you.  Clenching and tingling, your pucker slowly opens, releasing a torrent of green goop, along with a spherical white egg.  It drops into the messy puddle, cushioned from the fall by the heavy slime still leaking from your slightly agape anus.\n\n`,
             false
         );
         this.outx(
@@ -1814,8 +1655,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
         if (this.player.hasCock())
             this.outx(
-                this.SMultiCockDesc() +
-                    " stays limp, but drools a heavy flow of semen, puddling up a nice thick batch of your pleasure alongside your goo-pile.  ",
+                `${this.SMultiCockDesc()} stays limp, but drools a heavy flow of semen, puddling up a nice thick batch of your pleasure alongside your goo-pile.  `,
                 false
             );
         if (this.player.hasVagina()) {
@@ -1825,7 +1665,7 @@ export class CorruptedDriderScene extends BaseContent {
             else if (this.player.wetness() < 5) this.outx("gives a tiny squirt");
             else this.outx("gushes a river of lady-spunk");
             this.outx(
-                " into the dirt, getting off along with your " + this.assholeDescript() + ".  ",
+                ` into the dirt, getting off along with your ${this.assholeDescript()}.  `,
                 false
             );
         }
@@ -1876,11 +1716,11 @@ export class CorruptedDriderScene extends BaseContent {
         // (If breasts)
         if (this.player.biggestTitSize() >= 2) {
             this.outx(
-                "One drider girl cautiously makes her way over to you.  Her legs tickle your stomach as she climbs up to one of your " +
-                    this.breastDescript(0) +
-                    ".  Grasping the flesh tightly in her tiny hands she begins to suckle at your " +
-                    this.nippleDescript(0) +
-                    ".",
+                `One drider girl cautiously makes her way over to you.  Her legs tickle your stomach as she climbs up to one of your ${this.breastDescript(
+                    0
+                )}.  Grasping the flesh tightly in her tiny hands she begins to suckle at your ${this.nippleDescript(
+                    0
+                )}.`,
                 false
             );
             if (this.player.bRows() > 1)
@@ -1955,18 +1795,18 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Now that she's calmed down, you give her a hard shove, putting her on her drider-belly so you're not nearly thrown off her every other moment.  With that done, you put your hands on her human back, pushing her forward and exposing her human-like bubble-butt, seated just above where woman meets spider. Greedily, you pull her cheeks apart, revealing the tiny star of her puckered asshole.  You pull your " +
-                this.cockDescript(x) +
-                " out of your " +
-                this.player.armorName +
-                ", already hardening from the thought of you pounding her tight little backdoor.\n\n",
+            `Now that she's calmed down, you give her a hard shove, putting her on her drider-belly so you're not nearly thrown off her every other moment.  With that done, you put your hands on her human back, pushing her forward and exposing her human-like bubble-butt, seated just above where woman meets spider. Greedily, you pull her cheeks apart, revealing the tiny star of her puckered asshole.  You pull your ${this.cockDescript(
+                x
+            )} out of your ${
+                this.player.armorName
+            }, already hardening from the thought of you pounding her tight little backdoor.\n\n`,
             false
         );
 
         this.outx(
-            '"<i>Oh, you want that hole, do you? How very kinky,</i>" the drider chides, but you aren\'t fooled by her tone – you can see her anus relaxing, preparing itself for your arrival.  With a grin, you grab your ' +
-                this.cockDescript(x) +
-                " and push it against her tight hole, leaning into the penetration until you feel it slip past her sphincter and into her hot, snug passage.  As you slide more and more of your cockmeat into her, you reach up from her cheeks and grope her breasts, squeezing her pert nipples between your fingers as you finally bottom out.  Since you can go no further up her butt, you start to piston your hips forward, slapping your hips to her ass with short, forceful strokes.\n\n",
+            `"<i>Oh, you want that hole, do you? How very kinky,</i>" the drider chides, but you aren't fooled by her tone – you can see her anus relaxing, preparing itself for your arrival.  With a grin, you grab your ${this.cockDescript(
+                x
+            )} and push it against her tight hole, leaning into the penetration until you feel it slip past her sphincter and into her hot, snug passage.  As you slide more and more of your cockmeat into her, you reach up from her cheeks and grope her breasts, squeezing her pert nipples between your fingers as you finally bottom out.  Since you can go no further up her butt, you start to piston your hips forward, slapping your hips to her ass with short, forceful strokes.\n\n`,
             false
         );
 
@@ -1976,9 +1816,9 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "Without warning, the drider cums.  She cries out and grabs her fully-engaged corrupted cock, hosing down the trees in front of her with spider-cum as her butt squeezes down on your " +
-                this.cockDescript(x) +
-                ", milking your dick with her anal passage.  You pick up the tempo of your fucking to break-pelvis speeds, ramming your cock into her backdoor and letting loose a torrent of your spunk, shooting it deep inside her",
+            `Without warning, the drider cums.  She cries out and grabs her fully-engaged corrupted cock, hosing down the trees in front of her with spider-cum as her butt squeezes down on your ${this.cockDescript(
+                x
+            )}, milking your dick with her anal passage.  You pick up the tempo of your fucking to break-pelvis speeds, ramming your cock into her backdoor and letting loose a torrent of your spunk, shooting it deep inside her`,
             false
         );
         // (if Vagina:
@@ -1995,11 +1835,9 @@ export class CorruptedDriderScene extends BaseContent {
         this.outx(".\n\n", false);
 
         this.outx(
-            "Finally done, you pull out of the drider, collapsing on her spider-back with a contented sigh.  Completely insensate after the anal ravaging you just gave her, the drider poses no threat as you leisurely gather " +
-                this.sMultiCockDesc() +
-                " back into your " +
-                this.player.armorName +
-                " and lower yourself off her cum-soaked abdomen.  You give her a final, playful ass slap as you dismount before heading back to camp.",
+            `Finally done, you pull out of the drider, collapsing on her spider-back with a contented sigh.  Completely insensate after the anal ravaging you just gave her, the drider poses no threat as you leisurely gather ${this.sMultiCockDesc()} back into your ${
+                this.player.armorName
+            } and lower yourself off her cum-soaked abdomen.  You give her a final, playful ass slap as you dismount before heading back to camp.`,
             false
         );
         if (this.silly()) this.outx("\n\n(Driders butt-sex is awesome.)", false);
@@ -2018,9 +1856,7 @@ export class CorruptedDriderScene extends BaseContent {
         const y: number = x + 1;
 
         this.outx(
-            "You keep your distance from the downed spidermorph, still wary of her dripping, toxin-coated lips despite her weakened state and your own rising desire to breed her.  Trailing your eyes over her sweaty, splayed body you feel a familiar rush below the belt, your hardening [cock " +
-                y +
-                "] pressing against the inside of your [armor] as her breasts rise and fall seductively with each panting breath.  Desire threatens to overpower your caution as your gaze lingers on the vulnerable woman before you, her netherlips "
+            `You keep your distance from the downed spidermorph, still wary of her dripping, toxin-coated lips despite her weakened state and your own rising desire to breed her.  Trailing your eyes over her sweaty, splayed body you feel a familiar rush below the belt, your hardening [cock ${y}] pressing against the inside of your [armor] as her breasts rise and fall seductively with each panting breath.  Desire threatens to overpower your caution as your gaze lingers on the vulnerable woman before you, her netherlips `
         );
         if (this.monster.HP < 1)
             this.outx(
@@ -2076,9 +1912,7 @@ export class CorruptedDriderScene extends BaseContent {
             this.clearOutput();
             this.player.consumeItem(this.useables.T_SSILK);
             this.outx(
-                "Smirking to yourself, you advance on the collapsed girl, [cock " +
-                    y +
-                    "] straining against your clothing in anticipation of what's to come."
+                `Smirking to yourself, you advance on the collapsed girl, [cock ${y}] straining against your clothing in anticipation of what's to come.`
             );
         }
         this.outx(
@@ -2113,9 +1947,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nThe thought is definitely enticing, causing your [cock " +
-                y +
-                "] to twitch as you thrust it against the girl's back, smearing pre-cum on her already-slick skin.  However, you've already got a plan in mind and you feel that it's about time that you finish teasing the poor thing and finally put it into action.  Taking one last luxury you slide your free hand around her hip, suckling her neck as your searching fingers spread across her lower stomach."
+            `\n\nThe thought is definitely enticing, causing your [cock ${y}] to twitch as you thrust it against the girl's back, smearing pre-cum on her already-slick skin.  However, you've already got a plan in mind and you feel that it's about time that you finish teasing the poor thing and finally put it into action.  Taking one last luxury you slide your free hand around her hip, suckling her neck as your searching fingers spread across her lower stomach.`
         );
 
         this.outx(
@@ -2149,9 +1981,7 @@ export class CorruptedDriderScene extends BaseContent {
         const y: number = x + 1;
         this.clearOutput();
         this.outx(
-            "The drider seems to be completely oblivious, apparently too focused on ignoring your hand still roaming over her chest to realize your intentions.  You start to prepare the ball of silk with one hand, keeping the other on her chest to distract her from your actions.  You notice that the silk is starting to glisten slightly as the juices on your hand begin to stain the material and the sight gives you a devious idea.  Wrapping the strands around your hand, you dip it down in between your bodies, trying to absorb as much pre-cum as possible.  You run it over your slick stomach, as well as the small of the spider-taur's back, making her squeak slightly at the strange, wet sensation.  As you brush the dampening sheet over your still-leaking length, you have to choke back a moan as the soft, slick, sticky silk sticks slightly to your [cock " +
-                y +
-                "]."
+            `The drider seems to be completely oblivious, apparently too focused on ignoring your hand still roaming over her chest to realize your intentions.  You start to prepare the ball of silk with one hand, keeping the other on her chest to distract her from your actions.  You notice that the silk is starting to glisten slightly as the juices on your hand begin to stain the material and the sight gives you a devious idea.  Wrapping the strands around your hand, you dip it down in between your bodies, trying to absorb as much pre-cum as possible.  You run it over your slick stomach, as well as the small of the spider-taur's back, making her squeak slightly at the strange, wet sensation.  As you brush the dampening sheet over your still-leaking length, you have to choke back a moan as the soft, slick, sticky silk sticks slightly to your [cock ${y}].`
         );
 
         this.outx(
@@ -2175,9 +2005,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nLeaning over her writhing, taut human half, you grab her shoulders and pin her into the soft, wet ground, putting a little weight on her to stop her from struggling any more.  Your new position leaves your [cock " +
-                y +
-                "] hanging just next to her slick entrance, almost perfectly lined up and just begging for you to enter her.  Her eyes dart away from your gaze as you stare at her face, the feeling of being so in control making you leak pre all over her waiting lips, staining her crotch with drizzles of white.  You dart in to her collarbone again, avoiding her neck which is now covered in the pre-cum that drips from her gag.  Kissing and sucking at the soft skin, you slowly trail your mouth down, leaving a sticky trail of saliva as you zero in on her hard nipples."
+            `\n\nLeaning over her writhing, taut human half, you grab her shoulders and pin her into the soft, wet ground, putting a little weight on her to stop her from struggling any more.  Your new position leaves your [cock ${y}] hanging just next to her slick entrance, almost perfectly lined up and just begging for you to enter her.  Her eyes dart away from your gaze as you stare at her face, the feeling of being so in control making you leak pre all over her waiting lips, staining her crotch with drizzles of white.  You dart in to her collarbone again, avoiding her neck which is now covered in the pre-cum that drips from her gag.  Kissing and sucking at the soft skin, you slowly trail your mouth down, leaving a sticky trail of saliva as you zero in on her hard nipples.`
         );
 
         this.outx(
@@ -2193,9 +2021,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou hang there for a few moments, giving the woman time to recover.  Still panting for breath, she cranes her neck and looks down between your bodies, her brow furrowing as if confused at your lack of movement.  You wince at the feeling of your tip being squeezed as her entrance twitches around you, drawing out even more pre-cum from your [cock " +
-                y +
-                "] to slather her already-sodden passage.  Grunting at the sensation, you realize that you're not going to last much longer if you keep teasing yourself like this.  Sliding your hands away from her shoulders, you bring them back to the woman's chest, groping and pinching at the sensitive skin, drawing a whine from her as she writhes under you."
+            `\n\nYou hang there for a few moments, giving the woman time to recover.  Still panting for breath, she cranes her neck and looks down between your bodies, her brow furrowing as if confused at your lack of movement.  You wince at the feeling of your tip being squeezed as her entrance twitches around you, drawing out even more pre-cum from your [cock ${y}] to slather her already-sodden passage.  Grunting at the sensation, you realize that you're not going to last much longer if you keep teasing yourself like this.  Sliding your hands away from her shoulders, you bring them back to the woman's chest, groping and pinching at the sensitive skin, drawing a whine from her as she writhes under you.`
         );
 
         this.outx(
@@ -2203,9 +2029,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nYour hands keep roaming over her chest, pinching and twisting as they go.  Each time you tease the girl's pliable skin, her cunt tightens around you, gripping your slick shaft ridiculously hard while you force your way into her again and again.  One hand snakes down across her toned stomach, eagerly seeking out her clit once more.  Her lower stomach is completely soaked with arousal, the force of your rutting painting you both quite liberally with your combined efforts, each time your hips meet sending up another spray of pleasure between your bodies.  Finally reaching the top of her slit, you waste no time in finding her throbbing little button with your searching digits, quickly starting to roll the nub between your fingertips.  The drider's reaction is immediate, her body tensing as you fuck her into the wet ground, [cock " +
-                y +
-                "] driving in and out of her gripping, spasming tunnel.  She cries out again, trying to twist away from you but you keep her in check by pinching a nipple roughly as she squirms, leaving her arching her back in an effort to press herself against you."
+            `\n\nYour hands keep roaming over her chest, pinching and twisting as they go.  Each time you tease the girl's pliable skin, her cunt tightens around you, gripping your slick shaft ridiculously hard while you force your way into her again and again.  One hand snakes down across her toned stomach, eagerly seeking out her clit once more.  Her lower stomach is completely soaked with arousal, the force of your rutting painting you both quite liberally with your combined efforts, each time your hips meet sending up another spray of pleasure between your bodies.  Finally reaching the top of her slit, you waste no time in finding her throbbing little button with your searching digits, quickly starting to roll the nub between your fingertips.  The drider's reaction is immediate, her body tensing as you fuck her into the wet ground, [cock ${y}] driving in and out of her gripping, spasming tunnel.  She cries out again, trying to twist away from you but you keep her in check by pinching a nipple roughly as she squirms, leaving her arching her back in an effort to press herself against you.`
         );
 
         this.outx(
@@ -2221,9 +2045,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nDriven on by the sight of the thoroughly defeated girl, you move your hands to grip her sides and start pistoning your bodies together.  She can only moan pathetically while you use her, the way your length presses against her sensitive insides all too much for her exhausted frame.  Hammering into her, you dart a thumb across to sweep over her throbbing clit, bringing about a particularly loud cry of pleasure that makes your [cock " +
-                y +
-                "] jump delightfully even as she clenches especially tightly around you.  You feel yourself getting close, the mixture of such a tight, wet cunt and your unbelieveable arousal leaving you smacking into her pelvis with a single goal in mind: filling her with your potent seed."
+            `\n\nDriven on by the sight of the thoroughly defeated girl, you move your hands to grip her sides and start pistoning your bodies together.  She can only moan pathetically while you use her, the way your length presses against her sensitive insides all too much for her exhausted frame.  Hammering into her, you dart a thumb across to sweep over her throbbing clit, bringing about a particularly loud cry of pleasure that makes your [cock ${y}] jump delightfully even as she clenches especially tightly around you.  You feel yourself getting close, the mixture of such a tight, wet cunt and your unbelieveable arousal leaving you smacking into her pelvis with a single goal in mind: filling her with your potent seed.`
         );
 
         this.outx(
@@ -2231,9 +2053,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou feel your cock starting to contract and pull the drider tight against you, fingers digging into the soft flesh of her hips as you press her as closely to you as you can manage.  Fully hilted within her, the entire length of your [cock " +
-                y +
-                "] is squeezed and teased by her still-spasming cunt all at once.  The heat is incredible, enhanced by the sheer amount of wet, warm fluid gushing down both of your hips, leaving you crying out as you finally start to cum.  Your body is wracked with unbelievable pleasure whilst your member explodes inside her, painting her insides white with fertile cream.  She barely realizes what's going on at this point, completely zoned out after her own mind-numbing orgasm, only able to softly grunt at each steaming load that you fire into her.  You take the opportunity to sink your teeth into her collar, marking her as [if (corruption < 40) yours][if (corruption >= 40) your slut] at the same time as your seed marks her pussy as your property, moaning deeply the entire time."
+            `\n\nYou feel your cock starting to contract and pull the drider tight against you, fingers digging into the soft flesh of her hips as you press her as closely to you as you can manage.  Fully hilted within her, the entire length of your [cock ${y}] is squeezed and teased by her still-spasming cunt all at once.  The heat is incredible, enhanced by the sheer amount of wet, warm fluid gushing down both of your hips, leaving you crying out as you finally start to cum.  Your body is wracked with unbelievable pleasure whilst your member explodes inside her, painting her insides white with fertile cream.  She barely realizes what's going on at this point, completely zoned out after her own mind-numbing orgasm, only able to softly grunt at each steaming load that you fire into her.  You take the opportunity to sink your teeth into her collar, marking her as [if (corruption < 40) yours][if (corruption >= 40) your slut] at the same time as your seed marks her pussy as your property, moaning deeply the entire time.`
         );
 
         this.outx(
@@ -2263,9 +2083,7 @@ export class CorruptedDriderScene extends BaseContent {
             );
 
             this.outx(
-                "\n\nWith every thrust her lips are pressed firmly against your crotch, [if (hasBalls = true) [sack]|groin] smacking into her soaked chin with a wet slap, spraying seed and spit with such force that it splatters across her chest and neck.  The combination of her efforts and your own post-orgasmic sensitivity rapidly brings you to your second peak, her head almost a blur on your rod as you feel your control slipping.  Moaning happily you hilt yourself in her, driving her face into you just before your [cock " +
-                    y +
-                    "] throbs, releasing a surprisingly large load that coats the inside of her mouth a thick white.  She moans as your spunk shoots into her, attempting to swallow as much of it as she can, though most dribbles out between your girth and her mouth and cascades down onto the rest of her body in thick globules.  Sighing, you draw her off your shrinking member, making sure as her lips slide down you that they leave you completely clean of any evidence of your climax.  Satisfied, you release her head, which immediately slumps down and begins snoring gently, still drooling cum onto her chest.  As you start to check her for anything valuable, you wonder if something else will happen across her before she can get free.  In such a vulnerable state, she'll probably wind up thoroughly used if anything does finds her.  Pocketing your new riches, you realize as you walk away that the slut would probably enjoy it anyway."
+                `\n\nWith every thrust her lips are pressed firmly against your crotch, [if (hasBalls = true) [sack]|groin] smacking into her soaked chin with a wet slap, spraying seed and spit with such force that it splatters across her chest and neck.  The combination of her efforts and your own post-orgasmic sensitivity rapidly brings you to your second peak, her head almost a blur on your rod as you feel your control slipping.  Moaning happily you hilt yourself in her, driving her face into you just before your [cock ${y}] throbs, releasing a surprisingly large load that coats the inside of her mouth a thick white.  She moans as your spunk shoots into her, attempting to swallow as much of it as she can, though most dribbles out between your girth and her mouth and cascades down onto the rest of her body in thick globules.  Sighing, you draw her off your shrinking member, making sure as her lips slide down you that they leave you completely clean of any evidence of your climax.  Satisfied, you release her head, which immediately slumps down and begins snoring gently, still drooling cum onto her chest.  As you start to check her for anything valuable, you wonder if something else will happen across her before she can get free.  In such a vulnerable state, she'll probably wind up thoroughly used if anything does finds her.  Pocketing your new riches, you realize as you walk away that the slut would probably enjoy it anyway.`
             );
         }
         // (if (30 =< corruption < 70)

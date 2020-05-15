@@ -36,9 +36,7 @@ export class Bazaar extends BaseContent {
             );
 
             this.outx(
-                "You raise your " +
-                    this.player.weaponName +
-                    " and cautiously creep through the towering vegetation, trying not to give your position away until you've ascertained just what type of people inhabit this camp.  Bright light flickers through the grass in front of you, and you part it to peek from between the blowing stalks.  There's a ring of brightly colored wagons set up here, with a tall, picketed fence erected around them.  Smoke curls up from the camp's center, twisting in the air like a viper in the grass.  Each of the wagons appears to be expanded, deployed into a small, self-contained structure.  Clearly this is some kind of traveling caravan or bazaar.\n\n",
+                `You raise your ${this.player.weaponName} and cautiously creep through the towering vegetation, trying not to give your position away until you've ascertained just what type of people inhabit this camp.  Bright light flickers through the grass in front of you, and you part it to peek from between the blowing stalks.  There's a ring of brightly colored wagons set up here, with a tall, picketed fence erected around them.  Smoke curls up from the camp's center, twisting in the air like a viper in the grass.  Each of the wagons appears to be expanded, deployed into a small, self-contained structure.  Clearly this is some kind of traveling caravan or bazaar.\n\n`,
                 false
             );
 
@@ -152,9 +150,10 @@ export class Bazaar extends BaseContent {
                     );
                 } else {
                     this.outx(
-                        "\n\n" +
-                            this.benoit.benoitMF("Benoit", "Benoite") +
-                            " the basilisk's stall looks open for business.  You could go see what's on offer."
+                        `\n\n${this.benoit.benoitMF(
+                            "Benoit",
+                            "Benoite"
+                        )} the basilisk's stall looks open for business.  You could go see what's on offer.`
                     );
                     benoitT = this.benoit.benoitMF("Benoit", "Benoite");
                 }
@@ -220,9 +219,7 @@ export class Bazaar extends BaseContent {
     private theSlipperySqueeze(): void {
         this.outx("", true);
         this.outx(
-            "You walk into one wagon whose sign clearly denotes it as 'The Slippery Squeeze'.  It's one of the largest contraptions in the bazaar, and with your first step inside you can see why.  It's built like a regular business, with a lobby in the front and numerous oak doors that lead to back rooms.  The walls are painted a soothing salmon color and a purple, fringed rug covers the wood floor.  It feels soft under your " +
-                this.player.feet() +
-                " after so much walking, letting you loosen up and relax.  Incense burns on the counter, filling the air with strange, fragrant aromas that tickle at your nose.\n\n",
+            `You walk into one wagon whose sign clearly denotes it as 'The Slippery Squeeze'.  It's one of the largest contraptions in the bazaar, and with your first step inside you can see why.  It's built like a regular business, with a lobby in the front and numerous oak doors that lead to back rooms.  The walls are painted a soothing salmon color and a purple, fringed rug covers the wood floor.  It feels soft under your ${this.player.feet()} after so much walking, letting you loosen up and relax.  Incense burns on the counter, filling the air with strange, fragrant aromas that tickle at your nose.\n\n`,
             false
         );
         let androgyny;
@@ -235,9 +232,10 @@ export class Bazaar extends BaseContent {
                 false
             );
             this.outx(
-                "It takes her a few moments for her to get over her humor, but she brushes a hand through her silken hair and replies, \"<i>Oh, I'm sorry if I gave the wrong impression " +
-                    this.player.mf("mister", "miss") +
-                    ", but I'm not a girl at all.  I'm definitely a male - I just love looking cute and fuckable!  You've got to admit I'm a pretty hot little package!</i>\"  To emphasize 'his' point, the bunny-boy twirls in place, and you notice that all he wears below the waist is a tight, package-hugging thong.  His tail twitches happily from exhibiting himself so, but he doesn't seem to be too aroused yet.\n\n",
+                `It takes her a few moments for her to get over her humor, but she brushes a hand through her silken hair and replies, "<i>Oh, I'm sorry if I gave the wrong impression ${this.player.mf(
+                    "mister",
+                    "miss"
+                )}, but I'm not a girl at all.  I'm definitely a male - I just love looking cute and fuckable!  You've got to admit I'm a pretty hot little package!</i>"  To emphasize 'his' point, the bunny-boy twirls in place, and you notice that all he wears below the waist is a tight, package-hugging thong.  His tail twitches happily from exhibiting himself so, but he doesn't seem to be too aroused yet.\n\n`,
                 false
             );
             this.outx(
@@ -272,9 +270,7 @@ export class Bazaar extends BaseContent {
         // (Repeat visit:
         else {
             this.outx(
-                "Joey purses his glossed lips when you enter and coyly cocks one of his ears as he says, \"<i>Welcome back to 'The Slippery Squeeze', " +
-                    this.player.short +
-                    ".  Would you like me to give you a nice, salty rub-down?  Or would you prefer Sara do it?  Just remember, she can't make her own 'oil' like I can.</i>\"\n\n",
+                `Joey purses his glossed lips when you enter and coyly cocks one of his ears as he says, "<i>Welcome back to 'The Slippery Squeeze', ${this.player.short}.  Would you like me to give you a nice, salty rub-down?  Or would you prefer Sara do it?  Just remember, she can't make her own 'oil' like I can.</i>"\n\n`,
                 false
             );
             // No scenes for Sara yet!
@@ -392,18 +388,17 @@ export class Bazaar extends BaseContent {
         );
 
         this.outx(
-            'At last he turns back around, holding a cork-stoppered vial of pink-hued liquid in his manicured finger-tips.  "<i>This is the stuff!  Now just close your eyes, we gotta get this worked into your skin and it stings worse than an angry wasp-girl if it gets in your eyes,</i>" says Joey.  You blink your eyelids closed, as instructed, and you feel the soft skin of the feminine bunny rubbing over your ' +
-                this.player.face() +
-                ", working something wet and tingly into your " +
-                this.player.skinDesc +
-                ".  The delicate facial massage takes roughly an hour, but you feel fresh and relaxed once it's finished.\n\n",
+            `At last he turns back around, holding a cork-stoppered vial of pink-hued liquid in his manicured finger-tips.  "<i>This is the stuff!  Now just close your eyes, we gotta get this worked into your skin and it stings worse than an angry wasp-girl if it gets in your eyes,</i>" says Joey.  You blink your eyelids closed, as instructed, and you feel the soft skin of the feminine bunny rubbing over your ${this.player.face()}, working something wet and tingly into your ${
+                this.player.skinDesc
+            }.  The delicate facial massage takes roughly an hour, but you feel fresh and relaxed once it's finished.\n\n`,
             false
         );
 
         this.outx(
-            "You ask for a mirror, but Joey just titters with a knowing smile on his succulent lips as he replies, \"<i>Oh, you haven't changed at all " +
-                this.player.mf("handsome", "dear") +
-                ".  This will let you change it to whatever extreme you like, but those kinds of facials aren't a service we currently offer.  I do hear that there's a goblin salon in the mountains that might be able to help you finish up your look though!</i>\"\n\n",
+            `You ask for a mirror, but Joey just titters with a knowing smile on his succulent lips as he replies, "<i>Oh, you haven't changed at all ${this.player.mf(
+                "handsome",
+                "dear"
+            )}.  This will let you change it to whatever extreme you like, but those kinds of facials aren't a service we currently offer.  I do hear that there's a goblin salon in the mountains that might be able to help you finish up your look though!</i>"\n\n`,
             false
         );
 
@@ -420,9 +415,7 @@ export class Bazaar extends BaseContent {
         this.outx("", true);
         if (this.player.gems < 10) {
             this.outx(
-                "Joey frowns when you realize you don't have the 10 gems.  He apologizes, \"<i>I'm sorry, " +
-                    this.player.short +
-                    " but I can't give freebies - our special potions cost us plenty.",
+                `Joey frowns when you realize you don't have the 10 gems.  He apologizes, "<i>I'm sorry, ${this.player.short} but I can't give freebies - our special potions cost us plenty.`,
                 false
             );
             this.doNext(this.enterTheBazaar);
@@ -440,9 +433,7 @@ export class Bazaar extends BaseContent {
             false
         );
         this.outx(
-            "Once he feels the tension from your upper body has been released, the girly bunny-boy slides himself lower, placing his taut, barely-covered rear atop your " +
-                this.buttDescript() +
-                ".  Joey's hands slide down along your spine, smoothing out every knotted muscle in your back as he goes.  You could swear his fingers are magic; you feel like a lump of clay being worked by a master sculptor.  Sighing dreamily, you lie there and groan while he finishes the small of your back, muscles rendered into goo-like softness.\n\n",
+            `Once he feels the tension from your upper body has been released, the girly bunny-boy slides himself lower, placing his taut, barely-covered rear atop your ${this.buttDescript()}.  Joey's hands slide down along your spine, smoothing out every knotted muscle in your back as he goes.  You could swear his fingers are magic; you feel like a lump of clay being worked by a master sculptor.  Sighing dreamily, you lie there and groan while he finishes the small of your back, muscles rendered into goo-like softness.\n\n`,
             false
         );
         this.outx(
@@ -450,9 +441,7 @@ export class Bazaar extends BaseContent {
             false
         );
         this.outx(
-            "Joey dismounts and gives your " +
-                this.buttDescript() +
-                " a rough squeeze as he prances towards a nearby table with a large number of bottles.  You hear him drop a cork on the floor and watch it roll by your face.  The masseuse noisily gulps down whatever concoction he's just opened up, sighing contentedly and giving a cute, girlish burp once he's finished.  He leans down and breathes huskily into your ear, his hand roaming your body while he explains, \"<i>I just drank one of our house specials.  It's a nice little concoction that'll kick my prostate and balls into overdrive.  In a minute I'll start leaking my favorite lotion, and I won't stop for at least twenty minutes.  Just enough time to finish your massage.",
+            `Joey dismounts and gives your ${this.buttDescript()} a rough squeeze as he prances towards a nearby table with a large number of bottles.  You hear him drop a cork on the floor and watch it roll by your face.  The masseuse noisily gulps down whatever concoction he's just opened up, sighing contentedly and giving a cute, girlish burp once he's finished.  He leans down and breathes huskily into your ear, his hand roaming your body while he explains, "<i>I just drank one of our house specials.  It's a nice little concoction that'll kick my prostate and balls into overdrive.  In a minute I'll start leaking my favorite lotion, and I won't stop for at least twenty minutes.  Just enough time to finish your massage.`,
             false
         );
         if (this.player.hasCock()) this.outx("  Would you like one?");
@@ -467,103 +456,84 @@ export class Bazaar extends BaseContent {
         this.outx("", true);
         // (Continue as NoWang)
         this.outx(
-            "The rabbit-eared fem-boy climbs back onto the table and strokes himself a few times over your " +
-                this.assDescript() +
-                "; the first drops of his 'special oil' feel hot as they land on the curves of your butt cheeks.  He climbs over you, touching himself just enough to stay hard while his cum-drooling cock stops dripping and starts genuinely leaking.  A long trail of bunny-spunk is dripped onto your " +
-                this.assDescript() +
-                " until you're glazed with thick ropes of it.  You spot his discarded thong on the floor and giggle as you feel him flip around to put his cute bunny-butt on your shoulders.  His spunk immediately runs down your spine, even as his hands smear it all over your " +
-                this.player.skinDesc +
-                ".\n\n",
+            `The rabbit-eared fem-boy climbs back onto the table and strokes himself a few times over your ${this.assDescript()}; the first drops of his 'special oil' feel hot as they land on the curves of your butt cheeks.  He climbs over you, touching himself just enough to stay hard while his cum-drooling cock stops dripping and starts genuinely leaking.  A long trail of bunny-spunk is dripped onto your ${this.assDescript()} until you're glazed with thick ropes of it.  You spot his discarded thong on the floor and giggle as you feel him flip around to put his cute bunny-butt on your shoulders.  His spunk immediately runs down your spine, even as his hands smear it all over your ${
+                this.player.skinDesc
+            }.\n\n`,
             false
         );
         this.outx(
-            "The massage heads back towards your " +
-                this.buttDescript() +
-                "; Joey's hands fill with your flesh as he fondles and strokes, spreading the jism into every nook and cranny, even your " +
-                this.assholeDescript(),
+            `The massage heads back towards your ${this.buttDescript()}; Joey's hands fill with your flesh as he fondles and strokes, spreading the jism into every nook and cranny, even your ${this.assholeDescript()}`,
             false
         );
-        if (this.player.hasVagina()) this.outx(" and " + this.vaginaDescript(0), false);
+        if (this.player.hasVagina()) this.outx(` and ${this.vaginaDescript(0)}`, false);
         this.outx(
             ".  The strange, slippery feeling would've made you jump if you weren't so thoroughly relaxed, but the warmth of the room and sureness of your masseuse's touch only serve to stoke your lust as effectively as he had the oven's fire.  You mewl happily when he slides his cum-soaked fingers up your back, spreading the sloppy mess over you like icing on a cake.\n\n",
             false
         );
 
         this.outx(
-            "Joey stands and turns, his cum drooling into your " +
-                this.hairDescript() +
-                ' as he asks, "<i>Would you roll over for me?</i>"  Eager for more of his skilled massage and impelled by your own growing arousal, you roll over, letting his jism drip onto your face.  He sits down gently, resting his barely-felt weight atop your bellybutton, and in no time, his fingers are smearing more of his fragrant, constantly-leaking goo over your ' +
-                this.chestDesc() +
-                ".  The long-eared fem-boy rubs around your " +
-                this.nippleDescript(0) +
-                "s, trailing delicate circles that make the perky, pink flesh harden and glisten.\n\n",
+            `Joey stands and turns, his cum drooling into your ${this.hairDescript()} as he asks, "<i>Would you roll over for me?</i>"  Eager for more of his skilled massage and impelled by your own growing arousal, you roll over, letting his jism drip onto your face.  He sits down gently, resting his barely-felt weight atop your bellybutton, and in no time, his fingers are smearing more of his fragrant, constantly-leaking goo over your ${this.chestDesc()}.  The long-eared fem-boy rubs around your ${this.nippleDescript(
+                0
+            )}s, trailing delicate circles that make the perky, pink flesh harden and glisten.\n\n`,
             false
         );
         this.outx(
-            "A soft, slippery hand takes your own and guides it to one of your " +
-                this.nippleDescript(0) +
-                "s, bidding you to play with it.  You do enthusiastically, even while Joey's same hand gathers more of the salty white lotion to smear over the front of your shoulders and arms, working it into your pores as effectively as he works the tension from you.  Unable to deny your growing need, you lift your head to watch with perverse fascination.  Joey is blushing hard, but he holds himself immobile while the whitish goop continually pours from him.  While his dick would've been considered average back home, here, in this place, he's tiny.  He really does remind you of a lotion dispenser, pumping out globs of sticky whiteness to be rubbed into one's skin.\n\n",
+            `A soft, slippery hand takes your own and guides it to one of your ${this.nippleDescript(
+                0
+            )}s, bidding you to play with it.  You do enthusiastically, even while Joey's same hand gathers more of the salty white lotion to smear over the front of your shoulders and arms, working it into your pores as effectively as he works the tension from you.  Unable to deny your growing need, you lift your head to watch with perverse fascination.  Joey is blushing hard, but he holds himself immobile while the whitish goop continually pours from him.  While his dick would've been considered average back home, here, in this place, he's tiny.  He really does remind you of a lotion dispenser, pumping out globs of sticky whiteness to be rubbed into one's skin.\n\n`,
             false
         );
         this.outx("You catch a view of your hand as it ");
         if (!this.player.hasFuckableNipples()) this.outx("tweaks and teases");
         else this.outx("sinks a finger deep inside");
         this.outx(
-            " your " +
-                this.nippleDescript(0) +
-                ', and you raise your other to match it.  Joey smiles and pants, "<i>Yes, we need to get out allll your tension, even that... uh... naughty... ah... sexual tension.  Mmmmm, now just lie your head back.  I\'m almost done, and we always give our clients a facial treatment while we ease their worries.</i>"\n\n',
+            ` your ${this.nippleDescript(
+                0
+            )}, and you raise your other to match it.  Joey smiles and pants, "<i>Yes, we need to get out allll your tension, even that... uh... naughty... ah... sexual tension.  Mmmmm, now just lie your head back.  I'm almost done, and we always give our clients a facial treatment while we ease their worries.</i>"\n\n`,
             false
         );
 
         this.outx(
-            "The bed cradles you as you close your eyes and lie back, noting the slight change in darkness beyond your eyelids from Joey's new position.  Spunk begins to rain over your " +
-                this.player.face() +
-                ", puddling seed around your eyes and forehead before it drips down your cheeks and bubbles on your lips.  You're quickly distracted from the salty, cummy facial when your personal leporid lotion-dispenser ",
+            `The bed cradles you as you close your eyes and lie back, noting the slight change in darkness beyond your eyelids from Joey's new position.  Spunk begins to rain over your ${this.player.face()}, puddling seed around your eyes and forehead before it drips down your cheeks and bubbles on your lips.  You're quickly distracted from the salty, cummy facial when your personal leporid lotion-dispenser `,
             false
         );
         // (fork to male or genderless, no new PG)
         // (MALE)
         if (this.player.hasCock()) {
             this.outx(
-                "slides his warm, ruby lips over your " +
-                    this.cockDescript(0) +
-                    ", licking and slurping the " +
-                    this.player.cockHead() +
-                    " like a treasured candy.  That hot, breathy embrace hugs tight to your urethral bulge, slobbering up the cock-tip.  The flexible, thin rabbit tongue swirls over your cum-slit to lap at the bubbling pre-cum, even as his quaking balls continue to bury your face in bunny-semen.",
+                `slides his warm, ruby lips over your ${this.cockDescript(
+                    0
+                )}, licking and slurping the ${this.player.cockHead()} like a treasured candy.  That hot, breathy embrace hugs tight to your urethral bulge, slobbering up the cock-tip.  The flexible, thin rabbit tongue swirls over your cum-slit to lap at the bubbling pre-cum, even as his quaking balls continue to bury your face in bunny-semen.`,
                 false
             );
             if (this.player.totalCocks() > 1) {
                 this.outx(
-                    "  He takes your " +
-                        this.cockDescript(1) +
-                        " with his free hand and pulls it over, giving it an affectionate, loving smooch.",
+                    `  He takes your ${this.cockDescript(
+                        1
+                    )} with his free hand and pulls it over, giving it an affectionate, loving smooch.`,
                     false
                 );
                 if (this.player.totalCocks() > 2) {
                     this.outx("  The process is repeated");
                     if (this.player.totalCocks() > 3)
                         this.outx(
-                            " as necessary until " +
-                                this.sMultiCockDesc() +
-                                " is coated with dick-drenching bunny spit.",
+                            ` as necessary until ${this.sMultiCockDesc()} is coated with dick-drenching bunny spit.`,
                             false
                         );
                     else
                         this.outx(
-                            ", coating your " +
-                                this.cockDescript(2) +
-                                " with dick-drenching bunny spit.",
+                            `, coating your ${this.cockDescript(
+                                2
+                            )} with dick-drenching bunny spit.`,
                             false
                         );
                 }
             }
             this.outx("  A moment later, ");
             if (this.player.balls > 0)
-                this.outx("his hand firmly rubs your " + this.sackDescript() + ", and ", false);
+                this.outx(`his hand firmly rubs your ${this.sackDescript()}, and `, false);
             this.outx(
-                "gentle fingertips are probing between your cheeks, rubbing his dripping seed against the pucker of your " +
-                    this.assholeDescript() +
-                    ".\n\n",
+                `gentle fingertips are probing between your cheeks, rubbing his dripping seed against the pucker of your ${this.assholeDescript()}.\n\n`,
                 false
             );
         }
@@ -573,8 +543,7 @@ export class Bazaar extends BaseContent {
                 this.outx("presses his ruby lips into the glistening delta of your mons", false);
             else
                 this.outx(
-                    "presses a finger against the semen-soaked ring of your " +
-                        this.assholeDescript(),
+                    `presses a finger against the semen-soaked ring of your ${this.assholeDescript()}`,
                     false
                 );
             this.outx(
@@ -587,28 +556,24 @@ export class Bazaar extends BaseContent {
             // (Genderless orgasm)
             if (this.player.gender == 0)
                 this.outx(
-                    "Though his single finger makes you burn with passion, Joey's second slides effortlessly after it, filling your " +
-                        this.assholeDescript() +
-                        " with another of his cum-soaked digits.  His warm jism slides down the crack between the fingers, slowly pooling in your backdoor.  Once you've adjusted, he continues to the massage, stroking and bumping your interior with the confident, practiced strokes of a professional. You pull hard on your tortured " +
-                        this.nippleDescript(0) +
-                        "s, egging up the gradual upwelling of pleasure while you lick the bunny-cream from your lips.  A moment later, the no-longer-offending digits press hard on a sensitive spot, and you're arching your back, screaming with pleasure.\n\n",
+                    `Though his single finger makes you burn with passion, Joey's second slides effortlessly after it, filling your ${this.assholeDescript()} with another of his cum-soaked digits.  His warm jism slides down the crack between the fingers, slowly pooling in your backdoor.  Once you've adjusted, he continues to the massage, stroking and bumping your interior with the confident, practiced strokes of a professional. You pull hard on your tortured ${this.nippleDescript(
+                        0
+                    )}s, egging up the gradual upwelling of pleasure while you lick the bunny-cream from your lips.  A moment later, the no-longer-offending digits press hard on a sensitive spot, and you're arching your back, screaming with pleasure.\n\n`,
                     false
                 );
             // (Female orgasm)
             else {
                 this.outx(
-                    "Though his spit and cum-lubed tongue is quite skilled, deftly tasting your labia and channel, the bunny adds a pair of fingers to the mix, pulling the musky tunnel wide and letting more of his slippery seed inside you.  He uses it like lube, sliding his digits around while he sucks your " +
-                        this.clitDescript() +
-                        " ",
+                    `Though his spit and cum-lubed tongue is quite skilled, deftly tasting your labia and channel, the bunny adds a pair of fingers to the mix, pulling the musky tunnel wide and letting more of his slippery seed inside you.  He uses it like lube, sliding his digits around while he sucks your ${this.clitDescript()} `,
                     false
                 );
                 if (this.player.clitLength >= 4)
                     this.outx("like a practiced whore fellating a john.");
                 else this.outx("like a professional pussy-licker.");
                 this.outx(
-                    "  You give your " +
-                        this.nippleDescript(0) +
-                        "s a hard tweak, torturing them as the building pleasure grows.  Aware of this, Joey curls a finger to press directly on a sensitive spot, deep inside you, and then you're arching your back and howling with unleashed release.\n\n",
+                    `  You give your ${this.nippleDescript(
+                        0
+                    )}s a hard tweak, torturing them as the building pleasure grows.  Aware of this, Joey curls a finger to press directly on a sensitive spot, deep inside you, and then you're arching your back and howling with unleashed release.\n\n`,
                     false
                 );
             }
@@ -621,11 +586,9 @@ export class Bazaar extends BaseContent {
         // (Dickgasms
         else {
             this.outx(
-                "Though Joey's mouth is making you burn with passion, it's the feeling of a single, intruding fingertip against your " +
-                    this.assholeDescript() +
-                    " that puts you on edge.  His warm jism slides down his finger, dripping into your violated backside with each slow pump.  Once you've adjusted, he continues the rectal massage, gently caressing the sides of your prostate while his mouth stays busy with your " +
-                    this.cockDescript(0) +
-                    ".  The bunny's tongue thrashes, twisting like a slippery eel over your length, his cheeks hollowing from the suction he's applying.  A moment later, Joey curls the digit inside you to press firmly against your prostate, squeezing the sensitive organ tightly enough to make your hips pump into the air.\n\n",
+                `Though Joey's mouth is making you burn with passion, it's the feeling of a single, intruding fingertip against your ${this.assholeDescript()} that puts you on edge.  His warm jism slides down his finger, dripping into your violated backside with each slow pump.  Once you've adjusted, he continues the rectal massage, gently caressing the sides of your prostate while his mouth stays busy with your ${this.cockDescript(
+                    0
+                )}.  The bunny's tongue thrashes, twisting like a slippery eel over your length, his cheeks hollowing from the suction he's applying.  A moment later, Joey curls the digit inside you to press firmly against your prostate, squeezing the sensitive organ tightly enough to make your hips pump into the air.\n\n`,
                 false
             );
             this.outx(
@@ -637,10 +600,7 @@ export class Bazaar extends BaseContent {
                 false
             );
             if (this.player.cumQ() >= 700) {
-                this.outx(
-                    "  A smile widens your " + this.player.face() + " when you see the ",
-                    false
-                );
+                this.outx(`  A smile widens your ${this.player.face()} when you see the `, false);
                 if (this.player.cumQ() >= 2000)
                     this.outx("massive, jiggling belly you've given him.");
                 else this.outx("little paunch on his belly jiggle.");
@@ -668,32 +628,24 @@ export class Bazaar extends BaseContent {
             false
         );
         if (this.player.balls == 0) this.outx("inside you");
-        else this.outx("in your " + this.ballsDescriptLight(), false);
+        else this.outx(`in your ${this.ballsDescriptLight()}`, false);
         this.outx(" that reminds you of the sensation just before orgasm.");
         if (this.player.balls > 0) this.outx("  They even feel a little bigger.");
         this.outx("\n\n", false);
 
         this.outx(
-            "Joey's fingertips brush along your shaft, squeezing it with tender touches that make it stiffen and thicken.  He starts slowly jacking you off while his other hand traces one of your nipples.  \"<i>We've got to get you nice and hard now so that you can let out all that nice, creamy lotion,</i>\" explains the fem-boy.  You nod in understanding, blushing hard while he fondles " +
-                this.sMultiCockDesc() +
-                " with soft caresses.  He plays your manhood",
+            `Joey's fingertips brush along your shaft, squeezing it with tender touches that make it stiffen and thicken.  He starts slowly jacking you off while his other hand traces one of your nipples.  "<i>We've got to get you nice and hard now so that you can let out all that nice, creamy lotion,</i>" explains the fem-boy.  You nod in understanding, blushing hard while he fondles ${this.sMultiCockDesc()} with soft caresses.  He plays your manhood`,
             false
         );
         if (this.player.cockTotal() > 1) this.outx("s like fiddles");
         else this.outx(" like a fiddle");
         this.outx(
-            ", expertly running his fingertip around the sensitive " +
-                this.player.cockHead() +
-                " before tracing down along your rapidly filling urethra.  It feels good – better than it should, and the warmth inside you begins to leak into the bunny-boy's waiting hand in moments.\n\n",
+            `, expertly running his fingertip around the sensitive ${this.player.cockHead()} before tracing down along your rapidly filling urethra.  It feels good – better than it should, and the warmth inside you begins to leak into the bunny-boy's waiting hand in moments.\n\n`,
             false
         );
 
         this.outx(
-            "You're rolled back on to your front, crushing " +
-                this.sMultiCockDesc() +
-                " between you and the sheets.  Joey leaps back atop you, straddling your back and facing your " +
-                this.assDescript() +
-                ", his hands locking onto the steam-moistened cheeks.   He slides forward slightly, placing his hardness between them, and it's then that you notice his discarded thong on the floor.  A moment later the first drops of Joey's own hot seed are dripping over your exposed derriere.  He slides himself through your buns, hotdogging the rapidly-slickening surface of your ass while his hands massage the tense flesh a little more enthusiastically than they ought to.\n\n",
+            `You're rolled back on to your front, crushing ${this.sMultiCockDesc()} between you and the sheets.  Joey leaps back atop you, straddling your back and facing your ${this.assDescript()}, his hands locking onto the steam-moistened cheeks.   He slides forward slightly, placing his hardness between them, and it's then that you notice his discarded thong on the floor.  A moment later the first drops of Joey's own hot seed are dripping over your exposed derriere.  He slides himself through your buns, hotdogging the rapidly-slickening surface of your ass while his hands massage the tense flesh a little more enthusiastically than they ought to.\n\n`,
             false
         );
 
@@ -723,9 +675,7 @@ export class Bazaar extends BaseContent {
         this.outx(".\n\n", false);
 
         this.outx(
-            "You're prodded insistently, the masseuse saying, \"<i>Come on, we've got so much more of your body to work on before you're completely emptied of all that nasty stress.  Now roll over, don't be shy about the mess.  I'll be making it messier.</i>\"  True to his word, Joey is still drooling his 'special lotion' over your " +
-                this.player.legs() +
-                ".  You oblige and gingerly roll over, the cummy sheets squishing lewdly under you as your slime-slicked belly and cum-drooling crotch are revealed.",
+            `You're prodded insistently, the masseuse saying, "<i>Come on, we've got so much more of your body to work on before you're completely emptied of all that nasty stress.  Now roll over, don't be shy about the mess.  I'll be making it messier.</i>"  True to his word, Joey is still drooling his 'special lotion' over your ${this.player.legs()}.  You oblige and gingerly roll over, the cummy sheets squishing lewdly under you as your slime-slicked belly and cum-drooling crotch are revealed.`,
             false
         );
         if (this.player.cumQ() >= 1500)
@@ -736,40 +686,32 @@ export class Bazaar extends BaseContent {
         this.outx("\n\n", false);
 
         this.outx(
-            "The bunny-boy springs back atop you, landing hard just below your hips.  His dripping seed washes over " +
-                this.sMultiCockDesc() +
-                ", and the sudden onslaught of fresh, liquid warmth on your groin sets off a small explosion of jism that splatters into your chin, leaving a long trail of slime behind like a snail.  The long-eared girly-boy smiles and shifts to rub his small cock against your " +
-                this.cockDescript(0) +
-                ", frotting you aggressively while you both spray cum like faucets with the knobs torn off.  You don't mind that he seems to have forgotten the massage, and you run your hands up and down your " +
-                this.chestDesc() +
-                " to smear the heavy loads ",
+            `The bunny-boy springs back atop you, landing hard just below your hips.  His dripping seed washes over ${this.sMultiCockDesc()}, and the sudden onslaught of fresh, liquid warmth on your groin sets off a small explosion of jism that splatters into your chin, leaving a long trail of slime behind like a snail.  The long-eared girly-boy smiles and shifts to rub his small cock against your ${this.cockDescript(
+                0
+            )}, frotting you aggressively while you both spray cum like faucets with the knobs torn off.  You don't mind that he seems to have forgotten the massage, and you run your hands up and down your ${this.chestDesc()} to smear the heavy loads `,
             false
         );
         if (this.player.skinType != SKIN_TYPE_FUR)
-            this.outx("over your " + this.player.skinDesc, false);
+            this.outx(`over your ${this.player.skinDesc}`, false);
         else this.outx("through your fur");
         this.outx(".\n\n", false);
 
         this.outx(
-            "The special potion makes it so your orgasm is long and languid, oozing out for minutes instead of seconds, and the small chamber is filled with breathy, exultant cries of passion.  Joey leans forward and grabs hold of your " +
-                this.nippleDescript(0) +
-                "s, ",
+            `The special potion makes it so your orgasm is long and languid, oozing out for minutes instead of seconds, and the small chamber is filled with breathy, exultant cries of passion.  Joey leans forward and grabs hold of your ${this.nippleDescript(
+                0
+            )}s, `,
             false
         );
         if (!this.player.hasFuckableNipples()) this.outx("squeezing and tugging on them");
         else this.outx("sliding cum-coated fingers into their slippery depths");
         this.outx(
-            " while he grinds and cums on your " +
-                this.cockDescript(0) +
-                '.  "<i>Ungg... yes... gotta... squeeze... allofitooooouuuuut!</i>" he pants.  He lets go of one tender nipple to reach underneath you, and before you can react, his cum-soaked finger is inside your ' +
-                this.assholeDescript() +
-                ", pressing on your prostate.\n\n",
+            ` while he grinds and cums on your ${this.cockDescript(
+                0
+            )}.  "<i>Ungg... yes... gotta... squeeze... allofitooooouuuuut!</i>" he pants.  He lets go of one tender nipple to reach underneath you, and before you can react, his cum-soaked finger is inside your ${this.assholeDescript()}, pressing on your prostate.\n\n`,
             false
         );
         this.outx(
-            'Your eyes cross and you black out, twitching weakly as a regular orgasm bursts on top of your already-protracted potion-gasm.  A pleasant, heavily sexualized dream is interrupted by a finger poking your lotion-lubricated cheek and the best you can manage is an utterly contented "<i>mmmm.</i>"  A warm, moist towel is rubbed over your ' +
-                this.player.face() +
-                ", wiping away the spooge you blasted over it, and now that you can see him, Joey says, \"<i>You had me worried for a minute there!  Keep the towel, it's on the house, and if you need to clean up, there's a shower in the back!",
+            `Your eyes cross and you black out, twitching weakly as a regular orgasm bursts on top of your already-protracted potion-gasm.  A pleasant, heavily sexualized dream is interrupted by a finger poking your lotion-lubricated cheek and the best you can manage is an utterly contented "<i>mmmm.</i>"  A warm, moist towel is rubbed over your ${this.player.face()}, wiping away the spooge you blasted over it, and now that you can see him, Joey says, "<i>You had me worried for a minute there!  Keep the towel, it's on the house, and if you need to clean up, there's a shower in the back!`,
             false
         );
         if (this.player.cumQ() >= 1500)
@@ -778,9 +720,7 @@ export class Bazaar extends BaseContent {
                 false
             );
         this.outx(
-            "  Come back ANY time, " +
-                this.player.short +
-                ".  I'd love to help you release again.</i>\"\n\n",
+            `  Come back ANY time, ${this.player.short}.  I'd love to help you release again.</i>"\n\n`,
             false
         );
 
@@ -801,9 +741,7 @@ export class Bazaar extends BaseContent {
         // (FIRST TIME)
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00348] == 0) {
             this.outx(
-                "Before you can even clear the door-frame, Joey the bunny-boy masseuse launches himself into you, his hands clutching wildly at your " +
-                    this.player.armorName +
-                    ".  You look down at him, and his wide, open eyes stare back with panic; namely, the look of someone in over their head with no idea how to save themselves.  Worse still, his trademark thong is bulging out obscenely, cum spilling down the sides while his immensely swollen gonads threaten to burst free of the garment's fraying threads.  Joey babbles, \"<i>Help!  I was testing the potions, and-and-and... I dunno what went wrong, b-b-but my balls are backing up faster than it dribbles out.  They feel like they're going to burst!!  Help meeeeee!</i>\"\n\n",
+                `Before you can even clear the door-frame, Joey the bunny-boy masseuse launches himself into you, his hands clutching wildly at your ${this.player.armorName}.  You look down at him, and his wide, open eyes stare back with panic; namely, the look of someone in over their head with no idea how to save themselves.  Worse still, his trademark thong is bulging out obscenely, cum spilling down the sides while his immensely swollen gonads threaten to burst free of the garment's fraying threads.  Joey babbles, "<i>Help!  I was testing the potions, and-and-and... I dunno what went wrong, b-b-but my balls are backing up faster than it dribbles out.  They feel like they're going to burst!!  Help meeeeee!</i>"\n\n`,
                 false
             );
             this.outx(
@@ -914,11 +852,7 @@ export class Bazaar extends BaseContent {
         );
 
         this.outx(
-            "Giving the girly-boy a semen-leaking smile, you milk his cock with determination and enthusiasm, only letting dribbles escape from your mouth when you do too good a job.  Your belly gurgles unhappily as if you've just eaten a huge meal, but you've got to press on!  Lick and swallow, suck and slurp - you fall into a practiced rhythm as you accommodate the bunny's chemically-induced virility.  Soon, your bulging midsection forces you to abandon swallowing and alternate between sucking at Joey's shaft and spitting out his ungodly eruptions of cum.  It runs down your " +
-                this.allChestDesc() +
-                ", makes a mess of your belly, glazes your " +
-                this.player.legs() +
-                ", and eventually comes to rest in the growing, three foot wide spunk-puddle on the floor.\n\n",
+            `Giving the girly-boy a semen-leaking smile, you milk his cock with determination and enthusiasm, only letting dribbles escape from your mouth when you do too good a job.  Your belly gurgles unhappily as if you've just eaten a huge meal, but you've got to press on!  Lick and swallow, suck and slurp - you fall into a practiced rhythm as you accommodate the bunny's chemically-induced virility.  Soon, your bulging midsection forces you to abandon swallowing and alternate between sucking at Joey's shaft and spitting out his ungodly eruptions of cum.  It runs down your ${this.allChestDesc()}, makes a mess of your belly, glazes your ${this.player.legs()}, and eventually comes to rest in the growing, three foot wide spunk-puddle on the floor.\n\n`,
             false
         );
 
@@ -927,11 +861,7 @@ export class Bazaar extends BaseContent {
             false
         );
         this.outx(
-            "You pull back and gasp for air, ignoring the ropes of spooge splattering across your face and into your " +
-                this.hairDescript() +
-                ".  Determined not to lose your progress, you take his none-too-impressive cock in your hand and jack it, spurring his body to take over and propel even more eruptions of slick seed onto your " +
-                this.player.face() +
-                ".  It's so messy, so decadent, but it's ",
+            `You pull back and gasp for air, ignoring the ropes of spooge splattering across your face and into your ${this.hairDescript()}.  Determined not to lose your progress, you take his none-too-impressive cock in your hand and jack it, spurring his body to take over and propel even more eruptions of slick seed onto your ${this.player.face()}.  It's so messy, so decadent, but it's `,
             false
         );
         if (this.player.cor < 33) this.outx("all for a good cause, right?");
@@ -1162,9 +1092,10 @@ export class Bazaar extends BaseContent {
             '\n\nYou ask, "<i>Socks?</i>" with confusion showing on your face.  What use do herms and girly-boys have for weird socks?  This shop seemed like it would specialize in sexy, not everyday garb!'
         );
         this.outx(
-            "\n\nGreta laughs so hard that her tits quake, scattering her knitting needles away.  Her tail deftly catches one that rolls off the crude counter's edge, twirling it about before stuffing it into the tight bob she has atop her head.  \"<i>You think this is a sock!?  Ahahahahah!  No, dear " +
-                this.player.mf("boy", "girl") +
-                ", this isn't an ordinary sock.  It's a cock-sock.  See the pattern here?  And the specially sewn gaps?  They let the wearer accentuate every sweet curve and throbbing vein on their erection, all while exposing the most sensitive bits for busy hands and hungry tongues, like mine.</i>\"  She lets her tongue slowly extend out from her mouth, inch after inch of the wiggling, slick organ slowly disappearing into the valley between her tits.  She slowly retracts it with a giggle."
+            `\n\nGreta laughs so hard that her tits quake, scattering her knitting needles away.  Her tail deftly catches one that rolls off the crude counter's edge, twirling it about before stuffing it into the tight bob she has atop her head.  "<i>You think this is a sock!?  Ahahahahah!  No, dear ${this.player.mf(
+                "boy",
+                "girl"
+            )}, this isn't an ordinary sock.  It's a cock-sock.  See the pattern here?  And the specially sewn gaps?  They let the wearer accentuate every sweet curve and throbbing vein on their erection, all while exposing the most sensitive bits for busy hands and hungry tongues, like mine.</i>"  She lets her tongue slowly extend out from her mouth, inch after inch of the wiggling, slick organ slowly disappearing into the valley between her tits.  She slowly retracts it with a giggle.`
         );
         this.outx(
             "\n\n\"<i>I've got back-orders on these things for miles, so you'll have to wait for me to get caught up before I consider crafting any for you.</i>\""
@@ -1428,9 +1359,9 @@ export class Bazaar extends BaseContent {
         if (this.flags[kFLAGS.SOCK_HOLDING] == "wool") this.player.gems -= 10;
 
         this.outx(
-            "You nod to the busty succubus and strip off your [armor], revealing your naked body.  Greta's eyes light up as she looks over your body with barely-contained lust.  Finally her eyes settle onto your " +
-                this.cockDescript(target) +
-                ", and she licks her lips.  "
+            `You nod to the busty succubus and strip off your [armor], revealing your naked body.  Greta's eyes light up as she looks over your body with barely-contained lust.  Finally her eyes settle onto your ${this.cockDescript(
+                target
+            )}, and she licks her lips.  `
         );
 
         if (!conflict) {
@@ -1443,9 +1374,9 @@ export class Bazaar extends BaseContent {
             );
 
             this.outx(
-                "\n\nHer other hand approaches, her thumb, fore- and middle-fingers holding the sock open as she slips it over your " +
-                    this.player.cockHead(target) +
-                    ".  She pulls it snugly into place and then gives your penis a little kiss.  The second her lips make contact with your flesh, a chill runs across your body, followed by a flood of warmth."
+                `\n\nHer other hand approaches, her thumb, fore- and middle-fingers holding the sock open as she slips it over your ${this.player.cockHead(
+                    target
+                )}.  She pulls it snugly into place and then gives your penis a little kiss.  The second her lips make contact with your flesh, a chill runs across your body, followed by a flood of warmth.`
             );
 
             this.outx("\n\nGreta smiles knowingly and returns to her chair behind the counter.");
@@ -1497,11 +1428,11 @@ export class Bazaar extends BaseContent {
             "You walk up to the counter top.  Greta the succubus looks up at you over her latest creation, and you explain you'd like to remove a cocksock."
         );
         this.outx(
-            '\n\n"<i>Ah, all right then,</i>" she says smoothly, setting aside her knitting needles.  "<i>Making room for a new sock, or just looking to get rid of this one?  No matter, it\'s a simple counterspell.</i>"  Greta stands up from her chair, though she\'s only on her feet for a moment before she kneels down in front of you, placing one hand under your ' +
-                this.cockDescript(index) +
-                ".  With her free hand, she runs a little circle around your " +
-                this.player.cockHead(index) +
-                ", muttering something under her breath."
+            `\n\n"<i>Ah, all right then,</i>" she says smoothly, setting aside her knitting needles.  "<i>Making room for a new sock, or just looking to get rid of this one?  No matter, it's a simple counterspell.</i>"  Greta stands up from her chair, though she's only on her feet for a moment before she kneels down in front of you, placing one hand under your ${this.cockDescript(
+                index
+            )}.  With her free hand, she runs a little circle around your ${this.player.cockHead(
+                index
+            )}, muttering something under her breath.`
         );
 
         this.outx(
@@ -1569,9 +1500,7 @@ export class Bazaar extends BaseContent {
         );
 
         this.outx(
-            "\n\nThe warm, steamy air caresses your " +
-                this.player.skinFurScales() +
-                " even before Joey does, running down your back, butt and [legs].  In no time at all, the air in the room is thick and warm, making you feel delightfully lazy with every breath, and a bead of sweat forms on your brow.  The bed shifts a bit as Joey leaps up onto it, straddling your waist, while he starts working his fingers over your shoulders.  His petite hands are surprisingly talented, finding every little knot you've accumulated in your journeys and unravelling them with one blissful touch."
+            `\n\nThe warm, steamy air caresses your ${this.player.skinFurScales()} even before Joey does, running down your back, butt and [legs].  In no time at all, the air in the room is thick and warm, making you feel delightfully lazy with every breath, and a bead of sweat forms on your brow.  The bed shifts a bit as Joey leaps up onto it, straddling your waist, while he starts working his fingers over your shoulders.  His petite hands are surprisingly talented, finding every little knot you've accumulated in your journeys and unravelling them with one blissful touch.`
         );
 
         this.outx(
@@ -1823,22 +1752,16 @@ export class Bazaar extends BaseContent {
         }
         // [[[(If player does have cock)
         this.outx(
-            "\n\nYou decide to have a little fun with the muscular ass in front of you.  You hold the struggling tiger's wrists with one hand and fish out your " +
-                this.multiCockDescriptLight() +
-                " free from your [armor].  Your eyes drink in how the burly tiger man writhes under you.  He's completely at your mercy."
+            `\n\nYou decide to have a little fun with the muscular ass in front of you.  You hold the struggling tiger's wrists with one hand and fish out your ${this.multiCockDescriptLight()} free from your [armor].  Your eyes drink in how the burly tiger man writhes under you.  He's completely at your mercy.`
         );
         // [(If multicock)
         if (this.player.cockTotal() > 1)
             this.outx(
-                "  Your hand strokes along your " +
-                    this.multiCockDescriptLight() +
-                    " and press them to the warm cheeks exposed before you."
+                `  Your hand strokes along your ${this.multiCockDescriptLight()} and press them to the warm cheeks exposed before you.`
             );
         else
             this.outx(
-                "  You pump your " +
-                    this.multiCockDescriptLight() +
-                    " and milk a pearl of pre-cum out to drip onto the enticing ass before you."
+                `  You pump your ${this.multiCockDescriptLight()} and milk a pearl of pre-cum out to drip onto the enticing ass before you.`
             );
         this.outx(
             "  \"<i>O-OI!</i>\"  The tiger man shouts out, his head turning to try to see behind him.  With a grin on your lips you grip the hilt of [oneCock] and slap its length over the tiger's rump.  You can see the tint to the tiger man's cheek as he hears and feels your dick smacking his exposed ass.  Pre-cum drips down [oneCock] as you line yourself up, jamming it between the tiger's lovely mounds. He gives a surprised shout as your cockhead presses to his tiny, puckered hole."
@@ -1852,9 +1775,7 @@ export class Bazaar extends BaseContent {
             );
             if (this.player.totalCocks() == 1)
                 this.outx(
-                    "  You squeeze your " +
-                        this.multiCockDescriptLight() +
-                        " between his warm ass cheeks, stroking yourself with his exposed bottom.  The tiger whimpers meekly under you."
+                    `  You squeeze your ${this.multiCockDescriptLight()} between his warm ass cheeks, stroking yourself with his exposed bottom.  The tiger whimpers meekly under you.`
                 );
             else
                 this.outx(
@@ -1876,19 +1797,15 @@ export class Bazaar extends BaseContent {
                 );
             else
                 this.outx(
-                    "  Your " +
-                        this.multiCockDescriptLight() +
-                        " pushes in, your pre-cum-slicked length sliding in with a wet noise."
+                    `  Your ${this.multiCockDescriptLight()} pushes in, your pre-cum-slicked length sliding in with a wet noise.`
                 );
             this.outx(
                 "  The burly man under you whimpers in protest as you begin to rock against his fine ass.  His firm rear dimples and twitches under your hips, each slam"
             );
             if (this.player.balls > 0)
-                this.outx(" swatting your " + this.ballsDescriptLight() + " against him,");
+                this.outx(` swatting your ${this.ballsDescriptLight()} against him,`);
             this.outx(
-                " making him shout out in discomfort.  Your " +
-                    this.multiCockDescriptLight() +
-                    " stretching him out"
+                ` making him shout out in discomfort.  Your ${this.multiCockDescriptLight()} stretching him out`
             );
             if (this.player.cockTotal() > 1) this.outx(" while beating his rear");
             this.outx(".  All his shouting stirs whoever resides in the tent he came out of.");
@@ -1899,15 +1816,11 @@ export class Bazaar extends BaseContent {
         );
 
         this.outx(
-            '\n\n"<i>Good for you, mate, making friends while getting us booze.</i>"  One of them calls out.  The three of them laugh out loud at the joke, and as they laugh your senses are assaulted with the aroma of alcohol wafting from them.  From the way the trio sways you can tell they\'ve been hitting the bottle hard.  They make no movement to stop you, though, so you ignore them.  The tiger under you stares in their direction, embarrassment burning crimson in his cheeks while you use and abuse him.  The scene is proving too much for you, though, and soon your ' +
-                this.multiCockDescriptLight() +
-                " unloads your pent up spunk over the tiger and coats him in thick, musky spooge in front of his 'friends'."
+            `\n\n"<i>Good for you, mate, making friends while getting us booze.</i>"  One of them calls out.  The three of them laugh out loud at the joke, and as they laugh your senses are assaulted with the aroma of alcohol wafting from them.  From the way the trio sways you can tell they've been hitting the bottle hard.  They make no movement to stop you, though, so you ignore them.  The tiger under you stares in their direction, embarrassment burning crimson in his cheeks while you use and abuse him.  The scene is proving too much for you, though, and soon your ${this.multiCockDescriptLight()} unloads your pent up spunk over the tiger and coats him in thick, musky spooge in front of his 'friends'.`
         );
 
         this.outx(
-            "\n\n\"<i>He's even enjoying himself!</i>\"  One of the figures bellows out.  You tilt your head to peer between the tiger's spread legs and, sure enough, the barbed cock throbs between his legs with each beat of his heart.  Without further ceremony you roll the abused tiger man on his cum-soaked back and tuck your " +
-                this.multiCockDescriptLight() +
-                " back into your [armor].  The trio are too drunk to stop you as you leave.  Turning your head back to glance at the tiger, you see the three figures surrounding the victim and your lips curl into a pleased smile.  Within moments you return to the lights of the Bazaar."
+            `\n\n"<i>He's even enjoying himself!</i>"  One of the figures bellows out.  You tilt your head to peer between the tiger's spread legs and, sure enough, the barbed cock throbs between his legs with each beat of his heart.  Without further ceremony you roll the abused tiger man on his cum-soaked back and tuck your ${this.multiCockDescriptLight()} back into your [armor].  The trio are too drunk to stop you as you leave.  Turning your head back to glance at the tiger, you see the three figures surrounding the victim and your lips curl into a pleased smile.  Within moments you return to the lights of the Bazaar.`
         );
         // gtfo
         this.menu();
@@ -1965,15 +1878,14 @@ export class Bazaar extends BaseContent {
             );
         }
         if (this.player.hasVagina())
-            this.outx("  Your " + this.vaginaDescript(0) + " grows slick in your excitement.");
+            this.outx(`  Your ${this.vaginaDescript(0)} grows slick in your excitement.`);
         if (this.player.gender == 0)
             this.outx("  Your skin heats and tingles, sweat wetting its surface.");
         this.outx(
             '  The satyr runs his hand along your body and sizes you up with a lewd gaze and gentle touch, making you shudder under his fingertips from the effects of the draft.  "<i>Not bad I suppose.  You could have done better, though.</i>"  The satyr turns his head to the tiger man as the satyr\'s words strike at your pride, though the rebuttal on your lips is quickly silenced as his fingers'
         );
-        if (this.player.hasCock())
-            this.outx(" wrap around your " + this.multiCockDescriptLight() + ".");
-        else this.outx(" rub over your " + this.assholeDescript() + ".");
+        if (this.player.hasCock()) this.outx(` wrap around your ${this.multiCockDescriptLight()}.`);
+        else this.outx(` rub over your ${this.assholeDescript()}.`);
         this.outx(
             "  His hand teases your body as the pair of muscled men holds you down in place.  You can only gasp out and wiggle your hips at the touch.  You turn your head and look pleadingly at your captors.  The large green man holding your wrists looks like an oversized goblin with yellow eyes.  His olive skin is stretched tight over his bulging muscles.  His bulky frame looks as powerful as he is tall, standing perhaps seven feet tall.  The equally built man holding down your lower body looks much like a bear man with piercing green eyes, shorter and stockier than the green orc by far.  The pair of 'gym bunnies' have matching bulges swelling in their pants as their eyes fix over your nude body"
         );
@@ -1984,9 +1896,7 @@ export class Bazaar extends BaseContent {
         // [(If muticock 3 or more)
         if (this.player.cockTotal() >= 3)
             this.outx(
-                "\n\nNot to be left out, each of the two men take a hand off of your limbs and grip one of your " +
-                    this.multiCockDescriptLight() +
-                    ".  Your head swings back onto the table you're laid out on, mouth open wide as you moan and arch your back.  Each hand goes at an individual rhythm as sex overwhelms your thoughts.  The hands pinning you down are gone, though you're unable to focus on escaping."
+                `\n\nNot to be left out, each of the two men take a hand off of your limbs and grip one of your ${this.multiCockDescriptLight()}.  Your head swings back onto the table you're laid out on, mouth open wide as you moan and arch your back.  Each hand goes at an individual rhythm as sex overwhelms your thoughts.  The hands pinning you down are gone, though you're unable to focus on escaping.`
             );
 
         // (if cock(s)
@@ -1996,14 +1906,12 @@ export class Bazaar extends BaseContent {
             );
         else
             this.outx(
-                "\n\nHis fingers slip past your puckered flesh and dip into your " +
-                    this.assholeDescript() +
-                    " and spread apart, loosening you for what feels like ages."
+                `\n\nHis fingers slip past your puckered flesh and dip into your ${this.assholeDescript()} and spread apart, loosening you for what feels like ages.`
             );
         this.outx("  Without warning the hand is gone");
         if (this.player.cockTotal() > 1)
             this.outx(
-                " and your " + this.multiCockDescriptLight() + " wetly slaps your stomach with need"
+                ` and your ${this.multiCockDescriptLight()} wetly slaps your stomach with need`
             );
         this.outx(
             '.  A whimper escapes your lips.  "<i>This should be fine...</i>"  The cool, collected voice of the satyr murmurs.'
@@ -2024,31 +1932,20 @@ export class Bazaar extends BaseContent {
                 "  The bear shifts where he stands, grabbing your ankles and spreading your limbs almost painfully wide.  You wince from the sting of the strain on your leg muscles."
             );
         this.outx(
-            "  You hear the clopping of hooves on the floor as the satyr moves over to your " +
-                this.buttDescript() +
-                ".  His hands grip over your " +
-                this.hipDescript() +
-                " and drags you closer to the edge of the table so that your " +
-                this.buttDescript() +
-                " hangs over the side of the table.  You raise your head to watch with a "
+            `  You hear the clopping of hooves on the floor as the satyr moves over to your ${this.buttDescript()}.  His hands grip over your ${this.hipDescript()} and drags you closer to the edge of the table so that your ${this.buttDescript()} hangs over the side of the table.  You raise your head to watch with a `
         );
         if (this.player.lib < 50) this.outx("horrified");
         else this.outx("excited");
         this.outx(
-            " expression as the satyr's hand strokes over his hard length.  It looks at least eight inches long, smooth like a human's cock and protruding from a forest of curly, brown fur.  The satyr lines himself up and rubs his stiff cockhead over your " +
-                this.assholeDescript() +
-                "."
+            ` expression as the satyr's hand strokes over his hard length.  It looks at least eight inches long, smooth like a human's cock and protruding from a forest of curly, brown fur.  The satyr lines himself up and rubs his stiff cockhead over your ${this.assholeDescript()}.`
         );
 
         this.outx(
-            "\n\nThe effects of the draft still fresh in your system, you moan out as your sensitive " +
-                this.assholeDescript() +
-                " is poked and prodded.  The slick, hot satyr spunk clings to your pucker and eases your entrance open with his bulbous cockhead.  The satyr calmly takes his time until your hole is dripping and ready for him.  The seemingly endless torture has erstwhile driven you mad, seeming like the satyr has waited hours before finally deciding to plunge into you.  Once satisfied, the satyr shoves his hips forward and stuffs his cock into you roughly.  You wince at the sting and bite your lower lip, trying to keep from giving them the satisfaction of hearing your whimpers.  You shut your eyes and utter out a groan regardless, the feeling of the member pulsing against your silken walls making you utter a low moan"
+            `\n\nThe effects of the draft still fresh in your system, you moan out as your sensitive ${this.assholeDescript()} is poked and prodded.  The slick, hot satyr spunk clings to your pucker and eases your entrance open with his bulbous cockhead.  The satyr calmly takes his time until your hole is dripping and ready for him.  The seemingly endless torture has erstwhile driven you mad, seeming like the satyr has waited hours before finally deciding to plunge into you.  Once satisfied, the satyr shoves his hips forward and stuffs his cock into you roughly.  You wince at the sting and bite your lower lip, trying to keep from giving them the satisfaction of hearing your whimpers.  You shut your eyes and utter out a groan regardless, the feeling of the member pulsing against your silken walls making you utter a low moan`
         );
         if (this.player.hasCock())
             this.outx(
-                " while [eachCock] twitches and leaks generously over your " +
-                    this.player.skinFurScales()
+                ` while [eachCock] twitches and leaks generously over your ${this.player.skinFurScales()}`
             );
         this.outx(".");
 
@@ -2061,9 +1958,7 @@ export class Bazaar extends BaseContent {
         );
 
         this.outx(
-            "\n\nAll of this transpires as your " +
-                this.buttDescript() +
-                " is slapped over and over by the low-hanging satyr balls.  The satyr lets out a pleased groan every now and then as your body shivers and trembles from his length hilting in you over and over and over.  He doesn't look like he'll stop anytime soon, though.  You turn your head to see the tiger's barbed, nine inch cock.  The stubby barbs make your skin tingle with each graze across your cheek.  On the other hand, the bear's cock looks shorter, about seven inches though by far the thickest meat in the bunch.  The massive girth would most likely hurt your jaw if you tried to wrap your mouth around it. What do you do?"
+            `\n\nAll of this transpires as your ${this.buttDescript()} is slapped over and over by the low-hanging satyr balls.  The satyr lets out a pleased groan every now and then as your body shivers and trembles from his length hilting in you over and over and over.  He doesn't look like he'll stop anytime soon, though.  You turn your head to see the tiger's barbed, nine inch cock.  The stubby barbs make your skin tingle with each graze across your cheek.  On the other hand, the bear's cock looks shorter, about seven inches though by far the thickest meat in the bunch.  The massive girth would most likely hurt your jaw if you tried to wrap your mouth around it. What do you do?`
         );
         // open menu of options [Suck tiger] [Suck bear] [Suck none]
         this.menu();
@@ -2076,9 +1971,7 @@ export class Bazaar extends BaseContent {
     private suckOffATiger(): void {
         this.clearOutput();
         this.outx(
-            "You go with the barbed length.  You quickly take it into your mouth and suckle on the barbed tip.  The tiger's face melts from argument to pleasure.  \"<i>Looks like he likes mine better than your short sausage.</i>\"  The tiger gloats, the bear growling low and angrily.  Not to invite a fight over your face, you grip the bear's cock with one hand and begin to stroke over the thickness, though your fingers are unable to wrap all the way around it.  The pair give out pleased moans of resignation as you pleasure them.  The satyr still pounds away at your " +
-                this.buttDescript() +
-                " as you suck off the tiger, his hands gripping your head as he throatfucks your eager mouth.  You slither your tongue under his shaft and let out a muffled moan as the barbs tingle over your throat, lips, and tongue.  With a rough thrust he buries your face into his furred groin, making his heavy sack slap your cheek.  The tiger man fucks your face furiously as you feel the satyr finishing in your ass.  Thick tiger cock continues to pound down your throat as warmth spreads within your gut, satyr cum flooding your inner walls."
+            `You go with the barbed length.  You quickly take it into your mouth and suckle on the barbed tip.  The tiger's face melts from argument to pleasure.  "<i>Looks like he likes mine better than your short sausage.</i>"  The tiger gloats, the bear growling low and angrily.  Not to invite a fight over your face, you grip the bear's cock with one hand and begin to stroke over the thickness, though your fingers are unable to wrap all the way around it.  The pair give out pleased moans of resignation as you pleasure them.  The satyr still pounds away at your ${this.buttDescript()} as you suck off the tiger, his hands gripping your head as he throatfucks your eager mouth.  You slither your tongue under his shaft and let out a muffled moan as the barbs tingle over your throat, lips, and tongue.  With a rough thrust he buries your face into his furred groin, making his heavy sack slap your cheek.  The tiger man fucks your face furiously as you feel the satyr finishing in your ass.  Thick tiger cock continues to pound down your throat as warmth spreads within your gut, satyr cum flooding your inner walls.`
         );
         // bumpy road
         this.finalGayFinallee(0);
@@ -2112,67 +2005,41 @@ export class Bazaar extends BaseContent {
     // all options lead to here for now
     private finalGayFinallee(road = 0): void {
         this.outx(
-            "\n\nWith a wet pop, the satyr pulls his spent manhood from your " +
-                this.assholeDescript() +
-                ".  He smears his softening cock over your " +
-                this.buttDescript() +
-                ' and leaves a white streak of cum across your cheeks.  He huffs a content breath and moves over to the side.  "<i>I\'m good, you guys decide who gets to fuck the slut next.</i>"  You look up at the tiger and bear men.  Their eyes light up a moment before turning to look at your ' +
-                this.buttDescript() +
-                " with hungry lust.  Your spine shivers under their gaze, but before they can move a green blur runs past them."
+            `\n\nWith a wet pop, the satyr pulls his spent manhood from your ${this.assholeDescript()}.  He smears his softening cock over your ${this.buttDescript()} and leaves a white streak of cum across your cheeks.  He huffs a content breath and moves over to the side.  "<i>I'm good, you guys decide who gets to fuck the slut next.</i>"  You look up at the tiger and bear men.  Their eyes light up a moment before turning to look at your ${this.buttDescript()} with hungry lust.  Your spine shivers under their gaze, but before they can move a green blur runs past them.`
         );
 
         this.outx(
-            '\n\n"<i>Zug want hole!</i>" The large green orc runs to your behind, slapping his massive foot-long against your ' +
-                this.buttDescript() +
-                " as if to call 'dibs!'.  You bite your lips at the sight of the throbbing twelve inches sawing your ass cheeks apart, the dark olive flesh glistening with a thick layer of prespunk and slick, cool lubricant.  The orc's bulky muscles twitch menacingly as he stares the tiger and bear down.  The two of them stay where they are and, after a few moments, the orc grunts.  He looks down and lines himself up with your hole.  His thick, orcish girth presses against your " +
-                this.assholeDescript() +
-                ", pushing in forcefully as the satyr's cum and rough pounding opened you just wide enough for the orc to slide in with little pain."
+            `\n\n"<i>Zug want hole!</i>" The large green orc runs to your behind, slapping his massive foot-long against your ${this.buttDescript()} as if to call 'dibs!'.  You bite your lips at the sight of the throbbing twelve inches sawing your ass cheeks apart, the dark olive flesh glistening with a thick layer of prespunk and slick, cool lubricant.  The orc's bulky muscles twitch menacingly as he stares the tiger and bear down.  The two of them stay where they are and, after a few moments, the orc grunts.  He looks down and lines himself up with your hole.  His thick, orcish girth presses against your ${this.assholeDescript()}, pushing in forcefully as the satyr's cum and rough pounding opened you just wide enough for the orc to slide in with little pain.`
         );
 
         this.outx(
-            "\n\nYou give a muffled groan as the giant orc cock impales you, the stiff erection grinding over your stretched-out, silken walls.  His fat orc sack swats your upturned " +
-                this.buttDescript() +
-                ".  It coaxes whimpers from your lips as the green cock pulls out and slams back in, the brute of an orc focusing on getting further into you as his massive phallus plunges deeper and deeper with each thrust.  The colossal girth rides on the satyr's cum trails and pushes past it, stuffing you full to bursting with his orc meat.  His hands grip your hips and he roughly yanks you into a good angle as he begins to abuse your " +
-                this.buttDescript() +
-                " with long, pummeling lunges.  He lets out guttural groans as his hefty cock drools orc cream, mixing it with the satyr's spooge as your hole begins to resemble a used condom."
+            `\n\nYou give a muffled groan as the giant orc cock impales you, the stiff erection grinding over your stretched-out, silken walls.  His fat orc sack swats your upturned ${this.buttDescript()}.  It coaxes whimpers from your lips as the green cock pulls out and slams back in, the brute of an orc focusing on getting further into you as his massive phallus plunges deeper and deeper with each thrust.  The colossal girth rides on the satyr's cum trails and pushes past it, stuffing you full to bursting with his orc meat.  His hands grip your hips and he roughly yanks you into a good angle as he begins to abuse your ${this.buttDescript()} with long, pummeling lunges.  He lets out guttural groans as his hefty cock drools orc cream, mixing it with the satyr's spooge as your hole begins to resemble a used condom.`
         );
         this.player.buttChange(30, true, true, false);
         this.outx(
-            '\n\nYou can barely focus on pleasuring the two cocks in your hands as your lower body receives a slut\'s treatment.  "<i>Ragh! Hole so tight around orc cock!  Make good orc bitch!</i>"  The large green man groans and you feel his heavy sack clench against your cheeks.  Your eyes go wide as you\'re suddenly flooded with orc spunk, the sensation and sound of the cum overflowing from your hole to splatter against the Orc\'s balls and thighs overwhelming your senses.  The Orc lets out a "<i>Wrahhg!</i>" as he pins your hips, hilting his orc cock as he continues to unload his thick, fertile seed into you.  Your belly soon distends and bulges from the amount of cum shooting up your ass.  The orc man pants over you as you feel your ' +
-                this.assholeDescript() +
-                " dripping orc spunk like a leaking dam."
+            `\n\nYou can barely focus on pleasuring the two cocks in your hands as your lower body receives a slut's treatment.  "<i>Ragh! Hole so tight around orc cock!  Make good orc bitch!</i>"  The large green man groans and you feel his heavy sack clench against your cheeks.  Your eyes go wide as you're suddenly flooded with orc spunk, the sensation and sound of the cum overflowing from your hole to splatter against the Orc's balls and thighs overwhelming your senses.  The Orc lets out a "<i>Wrahhg!</i>" as he pins your hips, hilting his orc cock as he continues to unload his thick, fertile seed into you.  Your belly soon distends and bulges from the amount of cum shooting up your ass.  The orc man pants over you as you feel your ${this.assholeDescript()} dripping orc spunk like a leaking dam.`
         );
         // now it's time for the choice before to matter, we got three endings here, one for each choice.
         // ((Ending 1 , suck tiger, //bumpy road))
         if (road == 0) {
             this.outx(
-                '\n\nYou are hardly able to focus on the barbed cock in your mouth, moaning around the hard cock as you look at the small bump on your belly.  With your hands servicing the bear as the tiger fills your mouth, the two men haven\'t left either side of your head.  With a wet pop, the tiger man pulls his saliva-coated prick from your mouth and he moves to the orc, shoving him aside with a grunt.  "<i>My turn now.</i>"  He grins impishly as he lines himself up with your hole, your ' +
-                    this.assholeDescript() +
-                    " looking like a well-used cum dump.  He rams in with ease and begins to pound away inside of you, making you moan with your mouth open wide."
+                `\n\nYou are hardly able to focus on the barbed cock in your mouth, moaning around the hard cock as you look at the small bump on your belly.  With your hands servicing the bear as the tiger fills your mouth, the two men haven't left either side of your head.  With a wet pop, the tiger man pulls his saliva-coated prick from your mouth and he moves to the orc, shoving him aside with a grunt.  "<i>My turn now.</i>"  He grins impishly as he lines himself up with your hole, your ${this.assholeDescript()} looking like a well-used cum dump.  He rams in with ease and begins to pound away inside of you, making you moan with your mouth open wide.`
             );
             this.outx(
-                "\n\nThe bear takes advantage of this, shoving his impossibly thick cock between your open lips.  Your lips vibrate around his shaft as you moan.  The bear climbs onto the table and begins to fuck your face while your " +
-                    this.assholeDescript() +
-                    " is used for the third time in a row.  Your jaw stretches painfully around the girth of the bear's pride, your hands gripping at his legs as you look up at him with pleading eyes.  He only grins down at you as he watches his fat length slipping past your lips and bulging inside your throat.  Your throat constricts with gags and vibrates with moans as you involuntarily milk the bear's cock.  Each time the feline cock drills into you, the barbs leave you whimpering and gagging around the bearcock throatfucking you.  The barbs in your ass seem to bring a new sensation to the abuse as wet slapping noises echo in the tent.  Your " +
-                    this.buttDescript() +
-                    " is wet with the combined cum of three males in a row, their cum and pre-cum dripping from your upturned " +
-                    this.buttDescript() +
-                    " to form a growing puddle of lust on the floor and table."
+                `\n\nThe bear takes advantage of this, shoving his impossibly thick cock between your open lips.  Your lips vibrate around his shaft as you moan.  The bear climbs onto the table and begins to fuck your face while your ${this.assholeDescript()} is used for the third time in a row.  Your jaw stretches painfully around the girth of the bear's pride, your hands gripping at his legs as you look up at him with pleading eyes.  He only grins down at you as he watches his fat length slipping past your lips and bulging inside your throat.  Your throat constricts with gags and vibrates with moans as you involuntarily milk the bear's cock.  Each time the feline cock drills into you, the barbs leave you whimpering and gagging around the bearcock throatfucking you.  The barbs in your ass seem to bring a new sensation to the abuse as wet slapping noises echo in the tent.  Your ${this.buttDescript()} is wet with the combined cum of three males in a row, their cum and pre-cum dripping from your upturned ${this.buttDescript()} to form a growing puddle of lust on the floor and table.`
             );
             this.outx(
                 "\n\nThe bear and tiger don't last long.  The bear finishes first as he pins your head between his hips and the table.  Your fingers clench over his furred legs as a deep groan rumbles from his belly.  You can feel his load shooting directly down your throat to fill your stomach.  The bear pulls out as the last lurch of his cock spits a rope of cum over your face, causing you to shut your eyes and wince as the hot liquid oozes down your cheeks.  With an amused grunt, the bear gets off the table to leave you with the tiger man.  With a raspy hiss the tiger is last, his flared barbs quivering over your cum soaked walls as he grows closer to adding his own spunk to your collection. He leans down over your laying form and gives you a wink.  "
             );
             if (this.player.hasCock())
                 this.outx(
-                    "His hand dips down to play with your " +
-                        this.multiCockDescriptLight() +
-                        ", stroking you off as he gives a few more brutal pounds of his hips.  "
+                    `His hand dips down to play with your ${this.multiCockDescriptLight()}, stroking you off as he gives a few more brutal pounds of his hips.  `
                 );
             else if (this.player.hasVagina())
                 this.outx(
-                    "Fingers ram into your " +
-                        this.vaginaDescript(0) +
-                        ", thrusting into you as he fucks your other hole.  "
+                    `Fingers ram into your ${this.vaginaDescript(
+                        0
+                    )}, thrusting into you as he fucks your other hole.  `
                 );
             this.outx(
                 'His face near yours, he licks your cheek and plants a brief kiss on your lips. You give him a confused look at the affection and he meets it with a wide grin.  "<i>You\'re cute for a cocksucker.  Knew I had it made when I found you.</i>" he snickers, causing you to blush.'
@@ -2209,22 +2076,14 @@ export class Bazaar extends BaseContent {
         // ((Ending 2 , suck bear, //crazy steel jaw))
         else if (road == 1) {
             this.outx(
-                '\n\nYou are hardly able to focus on the girthy bear-cock in your mouth, moaning around the fat cock as you look at the small bump on your belly.  With your hands servicing the tiger as the bear fills your mouth, the two men haven\'t left either side of your head.  With a wet pop the bear pulls his saliva-coated prick from your mouth and he moves to the orc, shoving him aside with a grunt.  "<i>My turn now.</i>"  He grins impishly as he lines himself up with your hole, your ' +
-                    this.assholeDescript() +
-                    " looking like a well-used cum dump.  He rams in with ease and begins to pound away inside of you, making you moan with your mouth open wide."
+                `\n\nYou are hardly able to focus on the girthy bear-cock in your mouth, moaning around the fat cock as you look at the small bump on your belly.  With your hands servicing the tiger as the bear fills your mouth, the two men haven't left either side of your head.  With a wet pop the bear pulls his saliva-coated prick from your mouth and he moves to the orc, shoving him aside with a grunt.  "<i>My turn now.</i>"  He grins impishly as he lines himself up with your hole, your ${this.assholeDescript()} looking like a well-used cum dump.  He rams in with ease and begins to pound away inside of you, making you moan with your mouth open wide.`
             );
             this.outx(
-                "\n\nThe tiger takes advantage of this, shoving his barbed cock between your open lips.  Your lips vibrate around his shaft as you moan.  The tiger climbs onto the table and begins to fuck your face while your " +
-                    this.assholeDescript() +
-                    " is used for the third time in a row.  The barbs scrape and tickle at your mouth and throat while your hands grip at the tiger's legs.  You look up at him with pleading eyes though he only grins down at you as he watches his barbed length slipping past your lips and bulging inside your throat.  Your throat constricts with gags and vibrates with moans as you involuntarily milk the tiger's cock.  Each time the bear cock drills into you, the thickness leave you whimpering and gagging around the tigercock throatfucking you.  Your throat vibrates around the tigercock with muffled moans as the thick bearcock makes your pucker ache from the strain."
+                `\n\nThe tiger takes advantage of this, shoving his barbed cock between your open lips.  Your lips vibrate around his shaft as you moan.  The tiger climbs onto the table and begins to fuck your face while your ${this.assholeDescript()} is used for the third time in a row.  The barbs scrape and tickle at your mouth and throat while your hands grip at the tiger's legs.  You look up at him with pleading eyes though he only grins down at you as he watches his barbed length slipping past your lips and bulging inside your throat.  Your throat constricts with gags and vibrates with moans as you involuntarily milk the tiger's cock.  Each time the bear cock drills into you, the thickness leave you whimpering and gagging around the tigercock throatfucking you.  Your throat vibrates around the tigercock with muffled moans as the thick bearcock makes your pucker ache from the strain.`
             );
             this.player.buttChange(45, true, true, false);
             this.outx(
-                "\n\nHis hefty girth spreads you further than the orc, painfully spreading you apart while simultaneously driving you wild with the fuck.  Your " +
-                    this.buttDescript() +
-                    " is wet with the combined cum of three males in a row, their cum and pre-cum dripping from your upturned " +
-                    this.buttDescript() +
-                    " to form a growing puddle of lust on the floor and table.  The bear and tiger don't last long.  The tiger finishes first as he pins your head between his hips and the table.  Your fingers clench over his furred legs as a deep purr rumbles from his chest.  You can feel his load shooting directly down your throat to fill your stomach.  The tiger pulls out as the last lurch of his cock spits a rope of cum over your face, causing you to shut your eyes and wince as the hot liquid oozes down your cheeks.  With an amused grunt, the tiger gets off the table to leave you with the bear's cock in your ass."
+                `\n\nHis hefty girth spreads you further than the orc, painfully spreading you apart while simultaneously driving you wild with the fuck.  Your ${this.buttDescript()} is wet with the combined cum of three males in a row, their cum and pre-cum dripping from your upturned ${this.buttDescript()} to form a growing puddle of lust on the floor and table.  The bear and tiger don't last long.  The tiger finishes first as he pins your head between his hips and the table.  Your fingers clench over his furred legs as a deep purr rumbles from his chest.  You can feel his load shooting directly down your throat to fill your stomach.  The tiger pulls out as the last lurch of his cock spits a rope of cum over your face, causing you to shut your eyes and wince as the hot liquid oozes down your cheeks.  With an amused grunt, the tiger gets off the table to leave you with the bear's cock in your ass.`
             );
 
             this.outx(
@@ -2233,15 +2092,13 @@ export class Bazaar extends BaseContent {
             // [(If cock(s))
             if (this.player.hasCock())
                 this.outx(
-                    "His hand dips down to play with your " +
-                        this.multiCockDescriptLight() +
-                        ", stroking you off as he gives a few more brutal pounds of his hips."
+                    `His hand dips down to play with your ${this.multiCockDescriptLight()}, stroking you off as he gives a few more brutal pounds of his hips.`
                 );
             else if (this.player.hasVagina())
                 this.outx(
-                    "Fingers ram into your " +
-                        this.vaginaDescript(0) +
-                        ", thrusting into you as he fucks your other hole."
+                    `Fingers ram into your ${this.vaginaDescript(
+                        0
+                    )}, thrusting into you as he fucks your other hole.`
                 );
             this.outx(
                 '  His face near yours, he licks your cheek and plants a brief kiss on your lips.  You give him a confused look at the affection and he meets it with a wide grin.  "<i>You\'re cute for a cocksucker.  Loved the way you went right for my dick.</i>"  He snickers, causing you to blush.'
@@ -2287,15 +2144,13 @@ export class Bazaar extends BaseContent {
             this.outx("\n\nHe shouts out a war cry and starts brutally fucking you senseless.");
             if (this.player.hasCock())
                 this.outx(
-                    "  His hand drips down to clumsily play with your " +
-                        this.multiCockDescriptLight() +
-                        ", stroking you off as he gives you a few more brutal pounds of his hips."
+                    `  His hand drips down to clumsily play with your ${this.multiCockDescriptLight()}, stroking you off as he gives you a few more brutal pounds of his hips.`
                 );
             else if (this.player.hasVagina())
                 this.outx(
-                    "  Fingers dip into your " +
-                        this.vaginaDescript(0) +
-                        ", ramming into you as he fucks your other hole."
+                    `  Fingers dip into your ${this.vaginaDescript(
+                        0
+                    )}, ramming into you as he fucks your other hole.`
                 );
             if (this.player.gender > 0)
                 this.outx(

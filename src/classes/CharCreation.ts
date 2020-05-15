@@ -614,7 +614,7 @@ export class CharCreation extends BaseContent {
         // And choose hair
         this.player.skinTone = choice;
         this.clearOutput();
-        this.outx("You selected a " + choice + " complexion.\n\nWhat color is your hair?");
+        this.outx(`You selected a ${choice} complexion.\n\nWhat color is your hair?`);
         this.menu();
         this.addButton(0, "Blonde", this.setHair, "blonde");
         this.addButton(1, "Brown", this.setHair, "brown");
@@ -628,7 +628,7 @@ export class CharCreation extends BaseContent {
     private setHair(choice: string): void {
         this.player.hairColor = choice;
         this.clearOutput();
-        this.outx("You have " + this.hairDescript() + ".");
+        this.outx(`You have ${this.hairDescript()}.`);
         this.chooseEndowment(false);
     }
 

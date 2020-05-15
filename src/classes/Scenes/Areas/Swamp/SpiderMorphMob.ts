@@ -52,58 +52,32 @@ export class SpiderMorphMob extends Monster {
                     this.player.armorDef
                 )
                     this.outx(
-                        "You absorb and deflect every " +
-                            this.weaponVerb +
-                            " with your " +
-                            this.player.armorName +
-                            ".",
+                        `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`,
                         false
                     );
                 else
                     this.outx(
-                        "You deflect and block every " +
-                            this.weaponVerb +
-                            " " +
-                            this.a +
-                            this.short +
-                            " throws at you.",
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
                         false
                     );
             } else if (damage < 6)
                 this.outx(
-                    "You are struck a glancing blow by " +
-                        this.a +
-                        this.short +
-                        "! (" +
-                        damage +
-                        ")",
+                    `You are struck a glancing blow by ${this.a}${this.short}! (${damage})`,
                     false
                 );
             else if (damage < 11)
-                this.outx(this.capitalA + this.short + " wounds you! (" + damage + ")", false);
+                this.outx(`${this.capitalA + this.short} wounds you! (${damage})`, false);
             else if (damage < 21)
                 this.outx(
-                    this.capitalA +
-                        this.short +
-                        " staggers you with the force of " +
-                        this.pronoun3 +
-                        " " +
-                        this.weaponVerb +
-                        "! (" +
-                        damage +
-                        ")",
+                    `${this.capitalA + this.short} staggers you with the force of ${
+                        this.pronoun3
+                    } ${this.weaponVerb}! (${damage})`,
                     false
                 );
             else if (damage > 20) {
-                this.outx(this.capitalA + this.short + " <b>mutilate", false);
+                this.outx(`${this.capitalA + this.short} <b>mutilate`, false);
                 this.outx(
-                    "</b> you with " +
-                        this.pronoun3 +
-                        " powerful " +
-                        this.weaponVerb +
-                        "! (" +
-                        damage +
-                        ")",
+                    `</b> you with ${this.pronoun3} powerful ${this.weaponVerb}! (${damage})`,
                     false
                 );
             }
@@ -111,18 +85,12 @@ export class SpiderMorphMob extends Monster {
                 if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
                     if (!this.plural)
                         this.outx(
-                            "\n" +
-                                this.capitalA +
-                                this.short +
-                                " brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.",
+                            `\n${this.capitalA}${this.short} brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.`,
                             false
                         );
                     else
                         this.outx(
-                            "\n" +
-                                this.capitalA +
-                                this.short +
-                                " brush against your exposed skin and jerk back in surprise, coloring slightly from seeing so much of you revealed.",
+                            `\n${this.capitalA}${this.short} brush against your exposed skin and jerk back in surprise, coloring slightly from seeing so much of you revealed.`,
                             false
                         );
                     this.lust += 10 * this.lustVuln;
@@ -199,12 +167,11 @@ export class SpiderMorphMob extends Monster {
         this.a = "the ";
         this.short = "mob of spiders-morphs";
         this.imageName = "spidermorphmob";
-        this.long =
-            "You are fighting a horde of spider-morphs!  A group of some two-dozen spiders and driders approaches you, all baring their teeth.  A pair of large, powerful driders lead the group, their corrupt, lusty stares sending shivers up your spine.  While " +
-            (this.player.level <= 13
+        this.long = `You are fighting a horde of spider-morphs!  A group of some two-dozen spiders and driders approaches you, all baring their teeth.  A pair of large, powerful driders lead the group, their corrupt, lusty stares sending shivers up your spine.  While ${
+            this.player.level <= 13
                 ? "you'd never face such a large horde on your own"
-                : "you could probably handle them alone") +
-            ", you have a powerful ally in this fight - the dragoness Kiha!";
+                : "you could probably handle them alone"
+        }, you have a powerful ally in this fight - the dragoness Kiha!`;
         this.plural = true;
         this.pronoun1 = "they";
         this.pronoun2 = "them";

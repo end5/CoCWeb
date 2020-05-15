@@ -92,9 +92,9 @@ export class HermCentaurScenes extends BaseContent {
 
         this.clearOutput();
         this.outx(
-            'You shrug out of your [armor] as you close with the defeated beast-woman.  Looking at her like this, she almost seems more animal than woman.  Her hundreds of pounds of muscular equine flesh twist and contort as you approach, shifting her bulk to allow you unimpeded access to either of her trembling, moist genitals.  Glancing up to her pale, freckled face, you trap her green eyes with your own and say, "<i>' +
-                (this.player.cor > 50 ? "I'm gonna wreck it!" : "We do this my way.") +
-                '</i>"'
+            `You shrug out of your [armor] as you close with the defeated beast-woman.  Looking at her like this, she almost seems more animal than woman.  Her hundreds of pounds of muscular equine flesh twist and contort as you approach, shifting her bulk to allow you unimpeded access to either of her trembling, moist genitals.  Glancing up to her pale, freckled face, you trap her green eyes with your own and say, "<i>${
+                this.player.cor > 50 ? "I'm gonna wreck it!" : "We do this my way."
+            }</i>"`
         );
 
         this.outx(
@@ -102,9 +102,9 @@ export class HermCentaurScenes extends BaseContent {
         );
         if (this.player.cocks.length > 1) this.outx("s");
         this.outx(
-            ".  [EachCock] is a hard, throbbing mess by the time you're aligned behind her, so close to her drooling gash that the waves hot, slippery heat rolling off it make [eachCock] glisten, shining dully in the light.  It feels so good that it makes your head swim, and you haven't even pushed inside that black-lipped vice yet!  Almost of their own volition, your [hips] surge forward to bury your " +
-                this.cockDescript(y) +
-                " into the demon's channel, a gush of fresh fluids splattering out to soak your loins as the unholy warmth shrouds your member in bliss."
+            `.  [EachCock] is a hard, throbbing mess by the time you're aligned behind her, so close to her drooling gash that the waves hot, slippery heat rolling off it make [eachCock] glisten, shining dully in the light.  It feels so good that it makes your head swim, and you haven't even pushed inside that black-lipped vice yet!  Almost of their own volition, your [hips] surge forward to bury your ${this.cockDescript(
+                y
+            )} into the demon's channel, a gush of fresh fluids splattering out to soak your loins as the unholy warmth shrouds your member in bliss.`
         );
 
         this.outx(
@@ -135,15 +135,15 @@ export class HermCentaurScenes extends BaseContent {
         );
 
         this.outx(
-            '\n\n"<i>No,</i>" you answer, "<i>I\'m fucking you.</i>"  You push your ' +
-                this.cockDescript(y) +
-                " at her parted mouth, and they yield immediately, pleasantly opening to gratefully accept the taste of the mixed juices that soak it.  Her fair, freckled cheeks go so red that her freckles are actually lighter than the skin around them as she begins to suck, slurping lewdly at you with the skills of a professional cock-sucker.  You compliment her for being such a good mare and make sure to remind her that she's no stud.  Her dick flexes tightly at your words, flooding with so much blood that its skin shines from being stretched taut.  The masochistic cunt is getting off on sniffing her own fem-spunk and being humiliated!"
+            `\n\n"<i>No,</i>" you answer, "<i>I'm fucking you.</i>"  You push your ${this.cockDescript(
+                y
+            )} at her parted mouth, and they yield immediately, pleasantly opening to gratefully accept the taste of the mixed juices that soak it.  Her fair, freckled cheeks go so red that her freckles are actually lighter than the skin around them as she begins to suck, slurping lewdly at you with the skills of a professional cock-sucker.  You compliment her for being such a good mare and make sure to remind her that she's no stud.  Her dick flexes tightly at your words, flooding with so much blood that its skin shines from being stretched taut.  The masochistic cunt is getting off on sniffing her own fem-spunk and being humiliated!`
         );
 
         this.outx(
-            "\n\nYou take her onyx horn in your hands and adjust the angle of her head before pumping forward again, stuffing your " +
-                this.cockDescript(y) +
-                " into her gullet with a forceful thrust.  She gurgles messily, still trying to breathe through her nose while her tongue lashes madly across the sensitive underside of your dick.  This suits your purpose perfectly, as it keeps her so high on her own fuck-odor that she can't think straight, let alone slow the fevered pumping of her bloated sausage.  While fucking her throat raw, you feel the familiar tingling of your budding orgasm, and this time, you don't try to step it.  In fact, you pick up the pace, reaching down to tweak at the cherry-sized nipples below."
+            `\n\nYou take her onyx horn in your hands and adjust the angle of her head before pumping forward again, stuffing your ${this.cockDescript(
+                y
+            )} into her gullet with a forceful thrust.  She gurgles messily, still trying to breathe through her nose while her tongue lashes madly across the sensitive underside of your dick.  This suits your purpose perfectly, as it keeps her so high on her own fuck-odor that she can't think straight, let alone slow the fevered pumping of her bloated sausage.  While fucking her throat raw, you feel the familiar tingling of your budding orgasm, and this time, you don't try to step it.  In fact, you pick up the pace, reaching down to tweak at the cherry-sized nipples below.`
         );
 
         this.outx(
@@ -313,9 +313,7 @@ export class HermCentaurScenes extends BaseContent {
             );
             this.player.cuntChange(this.player.vaginalCapacity() * 1.2, true, true, false);
             this.outx(
-                "  The pleasure of being so fully stretched is enough to overwhelm any pain at such an act, and you switch over to smaller, faster strokes the leave most of the animal-cock inside you.  Bouncing atop the centaur's balls with a dopey grin on your [face], you sigh and moan.  This is how you're going to take down these demons, one fuck at a time!  The thought gives your " +
-                    this.player.skin() +
-                    " a fresh flush, and you pinch your nipple while imaging mounting a demon queen atop an orgy of her defeated lieutenants."
+                `  The pleasure of being so fully stretched is enough to overwhelm any pain at such an act, and you switch over to smaller, faster strokes the leave most of the animal-cock inside you.  Bouncing atop the centaur's balls with a dopey grin on your [face], you sigh and moan.  This is how you're going to take down these demons, one fuck at a time!  The thought gives your ${this.player.skin()} a fresh flush, and you pinch your nipple while imaging mounting a demon queen atop an orgy of her defeated lieutenants.`
             );
 
             this.outx(
@@ -392,9 +390,7 @@ export class HermCentaurScenes extends BaseContent {
             );
 
             this.outx(
-                "\n\nYou nervelessly slide off the pole into the ground, earning a fresh bukkake of creamy cum to plaster your " +
-                    this.player.skinFurScales() +
-                    ".  While you recover, your demonic lover's bulk shifts away, and you soon here the telltale clopping of her moving away.  It sounds like she's heading towards the south - the exit.  You missed your chance to do anything about that demon..."
+                `\n\nYou nervelessly slide off the pole into the ground, earning a fresh bukkake of creamy cum to plaster your ${this.player.skinFurScales()}.  While you recover, your demonic lover's bulk shifts away, and you soon here the telltale clopping of her moving away.  It sounds like she's heading towards the south - the exit.  You missed your chance to do anything about that demon...`
             );
         }
 
@@ -430,7 +426,7 @@ export class HermCentaurScenes extends BaseContent {
             if (this.player.hasCock()) {
                 this.outx(" and");
                 if (this.player.balls > 0) this.outx(" [sack]");
-                else this.outx(" " + this.multiCockDescriptLight());
+                else this.outx(` ${this.multiCockDescriptLight()}`);
             }
             this.outx(" to the pervy, sexy equine.");
         }
@@ -479,7 +475,7 @@ export class HermCentaurScenes extends BaseContent {
         );
 
         this.outx("\n\nWith your [vagina]");
-        if (this.player.hasCock()) this.outx(" and " + this.multiCockDescriptLight());
+        if (this.player.hasCock()) this.outx(` and ${this.multiCockDescriptLight()}`);
         this.outx(
             " freed, your hands unabashedly dive into your folds, spreading them as wide as possible, heedless to the discomfort.  You drink and stretch, swallow and tug.  Over and over, you give into the artificial, hedonistic desires your dual - endowed mistress's milk instills in you.  There's no fighting it, only giving in utterly as you prepare yourself to be filled, speared upon your mistress's mighty member and filled with her hot cum until your body turns into a quivering, orgasmic wreck."
         );
@@ -489,9 +485,7 @@ export class HermCentaurScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\nThe warm, rubbery lips squish down wetly as your nose slips between them, nestled deeply into that moist, bestial crevasse.  Runnels of slick fluid soak the whole of your " +
-                this.player.face() +
-                " and drip from your chin in thick ribbons.  At first, this shocks you, but as soon as you realize what's going on, you do as expected an open up to taste her wetness.  She's hot, practically steaming, and her hard nub is a deliciously wet, throbbing target for your questing tongue to squeeze up to.  You lash your mouth-muscle across the sensitive buzzer, orally spanking it while you wiggle your face and lips to caress the sensitive entrance.  Just as you finally start to get into it, the giant, hot hole pulls away, joined to you only by glimmering bands of lady-spunk that soon snap."
+            `\n\nThe warm, rubbery lips squish down wetly as your nose slips between them, nestled deeply into that moist, bestial crevasse.  Runnels of slick fluid soak the whole of your ${this.player.face()} and drip from your chin in thick ribbons.  At first, this shocks you, but as soon as you realize what's going on, you do as expected an open up to taste her wetness.  She's hot, practically steaming, and her hard nub is a deliciously wet, throbbing target for your questing tongue to squeeze up to.  You lash your mouth-muscle across the sensitive buzzer, orally spanking it while you wiggle your face and lips to caress the sensitive entrance.  Just as you finally start to get into it, the giant, hot hole pulls away, joined to you only by glimmering bands of lady-spunk that soon snap.`
         );
 
         this.outx(
@@ -512,9 +506,7 @@ export class HermCentaurScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\nA hand reaches down to grab your " +
-                this.hairDescript() +
-                " and pull back sharply.  \"<i>Stay... put...</i>\" its owner pants.  You have been staying put!  At least, when you haven't been shaking with barely-contained need.  The angle is somewhat painful, flexing your spine into a dangerous arch even as the force of her tug shoots needles of discomfort into your abused crown.  Then, the horse-like lower body steps forward, and you're seeing stars and smiling dopily. The flared head smashed into your semi-stretched pussy for only the briefest moment before its body's momentum carried it through your entrance and deep into your canal.  Even now, you can feel the medial ring thrumming with each beat of the centaur's heart, just inside your entrance while the fat tip butts up against your cervix."
+            `\n\nA hand reaches down to grab your ${this.hairDescript()} and pull back sharply.  "<i>Stay... put...</i>" its owner pants.  You have been staying put!  At least, when you haven't been shaking with barely-contained need.  The angle is somewhat painful, flexing your spine into a dangerous arch even as the force of her tug shoots needles of discomfort into your abused crown.  Then, the horse-like lower body steps forward, and you're seeing stars and smiling dopily. The flared head smashed into your semi-stretched pussy for only the briefest moment before its body's momentum carried it through your entrance and deep into your canal.  Even now, you can feel the medial ring thrumming with each beat of the centaur's heart, just inside your entrance while the fat tip butts up against your cervix.`
         );
         this.player.cuntChange(this.monster.biggestCockArea(), true, true, false);
 
@@ -598,9 +590,10 @@ export class HermCentaurScenes extends BaseContent {
             );
         }
         this.outx(
-            " She smirks as she trots up, commenting, \"<i>That's more like it, slut.  I don't know how you got so far thinking you were some kind of " +
-                this.player.mf("stud", "queen bitch") +
-                '.</i>"  She casually reaches down and grabs you by the scruff of the neck, hauling you bodily up until your head nestles between her tits'
+            ` She smirks as she trots up, commenting, "<i>That's more like it, slut.  I don't know how you got so far thinking you were some kind of ${this.player.mf(
+                "stud",
+                "queen bitch"
+            )}.</i>"  She casually reaches down and grabs you by the scruff of the neck, hauling you bodily up until your head nestles between her tits`
         );
         if (this.player.tallness >= 7 * 12)
             this.outx(", even though your [feet] still touch the ground");
@@ -658,27 +651,22 @@ export class HermCentaurScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\nMoisture drizzles down your cheeks as her already-swollen vulva gets fatter with need.  Her fluids seem to be coming faster and faster, and you have to swallow some of them just to keep from drowning.  Surprisingly, it has a remarkably mild, palatable flavor.  If anything, she tastes slightly sweet, which isn't quite what you would have expected from her potent scent alone.  As turned on as you are, it doesn't take long for you to forget your dire straight and focus on tending to the inhuman woman's needs, licking, slurping, and sucking at her clit with gusto.  She's soon trembling and gushing across your " +
-                this.player.face() +
-                ", matting your hair with a final, explosive burst of fem-spunk."
+            `\n\nMoisture drizzles down your cheeks as her already-swollen vulva gets fatter with need.  Her fluids seem to be coming faster and faster, and you have to swallow some of them just to keep from drowning.  Surprisingly, it has a remarkably mild, palatable flavor.  If anything, she tastes slightly sweet, which isn't quite what you would have expected from her potent scent alone.  As turned on as you are, it doesn't take long for you to forget your dire straight and focus on tending to the inhuman woman's needs, licking, slurping, and sucking at her clit with gusto.  She's soon trembling and gushing across your ${this.player.face()}, matting your hair with a final, explosive burst of fem-spunk.`
         );
 
         this.outx(
-            "\n\nAt last, your moist, feminine prison is removed.  Rather than lifted, it's simply dragged south.  [OneCock] nearly catches on her fleshy sack, but it bounces up and over, stroking you with the smooth, sweaty skin as it asses south.  The motion is made all the more awkward by the sight of the centaur's hind legs trying to assist her locomotion, but soon enough she's just on your [legs], the heat of her gash steaming [eachCock] with drizzles of fem-lube. The demoness looks over her shoulder, pale cheeks stained pink with her body's lust as she asks, \"Are you " +
-                this.player.mf("man", "herm") +
-                ' enough to mount me?  Or do I need to peg you for encouragement?</i>" '
+            `\n\nAt last, your moist, feminine prison is removed.  Rather than lifted, it's simply dragged south.  [OneCock] nearly catches on her fleshy sack, but it bounces up and over, stroking you with the smooth, sweaty skin as it asses south.  The motion is made all the more awkward by the sight of the centaur's hind legs trying to assist her locomotion, but soon enough she's just on your [legs], the heat of her gash steaming [eachCock] with drizzles of fem-lube. The demoness looks over her shoulder, pale cheeks stained pink with her body's lust as she asks, "Are you ${this.player.mf(
+                "man",
+                "herm"
+            )} enough to mount me?  Or do I need to peg you for encouragement?</i>" `
         );
 
         this.outx(
-            "\n\nThat gets you to sit up quick.  You aren't sure anyone could take something like that without rupturing something.  Besides, you'd be jumping that twat in a heartbeat as worked up as you are, thread or no.  You stretch forward and aim your [cock " +
-                y +
-                "] into her slobbering twat.  Her fur twists between your fingers as you drag yourself up and in, pulling your torso up onto her back and with such desperation that you nestle deeper inside her, your [legs] partially escaping their weighty imprisonment.  It's an agonizing position to be in, but you will NOT be denied access to the slick caresses of her gushing slit."
+            `\n\nThat gets you to sit up quick.  You aren't sure anyone could take something like that without rupturing something.  Besides, you'd be jumping that twat in a heartbeat as worked up as you are, thread or no.  You stretch forward and aim your [cock ${y}] into her slobbering twat.  Her fur twists between your fingers as you drag yourself up and in, pulling your torso up onto her back and with such desperation that you nestle deeper inside her, your [legs] partially escaping their weighty imprisonment.  It's an agonizing position to be in, but you will NOT be denied access to the slick caresses of her gushing slit.`
         );
 
         this.outx(
-            "\n\nThe pressure on your lower body vanishes, your [feet] raking through the grass before clearing it entirely.  The demon-taur stood up, taking you with her!  You stretch your hands forward for a better grip, securing yourself just in time for her to give a little buck, bouncing you out and in with inertia alone.  Shuddering, you nearly lose your grip as pleasure wracks your body.  Your [cock " +
-                y +
-                "] is getting exactly what it wants, but you're having to work damned hard to maintain your position."
+            `\n\nThe pressure on your lower body vanishes, your [feet] raking through the grass before clearing it entirely.  The demon-taur stood up, taking you with her!  You stretch your hands forward for a better grip, securing yourself just in time for her to give a little buck, bouncing you out and in with inertia alone.  Shuddering, you nearly lose your grip as pleasure wracks your body.  Your [cock ${y}] is getting exactly what it wants, but you're having to work damned hard to maintain your position.`
         );
 
         this.outx(
@@ -715,9 +703,9 @@ export class HermCentaurScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\nSlurping hard, you lick and suck the dick in your throat, so busy tending to the omnibus that you barely the notice the throbbing ache in your loins.  You cast lusty, inviting eyes around at every feminine form you see during journey to the stables, located in some backwater, seemingly forgotten part of the fortress.  You quiver with need and explode in passion, moaning into the Omnibus's cock as your " +
-                this.cockDescript(y) +
-                " spends its lust into the oozing horse-pussy, wasting your champion-seed to father nothing more than a batch of shiftless imps."
+            `\n\nSlurping hard, you lick and suck the dick in your throat, so busy tending to the omnibus that you barely the notice the throbbing ache in your loins.  You cast lusty, inviting eyes around at every feminine form you see during journey to the stables, located in some backwater, seemingly forgotten part of the fortress.  You quiver with need and explode in passion, moaning into the Omnibus's cock as your ${this.cockDescript(
+                y
+            )} spends its lust into the oozing horse-pussy, wasting your champion-seed to father nothing more than a batch of shiftless imps.`
         );
 
         this.outx(

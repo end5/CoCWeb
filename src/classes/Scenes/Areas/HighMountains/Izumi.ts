@@ -76,8 +76,9 @@ export class Izumi extends Monster {
         if (this.player.findStatusAffect(StatusAffects.Chokeslam) >= 0) {
             if (this.combatDebug)
                 trace(
-                    "ChokeSlam Rounds to Damage: " +
-                        this.player.statusAffectv1(StatusAffects.Chokeslam)
+                    `ChokeSlam Rounds to Damage: ${this.player.statusAffectv1(
+                        StatusAffects.Chokeslam
+                    )}`
                 );
 
             this.player.addStatusValue(StatusAffects.Chokeslam, 1, -1);
@@ -173,7 +174,7 @@ export class Izumi extends Monster {
             this.outx(" and dust yourself off.");
 
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         this.combatRoundOver();
     }
@@ -290,7 +291,7 @@ export class Izumi extends Monster {
         );
         this.player.takeDamage(damage);
 
-        this.outx("(" + damage + ")");
+        this.outx(`(${damage})`);
 
         this.combatRoundOver();
     }

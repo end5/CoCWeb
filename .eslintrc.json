@@ -131,6 +131,7 @@
             "error",
             "never"
         ],
+        "prefer-template": "error",
         "radix": "error",
         "spaced-comment": [
             "error",

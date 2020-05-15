@@ -88,8 +88,8 @@ export class FarmCorruption extends AbstractFarmContent {
             this.flags[kFLAGS.WHITNEY_CORRUPTION] = 120;
         }
 
-        trace("Whitney corruption changed by " + String(mod));
-        trace("Whitney corruption now at " + String(this.flags[kFLAGS.WHITNEY_CORRUPTION]));
+        trace(`Whitney corruption changed by ${String(mod)}`);
+        trace(`Whitney corruption now at ${String(this.flags[kFLAGS.WHITNEY_CORRUPTION])}`);
 
         return this.flags[kFLAGS.WHITNEY_CORRUPTION];
     }
@@ -342,9 +342,9 @@ export class FarmCorruption extends AbstractFarmContent {
         // Get gems
         if (this.flags[kFLAGS.FARM_CORRUPTION_DAYS_SINCE_LAST_PAYOUT] >= 7) {
             this.outx(
-                "You stroll over to the big rock at the edge of the pepper patch, smiling as you see a small burlap sack shoved underneath a fold in the stone. You scoop it up, open it and count out " +
-                    this.flags[kFLAGS.FARM_CORRUPTION_GEMS_WAITING] +
-                    " gems.\n\n"
+                `You stroll over to the big rock at the edge of the pepper patch, smiling as you see a small burlap sack shoved underneath a fold in the stone. You scoop it up, open it and count out ${
+                    this.flags[kFLAGS.FARM_CORRUPTION_GEMS_WAITING]
+                } gems.\n\n`
             );
 
             if (this.farmValue() < 25)
@@ -372,7 +372,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.menu();
 
         if (this.flags[kFLAGS.FARM_SUCCUMILK_STORED] > 0) {
-            this.outx("<b>" + this.flags[kFLAGS.FARM_SUCCUMILK_STORED] + "x ");
+            this.outx(`<b>${this.flags[kFLAGS.FARM_SUCCUMILK_STORED]}x `);
             if (this.flags[kFLAGS.FARM_SUCCUMILK_STORED] == 1) this.outx("vial of Succubi milk.");
             else this.outx("vials of Succubi milk.");
             this.outx("</b>\n");
@@ -384,7 +384,7 @@ export class FarmCorruption extends AbstractFarmContent {
             );
         }
         if (this.flags[kFLAGS.FARM_INCUDRAFT_STORED] > 0) {
-            this.outx("<b>" + this.flags[kFLAGS.FARM_INCUDRAFT_STORED] + "x ");
+            this.outx(`<b>${this.flags[kFLAGS.FARM_INCUDRAFT_STORED]}x `);
             if (this.flags[kFLAGS.FARM_INCUDRAFT_STORED] == 1) this.outx("vial of Incubi draft.");
             else this.outx("vials of Incubi draft.");
             this.outx("</b>\n");
@@ -396,10 +396,8 @@ export class FarmCorruption extends AbstractFarmContent {
             );
         }
         if (this.flags[kFLAGS.FARM_EGG_STORED] > 0) {
-            this.outx("<b>" + this.flags[kFLAGS.FARM_EGG_STORED] + "x ");
-            this.outx(
-                "large " + this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE_COLORCHOICE] + " egg"
-            );
+            this.outx(`<b>${this.flags[kFLAGS.FARM_EGG_STORED]}x `);
+            this.outx(`large ${this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE_COLORCHOICE]} egg`);
             if (this.flags[kFLAGS.FARM_EGG_STORED] > 1) this.outx("s");
             this.outx(".");
             this.outx("</b>\n");
@@ -411,7 +409,7 @@ export class FarmCorruption extends AbstractFarmContent {
             );
         }
         if (this.flags[kFLAGS.FARM_CONTRACEPTIVE_STORED] > 0) {
-            this.outx("<b>" + this.flags[kFLAGS.FARM_CONTRACEPTIVE_STORED] + "x ");
+            this.outx(`<b>${this.flags[kFLAGS.FARM_CONTRACEPTIVE_STORED]}x `);
             this.outx("bundle of Herbal Contraceptive.");
             this.outx("</b>\n");
             this.addButton(
@@ -994,9 +992,9 @@ export class FarmCorruption extends AbstractFarmContent {
         if (this.player.hasKeyItem("Breast Milker - Installed At Whitney's Farm") >= 0) {
             if (this.player.findStatusAffect(StatusAffects.Milked) >= 0) {
                 this.outx(
-                    "\n\n<b>Your " +
-                        this.nippleDescript(0) +
-                        "s are currently too sore to be milked.  You'll have to wait a while.</b>",
+                    `\n\n<b>Your ${this.nippleDescript(
+                        0
+                    )}s are currently too sore to be milked.  You'll have to wait a while.</b>`,
                     false
                 );
             }
@@ -1484,13 +1482,13 @@ export class FarmCorruption extends AbstractFarmContent {
                 this.outx("\nShe has the following tattoos emblazoned across her body:\n");
             else this.outx("\nShe has ");
             if (this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] != "")
-                this.outx(this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE] + "\n");
+                this.outx(`${this.flags[kFLAGS.WHITNEY_TATTOO_COLLARBONE]}\n`);
             if (this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] != "")
-                this.outx(this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS] + "\n");
+                this.outx(`${this.flags[kFLAGS.WHITNEY_TATTOO_SHOULDERS]}\n`);
             if (this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] != "")
-                this.outx(this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK] + "\n");
+                this.outx(`${this.flags[kFLAGS.WHITNEY_TATTOO_LOWERBACK]}\n`);
             if (this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] != "")
-                this.outx(this.flags[kFLAGS.WHITNEY_TATTOO_BUTT] + "\n");
+                this.outx(`${this.flags[kFLAGS.WHITNEY_TATTOO_BUTT]}\n`);
         }
 
         this.outx("\n");
@@ -2081,9 +2079,10 @@ export class FarmCorruption extends AbstractFarmContent {
         );
 
         this.outx(
-            "\n\n“<i>Good,</i>” you say quietly. “<i>Because the most hardworking of " +
-                this.player.mf("masters", "mistresses") +
-                " need some R and R from time to time. A bit of private alone time, with a very trusted slave. A slave who would know not to betray the confidence placed in them, because of all the examples surrounding her of how far she could fall if she did. You following me?</i>”"
+            `\n\n“<i>Good,</i>” you say quietly. “<i>Because the most hardworking of ${this.player.mf(
+                "masters",
+                "mistresses"
+            )} need some R and R from time to time. A bit of private alone time, with a very trusted slave. A slave who would know not to betray the confidence placed in them, because of all the examples surrounding her of how far she could fall if she did. You following me?</i>”`
         );
 
         this.outx(
@@ -2220,9 +2219,9 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outx(". You tell her huskily it’s time she learned how to service you.");
 
         this.outx(
-            "\n\n“<i>I - I want to do that, [master],</i>” she replies tensely. She’s having problems knowing what to look at, her eyes flitting between your gaze and the demanding sight of your " +
-                (this.player.hasCock() ? "[cock biggest]" : "lush cunt") +
-                ", eventually settling on the first. “<i>I want to serve you best I can, but I - don’t know if - it’s just, I’ve never really - I mean, once or twice, but I’ve never been very...</i>” Your growing urge makes you feel impatient and you think about stifling her meek babbling with a good face fucking... but no. There are much better ways of getting the best out of inexperienced slaves."
+            `\n\n“<i>I - I want to do that, [master],</i>” she replies tensely. She’s having problems knowing what to look at, her eyes flitting between your gaze and the demanding sight of your ${
+                this.player.hasCock() ? "[cock biggest]" : "lush cunt"
+            }, eventually settling on the first. “<i>I want to serve you best I can, but I - don’t know if - it’s just, I’ve never really - I mean, once or twice, but I’ve never been very...</i>” Your growing urge makes you feel impatient and you think about stifling her meek babbling with a good face fucking... but no. There are much better ways of getting the best out of inexperienced slaves.`
         );
 
         this.outx(
@@ -2246,17 +2245,17 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outx(" Determination lines the dog woman’s mouth.");
 
         this.outx(
-            "\n\n“<i>Yes, [master]. I will tr- I will.</i>” She takes a long breath and transfers her gaze to " +
-                (this.player.hasCock() ? "[eachCock]" : "[vagina]") +
-                ", looking for all the world like she’s about to embark on a marathon."
+            `\n\n“<i>Yes, [master]. I will tr- I will.</i>” She takes a long breath and transfers her gaze to ${
+                this.player.hasCock() ? "[eachCock]" : "[vagina]"
+            }, looking for all the world like she’s about to embark on a marathon.`
         );
 
         this.outx(
-            "\n\n“<i>First,</i>” you say, settling yourself down, “<i>Put one hand in your knickers. Find that nice, wet pussy of yours.</i>” You watch her, a smile twitching the corners of your mouth as, blushing furiously, she shifts around in front of you. “<i>You know how to do that, right? All those lonely nights on the farm... good. Nice and easy. Eyes down.</i>” You say the last part adamantly, opening your [hips] wider as you do. Whitney swallows a bit as she strokes at her tiny button whilst staring at your " +
-                (this.player.hasCock() ? "[eachCock]" : "[vagina]") +
-                ", already " +
-                (this.player.hasCock() ? "semi-turgid" : "moist") +
-                " from the display put on by your fresh, nervous slave. “<i>Good,</i>” you murmur. “<i>Now... reach forward, and begin to lick.</i>”"
+            `\n\n“<i>First,</i>” you say, settling yourself down, “<i>Put one hand in your knickers. Find that nice, wet pussy of yours.</i>” You watch her, a smile twitching the corners of your mouth as, blushing furiously, she shifts around in front of you. “<i>You know how to do that, right? All those lonely nights on the farm... good. Nice and easy. Eyes down.</i>” You say the last part adamantly, opening your [hips] wider as you do. Whitney swallows a bit as she strokes at her tiny button whilst staring at your ${
+                this.player.hasCock() ? "[eachCock]" : "[vagina]"
+            }, already ${
+                this.player.hasCock() ? "semi-turgid" : "moist"
+            } from the display put on by your fresh, nervous slave. “<i>Good,</i>” you murmur. “<i>Now... reach forward, and begin to lick.</i>”`
         );
     }
 
@@ -2273,11 +2272,11 @@ export class FarmCorruption extends AbstractFarmContent {
         );
 
         this.outx(
-            "\n\nShe doesn’t put her delightful tongue to use and she sometimes stops frigging herself, lost in taking more and more of your cock" +
-                (this.player.hasVagina()
+            `\n\nShe doesn’t put her delightful tongue to use and she sometimes stops frigging herself, lost in taking more and more of your cock${
+                this.player.hasVagina()
                     ? "; further, your [vagina] is beading in frustration at being left out of the oral pleasure. But that’s all right. It’ll all come in time"
-                    : ", but that’s all right; it’ll come in time") +
-                ". For now, there is her soft mouth and the delicious pleasure inundating your prick, her warm hand grasped around you as your urge grips you closer, and as you touch the front of her throat she is beginning to moan around your flesh, louder and louder as she-"
+                    : ", but that’s all right; it’ll come in time"
+            }. For now, there is her soft mouth and the delicious pleasure inundating your prick, her warm hand grasped around you as your urge grips you closer, and as you touch the front of her throat she is beginning to moan around your flesh, louder and louder as she-`
         );
 
         this.outx(
@@ -2328,9 +2327,9 @@ export class FarmCorruption extends AbstractFarmContent {
         this.whitneySprite();
 
         this.outx(
-            "Sighing, you slide out of the bottom half of your [armor] and tell her with a smile it’s time for another lesson. Whitney wrings her " +
-                (this.whitneyDefurred() ? "hands" : "paws") +
-                " at the sight of your [cock biggest] fretfully. You don’t think it’s that she’s reluctant, merely afraid she’ll do a poor job. So you make your instructions gentle and patient. You tell her to start frigging herself again whilst looking at your exposed crotch, and then when she seems to have lost her anxiety a bit, you tell her to start licking."
+            `Sighing, you slide out of the bottom half of your [armor] and tell her with a smile it’s time for another lesson. Whitney wrings her ${
+                this.whitneyDefurred() ? "hands" : "paws"
+            } at the sight of your [cock biggest] fretfully. You don’t think it’s that she’s reluctant, merely afraid she’ll do a poor job. So you make your instructions gentle and patient. You tell her to start frigging herself again whilst looking at your exposed crotch, and then when she seems to have lost her anxiety a bit, you tell her to start licking.`
         );
 
         this.outx(
@@ -2444,17 +2443,17 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her " +
-                    (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                    ". Her breath hisses through her nose as she lets you use her mouth, struggling to keep her fingers schlicking away; you coo as your own hard movements force her to move her hands fast and erratically, skittering across your urgently bulging button and making you pump into her wet, milking warmth all the more frenetically."
+                `\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her ${
+                    this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                }. Her breath hisses through her nose as she lets you use her mouth, struggling to keep her fingers schlicking away; you coo as your own hard movements force her to move her hands fast and erratically, skittering across your urgently bulging button and making you pump into her wet, milking warmth all the more frenetically.`
             );
 
             this.outx(
-                "\n\n“<i>Cum, bitch.</i>” you grit as you surge to your own high. Whitney’s muffled moans are what you hear as your cock-slit dilates and pumps jizz down her throat; you crow with delight as your [vagina] quivers and then clenches in orgasm in ecstatic sympathy with your male sex, " +
-                    (this.player.wetness() <= 2
+                `\n\n“<i>Cum, bitch.</i>” you grit as you surge to your own high. Whitney’s muffled moans are what you hear as your cock-slit dilates and pumps jizz down her throat; you crow with delight as your [vagina] quivers and then clenches in orgasm in ecstatic sympathy with your male sex, ${
+                    this.player.wetness() <= 2
                         ? "wetting your slave’s hand"
-                        : "absolutely soaking your slave’s arm") +
-                    " with femjizz as it does. She shudders around you and her eyes roll as she finds her own high rooting in her pussy; you are extremely gratified to note that, despite being on a plane of submissive pleasure far away, she still manages to swallow every drop of cum you eject"
+                        : "absolutely soaking your slave’s arm"
+                } with femjizz as it does. She shudders around you and her eyes roll as she finds her own high rooting in her pussy; you are extremely gratified to note that, despite being on a plane of submissive pleasure far away, she still manages to swallow every drop of cum you eject`
             );
             if (this.player.cumQ() >= 1500)
                 this.outx(
@@ -2497,17 +2496,17 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her " +
-                    (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                    ". Her breath hisses through her nose as she lets you use her mouth, struggling to keep her fingers schlicking away; you coo as your own hard movements force her to move her hands faster and more erratically, skittering across your urgently bulging button and making you pump into her wet, milking warmth all the more frenetically."
+                `\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her ${
+                    this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                }. Her breath hisses through her nose as she lets you use her mouth, struggling to keep her fingers schlicking away; you coo as your own hard movements force her to move her hands faster and more erratically, skittering across your urgently bulging button and making you pump into her wet, milking warmth all the more frenetically.`
             );
 
             this.outx(
-                "\n\n“<i>Cum, bitch,</i>” you grit as you surge to your own high. Whitney’s muffled moans are what you hear as your cock-slit dilates and pumps jizz down her throat; you crow with delight as your [vagina] quivers and then clenches in orgasm in ecstatic sympathy with your male sex, " +
-                    (this.player.wetness() <= 2
+                `\n\n“<i>Cum, bitch,</i>” you grit as you surge to your own high. Whitney’s muffled moans are what you hear as your cock-slit dilates and pumps jizz down her throat; you crow with delight as your [vagina] quivers and then clenches in orgasm in ecstatic sympathy with your male sex, ${
+                    this.player.wetness() <= 2
                         ? "wetting your slave’s hand"
-                        : "absolutely soaking your slave’s arm") +
-                    " with femjizz as it does. She shudders around you and her eyes roll as she finds her own high rooting in her pussy; you are extremely gratified to note that, despite being on a plane of submissive pleasure far away, she still manages to swallow every drop of cum you eject"
+                        : "absolutely soaking your slave’s arm"
+                } with femjizz as it does. She shudders around you and her eyes roll as she finds her own high rooting in her pussy; you are extremely gratified to note that, despite being on a plane of submissive pleasure far away, she still manages to swallow every drop of cum you eject`
             );
             if (this.player.cumQ() >= 1500)
                 this.outx(
@@ -2545,9 +2544,9 @@ export class FarmCorruption extends AbstractFarmContent {
                 );
 
                 this.outx(
-                    "\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her " +
-                        (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                        ". Her breath hisses through her nose as she lets you use her mouth, struggling to keep her fingers schlicking away; you coo as your own hard movements force her to push slightly into your ass, making you pump into her wet, milking warmth all the more frenetically."
+                    `\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her ${
+                        this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                    }. Her breath hisses through her nose as she lets you use her mouth, struggling to keep her fingers schlicking away; you coo as your own hard movements force her to push slightly into your ass, making you pump into her wet, milking warmth all the more frenetically.`
                 );
 
                 this.outx(
@@ -2578,9 +2577,9 @@ export class FarmCorruption extends AbstractFarmContent {
                 );
 
                 this.outx(
-                    "\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her " +
-                        (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                        ". Her breath wheezes through her nose as she lets you use her mouth, struggling to keep both sets of her teasing fingers moving; you coo as your own hard movements force her to move the hand on your [cock biggest2] fast and erratically, wringing your urgently bulging prick tightly and making you pump into her wet, milking warmth all the more frenetically."
+                    `\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her ${
+                        this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                    }. Her breath wheezes through her nose as she lets you use her mouth, struggling to keep both sets of her teasing fingers moving; you coo as your own hard movements force her to move the hand on your [cock biggest2] fast and erratically, wringing your urgently bulging prick tightly and making you pump into her wet, milking warmth all the more frenetically.`
                 );
             }
 
@@ -2618,9 +2617,9 @@ export class FarmCorruption extends AbstractFarmContent {
                 );
 
                 this.outx(
-                    "\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her " +
-                        (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                        ". Her breath wheezes through her nose as she lets you use her mouth, struggling to keep both both sets of her teasing fingers moving; you coo as your own hard movements force her to move the hand on your [cock biggest2] faster and more erratic, wringing your urgently bulging prick tightly and making you pump into her wet, milking warmth all the more frenetically."
+                    `\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her ${
+                        this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                    }. Her breath wheezes through her nose as she lets you use her mouth, struggling to keep both both sets of her teasing fingers moving; you coo as your own hard movements force her to move the hand on your [cock biggest2] faster and more erratic, wringing your urgently bulging prick tightly and making you pump into her wet, milking warmth all the more frenetically.`
                 );
             }
             // monocock
@@ -2634,9 +2633,9 @@ export class FarmCorruption extends AbstractFarmContent {
                 );
 
                 this.outx(
-                    "\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her " +
-                        (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                        ". Her breath hisses through her nose as she lets you use her mouth, struggling to keep her fingers schlicking away; you coo as your own hard movements force her to push slightly into your ass, making you pump into her wet, milking warmth all the more frenetically."
+                    `\n\nEventually you cannot hold your lust back. You grab her by the head and begin to thrust deep into her ${
+                        this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                    }. Her breath hisses through her nose as she lets you use her mouth, struggling to keep her fingers schlicking away; you coo as your own hard movements force her to push slightly into your ass, making you pump into her wet, milking warmth all the more frenetically.`
                 );
 
                 this.outx(
@@ -2855,11 +2854,11 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\nThe sight and sound of her inundates your senses with the same drowning intensity of the pleasure enveloping your maleness and you pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suction of her" +
-                    (this.player.biggestCockLength() < 8 ? " mouth" : " throat") +
-                    ". She moans deeply as you begin to use her like this, and even when you’re face fucking her she does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of " +
-                    (this.player.biggestCockLength() < 8 ? "the back of her mouth" : "her gullet") +
-                    " as you spear decisively inwards. "
+                `\n\nThe sight and sound of her inundates your senses with the same drowning intensity of the pleasure enveloping your maleness and you pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suction of her${
+                    this.player.biggestCockLength() < 8 ? " mouth" : " throat"
+                }. She moans deeply as you begin to use her like this, and even when you’re face fucking her she does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of ${
+                    this.player.biggestCockLength() < 8 ? "the back of her mouth" : "her gullet"
+                } as you spear decisively inwards. `
             );
 
             this.outx(
@@ -2897,11 +2896,11 @@ export class FarmCorruption extends AbstractFarmContent {
             }
 
             this.outx(
-                "\n\nOnce you have tensed your last you sigh beatifically and float high and formless on your post-blowjob haze. You close your eyes as, without any bidding, " +
-                    (this.player.cocks.length == 1
+                `\n\nOnce you have tensed your last you sigh beatifically and float high and formless on your post-blowjob haze. You close your eyes as, without any bidding, ${
+                    this.player.cocks.length == 1
                         ? "Whitney cleans your [cock biggest] with her flat tongue, lapping your oozing head clean, deliciously soothing your aching cock"
-                        : "Whitney cleans all of your pricks with her flat tongue, lapping each of your oozing heads clean, deliciously soothing your aching cock") +
-                    ". She moans the low, blissed-out moan of an addict as she cleans you up, actually gently pumping your spent [prickplural] to make the last of it drool out. Gods... just these sounds and sensations, the gentle licking at your [cock biggest]’s tip and the little gasping exhale as she manages to coax a final drop onto her thirsty tongue, make you want to do it all over again... if only she hadn’t just drained you utterly. You pull her up before she makes your cock ache even more, pressing her firm, petite body into your [chest] and gaze proudly and complacently at your champion cocksucker."
+                        : "Whitney cleans all of your pricks with her flat tongue, lapping each of your oozing heads clean, deliciously soothing your aching cock"
+                }. She moans the low, blissed-out moan of an addict as she cleans you up, actually gently pumping your spent [prickplural] to make the last of it drool out. Gods... just these sounds and sensations, the gentle licking at your [cock biggest]’s tip and the little gasping exhale as she manages to coax a final drop onto her thirsty tongue, make you want to do it all over again... if only she hadn’t just drained you utterly. You pull her up before she makes your cock ache even more, pressing her firm, petite body into your [chest] and gaze proudly and complacently at your champion cocksucker.`
             );
 
             this.outx(
@@ -2957,11 +2956,11 @@ export class FarmCorruption extends AbstractFarmContent {
             }
 
             this.outx(
-                "\n\n“<i>Now get back to your main task.</i>” You hum with deep approval as once again your [cock biggest] is swaddled in mouth flesh, her tongue sliding up and down your shaft in the same masterful, alternating oscillation all the while your [vagina] " +
-                    (this.player.cocks.length >= 2
+                `\n\n“<i>Now get back to your main task.</i>” You hum with deep approval as once again your [cock biggest] is swaddled in mouth flesh, her tongue sliding up and down your shaft in the same masterful, alternating oscillation all the while your [vagina] ${
+                    this.player.cocks.length >= 2
                         ? "and [cock biggest2] thrum and vibrate"
-                        : "thrums and vibrates") +
-                    " with pleasure from her teasing hands. Though it would be so easy to lose yourself entirely to her expert movements you keep abreast it for now, keeping a close eye on the dog woman kneeling in front of you, entirely devoted now to pleasuring you."
+                        : "thrums and vibrates"
+                } with pleasure from her teasing hands. Though it would be so easy to lose yourself entirely to her expert movements you keep abreast it for now, keeping a close eye on the dog woman kneeling in front of you, entirely devoted now to pleasuring you.`
             );
 
             this.outx(
@@ -2969,9 +2968,9 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\nThe sight and sound of her inundates your senses with the same drowning intensity of the pleasure enveloping your extensive sex and you pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suction of her " +
-                    (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                    ". She moans deeply as you begin to use her like this, and even when you’re face fucking her she does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of "
+                `\n\nThe sight and sound of her inundates your senses with the same drowning intensity of the pleasure enveloping your extensive sex and you pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suction of her ${
+                    this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                }. She moans deeply as you begin to use her like this, and even when you’re face fucking her she does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of `
             );
             if (this.player.biggestCockLength() < 8) this.outx("the back of her mouth");
             else this.outx("her gullet");
@@ -3089,9 +3088,9 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\nYou grab hold of those thoughts, filling them with a black power as the drowning intensity of the pleasure inundating your maleness increases and you begin to pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suck of her " +
-                    (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                    ". With some effort you stay afloat and consider the dog woman as she whimpers in delight to you hammering into her juicy mouth"
+                `\n\nYou grab hold of those thoughts, filling them with a black power as the drowning intensity of the pleasure inundating your maleness increases and you begin to pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suck of her ${
+                    this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                }. With some effort you stay afloat and consider the dog woman as she whimpers in delight to you hammering into her juicy mouth`
             );
             if (this.player.balls > 0)
                 this.outx(", your saliva-glossed [balls] beating against her chin");
@@ -3100,9 +3099,9 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\nEven when you’re face fucking her Whitney does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of " +
-                    (this.player.biggestCockLength() < 8 ? "the back of her mouth" : "her gullet") +
-                    " as you spear decisively inwards. You can’t find the words as you fly into your golden, ecstatic high; you throw your head back as you bury as much of your cock into her as you can, sweat standing out on your brow as you bark wordlessly with each bucket of jizz you fountain down her throat. "
+                `\n\nEven when you’re face fucking her Whitney does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of ${
+                    this.player.biggestCockLength() < 8 ? "the back of her mouth" : "her gullet"
+                } as you spear decisively inwards. You can’t find the words as you fly into your golden, ecstatic high; you throw your head back as you bury as much of your cock into her as you can, sweat standing out on your brow as you bark wordlessly with each bucket of jizz you fountain down her throat. `
             );
 
             this.outx(
@@ -3328,8 +3327,9 @@ export class FarmCorruption extends AbstractFarmContent {
                 );
 
             this.outx(
-                "\n\nPushing her all the way down to the base of your [cock biggest] so that the heavy breath through her nose warms your crotch and holding her there for a time, you enjoy the glorious closeness of the back of her " +
-                    (this.player.biggestCockLength() < 8 ? "mouth" : "throat")
+                `\n\nPushing her all the way down to the base of your [cock biggest] so that the heavy breath through her nose warms your crotch and holding her there for a time, you enjoy the glorious closeness of the back of her ${
+                    this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                }`
             );
             if (this.player.balls > 0)
                 this.outx(" and her tongue once again sliding across your [balls], ");
@@ -3345,15 +3345,15 @@ export class FarmCorruption extends AbstractFarmContent {
             if (this.player.cocks.length > 2) this.outx("s");
             if (this.player.cocks.length > 1) this.outx(" as if they never left them");
             this.outx(
-                " pulling and kneading you now with real need. The drowning intensity of the pleasure inundating your maleness increases and you begin to pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suction of her " +
-                    (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                    "."
+                ` pulling and kneading you now with real need. The drowning intensity of the pleasure inundating your maleness increases and you begin to pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suction of her ${
+                    this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                }.`
             );
 
             this.outx(
-                "\n\nAs always when you’re face fucking her Whitney does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of " +
-                    (this.player.biggestCockLength() < 8 ? "the back of her mouth" : "her gullet") +
-                    " as you spear decisively inwards, her lush cock pillows providing... not resistance but a wonderful squeezing lushness moving up and down your urgently bulging length."
+                `\n\nAs always when you’re face fucking her Whitney does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of ${
+                    this.player.biggestCockLength() < 8 ? "the back of her mouth" : "her gullet"
+                } as you spear decisively inwards, her lush cock pillows providing... not resistance but a wonderful squeezing lushness moving up and down your urgently bulging length.`
             );
 
             this.outx(
@@ -3445,8 +3445,9 @@ export class FarmCorruption extends AbstractFarmContent {
                 );
 
             this.outx(
-                "\n\nPushing her all the way down to the base of your [cock biggest] so that the heavy breath through her nose warms your crotch and holding her there for a time, you enjoy the glorious closeness of the back of her " +
-                    (this.player.biggestCockLength() < 8 ? "mouth" : "throat")
+                `\n\nPushing her all the way down to the base of your [cock biggest] so that the heavy breath through her nose warms your crotch and holding her there for a time, you enjoy the glorious closeness of the back of her ${
+                    this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                }`
             );
             if (this.player.balls > 0)
                 this.outx(", and her tongue once again sliding across your [balls]");
@@ -3460,15 +3461,15 @@ export class FarmCorruption extends AbstractFarmContent {
             if (this.player.cocks.length > 1)
                 this.outx(" and her other hand wrapping back around your [cock biggest2]");
             this.outx(
-                " as if they never left them, pulling, kneading and curling into you now with real need. The drowning intensity of the pleasure inundating your sex increases and you begin to pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suction of her " +
-                    (this.player.biggestCockLength() < 8 ? "mouth" : "throat") +
-                    "."
+                ` as if they never left them, pulling, kneading and curling into you now with real need. The drowning intensity of the pleasure inundating your sex increases and you begin to pump upwards to an irresistible high, grasping her head and beginning to thrust deep into the tight suction of her ${
+                    this.player.biggestCockLength() < 8 ? "mouth" : "throat"
+                }.`
             );
 
             this.outx(
-                "\n\nEven when you’re face fucking her Whitney does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of " +
-                    (this.player.biggestCockLength() < 8 ? "the back of her mouth" : "her gullet") +
-                    " as you spear decisively inwards. Her lush cock pillows provide no resistance but a wonderful squeezing lushness running up and down your urgently bulging length. You can’t find the words as you fly into your golden, ecstatic high; you throw your head back as you bury as much of your cock into her as you can, sweat standing out on your brow as you bark wordlessly with each bucket of jizz you fountain down her throat. "
+                `\n\nEven when you’re face fucking her Whitney does exactly the right things, hollowing her cheeks as you pull outwards to suck deliciously at your receding shaft then softening her mouth completely to give you the best access possible to the beautiful, tight warmth of ${
+                    this.player.biggestCockLength() < 8 ? "the back of her mouth" : "her gullet"
+                } as you spear decisively inwards. Her lush cock pillows provide no resistance but a wonderful squeezing lushness running up and down your urgently bulging length. You can’t find the words as you fly into your golden, ecstatic high; you throw your head back as you bury as much of your cock into her as you can, sweat standing out on your brow as you bark wordlessly with each bucket of jizz you fountain down her throat. `
             );
 
             this.outx(
@@ -3575,9 +3576,9 @@ export class FarmCorruption extends AbstractFarmContent {
         this.whitneySprite();
 
         this.outx(
-            "Sighing, you slide out of the bottom half of your [armor] and tell her with a smile it’s time for another lesson. Whitney wrings her " +
-                (this.whitneyDefurred() ? "hands" : "paws") +
-                " at the sight of your [vagina] fretfully. You don’t think it’s that she’s reluctant; she’s just afraid she’ll do a poor job. So your instructions are gentle and patient. You tell her to start frigging herself again whilst looking at your exposed crotch, and then when she seems to have lost her anxiety a bit, you tell her to start licking."
+            `Sighing, you slide out of the bottom half of your [armor] and tell her with a smile it’s time for another lesson. Whitney wrings her ${
+                this.whitneyDefurred() ? "hands" : "paws"
+            } at the sight of your [vagina] fretfully. You don’t think it’s that she’s reluctant; she’s just afraid she’ll do a poor job. So your instructions are gentle and patient. You tell her to start frigging herself again whilst looking at your exposed crotch, and then when she seems to have lost her anxiety a bit, you tell her to start licking.`
         );
 
         this.outx(
@@ -4234,15 +4235,15 @@ export class FarmCorruption extends AbstractFarmContent {
         );
 
         this.outx(
-            "\n\n“<i>S’it,</i>” comes her voice. Whitney sounds like she’s on a plain of pleasure far above you. Her grip on your arms tightens. “<i>S’it! Now up. Up!</i>” You can guess what that means. You recover enough to sink your tongue deep into her beading pussy, and she immediately clenches around it, trapping it up there before beginning to use it for all she’s worth. The bed creaks briskly as you lick her tight tunnel, your universe becoming a stifling world of tight flesh, brown " +
-                (this.whitneyDefurred() ? "skin" : "fur") +
-                " and the smell and taste of female excitement. Whitney makes a breathless sound as her pussy contracts around your tongue, her stomach batting into your forehead, and you’re treated to another small, warm trickle of her fluids running down your chin. "
+            `\n\n“<i>S’it,</i>” comes her voice. Whitney sounds like she’s on a plain of pleasure far above you. Her grip on your arms tightens. “<i>S’it! Now up. Up!</i>” You can guess what that means. You recover enough to sink your tongue deep into her beading pussy, and she immediately clenches around it, trapping it up there before beginning to use it for all she’s worth. The bed creaks briskly as you lick her tight tunnel, your universe becoming a stifling world of tight flesh, brown ${
+                this.whitneyDefurred() ? "skin" : "fur"
+            } and the smell and taste of female excitement. Whitney makes a breathless sound as her pussy contracts around your tongue, her stomach batting into your forehead, and you’re treated to another small, warm trickle of her fluids running down your chin. `
         );
 
         this.outx(
-            "\n\nHer thighs relax and rise a bit, allowing you to join her in panting for breath and recover a bit. In a disconnected daze you watch her " +
-                (this.whitneyDefurred() ? "smooth" : "furry") +
-                " calves shift around you until she is facing the other way, but it is only when you feel her place her hands on your own [hips] that you fully realize that she’s not done with you yet."
+            `\n\nHer thighs relax and rise a bit, allowing you to join her in panting for breath and recover a bit. In a disconnected daze you watch her ${
+                this.whitneyDefurred() ? "smooth" : "furry"
+            } calves shift around you until she is facing the other way, but it is only when you feel her place her hands on your own [hips] that you fully realize that she’s not done with you yet.`
         );
 
         this.outx(
@@ -4400,15 +4401,15 @@ export class FarmCorruption extends AbstractFarmContent {
         );
 
         this.outx(
-            "\n\n“<i>Glad you’re enjoying the view,</i>” she says, a grin twitching the corners of her mouth. “<i>Now you’re going to return the favor. Turn around. On your knees.</i>” Slowly you do " +
-                (!this.player.isBiped() ? "as close as you can to what" : "") +
-                " she asks, shifting yourself around on your lower body until you are facing the other way. A hand firmly presses into the back of your head, forcing your nose down into the clean-smelling sheets and your ass up. Heat spreads across your face as Whitney’s other hand lands on your [butt] and moves across it with a testing, admiring possessiveness."
+            `\n\n“<i>Glad you’re enjoying the view,</i>” she says, a grin twitching the corners of her mouth. “<i>Now you’re going to return the favor. Turn around. On your knees.</i>” Slowly you do ${
+                !this.player.isBiped() ? "as close as you can to what" : ""
+            } she asks, shifting yourself around on your lower body until you are facing the other way. A hand firmly presses into the back of your head, forcing your nose down into the clean-smelling sheets and your ass up. Heat spreads across your face as Whitney’s other hand lands on your [butt] and moves across it with a testing, admiring possessiveness.`
         );
 
         this.outx(
-            "\n\n“<i>D’you know how hard it is to control myself when you’re striding around outside, swinging this bit of business around behind you?</i>” she says huskily. The hand on your head has disappeared; there’s a repetitive, slippery sound coming from behind you and you don’t have to guess to know where it’s gone. “<i>D’you bend over so much just to tease me? I swear you do. I swear you do, you secret little slut.</i>” She grasps your rump hard suddenly, making you gasp. “<i>All the other slaves ‘kin look, but only I get to touch it like this. And I ain’t gonna waste that. I’m gonna make you pay for flauntin’ such a nice, " +
-                (this.player.buttRating <= 4 ? "tight ass" : "big bottom") +
-                ", I swear... sit still.</i>”"
+            `\n\n“<i>D’you know how hard it is to control myself when you’re striding around outside, swinging this bit of business around behind you?</i>” she says huskily. The hand on your head has disappeared; there’s a repetitive, slippery sound coming from behind you and you don’t have to guess to know where it’s gone. “<i>D’you bend over so much just to tease me? I swear you do. I swear you do, you secret little slut.</i>” She grasps your rump hard suddenly, making you gasp. “<i>All the other slaves ‘kin look, but only I get to touch it like this. And I ain’t gonna waste that. I’m gonna make you pay for flauntin’ such a nice, ${
+                this.player.buttRating <= 4 ? "tight ass" : "big bottom"
+            }, I swear... sit still.</i>”`
         );
 
         this.outx(
@@ -4456,11 +4457,9 @@ export class FarmCorruption extends AbstractFarmContent {
         );
 
         this.outx(
-            "\n\nOnce she’s done you discover she’s got one last surprise for you. She kneels down, almost level with your face, one hand between your [hips] whilst the other searches around on the floor. You close your eyes, unable to stop her gently stroking " +
-                (this.player.hasCock()
-                    ? "your semi-erect [cock]"
-                    : "the inner lips of your [vagina]") +
-                " even if you wanted to, opening your mouth to sigh as she sends shivers of pleasure through your core."
+            `\n\nOnce she’s done you discover she’s got one last surprise for you. She kneels down, almost level with your face, one hand between your [hips] whilst the other searches around on the floor. You close your eyes, unable to stop her gently stroking ${
+                this.player.hasCock() ? "your semi-erect [cock]" : "the inner lips of your [vagina]"
+            } even if you wanted to, opening your mouth to sigh as she sends shivers of pleasure through your core.`
         );
 
         this.outx(
@@ -4546,33 +4545,33 @@ export class FarmCorruption extends AbstractFarmContent {
         }
 
         this.outx(
-            "\n\nShe withdraws almost all the way out, the knobbed head pulling at your " +
-                (this.player.hasVagina()
+            `\n\nShe withdraws almost all the way out, the knobbed head pulling at your ${
+                this.player.hasVagina()
                     ? "entrance before thrusting back into your [vagina]"
-                    : "sphincter before thrusting back into your [ass]") +
-                ", bringing the paddle down on your reddened behind as she does. In, slap, out, in, slap, out, first one cheek, then the other..."
+                    : "sphincter before thrusting back into your [ass]"
+            }, bringing the paddle down on your reddened behind as she does. In, slap, out, in, slap, out, first one cheek, then the other...`
         );
 
         this.outx(
-            "\n\nThe panties in your mouth are dense with the taste and smell of the dog woman’s excitement; stuck high in your nose and throat, the rich musk makes you feel impossibly turned on, and there’s no getting away from it. Although your intention was to take your ‘relaxation’ in a stoical silence befitting of your position, you can’t stop yourself whining and moaning around the soiled cotton, welcoming each hard slap to your [butt] as it heralds another firm stroke from the delightfully thick and bumpy cock" +
-                (this.player.hasCock()
+            `\n\nThe panties in your mouth are dense with the taste and smell of the dog woman’s excitement; stuck high in your nose and throat, the rich musk makes you feel impossibly turned on, and there’s no getting away from it. Although your intention was to take your ‘relaxation’ in a stoical silence befitting of your position, you can’t stop yourself whining and moaning around the soiled cotton, welcoming each hard slap to your [butt] as it heralds another firm stroke from the delightfully thick and bumpy cock${
+                this.player.hasCock()
                     ? " bumping delightfully against your prostate, making [eachCock] thrum and bulge urgently in pleasure"
-                    : "") +
-                "."
+                    : ""
+            }.`
         );
 
         this.outx(
-            "\n\nYou convulse fruitlessly against your bonds as you are pushed relentlessly up to your high, " +
-                (this.player.hasVagina()
+            `\n\nYou convulse fruitlessly against your bonds as you are pushed relentlessly up to your high, ${
+                this.player.hasVagina()
                     ? "your pussy quivering and then clenching ardently around the dildo"
-                    : "your [cockplural] pulsing, opening wide and then forced to unload, your back passage tightening eagerly around the thick dildo as you spurt cum deliriously") +
-                ", blood rushing to the surface of your behind - only to meet the paddle’s hard blow. Whitney continues to thrust into you indifferent to your orgasm and you groan into your musky gag as the warm, prosthetic dick bends " +
-                (this.player.hasVagina() ? "mercilessly" : "") +
-                " into your sensitive walls " +
-                (this.player.hasCock()
+                    : "your [cockplural] pulsing, opening wide and then forced to unload, your back passage tightening eagerly around the thick dildo as you spurt cum deliriously"
+            }, blood rushing to the surface of your behind - only to meet the paddle’s hard blow. Whitney continues to thrust into you indifferent to your orgasm and you groan into your musky gag as the warm, prosthetic dick bends ${
+                this.player.hasVagina() ? "mercilessly" : ""
+            } into your sensitive walls ${
+                this.player.hasCock()
                     ? "continuing to milk you mercilessly, keeping your cock achingly hard"
-                    : "") +
-                "."
+                    : ""
+            }.`
         );
 
         this.outx(
@@ -4580,17 +4579,17 @@ export class FarmCorruption extends AbstractFarmContent {
         );
 
         this.outx(
-            "\n\nA " +
-                (this.whitneyDefurred() ? "hand" : "paw") +
-                " reaches around and clutches your [chest] for anchorage as she finally begins to pound into your tenderized hole with all she’s got. She catches a [nipple] between her fingers and you find yourself being forced towards orgasm again, your ears full of her harsh breathing, your nose full of her heavy scent. She’s no longer thrusting into you for your pleasure though, if she ever was; the hard, feral thrusting of the strap-on into your " +
-                (this.player.hasVagina() ? "oozing cunt" : "ass") +
-                " is all about her, all about working the smaller, teasing end in her own pussy as hard as she can. You are simply a vehicle for her own lusts, and when you come again with a juddering cry into her panties, " +
-                (this.player.hasVagina()
+            `\n\nA ${
+                this.whitneyDefurred() ? "hand" : "paw"
+            } reaches around and clutches your [chest] for anchorage as she finally begins to pound into your tenderized hole with all she’s got. She catches a [nipple] between her fingers and you find yourself being forced towards orgasm again, your ears full of her harsh breathing, your nose full of her heavy scent. She’s no longer thrusting into you for your pleasure though, if she ever was; the hard, feral thrusting of the strap-on into your ${
+                this.player.hasVagina() ? "oozing cunt" : "ass"
+            } is all about her, all about working the smaller, teasing end in her own pussy as hard as she can. You are simply a vehicle for her own lusts, and when you come again with a juddering cry into her panties, ${
+                this.player.hasVagina()
                     ? "wetting the bed this time with the jackhammer force of it"
-                    : "") +
-                " she keeps going, hammering into your hapless " +
-                (this.player.hasVagina() ? "[vagina]" : "butt") +
-                "."
+                    : ""
+            } she keeps going, hammering into your hapless ${
+                this.player.hasVagina() ? "[vagina]" : "butt"
+            }.`
         );
 
         this.outx(
@@ -4650,19 +4649,19 @@ export class FarmCorruption extends AbstractFarmContent {
         );
 
         this.outx(
-            "\n\n“<i>Stop fussing now, sweetheart,</i>” Whitney croons, adjusting the black, elastic blindfold so it is firmly secured over your eyes." +
-                (this.player.eyeType == EYES_FOUR_SPIDER_EYES
+            `\n\n“<i>Stop fussing now, sweetheart,</i>” Whitney croons, adjusting the black, elastic blindfold so it is firmly secured over your eyes.${
+                this.player.eyeType == EYES_FOUR_SPIDER_EYES
                     ? " Once she’s finished with that she places another blindfold over your second pair of eyes. You can only groan with laughter at the sheer level of preparation the dog woman is capable of."
-                    : "") +
-                " “<i>Wouldn’t want you to see what’s coming, would we? That’d ruin half the fun.</i>” "
+                    : ""
+            } “<i>Wouldn’t want you to see what’s coming, would we? That’d ruin half the fun.</i>” `
         );
 
         this.outx(
-            "\n\nShe crawls down to your lower body, taking her time now as she slides her hands across your abdomen and [hips] and sits herself down in front of [eachCock]" +
-                (this.player.balls > 0
+            `\n\nShe crawls down to your lower body, taking her time now as she slides her hands across your abdomen and [hips] and sits herself down in front of [eachCock]${
+                this.player.balls > 0
                     ? ", making you twitch as she momentarily cups your [balls]"
-                    : "") +
-                ". She teases you with slow, deliberate movements of her smooth digits, fully aware that all you can do now in your black space is lie there, feeling and listening to what she’s doing to you."
+                    : ""
+            }. She teases you with slow, deliberate movements of her smooth digits, fully aware that all you can do now in your black space is lie there, feeling and listening to what she’s doing to you.`
         );
 
         this.outx(
@@ -4723,9 +4722,9 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\nShe quickly picks up the pace, her thighs clenching around the base of your cock, her " +
-                    (this.whitneyDefurred() ? "feet" : "hind paws") +
-                    " pushing impatiently into your [chest] and shoulders as she uses your [cock biggest] as the masturbation post she’s turned it into.  The sensation is almost impossible to cope with; your cock feels bottled at both ends, your flesh trapped in a vice of pleasure which heightens unbearably every time she pushes into one of the beads wedged in your urethra and you can’t help but groan and then bark to it, flexing helplessly against your bonds, your hips in spasm to Whitney’s own greedy thrusts. Being blind seems to make the ecstatic torture all the more intense, making your universe narrow down to your oak-like cock, your pride and joy snared and used for your slave mistress’s own ends. "
+                `\n\nShe quickly picks up the pace, her thighs clenching around the base of your cock, her ${
+                    this.whitneyDefurred() ? "feet" : "hind paws"
+                } pushing impatiently into your [chest] and shoulders as she uses your [cock biggest] as the masturbation post she’s turned it into.  The sensation is almost impossible to cope with; your cock feels bottled at both ends, your flesh trapped in a vice of pleasure which heightens unbearably every time she pushes into one of the beads wedged in your urethra and you can’t help but groan and then bark to it, flexing helplessly against your bonds, your hips in spasm to Whitney’s own greedy thrusts. Being blind seems to make the ecstatic torture all the more intense, making your universe narrow down to your oak-like cock, your pride and joy snared and used for your slave mistress’s own ends. `
             );
 
             this.outx(
@@ -4759,11 +4758,7 @@ export class FarmCorruption extends AbstractFarmContent {
         // Medium - cock area is within 33% of Whitneys cap without going over.
         else if (this.player.cockArea(cockI - 1) > this.whitneyVagCapacity() * 0.66) {
             this.outx(
-                "\n\nYour mouth opens as she begins to revolve her supple hips, sliding her wet opening up and down your [cock " +
-                    cockI +
-                    "]. Your cock is forcibly hardened and sensitized to the point that you can feel her lips parted around your huge girth, her tiny clit pushing up and down every vein and bulge it encounters. You can’t help but try and thrust your way into that tantalizingly warm, wet hole; you groan as with a laugh she pulls away from your crown, shifts herself around, and rubs at the top side of your cock instead. She seems intent on masturbating herself on every inch of your [cock " +
-                    cockI +
-                    "], frosting every inch with her femjizz... and she has a fair amount of ground to cover."
+                `\n\nYour mouth opens as she begins to revolve her supple hips, sliding her wet opening up and down your [cock ${cockI}]. Your cock is forcibly hardened and sensitized to the point that you can feel her lips parted around your huge girth, her tiny clit pushing up and down every vein and bulge it encounters. You can’t help but try and thrust your way into that tantalizingly warm, wet hole; you groan as with a laugh she pulls away from your crown, shifts herself around, and rubs at the top side of your cock instead. She seems intent on masturbating herself on every inch of your [cock ${cockI}], frosting every inch with her femjizz... and she has a fair amount of ground to cover.`
             );
 
             this.outx(
@@ -4779,11 +4774,9 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\n“<i>Massive centaur cock, lil’ sissy dick, that’d be about you, that’d be a statement about the kinda [guy] you are,</i>” she goes on in a low growl, warming to her theme as she screws you, slowly, rhythmically and surely, the candle she’s clutching somewhere above you. “<i>But you’re weak, ain’t ya? You got no self-control when it comes to pussy. You jus want to be used by anyone and anything. So - get - used!</i>” More liquid wax splashes down, this time on a " +
-                    (this.player.isLactating() ? "moistened" : "taut") +
-                    " [nipple] and you can’t help but cringe again, your involuntary movements again making Whitney cry out in pleasure, her tight, succulent sex wringing your [cock " +
-                    cockI +
-                    "] gleefully."
+                `\n\n“<i>Massive centaur cock, lil’ sissy dick, that’d be about you, that’d be a statement about the kinda [guy] you are,</i>” she goes on in a low growl, warming to her theme as she screws you, slowly, rhythmically and surely, the candle she’s clutching somewhere above you. “<i>But you’re weak, ain’t ya? You got no self-control when it comes to pussy. You jus want to be used by anyone and anything. So - get - used!</i>” More liquid wax splashes down, this time on a ${
+                    this.player.isLactating() ? "moistened" : "taut"
+                } [nipple] and you can’t help but cringe again, your involuntary movements again making Whitney cry out in pleasure, her tight, succulent sex wringing your [cock ${cockI}] gleefully.`
             );
 
             this.outx(
@@ -4795,9 +4788,7 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\nFinally, after enough of her own orgasms that you’ve lost count, Whitney takes pity. She rests herself on you after a particularly hard minute of thrusting, your [cock " +
-                    cockI +
-                    "] aching with it, toying with the hardened pools of wax which cover your front as the hard clasp around your base is finally released. She begins to pump you again, her hands clenched on your shoulders as she works herself up, letting her sweat drip down onto you and her hard breath echo in your ear."
+                `\n\nFinally, after enough of her own orgasms that you’ve lost count, Whitney takes pity. She rests herself on you after a particularly hard minute of thrusting, your [cock ${cockI}] aching with it, toying with the hardened pools of wax which cover your front as the hard clasp around your base is finally released. She begins to pump you again, her hands clenched on your shoulders as she works herself up, letting her sweat drip down onto you and her hard breath echo in your ear.`
             );
 
             this.outx(
@@ -4808,9 +4799,7 @@ export class FarmCorruption extends AbstractFarmContent {
         // It's like hoofin' a cream cake whole wivout it touchin da sides!
         else {
             this.outx(
-                "\n\nYour mouth opens as she begins to revolve her supple hips, sliding her wet opening onto your [cock " +
-                    cockI +
-                    "], easily swallowing it whole before withdrawing and coming back, teasing you with her wet warmth. Your cock is forcibly hardened and sensitized to the point that you can feel every inch of her lips parting around your small cock, her tiny clit pushing into the bulging head. You can’t help but try and thrust your way into that tantalizingly warm, wet hole; you groan as with a laugh she pulls away from your crown, shifts herself around, and envelopes you from the other side. She seems intent on masturbating herself on you every way she can."
+                `\n\nYour mouth opens as she begins to revolve her supple hips, sliding her wet opening onto your [cock ${cockI}], easily swallowing it whole before withdrawing and coming back, teasing you with her wet warmth. Your cock is forcibly hardened and sensitized to the point that you can feel every inch of her lips parting around your small cock, her tiny clit pushing into the bulging head. You can’t help but try and thrust your way into that tantalizingly warm, wet hole; you groan as with a laugh she pulls away from your crown, shifts herself around, and envelopes you from the other side. She seems intent on masturbating herself on you every way she can.`
             );
 
             this.outx(
@@ -4826,11 +4815,9 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\n“<i>S’it. Cry for me, sissy!</i>” she cries, warming to her theme as she screws you, slowly, rhythmically and surely, the candle she’s clutching somewhere above you. “<i>Gods, a dick this size, you want me to treat you hard, it all makes sense, don’t it? You’re a sissy on the inside, and what sissies want is to be punished and be used. So - get - used!</i>” More liquid wax splashes down, this time on a " +
-                    (this.player.isLactating() ? "moistened" : "taut") +
-                    " [nipple] and you can’t help but cringe again, your involuntary movements again making Whitney cry out in pleasure, her tight, succulent sex wringing your [cock " +
-                    cockI +
-                    "] gleefully."
+                `\n\n“<i>S’it. Cry for me, sissy!</i>” she cries, warming to her theme as she screws you, slowly, rhythmically and surely, the candle she’s clutching somewhere above you. “<i>Gods, a dick this size, you want me to treat you hard, it all makes sense, don’t it? You’re a sissy on the inside, and what sissies want is to be punished and be used. So - get - used!</i>” More liquid wax splashes down, this time on a ${
+                    this.player.isLactating() ? "moistened" : "taut"
+                } [nipple] and you can’t help but cringe again, your involuntary movements again making Whitney cry out in pleasure, her tight, succulent sex wringing your [cock ${cockI}] gleefully.`
             );
 
             this.outx(
@@ -4842,9 +4829,7 @@ export class FarmCorruption extends AbstractFarmContent {
             );
 
             this.outx(
-                "\n\nFinally, after enough of her own orgasms that you’ve lost count, Whitney takes pity. She rests herself on you after a particularly hard minute of thrusting, your [cock " +
-                    cockI +
-                    "] aching with it, toying with the hardened pools of wax which cover your front as the hard clasp around your base is finally released. She begins to pump you again, her hands clenched on your shoulders as she works herself up, letting her sweat drip down onto you and her hard breath echo in your ear."
+                `\n\nFinally, after enough of her own orgasms that you’ve lost count, Whitney takes pity. She rests herself on you after a particularly hard minute of thrusting, your [cock ${cockI}] aching with it, toying with the hardened pools of wax which cover your front as the hard clasp around your base is finally released. She begins to pump you again, her hands clenched on your shoulders as she works herself up, letting her sweat drip down onto you and her hard breath echo in your ear.`
             );
 
             this.outx(
@@ -5245,9 +5230,9 @@ export class FarmCorruption extends AbstractFarmContent {
         this.showStats();
 
         this.outx(
-            "You stroke at her tiny, bulging button relentlessly until she releases a wordless bark of ecstasy, soaking your hand with a gratifyingly large gush of femcum. As she pants into your chest you wipe one hand clean on her clothes and press the money into her " +
-                (this.whitneyDefurred() ? "hands" : "paws") +
-                " with the other."
+            `You stroke at her tiny, bulging button relentlessly until she releases a wordless bark of ecstasy, soaking your hand with a gratifyingly large gush of femcum. As she pants into your chest you wipe one hand clean on her clothes and press the money into her ${
+                this.whitneyDefurred() ? "hands" : "paws"
+            } with the other.`
         );
 
         this.outx(
@@ -5427,7 +5412,7 @@ export class FarmCorruption extends AbstractFarmContent {
         this.clearOutput();
         this.whitneySprite();
 
-        this.outx("What will you draw on her " + this.slotNames[slot] + "?");
+        this.outx(`What will you draw on her ${this.slotNames[slot]}?`);
 
         this.menu();
         this.addButton(0, "Tribal", this.tribalTattoo, slot);
@@ -5445,7 +5430,7 @@ export class FarmCorruption extends AbstractFarmContent {
     public amilyBrandSelect(slot: number): void {
         this.clearOutput();
 
-        this.outx("What will you draw on her " + this.slotNames[slot] + "?");
+        this.outx(`What will you draw on her ${this.slotNames[slot]}?`);
 
         this.menu();
         this.addButton(0, "Tribal", this.amilyTribalTattoo, slot);
@@ -5463,7 +5448,7 @@ export class FarmCorruption extends AbstractFarmContent {
     public jojoBrandSelect(slot: number): void {
         this.clearOutput();
 
-        this.outx("What will you draw on his " + this.slotNames[slot] + "?");
+        this.outx(`What will you draw on his ${this.slotNames[slot]}?`);
 
         this.menu();
         this.addButton(0, "Tribal", this.jojoTribalTattoo, slot);
@@ -5481,7 +5466,7 @@ export class FarmCorruption extends AbstractFarmContent {
     public bimboSophieBrandSelect(slot: number): void {
         this.clearOutput();
 
-        this.outx("What will you draw on her " + this.slotNames[slot] + "?");
+        this.outx(`What will you draw on her ${this.slotNames[slot]}?`);
 
         this.menu();
         this.addButton(0, "Tribal", this.bimboSophieTribalTattoo, slot);
@@ -5499,7 +5484,7 @@ export class FarmCorruption extends AbstractFarmContent {
     public vapulaBrandSelect(slot: number): void {
         this.clearOutput();
 
-        this.outx("What will you draw on her " + this.slotNames[slot] + "?");
+        this.outx(`What will you draw on her ${this.slotNames[slot]}?`);
 
         this.menu();
         this.addButton(0, "Tribal", this.vapulaTribalTattoo, slot);
@@ -5516,7 +5501,7 @@ export class FarmCorruption extends AbstractFarmContent {
     public kellyBrandSelect(slot: number): void {
         this.clearOutput();
 
-        this.outx("What will you draw on her " + this.slotNames[slot] + "?");
+        this.outx(`What will you draw on her ${this.slotNames[slot]}?`);
 
         this.menu();
         this.addButton(0, "Tribal", this.kellyTribalTattoo, slot);
@@ -5532,7 +5517,7 @@ export class FarmCorruption extends AbstractFarmContent {
     public smallMilkyBrandSelect(slot: number): void {
         this.clearOutput();
 
-        this.outx("What will you draw on her " + this.slotNames[slot] + "?");
+        this.outx(`What will you draw on her ${this.slotNames[slot]}?`);
 
         this.menu();
         this.addButton(0, "Tribal", this.smallMilkyTribalTattoo, slot);
@@ -5550,7 +5535,7 @@ export class FarmCorruption extends AbstractFarmContent {
     public bigMilkyBrandSelect(slot: number): void {
         this.clearOutput();
 
-        this.outx("What will you draw on her " + this.slotNames[slot] + "?");
+        this.outx(`What will you draw on her ${this.slotNames[slot]}?`);
 
         this.menu();
         this.addButton(0, "Tribal", this.bigMilkyTribalTattoo, slot);
@@ -7547,9 +7532,10 @@ export class FarmCorruption extends AbstractFarmContent {
         );
 
         this.outx(
-            "\n\nYou move your [legs] restlessly when the silence drags out a bit. “<i>Well, understand I ‘kin only talk as a farmer. But if I got a prime " +
-                this.player.mf("stud", "mare") +
-                " who is constantly exerting themselves - a lot of the time it’s them who’s doing it not me, they’re just so big and, and dominant they don’t want to stop throwing themselves around even for a moment - they get stress injuries. Which just get worse the more they try and pretend they don’t exist. Now I ain’t saying you got something like that, but when I see you come here, all forceful and fretful, and then leave in such a rush - it breaks my heart a little. Cos’ I could help you, at least a bit. Don’t look after livestock your whole life without learning some about muscle groups and medicine. I could help you not be the [guy] who suddenly keels over in the middle of a fight screamin’ their hamstring’s gone.</i>”"
+            `\n\nYou move your [legs] restlessly when the silence drags out a bit. “<i>Well, understand I ‘kin only talk as a farmer. But if I got a prime ${this.player.mf(
+                "stud",
+                "mare"
+            )} who is constantly exerting themselves - a lot of the time it’s them who’s doing it not me, they’re just so big and, and dominant they don’t want to stop throwing themselves around even for a moment - they get stress injuries. Which just get worse the more they try and pretend they don’t exist. Now I ain’t saying you got something like that, but when I see you come here, all forceful and fretful, and then leave in such a rush - it breaks my heart a little. Cos’ I could help you, at least a bit. Don’t look after livestock your whole life without learning some about muscle groups and medicine. I could help you not be the [guy] who suddenly keels over in the middle of a fight screamin’ their hamstring’s gone.</i>”`
         );
 
         this.outx(
@@ -7563,9 +7549,10 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outx("\n\n“<i>2,200 gems?!</i>”");
 
         this.outx(
-            "\n\n“<i>...I could convert my front room into a relaxation room for you,</i>” the dog woman goes on doggedly. “<i>It would have everything I need to properly take care of you. Like a hot tub. And I would pack it with all the sorts of things...</i>“ she sighs dreamily again “<i>all the sorts of things a big, strong " +
-                this.player.mf("lord", "lady") +
-                " of the land might want. For when [he] is taking care of [his] servants. Like lots of ‘em. At the same time.</i>”"
+            `\n\n“<i>...I could convert my front room into a relaxation room for you,</i>” the dog woman goes on doggedly. “<i>It would have everything I need to properly take care of you. Like a hot tub. And I would pack it with all the sorts of things...</i>“ she sighs dreamily again “<i>all the sorts of things a big, strong ${this.player.mf(
+                "lord",
+                "lady"
+            )} of the land might want. For when [he] is taking care of [his] servants. Like lots of ‘em. At the same time.</i>”`
         );
 
         this.menu();
@@ -7720,9 +7707,9 @@ export class FarmCorruption extends AbstractFarmContent {
         this.outx(".");
 
         this.outx(
-            "\n\nThere’s the sound of cloth falling onto the floor behind you, which you realize is Whitney taking her garments off when a moment later you feel her " +
-                (this.whitneyDefurred() ? "smooth" : "fluffy") +
-                " thighs brush into your side, sitting herself down gently at the bottom of your back. You are not exactly sure how you’re going to relax with her moist pussy pushing into your rise of your [butt], but you give her the benefit of the doubt for now."
+            `\n\nThere’s the sound of cloth falling onto the floor behind you, which you realize is Whitney taking her garments off when a moment later you feel her ${
+                this.whitneyDefurred() ? "smooth" : "fluffy"
+            } thighs brush into your side, sitting herself down gently at the bottom of your back. You are not exactly sure how you’re going to relax with her moist pussy pushing into your rise of your [butt], but you give her the benefit of the doubt for now.`
         );
 
         this.outx(
@@ -7942,43 +7929,33 @@ export class FarmCorruption extends AbstractFarmContent {
             hasBiggerCock = true;
 
         this.outx(
-            "You drift across and envelope her in your body, your [chest] pushing into the soft suppleness of her small breasts. Feeling your urge but not overcome by it in your relaxed state you instead take time to enjoy the give and take of your slave’s body, her flat stomach planing over yours, the feeling of her hard nipples against your chest, her long, " +
-                (this.whitneyDefurred() ? "smooth" : "downy") +
-                " legs tangling with yours in the slow motion of the water.  Her breath catches in her chest, panting and trembling there as you push your hand between her thighs, sinking your fingers into her tight, welcoming hole. "
+            `You drift across and envelope her in your body, your [chest] pushing into the soft suppleness of her small breasts. Feeling your urge but not overcome by it in your relaxed state you instead take time to enjoy the give and take of your slave’s body, her flat stomach planing over yours, the feeling of her hard nipples against your chest, her long, ${
+                this.whitneyDefurred() ? "smooth" : "downy"
+            } legs tangling with yours in the slow motion of the water.  Her breath catches in her chest, panting and trembling there as you push your hand between her thighs, sinking your fingers into her tight, welcoming hole. `
         );
 
         this.outx(
-            "\n\nYou slide your [cock " +
-                cockThatFits +
-                "] up and down her abdomen and then between her lips, hardening it as you tease at her wetness with it."
+            `\n\nYou slide your [cock ${cockThatFits}] up and down her abdomen and then between her lips, hardening it as you tease at her wetness with it.`
         );
         if (hasBiggerCock)
             this.outx(
-                " Your [cock biggest], so used to getting preferential treatment, bulges in agitation and the lizard impulse to fuck her wide and silly with it saturates the back of your mind; but you know it makes much more sense to keep her nice and tight rather than turn her into another blown out whore in a single bull-in-a-china-shop fuckfest. And anyway... as you test her with your [cock " +
-                    cockThatFits +
-                    "], you slide your [cock biggest] up her abdomen, enjoying the smoothness of her flesh on one side and the sloshing hot foam on the other. Whitney hums with pleasure and clasps the thick cock pointing towards her breasts in her hands, slowly rubbing it up and down as you prepare to penetrate her.}"
+                ` Your [cock biggest], so used to getting preferential treatment, bulges in agitation and the lizard impulse to fuck her wide and silly with it saturates the back of your mind; but you know it makes much more sense to keep her nice and tight rather than turn her into another blown out whore in a single bull-in-a-china-shop fuckfest. And anyway... as you test her with your [cock ${cockThatFits}], you slide your [cock biggest] up her abdomen, enjoying the smoothness of her flesh on one side and the sloshing hot foam on the other. Whitney hums with pleasure and clasps the thick cock pointing towards her breasts in her hands, slowly rubbing it up and down as you prepare to penetrate her.}`
             );
 
         // First time:
         if (this.flags[kFLAGS.MASSAGE_HAPPY_ENDINGS] == 0) {
             this.outx(
-                "\n\n“<i>Been a while, I take it?</i>” you say softly, as you line your [cock " +
-                    cockThatFits +
-                    "] up to her pink slit, sighing at its soft, delicious resistance."
+                `\n\n“<i>Been a while, I take it?</i>” you say softly, as you line your [cock ${cockThatFits}] up to her pink slit, sighing at its soft, delicious resistance.`
             );
 
             this.outx(
-                "\n\n“<i>Seems like- like forever, [master]. I don’t know why I- ooh...</i>” the thought is lost as you sink into her, pushing deep into her depths, exhaling at how her moist walls push into your prick from every direction. You go slow, stopping and withdrawing almost all the way out when her breath catches in her throat, before gently spearing your way into that delicious tightness again, each time dipping a little further in. Her body remembers the rhythm of it quickly - no doubt aided by the corruption you’ve mired her in - and in no time her hips are gripping into yours, willing the return strokes of your [cock " +
-                    cockThatFits +
-                    "]."
+                `\n\n“<i>Seems like- like forever, [master]. I don’t know why I- ooh...</i>” the thought is lost as you sink into her, pushing deep into her depths, exhaling at how her moist walls push into your prick from every direction. You go slow, stopping and withdrawing almost all the way out when her breath catches in her throat, before gently spearing your way into that delicious tightness again, each time dipping a little further in. Her body remembers the rhythm of it quickly - no doubt aided by the corruption you’ve mired her in - and in no time her hips are gripping into yours, willing the return strokes of your [cock ${cockThatFits}].`
             );
         }
         // Subsequent:
         else {
             this.outx(
-                "\n\nShe gasps as you push open her lips and spear into her depths with one thrust. Her pussy is used to your [cock " +
-                    cockThatFits +
-                    "] now, still deliciously tight and clenching but welcoming as well, perfectly designed to holster and squeeze every inch of your modestly sized prick with wet pleasure. Within a few moments your hips are touching hers, taking your cock down to the hilt. Her thighs tighten around your frame and you begin to lose yourself in the soft, slow rhythm."
+                `\n\nShe gasps as you push open her lips and spear into her depths with one thrust. Her pussy is used to your [cock ${cockThatFits}] now, still deliciously tight and clenching but welcoming as well, perfectly designed to holster and squeeze every inch of your modestly sized prick with wet pleasure. Within a few moments your hips are touching hers, taking your cock down to the hilt. Her thighs tighten around your frame and you begin to lose yourself in the soft, slow rhythm.`
             );
         }
 
@@ -7995,9 +7972,7 @@ export class FarmCorruption extends AbstractFarmContent {
         else if (this.player.isBiped()) this.outx(" against your [hips]");
         else this.outx(" around your back");
         this.outx(
-            " momentarily. You grin, and begin to pump into her a little harder, using the full breadth of movement afforded to you by your oiled, [hips] to do so. It has the effect you anticipated. After a few more moments gamely keeping time with your own heavy exhalations the dog girl you’re buried into gasps, unable to contain herself. You winch her legs up by the knees and go at her faster again, still using the full movement of your pelvis to withdraw and sink every inch of your [cock " +
-                cockThatFits +
-                "], pushing into her pink tightness vigorously enough for the water around to splash briskly, buried into her even deeper. "
+            ` momentarily. You grin, and begin to pump into her a little harder, using the full breadth of movement afforded to you by your oiled, [hips] to do so. It has the effect you anticipated. After a few more moments gamely keeping time with your own heavy exhalations the dog girl you’re buried into gasps, unable to contain herself. You winch her legs up by the knees and go at her faster again, still using the full movement of your pelvis to withdraw and sink every inch of your [cock ${cockThatFits}], pushing into her pink tightness vigorously enough for the water around to splash briskly, buried into her even deeper. `
         );
 
         this.outx(
@@ -8011,9 +7986,7 @@ export class FarmCorruption extends AbstractFarmContent {
         else this.outx(" groin.");
 
         this.outx(
-            "\n\nYou hold her tight and join in her groans as you holster every inch of your [cock " +
-                cockThatFits +
-                "] into her and unload, clenching and pulsing your seed into her. If she didn’t manage it before the dog girl certainly does now; her back arches and her eyes roll as you fill her womb full of your hot spunk, her pussy squeezing around you almost unbearably close, almost sucking the cum out of you."
+            `\n\nYou hold her tight and join in her groans as you holster every inch of your [cock ${cockThatFits}] into her and unload, clenching and pulsing your seed into her. If she didn’t manage it before the dog girl certainly does now; her back arches and her eyes roll as you fill her womb full of your hot spunk, her pussy squeezing around you almost unbearably close, almost sucking the cum out of you.`
         );
         if (this.player.cumQ() >= 1500)
             this.outx(
@@ -8032,9 +8005,9 @@ export class FarmCorruption extends AbstractFarmContent {
         this.whitneySprite();
 
         this.outx(
-            "You drift across and envelope her in your body, your [chest] pushing into the soft suppleness of her small breasts. Feeling your urge but not overcome by it in your relaxed state you instead take time to enjoy the give and take of your slave’s body, her flat stomach planing over yours, the feeling of her hard nipples against your chest, her long, " +
-                (this.whitneyDefurred() ? "smooth" : "downy") +
-                " legs tangling with yours in the slow motion of the water.  Her breath catches in her chest, panting and trembling there as you push your hand between her thighs, brushing through the neat thatch of her public hair to sink your fingers into her tight, welcoming hole.  You winch one of your [legs] over hers, pushing your [vagina] against hers, sighing as your lips touch and rub over each other. "
+            `You drift across and envelope her in your body, your [chest] pushing into the soft suppleness of her small breasts. Feeling your urge but not overcome by it in your relaxed state you instead take time to enjoy the give and take of your slave’s body, her flat stomach planing over yours, the feeling of her hard nipples against your chest, her long, ${
+                this.whitneyDefurred() ? "smooth" : "downy"
+            } legs tangling with yours in the slow motion of the water.  Her breath catches in her chest, panting and trembling there as you push your hand between her thighs, brushing through the neat thatch of her public hair to sink your fingers into her tight, welcoming hole.  You winch one of your [legs] over hers, pushing your [vagina] against hers, sighing as your lips touch and rub over each other. `
         );
 
         if (this.player.hasCock())

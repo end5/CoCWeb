@@ -21,18 +21,6 @@ export class StatusAffectClass {
     }
 
     public toString(): string {
-        return (
-            "[" +
-            this._stype +
-            "," +
-            this.value1 +
-            "," +
-            this.value2 +
-            "," +
-            this.value3 +
-            "," +
-            this.value4 +
-            "]"
-        );
+        return `[${this._stype},${this.value1},${this.value2},${this.value3},${this.value4}]`;
     }
 }

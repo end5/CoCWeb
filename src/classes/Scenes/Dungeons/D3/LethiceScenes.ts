@@ -40,7 +40,7 @@ export class LethiceScenes extends BaseContent {
         // }
 
         // Found a free file, throw it at the base save code by abusing the fuck out of Slot
-        this.getGame().saves.saveGameObject("CoC_EndExport_" + this.player.short, undefined, true);
+        this.getGame().saves.saveGameObject(`CoC_EndExport_${this.player.short}`, undefined, true);
 
         // Now would be a good time to pray this shit works.
 
@@ -62,9 +62,10 @@ export class LethiceScenes extends BaseContent {
 
     private goFight(): void {
         this.outx(
-            "<i>“So be it.”</i> Lethice rises from her throne, pacing pensively back and forth. Wings unfurl from behind her back, casting you into the darkness of her demonic shadow. <i>“You seek a fight with the Queen of Mareth, and you shall have one.”</i> With feline grace, she launches herself dozens of feet into the air, flips forward, and snaps her wings out to catch her midair. <i>“My pets! My lovelies! Watch what this mortal’s foolishness earns " +
-                this.player.mf("him", "her") +
-                "!”</i>"
+            `<i>“So be it.”</i> Lethice rises from her throne, pacing pensively back and forth. Wings unfurl from behind her back, casting you into the darkness of her demonic shadow. <i>“You seek a fight with the Queen of Mareth, and you shall have one.”</i> With feline grace, she launches herself dozens of feet into the air, flips forward, and snaps her wings out to catch her midair. <i>“My pets! My lovelies! Watch what this mortal’s foolishness earns ${this.player.mf(
+                "him",
+                "her"
+            )}!”</i>`
         );
         this.outx("\n\nScattered applause breaks out as Lethice wings around to engage you.");
         if (!this.player.canFly()) this.outx(" Good thing she’s not the only one that can fly!");
@@ -495,9 +496,10 @@ export class LethiceScenes extends BaseContent {
             );
 
             this.outx(
-                "\n\n<i>“Ah! You’re positively <b>obsessed</b>, aren’t you, Champion?”</i> Lethice moans, chewing her lower lip seductively. <i>“You’ve come all this way, just to play with my tits. Why, if that’s all you wanted, you could have just asked. I’d have been more than happy to let a big, strong " +
-                    this.player.mf("man", "woman") +
-                    " like you crawl into my lap and play with me until you came your soul right out for me.”</i>"
+                `\n\n<i>“Ah! You’re positively <b>obsessed</b>, aren’t you, Champion?”</i> Lethice moans, chewing her lower lip seductively. <i>“You’ve come all this way, just to play with my tits. Why, if that’s all you wanted, you could have just asked. I’d have been more than happy to let a big, strong ${this.player.mf(
+                    "man",
+                    "woman"
+                )} like you crawl into my lap and play with me until you came your soul right out for me.”</i>`
             );
 
             this.outx(
@@ -789,23 +791,23 @@ export class LethiceScenes extends BaseContent {
         this.clearOutput();
 
         this.outx(
-            "You spend some time there on the beach, comforting " +
-                this.flags[kFLAGS.LETHICE_NAME] +
-                ". Eventually, as the hazy sky begins to darken, you take her hand and board your small boat, pushing off towards land. A new day will soon dawn on Mareth, and with it, you introduce a new hope: a way to fight back against the demons."
+            `You spend some time there on the beach, comforting ${
+                this.flags[kFLAGS.LETHICE_NAME]
+            }. Eventually, as the hazy sky begins to darken, you take her hand and board your small boat, pushing off towards land. A new day will soon dawn on Mareth, and with it, you introduce a new hope: a way to fight back against the demons.`
         );
 
         this.outx(
-            "\n\nIt soon comes to light just why " +
-                this.flags[kFLAGS.LETHICE_NAME] +
-                "’s rebirth was so costly, so tiring, to your patron goddess. Not a week after your victory at the mountain fortress, you and your new companion are ambushed by demons - assassins, bent on exacting vengeance for their queen’s humiliation. Instead, they end up on their knees before you, beaten as all who stood before you always are. This time it’s different, though. This time, rather than the choice of carnal punishment or death, you find yourself given a third option."
+            `\n\nIt soon comes to light just why ${
+                this.flags[kFLAGS.LETHICE_NAME]
+            }’s rebirth was so costly, so tiring, to your patron goddess. Not a week after your victory at the mountain fortress, you and your new companion are ambushed by demons - assassins, bent on exacting vengeance for their queen’s humiliation. Instead, they end up on their knees before you, beaten as all who stood before you always are. This time it’s different, though. This time, rather than the choice of carnal punishment or death, you find yourself given a third option.`
         );
 
         this.outx(
-            "\n\nThe demons carried a few shards of Lethicite, which " +
-                this.flags[kFLAGS.LETHICE_NAME] +
-                " quickly finds, drawn to the power of it like a moth to flame. Before you have time to realize what she intends, " +
-                this.flags[kFLAGS.LETHICE_NAME] +
-                " grabs the brilliant pink stones and raises one of them aloft. Her arms and hands begin to glow, radiating that same awesome viridian power that Marae had shown you before, and in a flash of light one of the demons crumples to the ground, orgasming and writhing as the seething corruption in his veins is torn from his body in one last demonic ejaculation. The pool of cum he leaves catches flame, burning away to smoke and cinders a moment later. Corruption eradicated, utterly and completely."
+            `\n\nThe demons carried a few shards of Lethicite, which ${
+                this.flags[kFLAGS.LETHICE_NAME]
+            } quickly finds, drawn to the power of it like a moth to flame. Before you have time to realize what she intends, ${
+                this.flags[kFLAGS.LETHICE_NAME]
+            } grabs the brilliant pink stones and raises one of them aloft. Her arms and hands begin to glow, radiating that same awesome viridian power that Marae had shown you before, and in a flash of light one of the demons crumples to the ground, orgasming and writhing as the seething corruption in his veins is torn from his body in one last demonic ejaculation. The pool of cum he leaves catches flame, burning away to smoke and cinders a moment later. Corruption eradicated, utterly and completely.`
         );
 
         this.outx(
@@ -813,11 +815,11 @@ export class LethiceScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\nWhen she’s finished, " +
-                this.flags[kFLAGS.LETHICE_NAME] +
-                " collapses to her knees, gasping, chest heaving against her comfortable clothes - she has long since abandoned the twisted habit of her demonic reign. You put a hand on her shoulder, expecting her to be almost ready to collapse as Marae was... but instead, she turns to you with a huge smile. " +
-                this.flags[kFLAGS.LETHICE_NAME] +
-                " throws her arms around you, laughing like a giddy child."
+            `\n\nWhen she’s finished, ${
+                this.flags[kFLAGS.LETHICE_NAME]
+            } collapses to her knees, gasping, chest heaving against her comfortable clothes - she has long since abandoned the twisted habit of her demonic reign. You put a hand on her shoulder, expecting her to be almost ready to collapse as Marae was... but instead, she turns to you with a huge smile. ${
+                this.flags[kFLAGS.LETHICE_NAME]
+            } throws her arms around you, laughing like a giddy child.`
         );
 
         this.outx(
@@ -931,9 +933,10 @@ export class LethiceScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\nAn explosion of sensation erupts through your [tongue], spreading as a tingling warmth all through your mouth, throat, and beyond. You’ve barely gotten your tongue out of your mouth before the alien feeling has spread through your entire body, infusing you with renewed lust above and beyond anything you’ve felt for the statuesque demoness. Like a " +
-                this.player.mf("man", "woman") +
-                " starving, you dig in with desperate abandon, munching that demonic rug with everything you have."
+            `\n\nAn explosion of sensation erupts through your [tongue], spreading as a tingling warmth all through your mouth, throat, and beyond. You’ve barely gotten your tongue out of your mouth before the alien feeling has spread through your entire body, infusing you with renewed lust above and beyond anything you’ve felt for the statuesque demoness. Like a ${this.player.mf(
+                "man",
+                "woman"
+            )} starving, you dig in with desperate abandon, munching that demonic rug with everything you have.`
         );
 
         this.outx(
@@ -1173,9 +1176,10 @@ export class LethiceScenes extends BaseContent {
             if (this.flags[kFLAGS.ZETAZ_DEFEATED_AND_KILLED] == 0) this.outx(" Zetaz");
             else this.outx(" the new Warden");
             this.outx(
-                "}’s fingers, I wonder? Tsk, more punishments to deal out, I suppose. Isn’t that right, " +
-                    this.player.mf("boy", "girl") +
-                    "?”</i>"
+                `}’s fingers, I wonder? Tsk, more punishments to deal out, I suppose. Isn’t that right, ${this.player.mf(
+                    "boy",
+                    "girl"
+                )}?”</i>`
             );
         }
 
@@ -1195,9 +1199,10 @@ export class LethiceScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou cock your head aside, confused. That’s not your name. You’re Champ. You’re Mistress’s favorite puppy-" +
-                this.player.mf("stud", "slut") +
-                "."
+            `\n\nYou cock your head aside, confused. That’s not your name. You’re Champ. You’re Mistress’s favorite puppy-${this.player.mf(
+                "stud",
+                "slut"
+            )}.`
         );
 
         this.outx(
@@ -1233,9 +1238,10 @@ export class LethiceScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\nMistress gives your leash a gentle tug, drawing your attention back. <i>“Poor thing. My precious Champ’s starting to get confused. I think we need to shut this pretty little bitch up, don’t we " +
-                this.player.mf("boy", "girl") +
-                "? Or better yet, make her scream.”</i>"
+            `\n\nMistress gives your leash a gentle tug, drawing your attention back. <i>“Poor thing. My precious Champ’s starting to get confused. I think we need to shut this pretty little bitch up, don’t we ${this.player.mf(
+                "boy",
+                "girl"
+            )}? Or better yet, make her scream.”</i>`
         );
 
         this.outx(
@@ -1271,9 +1277,10 @@ export class LethiceScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\n<i>“Good " +
-                this.player.mf("boy", "girl") +
-                ", Champ,”</i> your Mistress murmurs, and as you give a glance over your shoulder, you’re deeply, deeply pleased to see that one of her hands has slipped beneath her priestly garb to pleasure herself. She approves!"
+            `\n\n<i>“Good ${this.player.mf(
+                "boy",
+                "girl"
+            )}, Champ,”</i> your Mistress murmurs, and as you give a glance over your shoulder, you’re deeply, deeply pleased to see that one of her hands has slipped beneath her priestly garb to pleasure herself. She approves!`
         );
 
         this.outx(
@@ -1285,9 +1292,10 @@ export class LethiceScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\n<i>“That’s what I like to see, Champ,”</i> your mistress smiles, standing. You feel the leash around your neck tighten, gently encouraging you to get off of the ravaged woman. It takes a few minutes for your knot to deflate enough to let you slip out, letting loose a deluge of spunk that splatters down her rounded ass and onto the flagstone. You trot happily back to Mistress’s side, wagging your tail as your well-used doggy-dong starts to soften back into its sheath. <i>“Good " +
-                this.player.mf("boy", "girl") +
-                ". Very good... so good, in fact, I think I’ll keep this would-be heroine. Perhaps I’ll give her to your trainer first. All you poor Ingnam sluts should stick together after all... perhaps I’ll breed myself a whole little village of humans. Well, of </i>dogs<i>, more like.”</i>"
+            `\n\n<i>“That’s what I like to see, Champ,”</i> your mistress smiles, standing. You feel the leash around your neck tighten, gently encouraging you to get off of the ravaged woman. It takes a few minutes for your knot to deflate enough to let you slip out, letting loose a deluge of spunk that splatters down her rounded ass and onto the flagstone. You trot happily back to Mistress’s side, wagging your tail as your well-used doggy-dong starts to soften back into its sheath. <i>“Good ${this.player.mf(
+                "boy",
+                "girl"
+            )}. Very good... so good, in fact, I think I’ll keep this would-be heroine. Perhaps I’ll give her to your trainer first. All you poor Ingnam sluts should stick together after all... perhaps I’ll breed myself a whole little village of humans. Well, of </i>dogs<i>, more like.”</i>`
         );
 
         this.outx(
@@ -1389,46 +1397,58 @@ export class LethiceScenes extends BaseContent {
         this.clearOutput();
 
         this.outx(
-            "<b>Later...\n</b>Tales of the Champion’s return are rarely told, not in the open anyway. " +
-                this.player.mf("He", "She") +
-                " blew into town with all the subtlety of a cyclone, laying waste to the village’s elders and all who dared defend them. Every villager remembers that night, the night that their leadership was put to the torch - literally. Each of them was left to die inside his own burning mans, bathed in the scorching heat until naught remained but ashes and memories."
+            `<b>Later...\n</b>Tales of the Champion’s return are rarely told, not in the open anyway. ${this.player.mf(
+                "He",
+                "She"
+            )} blew into town with all the subtlety of a cyclone, laying waste to the village’s elders and all who dared defend them. Every villager remembers that night, the night that their leadership was put to the torch - literally. Each of them was left to die inside his own burning mans, bathed in the scorching heat until naught remained but ashes and memories.`
         );
         this.outx(
-            "\n\nAfter that night, there wasn’t a rebellious soul left alive to oppose to the Champion’s rule. " +
-                this.player.mf("He", "She") +
-                " became the defacto " +
-                this.player.mf("King", "Queen") +
-                " of the village, the breaker of the old ways and forger of the new."
+            `\n\nAfter that night, there wasn’t a rebellious soul left alive to oppose to the Champion’s rule. ${this.player.mf(
+                "He",
+                "She"
+            )} became the defacto ${this.player.mf(
+                "King",
+                "Queen"
+            )} of the village, the breaker of the old ways and forger of the new.`
         );
         if (this.player.cor <= 33)
             this.outx(
-                " Despite the fear and terror of " +
-                    this.player.mf("his", "her") +
-                    " arrival, " +
-                    this.player.mf("he", "she") +
-                    " proved a fair and wise monarch. The village soon became a town, and that town a city. Prosperity came to those who lived in the valley, guided by the strength of its unshakable ruler."
+                ` Despite the fear and terror of ${this.player.mf(
+                    "his",
+                    "her"
+                )} arrival, ${this.player.mf(
+                    "he",
+                    "she"
+                )} proved a fair and wise monarch. The village soon became a town, and that town a city. Prosperity came to those who lived in the valley, guided by the strength of its unshakable ruler.`
             );
         else if (this.player.cor <= 66)
             this.outx(
-                " Despite the fear and terror of " +
-                    this.player.mf("his", "her") +
-                    " arrival, " +
-                    this.player.mf("he", "she") +
-                    " proved a competent, if harsh monarch. The village’s prosperity was marred only by its limited liberties. Still, it was soon a town, and later a city. Most folk were willing to sacrifice their freedoms for the safety " +
-                    this.player.mf("he", "she") +
-                    " provided."
+                ` Despite the fear and terror of ${this.player.mf(
+                    "his",
+                    "her"
+                )} arrival, ${this.player.mf(
+                    "he",
+                    "she"
+                )} proved a competent, if harsh monarch. The village’s prosperity was marred only by its limited liberties. Still, it was soon a town, and later a city. Most folk were willing to sacrifice their freedoms for the safety ${this.player.mf(
+                    "he",
+                    "she"
+                )} provided.`
             );
         else
             this.outx(
-                " Despite the fear and terror of " +
-                    this.player.mf("his", "her") +
-                    " arrival, " +
-                    this.player.mf("he", "she") +
-                    " proved a capable monarch in spite of " +
-                    this.player.mf("his", "her") +
-                    " rapacious tastes. The villagers dared not protest when their once-Champion treated their sons and daughters as little more than slaves. They feared to question where the fruits " +
-                    this.player.mf("he", "she") +
-                    " provided came from, and why they felt so strange after eating them. Of course, these concerns did not stop them from breeding. Soon, nothing could. As the population of the valley swelled, the Champion amassed an army, one large enough to rival the nearby countries that had ignored it for so long."
+                ` Despite the fear and terror of ${this.player.mf(
+                    "his",
+                    "her"
+                )} arrival, ${this.player.mf(
+                    "he",
+                    "she"
+                )} proved a capable monarch in spite of ${this.player.mf(
+                    "his",
+                    "her"
+                )} rapacious tastes. The villagers dared not protest when their once-Champion treated their sons and daughters as little more than slaves. They feared to question where the fruits ${this.player.mf(
+                    "he",
+                    "she"
+                )} provided came from, and why they felt so strange after eating them. Of course, these concerns did not stop them from breeding. Soon, nothing could. As the population of the valley swelled, the Champion amassed an army, one large enough to rival the nearby countries that had ignored it for so long.`
             );
 
         this.saveExport();
@@ -1437,57 +1457,65 @@ export class LethiceScenes extends BaseContent {
     private goHomeJustice(): void {
         this.clearOutput();
         this.outx(
-            "<b>Later...</b>\nTales of the Champions arrival spread far and wide. None expected " +
-                this.player.mf("his", "her") +
-                " return, and yet " +
-                this.player.mf("he", "she") +
-                " arrived all the same, weapon in hand before the council chambers, demanding the corrupt old men who once lead to face justice for their betrayal. At " +
-                this.player.mf("his", "her") +
-                " feet were strange creatures, beings the Champion faced and defeated, brought to Ingnam’s world to testify to just how rotten the village’s core had become. Once they said their piece, " +
-                this.player.mf("he", "she")
+            `<b>Later...</b>\nTales of the Champions arrival spread far and wide. None expected ${this.player.mf(
+                "his",
+                "her"
+            )} return, and yet ${this.player.mf(
+                "he",
+                "she"
+            )} arrived all the same, weapon in hand before the council chambers, demanding the corrupt old men who once lead to face justice for their betrayal. At ${this.player.mf(
+                "his",
+                "her"
+            )} feet were strange creatures, beings the Champion faced and defeated, brought to Ingnam’s world to testify to just how rotten the village’s core had become. Once they said their piece, ${this.player.mf(
+                "he",
+                "she"
+            )}`
         );
         // 9999 check dis
         if (this.player.cor >= 50) this.outx(" put an end to their rank existence right there.");
         else
             this.outx(
-                " sent them through a glowing portal of " +
-                    this.player.mf("his", "her") +
-                    " own creation, never to be seen again."
+                ` sent them through a glowing portal of ${this.player.mf(
+                    "his",
+                    "her"
+                )} own creation, never to be seen again.`
             );
         this.outx(
             "\n\nElder Nomur protested hardest, but his treachery had been laid bare. Not even the most silver-tongued liar could stand against the living proof that the Champion offered."
         );
         if (this.player.cor < 50)
             this.outx(
-                " In " +
-                    this.player.mf("his", "her") +
-                    " wisdom, " +
-                    this.player.mf("he", "she") +
-                    " stopped the townsfolk from lynching their traitorous leaders right there. Instead, they were banished, forever expelled from the lands of Ingnam on pain of death."
+                ` In ${this.player.mf("his", "her")} wisdom, ${this.player.mf(
+                    "he",
+                    "she"
+                )} stopped the townsfolk from lynching their traitorous leaders right there. Instead, they were banished, forever expelled from the lands of Ingnam on pain of death.`
             );
         else
             this.outx(
-                " The townsfolk lynched their traitorous leaders right there and then under the watchful eyes of the Champion. " +
-                    this.player.mf("He", "She") +
-                    " nodded approvingly when they gave their last twitches, seemingly happy to let small-town justice run its course."
+                ` The townsfolk lynched their traitorous leaders right there and then under the watchful eyes of the Champion. ${this.player.mf(
+                    "He",
+                    "She"
+                )} nodded approvingly when they gave their last twitches, seemingly happy to let small-town justice run its course.`
             );
         this.outx(
-            "\n\nLife continued on. A new council was chosen, but it was Champion [name] that most people followed. " +
-                this.player.mf("He", "She") +
-                " had left on the cusp of adulthood and returned a grizzled"
+            `\n\nLife continued on. A new council was chosen, but it was Champion [name] that most people followed. ${this.player.mf(
+                "He",
+                "She"
+            )} had left on the cusp of adulthood and returned a grizzled`
         );
         // 9999 no idea what this is keyed off
         // {, vivacious}
         this.outx(" warrior. With a seemingly infallable champion there to defend it");
         if (this.getGame().camp.companionsCount() > 0)
-            this.outx(" to say nothing of " + this.player.mf("his", "her") + " bizarre friends");
+            this.outx(` to say nothing of ${this.player.mf("his", "her")} bizarre friends`);
         this.outx(
             ", Ingnam prospered. The tiny village soon grew into a bustling town, and later a city."
         );
         this.outx(
-            "\n\nWhen age finally claimed the unexpected " +
-                this.player.mf("hero", "heroine") +
-                ", a stone statue of immense proportions was erected so that future generations could forever live under the protection of their greatest hero."
+            `\n\nWhen age finally claimed the unexpected ${this.player.mf(
+                "hero",
+                "heroine"
+            )}, a stone statue of immense proportions was erected so that future generations could forever live under the protection of their greatest hero.`
         );
 
         this.saveExport();
@@ -1748,9 +1776,10 @@ export class LethiceScenes extends BaseContent {
                 " familiarize yourself with the place. Rather than driving off the few remaining demons you find, you place them into your service, explaining that so long as they serve you loyally they may yet live."
             );
             this.outx(
-                "\n\nWord gets out over the coming days about the new " +
-                    this.player.mf("King", "Queen") +
-                    " of the demons, and little by little, the masterless hordes find their way back."
+                `\n\nWord gets out over the coming days about the new ${this.player.mf(
+                    "King",
+                    "Queen"
+                )} of the demons, and little by little, the masterless hordes find their way back.`
             );
             if (this.flags[kFLAGS.LETHICE_KILLED] == 0)
                 this.outx(
@@ -1843,9 +1872,10 @@ export class LethiceScenes extends BaseContent {
                 "\n\nIn the short span of a few years, you achieve control over nearly all the peoples of Mareth. Tel’Adre, the sand witches, the giant bees of the forest: they all answer to you. Even the demons are bound to your yoke, though you have to make an example of them from time to time in order to maintain order. They try to tempt you, of course. Their sensuous lures and slow-burning corruption are a waste of effort, of course. You were already corrupted when you defeated Lethice. If you were going to fall into debauchery, you would have already."
             );
             this.outx(
-                "\n\nAge is your only problem, but your servants devise draughts to keep you young, treatments to keep your flesh as firm and vigorous as the day you stepped through the portal. <b>You rule Mareth as its ageless " +
-                    this.player.mf("King", "Queen") +
-                    ", a harsh monarch whose word is law and whose whims are made manifest.</b>"
+                `\n\nAge is your only problem, but your servants devise draughts to keep you young, treatments to keep your flesh as firm and vigorous as the day you stepped through the portal. <b>You rule Mareth as its ageless ${this.player.mf(
+                    "King",
+                    "Queen"
+                )}, a harsh monarch whose word is law and whose whims are made manifest.</b>`
             );
             this.outx("\n\nGAME OVER!");
 

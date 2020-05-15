@@ -43,11 +43,11 @@ export class Jojo extends Monster {
                 break;
             default:
                 this.outx(
-                    "Jojo frantically jerks his " +
-                        this.cockDescriptShort(0) +
-                        ", stroking the " +
-                        this.cockDescriptShort(0) +
-                        " as it leaks pre-cum at the sight of you.  "
+                    `Jojo frantically jerks his ${this.cockDescriptShort(
+                        0
+                    )}, stroking the ${this.cockDescriptShort(
+                        0
+                    )} as it leaks pre-cum at the sight of you.  `
                 );
                 this.lust += 15;
         }

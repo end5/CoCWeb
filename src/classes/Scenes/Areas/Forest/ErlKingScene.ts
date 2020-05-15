@@ -27,8 +27,8 @@ export class ErlKingScene extends BaseContent {
 
     public playerHuntScore(): number {
         trace("Calculating Wild Hunt score.");
-        trace("Int + Spd = " + String(this.player.inte + this.player.spe));
-        trace("Base = " + String(this.player.inte + this.player.spe - this.player.fatigue * 2));
+        trace(`Int + Spd = ${String(this.player.inte + this.player.spe)}`);
+        trace(`Base = ${String(this.player.inte + this.player.spe - this.player.fatigue * 2)}`);
         let baseVal: number = this.player.inte + this.player.spe - this.player.fatigue * 2;
 
         /*
@@ -94,19 +94,19 @@ export class ErlKingScene extends BaseContent {
         // Heavy penalty for prey features. The penalty is applied PER FEATURE.
         if (this.player.kitsuneScore() > 0) {
             baseVal -= this.player.kitsuneScore() * 20;
-            trace("-20 for each Kitsune part (-" + String(this.player.kitsuneScore() * 20) + ")");
+            trace(`-20 for each Kitsune part (-${String(this.player.kitsuneScore() * 20)})`);
         }
         if (this.player.bunnyScore() > 0) {
             baseVal -= this.player.bunnyScore() * 20;
-            trace("-20 for each Bunny part (-" + String(this.player.bunnyScore() * 20) + ")");
+            trace(`-20 for each Bunny part (-${String(this.player.bunnyScore() * 20)})`);
         }
         if (this.player.harpyScore() > 0) {
             baseVal -= this.player.harpyScore() * 20;
-            trace("-20 for each Harpy part (-" + String(this.player.harpyScore() * 20) + ")");
+            trace(`-20 for each Harpy part (-${String(this.player.harpyScore() * 20)})`);
         }
         if (this.player.gooScore() > 0) {
             baseVal -= this.player.gooScore() * 10;
-            trace("-10 for each Goo part (-" + String(this.player.gooScore() * 10) + ")");
+            trace(`-10 for each Goo part (-${String(this.player.gooScore() * 10)})`);
         }
 
         if (this.player.isTaur()) {
@@ -115,7 +115,7 @@ export class ErlKingScene extends BaseContent {
         }
 
         if (baseVal < 0) baseVal = 0;
-        trace("Wild Hunt Points = " + baseVal);
+        trace(`Wild Hunt Points = ${baseVal}`);
 
         return baseVal;
     }
@@ -490,7 +490,7 @@ export class ErlKingScene extends BaseContent {
         if (this.player.gems < gemLoss) gemLoss = this.player.gems;
         this.player.gems -= gemLoss;
 
-        this.outx("<b>You’ve lost " + gemLoss + " gems.</b>\n\n");
+        this.outx(`<b>You’ve lost ${gemLoss} gems.</b>\n\n`);
         this.inventory.takeItem(this.consumables.CANINEP, this.camp.returnToCampUseOneHour);
         this.dynStats("sen-", 2, "lib+", 2, "cor+", 1, "lus=", 0);
         this.fatigue(10);
@@ -566,7 +566,7 @@ export class ErlKingScene extends BaseContent {
         // [You gain: Gems + Fox berries / Canine Peppers / Neon Pink Egg ]
         const gemFind: number = 10 + ErlKingScene.rand(15);
 
-        this.outx("<b>You found " + gemFind + " gems.</b>\n\n");
+        this.outx(`<b>You found ${gemFind} gems.</b>\n\n`);
 
         const selector: number = ErlKingScene.rand(3);
 

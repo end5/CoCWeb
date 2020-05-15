@@ -51,11 +51,11 @@ export class BimboLiqueur extends Consumable {
             // (If vagina = 2tight:
             if (!this.game.player.hasVagina()) {
                 this.outx(
-                    "  Before you can even take a breath, an extremely peculiar sensation emanates from your crotch.  You can't see through your " +
-                        this.game.player.armorName +
-                        ", but you can certainly feel the vagina splitting " +
-                        (this.game.player.balls > 0 ? "from behind your testicles" : "your groin") +
-                        ".  Luckily, the cunt-forming doesn't yield any discomfort - on the contrary, you feel yourself falling farther into your chemically-dulled, libido-fueled rut."
+                    `  Before you can even take a breath, an extremely peculiar sensation emanates from your crotch.  You can't see through your ${
+                        this.game.player.armorName
+                    }, but you can certainly feel the vagina splitting ${
+                        this.game.player.balls > 0 ? "from behind your testicles" : "your groin"
+                    }.  Luckily, the cunt-forming doesn't yield any discomfort - on the contrary, you feel yourself falling farther into your chemically-dulled, libido-fueled rut.`
                 );
                 if (this.game.player.hipRating < 12 || this.game.player.buttRating < 12)
                     this.outx(
@@ -97,18 +97,14 @@ export class BimboLiqueur extends Consumable {
             );
             if (this.game.player.hairColor != "platinum blonde") {
                 this.outx(
-                    "The first change that you notice is to your " +
-                        this.game.player.hairDescript() +
-                        ".  It starts with a tingling in your scalp and intensifies "
+                    `The first change that you notice is to your ${this.game.player.hairDescript()}.  It starts with a tingling in your scalp and intensifies `
                 );
                 if (this.game.player.hairLength < 36) {
                     this.outx("as you feel the weight of your hair growing heavier and longer.");
                     this.game.player.hairLength = 36;
                 } else this.outx("as your hair grows thicker and heavier.");
                 this.outx(
-                    "  You grab a lock of the silken strands and watch open-mouthed while streaks so blonde they're almost white flow down the " +
-                        this.game.player.hairColor +
-                        " hair.  It goes faster and faster until your hair has changed into perfectly bimbo-blonde, flowing locks.\n\n"
+                    `  You grab a lock of the silken strands and watch open-mouthed while streaks so blonde they're almost white flow down the ${this.game.player.hairColor} hair.  It goes faster and faster until your hair has changed into perfectly bimbo-blonde, flowing locks.\n\n`
                 );
                 this.game.player.hairColor = "platinum blonde";
             }
@@ -122,15 +118,11 @@ export class BimboLiqueur extends Consumable {
                 this.game.player.vaginas[0].vaginalWetness = VAGINA_WETNESS_SLICK;
                 if (this.game.player.isTaur())
                     this.outx(
-                        "Wait!? Wet? You wish you could touch yourself between the " +
-                            this.game.player.legs() +
-                            ", but you can tell from the fluid running down your hind-legs just how soaked your new vagina is."
+                        `Wait!? Wet? You wish you could touch yourself between the ${this.game.player.legs()}, but you can tell from the fluid running down your hind-legs just how soaked your new vagina is.`
                     );
                 else
                     this.outx(
-                        "Wait!?  Wet?  You touch yourself between the " +
-                            this.game.player.legs() +
-                            " and groan when your fingers sink into a sloppy, wet cunt."
+                        `Wait!?  Wet?  You touch yourself between the ${this.game.player.legs()} and groan when your fingers sink into a sloppy, wet cunt.`
                     );
             } else {
                 if (this.game.player.isTaur()) {
@@ -173,38 +165,32 @@ export class BimboLiqueur extends Consumable {
                 "Another bubbly giggle bursts from your lips, which you then lick hungrily.  You, like, totally want some dick to suck!  Wow, that came out of left field.  You shake your head and try to clear the unexpected, like, words from your head but it's getting kind of hard.  Omigosh, you feel kind of like a dumb bimbo after, like, drinking that weird booze.  Oh, well, it doesn't matter anyhow – you can, like, still stop the demons and stuff.  You'll just have to show off your sexy bod until they're offering to serve you.\n\n"
             );
 
-            this.outx(
-                "You sigh and run one hand over your " + this.game.player.nippleDescript(0) + "s"
-            );
+            this.outx(`You sigh and run one hand over your ${this.game.player.nippleDescript(0)}s`);
             if (this.game.player.breastRows[0].breastRating < 10) {
                 this.game.player.breastRows[0].breastRating += 5 + Utils.rand(5);
                 this.outx(
-                    ", surprised at how large and rounded your expanding breasts have become while fresh tit-flesh continues to spill out around your needy fingers.  They feel so supple and soft, but when you let them go, they still sit fairly high and firm on your chest.  The newer, more generous, " +
-                        this.game.player.breastCup(0) +
-                        " cleavage has you moaning with how sensitive it is, pinching a nipple with one hand "
+                    `, surprised at how large and rounded your expanding breasts have become while fresh tit-flesh continues to spill out around your needy fingers.  They feel so supple and soft, but when you let them go, they still sit fairly high and firm on your chest.  The newer, more generous, ${this.game.player.breastCup(
+                        0
+                    )} cleavage has you moaning with how sensitive it is, pinching a nipple with one hand `
                 );
             } else {
                 this.game.player.breastRows[0].breastRating += 5 + Utils.rand(5);
                 this.outx(
-                    ", admiring how sensitive they're getting.  The big breasts start getting bigger and bigger, soft chest-flesh practically oozing out between your fingers as the squishy mammaries sprout like weeds, expanding well beyond any hand's ability to contain them.  The supple, " +
-                        this.game.player.breastCup(0) +
-                        " boobs still manage to sit high on your chest, almost gravity defying in their ability to generate cleavage.  You pinch a nipple with one hand "
+                    `, admiring how sensitive they're getting.  The big breasts start getting bigger and bigger, soft chest-flesh practically oozing out between your fingers as the squishy mammaries sprout like weeds, expanding well beyond any hand's ability to contain them.  The supple, ${this.game.player.breastCup(
+                        0
+                    )} boobs still manage to sit high on your chest, almost gravity defying in their ability to generate cleavage.  You pinch a nipple with one hand `
                 );
             }
             this.game.dynStats("sen", 20);
             this.outx(
-                "while the other toys with the juicy entrance of your folds.  Mmmm, it, like, feels too good not to touch yourself, and after being worried about getting all dumb and stuff, you need to relax.  Thinking is hard, but sex is so easy and, like, natural!  You lean back and start grunting as you plunge four fingers inside yourself, plowing your " +
-                    this.game.player.vaginaDescript(0) +
-                    " like no tomorrow.  By now, your " +
-                    this.game.player.clitDescript() +
-                    " is throbbing, and you give it an experimental "
+                `while the other toys with the juicy entrance of your folds.  Mmmm, it, like, feels too good not to touch yourself, and after being worried about getting all dumb and stuff, you need to relax.  Thinking is hard, but sex is so easy and, like, natural!  You lean back and start grunting as you plunge four fingers inside yourself, plowing your ${this.game.player.vaginaDescript(
+                    0
+                )} like no tomorrow.  By now, your ${this.game.player.clitDescript()} is throbbing, and you give it an experimental `
             );
             if (this.game.player.clitLength >= 3) this.outx("jerk ");
             else this.outx("caress ");
             this.outx(
-                "that makes your " +
-                    this.game.player.legs() +
-                    " give out as you cum, splattering female fluids as you convulse nervelessly on the ground.\n\n"
+                `that makes your ${this.game.player.legs()} give out as you cum, splattering female fluids as you convulse nervelessly on the ground.\n\n`
             );
 
             this.outx(

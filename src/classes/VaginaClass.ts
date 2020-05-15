@@ -47,18 +47,18 @@ export class VaginaClass {
             if (this.labiaPLong == "") error += "Labia pierced but labiaPLong = ''. ";
         } else {
             if (this.labiaPShort != "")
-                error += "Labia not pierced but labiaPShort = '" + this.labiaPShort + "'. ";
+                error += `Labia not pierced but labiaPShort = '${this.labiaPShort}'. `;
             if (this.labiaPLong != "")
-                error += "Labia not pierced but labiaPLong = '" + this.labiaPShort + "'. ";
+                error += `Labia not pierced but labiaPLong = '${this.labiaPShort}'. `;
         }
         if (this.clitPierced) {
             if (this.clitPShort == "") error += "Clit pierced but labiaPShort = ''. ";
             if (this.clitPLong == "") error += "Clit pierced but labiaPLong = ''. ";
         } else {
             if (this.clitPShort != "")
-                error += "Clit not pierced but labiaPShort = '" + this.labiaPShort + "'. ";
+                error += `Clit not pierced but labiaPShort = '${this.labiaPShort}'. `;
             if (this.clitPLong != "")
-                error += "Clit not pierced but labiaPLong = '" + this.labiaPShort + "'. ";
+                error += `Clit not pierced but labiaPLong = '${this.labiaPShort}'. `;
         }
         return error;
     }

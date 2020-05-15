@@ -71,9 +71,7 @@ export class Isabella extends Monster {
             } else {
                 damage = this.player.takeDamage(damage);
                 this.outx(
-                    "She's coming too fast to dodge, and you're forced to try to stop her.  It doesn't work.  Isabella's shield hits you hard enough to ring your ears and knock you onto your back with bruising force. (" +
-                        damage +
-                        ")\n",
+                    `She's coming too fast to dodge, and you're forced to try to stop her.  It doesn't work.  Isabella's shield hits you hard enough to ring your ears and knock you onto your back with bruising force. (${damage})\n`,
                     false
                 );
             }
@@ -131,9 +129,7 @@ export class Isabella extends Monster {
             } else {
                 damage = this.player.takeDamage(damage);
                 this.outx(
-                    "You try to avoid it, but her steely attack connects, rocking you back.  You stagger about while trying to get your bearings, but it's all you can do to stay on your feet.  <b>Isabella has stunned you!</b> (" +
-                        damage +
-                        ")\n",
+                    `You try to avoid it, but her steely attack connects, rocking you back.  You stagger about while trying to get your bearings, but it's all you can do to stay on your feet.  <b>Isabella has stunned you!</b> (${damage})\n`,
                     false
                 );
                 this.player.createStatusAffect(StatusAffects.IsabellaStunned, 0, 0, 0, 0);
@@ -187,9 +183,7 @@ export class Isabella extends Monster {
             } else {
                 damage = this.player.takeDamage(damage);
                 this.outx(
-                    "You try your best to stop the onrushing fist, but it hits you square in the throat, nearly collapsing your windpipe entirely.  Gasping and sputtering, you try to breathe, and while it's difficult, you manage enough to prevent suffocation. <b>It will be impossible to focus to cast a spell in this state!</b> (" +
-                        damage +
-                        ")\n",
+                    `You try your best to stop the onrushing fist, but it hits you square in the throat, nearly collapsing your windpipe entirely.  Gasping and sputtering, you try to breathe, and while it's difficult, you manage enough to prevent suffocation. <b>It will be impossible to focus to cast a spell in this state!</b> (${damage})\n`,
                     false
                 );
                 this.player.createStatusAffect(StatusAffects.ThroatPunch, 2, 0, 0, 0);

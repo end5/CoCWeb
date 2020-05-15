@@ -82,12 +82,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.checkedMarbleMilk = 0;
         this.pregnancy.pregnancyAdvance();
         trace(
-            "\nMarble time change: Time is " +
-                this.model.time.hours +
-                ", incubation: " +
-                this.pregnancy.incubation +
-                ", event: " +
-                this.pregnancy.event
+            `\nMarble time change: Time is ${this.model.time.hours}, incubation: ${this.pregnancy.incubation}, event: ${this.pregnancy.event}`
         );
         if (this.player.findStatusAffect(StatusAffects.CampMarble) >= 0) {
             // Marble stuff pt I
@@ -821,9 +816,10 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
         else
             this.outx(
-                "It isn't too hard to figure out that Marble isn't really trying, and you easily catch her off guard on one of her double backs.  She doesn't even notice you until you peek out from between the stalks next to her, reaching out and getting a handful of her backside.  \"<i>Clever " +
-                    this.player.mf("boy", "girl") +
-                    '...</i>" she says.'
+                `It isn't too hard to figure out that Marble isn't really trying, and you easily catch her off guard on one of her double backs.  She doesn't even notice you until you peek out from between the stalks next to her, reaching out and getting a handful of her backside.  "<i>Clever ${this.player.mf(
+                    "boy",
+                    "girl"
+                )}...</i>" she says.`
             );
         this.outx(
             "\n\nMarble pulls you to the ground, and you fall onto the lovely lady's lap.  Before you can say anything, Marble shushes you with a finger to your lips.  She pulls up her top, stopping for a moment and winking at you when she reveals underboob, then lets her nipples slip out."
@@ -975,11 +971,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // dicked players
         if (this.player.cocks.length > 0) {
             this.outx(
-                "Chuckling to yourself, you free your " +
-                    this.multiCockDescriptLight() +
-                    " from your " +
-                    this.player.armorName +
-                    ".  You spend a moment to ask the helpless cow-girl if she is ready, her only response being a whimper, before ",
+                `Chuckling to yourself, you free your ${this.multiCockDescriptLight()} from your ${
+                    this.player.armorName
+                }.  You spend a moment to ask the helpless cow-girl if she is ready, her only response being a whimper, before `,
                 false
             );
             // If player's main dick is less than 3 inches wide, ie would fit inside Marble
@@ -987,11 +981,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // how far in does the player go?
                 if (this.player.cocks[0].cockLength <= 8) {
                     this.outx(
-                        "forcing your " + this.cockDescript(0) + " in as far as it will go.  ",
+                        `forcing your ${this.cockDescript(0)} in as far as it will go.  `,
                         false
                     );
                 } else {
-                    this.outx("forcing your " + this.cockDescript(0) + " in to the hilt.  ", false);
+                    this.outx(`forcing your ${this.cockDescript(0)} in to the hilt.  `, false);
                 }
                 // the raping proper
                 this.outx(
@@ -1010,13 +1004,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // now if the player doesn't fit
             else {
                 this.outx(
-                    "attempting to push your " +
-                        this.cockDescript(0) +
-                        " inside her.  Of course, the girth of your " +
-                        this.cockDescript(0) +
-                        " makes this a rather difficult operation, and it becomes clear after a few moments that it just isn't going to fit.  Instead, you contend yourself by rubbing yourself between her ample ass cheeks, occasionally stroking your " +
-                        this.multiCockDescriptLight() +
-                        " in pride.\n\n",
+                    `attempting to push your ${this.cockDescript(
+                        0
+                    )} inside her.  Of course, the girth of your ${this.cockDescript(
+                        0
+                    )} makes this a rather difficult operation, and it becomes clear after a few moments that it just isn't going to fit.  Instead, you contend yourself by rubbing yourself between her ample ass cheeks, occasionally stroking your ${this.multiCockDescriptLight()} in pride.\n\n`,
                     false
                 );
                 // is the player corrupt enough to get the fantasy?
@@ -1036,9 +1028,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             this.outx(
-                "Keeping Marble in place, you get your " +
-                    this.vaginaDescript(0) +
-                    " ready to take in the other end of the dildo before doing so with gusto.  Much to Marble's discomfort, you manipulate the dildo in ways to heighten your own pleasure but give Marble a less enjoyable experience.  You ask her if she likes it, to which she responds with a whine and an attempt to move into a more comfortable position.  You tighten your grip on her, and she freezes again.\n\n",
+                `Keeping Marble in place, you get your ${this.vaginaDescript(
+                    0
+                )} ready to take in the other end of the dildo before doing so with gusto.  Much to Marble's discomfort, you manipulate the dildo in ways to heighten your own pleasure but give Marble a less enjoyable experience.  You ask her if she likes it, to which she responds with a whine and an attempt to move into a more comfortable position.  You tighten your grip on her, and she freezes again.\n\n`,
                 false
             );
             // is the player corrupt enough to get the fantasy?
@@ -2260,9 +2252,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // [if PC is not human, cow-girl/cowboi, dogmorph, or centaur]
                 else
                     this.outx(
-                        "  \"<i>It's very rare that we get a " +
-                            this.player.race() +
-                            ' here.  Are you from around these parts?</i>"'
+                        `  "<i>It's very rare that we get a ${this.player.race()} here.  Are you from around these parts?</i>"`
                     );
                 this.outx("\n\nYou sigh and think back for a moment before answering her.");
                 // [if PC is not human anymore]
@@ -2563,9 +2553,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.armorName == "servant's clothes"
             ) {
                 this.outx(
-                    "You smirk at her and demonstrate just how easy it is to get at your genitals while wearing this outfit.  But you decide to not disappoint her, making a show of removing your " +
-                        this.player.armorName +
-                        " and pretending to have some modestly when you show off your ",
+                    `You smirk at her and demonstrate just how easy it is to get at your genitals while wearing this outfit.  But you decide to not disappoint her, making a show of removing your ${this.player.armorName} and pretending to have some modestly when you show off your `,
                     false
                 );
                 // [player has at least one dick]
@@ -2584,11 +2572,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // (player is not wearing fetish gear)
             else {
                 this.outx(
-                    "You smile in return and begin removing your " +
-                        this.player.armorName +
-                        " from your body.  You start by slowly slipping off your top to reveal your " +
-                        this.allBreastsDescript() +
-                        ", ",
+                    `You smile in return and begin removing your ${
+                        this.player.armorName
+                    } from your body.  You start by slowly slipping off your top to reveal your ${this.allBreastsDescript()}, `,
                     false
                 );
                 // [player's breasts are at least B cup]
@@ -2638,9 +2624,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // (player is male)
         if (genders == 1) {
             this.outx(
-                "Marble leans back and invites you to come.  With a coy grin, you slowly crawl towards her, each movement bringing the two of you closer until you are on top of her body. She puts her hands around you and lies back completely.  You carefully line up your " +
-                    this.cockDescript(0) +
-                    " and thrust into her warm snatch.  ",
+                `Marble leans back and invites you to come.  With a coy grin, you slowly crawl towards her, each movement bringing the two of you closer until you are on top of her body. She puts her hands around you and lies back completely.  You carefully line up your ${this.cockDescript(
+                    0
+                )} and thrust into her warm snatch.  `,
                 false
             );
             // [player is less than 8 inches in length]
@@ -2669,20 +2655,20 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.cocks[0].cockLength < 8 && this.player.hasKnot(0))
                 this.outx(", and with a pop, your knot slips inside of her");
             this.outx(
-                ".  Deep within her, your " +
-                    this.cockDescript(0) +
-                    " explodes.  Within moments, Marble feels her orgasm too, her grip intensifying immensely.  You hear her give a sigh that sounds almost like a moo and her grip relents.  The two of you lay there panting, your " +
-                    this.cockDescript(0) +
-                    " still inside her.\n\n",
+                `.  Deep within her, your ${this.cockDescript(
+                    0
+                )} explodes.  Within moments, Marble feels her orgasm too, her grip intensifying immensely.  You hear her give a sigh that sounds almost like a moo and her grip relents.  The two of you lay there panting, your ${this.cockDescript(
+                    0
+                )} still inside her.\n\n`,
                 false
             );
         }
         // (player is female, I hope I did this right, I'm not familiar with the exact mechanics of female/female toys)
         else {
             this.outx(
-                "Marble grins at you and reaches into the drawers of the mini-dresser next to her bed, pulling out a long, double-ended dildo. She slips one half into her own hole and invites you over to her.  With a coy grin, you slowly crawl towards her, each movement bringing the two of you closer until you slip your " +
-                    this.vaginaDescript(0) +
-                    " onto the other end of the dildo.  Sighing, Marble lies down underneath you and begins to rock back and forth.  You bring your own ministrations to the mix in response. Soon, the two of you are panting and moaning against each other with the dildo sliding around between you.  Suddenly, she locks her arms around you tightly and ",
+                `Marble grins at you and reaches into the drawers of the mini-dresser next to her bed, pulling out a long, double-ended dildo. She slips one half into her own hole and invites you over to her.  With a coy grin, you slowly crawl towards her, each movement bringing the two of you closer until you slip your ${this.vaginaDescript(
+                    0
+                )} onto the other end of the dildo.  Sighing, Marble lies down underneath you and begins to rock back and forth.  You bring your own ministrations to the mix in response. Soon, the two of you are panting and moaning against each other with the dildo sliding around between you.  Suddenly, she locks her arms around you tightly and `,
                 false
             );
             // [player is between 4 and 5 feet in height]
@@ -2697,9 +2683,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // [player has at least one dick]
             if (this.player.totalCocks() > 0)
                 this.outx(
-                    ".  Your " +
-                        this.multiCockDescriptLight() +
-                        " erupts while clamped between your bodies",
+                    `.  Your ${this.multiCockDescriptLight()} erupts while clamped between your bodies`,
                     false
                 );
             this.outx(
@@ -2757,9 +2741,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // [player is not wearing fetish gear]
         else {
             this.outx(
-                "She moves first and pulls open your " +
-                    this.player.armorName +
-                    " to get a view of your equipment.  ",
+                `She moves first and pulls open your ${this.player.armorName} to get a view of your equipment.  `,
                 false
             );
         }
@@ -2771,11 +2753,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.horseCocks() + this.player.dogCocks() + this.player.normalCocks()
             ) {
                 this.outx(
-                    "Marble seems pleased at the sight of your " +
-                        this.multiCockDescriptLight() +
-                        " and she pushes you back onto her bed.  She removes her own skirt and stops for a moment at her tail.  Giggling slightly, she uses her ribbon-tied tail to brush at your " +
-                        this.multiCockDescriptLight() +
-                        " before climbing on top of you and slipping her legs to your sides.\n\n",
+                    `Marble seems pleased at the sight of your ${this.multiCockDescriptLight()} and she pushes you back onto her bed.  She removes her own skirt and stops for a moment at her tail.  Giggling slightly, she uses her ribbon-tied tail to brush at your ${this.multiCockDescriptLight()} before climbing on top of you and slipping her legs to your sides.\n\n`,
                     false
                 );
             }
@@ -2799,25 +2777,20 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // [player has more than one dick]
             if (this.player.cockTotal() > 1)
                 this.outx(
-                    '"<i>So, which one is your favorite?</i>"  Marble asks you while taking measure of your ' +
-                        this.multiCockDescriptLight() +
-                        ".  Before you have a chance to answer, Marble grabs a hold of your central " +
-                        this.cockDescript(0) +
-                        " and says \"<i>I'll bet it's this one.</i>\"  ",
+                    `"<i>So, which one is your favorite?</i>"  Marble asks you while taking measure of your ${this.multiCockDescriptLight()}.  Before you have a chance to answer, Marble grabs a hold of your central ${this.cockDescript(
+                        0
+                    )} and says "<i>I'll bet it's this one.</i>"  `,
                     false
                 );
             this.outx(
-                "Without much hesitation, Marble lifts herself up, and impales her moist lips upon your " +
-                    this.cockDescript(0) +
-                    ".  The two of you gasp as you sink into her interior.  You feel each inch slowly flow inside her until ",
+                `Without much hesitation, Marble lifts herself up, and impales her moist lips upon your ${this.cockDescript(
+                    0
+                )}.  The two of you gasp as you sink into her interior.  You feel each inch slowly flow inside her until `,
                 false
             );
             // [dick(0) is less than 8 inches long]
             if (this.player.cocks[0].cockLength < 8)
-                this.outx(
-                    "every bit of your " + this.cockDescript(0) + " is deep inside.  ",
-                    false
-                );
+                this.outx(`every bit of your ${this.cockDescript(0)} is deep inside.  `, false);
             // //[dick(0) is more than 8 inches long]
             else
                 this.outx("Marble bottoms out at eight inches and you can go no further.  ", false);
@@ -2835,30 +2808,22 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // [player has sizable breast, C or bigger]
             if (this.player.biggestTitSize() > 2) {
                 this.outx(
-                    "Marble runs her fingers along your " +
-                        this.vaginaDescript(0) +
-                        " for a moment before slipping a hand onto your " +
-                        this.biggestBreastSizeDescript() +
-                        '.  She smiles at you and says "<i>I think that maybe we should play up here. You did enjoy mine, so I think I\'ll enjoy yours.</i>"  She helps you slips off your garments and lies you down on her bed, quickly taking her place on top of you.  She sticks her tongue out before putting her mouth to one of your ' +
-                        this.nippleDescript(0) +
-                        "s and giving it a series of gentle licks.  Taking a moment to lick her lips, Marble starts to rub, caress and lick each of your " +
-                        this.allBreastsDescript() +
-                        " in turn with her hands and face, always gently and always lovingly.  Marble seems to be quite familiar with these techniques; she has probably practiced on herself many times before.\n\n",
+                    `Marble runs her fingers along your ${this.vaginaDescript(
+                        0
+                    )} for a moment before slipping a hand onto your ${this.biggestBreastSizeDescript()}.  She smiles at you and says "<i>I think that maybe we should play up here. You did enjoy mine, so I think I'll enjoy yours.</i>"  She helps you slips off your garments and lies you down on her bed, quickly taking her place on top of you.  She sticks her tongue out before putting her mouth to one of your ${this.nippleDescript(
+                        0
+                    )}s and giving it a series of gentle licks.  Taking a moment to lick her lips, Marble starts to rub, caress and lick each of your ${this.allBreastsDescript()} in turn with her hands and face, always gently and always lovingly.  Marble seems to be quite familiar with these techniques; she has probably practiced on herself many times before.\n\n`,
                     false
                 );
             }
             // [player has smaller then C breasts]
             else {
                 this.outx(
-                    "She teases your " +
-                        this.vaginaDescript(0) +
-                        " with her fingers for a moment before putting her hand on one of your " +
-                        this.biggestBreastSizeDescript() +
-                        ".  \"<i>I'm not sure what to do with teats this small, but I'll do my best. Though I feel kinda sorry for you, sweetie.</i>\"  You open your mouth to make an indignant response, but Marble puts a figure on your lips to shush you. She gives you an intense stare and tells you in no uncertain terms that since you enjoyed her breasts so much, it's only fair that she gets to experience your " +
-                        this.allBreastsDescript() +
-                        ".  She then sticks out her tongue at you before giving your " +
-                        this.nippleDescript(0) +
-                        " a lick and rub down, which she extends to the ",
+                    `She teases your ${this.vaginaDescript(
+                        0
+                    )} with her fingers for a moment before putting her hand on one of your ${this.biggestBreastSizeDescript()}.  "<i>I'm not sure what to do with teats this small, but I'll do my best. Though I feel kinda sorry for you, sweetie.</i>"  You open your mouth to make an indignant response, but Marble puts a figure on your lips to shush you. She gives you an intense stare and tells you in no uncertain terms that since you enjoyed her breasts so much, it's only fair that she gets to experience your ${this.allBreastsDescript()}.  She then sticks out her tongue at you before giving your ${this.nippleDescript(
+                        0
+                    )} a lick and rub down, which she extends to the `,
                     false
                 );
                 if (this.player.totalNipples() > 2) this.outx("other");
@@ -2869,22 +2834,22 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx("After finishing up");
             // [if player has more than two breasts]
             if (this.player.totalBreasts() > 2)
-                this.outx(" with each of your " + this.allBreastsDescript(), false);
-            else this.outx(" with each of your " + this.breastDescript(0), false);
+                this.outx(` with each of your ${this.allBreastsDescript()}`, false);
+            else this.outx(` with each of your ${this.breastDescript(0)}`, false);
             this.outx(
-                ', Marble looks up at you and sticks her tongue out again.  "<i>Now it\'s time for the main course!</i>" she whispers before lowering her head down to one of your ' +
-                    this.nippleDescript(0) +
-                    "s and closing her mouth around it. She soon begins to suckle your nipple.\n\n",
+                `, Marble looks up at you and sticks her tongue out again.  "<i>Now it's time for the main course!</i>" she whispers before lowering her head down to one of your ${this.nippleDescript(
+                    0
+                )}s and closing her mouth around it. She soon begins to suckle your nipple.\n\n`,
                 false
             );
             // [if player has nipplecunts]
             if (this.player.hasFuckableNipples()) {
                 this.outx(
-                    "As Marble's tongue rubs against your " +
-                        this.nippleDescript(0) +
-                        " it slips inside, much to her surprise.  She pulls back for a moment and gives you a confused look.  You tell her it isn't a problem; it only makes you happier. Understanding, Marble quickly resumes her efforts.  Her talented tongue fucks your " +
-                        this.nippleDescript(0) +
-                        " in earnest.",
+                    `As Marble's tongue rubs against your ${this.nippleDescript(
+                        0
+                    )} it slips inside, much to her surprise.  She pulls back for a moment and gives you a confused look.  You tell her it isn't a problem; it only makes you happier. Understanding, Marble quickly resumes her efforts.  Her talented tongue fucks your ${this.nippleDescript(
+                        0
+                    )} in earnest.`,
                     false
                 );
                 // [player is lactating]
@@ -2900,24 +2865,24 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // [player is neither lactating or has nipplecunts]
             if (this.player.biggestLactation() <= 1 && !this.player.hasFuckableNipples())
                 this.outx(
-                    "Of course, since you aren't lactating, nothing but your " +
-                        this.nippleDescript(0) +
-                        " reaches her lips.  Marble doesn't seem to be put off by this and still gives you a thoroughly enjoyable experience.",
+                    `Of course, since you aren't lactating, nothing but your ${this.nippleDescript(
+                        0
+                    )} reaches her lips.  Marble doesn't seem to be put off by this and still gives you a thoroughly enjoyable experience.`,
                     false
                 );
             this.outx("\n\n", false);
             this.outx(
-                "After a while, Marble pulls back from your " +
-                    this.nippleDescript(0) +
-                    ' and tells you, "<i>Sweetie, I know how annoying it is to only have one of your nipples serviced, so I will be sure to finish the job.</i>"  She dives right into your ',
+                `After a while, Marble pulls back from your ${this.nippleDescript(
+                    0
+                )} and tells you, "<i>Sweetie, I know how annoying it is to only have one of your nipples serviced, so I will be sure to finish the job.</i>"  She dives right into your `,
                 false
             );
             if (this.player.totalNipples() > 2) this.outx("next");
             else this.outx("other");
             this.outx(
-                " " +
-                    this.nippleDescript(0) +
-                    " and starts the experience all over again.  By the end, her efforts have successfully rung an orgasm from you. After cleaning up a bit, Marble sends you off in high spirits.",
+                ` ${this.nippleDescript(
+                    0
+                )} and starts the experience all over again.  By the end, her efforts have successfully rung an orgasm from you. After cleaning up a bit, Marble sends you off in high spirits.`,
                 false
             );
         }
@@ -2961,27 +2926,27 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // [player has at least one dick]
         if (this.player.totalCocks() > 0) {
             this.outx(
-                "The feeling of need is almost palpable within the two of you, and when the time comes, neither of you hesitate. You and Marble push yourselves together, forcing your " +
-                    this.cockDescript(0) +
-                    " deep into the soft folds of Marble's sex.  The two of you shudder and bask for a moment in the wonderful feeling of being connected, before gently starting to rock against one another.  Little else matters to you right now other than the warm, loving body that your arms are wrapped tightly around",
+                `The feeling of need is almost palpable within the two of you, and when the time comes, neither of you hesitate. You and Marble push yourselves together, forcing your ${this.cockDescript(
+                    0
+                )} deep into the soft folds of Marble's sex.  The two of you shudder and bask for a moment in the wonderful feeling of being connected, before gently starting to rock against one another.  Little else matters to you right now other than the warm, loving body that your arms are wrapped tightly around`,
                 false
             );
             // [player height is between 4 feet and 5 feet]
             if (this.player.tallness >= 48 && this.player.tallness <= 60)
                 this.outx(", the breasts your head is clamped between,");
             this.outx(
-                " and the warm folds where your " +
-                    this.cockDescript(0) +
-                    ' is embedded.  You can\'t help but think about how wonderful a person Marble is, and you bet that Marble feels the same way about you.  "<i>I love you sweetie.</i>" Marble says to you gently.  You assure her that you feel the same, and at the moment, nothing else matters.\n\n',
+                ` and the warm folds where your ${this.cockDescript(
+                    0
+                )} is embedded.  You can't help but think about how wonderful a person Marble is, and you bet that Marble feels the same way about you.  "<i>I love you sweetie.</i>" Marble says to you gently.  You assure her that you feel the same, and at the moment, nothing else matters.\n\n`,
                 false
             );
         }
         // [player only has a vagina]
         else if (this.player.vaginas.length > 0) {
             this.outx(
-                "The feeling of need is almost palpable within the two of you.  Marble giggles and reaches behind her to grab something.  She shows you a long double-ended dildo and explains it will connect the two of you.  She pushes one end of it into your " +
-                    this.vaginaDescript(0) +
-                    " and the other end into the folds of her own sex.  The two of you shudder and bask for a moment in the wonderful feeling of being connected, before gently starting to rock against one another.  Little else matters to you right now other than the warm, loving body that your arms are wrapped tightly around",
+                `The feeling of need is almost palpable within the two of you.  Marble giggles and reaches behind her to grab something.  She shows you a long double-ended dildo and explains it will connect the two of you.  She pushes one end of it into your ${this.vaginaDescript(
+                    0
+                )} and the other end into the folds of her own sex.  The two of you shudder and bask for a moment in the wonderful feeling of being connected, before gently starting to rock against one another.  Little else matters to you right now other than the warm, loving body that your arms are wrapped tightly around`,
                 false
             );
             // [player height is between 4 feet and 5 feet]
@@ -3051,8 +3016,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (isAddicted != -1) this.player.changeStatusValue(StatusAffects.Marble, 3, isAddicted);
 
-        trace("Marble Affection: " + this.player.statusAffectv1(StatusAffects.Marble));
-        trace("Marble Addiction: " + this.player.statusAffectv2(StatusAffects.Marble));
+        trace(`Marble Affection: ${this.player.statusAffectv1(StatusAffects.Marble)}`);
+        trace(`Marble Addiction: ${this.player.statusAffectv2(StatusAffects.Marble)}`);
     }
 
     private applyMarblesMilk(): void {
@@ -3243,18 +3208,20 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (select == 1) {
             if (this.flags[kFLAGS.MARBLE_KIDS] == 1 && this.flags[kFLAGS.MARBLE_BOYS] == 1) {
                 this.outx(
-                    'Your son immediately clops up to you and jumps into your arms.  "<i>' +
-                        this.player.mf("Daddy, daddy", "Mommy, mommy") +
-                        "!  Play with me!</i>\"  You laugh at the boy in your arms, so young and yet full of energy.  He proceeds to rope you into a grand adventure, where you play the parts of the one who searches for a hero to save their camp, and the monster that has to be stopped, and also the monster's hostage that needs to be saved, while she is the great bovine saviour that carries out this grand quest."
+                    `Your son immediately clops up to you and jumps into your arms.  "<i>${this.player.mf(
+                        "Daddy, daddy",
+                        "Mommy, mommy"
+                    )}!  Play with me!</i>"  You laugh at the boy in your arms, so young and yet full of energy.  He proceeds to rope you into a grand adventure, where you play the parts of the one who searches for a hero to save their camp, and the monster that has to be stopped, and also the monster's hostage that needs to be saved, while she is the great bovine saviour that carries out this grand quest.`
                 );
                 this.outx(
                     "\n\nThe game finally ends with the bovine saviour victorious over the horde of ravenous monsters  - somewhere along the line it was decided that hostages were no fun and single combat wasn't impressive enough, and you exhausted your theatrical skills to provide a bevy of satisfyingly scary faces and growls - and the people of the land (you) rejoicing.  You're left a bit tired afterwards, but you certainly don't regret having played with your child."
                 );
             } else {
                 this.outx(
-                    'Your daughter immediately clops up to you and jumps into your arms.  "<i>' +
-                        this.player.mf("Daddy, daddy", "Mommy, mommy") +
-                        "!  Play with me!</i>\"  You laugh at the girl in your arms, so young and yet full of energy.  She proceeds to rope you into a grand adventure, where you play the parts of the one who searches for a hero to save their camp, and the monster that has to be stopped, and also the monster's hostage that needs to be saved, while she is the great bovine saviour that carries out this grand quest."
+                    `Your daughter immediately clops up to you and jumps into your arms.  "<i>${this.player.mf(
+                        "Daddy, daddy",
+                        "Mommy, mommy"
+                    )}!  Play with me!</i>"  You laugh at the girl in your arms, so young and yet full of energy.  She proceeds to rope you into a grand adventure, where you play the parts of the one who searches for a hero to save their camp, and the monster that has to be stopped, and also the monster's hostage that needs to be saved, while she is the great bovine saviour that carries out this grand quest.`
                 );
                 this.outx(
                     "\n\nThe game finally ends with the bovine saviour victorious over the horde of ravenous monsters  - somewhere along the line it was decided that hostages were no fun and single combat wasn't impressive enough, and you exhausted your theatrical skills to provide a bevy of satisfyingly scary faces and growls - and the people of the land (you) rejoicing.  You're left a bit tired afterwards, but you certainly don't regret having played with your child."
@@ -3267,9 +3234,10 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // requires at least 2 kids
         if (select == 2) {
             this.outx(
-                'When you approach the nursery, the faces of your kids immediately light up and as one they cry out, "<i>' +
-                    this.player.mf("Dad", "Mom") +
-                    '!  Tell us a story!</i>"  They crowd around you, excited at the prospect of hearing of your adventures.  It would seem that, once again, the kids will be the ones that decide what will be happening in your time with them.'
+                `When you approach the nursery, the faces of your kids immediately light up and as one they cry out, "<i>${this.player.mf(
+                    "Dad",
+                    "Mom"
+                )}!  Tell us a story!</i>"  They crowd around you, excited at the prospect of hearing of your adventures.  It would seem that, once again, the kids will be the ones that decide what will be happening in your time with them.`
             );
             this.outx(
                 "\n\nYou launch into another tale of your exploits (that may or may not have actually happened to you) much to the enjoyment of your little ones.  They listen with rapt attention and smiles on their faces as you talk of your successes, worried looks when you sound like you might be in danger, and great cheers when you do make it out all right."
@@ -3343,7 +3311,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nWith a nod, you call your brood and announce that all of you will be gathering some important plants for Mommy Marble.  The kids swarm around you and just the walk to the edge of the forest is enough for you to notice how tiring it can be dealing with all of them."
             );
             this.outx(
-                '\n\n"<i>' + this.player.mf("Daddy", "Mommy") + '!  Is this it?  Is this it?</i>"'
+                `\n\n"<i>${this.player.mf("Daddy", "Mommy")}!  Is this it?  Is this it?</i>"`
             );
             this.outx(
                 "\n\nThey're certainly very energetic but have a tendency to simply grab things and ask you if they're the good ones rather than simply gathering what you instruct them to gather.  You swear one has picked out something that looks almost like a poisonous toadstool from your home, and yet another brought you a Whisker Fruit.  You gently collect them and send the kids back out, then quietly dispose of all the hazardous items.  This continues for a while, but eventually your basket is full."
@@ -3363,9 +3331,10 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     '\n\nYou know Marble\'s "<i>spices</i>" by heart and are well aware of what here can also be used as these.  Gathering them all with your children, you return to camp well-stuffed with them.'
                 );
             this.outx(
-                "\n\nYour kids are just a little bit tired from all the work and it doesn't seem they'll pester Marble much more today.  One of them even grabs you, complaining, \"<i>" +
-                    this.player.mf("Daddy", "Mommy") +
-                    ", I'm sleepy!</i>\"  You pat her head and smile, telling her that you'll be home soon enough."
+                `\n\nYour kids are just a little bit tired from all the work and it doesn't seem they'll pester Marble much more today.  One of them even grabs you, complaining, "<i>${this.player.mf(
+                    "Daddy",
+                    "Mommy"
+                )}, I'm sleepy!</i>"  You pat her head and smile, telling her that you'll be home soon enough.`
             );
             this.outx(
                 "\n\nApproaching the camp, Marble is already waiting for you and seems a lot more relaxed and rested.  Taking the baskets with the herbs from you, she beams you a beautiful smile, then "
@@ -3859,9 +3828,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(41);
         if (this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
             this.outx(
-                "  You call Marble over and ask her if she can give you some release.  She smiles at you and gently grips your " +
-                    this.cockDescript(0) +
-                    " in one of her hands before recoiling in horror.  \"<i>Uh, why don't you take care of that problem of yours in your cock first, sweetie?  Then I'll help you get release.</i>\"  It looks like Marble isn't willing to help you get release while you have worms infecting your cock."
+                `  You call Marble over and ask her if she can give you some release.  She smiles at you and gently grips your ${this.cockDescript(
+                    0
+                )} in one of her hands before recoiling in horror.  "<i>Uh, why don't you take care of that problem of yours in your cock first, sweetie?  Then I'll help you get release.</i>"  It looks like Marble isn't willing to help you get release while you have worms infecting your cock.`
             );
             return;
         }
@@ -3907,9 +3876,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                         "  You do need to bend over in order to access her breast as well as allow her access to your groin, but while slightly uncomfortable, your plan is worth the effort."
                     );
                 this.outx(
-                    "\n\nAt the same time, Marble's right hand is slowly moving down your abdomen, lingering a bit just over your [hips], as she awaits your 'answer'.  Gently, you grab Marble's breast with both hands and slowly guide the " +
-                        this.marbleNip() +
-                        " to your thirsty lips."
+                    `\n\nAt the same time, Marble's right hand is slowly moving down your abdomen, lingering a bit just over your [hips], as she awaits your 'answer'.  Gently, you grab Marble's breast with both hands and slowly guide the ${this.marbleNip()} to your thirsty lips.`
                 );
                 this.outx('\n\n"<i>Drink, sweetie,</i>" Marble says, "<i>Drink of me.</i>"');
                 this.outx(
@@ -3918,14 +3885,10 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // ( [Male/Herm]
                 if (this.player.hasCock()) {
                     this.outx(
-                        "She chuckles as her hand reaches your " +
-                            this.multiCockDescriptLight() +
-                            '.  "<i>You seem quite ready and eager for something, sweetie.</i>"'
+                        `She chuckles as her hand reaches your ${this.multiCockDescriptLight()}.  "<i>You seem quite ready and eager for something, sweetie.</i>"`
                     );
                 } else {
-                    this.outx(
-                        "She chuckles as her hand reaches your " + this.vaginaDescript(0) + ".  "
-                    );
+                    this.outx(`She chuckles as her hand reaches your ${this.vaginaDescript(0)}.  `);
                     // [Vaginal wetness 0-1]
                     if (this.player.wetness() < 2)
                         this.outx(
@@ -3954,20 +3917,18 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // [Male/herm]
                 if (this.player.hasCock()) {
                     this.outx(
-                        "\n\nHer hand continues stroking your " +
-                            this.cockDescript(0) +
-                            ", very gently at first, but once you intensify your suckling, she gasps slightly and gives your member an appreciative squeeze, increasing the intensity.  You buck your hips slightly but she just strokes your " +
-                            this.hairDescript() +
-                            " as if to calm you down."
+                        `\n\nHer hand continues stroking your ${this.cockDescript(
+                            0
+                        )}, very gently at first, but once you intensify your suckling, she gasps slightly and gives your member an appreciative squeeze, increasing the intensity.  You buck your hips slightly but she just strokes your ${this.hairDescript()} as if to calm you down.`
                     );
                     this.outx(
                         "\n\n\"<i>It doesn't hurt, right?  I want to make you feel good, sweetie...  If you keep sucking me, I'll make you feel very, very good.</i>\""
                     );
 
                     this.outx(
-                        "\n\nYou gently moan into her breast in response, causing her to giggle as she plays with the tip of your " +
-                            this.cockDescript(0) +
-                            ".  She returns to the pumping motion and increases the pace just as you decide you need something to grab onto - and the most pleasant things at hand are her breasts.  Marble gasps in surprise and moans as you rub her breasts while suckling, and starts jerking you off even faster in response."
+                        `\n\nYou gently moan into her breast in response, causing her to giggle as she plays with the tip of your ${this.cockDescript(
+                            0
+                        )}.  She returns to the pumping motion and increases the pace just as you decide you need something to grab onto - and the most pleasant things at hand are her breasts.  Marble gasps in surprise and moans as you rub her breasts while suckling, and starts jerking you off even faster in response.`
                     );
                     // ( [Female Marble]
                     if (this.flags[kFLAGS.MARBLE_DICK_LENGTH] == 0)
@@ -3981,23 +3942,17 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     // [If balls] : A
                     if (this.player.balls > 0)
                         this.outx(
-                            "  As her hand reaches the base of your cock, she stops stroking it to take a moment and gently roll your " +
-                                this.ballsDescriptLight() +
-                                ' with her fingers.  "<i>Are these ready to shoot out for me soon, sweetie?</i>"'
+                            `  As her hand reaches the base of your cock, she stops stroking it to take a moment and gently roll your ${this.ballsDescriptLight()} with her fingers.  "<i>Are these ready to shoot out for me soon, sweetie?</i>"`
                         );
                     // ([If pussy] :
                     if (this.player.hasVagina())
                         this.outx(
-                            "  From the base of your cock, her hand moves even lower, gently rubbing your " +
-                                this.clitDescript() +
-                                '.  "<i>This seems to also require some attention...  Maybe later, sweetie, if you do a good job nursing from me.  But right now, I want to see you shoot off,</i>" she says, as her hand moves back to your ' +
-                                this.multiCockDescriptLight() +
-                                "."
+                            `  From the base of your cock, her hand moves even lower, gently rubbing your ${this.clitDescript()}.  "<i>This seems to also require some attention...  Maybe later, sweetie, if you do a good job nursing from me.  But right now, I want to see you shoot off,</i>" she says, as her hand moves back to your ${this.multiCockDescriptLight()}.`
                         );
                     this.outx(
-                        "\n\nShe starts tugging at and stroking your " +
-                            this.cockDescript(0) +
-                            ", eager to make you cum now.  You buck your hips again and she responds more agressively this time, pushing you back down with her breasts as her touch starts to become unbearable.  \"<i>You're close, aren't you, sweetie?  It's okay, I want to see you cum.</i>\""
+                        `\n\nShe starts tugging at and stroking your ${this.cockDescript(
+                            0
+                        )}, eager to make you cum now.  You buck your hips again and she responds more agressively this time, pushing you back down with her breasts as her touch starts to become unbearable.  "<i>You're close, aren't you, sweetie?  It's okay, I want to see you cum.</i>"`
                     );
                     this.outx(
                         "\n\nWith that said, her stroking becomes unrelenting and you decide to simply give in to the pleasure.  The repeated feeling of her hand moving up and down your shaft, teasing the head and stimulating all along the length, has you shivering, and soon you feel a tingling at the base of your spine.  Her milk flows richly into your mouth, and the comforting taste relaxes you completely and makes it impossible not to give in to the pleasure."
@@ -4029,19 +3984,15 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // [Female]
                 else {
                     this.outx(
-                        "\n\nHer hand moves onto your pleasure button, starting to gently rub your [clit] as her milk flows into your mouth.  When you intensify your suckling, she gasps slightly and slides a finger into your " +
-                            this.vaginaDescript(0) +
-                            ", pumping it in and out as her palm has its way with your [clit].  You buck your hips slightly but she just strokes your " +
-                            this.hairDescript() +
-                            " as if to calm you down."
+                        `\n\nHer hand moves onto your pleasure button, starting to gently rub your [clit] as her milk flows into your mouth.  When you intensify your suckling, she gasps slightly and slides a finger into your ${this.vaginaDescript(
+                            0
+                        )}, pumping it in and out as her palm has its way with your [clit].  You buck your hips slightly but she just strokes your ${this.hairDescript()} as if to calm you down.`
                     );
                     this.outx(
                         "\n\n\"<i>That feels good, doesn't it, sweetie?  You should suck my breasts some more, I'd really appreciate that.</i>\""
                     );
                     this.outx(
-                        "\n\nYou gently moan into her nipple in response, causing her to giggle as she plays with the tip your " +
-                            this.clitDescript() +
-                            "."
+                        `\n\nYou gently moan into her nipple in response, causing her to giggle as she plays with the tip your ${this.clitDescript()}.`
                     );
                     // ([Normal clit]
                     if (this.player.clitLength < 3)
@@ -4066,9 +4017,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                         );
 
                     this.outx(
-                        "\n\nYou're at the edge already, and the fingering of your " +
-                            this.vaginaDescript(0) +
-                            " as well as the rubbing motion against your [clit] soon send you over it.  Thrashing in Marble's embrace, you release your feminine juices all over her hand."
+                        `\n\nYou're at the edge already, and the fingering of your ${this.vaginaDescript(
+                            0
+                        )} as well as the rubbing motion against your [clit] soon send you over it.  Thrashing in Marble's embrace, you release your feminine juices all over her hand.`
                     );
                     if (this.player.wetness() >= 4)
                         this.outx(
@@ -4103,9 +4054,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     'You walk up to your big-breasted lover, a feverish look in your eyes.  "<i>Hmm... looks like you need to release some tension, don\'t you sweetie?</i>"  You nod in approbation, '
                 );
                 if (this.player.hasCock())
-                    this.outx("a tent growing in your " + this.player.armorName);
+                    this.outx(`a tent growing in your ${this.player.armorName}`);
                 else if (this.player.hasVagina())
-                    this.outx("a moistness growing under your " + this.player.armorName);
+                    this.outx(`a moistness growing under your ${this.player.armorName}`);
                 this.outx(
                     " as you keep staring at her tender eyes; you instinctively know she's going to handle your junk with care."
                 );
@@ -4115,7 +4066,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 if (this.player.hasCock()) {
                     this.outx("[eachCock] throbs");
                 } else {
-                    this.outx("your " + this.clitDescript() + " quivers in arousal");
+                    this.outx(`your ${this.clitDescript()} quivers in arousal`);
                 }
                 this.outx(".\n\n");
                 this.outx(
@@ -4126,9 +4077,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 );
                 if (this.player.hasVagina() && !this.player.hasCock())
                     this.outx(
-                        "probing her tongue in your " +
-                            this.vaginaDescript(0) +
-                            ", licking you in the most appropriate places"
+                        `probing her tongue in your ${this.vaginaDescript(
+                            0
+                        )}, licking you in the most appropriate places`
                     );
                 else
                     this.outx(
@@ -4165,20 +4116,18 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 );
                 // [if cock]
                 if (this.player.hasCock()) {
-                    this.outx("  Her lips tightly enclose your " + this.cockDescript(0));
+                    this.outx(`  Her lips tightly enclose your ${this.cockDescript(0)}`);
                     if (this.player.cockTotal() > 1) this.outx(" while she strokes another");
                     this.outx(
-                        ", acting as an organic cock-ring.  She looks up to you as you watch her lips undulating under the repeated pulsations of your spooge-pumping " +
-                            this.cockDescript(0) +
-                            ".  These cocksuckers are teasing you in the most infuriating way, and you savagely shove more of your prick down her throat, stretching her jaw and making her moan in delight, although her cries of pleasure are muffled by the pecker stuffing her mouth."
+                        `, acting as an organic cock-ring.  She looks up to you as you watch her lips undulating under the repeated pulsations of your spooge-pumping ${this.cockDescript(
+                            0
+                        )}.  These cocksuckers are teasing you in the most infuriating way, and you savagely shove more of your prick down her throat, stretching her jaw and making her moan in delight, although her cries of pleasure are muffled by the pecker stuffing her mouth.`
                     );
                 }
                 // [if vagina]
                 else
                     this.outx(
-                        "  Her flexible, yet firm tongue really feels like a dong and it keeps provoking you with its prolonged digging. With a mighty thrust, you shove her against your " +
-                            this.vaginaDescript() +
-                            ", forcing the entirety of her oral muscle inside."
+                        `  Her flexible, yet firm tongue really feels like a dong and it keeps provoking you with its prolonged digging. With a mighty thrust, you shove her against your ${this.vaginaDescript()}, forcing the entirety of her oral muscle inside.`
                     );
 
                 this.outx(
@@ -4196,9 +4145,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     // [if high cum production]
                     if (this.player.cumQ() >= 500)
                         this.outx(
-                            "  Your " +
-                                this.cockDescript(0) +
-                                " keeps spouting more seed inside her, efficiently distending her belly"
+                            `  Your ${this.cockDescript(
+                                0
+                            )} keeps spouting more seed inside her, efficiently distending her belly`
                         );
                     // [if cum production is massive]until she looks ready to give birth.[/]
                     if (this.player.cumQ() > 1500)
@@ -4210,9 +4159,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // [if vagina]
                 else
                     this.outx(
-                        "\n\nYour " +
-                            this.vaginaDescript(0) +
-                            " quivers and vibrates before releasing a vigorous discharge of fem-spunk, splattering Marble's lips and mouth; she drinks all your juices with an insatiable cum-thirst.  Her tongue explores your insides as if to make sure there's no girlcum left to absorb."
+                        `\n\nYour ${this.vaginaDescript(
+                            0
+                        )} quivers and vibrates before releasing a vigorous discharge of fem-spunk, splattering Marble's lips and mouth; she drinks all your juices with an insatiable cum-thirst.  Her tongue explores your insides as if to make sure there's no girlcum left to absorb.`
                     );
 
                 this.outx(
@@ -4257,13 +4206,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // Marble titfucks the players upper body, two variations, boobs and no
                 if (this.player.biggestTitSize() > 3) {
                     this.outx(
-                        "pressing them against your own " +
-                            this.biggestBreastSizeDescript() +
-                            ".  She giggles slightly as she puts one of them between her mounds and rubs them up and down around it, teasing your " +
-                            this.nippleDescript(0) +
-                            " with her own " +
-                            this.marbleNips() +
-                            ", a trickle of milk leaking out onto your locked chests.",
+                        `pressing them against your own ${this.biggestBreastSizeDescript()}.  She giggles slightly as she puts one of them between her mounds and rubs them up and down around it, teasing your ${this.nippleDescript(
+                            0
+                        )} with her own ${this.marbleNips()}, a trickle of milk leaking out onto your locked chests.`,
                         false
                     );
                 } else {
@@ -4275,19 +4220,17 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // If Player has at least one dick, Marble titfucks that
                 if (this.player.cocks.length > 0) {
                     this.outx(
-                        "\n\nShe moves down to your crotch and slips your " +
-                            this.cockDescript(0) +
-                            ' between her breasts.  She smiles at you and says, "<i>This is what you were hoping for, right?</i>" before squeezing them together tightly and pushing your ' +
-                            this.cockDescript(0) +
-                            " in and out.  You sigh in pleasure and smile down at Marble as she pumps you between her breasts.  But it seems Marble is unsatisfied with only that; she quickens her pace and starts moving each of her breasts up and down opposite each other.",
+                        `\n\nShe moves down to your crotch and slips your ${this.cockDescript(
+                            0
+                        )} between her breasts.  She smiles at you and says, "<i>This is what you were hoping for, right?</i>" before squeezing them together tightly and pushing your ${this.cockDescript(
+                            0
+                        )} in and out.  You sigh in pleasure and smile down at Marble as she pumps you between her breasts.  But it seems Marble is unsatisfied with only that; she quickens her pace and starts moving each of her breasts up and down opposite each other.`,
                         false
                     );
                     // Multiple dick side note
                     if (this.player.cocks.length > 1) {
                         this.outx(
-                            "  Yet still unsatisfied, Marble engulfs and rub the rest of your " +
-                                this.multiCockDescriptLight() +
-                                " within her ample mounds.  ",
+                            `  Yet still unsatisfied, Marble engulfs and rub the rest of your ${this.multiCockDescriptLight()} within her ample mounds.  `,
                             false
                         );
                     }
@@ -4295,28 +4238,24 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // If Player has a vagina, Marble titfucks that
                 if (this.player.vaginas.length > 0) {
                     this.outx(
-                        "\n\nShe slides down your body to rub and caress your " +
-                            this.vaginaDescript(0) +
-                            " with her breasts, sometimes pushing one of her " +
-                            this.marbleNips() +
-                            " inside your " +
-                            this.vaginaDescript(0) +
-                            " and pulling a small gasp from you.  ",
+                        `\n\nShe slides down your body to rub and caress your ${this.vaginaDescript(
+                            0
+                        )} with her breasts, sometimes pushing one of her ${this.marbleNips()} inside your ${this.vaginaDescript(
+                            0
+                        )} and pulling a small gasp from you.  `,
                         false
                     );
                     // If clit is too small to be titfucked...
                     if (this.player.clitLength < 2) {
                         this.outx(
-                            "  Marble runs down each of your legs once with her breasts before unexpectedly plunging two of her fingers inside your " +
-                                this.vaginaDescript(0) +
-                                ".",
+                            `  Marble runs down each of your legs once with her breasts before unexpectedly plunging two of her fingers inside your ${this.vaginaDescript(
+                                0
+                            )}.`,
                             false
                         );
                     } else {
                         this.outx(
-                            "  Marble then pulls your " +
-                                this.clitDescript() +
-                                " between her breasts and does her best to pump and stimulate it as though it were a cock.",
+                            `  Marble then pulls your ${this.clitDescript()} between her breasts and does her best to pump and stimulate it as though it were a cock.`,
                             false
                         );
                     }
@@ -4324,9 +4263,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // If Player is genderless, Marble improvises
                 if (this.player.gender == 0) {
                     this.outx(
-                        "  She then says, \"<i>I think I've found a way to make you cum, sweetie,</i>\" with a sly expression.  She moves down from your upper body and starts rubbing and caressing your lower body too. It is extremely arousing, but it doesn't seem to be enough to push you over the edge.  Marble stands up, kisses you and rubs a single finger against the smooth skin of your groin.  You are so close to going over the edge.  Then one of her fingers pushes up against your " +
-                            this.assholeDescript() +
-                            ", causing you to go rigid from the new stimulation.",
+                        `  She then says, "<i>I think I've found a way to make you cum, sweetie,</i>" with a sly expression.  She moves down from your upper body and starts rubbing and caressing your lower body too. It is extremely arousing, but it doesn't seem to be enough to push you over the edge.  Marble stands up, kisses you and rubs a single finger against the smooth skin of your groin.  You are so close to going over the edge.  Then one of her fingers pushes up against your ${this.assholeDescript()}, causing you to go rigid from the new stimulation.`,
                         false
                     );
                 }
@@ -4415,11 +4352,12 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outx(
                     "  Quietly, you reach down and hook your fingers into the hem of her clothing, allowing her to pull it half off with her next shift and expose her pussy"
                 );
-            if (this.flags[kFLAGS.MARBLE_DICK_LENGTH] > 0) this.outx(" and " + this.marbleCock());
+            if (this.flags[kFLAGS.MARBLE_DICK_LENGTH] > 0) this.outx(` and ${this.marbleCock()}`);
             this.outx(
-                '.  "<i>Why, you shameless ' +
-                    this.player.mf("pervert", "hussy") +
-                    '!</i>" the cow-girl says in mock-offense, winking at you.'
+                `.  "<i>Why, you shameless ${this.player.mf(
+                    "pervert",
+                    "hussy"
+                )}!</i>" the cow-girl says in mock-offense, winking at you.`
             );
 
             this.outx(
@@ -4455,9 +4393,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     );
             } else {
                 this.outx(
-                    "\n\nWhen she reaches where your genitals would be - if you had any - you're panting with pleasure.  Marble gives you a smile and whispers, \"<i>Don't worry sweetie, I know just how to make you cum.</i>\"  She then hugs your body tightly, reaching her arms around and squeezing and slapping your [butt], while slipping a finger into your " +
-                        this.assholeDescript() +
-                        ".  You gasp at the surprise, but are soon panting even harder.  The fact that she is still rubbing her breasts on your abdomen even as she teases you helps even more, and you can't help but coil your lower body around Marble, rubbing every part of it on her.  In moments, you cry out in bliss as your unusual anal orgasm washes over you."
+                    `\n\nWhen she reaches where your genitals would be - if you had any - you're panting with pleasure.  Marble gives you a smile and whispers, "<i>Don't worry sweetie, I know just how to make you cum.</i>"  She then hugs your body tightly, reaching her arms around and squeezing and slapping your [butt], while slipping a finger into your ${this.assholeDescript()}.  You gasp at the surprise, but are soon panting even harder.  The fact that she is still rubbing her breasts on your abdomen even as she teases you helps even more, and you can't help but coil your lower body around Marble, rubbing every part of it on her.  In moments, you cry out in bliss as your unusual anal orgasm washes over you.`
                 );
             }
             this.outx(
@@ -4580,11 +4516,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // dicked players
             if (this.player.cocks.length > 0) {
                 this.outx(
-                    "Chuckling to yourself, you free your " +
-                        this.multiCockDescriptLight() +
-                        " from your " +
-                        this.player.armorName +
-                        ".  You spend a moment to ask the helpless cow-girl if she is ready, her only response being a whimper, before ",
+                    `Chuckling to yourself, you free your ${this.multiCockDescriptLight()} from your ${
+                        this.player.armorName
+                    }.  You spend a moment to ask the helpless cow-girl if she is ready, her only response being a whimper, before `,
                     false
                 );
                 // If player's main dick is less than 3 inches wide, ie would fit inside Marble
@@ -4592,14 +4526,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     // how far in does the player go?
                     if (this.player.cocks[0].cockLength <= 8) {
                         this.outx(
-                            "forcing your " + this.cockDescript(0) + " in as far as it will go.  ",
+                            `forcing your ${this.cockDescript(0)} in as far as it will go.  `,
                             false
                         );
                     } else {
-                        this.outx(
-                            "forcing your " + this.cockDescript(0) + " in to the hilt.  ",
-                            false
-                        );
+                        this.outx(`forcing your ${this.cockDescript(0)} in to the hilt.  `, false);
                     }
                     // the raping proper
                     this.outx(
@@ -4618,13 +4549,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // now if the player doesn't fit
                 else {
                     this.outx(
-                        "attempting to push your " +
-                            this.cockDescript(0) +
-                            " inside her.  Of course, the girth of your " +
-                            this.cockDescript(0) +
-                            " makes this a rather difficult operation, and it becomes clear after a few moments that it just isn't going to fit.  Instead, you contend yourself by rubbing yourself between her ample ass cheeks, occasionally stroking your " +
-                            this.multiCockDescriptLight() +
-                            " in pride.\n\n",
+                        `attempting to push your ${this.cockDescript(
+                            0
+                        )} inside her.  Of course, the girth of your ${this.cockDescript(
+                            0
+                        )} makes this a rather difficult operation, and it becomes clear after a few moments that it just isn't going to fit.  Instead, you contend yourself by rubbing yourself between her ample ass cheeks, occasionally stroking your ${this.multiCockDescriptLight()} in pride.\n\n`,
                         false
                     );
                     // is the player corrupt enough to get the fantasy?
@@ -4644,9 +4573,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
                 this.outx(
-                    "Keeping Marble in place, you get your " +
-                        this.vaginaDescript(0) +
-                        " ready to take in the other end of the dildo before doing so with gusto.  Much to Marble's discomfort, you manipulate the dildo in ways to heighten your own pleasure but give Marble a less enjoyable experience.  You ask her if she likes it, to which she responds with a whine and an attempt to move into a more comfortable position.  You tighten your grip on her, and she freezes again.\n\n",
+                    `Keeping Marble in place, you get your ${this.vaginaDescript(
+                        0
+                    )} ready to take in the other end of the dildo before doing so with gusto.  Much to Marble's discomfort, you manipulate the dildo in ways to heighten your own pleasure but give Marble a less enjoyable experience.  You ask her if she likes it, to which she responds with a whine and an attempt to move into a more comfortable position.  You tighten your grip on her, and she freezes again.\n\n`,
                     false
                 );
                 // is the player corrupt enough to get the fantasy?
@@ -4812,49 +4741,28 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (morph == "human") {
             this.outx("His eyes light up as he spots a very attractive ");
             // does that person have a noteworthy stature?
-            if (approxHeight != "average height") this.outx(approxHeight + " ", false);
+            if (approxHeight != "average height") this.outx(`${approxHeight} `, false);
             this.outx(
-                this.player.maleFemale() +
-                    " human leaning against one of the barn doors in a farm hand outfit.  It looks like " +
-                    this.player.heShe() +
-                    "'s taking a break from something.  With a big smile on his face, the young champion strides up to " +
-                    this.player.himHer() +
-                    ' and says, "<i>Hello there, it\'s rare to see a human in this world.</i>"  The other looks up at him for a few moments before smiling in recognition and saying "<i>So they picked you to go after me, huh?</i>"  The young champion stared at the ' +
-                    this.player.manWoman() +
-                    " for a few moments, unable to answer, this was better than he could have ever hoped for!  He was looking at last year's champion, " +
-                    this.player.short +
-                    "!\n\n",
+                `${this.player.maleFemale()} human leaning against one of the barn doors in a farm hand outfit.  It looks like ${this.player.heShe()}'s taking a break from something.  With a big smile on his face, the young champion strides up to ${this.player.himHer()} and says, "<i>Hello there, it's rare to see a human in this world.</i>"  The other looks up at him for a few moments before smiling in recognition and saying "<i>So they picked you to go after me, huh?</i>"  The young champion stared at the ${this.player.manWoman()} for a few moments, unable to answer, this was better than he could have ever hoped for!  He was looking at last year's champion, ${
+                    this.player.short
+                }!\n\n`,
                 false
             );
             this.outx(
-                "\"<i>I'm so glad to have found a friend like you in this world, " +
-                    this.player.short +
-                    ". ",
+                `"<i>I'm so glad to have found a friend like you in this world, ${this.player.short}. `,
                 false
             );
         }
         // that's no human!
         else {
             this.outx(
-                "However, he is rather surprised to see a " +
-                    this.player.maleFemale() +
-                    " " +
-                    morph +
-                    " leaning against the barn wall next to the entrance.  The young champion approaches the " +
-                    morph +
-                    ' with a little trepidation and calls out to them <i>"Hello there, uh, Whitney said I might know you.</i>"  The ' +
-                    morph +
-                    ' looks up at him for a few moments before smiling in recognition and saying "<i>So they picked you next, huh?</i>"  The young champion starts at this declaration.  "<i>How do you know who I am?</i>" he demands indignantly, "<i>What do you know about my home?</i>" the other chuckles and says, "<i>I\'m ' +
-                    this.player.short +
-                    ", despite my form, I'm still the same person.  Being able to change is one of the joys of this messed up world.</i>\"  The young champion looks uncertainly at them for a few moments before realizing that the " +
-                    morph +
-                    " is telling the truth!\n\n",
+                `However, he is rather surprised to see a ${this.player.maleFemale()} ${morph} leaning against the barn wall next to the entrance.  The young champion approaches the ${morph} with a little trepidation and calls out to them <i>"Hello there, uh, Whitney said I might know you.</i>"  The ${morph} looks up at him for a few moments before smiling in recognition and saying "<i>So they picked you next, huh?</i>"  The young champion starts at this declaration.  "<i>How do you know who I am?</i>" he demands indignantly, "<i>What do you know about my home?</i>" the other chuckles and says, "<i>I'm ${
+                    this.player.short
+                }, despite my form, I'm still the same person.  Being able to change is one of the joys of this messed up world.</i>"  The young champion looks uncertainly at them for a few moments before realizing that the ${morph} is telling the truth!\n\n`,
                 false
             );
             this.outx(
-                '"<i>You really are ' +
-                    this.player.short +
-                    "!  I can't believe you left your humanity behind, but I'm glad to have found a friend in this world.  ",
+                `"<i>You really are ${this.player.short}!  I can't believe you left your humanity behind, but I'm glad to have found a friend in this world.  `,
                 false
             );
         }
@@ -4865,11 +4773,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx("You've gotten bigger since I saw you last.  ");
         }
         this.outx(
-            'Could you join me at my camp?  </i>" the younger champion asks, "<i>Your experience would help me out a great deal, and I\'d be glad to have another fighter on my side.</i>"  The older champion shakes ' +
-                this.player.hisHer() +
-                ' head and replies, "<i>I\'m sorry, but I abandoned my quest some time ago.  There is simply something here that is more important to me than that.</i>"  The younger champion looks at ' +
-                this.player.himHer() +
-                ' in alarm and asks "<i>What could be more important than our mission?</i>"\n\n',
+            `Could you join me at my camp?  </i>" the younger champion asks, "<i>Your experience would help me out a great deal, and I'd be glad to have another fighter on my side.</i>"  The older champion shakes ${this.player.hisHer()} head and replies, "<i>I'm sorry, but I abandoned my quest some time ago.  There is simply something here that is more important to me than that.</i>"  The younger champion looks at ${this.player.himHer()} in alarm and asks "<i>What could be more important than our mission?</i>"\n\n`,
             false
         );
         this.outx(
@@ -4893,11 +4797,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.biggestCockArea() < 15
             ) {
                 this.outx(
-                    '"<i>Wait, your child?!  How?</i>" the younger champion stammers. The older one grins at him and says, "<i>So I\'m the first you\'ve met?  Well then...</i>" before dropping her pants and revealing her ' +
-                        this.multiCockDescriptLight() +
-                        " and her " +
-                        this.vaginaDescript(0) +
-                        " to him.  The younger champion's jaw drops and he simply stares at her for a time, during which she giggles at him and says, \"<i>They're fully functional too.  Would you like to see them in action?</i>\"  The younger champion finds he is only able to stammer out an incoherent answer to this.  \"<i>I think I'll take that as a 'yes'. Don't worry, it'll be fun.</i>\" the older champion says, leading the young one along with Marble back inside the barn.  \"<i>Afterwards, maybe I can give you some advice on dealing with this world.</i>\"  ",
+                    `"<i>Wait, your child?!  How?</i>" the younger champion stammers. The older one grins at him and says, "<i>So I'm the first you've met?  Well then...</i>" before dropping her pants and revealing her ${this.multiCockDescriptLight()} and her ${this.vaginaDescript(
+                        0
+                    )} to him.  The younger champion's jaw drops and he simply stares at her for a time, during which she giggles at him and says, "<i>They're fully functional too.  Would you like to see them in action?</i>"  The younger champion finds he is only able to stammer out an incoherent answer to this.  "<i>I think I'll take that as a 'yes'. Don't worry, it'll be fun.</i>" the older champion says, leading the young one along with Marble back inside the barn.  "<i>Afterwards, maybe I can give you some advice on dealing with this world.</i>"  `,
                     false
                 );
             }
@@ -4915,13 +4817,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             this.outx(
-                '<i>"Marble,</i.>" the older champion says to her, "<i>this is the new champion, he\'s actually from my village.  This is Marble, she is the reason I left my mission.  I care about her too much.</i>"  The younger champion looks at the other in confusion.  "<i>What do you mean by that?<i>" he asks ' +
-                    this.player.himHer() +
-                    '.  Marble giggles, and invites the older champion to suckle her nipples, which they eagerly begin doing.  "<i>I- what?  Huh?!</i>" the younger champion stammers at the sight, unable to believe his eyes.  "<i>Like my sweetie here said, we have a special relationship,</i>" she tells him smiling, easily recognizing the tell-tale signs of arousal at what he was seeing.  "<i>Does your relationship extend to, um, other things?</i>" he asks a little nervously.  The older champion turns away from Marble\'s breast and walks over to the younger one, putting ' +
-                    this.player.hisHer() +
-                    " arm around the young champion's shoulders.  With a little milk still dripping from " +
-                    this.player.hisHer() +
-                    ' mouth, the older champion leads the younger one inside the barn with Marble, saying "<i>Yes, would you care to join us?</i>"  ',
+                `<i>"Marble,</i.>" the older champion says to her, "<i>this is the new champion, he's actually from my village.  This is Marble, she is the reason I left my mission.  I care about her too much.</i>"  The younger champion looks at the other in confusion.  "<i>What do you mean by that?<i>" he asks ${this.player.himHer()}.  Marble giggles, and invites the older champion to suckle her nipples, which they eagerly begin doing.  "<i>I- what?  Huh?!</i>" the younger champion stammers at the sight, unable to believe his eyes.  "<i>Like my sweetie here said, we have a special relationship,</i>" she tells him smiling, easily recognizing the tell-tale signs of arousal at what he was seeing.  "<i>Does your relationship extend to, um, other things?</i>" he asks a little nervously.  The older champion turns away from Marble's breast and walks over to the younger one, putting ${this.player.hisHer()} arm around the young champion's shoulders.  With a little milk still dripping from ${this.player.hisHer()} mouth, the older champion leads the younger one inside the barn with Marble, saying "<i>Yes, would you care to join us?</i>"  `,
                 false
             );
         }
@@ -5195,11 +5091,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.findStatusAffect(StatusAffects.Infested) >= 0) {
             if (this.flags[kFLAGS.MARBLE_GROSSED_OUT_BECAUSE_WORM_INFESTATION] != 1) {
                 this.outx(
-                    "As you go to lie down for the night, you find that Marble has gotten there before you.  You lie down next to her, but you can't help wishing that the two of you could have sex.  Suddenly, you feel Marble's hand grab ahold of your " +
-                        this.cockDescript(0) +
-                        '.  She gives a bit of a squeal as one of the worms starts to move around inside the shaft.  She pulls open the blankets and looks closely at your dick for a few moments before picking up her bedroll and moving to a different part of the camp saying, "<i>' +
-                        this.player.short +
-                        ", you get rid of those or I'm not going to sleep next to you or with you.</i>\"\n\n",
+                    `As you go to lie down for the night, you find that Marble has gotten there before you.  You lie down next to her, but you can't help wishing that the two of you could have sex.  Suddenly, you feel Marble's hand grab ahold of your ${this.cockDescript(
+                        0
+                    )}.  She gives a bit of a squeal as one of the worms starts to move around inside the shaft.  She pulls open the blankets and looks closely at your dick for a few moments before picking up her bedroll and moving to a different part of the camp saying, "<i>${
+                        this.player.short
+                    }, you get rid of those or I'm not going to sleep next to you or with you.</i>"\n\n`,
                     false
                 );
                 this.flags[kFLAGS.MARBLE_GROSSED_OUT_BECAUSE_WORM_INFESTATION] = 1;
@@ -5273,7 +5169,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // If (Marble is a herm)
                 if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0)
                     this.outx(
-                        "suck my " + this.marbleCock() + '?  I really, really need it.</i>"',
+                        `suck my ${this.marbleCock()}?  I really, really need it.</i>"`,
                         false
                     );
                 else
@@ -5346,9 +5242,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // if (PC is 6.5 feet or less tall)
             if (this.player.tallness <= 78)
                 this.outx(
-                    "pulls your head on top of her chest.  She idly strokes your " +
-                        this.hairDescript() +
-                        ' and says, "<i>Sweetie, how about I be your pillow for the night?</i>"  You happily agree, and soon you drift off to the sound of her steady breathing while you lay between her sizable breasts.',
+                    `pulls your head on top of her chest.  She idly strokes your ${this.hairDescript()} and says, "<i>Sweetie, how about I be your pillow for the night?</i>"  You happily agree, and soon you drift off to the sound of her steady breathing while you lay between her sizable breasts.`,
                     false
                 );
             else
@@ -5412,9 +5306,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // No sex if dude and too big!
         else if (this.player.gender == 1 && this.player.cockArea(x) > this.marbleCuntCapacity()) {
             this.outx(
-                "You lie down next to her, but you can't help wishing that the two of you could have sex.  Suddenly, you feel Marble's hand grab a hold of your " +
-                    this.cockDescript(x) +
-                    ".  She sighs and says, \"<i>Sweetie, I'm afraid that you won't fit inside me.  Do you think you could get a little smaller, just for me?</i>\"  After a moment of getting comfortable, the two of you go to sleep.",
+                `You lie down next to her, but you can't help wishing that the two of you could have sex.  Suddenly, you feel Marble's hand grab a hold of your ${this.cockDescript(
+                    x
+                )}.  She sighs and says, "<i>Sweetie, I'm afraid that you won't fit inside me.  Do you think you could get a little smaller, just for me?</i>"  After a moment of getting comfortable, the two of you go to sleep.`,
                 false
             );
             this.doNext(this.playerMenu);
@@ -5431,9 +5325,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             this.outx(
-                "Your head rests comfortably between Marble's breasts the entire time, her warm breath blowing softly on your hair.  You feel almost completely relaxed, yet incredibly turned on at the same time.  For some reason, it just feels right to lay there and breathe in her scent, enjoying the wonderful love pillows she is forcing you to relax between.  She runs her hand down your " +
-                    this.biggestBreastSizeDescript() +
-                    ", gently cooing to you.  Her hand slips down to your ",
+                `Your head rests comfortably between Marble's breasts the entire time, her warm breath blowing softly on your hair.  You feel almost completely relaxed, yet incredibly turned on at the same time.  For some reason, it just feels right to lay there and breathe in her scent, enjoying the wonderful love pillows she is forcing you to relax between.  She runs her hand down your ${this.biggestBreastSizeDescript()}, gently cooing to you.  Her hand slips down to your `,
                 false
             );
             // If (PC has dick) {
@@ -5469,9 +5361,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // If (Marble is a herm) {
             if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0) {
                 this.outx(
-                    "gently rub her " +
-                        this.marbleCock() +
-                        ".  After a moment, you move your hand down lower and ",
+                    `gently rub her ${this.marbleCock()}.  After a moment, you move your hand down lower and `,
                     false
                 );
             }
@@ -5502,11 +5392,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             } else {
                 this.outx(
-                    'Marble says, "<i>Well sweetie, since that ' +
-                        this.cockDescript(x) +
-                        " of yours is too big to fit inside me, let's put that " +
-                        this.vaginaDescript(0) +
-                        ' to use.</i>"\n\n',
+                    `Marble says, "<i>Well sweetie, since that ${this.cockDescript(
+                        x
+                    )} of yours is too big to fit inside me, let's put that ${this.vaginaDescript(
+                        0
+                    )} to use.</i>"\n\n`,
                     false
                 );
                 // GIRL SECKS GOES HERE
@@ -5529,18 +5419,18 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.MARBLE_LUST] = 0;
         this.outx("", true);
         this.outx(
-            "You gently lift yourself up and slide the tip of your " +
-                this.cockDescript(x) +
-                " into her waiting hole.  Ever so slowly, you push yourself further and further in.  Each inch gained brings gentle moans and coos from Marble, encouraging you onward.  ",
+            `You gently lift yourself up and slide the tip of your ${this.cockDescript(
+                x
+            )} into her waiting hole.  Ever so slowly, you push yourself further and further in.  Each inch gained brings gentle moans and coos from Marble, encouraging you onward.  `,
             false
         );
         // Can the PC's main cock go all the way?
         // If (cock 0 is longer than 8 inches)
         if (this.player.cocks[x].cockLength > 8) {
             this.outx(
-                'There is only one thing that will stop your advance: when you reach the end of the line.  "<i>Keep going sweetie, there is room left.  Make sure you fill me all the way.</i>"  With a groan, your ' +
-                    this.cockDescript(x) +
-                    " hits the furthest part of Marble's confines and you can go no further.\n\n",
+                `There is only one thing that will stop your advance: when you reach the end of the line.  "<i>Keep going sweetie, there is room left.  Make sure you fill me all the way.</i>"  With a groan, your ${this.cockDescript(
+                    x
+                )} hits the furthest part of Marble's confines and you can go no further.\n\n`,
                 false
             );
         }
@@ -5574,9 +5464,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // nah, but if you have boobies, maybe they hit hers?
             else if (this.player.tallness < 84) {
                 this.outx(
-                    "your " +
-                        this.biggestBreastSizeDescript() +
-                        " pressing against her own lovely pillows.  Marble giggles slightly before giving you a kiss on the lips.  She continues moving your hips the whole time.  Of course, as you start to near your peak, you get your control back and start thrusting into her of your own accord.  You can hear Marble beginning to breathe faster as she moves her hands onto your back.  She holds you tightly and gives you another kiss.\n\n",
+                    `your ${this.biggestBreastSizeDescript()} pressing against her own lovely pillows.  Marble giggles slightly before giving you a kiss on the lips.  She continues moving your hips the whole time.  Of course, as you start to near your peak, you get your control back and start thrusting into her of your own accord.  You can hear Marble beginning to breathe faster as she moves her hands onto your back.  She holds you tightly and gives you another kiss.\n\n`,
                     false
                 );
             }
@@ -5584,9 +5472,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             else {
                 if (this.player.biggestTitSize() >= 4) {
                     this.outx(
-                        "landing your " +
-                            this.biggestBreastSizeDescript() +
-                            " into Marble's face!  You hear a slight muffled cry underneath you as Marble takes her hands off your hips and lifts you up off of her.  ",
+                        `landing your ${this.biggestBreastSizeDescript()} into Marble's face!  You hear a slight muffled cry underneath you as Marble takes her hands off your hips and lifts you up off of her.  `,
                         false
                     );
                 } else {
@@ -5604,26 +5490,24 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // nope the PC is the one
         else {
             this.outx(
-                "It isn't enough to hold you back for more than a moment, though, and soon you're thrusting deep inside her at a comfortable rhythm for the two of you.  You smile at her and she smiles back as you start fondling and playing with Marble's lovely pillows.  She starts to run her fingers onto her love button, crying out in pleasure as you continue to thrust your " +
-                    this.cockDescript(x) +
-                    " inside her.\n\n",
+                `It isn't enough to hold you back for more than a moment, though, and soon you're thrusting deep inside her at a comfortable rhythm for the two of you.  You smile at her and she smiles back as you start fondling and playing with Marble's lovely pillows.  She starts to run her fingers onto her love button, crying out in pleasure as you continue to thrust your ${this.cockDescript(
+                    x
+                )} inside her.\n\n`,
                 false
             );
             // If (PC's breasts are B cups or bigger)
             if (this.player.biggestTitSize() >= 2)
                 this.outx(
-                    "You pull your hands back up and begin to run them over your " +
-                        this.biggestBreastSizeDescript() +
-                        ", toying and teasing your nipples as your " +
-                        this.cockDescript(x) +
-                        " continues to pound away at Marble's confines.  Marble soon has her hands on the breasts you vacated, clearly enjoying teasing herself just as much as you are.  The two of you cry out in pleasure from the stimulation; you can feel your orgasm fast approaching.\n\n",
+                    `You pull your hands back up and begin to run them over your ${this.biggestBreastSizeDescript()}, toying and teasing your nipples as your ${this.cockDescript(
+                        x
+                    )} continues to pound away at Marble's confines.  Marble soon has her hands on the breasts you vacated, clearly enjoying teasing herself just as much as you are.  The two of you cry out in pleasure from the stimulation; you can feel your orgasm fast approaching.\n\n`,
                     false
                 );
             else
                 this.outx(
-                    "The sensations are quickly becoming too much for you, and you're unable to do anything but focus on the feeling of your " +
-                        this.cockDescript(x) +
-                        ' inside her wonderful confines.  Marble grins at your difficulties and teases, "<i>Am I just too much for you, sweetie?  Ah!</i>" She gasps; it seems that you\'re becoming too much for her too.\n\n',
+                    `The sensations are quickly becoming too much for you, and you're unable to do anything but focus on the feeling of your ${this.cockDescript(
+                        x
+                    )} inside her wonderful confines.  Marble grins at your difficulties and teases, "<i>Am I just too much for you, sweetie?  Ah!</i>" She gasps; it seems that you're becoming too much for her too.\n\n`,
                     false
                 );
         }
@@ -5635,9 +5519,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // let's talk about the PC's cum production
         if (this.player.cumQ() < 250) {
             this.outx(
-                "Marble cries out in joy as your " +
-                    this.cockDescript(x) +
-                    " unleashes its load within her insides.  ",
+                `Marble cries out in joy as your ${this.cockDescript(
+                    x
+                )} unleashes its load within her insides.  `,
                 false
             );
         } else {
@@ -5650,7 +5534,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.totalCocks() > 1) {
             this.outx("Of course, ");
             if (this.player.totalCocks() > 2) {
-                this.outx("the rest of your " + this.multiCockDescriptLight(), false);
+                this.outx(`the rest of your ${this.multiCockDescriptLight()}`, false);
             } else {
                 this.outx("your other tool");
             }
@@ -5659,9 +5543,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         // does Marble spray her cock?
         if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0) {
             this.outx(
-                "Trapped between your bodies, Marble's " +
-                    this.marbleCock() +
-                    " spasms and sprays the two of you.",
+                `Trapped between your bodies, Marble's ${this.marbleCock()} spasms and sprays the two of you.`,
                 false
             );
         }
@@ -5677,9 +5559,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("", true);
         if (this.flags[kFLAGS.MARBLE_DICK_TYPE] == 0) {
             this.outx(
-                "You gently lift yourself up as Marble produces her double dildo and slips it inside her womanhood.  Smiling at her, you slowly lower your body and impale your " +
-                    this.vaginaDescript(0) +
-                    " onto the artificial rod.  ",
+                `You gently lift yourself up as Marble produces her double dildo and slips it inside her womanhood.  Smiling at her, you slowly lower your body and impale your ${this.vaginaDescript(
+                    0
+                )} onto the artificial rod.  `,
                 false
             );
             // Loosen PC's vagina if they are really tight, also removes virginity
@@ -5695,9 +5577,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.statusAffectv4(StatusAffects.Marble) + 10
             ) {
                 this.outx(
-                    "Marble gives you a grin and starts lifting your hips up and down, while simultaneously bouncing her own hips.  The combination results in both your " +
-                        this.vaginaDescript(0) +
-                        " and Marble's being pistoned by her double dildo.  The two of you start moaning in unison from the overwhelming feelings, leaving you unable to do anything but let her buckle and bounce you around like a rough wagon, and you love every second of it.\n\n",
+                    `Marble gives you a grin and starts lifting your hips up and down, while simultaneously bouncing her own hips.  The combination results in both your ${this.vaginaDescript(
+                        0
+                    )} and Marble's being pistoned by her double dildo.  The two of you start moaning in unison from the overwhelming feelings, leaving you unable to do anything but let her buckle and bounce you around like a rough wagon, and you love every second of it.\n\n`,
                     false
                 );
                 this.outx(
@@ -5707,20 +5589,14 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // If (PC's breasts are D cup or bigger)
                 if (this.player.biggestTitSize() >= 4) {
                     this.outx(
-                        "Marble takes her hands off your hips and lets you start to rise and fall on her in your own time.  She still rises up to meet you as you descend and lowers herself down each time you rise, matching your timing, but her hands have a much more pressing concern: your " +
-                            this.biggestBreastSizeDescript() +
-                            ".  Marble starts working her hands expertly to tease and play with your " +
-                            this.biggestBreastSizeDescript() +
-                            ". She seems to know all the right ways to move her fingers, clearly having a lot of experience with her own, and you can't help but moan at the attention.  She giggles and pants in pleasure herself; it seems she may be enjoying this play just as much as you!\n\n",
+                        `Marble takes her hands off your hips and lets you start to rise and fall on her in your own time.  She still rises up to meet you as you descend and lowers herself down each time you rise, matching your timing, but her hands have a much more pressing concern: your ${this.biggestBreastSizeDescript()}.  Marble starts working her hands expertly to tease and play with your ${this.biggestBreastSizeDescript()}. She seems to know all the right ways to move her fingers, clearly having a lot of experience with her own, and you can't help but moan at the attention.  She giggles and pants in pleasure herself; it seems she may be enjoying this play just as much as you!\n\n`,
                         false
                     );
                 } else {
                     this.outx(
-                        "Marble decides it would be a good time to start playing with your " +
-                            this.biggestBreastSizeDescript() +
-                            " and starts teasing a " +
-                            this.nippleDescript(0) +
-                            ' with one of her hands as the other continues to gently lift you up and down.  You moan a little at her ministrations as she smiles at you and says, "<i>You know, sweetie, maybe those cute little boobies of yours could stand to get a little bigger.  I\'m sure I could do some great things to you then.</i>" With a grin still on her face, she gasps and the two of you feel your climaxes approaching.\n\n',
+                        `Marble decides it would be a good time to start playing with your ${this.biggestBreastSizeDescript()} and starts teasing a ${this.nippleDescript(
+                            0
+                        )} with one of her hands as the other continues to gently lift you up and down.  You moan a little at her ministrations as she smiles at you and says, "<i>You know, sweetie, maybe those cute little boobies of yours could stand to get a little bigger.  I'm sure I could do some great things to you then.</i>" With a grin still on her face, she gasps and the two of you feel your climaxes approaching.\n\n`,
                         false
                     );
                 }
@@ -5737,16 +5613,12 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // Does Marble help out, or does she go for the PC's breasts?
                 if (this.player.biggestTitSize() >= 4) {
                     this.outx(
-                        "She reaches her hands up and starts to play with your " +
-                            this.biggestBreastSizeDescript() +
-                            ", flicking and toying with them at the same pace that you play with hers.  The two of you start a friendly little contest to see who can stimulate the other's chest better; all the while, you continue to rise and fall above her.\n\n",
+                        `She reaches her hands up and starts to play with your ${this.biggestBreastSizeDescript()}, flicking and toying with them at the same pace that you play with hers.  The two of you start a friendly little contest to see who can stimulate the other's chest better; all the while, you continue to rise and fall above her.\n\n`,
                         false
                     );
                 } else {
                     this.outx(
-                        "Marble reaches her hands up and grabs onto yours, pulling them down tightly against her chest.  She gets you to play with each of her " +
-                            this.marbleNips() +
-                            " in turn, making sure that you flick them and tease them in just the right way to get her to cry out in ecstasy again and again.\n\n",
+                        `Marble reaches her hands up and grabs onto yours, pulling them down tightly against her chest.  She gets you to play with each of her ${this.marbleNips()} in turn, making sure that you flick them and tease them in just the right way to get her to cry out in ecstasy again and again.\n\n`,
                         false
                     );
                 }
@@ -5756,18 +5628,16 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
             this.outx(
-                "The two of you cry out in orgasm as your " +
-                    this.vaginaDescript(0) +
-                    " clamps down on one end of her dildo and her womanhood clamps down on the other end.  ",
+                `The two of you cry out in orgasm as your ${this.vaginaDescript(
+                    0
+                )} clamps down on one end of her dildo and her womanhood clamps down on the other end.  `,
                 false
             );
             // Does this PC have a cock too?
             // If (PC has at least 1 cock)
             if (this.player.totalCocks() > 0) {
                 this.outx(
-                    "At the same time, your " +
-                        this.multiCockDescriptLight() +
-                        " sprays its own load onto Marble's chest and stomach.  ",
+                    `At the same time, your ${this.multiCockDescriptLight()} sprays its own load onto Marble's chest and stomach.  `,
                     false
                 );
             }
@@ -5780,15 +5650,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         else {
             this.player.slimeFeed();
             this.outx(
-                "You gently lift yourself up into the air and guide your " +
-                    this.vaginaDescript(0) +
-                    " to the tip of her waiting " +
-                    this.marbleCock() +
-                    ".  You slowly lower your " +
-                    this.vaginaDescript(0) +
-                    " onto her quivering " +
-                    this.marbleCock() +
-                    ", gaining inch by inch ",
+                `You gently lift yourself up into the air and guide your ${this.vaginaDescript(
+                    0
+                )} to the tip of her waiting ${this.marbleCock()}.  You slowly lower your ${this.vaginaDescript(
+                    0
+                )} onto her quivering ${this.marbleCock()}, gaining inch by inch `,
                 false
             );
             // is she satisfied?
@@ -5805,9 +5671,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // Marble seems to think you can take more than maybe you should be able to take
             else {
                 this.outx(
-                    'until you bottom out and can take no more of her.  "<i>No more?</i>" Marble asks you a little sadly, "<i>You sure you can\'t take a little more?</i>" she adds as she starts pushing you down onto her ' +
-                        this.marbleCock() +
-                        ". You are forced to stretch to accommodate more of her and you shudder slightly from the strain.  ",
+                    `until you bottom out and can take no more of her.  "<i>No more?</i>" Marble asks you a little sadly, "<i>You sure you can't take a little more?</i>" she adds as she starts pushing you down onto her ${this.marbleCock()}. You are forced to stretch to accommodate more of her and you shudder slightly from the strain.  `,
                     false
                 );
                 // (Message about vagina becoming looser)
@@ -5826,11 +5690,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.statusAffectv4(StatusAffects.Marble) + 10
             ) {
                 this.outx(
-                    "Marble gives you a grin and starts lifting your hips up and down, while simultaneously bouncing her own hips.  The combination results in your " +
-                        this.vaginaDescript(0) +
-                        " being pistoned by her " +
-                        this.marbleCock() +
-                        ".  The two of you start moaning in unison from the overwhelming feelings, leaving you unable to do anything but let her buckle and bounce you around like a rough wagon, and you love every second of it.\n\n",
+                    `Marble gives you a grin and starts lifting your hips up and down, while simultaneously bouncing her own hips.  The combination results in your ${this.vaginaDescript(
+                        0
+                    )} being pistoned by her ${this.marbleCock()}.  The two of you start moaning in unison from the overwhelming feelings, leaving you unable to do anything but let her buckle and bounce you around like a rough wagon, and you love every second of it.\n\n`,
                     false
                 );
                 this.outx(
@@ -5839,20 +5701,14 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 );
                 if (this.player.biggestTitSize() >= 4) {
                     this.outx(
-                        "Marble takes her hands off your hips and lets you start to rise and fall on her in your own time.  She still rises up to meet you as you descend and lowers herself down each time you rise, matching your timing, but her hands have a much more pressing concern: your " +
-                            this.biggestBreastSizeDescript() +
-                            ".  Marble starts working her hands expertly to tease and play with your " +
-                            this.biggestBreastSizeDescript() +
-                            ". She seems to know all the right ways to move her fingers, clearly having a lot of experience with her own, and you can't help but moan at the attention.  She giggles and pants in pleasure herself; it seems she may be enjoying this play just as much as you!\n\n",
+                        `Marble takes her hands off your hips and lets you start to rise and fall on her in your own time.  She still rises up to meet you as you descend and lowers herself down each time you rise, matching your timing, but her hands have a much more pressing concern: your ${this.biggestBreastSizeDescript()}.  Marble starts working her hands expertly to tease and play with your ${this.biggestBreastSizeDescript()}. She seems to know all the right ways to move her fingers, clearly having a lot of experience with her own, and you can't help but moan at the attention.  She giggles and pants in pleasure herself; it seems she may be enjoying this play just as much as you!\n\n`,
                         false
                     );
                 } else {
                     this.outx(
-                        "Marble decides it would be a good time to start playing with your " +
-                            this.biggestBreastSizeDescript() +
-                            " and starts teasing a " +
-                            this.nippleDescript(0) +
-                            ' with one of her hands as the other continues to gently lift you up and down.  You moan a little at her ministrations as she smiles at you and says, "<i>You know, sweetie, maybe those cute little boobies of yours could stand to get a little bigger.  I\'m sure I could do some great things to you then.</i>" With a grin still on her face, she gasps and the two of you feel your climaxes approaching.\n\n',
+                        `Marble decides it would be a good time to start playing with your ${this.biggestBreastSizeDescript()} and starts teasing a ${this.nippleDescript(
+                            0
+                        )} with one of her hands as the other continues to gently lift you up and down.  You moan a little at her ministrations as she smiles at you and says, "<i>You know, sweetie, maybe those cute little boobies of yours could stand to get a little bigger.  I'm sure I could do some great things to you then.</i>" With a grin still on her face, she gasps and the two of you feel your climaxes approaching.\n\n`,
                         false
                     );
                 }
@@ -5860,9 +5716,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // no, no, the PC is much hornier than she is
             else {
                 this.outx(
-                    "You give a horny moan and start to ride her " +
-                        this.marbleCock() +
-                        ", bouncing up and down on her and relishing the feeling of her within your walls.  Marble gasps at the sudden rapid stimulation and starts to writhe on the ground helplessly underneath you.  You grin down at her as you continue your movements of rising and falling.  You slow down for a moment so you can get a good grip on her ample breasts.\n\n",
+                    `You give a horny moan and start to ride her ${this.marbleCock()}, bouncing up and down on her and relishing the feeling of her within your walls.  Marble gasps at the sudden rapid stimulation and starts to writhe on the ground helplessly underneath you.  You grin down at her as you continue your movements of rising and falling.  You slow down for a moment so you can get a good grip on her ample breasts.\n\n`,
                     false
                 );
                 this.outx(
@@ -5872,32 +5726,24 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 // Does Marble help out, or does she go for the PC's breasts?
                 if (this.player.biggestTitSize() >= 4) {
                     this.outx(
-                        "She reaches her hands up and starts to play with your " +
-                            this.biggestBreastSizeDescript() +
-                            ", flicking and toying with them at the same pace that you play with hers.  The two of you start a friendly little contest to see who can stimulate the other's chest better; all the while, you continue to rise and fall above her.\n\n",
+                        `She reaches her hands up and starts to play with your ${this.biggestBreastSizeDescript()}, flicking and toying with them at the same pace that you play with hers.  The two of you start a friendly little contest to see who can stimulate the other's chest better; all the while, you continue to rise and fall above her.\n\n`,
                         false
                     );
                 } else {
                     this.outx(
-                        "Marble reaches her hands up and grabs onto yours, pulling them down tightly against her chest.  She gets you to play with each of her " +
-                            this.marbleNips() +
-                            " in turn, making sure that you flick them and tease them in just the right way to get her to cry out in ecstasy again and again.\n\n",
+                        `Marble reaches her hands up and grabs onto yours, pulling them down tightly against her chest.  She gets you to play with each of her ${this.marbleNips()} in turn, making sure that you flick them and tease them in just the right way to get her to cry out in ecstasy again and again.\n\n`,
                         false
                     );
                 }
                 this.outx(
-                    "Within moments, your rapid pistoning on her " +
-                        this.marbleCock() +
-                        " is pushing the two of you closer and closer to the edge.  ",
+                    `Within moments, your rapid pistoning on her ${this.marbleCock()} is pushing the two of you closer and closer to the edge.  `,
                     false
                 );
             }
             this.outx(
-                "The two of you cry out in orgasm as your " +
-                    this.vaginaDescript(0) +
-                    " clamps down on her " +
-                    this.marbleCock() +
-                    " as it fills you with its seed.  ",
+                `The two of you cry out in orgasm as your ${this.vaginaDescript(
+                    0
+                )} clamps down on her ${this.marbleCock()} as it fills you with its seed.  `,
                 false
             );
             // Does this PC have a cock too?
@@ -5905,9 +5751,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outx("At the same time, ");
                 if (this.player.totalCocks() > 1) this.outx("each of ");
                 this.outx(
-                    "your " +
-                        this.multiCockDescriptLight() +
-                        " sprays its own load onto Marble's chest and stomach.  ",
+                    `your ${this.multiCockDescriptLight()} sprays its own load onto Marble's chest and stomach.  `,
                     false
                 );
             }
@@ -5950,7 +5794,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.findPerk(PerkLib.MaraesGiftStud) >= 0) preggerOdds += 25;
         preggerOdds *= preggerMult;
         // GET HER PREGNANT
-        trace("MARBLE PREGGO ODDS: " + preggerOdds);
+        trace(`MARBLE PREGGO ODDS: ${preggerOdds}`);
 
         if (
             MarbleScene.rand(100) < preggerOdds &&
@@ -5994,24 +5838,18 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // outx("suck my " + marbleCock() + "?  I really, really need it.</i>\"", false);
             if (this.player.cor < 30) {
                 this.outx(
-                    "You aren't really comfortable about doing this, but you can't really turn Marble down.  Especially after you were the one to give her that " +
-                        this.marbleCock() +
-                        ".\n\n",
+                    `You aren't really comfortable about doing this, but you can't really turn Marble down.  Especially after you were the one to give her that ${this.marbleCock()}.\n\n`,
                     false
                 );
             } else {
                 this.outx(
-                    "Sucking her tasty-looking " +
-                        this.marbleCock() +
-                        " sounds like it would be a lot of fun and you have no problem agreeing.\n\n",
+                    `Sucking her tasty-looking ${this.marbleCock()} sounds like it would be a lot of fun and you have no problem agreeing.\n\n`,
                     false
                 );
             }
             // sucking her cock scene
             this.outx(
-                "Marble lifts up her skirt and gives you a good look at her very erect " +
-                    this.marbleCock() +
-                    ".  You position yourself overtop of her and take a deep breath, taking in her smell.  ",
+                `Marble lifts up her skirt and gives you a good look at her very erect ${this.marbleCock()}.  You position yourself overtop of her and take a deep breath, taking in her smell.  `,
                 false
             );
             // is the PC overwhelmed by her animalistic smell?
@@ -6020,15 +5858,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.lib + this.player.cor - this.player.inte > 35
             ) {
                 this.outx(
-                    "For some reason, your head starts to feel a bit fuzzy from the animalistic smell, and for a moment you forget what you were doing.  It comes back to you quickly, as there is a big juicy " +
-                        this.marbleCock() +
-                        " right there in front of you.  It gives off such a nice smell; it probably tastes really good, too.  You open your mouth and bring yourself closer, taking it inside.\n\n",
+                    `For some reason, your head starts to feel a bit fuzzy from the animalistic smell, and for a moment you forget what you were doing.  It comes back to you quickly, as there is a big juicy ${this.marbleCock()} right there in front of you.  It gives off such a nice smell; it probably tastes really good, too.  You open your mouth and bring yourself closer, taking it inside.\n\n`,
                     false
                 );
                 this.outx(
-                    'You hear a soft sigh and moan above you, "<i>Oh sweetie,</i>" it says in pleasure as you feel something get placed on the back of your head, pushing you forward.  The heady aroma is so strong that you can do nothing more than run your tongue over every part of this wonderful ' +
-                        this.marbleCock() +
-                        ", letting the hand guide your movements while you hear happy noises coming from above you.  Those noises and words sound happy, so they make you feel happy too.\n\n",
+                    `You hear a soft sigh and moan above you, "<i>Oh sweetie,</i>" it says in pleasure as you feel something get placed on the back of your head, pushing you forward.  The heady aroma is so strong that you can do nothing more than run your tongue over every part of this wonderful ${this.marbleCock()}, letting the hand guide your movements while you hear happy noises coming from above you.  Those noises and words sound happy, so they make you feel happy too.\n\n`,
                     false
                 );
                 this.outx(
@@ -6042,15 +5876,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             // no, you keep your head, for now
             else {
                 this.outx(
-                    "The animalistic smell makes it a bit hard to think, but you manage to hold your thoughts together.  You steady yourself and lower your head, sticking out your tongue to lick the tip.  Marble moans approvingly and gently pushes on the back of your head, trying to push you down further.  You don't resist and open your mouth wide to take her swollen " +
-                        this.marbleCock() +
-                        " inside.\n\n",
+                    `The animalistic smell makes it a bit hard to think, but you manage to hold your thoughts together.  You steady yourself and lower your head, sticking out your tongue to lick the tip.  Marble moans approvingly and gently pushes on the back of your head, trying to push you down further.  You don't resist and open your mouth wide to take her swollen ${this.marbleCock()} inside.\n\n`,
                     false
                 );
                 this.outx(
-                    '"<i>Oh sweetie, please keep going, this feels so good!</i>"  It takes a moment for you to register that it was Marble that was just talking to you.  The taste of her ' +
-                        this.marbleCock() +
-                        " in your mouth has an effect similar to her smell, and it takes more than a bit of concentration to keep your focus.  Despite this, you manage to start pumping her with your mouth, bringing out some very excited noises from above you.  It doesn't take long for Marble to be overwhelmed by the sensations, and she lets out her load of semen into your mouth.  You turn to the side and spit out the semen as Marble takes a moment to steady herself and take a few breaths.  ",
+                    `"<i>Oh sweetie, please keep going, this feels so good!</i>"  It takes a moment for you to register that it was Marble that was just talking to you.  The taste of her ${this.marbleCock()} in your mouth has an effect similar to her smell, and it takes more than a bit of concentration to keep your focus.  Despite this, you manage to start pumping her with your mouth, bringing out some very excited noises from above you.  It doesn't take long for Marble to be overwhelmed by the sensations, and she lets out her load of semen into your mouth.  You turn to the side and spit out the semen as Marble takes a moment to steady herself and take a few breaths.  `,
                     false
                 );
             }
@@ -6137,9 +5967,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
         this.outx(
-            "She lifts up her skirt and the two of you watch as her " +
-                this.marbleCock() +
-                " is absorbed back into her body.  <b>Marble is now purely female.</b>  ",
+            `She lifts up her skirt and the two of you watch as her ${this.marbleCock()} is absorbed back into her body.  <b>Marble is now purely female.</b>  `,
             false
         );
         this.flags[kFLAGS.MARBLE_DICK_TYPE] = 0;
@@ -6304,38 +6132,22 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
         if (this.player.statusAffectv4(StatusAffects.Marble) <= 15)
             this.outx(
-                "She has two pillowy breasts, each supporting a 0.4-inch lactating " +
-                    this.marbleNip() +
-                    ".  She could easily fill a " +
-                    this.marbleBreastSize() +
-                    " bra.\n\n",
+                `She has two pillowy breasts, each supporting a 0.4-inch lactating ${this.marbleNip()}.  She could easily fill a ${this.marbleBreastSize()} bra.\n\n`,
                 false
             );
         else if (this.player.statusAffectv4(StatusAffects.Marble) <= 25)
             this.outx(
-                "She has two large breasts, each supporting a 0.6-inch lactating " +
-                    this.marbleNip() +
-                    ".  She could easily fill a " +
-                    this.marbleBreastSize() +
-                    ".\n\n",
+                `She has two large breasts, each supporting a 0.6-inch lactating ${this.marbleNip()}.  She could easily fill a ${this.marbleBreastSize()}.\n\n`,
                 false
             );
         else if (this.player.statusAffectv4(StatusAffects.Marble) <= 35)
             this.outx(
-                "She has two basketball-sized breasts, each supporting a 0.8-inch milk-seeping " +
-                    this.marbleNip() +
-                    ".  She could easily fill a " +
-                    this.marbleBreastSize() +
-                    " bra.\n\n",
+                `She has two basketball-sized breasts, each supporting a 0.8-inch milk-seeping ${this.marbleNip()}.  She could easily fill a ${this.marbleBreastSize()} bra.\n\n`,
                 false
             );
         else
             this.outx(
-                "She has two basketball-sized breasts, each supporting a 1-inch milk-seeping " +
-                    this.marbleNip() +
-                    ".  She could easily fill an " +
-                    this.marbleBreastSize() +
-                    " bra.\n\n",
+                `She has two basketball-sized breasts, each supporting a 1-inch milk-seeping ${this.marbleNip()}.  She could easily fill an ${this.marbleBreastSize()} bra.\n\n`,
                 false
             );
 
@@ -6383,13 +6195,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
         if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0)
             this.outx(
-                "She has grown a " +
-                    this.marbleCock() +
-                    " since you brought her to camp. It is " +
-                    MarbleScene.num2Text(Math.floor(this.flags[kFLAGS.MARBLE_DICK_LENGTH])) +
-                    " inches long and " +
-                    MarbleScene.num2Text(Math.floor(this.flags[kFLAGS.MARBLE_DICK_THICKNESS])) +
-                    " inches thick.\n\n",
+                `She has grown a ${this.marbleCock()} since you brought her to camp. It is ${MarbleScene.num2Text(
+                    Math.floor(this.flags[kFLAGS.MARBLE_DICK_LENGTH])
+                )} inches long and ${MarbleScene.num2Text(
+                    Math.floor(this.flags[kFLAGS.MARBLE_DICK_THICKNESS])
+                )} inches thick.\n\n`,
                 false
             );
 
@@ -6434,9 +6244,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nMoving your serpentine tail between her thighs, you decide to start with her original set of genitalia, slowly sliding the tip across her already somewhat moist labia.  You gently push it in, causing her to nearly jump up in surprise, her large breasts jiggling pleasantly as you tease the inside, close to the entrance.  Suddenly, you push more of your tail in and wiggle it inside of her, causing her hips to shake, her mouth to moan and her groin to moisten.  After a short period of wiggling, you shift the muscles in your tail and deliver a few pumps into her pussy, causing her soft butt to shake and forcing another moan."
         );
         this.outx(
-            "\n\nDeciding the moisture on your tail and her arousal level to be sufficient, you remove yourself from the confines of her pussy and slide up to the main offender - Marble's " +
-                MarbleScene.num2Text(this.flags[kFLAGS.MARBLE_DICK_LENGTH]) +
-                " inch long, fully erect cock.  You prompt her to tell you if you squeeze too tightly, and prod her with the tip of your tail, pushing against the underside of her cock insistently.  Slowly, you run it up her shaft until the end of your tail is stroking her sensitive tip; then, you sensuously drag the rest of the moistened scales over and around her member, squeezing and wrapping it.  Slowly, you cover all of her manhood with your moist tail, and constrict, causing her to yelp before you start to move your coils up and down, essentially jerking her off along her entire length."
+            `\n\nDeciding the moisture on your tail and her arousal level to be sufficient, you remove yourself from the confines of her pussy and slide up to the main offender - Marble's ${MarbleScene.num2Text(
+                this.flags[kFLAGS.MARBLE_DICK_LENGTH]
+            )} inch long, fully erect cock.  You prompt her to tell you if you squeeze too tightly, and prod her with the tip of your tail, pushing against the underside of her cock insistently.  Slowly, you run it up her shaft until the end of your tail is stroking her sensitive tip; then, you sensuously drag the rest of the moistened scales over and around her member, squeezing and wrapping it.  Slowly, you cover all of her manhood with your moist tail, and constrict, causing her to yelp before you start to move your coils up and down, essentially jerking her off along her entire length.`
         );
         this.outx(
             "\n\nMarble isn't content with simply standing there while you're tugging on her member; one of her hands gently strokes the end of your tail while the other rubs her breast, playing with her nipple.  Pleased that she's enjoying herself, you again shift your tail to rub the very tip of it against her sensitive clit, all the while stroking the male side of her genitalia with the part just before the end.  Marble moans loudly and her hands stop migrating as one of them squeezes your tail and the other grabs her pillowy breast rather roughly.  It'd appear that with the combined strokes to both of her parts, it won't take long to give her her release... you decide to move on to the main event."
@@ -6517,9 +6327,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.MARBLE_BOVA_LEVEL] < 1) this.outx("two");
             else this.outx("eight");
             this.outx(
-                " suction cups off of the milker machine and carefully attaches them to her nipples, then flips a switch, causing it to come to life.  In an instant, milk starts flowing out of her " +
-                    this.marbleNips() +
-                    " into the cups and then up the clear tubes into the machine.  She lets out a relaxed sigh, then turns her gaze back to you."
+                ` suction cups off of the milker machine and carefully attaches them to her nipples, then flips a switch, causing it to come to life.  In an instant, milk starts flowing out of her ${this.marbleNips()} into the cups and then up the clear tubes into the machine.  She lets out a relaxed sigh, then turns her gaze back to you.`
             );
 
             this.outx(
@@ -6618,9 +6426,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0)
             this.outx(
-                "With the first flick across its pink flesh, Marble grabs ahold of her " +
-                    this.marbleCock() +
-                    ", and tightly squeezes it, slowly pushing her hand down it."
+                `With the first flick across its pink flesh, Marble grabs ahold of her ${this.marbleCock()}, and tightly squeezes it, slowly pushing her hand down it.`
             );
         else
             this.outx(
@@ -6679,9 +6485,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "[pg]With a flourish, you remove your [armor] and do a little sweep over your " +
-                this.cockDescript(x) +
-                ", asking her if everything is to her needs."
+            `[pg]With a flourish, you remove your [armor] and do a little sweep over your ${this.cockDescript(
+                x
+            )}, asking her if everything is to her needs.`
         );
 
         if (
@@ -6716,9 +6522,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
         if (this.player.tallness < 68) {
             this.outx(
-                '[pg]"<i>Oh sweetie.</i>"  She pulls you into a deep hug against her chest.  "<i>It\'s too much!  Hah, hahahahaha!  No more joking around.  I need you inside me now.</i>"  She carefully carries you over to the bench and lays you down on your back, then straddles the bench above your ' +
-                    this.cockDescript(x) +
-                    '.  "<i>Are you ready for me?</i>" she calls out in a deep husky voice, breasts heaving, tail swishing, and all the while the milker machine continues to hum above her.'
+                `[pg]"<i>Oh sweetie.</i>"  She pulls you into a deep hug against her chest.  "<i>It's too much!  Hah, hahahahaha!  No more joking around.  I need you inside me now.</i>"  She carefully carries you over to the bench and lays you down on your back, then straddles the bench above your ${this.cockDescript(
+                    x
+                )}.  "<i>Are you ready for me?</i>" she calls out in a deep husky voice, breasts heaving, tail swishing, and all the while the milker machine continues to hum above her.`
             );
         } else {
             this.outx(
@@ -6739,9 +6545,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("[pg]With a grin, you tell her you're always ready for her.");
 
         this.outx(
-            "[pg]The words have barely left your mouth before Marble drops her waist and engulfs your " +
-                this.cockDescript(x) +
-                ', swallowing it up to the base in a single motion.  "<i>Ohhhhhh, yes!</i>"  Marble happily rubs her belly with one hand, while another cubs her breast.  She shakes her hips from side to side a couple times, savoring the feeling of your cock rubbing back and forth across her insides.'
+            `[pg]The words have barely left your mouth before Marble drops her waist and engulfs your ${this.cockDescript(
+                x
+            )}, swallowing it up to the base in a single motion.  "<i>Ohhhhhh, yes!</i>"  Marble happily rubs her belly with one hand, while another cubs her breast.  She shakes her hips from side to side a couple times, savoring the feeling of your cock rubbing back and forth across her insides.`
         );
 
         this.outx(
@@ -6794,9 +6600,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "[pg]Finally the two of you cry out together in orgasmic pleasure, and you spray out your seed into her passage, mixing with a rush of her own fluids into a slurry of sex juices sloshing around your " +
-                    this.cockDescript(x) +
-                    ".  The two of you settle down, with Marble laying down on you contentedly for a moment."
+                `[pg]Finally the two of you cry out together in orgasmic pleasure, and you spray out your seed into her passage, mixing with a rush of her own fluids into a slurry of sex juices sloshing around your ${this.cockDescript(
+                    x
+                )}.  The two of you settle down, with Marble laying down on you contentedly for a moment.`
             );
 
             this.outx(
@@ -6822,9 +6628,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "[pg]You roll the soft pliable flesh around in your hands for a few moments, garnering appreciative moans from their owner.  Then you start pinching and pulling on her " +
-                    this.marbleNips() +
-                    ", sending a jolt through her body that makes her tail shoot straight up.  Almost instantly after that, she resumes rubbing herself against your manhood, sending it sweeping through her insides once more while her delightfully shaped rear-end slides around against your waist."
+                `[pg]You roll the soft pliable flesh around in your hands for a few moments, garnering appreciative moans from their owner.  Then you start pinching and pulling on her ${this.marbleNips()}, sending a jolt through her body that makes her tail shoot straight up.  Almost instantly after that, she resumes rubbing herself against your manhood, sending it sweeping through her insides once more while her delightfully shaped rear-end slides around against your waist.`
             );
 
             this.outx(
@@ -6911,9 +6715,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.buttRating <= 4 && !this.player.isGoo()) this.outx("taut");
         else this.outx("jiggling");
         this.outx(
-            " flesh while her " +
-                MarbleScene.num2Text(Math.round(this.flags[kFLAGS.MARBLE_DICK_LENGTH])) +
-                " inch length continues to push and pull into your womanhood.  Egged on by her enthusiasm, you start putting in some effort into the sex yourself by pushing your backside tight against her with each push forward and shaking it back and forth with each pull out of your interior."
+            ` flesh while her ${MarbleScene.num2Text(
+                Math.round(this.flags[kFLAGS.MARBLE_DICK_LENGTH])
+            )} inch length continues to push and pull into your womanhood.  Egged on by her enthusiasm, you start putting in some effort into the sex yourself by pushing your backside tight against her with each push forward and shaking it back and forth with each pull out of your interior.`
         );
 
         this.outx(
@@ -7006,9 +6810,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
 
         if (x >= 0) {
             this.outx(
-                "[pg]Her ribbon adorned, bovine appendage slowly unwraps from your wrist and instead searches around your crotch for something else.  Eventually the tuff comes into contact with your " +
-                    this.cockDescript(x) +
-                    ", and runs its fur across your length lovingly for a few times, then curls around your base and pulls you in towards Marble's waiting womanhood."
+                `[pg]Her ribbon adorned, bovine appendage slowly unwraps from your wrist and instead searches around your crotch for something else.  Eventually the tuff comes into contact with your ${this.cockDescript(
+                    x
+                )}, and runs its fur across your length lovingly for a few times, then curls around your base and pulls you in towards Marble's waiting womanhood.`
             );
 
             this.outx('[pg]"<i>Mhehehe, found it!</i>"');
@@ -7022,9 +6826,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
             if (y >= 0)
                 this.outx(
-                    "  You find your " +
-                        this.cockDescript(y) +
-                        " slides up comfortably in between her cheeks, and squeeze them together a bit to give it a nice tight valley of soft flesh to run through."
+                    `  You find your ${this.cockDescript(
+                        y
+                    )} slides up comfortably in between her cheeks, and squeeze them together a bit to give it a nice tight valley of soft flesh to run through.`
                 );
 
             this.outx(
@@ -7032,9 +6836,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "[pg]Everything centers onto three things: the feel of aroused cunt surrounding your shaft, rippling and squelching with each slow plunge and retreat from its depths, the soft springy ass and hip curves under your hands that runs oh so pleasantly under your hands, and of course, Marble's tail curled around the base of your " +
-                    this.cockDescript(x) +
-                    ".  The sensation of her thin appendage, soaked and sweat yet still soft with fur, constantly quivering and twitching in time with the movements of your two bodies, draws your entire focus."
+                `[pg]Everything centers onto three things: the feel of aroused cunt surrounding your shaft, rippling and squelching with each slow plunge and retreat from its depths, the soft springy ass and hip curves under your hands that runs oh so pleasantly under your hands, and of course, Marble's tail curled around the base of your ${this.cockDescript(
+                    x
+                )}.  The sensation of her thin appendage, soaked and sweat yet still soft with fur, constantly quivering and twitching in time with the movements of your two bodies, draws your entire focus.`
             );
         } else {
             this.outx(
@@ -7173,9 +6977,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx('[pg]"<i>Ow!  What the hell sweetie?!</i>"');
 
         this.outx(
-            "[pg]You ignore her protests and smack her ass once, then roughly penetrate her with your " +
-                this.cockDescript(x) +
-                " while yelling at her to take it."
+            `[pg]You ignore her protests and smack her ass once, then roughly penetrate her with your ${this.cockDescript(
+                x
+            )} while yelling at her to take it.`
         );
 
         this.outx(
@@ -7226,9 +7030,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 );
         } else {
             this.outx(
-                "[pg]She forces your mouth open and pushes her hips forward, roughly shoving her " +
-                    MarbleScene.num2Text(Math.round(this.flags[kFLAGS.MARBLE_DICK_LENGTH])) +
-                    "-inch cock into your hapless mouth and down your throat.  You choke and sputter in surprise at the sudden suffocation, but it only lasts a few seconds before she pulls back out."
+                `[pg]She forces your mouth open and pushes her hips forward, roughly shoving her ${MarbleScene.num2Text(
+                    Math.round(this.flags[kFLAGS.MARBLE_DICK_LENGTH])
+                )}-inch cock into your hapless mouth and down your throat.  You choke and sputter in surprise at the sudden suffocation, but it only lasts a few seconds before she pulls back out.`
             );
 
             this.outx(
@@ -7277,9 +7081,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "[pg]She doesn't let you respond.  She's already decided what is going to happen, and that's for you to go inside her and be used by her as she sees fit.  She strokes your " +
-                this.cockDescript(x) +
-                " with one finger, then pushes it into her waiting cunt.  You slip easily into her very well lubricated passage and groan as it clamps down on you.  Every part of your shaft is being tightly wrapped in the ring of her vaginal muscles, and you can't help but groan in pleasure."
+            `[pg]She doesn't let you respond.  She's already decided what is going to happen, and that's for you to go inside her and be used by her as she sees fit.  She strokes your ${this.cockDescript(
+                x
+            )} with one finger, then pushes it into her waiting cunt.  You slip easily into her very well lubricated passage and groan as it clamps down on you.  Every part of your shaft is being tightly wrapped in the ring of her vaginal muscles, and you can't help but groan in pleasure.`
         );
 
         this.outx(
@@ -7291,9 +7095,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            '[pg]"<i>Well sweetie, what do you think?</i>"  It quivers a few times as Marble resumes the rocking of her wide womanly hips.  "<i>Never mind, if you don\'t like it, well you can just try and end this as soon as possible.  If you do like it, then I guess...</i>"  She leans forward as she switches from a swinging movement to a bounce on your ' +
-                this.cockDescript(x) +
-                ', and her furry tufft of a backend appendage starts to push its way in deeper sliding easily thanks to your saliva on it.  "<i>You\'ll just have to bear it as long as you can!</i>"'
+            `[pg]"<i>Well sweetie, what do you think?</i>"  It quivers a few times as Marble resumes the rocking of her wide womanly hips.  "<i>Never mind, if you don't like it, well you can just try and end this as soon as possible.  If you do like it, then I guess...</i>"  She leans forward as she switches from a swinging movement to a bounce on your ${this.cockDescript(
+                x
+            )}, and her furry tufft of a backend appendage starts to push its way in deeper sliding easily thanks to your saliva on it.  "<i>You'll just have to bear it as long as you can!</i>"`
         );
 
         this.outx(

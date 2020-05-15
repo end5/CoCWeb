@@ -147,7 +147,7 @@ export class MinotaurKing extends Monster {
             this.outx(" Luckily, you misdirect his attack.");
         } else {
             damage = this.player.takeDamage(damage);
-            this.outx(" Damn, that hurts! (" + damage + ")");
+            this.outx(` Damn, that hurts! (${damage})`);
         }
     }
 
@@ -168,7 +168,7 @@ export class MinotaurKing extends Monster {
         } else {
             this._lastRoundStun = true;
             damage = this.player.takeDamage(damage);
-            this.outx(" He impacts with stunning force, leaving you reeling! (" + damage + ")");
+            this.outx(` He impacts with stunning force, leaving you reeling! (${damage})`);
             // {Stun for one turn, minor HP damage}
             if (this.player.findPerk(PerkLib.Resolute) < 0) {
                 this.outx(" <b>You're left stunned by the force of the blow!</b>");
@@ -207,7 +207,7 @@ export class MinotaurKing extends Monster {
             this.outx(" in time to avoid it.");
         } else {
             damage = this.player.takeDamage(damage);
-            this.outx(". By the time you notice, it’s too late. (" + damage + ")");
+            this.outx(`. By the time you notice, it’s too late. (${damage})`);
         }
     }
 

@@ -257,9 +257,10 @@ export class JeanClaudeScenes extends BaseContent {
 
         // What are your orders, my king/my queen (assuming bost basilisks don't speak english)
         this.outx(
-            "\n\n“<i>Que- quels sont vos ordres, " +
-                this.player.mf("mon roi", "ma reine") +
-                "?</i>” he whispers."
+            `\n\n“<i>Que- quels sont vos ordres, ${this.player.mf(
+                "mon roi",
+                "ma reine"
+            )}?</i>” he whispers.`
         );
 
         // Fight for me!/Go away

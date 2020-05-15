@@ -44,12 +44,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.checkedSophie = 0;
         this.pregnancy.pregnancyAdvance();
         trace(
-            "\nSophie time change: Time is " +
-                this.model.time.hours +
-                ", incubation: " +
-                this.pregnancy.incubation +
-                ", event: " +
-                this.pregnancy.event
+            `\nSophie time change: Time is ${this.model.time.hours}, incubation: ${this.pregnancy.incubation}, event: ${this.pregnancy.event}`
         );
         if (this.flags[kFLAGS.SOPHIE_ANGRY_AT_PC_COUNTER] > 0)
             this.flags[kFLAGS.SOPHIE_ANGRY_AT_PC_COUNTER]--;
@@ -361,9 +356,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\"<i>Awww, how nice of you to notice my breasts!  The other harpies are so mean to me because of them... I think they're jealous,</i>\" suggests the harpy.  She pulls a hand off your shoulder and begins to preen her 'hair' with it, arranging the feathers into a more pleasing configuration as she introduces herself, \"<i>I don't get to see many cute " +
-                this.player.mf("boys", "girls") +
-                " like yourself up here, and it's hard to fly very far with such heavy breasts weighing you down.  My name's Sophie!  What brings a delicious morsel like yourself to my little nest?</i>\"\n\n",
+            `"<i>Awww, how nice of you to notice my breasts!  The other harpies are so mean to me because of them... I think they're jealous,</i>" suggests the harpy.  She pulls a hand off your shoulder and begins to preen her 'hair' with it, arranging the feathers into a more pleasing configuration as she introduces herself, "<i>I don't get to see many cute ${this.player.mf(
+                "boys",
+                "girls"
+            )} like yourself up here, and it's hard to fly very far with such heavy breasts weighing you down.  My name's Sophie!  What brings a delicious morsel like yourself to my little nest?</i>"\n\n`,
             false
         );
 
@@ -422,9 +418,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                         false
                     );
                 this.outx(
-                    "  Sophie releases her talons and you drop smartly onto the far side.  She pants, \"<i>It's breeding time.  " +
-                        this.player.mf("Boy", "Girl") +
-                        ', fertilize me; NOW.</i>"\n\n',
+                    `  Sophie releases her talons and you drop smartly onto the far side.  She pants, "<i>It's breeding time.  ${this.player.mf(
+                        "Boy",
+                        "Girl"
+                    )}, fertilize me; NOW.</i>"\n\n`,
                     false
                 );
 
@@ -497,9 +494,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             // (Haven't sexed)
             else {
                 this.outx(
-                    "During your exploration of the mountains you wind up passing close to the harpy nests again.  You hear a faint buzzing on the breeze but ignore it, focusing instead on climbing the rocky mountain.  Pulling yourself up a ledge, you find yourself face-to-face with Sophie the harpy once again.  She's pinching one of her nipples and stroking around the entrance to her sodden twat.  It's flushed bright pink with desire and Sophie explains in between pleasured gasps, \"<i>I've been thinking about you since the last time I saw you, cutey.  I'm normally a horny bundle of fuck anyway, but I'd sure love for a virile " +
-                        this.player.mf("boy", "breeder") +
-                        ' like yourself to fertilize my eggs.</i>"  She spreads her legs wide and leans back, giving you an offer that\'s part suggestion, part command, "<i>Come here and put it inside me.  I promise I\'ll be tighter than a virgin and wetter than a succubus.</i>"\n\n',
+                    `During your exploration of the mountains you wind up passing close to the harpy nests again.  You hear a faint buzzing on the breeze but ignore it, focusing instead on climbing the rocky mountain.  Pulling yourself up a ledge, you find yourself face-to-face with Sophie the harpy once again.  She's pinching one of her nipples and stroking around the entrance to her sodden twat.  It's flushed bright pink with desire and Sophie explains in between pleasured gasps, "<i>I've been thinking about you since the last time I saw you, cutey.  I'm normally a horny bundle of fuck anyway, but I'd sure love for a virile ${this.player.mf(
+                        "boy",
+                        "breeder"
+                    )} like yourself to fertilize my eggs.</i>"  She spreads her legs wide and leans back, giving you an offer that's part suggestion, part command, "<i>Come here and put it inside me.  I promise I'll be tighter than a virgin and wetter than a succubus.</i>"\n\n`,
                     false
                 );
             }
@@ -528,9 +526,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             // (NO LACTATE)
             if (this.player.biggestLactation() < 1) {
                 this.outx(
-                    'Your climb manages to take you back into the harpy nests again.  Sophie flutters down next to you and warns, "<i>Cutey, a ' +
-                        this.player.mf("neuter", "girl") +
-                        " like you doesn't belong up here.  The younger harpies don't really get the idea of conversation and see you as competition.</i>\"\n\n",
+                    `Your climb manages to take you back into the harpy nests again.  Sophie flutters down next to you and warns, "<i>Cutey, a ${this.player.mf(
+                        "neuter",
+                        "girl"
+                    )} like you doesn't belong up here.  The younger harpies don't really get the idea of conversation and see you as competition.</i>"\n\n`,
                     false
                 );
 
@@ -643,10 +642,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         if (this.player.tallness <= 48) this.outx("little ");
         else if (this.player.tallness >= 72) this.outx("big ");
         this.outx(
-            this.player.mf("boy", "girl") +
-                '?  You seem to see something you want,</i>" observes the curvaceous bird-woman. "<i>Come into my nest, ' +
-                this.player.short +
-                "; it's been sooo long since I've been properly... fertilized.</i>\"  Sophie relaxes as she awaits your response.\n\n",
+            `${this.player.mf(
+                "boy",
+                "girl"
+            )}?  You seem to see something you want,</i>" observes the curvaceous bird-woman. "<i>Come into my nest, ${
+                this.player.short
+            }; it's been sooo long since I've been properly... fertilized.</i>"  Sophie relaxes as she awaits your response.\n\n`,
             false
         );
 
@@ -804,11 +805,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         // Not a combat win
         if (!this.getGame().inCombat)
             this.outx(
-                "Sophie steps back and drops onto her knees, balancing herself with her wings.   You pull your " +
-                    this.player.armorName +
-                    " open with deliberate slowness, exposing your " +
-                    this.allBreastsDescript() +
-                    " one at a time.  Sophie licks her lips as she patiently awaits the sharing of your bounty.\n\n",
+                `Sophie steps back and drops onto her knees, balancing herself with her wings.   You pull your ${
+                    this.player.armorName
+                } open with deliberate slowness, exposing your ${this.allBreastsDescript()} one at a time.  Sophie licks her lips as she patiently awaits the sharing of your bounty.\n\n`,
                 false
             );
         // COMBAT
@@ -822,9 +821,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             // (HP Win)
             else
                 this.outx(
-                    "You pull the dazed and defeated harpy up to her knees.  She sways unsteadily as you undress and expose your " +
-                        this.allBreastsDescript() +
-                        " to the cool mountain air.   Sophie's eyes open wider as she struggles back to consciousness, and the hungry harpy happily opens her mouth into a wide 'O', begging for your milk.\n\n",
+                    `You pull the dazed and defeated harpy up to her knees.  She sways unsteadily as you undress and expose your ${this.allBreastsDescript()} to the cool mountain air.   Sophie's eyes open wider as she struggles back to consciousness, and the hungry harpy happily opens her mouth into a wide 'O', begging for your milk.\n\n`,
                     false
                 );
         }
@@ -835,18 +832,18 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.breastRows.length > 1) this.outx("top-");
         this.outx(
-            "left-most " +
-                this.nippleDescript(0) +
-                ".  Her mouth latches on and begins to suckle; her lips tickle your sensitive tit-flesh and leave a pleasant tingle.  Sophie grunts and moans around the nipple as she masturbates.\n\n",
+            `left-most ${this.nippleDescript(
+                0
+            )}.  Her mouth latches on and begins to suckle; her lips tickle your sensitive tit-flesh and leave a pleasant tingle.  Sophie grunts and moans around the nipple as she masturbates.\n\n`,
             false
         );
 
         // (Low PG)
         if (this.player.biggestLactation() < 2) {
             this.outx(
-                "She suckles harder and harder until your feel your milk let down.  A pleasant trickle of your breast-milk leaks from your " +
-                    this.nippleDescript(0) +
-                    " into her mouth.  Sophie's arms close around your back, allowing her to lock herself onto you as she giddily sucks down your liquid nutrients.  The expression on her ",
+                `She suckles harder and harder until your feel your milk let down.  A pleasant trickle of your breast-milk leaks from your ${this.nippleDescript(
+                    0
+                )} into her mouth.  Sophie's arms close around your back, allowing her to lock herself onto you as she giddily sucks down your liquid nutrients.  The expression on her `,
                 false
             );
             if (this.monster.HP < 1) this.outx("battered ");
@@ -871,24 +868,23 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         // (Medium PG)
         else if (this.player.biggestLactation() < 3.5) {
             this.outx(
-                "She suckles hard, but it seems unnecessary given how quickly your milk lets down.  Breast-milk gushes into her mouth and causes her eyes to widen at the speed of the flow.   Her arms lock around your back in a firm embrace, as if she were worried you'd pull back and deny her.  She struggles to swallow all the milk you're putting out, but the expression on her face is one of pure bliss.  You have to wonder just what would make a bird love milk this much.  Her eyes droop closed while she relaxes against your " +
-                    this.nippleDescript(0) +
-                    ".  The milk eventually runs dry, and she has to move on to your ",
+                `She suckles hard, but it seems unnecessary given how quickly your milk lets down.  Breast-milk gushes into her mouth and causes her eyes to widen at the speed of the flow.   Her arms lock around your back in a firm embrace, as if she were worried you'd pull back and deny her.  She struggles to swallow all the milk you're putting out, but the expression on her face is one of pure bliss.  You have to wonder just what would make a bird love milk this much.  Her eyes droop closed while she relaxes against your ${this.nippleDescript(
+                    0
+                )}.  The milk eventually runs dry, and she has to move on to your `,
                 false
             );
             if (this.player.totalNipples() == 2) this.outx("other ");
             else this.outx("next ");
             this.outx(
-                this.nippleDescript(0) +
-                    ".  The suckling goes on nearly as long as it did with the first, until she finishes.",
+                `${this.nippleDescript(
+                    0
+                )}.  The suckling goes on nearly as long as it did with the first, until she finishes.`,
                 false
             );
             if (this.player.totalBreasts() > 2) {
                 if (this.player.totalNipples() > 2)
                     this.outx(
-                        "She drinks from each of the nipples that adorn your " +
-                            this.allBreastsDescript() +
-                            " until her belly is full and gurgling.",
+                        `She drinks from each of the nipples that adorn your ${this.allBreastsDescript()} until her belly is full and gurgling.`,
                         false
                     );
                 else
@@ -906,9 +902,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         // (High PG)
         else {
             this.outx(
-                "She suckles hard for a moment, and winds up sputtering at the flood of milk that you produce.  Breast-milk gushes over her face, and she can only look on with a ecstatic pleasure at what she's started.  Sophie leans forward and latches back on, her throat swallowing visibly and often as she struggles to keep up with your milk-flow.  Her arms close around your back and lock together in an effort to hold onto you, even as your milk squirts out from the corners of her mouth.  Her blissful expression makes you wonder just what would make a harpy love milk so much.  Her eyelids droop while she relaxes against the " +
-                    this.nippleDescript(0) +
-                    ".  The suckling goes on and on, until your milk slows to a reasonable trickle.  Content to have drained one milk-spout, Sophie moves on to the ",
+                `She suckles hard for a moment, and winds up sputtering at the flood of milk that you produce.  Breast-milk gushes over her face, and she can only look on with a ecstatic pleasure at what she's started.  Sophie leans forward and latches back on, her throat swallowing visibly and often as she struggles to keep up with your milk-flow.  Her arms close around your back and lock together in an effort to hold onto you, even as your milk squirts out from the corners of her mouth.  Her blissful expression makes you wonder just what would make a harpy love milk so much.  Her eyelids droop while she relaxes against the ${this.nippleDescript(
+                    0
+                )}.  The suckling goes on and on, until your milk slows to a reasonable trickle.  Content to have drained one milk-spout, Sophie moves on to the `,
                 false
             );
             if (this.player.totalNipples()) this.outx("other ");
@@ -1017,24 +1013,18 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
 
         this.outx(
-            "With her spread thighs beckoning you so invitingly, there's no way you could resist.  You tear off your " +
-                this.player.armorName +
-                " and jump into her nest with her, hardening delightfully from your close proximity to the well-endowed woman.  Sophie places a hand ",
+            `With her spread thighs beckoning you so invitingly, there's no way you could resist.  You tear off your ${this.player.armorName} and jump into her nest with her, hardening delightfully from your close proximity to the well-endowed woman.  Sophie places a hand `,
             false
         );
         if (this.player.biggestTitSize() < 1) this.outx("on your chest");
-        else this.outx("between your " + this.allBreastsDescript(), false);
+        else this.outx(`between your ${this.allBreastsDescript()}`, false);
         this.outx(
-            ", tracing up and down your " +
-                this.player.skinDesc +
-                ' with slow, measured strokes.  She boasts, "<i>The last time a willing mate found his way up to my nest, it only took a few moments for him to fertilize me.  He just couldn\'t handle all this.</i>"  She pulls you into her breasts for emphasis and squeezes them around your head.\n\n',
+            `, tracing up and down your ${this.player.skinDesc} with slow, measured strokes.  She boasts, "<i>The last time a willing mate found his way up to my nest, it only took a few moments for him to fertilize me.  He just couldn't handle all this.</i>"  She pulls you into her breasts for emphasis and squeezes them around your head.\n\n`,
             false
         );
 
         this.outx(
-            "Sophie releases you from her bountiful bosom, but you take your time coming back out; you even stop to lick one of her pert nipples.  The harpy takes you by the hips and pulls you on top of her, squeezing your " +
-                this.assDescript() +
-                " for good measure.   With ",
+            `Sophie releases you from her bountiful bosom, but you take your time coming back out; you even stop to lick one of her pert nipples.  The harpy takes you by the hips and pulls you on top of her, squeezing your ${this.assDescript()} for good measure.   With `,
             false
         );
         if (this.player.biggestTitSize() >= 1) this.outx("her breasts rubbing against your own");
@@ -1045,9 +1035,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.outx(", ");
         if (this.player.totalCocks() > 1) this.outx("each of ");
         this.outx(
-            "your " +
-                this.multiCockDescriptLight() +
-                " begins to poke and prod against her crotch and slightly parted slit.  ",
+            `your ${this.multiCockDescriptLight()} begins to poke and prod against her crotch and slightly parted slit.  `,
             false
         );
         if (this.player.cockArea(x) <= 6) {
@@ -1068,11 +1056,11 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
         if (this.player.cockTotal() > 1 && this.player.biggestCockArea() > 232) {
             this.outx(
-                "  Her hands push away the bloated flesh of your " +
-                    this.cockDescript(this.player.biggestCockIndex()) +
-                    " in an effort to better get at your " +
-                    this.cockDescript(x) +
-                    '.  She grunts, "<i>Tempting, but too much of a good thing.</i>"',
+                `  Her hands push away the bloated flesh of your ${this.cockDescript(
+                    this.player.biggestCockIndex()
+                )} in an effort to better get at your ${this.cockDescript(
+                    x
+                )}.  She grunts, "<i>Tempting, but too much of a good thing.</i>"`,
                 false
             );
         }
@@ -1096,43 +1084,36 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         if (this.player.balls > 0) this.outx("balls");
         else this.outx("cock");
         this.outx(
-            ".  I've been milking cute " +
-                this.player.mf("studs", "herms") +
-                " like you since the demons took over, and you're my latest conquest.  That's okay with you, right?  You don't mind me relieving all your pressure for my needy eggs do you?  Of course you don't.</i>\"  Her words carry more weight than they ought to, chasing away any reluctance or worries from your mind and replacing them with acceptance.  Sophie really knows what she's doing.  She's seduced you to the point of penetration.  Being a conquest isn't that bad; you'll get to fuck this confident older woman until you're squirting all over her eggs.\n\n",
+            `.  I've been milking cute ${this.player.mf(
+                "studs",
+                "herms"
+            )} like you since the demons took over, and you're my latest conquest.  That's okay with you, right?  You don't mind me relieving all your pressure for my needy eggs do you?  Of course you don't.</i>"  Her words carry more weight than they ought to, chasing away any reluctance or worries from your mind and replacing them with acceptance.  Sophie really knows what she's doing.  She's seduced you to the point of penetration.  Being a conquest isn't that bad; you'll get to fuck this confident older woman until you're squirting all over her eggs.\n\n`,
             false
         );
 
         this.outx(
-            'Sophie coos, "<i>Go on ' +
-                this.player.mf("boy", "girl") +
-                ", give your " +
-                this.cockDescript(x) +
-                ' a taste.</i>"  You oblige her request by rocking your hips forward, ',
+            `Sophie coos, "<i>Go on ${this.player.mf("boy", "girl")}, give your ${this.cockDescript(
+                x
+            )} a taste.</i>"  You oblige her request by rocking your hips forward, `,
             false
         );
         if (this.player.cockArea(x) <= 6)
-            this.outx(
-                "plunging your " + this.cockDescript(x) + " inside the oversized vagina.",
-                false
-            );
+            this.outx(`plunging your ${this.cockDescript(x)} inside the oversized vagina.`, false);
         else if (this.player.cockArea(x) <= 150)
-            this.outx(
-                "burying your " + this.cockDescript(x) + " deep into her massive gash.",
-                false
-            );
+            this.outx(`burying your ${this.cockDescript(x)} deep into her massive gash.`, false);
         else
             this.outx(
-                "slowly working your " +
-                    this.cockDescript(x) +
-                    " into her massive gash, finding it barely big enough for you.",
+                `slowly working your ${this.cockDescript(
+                    x
+                )} into her massive gash, finding it barely big enough for you.`,
                 false
             );
         this.outx(
-            "  Her warm, feathery thighs close around behind you, locking their talons together to hold your " +
-                this.cockDescript(x) +
-                " in the squelching wet walls of her pussy.  The act of her 'imprisoning' you causes the slippery walls to squeeze tightly about your girth, just as she promised.  Your hips rock with an ingrown need that's thwarted by Sophie's muscular thighs.  There is no thrusting, no repeated penetration.  There is only the slow rhythm of her muscles as they squeeze and massage your " +
-                this.cockDescript(x) +
-                ".\n\n",
+            `  Her warm, feathery thighs close around behind you, locking their talons together to hold your ${this.cockDescript(
+                x
+            )} in the squelching wet walls of her pussy.  The act of her 'imprisoning' you causes the slippery walls to squeeze tightly about your girth, just as she promised.  Your hips rock with an ingrown need that's thwarted by Sophie's muscular thighs.  There is no thrusting, no repeated penetration.  There is only the slow rhythm of her muscles as they squeeze and massage your ${this.cockDescript(
+                x
+            )}.\n\n`,
             false
         );
 
@@ -1180,20 +1161,20 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         this.outx(
-            ', and increases the tempo of her vaginal contractions.  Her leg muscles clench along with the perverted rhythm, forcibly shifting your position to rub her egg-stretched cunt in different ways.  She ruffles your hair and hums out a powerful command, "<i>Cum for me ' +
-                this.player.mf("boy", "my sweet") +
-                '; fertilize my eggs.</i>"\n\n',
+            `, and increases the tempo of her vaginal contractions.  Her leg muscles clench along with the perverted rhythm, forcibly shifting your position to rub her egg-stretched cunt in different ways.  She ruffles your hair and hums out a powerful command, "<i>Cum for me ${this.player.mf(
+                "boy",
+                "my sweet"
+            )}; fertilize my eggs.</i>"\n\n`,
             false
         );
 
         this.outx(
-            "The compulsion to obey rocks you to your core.  With the constant vice-like squeezing, you wouldn't be able to resist if you wanted to.  Your " +
-                this.cockDescript(x) +
-                " twitches and begins to unload into your older lover's contracting love-tunnel.  Sophie pants, \"<i>Good " +
-                this.player.mf("boy", "girl") +
-                '!  Squirt it all out for me.</i>"   Her fingers trace through your ' +
-                this.hairDescript() +
-                " as you cum, and cum, and cum.",
+            `The compulsion to obey rocks you to your core.  With the constant vice-like squeezing, you wouldn't be able to resist if you wanted to.  Your ${this.cockDescript(
+                x
+            )} twitches and begins to unload into your older lover's contracting love-tunnel.  Sophie pants, "<i>Good ${this.player.mf(
+                "boy",
+                "girl"
+            )}!  Squirt it all out for me.</i>"   Her fingers trace through your ${this.hairDescript()} as you cum, and cum, and cum.`,
             false
         );
         if (this.player.cumQ() >= 500) {
@@ -1218,7 +1199,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.balls > 0) this.outx(this.ballsDescriptLight(), false);
-        else this.outx(this.cockDescript(x) + " and prostate", false);
+        else this.outx(`${this.cockDescript(x)} and prostate`, false);
         this.outx(" are aching and sore.\n\n", false);
 
         this.outx(
@@ -1240,9 +1221,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             if (SophieScene.rand(2) == 0) this.outx("older women");
             else this.outx("harpies");
             this.outx(
-                ", or are you just falling in love with me?  It's been some time since I've had an admirer like you.  We had a word for " +
-                    this.player.mf("boys", "sluts") +
-                    " like you – perverts.  I kid, I kid.  Perverts like you have such pent up, potent cum, and I know you love to give it to me.",
+                `, or are you just falling in love with me?  It's been some time since I've had an admirer like you.  We had a word for ${this.player.mf(
+                    "boys",
+                    "sluts"
+                )} like you – perverts.  I kid, I kid.  Perverts like you have such pent up, potent cum, and I know you love to give it to me.`,
                 false
             );
         } else {
@@ -1260,10 +1242,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         else this.outx("into the massive cum-puddle you've turned her nest into");
         this.outx(".  You struggle up to your feet and marvel at how rigid ");
         if (this.player.cockTotal() > 1) this.outx("each of ");
-        this.outx(
-            " your " + this.multiCockDescriptLight() + ' remains.  Sophie giggles, "<i>',
-            false
-        );
+        this.outx(` your ${this.multiCockDescriptLight()} remains.  Sophie giggles, "<i>`, false);
         if (this.flags[kFLAGS.FUCKED_SOPHIE_COUNTER] == 0) {
             this.outx(
                 "Sorry cutey, the lip gloss is going to keep you nice and hard.  It's meant to help your ",
@@ -1301,15 +1280,13 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.cockTotal() > 1) this.outx("each of ");
         this.outx(
-            "your " +
-                this.multiCockDescriptLight() +
-                ' or her own cum-slicked twat.  The harpy gets herself off numerous times, clearly enjoying your discomfort and the fullness of her vagina.  After a few hours of this pleasure-hell you can feel your body dredging up another load, and Sophie whispers in your ear, "<i>Relax and squirt it all out for me.</i>"\n\n',
+            `your ${this.multiCockDescriptLight()} or her own cum-slicked twat.  The harpy gets herself off numerous times, clearly enjoying your discomfort and the fullness of her vagina.  After a few hours of this pleasure-hell you can feel your body dredging up another load, and Sophie whispers in your ear, "<i>Relax and squirt it all out for me.</i>"\n\n`,
             false
         );
 
         this.outx("Her feathers tickle ");
         if (this.player.cockTotal() > 1) this.outx("all of ");
-        this.outx("your " + this.multiCockDescriptLight(), false);
+        this.outx(`your ${this.multiCockDescriptLight()}`, false);
         if (this.player.balls > 0) this.outx(" and balls");
         this.outx(
             " while her hands stroke and squeeze, and in no time you're coming for the confident harpy again.  Ropes of white jism ",
@@ -1368,24 +1345,18 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.flags[kFLAGS.SOPHIE_FOLLOWER_PROGRESS]++;
         this.outx("", true);
         this.outx(
-            "With her spread thighs beckoning you so invitingly, there's no way you could resist.  You tear off your " +
-                this.player.armorName +
-                " and jump into her nest with her, hardening delightfully from your close proximity to the well-endowed woman.  Sophie places a hand ",
+            `With her spread thighs beckoning you so invitingly, there's no way you could resist.  You tear off your ${this.player.armorName} and jump into her nest with her, hardening delightfully from your close proximity to the well-endowed woman.  Sophie places a hand `,
             false
         );
         if (this.player.biggestTitSize() < 1) this.outx("on your chest");
-        else this.outx("between your " + this.allBreastsDescript(), false);
+        else this.outx(`between your ${this.allBreastsDescript()}`, false);
         this.outx(
-            ", tracing up and down your " +
-                this.player.skinDesc +
-                ' with slow, measured strokes.  She boasts, "<i>The last time a willing mate found his way up to my nest, it only took a few moments for him to fertilize me.  He just couldn\'t handle all this.</i>"  She pulls you into her breasts for emphasis and squeezes them around your head.\n\n',
+            `, tracing up and down your ${this.player.skinDesc} with slow, measured strokes.  She boasts, "<i>The last time a willing mate found his way up to my nest, it only took a few moments for him to fertilize me.  He just couldn't handle all this.</i>"  She pulls you into her breasts for emphasis and squeezes them around your head.\n\n`,
             false
         );
 
         this.outx(
-            "Sophie releases you from her bountiful bosom, but you take your time coming back out; you even stop to lick one of her pert nipples.  The harpy takes you by the hips and pulls you on top of her, squeezing your " +
-                this.assDescript() +
-                " for good measure.   With ",
+            `Sophie releases you from her bountiful bosom, but you take your time coming back out; you even stop to lick one of her pert nipples.  The harpy takes you by the hips and pulls you on top of her, squeezing your ${this.assDescript()} for good measure.   With `,
             false
         );
         if (this.player.tallness <= 48) this.outx("her breasts pressed into your face");
@@ -1395,9 +1366,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             else this.outx("chest");
         } else this.outx("her breasts pressing against your stomach");
         this.outx(
-            ", your " +
-                this.cockDescript(x) +
-                " begins to grow along the bottom of the nest.  It rubs her lower lips delightfully as it lengthens underneath her.   Her eyes go wide with shock and she exclaims, \"<i>That's bigger than a minotaur's!  Just because I've laid a few hundred eggs in my time doesn't mean I can fuck a monstrous giant-cock.  You do realize that with a pecker like that you belong in some demonic zoo, rather than in a beautiful harpy's nest.</i>\"\n\n",
+            `, your ${this.cockDescript(
+                x
+            )} begins to grow along the bottom of the nest.  It rubs her lower lips delightfully as it lengthens underneath her.   Her eyes go wide with shock and she exclaims, "<i>That's bigger than a minotaur's!  Just because I've laid a few hundred eggs in my time doesn't mean I can fuck a monstrous giant-cock.  You do realize that with a pecker like that you belong in some demonic zoo, rather than in a beautiful harpy's nest.</i>"\n\n`,
             false
         );
 
@@ -1412,27 +1383,29 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         this.outx(
-            "until the soft skin of her hand presses against your cheek and her voice soothes, \"<i>Don't worry, sweetheart.  It's what's INSIDE of that beast that makes me want you.  I've been milking cute " +
-                this.player.mf("studs", "herms") +
-                " like you since the demons took over, and you're just my latest conquest.  That's okay with you right?  You don't mind me relieving all that pressure for my needy eggs do you?  Of course you don't.</i>\"  Her words carry more weight than they ought to, chasing away any reluctance or worries from your mind and replacing them with acceptance.  Sophie really knows what she's doing.  You're unwilling or unable to resist her humiliating advances, and the worst part is: you don't mind.   Being a conquest won't be so bad; she IS going to let you pack her cunt with cum...\n\n",
+            `until the soft skin of her hand presses against your cheek and her voice soothes, "<i>Don't worry, sweetheart.  It's what's INSIDE of that beast that makes me want you.  I've been milking cute ${this.player.mf(
+                "studs",
+                "herms"
+            )} like you since the demons took over, and you're just my latest conquest.  That's okay with you right?  You don't mind me relieving all that pressure for my needy eggs do you?  Of course you don't.</i>"  Her words carry more weight than they ought to, chasing away any reluctance or worries from your mind and replacing them with acceptance.  Sophie really knows what she's doing.  You're unwilling or unable to resist her humiliating advances, and the worst part is: you don't mind.   Being a conquest won't be so bad; she IS going to let you pack her cunt with cum...\n\n`,
             false
         );
 
         this.outx(
-            "Sophie's wings curl forward past her shoulders and gently push you away.   As you flop into the soft lining of the nest, your " +
-                this.cockDescript(x) +
-                " rises to point up at the sky.  The harpy's wing-like arms encircle you with feathery softness, tickling at your base.  She starts sliding her body up and down along the length of your shaft with the large orbs of her breasts crushed against your member.  Sophie asks in a voice that sounds more like command than question, \"<i>Are you going to give me a taste, " +
-                this.player.short +
-                "?  I'd like to know what kind of cum will be seeding my womb.</i>\"\n\n",
+            `Sophie's wings curl forward past her shoulders and gently push you away.   As you flop into the soft lining of the nest, your ${this.cockDescript(
+                x
+            )} rises to point up at the sky.  The harpy's wing-like arms encircle you with feathery softness, tickling at your base.  She starts sliding her body up and down along the length of your shaft with the large orbs of her breasts crushed against your member.  Sophie asks in a voice that sounds more like command than question, "<i>Are you going to give me a taste, ${
+                this.player.short
+            }?  I'd like to know what kind of cum will be seeding my womb.</i>"\n\n`,
             false
         );
 
         this.outx(
-            'She leans down and gives you a kiss on the lips before whispering, "<i>Be a good ' +
-                this.player.mf("boy", "girl") +
-                ' and squeeze out a little pre-cum for momma.</i>"  She squeezes tightly around your base and drags her feathery arms up to the ' +
-                this.player.cockHead(x) +
-                ", milking out a ",
+            `She leans down and gives you a kiss on the lips before whispering, "<i>Be a good ${this.player.mf(
+                "boy",
+                "girl"
+            )} and squeeze out a little pre-cum for momma.</i>"  She squeezes tightly around your base and drags her feathery arms up to the ${this.player.cockHead(
+                x
+            )}, milking out a `,
             false
         );
         if (this.player.cumQ() < 50) this.outx("small dollop");
@@ -1440,39 +1413,40 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         else if (this.player.cumQ() < 1000) this.outx("large squirt");
         else this.outx("torrential gush");
         this.outx(
-            ' of pre-cum.  Sophie coos, "<i>Such a fertile ' +
-                this.player.mf("boy", "girl") +
-                ",</i>\" and slurps down the sticky treat with a knowing smile.  She turns about and lets her tail-feathers tickle your face, then sits down on your stomach.  As light as she is it doesn't bother you much, and the unexpectedly soft bottoms of her bird-like feet begin rubbing ",
+            ` of pre-cum.  Sophie coos, "<i>Such a fertile ${this.player.mf(
+                "boy",
+                "girl"
+            )},</i>" and slurps down the sticky treat with a knowing smile.  She turns about and lets her tail-feathers tickle your face, then sits down on your stomach.  As light as she is it doesn't bother you much, and the unexpectedly soft bottoms of her bird-like feet begin rubbing `,
             false
         );
         if (this.player.balls > 0)
             this.outx(
-                "your " + this.ballsDescriptLight() + ", careful not to snag them with her talons",
+                `your ${this.ballsDescriptLight()}, careful not to snag them with her talons`,
                 false
             );
         else this.outx("your thighs, careful not to snag you with her talons");
         this.outx(
-            ".  The muscled flesh of her thighs contracts in a vice-like grip, acting like a cock-ring and forcing even more blood into your already over-aroused " +
-                this.cockDescript(x) +
-                ".\n\n",
+            `.  The muscled flesh of her thighs contracts in a vice-like grip, acting like a cock-ring and forcing even more blood into your already over-aroused ${this.cockDescript(
+                x
+            )}.\n\n`,
             false
         );
 
         this.outx(
-            "Your body twists and squirms underneath her, aching for more stimulation, more aroused than it should be.  Your grunts and moans grow to a feverish intensity until Sophie leans back to place a finger on your lips.  She commands, \"<i>Shush now; I know the pollen in my lip-gloss makes it hard not to cum right away, but you need to wait until I'm ready for your seed.</i>\"  You whine plaintively but it's no use.  It feels like orgasm is so close that you could reach out and touch it, but it just won't come.  Sophie giggles cruelly and circles your bloated " +
-                this.player.cockHead(x) +
-                ' with her fingertip, assuring you: "<i>You can cum soon, I promise.  Just wait; once your tip is in my pussy you\'ll cum out all your seed.  Your harpy queen commands it!</i>"  Her words seem... heavy, somehow; like they have some force or weight behind them.\n\n',
+            `Your body twists and squirms underneath her, aching for more stimulation, more aroused than it should be.  Your grunts and moans grow to a feverish intensity until Sophie leans back to place a finger on your lips.  She commands, "<i>Shush now; I know the pollen in my lip-gloss makes it hard not to cum right away, but you need to wait until I'm ready for your seed.</i>"  You whine plaintively but it's no use.  It feels like orgasm is so close that you could reach out and touch it, but it just won't come.  Sophie giggles cruelly and circles your bloated ${this.player.cockHead(
+                x
+            )} with her fingertip, assuring you: "<i>You can cum soon, I promise.  Just wait; once your tip is in my pussy you'll cum out all your seed.  Your harpy queen commands it!</i>"  Her words seem... heavy, somehow; like they have some force or weight behind them.\n\n`,
             false
         );
 
         this.outx(
-            "Sophie stands up and begins to flap her wings, kicking up dust and debris and forcing you to shield your eyes as she lifts off the ground.  Her hands lock onto your " +
-                this.cockDescript(x) +
-                " and guide her over top of it.  Beads of wetness drip from her vagina and roll over your tender, sensitive skin as she lowers herself down, planting your " +
-                this.player.cockHead(x) +
-                " inside her egg-widened pussy lips.  Her primary wings flap in a frenzy, struggling to hold her aloft without the aid of her arms, but you barely notice.  Your " +
-                this.cockDescript(x) +
-                " is cumming and cumming HARD for the matronly harpy, filling her waiting womb with spunk.",
+            `Sophie stands up and begins to flap her wings, kicking up dust and debris and forcing you to shield your eyes as she lifts off the ground.  Her hands lock onto your ${this.cockDescript(
+                x
+            )} and guide her over top of it.  Beads of wetness drip from her vagina and roll over your tender, sensitive skin as she lowers herself down, planting your ${this.player.cockHead(
+                x
+            )} inside her egg-widened pussy lips.  Her primary wings flap in a frenzy, struggling to hold her aloft without the aid of her arms, but you barely notice.  Your ${this.cockDescript(
+                x
+            )} is cumming and cumming HARD for the matronly harpy, filling her waiting womb with spunk.`,
             false
         );
         if (this.player.cumQ() >= 1000) {
@@ -1519,9 +1493,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             if (SophieScene.rand(2) == 0) this.outx("older women");
             else this.outx("harpies");
             this.outx(
-                ", or are you just falling in love with me?  It's been some time since I've had an admirer like you.  We had a word for " +
-                    this.player.mf("boys", "sluts") +
-                    " like you – perverts.  I kid, I kid.  Perverts like you have such pent up, potent cum, and I know you love to give it to me.",
+                `, or are you just falling in love with me?  It's been some time since I've had an admirer like you.  We had a word for ${this.player.mf(
+                    "boys",
+                    "sluts"
+                )} like you – perverts.  I kid, I kid.  Perverts like you have such pent up, potent cum, and I know you love to give it to me.`,
                 false
             );
         } else {
@@ -1534,10 +1509,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
 
         this.outx("You struggle up to your feet and marvel at how rigid ");
         if (this.player.cockTotal() > 1) this.outx("each of ");
-        this.outx(
-            "your " + this.multiCockDescriptLight() + ' remains.  Sophie giggles, "<i>',
-            false
-        );
+        this.outx(`your ${this.multiCockDescriptLight()} remains.  Sophie giggles, "<i>`, false);
         if (this.flags[kFLAGS.FUCKED_SOPHIE_COUNTER] == 0) {
             this.outx(
                 "Sorry cutey, the lip gloss is going to keep you nice and hard.  It's meant to help your ",
@@ -1703,16 +1675,17 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "You force your " +
-                this.cockDescript(x) +
-                " into the waiting hole, surprised at how firmly it squeezes.  Sophie grunts and struggles under you, but with your grip and the awkward angle she can't get anywhere.  The half-conscious expression on her face makes it difficult to tell if she's trying to escape or merely attempting to take on a more dominant position.  It doesn't matter; each struggle and flex of her thigh muscles only makes her slippery cunt clamp down more tightly around your member.  You rock your hips back and forth and tease, \"<i>Isn't this what you wanted, Sophie?   You know you're loving this.  Just don't think you'll get me with any more of whatever is in your lip-gloss!</i>\"\n\n",
+            `You force your ${this.cockDescript(
+                x
+            )} into the waiting hole, surprised at how firmly it squeezes.  Sophie grunts and struggles under you, but with your grip and the awkward angle she can't get anywhere.  The half-conscious expression on her face makes it difficult to tell if she's trying to escape or merely attempting to take on a more dominant position.  It doesn't matter; each struggle and flex of her thigh muscles only makes her slippery cunt clamp down more tightly around your member.  You rock your hips back and forth and tease, "<i>Isn't this what you wanted, Sophie?   You know you're loving this.  Just don't think you'll get me with any more of whatever is in your lip-gloss!</i>"\n\n`,
             false
         );
 
         this.outx(
-            "The slap of flesh on flesh echoes through the cool mountain air, and even though you're raping one of them, the other harpies in the area don't seem to care.  A few of them seem to be perched on the edges of their nests, touching themselves.  It seems they aren't much interested in what happens to Sophie.  You pound her pussy with increasing levels of vigor, watching her thighs and breasts jiggle with the force of the fucking.  Her arms come up to steady her breasts, but her fingers wrap around her erect nipples and begin to pinch and pull on them.  Sophie pants, \"<i>Oh gods yes!  Breed me you fucking " +
-                this.player.mf("stud", "sexy bitch") +
-                '.  Stuff your nice young sperm inside me!</i>"\n\n',
+            `The slap of flesh on flesh echoes through the cool mountain air, and even though you're raping one of them, the other harpies in the area don't seem to care.  A few of them seem to be perched on the edges of their nests, touching themselves.  It seems they aren't much interested in what happens to Sophie.  You pound her pussy with increasing levels of vigor, watching her thighs and breasts jiggle with the force of the fucking.  Her arms come up to steady her breasts, but her fingers wrap around her erect nipples and begin to pinch and pull on them.  Sophie pants, "<i>Oh gods yes!  Breed me you fucking ${this.player.mf(
+                "stud",
+                "sexy bitch"
+            )}.  Stuff your nice young sperm inside me!</i>"\n\n`,
             false
         );
 
@@ -1722,9 +1695,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "Warmth boils up in your loins, the telltale sign of your coming orgasm.   You plunge inside her and bend over, biting her nipples as you cum.  Jism boils out of your " +
-                this.cockDescript(x) +
-                ", creaming her pussy as Sophie has another blissful orgasm.  You doubt she's even conscious at this point, but you don't care one way or another.  ",
+            `Warmth boils up in your loins, the telltale sign of your coming orgasm.   You plunge inside her and bend over, biting her nipples as you cum.  Jism boils out of your ${this.cockDescript(
+                x
+            )}, creaming her pussy as Sophie has another blissful orgasm.  You doubt she's even conscious at this point, but you don't care one way or another.  `,
             false
         );
         if (this.player.cumQ() < 50) this.outx("Spooge spurts inside her until you're satisfied.");
@@ -1772,32 +1745,34 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "You press your " +
-                this.cockDescript(x) +
-                " forward, intent on abusing Sophie's hole with your gargantuan fuck-stick, but it won't fit.   In desperation, you slide your dick over her lips, stimulating her slippery gash and lubricating your " +
-                this.cockDescript(x) +
-                " with harpy-lust, but when you pull back and try to cram it inside... it still won't fit!  Sophie grunts underneath you and barks in irritation, \"<i>It won't work, " +
-                this.player.mf("boy", "girl") +
-                "!  You're too big for harpy-snatch, even one as well-traveled as mine!</i>\"  You reach down and slap her ass punitively, and the jiggle that slowly travels up her large thighs gives you an idea.\n\n",
+            `You press your ${this.cockDescript(
+                x
+            )} forward, intent on abusing Sophie's hole with your gargantuan fuck-stick, but it won't fit.   In desperation, you slide your dick over her lips, stimulating her slippery gash and lubricating your ${this.cockDescript(
+                x
+            )} with harpy-lust, but when you pull back and try to cram it inside... it still won't fit!  Sophie grunts underneath you and barks in irritation, "<i>It won't work, ${this.player.mf(
+                "boy",
+                "girl"
+            )}!  You're too big for harpy-snatch, even one as well-traveled as mine!</i>"  You reach down and slap her ass punitively, and the jiggle that slowly travels up her large thighs gives you an idea.\n\n`,
             false
         );
 
         this.outx(
-            "Balling your hand into a fist, you push it into her large, sloppy hole and collect a handful of her fluids.  You pull it out and slather it over her muscled thighs and the veiny, unlubricated surface of your " +
-                this.cockDescript(x) +
-                ", then go back in for more.  In half a minute, her crotch and your cock are slicked with Sophie's prodigious pussy-fluid.  You drop your " +
-                this.cockDescript(x) +
-                " down into place between her legs and pull her feet together, sandwiching your dick-flesh in a vice of soft thigh-meat.  It's divine, and though Sophie seems rather unhappy with the situation, her half-hearted struggles only make her legs feel that much better.\n\n",
+            `Balling your hand into a fist, you push it into her large, sloppy hole and collect a handful of her fluids.  You pull it out and slather it over her muscled thighs and the veiny, unlubricated surface of your ${this.cockDescript(
+                x
+            )}, then go back in for more.  In half a minute, her crotch and your cock are slicked with Sophie's prodigious pussy-fluid.  You drop your ${this.cockDescript(
+                x
+            )} down into place between her legs and pull her feet together, sandwiching your dick-flesh in a vice of soft thigh-meat.  It's divine, and though Sophie seems rather unhappy with the situation, her half-hearted struggles only make her legs feel that much better.\n\n`,
             false
         );
 
         this.outx(
-            "Tears well up at the corners of her eyes as you use the harpy like a sex-toy.  It's so pathetic that you actually take pity on the poor matron.  You gather both her ankles in your right hand, freeing your left to reach under the flesh of your " +
-                this.cockDescript(x) +
-                " and push inside her vagina.  Sophie's eyes cross at the sudden large intrusion, but her hips rock instinctively as if she could somehow milk some cum from the intruder.  You reach in far enough to feel the barrier of her womb and gently push against it before you pull back out for the next penetration.  The harpy has stopped crying and is starting to squeeze and relax her thighs around your " +
-                this.cockDescript(x) +
-                ".  She pays back your mercy with as much pleasure as she can, and presses her breasts around your " +
-                this.cockDescript(x),
+            `Tears well up at the corners of her eyes as you use the harpy like a sex-toy.  It's so pathetic that you actually take pity on the poor matron.  You gather both her ankles in your right hand, freeing your left to reach under the flesh of your ${this.cockDescript(
+                x
+            )} and push inside her vagina.  Sophie's eyes cross at the sudden large intrusion, but her hips rock instinctively as if she could somehow milk some cum from the intruder.  You reach in far enough to feel the barrier of her womb and gently push against it before you pull back out for the next penetration.  The harpy has stopped crying and is starting to squeeze and relax her thighs around your ${this.cockDescript(
+                x
+            )}.  She pays back your mercy with as much pleasure as she can, and presses her breasts around your ${this.cockDescript(
+                x
+            )}`,
             false
         );
 
@@ -1805,9 +1780,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         else this.outx(" as it pushes past them to her lips.");
         if (this.player.cocks[x].cockLength >= 40) {
             this.outx(
-                "  She sucks the " +
-                    this.player.cockHead(x) +
-                    " inside her mouth and whirls her tongue around it ",
+                `  She sucks the ${this.player.cockHead(
+                    x
+                )} inside her mouth and whirls her tongue around it `,
                 false
             );
             if (this.player.cocks[x].cockLength < 50) this.outx("before you pull back.");
@@ -1834,9 +1809,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.outx(".");
         if (this.player.cumQ() >= 500) {
             this.outx(
-                "  Clenched tightly, you revel in the feeling of thick jizz-globules distorting your " +
-                    this.cockDescript(x) +
-                    " as they blast out.  It splatters wetly, making a total mess of your curvy victim",
+                `  Clenched tightly, you revel in the feeling of thick jizz-globules distorting your ${this.cockDescript(
+                    x
+                )} as they blast out.  It splatters wetly, making a total mess of your curvy victim`,
                 false
             );
             if (this.player.cocks[x].cockLength >= 50) this.outx("'s nest");
@@ -1850,24 +1825,22 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.outx("  Sophie ");
         if (this.player.cocks[x].cockLength < 50)
             this.outx(
-                "covered the underside of your " +
-                    this.cockDescript(x) +
-                    " in kisses during your orgasm, but the tingling oral drugs only made it feel better.",
+                `covered the underside of your ${this.cockDescript(
+                    x
+                )} in kisses during your orgasm, but the tingling oral drugs only made it feel better.`,
                 false
             );
         else
             this.outx(
-                "has been running her drug-laced lip-gloss all over your " +
-                    this.player.cockHead(x) +
-                    " this entire time!  The tingling made your orgasm even better, but you know you've absorbed a lot of the stuff by now.",
+                `has been running her drug-laced lip-gloss all over your ${this.player.cockHead(
+                    x
+                )} this entire time!  The tingling made your orgasm even better, but you know you've absorbed a lot of the stuff by now.`,
                 false
             );
         this.outx("\n\n", false);
 
         this.outx(
-            "Sophie leans back and scoops a handful of your white goo into her lubricant-soaked snatch and promptly falls asleep.  It figures she would do that.  " +
-                this.SMultiCockDesc() +
-                " stays hard, and you're sure it's only going to get worse for quite some time.  You glance down at the mother-harpy, considering a second fuck, but decide that it'd be better with a partner who was still awake.",
+            `Sophie leans back and scoops a handful of your white goo into her lubricant-soaked snatch and promptly falls asleep.  It figures she would do that.  ${this.SMultiCockDesc()} stays hard, and you're sure it's only going to get worse for quite some time.  You glance down at the mother-harpy, considering a second fuck, but decide that it'd be better with a partner who was still awake.`,
             false
         );
         // Apply harpy status.
@@ -1922,42 +1895,34 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             );
         else this.outx("hook your leg under hers and slide it up next to her body.");
         this.outx(
-            "  You shift closer until you can feel the heat of her sex wafting against your own.  With erotic precision, you lower your " +
-                this.vaginaDescript(0) +
-                " until Sophie's large, puffy folds contact your own.  Both of you gasp with pleasure, but it's clear from her tone that the bird-matron isn't into it.\n\n",
+            `  You shift closer until you can feel the heat of her sex wafting against your own.  With erotic precision, you lower your ${this.vaginaDescript(
+                0
+            )} until Sophie's large, puffy folds contact your own.  Both of you gasp with pleasure, but it's clear from her tone that the bird-matron isn't into it.\n\n`,
             false
         );
 
         // (small clit)
         if (this.player.clitLength < 2)
             this.outx(
-                "Your " +
-                    this.clitDescript() +
-                    " puffs up inside your folds, turning into a hard little bump of pleasure.  Moaning happily, you start to drag your " +
-                    this.vaginaDescript(0) +
-                    " back and forth against Sophie's wet gash, shivering each time you bump into her own rapidly engorging clitoris.  ",
+                `Your ${this.clitDescript()} puffs up inside your folds, turning into a hard little bump of pleasure.  Moaning happily, you start to drag your ${this.vaginaDescript(
+                    0
+                )} back and forth against Sophie's wet gash, shivering each time you bump into her own rapidly engorging clitoris.  `,
                 false
             );
         // (large clit)
         else if (this.player.clitLength < 5)
             this.outx(
-                "Your " +
-                    this.clitDescript() +
-                    " puffs up, protruding from your folds like a miniature cock.  Moaning happily, you start to pump your " +
-                    this.vaginaDescript(0) +
-                    " back and forth across Sophie's wet gash, shivering as your " +
-                    this.clitDescript() +
-                    " continually slips in and out of it.  The harpy's own nub quickly grows hard, and you feel it bumping against you pleasantly while your hips gyrate against her.  ",
+                `Your ${this.clitDescript()} puffs up, protruding from your folds like a miniature cock.  Moaning happily, you start to pump your ${this.vaginaDescript(
+                    0
+                )} back and forth across Sophie's wet gash, shivering as your ${this.clitDescript()} continually slips in and out of it.  The harpy's own nub quickly grows hard, and you feel it bumping against you pleasantly while your hips gyrate against her.  `,
                 false
             );
         // (cock-clit)
         else
             this.outx(
-                "Your " +
-                    this.clitDescript() +
-                    " puffs up, growing to an obscene, cock-like size.  You moan happily and begin to stroke the incredibly sensitive protrusion.   The whole time your hips continue to force your " +
-                    this.vaginaDescript(0) +
-                    " against the harpy's pussy, and you feel her own clitty budding up and getting hard.   It rubs between your girl-cum-slicked bodies, making your hips shake and twitch with delightful sensations.  ",
+                `Your ${this.clitDescript()} puffs up, growing to an obscene, cock-like size.  You moan happily and begin to stroke the incredibly sensitive protrusion.   The whole time your hips continue to force your ${this.vaginaDescript(
+                    0
+                )} against the harpy's pussy, and you feel her own clitty budding up and getting hard.   It rubs between your girl-cum-slicked bodies, making your hips shake and twitch with delightful sensations.  `,
                 false
             );
         this.outx(
@@ -1965,7 +1930,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.biggestTitSize() >= 1)
-            this.outx("You pinch a " + this.nippleDescript(0), false);
+            this.outx(`You pinch a ${this.nippleDescript(0)}`, false);
         else this.outx("You arch your back");
         this.outx(
             " and throatily question, \"<i>How could masturbation feel better than this?  Can't you feel how wet we've gotten each other?  My pussy's practically burning with need, and I can feel how hot this it making you.   Admit it, my snatch feels great.</i>\"\n\n",
@@ -1983,16 +1948,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "Girl-cum starts to run down the crack of your " +
-                this.assDescript() +
-                " and a moment later you're cumming.",
+            `Girl-cum starts to run down the crack of your ${this.assDescript()} and a moment later you're cumming.`,
             false
         );
         if (this.player.cockTotal() > 0) {
             this.outx(
-                "  " +
-                    this.SMultiCockDesc() +
-                    " explodes, splattering her with seed.  The bird-woman looks at the mess like so much wasted potential, but it just makes you grin harder.",
+                `  ${this.SMultiCockDesc()} explodes, splattering her with seed.  The bird-woman looks at the mess like so much wasted potential, but it just makes you grin harder.`,
                 false
             );
             if (this.player.cumQ() < 400) {
@@ -2078,13 +2039,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "That's more like it!  You roll the suddenly eager harpy over and press the tip of your " +
-                this.clitDescript() +
-                " against her moist folds.  They're far larger than a human woman's and they practically slurp your bloated girl-cock inside with ease.  She's hot, wet, and her muscles are squeezing you in a way that makes your " +
-                this.player.legs() +
-                " weak.   You grab hold of the wings on her back and hang on for dear life.  With how sensitive your " +
-                this.clitDescript() +
-                " is, this probably wasn't a great idea.  It's a constant struggle to keep your body from turning into a mass of convulsing jello.  Her back arches with pleasure as your instincts take over, forcing you to plunge deep inside of her slavering egg-hole.\n\n",
+            `That's more like it!  You roll the suddenly eager harpy over and press the tip of your ${this.clitDescript()} against her moist folds.  They're far larger than a human woman's and they practically slurp your bloated girl-cock inside with ease.  She's hot, wet, and her muscles are squeezing you in a way that makes your ${this.player.legs()} weak.   You grab hold of the wings on her back and hang on for dear life.  With how sensitive your ${this.clitDescript()} is, this probably wasn't a great idea.  It's a constant struggle to keep your body from turning into a mass of convulsing jello.  Her back arches with pleasure as your instincts take over, forcing you to plunge deep inside of her slavering egg-hole.\n\n`,
             false
         );
 
@@ -2100,9 +2055,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "The motherly harpy groans out more commands, \"<i>That's it; relax and let me take over, little girl. We're going to make each other feel very good.</i>\"  Though she isn't in any position to command you, you can feel your body accepting her words.  It occurs to you that she's using some kind of compulsion to help her, but you're too relaxed and sexually excited to give a damn.  You lie your head down and lightly fondle her nipples while you clit is savagely milked by Sophie's pussy as if it were a cow's teat.  Even with her command to relax, your " +
-                this.hipDescript() +
-                " still shiver and buck with excitement, and you know orgasm is close.\n\n",
+            `The motherly harpy groans out more commands, "<i>That's it; relax and let me take over, little girl. We're going to make each other feel very good.</i>"  Though she isn't in any position to command you, you can feel your body accepting her words.  It occurs to you that she's using some kind of compulsion to help her, but you're too relaxed and sexually excited to give a damn.  You lie your head down and lightly fondle her nipples while you clit is savagely milked by Sophie's pussy as if it were a cow's teat.  Even with her command to relax, your ${this.hipDescript()} still shiver and buck with excitement, and you know orgasm is close.\n\n`,
             false
         );
 
@@ -2112,9 +2065,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.totalCocks() > 0) {
             this.outx(
-                "Whiteness erupts from " +
-                    this.sMultiCockDesc() +
-                    " as the orgasm hits your groin.  ",
+                `Whiteness erupts from ${this.sMultiCockDesc()} as the orgasm hits your groin.  `,
                 false
             );
             if (this.player.cumQ() < 50)
@@ -2141,9 +2092,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_DROOLING)
             this.outx(
-                "Juice dribbles down your " +
-                    this.player.legs() +
-                    " as your body enjoys the treatment.  ",
+                `Juice dribbles down your ${this.player.legs()} as your body enjoys the treatment.  `,
                 false
             );
         this.outx(
@@ -2152,11 +2101,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "It's several hours later when you wake up at the base of the mountain.   Your " +
-                this.player.armorName +
-                " is back on, and your gem-pouch feels a little lighter.  Maybe you'll think twice about jamming something as sensitive as your " +
-                this.clitDescript() +
-                " into a slick vice next time?  Then again, you might have to go visit her again.  You're still tingling from the aftereffects of those orgasms.",
+            `It's several hours later when you wake up at the base of the mountain.   Your ${
+                this.player.armorName
+            } is back on, and your gem-pouch feels a little lighter.  Maybe you'll think twice about jamming something as sensitive as your ${this.clitDescript()} into a slick vice next time?  Then again, you might have to go visit her again.  You're still tingling from the aftereffects of those orgasms.`,
             false
         );
         this.monster.lust = 98;
@@ -2177,23 +2124,17 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         if (this.player.HP < 1) this.outx("defeated");
         else this.outx("masturbating");
         this.outx(
-            ' form and chirps, "<i>Hmmm, that was easy.  Are you sure you didn\'t want this?</i>"  Her talons hook into your ' +
-                this.player.armorName +
-                " and deftly tear it off, exposing your " +
-                this.player.skinDesc +
-                ' to the crisp, mountain air.   The sight actually stuns her for a brief moment.  The harpy-matron asks incredulously, "<i>Ummm, is that it?  I thought I could smell your maleness, but you might as well be a girl.  I mean, I won\'t even notice that inside me.  Fucking you would be less satisfying than screwing a dwarf.</i>"\n\n',
+            ` form and chirps, "<i>Hmmm, that was easy.  Are you sure you didn't want this?</i>"  Her talons hook into your ${this.player.armorName} and deftly tear it off, exposing your ${this.player.skinDesc} to the crisp, mountain air.   The sight actually stuns her for a brief moment.  The harpy-matron asks incredulously, "<i>Ummm, is that it?  I thought I could smell your maleness, but you might as well be a girl.  I mean, I won't even notice that inside me.  Fucking you would be less satisfying than screwing a dwarf.</i>"\n\n`,
             false
         );
 
         this.outx(
-            "Her words sting, making your " +
-                this.cockDescript(0) +
-                " wilt to an even smaller size, egging Sophie on to greater taunts.  She announces, \"<i>I'm still going to use your cum for fertilizer since any egg will be a girl anyway.  Isn't that nice?  " +
-                this.player.mf(
-                    "Maybe she'll have no tits and be teased for the rest of her life, just like her trap of a father.",
-                    "Maybe she'll have nice big tits like her trap of a father."
-                ) +
-                "  You're going to cum just as soon as the heat from my pussy hits you, I know it.  There's no way a little dick like that stands a chance at enduring real sex.</i>\"\n\n",
+            `Her words sting, making your ${this.cockDescript(
+                0
+            )} wilt to an even smaller size, egging Sophie on to greater taunts.  She announces, "<i>I'm still going to use your cum for fertilizer since any egg will be a girl anyway.  Isn't that nice?  ${this.player.mf(
+                "Maybe she'll have no tits and be teased for the rest of her life, just like her trap of a father.",
+                "Maybe she'll have nice big tits like her trap of a father."
+            )}  You're going to cum just as soon as the heat from my pussy hits you, I know it.  There's no way a little dick like that stands a chance at enduring real sex.</i>"\n\n`,
             false
         );
 
@@ -2204,11 +2145,11 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         if (this.player.HP < 1) this.outx("wounds");
         else this.outx("lust");
         this.outx(
-            " keep you immobilized for the domineering harpy.  Sophie snickers and poises her talons over your " +
-                this.cockDescript(0) +
-                ' while she asks, "<i>Would you like to be a little girl?  I could do that.</i>"  Her talons snap menacingly, but before you can do anything, she opens her claw-like foot and presses the soft underside against your member.  While you\'d like to resist her, your ' +
-                this.cockDescript(0) +
-                " will have no such thing, and hardens nicely from the supple underskin of her foot-claw.\n\n",
+            ` keep you immobilized for the domineering harpy.  Sophie snickers and poises her talons over your ${this.cockDescript(
+                0
+            )} while she asks, "<i>Would you like to be a little girl?  I could do that.</i>"  Her talons snap menacingly, but before you can do anything, she opens her claw-like foot and presses the soft underside against your member.  While you'd like to resist her, your ${this.cockDescript(
+                0
+            )} will have no such thing, and hardens nicely from the supple underskin of her foot-claw.\n\n`,
             false
         );
 
@@ -2223,16 +2164,14 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "As if she was reading your mind, Sophie answers, \"<i>This is for your own good.  Maybe someday you'll grow up and get a decent cock for me to fuck, but until then you're just a little boy who would be better off as a girl.</i>\"  You actually start to cry, but at the same time you're lifting your " +
-                this.hipDescript() +
-                " in time with her foot, and your tiny little cock turns it into a Slip N' Slide of pre-cum.  Sophie snickers, \"<i>You're ready,</i>\" and pulls her foot back, trailing strings of fluid.   She steps down and looks at you with a knowing, almost-cruel smile on her face.\n\n",
+            `As if she was reading your mind, Sophie answers, "<i>This is for your own good.  Maybe someday you'll grow up and get a decent cock for me to fuck, but until then you're just a little boy who would be better off as a girl.</i>"  You actually start to cry, but at the same time you're lifting your ${this.hipDescript()} in time with her foot, and your tiny little cock turns it into a Slip N' Slide of pre-cum.  Sophie snickers, "<i>You're ready,</i>" and pulls her foot back, trailing strings of fluid.   She steps down and looks at you with a knowing, almost-cruel smile on her face.\n\n`,
             false
         );
 
         this.outx(
-            "The fluids from her aroused gash drip onto your belly as she bends her legs and begins to bring it closer.  She sneers, \"<i>I'm amazed you haven't cum yet, little girl.  I'm getting closer now, how soon do you think you'll start spurting? Now?  No, but you'll squirt soon.</i>\"  You watch transfixed as Sophie's cunt hovers over-top of you, continuing its slow descent towards your " +
-                this.cockDescript(0) +
-                ".  Oh gods, why are you so hard?  Your cock is twitching on its own by the time her pussy is a foot away.  No no no, you panic mentally, and think of the most boring, dreadful thing you can.  ",
+            `The fluids from her aroused gash drip onto your belly as she bends her legs and begins to bring it closer.  She sneers, "<i>I'm amazed you haven't cum yet, little girl.  I'm getting closer now, how soon do you think you'll start spurting? Now?  No, but you'll squirt soon.</i>"  You watch transfixed as Sophie's cunt hovers over-top of you, continuing its slow descent towards your ${this.cockDescript(
+                0
+            )}.  Oh gods, why are you so hard?  Your cock is twitching on its own by the time her pussy is a foot away.  No no no, you panic mentally, and think of the most boring, dreadful thing you can.  `,
             false
         );
         if (this.flags[kFLAGS.AMILY_MET] > 0 && this.player.cor > 50)
@@ -2247,11 +2186,11 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "A tickle of moist body-heat wafts over your " +
-                this.cockDescript(0) +
-                " and it twitches again.  You cry out in anguish and ecstasy, and the tiny prick twitches for a moment before unloading a blast of sticky, white goop onto your belly.  Sophie drops the rest of the way down, her huge cunt noisily slurping up your " +
-                this.cockDescript(0) +
-                " like a bird devouring a worm a fraction of its size.  ",
+            `A tickle of moist body-heat wafts over your ${this.cockDescript(
+                0
+            )} and it twitches again.  You cry out in anguish and ecstasy, and the tiny prick twitches for a moment before unloading a blast of sticky, white goop onto your belly.  Sophie drops the rest of the way down, her huge cunt noisily slurping up your ${this.cockDescript(
+                0
+            )} like a bird devouring a worm a fraction of its size.  `,
             false
         );
         if (this.player.cumQ() < 50)
@@ -2277,9 +2216,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.cumQ() >= 400) this.outx("spooge-soaked ");
         this.outx(
-            "surface of her nest while she instructs you, \"<i>Get rid of that pathetic excuse for a dick or turn it into a man's.  If you want my advice, you'd be a cuter girl than a boy.</i>\" Finished with her taunting, she leans down and gives you a long, wet kiss.   Your " +
-                this.cockDescript(0) +
-                " immediately springs back to full hardness, or at least what passes for it at your size.  The kiss drags on and on until you're completely subsumed by her, sucking her lip into your mouth just to taste more of the sweetness.  She pulls back with a knowing smile as your cock begins to dribble pre-cum again.  The harpy explains, \"<i>After tasting that much of my gloss you'll be hard for at least eight hours.</i>\"\n\n",
+            `surface of her nest while she instructs you, "<i>Get rid of that pathetic excuse for a dick or turn it into a man's.  If you want my advice, you'd be a cuter girl than a boy.</i>" Finished with her taunting, she leans down and gives you a long, wet kiss.   Your ${this.cockDescript(
+                0
+            )} immediately springs back to full hardness, or at least what passes for it at your size.  The kiss drags on and on until you're completely subsumed by her, sucking her lip into your mouth just to taste more of the sweetness.  She pulls back with a knowing smile as your cock begins to dribble pre-cum again.  The harpy explains, "<i>After tasting that much of my gloss you'll be hard for at least eight hours.</i>"\n\n`,
             false
         );
 
@@ -2294,9 +2233,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "You quickly lose track of time, but judging by how sore your " +
-                this.cockDescript(0) +
-                " is, you must have gotten off a few orgasms more.  The tangy taste of Sophie's slit lingers in your mouth, mixed with the salty cream of your own cum, and you get dressed feeling a great deal of shame.  Thankfully Sophie is sleeping on the other side of the nest, so you're able to sneak out without much difficulty.",
+            `You quickly lose track of time, but judging by how sore your ${this.cockDescript(
+                0
+            )} is, you must have gotten off a few orgasms more.  The tangy taste of Sophie's slit lingers in your mouth, mixed with the salty cream of your own cum, and you get dressed feeling a great deal of shame.  Thankfully Sophie is sleeping on the other side of the nest, so you're able to sneak out without much difficulty.`,
             false
         );
 
@@ -2316,12 +2255,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         const x: number = this.player.cockThatFits(232);
 
         this.outx(
-            "Sophie watches your lust-wracked body with an expression of pity.  The harpy woman saunters over and muses, \"<i>Well that was a waste.  You aren't exactly hard to get in the mood, you know?  Why don't you just come fuck me next time and skip all the foreplay?</i>\"  The motherly bird-woman takes a moment to preen her feathery hair while she watches your hands pump away at your " +
-                this.cockDescript(x) +
-                " ",
+            `Sophie watches your lust-wracked body with an expression of pity.  The harpy woman saunters over and muses, "<i>Well that was a waste.  You aren't exactly hard to get in the mood, you know?  Why don't you just come fuck me next time and skip all the foreplay?</i>"  The motherly bird-woman takes a moment to preen her feathery hair while she watches your hands pump away at your ${this.cockDescript(
+                x
+            )} `,
             false
         );
-        if (this.player.hasVagina()) this.outx("and " + this.vaginaDescript(0) + " ", false);
+        if (this.player.hasVagina()) this.outx(`and ${this.vaginaDescript(0)} `, false);
         this.outx(
             "with relentless intensity.  Though her eyes are full of warmth, the smile painted across her face is anything but kind.\n\n",
             false
@@ -2331,18 +2270,18 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         if (this.player.biggestTitSize() >= 1) this.outx(this.allBreastsDescript(), false);
         else this.outx("chest");
         this.outx(
-            '.  You squirm at the sudden extra pressure, but Sophie leans further to whisper in your ear, "<i>You\'ve gotten so horny for momma Sophie.</i>"  Her hand slips inside your ' +
-                this.player.armorName +
-                " and gives you a measuring squeeze while she undresses you.\n\n",
+            `.  You squirm at the sudden extra pressure, but Sophie leans further to whisper in your ear, "<i>You've gotten so horny for momma Sophie.</i>"  Her hand slips inside your ${this.player.armorName} and gives you a measuring squeeze while she undresses you.\n\n`,
             false
         );
 
         this.outx(
-            "\"<i>Ooooh, you're practically dripping.  " +
-                this.player.mf("Boy", "Girl") +
-                ', are you sure you don\'t want this?  Oh ho, I just felt you twitch in my hand.  You do!</i>" proclaims the harpy matron.  Her words buzz at your brain, gnawing at your reluctance; you become almost convinced that you do want this.  You must have been confused when you were resisting Sophie.  The beautiful busty harpy is just giving you what you want.  Her face curls into a beautiful smile as you nod in response.   She chirps happily, "<i>Good ' +
-                this.player.mf("boy", "girl") +
-                '.</i>"\n\n',
+            `"<i>Ooooh, you're practically dripping.  ${this.player.mf(
+                "Boy",
+                "Girl"
+            )}, are you sure you don't want this?  Oh ho, I just felt you twitch in my hand.  You do!</i>" proclaims the harpy matron.  Her words buzz at your brain, gnawing at your reluctance; you become almost convinced that you do want this.  You must have been confused when you were resisting Sophie.  The beautiful busty harpy is just giving you what you want.  Her face curls into a beautiful smile as you nod in response.   She chirps happily, "<i>Good ${this.player.mf(
+                "boy",
+                "girl"
+            )}.</i>"\n\n`,
             false
         );
 
@@ -2352,47 +2291,46 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "Pleased by your submission, Sophie steps over your waist to straddle your body.  Her feathery legs actually tickle a little, but the smooth, pink-tinged skin surrounding her pussy demands your unquestioning attention.  Moisture beads on the over-sized lips that guard her entrance, tempting you to enter and feel them wrapping about you.  The older woman grabs your dick and gives it a knowing rub; she has you exactly where she wants you.  Her wide, egg-bearing hips lower, pressing the smooth flesh of her sex against your " +
-                this.cockDescript(x) +
-                " to give you a preview of what's to come.  ",
+            `Pleased by your submission, Sophie steps over your waist to straddle your body.  Her feathery legs actually tickle a little, but the smooth, pink-tinged skin surrounding her pussy demands your unquestioning attention.  Moisture beads on the over-sized lips that guard her entrance, tempting you to enter and feel them wrapping about you.  The older woman grabs your dick and gives it a knowing rub; she has you exactly where she wants you.  Her wide, egg-bearing hips lower, pressing the smooth flesh of her sex against your ${this.cockDescript(
+                x
+            )} to give you a preview of what's to come.  `,
             false
         );
         if (this.player.balls > 0)
             this.outx(
-                "The moisture trickles over your " +
-                    this.ballsDescriptLight() +
-                    " and they shift and churn, building up a thick load of cum for your harpy lover.  ",
+                `The moisture trickles over your ${this.ballsDescriptLight()} and they shift and churn, building up a thick load of cum for your harpy lover.  `,
                 false
             );
         this.outx(
-            "You grab hold of her hips and writhe against her, squirming until your " +
-                this.cockDescript(x) +
-                " lines up just right.\n\n",
+            `You grab hold of her hips and writhe against her, squirming until your ${this.cockDescript(
+                x
+            )} lines up just right.\n\n`,
             false
         );
 
         this.outx(
-            "Sophie's hips grind down, smothering your " +
-                this.cockDescript(x) +
-                " in her over-sized pussy.   It doesn't feel all that great until her legs lock around your back and the squeezing starts.  Her muscular thighs nearly immobilize you in a tight, feathery embrace.  The tension translates down to her drippy cunt, and it feels as if her massive fuck-hole is trying to strangle the cum from your " +
-                this.cockDescript(x) +
-                ". The older harpy's breath washes over your ",
+            `Sophie's hips grind down, smothering your ${this.cockDescript(
+                x
+            )} in her over-sized pussy.   It doesn't feel all that great until her legs lock around your back and the squeezing starts.  Her muscular thighs nearly immobilize you in a tight, feathery embrace.  The tension translates down to her drippy cunt, and it feels as if her massive fuck-hole is trying to strangle the cum from your ${this.cockDescript(
+                x
+            )}. The older harpy's breath washes over your `,
             false
         );
         if (this.player.tallness >= 72) this.outx("neck");
         else if (this.player.tallness > 48) this.outx(this.player.face(), false);
         else this.outx("head");
         this.outx(
-            " as she really starts to get into it.  Her gold-painted mouth glimmers in the light as she presses her supple lips against your own.  The sweet taste of her makes your head swim while she roughly tongue-fucks your mouth.  It's brutal, savage, and so hot that your " +
-                this.cockDescript(x) +
-                " is already tingling dangerously.\n\n",
+            ` as she really starts to get into it.  Her gold-painted mouth glimmers in the light as she presses her supple lips against your own.  The sweet taste of her makes your head swim while she roughly tongue-fucks your mouth.  It's brutal, savage, and so hot that your ${this.cockDescript(
+                x
+            )} is already tingling dangerously.\n\n`,
             false
         );
 
         this.outx(
-            'You fight back by licking and sucking her lips, even pressing your tongue back into her mouth to tangle with her own.  She breathily moans into your mouth before she pulls back, trailing spit.  "<i>Oh, goood ' +
-                this.player.mf("boy", "girl") +
-                '.  Such a young, virile specimen.  My lips are going to make you stay throbbing and hard for the next eight hours of breeding.  Give momma another kiss just to make sure,</i>" commands Sophie.  Without hesitation or regret, you latch onto her lips like a drowning man clutching to a life-raft.  She squeezes you the entire time, and your back arches in climax.  Spurts of seed fire from your cock deep into hot, wet depths.',
+            `You fight back by licking and sucking her lips, even pressing your tongue back into her mouth to tangle with her own.  She breathily moans into your mouth before she pulls back, trailing spit.  "<i>Oh, goood ${this.player.mf(
+                "boy",
+                "girl"
+            )}.  Such a young, virile specimen.  My lips are going to make you stay throbbing and hard for the next eight hours of breeding.  Give momma another kiss just to make sure,</i>" commands Sophie.  Without hesitation or regret, you latch onto her lips like a drowning man clutching to a life-raft.  She squeezes you the entire time, and your back arches in climax.  Spurts of seed fire from your cock deep into hot, wet depths.`,
             false
         );
         if (this.player.cumQ() < 50)
@@ -2419,11 +2357,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
 
         this.outx(
-            '  Sophie\'s hips pull you in more tightly as you spend the last of your white goo within her depths.   She murmurs, "<i>Not bad for your first shot.</i>"  Her voice shifts and buzzes as she suggests, "<i>You\'re getting even harder now, little ' +
-                this.player.mf("boy", "girl") +
-                ".  Mhmmm, you'll cum again soon.</i>\"  The words burrow inside you and seem to squeeze more blood into your " +
-                this.cockDescript(x) +
-                ".  It gets so hard it's painful, and the tightness of her walls is almost too much to bear.  The bird-woman's face gives a tender, but knowing smile when you cum the second time, and the third time, and the fourth...",
+            `  Sophie's hips pull you in more tightly as you spend the last of your white goo within her depths.   She murmurs, "<i>Not bad for your first shot.</i>"  Her voice shifts and buzzes as she suggests, "<i>You're getting even harder now, little ${this.player.mf(
+                "boy",
+                "girl"
+            )}.  Mhmmm, you'll cum again soon.</i>"  The words burrow inside you and seem to squeeze more blood into your ${this.cockDescript(
+                x
+            )}.  It gets so hard it's painful, and the tightness of her walls is almost too much to bear.  The bird-woman's face gives a tender, but knowing smile when you cum the second time, and the third time, and the fourth...`,
             false
         );
         this.player.orgasm();
@@ -2440,18 +2379,16 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         const x: number = this.player.biggestCockIndex();
 
         this.outx(
-            "Sophie reaches forwards with a clawed foot to pull down your armor, but your " +
-                this.cockDescript(x) +
-                ' bursts free on its own.  She recoils in shock, nearly falling onto her feathery ass.   Sophie screeches, "<i>How did you even hide that monster!?  I CAN\'T TAKE THAT!</i>"   She lashes and batters your head with her wings and kicks.  A particularly powerful hit lands just above your ears and things go black...\n\n',
+            `Sophie reaches forwards with a clawed foot to pull down your armor, but your ${this.cockDescript(
+                x
+            )} bursts free on its own.  She recoils in shock, nearly falling onto her feathery ass.   Sophie screeches, "<i>How did you even hide that monster!?  I CAN'T TAKE THAT!</i>"   She lashes and batters your head with her wings and kicks.  A particularly powerful hit lands just above your ears and things go black...\n\n`,
             false
         );
 
         this.outx(
-            "Hours later, you wake with an agonizing headache.   You sit up and fresh stabs of pain rock your world, nearly dropping you flat on your back again.  That harpy... she left you at the bottom of the mountain, and didn't even bother to cover your crotch back up!  Your " +
-                this.cockDescript(x) +
-                " is trembling, hard, and dripping pre-cum.  Its entire surface is covered in yellowish lip-prints, and judging from how tired you feel, Sophie found a way to make you cum numerous times.  With that many kisses covering you, you'll be hard for hours.  You get on your " +
-                this.player.feet() +
-                " and head back to camp.",
+            `Hours later, you wake with an agonizing headache.   You sit up and fresh stabs of pain rock your world, nearly dropping you flat on your back again.  That harpy... she left you at the bottom of the mountain, and didn't even bother to cover your crotch back up!  Your ${this.cockDescript(
+                x
+            )} is trembling, hard, and dripping pre-cum.  Its entire surface is covered in yellowish lip-prints, and judging from how tired you feel, Sophie found a way to make you cum numerous times.  With that many kisses covering you, you'll be hard for hours.  You get on your ${this.player.feet()} and head back to camp.`,
             false
         );
         this.player.orgasm();

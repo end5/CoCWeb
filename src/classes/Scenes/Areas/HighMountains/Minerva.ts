@@ -44,7 +44,7 @@ export class Minerva extends Monster {
                 "  Her teeth dig right into your arm!  It's a bit of a struggle, but you're able to free yourself.  The damage doesn't look too serious. "
             );
             damage = this.player.takeDamage(damage);
-            this.outx("(" + damage + ")");
+            this.outx(`(${damage})`);
         }
         this.combatRoundOver();
     }
@@ -84,7 +84,7 @@ export class Minerva extends Monster {
                 "  She hits you square in the chest, knocking you to the ground as her entire weight lands on you.  The bombshell of a woman jumps off your chest, ready to keep fighting."
             );
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         this.spe += 70;
         this.combatRoundOver();
@@ -112,7 +112,7 @@ export class Minerva extends Monster {
             if (this.player.armorDef > 0) this.outx(", but your defense has been reduced");
             this.outx("!");
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
             if (this.findStatusAffect(StatusAffects.TailWhip) >= 0)
                 this.addStatusValue(StatusAffects.TailWhip, 1, 10);
             else this.createStatusAffect(StatusAffects.TailWhip, 10, 0, 0, 0);
@@ -145,7 +145,7 @@ export class Minerva extends Monster {
                 "  She pierces you right in the shoulder!  You wince in pain and step back, out of her reach again."
             );
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         this.combatRoundOver();
     }
@@ -177,7 +177,7 @@ export class Minerva extends Monster {
                 "  You don't have time to avoid the downward chop and the axe head lands right in your shoulder blade!  You cry out in pain, but you can still move your arm despite the brutal blow."
             );
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         this.combatRoundOver();
     }
@@ -189,7 +189,7 @@ export class Minerva extends Monster {
         );
         let damage: number = Math.floor(10 + (this.inte / 3 + Minerva.rand(this.inte / 2)) * 1.5);
         damage = this.player.takeDamage(damage);
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
         this.combatRoundOver();
     }
 

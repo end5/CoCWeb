@@ -25,31 +25,24 @@ export class WingStick extends Consumable {
     public useItem(): boolean {
         this.clearOutput();
         this.outx(
-            "You toss a wingstick at your foe!  It flies straight and true, almost as if it has a mind of its own as it arcs towards " +
-                this.game.monster.a +
-                this.game.monster.short +
-                "!\n"
+            `You toss a wingstick at your foe!  It flies straight and true, almost as if it has a mind of its own as it arcs towards ${this.game.monster.a}${this.game.monster.short}!\n`
         );
         if (this.game.monster.spe - 80 > Utils.rand(100) + 1) {
             // 1% dodge for each point of speed over 80
-            this.outx("Somehow " + this.game.monster.a + this.game.monster.short + "'");
+            this.outx(`Somehow ${this.game.monster.a}${this.game.monster.short}'`);
             if (!this.game.monster.plural) this.outx("s");
             this.outx(
-                " incredible speed allows " +
-                    this.game.monster.pronoun2 +
-                    " to avoid the spinning blades!  The deadly device shatters when it impacts something in the distance."
+                ` incredible speed allows ${this.game.monster.pronoun2} to avoid the spinning blades!  The deadly device shatters when it impacts something in the distance.`
             );
         } else {
             // Not dodged
             const damage: number = 40 + Utils.rand(61);
             this.outx(
-                this.game.monster.capitalA +
-                    this.game.monster.short +
-                    " is hit with the wingstick!  It breaks apart as it lacerates " +
-                    this.game.monster.pronoun2 +
-                    ". (" +
-                    damage +
-                    ")"
+                `${
+                    this.game.monster.capitalA + this.game.monster.short
+                } is hit with the wingstick!  It breaks apart as it lacerates ${
+                    this.game.monster.pronoun2
+                }. (${damage})`
             );
             this.game.monster.HP -= damage;
             if (this.game.monster.HP < 0) this.game.monster.HP = 0;

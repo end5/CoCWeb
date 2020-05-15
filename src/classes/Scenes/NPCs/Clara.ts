@@ -107,18 +107,12 @@ export class Clara extends Monster {
         // Clara gropes the PC while they're blinded.  Damage is based on corruption + sensitivity.
         if (this.player.hasCock() && (!this.player.hasVagina() || Clara.rand(2) == 0))
             this.outx(
-                "Suddenly Clara wraps an arm around you, and sticks a hand into your " +
-                    this.player.armorName +
-                    "!  She is able to give your " +
-                    this.multiCockDescriptLight +
-                    ' a good fondle before you can push her away.  "<i>Admit it - I make you soo hard, don\'t I?</i>" she taunts you behind your dazzled vision.'
+                `Suddenly Clara wraps an arm around you, and sticks a hand into your ${this.player.armorName}!  She is able to give your ${this.multiCockDescriptLight} a good fondle before you can push her away.  "<i>Admit it - I make you soo hard, don't I?</i>" she taunts you behind your dazzled vision.`
             );
         // Vagina:
         else if (this.player.hasVagina())
             this.outx(
-                "A sudden rush of Clara's hoofs clopping is the only warning you get before her attack comes, and you try to bring up your guard, only for her to deftly move past your defense and stick a hand into your " +
-                    this.player.armorName +
-                    '!  She manages to worm her way to your [vagina] and pinches your [clit] before you can push her back out!  "<i>Hmm, yeah, you\'re soo wet for me.</i>" she taunts you behind your dazzled vision.'
+                `A sudden rush of Clara's hoofs clopping is the only warning you get before her attack comes, and you try to bring up your guard, only for her to deftly move past your defense and stick a hand into your ${this.player.armorName}!  She manages to worm her way to your [vagina] and pinches your [clit] before you can push her back out!  "<i>Hmm, yeah, you're soo wet for me.</i>" she taunts you behind your dazzled vision.`
             );
         // Bum:
         else
@@ -156,7 +150,7 @@ export class Clara extends Monster {
                 this.claraCastsBlind,
             ];
             const action: number = Clara.rand(actions.length);
-            trace("ACTION SELECTED: " + action);
+            trace(`ACTION SELECTED: ${action}`);
             actions[action]();
         }
         if (this.player.findStatusAffect(StatusAffects.ClaraCombatRounds) < 0)

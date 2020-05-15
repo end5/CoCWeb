@@ -19,9 +19,7 @@ export class Brigid extends Monster {
     // Attack One: Hot Poker, Right Up Your Ass!
     private brigidPoke(): void {
         this.outx(
-            "Brigid stalks forward with confidence, her shield absorbing your defensive blows until she's right on top of you. She bats your [weapon] aside and thrashes you with her hot poker, scalding your " +
-                this.player.skin() +
-                " and sending you reeling."
+            `Brigid stalks forward with confidence, her shield absorbing your defensive blows until she's right on top of you. She bats your [weapon] aside and thrashes you with her hot poker, scalding your ${this.player.skin()} and sending you reeling.`
         );
         // (Effect: Heavy Damage)
         let damage: number = Math.round(
@@ -29,7 +27,7 @@ export class Brigid extends Monster {
         );
         if (damage < 30) damage = 30;
         damage = this.player.takeDamage(damage);
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
         this.game.combatRoundOver();
     }
 
@@ -41,7 +39,7 @@ export class Brigid extends Monster {
         // (Effect: Stagger/Stun)
         let damage = 5;
         damage = this.player.takeDamage(5);
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
         if (this.player.findPerk(PerkLib.Resolute) >= 0)
             this.outx("  Of course, your resolute posture prevents her from accomplishing much.");
         else this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);

@@ -155,9 +155,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             }
             if (this.player.cocks[0].cockLength < 25 || this.player.cocks[0].cockThickness < 4) {
                 this.outx(
-                    "Your " +
-                        this.player.cockDescript(0) +
-                        " quivers for a moment before growing slightly "
+                    `Your ${this.player.cockDescript(
+                        0
+                    )} quivers for a moment before growing slightly `
                 );
                 if (this.player.cocks[0].cockLength < 25 && this.player.cocks[0].cockThickness < 4)
                     this.outx("longer and thicker");
@@ -175,9 +175,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 );
             }
             this.outx(
-                "The desire to find the bee girl that gave you this cursed " +
-                    this.player.cockDescript(0) +
-                    " and have her spread honey all over it grows with each passing minute\n"
+                `The desire to find the bee girl that gave you this cursed ${this.player.cockDescript(
+                    0
+                )} and have her spread honey all over it grows with each passing minute\n`
             );
             this.dynStats("lust", 10); // Always gain 10 lust each hour
             needNext = true;
@@ -202,9 +202,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         if (this.player.findPerk(PerkLib.WetPussy) >= 0 && this.player.hasVagina()) {
             if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_WET) {
                 this.outx(
-                    "\n<b>Your " +
-                        this.player.vaginaDescript(0) +
-                        " returns to its normal, wet state.</b>\n"
+                    `\n<b>Your ${this.player.vaginaDescript(
+                        0
+                    )} returns to its normal, wet state.</b>\n`
                 );
                 this.player.vaginas[0].vaginalWetness = VAGINA_WETNESS_WET;
                 needNext = true;
@@ -216,9 +216,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         ) {
             // Prevent Buttsluts from getting dry backdoors
             this.outx(
-                "\n<b>Your " +
-                    this.getGame().assholeDescript() +
-                    " quickly re-moistens.  It looks like Marae's 'gift' can't be removed.</b>\n"
+                `\n<b>Your ${this.getGame().assholeDescript()} quickly re-moistens.  It looks like Marae's 'gift' can't be removed.</b>\n`
             );
             this.player.ass.analWetness = 2;
             needNext = true;
@@ -268,9 +266,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 // Display if haven't displayed
                 if (this.player.flags[kFLAGS.PC_CURRENTLY_LUSTSTICK_AFFECTED] == 0) {
                     this.outx(
-                        "\nYour body tingles, practically a slave to the effects of harpy lipstick.  Blood surges to " +
-                            this.player.sMultiCockDesc() +
-                            ", making you groan out loud with forced pleasure.  Unasked-for fantasies assault you, and you spend a few moments fantasizing about fucking feathery women before you come to your senses.\n"
+                        `\nYour body tingles, practically a slave to the effects of harpy lipstick.  Blood surges to ${this.player.sMultiCockDesc()}, making you groan out loud with forced pleasure.  Unasked-for fantasies assault you, and you spend a few moments fantasizing about fucking feathery women before you come to your senses.\n`
                     );
                     this.flags[kFLAGS.PC_CURRENTLY_LUSTSTICK_AFFECTED]++;
                     needNext = true;
@@ -299,7 +295,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         }
         if (this.flags[kFLAGS.DICK_EGG_INCUBATION] > 0) {
             this.flags[kFLAGS.DICK_EGG_INCUBATION]--;
-            trace("DICK BIRTH TIMER: " + this.flags[kFLAGS.DICK_EGG_INCUBATION]);
+            trace(`DICK BIRTH TIMER: ${this.flags[kFLAGS.DICK_EGG_INCUBATION]}`);
             if (this.flags[kFLAGS.DICK_EGG_INCUBATION] == 1) {
                 this.getGame().masturbation.birthBeeEggsOutYourWang();
                 needNext = true;
@@ -488,7 +484,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
 
         if (this.player.inRut) {
             // Rut v1 is bonus cum, v2 is bonus libido, v3 is hours till it's gone
-            trace("RUT:" + this.player.statusAffectv3(StatusAffects.Rut));
+            trace(`RUT:${this.player.statusAffectv3(StatusAffects.Rut)}`);
             if (
                 this.player.statusAffectv3(StatusAffects.Rut) <= 1 ||
                 this.player.totalCocks() == 0
@@ -600,9 +596,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             if (this.player.balls == 0) {
                 // (Balls regrowth)
                 this.outx(
-                    "\n<b>As time passes, a pressure in your loins intensifies to near painful levels.  The skin beneath " +
-                        this.player.sMultiCockDesc() +
-                        " grows loose and floppy, and then two testicles roll down to fill your scrotum.</b>\n"
+                    `\n<b>As time passes, a pressure in your loins intensifies to near painful levels.  The skin beneath ${this.player.sMultiCockDesc()} grows loose and floppy, and then two testicles roll down to fill your scrotum.</b>\n`
                 );
                 this.player.balls = 2;
                 this.player.ballSize = 3;
@@ -617,9 +611,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     );
                 else
                     this.outx(
-                        "\n<b>Your " +
-                            this.getGame().breastDescript(0) +
-                            " have regained their former bimbo-like size.  It looks like you'll be stuck with large, sensitive breasts forever, but at least it'll help you tease your enemies into submission!</b>\n"
+                        `\n<b>Your ${this.getGame().breastDescript(
+                            0
+                        )} have regained their former bimbo-like size.  It looks like you'll be stuck with large, sensitive breasts forever, but at least it'll help you tease your enemies into submission!</b>\n`
                     );
                 this.getGame().dynStats("int", -1, "lus", 15);
                 needNext = true;
@@ -633,9 +627,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     );
                 else
                     this.outx(
-                        "\n<b>Your crotch tingles for a second, and when you reach down to feel, your " +
-                            this.player.legs() +
-                            " fold underneath you, limp.  You've got a vagina - the damned thing won't go away and it feels twice as sensitive this time.  Fucking bimbo liquer.</b>\n"
+                        `\n<b>Your crotch tingles for a second, and when you reach down to feel, your ${this.player.legs()} fold underneath you, limp.  You've got a vagina - the damned thing won't go away and it feels twice as sensitive this time.  Fucking bimbo liquer.</b>\n`
                     );
                 this.getGame().dynStats("int", -1, "sen", 10, "lus", 15);
                 needNext = true;
@@ -658,9 +650,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     );
                 else
                     this.outx(
-                        "\n<b>Your " +
-                            this.getGame().breastDescript(0) +
-                            " have regained their former bimbo-like size.  It looks like you'll be stuck with large, sensitive breasts forever, but at least it'll help you tease your enemies into submission!</b>\n"
+                        `\n<b>Your ${this.getGame().breastDescript(
+                            0
+                        )} have regained their former bimbo-like size.  It looks like you'll be stuck with large, sensitive breasts forever, but at least it'll help you tease your enemies into submission!</b>\n`
                     );
                 this.getGame().dynStats("int", -1, "lus", 15);
                 needNext = true;
@@ -677,9 +669,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     );
                 else
                     this.outx(
-                        "\n<b>Your crotch tingles for a second, and when you reach down to feel, your " +
-                            this.player.legs() +
-                            " fold underneath you, limp.  You've got a vagina - the damned thing won't go away and it feels twice as sensitive this time.  Fucking bimbo liquer.</b>\n"
+                        `\n<b>Your crotch tingles for a second, and when you reach down to feel, your ${this.player.legs()} fold underneath you, limp.  You've got a vagina - the damned thing won't go away and it feels twice as sensitive this time.  Fucking bimbo liquer.</b>\n`
                     );
                 needNext = true;
             }
@@ -753,9 +743,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             if (this.player.balls == 0) {
                 // (Balls regrowth)
                 this.outx(
-                    "\n<b>As time passes, a pressure in your loins intensifies to near painful levels.  The skin beneath " +
-                        this.player.sMultiCockDesc() +
-                        " grows loose and floppy, and then two testicles roll down to fill your scrotum.</b>\n"
+                    `\n<b>As time passes, a pressure in your loins intensifies to near painful levels.  The skin beneath ${this.player.sMultiCockDesc()} grows loose and floppy, and then two testicles roll down to fill your scrotum.</b>\n`
                 );
                 this.player.balls = 2;
                 this.player.ballSize = 3;
@@ -776,9 +764,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 // Bigga titayz
                 if (this.player.breastRows[0].breastRating < 5) {
                     this.outx(
-                        "\nYour " +
-                            this.getGame().breastDescript(0) +
-                            " start to jiggle and wobble as time passes, seeming to refill with your inexhaustible supply of milk.  It doesn't look like you'll be able to keep them below a DD cup so long as you're so focused on breast-feeding.\n"
+                        `\nYour ${this.getGame().breastDescript(
+                            0
+                        )} start to jiggle and wobble as time passes, seeming to refill with your inexhaustible supply of milk.  It doesn't look like you'll be able to keep them below a DD cup so long as you're so focused on breast-feeding.\n`
                     );
                     this.player.breastRows[0].breastRating = 5;
                     needNext = true;
@@ -834,9 +822,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             this.player.addStatusValue(StatusAffects.Milked, 1, -1);
             if (this.player.statusAffectv1(StatusAffects.Milked) <= 0) {
                 this.outx(
-                    "\n<b>Your " +
-                        this.getGame().nippleDescript(0) +
-                        "s are no longer sore from the milking.</b>\n"
+                    `\n<b>Your ${this.getGame().nippleDescript(
+                        0
+                    )}s are no longer sore from the milking.</b>\n`
                 );
                 this.player.removeStatusAffect(StatusAffects.Milked);
                 needNext = true;
@@ -844,9 +832,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
         }
         if (this.player.findStatusAffect(StatusAffects.Jizzpants) >= 0) {
             this.outx(
-                "\nYour " +
-                    this.player.armorName +
-                    " squishes wetly with all the semen you unloaded into them, arousing you more and more with every movement.\n"
+                `\nYour ${this.player.armorName} squishes wetly with all the semen you unloaded into them, arousing you more and more with every movement.\n`
             );
             this.getGame().dynStats("lus", 10 + this.player.sens / 5);
             this.player.removeStatusAffect(StatusAffects.Jizzpants);
@@ -876,9 +862,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     this.player.createStatusAffect(StatusAffects.LactationReduc0, 0, 0, 0, 0);
                     if (this.player.biggestLactation() >= 1)
                         this.outx(
-                            "\n<b>Your " +
-                                this.getGame().nippleDescript(0) +
-                                "s feel swollen and bloated, needing to be milked.</b>\n"
+                            `\n<b>Your ${this.getGame().nippleDescript(
+                                0
+                            )}s feel swollen and bloated, needing to be milked.</b>\n`
                         );
                     if (this.player.biggestLactation() <= 2)
                         this.player.createStatusAffect(StatusAffects.LactationReduc1, 0, 0, 0, 0);
@@ -927,9 +913,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                         this.player.statusAffectv1(StatusAffects.CuntStretched) >= 200
                     ) {
                         this.outx(
-                            "\nYour " +
-                                this.getGame().vaginaDescript(0) +
-                                " recovers from your ordeals, tightening up a bit.\n"
+                            `\nYour ${this.getGame().vaginaDescript(
+                                0
+                            )} recovers from your ordeals, tightening up a bit.\n`
                         );
                         this.player.vaginas[0].vaginalLooseness--;
                         this.player.changeStatusValue(StatusAffects.CuntStretched, 1, 0);
@@ -940,9 +926,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                         this.player.statusAffectv1(StatusAffects.CuntStretched) >= 100
                     ) {
                         this.outx(
-                            "\nYour " +
-                                this.getGame().vaginaDescript(0) +
-                                " recovers from your ordeals, tightening up a bit.\n"
+                            `\nYour ${this.getGame().vaginaDescript(
+                                0
+                            )} recovers from your ordeals, tightening up a bit.\n`
                         );
                         this.player.vaginas[0].vaginalLooseness--;
                         this.player.changeStatusValue(StatusAffects.CuntStretched, 1, 0);
@@ -953,9 +939,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                         this.player.statusAffectv1(StatusAffects.CuntStretched) >= 70
                     ) {
                         this.outx(
-                            "\nYour " +
-                                this.getGame().vaginaDescript(0) +
-                                " recovers from your ordeals and becomes tighter.\n"
+                            `\nYour ${this.getGame().vaginaDescript(
+                                0
+                            )} recovers from your ordeals and becomes tighter.\n`
                         );
                         this.player.vaginas[0].vaginalLooseness--;
                         this.player.changeStatusValue(StatusAffects.CuntStretched, 1, 0);
@@ -967,9 +953,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                     this.player.statusAffectv1(StatusAffects.CuntStretched) >= 50
                 ) {
                     this.outx(
-                        "\nYour " +
-                            this.getGame().vaginaDescript(0) +
-                            " recovers from the brutal stretching it has received and tightens up a little bit, but not much.\n"
+                        `\nYour ${this.getGame().vaginaDescript(
+                            0
+                        )} recovers from the brutal stretching it has received and tightens up a little bit, but not much.\n`
                     );
                     this.player.vaginas[0].vaginalLooseness--;
                     this.player.changeStatusValue(StatusAffects.CuntStretched, 1, 0);
@@ -985,9 +971,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.player.statusAffectv1(StatusAffects.ButtStretched) >= 72
             ) {
                 this.outx(
-                    "\n<b>Your " +
-                        this.getGame().assholeDescript() +
-                        " recovers from your ordeals, tightening up a bit.</b>\n"
+                    `\n<b>Your ${this.getGame().assholeDescript()} recovers from your ordeals, tightening up a bit.</b>\n`
                 );
                 this.player.ass.analLooseness--;
                 this.player.changeStatusValue(StatusAffects.ButtStretched, 1, 0);
@@ -998,9 +982,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.player.statusAffectv1(StatusAffects.ButtStretched) >= 48
             ) {
                 this.outx(
-                    "\n<b>Your " +
-                        this.getGame().assholeDescript() +
-                        " recovers from your ordeals, tightening up a bit.</b>\n"
+                    `\n<b>Your ${this.getGame().assholeDescript()} recovers from your ordeals, tightening up a bit.</b>\n`
                 );
                 this.player.ass.analLooseness--;
                 this.player.changeStatusValue(StatusAffects.ButtStretched, 1, 0);
@@ -1011,9 +993,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.player.statusAffectv1(StatusAffects.ButtStretched) >= 24
             ) {
                 this.outx(
-                    "\n<b>Your " +
-                        this.getGame().assholeDescript() +
-                        " recovers from your ordeals and becomes tighter.</b>\n"
+                    `\n<b>Your ${this.getGame().assholeDescript()} recovers from your ordeals and becomes tighter.</b>\n`
                 );
                 this.player.ass.analLooseness--;
                 this.player.changeStatusValue(StatusAffects.ButtStretched, 1, 0);
@@ -1024,9 +1004,7 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.player.statusAffectv1(StatusAffects.ButtStretched) >= 12
             ) {
                 this.outx(
-                    "\n<b>Your " +
-                        this.getGame().assholeDescript() +
-                        " recovers from the brutal stretching it has received and tightens up.</b>\n"
+                    `\n<b>Your ${this.getGame().assholeDescript()} recovers from the brutal stretching it has received and tightens up.</b>\n`
                 );
                 this.player.ass.analLooseness--;
                 this.player.changeStatusValue(StatusAffects.ButtStretched, 1, 0);
@@ -1042,15 +1020,9 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 this.player.lowerBody != LOWER_BODY_TYPE_GOO
             ) {
                 this.outx(
-                    "\nYour form ripples, as if uncertain at the changes your body is undergoing.  The goo of your flesh cools, its sensitive, responsive membrane thickening into " +
-                        this.player.skin() +
-                        " while bones and muscles knit themselves into a cohesive torso, chest and hips gaining definition.  Translucent ooze clouds and the gushing puddle at your feet melts together, splitting into solid trunks as you regain your legs.  Before long, you can no longer see through your own body and, with an unsteady shiver, you pat yourself down, readjusting to solidity.  A lurching heat in your chest suddenly reminds you of the slime core that used to float inside you.  Gingerly touching your " +
-                        this.getGame().chestDesc() +
-                        ", you can feel a small, second heartbeat under your ribs that gradually seems to be sinking, past your belly. A lurching wave of warmth sparks through you, knocking you off your fresh legs and onto your " +
-                        this.getGame().buttDescript() +
-                        ".  A delicious pressure pulses in your abdomen and you loosen your " +
-                        this.player.armorName +
-                        " as sweat beads down your neck.  You clench your eyes, tongue lolling in your mouth, and the pressure builds and builds until, in ecstatic release, your body arches in an orgasmic release.\n\n"
+                    `\nYour form ripples, as if uncertain at the changes your body is undergoing.  The goo of your flesh cools, its sensitive, responsive membrane thickening into ${this.player.skin()} while bones and muscles knit themselves into a cohesive torso, chest and hips gaining definition.  Translucent ooze clouds and the gushing puddle at your feet melts together, splitting into solid trunks as you regain your legs.  Before long, you can no longer see through your own body and, with an unsteady shiver, you pat yourself down, readjusting to solidity.  A lurching heat in your chest suddenly reminds you of the slime core that used to float inside you.  Gingerly touching your ${this.getGame().chestDesc()}, you can feel a small, second heartbeat under your ribs that gradually seems to be sinking, past your belly. A lurching wave of warmth sparks through you, knocking you off your fresh legs and onto your ${this.getGame().buttDescript()}.  A delicious pressure pulses in your abdomen and you loosen your ${
+                        this.player.armorName
+                    } as sweat beads down your neck.  You clench your eyes, tongue lolling in your mouth, and the pressure builds and builds until, in ecstatic release, your body arches in an orgasmic release.\n\n`
                 );
 
                 this.outx(
@@ -1338,49 +1310,57 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                 );
 
                 this.outx(
-                    "\n\nYour antennae bob - was that someone?  Peering between the trees from the corner of your eye, you can see the figure of another person, and you intensify your hypnotic buzz, trying to draw it closer.  The figure steps into your clearing and out of the shadow; clad in " +
-                        this.player.armorName +
-                        ", " +
-                        this.player.mf("he", "she") +
-                        " is yourself!  Confused, you stop humming and stare into your own face, and the other you takes the opportunity to open " +
-                        this.player.mf("his", "her") +
-                        " garments, exposing " +
-                        this.player.mf("his", "her") +
-                        " [cock]!"
+                    `\n\nYour antennae bob - was that someone?  Peering between the trees from the corner of your eye, you can see the figure of another person, and you intensify your hypnotic buzz, trying to draw it closer.  The figure steps into your clearing and out of the shadow; clad in ${
+                        this.player.armorName
+                    }, ${this.player.mf(
+                        "he",
+                        "she"
+                    )} is yourself!  Confused, you stop humming and stare into your own face, and the other you takes the opportunity to open ${this.player.mf(
+                        "his",
+                        "her"
+                    )} garments, exposing ${this.player.mf("his", "her")} [cock]!`
                 );
 
                 this.outx(
-                    "\n\nStartled, you slip down from your seat and try to run, but the other you has already crossed the clearing and seizes you by the fuzz on your hefty, swollen abdomen; your leg slips, propelling you face-first to the ground.  " +
-                        this.player.mf("He", "She") +
-                        " pulls you back toward " +
-                        this.player.mf("his", "her") +
-                        "self and, grabbing one of your chitinous legs, turns you over.  The other you spreads your fuzzed thighs, revealing your soft, wet pussy, and the sweet smell of honey hits your noses.  " +
-                        this.player.mf("His", "Her") +
-                        " prick hardens intensely and immediately at the aroma of your pheromone-laden nectar, and " +
-                        this.player.mf("he", "she") +
-                        " pushes it into you without so much as a word of apology, groaning as " +
-                        this.player.mf("he", "she") +
-                        " begins to rut you mercilessly.  You can feel the sensations of " +
-                        this.player.mf("his", "her") +
-                        " burning cock as if it were your own, and your legs wrap around your other self instinctively even as your mind recoils in confusion."
+                    `\n\nStartled, you slip down from your seat and try to run, but the other you has already crossed the clearing and seizes you by the fuzz on your hefty, swollen abdomen; your leg slips, propelling you face-first to the ground.  ${this.player.mf(
+                        "He",
+                        "She"
+                    )} pulls you back toward ${this.player.mf(
+                        "his",
+                        "her"
+                    )}self and, grabbing one of your chitinous legs, turns you over.  The other you spreads your fuzzed thighs, revealing your soft, wet pussy, and the sweet smell of honey hits your noses.  ${this.player.mf(
+                        "His",
+                        "Her"
+                    )} prick hardens intensely and immediately at the aroma of your pheromone-laden nectar, and ${this.player.mf(
+                        "he",
+                        "she"
+                    )} pushes it into you without so much as a word of apology, groaning as ${this.player.mf(
+                        "he",
+                        "she"
+                    )} begins to rut you mercilessly.  You can feel the sensations of ${this.player.mf(
+                        "his",
+                        "her"
+                    )} burning cock as if it were your own, and your legs wrap around your other self instinctively even as your mind recoils in confusion.`
                 );
 
                 this.outx(
-                    "\n\nThe other you grunts and locks up as " +
-                        this.player.mf("his", "her") +
-                        "... your [cock] begins to spurt inside your honey-drooling cunt, and " +
-                        this.player.mf("he", "she") +
-                        " falls onto you, bottoming out inside; your vagina likewise clenches and squirts your sweet juices.  As " +
-                        this.player.mf("he", "she") +
-                        " ejaculates, thrusting weakly, you can feel something shifting in you, filling you with pins and needles... it feels like the warm cum " +
-                        this.player.mf("he", "she") +
-                        "'s filling you with is permeating your entire groin, working its way back toward your abdomen.  It edges up to your massive buildup of eggs, and your body tightens in a second climax at the thought of having your children fertilized-"
+                    `\n\nThe other you grunts and locks up as ${this.player.mf(
+                        "his",
+                        "her"
+                    )}... your [cock] begins to spurt inside your honey-drooling cunt, and ${this.player.mf(
+                        "he",
+                        "she"
+                    )} falls onto you, bottoming out inside; your vagina likewise clenches and squirts your sweet juices.  As ${this.player.mf(
+                        "he",
+                        "she"
+                    )} ejaculates, thrusting weakly, you can feel something shifting in you, filling you with pins and needles... it feels like the warm cum ${this.player.mf(
+                        "he",
+                        "she"
+                    )}'s filling you with is permeating your entire groin, working its way back toward your abdomen.  It edges up to your massive buildup of eggs, and your body tightens in a second climax at the thought of having your children fertilized-`
                 );
 
                 this.outx(
-                    "\n\nYou snap awake, sitting bolt upright.  What in the name of... your " +
-                        this.player.multiCockDescriptLight() +
-                        " is softening rapidly, and as you shift, you can feel your cum sloshing in your [armor].  For fuck's sake."
+                    `\n\nYou snap awake, sitting bolt upright.  What in the name of... your ${this.player.multiCockDescriptLight()} is softening rapidly, and as you shift, you can feel your cum sloshing in your [armor].  For fuck's sake.`
                 );
                 if (this.player.cumQ() >= 1000)
                     this.outx(
@@ -1405,30 +1385,40 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
             ) {
                 // Drider dreams proc
                 this.outx(
-                    "\nIn a moonlit forest, you hang upside down from a thick tree branch suspended by only a string of webbing.  You watch with rising lust as a hapless traveler strolls along below, utterly unaware of the trap you've set.  Your breath catches as " +
-                        this.player.mf("he", "she") +
-                        " finally encounters your web, flailing against the sticky strands in a futile attempt to free " +
-                        this.player.mf("him", "her") +
-                        "self.  Once the traveller's struggles slow in fatigue, you descend easily to the forest floor, wrapping " +
-                        this.player.mf("him", "her") +
-                        " in an elegant silk cocoon before pulling " +
-                        this.player.mf("him", "her") +
-                        " up into the canopy.  Positioning your catch against the tree's trunk, you sink your fangs through the web and into flesh, feeling " +
-                        this.player.mf("his", "her") +
-                        " body heat with every drop of venom.  Cutting " +
-                        this.player.mf("his", "her") +
-                        " crotch free of your webbing, you open " +
-                        this.player.mf("his", "her") +
-                        " [armor] and release the "
+                    `\nIn a moonlit forest, you hang upside down from a thick tree branch suspended by only a string of webbing.  You watch with rising lust as a hapless traveler strolls along below, utterly unaware of the trap you've set.  Your breath catches as ${this.player.mf(
+                        "he",
+                        "she"
+                    )} finally encounters your web, flailing against the sticky strands in a futile attempt to free ${this.player.mf(
+                        "him",
+                        "her"
+                    )}self.  Once the traveller's struggles slow in fatigue, you descend easily to the forest floor, wrapping ${this.player.mf(
+                        "him",
+                        "her"
+                    )} in an elegant silk cocoon before pulling ${this.player.mf(
+                        "him",
+                        "her"
+                    )} up into the canopy.  Positioning your catch against the tree's trunk, you sink your fangs through the web and into flesh, feeling ${this.player.mf(
+                        "his",
+                        "her"
+                    )} body heat with every drop of venom.  Cutting ${this.player.mf(
+                        "his",
+                        "her"
+                    )} crotch free of your webbing, you open ${this.player.mf(
+                        "his",
+                        "her"
+                    )} [armor] and release the `
                 );
-                if (this.player.hasVagina()) this.outx(this.getGame().vaginaDescript(0) + " and ");
+                if (this.player.hasVagina()) this.outx(`${this.getGame().vaginaDescript(0)} and `);
                 this.outx(
-                    this.getGame().cockDescript(0) +
-                        " therein; you lower yourself onto " +
-                        this.player.mf("him", "her") +
-                        " over and over again, spearing your eager pussy with " +
-                        this.player.mf("him", "her") +
-                        " prick"
+                    `${this.getGame().cockDescript(
+                        0
+                    )} therein; you lower yourself onto ${this.player.mf(
+                        "him",
+                        "her"
+                    )} over and over again, spearing your eager pussy with ${this.player.mf(
+                        "him",
+                        "her"
+                    )} prick`
                 );
                 if (this.player.hasVagina())
                     this.outx(" while you bend and force your own into her cunt");
@@ -1438,9 +1428,10 @@ export class PlayerEvents extends BaseContent implements TimeAwareInterface {
                         "her pussy clenching around you as you orgasm explosively inside, followed by "
                     );
                 this.outx(
-                    "the sensation of warm wetness in your own vagina.  Your prisoner groans as " +
-                        this.player.mf("his", "her") +
-                        " cock twitches and spasms inside you, spraying your insides with seed; warm, delicious, sticky seed for your eggs.  You can feel it drawing closer to your unfertilized clutch, and as the gooey heat pushes toward them, your head swims, and you finally look into your prey's [face]..."
+                    `the sensation of warm wetness in your own vagina.  Your prisoner groans as ${this.player.mf(
+                        "his",
+                        "her"
+                    )} cock twitches and spasms inside you, spraying your insides with seed; warm, delicious, sticky seed for your eggs.  You can feel it drawing closer to your unfertilized clutch, and as the gooey heat pushes toward them, your head swims, and you finally look into your prey's [face]...`
                 );
 
                 this.outx(

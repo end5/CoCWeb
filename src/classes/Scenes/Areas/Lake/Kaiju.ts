@@ -206,7 +206,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outx(
             '\n\n"<i>Oh my, it seems someone is enjoying my special hug,</i>" the giant beauty says noticing your rising arousal.  The lusty giant removes the lower half of your [armor] revealing your '
         );
-        if (this.player.gender == 3) this.outx(this.multiCockDescriptLight() + " and [vagina]");
+        if (this.player.gender == 3) this.outx(`${this.multiCockDescriptLight()} and [vagina]`);
         else if (this.player.gender == 1) this.outx(this.multiCockDescriptLight());
         else if (this.player.gender == 2) this.outx("[vagina]");
         else this.outx("bare groin");
@@ -218,9 +218,7 @@ export class Kaiju extends AbstractLakeContent {
             if (this.player.cockTotal() > 1) this.outx("s");
             if (this.player.balls > 0) this.outx(" and [balls]");
             this.outx(
-                ' rest on her perky pink naughty bit.  She coos in delight as her hand slowly rubs your private parts along her firm nipple.  She begins to bounce ever so slightly, which at her size means a verifiable mountain of boob begins smacking heavily against your lower body.  "<i>Oh yes,</i>" she says, moaning in ecstasy, "<i>fuck my breast!</i>"  You don\'t really seem to have a choice in the matter as she picks up the pace, almost violently slamming you against her smooth green skin and stiff pink nipple.  Despite the relatively soft flesh of her mammary, it is still hundreds of pounds of tit flesh.  As if unsatisfied with just smothering you in boob she takes one green pinkie finger and begins to spank you in a manner she probably believes to be quite soft but lands quite hard on your [butt].  A small number of spankings begin to leave your ass red and tingling, each strike pushing your ' +
-                    this.multiCockDescriptLight() +
-                    ' further into soft breast and firm nipple.  "<i>Please, cum on me!</i>" she commands, and almost as if on cue your body obeys, jizz flying and coating her breast with as much sperm as your body can produce.'
+                ` rest on her perky pink naughty bit.  She coos in delight as her hand slowly rubs your private parts along her firm nipple.  She begins to bounce ever so slightly, which at her size means a verifiable mountain of boob begins smacking heavily against your lower body.  "<i>Oh yes,</i>" she says, moaning in ecstasy, "<i>fuck my breast!</i>"  You don't really seem to have a choice in the matter as she picks up the pace, almost violently slamming you against her smooth green skin and stiff pink nipple.  Despite the relatively soft flesh of her mammary, it is still hundreds of pounds of tit flesh.  As if unsatisfied with just smothering you in boob she takes one green pinkie finger and begins to spank you in a manner she probably believes to be quite soft but lands quite hard on your [butt].  A small number of spankings begin to leave your ass red and tingling, each strike pushing your ${this.multiCockDescriptLight()} further into soft breast and firm nipple.  "<i>Please, cum on me!</i>" she commands, and almost as if on cue your body obeys, jizz flying and coating her breast with as much sperm as your body can produce.`
             );
             // [if PC has balls]
             if (this.player.balls > 0)
@@ -279,15 +277,14 @@ export class Kaiju extends AbstractLakeContent {
             // [Regardless of Marae's corruption]
         }
         this.outx(
-            "Her moist pussy is large and pink while a steady stream of feminine slime leaks from it, soaking her green thighs.  \"<i>It's so nice when a cute " +
-                this.player.mf("stud", "gal") +
-                " takes an interest, don't you think?</i>\" she continues, gently picking you up in her tremendous hand.  Though you imagine it would be difficult for such large fingers to nimbly handle the clasps and straps of normal size clothing, she soon has you naked.  \"<i>Now, it may have been a while, but I know what flirting is for.  And you're just too cute to play 'hard to get,' with...</i>\""
+            `Her moist pussy is large and pink while a steady stream of feminine slime leaks from it, soaking her green thighs.  "<i>It's so nice when a cute ${this.player.mf(
+                "stud",
+                "gal"
+            )} takes an interest, don't you think?</i>" she continues, gently picking you up in her tremendous hand.  Though you imagine it would be difficult for such large fingers to nimbly handle the clasps and straps of normal size clothing, she soon has you naked.  "<i>Now, it may have been a while, but I know what flirting is for.  And you're just too cute to play 'hard to get,' with...</i>"`
         );
 
         this.outx(
-            "\n\nShe begins to push you towards her gargantuan slit as she spreads her legs.  \"<i>Now don't worry about protection, no normal sperm can hope to break through the above average walls of my eggs.  So you just relax and enjoy the fuck,</i>\" she tells you before plopping you head first past the lips and into the slick, warm walls of her mammoth cunt.  You are given a moment to examine your surroundings.  At first there's a small rising fear of claustrophobia, but it quickly passes and you begin inhaling her scent and the warm fluids of her sex seep into your " +
-                this.player.skinFurScales() +
-                ".  Obviously her corrupt twat juices double as an aphrodisiac.  Beginning to feel lusty, you notice her vaginal muscles tightening around you, gently squeezing and releasing you as if you were receiving a full body massage.  It's actually rather pleasant in here, albeit strange."
+            `\n\nShe begins to push you towards her gargantuan slit as she spreads her legs.  "<i>Now don't worry about protection, no normal sperm can hope to break through the above average walls of my eggs.  So you just relax and enjoy the fuck,</i>" she tells you before plopping you head first past the lips and into the slick, warm walls of her mammoth cunt.  You are given a moment to examine your surroundings.  At first there's a small rising fear of claustrophobia, but it quickly passes and you begin inhaling her scent and the warm fluids of her sex seep into your ${this.player.skinFurScales()}.  Obviously her corrupt twat juices double as an aphrodisiac.  Beginning to feel lusty, you notice her vaginal muscles tightening around you, gently squeezing and releasing you as if you were receiving a full body massage.  It's actually rather pleasant in here, albeit strange.`
         );
         // [Lust increases]
         this.dynStats("lus", 33);
@@ -445,9 +442,7 @@ export class Kaiju extends AbstractLakeContent {
             if (this.player.cockTotal() > 1) this.outx("s");
             if (this.player.balls > 0) this.outx(" and [balls]");
             this.outx(
-                ' rest on her perky pink naughty bit.  She coos in delight as her hand slowly rubs your private parts along her firm nipple.  She begins to bounce ever so slightly, which at her size means a verifiable mountain of boob begins smacking heavily against your lower body.  "<i>Oh yes,</i>" she says, moaning in ecstasy, "<i>fuck my breast!</i>"  You don\'t really seem to have a choice in the matter as she picks up the pace, almost violently slamming you against her smooth green skin and stiff pink nipple.  Despite the relatively soft flesh of her mammary, it is still hundreds of pounds of tit flesh.  As if unsatisfied with just smothering you in boob she takes one green pinkie finger and begins to spank you in a manner she probably believes to be quite soft but lands quite hard on your [butt].  A small number of spankings begin to leave your ass red and tingling, each strike pushing your ' +
-                    this.multiCockDescriptLight() +
-                    ' further into her soft breast and firm nipple.  "<i>Please, cum on me!</i>" she commands, and almost as if on cue your body obeys, jizz flying and coating her breast with as much sperm as your body can produce.'
+                ` rest on her perky pink naughty bit.  She coos in delight as her hand slowly rubs your private parts along her firm nipple.  She begins to bounce ever so slightly, which at her size means a verifiable mountain of boob begins smacking heavily against your lower body.  "<i>Oh yes,</i>" she says, moaning in ecstasy, "<i>fuck my breast!</i>"  You don't really seem to have a choice in the matter as she picks up the pace, almost violently slamming you against her smooth green skin and stiff pink nipple.  Despite the relatively soft flesh of her mammary, it is still hundreds of pounds of tit flesh.  As if unsatisfied with just smothering you in boob she takes one green pinkie finger and begins to spank you in a manner she probably believes to be quite soft but lands quite hard on your [butt].  A small number of spankings begin to leave your ass red and tingling, each strike pushing your ${this.multiCockDescriptLight()} further into her soft breast and firm nipple.  "<i>Please, cum on me!</i>" she commands, and almost as if on cue your body obeys, jizz flying and coating her breast with as much sperm as your body can produce.`
             );
             if (this.player.balls > 0)
                 this.outx(
@@ -506,9 +501,7 @@ export class Kaiju extends AbstractLakeContent {
         );
 
         this.outx(
-            "\n\nShe begins to push you towards her gargantuan slit as she spreads her legs.  \"<i>Now don't worry about protection, no normal sperm can hope to break through the above average walls of my eggs.  So you just relax and enjoy the fuck,</i>\" she tells you before plopping you head first past the lips and into the slick, warm walls of her mammoth cunt.  You are given a moment to examine your surroundings.  At first there's a small rising fear of claustrophobia, but it quickly passes and you begin inhaling her scent and the warm fluids of her sex seep into your " +
-                this.player.skinFurScales() +
-                ".  Obviously her corrupt twat juices double as an aphrodisiac.  Beginning to feel lusty, you notice her vaginal muscles tightening around you, gently squeezing and releasing you as if you were receiving a full body massage.  It's actually rather pleasant in here, albeit strange."
+            `\n\nShe begins to push you towards her gargantuan slit as she spreads her legs.  "<i>Now don't worry about protection, no normal sperm can hope to break through the above average walls of my eggs.  So you just relax and enjoy the fuck,</i>" she tells you before plopping you head first past the lips and into the slick, warm walls of her mammoth cunt.  You are given a moment to examine your surroundings.  At first there's a small rising fear of claustrophobia, but it quickly passes and you begin inhaling her scent and the warm fluids of her sex seep into your ${this.player.skinFurScales()}.  Obviously her corrupt twat juices double as an aphrodisiac.  Beginning to feel lusty, you notice her vaginal muscles tightening around you, gently squeezing and releasing you as if you were receiving a full body massage.  It's actually rather pleasant in here, albeit strange.`
         );
         this.dynStats("lus", 33);
 
@@ -636,7 +629,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outx(
             "\n\nShe quickly has you positioned in front of her cock once more, this time feet first so she can keep your head free.  You can see your legs slowly slide down into her green cock, her cum-slit swallowing you up to your [hips].  You can feel the walls of her cock head push in all around you, squeezing your [butt]"
         );
-        if (this.player.hasCock()) this.outx(" and your " + this.multiCockDescriptLight());
+        if (this.player.hasCock()) this.outx(` and your ${this.multiCockDescriptLight()}`);
         this.outx(
             '.  "<i>Wow, you look absolutely gorgeous in my cock!</i>" the giantess says with glee, perverse desire in her eyes as she shoves you in further up to your [chest], her trembling, squeezing cock seeming to give you an almost relaxing massage.  You can barely believe it, but this unnatural giantess has as much control over her urethral walls as the most whorish succubus has over her cunt!  Only your arms and head are free of her cock as her unusual member starts squeezing and rippling all along your body.  It seems her dick wants to give you a happy ending.'
         );
@@ -1019,7 +1012,7 @@ export class Kaiju extends AbstractLakeContent {
         this.outx(
             "\n\nShe quickly has you positioned in front of her cock once more, this time feet first so she can keep your head free.  You can see your legs slowly slide down into her green cock, her cum-slit swallowing you up to your [hips].  You can feel the walls of her cock head push in all around you, squeezing your [butt]"
         );
-        if (this.player.hasCock()) this.outx(" and your " + this.multiCockDescriptLight());
+        if (this.player.hasCock()) this.outx(` and your ${this.multiCockDescriptLight()}`);
         this.outx(
             '.  "<i>Wow, you look absolutely gorgeous in my cock!</i>" the giantess says with glee, perverse desire in her eyes as she shoves you in further up to your [chest], her trembling, squeezing cock seeming to give you an almost relaxing massage.  You can barely believe it, but this unnatural giantess has as much control over her urethral walls as the most whorish succubus has over her cunt!  Only your arms and head are free of her cock as her unusual member starts squeezing and rippling all along your body.  It seems her new dick wants to give you a happy ending.'
         );
@@ -1099,9 +1092,10 @@ export class Kaiju extends AbstractLakeContent {
         this.clearOutput();
         this.spriteSelect(103);
         this.outx(
-            "The horny giantess makes short work of your [armor] and soon the green gal has you mashed against her puckered lips, doing her best to give a passionate kiss despite the size barrier.  Pulling you up towards eye level, her voice growls with lust as she says, \"<i>By Marae you get me so hot and bothered.  We've just been fucking so much lately I can't get you out of my mind!  You naughty, wonderful, glorious, perverted " +
-                this.player.mf("boy", "girl") +
-                '!  I just don\'t think I can stand it without you any longer!</i>"  Without further comment she places you at the tip of one of her great big green milk machines, shoving your face into a pink colossal nipple.  "<i>Drink up now.</i>"  It\'s apparent she wants to feed you her corrupted milk, and there doesn\'t appear to be much of a choice in the matter now.  Her nipple is larger than even some of the more massive cocks you\'ve seen in this land, yet you manage to get your mouth around the very tip of it and begin to suck mercilessly at the milky teat as you bring your hands up to stroke and pinch at the base of the overly sensitive large nub.  "<i>Oh goddess!</i>" the giant slut moans above you.'
+            `The horny giantess makes short work of your [armor] and soon the green gal has you mashed against her puckered lips, doing her best to give a passionate kiss despite the size barrier.  Pulling you up towards eye level, her voice growls with lust as she says, "<i>By Marae you get me so hot and bothered.  We've just been fucking so much lately I can't get you out of my mind!  You naughty, wonderful, glorious, perverted ${this.player.mf(
+                "boy",
+                "girl"
+            )}!  I just don't think I can stand it without you any longer!</i>"  Without further comment she places you at the tip of one of her great big green milk machines, shoving your face into a pink colossal nipple.  "<i>Drink up now.</i>"  It's apparent she wants to feed you her corrupted milk, and there doesn't appear to be much of a choice in the matter now.  Her nipple is larger than even some of the more massive cocks you've seen in this land, yet you manage to get your mouth around the very tip of it and begin to suck mercilessly at the milky teat as you bring your hands up to stroke and pinch at the base of the overly sensitive large nub.  "<i>Oh goddess!</i>" the giant slut moans above you.`
         );
         if (this.player.tongueType == TONUGE_SNAKE)
             this.outx(
@@ -1203,9 +1197,7 @@ export class Kaiju extends AbstractLakeContent {
         );
         if (this.player.hasCock())
             this.outx(
-                "  More tentacles arrive and begin to wrap around your " +
-                    this.multiCockDescriptLight() +
-                    ", slowly jacking you off to the tempo set by the cocks in your ass and mouth, wracking you with further pleasure."
+                `  More tentacles arrive and begin to wrap around your ${this.multiCockDescriptLight()}, slowly jacking you off to the tempo set by the cocks in your ass and mouth, wracking you with further pleasure.`
             );
         this.outx(
             "  All this intense pleasure is too much for you and you reach one of the hardest, messiest orgasms of your life, and by the way the green giant’s pussy clenches and soaks you even further in her fluids you know she has reached yet another climax as well, and yet she doesn’t stop thrusting that tree in and out of her abused turtle snatch, taking you for a further ride as you get pulled along with the corrupt foliage, attached by the tireless vines."

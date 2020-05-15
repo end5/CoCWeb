@@ -71,9 +71,7 @@ export class FetishZealot extends Monster {
         // Talk abouts it mang!
         if (changed)
             this.outx(
-                "The fetish zealot's clothing shifts and twists, until he is wearing " +
-                    this.armorName +
-                    ".\n\n",
+                `The fetish zealot's clothing shifts and twists, until he is wearing ${this.armorName}.\n\n`,
                 false
             );
         this.lust += this.lustVuln * 5;
@@ -122,9 +120,10 @@ export class FetishZealot extends Monster {
         if (this.armorName == FetishZealot.LEATHER_CLOTHES) {
             // The Zealot has taken on an appearance that seems more suitable for the level of perversion he exudes.  He is wearing a full-body suit of leather, with a cock case over his crotch; you can clearly see a large zipper on it.  The zipper handle is far bigger than you think is absolutely necessary.
             this.outx(
-                "The Zealot turns around and gives you a full view of his tight leather clad body.  He smacks his ass and says \"<i>You like what you see, don't you " +
-                    this.player.mf("stud", "slut") +
-                    "?</i>\"  You can't help but be incredibly aroused by the scene.",
+                `The Zealot turns around and gives you a full view of his tight leather clad body.  He smacks his ass and says "<i>You like what you see, don't you ${this.player.mf(
+                    "stud",
+                    "slut"
+                )}?</i>"  You can't help but be incredibly aroused by the scene.`,
                 false
             );
         }

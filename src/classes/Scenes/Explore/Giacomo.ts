@@ -288,9 +288,10 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.spriteSelect(23);
         this.clearOutput();
         this.outx(
-            "Giacomo holds up the item and says, \"<i>Ah, yes!  The quintessential elixir for all travelers, this little bottle of distilled livelihood will aid you in restoring your energy on your journey and, should you be hurt or injured, will aid the body's ability to heal itself.  Yes " +
-                this.player.mf("sir", "madam") +
-                ', this is liquid gold for pilgrim and adventurer alike.  Interested?  It is <b>15 gems</b></i>."  '
+            `Giacomo holds up the item and says, "<i>Ah, yes!  The quintessential elixir for all travelers, this little bottle of distilled livelihood will aid you in restoring your energy on your journey and, should you be hurt or injured, will aid the body's ability to heal itself.  Yes ${this.player.mf(
+                "sir",
+                "madam"
+            )}, this is liquid gold for pilgrim and adventurer alike.  Interested?  It is <b>15 gems</b></i>."  `
         );
         this.doYesNo(this.buyVitailtyTincture, this.potionMenu);
     }
@@ -300,9 +301,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         if (this.player.gems < 15) {
             this.clearOutput();
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(15 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    15 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.potionMenu);
         } else {
@@ -326,9 +327,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         if (this.player.gems < 15) {
             this.clearOutput();
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(15 - this.player.gems) +
-                    " more gems to purchase this item.  "
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    15 - this.player.gems
+                )} more gems to purchase this item.  `
             );
             this.doNext(this.potionMenu);
         } else {
@@ -352,9 +353,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         if (this.player.gems < 75) {
             this.clearOutput();
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(75 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    75 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.potionMenu);
         } else {
@@ -383,9 +384,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.player.gems < 10) {
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(10 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    10 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.bookMenu);
         } else {
@@ -439,9 +440,11 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
             return;
         }
         this.outx(
-            'Giacomo takes out a colorfully written magazine from his bag.  The cover contains well-drawn, overly-endowed women in sexual poses.  "<i>Perhaps your taste in reading is a bit more primal, my good ' +
-                this.player.mfn("man", "lady", "...err, whatever you are") +
-                '</i>," says Giacomo.  "<i>Taken from the lands far to the east, this is a tawdry tale of a group of ladies seeking out endless pleasures.  With a half a dozen pictures on every page to illustrate their peccadilloes, you will have your passions inflamed and wish to join these fantasy vixens in their adventures!  Collectable and in high demand, and even if this is not to your tastes, you can easily turn a profit on it!  Care to adventure into the realm of fantasy?  It\'s only 10 gems and I am doing YOU a favor for such a price.</i>"'
+            `Giacomo takes out a colorfully written magazine from his bag.  The cover contains well-drawn, overly-endowed women in sexual poses.  "<i>Perhaps your taste in reading is a bit more primal, my good ${this.player.mfn(
+                "man",
+                "lady",
+                "...err, whatever you are"
+            )}</i>," says Giacomo.  "<i>Taken from the lands far to the east, this is a tawdry tale of a group of ladies seeking out endless pleasures.  With a half a dozen pictures on every page to illustrate their peccadilloes, you will have your passions inflamed and wish to join these fantasy vixens in their adventures!  Collectable and in high demand, and even if this is not to your tastes, you can easily turn a profit on it!  Care to adventure into the realm of fantasy?  It's only 10 gems and I am doing YOU a favor for such a price.</i>"`
         );
         this.doYesNo(this.buyHentaiComic, this.bookMenu);
     }
@@ -451,9 +454,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.player.gems < 10) {
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(10 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    10 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.bookMenu);
         } else {
@@ -512,9 +515,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.player.gems < 20) {
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(20 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    20 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.eroticaMenu);
         } else {
@@ -545,9 +548,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.player.gems < 30) {
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(30 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    30 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.eroticaMenu);
             return;
@@ -593,9 +596,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.player.gems < 40) {
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(40 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    40 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.eroticaMenu);
             return;
@@ -628,9 +631,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.player.gems < 20) {
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(20 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    20 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.eroticaMenu);
             return;
@@ -661,9 +664,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.player.gems < 50) {
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(50 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    50 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.eroticaMenu);
             return;
@@ -707,9 +710,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.player.gems < 150) {
             this.outx(
-                "\n\nGiacomo sighs, indicating you need " +
-                    String(150 - this.player.gems) +
-                    " more gems to purchase this item."
+                `\n\nGiacomo sighs, indicating you need ${String(
+                    150 - this.player.gems
+                )} more gems to purchase this item.`
             );
             this.doNext(this.eroticaMenu);
             return;
@@ -876,9 +879,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                 '"<i>Well, well, well!</i>" the Succubus jingles.  "<i>What have we here?!  A little girl with a big cock!</i>"\n\n'
             );
             this.outx(
-                "As the Succubus looks down at your " +
-                    this.cockDescript(0) +
-                    ", you have quickly achieved one of the healthiest erections you have ever had.  The succubus quickly poises her hairy hole over your member and allows her weight to force your dick into her womb.  The demoness rests her weight in her lap as she allows you to fully penetrate her.  Her womb is hot and wet and her muscles have your prick in one of the strongest grips imaginable.  Even if you went totally limp, withdrawal would be an impossibility.  Wincing at the sudden crushing force of her vaginal muscles, the succubus giggles inhumanly.\n\n"
+                `As the Succubus looks down at your ${this.cockDescript(
+                    0
+                )}, you have quickly achieved one of the healthiest erections you have ever had.  The succubus quickly poises her hairy hole over your member and allows her weight to force your dick into her womb.  The demoness rests her weight in her lap as she allows you to fully penetrate her.  Her womb is hot and wet and her muscles have your prick in one of the strongest grips imaginable.  Even if you went totally limp, withdrawal would be an impossibility.  Wincing at the sudden crushing force of her vaginal muscles, the succubus giggles inhumanly.\n\n`
             );
             this.outx(
                 '"<i>Quit whimpering,</i>" the Succubus orders.  "<i>I hope the rumors about you futas are true.  I need a good, fiery load of cum to get me going.  I haven\'t had one in a while and as much as I LOVE men, they can only feed me so much.</i>"\n\n'
@@ -1114,28 +1117,29 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                 );
                 if (this.player.isTaur())
                     this.outx(
-                        " crouch between your legs and impale herself on your " +
-                            this.cockDescript(0) +
-                            " with a wet sound caused by her well-lubricated vulva. Y",
+                        ` crouch between your legs and impale herself on your ${this.cockDescript(
+                            0
+                        )} with a wet sound caused by her well-lubricated vulva. Y`,
                         false
                     );
                 else
                     this.outx(
-                        " open her womb and quickly consume your " +
-                            this.cockDescript(0) +
-                            ". She embraces you, entrapping your head in her cleavage as y",
+                        ` open her womb and quickly consume your ${this.cockDescript(
+                            0
+                        )}. She embraces you, entrapping your head in her cleavage as y`,
                         false
                     );
                 this.outx(
-                    "ou quickly feel her superhuman vaginal muscles work and stroke your " +
-                        this.cockDescript(0) +
-                        " better than any human woman or pair of hands could ever hope to accomplish. You are helpless as your unholy embrace milks the both of you in an infernal symphony of debauchery. The familiar cramp of an impending ejaculation grips you and your twitching signals the succubus of your approaching climax.\n\n",
+                    `ou quickly feel her superhuman vaginal muscles work and stroke your ${this.cockDescript(
+                        0
+                    )} better than any human woman or pair of hands could ever hope to accomplish. You are helpless as your unholy embrace milks the both of you in an infernal symphony of debauchery. The familiar cramp of an impending ejaculation grips you and your twitching signals the succubus of your approaching climax.\n\n`,
                     false
                 );
                 if (this.player.isTaur())
                     this.outx(
-                        "Pushing on your forelegs, she engulfs even more of your " +
-                            this.cockDescript(0),
+                        `Pushing on your forelegs, she engulfs even more of your ${this.cockDescript(
+                            0
+                        )}`,
                         false
                     );
                 else
@@ -1149,9 +1153,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                 );
                 if (this.player.isTaur())
                     this.outx(
-                        "arches under your belly as you feel your " +
-                            this.cockDescript(0) +
-                            " bending pleasurably inside her, and",
+                        `arches under your belly as you feel your ${this.cockDescript(
+                            0
+                        )} bending pleasurably inside her, and`,
                         false
                     );
                 else
@@ -1160,9 +1164,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                         false
                     );
                 this.outx(
-                    " her contractions milking your " +
-                        this.cockDescript(0) +
-                        " as fiercely as a maid milks a cow! Another torrent of cum pushes its way out of your body and you let out a moan of pleasure and exhaustion.\n\n",
+                    ` her contractions milking your ${this.cockDescript(
+                        0
+                    )} as fiercely as a maid milks a cow! Another torrent of cum pushes its way out of your body and you let out a moan of pleasure and exhaustion.\n\n`,
                     false
                 );
                 this.outx(
@@ -1196,8 +1200,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                 );
                 if (this.player.isTaur())
                     this.outx(
-                        "pushes on your forelegs, impaling herself even deeper on your " +
-                            this.cockDescript(0),
+                        `pushes on your forelegs, impaling herself even deeper on your ${this.cockDescript(
+                            0
+                        )}`,
                         false
                     );
                 else this.outx("wraps her legs around your hips and bears down");
@@ -1212,9 +1217,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
 
                 if (this.player.isTaur())
                     this.outx(
-                        "She moans inhumanly, and reflexively digs her claws into your forelegs. Searing with lust, the pain means little to you as you only feel the sensation of your body forcing your fluids out of your body and into hers. You press your " +
-                            this.cockDescript(0) +
-                            " into her",
+                        `She moans inhumanly, and reflexively digs her claws into your forelegs. Searing with lust, the pain means little to you as you only feel the sensation of your body forcing your fluids out of your body and into hers. You press your ${this.cockDescript(
+                            0
+                        )} into her`,
                         false
                     );
                 else

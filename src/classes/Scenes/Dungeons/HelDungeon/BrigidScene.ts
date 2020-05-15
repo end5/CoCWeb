@@ -97,9 +97,7 @@ export class BrigidScene extends BaseContent {
                     "  For now, I've given you the most obvious modification - I can think of something else later.</i>\""
                 );
                 this.outx(
-                    "\n\nShe squeezes Kiri's ass firmly with one hand, and lifts the girl partway out of your lap.  A smooth, hot sensation separates from your crotch and glides along nerves you hadn't noticed until now as Kiri's pussy slides upward, partially revealing the erect, " +
-                        this.player.skinTone +
-                        " flesh of a brand new cock!  Brigid gloats at your confusion, laughing her delight to the roof of the chamber, then shoves Kiri's ass downward again, spearing her pussy on your new flesh and making the girl wince and grit her teeth."
+                    `\n\nShe squeezes Kiri's ass firmly with one hand, and lifts the girl partway out of your lap.  A smooth, hot sensation separates from your crotch and glides along nerves you hadn't noticed until now as Kiri's pussy slides upward, partially revealing the erect, ${this.player.skinTone} flesh of a brand new cock!  Brigid gloats at your confusion, laughing her delight to the roof of the chamber, then shoves Kiri's ass downward again, spearing her pussy on your new flesh and making the girl wince and grit her teeth.`
                 );
                 this.player.createCock();
             }
@@ -116,9 +114,7 @@ export class BrigidScene extends BaseContent {
             );
             if (this.player.cockTotal() > 1 || this.player.cumQ() > 1000)
                 this.outx(
-                    "  " +
-                        this.SMultiCockDesc() +
-                        " holds forth for a while, until Kiri's ass, pussy, and tailfeathers are soaked with oozing, white cum."
+                    `  ${this.SMultiCockDesc()} holds forth for a while, until Kiri's ass, pussy, and tailfeathers are soaked with oozing, white cum.`
                 );
             this.outx(
                 "  Next to you, the salamander on the other table climaxes as well, dumping a load into Hel that sizzles when it leaks onto his fiery, iron-bound tail.  Your former lover squirms and shivers as the scalding-hot load fills her cunt, and her own prick twitches weakly, depositing a small string of bubbling jism on the stone table."
@@ -146,7 +142,7 @@ export class BrigidScene extends BaseContent {
                 "The heat in your [vagina] is the first thing to stir you.  Your eyes open painfully, fluttering with each soft pulse of your head; it feels like an imp was set loose inside, covering your brain with thick jizz, but eventually you manage to focus and look down.  What greets you is the sight of "
             );
             if (this.player.hasCock())
-                this.outx(this.sMultiCockDesc() + " bobbing up and down, drooling pre-cum, as ");
+                this.outx(`${this.sMultiCockDesc()} bobbing up and down, drooling pre-cum, as `);
             this.outx(
                 "your red, sore pussy is pounded viciously by a thick cock dotted with scales.  Below it dangles a pair of swollen balls, bouncing as the shaft is thrust into you; with an inkling of understanding, you look back to confirm your suspicion.  Sure enough, you're mounted atop the table-bound salamander from before, who grunts as he pushes into you.  The hot cock, hotter than your body, slides in with a sizzle, and some of your juices roll down the shaft, only to evaporate when they hit the salamander's flaming, iron-bound tail.  Your own limbs are chained to the table via a massive iron ring and Brigid stands in front of you, watching you expectantly; behind her are arranged a score of assorted harpies and surviving phoenixes in various stages of coitus."
             );
@@ -172,11 +168,7 @@ export class BrigidScene extends BaseContent {
             );
 
             this.outx(
-                "\n\n\"<i>Aww, didn't come yet?  Too bad.  There's only one use for a trash " +
-                    this.player.race() +
-                    ' like you, anyway,</i>" your jailer coos sweetly, caressing your ' +
-                    this.player.skin() +
-                    ".  \"<i>You're going to make me more salamanders, so... better luck next time!</i>\"  She unfastens your chains from the loop on the table, violently dragging you clear and covering your [butt] in the scalding seed pouring out of you.  \"<i>I don't care what you bitches do with this one,</i>\" Brigid says, yanking you toward the ongoing harpy orgy, \"<i>just don't ruin her.  That breeding stock on the table won't last much longer once we start to make up for the soldiers we lost, and we might be able to get a replacement out of her womb.  And don't fucking bother me, I need to go over mom's notes and figure out how she was making the phoenixes!</i>\""
+                `\n\n"<i>Aww, didn't come yet?  Too bad.  There's only one use for a trash ${this.player.race()} like you, anyway,</i>" your jailer coos sweetly, caressing your ${this.player.skin()}.  "<i>You're going to make me more salamanders, so... better luck next time!</i>"  She unfastens your chains from the loop on the table, violently dragging you clear and covering your [butt] in the scalding seed pouring out of you.  "<i>I don't care what you bitches do with this one,</i>" Brigid says, yanking you toward the ongoing harpy orgy, "<i>just don't ruin her.  That breeding stock on the table won't last much longer once we start to make up for the soldiers we lost, and we might be able to get a replacement out of her womb.  And don't fucking bother me, I need to go over mom's notes and figure out how she was making the phoenixes!</i>"`
             );
 
             this.outx(

@@ -8,13 +8,7 @@ import { PerkType } from "../PerkType";
 export class ElvenBountyPerk extends PerkType {
     public desc(params?: PerkClass): string {
         if (params)
-            return (
-                "Increases fertility by " +
-                params.value2 +
-                "% and cum production by " +
-                params.value1 +
-                "mLs."
-            );
+            return `Increases fertility by ${params.value2}% and cum production by ${params.value1}mLs.`;
         return "";
     }
 

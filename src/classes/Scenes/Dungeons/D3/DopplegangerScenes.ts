@@ -21,19 +21,20 @@ export class DopplegangerScenes extends BaseContent {
         );
         if (this.player.humanScore() > 4)
             this.outx(
-                "  It is honestly surprising, given everything you have encountered since you stepped through that portal what seems years ago, that you are still recognizably human. You wonder if your parents would be able to recognize the battle-hardened " +
-                    this.player.mf("man", "woman") +
-                    " clad in " +
-                    this.player.mf("his", "her") +
-                    " [armor] standing in front of you to be the wide-eyed youth they bade their heartfelt goodbyes to all that time ago, though."
+                `  It is honestly surprising, given everything you have encountered since you stepped through that portal what seems years ago, that you are still recognizably human. You wonder if your parents would be able to recognize the battle-hardened ${this.player.mf(
+                    "man",
+                    "woman"
+                )} clad in ${this.player.mf(
+                    "his",
+                    "her"
+                )} [armor] standing in front of you to be the wide-eyed youth they bade their heartfelt goodbyes to all that time ago, though.`
             );
         else
             this.outx(
-                "  The last time you looked into such a sharp reflection you were human; a pang of regret steals through you as you consider probably not even your parents would be able to recognize the strange " +
-                    this.player.race() +
-                    " clad in " +
-                    this.player.mf("his", "her") +
-                    " [armor] standing in front of you now."
+                `  The last time you looked into such a sharp reflection you were human; a pang of regret steals through you as you consider probably not even your parents would be able to recognize the strange ${this.player.race()} clad in ${this.player.mf(
+                    "his",
+                    "her"
+                )} [armor] standing in front of you now.`
             );
 
         this.outx(
@@ -41,50 +42,63 @@ export class DopplegangerScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\n“<i>I was expecting an imp,</i>” it says. The voice sounds like it is coming from some distance away, but a cold sensation spreads itself over your shoulders as you recognize it. It’s what you would sound like to someone standing a couple of rooms away from you. It looks down and clenches your... <i>" +
-                this.player.mf("his", "her") +
-                "</i> fists with an expression of wild wonder, before turning " +
-                this.player.mf("his", "her") +
-                " eyes back to you. “<i>That would be the fitting thing, wouldn’t it? Robbed of my form by Lethice, bound to a glass prison for a decade, forced to seize and use the first thing stupid enough to be transfixed by it. It would have to be an imp, wouldn’t it? But this...</i>” The doppelganger walks slowly towards you, " +
-                this.player.mf("his", "her") +
-                " voice, your voice heard through a bottleneck of madness, getting louder all the time. As " +
-                this.player.mf("he", "she") +
-                " comes " +
-                this.player.mf("he", "she") +
-                " stretches " +
-                this.player.mf("his", "her") +
-                " limbs luxuriously, examining the form " +
-                this.player.mf("he", "she") +
-                " has stolen, running " +
-                this.player.mf("his", "her") +
-                " hands down your trunk to touch the top of your [hips], marvelling. You feel violated in a way you never thought possible. “<i>... This, I could get used to. This, I could use. Who are you?</i>”"
+            `\n\n“<i>I was expecting an imp,</i>” it says. The voice sounds like it is coming from some distance away, but a cold sensation spreads itself over your shoulders as you recognize it. It’s what you would sound like to someone standing a couple of rooms away from you. It looks down and clenches your... <i>${this.player.mf(
+                "his",
+                "her"
+            )}</i> fists with an expression of wild wonder, before turning ${this.player.mf(
+                "his",
+                "her"
+            )} eyes back to you. “<i>That would be the fitting thing, wouldn’t it? Robbed of my form by Lethice, bound to a glass prison for a decade, forced to seize and use the first thing stupid enough to be transfixed by it. It would have to be an imp, wouldn’t it? But this...</i>” The doppelganger walks slowly towards you, ${this.player.mf(
+                "his",
+                "her"
+            )} voice, your voice heard through a bottleneck of madness, getting louder all the time. As ${this.player.mf(
+                "he",
+                "she"
+            )} comes ${this.player.mf("he", "she")} stretches ${this.player.mf(
+                "his",
+                "her"
+            )} limbs luxuriously, examining the form ${this.player.mf(
+                "he",
+                "she"
+            )} has stolen, running ${this.player.mf(
+                "his",
+                "her"
+            )} hands down your trunk to touch the top of your [hips], marvelling. You feel violated in a way you never thought possible. “<i>... This, I could get used to. This, I could use. Who are you?</i>”`
         );
 
         this.outx(
-            "\n\nRight at the front of the mirror now, " +
-                this.player.mf("he", "she") +
-                " flicks " +
-                this.player.mf("his", "her") +
-                " borrowed fingers at the air, as if coaxing the answer out of it. As " +
-                this.player.mf("he", "she") +
-                " does so, " +
-                this.player.mf("he", "she") +
-                " casually steps through the surface of the mirror, as if it were an open window. The feeling of unreality intensifies; you can’t shake the sensation of being mired in vagueness, at how vivid the mirror demon looks in comparison to how you feel."
+            `\n\nRight at the front of the mirror now, ${this.player.mf(
+                "he",
+                "she"
+            )} flicks ${this.player.mf(
+                "his",
+                "her"
+            )} borrowed fingers at the air, as if coaxing the answer out of it. As ${this.player.mf(
+                "he",
+                "she"
+            )} does so, ${this.player.mf(
+                "he",
+                "she"
+            )} casually steps through the surface of the mirror, as if it were an open window. The feeling of unreality intensifies; you can’t shake the sensation of being mired in vagueness, at how vivid the mirror demon looks in comparison to how you feel.`
         );
 
         this.outx(
-            "\n\n“<i>[Name]. There we go. Not what I would choose to describe this business...</i>” " +
-                this.player.mf("he", "she") +
-                " pats " +
-                this.player.mf("his", "her") +
-                " [butt] mockingly, “<i>but then I’m not you, right? Not yet, anyway.</i>” " +
-                this.player.mf("He", "She") +
-                " laughs, suddenly, madly, and you cringe inwardly. It is what you would sound like if you were completely, utterly insane."
+            `\n\n“<i>[Name]. There we go. Not what I would choose to describe this business...</i>” ${this.player.mf(
+                "he",
+                "she"
+            )} pats ${this.player.mf(
+                "his",
+                "her"
+            )} [butt] mockingly, “<i>but then I’m not you, right? Not yet, anyway.</i>” ${this.player.mf(
+                "He",
+                "She"
+            )} laughs, suddenly, madly, and you cringe inwardly. It is what you would sound like if you were completely, utterly insane.`
         );
         this.outx(
-            "\n\n“<i>Do you know what it is like to spend ten years without a form? To spend ten years imitating an empty room? Well, don’t worry, [name]. When I have taken your place and bound you to this thing I’ll make sure to put it somewhere nice and busy, so you will never have to know that torment!</i>” " +
-                this.player.mf("He", "She") +
-                " draws the mirror image of your [weapon] and advances upon you, your own features hiked into a rictus of madness."
+            `\n\n“<i>Do you know what it is like to spend ten years without a form? To spend ten years imitating an empty room? Well, don’t worry, [name]. When I have taken your place and bound you to this thing I’ll make sure to put it somewhere nice and busy, so you will never have to know that torment!</i>” ${this.player.mf(
+                "He",
+                "She"
+            )} draws the mirror image of your [weapon] and advances upon you, your own features hiked into a rictus of madness.`
         );
         this.outx("\n\nYou must fight yourself!");
 
@@ -101,9 +115,7 @@ export class DopplegangerScenes extends BaseContent {
         );
 
         this.outx(
-            "\n\n“<i>No...</i>” your mirror image snivels in front of you. “<i>Ten years, ten years I waited for this. You can’t put me back in there, you can’t!</i>” You gaze down at what you look like when you are defeated: mouth open, eyes glazed, " +
-                this.player.hairDescript() +
-                " muddled, your flesh trembling and clenching, the very picture of a bitch awaiting further subjugation. No wonder 90% of Mareth is so keen on wanting to make this sight happen. The doppelganger chances a look up, catches your expression, and freezes. “<i>You... you wouldn’t.</i>”"
+            `\n\n“<i>No...</i>” your mirror image snivels in front of you. “<i>Ten years, ten years I waited for this. You can’t put me back in there, you can’t!</i>” You gaze down at what you look like when you are defeated: mouth open, eyes glazed, ${this.player.hairDescript()} muddled, your flesh trembling and clenching, the very picture of a bitch awaiting further subjugation. No wonder 90% of Mareth is so keen on wanting to make this sight happen. The doppelganger chances a look up, catches your expression, and freezes. “<i>You... you wouldn’t.</i>”`
         );
 
         this.menu();
@@ -152,9 +164,9 @@ export class DopplegangerScenes extends BaseContent {
                 );
             else
                 this.outx(
-                    "  You clamber on top of him, enjoying the give and take of his " +
-                        (this.player.isGoo() ? "gooey" : "smooth") +
-                        " flesh as you lock your [hips] around their mirror counterparts, making him groan raggedly in response."
+                    `  You clamber on top of him, enjoying the give and take of his ${
+                        this.player.isGoo() ? "gooey" : "smooth"
+                    } flesh as you lock your [hips] around their mirror counterparts, making him groan raggedly in response.`
                 );
 
             this.outx(
@@ -192,11 +204,11 @@ export class DopplegangerScenes extends BaseContent {
             );
 
             this.outx(
-                "\n\n“<i>Don’t- don’t do that,</i>” he rasps. “<i>Fuck me if you must, but please...</i>“ ignoring him with silent glee, you touch his other nipple, this time rubbing it gently in concentric circles until it is " +
-                    (!this.player.hasFuckableNipples()
+                `\n\n“<i>Don’t- don’t do that,</i>” he rasps. “<i>Fuck me if you must, but please...</i>“ ignoring him with silent glee, you touch his other nipple, this time rubbing it gently in concentric circles until it is ${
+                    !this.player.hasFuckableNipples()
                         ? "standing to a needy point"
-                        : "wetting itself needily") +
-                    ", before going to work on the other one, sliding in and out of his contracting warmth all the while. As you continue to tease him you let your other hand slide down his abdomen, remorselessly leading down until your fingertips touch his semi-erect [cock]."
+                        : "wetting itself needily"
+                }, before going to work on the other one, sliding in and out of his contracting warmth all the while. As you continue to tease him you let your other hand slide down his abdomen, remorselessly leading down until your fingertips touch his semi-erect [cock].`
             );
 
             this.outx(
@@ -252,9 +264,9 @@ export class DopplegangerScenes extends BaseContent {
                 );
             else
                 this.outx(
-                    " You clamber on top of her, enjoying the give and take of her " +
-                        (this.player.isGoo() ? "gooey" : "smooth") +
-                        " flesh as you lock your [hips] around their mirror counterparts, making her groan raggedly in response."
+                    ` You clamber on top of her, enjoying the give and take of her ${
+                        this.player.isGoo() ? "gooey" : "smooth"
+                    } flesh as you lock your [hips] around their mirror counterparts, making her groan raggedly in response.`
                 );
 
             this.outx(
@@ -288,11 +300,11 @@ export class DopplegangerScenes extends BaseContent {
             );
 
             this.outx(
-                "\n\n“<i>Don’t- don’t do that,</i>” she rasps. “<i>Take your satisfaction if you must, but please...</i>” ignoring her with silent glee, you touch her other nipple, this time rubbing it gently in concentric circles until it is " +
-                    (!this.player.hasFuckableNipples()
+                `\n\n“<i>Don’t- don’t do that,</i>” she rasps. “<i>Take your satisfaction if you must, but please...</i>” ignoring her with silent glee, you touch her other nipple, this time rubbing it gently in concentric circles until it is ${
+                    !this.player.hasFuckableNipples()
                         ? "standing to a needy point"
-                        : "wetting itself needily") +
-                    ", before going to work on the other one, sliding in and out of her contracting warmth all the while. As you continue to tease her you let your other hand slide down her abdomen, remorselessly leading down until your fingertips touch her semi-erect [cock]."
+                        : "wetting itself needily"
+                }, before going to work on the other one, sliding in and out of her contracting warmth all the while. As you continue to tease her you let your other hand slide down her abdomen, remorselessly leading down until your fingertips touch her semi-erect [cock].`
             );
 
             this.outx(
@@ -308,15 +320,13 @@ export class DopplegangerScenes extends BaseContent {
             );
 
             this.outx(
-                "\n\n“<i>Let me guess,</i>” you breathe into her ear, as you make your hand go soft and hard, soft and hard around her urgently erect penis. “<i>Lethice made it so that even if you did manage to make it out, whichever poor soul you snatched a body off could banish you by making you cum. I guess it’s simple then, isn’t it? Just... don’t.</i>” You begin to pick up the pace, smoothly at first as you enjoy her long, soft tunnel, pushing deliberately into her bulging [clit] before finally unleashing your own urge, your [hips] clapping into hers as you hold her hot, tautening body close, jerking her bulging prick with curt, cramped flicks of the wrist. You push into her prostate, milking her ruthlessly, and she cries out, trying now to pull away from you but far too weak to do it. Your flesh imprisons her doubly and you force sensation upon her from every direction you can, your [cock] thrusting into the clenching passage you’ve made your own, one hand flicking at her " +
-                    (!this.player.hasFuckableNipples() ? "needily erect" : "beading nipple") +
-                    ", the other stroking her sensitive prick, relentlessly pulling her with you to a twin high. Behind you the sound of the mirror’s stress continues, accompanying your merciless pleasure with its baleful xylophone snaps. The doppelganger no longer struggles, can’t even find words anymore; she just squeals and groans in helpless pleasure as you use every tight, warm inch of her."
+                `\n\n“<i>Let me guess,</i>” you breathe into her ear, as you make your hand go soft and hard, soft and hard around her urgently erect penis. “<i>Lethice made it so that even if you did manage to make it out, whichever poor soul you snatched a body off could banish you by making you cum. I guess it’s simple then, isn’t it? Just... don’t.</i>” You begin to pick up the pace, smoothly at first as you enjoy her long, soft tunnel, pushing deliberately into her bulging [clit] before finally unleashing your own urge, your [hips] clapping into hers as you hold her hot, tautening body close, jerking her bulging prick with curt, cramped flicks of the wrist. You push into her prostate, milking her ruthlessly, and she cries out, trying now to pull away from you but far too weak to do it. Your flesh imprisons her doubly and you force sensation upon her from every direction you can, your [cock] thrusting into the clenching passage you’ve made your own, one hand flicking at her ${
+                    !this.player.hasFuckableNipples() ? "needily erect" : "beading nipple"
+                }, the other stroking her sensitive prick, relentlessly pulling her with you to a twin high. Behind you the sound of the mirror’s stress continues, accompanying your merciless pleasure with its baleful xylophone snaps. The doppelganger no longer struggles, can’t even find words anymore; she just squeals and groans in helpless pleasure as you use every tight, warm inch of her.`
             );
 
             this.outx(
-                "\n\n“<i>How did you think you were going to master this body, demon?</i>” you growl, blood pulsing in your ear, seed rising in your loins. “<i>Ten minutes after stealing it you’re its true owner’s futa slut. Never mind- I know </i>exactly<i> how much you’re going to enjoy the last thing you’ll ever feel.</i>” You bury as much of yourself into her as you can, driving your bulging length across her prostate as it tenses, opens wide and surges line after line of cum into her womb. Your mirror image howls, finding a note you never knew your vocal chords could reach as she thrashes back into you, her " +
-                    this.player.hairColor +
-                    " flapping into your face as she orgasms in tandem, driven further beyond the edge of sanity with the force of a simultaneous male and female orgasm."
+                `\n\n“<i>How did you think you were going to master this body, demon?</i>” you growl, blood pulsing in your ear, seed rising in your loins. “<i>Ten minutes after stealing it you’re its true owner’s futa slut. Never mind- I know </i>exactly<i> how much you’re going to enjoy the last thing you’ll ever feel.</i>” You bury as much of yourself into her as you can, driving your bulging length across her prostate as it tenses, opens wide and surges line after line of cum into her womb. Your mirror image howls, finding a note you never knew your vocal chords could reach as she thrashes back into you, her ${this.player.hairColor} flapping into your face as she orgasms in tandem, driven further beyond the edge of sanity with the force of a simultaneous male and female orgasm.`
             );
             if (this.player.cumQ() >= 1000)
                 this.outx(
@@ -348,9 +358,9 @@ export class DopplegangerScenes extends BaseContent {
                 );
             else
                 this.outx(
-                    "  You clamber on top of her, enjoying the give and take of her " +
-                        (this.player.isGoo() ? "gooey" : "smooth") +
-                        " flesh as you lock your [hips] around their mirror counterparts, making her groan raggedly in response."
+                    `  You clamber on top of her, enjoying the give and take of her ${
+                        this.player.isGoo() ? "gooey" : "smooth"
+                    } flesh as you lock your [hips] around their mirror counterparts, making her groan raggedly in response.`
                 );
 
             this.outx(
@@ -375,11 +385,11 @@ export class DopplegangerScenes extends BaseContent {
             );
 
             this.outx(
-                "\n\n“<i>Don’t- don’t do that,</i>” she rasps. “<i>Take your satisfaction if you must, but please...</i>“ ignoring her with silent glee, you touch her other nipple, this time rubbing it gently in concentric circles until it is " +
-                    (!this.player.hasFuckableNipples()
+                `\n\n“<i>Don’t- don’t do that,</i>” she rasps. “<i>Take your satisfaction if you must, but please...</i>“ ignoring her with silent glee, you touch her other nipple, this time rubbing it gently in concentric circles until it is ${
+                    !this.player.hasFuckableNipples()
                         ? "standing to a needy point"
-                        : "wetting itself needily") +
-                    ", before going to work on the other one, revolving your hips into hers all the while. As you continue to tease her you let your other hand slide down her abdomen, remorselessly leading down until your fingertips touch her [clit]."
+                        : "wetting itself needily"
+                }, before going to work on the other one, revolving your hips into hers all the while. As you continue to tease her you let your other hand slide down her abdomen, remorselessly leading down until your fingertips touch her [clit].`
             );
 
             this.outx(
@@ -405,9 +415,7 @@ export class DopplegangerScenes extends BaseContent {
             );
 
             this.outx(
-                "\n\n“<i>How did you think you were going to master this body, demon?</i>” you growl, blood pulsing in your ear, orgasm closing. “<i>Ten minutes after stealing it you’re its true owner’s lesbian slut. Never mind- I know </i>exactly<i> how much you’re going to enjoy the last thing you’ll ever feel.</i>” You thrust as much of yourself into her as you can, pushing your clit against hers as your body tenses and flings itself into orgasm. Your mirror image howls, finding a note you never knew your vocal chords could reach as she thrashes back into you, her " +
-                    this.player.hairDescript() +
-                    " flapping into your face as she orgasms in tandem."
+                `\n\n“<i>How did you think you were going to master this body, demon?</i>” you growl, blood pulsing in your ear, orgasm closing. “<i>Ten minutes after stealing it you’re its true owner’s lesbian slut. Never mind- I know </i>exactly<i> how much you’re going to enjoy the last thing you’ll ever feel.</i>” You thrust as much of yourself into her as you can, pushing your clit against hers as your body tenses and flings itself into orgasm. Your mirror image howls, finding a note you never knew your vocal chords could reach as she thrashes back into you, her ${this.player.hairDescript()} flapping into your face as she orgasms in tandem.`
             );
             if (this.player.cumQ() > 1000)
                 this.outx(

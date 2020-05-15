@@ -407,11 +407,11 @@ export class BakeryScene extends TelAdreAbstractContent {
             this.player.minoCumAddiction(10);
         } else {
             this.outx(
-                "You hand over " +
-                    BakeryScene.num2Text(this.flags[kFLAGS.TEMP_STORAGE_PASTRY_PRICE]) +
-                    " gems and get your " +
-                    this.flags[kFLAGS.TEMP_STORAGE_PASTRY_NAME] +
-                    ".  A moment later you're at a table, licking the sugary residue from your fingertips and wondering just how they make the food so damned good.",
+                `You hand over ${BakeryScene.num2Text(
+                    this.flags[kFLAGS.TEMP_STORAGE_PASTRY_PRICE]
+                )} gems and get your ${
+                    this.flags[kFLAGS.TEMP_STORAGE_PASTRY_NAME]
+                }.  A moment later you're at a table, licking the sugary residue from your fingertips and wondering just how they make the food so damned good.`,
                 false
             );
             if (this.flags[kFLAGS.TEMP_STORAGE_PASTRY_NAME] == "doughnuts") {
@@ -419,9 +419,7 @@ export class BakeryScene extends TelAdreAbstractContent {
                 this.outx(this.player.modThickness(100, 1), false);
                 if (BakeryScene.rand(3) == 0 && this.player.buttRating < 15) {
                     this.outx(
-                        "\n\nWhen you stand back up your " +
-                            this.buttDescript() +
-                            " jiggles a little bit more than you'd expect.",
+                        `\n\nWhen you stand back up your ${this.buttDescript()} jiggles a little bit more than you'd expect.`,
                         false
                     );
                     this.player.buttRating++;
@@ -447,9 +445,7 @@ export class BakeryScene extends TelAdreAbstractContent {
                 this.outx(this.player.modThickness(100, 4), false);
                 if (BakeryScene.rand(2) == 0 && this.player.hipRating < 30) {
                     this.outx(
-                        "\n\nAfter finishing, you find your gait has changed.  Your " +
-                            this.hipDescript() +
-                            " definitely got wider.",
+                        `\n\nAfter finishing, you find your gait has changed.  Your ${this.hipDescript()} definitely got wider.`,
                         false
                     );
                     this.player.hipRating += 2;
@@ -458,9 +454,7 @@ export class BakeryScene extends TelAdreAbstractContent {
                 this.outx(this.player.modTone(0, 4), false);
                 if (BakeryScene.rand(2) == 0 && this.player.buttRating < 30) {
                     this.outx(
-                        "\n\nWhen you stand back up your " +
-                            this.buttDescript() +
-                            " jiggles with a good bit of extra weight.",
+                        `\n\nWhen you stand back up your ${this.buttDescript()} jiggles with a good bit of extra weight.`,
                         false
                     );
                     this.player.buttRating += 2;
@@ -470,18 +464,14 @@ export class BakeryScene extends TelAdreAbstractContent {
                 this.outx(this.player.modThickness(100, 2), false);
                 if (BakeryScene.rand(3) == 0 && this.player.buttRating < 25) {
                     this.outx(
-                        "\n\nWhen you stand back up your " +
-                            this.buttDescript() +
-                            " jiggles a little bit more than you'd expect.",
+                        `\n\nWhen you stand back up your ${this.buttDescript()} jiggles a little bit more than you'd expect.`,
                         false
                     );
                     this.player.buttRating++;
                 }
                 if (BakeryScene.rand(3) == 0 && this.player.hipRating < 25) {
                     this.outx(
-                        "\n\nAfter finishing, you find your gait has changed.  Did your " +
-                            this.hipDescript() +
-                            " widen?",
+                        `\n\nAfter finishing, you find your gait has changed.  Did your ${this.hipDescript()} widen?`,
                         false
                     );
                     this.player.hipRating++;

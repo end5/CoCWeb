@@ -77,7 +77,7 @@ export class MainView {
 
         // Bottom button init
         for (let index = 0; index < MainView.BOTTOM_BUTTON_COUNT; index++) {
-            this.bottomButtons.push(new CoCButton(loadId("button" + index)));
+            this.bottomButtons.push(new CoCButton(loadId(`button${index}`)));
         }
     }
 
@@ -153,7 +153,7 @@ export class MainView {
             case "appearance":
                 return this.appearanceButton;
         }
-        throw new Error("MainView.getMenuButtonByName: Invalid menu button name: " + name);
+        throw new Error(`MainView.getMenuButtonByName: Invalid menu button name: ${name}`);
     }
 
     /// /////
@@ -250,7 +250,7 @@ export class MainView {
             // = SHOW_SPRITES_FLAG from flagDefs...
             this.sprite.classList.add("hidden");
         else {
-            this.sprite.src = "./asset/sprites/" + Sprites[index] + ".png";
+            this.sprite.src = `./asset/sprites/${Sprites[index]}.png`;
             this.sprite.classList.remove("hidden");
         }
     }

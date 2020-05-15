@@ -19,9 +19,7 @@ export class LeatherArmorSegments extends Armor {
         );
     }
     public removeText(): void {
-        this.outx(
-            "You have your old set of " + this.game.armors.LEATHRA.longName + " left over.  "
-        );
+        this.outx(`You have your old set of ${this.game.armors.LEATHRA.longName} left over.  `);
     }
 
     public playerRemove(): Armor {

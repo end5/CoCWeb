@@ -92,9 +92,10 @@ export class DriderIncubusScenes extends BaseContent {
             "The way you’re being held, you can’t get a proper look at the Demon Queen. You can barely see anything past the dick-mounted goblin’s heaving tits and slow-grinding body, and what you can see is mostly floor, a little bit of throne, and petite pink feet with black-painted nails. Those toes wiggle happily. The owner clicks her heels together, revealing bone-spikes that keep her soles arched like high-heels."
         );
         this.outx(
-            "\n\n<i>“I must say, I’m surprised, Kinariel. I did not think you’d manage to vanquish such a troublemaker all by your lonesome.”</i> Long-nailed fingers dig into your chin and twist your head around for a better view. <i>“And I’m disappointed. I had hoped you would prove a decent challenge. It has been so long since I’ve gotten to let loose in a fight.”</i> She tuts at you. <i>“Such a shame. Still, you have the aura of a breeder about you. You may yet serve me. Kinariel, put " +
-                this.player.mf("him", "her") +
-                " down.”</i>"
+            `\n\n<i>“I must say, I’m surprised, Kinariel. I did not think you’d manage to vanquish such a troublemaker all by your lonesome.”</i> Long-nailed fingers dig into your chin and twist your head around for a better view. <i>“And I’m disappointed. I had hoped you would prove a decent challenge. It has been so long since I’ve gotten to let loose in a fight.”</i> She tuts at you. <i>“Such a shame. Still, you have the aura of a breeder about you. You may yet serve me. Kinariel, put ${this.player.mf(
+                "him",
+                "her"
+            )} down.”</i>`
         );
         this.outx(
             "\n\n<i>“As you wish my Queen,”</i> the handsome drider responds with a bow low enough to click his horns against the floor. He drops you at the same time, leaving you to hit the ground heavily. <i>“Is there anything else I can do for you, Mistress?”</i>"
@@ -153,19 +154,22 @@ export class DriderIncubusScenes extends BaseContent {
         if (this.player.lust >= 90) this.outx(" and horny");
         this.outx(", but unwilling to admit as much to your long-time foe.");
         this.outx(
-            "\n\n<i>“Good " +
-                this.player.mf("boy", "girl") +
-                ".”</i> Lethice strokes your hair, ignoring the tears at the corners of your eyes. <i>“You deserve a reward I rarely give.”</i> She breaks your gaze, allowing you to watch her lift long black skirt, almost like something a nun would wear, if a nun had holes cut in the top to display her rigid, pierced nipples. Higher and higher, the fabric ascends up her perfectly smooth legs until a dewy, pink slit is revealed. <i>“You will be permitted to lick me as a free " +
-                this.player.mf("man", "woman") +
-                ", before you go in the submission tanks.”</i>"
+            `\n\n<i>“Good ${this.player.mf(
+                "boy",
+                "girl"
+            )}.”</i> Lethice strokes your hair, ignoring the tears at the corners of your eyes. <i>“You deserve a reward I rarely give.”</i> She breaks your gaze, allowing you to watch her lift long black skirt, almost like something a nun would wear, if a nun had holes cut in the top to display her rigid, pierced nipples. Higher and higher, the fabric ascends up her perfectly smooth legs until a dewy, pink slit is revealed. <i>“You will be permitted to lick me as a free ${this.player.mf(
+                "man",
+                "woman"
+            )}, before you go in the submission tanks.”</i>`
         );
         this.outx(
             "\n\nYou look back up at her in shock, accidentally meeting her gaze once more. It’s even easier to fall into her trapped eyes than the last time."
         );
         this.outx(
-            "\n\n<i>“If you do a good job, I’ll instruct them to maintain as much of your personality as possible.”</i> Lethice’s voice rings with as much truth as it does authority. <i>“Displease me and you shall be an empty-headed husk, fit only for reproduction.”</i> She giggles, <i>“But there’s no way a </i>good " +
-                this.player.mf("boy", "girl") +
-                "<i> like you would fail to please, is there?”</i>"
+            `\n\n<i>“If you do a good job, I’ll instruct them to maintain as much of your personality as possible.”</i> Lethice’s voice rings with as much truth as it does authority. <i>“Displease me and you shall be an empty-headed husk, fit only for reproduction.”</i> She giggles, <i>“But there’s no way a </i>good ${this.player.mf(
+                "boy",
+                "girl"
+            )}<i> like you would fail to please, is there?”</i>`
         );
 
         this.menu();
@@ -277,9 +281,10 @@ export class DriderIncubusScenes extends BaseContent {
         this.clearOutput();
 
         this.outx(
-            "True to " +
-                this.player.mf("his", "her") +
-                " words, Lethice conquered Tel’Adre that same year, and the rest of Mareth fell in short order. The Champion came to understand the truth of Lethice’s words"
+            `True to ${this.player.mf(
+                "his",
+                "her"
+            )} words, Lethice conquered Tel’Adre that same year, and the rest of Mareth fell in short order. The Champion came to understand the truth of Lethice’s words`
         );
         if (this.player.vaginas.length == 0)
             this.outx(", and after being outfitted with suitable genitalia,");
@@ -288,9 +293,10 @@ export class DriderIncubusScenes extends BaseContent {
             " served in the breeding pits, endlessly fornicating to maintain an army of expendable imps."
         );
         this.outx(
-            "\n\nThe Dark Queen did not forget her favorite prize. At least once a week, time permitting, she would visit the former champion and allow " +
-                this.player.mf("him", "her") +
-                " to tend to her endless, corrupted needs. Hours would pass with little more than the friction of a tongue against a slick slit, and the former champion had never been happier."
+            `\n\nThe Dark Queen did not forget her favorite prize. At least once a week, time permitting, she would visit the former champion and allow ${this.player.mf(
+                "him",
+                "her"
+            )} to tend to her endless, corrupted needs. Hours would pass with little more than the friction of a tongue against a slick slit, and the former champion had never been happier.`
         );
         this.getGame().gameOver();
     }
@@ -713,9 +719,10 @@ export class DriderIncubusScenes extends BaseContent {
             "\n\nThe kiss is slow yet searing, a declaration of the kind of sinful dicklust that can only come from a goblin, one whose desire for spunk has been augmented past any modicum of reason by demonic magics. Mitzi’s lips make love to your [cockHead biggest]. They worship it, smacking wetly from her repeated oral forays. Her tongue sometimes slides back and forth across your still-sealed urethra. Other times it roams out on lusty excursions to locate and lick every available vein."
         );
         this.outx(
-            "\n\nGiggling, the viridian vixen collects your pre-cum on her tongue and spreads it across her puffy, purple cocksuckers until they shine like amethyst, glossed over by your own leaking desire. <i>“‘Course Mitzi’d never disobey " +
-                this.player.mf("master’s", "mistress’s") +
-                " command.”</i> She kisses the bare flesh above your insistent loins. <i>“Only the best titfucks for [master].”</i>"
+            `\n\nGiggling, the viridian vixen collects your pre-cum on her tongue and spreads it across her puffy, purple cocksuckers until they shine like amethyst, glossed over by your own leaking desire. <i>“‘Course Mitzi’d never disobey ${this.player.mf(
+                "master’s",
+                "mistress’s"
+            )} command.”</i> She kisses the bare flesh above your insistent loins. <i>“Only the best titfucks for [master].”</i>`
         );
         this.outx("\n\nArching her back, Mitzi drags her oversized bosom");
         if (this.player.balls > 0) this.outx(" over your [balls] and");
@@ -752,9 +759,10 @@ export class DriderIncubusScenes extends BaseContent {
             "\n\n<i>“Please,”</i> you gasp, feeling the moment start to pass. <i>“I need to cum!”</i>"
         );
         this.outx(
-            "\n\nMitzi chews her bottom lip, still caked with a veneer of your juices. <i>“Nope! You told me to make slow. Besides, everybody knows that " +
-                this.player.mf("masters", "mistresses") +
-                " say things they don’t mean when they’re all jizz-crazy! The last time I got someone off early, I didn’t get any dick for a whole day!”</i> She shakes her head. <i>“Just hold on, and you’ll go off like a cannon. I pussy-promise.”</i>"
+            `\n\nMitzi chews her bottom lip, still caked with a veneer of your juices. <i>“Nope! You told me to make slow. Besides, everybody knows that ${this.player.mf(
+                "masters",
+                "mistresses"
+            )} say things they don’t mean when they’re all jizz-crazy! The last time I got someone off early, I didn’t get any dick for a whole day!”</i> She shakes her head. <i>“Just hold on, and you’ll go off like a cannon. I pussy-promise.”</i>`
         );
         this.outx("\n\nPussy-promise? What the hell is that?");
         this.outx(
@@ -771,9 +779,10 @@ export class DriderIncubusScenes extends BaseContent {
             "\n\nThe worst (or best) part is that she was right. You’re already feeling better than when you were at your peak. The desire to climax is still there, clawing at the back of your mind, but it’s buried behind a thicker wall of pleasure, numbed by the knowledge that her cutting you off once more might lead to further bliss."
         );
         this.outx(
-            "\n\nMitzi’s dusky eyes flick up at you as she works, favoring you with a smile. <i>“Somebody’s getting into it now, isn’t " +
-                this.player.mf("he", "she") +
-                "?”</i> She bounces her boobs around a little faster, thrilling you with more excitement than you can handle. <i>“Yeah, you’re so close to blowing it, aren’t you?”</i> She smushes them down on either side, twisting her torso to drag them laterally across your overfull [cockNoun biggest], surrounding you in a vortex that threatens to wring every drop of cum from your body. <i>“So close to just giving in.”</i>"
+            `\n\nMitzi’s dusky eyes flick up at you as she works, favoring you with a smile. <i>“Somebody’s getting into it now, isn’t ${this.player.mf(
+                "he",
+                "she"
+            )}?”</i> She bounces her boobs around a little faster, thrilling you with more excitement than you can handle. <i>“Yeah, you’re so close to blowing it, aren’t you?”</i> She smushes them down on either side, twisting her torso to drag them laterally across your overfull [cockNoun biggest], surrounding you in a vortex that threatens to wring every drop of cum from your body. <i>“So close to just giving in.”</i>`
         );
         this.outx("\n\nMuscles in your abdomen twitch.");
         if (this.player.balls > 0)
@@ -844,9 +853,10 @@ export class DriderIncubusScenes extends BaseContent {
             "\n\nGiggling, Mitzi slips you right back into her dick-slicked tits, wrapping one arm around them to pin your [cockHead biggest] deep inside, buried in so much boob that your [legs] nearly give out from the wondrous sensation. Her other hand briefly reaches down, then diverts upward to fondle a nipple, the feeling of grinding her weeping slit against her own foot enough to bring her off unaided."
         );
         this.outx(
-            "\n\nJizz bubbles out of your [cock biggest] in fits and starts, turning the slippery cleavage into a sordid swamp. Bubbles of the white stuff spurt up out the top while runnels of spunk gild the goblin’s middle, pooling in her belly-button. Your [hips] jerk and spasm, forcing you to hump her on instinct, breeding her boobs like a " +
-                this.player.mf("man", "woman") +
-                " possessed, equal parts amazed and determined to fill them to overflowing."
+            `\n\nJizz bubbles out of your [cock biggest] in fits and starts, turning the slippery cleavage into a sordid swamp. Bubbles of the white stuff spurt up out the top while runnels of spunk gild the goblin’s middle, pooling in her belly-button. Your [hips] jerk and spasm, forcing you to hump her on instinct, breeding her boobs like a ${this.player.mf(
+                "man",
+                "woman"
+            )} possessed, equal parts amazed and determined to fill them to overflowing.`
         );
         // outx("\n\n//High cum!");
         if (this.player.cumQ() >= 5000) {
@@ -907,9 +917,10 @@ export class DriderIncubusScenes extends BaseContent {
             "\n\nYou tremble a little bit. You didn’t expect she’d have your [cocks] so hard so fast, and you certainly didn’t expect she’d have your hips quivering and ready to thrust."
         );
         this.outx(
-            "\n\nMitzi moves to the next stage of her tittyfuck while you’re still trying to come to grips with the way her tongue curls and presses on the sensitive spot below your [cockHead biggest]. She expertly drags her jugs down, bouncing them off your crotch in order to slide them back up without a second of downtime. Fuck, this greenskin knows how to make a " +
-                this.player.mf("guy", "girl") +
-                " blow his load!"
+            `\n\nMitzi moves to the next stage of her tittyfuck while you’re still trying to come to grips with the way her tongue curls and presses on the sensitive spot below your [cockHead biggest]. She expertly drags her jugs down, bouncing them off your crotch in order to slide them back up without a second of downtime. Fuck, this greenskin knows how to make a ${this.player.mf(
+                "guy",
+                "girl"
+            )} blow his load!`
         );
         this.outx(
             "\n\nYou can feel the pleasure spasms in your gut starting already, and she’s only been touching your [cocks] for thirty seconds or so! Mitzi mischievously meets your gaze and works her breasts faster, wetly slapping them against your [hips] to a regularly building rhythm. By the time you begin to twitch and moan, her voluptuous tits are a blur of green around your [cocks], but when you start to erupt, she slows to match the orgasmic throbs running through your body, milking you for every drop."

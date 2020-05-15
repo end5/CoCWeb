@@ -7,7 +7,7 @@ import { PerkType } from "../PerkType";
 
 export class WizardsEndurancePerk extends PerkType {
     public desc(params?: PerkClass): string {
-        if (params) return "Reduces fatigue cost of spells by " + params.value1 + "%.";
+        if (params) return `Reduces fatigue cost of spells by ${params.value1}%.`;
         return "";
     }
 

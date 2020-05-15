@@ -49,9 +49,7 @@ export class HairExtensionSerum extends Consumable {
         ) {
             this.game.flags[kFLAGS.HAIR_GROWTH_STOPPED_BECAUSE_LIZARD] = 0;
             this.outx(
-                "\n\n<b>Somehow you know that your " +
-                    this.game.player.hairDescript() +
-                    " is growing again.</b>"
+                `\n\n<b>Somehow you know that your ${this.game.player.hairDescript()} is growing again.</b>`
             );
         }
         if (this.game.flags[kFLAGS.INCREASED_HAIR_GROWTH_TIME_REMAINING] < 7)

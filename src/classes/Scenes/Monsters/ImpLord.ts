@@ -42,7 +42,7 @@ export class ImpLord extends Imp {
                 "leaving a large gash. The attack leaves you slightly stunned, but you recover. "
             );
             damage = this.player.takeDamage(damage);
-            this.outx("(" + damage + ")");
+            this.outx(`(${damage})`);
         }
         this.combatRoundOver();
     }
@@ -64,7 +64,7 @@ export class ImpLord extends Imp {
         );
         let damage: number = 3 + ImpLord.rand(10);
         damage = this.player.takeDamage(damage);
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
         // [-HP(minor) // +Lust]
         this.game.dynStats("lus", 5 + this.player.sens / 4 + this.player.cor / 10);
         this.combatRoundOver();

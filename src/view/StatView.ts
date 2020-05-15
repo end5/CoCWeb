@@ -28,12 +28,12 @@ export class StatView {
 
     protected loadClass(className: string) {
         const element = this.element.getElementsByClassName(className)[0];
-        if (!element) throw new Error('Could not load "' + className + '" element');
+        if (!element) throw new Error(`Could not load "${className}" element`);
         return element as HTMLElement;
     }
 
     public setNumber(num: number) {
-        this.currNumber.textContent = Math.round(num) + "";
+        this.currNumber.textContent = `${Math.round(num)}`;
     }
 
     public showUp() {
@@ -63,6 +63,6 @@ export class StatViewWithBar extends StatView {
     }
 
     public setBar(percent: number) {
-        this.bar.style.width = percent * 100 + "%";
+        this.bar.style.width = `${percent * 100}%`;
     }
 }

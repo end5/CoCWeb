@@ -7,11 +7,7 @@ import { Armor } from "../Armor";
 
 export class FurLoincloth extends Armor {
     public get description(): string {
-        return (
-            "A pair of loincloths to cover your crotch and " +
-            this.game.player.buttDescript() +
-            ".  Typically worn by people named 'Conan'."
-        );
+        return `A pair of loincloths to cover your crotch and ${this.game.player.buttDescript()}.  Typically worn by people named 'Conan'.`;
     }
 
     public constructor() {

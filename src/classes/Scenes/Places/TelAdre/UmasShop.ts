@@ -554,9 +554,9 @@ export class UmasShop extends TelAdreAbstractContent {
             "You move to do as she asks; it's a little awkward adjusting to having your face in the - thankfully cushioned - hole.  You wriggle about to settle yourself comfortably on the table, [nipples] squashing into the surface, but you manage to make yourself relaxed and tell Uma that you're ready once more.\n\n"
         );
         this.outx(
-            "You yelp as Uma presses the metal rod " +
-                (this.player.tailType > 0 ? "to the base of your tail" : "to your lower back") +
-                '.  "<i>I\'m going to have to trace a few spots on your back dear, to ensure your flow of chi is not obstructed.  It might hurt again, but be brave, ok?</i>"  You nod as best as you can and prepare yourself.\n\n'
+            `You yelp as Uma presses the metal rod ${
+                this.player.tailType > 0 ? "to the base of your tail" : "to your lower back"
+            }.  "<i>I'm going to have to trace a few spots on your back dear, to ensure your flow of chi is not obstructed.  It might hurt again, but be brave, ok?</i>"  You nod as best as you can and prepare yourself.\n\n`
         );
         this.outx(
             "By the time Uma is finished you feel sore all over, the pain on your back seemingly bringing back the pain on your front.\n\n"
@@ -595,32 +595,27 @@ export class UmasShop extends TelAdreAbstractContent {
 
             if (selectedMassage == UmasShop.MASSAGE_RELIEF) {
                 this.outx(
-                    "<b>You feel so relaxed and mellow... you don't think you'll be able to get in the mood for sex while you feel this blissed out.</b> " +
-                        UmasShop.MASSAGE_RELIEF_BONUS_TEXT
+                    `<b>You feel so relaxed and mellow... you don't think you'll be able to get in the mood for sex while you feel this blissed out.</b> ${UmasShop.MASSAGE_RELIEF_BONUS_TEXT}`
                 );
                 bonusValue = UmasShop.MASSAGE_RELIEF_BONUS;
             } else if (selectedMassage == UmasShop.MASSAGE_LUST) {
                 this.outx(
-                    "<b>You feel so... wired! Your skin tingles with the slightest breeze, your heart races in your chest, and you lick your lips with eager nervousness.  You wanna fuck something so badly!</b> " +
-                        UmasShop.MASSAGE_LUST_BONUS_TEXT
+                    `<b>You feel so... wired! Your skin tingles with the slightest breeze, your heart races in your chest, and you lick your lips with eager nervousness.  You wanna fuck something so badly!</b> ${UmasShop.MASSAGE_LUST_BONUS_TEXT}`
                 );
                 bonusValue = UmasShop.MASSAGE_LUST_BONUS;
             } else if (selectedMassage == UmasShop.MASSAGE_MODELLING) {
                 this.outx(
-                    "<b>You feel sexier; you don't know if the massage has actually affected your looks, but you definitely have the confidence to strut your stuff!</b> " +
-                        UmasShop.MASSAGE_MODELLING_BONUS_TEXT
+                    `<b>You feel sexier; you don't know if the massage has actually affected your looks, but you definitely have the confidence to strut your stuff!</b> ${UmasShop.MASSAGE_MODELLING_BONUS_TEXT}`
                 );
                 bonusValue = UmasShop.MASSAGE_MODELLING_BONUS;
             } else if (selectedMassage == UmasShop.MASSAGE_RELAXATION) {
                 this.outx(
-                    "<b>Your aches and pains have vanished, and you feel so relaxed and rested.  That really did the trick in curing what ails you.</b> " +
-                        UmasShop.MASSAGE_RELAXATION_BONUS_TEXT
+                    `<b>Your aches and pains have vanished, and you feel so relaxed and rested.  That really did the trick in curing what ails you.</b> ${UmasShop.MASSAGE_RELAXATION_BONUS_TEXT}`
                 );
                 bonusValue = UmasShop.MASSAGE_RELAXATION_BONUS;
             } else if (selectedMassage == UmasShop.MASSAGE_POWER) {
                 this.outx(
-                    "<b>Your muscles tingle and burn with energy; you feel like you could knock out a minotaur in one punch!</b> " +
-                        UmasShop.MASSAGE_POWER_BONUS_TEXT
+                    `<b>Your muscles tingle and burn with energy; you feel like you could knock out a minotaur in one punch!</b> ${UmasShop.MASSAGE_POWER_BONUS_TEXT}`
                 );
                 bonusValue = UmasShop.MASSAGE_POWER_BONUS;
             }
@@ -836,19 +831,19 @@ export class UmasShop extends TelAdreAbstractContent {
             this.flags[kFLAGS.UMA_TIMES_ACUPUNCTURE_UNDO]++;
         } else if (selectedSession == UmasShop.NEEDLEWORK_SPEED) {
             this.player.createPerk(PerkLib.ChiReflowSpeed, 0, 0, 0, 0);
-            this.outx("<b>" + UmasShop.NEEDLEWORK_SPEED_PERK_DESC + "</b>");
+            this.outx(`<b>${UmasShop.NEEDLEWORK_SPEED_PERK_DESC}</b>`);
         } else if (selectedSession == UmasShop.NEEDLEWORK_LUST) {
             this.player.createPerk(PerkLib.ChiReflowLust, 0, 0, 0, 0);
-            this.outx("<b>" + UmasShop.NEEDLEWORK_LUST_PERK_DESC + "</b>");
+            this.outx(`<b>${UmasShop.NEEDLEWORK_LUST_PERK_DESC}</b>`);
         } else if (selectedSession == UmasShop.NEEDLEWORK_DEFENSE) {
             this.player.createPerk(PerkLib.ChiReflowDefense, 0, 0, 0, 0);
-            this.outx("<b>" + UmasShop.NEEDLEWORK_DEFENSE_PERK_DESC + "</b>");
+            this.outx(`<b>${UmasShop.NEEDLEWORK_DEFENSE_PERK_DESC}</b>`);
         } else if (selectedSession == UmasShop.NEEDLEWORK_MAGIC) {
             this.player.createPerk(PerkLib.ChiReflowMagic, 0, 0, 0, 0);
-            this.outx("<b>" + UmasShop.NEEDLEWORK_MAGIC_PERK_DESC + "</b>");
+            this.outx(`<b>${UmasShop.NEEDLEWORK_MAGIC_PERK_DESC}</b>`);
         } else if (selectedSession == UmasShop.NEEDLEWORK_ATTACK) {
             this.player.createPerk(PerkLib.ChiReflowAttack, 0, 0, 0, 0);
-            this.outx("<b>" + UmasShop.NEEDLEWORK_ATTACK_PERK_DESC + "</b>");
+            this.outx(`<b>${UmasShop.NEEDLEWORK_ATTACK_PERK_DESC}</b>`);
         }
     }
 
@@ -877,9 +872,9 @@ export class UmasShop extends TelAdreAbstractContent {
                 "You tell her that you understand what she's saying, and consider the decision carefully.  You ask her how difficult she estimates the process would be, given the past sessions you have endured.\n\n"
             );
             this.outx(
-                "The mare takes a moment to inspect you carefully, seeming to look through rather than at you.  \"<i>This could be quite a challenge, even for my skills... but, seeing as you're my little hoppers special someone, just for you I will have to ask for " +
-                    String(sessionCost) +
-                    " gems.  That's half the price of what I'd usually charge for work this difficult.</i>\"\n\n"
+                `The mare takes a moment to inspect you carefully, seeming to look through rather than at you.  "<i>This could be quite a challenge, even for my skills... but, seeing as you're my little hoppers special someone, just for you I will have to ask for ${String(
+                    sessionCost
+                )} gems.  That's half the price of what I'd usually charge for work this difficult.</i>"\n\n`
             );
 
             this.menu();
@@ -914,9 +909,9 @@ export class UmasShop extends TelAdreAbstractContent {
                 '"<i>Finally, I can use my needles to rearrange your chi flow and optimise your offense; your blows will be far more powerful, but your natural defense will be impaired, making you more vulnerable to strikes by the enemy.</i>"\n\n'
             );
             this.outx(
-                "The mare tries to remember any other types of needlework that might be useful to you, but ultimately, she can't think of anything else.  \"<i>That's all you might use, I think...</i>\"  She then pauses.  \"<i>As for a price, given you're my little Loppe's special someone, shall we say " +
-                    String(sessionCost) +
-                    " gems?  That's half-price of what I'd usually charge.</i>\"\n\n"
+                `The mare tries to remember any other types of needlework that might be useful to you, but ultimately, she can't think of anything else.  "<i>That's all you might use, I think...</i>"  She then pauses.  "<i>As for a price, given you're my little Loppe's special someone, shall we say ${String(
+                    sessionCost
+                )} gems?  That's half-price of what I'd usually charge.</i>"\n\n`
             );
 
             this.menu();
@@ -995,9 +990,9 @@ export class UmasShop extends TelAdreAbstractContent {
             this.player.gems -= this.needleworkUndoCost();
         } else {
             this.outx(
-                "You tell Uma that you would like her to give you the " +
-                    this.needleworkString(selectedSession) +
-                    " acupuncture session, please. Then hand over the gems.\n\n"
+                `You tell Uma that you would like her to give you the ${this.needleworkString(
+                    selectedSession
+                )} acupuncture session, please. Then hand over the gems.\n\n`
             );
             this.outx(
                 '"<i>Alright dear,</i>" Uma replies, pocketing the gems.  "<i>Let\'s go then.</i>"  She motions for you to follow her.'
@@ -2885,16 +2880,16 @@ export class UmasShop extends TelAdreAbstractContent {
         this.outx('</i>"');
 
         this.outx(
-            "\n\nGrunting softly at her ministrations, you let your [hips] shiver as she passes over your " +
-                this.player.cockHead(x) +
-                " once more.  Her tightly sealed lips glide over your spit-slicked length at an even, nerve-tickling pace"
+            `\n\nGrunting softly at her ministrations, you let your [hips] shiver as she passes over your ${this.player.cockHead(
+                x
+            )} once more.  Her tightly sealed lips glide over your spit-slicked length at an even, nerve-tickling pace`
         );
         if (this.player.cocks[x].cockLength < 9) this.outx(" until she hits your [sheath]");
         else this.outx(" until she has her mouth as full as she can handle");
         this.outx(
-            ".  She holds you like that, letting you feel her hot breath wash over the [skinFurScales] of your crotch.  Her tongue wags back and forth underneath you, slipping and sliding against you. Inside her mouth, your " +
-                this.cockDescript(x) +
-                " twitches and jumps in her maw.  Beads of pre-cum are beading and dripping out onto her busy organ."
+            `.  She holds you like that, letting you feel her hot breath wash over the [skinFurScales] of your crotch.  Her tongue wags back and forth underneath you, slipping and sliding against you. Inside her mouth, your ${this.cockDescript(
+                x
+            )} twitches and jumps in her maw.  Beads of pre-cum are beading and dripping out onto her busy organ.`
         );
 
         this.outx("\n\nUma's shaft-muffled voice mumbles, \"<i>");
@@ -2927,9 +2922,7 @@ export class UmasShop extends TelAdreAbstractContent {
             this.outx(" the perfect mate to your spare length");
             if (this.player.cockTotal() > 2) this.outx("s");
             this.outx(
-                ", and soon you are dribbling and dripping from all of your " +
-                    this.multiCockDescriptLight() +
-                    "."
+                `, and soon you are dribbling and dripping from all of your ${this.multiCockDescriptLight()}.`
             );
         }
 
@@ -2975,9 +2968,9 @@ export class UmasShop extends TelAdreAbstractContent {
         // {More than five blowjobs!}
         else {
             this.outx(
-                "\n\nUma valiantly holds herself in place on your " +
-                    this.cockDescript(x) +
-                    ", just in time for the flow of your juices to turn white and salty, an inevitable prelude to the coming discharge of your orgasm.  She noisily slurps, emptying her mouth of precum to make room, and in the process, inadvertently provides you with even more impetus to unload.  "
+                `\n\nUma valiantly holds herself in place on your ${this.cockDescript(
+                    x
+                )}, just in time for the flow of your juices to turn white and salty, an inevitable prelude to the coming discharge of your orgasm.  She noisily slurps, emptying her mouth of precum to make room, and in the process, inadvertently provides you with even more impetus to unload.  `
             );
             if (this.player.cumQ() <= 25)
                 this.outx(

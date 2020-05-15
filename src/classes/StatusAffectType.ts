@@ -27,12 +27,12 @@ export class StatusAffectType {
     public constructor(id: string) {
         this._id = id;
         if (StatusAffectType.STATUSAFFECT_LIBRARY[id] != undefined) {
-            CocSettings.error("Duplicate status affect " + id);
+            CocSettings.error(`Duplicate status affect ${id}`);
         }
         StatusAffectType.STATUSAFFECT_LIBRARY[id] = this;
     }
 
     public toString(): string {
-        return '"' + this._id + '"';
+        return `"${this._id}"`;
     }
 }

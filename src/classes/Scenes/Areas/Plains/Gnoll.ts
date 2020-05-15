@@ -28,7 +28,7 @@ export class Gnoll extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Gnoll.rand(3) < 2) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind attack!\n",
+                `${this.capitalA + this.short} completely misses you with a blind attack!\n`,
                 false
             );
         }
@@ -39,37 +39,24 @@ export class Gnoll extends Monster {
         ) {
             if (this.player.spe - this.spe < 8)
                 this.outx(
-                    "You narrowly avoid " + this.a + this.short + "'s " + this.weaponVerb + "!\n",
+                    `You narrowly avoid ${this.a}${this.short}'s ${this.weaponVerb}!\n`,
                     false
                 );
             else if (this.player.spe - this.spe >= 8 && this.player.spe - this.spe < 20)
                 this.outx(
-                    "You dodge " +
-                        this.a +
-                        this.short +
-                        "'s " +
-                        this.weaponVerb +
-                        " with superior quickness!\n",
+                    `You dodge ${this.a}${this.short}'s ${this.weaponVerb} with superior quickness!\n`,
                     false
                 );
             else if (this.player.spe - this.spe >= 20)
                 this.outx(
-                    "You deftly avoid " +
-                        this.a +
-                        this.short +
-                        "'s slow " +
-                        this.weaponVerb +
-                        ".\n",
+                    `You deftly avoid ${this.a}${this.short}'s slow ${this.weaponVerb}.\n`,
                     false
                 );
         }
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Gnoll.rand(100) < 10) {
             this.outx(
-                "Using your skills at evading attacks, you anticipate and sidestep " +
-                    this.a +
-                    this.short +
-                    "'s attack.\n",
+                `Using your skills at evading attacks, you anticipate and sidestep ${this.a}${this.short}'s attack.\n`,
                 false
             );
         }
@@ -80,20 +67,14 @@ export class Gnoll extends Monster {
             this.player.armorName == "red, high-society bodysuit"
         ) {
             this.outx(
-                "Using Raphael's teachings, you anticipate and sidestep " +
-                    this.a +
-                    this.short +
-                    "' attacks.\n",
+                `Using Raphael's teachings, you anticipate and sidestep ${this.a}${this.short}' attacks.\n`,
                 false
             );
         }
         // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Gnoll.rand(100) < 6) {
             this.outx(
-                "With your incredible flexibility, you squeeze out of the way of " +
-                    this.a +
-                    this.short +
-                    "",
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
                 false
             );
             if (this.plural) this.outx("' attacks.\n", false);
@@ -117,24 +98,12 @@ export class Gnoll extends Monster {
                 // Due to toughness or amor...
                 else if (Gnoll.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        "Your " +
-                            this.player.armorName +
-                            " absorb and deflect every " +
-                            this.weaponVerb +
-                            " from " +
-                            this.a +
-                            this.short +
-                            ".",
+                        `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`,
                         false
                     );
                 else
                     this.outx(
-                        "You deflect and block every " +
-                            this.weaponVerb +
-                            " " +
-                            this.a +
-                            this.short +
-                            " throws at you.",
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
                         false
                     );
             }
@@ -188,7 +157,7 @@ export class Gnoll extends Monster {
                     );
                 }
                 damage = this.player.takeDamage(damage);
-                this.outx(" (" + damage + ")\n", false);
+                this.outx(` (${damage})\n`, false);
             }
             this.game.statScreenRefresh();
         }
@@ -258,7 +227,7 @@ export class Gnoll extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Gnoll.rand(3) < 2) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind attack!\n",
+                `${this.capitalA + this.short} completely misses you with a blind attack!\n`,
                 false
             );
         }
@@ -269,37 +238,24 @@ export class Gnoll extends Monster {
         ) {
             if (this.player.spe - this.spe < 8)
                 this.outx(
-                    "You narrowly avoid " + this.a + this.short + "'s " + this.weaponVerb + "!\n",
+                    `You narrowly avoid ${this.a}${this.short}'s ${this.weaponVerb}!\n`,
                     false
                 );
             else if (this.player.spe - this.spe >= 8 && this.player.spe - this.spe < 20)
                 this.outx(
-                    "You dodge " +
-                        this.a +
-                        this.short +
-                        "'s " +
-                        this.weaponVerb +
-                        " with superior quickness!\n",
+                    `You dodge ${this.a}${this.short}'s ${this.weaponVerb} with superior quickness!\n`,
                     false
                 );
             else if (this.player.spe - this.spe >= 20)
                 this.outx(
-                    "You deftly avoid " +
-                        this.a +
-                        this.short +
-                        "'s slow " +
-                        this.weaponVerb +
-                        ".\n",
+                    `You deftly avoid ${this.a}${this.short}'s slow ${this.weaponVerb}.\n`,
                     false
                 );
         }
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Gnoll.rand(100) < 10) {
             this.outx(
-                "Using your skills at evading attacks, you anticipate and sidestep " +
-                    this.a +
-                    this.short +
-                    "'s attack.\n",
+                `Using your skills at evading attacks, you anticipate and sidestep ${this.a}${this.short}'s attack.\n`,
                 false
             );
         }
@@ -310,20 +266,14 @@ export class Gnoll extends Monster {
             this.player.armorName == "red, high-society bodysuit"
         ) {
             this.outx(
-                "Using Raphael's teachings, you anticipate and sidestep " +
-                    this.a +
-                    this.short +
-                    "' attacks.\n",
+                `Using Raphael's teachings, you anticipate and sidestep ${this.a}${this.short}' attacks.\n`,
                 false
             );
         }
         // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Gnoll.rand(100) < 6) {
             this.outx(
-                "With your incredible flexibility, you squeeze out of the way of " +
-                    this.a +
-                    this.short +
-                    "",
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
                 false
             );
             if (this.plural) this.outx("' attacks.\n", false);
@@ -347,24 +297,12 @@ export class Gnoll extends Monster {
                 // Due to toughness or amor...
                 else if (Gnoll.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        "Your " +
-                            this.player.armorName +
-                            " absorb and deflect every " +
-                            this.weaponVerb +
-                            " from " +
-                            this.a +
-                            this.short +
-                            ".",
+                        `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`,
                         false
                     );
                 else
                     this.outx(
-                        "You deflect and block every " +
-                            this.weaponVerb +
-                            " " +
-                            this.a +
-                            this.short +
-                            " throws at you.",
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
                         false
                     );
             }
@@ -418,7 +356,7 @@ export class Gnoll extends Monster {
                     );
                 }
                 damage = this.player.takeDamage(damage);
-                this.outx(" (" + damage + ")\n", false);
+                this.outx(` (${damage})\n`, false);
             }
             this.game.statScreenRefresh();
         }
@@ -451,12 +389,12 @@ export class Gnoll extends Monster {
                 this.addStatusValue(StatusAffects.Fear, 1, -1);
                 if (this.plural)
                     this.outx(
-                        this.capitalA + this.short + " are too busy shivering with fear to fight.",
+                        `${this.capitalA + this.short} are too busy shivering with fear to fight.`,
                         false
                     );
                 else
                     this.outx(
-                        this.capitalA + this.short + " is too busy shivering with fear to fight.",
+                        `${this.capitalA + this.short} is too busy shivering with fear to fight.`,
                         false
                     );
             }
@@ -481,10 +419,7 @@ export class Gnoll extends Monster {
             );
             if (this.statusAffectv1(StatusAffects.Constricted) <= 0) {
                 this.outx(
-                    "  " +
-                        this.capitalA +
-                        this.short +
-                        " proves to be too much for your tail to handle, breaking free of your tightly bound coils.",
+                    `  ${this.capitalA}${this.short} proves to be too much for your tail to handle, breaking free of your tightly bound coils.`,
                     false
                 );
                 this.removeStatusAffect(StatusAffects.Constricted);
@@ -520,7 +455,7 @@ export class Gnoll extends Monster {
             // Blind dodge change
             if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Gnoll.rand(3) < 2) {
                 this.outx(
-                    this.capitalA + this.short + " completely misses you with a blind attack!\n",
+                    `${this.capitalA + this.short} completely misses you with a blind attack!\n`,
                     false
                 );
             }
@@ -531,42 +466,24 @@ export class Gnoll extends Monster {
             ) {
                 if (this.player.spe - this.spe < 8)
                     this.outx(
-                        "You narrowly avoid " +
-                            this.a +
-                            this.short +
-                            "'s " +
-                            this.weaponVerb +
-                            "!\n",
+                        `You narrowly avoid ${this.a}${this.short}'s ${this.weaponVerb}!\n`,
                         false
                     );
                 else if (this.player.spe - this.spe >= 8 && this.player.spe - this.spe < 20)
                     this.outx(
-                        "You dodge " +
-                            this.a +
-                            this.short +
-                            "'s " +
-                            this.weaponVerb +
-                            " with superior quickness!\n",
+                        `You dodge ${this.a}${this.short}'s ${this.weaponVerb} with superior quickness!\n`,
                         false
                     );
                 else if (this.player.spe - this.spe >= 20)
                     this.outx(
-                        "You deftly avoid " +
-                            this.a +
-                            this.short +
-                            "'s slow " +
-                            this.weaponVerb +
-                            ".\n",
+                        `You deftly avoid ${this.a}${this.short}'s slow ${this.weaponVerb}.\n`,
                         false
                     );
             }
             // Determine if evaded
             else if (this.player.findPerk(PerkLib.Evade) >= 0 && Gnoll.rand(100) < 10) {
                 this.outx(
-                    "Using your skills at evading attacks, you anticipate and sidestep " +
-                        this.a +
-                        this.short +
-                        "'s attack.\n",
+                    `Using your skills at evading attacks, you anticipate and sidestep ${this.a}${this.short}'s attack.\n`,
                     false
                 );
             }
@@ -577,20 +494,14 @@ export class Gnoll extends Monster {
                 this.player.armorName == "red, high-society bodysuit"
             ) {
                 this.outx(
-                    "Using Raphael's teachings, you anticipate and sidestep " +
-                        this.a +
-                        this.short +
-                        "' attacks.\n",
+                    `Using Raphael's teachings, you anticipate and sidestep ${this.a}${this.short}' attacks.\n`,
                     false
                 );
             }
             // Determine if cat'ed
             else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Gnoll.rand(100) < 6) {
                 this.outx(
-                    "With your incredible flexibility, you squeeze out of the way of " +
-                        this.a +
-                        this.short +
-                        "",
+                    `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
                     false
                 );
                 if (this.plural) this.outx("' attacks.\n", false);
@@ -616,24 +527,12 @@ export class Gnoll extends Monster {
                         Gnoll.rand(this.player.armorDef + this.player.tou) < this.player.armorDef
                     )
                         this.outx(
-                            "Your " +
-                                this.player.armorName +
-                                " absorb and deflect every " +
-                                this.weaponVerb +
-                                " from " +
-                                this.a +
-                                this.short +
-                                ".",
+                            `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`,
                             false
                         );
                     else
                         this.outx(
-                            "You deflect and block every " +
-                                this.weaponVerb +
-                                " " +
-                                this.a +
-                                this.short +
-                                " throws at you.",
+                            `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
                             false
                         );
                 }
@@ -687,7 +586,7 @@ export class Gnoll extends Monster {
                         );
                     }
                     damage = this.player.takeDamage(damage);
-                    this.outx(" (" + damage + ")\n", false);
+                    this.outx(` (${damage})\n`, false);
                 }
                 this.game.statScreenRefresh();
             }

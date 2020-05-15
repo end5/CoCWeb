@@ -28,9 +28,7 @@ export class Sirius extends Naga {
             super.outputAttack(damage);
         } else {
             this.outx(
-                "You misjudge his pattern and wind up getting slashed by a series of swipes from his sharpened nails.  He distances himself from you in order to avoid retaliation and glares at you with his piercing yellow eyes, a hint of a smile on his face. (" +
-                    damage +
-                    ")"
+                `You misjudge his pattern and wind up getting slashed by a series of swipes from his sharpened nails.  He distances himself from you in order to avoid retaliation and glares at you with his piercing yellow eyes, a hint of a smile on his face. (${damage})`
             );
         }
     }
@@ -111,7 +109,7 @@ export class Sirius extends Naga {
         );
         let damage: number = 40 + Sirius.rand(20);
         damage = this.player.takeDamage(damage);
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
         this.combatRoundOver();
     }
 

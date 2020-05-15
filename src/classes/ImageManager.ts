@@ -49,7 +49,7 @@ export class ImageManager {
 
             img.src =
                 imageSets[keys[keyIndex]][pathListIndex] +
-                (fileExtIndex > 0 ? "_" + fileIndex : "") +
+                (fileExtIndex > 0 ? `_${fileIndex}` : "") +
                 exts[fileExtIndex];
         };
         img.onerror = () => {
@@ -79,7 +79,7 @@ export class ImageManager {
             if (keyIndex < keys.length)
                 img.src =
                     imageSets[keys[keyIndex]][pathListIndex] +
-                    (fileExtIndex > 0 ? "_" + fileIndex : "") +
+                    (fileExtIndex > 0 ? `_${fileIndex}` : "") +
                     exts[fileExtIndex];
             else callback(imageTable);
         };
@@ -109,28 +109,14 @@ export class ImageManager {
 
             if (ratio >= 1) {
                 scaler = this.MAXSIZE / image.width;
-                imageString =
-                    "<img src='" +
-                    image.src +
-                    "' width='" +
-                    this.MAXSIZE +
-                    "' height='" +
-                    Math.ceil(image.height * scaler) +
-                    "' align='" +
-                    align +
-                    "' id='img'>";
+                imageString = `<img src='${image.src}' width='${this.MAXSIZE}' height='${Math.ceil(
+                    image.height * scaler
+                )}' align='${align}' id='img'>`;
             } else {
                 scaler = this.MAXSIZE / image.height;
-                imageString =
-                    "<img src='" +
-                    image.src +
-                    "' width='" +
-                    Math.ceil(image.width * scaler) +
-                    "' height='" +
-                    this.MAXSIZE +
-                    "' align='" +
-                    align +
-                    "' id='img'>";
+                imageString = `<img src='${image.src}' width='${Math.ceil(
+                    image.width * scaler
+                )}' height='${this.MAXSIZE}' align='${align}' id='img'>`;
             }
         }
 

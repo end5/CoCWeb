@@ -116,7 +116,7 @@ export class OvipositionElixir extends Consumable {
                 Math.floor(this.game.player.pregnancyIncubation * 0.3 + 10);
             if (newIncubation < 2) newIncubation = 2;
             this.game.player.knockUpForce(this.game.player.pregnancyType, newIncubation);
-            trace("Pregger Count New total:" + this.game.player.pregnancyIncubation);
+            trace(`Pregger Count New total:${this.game.player.pregnancyIncubation}`);
         }
         return false;
     }

@@ -84,9 +84,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
         if (this.flags[kFLAGS.HELSPAWN_NAME] != "") {
             this.outx(
-                "  A dark trio of scars run down Hel’s thighs, left by " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    "’s youthful claws."
+                `  A dark trio of scars run down Hel’s thighs, left by ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }’s youthful claws.`
             );
         } else {
             switch (kGAMECLASS.helScene.pregnancy.event) {
@@ -130,16 +130,16 @@ export class HelSpawnScene extends NPCAwareContent {
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outx("Your ");
         else this.outx("Hel’s ");
         this.outx(
-            "salamander daughter, " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ", stands about six-foot-six tall, with pale skin and thick, "
+            `salamander daughter, ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }, stands about six-foot-six tall, with pale skin and thick, `
         );
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 1) this.outx("chitin-black");
         else this.outx("bright-red");
         this.outx(
-            " scales covering her arms and legs, though she has a normal human face and torso.  A long leathery tail swishes happily behind her, surrounded by a dim fiery aura that emits a pleasant heat, though thankfully it isn’t hot to the touch, seemingly incapable of harming you.  " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " is wearing "
+            ` scales covering her arms and legs, though she has a normal human face and torso.  A long leathery tail swishes happily behind her, surrounded by a dim fiery aura that emits a pleasant heat, though thankfully it isn’t hot to the touch, seemingly incapable of harming you.  ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } is wearing `
         );
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50)
             this.outx("a scale bikini, just like her mother’s");
@@ -162,9 +162,9 @@ export class HelSpawnScene extends NPCAwareContent {
             " ears, and it’s adorned with a pretty pink bow.  She has surprisingly large hips, and a big, squishy butt behind her.  Her reptilian legs are covered with thick, dark scales, ending in short claws atop soft, leathery soles."
         );
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " has a pair of perky, palmable C-cup breasts, each with a sensitive half-inch nipple at its tip."
+            `\n\n${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } has a pair of perky, palmable C-cup breasts, each with a sensitive half-inch nipple at its tip.`
         );
 
         this.outx(
@@ -309,36 +309,30 @@ export class HelSpawnScene extends NPCAwareContent {
             PregnancyStore.INCUBATION_SALAMANDER
         );
         this.outx(
-            'You tell Hel that you\'re in this with her, that you want to give her that child she seems so desperate for.  She beams at you, smiling from eye to eye before leaping into your arms, pressing her lips hard to yours.  You kiss her back, wrapping your arms around her hips to support her as her powerful legs wrap around your waist; you push her up against the ruined wall, hands searching across her taut, hot flesh until you toss her bikini top aside, letting her hefty tits free.  "<i>Oh god yes,</i>" she moans as you trail kisses from her lips, down her neck to her stiffening nipple.  "<i>I want this so much, more than anything.  Give it to me, [name].  Don\'t hold back!</i>"  Your fingers sink into her pliant flesh as you suckle on her exposed teat, groping her other tit and soft ass as she moans and squirms in your arms.  Clumsily, Hel\'s claws brush down your body, peeling off your [armor] until your ' +
-                this.cockDescript(0) +
-                " flops into her lap.  She locks her scaled fingers around your manhood, roughly stroking you until you're stiff as diamonds in her grasp."
+            `You tell Hel that you're in this with her, that you want to give her that child she seems so desperate for.  She beams at you, smiling from eye to eye before leaping into your arms, pressing her lips hard to yours.  You kiss her back, wrapping your arms around her hips to support her as her powerful legs wrap around your waist; you push her up against the ruined wall, hands searching across her taut, hot flesh until you toss her bikini top aside, letting her hefty tits free.  "<i>Oh god yes,</i>" she moans as you trail kisses from her lips, down her neck to her stiffening nipple.  "<i>I want this so much, more than anything.  Give it to me, [name].  Don't hold back!</i>"  Your fingers sink into her pliant flesh as you suckle on her exposed teat, groping her other tit and soft ass as she moans and squirms in your arms.  Clumsily, Hel's claws brush down your body, peeling off your [armor] until your ${this.cockDescript(
+                0
+            )} flops into her lap.  She locks her scaled fingers around your manhood, roughly stroking you until you're stiff as diamonds in her grasp.`
         );
 
         this.outx(
-            "\n\nYou shudder as her fingers work your " +
-                this.cockDescript(0) +
-                ", but don't let up on your end for a second.  You brush and knead Hel's nipple between your teeth, letting your hands drift down to her wide hips and gropable ass, slowly stripping her of her scale bottom and pulling it off her legs.  With your lover bare and naked, you slip down between her legs, letting her hook them over your shoulder to give you a good view of her dripping cunt.  Your tongue laps across her labia, drawing a long, lewd moan from Hel.  She runs her fingers through your [hair], urging you onward; at her lusty moans, you dig in, sucking on her prominent clit and drilling your tongue between her inner folds.  You gasp into her when Hel's lengthy tail wraps around your shoulders, the pale flame soothingly warm on your " +
-                this.player.skinFurScales() +
-                " as her leathery appendage works its way down to the " +
-                this.cockDescript(0) +
-                " dangling between your [legs].  You groan with sudden need as the tip of her tail brushes your most sensitive flesh, tickling "
+            `\n\nYou shudder as her fingers work your ${this.cockDescript(
+                0
+            )}, but don't let up on your end for a second.  You brush and knead Hel's nipple between your teeth, letting your hands drift down to her wide hips and gropable ass, slowly stripping her of her scale bottom and pulling it off her legs.  With your lover bare and naked, you slip down between her legs, letting her hook them over your shoulder to give you a good view of her dripping cunt.  Your tongue laps across her labia, drawing a long, lewd moan from Hel.  She runs her fingers through your [hair], urging you onward; at her lusty moans, you dig in, sucking on her prominent clit and drilling your tongue between her inner folds.  You gasp into her when Hel's lengthy tail wraps around your shoulders, the pale flame soothingly warm on your ${this.player.skinFurScales()} as her leathery appendage works its way down to the ${this.cockDescript(
+                0
+            )} dangling between your [legs].  You groan with sudden need as the tip of her tail brushes your most sensitive flesh, tickling `
         );
         if (this.player.balls > 0) this.outx("your [balls]");
         else this.outx("the base of your prick");
         this.outx(
-            " before coiling around the shaft with serpentine dexterity.  Her tail contracts and squeezes, undulating across your " +
-                this.cockDescript(0) +
-                " until it finally massages a thick blob of pre from your " +
-                this.player.cockHead() +
-                ", dribbling out to stain the wasteland ground."
+            ` before coiling around the shaft with serpentine dexterity.  Her tail contracts and squeezes, undulating across your ${this.cockDescript(
+                0
+            )} until it finally massages a thick blob of pre from your ${this.player.cockHead()}, dribbling out to stain the wasteland ground.`
         );
 
         this.outx(
-            "\n\nSuddenly, Helia grabs your shoulders and shoves you down.  You flop onto your back, tail-encased prick standing straight up like a flagpole as Hel straddles your [hips], vigorously fingering herself as her tail lines your cock up with her drooling womanhood.  Your breath catches as your " +
-                this.player.cockHead() +
-                " brushes her boiling juices, slickening your entry as she slides down your pole.  You grab Hel's flared hips, guiding her in as she envelopes your " +
-                this.cockDescript(0) +
-                " in the roiling inferno inside her.  Her tail unravels from around your throbbing shaft as she descends, tantalizingly slowly; she takes the better part of a minute before her groin is cozily joined to yours, her hungry maw kissing the very base of your lusty prick."
+            `\n\nSuddenly, Helia grabs your shoulders and shoves you down.  You flop onto your back, tail-encased prick standing straight up like a flagpole as Hel straddles your [hips], vigorously fingering herself as her tail lines your cock up with her drooling womanhood.  Your breath catches as your ${this.player.cockHead()} brushes her boiling juices, slickening your entry as she slides down your pole.  You grab Hel's flared hips, guiding her in as she envelopes your ${this.cockDescript(
+                0
+            )} in the roiling inferno inside her.  Her tail unravels from around your throbbing shaft as she descends, tantalizingly slowly; she takes the better part of a minute before her groin is cozily joined to yours, her hungry maw kissing the very base of your lusty prick.`
         );
 
         this.outx(
@@ -351,34 +345,32 @@ export class HelSpawnScene extends NPCAwareContent {
                 "gropes one of your tits, kneading your tender breasts under you squirm underneath her, unable to hold in your pleasured little gasps"
             );
         this.outx(
-            ".  Slowly, your salamander lover starts to grind her hips on your " +
-                this.cockDescript(0) +
-                ', her muscles contracting and squeezing the rigid shaft inside her with every shift of her hips.  You both moan aloud, half-lost in a miasm of pleasure.  "<i>God, I wish I could stay like this forever,</i>"  Hel whispers, just on the edge of hearing.  "<i>There\'s no one I\'d rather be with, [name].  No one I\'d rather have give me the child my body craves.</i>"'
+            `.  Slowly, your salamander lover starts to grind her hips on your ${this.cockDescript(
+                0
+            )}, her muscles contracting and squeezing the rigid shaft inside her with every shift of her hips.  You both moan aloud, half-lost in a miasm of pleasure.  "<i>God, I wish I could stay like this forever,</i>"  Hel whispers, just on the edge of hearing.  "<i>There's no one I'd rather be with, [name].  No one I'd rather have give me the child my body craves.</i>"`
         );
 
         this.outx(
-            "\n\nSomething in Hel's voice gives you pause, but before you can think too much into it, she plants her hands firmly on your [chest] and starts to rise, dragging inch after inch of your prick out of her until only the " +
-                this.player.cockHead() +
-                " is still inside her, smearing her lips with thick, creamy pre.  Then, grinning at you, Hel slams back down, taking you in one brutal thrust that leaves you both moaning; a moment later and she's riding your cock, bouncing on the rigid pole so fast that your combined juices go flying everywhere, drenching the barren earth around you.  Helia fucks you with reckless abandon, her voice edging higher and higher as she cries and moans.  Caressing your [chest], fondling herself, teasing your [asshole] with the tip of her tail, Hel seems to lose all restraint as she takes your cock again and again, devolving to her basest sexual instincts, rutting like an animal until you're sure you'll wake up bruised in the morning."
+            `\n\nSomething in Hel's voice gives you pause, but before you can think too much into it, she plants her hands firmly on your [chest] and starts to rise, dragging inch after inch of your prick out of her until only the ${this.player.cockHead()} is still inside her, smearing her lips with thick, creamy pre.  Then, grinning at you, Hel slams back down, taking you in one brutal thrust that leaves you both moaning; a moment later and she's riding your cock, bouncing on the rigid pole so fast that your combined juices go flying everywhere, drenching the barren earth around you.  Helia fucks you with reckless abandon, her voice edging higher and higher as she cries and moans.  Caressing your [chest], fondling herself, teasing your [asshole] with the tip of her tail, Hel seems to lose all restraint as she takes your cock again and again, devolving to her basest sexual instincts, rutting like an animal until you're sure you'll wake up bruised in the morning.`
         );
 
         this.outx(
-            "\n\nYou lay back and enjoy the rough fucking for several minutes, eventually taking her hands and holding them fast as she moves, locking your fingers with hers and pulling her down into a long, tongue-filled kiss.  The two of you stay like that for a long while, your breath hot on each others' skin as you wrap your arms around your lover's waist; to your surprise, Hel leans away from you, just long enough to pull off the tie on her ponytail, letting her rich red hair cascade down around you, veiling your faces as she kisses you again.  You run your fingers through her thick locks, breathing in the fiery smell of her, tasting her sweet lips on yours, feeling her innermost depths conforming around your breeding pole.  Holding Hel tight, you roll the pair of you over, landing with your cheek nestled in the cleft of her bosom.  She gasps as you run your tongue across the soft, succulent flesh of her tits, gently thrusting your " +
-                this.cockDescript(0) +
-                " into her.  Settling onto her back, Hel spreads her legs wide for you, letting you slip right in as her heels hook behind your [butt], her hands digging into your back to guide your movements.  Inside of five thrusts and she's moaning like a bitch in heat, writhing beneath you.  She claws at your back, making you wince - and spurt a mess of pre into her eager hole."
+            `\n\nYou lay back and enjoy the rough fucking for several minutes, eventually taking her hands and holding them fast as she moves, locking your fingers with hers and pulling her down into a long, tongue-filled kiss.  The two of you stay like that for a long while, your breath hot on each others' skin as you wrap your arms around your lover's waist; to your surprise, Hel leans away from you, just long enough to pull off the tie on her ponytail, letting her rich red hair cascade down around you, veiling your faces as she kisses you again.  You run your fingers through her thick locks, breathing in the fiery smell of her, tasting her sweet lips on yours, feeling her innermost depths conforming around your breeding pole.  Holding Hel tight, you roll the pair of you over, landing with your cheek nestled in the cleft of her bosom.  She gasps as you run your tongue across the soft, succulent flesh of her tits, gently thrusting your ${this.cockDescript(
+                0
+            )} into her.  Settling onto her back, Hel spreads her legs wide for you, letting you slip right in as her heels hook behind your [butt], her hands digging into your back to guide your movements.  Inside of five thrusts and she's moaning like a bitch in heat, writhing beneath you.  She claws at your back, making you wince - and spurt a mess of pre into her eager hole.`
         );
 
         this.outx(
-            "\n\nYou clench your teeth and start to piston into her, picking up the pace until your every thrust causes the lusty salamander to scream your name to the heavens.  Spurred on by Hel's ecstatic cries and her vice-like grip around your " +
-                this.cockDescript(0) +
-                ", it isn't long before you can feel the mounting pressure of your inevitable release mounting furiously inside your [balls]."
+            `\n\nYou clench your teeth and start to piston into her, picking up the pace until your every thrust causes the lusty salamander to scream your name to the heavens.  Spurred on by Hel's ecstatic cries and her vice-like grip around your ${this.cockDescript(
+                0
+            )}, it isn't long before you can feel the mounting pressure of your inevitable release mounting furiously inside your [balls].`
         );
         // If PC has lost Anal Virginity:
         if (this.player.ass.analLooseness > 0)
             this.outx(
-                "\n\nBetween rough thrusts into your lover, you can feel her pale-glowing tail snake itself around your [legs], the slender little tip brushing between the cheeks of your [butt].  You can't help but gasp as it presses into your clenched backdoor, teasing your [asshole] with probing thrusts and flicks across the brim.  Helia grins up at you as your sphincter finally relaxes, letting the first inches slither inside, undulating through your anal passage.  \"<i>I'm going to milk every last fucking drop out of you,</i>\" she whispers huskily, breath hot on your neck. You moan in response as her ever-thickening appendage wriggles into you, penetrating you to the beat of your own " +
-                    this.cockDescript(0) +
-                    "'s thrusts into your lover's cunt.  Suddenly, a powerful burst of pleasure threatens to overwhelm you, demanding every ounce of your willpower to keep from cumming on the spot.  Hel coos encouragingly as you gasp, thrilled to have found your most sensitive place.  Now that's she's found it, Hel lets her tail go wild in your ass, tip battering against your prostate as the thicker trunk writhes and wiggles through your stretched hole."
+                `\n\nBetween rough thrusts into your lover, you can feel her pale-glowing tail snake itself around your [legs], the slender little tip brushing between the cheeks of your [butt].  You can't help but gasp as it presses into your clenched backdoor, teasing your [asshole] with probing thrusts and flicks across the brim.  Helia grins up at you as your sphincter finally relaxes, letting the first inches slither inside, undulating through your anal passage.  "<i>I'm going to milk every last fucking drop out of you,</i>" she whispers huskily, breath hot on your neck. You moan in response as her ever-thickening appendage wriggles into you, penetrating you to the beat of your own ${this.cockDescript(
+                    0
+                )}'s thrusts into your lover's cunt.  Suddenly, a powerful burst of pleasure threatens to overwhelm you, demanding every ounce of your willpower to keep from cumming on the spot.  Hel coos encouragingly as you gasp, thrilled to have found your most sensitive place.  Now that's she's found it, Hel lets her tail go wild in your ass, tip battering against your prostate as the thicker trunk writhes and wiggles through your stretched hole.`
             );
 
         this.outx(
@@ -407,9 +399,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.spriteSelect(68);
         this.outx("<b>Several Hours Later...</b>\n");
         this.outx(
-            "With the last ounce of energy in your sixth - or is it seventh? - wind, you deliver a sharp crack across Helia's beet-red backside and roar out as another potent surge of seed rushes into her snow-white hole, still slick with the leavings of your last half-dozen discharges.  You grab her thick hips and slam your " +
-                this.cockDescript(0) +
-                " deep inside her as the last shot fills her womb a little bit fuller, the excess spurting out to wet the cum-stained ground beneath the salamander's knees."
+            `With the last ounce of energy in your sixth - or is it seventh? - wind, you deliver a sharp crack across Helia's beet-red backside and roar out as another potent surge of seed rushes into her snow-white hole, still slick with the leavings of your last half-dozen discharges.  You grab her thick hips and slam your ${this.cockDescript(
+                0
+            )} deep inside her as the last shot fills her womb a little bit fuller, the excess spurting out to wet the cum-stained ground beneath the salamander's knees.`
         );
 
         this.outx(
@@ -748,11 +740,13 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n\"<i>Yeah, I know.  Forget about it, I'm fine.  Really.  It's just that this happened all so suddenly, you know?  This isn't exactly where I saw myself a year ago.  Not that I'm complaining,</i>\" she adds, turning back to you with a kiss, squeezing you with her tail.  \"<i>I just hope I'm ready, I guess.  Until the Pale Flame took, I'd never really thought about being a mother.  Never really wanted it.  But last night, it was like I was possessed, like I couldn't control myself.  I just... needed you.  Well, maybe not your sperm - not literally, I mean - but it was like my body screaming 'You've found " +
-                this.player.mf("him", "her") +
-                ", " +
-                this.player.mf("he", "she") +
-                "'s the one, this is a keeper!  Time to propagate!'  I-I can't help but feel like this wasn't entirely my choice, you know? Like I was acting on instinct, like an animal, not a person.  But at the same time, if I've made a mistake, then I have you here with me, to help me like you always do.  I love you with all my heart, [name]"
+            `\n\n"<i>Yeah, I know.  Forget about it, I'm fine.  Really.  It's just that this happened all so suddenly, you know?  This isn't exactly where I saw myself a year ago.  Not that I'm complaining,</i>" she adds, turning back to you with a kiss, squeezing you with her tail.  "<i>I just hope I'm ready, I guess.  Until the Pale Flame took, I'd never really thought about being a mother.  Never really wanted it.  But last night, it was like I was possessed, like I couldn't control myself.  I just... needed you.  Well, maybe not your sperm - not literally, I mean - but it was like my body screaming 'You've found ${this.player.mf(
+                "him",
+                "her"
+            )}, ${this.player.mf(
+                "he",
+                "she"
+            )}'s the one, this is a keeper!  Time to propagate!'  I-I can't help but feel like this wasn't entirely my choice, you know? Like I was acting on instinct, like an animal, not a person.  But at the same time, if I've made a mistake, then I have you here with me, to help me like you always do.  I love you with all my heart, [name]`
         );
         // if HelLove is Yes:
         if (this.flags[kFLAGS.HEL_LOVE] == 1)
@@ -927,9 +921,10 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nA moment of laughing passes before Hel adds, \"<i>But seriously, lover, thanks for checking in on me.  I don't... I can't do this on my own, you know?  I'm trying, but it's hard, and getting harder.  Every night since this started, I've lain up thinking 'Oh god, what if I screw this up?  Wh-what if I say something wrong, or do something that just twists my kid's mind and fucks her up forever?  Or she turns into a bigger whore than I am,' or a million other things I can't stop thinking about.  I just keep worrying that I'm going to be a shit mom.  But you know... with you around, I feel at least a little more confident.  I don't know if I even could have a good impression on our kid, but... I know you will, [name].  You're a strong " +
-                this.player.mf("man", "woman") +
-                "; stronger than I'll ever be.  I just hope a tiny little sliver of your strength - and maybe a healthy dose of your looks - rub off on him.  Or her.  That's all I'd ask for"
+            `\n\nA moment of laughing passes before Hel adds, "<i>But seriously, lover, thanks for checking in on me.  I don't... I can't do this on my own, you know?  I'm trying, but it's hard, and getting harder.  Every night since this started, I've lain up thinking 'Oh god, what if I screw this up?  Wh-what if I say something wrong, or do something that just twists my kid's mind and fucks her up forever?  Or she turns into a bigger whore than I am,' or a million other things I can't stop thinking about.  I just keep worrying that I'm going to be a shit mom.  But you know... with you around, I feel at least a little more confident.  I don't know if I even could have a good impression on our kid, but... I know you will, [name].  You're a strong ${this.player.mf(
+                "man",
+                "woman"
+            )}; stronger than I'll ever be.  I just hope a tiny little sliver of your strength - and maybe a healthy dose of your looks - rub off on him.  Or her.  That's all I'd ask for`
         );
         // if PC isn't daddy:
         if (this.flags[kFLAGS.HELSPAWN_DADDY] != 0)
@@ -1133,9 +1128,9 @@ export class HelSpawnScene extends NPCAwareContent {
             this.outx('"<i>Awesome.  You liked my ideas, after all!</i>"\n\n');
 
         this.outx(
-            '"<i>So... ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " it is.  That's a good name, my love.  A strong name.  "
+            `"<i>So... ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } it is.  That's a good name, my love.  A strong name.  `
         );
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outx("Our");
         else this.outx("my");
@@ -1144,9 +1139,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou nod and help Helia to her feet, still holding " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " to her breast.  Your lover gives you a wink before walking bow-legged back toward her part of camp, and the little crib she's built beside her hammock."
+            `\n\nYou nod and help Helia to her feet, still holding ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } to her breast.  Your lover gives you a wink before walking bow-legged back toward her part of camp, and the little crib she's built beside her hammock.`
         );
         this.helSpawnsSetup();
         this.doNext(this.camp.returnToCampUseTwoHours);
@@ -1214,9 +1209,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou nod to your lover, and the both of you walk over to spend some quality time playing with " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "."
+            `\n\nYou nod to your lover, and the both of you walk over to spend some quality time playing with ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }.`
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -1226,34 +1221,34 @@ export class HelSpawnScene extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(68);
         this.outx(
-            "Picking " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " up off the ground, you spin the giggling little girl around, laughing as your "
+            `Picking ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } up off the ground, you spin the giggling little girl around, laughing as your `
         );
         if (this.flags[kFLAGS.HELSPAWN_DADDY] != 0) this.outx("ward ");
         else this.outx("daughter ");
         this.outx(
-            "cries out in surprise and glee.  Soon, you're bouncing her, then down on the ground crawling around with her, playing peek-a-boo and a dozen other games as you and " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " laugh and hug.  Helia herself slips down with you before you know it, holding her daughter close as she tries to communicate, teaching the ever-growing girl a few words at a time."
+            `cries out in surprise and glee.  Soon, you're bouncing her, then down on the ground crawling around with her, playing peek-a-boo and a dozen other games as you and ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } laugh and hug.  Helia herself slips down with you before you know it, holding her daughter close as she tries to communicate, teaching the ever-growing girl a few words at a time.`
         );
 
         this.outx(
-            '\n\n"<i>Mommy!</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " eventually cries, bopping her mother on the nose. Hel laughs, but it turns into a sigh as her daughter reaches down and fiddles with her top, obviously hungry."
+            `\n\n"<i>Mommy!</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } eventually cries, bopping her mother on the nose. Hel laughs, but it turns into a sigh as her daughter reaches down and fiddles with her top, obviously hungry.`
         );
 
         this.outx(
-            '\n\n"<i>We\'ve got to wean this one before she bites my tits off,</i>" Hel groans as ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ' latches on, starting to suckle.  "<i>Those teeth came in fast...</i>"'
+            `\n\n"<i>We've got to wean this one before she bites my tits off,</i>" Hel groans as ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } latches on, starting to suckle.  "<i>Those teeth came in fast...</i>"`
         );
 
         this.outx(
-            "\n\nLaughing, you rustle " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "'s fiery hair and leave mother and daughter to finish the meal."
+            `\n\nLaughing, you rustle ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }'s fiery hair and leave mother and daughter to finish the meal.`
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -1267,9 +1262,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.flags[kFLAGS.HELSPAWN_GROWUP_COUNTER] = 1;
         this.flags[kFLAGS.HELSPAWN_AGE]++;
         this.outx(
-            "You wake up to a scream, high-pitched and terrified.  You bolt up out of bed, tangling up in your bedroll for a minute before stumbling over to Hel and... " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "?"
+            `You wake up to a scream, high-pitched and terrified.  You bolt up out of bed, tangling up in your bedroll for a minute before stumbling over to Hel and... ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }?`
         );
         this.outx("\n\nYou do a double take as you lay eyes on the ");
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 1) this.outx("black");
@@ -1283,20 +1278,18 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>Ugh, what\'s wrong?</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ' groans, looking up at Hel, then to you.  "<i>' +
-                this.championRef() +
-                ", why's mom screaming?</i>\""
+            `\n\n"<i>Ugh, what's wrong?</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } groans, looking up at Hel, then to you.  "<i>${this.championRef()}, why's mom screaming?</i>"`
         );
         this.outx(
             '\n\n"<i>Oh my god you\'re a giant!</i>" Hel babbles, curling her knees up to her chest.  "<i>Wh-wh-what... what happened to... to my little girl?</i>"'
         );
 
         this.outx(
-            "\n\nYou have to admit, the change is sudden and drastic... but the girl's scales, her eyes, they're certainly " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "'s.  "
+            `\n\nYou have to admit, the change is sudden and drastic... but the girl's scales, her eyes, they're certainly ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }'s.  `
         );
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 2)
             this.outx(
@@ -1307,9 +1300,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>It\'s just me, mom,</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " says, sliding over to sit beside her mother, who's still wide-eyed with shock.  Your girl tries for a few moments to talk to Hel, but seeing that venture prove fruitless - Hel seems utterly insensate, paralyzed by shock - she instead curls back up beside her mother, head rested on Helia's shoulder.  Eventually, warily, Hel reaches out a trembling hand to brush her daughter's cheek."
+            `\n\n"<i>It's just me, mom,</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } says, sliding over to sit beside her mother, who's still wide-eyed with shock.  Your girl tries for a few moments to talk to Hel, but seeing that venture prove fruitless - Hel seems utterly insensate, paralyzed by shock - she instead curls back up beside her mother, head rested on Helia's shoulder.  Eventually, warily, Hel reaches out a trembling hand to brush her daughter's cheek.`
         );
         this.outx(
             "\n\n\"<i>My god, she's growing so fast... and I don't want to lose her so soon.  I want my baby back.</i>\""
@@ -1339,11 +1332,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outx(", and poke your head around the iron body of the still.");
 
         this.outx(
-            "\n\nFlopped down on the ground with her mouth right under the spigot is " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ', using her tail to keep the tap open and flowing into her waiting maw as she lazes beneath it.  When you loudly clear your throat, she flails around a moment, letting the tap go as she scrambles to her feet - only to fall drunkenly on her ass.  "<i>Uh...</i>" she groans, wiping the booze off her cheeks as she hiccups drunkenly.  "<i>Hi there, ' +
-                this.championRef() +
-                '.</i>"'
+            `\n\nFlopped down on the ground with her mouth right under the spigot is ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }, using her tail to keep the tap open and flowing into her waiting maw as she lazes beneath it.  When you loudly clear your throat, she flails around a moment, letting the tap go as she scrambles to her feet - only to fall drunkenly on her ass.  "<i>Uh...</i>" she groans, wiping the booze off her cheeks as she hiccups drunkenly.  "<i>Hi there, ${this.championRef()}.</i>"`
         );
         this.menu();
         this.addButton(1, "Scold Her", this.scoldHelSpawn);
@@ -1358,9 +1349,7 @@ export class HelSpawnScene extends NPCAwareContent {
             "You cross your arms over your chest and ask your little salamander exactly what she thinks she's doing."
         );
         this.outx(
-            '\n\n"<i>Uh, I\'m... uh...</i>" she starts before you pick her up by the scruff of the neck, pulling her away from the still.  She squirms and flails drunkenly in your grasp, but is unable to escape in her condition.  "<i>P-put me down, ' +
-                this.championRef() +
-                '!</i>" she squeals, but you only tsk your tongue as you drag her away, dropping her on your bedroll, well away from the booze.'
+            `\n\n"<i>Uh, I'm... uh...</i>" she starts before you pick her up by the scruff of the neck, pulling her away from the still.  She squirms and flails drunkenly in your grasp, but is unable to escape in her condition.  "<i>P-put me down, ${this.championRef()}!</i>" she squeals, but you only tsk your tongue as you drag her away, dropping her on your bedroll, well away from the booze.`
         );
         this.outx("\n\nCrossly, you again ask what she was doing.");
         this.outx(
@@ -1369,9 +1358,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outx("\n\nAnd just because her mother does something means she should, too?");
         this.outx('\n\n"<i>Wha..</i>"');
         this.outx(
-            "\n\nYou sit down beside " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " and grab a waterskin, telling her to drink some of this instead - it'll curb the hangover later.  With a look from you, she meekly obeys, sipping at the waterskin as you start to explain that there's no good to come from being a drunkard: that it impairs her decision making, and clouds her mind; like she is now, barely able to think straight after downing gallons.  She's lucky she doesn't die from drinking that much, especially without the tolerances her mother's probably spent years building up."
+            `\n\nYou sit down beside ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } and grab a waterskin, telling her to drink some of this instead - it'll curb the hangover later.  With a look from you, she meekly obeys, sipping at the waterskin as you start to explain that there's no good to come from being a drunkard: that it impairs her decision making, and clouds her mind; like she is now, barely able to think straight after downing gallons.  She's lucky she doesn't die from drinking that much, especially without the tolerances her mother's probably spent years building up.`
         );
         this.outx(
             "\n\n\"<i>But I was just...</i>\" she whines, looking up at you plaintively.  You sigh, and put an arm around her shoulder, telling her it's okay.  She just needs to hold off on the booze... she's too young for that."
@@ -1380,11 +1369,9 @@ export class HelSpawnScene extends NPCAwareContent {
             "\n\n\"<i>You'll have plenty of time for things like that later.  For now, stay away from mom's still, alright?</i>\""
         );
         this.outx(
-            '\n\n"<i>Alright, ' +
-                this.championRef() +
-                ',</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " says, curling up beside you, head resting on your [chest]."
+            `\n\n"<i>Alright, ${this.championRef()},</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } says, curling up beside you, head resting on your [chest].`
         );
         // {HelspawnChaste +10}
         this.flags[kFLAGS.HELSPAWN_PERSONALITY] -= 10;
@@ -1398,26 +1385,26 @@ export class HelSpawnScene extends NPCAwareContent {
             '"<i>Move over, you,</i>" you say, sliding down beside your little salamander as you pop the tap open again.  "<i>Gotta pace yourself, see,</i>" you add, taking a long draught before closing it off again, savoring the potent taste of Hel\'s mighty brew.'
         );
         this.outx(
-            '\n\n"<i>Wha...?</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " starts to say, before catching on as you drink, inviting her to join you."
+            `\n\n"<i>Wha...?</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } starts to say, before catching on as you drink, inviting her to join you.`
         );
         this.outx(
             '\n\n"<i>The trick is,</i>" you say, letting your daughter get back under the tap, "<i>You gotta build up your tolerance.  Your mom\'s been drinking like a fish for a decade; you can\'t just dive in and expect to do what she does.  You have to pace yourself.</i>"'
         );
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " nods slowly, slurping up a cheek-full of beer before you switch out with her again.  While she doesn't have a mouth full of Hel's distillery, you pass her a waterskin, telling her that the more water she drinks, the less shit she'll feel later on.  She drinks eagerly, switching off with you time after time until your entire world seems like a blur and your muscles seem like leaden weights far beyond your control.  You're both utterly shit-faced, giggling and stumbling by the time you manage to pull yourself away from the nearly empty still."
+            `\n\n${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } nods slowly, slurping up a cheek-full of beer before you switch out with her again.  While she doesn't have a mouth full of Hel's distillery, you pass her a waterskin, telling her that the more water she drinks, the less shit she'll feel later on.  She drinks eagerly, switching off with you time after time until your entire world seems like a blur and your muscles seem like leaden weights far beyond your control.  You're both utterly shit-faced, giggling and stumbling by the time you manage to pull yourself away from the nearly empty still.`
         );
         this.outx(
             '\n\n"<i>Hey, what gives,</i>" a voice snaps from somewhere beyond your hazy sight.  It sounds mildly like a cat, though you can\'t tell why in your state.'
         );
 
         this.outx(
-            '\n\n"<i>Uh...</i>" you groan, slumping over onto your [ass].  ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "'s right behind you, collapsing on top of you in a pile of "
+            `\n\n"<i>Uh...</i>" you groan, slumping over onto your [ass].  ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }'s right behind you, collapsing on top of you in a pile of `
         );
         if (this.flags[kFLAGS.HELSPAWN_DADDY] != 1) this.outx("red ");
         else this.outx("black ");
@@ -1428,9 +1415,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>I saved some for ya, mom,</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " groans, retching."
+            `\n\n"<i>I saved some for ya, mom,</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } groans, retching.`
         );
 
         this.outx('\n\n"<i>Oh. Oh that\'s just great, [name].  Good job.</i>"');
@@ -1451,18 +1438,18 @@ export class HelSpawnScene extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(68);
         this.outx(
-            "As you make your way back to camp, you begin to hear the sounds of fighting from ahead.  Readying your [weapon], you pick up the pace until your campsite comes into view.  You relax, seeing that it's only " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " and her mother.  Helia's standing near the center of camp, "
+            `As you make your way back to camp, you begin to hear the sounds of fighting from ahead.  Readying your [weapon], you pick up the pace until your campsite comes into view.  You relax, seeing that it's only ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } and her mother.  Helia's standing near the center of camp, `
         );
         if (this.camp.companionsCount() > 3)
             this.outx(
                 "apparently having cleared out most of your other followers for the moment, "
             );
         this.outx(
-            "her sword held at a guard pose between herself and a training dummy. " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " stands a few feet behind her mother, watching intently as Hel paces around the dummy, breathing hard."
+            `her sword held at a guard pose between herself and a training dummy. ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } stands a few feet behind her mother, watching intently as Hel paces around the dummy, breathing hard.`
         );
 
         this.outx(
@@ -1474,30 +1461,28 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>Hi, ' +
-                this.championRef() +
-                ',</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ' says cheerily as you wander over, inspecting the carnage.  "<i>Mom\'s teaching me how to be a berzerker.</i>"'
+            `\n\n"<i>Hi, ${this.championRef()},</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } says cheerily as you wander over, inspecting the carnage.  "<i>Mom's teaching me how to be a berzerker.</i>"`
         );
 
         this.outx(
-            "\n\nHel chuckles to herself, \"<i>Yep.  Probably gonna need a new dummy, though.  They, uh, appear to have a low survival rate...  hey, any chance you could float me a loan, lover mine?  Got a friend in town who found a sword just like mine, and I'd love for " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " to have it.  Kinda strapped for cash at the moment, though. Dad's place sprung a leak, had to get that fixed.</i>\""
+            `\n\nHel chuckles to herself, "<i>Yep.  Probably gonna need a new dummy, though.  They, uh, appear to have a low survival rate...  hey, any chance you could float me a loan, lover mine?  Got a friend in town who found a sword just like mine, and I'd love for ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } to have it.  Kinda strapped for cash at the moment, though. Dad's place sprung a leak, had to get that fixed.</i>"`
         );
 
         this.outx(
-            "\n\nWell.  You suppose you could float Hel a loan and let little " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " grow up as a furious salamander berzerker just like dear old mom.  Or, if you have the time, you could instead do her combat training yourself.  You probably can't completely get rid of the 'mander temper, but a few hours in the ring with you would certainly make her less brazenly reckless - something Hel could benefit from, too, if she's willing to stick around."
+            `\n\nWell.  You suppose you could float Hel a loan and let little ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } grow up as a furious salamander berzerker just like dear old mom.  Or, if you have the time, you could instead do her combat training yourself.  You probably can't completely get rid of the 'mander temper, but a few hours in the ring with you would certainly make her less brazenly reckless - something Hel could benefit from, too, if she's willing to stick around.`
         );
         // {If PC has a bow & skill 100+}:
         if (this.player.statusAffectv1(StatusAffects.Kelt) >= 100) {
             this.outx(
-                "\n\nThen again, while the little salamander needs to be able to defend herself, it might be better to give her a more defensive weapon altogether.  The guards of your village called the bow the wise man's weapon, as the archers sat behind the lines or atop high walls, picking off enemies.  While you weren't trained with it back home, you've gotten pretty good with your bow during your time here.  Perhaps it's time to pass on those skills to " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    "."
+                `\n\nThen again, while the little salamander needs to be able to defend herself, it might be better to give her a more defensive weapon altogether.  The guards of your village called the bow the wise man's weapon, as the archers sat behind the lines or atop high walls, picking off enemies.  While you weren't trained with it back home, you've gotten pretty good with your bow during your time here.  Perhaps it's time to pass on those skills to ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }.`
             );
         }
         this.menu();
@@ -1518,9 +1503,9 @@ export class HelSpawnScene extends NPCAwareContent {
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outx("your");
         else this.outx("Hel's");
         this.outx(
-            " eager daughter. " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " takes them up with surprising reverence, holding them as gingerly as glass.  Grinning, you clasp her shoulder and tell her how to put the quiver on, and get her stance right for shooting.  It takes her a moment to get set up: her scaled, reptilian legs don't naturally stand in the shooting pose you've adopted"
+            ` eager daughter. ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } takes them up with surprising reverence, holding them as gingerly as glass.  Grinning, you clasp her shoulder and tell her how to put the quiver on, and get her stance right for shooting.  It takes her a moment to get set up: her scaled, reptilian legs don't naturally stand in the shooting pose you've adopted`
         );
         if (this.player.lowerBody == LOWER_BODY_TYPE_LIZARD)
             this.outx(", even with your own lizard legs");
@@ -1529,9 +1514,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou slip behind " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ", putting your arms on hers as you guide her through nocking an arrow, head resting on her fist, a lone finger outstretched toward the dessicated dummy."
+            `\n\nYou slip behind ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }, putting your arms on hers as you guide her through nocking an arrow, head resting on her fist, a lone finger outstretched toward the dessicated dummy.`
         );
 
         this.outx(
@@ -1540,46 +1525,44 @@ export class HelSpawnScene extends NPCAwareContent {
         // If Rath is @ camp:
         if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0)
             this.outx(
-                "  You hear your old alchemist friend suddenly putting up a ruckus as the sounds of breaking glass echo throughout camp.  " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " looks up at you nervously, but you ruffle her fiery hair and tell her to try again. Rath is probably just fine."
+                `  You hear your old alchemist friend suddenly putting up a ruckus as the sounds of breaking glass echo throughout camp.  ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } looks up at you nervously, but you ruffle her fiery hair and tell her to try again. Rath is probably just fine.`
             );
         // else if Valeria/Latexy is at camp:
         else if (this.flags[kFLAGS.VALARIA_AT_CAMP] == 1)
             this.outx(
-                '  You hear a sudden yelp of pain from across camp. Valeria slithers up to you with an irritated look on her gooey face, pointing an accusing finger at an arrow sticking out of her tit.  "<i>Dammit, [name], I\'m a googirl, not a pin cushion!</i>"  You wave her off, and tell ' +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " to try again."
+                `  You hear a sudden yelp of pain from across camp. Valeria slithers up to you with an irritated look on her gooey face, pointing an accusing finger at an arrow sticking out of her tit.  "<i>Dammit, [name], I'm a googirl, not a pin cushion!</i>"  You wave her off, and tell ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } to try again.`
             );
         else if (this.latexGooFollower())
             this.outx(
-                "  You hear a sudden yelp of pain from across camp.  " +
-                    this.flags[kFLAGS.GOO_NAME] +
-                    ' slithers up to you with an irritated look on her gooey face, pointing an accusing finger at an arrow sticking out of her tit.  "<i>Dammit, [name], I\'m a googirl, not a pin cushion!</i>"  You wave her off, and tell ' +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " to try again."
+                `  You hear a sudden yelp of pain from across camp.  ${
+                    this.flags[kFLAGS.GOO_NAME]
+                } slithers up to you with an irritated look on her gooey face, pointing an accusing finger at an arrow sticking out of her tit.  "<i>Dammit, [name], I'm a googirl, not a pin cushion!</i>"  You wave her off, and tell ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } to try again.`
             );
 
         this.outx(
-            '\n\n"<i>I-I dunno, ' +
-                this.championRef() +
-                ',</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " whines, biting her lip as she traces the arrow's path with her eyes.  \"<i>Maybe mom was right. I should just stick to a sword. That's easy....</i>\""
+            `\n\n"<i>I-I dunno, ${this.championRef()},</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } whines, biting her lip as she traces the arrow's path with her eyes.  "<i>Maybe mom was right. I should just stick to a sword. That's easy....</i>"`
         );
 
         this.outx(
-            "\n\nYou sigh and tell her to try again.  She can't expect to be perfect on the first try, after all.  It takes a little convincing, but soon you've got " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " back into form and nocking an arrow.  You put your hands on hers, helping the young salamander take aim, drawing down on her straw-stuffed target.  Barely audible over " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                '\'s nervous breathing, you whisper, "<i>Take it easy.  Relax.... Good.  Take aim... now breathe out.  Exhale and loose.</i>"'
+            `\n\nYou sigh and tell her to try again.  She can't expect to be perfect on the first try, after all.  It takes a little convincing, but soon you've got ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } back into form and nocking an arrow.  You put your hands on hers, helping the young salamander take aim, drawing down on her straw-stuffed target.  Barely audible over ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }'s nervous breathing, you whisper, "<i>Take it easy.  Relax.... Good.  Take aim... now breathe out.  Exhale and loose.</i>"`
         );
 
         this.outx(
-            "\n\nAgain, " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " lets an arrow fly - and this one strikes true.  You watch the missile streak across camp, slamming into the training dummy's crotch with deadly force.  It sways, buckles, and falls to pieces."
+            `\n\nAgain, ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } lets an arrow fly - and this one strikes true.  You watch the missile streak across camp, slamming into the training dummy's crotch with deadly force.  It sways, buckles, and falls to pieces.`
         );
 
         this.outx(
@@ -1587,9 +1570,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>I did it!</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " shouts, pumping her fist in the air. Her mother reaches over to ruffle her fiery hair, and you both shower her with congratulations."
+            `\n\n"<i>I did it!</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } shouts, pumping her fist in the air. Her mother reaches over to ruffle her fiery hair, and you both shower her with congratulations.`
         );
 
         this.outx(
@@ -1597,11 +1580,11 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nBy the time " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " has her shooting stance back, her mother's already set the dummy back up, ready for round two.  It's several hours long before the three of you quit: time spent drilling " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " on stance and aim, even going a round with her and a pair of daggers to remind her that enemies will eventually close in if she's not careful.  She learns quickly, though, and soon she hardly needs your help to plant an arrow in the target's chest."
+            `\n\nBy the time ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } has her shooting stance back, her mother's already set the dummy back up, ready for round two.  It's several hours long before the three of you quit: time spent drilling ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } on stance and aim, even going a round with her and a pair of daggers to remind her that enemies will eventually close in if she's not careful.  She learns quickly, though, and soon she hardly needs your help to plant an arrow in the target's chest.`
         );
 
         this.outx("\n\nA few hours like this every night, and ");
@@ -1623,11 +1606,11 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " gives the blade a few practice swings before grabbing the wooden blade in both hands and charging at you.  You put your guard up, catching her first overhand blow and turning it aside, nearly toppling the girl over.  She rolls with it, spinning out of your guard and trying a strike from the side.  You parry it, catch an opening, and give her a nice wallop on the shoulder.  A real blade would have nearly cut her arm off, but " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " merely stumbles back, yelping in pain."
+            `\n\n${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } gives the blade a few practice swings before grabbing the wooden blade in both hands and charging at you.  You put your guard up, catching her first overhand blow and turning it aside, nearly toppling the girl over.  She rolls with it, spinning out of your guard and trying a strike from the side.  You parry it, catch an opening, and give her a nice wallop on the shoulder.  A real blade would have nearly cut her arm off, but ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } merely stumbles back, yelping in pain.`
         );
 
         this.outx('\n\n"<i>Again,</i>" you say, assuming your fighting stance.');
@@ -1636,67 +1619,64 @@ export class HelSpawnScene extends NPCAwareContent {
             "\n\nShe lunges, yelling a warcry as she slashes for your throat.  You nimbly dodge aside, letting her tumble through the space you occupied a moment ago, giving her a swat on the ass as she flies by.  She flops to the ground, eating dirt and rubbing her butt."
         );
 
-        this.outx('\n\n"<i>Owwww.  No fair.  Hold still, ' + this.championRef() + '!</i>"');
+        this.outx(`\n\n"<i>Owwww.  No fair.  Hold still, ${this.championRef()}!</i>"`);
 
         this.outx('\n\nYou sigh.  "<i>Again.</i>"');
 
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " picks herself up and grips her blade.  This time she's a little more cautious, approaching slowly, pausing just out of reach.  You hide a grin and bring your own sword up, the tips of your blades nearly touching.  \"<i>Good.  No need to be reckless, kiddo.  Don't just charge in at the first opportunity; you'll get yourself killed.</i>\""
+            `\n\n${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } picks herself up and grips her blade.  This time she's a little more cautious, approaching slowly, pausing just out of reach.  You hide a grin and bring your own sword up, the tips of your blades nearly touching.  "<i>Good.  No need to be reckless, kiddo.  Don't just charge in at the first opportunity; you'll get yourself killed.</i>"`
         );
 
         this.outx(
-            '\n\n"<i>Get ' +
-                this.player.mf("him", "her") +
-                ", " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                '!</i>" Hel calls from the sidelines, sipping on a mug.  "<i>Show ' +
-                this.player.mf("him", "her") +
-                ' what a salamander can do!</i>"'
+            `\n\n"<i>Get ${this.player.mf("him", "her")}, ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }!</i>" Hel calls from the sidelines, sipping on a mug.  "<i>Show ${this.player.mf(
+                "him",
+                "her"
+            )} what a salamander can do!</i>"`
         );
 
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outx("\n\nYour");
         else this.outx("\n\nHer");
         this.outx(
-            " daughter braces herself, drawing a breath just a second before she launches her attack, giving herself away.  You parry three quick blows, stepping back as " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " leaps into another overhand strike.  You dodge, spinning out of the attack and slicing her right across her bare belly."
+            ` daughter braces herself, drawing a breath just a second before she launches her attack, giving herself away.  You parry three quick blows, stepping back as ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } leaps into another overhand strike.  You dodge, spinning out of the attack and slicing her right across her bare belly.`
         );
 
         this.outx('\n\n"<i>Gah!</i>" she cries, stumbling to her knees.  "<i>I-I can\'t...</i>"');
 
         this.outx(
-            "\n\nYou pull " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " to her feet and ruffle her hair.  \"<i>C'mon kiddo, don't give up.  Here,</i>\" you say, grabbing a dinner plate and some leather straps from your kit.  In a moment, you've got a rudimentary shield cobbled together.  You fit it over the young salamander's free arm and give her a few pointers on stance.  Nervously, she brings her makeshift shield to bear against you, fidgeting under the heft of it as you make a few slow, easy to parry swings for her to get used to it.  Steadily you pick up the pace, swinging your training sword faster and harder, forcing " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " to parry and block, retreating against your onslaught.  You keep it up for a full minute before relenting, letting the kid seize the initiative.  She swings at you, rolling with each parry you make, cleaving into another swing, turning your ripostes aside with her shield and forcing you back."
+            `\n\nYou pull ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } to her feet and ruffle her hair.  "<i>C'mon kiddo, don't give up.  Here,</i>" you say, grabbing a dinner plate and some leather straps from your kit.  In a moment, you've got a rudimentary shield cobbled together.  You fit it over the young salamander's free arm and give her a few pointers on stance.  Nervously, she brings her makeshift shield to bear against you, fidgeting under the heft of it as you make a few slow, easy to parry swings for her to get used to it.  Steadily you pick up the pace, swinging your training sword faster and harder, forcing ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } to parry and block, retreating against your onslaught.  You keep it up for a full minute before relenting, letting the kid seize the initiative.  She swings at you, rolling with each parry you make, cleaving into another swing, turning your ripostes aside with her shield and forcing you back.`
         );
         this.outx(
-            "\n\nYou wince in pain as " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ' manages to nick you, turning one of your blows aside with her shield and striking through the opening left in your guard.  "<i>Alright, alright,</i>" you laugh, rubbing your shoulder.  "<i>Good job, ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ". You're getting the hang of that shield!</i>\""
-        );
-
-        this.outx(
-            '\n\n"<i>Thanks, ' +
-                this.championRef() +
-                '!</i>" the little salamander grins, hugging you.'
+            `\n\nYou wince in pain as ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } manages to nick you, turning one of your blows aside with her shield and striking through the opening left in your guard.  "<i>Alright, alright,</i>" you laugh, rubbing your shoulder.  "<i>Good job, ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }. You're getting the hang of that shield!</i>"`
         );
 
         this.outx(
-            '\n\n"<i>Alright, alright,</i>" Hel says, grabbing the dummy sword from your hand.  "<i>Now it\'s time to fight a REAL warrior, ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                '. Come get some!</i>"'
+            `\n\n"<i>Thanks, ${this.championRef()}!</i>" the little salamander grins, hugging you.`
         );
 
         this.outx(
-            "\n\nIt's several hours long before the three of you quit: time spent drilling " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " on stance and parrying, trading off with Helia every few rounds to keep "
+            `\n\n"<i>Alright, alright,</i>" Hel says, grabbing the dummy sword from your hand.  "<i>Now it's time to fight a REAL warrior, ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }. Come get some!</i>"`
+        );
+
+        this.outx(
+            `\n\nIt's several hours long before the three of you quit: time spent drilling ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } on stance and parrying, trading off with Helia every few rounds to keep `
         );
         if (this.flags[kFLAGS.HELSPAWN_DADDY] != 0) this.outx("her");
         else this.outx("your");
@@ -1723,9 +1703,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.flags[kFLAGS.HELSPAWN_WEAPON] = "scimitar";
         if (this.player.gems >= 200) {
             this.outx(
-                "You sigh and dig out a handful of gems.  Helia beams at you, planting a quick kiss on your cheek before grabbing " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " and the loot.  \"<i>Thanks for the loan, lover mine.  C'mon, sweetie, we're going for a trip to town.</i>\""
+                `You sigh and dig out a handful of gems.  Helia beams at you, planting a quick kiss on your cheek before grabbing ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } and the loot.  "<i>Thanks for the loan, lover mine.  C'mon, sweetie, we're going for a trip to town.</i>"`
             );
             this.outx(
                 '\n\n"<i>Awesome!</i>" the little \'mander grins, following along after her mother.'
@@ -1763,32 +1743,32 @@ export class HelSpawnScene extends NPCAwareContent {
         if (this.player.weaponName != "fists") this.outx("clutch your [weapon]");
         else this.outx("ball your fists");
         this.outx(
-            " as the intruder passes by, ready to defend yourself and your loved ones.  The moment they're out of reach, you roll onto your [feet], looking around for signs of a massed demon attack.  Instead, you see the outline of " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " in the dying embers of the fire light, leading what looks like a spider girl by the hand toward her bed."
+            ` as the intruder passes by, ready to defend yourself and your loved ones.  The moment they're out of reach, you roll onto your [feet], looking around for signs of a massed demon attack.  Instead, you see the outline of ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } in the dying embers of the fire light, leading what looks like a spider girl by the hand toward her bed.`
         );
 
         this.outx("\n\nYou creep closer, trying to get a closer look at what your ");
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outx("daughter ");
         else this.outx("ward ");
         this.outx(
-            "is doing.  Well, it doesn't take a genius to figure that out, really, but still, you have to be sure.  You slide right up to them, just out of their lines of sight, as " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " turns around, letting the spider-kin unclasp her bra and grab her tits, squeezing the small mounds as " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " suppresses a moan, reaching back to slip a hand into the spider's crotch, grabbing her - his dick."
+            `is doing.  Well, it doesn't take a genius to figure that out, really, but still, you have to be sure.  You slide right up to them, just out of their lines of sight, as ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } turns around, letting the spider-kin unclasp her bra and grab her tits, squeezing the small mounds as ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } suppresses a moan, reaching back to slip a hand into the spider's crotch, grabbing her - his dick.`
         );
 
         this.outx(
-            "\n\nWell then. You suppose you ought to go stop " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " from making a whore of herself... but then again, she's old enough to make her own mistakes by now."
+            `\n\nWell then. You suppose you ought to go stop ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } from making a whore of herself... but then again, she's old enough to make her own mistakes by now.`
         );
         if (this.player.cor >= 50)
             this.outx(
-                "  And by mistake you clearly mean old enough to get her ass fucked in by a cute little spider trap... you contemplate jumping in on it, but with a sigh figure it's " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    "'s catch.  Let her enjoy it."
+                `  And by mistake you clearly mean old enough to get her ass fucked in by a cute little spider trap... you contemplate jumping in on it, but with a sigh figure it's ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }'s catch.  Let her enjoy it.`
             );
         this.menu();
         this.addButton(0, "Stop Them", this.helSpawnStopFucking);
@@ -1800,9 +1780,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(68);
         this.outx(
-            "You turn around and head back to your bed.  As soon as you're under your blanket, your ears are assaulted with the quiet moans and grunts of pleasure coming from " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "'s bed as she and her first little boyfriend get it on.  You can practically hear the tail-pegging from here.  How cute!"
+            `You turn around and head back to your bed.  As soon as you're under your blanket, your ears are assaulted with the quiet moans and grunts of pleasure coming from ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }'s bed as she and her first little boyfriend get it on.  You can practically hear the tail-pegging from here.  How cute!`
         );
         // {HelspawnSlutty +10}
         this.flags[kFLAGS.HELSPAWN_PERSONALITY] += 10;
@@ -1814,9 +1794,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(68);
         this.outx(
-            "You sigh and step out of the shadows, grabbing the feminine little spider boy by the shoulder and yanking him away from " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                '.  "<i>And just what the hell do you two think you\'re doing?</i>" you yell, scowling '
+            `You sigh and step out of the shadows, grabbing the feminine little spider boy by the shoulder and yanking him away from ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }.  "<i>And just what the hell do you two think you're doing?</i>" you yell, scowling `
         );
         if (this.player.tallness >= 90) this.outx("up ");
         else if (this.player.tallness <= 72) this.outx("down ");
@@ -1824,21 +1804,21 @@ export class HelSpawnScene extends NPCAwareContent {
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outx("daughter ");
         else this.outx("ward ");
         this.outx(
-            ". " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " gives a shrill cry of surprise and tumbles away from you, trying to cover herself as best she can; the spider trap squirms in your unrelenting grasp, one set of arms covering his rapidly-wilting erection as the other flails around, trying to get you off of him.  Not happening."
+            `. ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } gives a shrill cry of surprise and tumbles away from you, trying to cover herself as best she can; the spider trap squirms in your unrelenting grasp, one set of arms covering his rapidly-wilting erection as the other flails around, trying to get you off of him.  Not happening.`
         );
 
         this.outx(
-            '\n\n"<i>You!</i>" you say, pointing an accusing finger at ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                '.  "<i>What the hell, kid?  Who the fuck is this?</i>"'
+            `\n\n"<i>You!</i>" you say, pointing an accusing finger at ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }.  "<i>What the hell, kid?  Who the fuck is this?</i>"`
         );
 
         this.outx("\n\n\"<i>That's, uh.... Alex, meet ");
         if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outx("my dad");
         else this.outx("[name]");
-        this.outx(". " + this.championRef() + ', Alex.</i>"');
+        this.outx(`. ${this.championRef()}, Alex.</i>"`);
 
         this.outx('\n\n"<i>H-hi.</i>" the spider mumbles, his voice high and adorably girly.');
 
@@ -1849,13 +1829,11 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outx('\n\n"<i>B-but I...</i>"');
 
         this.outx(
-            '\n\n"<i>' +
-                this.championRef() +
-                '...</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " groans as you grab the spider boy and toss him out of camp, watching with hawk-like eyes as he slinks back to his jungle.  When he's gone, you sigh and walk over to " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ", wiping a tear from her cheek.  Putting an arm around her shoulder, you give her a long, long talk about not being a whore."
+            `\n\n"<i>${this.championRef()}...</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } groans as you grab the spider boy and toss him out of camp, watching with hawk-like eyes as he slinks back to his jungle.  When he's gone, you sigh and walk over to ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }, wiping a tear from her cheek.  Putting an arm around her shoulder, you give her a long, long talk about not being a whore.`
         );
 
         this.outx('\n\n"<i>B-but mom...</i>"');
@@ -1871,14 +1849,14 @@ export class HelSpawnScene extends NPCAwareContent {
         // if HelLove:
         if (this.flags[kFLAGS.HEL_LOVE] == 1)
             this.outx(
-                "  I'm not going to a raise a whore, " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    '.  Your mother\'s made mistakes, sure, but...</i>" you sigh.  "<i>'
+                `  I'm not going to a raise a whore, ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }.  Your mother's made mistakes, sure, but...</i>" you sigh.  "<i>`
             );
         this.outx(
-            "  You don't have to be that person, " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ".  Don't just give yourself out to the first person that asks, you know?  Save it for someone you really care about.  Trust me, it'll be worth it.</i>\""
+            `  You don't have to be that person, ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }.  Don't just give yourself out to the first person that asks, you know?  Save it for someone you really care about.  Trust me, it'll be worth it.</i>"`
         );
         this.outx(
             "\n\nYou spend a bit more time with the chastened, and hopefully now more chaste, salamander girl before putting her to bed.  Stroking her hair, you slip back to your own bunk, hoping she'll take what you've said to heart."
@@ -1894,9 +1872,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(68);
         this.outx(
-            "You wake up the next morning, and soon find your eyes drawn to where " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " lies, barely an arm's reach from her mother's hammock, still snoring peacefully.  You sigh wistfully as you get up and get dressed, still thinking of the night before and your girl's little misadventure with the spider.  God, she's grown up fast.  Faster than you could have imagined - or her mother, for that matter.  Helia, too, is still reeling from her daughter's rapid, mutagenic growth.  But there's nothing to be done about that, now, and it seems she's reached what passes for adulthood in this strange world.  She's had the body of a woman for some time now, and it seems the mind and desires of one as well."
+            `You wake up the next morning, and soon find your eyes drawn to where ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } lies, barely an arm's reach from her mother's hammock, still snoring peacefully.  You sigh wistfully as you get up and get dressed, still thinking of the night before and your girl's little misadventure with the spider.  God, she's grown up fast.  Faster than you could have imagined - or her mother, for that matter.  Helia, too, is still reeling from her daughter's rapid, mutagenic growth.  But there's nothing to be done about that, now, and it seems she's reached what passes for adulthood in this strange world.  She's had the body of a woman for some time now, and it seems the mind and desires of one as well.`
         );
 
         this.outx(
@@ -1910,9 +1888,7 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n<b>" +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " has been added to the Followers menu!</b>"
+            `\n\n<b>${this.flags[kFLAGS.HELSPAWN_NAME]} has been added to the Followers menu!</b>`
         );
         this.flags[kFLAGS.HELSPAWN_AGE] = 3;
         this.flags[kFLAGS.HELSPAWN_GROWUP_COUNTER] = 0;
@@ -1923,7 +1899,7 @@ export class HelSpawnScene extends NPCAwareContent {
     public helspawnsMainMenu(): void {
         this.clearOutput();
         this.outx(
-            "You call " + this.flags[kFLAGS.HELSPAWN_NAME] + " over to you and she comes running, "
+            `You call ${this.flags[kFLAGS.HELSPAWN_NAME]} over to you and she comes running, `
         );
         if (this.player.tallness <= 72)
             this.outx("grabbing you off your [feet] and clutching you in a tight hug");
@@ -1932,7 +1908,7 @@ export class HelSpawnScene extends NPCAwareContent {
             ".  Laughing despite yourself, you ruffle her fiery hair and ask her if she’s got a minute."
         );
 
-        this.outx('\n\n"<i>Sure, ' + this.championRef() + '!  What’s up?</i>"');
+        this.outx(`\n\n"<i>Sure, ${this.championRef()}!  What’s up?</i>"`);
         this.menu();
         // Display Options:
         // [Hug]
@@ -1953,35 +1929,31 @@ export class HelSpawnScene extends NPCAwareContent {
         // {if PC is less than 6' tall:}
         if (this.player.tallness <= 72) {
             this.outx(
-                "You reach up and pull " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " down to your level, wrapping your arms tight around her slender shoulders.  Grinning from ear to ear, the towering girl squeezes you right back, her powerful muscles just about crushing your smaller body.  Her tail slips around your [hips], the warm leather binding you to your beloved "
+                `You reach up and pull ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } down to your level, wrapping your arms tight around her slender shoulders.  Grinning from ear to ear, the towering girl squeezes you right back, her powerful muscles just about crushing your smaller body.  Her tail slips around your [hips], the warm leather binding you to your beloved `
             );
             if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outx("daughter ");
             else this.outx("ward ");
             this.outx("as she nuzzles up against you.");
 
             this.outx(
-                '\n\n"<i>Love you too, ' +
-                    this.championRef() +
-                    ',</i>" she laughs, planting a quick kiss on your cheek before letting you go.'
+                `\n\n"<i>Love you too, ${this.championRef()},</i>" she laughs, planting a quick kiss on your cheek before letting you go.`
             );
         }
         // {If PC is 6' or taller:}
         else {
             this.outx(
-                "You grab " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " and pull her into a tight hug.  She lets out a girlish giggle as she falls into your arms and squeezes you right back.  Her powerful arms threaten to crush your bigger body, smothering you in affection.  Her tail slips around your [leg], the warm leather binding you to your beloved "
+                `You grab ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } and pull her into a tight hug.  She lets out a girlish giggle as she falls into your arms and squeezes you right back.  Her powerful arms threaten to crush your bigger body, smothering you in affection.  Her tail slips around your [leg], the warm leather binding you to your beloved `
             );
             if (this.flags[kFLAGS.HELSPAWN_DADDY] == 0) this.outx("daughter ");
             else this.outx("ward ");
             this.outx(" as she nuzzles into your [chest].");
 
             this.outx(
-                '\n\n"<i>Love you too, ' +
-                    this.championRef() +
-                    ',</i>" she laughs, planting a quick kiss on your cheek before letting you go.'
+                `\n\n"<i>Love you too, ${this.championRef()},</i>" she laughs, planting a quick kiss on your cheek before letting you go.`
             );
         }
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -1996,14 +1968,12 @@ export class HelSpawnScene extends NPCAwareContent {
         if (this.flags[kFLAGS.HAD_FIRST_HELSPAWN_TALK] == 0) {
             this.flags[kFLAGS.HAD_FIRST_HELSPAWN_TALK]++;
             this.outx(
-                "You sit down with " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    ", telling her you need to talk.  Specifically, about her nocturnal misadventures.  She gulps, but you reassure her with a pat on the back, telling her it's all right.  She's a grown woman, now, as frightening as that is - for her and her mother both, it seems.  But she's an adult now, with the needs and cunning and abilities of one.  She can fight, drink, and she can fuck.  She's not a child anymore, even if she'll always be your kid at heart."
+                `You sit down with ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }, telling her you need to talk.  Specifically, about her nocturnal misadventures.  She gulps, but you reassure her with a pat on the back, telling her it's all right.  She's a grown woman, now, as frightening as that is - for her and her mother both, it seems.  But she's an adult now, with the needs and cunning and abilities of one.  She can fight, drink, and she can fuck.  She's not a child anymore, even if she'll always be your kid at heart.`
             );
             this.outx(
-                "\n\nShe smiles.  \"<i>Sorry for bringing my friend home uninvited.  I just... didn't want to upset you. I love you, " +
-                    this.championRef() +
-                    ",</i>\" she says, resting her head on your shoulder, tail slipping around your waist.  You smile, holding the young 'mander girl - no, woman - close.  You tell her that you love her too, and that you're worried about her bringing random monsters home."
+                `\n\nShe smiles.  "<i>Sorry for bringing my friend home uninvited.  I just... didn't want to upset you. I love you, ${this.championRef()},</i>" she says, resting her head on your shoulder, tail slipping around your waist.  You smile, holding the young 'mander girl - no, woman - close.  You tell her that you love her too, and that you're worried about her bringing random monsters home.`
             );
             // {if Sluttymander:
             if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50)
@@ -2036,19 +2006,15 @@ export class HelSpawnScene extends NPCAwareContent {
         // {Kiha must be at camp}
         else if (temp <= 0 && this.followerKiha()) {
             this.outx(
-                '"<i>Oh hey, ' +
-                    this.championRef() +
-                    '!  You gotta come see what I was making!</i>"'
+                `"<i>Oh hey, ${this.championRef()}!  You gotta come see what I was making!</i>"`
             );
             this.outx(
                 '\n\nShe grabs you by the [armor], pulling you back toward where she had been standing, near the center of camp.  A large cast-iron cauldron’s sitting on your firepit, full of a dark-green substance that’s bubbling along.  Your dusky dragoness lover, Kiha, is sitting on the edge of the pot, apparently immune to the scalding heat, a long wooden ladle grasped between her dexterous claws.  She grins up at you as you and your daughter wander over.  "<i>Hey, Doofus, come for an early taste?</i>"'
             );
             this.outx(
-                "\n\n\"<i>C'mon, " +
-                    this.championRef() +
-                    ', try it!</i>" ' +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " adds happily.  \"<i>It's aunt Kiha's favorite recipe.</i>\""
+                `\n\n"<i>C'mon, ${this.championRef()}, try it!</i>" ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } adds happily.  "<i>It's aunt Kiha's favorite recipe.</i>"`
             );
 
             this.outx(
@@ -2063,27 +2029,25 @@ export class HelSpawnScene extends NPCAwareContent {
         // {Needs Rath at camp]
         else if (temp <= 1 && this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0) {
             this.outx(
-                '"<i>' +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    '!</i>" you hear a ragged old voice call, "<i>Get back here this instant!  I\'m not done with you yet!</i>"'
+                `"<i>${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }!</i>" you hear a ragged old voice call, "<i>Get back here this instant!  I'm not done with you yet!</i>"`
             );
 
             this.outx(
-                '\n\n"<i>Coming!</i>" ' +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " calls back as Rathazul shuffles into view, waving around what looks like a tiny hammer.  Whispering, " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    ' says, "<i>Could you come with me, ' +
-                    this.championRef() +
-                    '? Rathazul weirds me out.</i>"'
+                `\n\n"<i>Coming!</i>" ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } calls back as Rathazul shuffles into view, waving around what looks like a tiny hammer.  Whispering, ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } says, "<i>Could you come with me, ${this.championRef()}? Rathazul weirds me out.</i>"`
             );
 
             this.outx(
-                "\n\nChuckling, you nod and follow " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " as she returns to Rath's makeshift laboratory and seats herself on one of his tables.  Grumbling about kids, the old rat proceeds to rap his little hammer on her knee - nearly getting kicked in the face for his trouble - before asking her to hold her breath as he listens to her heartbeat.  She's nearly blue in the face before he nods approvingly and tells her she can go. " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " goes running, happy to get away as Rath turns to you, shaking his head."
+                `\n\nChuckling, you nod and follow ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } as she returns to Rath's makeshift laboratory and seats herself on one of his tables.  Grumbling about kids, the old rat proceeds to rap his little hammer on her knee - nearly getting kicked in the face for his trouble - before asking her to hold her breath as he listens to her heartbeat.  She's nearly blue in the face before he nods approvingly and tells her she can go. ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } goes running, happy to get away as Rath turns to you, shaking his head.`
             );
 
             this.outx(
@@ -2106,35 +2070,33 @@ export class HelSpawnScene extends NPCAwareContent {
         // {Bath Slut w/ DD or HHH must be at camp}
         else if (temp <= 2 && this.milkSlave() && this.flags[kFLAGS.MILK_SIZE] > 0) {
             this.outx(
-                '"<i>Hey, have you seen ' +
-                    this.flags[kFLAGS.MILK_NAME] +
-                    " around anywhere, " +
-                    this.championRef() +
-                    '?</i>" ' +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " asks, looking around the camp.  \"<i>Mom asked me to milk her, but I haven't seen her around.  She wouldn't have run off, would she?</i>\""
+                `"<i>Hey, have you seen ${
+                    this.flags[kFLAGS.MILK_NAME]
+                } around anywhere, ${this.championRef()}?</i>" ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } asks, looking around the camp.  "<i>Mom asked me to milk her, but I haven't seen her around.  She wouldn't have run off, would she?</i>"`
             );
             if (this.flags[kFLAGS.MILK_SIZE] == 1)
                 this.outx("\n\nYou tell her it'd be more of a wobble, but");
             else
                 this.outx(
-                    "\n\nYou doubt she would have; " +
-                        this.flags[kFLAGS.MILK_NAME] +
-                        " seems to have a fancy for you, but"
+                    `\n\nYou doubt she would have; ${
+                        this.flags[kFLAGS.MILK_NAME]
+                    } seems to have a fancy for you, but`
                 );
             this.outx(
-                " it wouldn't hurt to check around.  She does tend to wander into the traps around camp from time to time.  Offering " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " your hand, you start searching the camp for your missing milk maid.  The two of you make a circuit around camp, checking the traps and behind various rocks and hollows, to no avail.  Finally, as you're starting to get worried about the dusky maid, you happen to look into the steel pool in her part of camp.  Sure enough, you spy " +
-                    this.flags[kFLAGS.MILK_NAME] +
-                    " curled up at the bottom of the pool, cuddled up with a ragged blanket to catch a quick nap."
+                ` it wouldn't hurt to check around.  She does tend to wander into the traps around camp from time to time.  Offering ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } your hand, you start searching the camp for your missing milk maid.  The two of you make a circuit around camp, checking the traps and behind various rocks and hollows, to no avail.  Finally, as you're starting to get worried about the dusky maid, you happen to look into the steel pool in her part of camp.  Sure enough, you spy ${
+                    this.flags[kFLAGS.MILK_NAME]
+                } curled up at the bottom of the pool, cuddled up with a ragged blanket to catch a quick nap.`
             );
             this.outx(
-                '\n\n"<i>Aww,</i>" ' +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " grins, looking down at the napping " +
-                    this.flags[kFLAGS.MILK_NAME] +
-                    '.  "<i>Guess I can milk her later, then.</i>"'
+                `\n\n"<i>Aww,</i>" ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } grins, looking down at the napping ${
+                    this.flags[kFLAGS.MILK_NAME]
+                }.  "<i>Guess I can milk her later, then.</i>"`
             );
             this.menu();
             this.addButton(0, "MilkHerLater", this.helSpawnSureMilkHerLater);
@@ -2144,25 +2106,23 @@ export class HelSpawnScene extends NPCAwareContent {
         // {Isabella must be at camp}
         else if (temp <= 3 && this.isabellaFollower()) {
             this.outx(
-                '"<i>Oh hey, ' +
-                    this.championRef() +
-                    '!</i>" ' +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    ' says, suddenly grinning, "<i>Mom bought me a new guitar in town.  Wanna come listen?</i>"'
+                `"<i>Oh hey, ${this.championRef()}!</i>" ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } says, suddenly grinning, "<i>Mom bought me a new guitar in town.  Wanna come listen?</i>"`
             );
 
             this.outx(
-                "\n\n\"<i>Sure, kiddo,</i>\" you say, absently wondering how she plays a guitar with those giant claws of hers as she leads you back to her and Helia's part of camp, where she quickly produces a dinged up guitar.  Looks like Hel's been visiting the pawn shop, but hey, " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " doesn't seem to mind.  She hops up onto a nearby rock and gives the instrument a few experimental strums, pausing to adjust the tuning or fix a string that snaps a little too easily.  But after a moment of preparation, she's ready."
+                `\n\n"<i>Sure, kiddo,</i>" you say, absently wondering how she plays a guitar with those giant claws of hers as she leads you back to her and Helia's part of camp, where she quickly produces a dinged up guitar.  Looks like Hel's been visiting the pawn shop, but hey, ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } doesn't seem to mind.  She hops up onto a nearby rock and gives the instrument a few experimental strums, pausing to adjust the tuning or fix a string that snaps a little too easily.  But after a moment of preparation, she's ready.`
             );
 
             this.outx(
-                "\n\nA soft, melodic tune starts to play as " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    "'s dexterous fingers dance across the fret, plucking at the strings with some small hesitation.  She's a beginner, but not bad at all; the simple tune is sweet and she plays it with burgeoning proficiency, slowly settling into the rhythm of the piece until you can close your eyes and relax, letting her playing sooth you, carrying your troubles far away.  You barely notice when a high, soft voice adds itself to the guitar, a lilting, haunting soprano that slowly grows in power as the young 'mander's playing intensifies, building toward crescendo.  She's singing, surely, but the words are alien and unknowable; you think, for a moment, that perhaps they're in Helia's native tongue, but when a second voice, powerful and operatic, joins " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    "'s, you know who's been teaching her."
+                `\n\nA soft, melodic tune starts to play as ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }'s dexterous fingers dance across the fret, plucking at the strings with some small hesitation.  She's a beginner, but not bad at all; the simple tune is sweet and she plays it with burgeoning proficiency, slowly settling into the rhythm of the piece until you can close your eyes and relax, letting her playing sooth you, carrying your troubles far away.  You barely notice when a high, soft voice adds itself to the guitar, a lilting, haunting soprano that slowly grows in power as the young 'mander's playing intensifies, building toward crescendo.  She's singing, surely, but the words are alien and unknowable; you think, for a moment, that perhaps they're in Helia's native tongue, but when a second voice, powerful and operatic, joins ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }'s, you know who's been teaching her.`
             );
 
             this.outx(
@@ -2170,28 +2130,28 @@ export class HelSpawnScene extends NPCAwareContent {
             );
             if (this.player.race() != "human") this.outx(" and you yourself have suffered as well");
             this.outx(
-                ".  You smile as Isabella seats herself beside " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    ", joining their voices together for the final chorus that leaves them both shaking as " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " strums the last, desperate notes, nearly clawing through the strings in her passion."
+                `.  You smile as Isabella seats herself beside ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }, joining their voices together for the final chorus that leaves them both shaking as ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } strums the last, desperate notes, nearly clawing through the strings in her passion.`
             );
 
             this.outx('"<i>');
             if (!this.isabellaAccent()) this.outx("Sehr gut");
             else this.outx("Very good");
             this.outx(
-                " little " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    ",</i>\" Isabella says, pulling the young 'mander into a great big hug that threatens to smother her betwixt the cowgirl's massive bosoms.  Grinning, you congratulate " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " on her performance, showering your girl in praise before you depart, leaving her to Isabella's instruction.  As you walk away, you can't help but notice Helia standing a short ways off, rubbing her eyes."
+                ` little ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                },</i>" Isabella says, pulling the young 'mander into a great big hug that threatens to smother her betwixt the cowgirl's massive bosoms.  Grinning, you congratulate ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } on her performance, showering your girl in praise before you depart, leaving her to Isabella's instruction.  As you walk away, you can't help but notice Helia standing a short ways off, rubbing her eyes.`
             );
 
             this.outx(
-                "\n\nWhen you approach, your lover smiles at you, saying, \"<i>I always wanted to be a bard when I was a little girl.  I'm... I'm glad " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    "'s getting the chance, at least.</i>\""
+                `\n\nWhen you approach, your lover smiles at you, saying, "<i>I always wanted to be a bard when I was a little girl.  I'm... I'm glad ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }'s getting the chance, at least.</i>"`
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         } else {
@@ -2207,9 +2167,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.clearOutput();
         this.outx('"<i>So tell me about this spider boy.</i>"');
         this.outx(
-            '\n\n"<i>Alex?</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " asks, brightening up.  \"<i>I met him on the way to Tel'Adre.  Mom was stopping to, uh, take care of a few stray witches, and I ended up wandering off...</i>\" she says, launching into the tale of her meeting the effeminate spider boy, and the whirlwind romance that brought them giggling back to camp in the middle of the night.  It's typical teen talk, but then, you're not much older than she seems, now, and you remember the days at home when you could have done the same.  You grin as she recounts her first kiss, and note the bright blush on her cheek."
+            `\n\n"<i>Alex?</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } asks, brightening up.  "<i>I met him on the way to Tel'Adre.  Mom was stopping to, uh, take care of a few stray witches, and I ended up wandering off...</i>" she says, launching into the tale of her meeting the effeminate spider boy, and the whirlwind romance that brought them giggling back to camp in the middle of the night.  It's typical teen talk, but then, you're not much older than she seems, now, and you remember the days at home when you could have done the same.  You grin as she recounts her first kiss, and note the bright blush on her cheek.`
         );
 
         this.outx("\n\nMaybe she ought to keep seeing this boy after all...");
@@ -2220,26 +2180,22 @@ export class HelSpawnScene extends NPCAwareContent {
     private dontFuckAlex(): void {
         this.clearOutput();
         this.outx(
-            "Stroking " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "'s hair, you try to tell her that there's a better way, that she doesn't have to just fuck everything she comes across.  Her mother's that way, sure, but she could do so much better, so much more with herself than giving in to constant lust."
+            `Stroking ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }'s hair, you try to tell her that there's a better way, that she doesn't have to just fuck everything she comes across.  Her mother's that way, sure, but she could do so much better, so much more with herself than giving in to constant lust.`
         );
         // {If Sluttymander:}
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50) {
             this.outx(
-                "\n\n" +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " scoffs, shaking her head.  \"<i>But I </i>like<i> mom's way.  I love jilling off, the feeling of my cunt getting stretched and my ass being torn apart by the big toys I buy in town.  That's who I am, " +
-                    this.championRef() +
-                    ".  I'm like mom, and I don't think... no, I know I don't want to change.  I love sex, even if you stopped me and Alex from it.  I want to feel a gang of minotaurs raping me, I want to jump on a drider's cock and ride him down.  I want to do the things I heard mom doing, and that's just what I'm going to do. I'm sorry.</i>\""
+                `\n\n${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } scoffs, shaking her head.  "<i>But I </i>like<i> mom's way.  I love jilling off, the feeling of my cunt getting stretched and my ass being torn apart by the big toys I buy in town.  That's who I am, ${this.championRef()}.  I'm like mom, and I don't think... no, I know I don't want to change.  I love sex, even if you stopped me and Alex from it.  I want to feel a gang of minotaurs raping me, I want to jump on a drider's cock and ride him down.  I want to do the things I heard mom doing, and that's just what I'm going to do. I'm sorry.</i>"`
             );
 
             this.outx(
-                "\n\nYou try to say something, but " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    ' steps away, calling back, "<i>I love you, ' +
-                    this.championRef() +
-                    ", but I can't be what you want me to be.  I'm going to be a slut like mom, and there's nothing you can do to stop me!  It's who I was born and raised to be.</i>\""
+                `\n\nYou try to say something, but ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } steps away, calling back, "<i>I love you, ${this.championRef()}, but I can't be what you want me to be.  I'm going to be a slut like mom, and there's nothing you can do to stop me!  It's who I was born and raised to be.</i>"`
             );
 
             this.outx("\n\nYou may have made a horrible mistake.");
@@ -2247,11 +2203,9 @@ export class HelSpawnScene extends NPCAwareContent {
         // {If Chastemander:}
         else {
             this.outx(
-                "\n\n" +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    ' nods slowly, taking in your words.  "<i>I... I know, ' +
-                    this.championRef() +
-                    ".  I'm sorry I brought Alex home last night.  It won't happen again.  I don't... I love mother, but I don't want to be like her.  A whore.  She's a great woman, but the things she does... they disgust me.</i>\""
+                `\n\n${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } nods slowly, taking in your words.  "<i>I... I know, ${this.championRef()}.  I'm sorry I brought Alex home last night.  It won't happen again.  I don't... I love mother, but I don't want to be like her.  A whore.  She's a great woman, but the things she does... they disgust me.</i>"`
             );
 
             this.outx(
@@ -2265,19 +2219,13 @@ export class HelSpawnScene extends NPCAwareContent {
     private incestWithHelspawn(): void {
         this.clearOutput();
         this.outx(
-            "You cup " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "'s cheek, turning her to you... only to have her leap you, straddling your [legs] as her powerful arms wrap around your neck.  Her thin lips press hard to yours, slender tongue probing against yours as her svelte body presses against you.  You respond in kind, grabbing her big ass and squeezing, kneading the delicious curves as she starts to grind against you, breath hot and heavy on your " +
-                this.player.skinFurScales() +
-                '.  "<i>I said I love you, ' +
-                this.championRef() +
-                ',</i>" she grins, so close you can practically feel the beat of her heart through her perky breasts.  "<i>Glad to know you feel the same way.</i>"'
+            `You cup ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }'s cheek, turning her to you... only to have her leap you, straddling your [legs] as her powerful arms wrap around your neck.  Her thin lips press hard to yours, slender tongue probing against yours as her svelte body presses against you.  You respond in kind, grabbing her big ass and squeezing, kneading the delicious curves as she starts to grind against you, breath hot and heavy on your ${this.player.skinFurScales()}.  "<i>I said I love you, ${this.championRef()},</i>" she grins, so close you can practically feel the beat of her heart through her perky breasts.  "<i>Glad to know you feel the same way.</i>"`
         );
 
         this.outx(
-            "\n\nYou grin as the beautiful salamander strokes your cheek, and says, \"<i>You're a hell of a lot better than any femmy spider boy, " +
-                this.championRef() +
-                ".  I'm a lucky girl to have someone like you to raise me... and to love me.</i>\""
+            `\n\nYou grin as the beautiful salamander strokes your cheek, and says, "<i>You're a hell of a lot better than any femmy spider boy, ${this.championRef()}.  I'm a lucky girl to have someone like you to raise me... and to love me.</i>"`
         );
 
         this.outx(
@@ -2292,22 +2240,20 @@ export class HelSpawnScene extends NPCAwareContent {
     private ohGodEwKihaAndHelspawnSuckAtCooking(): void {
         this.clearOutput();
         this.outx(
-            "You spew the stew onto the ground and grab a nearby waterskin, trying to flush the taste from your mouth.  Kiha and " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " look on with horror as you wipe your mouth and begin to try and coherently explain just how god awful whatever that... STUFF... you just put in your mouth was.  Shock turns to anger before you’re halfway through admonishing the pair of scaly redheads.  Kiha scowls at you and snatches the ladle from you."
+            `You spew the stew onto the ground and grab a nearby waterskin, trying to flush the taste from your mouth.  Kiha and ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } look on with horror as you wipe your mouth and begin to try and coherently explain just how god awful whatever that... STUFF... you just put in your mouth was.  Shock turns to anger before you’re halfway through admonishing the pair of scaly redheads.  Kiha scowls at you and snatches the ladle from you.`
         );
         this.outx(
-            "\n\n\"<i>Oh, what the fuck do you know anyway, you big ass!  It's perfectly fine, isn't it " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                '?</i>" she growls, spooning up a mouthful of the stuff before you can stop her.  A heartbeat after she swallows, Kiha goes completely stiff; her eyes growing as wide as saucers as they water.  She collapses backwards, falling onto her back with a muted <i>THUD</i>.'
+            `\n\n"<i>Oh, what the fuck do you know anyway, you big ass!  It's perfectly fine, isn't it ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }?</i>" she growls, spooning up a mouthful of the stuff before you can stop her.  A heartbeat after she swallows, Kiha goes completely stiff; her eyes growing as wide as saucers as they water.  She collapses backwards, falling onto her back with a muted <i>THUD</i>.`
         );
 
         this.outx(
-            '\n\n"<i>K-Kiha?</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ' yelps, watching the dragoness collapse into a pile of limp scales and leather.  "<i>Are you okay?  Is she okay, ' +
-                this.championRef() +
-                '?</i>"'
+            `\n\n"<i>K-Kiha?</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } yelps, watching the dragoness collapse into a pile of limp scales and leather.  "<i>Are you okay?  Is she okay, ${this.championRef()}?</i>"`
         );
 
         this.outx(
@@ -2318,9 +2264,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou and " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " are soon working away, stirring up your own special blend of your rations and the spices she and Kiha gathered for the first attempt.  Once you've got the basics in, you step back and hand the ladle over, telling the young 'mander to go wild.  Grinning like a kid, she goes to work, mixing in a wild combination of ingredients.  The cauldron's full to bursting by the time she's done, and no sooner does she ladle out the first bowel of it than Kiha sits up, groaning."
+            `\n\nYou and ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } are soon working away, stirring up your own special blend of your rations and the spices she and Kiha gathered for the first attempt.  Once you've got the basics in, you step back and hand the ladle over, telling the young 'mander to go wild.  Grinning like a kid, she goes to work, mixing in a wild combination of ingredients.  The cauldron's full to bursting by the time she's done, and no sooner does she ladle out the first bowel of it than Kiha sits up, groaning.`
         );
 
         this.outx(
@@ -2328,9 +2274,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>You, uh, fell off the edge, aunt Kiha.  And spilled all the stew.  Here, we remade it for you!</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ' lies, presenting "aunt Kiha" with a bowl full of an aromatic brown goop, full of carrots and spices floating atop it like boats on a placid lake.  At least it smells better.'
+            `\n\n"<i>You, uh, fell off the edge, aunt Kiha.  And spilled all the stew.  Here, we remade it for you!</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } lies, presenting "aunt Kiha" with a bowl full of an aromatic brown goop, full of carrots and spices floating atop it like boats on a placid lake.  At least it smells better.`
         );
 
         this.outx(
@@ -2346,9 +2292,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou just shake your head and grab a bowl, sitting down with the scaly ladies as you enjoy your lunch, trying to ignore the little shit-eating grin " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "'s sporting all the while."
+            `\n\nYou just shake your head and grab a bowl, sitting down with the scaly ladies as you enjoy your lunch, trying to ignore the little shit-eating grin ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }'s sporting all the while.`
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -2357,9 +2303,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.outx("Um, yum?");
 
         this.outx(
-            "\n\nCringing, you set the offered bowl back down, squeaking out that it's delicious, thank you very much, but you have something to take care of right now; maybe you can have more later.  Kiha rolls her eyes and shoos you off before she and " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " spoon out their lunch."
+            `\n\nCringing, you set the offered bowl back down, squeaking out that it's delicious, thank you very much, but you have something to take care of right now; maybe you can have more later.  Kiha rolls her eyes and shoos you off before she and ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } spoon out their lunch.`
         );
 
         this.outx(
@@ -2387,52 +2333,52 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " gives a rebellious huff as she clambers down, slipping down to the bottom and giving " +
-                this.flags[kFLAGS.MILK_NAME] +
-                ' a gentle nudge.  "<i>C\'mon, cutey, wake up.  Time to relieve some pressure.</i>"'
+            `\n\n${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } gives a rebellious huff as she clambers down, slipping down to the bottom and giving ${
+                this.flags[kFLAGS.MILK_NAME]
+            } a gentle nudge.  "<i>C'mon, cutey, wake up.  Time to relieve some pressure.</i>"`
         );
 
         this.outx(
-            "\n\nYawning powerfully, " +
-                this.flags[kFLAGS.MILK_NAME] +
-                " rises to her knees and rubs the sleep from her eyes"
+            `\n\nYawning powerfully, ${
+                this.flags[kFLAGS.MILK_NAME]
+            } rises to her knees and rubs the sleep from her eyes`
         );
         if (this.flags[kFLAGS.MILK_SIZE] == 2) this.outx(", already working to unfasten her shift");
         this.outx(
-            '.  "<i>Suckle?</i>" she asks, turning her full teats toward ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "."
+            `.  "<i>Suckle?</i>" she asks, turning her full teats toward ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }.`
         );
 
         // If Sluttymander:
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50)
             this.outx(
-                '\n\n"<i>Wouldn\'t have it any other way!</i>" the salamander answers with an eager grin, easing herself into ' +
-                    this.flags[kFLAGS.MILK_NAME] +
-                    "'s arms and wrapping her lips around one of her prominent teats. " +
-                    this.flags[kFLAGS.MILK_NAME] +
-                    " gives a pleasured little shudder as " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " starts to suckle like a babe, drinking down the dusky maid's seemingly endless supply of milk."
+                `\n\n"<i>Wouldn't have it any other way!</i>" the salamander answers with an eager grin, easing herself into ${
+                    this.flags[kFLAGS.MILK_NAME]
+                }'s arms and wrapping her lips around one of her prominent teats. ${
+                    this.flags[kFLAGS.MILK_NAME]
+                } gives a pleasured little shudder as ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } starts to suckle like a babe, drinking down the dusky maid's seemingly endless supply of milk.`
             );
         // If Chastemander:
         else
             this.outx(
-                '\n\n"<i>Sorry, ' +
-                    this.flags[kFLAGS.MILK_NAME] +
-                    ", you know I'm not really into that.  Just turn around and sit back, alright?</i>\"  With a sigh, " +
-                    this.flags[kFLAGS.MILK_NAME] +
-                    " does as she's asked, leaning back into " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    "'s arms as the young salamander goes to work, clawed fingers gently caressing her prominent nubs until a white flow springs fort, splashing her knees as the dusky maid gives a little gasp of pleasure."
+                `\n\n"<i>Sorry, ${
+                    this.flags[kFLAGS.MILK_NAME]
+                }, you know I'm not really into that.  Just turn around and sit back, alright?</i>"  With a sigh, ${
+                    this.flags[kFLAGS.MILK_NAME]
+                } does as she's asked, leaning back into ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }'s arms as the young salamander goes to work, clawed fingers gently caressing her prominent nubs until a white flow springs fort, splashing her knees as the dusky maid gives a little gasp of pleasure.`
             );
 
         this.outx(
-            "\n\n<i>They seem to get on all right</i>, you think as you watch the pair of them.  It's nice to have someone else around to help keep " +
-                this.flags[kFLAGS.MILK_NAME] +
-                "'s production under control.  Poor thing just never stops lactating."
+            `\n\n<i>They seem to get on all right</i>, you think as you watch the pair of them.  It's nice to have someone else around to help keep ${
+                this.flags[kFLAGS.MILK_NAME]
+            }'s production under control.  Poor thing just never stops lactating.`
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -2441,16 +2387,17 @@ export class HelSpawnScene extends NPCAwareContent {
     private sparHelspawn(): void {
         this.clearOutput();
         this.outx(
-            "You ask " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " if she's up for some battle practice, and she answers with an eager nod as she grabs her weapon."
+            `You ask ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } if she's up for some battle practice, and she answers with an eager nod as she grabs her weapon.`
         );
         // If Sluttymander:
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50)
             this.outx(
-                '\n\n"<i>Ready to get your shit kicked in, old ' +
-                    this.player.mf("man", "lady") +
-                    '?</i>" she grins, drawing her weapon.'
+                `\n\n"<i>Ready to get your shit kicked in, old ${this.player.mf(
+                    "man",
+                    "lady"
+                )}?</i>" she grins, drawing her weapon.`
             );
         else
             this.outx(
@@ -2468,16 +2415,16 @@ export class HelSpawnScene extends NPCAwareContent {
             if (this.player.lust > 99) this.outx("succumbing to your own lusts");
             else this.outx("unable to withstand her unending hail of attacks");
             this.outx(
-                ", " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " quickly sweeps your [legs] out from under you, dropping you right on your ass.  You collapse with a grunt, "
+                `, ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } quickly sweeps your [legs] out from under you, dropping you right on your ass.  You collapse with a grunt, `
             );
             if (this.player.weaponName != "fists") this.outx("weapon tumbling out of hand");
             else this.outx("unable to even clench your fists anymore");
             this.outx(
-                ", and a moment later " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    "'s on you, straddling you with her powerful legs, pushing you down into the dirt."
+                `, and a moment later ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }'s on you, straddling you with her powerful legs, pushing you down into the dirt.`
             );
 
             this.outx(
@@ -2485,9 +2432,7 @@ export class HelSpawnScene extends NPCAwareContent {
             );
 
             this.outx(
-                '\n\nShe can barely finish the sentence before you both break out snickering.  She gives you a rough punch on the shoulder and rolls off, flopping onto her back beside you.  "<i>That was fun, ' +
-                    this.championRef() +
-                    '.  Thanks for spending a little time with me.  No hard feelings?</i>"'
+                `\n\nShe can barely finish the sentence before you both break out snickering.  She gives you a rough punch on the shoulder and rolls off, flopping onto her back beside you.  "<i>That was fun, ${this.championRef()}.  Thanks for spending a little time with me.  No hard feelings?</i>"`
             );
             this.outx(
                 "\n\nYou chuckle and stumble to your [feet], pausing to ruffle her hair and collect your gear."
@@ -2500,20 +2445,16 @@ export class HelSpawnScene extends NPCAwareContent {
             if (this.player.lust > 99) this.outx("succumbing to your own lusts");
             else this.outx("unable to withstand her unending hail of attacks");
             this.outx(
-                ", " +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    ' grabs your arm, catching you before you can fall.  "<i>Easy there, ' +
-                    this.championRef() +
-                    ', I got you,</i>" she says, pulling you into a quick hug.'
+                `, ${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } grabs your arm, catching you before you can fall.  "<i>Easy there, ${this.championRef()}, I got you,</i>" she says, pulling you into a quick hug.`
             );
 
             this.outx(
                 '\n\n"<i>You didn\'t go easy on me, did you?</i>" she asks as you regain your balance.  When you shake your head, she beams, smiling from ear to ear. Prancing out of reach, she breaks down into a happy little dance, gloating over her victory over the mighty Champion.  You shake your head and ruffle her hair, reminding her not to get too full of herself.'
             );
             this.outx(
-                "\n\n\"<i>I wouldn't dream of it, " +
-                    this.championRef() +
-                    '!</i>" she grins, planting a quick kiss on your cheek before you head off to '
+                `\n\n"<i>I wouldn't dream of it, ${this.championRef()}!</i>" she grins, planting a quick kiss on your cheek before you head off to `
             );
             if (this.player.HP < 1) this.outx("recover from that ass kicking");
             else this.outx("dunk your head");
@@ -2551,8 +2492,9 @@ export class HelSpawnScene extends NPCAwareContent {
             }
         } else {
             this.outx(
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                    ' stumbles back, dropping her weapon and waving her arms, "<i>I give, I give.</i>"'
+                `${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } stumbles back, dropping her weapon and waving her arms, "<i>I give, I give.</i>"`
             );
             this.outx(
                 "\n\nWith an approving nod, you lower your [weapon], telling her she did a fine job.  Not many people can stand up to you for as long as she did, after all.  She grins a little, but winces when you try and get close"
@@ -2577,9 +2519,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(68);
         this.outx(
-            "As you head back into camp, you notice Hel and " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " are sitting around the cook fire in the center of camp, with your foster daughter balanced precariously on the lap of her own father, Mai the fox-girl."
+            `As you head back into camp, you notice Hel and ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } are sitting around the cook fire in the center of camp, with your foster daughter balanced precariously on the lap of her own father, Mai the fox-girl.`
         );
 
         this.outx(
@@ -2587,24 +2529,24 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>Hi, [name],</i>" Mai says with a demure smile, arms wrapped around ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                "'s belly, trying to hold the daughter that's near a foot taller than she is.  Finally, laughing, she lets the young salamander go.  " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " drops down to sit beside her mother and father, and quickly has both a smooth and scaly hand stroking her hair."
+            `\n\n"<i>Hi, [name],</i>" Mai says with a demure smile, arms wrapped around ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }'s belly, trying to hold the daughter that's near a foot taller than she is.  Finally, laughing, she lets the young salamander go.  ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } drops down to sit beside her mother and father, and quickly has both a smooth and scaly hand stroking her hair.`
         );
         // If Chastemander:
         if (this.flags[kFLAGS.HELSPAWN_PERSONALITY] < 50)
             this.outx(
-                "\n\n" +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " happily leans her head against Mai's leg, accepting the affection with her tail swishing gaily behind her, foxy ears twitching as Mai brushes them."
+                `\n\n${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } happily leans her head against Mai's leg, accepting the affection with her tail swishing gaily behind her, foxy ears twitching as Mai brushes them.`
             );
         else
             this.outx(
-                "\n\n" +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " leans back, pulling out a flask and taking a deep swill before passing it to her father, who takes it with a knowing smile and knocks it back like a champ."
+                `\n\n${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } leans back, pulling out a flask and taking a deep swill before passing it to her father, who takes it with a knowing smile and knocks it back like a champ.`
             );
 
         this.outx(
@@ -2628,9 +2570,9 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>Heeeeeyyyyyy,</i>" ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " whines, crossing her arms with a huff."
+            `\n\n"<i>Heeeeeyyyyyy,</i>" ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } whines, crossing her arms with a huff.`
         );
 
         this.outx(
@@ -2638,21 +2580,21 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " lights up as Mai slips the gold chain around her daughter's neck.  \"<i>Something to remember me by when I'm not around,</i>\" she says with a wink, letting her kid skip off to find a mirror."
+            `\n\n${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } lights up as Mai slips the gold chain around her daughter's neck.  "<i>Something to remember me by when I'm not around,</i>" she says with a wink, letting her kid skip off to find a mirror.`
         );
 
         this.outx(
-            '\n\n"<i>And you, [name],</i>" she says, turning to you, "<i>Thanks for taking care of ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ".  I-I mean, I know I was really making her for you and Hel anyway, but still... she's a good kid, and I love her anyway.  Keep her safe, alright?</i>\""
+            `\n\n"<i>And you, [name],</i>" she says, turning to you, "<i>Thanks for taking care of ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }.  I-I mean, I know I was really making her for you and Hel anyway, but still... she's a good kid, and I love her anyway.  Keep her safe, alright?</i>"`
         );
 
         this.outx(
-            "\n\nYou promise that you will, and with a quick nod, Mai runs after " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " to say goodbye for the day.  As she leaves, Helia grins, holding you tight against her.  \"<i>She's a good girl, [name].  Couldn't have picked a better father for our girl.</i>\""
+            `\n\nYou promise that you will, and with a quick nod, Mai runs after ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } to say goodbye for the day.  As she leaves, Helia grins, holding you tight against her.  "<i>She's a good girl, [name].  Couldn't have picked a better father for our girl.</i>"`
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -2664,9 +2606,9 @@ export class HelSpawnScene extends NPCAwareContent {
         this.spriteSelect(68);
         this.flags[kFLAGS.SPIDER_BRO_GIFT] = 1;
         this.outx(
-            "As you're getting ready to head out for the day, you notice " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " prancing around camp with a long, brightly-colored scarf wrapped around her neck, standing painfully in contrast with her midnight-black scales and pale flesh."
+            `As you're getting ready to head out for the day, you notice ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } prancing around camp with a long, brightly-colored scarf wrapped around her neck, standing painfully in contrast with her midnight-black scales and pale flesh.`
         );
 
         this.outx(
@@ -2728,11 +2670,11 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nIt hardly matters, as a few minutes later, you hear a cry of unabashed glee from the edge of camp, and turn to see " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " running up to meet a pair of oncoming figures.  You wave as Hel's father swoops his granddaughter up into a great bear hug, hefting the half-breed 'mander off her feet in his powerful arms.  " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " squeals with delight as she's practically carried into camp, until Hakon sets her down and hugs her mother, pulling Hel into a tight hug before she can finish saying hello."
+            `\n\nIt hardly matters, as a few minutes later, you hear a cry of unabashed glee from the edge of camp, and turn to see ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } running up to meet a pair of oncoming figures.  You wave as Hel's father swoops his granddaughter up into a great bear hug, hefting the half-breed 'mander off her feet in his powerful arms.  ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } squeals with delight as she's practically carried into camp, until Hakon sets her down and hugs her mother, pulling Hel into a tight hug before she can finish saying hello.`
         );
 
         this.outx(
@@ -2740,37 +2682,36 @@ export class HelSpawnScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n\"<i>Too right.  Put 'er there, " +
-                this.player.mf("son", "girl") +
-                ",</i>\" Hakon says, extending a hand to you, grinning wide as he lets his daughter and granddaughter go.  You shake the old salamander's hand, nearly wincing as his powerful grip throttles your wrist vigorously, practically walking you back into the heart of the camp."
+            `\n\n"<i>Too right.  Put 'er there, ${this.player.mf(
+                "son",
+                "girl"
+            )},</i>" Hakon says, extending a hand to you, grinning wide as he lets his daughter and granddaughter go.  You shake the old salamander's hand, nearly wincing as his powerful grip throttles your wrist vigorously, practically walking you back into the heart of the camp.`
         );
 
         this.outx(
-            "\n\nTurning to " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ', Hakon smiles with pride.  "<i>Gods and demons, girl, you\'ve grown!  What have you two been feeding her, huh?</i>"'
+            `\n\nTurning to ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }, Hakon smiles with pride.  "<i>Gods and demons, girl, you've grown!  What have you two been feeding her, huh?</i>"`
         );
 
         this.outx(
-            '\n\n"<i>And you should see how strong she is!</i>" Hel grins.  "<i>Go on, ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ", show the old scales what you've got.</i>\""
+            `\n\n"<i>And you should see how strong she is!</i>" Hel grins.  "<i>Go on, ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }, show the old scales what you've got.</i>"`
         );
 
         this.outx(
-            '\n\n"<i>Old scales!?  I\'ll show you old, you little brat.  Come on, hit me!</i>" Hakon says, just before ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ' punches him right in the chest, knocking him right on his ass.  He tumbles back with a grunt, shaking his head with a wry laugh.  "<i>Ha!  Maybe these scales are getting old after all.  This one\'s gonna be a hell of a fighter, though.  Should take her hunting with us one of these days.  What do you say, kid?</i>"'
+            `\n\n"<i>Old scales!?  I'll show you old, you little brat.  Come on, hit me!</i>" Hakon says, just before ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } punches him right in the chest, knocking him right on his ass.  He tumbles back with a grunt, shaking his head with a wry laugh.  "<i>Ha!  Maybe these scales are getting old after all.  This one's gonna be a hell of a fighter, though.  Should take her hunting with us one of these days.  What do you say, kid?</i>"`
         );
 
         this.outx('\n\n"<i>Sure!  ');
         if (this.flags[kFLAGS.HELSPAWN_WEAPON] == "scimitar and shield")
-            this.outx(this.championRef() + "'s been teaching me how to fight.");
+            this.outx(`${this.championRef()}'s been teaching me how to fight.`);
         else this.outx("Mom's been teaching me how to fight.");
         this.outx(
-            "  I'm not as good as mom and " +
-                this.championRef() +
-                " yet, but I'd love to come along.</i>\""
+            `  I'm not as good as mom and ${this.championRef()} yet, but I'd love to come along.</i>"`
         );
 
         this.outx(

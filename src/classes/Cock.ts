@@ -34,9 +34,8 @@ export class Cock {
         ]);
         if (!this._isPierced) {
             if (this._pShortDesc.length > 0)
-                error += "Not pierced but _pShortDesc = " + this._pShortDesc + ". ";
-            if (this._pLongDesc.length > 0)
-                error += "Not pierced but pLong = " + this._pLongDesc + ". ";
+                error += `Not pierced but _pShortDesc = ${this._pShortDesc}. `;
+            if (this._pLongDesc.length > 0) error += `Not pierced but pLong = ${this._pLongDesc}. `;
         } else {
             if (this._pShortDesc.length == 0) error += "Pierced but no _pShortDesc. ";
             if (this._pLongDesc.length == 0) error += "Pierced but no pLong. ";
@@ -72,7 +71,7 @@ export class Cock {
 
         let threshhold = 0;
 
-        trace("growcock starting at:" + lengthDelta);
+        trace(`growcock starting at:${lengthDelta}`);
 
         if (lengthDelta > 0) {
             // growing
@@ -122,7 +121,7 @@ export class Cock {
             else if (this.cockLength > threshhold / 2) lengthDelta /= 2;
         }
 
-        trace("then changing by: " + lengthDelta);
+        trace(`then changing by: ${lengthDelta}`);
 
         this.cockLength += lengthDelta;
 
@@ -182,7 +181,7 @@ export class Cock {
                 increase++;
             }
         }
-        trace("thickenCock called and thickened by: " + amountGrown);
+        trace(`thickenCock called and thickened by: ${amountGrown}`);
         return amountGrown;
     }
 

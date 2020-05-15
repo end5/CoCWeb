@@ -30,9 +30,7 @@ export class GooGirl extends Monster {
             this.outx("Her body quivering from your flames, the goo-girl ");
         else
             this.outx(
-                "The slime holds its hands up and they morph into a replica of your " +
-                    this.player.weaponName +
-                    ".  Happily, she swings at you",
+                `The slime holds its hands up and they morph into a replica of your ${this.player.weaponName}.  Happily, she swings at you`,
                 false
             );
         // Determine if dodged!
@@ -93,9 +91,7 @@ export class GooGirl extends Monster {
             if (this.findPerk(PerkLib.Acid) >= 0) {
                 if (GooGirl.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        "tries to slap you, but the acid-bearing slap spatters weakly off your " +
-                            this.player.armorName +
-                            ".",
+                        `tries to slap you, but the acid-bearing slap spatters weakly off your ${this.player.armorName}.`,
                         false
                     );
                 else
@@ -107,9 +103,7 @@ export class GooGirl extends Monster {
                 // Due to toughness or amor...
                 if (GooGirl.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        ", her attack slapping fruitlessly against your " +
-                            this.player.armorName +
-                            ".",
+                        `, her attack slapping fruitlessly against your ${this.player.armorName}.`,
                         false
                     );
                 else this.outx(", her attack splattering ineffectually against you.");
@@ -126,29 +120,21 @@ export class GooGirl extends Monster {
                     this.player.createStatusAffect(StatusAffects.AcidSlap, 0, 0, 0, 0);
             } else
                 this.outx(
-                    ", painfully smacking her gooey limbs against your head.  You shake your " +
-                        this.player.hairDescript() +
-                        ", clearing your head of the dazing slap.",
+                    `, painfully smacking her gooey limbs against your head.  You shake your ${this.player.hairDescript()}, clearing your head of the dazing slap.`,
                     false
                 );
-            this.outx(" (" + damage + ")", false);
+            this.outx(` (${damage})`, false);
         }
         if (damage > 0) {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
                 if (!this.plural)
                     this.outx(
-                        "\n" +
-                            this.capitalA +
-                            this.short +
-                            " brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.",
+                        `\n${this.capitalA}${this.short} brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.`,
                         false
                     );
                 else
                     this.outx(
-                        "\n" +
-                            this.capitalA +
-                            this.short +
-                            " brush against your exposed skin and jerk back in surprise, coloring slightly from seeing so much of you revealed.",
+                        `\n${this.capitalA}${this.short} brush against your exposed skin and jerk back in surprise, coloring slightly from seeing so much of you revealed.`,
                         false
                     );
                 this.lust += 5 * this.lustVuln;
@@ -172,9 +158,7 @@ export class GooGirl extends Monster {
     // Throw –
     private gooThrow(): void {
         this.outx(
-            "The girl reaches into her torso, pulls a large clump of goo out, and chucks it at you like a child throwing mud. The slime splatters on your chest and creeps under your " +
-                this.player.armorName +
-                ", tickling your skin like fingers dancing across your body.",
+            `The girl reaches into her torso, pulls a large clump of goo out, and chucks it at you like a child throwing mud. The slime splatters on your chest and creeps under your ${this.player.armorName}, tickling your skin like fingers dancing across your body.`,
             false
         );
         const damage = 1;
@@ -186,9 +170,7 @@ export class GooGirl extends Monster {
     // Engulf –
     private gooEngulph(): void {
         this.outx(
-            "The goo-girl gleefully throws her entire body at you and, before you can get out of the way, she has engulfed you in her oozing form! Tendrils of " +
-                this.skinTone +
-                " slime slide up your nostrils and through your lips, filling your lungs with the girl's muck. You begin suffocating!",
+            `The goo-girl gleefully throws her entire body at you and, before you can get out of the way, she has engulfed you in her oozing form! Tendrils of ${this.skinTone} slime slide up your nostrils and through your lips, filling your lungs with the girl's muck. You begin suffocating!`,
             false
         );
         if (this.player.findStatusAffect(StatusAffects.GooBind) < 0)
@@ -237,9 +219,7 @@ export class GooGirl extends Monster {
                 );
         } else
             this.outx(
-                "\nIt appears the goo-girl has gotten lost in her mimicry, squeezing her breasts and jilling her shiny " +
-                    this.skinTone +
-                    " clit, her desire to investigate you forgotten.",
+                `\nIt appears the goo-girl has gotten lost in her mimicry, squeezing her breasts and jilling her shiny ${this.skinTone} clit, her desire to investigate you forgotten.`,
                 false
             );
         this.applyTease(lustDelta);
@@ -252,13 +232,11 @@ export class GooGirl extends Monster {
         this.a = "the ";
         this.short = "goo-girl";
         this.imageName = "googirl";
-        this.long =
-            "The goo-girl has a curious expression on her youthful, shimmering face. Her body is slender and globs of slime regularly drip from her limbs, splattering into the goo puddle pooling beneath her hips. A small, heart-shaped nucleus pulses in her chest with a red glow." +
-            (playerHasBigBoobs
-                ? "  She has apparently made herself a bit more like you, as her chest appears to be a perfect copy of your " +
-                  this.player.chestDesc() +
-                  "."
-                : "");
+        this.long = `The goo-girl has a curious expression on her youthful, shimmering face. Her body is slender and globs of slime regularly drip from her limbs, splattering into the goo puddle pooling beneath her hips. A small, heart-shaped nucleus pulses in her chest with a red glow.${
+            playerHasBigBoobs
+                ? `  She has apparently made herself a bit more like you, as her chest appears to be a perfect copy of your ${this.player.chestDesc()}.`
+                : ""
+        }`;
         // this.long = false;
         this.createVagina(false, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_NORMAL);
         this.createStatusAffect(StatusAffects.BonusVCapacity, 9001, 0, 0, 0);

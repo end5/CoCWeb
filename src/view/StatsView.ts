@@ -120,9 +120,9 @@ export class StatsView {
         >[];
 
         for (const statName of allStats) {
-            const oldStatName = ("old" +
-                statName.charAt(0).toUpperCase() +
-                statName.substr(1)) as keyof Player;
+            const oldStatName = `old${statName.charAt(0).toUpperCase()}${statName.substr(
+                1
+            )}` as keyof Player;
 
             if (this.model.player[statName] > this.model.oldStats[oldStatName]) {
                 this.showStatUp(statName);

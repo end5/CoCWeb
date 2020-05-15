@@ -83,8 +83,8 @@ export class Saves extends BaseContent {
             holding = slotName;
             holding += ":  <b>";
             holding += saveFile.short;
-            holding += "</b> - <i>" + saveFile.notes + "</i>\r";
-            holding += "Days - " + saveFile.days + "  Gender - ";
+            holding += `</b> - <i>${saveFile.notes}</i>\r`;
+            holding += `Days - ${saveFile.days}  Gender - `;
             if (saveFile.gender == 0) holding += "U";
             if (saveFile.gender == 1) holding += "M";
             if (saveFile.gender == 2) holding += "F";
@@ -92,12 +92,9 @@ export class Saves extends BaseContent {
             holding += "\r";
             return holding;
         } else if (saveFile.exists && saveFile.flags[2066] != undefined) {
-            return (
-                slotName +
-                ":  <b>UNSUPPORTED</b>\rThis is a save file that has been created in a modified version of CoC.\r"
-            );
+            return `${slotName}:  <b>UNSUPPORTED</b>\rThis is a save file that has been created in a modified version of CoC.\r`;
         } else {
-            return slotName + ":  <b>EMPTY</b>\r     \r";
+            return `${slotName}:  <b>EMPTY</b>\r     \r`;
         }
     }
 
@@ -165,7 +162,7 @@ export class Saves extends BaseContent {
 
         this.outx("", true);
         if (this.player.slotName != "VOID")
-            this.outx("<b>Last saved or loaded from: " + this.player.slotName + "</b>\r\r", false);
+            this.outx(`<b>Last saved or loaded from: ${this.player.slotName}</b>\r\r`, false);
         this.outx("<b><u>Slot: Sex,  Game Days Played</u></b>\r", false);
 
         const saveFuncs: any[] = [];
@@ -366,7 +363,7 @@ export class Saves extends BaseContent {
     }
 
     private saveToFile(notes: HTMLInputElement): void {
-        this.saveGameObject("CoC_" + this.player.short, notes);
+        this.saveGameObject(`CoC_${this.player.short}`, notes);
     }
 
     private loadFromFile(): void {
@@ -428,9 +425,9 @@ export class Saves extends BaseContent {
 
     public confirmDelete(): void {
         this.outx(
-            "You are about to delete the following save: <b>" +
-                this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] +
-                "</b>\n\nAre you sure you want to delete it?",
+            `You are about to delete the following save: <b>${
+                this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]
+            }</b>\n\nAre you sure you want to delete it?`,
             true
         );
         this.simpleChoices(
@@ -448,8 +445,8 @@ export class Saves extends BaseContent {
     }
 
     public purgeTheMutant(): void {
-        const test: any = this.getSaveObj(this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] + "");
-        trace("DELETING SLOT: " + this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]);
+        const test: any = this.getSaveObj(`${this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]}`);
+        trace(`DELETING SLOT: ${this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]}`);
         const blah: any[] = [
             "been virus bombed",
             "been purged",
@@ -462,12 +459,9 @@ export class Saves extends BaseContent {
             "suffered the following error: (404) Porn Not Found",
         ];
 
-        trace(blah.length + " array slots");
+        trace(`${blah.length} array slots`);
         const select: number = Saves.rand(blah.length);
-        this.outx(
-            this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] + " has " + blah[select] + ".",
-            true
-        );
+        this.outx(`${this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]} has ${blah[select]}.`, true);
         test.clear();
         this.doNext(this.deleteScreen);
     }
@@ -494,7 +488,7 @@ export class Saves extends BaseContent {
             sfVer = this.versionProperties.latest;
         }
 
-        trace("File version " + (saveFile.version || "legacy") + "expects propNum " + sfVer);
+        trace(`File version ${saveFile.version || "legacy"}expects propNum ${sfVer}`);
 
         // if (numProps < sfVer) {
         //     trace("Got " + numProps + " file properties -- failed!");
@@ -514,7 +508,7 @@ export class Saves extends BaseContent {
         //     }
         // }
         // else {
-        trace("Got " + numProps + " file properties -- success!");
+        trace(`Got ${numProps} file properties -- success!`);
         // I want to be able to write some debug stuff to the GUI during the loading process
         // Therefore, we clear the display *before* calling loadGameObject
         this.outx("", true);
@@ -525,7 +519,7 @@ export class Saves extends BaseContent {
         this.statScreenRefresh();
 
         if (this.player.slotName == "VOID") {
-            trace("Setting in-use save slot to: " + slot);
+            trace(`Setting in-use save slot to: ${slot}`);
             this.player.slotName = slot;
         }
 
@@ -913,7 +907,7 @@ export class Saves extends BaseContent {
 
             // Reload it
             saveFile = this.getSaveObj(slot);
-            backup = this.getSaveObj(slot + "_backup");
+            backup = this.getSaveObj(`${slot}_backup`);
             let numProps = 0;
 
             // Copy the properties over to a new file object
@@ -925,11 +919,7 @@ export class Saves extends BaseContent {
             // There should be 124 root properties minimum in the save file. Give some wiggleroom for things that might be omitted? (All of the broken saves I've seen are MUCH shorter than expected)
             if (numProps < this.versionProperties[this.ver]) {
                 this.outx(
-                    '<b>Aborting save.  Your current save file is broken, and needs to be bug-reported.</b>\n\nWithin the save folder for CoC, there should be a pair of files named "' +
-                        slot +
-                        '.sol" and "' +
-                        slot +
-                        "_backup.sol\"\n\n<b>We need BOTH of those files, and a quick report of what you've done in the game between when you last saved, and this message.</b>\n\n",
+                    `<b>Aborting save.  Your current save file is broken, and needs to be bug-reported.</b>\n\nWithin the save folder for CoC, there should be a pair of files named "${slot}.sol" and "${slot}_backup.sol"\n\n<b>We need BOTH of those files, and a quick report of what you've done in the game between when you last saved, and this message.</b>\n\n`,
                     true
                 );
                 this.outx(
@@ -943,10 +933,10 @@ export class Saves extends BaseContent {
             } else {
                 // Property count is correct, write the backup
                 // backup.flush();
-                localStorage.setItem(slot + "_backup", JSON.stringify(backup));
+                localStorage.setItem(`${slot}_backup`, JSON.stringify(backup));
             }
 
-            if (!backupAborted) this.outx("Saved to slot" + slot + "!", true);
+            if (!backupAborted) this.outx(`Saved to slot${slot}!`, true);
         }
 
         if (!backupAborted) {
@@ -961,7 +951,7 @@ export class Saves extends BaseContent {
     public restore(slotName: string): void {
         this.clearOutput();
         // copy slot_backup.sol over slot.sol
-        const backupFile = this.getSaveObj(slotName + "_backup");
+        const backupFile = this.getSaveObj(`${slotName}_backup`);
         const overwriteFile = this.getSaveObj(slotName);
 
         for (const prop of Object.keys(backupFile)) {
@@ -971,7 +961,7 @@ export class Saves extends BaseContent {
         // overwriteFile.flush();
         localStorage.setItem(slotName, JSON.stringify(overwriteFile));
 
-        this.outx("Restored backup of " + slotName, true);
+        this.outx(`Restored backup of ${slotName}`, true);
         this.menu();
         this.doNext(this.playerMenu);
     }
@@ -1018,9 +1008,7 @@ export class Saves extends BaseContent {
 
     public ioErrorHandler(): void {
         this.outx(
-            "<b>!</b> Save file not found, check that it is in the same directory as the CoC_" +
-                this.ver +
-                ".swf file.\r\rLoad from file is not available when playing directly from a website like furaffinity or fenoxo.com.",
+            `<b>!</b> Save file not found, check that it is in the same directory as the CoC_${this.ver}.swf file.\r\rLoad from file is not available when playing directly from a website like furaffinity or fenoxo.com.`,
             true
         );
         this.doNext(this.saveLoad);
@@ -1437,12 +1425,12 @@ export class Saves extends BaseContent {
                 const ptype: PerkType = PerkType.lookupPerk(id);
 
                 if (ptype == undefined) {
-                    trace("ERROR: Unknown perk id=" + id);
+                    trace(`ERROR: Unknown perk id=${id}`);
 
                     // (saveFile.perks as Array).splice(i,1);
                     // NEVER EVER EVER MODIFY DATA IN THE SAVE FILE LIKE THIS. EVER. FOR ANY REASON.
                 } else {
-                    trace("Creating perk : " + ptype);
+                    trace(`Creating perk : ${ptype}`);
                     this.player.createPerk(ptype, value1, value2, value3, value4);
 
                     if (isNaN(this.player.perk(this.player.numPerks - 1).value1)) {
@@ -1455,7 +1443,7 @@ export class Saves extends BaseContent {
                         }
 
                         trace(
-                            "NaN byaaaatch: " + this.player.perk(this.player.numPerks - 1).value1
+                            `NaN byaaaatch: ${this.player.perk(this.player.numPerks - 1).value1}`
                         );
                     }
 
@@ -1487,8 +1475,9 @@ export class Saves extends BaseContent {
                     typeof this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] == "string" &&
                     this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK].includes("lower back.lower back")
                 ) {
-                    this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] =
-                        this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK].split(".")[0] + ".";
+                    this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK] = `${
+                        this.flags[kFLAGS.VAPULA_TATTOO_LOWERBACK].split(".")[0]
+                    }.`;
                 }
 
                 let refunds = 0;
@@ -1530,9 +1519,7 @@ export class Saves extends BaseContent {
                 );
                 if (stype == undefined) {
                     CocSettings.error(
-                        "Cannot find status affect '" +
-                            saveFile.statusAffects[i].statusAffectName +
-                            "'"
+                        `Cannot find status affect '${saveFile.statusAffects[i].statusAffectName}'`
                     );
                     continue;
                 }

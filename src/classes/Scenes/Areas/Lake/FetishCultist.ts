@@ -73,9 +73,7 @@ export class FetishCultist extends Monster {
         // Talk abouts it mang!
         if (changed)
             this.outx(
-                "The fetish cultist's clothing shifts and twists, taking on the appearance of a " +
-                    this.armorName +
-                    ".\n\n",
+                `The fetish cultist's clothing shifts and twists, taking on the appearance of a ${this.armorName}.\n\n`,
                 false
             );
         this.lust += this.lustVuln * 3;
@@ -143,24 +141,18 @@ export class FetishCultist extends Monster {
             );
             if (this.player.vaginas.length > 0) {
                 this.outx(
-                    "  You feel your " +
-                        this.vaginaDescript(0) +
-                        " soaking itself in a sudden burst",
+                    `  You feel your ${this.vaginaDescript(0)} soaking itself in a sudden burst`,
                     false
                 );
                 if (this.player.cockTotal() > 0)
                     this.outx(
-                        ", while a sudden influx of pre-cum blurts out and streams down your " +
-                            this.player.multiCockDescriptLight() +
-                            ", painfully hardened by a vast amount of blood rushing to your groin",
+                        `, while a sudden influx of pre-cum blurts out and streams down your ${this.player.multiCockDescriptLight()}, painfully hardened by a vast amount of blood rushing to your groin`,
                         false
                     );
                 this.outx(".");
             } else if (this.player.cockTotal() > 0)
                 this.outx(
-                    "  A sudden influx of pre-cum blurts out and streams down your " +
-                        this.player.multiCockDescriptLight() +
-                        ", painfully hardened by a vast amount of blood rushing to your groin.",
+                    `  A sudden influx of pre-cum blurts out and streams down your ${this.player.multiCockDescriptLight()}, painfully hardened by a vast amount of blood rushing to your groin.`,
                     false
                 );
             if (this.player.gender == 0)

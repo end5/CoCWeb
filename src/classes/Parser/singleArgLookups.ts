@@ -148,7 +148,7 @@ export const singleArgConverters: Record<string, any> = {
         return kGAMECLASS.nippleDescript(0);
     },
     nipples(): any {
-        return kGAMECLASS.nippleDescript(0) + "s";
+        return `${kGAMECLASS.nippleDescript(0)}s`;
     },
     onecock(): any {
         return kGAMECLASS.player.oMultiCockDesc();

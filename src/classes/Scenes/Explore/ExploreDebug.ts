@@ -363,7 +363,7 @@ export class ExploreDebug extends BaseContent {
                 this.statScreenRefresh();
                 this.exploreDebugMonsters(monsterIdx + 1);
             };
-            this.outx("You are going to fight " + m.a + " " + m.short + ".");
+            this.outx(`You are going to fight ${m.a} ${m.short}.`);
             this.addButton(0, "Fight", (): void => {
                 this.outx("\n\nStarting combat...");
                 this.startCombat(m);

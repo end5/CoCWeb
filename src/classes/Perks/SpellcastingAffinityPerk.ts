@@ -7,7 +7,7 @@ import { PerkType } from "../PerkType";
 
 export class SpellcastingAffinityPerk extends PerkType {
     public desc(params?: PerkClass): string {
-        if (params) return "Reduces spell costs by " + params.value1 + "%.";
+        if (params) return `Reduces spell costs by ${params.value1}%.`;
         return "";
     }
 

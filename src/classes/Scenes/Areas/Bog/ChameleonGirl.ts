@@ -29,7 +29,7 @@ export class ChameleonGirl extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && ChameleonGirl.rand(3) < 1) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind claw-attack!\n",
+                `${this.capitalA + this.short} completely misses you with a blind claw-attack!\n`,
                 false
             );
         }
@@ -51,9 +51,7 @@ export class ChameleonGirl extends Monster {
             if (damage > 0) {
                 damage = this.player.takeDamage(damage);
                 this.outx(
-                    "The chameleon swings her arm at you, catching you with her claws.  You wince as they scratch your skin, leaving thin cuts in their wake. (" +
-                        damage +
-                        ")"
+                    `The chameleon swings her arm at you, catching you with her claws.  You wince as they scratch your skin, leaving thin cuts in their wake. (${damage})`
                 );
             } else
                 this.outx(
@@ -68,7 +66,7 @@ export class ChameleonGirl extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && ChameleonGirl.rand(3) < 1) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind roll-kick!\n",
+                `${this.capitalA + this.short} completely misses you with a blind roll-kick!\n`,
                 false
             );
         }
@@ -82,9 +80,7 @@ export class ChameleonGirl extends Monster {
             let damage2: number = 1 + ChameleonGirl.rand(10);
             damage2 = this.game.doDamage(damage2);
             this.outx(
-                "The chameleon girl leaps in your direction, rolls, and kicks at you.  You sidestep her flying charge and give her a push from below to ensure she lands face-first in the bog. (" +
-                    damage2 +
-                    ")"
+                `The chameleon girl leaps in your direction, rolls, and kicks at you.  You sidestep her flying charge and give her a push from below to ensure she lands face-first in the bog. (${damage2})`
             );
         }
         // Get hit
@@ -99,9 +95,7 @@ export class ChameleonGirl extends Monster {
             if (damage > 0) {
                 damage = this.player.takeDamage(damage);
                 this.outx(
-                    "The chameleon leaps in your direction, rolls, and kicks you square in the shoulder as she ascends, sending you reeling.  You grunt in pain as a set of sharp claws rake across your chest. (" +
-                        damage +
-                        ")"
+                    `The chameleon leaps in your direction, rolls, and kicks you square in the shoulder as she ascends, sending you reeling.  You grunt in pain as a set of sharp claws rake across your chest. (${damage})`
                 );
             } else
                 this.outx(
@@ -147,9 +141,7 @@ export class ChameleonGirl extends Monster {
             );
         } else {
             this.outx(
-                "The chameleon whips her head forward and sends her tongue flying at you.  It catches you in the gut, the incredible force behind it staggering you.  The pink blur flies back into her mouth as quickly as it came at you, and she laughs mockingly as you recover your footing. (" +
-                    damage +
-                    ")"
+                `The chameleon whips her head forward and sends her tongue flying at you.  It catches you in the gut, the incredible force behind it staggering you.  The pink blur flies back into her mouth as quickly as it came at you, and she laughs mockingly as you recover your footing. (${damage})`
             );
         }
     }
@@ -172,12 +164,7 @@ export class ChameleonGirl extends Monster {
         this.a = "the ";
         this.short = "chameleon girl";
         this.imageName = "chameleongirl";
-        this.long =
-            "You're faced with a tall lizard-like girl with smooth " +
-            skinToneAdj[0] +
-            " skin and long, " +
-            skinToneAdj[1] +
-            " stripes that run along her body from ankle to shoulder.  An abnormally large tail swishes behind her, and her hands are massive for her frame, built for easily climbing the trees.  A pair of small, cute horns grow from her temples, and a pair of perky B-cups push out through her skimpy drapings.  Large, sharp claws cap her fingers, gesturing menacingly at you.";
+        this.long = `You're faced with a tall lizard-like girl with smooth ${skinToneAdj[0]} skin and long, ${skinToneAdj[1]} stripes that run along her body from ankle to shoulder.  An abnormally large tail swishes behind her, and her hands are massive for her frame, built for easily climbing the trees.  A pair of small, cute horns grow from her temples, and a pair of perky B-cups push out through her skimpy drapings.  Large, sharp claws cap her fingers, gesturing menacingly at you.`;
         // this.plural = false;
         this.createVagina(false, VAGINA_WETNESS_SLAVERING, VAGINA_LOOSENESS_LOOSE);
         this.createBreastRow(Appearance.breastCupInverse("B"));

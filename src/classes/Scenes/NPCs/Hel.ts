@@ -23,7 +23,7 @@ export class Hel extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Hel.rand(3) < 1) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind attack!\n",
+                `${this.capitalA + this.short} completely misses you with a blind attack!\n`,
                 false
             );
         }
@@ -37,10 +37,7 @@ export class Hel extends Monster {
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Hel.rand(100) < 10) {
             this.outx(
-                "Using your skills at evading attacks, you anticipate and sidestep " +
-                    this.a +
-                    this.short +
-                    "'s attack.\n",
+                `Using your skills at evading attacks, you anticipate and sidestep ${this.a}${this.short}'s attack.\n`,
                 false
             );
         }
@@ -51,20 +48,14 @@ export class Hel extends Monster {
             this.player.armorName == "red, high-society bodysuit"
         ) {
             this.outx(
-                "Using Raphael's teachings, you anticipate and sidestep " +
-                    this.a +
-                    this.short +
-                    "' attacks.\n",
+                `Using Raphael's teachings, you anticipate and sidestep ${this.a}${this.short}' attacks.\n`,
                 false
             );
         }
         // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Hel.rand(100) < 6) {
             this.outx(
-                "With your incredible flexibility, you squeeze out of the way of " +
-                    this.a +
-                    this.short +
-                    "",
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
                 false
             );
         }
@@ -83,39 +74,25 @@ export class Hel extends Monster {
                 // Due to toughness or amor...
                 if (Hel.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        "You absorb and deflect every " +
-                            this.weaponVerb +
-                            " with your " +
-                            this.player.armorName +
-                            ".",
+                        `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`,
                         false
                     );
                 else
                     this.outx(
-                        "You deflect and block every " +
-                            this.weaponVerb +
-                            " " +
-                            this.a +
-                            this.short +
-                            " throws at you.",
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
                         false
                     );
             }
             // Take Damage
             else
                 this.outx(
-                    "The salamander lunges at you, sword swinging in a high, savage arc.  You attempt to duck her attack, but she suddenly spins about mid-swing, bringing the sword around on a completely different path.  It bites deep into your flesh, sending you stumbling back. (" +
-                        damage +
-                        ")",
+                    `The salamander lunges at you, sword swinging in a high, savage arc.  You attempt to duck her attack, but she suddenly spins about mid-swing, bringing the sword around on a completely different path.  It bites deep into your flesh, sending you stumbling back. (${damage})`,
                     false
                 );
             if (damage > 0) {
                 if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
                     this.outx(
-                        "\n" +
-                            this.capitalA +
-                            this.short +
-                            " brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.",
+                        `\n${this.capitalA}${this.short} brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.`,
                         false
                     );
                     this.lust += 5 * this.lustVuln;
@@ -137,7 +114,7 @@ export class Hel extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Hel.rand(3) < 1) {
             this.outx(
-                this.capitalA + this.short + " completely misses you with a blind attack!\n",
+                `${this.capitalA + this.short} completely misses you with a blind attack!\n`,
                 false
             );
             return;
@@ -156,10 +133,7 @@ export class Hel extends Monster {
         // Determine if evaded
         if (this.player.findPerk(PerkLib.Evade) >= 0 && Hel.rand(100) < 5) {
             this.outx(
-                "Using your skills at evading attacks, you anticipate and sidestep " +
-                    this.a +
-                    this.short +
-                    "'s tail-swipe.\n",
+                `Using your skills at evading attacks, you anticipate and sidestep ${this.a}${this.short}'s tail-swipe.\n`,
                 false
             );
             return;
@@ -171,10 +145,7 @@ export class Hel extends Monster {
             this.player.armorName == "red, high-society bodysuit"
         ) {
             this.outx(
-                "Using Raphael's teachings, you anticipate and sidestep " +
-                    this.a +
-                    this.short +
-                    "' tail-swipe.\n",
+                `Using Raphael's teachings, you anticipate and sidestep ${this.a}${this.short}' tail-swipe.\n`,
                 false
             );
             return;
@@ -205,18 +176,13 @@ export class Hel extends Monster {
         // Take Damage
         else
             this.outx(
-                "The salamander rushes at you, knocking aside your defensive feint and sliding in past your guard.  She lashes out at your feet with her tail, and you can feel the heated wake of the fiery appendage on your ensuing fall toward the now-smouldering grass. (" +
-                    damage +
-                    ")",
+                `The salamander rushes at you, knocking aside your defensive feint and sliding in past your guard.  She lashes out at your feet with her tail, and you can feel the heated wake of the fiery appendage on your ensuing fall toward the now-smouldering grass. (${damage})`,
                 false
             );
         if (damage > 0) {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
                 this.outx(
-                    "\n" +
-                        this.capitalA +
-                        this.short +
-                        " brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.",
+                    `\n${this.capitalA}${this.short} brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed.`,
                     false
                 );
                 this.lust += 5 * this.lustVuln;
@@ -253,14 +219,14 @@ export class Hel extends Monster {
             lust *= this.game.lustPercent() / 100;
             // Clean up
             lust = Math.round(lust * 10) / 10;
-            this.outx(" (+" + lust + " lust)\n", false);
+            this.outx(` (+${lust} lust)\n`, false);
         }
         this.combatRoundOver();
     }
     protected performCombatAction(): void {
         trace("Hel Perform Combat Action Called");
         const select: number = Hel.rand(3);
-        trace("Selected: " + select);
+        trace(`Selected: ${select}`);
         switch (select) {
             case 0:
                 this.helAttack();

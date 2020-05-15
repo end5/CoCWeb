@@ -89,9 +89,7 @@ export class UrtaQuest extends NPCAwareContent {
     public talkWithUrtaAboutFamFam(): void {
         this.clearOutput();
         this.outx(
-            "Urta recoils at the topic, but then visibly steels herself, nodding her head.  \"<i>All right... they're really not very pleasant topics, but you and I...  I owe you a lot, " +
-                this.player.short +
-                '.  You\'re the most special person in my life.  So, I guess I can tell you what my so-called family was like.</i>"  She looks down at the table, staring miserably at her latest drink.  "<i>Obviously, I didn\'t hatch from a stone egg or something like that, but I never really had a family.  My mother died when I was just a baby and my father hated my guts because of it.</i>"'
+            `Urta recoils at the topic, but then visibly steels herself, nodding her head.  "<i>All right... they're really not very pleasant topics, but you and I...  I owe you a lot, ${this.player.short}.  You're the most special person in my life.  So, I guess I can tell you what my so-called family was like.</i>"  She looks down at the table, staring miserably at her latest drink.  "<i>Obviously, I didn't hatch from a stone egg or something like that, but I never really had a family.  My mother died when I was just a baby and my father hated my guts because of it.</i>"`
         );
 
         this.outx(
@@ -131,9 +129,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\nShe sighs a final time, then smiles sadly at you.  "<i>Sorry, ' +
-                this.player.short +
-                ", I'm rambling, aren't I?  I just wanted to let you know the truth about me, and why I am... me.</i>\"  She falls into an uneasy silence, awaiting your reaction to her revelations."
+            `\n\nShe sighs a final time, then smiles sadly at you.  "<i>Sorry, ${this.player.short}, I'm rambling, aren't I?  I just wanted to let you know the truth about me, and why I am... me.</i>"  She falls into an uneasy silence, awaiting your reaction to her revelations.`
         );
 
         this.flags[kFLAGS.URTA_QUEST_STATUS] = 0.5;
@@ -149,9 +145,7 @@ export class UrtaQuest extends NPCAwareContent {
     private comfortUrtaAfterFamFamTalk(): void {
         this.clearOutput();
         this.outx(
-            "You lean over the table and take Urta's hands in your own.  Her downy fur ruffles as you give her a comforting squeeze, the tension oozing from her body at your touch.  Urta sniffles a little and wipes her moistened cheek on her shoulder, muttering, \"<i>Oh, " +
-                this.player.short +
-                ', you\'re too good for me.</i>"  She pulls back and gives you a knowing smile.  "<i>You don\'t have to worry, really.  You turned this down on her luck lush into a happy woman.</i>"'
+            `You lean over the table and take Urta's hands in your own.  Her downy fur ruffles as you give her a comforting squeeze, the tension oozing from her body at your touch.  Urta sniffles a little and wipes her moistened cheek on her shoulder, muttering, "<i>Oh, ${this.player.short}, you're too good for me.</i>"  She pulls back and gives you a knowing smile.  "<i>You don't have to worry, really.  You turned this down on her luck lush into a happy woman.</i>"`
         );
 
         this.outx(
@@ -163,14 +157,10 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\nYou return the hug with every fiber of your being, holding her tight.  Nuzzling at your neck, Urta lets her head come to rest on your shoulder.  Her eyes slowly close as she says, "<i>Just... hold me, ' +
-                this.player.short +
-                '.</I>"  As if you were going to do anything else!  You cradle the abused vixen for as long as she needs, which turns out to be long enough for her throbbing erection to actually recede, forgotten for the time being.'
+            `\n\nYou return the hug with every fiber of your being, holding her tight.  Nuzzling at your neck, Urta lets her head come to rest on your shoulder.  Her eyes slowly close as she says, "<i>Just... hold me, ${this.player.short}.</I>"  As if you were going to do anything else!  You cradle the abused vixen for as long as she needs, which turns out to be long enough for her throbbing erection to actually recede, forgotten for the time being.`
         );
         this.outx(
-            '\n\n"<i>Thanks, ' +
-                this.player.short +
-                ',</i>" Urta says as she pulls back, giving your hand a gentle squeeze, "<i>I didn\'t know how badly I needed that.</i>"  She sits back down and explains, "<i>I\'ll be fine now, I think.  Thanks again.</i>"'
+            `\n\n"<i>Thanks, ${this.player.short},</i>" Urta says as she pulls back, giving your hand a gentle squeeze, "<i>I didn't know how badly I needed that.</i>"  She sits back down and explains, "<i>I'll be fine now, I think.  Thanks again.</i>"`
         );
 
         this.outx(
@@ -186,9 +176,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.clearOutput();
         this.outx('You loudly exhale, "<i>Yeesh,</i>" with a bemused expression.');
         this.outx(
-            "\n\nUrta's tail raises up behind her, bristling and bushy.  She indignantly declares, \"<i>Well fuck you, " +
-                this.player.short +
-                '!  I just bared the scars of my youth to you, and all you can do is respond with this callous bullshit?</i>"'
+            `\n\nUrta's tail raises up behind her, bristling and bushy.  She indignantly declares, "<i>Well fuck you, ${this.player.short}!  I just bared the scars of my youth to you, and all you can do is respond with this callous bullshit?</i>"`
         );
         this.outx(
             '\n\nYou casually stand and stretch.  Then, as the angry fox watches, you circle the table to come up beside her.  You roughly take hold of her tits with one arm, lifting her out of her seat and into your unavoidable embrace.  Your other hand presses down on the silky black fabric between her legs, finding the bulgy, sensitive sheath and drooping equine length you were looking for.  Urta leans back and whispers an "<i>Oooooh</i>" of pleasure, barely noting when her burgeoning length manages to raise the hem of her dress up over her hips, exposing her cock and balls to anyone lucky enough to glance in your direction.'
@@ -423,23 +411,23 @@ export class UrtaQuest extends NPCAwareContent {
     private towerOfTheCovanant(): void {
         this.clearOutput();
         this.outx(
-            "You get up to leave the table, nervously wrapping your tail down your leg, even though " +
-                this.player2.short +
-                " helped you overcome that timid habit long ago.  You tell " +
-                this.player2.mf("him", "her") +
-                " that " +
-                this.player2.mf("he", "she") +
-                " can't follow.  To bring " +
-                this.player2.mf("him", "her") +
-                " into the tower would require countless tests for what should only take a few brief moments if you go alone.  Secretly, you wish " +
-                this.player2.mf("he", "she") +
-                " could come with you and hold you tight, to comfort you through this nerve wracking ordeal.  Lifting your chin, you marshal your courage and walk out, wiggling your bottom in " +
-                this.player2.short +
-                "'s direction to remind " +
-                this.player2.mf("him", "her") +
-                " what " +
-                this.player2.mf("he", "she") +
-                "'ll be claiming tonight if a solution can be found."
+            `You get up to leave the table, nervously wrapping your tail down your leg, even though ${
+                this.player2.short
+            } helped you overcome that timid habit long ago.  You tell ${this.player2.mf(
+                "him",
+                "her"
+            )} that ${this.player2.mf("he", "she")} can't follow.  To bring ${this.player2.mf(
+                "him",
+                "her"
+            )} into the tower would require countless tests for what should only take a few brief moments if you go alone.  Secretly, you wish ${this.player2.mf(
+                "he",
+                "she"
+            )} could come with you and hold you tight, to comfort you through this nerve wracking ordeal.  Lifting your chin, you marshal your courage and walk out, wiggling your bottom in ${
+                this.player2.short
+            }'s direction to remind ${this.player2.mf("him", "her")} what ${this.player2.mf(
+                "he",
+                "she"
+            )}'ll be claiming tonight if a solution can be found.`
         );
 
         this.outx(
@@ -507,9 +495,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nWorry nags at you.  You've spent so long keeping everything private about yourself that allowing someone so deeply inside...  Well, it unsettles you.  Still, this is too important - you've got to know why it is that your body is so strange!  Not just for you, but for " +
-                this.player2.short +
-                ', too.  The hope that someday you might be able to be a mother (or father!) gives you the strength to nod your head and give your assent.  "<i>Thank you, Gul.  I will do whatever it takes to help you in your search.</i>"'
+            `\n\nWorry nags at you.  You've spent so long keeping everything private about yourself that allowing someone so deeply inside...  Well, it unsettles you.  Still, this is too important - you've got to know why it is that your body is so strange!  Not just for you, but for ${this.player2.short}, too.  The hope that someday you might be able to be a mother (or father!) gives you the strength to nod your head and give your assent.  "<i>Thank you, Gul.  I will do whatever it takes to help you in your search.</i>"`
         );
 
         this.outx(
@@ -557,11 +543,12 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\nOh... you\'ll have to go out, to the outside, and find Taoth\'s shrine.  "<i>How would I find his shrine?</i>" you ask Gul, uncertain as to how to even start.  "<i>Could my lover, ' +
-                this.player2.short +
-                ", come along?  I... I don't want to do this alone.</i>\"  You desperately want " +
-                this.player2.mf("his", "her") +
-                " company and skills at surviving outside the walls for this."
+            `\n\nOh... you'll have to go out, to the outside, and find Taoth's shrine.  "<i>How would I find his shrine?</i>" you ask Gul, uncertain as to how to even start.  "<i>Could my lover, ${
+                this.player2.short
+            }, come along?  I... I don't want to do this alone.</i>"  You desperately want ${this.player2.mf(
+                "his",
+                "her"
+            )} company and skills at surviving outside the walls for this.`
         );
 
         this.outx(
@@ -569,9 +556,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\nYou nod, and ask, "<i>Can I take a night to be with ' +
-                this.player2.short +
-                " before I go?  In case I don't or can't come back?</i>\""
+            `\n\nYou nod, and ask, "<i>Can I take a night to be with ${this.player2.short} before I go?  In case I don't or can't come back?</i>"`
         );
 
         this.outx(
@@ -587,17 +572,20 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou give him a kiss on the nose and head for the door, equal parts excited and terrified by the opportunity you've been given.  Now, before you leave on your search you should visit " +
-                this.player2.short +
-                ".  You could tell " +
-                this.player2.mf("him", "her") +
-                " everything, or you could simply spend an evening with " +
-                this.player2.mf("him", "her") +
-                " without letting " +
-                this.player2.mf("him", "her") +
-                " know the danger you're about to get into.  Though, Gul did urge you to make haste, maybe it would be best for everyone if you embarked sooner and returned to " +
-                this.player2.short +
-                " healthy."
+            `\n\nYou give him a kiss on the nose and head for the door, equal parts excited and terrified by the opportunity you've been given.  Now, before you leave on your search you should visit ${
+                this.player2.short
+            }.  You could tell ${this.player2.mf(
+                "him",
+                "her"
+            )} everything, or you could simply spend an evening with ${this.player2.mf(
+                "him",
+                "her"
+            )} without letting ${this.player2.mf(
+                "him",
+                "her"
+            )} know the danger you're about to get into.  Though, Gul did urge you to make haste, maybe it would be best for everyone if you embarked sooner and returned to ${
+                this.player2.short
+            } healthy.`
         );
         // [?Get a Drink][Visit Truth] [Visit] [Embark]
         this.menu();
@@ -623,11 +611,9 @@ export class UrtaQuest extends NPCAwareContent {
     private getHelBangedAsUrta(): void {
         this.clearOutput();
         this.outx(
-            "Before you head out, you decide to grab some liquid fortitude at your favorite watering hole. You make your way down to the Wet Bitch, squinting as your eyes adjust to the deep shadows of Tel'Adre's seediest - and sexiest - bar. You slip in, grabbing a stool at the bar; when your drink comes, you toss your gear aside like a physical weight off your shoulders, sighing heavily as you bring the hefty stein up to your lips. The cool beer goes down quickly, washing away your worries about the upcoming quest, and the recent revelations you've been given. Your mind wanders to " +
-                this.player2.short +
-                ", wondering if " +
-                this.player2.mf("he", "she") +
-                "'s set you on the right course..."
+            `Before you head out, you decide to grab some liquid fortitude at your favorite watering hole. You make your way down to the Wet Bitch, squinting as your eyes adjust to the deep shadows of Tel'Adre's seediest - and sexiest - bar. You slip in, grabbing a stool at the bar; when your drink comes, you toss your gear aside like a physical weight off your shoulders, sighing heavily as you bring the hefty stein up to your lips. The cool beer goes down quickly, washing away your worries about the upcoming quest, and the recent revelations you've been given. Your mind wanders to ${
+                this.player2.short
+            }, wondering if ${this.player2.mf("he", "she")}'s set you on the right course...`
         );
 
         this.outx(
@@ -659,25 +645,22 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\nMai blushes a bright scarlet, causing her sister and the redhead to burst out laughing. "<i>Oh, hey wait! I recognize you!</i>" Helia says with a snap of her fingers. "<i>' +
-                this.player2.short +
-                "'s mentioned you! You're Urta, right? Captain of the Guard Urta?</i>\""
+            `\n\nMai blushes a bright scarlet, causing her sister and the redhead to burst out laughing. "<i>Oh, hey wait! I recognize you!</i>" Helia says with a snap of her fingers. "<i>${this.player2.short}'s mentioned you! You're Urta, right? Captain of the Guard Urta?</i>"`
         );
 
         this.outx(
-            "\n\nShe knows " +
-                this.player2.short +
-                "? You quickly nod as your mind quickly reaches its inevitable conclusions. Well, you suppose you can't judge... you haven't exactly been monogamous, either, after all. It isn't fair to expect that from " +
-                this.player2.mf("him", "her") +
-                ", is it?  Still, you shift awkwardly in your seat, nursing your new drink as the scaly warrior girl starts recounting the fights she and " +
-                this.player2.short +
-                " used to have"
+            `\n\nShe knows ${
+                this.player2.short
+            }? You quickly nod as your mind quickly reaches its inevitable conclusions. Well, you suppose you can't judge... you haven't exactly been monogamous, either, after all. It isn't fair to expect that from ${this.player2.mf(
+                "him",
+                "her"
+            )}, is it?  Still, you shift awkwardly in your seat, nursing your new drink as the scaly warrior girl starts recounting the fights she and ${
+                this.player2.short
+            } used to have`
         );
         if (this.flags[kFLAGS.HEL_HARPY_QUEEN_DEFEATED] > 0)
             this.outx(
-                ", and even how they worked together to bring down an evil sorceress and save her father. Your heart swells with pride as she recounts " +
-                    this.player2.short +
-                    " doing so a noble thing, and for a moment you know you made the right pick in a lover.."
+                `, and even how they worked together to bring down an evil sorceress and save her father. Your heart swells with pride as she recounts ${this.player2.short} doing so a noble thing, and for a moment you know you made the right pick in a lover..`
             );
         this.outx(
             ".  You sit and listen for a long few minutes, sipping at the beer until the liquid courage starts to work its wonders, giving you a little tingle... and helping to open you up, too.  Soon, you're drawn into the conversation, joking and teasing with the other girls as if you'd been friends for ages."
@@ -708,11 +691,10 @@ export class UrtaQuest extends NPCAwareContent {
         this.outx('\n\n"<i>Uh, bye!</i>" Mai calls out, waving. "<i>See you again some time?</i>"');
         // {Continue with UrtaQuest}
         this.outx(
-            "\n\nDo you embark now, visit " +
-                this.player2.short +
-                ", or visit " +
-                this.player2.mf("him", "her") +
-                " and tell everything?"
+            `\n\nDo you embark now, visit ${this.player2.short}, or visit ${this.player2.mf(
+                "him",
+                "her"
+            )} and tell everything?`
         );
         // [Visit] [Visit Truth][Embark]
         this.menu();
@@ -730,9 +712,7 @@ export class UrtaQuest extends NPCAwareContent {
     private fuckHelAndKitsunesAsUrta(): void {
         this.clearOutput();
         this.outx(
-            "You decide to stick around.  The redhead, at least, is a friend of " +
-                this.player2.short +
-                ", and the way the three are talking, they all seem... loose.  Maybe they can offer you the release you now need.  They're responsible for this, after all, you reason as you lustily say \"<i>I've got a little friend under the table who wants to say hello.  Maybe you girls can help him get some release, hmm? I promise, I'll be real good to you, too.</i>\"  The fox-girls look to Helia, little tents perking up under their skirts.  The salamander licks her lips and grins, motioning for you to follow her."
+            `You decide to stick around.  The redhead, at least, is a friend of ${this.player2.short}, and the way the three are talking, they all seem... loose.  Maybe they can offer you the release you now need.  They're responsible for this, after all, you reason as you lustily say "<i>I've got a little friend under the table who wants to say hello.  Maybe you girls can help him get some release, hmm? I promise, I'll be real good to you, too.</i>"  The fox-girls look to Helia, little tents perking up under their skirts.  The salamander licks her lips and grins, motioning for you to follow her.`
         );
 
         this.outx(
@@ -776,9 +756,10 @@ export class UrtaQuest extends NPCAwareContent {
             if (this.helFollower.followerHel()) this.outx("at home");
             else this.outx("at my beck and call");
             this.outx(
-                ", you know...  But we've got that in common, don't we?  Mmm, maybe we can share it some day?  A horny girl like you'd just love that, woudn't you? Getting to worship " +
-                    this.player2.mf("his", "her") +
-                    " cock beside me while my tail fills your ass so full you scream....</i>"
+                `, you know...  But we've got that in common, don't we?  Mmm, maybe we can share it some day?  A horny girl like you'd just love that, woudn't you? Getting to worship ${this.player2.mf(
+                    "his",
+                    "her"
+                )} cock beside me while my tail fills your ass so full you scream....</i>`
             );
         }
 
@@ -823,9 +804,7 @@ export class UrtaQuest extends NPCAwareContent {
     private visitPCPreUrtaQuest(truth: boolean): void {
         this.clearOutput();
         this.outx(
-            "You set out for " +
-                this.player2.short +
-                "'s camp, known to you thanks to the amazing efforts of your scouts.  Behind you, the tower slowly shrinks, less imposing now that you've finished that step on your journey.   Ahead lies uncertainty and struggle.  You know you'll likely wind up fighting the corrupted denizens of the lost regions of Mareth in your travels, and it's likely at least a demon or two will get in your way.  Still, as you exit the city gates, you give your home a forlorn gaze.  At least there's one bright patch ahead - your lover's camp."
+            `You set out for ${this.player2.short}'s camp, known to you thanks to the amazing efforts of your scouts.  Behind you, the tower slowly shrinks, less imposing now that you've finished that step on your journey.   Ahead lies uncertainty and struggle.  You know you'll likely wind up fighting the corrupted denizens of the lost regions of Mareth in your travels, and it's likely at least a demon or two will get in your way.  Still, as you exit the city gates, you give your home a forlorn gaze.  At least there's one bright patch ahead - your lover's camp.`
         );
         this.outx(
             "\n\nThe sun has set by the time you get there, but the darkness conceals your movements thanks to your natural fur color.  "
@@ -839,9 +818,9 @@ export class UrtaQuest extends NPCAwareContent {
             );
         if (this.flags[kFLAGS.ANEMONE_WATCH] > 0 && this.flags[kFLAGS.ANEMONE_KID] > 0)
             this.outx(
-                "A confused-looking anemone with a " +
-                    ItemType.lookupItem(this.flags[kFLAGS.ANEMONE_WEAPON_ID]).longName +
-                    " nearly sees you, but you duck around a rock and escape her notice.  "
+                `A confused-looking anemone with a ${
+                    ItemType.lookupItem(this.flags[kFLAGS.ANEMONE_WEAPON_ID]).longName
+                } nearly sees you, but you duck around a rock and escape her notice.  `
             );
         if (
             this.flags[kFLAGS.FUCK_FLOWER_LEVEL] >= 4 &&
@@ -853,130 +832,151 @@ export class UrtaQuest extends NPCAwareContent {
             );
         if (this.camp.companionsCount() > 2)
             this.outx(
-                "There are a number of people in the camp, but you avoid them as you head towards " +
-                    this.player2.short +
-                    "'s bunk.  "
+                `There are a number of people in the camp, but you avoid them as you head towards ${this.player2.short}'s bunk.  `
             );
         this.outx(
-            "The camp looks pretty nice actually.  Living out here must have given " +
-                this.player2.mf("him", "her") +
-                " plenty of time to improve it."
+            `The camp looks pretty nice actually.  Living out here must have given ${this.player2.mf(
+                "him",
+                "her"
+            )} plenty of time to improve it.`
         );
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                " is slumbering fitfully on " +
-                this.player2.mf("his", "her") +
-                " blanket.  " +
-                this.player2.mf("He", "She") +
-                " looks so cute, sleeping like this.  It's amazing how " +
-                this.player2.mf("he", "she") +
-                " has the courage to stay out here, day after day, month after month, guarding this portal to keep " +
-                this.player2.mf("his", "her") +
-                " village safe"
+            `\n\n${this.player2.short} is slumbering fitfully on ${this.player2.mf(
+                "his",
+                "her"
+            )} blanket.  ${this.player2.mf(
+                "He",
+                "She"
+            )} looks so cute, sleeping like this.  It's amazing how ${this.player2.mf(
+                "he",
+                "she"
+            )} has the courage to stay out here, day after day, month after month, guarding this portal to keep ${this.player2.mf(
+                "his",
+                "her"
+            )} village safe`
         );
         if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0)
-            this.outx(", no matter why " + this.player2.mf("he", "she") + " was sent here");
+            this.outx(`, no matter why ${this.player2.mf("he", "she")} was sent here`);
         this.outx(
-            ".  You gently press on " +
-                this.player2.mf("his", "her") +
-                " shoulder and shake " +
-                this.player2.mf("him", "her") +
-                " awake, holding your index finger across " +
-                this.player2.mf("his", "her") +
-                " lips to shush " +
-                this.player2.mf("him", "her") +
-                " to silence.  " +
-                this.player2.mf("His", "Her") +
-                " eyes snap open, worried until " +
-                this.player2.mf("he", "she") +
-                ' recognizes you.  "<i>What are you doing here?</i>" ' +
-                this.player2.mf("he", "she") +
-                " asks in a whisper."
+            `.  You gently press on ${this.player2.mf(
+                "his",
+                "her"
+            )} shoulder and shake ${this.player2.mf(
+                "him",
+                "her"
+            )} awake, holding your index finger across ${this.player2.mf(
+                "his",
+                "her"
+            )} lips to shush ${this.player2.mf("him", "her")} to silence.  ${this.player2.mf(
+                "His",
+                "Her"
+            )} eyes snap open, worried until ${this.player2.mf(
+                "he",
+                "she"
+            )} recognizes you.  "<i>What are you doing here?</i>" ${this.player2.mf(
+                "he",
+                "she"
+            )} asks in a whisper.`
         );
 
         // {TELL HIM ZE TRUFF}
         if (truth) {
             this.outx(
-                "\n\nYou sit down across from " +
-                    this.player2.mf("him", "her") +
-                    ", helping " +
-                    this.player2.mf("him", "her") +
-                    " up to a sitting position as you explain.  " +
-                    this.player2.mf("His", "Her") +
-                    " eyes widen as " +
-                    this.player2.mf("he", "she") +
-                    " takes in the news, clearly disbelieving your explanation at first.  " +
-                    this.player2.mf("He", "She") +
-                    " listens all the same, gradually coming to accept your explanation for truth.  When you tell " +
-                    this.player2.mf("him", "her") +
-                    " you have to leave, alone, to continue your journey, "
+                `\n\nYou sit down across from ${this.player2.mf(
+                    "him",
+                    "her"
+                )}, helping ${this.player2.mf(
+                    "him",
+                    "her"
+                )} up to a sitting position as you explain.  ${this.player2.mf(
+                    "His",
+                    "Her"
+                )} eyes widen as ${this.player2.mf(
+                    "he",
+                    "she"
+                )} takes in the news, clearly disbelieving your explanation at first.  ${this.player2.mf(
+                    "He",
+                    "She"
+                )} listens all the same, gradually coming to accept your explanation for truth.  When you tell ${this.player2.mf(
+                    "him",
+                    "her"
+                )} you have to leave, alone, to continue your journey, `
             );
             if (this.player2.cor < 33)
                 this.outx(
-                    this.player2.mf("he", "she") +
-                        " argues that " +
-                        this.player2.mf("he", "she") +
-                        " should come anyway.  You tell " +
-                        this.player2.mf("him", "her") +
-                        " no, firmly, even though it breaks your heart."
+                    `${this.player2.mf("he", "she")} argues that ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} should come anyway.  You tell ${this.player2.mf(
+                        "him",
+                        "her"
+                    )} no, firmly, even though it breaks your heart.`
                 );
             else if (this.player2.cor < 66)
                 this.outx(
-                    this.player2.mf("he", "she") +
-                        " nods understandingly, not surprised that you have to handle this quest alone.  The two of you are alike in that way - each with their own burden to bear."
+                    `${this.player2.mf(
+                        "he",
+                        "she"
+                    )} nods understandingly, not surprised that you have to handle this quest alone.  The two of you are alike in that way - each with their own burden to bear.`
                 );
             else
                 this.outx(
-                    this.player2.mf("he", "she") +
-                        " nods dismissively, trusting you to handle it alone you suppose.  " +
-                        this.player2.short +
-                        " always was hard like that, even though " +
-                        this.player2.mf("he", "she") +
-                        " clearly likes you."
+                    `${this.player2.mf(
+                        "he",
+                        "she"
+                    )} nods dismissively, trusting you to handle it alone you suppose.  ${
+                        this.player2.short
+                    } always was hard like that, even though ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} clearly likes you.`
                 );
             this.outx(
-                "  You hold on to " +
-                    this.player2.mf("him", "her") +
-                    ", for comfort, dreading the long day ahead.  " +
-                    this.player2.mf("He", "She") +
-                    " pats your back comfortingly as you cry, and when you break from the hug, " +
-                    this.player2.mf("he", "she") +
-                    "'s looking at you expectantly."
+                `  You hold on to ${this.player2.mf(
+                    "him",
+                    "her"
+                )}, for comfort, dreading the long day ahead.  ${this.player2.mf(
+                    "He",
+                    "She"
+                )} pats your back comfortingly as you cry, and when you break from the hug, ${this.player2.mf(
+                    "he",
+                    "she"
+                )}'s looking at you expectantly.`
             );
             if (this.flags[kFLAGS.SLEEP_WITH] != "")
                 this.outx(
-                    "  " +
-                        this.player2.short +
-                        " suggests the two of you move off, so as not to wake " +
-                        this.flags[kFLAGS.SLEEP_WITH] +
-                        " in the night."
+                    `  ${this.player2.short} suggests the two of you move off, so as not to wake ${
+                        this.flags[kFLAGS.SLEEP_WITH]
+                    } in the night.`
                 );
         }
         // {LIE}
         else {
             this.outx(
-                "\n\nYou sit down across from " +
-                    this.player2.mf("him", "her") +
-                    ", helping " +
-                    this.player2.mf("him", "her") +
-                    " up to a sitting position as you tell " +
-                    this.player2.mf("him", "her") +
-                    " that you just wanted to sneak away for a little while, to be with " +
-                    this.player2.mf("him", "her") +
-                    " as proper lovers, for the night.  " +
-                    this.player2.short +
-                    " smiles a little at that, looking up at you expectantly.  Since you came all this way, you must have something in mind for how you plan to stay the night with " +
-                    this.player2.mf("him", "her") +
-                    "."
+                `\n\nYou sit down across from ${this.player2.mf(
+                    "him",
+                    "her"
+                )}, helping ${this.player2.mf(
+                    "him",
+                    "her"
+                )} up to a sitting position as you tell ${this.player2.mf(
+                    "him",
+                    "her"
+                )} that you just wanted to sneak away for a little while, to be with ${this.player2.mf(
+                    "him",
+                    "her"
+                )} as proper lovers, for the night.  ${
+                    this.player2.short
+                } smiles a little at that, looking up at you expectantly.  Since you came all this way, you must have something in mind for how you plan to stay the night with ${this.player2.mf(
+                    "him",
+                    "her"
+                )}.`
             );
             if (this.flags[kFLAGS.SLEEP_WITH] != "")
                 this.outx(
-                    "  " +
-                        this.player2.short +
-                        " suggests the two of you move off, so as not to wake " +
-                        this.flags[kFLAGS.SLEEP_WITH] +
-                        " in the night."
+                    `  ${this.player2.short} suggests the two of you move off, so as not to wake ${
+                        this.flags[kFLAGS.SLEEP_WITH]
+                    } in the night.`
                 );
         }
         // [SEX OPTIONS GO HURRRR]
@@ -1006,256 +1006,296 @@ export class UrtaQuest extends NPCAwareContent {
     private urtaPutsHerDickInPCsWithDicks(truth: boolean): void {
         this.clearOutput();
         this.outx(
-            "You push " +
-                this.player2.short +
-                " down onto the ground, glad that " +
-                this.player2.mf("he", "she") +
-                "'s not wearing " +
-                this.player2.mf("his", "her") +
-                " gear right now.  Unfortunately, you've still got to get out of yours, an action made all the more difficult by the heat welling up in your groin.  Your rebellious cock is already half-stiff, lifting the hem of your armored skirt away from your thighs.  Fingers scrabbling, you struggle with your chestpiece's bindings.  Your nipples stiffen, scraping against the inside of it while you fight to remove it.  You straddle " +
-                this.player2.short +
-                "'s waist to hold " +
-                this.player2.mf("him", "her") +
-                " down while you work the bothersome, restraining material free, practically grinding your semi-rigid dick against " +
-                this.player2.mf("his", "hers") +
-                " in excitement.  " +
-                this.player2.mf("His", "Her") +
-                " hands begin aiding you in your task, allowing your tightly compressed breasts to finally, happily breathe.   They jiggle as they flop free, and to your delight, " +
-                this.player2.short +
-                "'s eyes lock on them."
+            `You push ${this.player2.short} down onto the ground, glad that ${this.player2.mf(
+                "he",
+                "she"
+            )}'s not wearing ${this.player2.mf(
+                "his",
+                "her"
+            )} gear right now.  Unfortunately, you've still got to get out of yours, an action made all the more difficult by the heat welling up in your groin.  Your rebellious cock is already half-stiff, lifting the hem of your armored skirt away from your thighs.  Fingers scrabbling, you struggle with your chestpiece's bindings.  Your nipples stiffen, scraping against the inside of it while you fight to remove it.  You straddle ${
+                this.player2.short
+            }'s waist to hold ${this.player2.mf(
+                "him",
+                "her"
+            )} down while you work the bothersome, restraining material free, practically grinding your semi-rigid dick against ${this.player2.mf(
+                "his",
+                "hers"
+            )} in excitement.  ${this.player2.mf(
+                "His",
+                "Her"
+            )} hands begin aiding you in your task, allowing your tightly compressed breasts to finally, happily breathe.   They jiggle as they flop free, and to your delight, ${
+                this.player2.short
+            }'s eyes lock on them.`
         );
         this.outx(
-            "\n\nGrabbing hold of " +
-                this.player2.mf("his", "her") +
-                " head, you pull " +
-                this.player2.short +
-                "'s lips to one of your puckered nipples.  " +
-                this.player2.mf("He", "She") +
-                " swallows it immediately, grabbing hold of your tits to squeeze and fondle them, openly enjoying the fruits of your womanly shape.  Tingles of electric enjoyment fire from your unrestrained areola when " +
-                this.player2.mf("he", "she") +
-                " squeezes down on the other with " +
-                this.player2.mf("his", "her") +
-                " fingers, expertly twisting the little nub around to give you the maximum pleasure.  In no time flat, you're humping " +
-                this.player2.mf("his", "her") +
-                " " +
-                this.player2.cockDescript(this.player2.biggestCockIndex()) +
-                " openly, letting " +
-                this.player2.mf("him", "her") +
-                " guide your motions with deft, controlling touches to your onyx nipples.  Your pre-cum bubbles out unhindered, the thick gobs swaying and splattering on " +
-                this.player2.mf("his", "her") +
-                " belly and rigid tool, quickly lubricating the phallic embrace into a sticky, hot mess."
+            `\n\nGrabbing hold of ${this.player2.mf("his", "her")} head, you pull ${
+                this.player2.short
+            }'s lips to one of your puckered nipples.  ${this.player2.mf(
+                "He",
+                "She"
+            )} swallows it immediately, grabbing hold of your tits to squeeze and fondle them, openly enjoying the fruits of your womanly shape.  Tingles of electric enjoyment fire from your unrestrained areola when ${this.player2.mf(
+                "he",
+                "she"
+            )} squeezes down on the other with ${this.player2.mf(
+                "his",
+                "her"
+            )} fingers, expertly twisting the little nub around to give you the maximum pleasure.  In no time flat, you're humping ${this.player2.mf(
+                "his",
+                "her"
+            )} ${this.player2.cockDescript(
+                this.player2.biggestCockIndex()
+            )} openly, letting ${this.player2.mf(
+                "him",
+                "her"
+            )} guide your motions with deft, controlling touches to your onyx nipples.  Your pre-cum bubbles out unhindered, the thick gobs swaying and splattering on ${this.player2.mf(
+                "his",
+                "her"
+            )} belly and rigid tool, quickly lubricating the phallic embrace into a sticky, hot mess.`
         );
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                " releases your tender tits after a few particularly sloppy thrusts.  You can feel " +
-                this.player2.mf("his", "her") +
-                " " +
-                this.player2.cockDescript(this.player2.biggestCockIndex()) +
-                " releasing some of its own pre-cum onto your cock's thick spooge-vein, and " +
-                this.player2.mf("his", "her") +
-                " hands fall to grab at the blanket below, unintentionally clenching at the waves of pleasure you're giving " +
-                this.player2.mf("him", "her") +
-                ".  You bend now, onto all fours"
+            `\n\n${
+                this.player2.short
+            } releases your tender tits after a few particularly sloppy thrusts.  You can feel ${this.player2.mf(
+                "his",
+                "her"
+            )} ${this.player2.cockDescript(
+                this.player2.biggestCockIndex()
+            )} releasing some of its own pre-cum onto your cock's thick spooge-vein, and ${this.player2.mf(
+                "his",
+                "her"
+            )} hands fall to grab at the blanket below, unintentionally clenching at the waves of pleasure you're giving ${this.player2.mf(
+                "him",
+                "her"
+            )}.  You bend now, onto all fours`
         );
         if (this.player2.tallness < 60)
             this.outx(
-                " and let your tits hang over " +
-                    this.player2.mf("his", "her") +
-                    " " +
-                    this.player2.face()
+                ` and let your tits hang over ${this.player2.mf(
+                    "his",
+                    "her"
+                )} ${this.player2.face()}`
             );
         else if (this.player2.tallness < 76) this.outx(" and let your tits swing between you");
         else if (this.player2.tallness < 84)
-            this.outx(" and let your tits smash into " + this.player2.mf("his", "her"));
-        else this.outx(" and let your tits sway over " + this.player2.mf("his", "her") + " belly");
+            this.outx(` and let your tits smash into ${this.player2.mf("his", "her")}`);
+        else this.outx(` and let your tits sway over ${this.player2.mf("his", "her")} belly`);
         this.outx(
-            ", giving " +
-                this.player2.mf("him", "her") +
-                " something to enjoy while you begin to shift position, dragging your dick down " +
-                this.player2.mf("his", "her") +
-                " length"
+            `, giving ${this.player2.mf(
+                "him",
+                "her"
+            )} something to enjoy while you begin to shift position, dragging your dick down ${this.player2.mf(
+                "his",
+                "her"
+            )} length`
         );
-        if (this.player2.hasVagina())
-            this.outx(", past " + this.player2.mf("his", "her") + " pussy,");
+        if (this.player2.hasVagina()) this.outx(`, past ${this.player2.mf("his", "her")} pussy,`);
         this.outx(
-            " and towards the prize you've been wanting since you got here - " +
-                this.player2.mf("his", "her") +
-                " asshole."
+            ` and towards the prize you've been wanting since you got here - ${this.player2.mf(
+                "his",
+                "her"
+            )} asshole.`
         );
         this.outx(
-            "\n\nYou glance up at " +
-                this.player2.mf("his", "her") +
-                " face when your oozing, fat cock-tip presses into " +
-                this.player2.mf("his", "her") +
-                " sphincter, looking for assent.  " +
-                this.player2.mf("He", "She") +
-                " gives it a moment later, moaning and rubbing " +
-                this.player2.mf("his", "her") +
-                " butt back into you, butthole clenching and relaxing a little more with every contact."
+            `\n\nYou glance up at ${this.player2.mf(
+                "his",
+                "her"
+            )} face when your oozing, fat cock-tip presses into ${this.player2.mf(
+                "his",
+                "her"
+            )} sphincter, looking for assent.  ${this.player2.mf(
+                "He",
+                "She"
+            )} gives it a moment later, moaning and rubbing ${this.player2.mf(
+                "his",
+                "her"
+            )} butt back into you, butthole clenching and relaxing a little more with every contact.`
         );
         if (this.player2.analCapacity() > 70)
             this.outx(
-                "  Thankfully, " +
-                    this.player2.mf("he", "she") +
-                    "'s nice and stretched from all the butt-fucking " +
-                    this.player2.mf("he", "she") +
-                    "'s had to take, and you easily pop inside.  It feels so good that your flare grows wider, pulling you deeper into that welcoming, tight anal heat."
+                `  Thankfully, ${this.player2.mf(
+                    "he",
+                    "she"
+                )}'s nice and stretched from all the butt-fucking ${this.player2.mf(
+                    "he",
+                    "she"
+                )}'s had to take, and you easily pop inside.  It feels so good that your flare grows wider, pulling you deeper into that welcoming, tight anal heat.`
             );
         else if (this.player2.analCapacity() > 50)
             this.outx(
-                "  Thankfully, " +
-                    this.player2.mf("he", "she") +
-                    "'s got plenty of give in " +
-                    this.player2.mf("his", "her") +
-                    " back-door, and you pop inside after applying a little more pressure.  It feels so good that your flare grows wider, slowing your descent into that tight, anal heat."
+                `  Thankfully, ${this.player2.mf(
+                    "he",
+                    "she"
+                )}'s got plenty of give in ${this.player2.mf(
+                    "his",
+                    "her"
+                )} back-door, and you pop inside after applying a little more pressure.  It feels so good that your flare grows wider, slowing your descent into that tight, anal heat.`
             );
         else
             this.outx(
-                "  Unfortunately, there's not much give in " +
-                    this.player2.mf("his", "her") +
-                    " back-door, and you have to sit there smearing pre over it, again and again, each time pushing a little harder.  After what feels like the fiftieth try, you finally pop your fat flare into " +
-                    this.player2.mf("his", "her") +
-                    " rectum, the tight anal heat causing you to flare from the force of " +
-                    this.player2.mf("his", "her") +
-                    " pressure.  Slowly, you push inch after throbbing inch of your swollen, stallion-like erection into " +
-                    this.player2.mf("his", "her") +
-                    " asshole."
+                `  Unfortunately, there's not much give in ${this.player2.mf(
+                    "his",
+                    "her"
+                )} back-door, and you have to sit there smearing pre over it, again and again, each time pushing a little harder.  After what feels like the fiftieth try, you finally pop your fat flare into ${this.player2.mf(
+                    "his",
+                    "her"
+                )} rectum, the tight anal heat causing you to flare from the force of ${this.player2.mf(
+                    "his",
+                    "her"
+                )} pressure.  Slowly, you push inch after throbbing inch of your swollen, stallion-like erection into ${this.player2.mf(
+                    "his",
+                    "her"
+                )} asshole.`
             );
         if (this.player2.ass.analLooseness == 0) {
-            this.outx(
-                "  <b>You've taken " + this.player2.mf("his", "her") + " anal virginity!</b>"
-            );
+            this.outx(`  <b>You've taken ${this.player2.mf("his", "her")} anal virginity!</b>`);
             this.player2.ass.analLooseness = 1;
         }
         this.outx(
-            "  " +
-                this.player2.short +
-                " writhes as " +
-                this.player2.mf("he", "she") +
-                " takes you, " +
-                this.player2.mf("his", "her") +
-                " hips lifting slightly off the ground to make sure you grind into " +
-                this.player2.mf("his", "her") +
-                " prostate.  A long strand of clear excitement oozes from " +
-                this.player2.mf("his", "her") +
-                " tip"
+            `  ${this.player2.short} writhes as ${this.player2.mf(
+                "he",
+                "she"
+            )} takes you, ${this.player2.mf(
+                "his",
+                "her"
+            )} hips lifting slightly off the ground to make sure you grind into ${this.player2.mf(
+                "his",
+                "her"
+            )} prostate.  A long strand of clear excitement oozes from ${this.player2.mf(
+                "his",
+                "her"
+            )} tip`
         );
         if (this.player2.cockTotal() > 1) this.outx("s");
         this.outx(", thick, viscous, and clinging to the drying mess you left behind.");
 
         this.outx(
-            "\n\nGrabbing hold of you by the scruff of your neck, " +
-                this.player2.short +
-                " pulls you down into a kiss.  You passionately french " +
-                this.player2.mf("him", "her") +
-                " and try your hardest to time your thrusts to each plunging slurp your tongue makes into " +
-                this.player2.mf("his", "her") +
-                " oral cavity.  Together, you make love, mouth to mouth and cock to ass.  " +
-                this.player2.mf("His", "Her") +
-                " dark pucker wrings at your horse-cock, the tight muscles at " +
-                this.player2.mf("his", "her") +
-                " entrance seizing every time your sheath tickles up against them.  Groaning into " +
-                this.player2.mf("his", "her") +
-                " mouth, you lose whatever control you had and let your equine dong take over, helpless to resist your overpowering lust.  You pound " +
-                this.player2.mf("his", "her") +
-                " clenching anus hard and fast, breaking the kiss as you moan, forgetting how to do anything but hold your body in position and drive your thighs back and forth, back and forth-and-back-forth, faster and faster."
+            `\n\nGrabbing hold of you by the scruff of your neck, ${
+                this.player2.short
+            } pulls you down into a kiss.  You passionately french ${this.player2.mf(
+                "him",
+                "her"
+            )} and try your hardest to time your thrusts to each plunging slurp your tongue makes into ${this.player2.mf(
+                "his",
+                "her"
+            )} oral cavity.  Together, you make love, mouth to mouth and cock to ass.  ${this.player2.mf(
+                "His",
+                "Her"
+            )} dark pucker wrings at your horse-cock, the tight muscles at ${this.player2.mf(
+                "his",
+                "her"
+            )} entrance seizing every time your sheath tickles up against them.  Groaning into ${this.player2.mf(
+                "his",
+                "her"
+            )} mouth, you lose whatever control you had and let your equine dong take over, helpless to resist your overpowering lust.  You pound ${this.player2.mf(
+                "his",
+                "her"
+            )} clenching anus hard and fast, breaking the kiss as you moan, forgetting how to do anything but hold your body in position and drive your thighs back and forth, back and forth-and-back-forth, faster and faster.`
         );
 
         this.outx(
-            "\n\nYour balls begin to tingle with warmth in that familiar way that they do just before you cum, rising slightly involuntarily as your sack starts to pull tight and release.  Your cock flexes inside your lover's asshole hard enough to squeeze a spurt of dick-juice onto " +
-                this.player2.mf("his", "her") +
-                ' chest, and with an exultant moan, you declare, "<i>I\'m gonna...  CUUUUUUM!</i>"  ' +
-                this.player2.short +
-                " answers you with a moan of " +
-                this.player2.mf("his", "her") +
-                " own, digging " +
-                this.player2.mf("his", "her") +
-                " hands into your swaying, unrestrained tits as " +
-                this.player2.mf("he", "she") +
-                " releases."
+            `\n\nYour balls begin to tingle with warmth in that familiar way that they do just before you cum, rising slightly involuntarily as your sack starts to pull tight and release.  Your cock flexes inside your lover's asshole hard enough to squeeze a spurt of dick-juice onto ${this.player2.mf(
+                "his",
+                "her"
+            )} chest, and with an exultant moan, you declare, "<i>I'm gonna...  CUUUUUUM!</i>"  ${
+                this.player2.short
+            } answers you with a moan of ${this.player2.mf(
+                "his",
+                "her"
+            )} own, digging ${this.player2.mf(
+                "his",
+                "her"
+            )} hands into your swaying, unrestrained tits as ${this.player2.mf(
+                "he",
+                "she"
+            )} releases.`
         );
 
         this.outx(
-            "\n\nYou ram your turgid mass in until your sheath is smashed flat against your abdominals, almost painfully.  Below, your taut sack expands slightly before shrinking, pumping hot pleasure through your abdomen and down your rapidly dilating urethra.  You can feel it dilate the base of your cock, stopped up for a second by " +
-                this.player2.short +
-                "'s sphincter, and then it pushes through, widening " +
-                this.player2.mf("his", "her") +
-                " butthole in the process.  Your flare feels as wide as one of Aunt Nancy's plates back at the bar, immobilizingly thick and pulsing with every hammering heartbeat that pounds through it.  You release some of your pent-up, achingly hot seed into " +
-                this.player2.mf("his", "her") +
-                " butt with a cry of joy.  Wriggling down against " +
-                this.player2.mf("him", "her") +
-                ", you squeeze " +
-                this.player2.mf("his", "her") +
-                " pulsing erection"
+            `\n\nYou ram your turgid mass in until your sheath is smashed flat against your abdominals, almost painfully.  Below, your taut sack expands slightly before shrinking, pumping hot pleasure through your abdomen and down your rapidly dilating urethra.  You can feel it dilate the base of your cock, stopped up for a second by ${
+                this.player2.short
+            }'s sphincter, and then it pushes through, widening ${this.player2.mf(
+                "his",
+                "her"
+            )} butthole in the process.  Your flare feels as wide as one of Aunt Nancy's plates back at the bar, immobilizingly thick and pulsing with every hammering heartbeat that pounds through it.  You release some of your pent-up, achingly hot seed into ${this.player2.mf(
+                "his",
+                "her"
+            )} butt with a cry of joy.  Wriggling down against ${this.player2.mf(
+                "him",
+                "her"
+            )}, you squeeze ${this.player2.mf("his", "her")} pulsing erection`
         );
         if (this.player2.cockTotal() > 1) this.outx("s");
         this.outx(
-            " between your bodies, " +
-                this.player2.mf("his", "her") +
-                " liquid love exploding all over your cock-locked forms.  Each time you cum, a fresh-squeezed spurt of semen splatters into your tits, " +
-                this.player2.mf("his", "her") +
-                " prostate violently being milked by the heady flows of vixen-spunk you force inside " +
-                this.player2.mf("his", "her") +
-                " rectum."
+            ` between your bodies, ${this.player2.mf(
+                "his",
+                "her"
+            )} liquid love exploding all over your cock-locked forms.  Each time you cum, a fresh-squeezed spurt of semen splatters into your tits, ${this.player2.mf(
+                "his",
+                "her"
+            )} prostate violently being milked by the heady flows of vixen-spunk you force inside ${this.player2.mf(
+                "his",
+                "her"
+            )} rectum.`
         );
         if (this.player2.hasVagina())
             this.outx(
                 "  You don't notice the female fluids that drip from her sodden slit - they soak into your big balls, already forgotten."
             );
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                " kisses you, or at least tries to - " +
-                this.player2.mf("his", "her") +
-                " body wiggles " +
-                this.player2.mf("him", "her") +
-                " away with every blissful spurt that " +
-                this.player2.mf("he", "she") +
-                " makes"
+            `\n\n${this.player2.short} kisses you, or at least tries to - ${this.player2.mf(
+                "his",
+                "her"
+            )} body wiggles ${this.player2.mf(
+                "him",
+                "her"
+            )} away with every blissful spurt that ${this.player2.mf("he", "she")} makes`
         );
         if (this.player2.cumQ() >= 500) {
             this.outx(
-                ", made worse by the sheer volume of spunk " +
-                    this.player2.mf("his", "her") +
-                    " cock"
+                `, made worse by the sheer volume of spunk ${this.player2.mf("his", "her")} cock`
             );
             if (this.player2.cockTotal() > 1) this.outx("s exude");
             else this.outx(" exudes");
         }
         this.outx(
-            ".  Wonderfully, " +
-                this.player2.mf("his", "her") +
-                " belly begins to round out from your seemingly endless flow of animal jizz.  Without meaning to, you imagine " +
-                this.player2.mf("him", "her") +
-                " as your uber-pregnant, belly-dragging brood-mare, cum drooling from every packed hole and " +
-                this.player2.mf("his", "her") +
-                " body drenched in excess.  The thought sets off another explosive orgasm, even before the first has finished.  Your climax is so powerful that your balls feel like they're being squeezed in a vice.  " +
-                this.player2.short +
-                "'s asshole fountains cum around the edges of your potent phallus as it's filled beyond capacity.  " +
-                this.player2.mf("His", "Her") +
-                " belly rounds just as you imagined it, and you begin to piston your hips while your eyes roll back, unseeing.  You don't care, you're drooling all over your spunked up broodmare and giving " +
-                this.player2.mf("him", "her") +
-                " another load of kits, even if it is in " +
-                this.player2.mf("his", "her") +
-                " ass!"
+            `.  Wonderfully, ${this.player2.mf(
+                "his",
+                "her"
+            )} belly begins to round out from your seemingly endless flow of animal jizz.  Without meaning to, you imagine ${this.player2.mf(
+                "him",
+                "her"
+            )} as your uber-pregnant, belly-dragging brood-mare, cum drooling from every packed hole and ${this.player2.mf(
+                "his",
+                "her"
+            )} body drenched in excess.  The thought sets off another explosive orgasm, even before the first has finished.  Your climax is so powerful that your balls feel like they're being squeezed in a vice.  ${
+                this.player2.short
+            }'s asshole fountains cum around the edges of your potent phallus as it's filled beyond capacity.  ${this.player2.mf(
+                "His",
+                "Her"
+            )} belly rounds just as you imagined it, and you begin to piston your hips while your eyes roll back, unseeing.  You don't care, you're drooling all over your spunked up broodmare and giving ${this.player2.mf(
+                "him",
+                "her"
+            )} another load of kits, even if it is in ${this.player2.mf("his", "her")} ass!`
         );
 
         this.outx(
-            "\n\nEven after your orgasm ends and your strength gives out, you keep working your massive, monstrous dong into " +
-                this.player2.short +
-                "'s ass with weak little strokes.  " +
-                this.player2.mf("He", "She") +
-                " makes a pained, plaintive moan, just loud enough for you to hear.  That distressed keen is all it takes to shake you out of your fuck-hungry rut, and you immediately pull out, panting and placing a compassionate hand on " +
-                this.player2.short +
-                "'s face.  " +
-                this.player2.mf("He", "She") +
-                " sighs with relief as a river of your alabaster goo escapes the well-stretched confines of " +
-                this.player2.mf("his", "her") +
-                " over-inseminated anus.  It soaks the blanket utterly"
+            `\n\nEven after your orgasm ends and your strength gives out, you keep working your massive, monstrous dong into ${
+                this.player2.short
+            }'s ass with weak little strokes.  ${this.player2.mf(
+                "He",
+                "She"
+            )} makes a pained, plaintive moan, just loud enough for you to hear.  That distressed keen is all it takes to shake you out of your fuck-hungry rut, and you immediately pull out, panting and placing a compassionate hand on ${
+                this.player2.short
+            }'s face.  ${this.player2.mf(
+                "He",
+                "She"
+            )} sighs with relief as a river of your alabaster goo escapes the well-stretched confines of ${this.player2.mf(
+                "his",
+                "her"
+            )} over-inseminated anus.  It soaks the blanket utterly`
         );
         if (this.player2.cumQ() >= 500) {
-            this.outx(", mixing with " + this.player2.mf("his", "her") + " own ");
+            this.outx(`, mixing with ${this.player2.mf("his", "her")} own `);
             if (this.player2.cumQ() < 1000) this.outx("puddly");
             else if (this.player2.cumQ() < 2500) this.outx("small lake-sized");
             else this.outx("massive, lake-sized");
@@ -1267,11 +1307,12 @@ export class UrtaQuest extends NPCAwareContent {
             " semen-inundated fabric quickly begins to dry as the parched, wasteland dirt reclaims the moisture."
         );
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                " pulls you down for another kiss, and you lose yourself to it, never going completely soft - as if you could in " +
-                this.player2.mf("his", "her") +
-                " presence.  You close your eyes and let sleep claim you, cuddled together, basking in the heady smell of your combined pleasure."
+            `\n\n${
+                this.player2.short
+            } pulls you down for another kiss, and you lose yourself to it, never going completely soft - as if you could in ${this.player2.mf(
+                "his",
+                "her"
+            )} presence.  You close your eyes and let sleep claim you, cuddled together, basking in the heady smell of your combined pleasure.`
         );
         this.player.orgasm();
         this.dynStats("sen", -2);
@@ -1289,219 +1330,261 @@ export class UrtaQuest extends NPCAwareContent {
     private pcBlowsUrtasDong(truth: boolean): void {
         this.clearOutput();
         this.outx(
-            "You ogle your lover's naked form, admiring " +
-                this.player2.mf("his", "her") +
-                " beauty.  When your eyes fixate upon " +
-                this.player2.mf("his", "her") +
-                " sweet kissing lips... mmm, you'd really like to feel those wrapped around your aching dick...  Mustering your courage, you embrace your partner, and gently but insistently push " +
-                this.player2.mf("him", "her") +
-                " to the ground.  Leaning over to " +
-                this.player2.mf("his", "her") +
-                " ear, you say, in a stage whisper, \"<i>You have such a pretty mouth, and my cock's aching so bad... will you kiss it better?</i>\"  You blush, as much from the corniness of your line as from embarrassment at what you're asking " +
-                this.player2.mf("him", "her") +
-                " to do."
+            `You ogle your lover's naked form, admiring ${this.player2.mf(
+                "his",
+                "her"
+            )} beauty.  When your eyes fixate upon ${this.player2.mf(
+                "his",
+                "her"
+            )} sweet kissing lips... mmm, you'd really like to feel those wrapped around your aching dick...  Mustering your courage, you embrace your partner, and gently but insistently push ${this.player2.mf(
+                "him",
+                "her"
+            )} to the ground.  Leaning over to ${this.player2.mf(
+                "his",
+                "her"
+            )} ear, you say, in a stage whisper, "<i>You have such a pretty mouth, and my cock's aching so bad... will you kiss it better?</i>"  You blush, as much from the corniness of your line as from embarrassment at what you're asking ${this.player2.mf(
+                "him",
+                "her"
+            )} to do.`
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                " is surprised at your request, but smiles and nods, gently giving your lips a little peck.  A small promise of what's to come.  Feeling emboldened by " +
-                this.player2.mf("his", "her") +
-                " willingness, you grab " +
-                this.player2.mf("his", "her") +
-                " shoulder and pull " +
-                this.player2.mf("him", "her") +
-                " deeper into a kiss, eager to savor the lips that will soon be wrapping themselves around your dick, tongue flicking through them to brush up against your lover's tongue.  While you're  preoccupied with " +
-                this.player2.mf("his", "her") +
-                " mouth, " +
-                this.player2.short +
-                "'s hands roam your body, seeking the straps holding your leather armor together, peeling off the layers of protection in order to get to your naked body.  You moan appreciatively into the kiss when " +
-                this.player2.mf("he", "she") +
-                ' gives your furry breasts an appreciative grope.  "<i>Mmm, you have wonderful hands, ' +
-                this.player2.short +
-                '; I love it when you touch me like this...</i>" you croon, and then you kiss ' +
-                this.player2.mf("him", "her") +
-                " again to show your appreciation."
+            `\n\n${
+                this.player2.short
+            } is surprised at your request, but smiles and nods, gently giving your lips a little peck.  A small promise of what's to come.  Feeling emboldened by ${this.player2.mf(
+                "his",
+                "her"
+            )} willingness, you grab ${this.player2.mf(
+                "his",
+                "her"
+            )} shoulder and pull ${this.player2.mf(
+                "him",
+                "her"
+            )} deeper into a kiss, eager to savor the lips that will soon be wrapping themselves around your dick, tongue flicking through them to brush up against your lover's tongue.  While you're  preoccupied with ${this.player2.mf(
+                "his",
+                "her"
+            )} mouth, ${
+                this.player2.short
+            }'s hands roam your body, seeking the straps holding your leather armor together, peeling off the layers of protection in order to get to your naked body.  You moan appreciatively into the kiss when ${this.player2.mf(
+                "he",
+                "she"
+            )} gives your furry breasts an appreciative grope.  "<i>Mmm, you have wonderful hands, ${
+                this.player2.short
+            }; I love it when you touch me like this...</i>" you croon, and then you kiss ${this.player2.mf(
+                "him",
+                "her"
+            )} again to show your appreciation.`
         );
 
         this.outx(
-            "\n\nAs wonderful as this feels, however, this isn't what you had in mind, something you become aware of when you feel your cock pushing against your lover's belly.  Your dick bobs up and down before you, the unflared head slightly expanding and then curling back in as arousal builds.  You break away from your lover and give " +
-                this.player2.mf("him", "her") +
-                " a somewhat sheepish smile.  \"<i>Looks like he's eager for your kiss,</i>\" you giggle nervously, trying to lighten the mood by referring to your penis as if it was its own entity... though the depressing thought occurs to you that, with how often it tends to think for you, there's more than a little truth in that idea."
+            `\n\nAs wonderful as this feels, however, this isn't what you had in mind, something you become aware of when you feel your cock pushing against your lover's belly.  Your dick bobs up and down before you, the unflared head slightly expanding and then curling back in as arousal builds.  You break away from your lover and give ${this.player2.mf(
+                "him",
+                "her"
+            )} a somewhat sheepish smile.  "<i>Looks like he's eager for your kiss,</i>" you giggle nervously, trying to lighten the mood by referring to your penis as if it was its own entity... though the depressing thought occurs to you that, with how often it tends to think for you, there's more than a little truth in that idea.`
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                " smiles mischievously at you and rolls you over, pinning you on your back while " +
-                this.player2.mf("he", "she") +
-                " eyes your equine-prick.  It stands like a perverted mast, throbbing, aching for a little touch.  \"<i>Well?  Go on, he's not going to bite,</i>\" you suggest, rubbing your thighs together in anticipation of what's coming next.  You want this so badly, but it's hard to get over a lifetime of issues when it comes to your dick."
+            `\n\n${
+                this.player2.short
+            } smiles mischievously at you and rolls you over, pinning you on your back while ${this.player2.mf(
+                "he",
+                "she"
+            )} eyes your equine-prick.  It stands like a perverted mast, throbbing, aching for a little touch.  "<i>Well?  Go on, he's not going to bite,</i>" you suggest, rubbing your thighs together in anticipation of what's coming next.  You want this so badly, but it's hard to get over a lifetime of issues when it comes to your dick.`
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.mf("He", "She") +
-                " finally grasps your rock-hard shaft, pumping it lightly.  You moan appreciatively and buck your hips as " +
-                this.player2.short +
-                ' slowly milks you for your pre.  "<i>W-what are you trying to do?  Stroke me until I blow before you can wrap your lips around it?  Is it - am <b>I</b> -  too big for you to handle, ' +
-                this.player2.short +
-                '?</i>"  You do your best to make your tone light and playful when you say this.  ' +
-                this.player2.short +
-                ' pinches your flared head and gives it a little twist, stimulating your tip sharply.  You squeal in shock, "<i>' +
-                this.player2.short +
-                ", not so rough!  I'm not that kinky of a girl!</i>\"  You complain.  " +
-                this.player2.short +
-                " gives you a smug look, pointing at your shaft and the ample proof of your enjoyment of that little act - your cock is leaking pre like an open tap.  You blush and try to mumble that it's not your fault that happens."
+            `\n\n${this.player2.mf(
+                "He",
+                "She"
+            )} finally grasps your rock-hard shaft, pumping it lightly.  You moan appreciatively and buck your hips as ${
+                this.player2.short
+            } slowly milks you for your pre.  "<i>W-what are you trying to do?  Stroke me until I blow before you can wrap your lips around it?  Is it - am <b>I</b> -  too big for you to handle, ${
+                this.player2.short
+            }?</i>"  You do your best to make your tone light and playful when you say this.  ${
+                this.player2.short
+            } pinches your flared head and gives it a little twist, stimulating your tip sharply.  You squeal in shock, "<i>${
+                this.player2.short
+            }, not so rough!  I'm not that kinky of a girl!</i>"  You complain.  ${
+                this.player2.short
+            } gives you a smug look, pointing at your shaft and the ample proof of your enjoyment of that little act - your cock is leaking pre like an open tap.  You blush and try to mumble that it's not your fault that happens.`
         );
 
         this.outx(
-            "\n\nDollops of pre gather on your tip, and soon begin to overflow, sliding down along your shaft and your lover's hand.  Seeing this " +
-                this.player2.mf("he", "she") +
-                " licks " +
-                this.player2.mf("his", "her") +
-                " lips and slowly approaches your tip, kissing it and licking the pre gathered there.  You moan appreciatively, and give " +
-                this.player2.mf("him", "her") +
-                " a coy smile.  \"<i>Mmm, you're a nice kisser... but let's see some real kissing, shall we?  Give him a little tongue, " +
-                this.player2.short +
-                ',</i>" you tease.'
+            `\n\nDollops of pre gather on your tip, and soon begin to overflow, sliding down along your shaft and your lover's hand.  Seeing this ${this.player2.mf(
+                "he",
+                "she"
+            )} licks ${this.player2.mf(
+                "his",
+                "her"
+            )} lips and slowly approaches your tip, kissing it and licking the pre gathered there.  You moan appreciatively, and give ${this.player2.mf(
+                "him",
+                "her"
+            )} a coy smile.  "<i>Mmm, you're a nice kisser... but let's see some real kissing, shall we?  Give him a little tongue, ${
+                this.player2.short
+            },</i>" you tease.`
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.mf("He", "She") +
-                " does as you ask, licking your throbbing pole clean of pre, then finally taking your engorged tip in, sucking on it like a straw. You groan in pleasure and wriggle your hips as your lover's caressing lips and tongue send sparks of pleasure surging through your nervous system, your dick revelling in what " +
-                this.player2.mf("he", "she") +
-                '\'s doing to it.  "<i>More, please, more!</i>"'
+            `\n\n${this.player2.mf(
+                "He",
+                "She"
+            )} does as you ask, licking your throbbing pole clean of pre, then finally taking your engorged tip in, sucking on it like a straw. You groan in pleasure and wriggle your hips as your lover's caressing lips and tongue send sparks of pleasure surging through your nervous system, your dick revelling in what ${this.player2.mf(
+                "he",
+                "she"
+            )}'s doing to it.  "<i>More, please, more!</i>"`
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                " bobs on your shaft, taking it as deep into " +
-                this.player2.mf("his", "her") +
-                " throat as " +
-                this.player2.mf("he", "she") +
-                " can, sucking and slurping obscenely with every move, one hand sliding down to caress your balls, rolling them around in " +
-                this.player2.mf("his", "her") +
-                " palm; " +
-                this.player2.mf("his", "her") +
-                " other moving along your furry belly, reaching for your breasts.  You growl lustily in your throat; your legs twitch with the desire to wrap themselves around " +
-                this.player2.mf("his", "her") +
-                " head and force " +
-                this.player2.mf("him", "her") +
-                " to go all the way down to your balls, but you restrain yourself.  You want to make this special, and that means letting " +
-                this.player2.mf("him", "her") +
-                ' have as much control as possible.  "<i>You have such a sweet mouth, ' +
-                this.player2.short +
-                "... but I think the two of us want some more sugar.</i>\"  Almost as if to punctuate your statement, you moan as your balls clench, squeezing a generous dollop of precum into your lover's mouth."
+            `\n\n${this.player2.short} bobs on your shaft, taking it as deep into ${this.player2.mf(
+                "his",
+                "her"
+            )} throat as ${this.player2.mf(
+                "he",
+                "she"
+            )} can, sucking and slurping obscenely with every move, one hand sliding down to caress your balls, rolling them around in ${this.player2.mf(
+                "his",
+                "her"
+            )} palm; ${this.player2.mf(
+                "his",
+                "her"
+            )} other moving along your furry belly, reaching for your breasts.  You growl lustily in your throat; your legs twitch with the desire to wrap themselves around ${this.player2.mf(
+                "his",
+                "her"
+            )} head and force ${this.player2.mf(
+                "him",
+                "her"
+            )} to go all the way down to your balls, but you restrain yourself.  You want to make this special, and that means letting ${this.player2.mf(
+                "him",
+                "her"
+            )} have as much control as possible.  "<i>You have such a sweet mouth, ${
+                this.player2.short
+            }... but I think the two of us want some more sugar.</i>"  Almost as if to punctuate your statement, you moan as your balls clench, squeezing a generous dollop of precum into your lover's mouth.`
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                "'s hand leaves your balls and slides behind them, probing your moist honeypot and fingerfucking you slowly. You wriggle and buck in your seat, unconsciously thrusting your dick forward as you react to this unexpected but delightful turn of events.  As if to tease you, " +
-                this.player2.short +
-                " suddenly stops, removing " +
-                this.player2.mf("his", "her") +
-                " fingers from your dripping pussy and " +
-                this.player2.mf("his", "her") +
-                " mouth from your leaking cock.  \"<i>I'm not done yet!</i>\"  You whimper - you're so close to cumming now, you can feel your balls churning as they stretch themselves with a new load, your dick on fire with the need to release.  Your protests are silenced when you're presented with " +
-                this.player2.mf("his", "her") +
-                " slick fingers, covered in fox honey."
+            `\n\n${
+                this.player2.short
+            }'s hand leaves your balls and slides behind them, probing your moist honeypot and fingerfucking you slowly. You wriggle and buck in your seat, unconsciously thrusting your dick forward as you react to this unexpected but delightful turn of events.  As if to tease you, ${
+                this.player2.short
+            } suddenly stops, removing ${this.player2.mf(
+                "his",
+                "her"
+            )} fingers from your dripping pussy and ${this.player2.mf(
+                "his",
+                "her"
+            )} mouth from your leaking cock.  "<i>I'm not done yet!</i>"  You whimper - you're so close to cumming now, you can feel your balls churning as they stretch themselves with a new load, your dick on fire with the need to release.  Your protests are silenced when you're presented with ${this.player2.mf(
+                "his",
+                "her"
+            )} slick fingers, covered in fox honey.`
         );
 
         this.outx(
-            "\n\nOh, so that's how " +
-                this.player2.mf("he", "she") +
-                " wants to play it, eh?  Well, you're not afraid of this game.  With your most flirtatious look, you gently take " +
-                this.player2.mf("his", "her") +
-                " hand and lift it to your mouth, slowly and lovingly licking your sweet juices from your lover's fingers, painstakingly lapping each one up and down before you suck them through your puckered lips.  With a muffled chorus of slutty moans you suck, nibble, and nip at the fingers, staring into " +
-                this.player2.mf("his", "her") +
-                " eyes through your own hooded gaze, making it clear you're enjoying every moment of this."
+            `\n\nOh, so that's how ${this.player2.mf(
+                "he",
+                "she"
+            )} wants to play it, eh?  Well, you're not afraid of this game.  With your most flirtatious look, you gently take ${this.player2.mf(
+                "his",
+                "her"
+            )} hand and lift it to your mouth, slowly and lovingly licking your sweet juices from your lover's fingers, painstakingly lapping each one up and down before you suck them through your puckered lips.  With a muffled chorus of slutty moans you suck, nibble, and nip at the fingers, staring into ${this.player2.mf(
+                "his",
+                "her"
+            )} eyes through your own hooded gaze, making it clear you're enjoying every moment of this.`
         );
 
         this.outx(
-            "\n\nRemoving " +
-                this.player2.mf("his", "her") +
-                ", now clean, hand from your lips with a <b>POP</b>, " +
-                this.player2.short +
-                " smiles wryly at you as " +
-                this.player2.mf("he", "she") +
-                ' grabs your legs and lifts them over your shoulders.  "<i>Now what are you-</i>"  You start to say, curious about what your lover has in mind.  ' +
-                this.player2.mf("He", "She") +
-                " silences you by shoving " +
-                this.player2.mf("his", "her") +
-                " fingers down your pussy once again. You blink in surprise, but are too pleased at what's happening now to care much, enthusiastically bucking your hips to meet " +
-                this.player2.mf("his", "her") +
-                " probing fingers, then whimpering in disappointment when they are removed again."
+            `\n\nRemoving ${this.player2.mf(
+                "his",
+                "her"
+            )}, now clean, hand from your lips with a <b>POP</b>, ${
+                this.player2.short
+            } smiles wryly at you as ${this.player2.mf(
+                "he",
+                "she"
+            )} grabs your legs and lifts them over your shoulders.  "<i>Now what are you-</i>"  You start to say, curious about what your lover has in mind.  ${this.player2.mf(
+                "He",
+                "She"
+            )} silences you by shoving ${this.player2.mf(
+                "his",
+                "her"
+            )} fingers down your pussy once again. You blink in surprise, but are too pleased at what's happening now to care much, enthusiastically bucking your hips to meet ${this.player2.mf(
+                "his",
+                "her"
+            )} probing fingers, then whimpering in disappointment when they are removed again.`
         );
 
         this.outx(
-            "\n\nYou're presented with " +
-                this.player2.mf("his", "her") +
-                ' slick fingers once more.  "<i>Heh, do you get off on seeing me suck your fingers, ' +
-                this.player2.short +
-                '?</i>"  You\'re sincerely curious, but eagerly accept them all the same, sucking them clean a second time. You smack your lips as the fingers are extracted from your mouth once more.  You impatiently wriggle and squirm in your seat, "<i>' +
-                this.player2.short +
-                ", I'm going mad here - let me cum, please?  Pretty please?</i>\"   " +
-                this.player2.short +
-                ' traces a finger along your shaft, down your balls, along your slit, and gently moves to prod your tight little rosebud.  "<i>W-what are you up to now?<i>"  You ask, at once scared and excited to see what ' +
-                this.player2.mf("he", "she") +
-                " has in mind."
+            `\n\nYou're presented with ${this.player2.mf(
+                "his",
+                "her"
+            )} slick fingers once more.  "<i>Heh, do you get off on seeing me suck your fingers, ${
+                this.player2.short
+            }?</i>"  You're sincerely curious, but eagerly accept them all the same, sucking them clean a second time. You smack your lips as the fingers are extracted from your mouth once more.  You impatiently wriggle and squirm in your seat, "<i>${
+                this.player2.short
+            }, I'm going mad here - let me cum, please?  Pretty please?</i>"   ${
+                this.player2.short
+            } traces a finger along your shaft, down your balls, along your slit, and gently moves to prod your tight little rosebud.  "<i>W-what are you up to now?<i>"  You ask, at once scared and excited to see what ${this.player2.mf(
+                "he",
+                "she"
+            )} has in mind.`
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.mf("His", "Her") +
-                " only reply is to shove " +
-                this.player2.mf("his", "her") +
-                " slick finger into you, roughly stimulating your prostate.  You vent a throaty howl of equal parts shock, disapproval and ecstasy.  The prostate milking proves to be more than your poor, over-hyped cock can take.  Your balls squeeze themselves up into your crotch as pleasure burns through your stallionhood like hard liquor burns down your gullet, climaxing in a veritable eruption of foxy herm seed that explodes dramatically from your dessert-plate-sized flare, jetting straight at your chest and impacting with enough force to splatter your surroundings.  The bubbling torrent of spunk rains down in a heady, musky, kinky deluge that drenches your face and tits alike.  Unthinkingly, you open your mouth and loll out your tongue, gulping down mouthful after mouthful of your own spooge until finally your balls empty themselves."
+            `\n\n${this.player2.mf("His", "Her")} only reply is to shove ${this.player2.mf(
+                "his",
+                "her"
+            )} slick finger into you, roughly stimulating your prostate.  You vent a throaty howl of equal parts shock, disapproval and ecstasy.  The prostate milking proves to be more than your poor, over-hyped cock can take.  Your balls squeeze themselves up into your crotch as pleasure burns through your stallionhood like hard liquor burns down your gullet, climaxing in a veritable eruption of foxy herm seed that explodes dramatically from your dessert-plate-sized flare, jetting straight at your chest and impacting with enough force to splatter your surroundings.  The bubbling torrent of spunk rains down in a heady, musky, kinky deluge that drenches your face and tits alike.  Unthinkingly, you open your mouth and loll out your tongue, gulping down mouthful after mouthful of your own spooge until finally your balls empty themselves.`
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                " releases you, letting your legs flop on the floor nervelessly.  " +
-                this.player2.mf("He", "She") +
-                ' pats your thigh and glances at you questioningly.  "<i>Did fox enjoy her bath?</i>"  ' +
-                this.player2.mf("He", "She") +
-                " asks with a chuckle, rubbing your belly."
+            `\n\n${
+                this.player2.short
+            } releases you, letting your legs flop on the floor nervelessly.  ${this.player2.mf(
+                "He",
+                "She"
+            )} pats your thigh and glances at you questioningly.  "<i>Did fox enjoy her bath?</i>"  ${this.player2.mf(
+                "He",
+                "She"
+            )} asks with a chuckle, rubbing your belly.`
         );
 
         this.outx(
-            '\n\n"<i>I can think of better ways to have a bath,<i>" you answer primly... then realize your treacherous leg is kicking with pleasure at the belly rub, and you have to concentrate hard to force it to stop.  "<i>Besides, I thought I was supposed to be giving you a feeding, not myself a bath?</i>"  You laugh.  ' +
-                this.player2.short +
-                " looks pensive for a moment, but ultimately, " +
-                this.player2.mf("he", "she") +
-                " just shrugs and redoubles " +
-                this.player2.mf("his", "her") +
-                " effort, rubbing your belly even harder to get you to kick your leg a bit more.  \"<i>S-stop that!</i>\"  You blurt, trying to keep the fact that this does feel good out of your voice even as you wriggle at the ticklish sensation.  Of course, maybe a belly-rub on top of a decent bellyful of cum isn't such a good idea; you feel queasy for a moment, then can't hold back a loud burp.  This shocks your mischievous lover into loosening " +
-                this.player2.mf("his", "her") +
-                " grip, and you promptly seize advantage of that; you surge forward and swiftly overpower " +
-                this.player2.mf("him", "her") +
-                ", wrestling " +
-                this.player2.mf("him", "her") +
-                " to the floor and then giving " +
-                this.player2.mf("him", "her") +
-                " a wet, sloppy, deep-throating, tongue-filled kiss.  You noisily make out with your lover for a couple of minutes, then let " +
-                this.player2.mf("him", "her") +
-                ' go.  "<i>See what bad ' +
-                this.player2.mf("boys", "girl") +
-                ' get?<i>"  You chuckle.  ' +
-                this.player2.short +
-                " just grins innocently at you."
+            `\n\n"<i>I can think of better ways to have a bath,<i>" you answer primly... then realize your treacherous leg is kicking with pleasure at the belly rub, and you have to concentrate hard to force it to stop.  "<i>Besides, I thought I was supposed to be giving you a feeding, not myself a bath?</i>"  You laugh.  ${
+                this.player2.short
+            } looks pensive for a moment, but ultimately, ${this.player2.mf(
+                "he",
+                "she"
+            )} just shrugs and redoubles ${this.player2.mf(
+                "his",
+                "her"
+            )} effort, rubbing your belly even harder to get you to kick your leg a bit more.  "<i>S-stop that!</i>"  You blurt, trying to keep the fact that this does feel good out of your voice even as you wriggle at the ticklish sensation.  Of course, maybe a belly-rub on top of a decent bellyful of cum isn't such a good idea; you feel queasy for a moment, then can't hold back a loud burp.  This shocks your mischievous lover into loosening ${this.player2.mf(
+                "his",
+                "her"
+            )} grip, and you promptly seize advantage of that; you surge forward and swiftly overpower ${this.player2.mf(
+                "him",
+                "her"
+            )}, wrestling ${this.player2.mf(
+                "him",
+                "her"
+            )} to the floor and then giving ${this.player2.mf(
+                "him",
+                "her"
+            )} a wet, sloppy, deep-throating, tongue-filled kiss.  You noisily make out with your lover for a couple of minutes, then let ${this.player2.mf(
+                "him",
+                "her"
+            )} go.  "<i>See what bad ${this.player2.mf("boys", "girl")} get?<i>"  You chuckle.  ${
+                this.player2.short
+            } just grins innocently at you.`
         );
 
         this.outx(
-            "\n\nYou yawn loudly, feeling tired now.  You promptly make yourself comfortable lying on " +
-                this.player2.short +
-                "'s belly, and kiss " +
-                this.player2.mf("him", "her") +
-                ' on the nose.  "<i>Night, ' +
-                this.player2.short +
-                '; sleep well.</i>"  You say, then close your eyes and allow yourself to drift off to sleep, happily using ' +
-                this.player2.mf("him", "her") +
-                " as a full-body pillow."
+            `\n\nYou yawn loudly, feeling tired now.  You promptly make yourself comfortable lying on ${
+                this.player2.short
+            }'s belly, and kiss ${this.player2.mf("him", "her")} on the nose.  "<i>Night, ${
+                this.player2.short
+            }; sleep well.</i>"  You say, then close your eyes and allow yourself to drift off to sleep, happily using ${this.player2.mf(
+                "him",
+                "her"
+            )} as a full-body pillow.`
         );
         this.player.orgasm();
         this.dynStats("sen", -2);
@@ -1519,21 +1602,24 @@ export class UrtaQuest extends NPCAwareContent {
         this.clearOutput();
         const x: number = this.player2.cockThatFits(this.urta.urtaCapacity());
         this.outx(
-            "You push " +
-                this.player2.short +
-                " down onto the ground, glad that " +
-                this.player2.mf("he", "she") +
-                "'s not wearing " +
-                this.player2.mf("his", "her") +
-                " gear right now.  Unfortunately, you've still got to get out of yours, an action made all that more difficult by the heat welling up in your groin.  Your rebellious cock is already half-stiff, lifting the hem of your armored skirt away from your thighs.  Fingers scrabbling, you struggle with your chestpiece's bindings.  Your nipples stiffen, scraping against the inside of it while you fight with to remove it.  You straddle " +
-                this.player2.short +
-                "'s waist to hold " +
-                this.player2.mf("him", "her") +
-                " down while you work the bothersome, restraining material free, practically grinding your semi-rigid dick against " +
-                this.player2.mf("his", "hers") +
-                " in excitement.  " +
-                this.player2.mf("His", "Her") +
-                " hands begin aiding you in your task, allowing your tightly compressed breasts to finally, happily breathe."
+            `You push ${this.player2.short} down onto the ground, glad that ${this.player2.mf(
+                "he",
+                "she"
+            )}'s not wearing ${this.player2.mf(
+                "his",
+                "her"
+            )} gear right now.  Unfortunately, you've still got to get out of yours, an action made all that more difficult by the heat welling up in your groin.  Your rebellious cock is already half-stiff, lifting the hem of your armored skirt away from your thighs.  Fingers scrabbling, you struggle with your chestpiece's bindings.  Your nipples stiffen, scraping against the inside of it while you fight with to remove it.  You straddle ${
+                this.player2.short
+            }'s waist to hold ${this.player2.mf(
+                "him",
+                "her"
+            )} down while you work the bothersome, restraining material free, practically grinding your semi-rigid dick against ${this.player2.mf(
+                "his",
+                "hers"
+            )} in excitement.  ${this.player2.mf(
+                "His",
+                "Her"
+            )} hands begin aiding you in your task, allowing your tightly compressed breasts to finally, happily breathe.`
         );
 
         this.outx(
@@ -1541,26 +1627,29 @@ export class UrtaQuest extends NPCAwareContent {
         );
         if (this.player2.gender == 3) this.outx("...well, close enough... ");
         this.outx(
-            "to ever fuck you like a woman.  Grabbing " +
-                this.player2.mf("his", "her") +
-                " face, you pull " +
-                this.player2.mf("him", "her") +
-                " into a deep, passionate kiss, unthinkingly grinding your dripping cock and steadily-wettening gash into " +
-                this.player2.mf("his", "her") +
-                " belly and rubbing your own pebbly onyx nipples against " +
-                this.player2.mf("his", "her") +
-                " nipples.  " +
-                this.player2.mf("His", "Her") +
-                " own " +
-                this.player2.cockDescript(x) +
-                " begins to drool precum"
+            `to ever fuck you like a woman.  Grabbing ${this.player2.mf(
+                "his",
+                "her"
+            )} face, you pull ${this.player2.mf(
+                "him",
+                "her"
+            )} into a deep, passionate kiss, unthinkingly grinding your dripping cock and steadily-wettening gash into ${this.player2.mf(
+                "his",
+                "her"
+            )} belly and rubbing your own pebbly onyx nipples against ${this.player2.mf(
+                "his",
+                "her"
+            )} nipples.  ${this.player2.mf("His", "Her")} own ${this.player2.cockDescript(
+                x
+            )} begins to drool precum`
         );
         if (this.player2.hasVagina())
             this.outx(", her cunt dripping wetly onto the ground from the stimulus");
         this.outx(
-            ", the fluid rolling down its length to puddle with yours on " +
-                this.player2.mf("his", "her") +
-                " belly and filling your writhing, passionate embrace with hot, sticky sweetness."
+            `, the fluid rolling down its length to puddle with yours on ${this.player2.mf(
+                "his",
+                "her"
+            )} belly and filling your writhing, passionate embrace with hot, sticky sweetness.`
         );
 
         this.outx(
@@ -1575,65 +1664,73 @@ export class UrtaQuest extends NPCAwareContent {
             if (!this.player2.isDrider()) this.outx("quadrapedal");
             else this.outx("octapedal");
             this.outx(
-                " partner to mount you - encouragement " +
-                    this.player2.mf("he", "she") +
-                    " doesn't really need that much of.  Forelegs draping themselves over your shoulders, there is a little awkwardness as the two of you try to position " +
-                    this.player2.mf("his", "her") +
-                    " cock inside of you, but it doesn't take that much experimentation before it slides inside you."
+                ` partner to mount you - encouragement ${this.player2.mf(
+                    "he",
+                    "she"
+                )} doesn't really need that much of.  Forelegs draping themselves over your shoulders, there is a little awkwardness as the two of you try to position ${this.player2.mf(
+                    "his",
+                    "her"
+                )} cock inside of you, but it doesn't take that much experimentation before it slides inside you.`
             );
 
             this.outx(
-                "\n\nYou can't resist moaning like a slut as the pleasure of being filled by " +
-                    this.player.mf("his", "her") +
-                    " dick washes through you like a flood of honey-sweet warmth; while you've tried to fill your empty nights with too many toys to be virgin-tight by any means, being filled by the first cock to ever penetrate you for real is still too overwhelming.  Your toy-trained cunt eagerly clamps down on the intruder, squeezing " +
-                    this.player2.mf("his", "her") +
-                    " dick until you hear your partner moan with pain-tinted pleasure at being held so tight by your love-tunnel."
+                `\n\nYou can't resist moaning like a slut as the pleasure of being filled by ${this.player.mf(
+                    "his",
+                    "her"
+                )} dick washes through you like a flood of honey-sweet warmth; while you've tried to fill your empty nights with too many toys to be virgin-tight by any means, being filled by the first cock to ever penetrate you for real is still too overwhelming.  Your toy-trained cunt eagerly clamps down on the intruder, squeezing ${this.player2.mf(
+                    "his",
+                    "her"
+                )} dick until you hear your partner moan with pain-tinted pleasure at being held so tight by your love-tunnel.`
             );
 
             this.outx(
-                "\n\nYou loosen up the bare minimum, and " +
-                    this.player2.mf("he", "she") +
-                    " takes that as encouragement to start bucking back and forth, slowly pulling " +
-                    this.player2.mf("his", "her") +
-                    " cock out of your sopping-wet tunnel and then, just when it's aching to be filled again, forcefully shoving back into you, making your balls and tits bounce and jiggle with each stroke.  Instinctively, your well-trained netherlips ripple and squeeze around the fuckstick currently pistoning in and out of you; knowing that he can't see you in this position, you make no secret of the husky moans and eager whimpers " +
-                    this.player2.mf("his", "her") +
-                    " machinations are wringing from you.  You feel like such a whore, carrying on on this fashion... but, Marae's sweet tits, it turns you on so!  Your cock bobs up and down from your motions and the weight of your lover slapping into you, its head flaring wider and wider in arousal as precum drips in a steady splat-splat-splat onto the ground.  Awkwardly supporting yourself on just three limbs, you start trying to jerk yourself off whilst your tauric lover fucks you senseless, smearing your own fluids up and down the sensitive skin of your shaft in sloppy wet strokes.  This is certainly a whole new experience compared to fucking Edryn."
+                `\n\nYou loosen up the bare minimum, and ${this.player2.mf(
+                    "he",
+                    "she"
+                )} takes that as encouragement to start bucking back and forth, slowly pulling ${this.player2.mf(
+                    "his",
+                    "her"
+                )} cock out of your sopping-wet tunnel and then, just when it's aching to be filled again, forcefully shoving back into you, making your balls and tits bounce and jiggle with each stroke.  Instinctively, your well-trained netherlips ripple and squeeze around the fuckstick currently pistoning in and out of you; knowing that he can't see you in this position, you make no secret of the husky moans and eager whimpers ${this.player2.mf(
+                    "his",
+                    "her"
+                )} machinations are wringing from you.  You feel like such a whore, carrying on on this fashion... but, Marae's sweet tits, it turns you on so!  Your cock bobs up and down from your motions and the weight of your lover slapping into you, its head flaring wider and wider in arousal as precum drips in a steady splat-splat-splat onto the ground.  Awkwardly supporting yourself on just three limbs, you start trying to jerk yourself off whilst your tauric lover fucks you senseless, smearing your own fluids up and down the sensitive skin of your shaft in sloppy wet strokes.  This is certainly a whole new experience compared to fucking Edryn.`
             );
 
             this.outx(
-                "\n\nAs you and your lover fuck each other, your mind begins to drift down vistas most pleasant.  In your mind's eye, you see yourself with your fertility restored; your breasts swollen to voluptuous orbs heavy with nourishing milk, flowing eagerly into the hungry mouths of suckling kits, your belly swollen into a beautiful gravid roundness with a new litter of children.  You can feel your babies kicking and moving inside of you, wriggling in that way they do, the thought of which has always made you feel all warm and fuzzy inside.  " +
-                    this.player2.short +
-                    " is there, holding you gently in " +
-                    this.player2.mf("his", "her") +
-                    " arms, smiling proudly as " +
-                    this.player2.mf("he", "she") +
-                    " runs " +
-                    this.player2.mf("his", "her") +
-                    " hands over the fullness of your belly, the two of you already anticipating the next litter " +
-                    this.player2.mf("he", "she") +
-                    " will be filling you with..."
+                `\n\nAs you and your lover fuck each other, your mind begins to drift down vistas most pleasant.  In your mind's eye, you see yourself with your fertility restored; your breasts swollen to voluptuous orbs heavy with nourishing milk, flowing eagerly into the hungry mouths of suckling kits, your belly swollen into a beautiful gravid roundness with a new litter of children.  You can feel your babies kicking and moving inside of you, wriggling in that way they do, the thought of which has always made you feel all warm and fuzzy inside.  ${
+                    this.player2.short
+                } is there, holding you gently in ${this.player2.mf(
+                    "his",
+                    "her"
+                )} arms, smiling proudly as ${this.player2.mf("he", "she")} runs ${this.player2.mf(
+                    "his",
+                    "her"
+                )} hands over the fullness of your belly, the two of you already anticipating the next litter ${this.player2.mf(
+                    "he",
+                    "she"
+                )} will be filling you with...`
             );
 
             this.outx(
-                "\n\nCaught up in your vision, you can't resist calling out to your lover in rapture; \"<i>Fuck me full, " +
-                    this.player2.short +
-                    '!  Fill me with your kits!</i>"'
+                `\n\nCaught up in your vision, you can't resist calling out to your lover in rapture; "<i>Fuck me full, ${this.player2.short}!  Fill me with your kits!</i>"`
             );
 
             this.outx(
-                '\n\nYour balls begin to tingle with warmth in that familiar way that they do just before you cum, rising slightly involuntarily as your sack starts to pull tight and release.  Your cock flexes, bulging in your fingers as the climax builds up within the cumvein and stretches it out, and with an exultant moan, you declare, "<i>I\'m gonna...  CUUUUUUM!</i>"  ' +
-                    this.player2.short +
-                    " answers you with a moan of " +
-                    this.player2.mf("his", "her") +
-                    " own, ramming with increasing speed and force into your cunt."
+                `\n\nYour balls begin to tingle with warmth in that familiar way that they do just before you cum, rising slightly involuntarily as your sack starts to pull tight and release.  Your cock flexes, bulging in your fingers as the climax builds up within the cumvein and stretches it out, and with an exultant moan, you declare, "<i>I'm gonna...  CUUUUUUM!</i>"  ${
+                    this.player2.short
+                } answers you with a moan of ${this.player2.mf(
+                    "his",
+                    "her"
+                )} own, ramming with increasing speed and force into your cunt.`
             );
 
             this.outx(
-                "\n\nYour equine cock-head flares wider and wider as that oh-so-familiar feeling of hot pleasure begins pumping its way up from your swaying balls and along your fat dick, your heart hammering inside your chest and your flare seeming to pulse with every beat of your heart.  Thick, hot, salty jizz spurts and sprays in load after load from your cock, gushing onto the earth below you and rapidly saturating it, leaving you kneeling over an ever-growing puddle of sex-scented mud.  As you arch your back and thrust out your dick, your cunt tightens, anchoring " +
-                    this.player2.short +
-                    " inside of you and giving " +
-                    this.player2.mf("him", "her") +
-                    " no choice but to cum in turn"
+                `\n\nYour equine cock-head flares wider and wider as that oh-so-familiar feeling of hot pleasure begins pumping its way up from your swaying balls and along your fat dick, your heart hammering inside your chest and your flare seeming to pulse with every beat of your heart.  Thick, hot, salty jizz spurts and sprays in load after load from your cock, gushing onto the earth below you and rapidly saturating it, leaving you kneeling over an ever-growing puddle of sex-scented mud.  As you arch your back and thrust out your dick, your cunt tightens, anchoring ${
+                    this.player2.short
+                } inside of you and giving ${this.player2.mf(
+                    "him",
+                    "her"
+                )} no choice but to cum in turn`
             );
             if (this.player2.hasVagina())
                 this.outx(
@@ -1644,151 +1741,181 @@ export class UrtaQuest extends NPCAwareContent {
             // PC Cum=Normal or lower:
             if (this.player2.cumQ() < 500)
                 this.outx(
-                    "\n\n" +
-                        this.player2.mf("He", "She") +
-                        " sprays " +
-                        this.player2.mf("his", "her") +
-                        " hot jizz into your milking cunt and you greedily swallow it all, netherlips flexing eagerly in an attempt to coax even more from " +
-                        this.player2.mf("him", "her") +
-                        ".  While you can feel that delicious cum slurping around inside of you, your mind is still fixated on the image of your womb filled full and ripe and so you find yourself distantly disappointed that this is all " +
-                        this.player2.mf("he", "she") +
-                        " can manage."
+                    `\n\n${this.player2.mf("He", "She")} sprays ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} hot jizz into your milking cunt and you greedily swallow it all, netherlips flexing eagerly in an attempt to coax even more from ${this.player2.mf(
+                        "him",
+                        "her"
+                    )}.  While you can feel that delicious cum slurping around inside of you, your mind is still fixated on the image of your womb filled full and ripe and so you find yourself distantly disappointed that this is all ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} can manage.`
                 );
             // PC Cum=High:
             else if (this.player2.cumQ() < 1000)
                 this.outx(
-                    "\n\nYou moan and whimper with glee as wave after wave of spooge surges into your burning cunt and is sucked up into your aching womb, stretching it into a blatant little bulge of a belly by the time " +
-                        this.player2.mf("he", "she") +
-                        " has shot " +
-                        this.player2.mf("his", "her") +
-                        " load.  Your free hand caresses the filled flesh, feeling it squish and churn, and while the skin is delightfully sensitive, you want <i>more</i>..."
+                    `\n\nYou moan and whimper with glee as wave after wave of spooge surges into your burning cunt and is sucked up into your aching womb, stretching it into a blatant little bulge of a belly by the time ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} has shot ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} load.  Your free hand caresses the filled flesh, feeling it squish and churn, and while the skin is delightfully sensitive, you want <i>more</i>...`
                 );
             // (PC Cum=VeryHigh:
             else if (this.player2.cumQ() < 2500)
                 this.outx(
-                    "\n\nYou let out a howl of joy as your lover's inhuman load begins inflating your womb like a balloon... bigger, bigger, bigger, you want to be bigger!  Oh, yes, yes - you can feel your belly growing round and full and heavy with the sloshing cum your " +
-                        this.player2.short +
-                        " is stuffing into your womb; by the time " +
-                        this.player2.mf("he", "she") +
-                        " has stopped, you look and feel like a full-term mother.  Your belly hangs down barely inches off of the ground, swaying gently to and fro with your motions."
+                    `\n\nYou let out a howl of joy as your lover's inhuman load begins inflating your womb like a balloon... bigger, bigger, bigger, you want to be bigger!  Oh, yes, yes - you can feel your belly growing round and full and heavy with the sloshing cum your ${
+                        this.player2.short
+                    } is stuffing into your womb; by the time ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} has stopped, you look and feel like a full-term mother.  Your belly hangs down barely inches off of the ground, swaying gently to and fro with your motions.`
                 );
             // (PC Cum=Extreme:
             else
                 this.outx(
-                    "\n\nYou let out a high-pitched scream of pleasure as the veritable fountain of cum you call your " +
-                        this.player2.mf("boy", "girl") +
-                        "friend stretches your womb to impossible depths with " +
-                        this.player2.mf("his", "her") +
-                        " inhuman loads of jizz.  Your belly grows and grows and grows, and it seems to show no sign of stopping; the skin is stretched so tight, the fur pulled into a glossy tautness by your distended womb, that even the merest whisper of wind sends sparks of pleasure crashing through your mind.  You grow inexorably tighter, fuller, and heavier, until the pleasure of being stuffed so overwhelmingly full starts to become slightly painful and fear begins to dilute your belly-lust: is " +
-                        this.player2.mf("he", "she") +
-                        " ever going to <b>stop</b>?  Thankfully, at last, it ends.  Cum spurts noisily out around the impromptu plug of " +
-                        this.player2.mf("his", "her") +
-                        " dick, but without the added pressure of " +
-                        this.player2.mf("his", "her") +
-                        " torrential climax adding to it, even that small mercy feels so good that you'd collapse if you weren't already on the ground.  Your womb has grown so distended that you are no longer kneeling but laying atop it, feeling the seething ocean of " +
-                        this.player2.short +
-                        "'s seed churning inside you as you try to regain some semblance of coherent thought."
+                    `\n\nYou let out a high-pitched scream of pleasure as the veritable fountain of cum you call your ${this.player2.mf(
+                        "boy",
+                        "girl"
+                    )}friend stretches your womb to impossible depths with ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} inhuman loads of jizz.  Your belly grows and grows and grows, and it seems to show no sign of stopping; the skin is stretched so tight, the fur pulled into a glossy tautness by your distended womb, that even the merest whisper of wind sends sparks of pleasure crashing through your mind.  You grow inexorably tighter, fuller, and heavier, until the pleasure of being stuffed so overwhelmingly full starts to become slightly painful and fear begins to dilute your belly-lust: is ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} ever going to <b>stop</b>?  Thankfully, at last, it ends.  Cum spurts noisily out around the impromptu plug of ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} dick, but without the added pressure of ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} torrential climax adding to it, even that small mercy feels so good that you'd collapse if you weren't already on the ground.  Your womb has grown so distended that you are no longer kneeling but laying atop it, feeling the seething ocean of ${
+                        this.player2.short
+                    }'s seed churning inside you as you try to regain some semblance of coherent thought.`
                 );
 
             this.outx(
-                "\n\nYour lover delicately supports " +
-                    this.player2.mf("him", "her") +
-                    "self atop you for a while longer to catch " +
-                    this.player2.mf("his", "her") +
-                    " strength back, then carefully extracts " +
-                    this.player2.mf("him", "her") +
-                    "self from you.  Your muscles are so limp that you find yourself "
+                `\n\nYour lover delicately supports ${this.player2.mf(
+                    "him",
+                    "her"
+                )}self atop you for a while longer to catch ${this.player2.mf(
+                    "his",
+                    "her"
+                )} strength back, then carefully extracts ${this.player2.mf(
+                    "him",
+                    "her"
+                )}self from you.  Your muscles are so limp that you find yourself `
             );
             if (this.player2.cumQ() < 1000) this.outx("falling face-first into the jizz-mud");
             else this.outx("not even bothering trying to move your swollen bulk");
             this.outx(
-                ", and you smile dopily up at " +
-                    this.player2.mf("him", "her") +
-                    ", love shining in your eyes.  Carefully, " +
-                    this.player2.mf("he", "she") +
-                    " positions " +
-                    this.player2.mf("him", "her") +
-                    "self beside you and strokes your face before closing " +
-                    this.player2.mf("his", "her") +
-                    " eyes, making it quite clear " +
-                    this.player2.mf("he", "she") +
-                    " intends to go to sleep right here.  You see no point in fighting the inevitable and instead give yourself over to slumber - wouldn't be the first time you woke up in dried cum-mud, after all..."
+                `, and you smile dopily up at ${this.player2.mf(
+                    "him",
+                    "her"
+                )}, love shining in your eyes.  Carefully, ${this.player2.mf(
+                    "he",
+                    "she"
+                )} positions ${this.player2.mf(
+                    "him",
+                    "her"
+                )}self beside you and strokes your face before closing ${this.player2.mf(
+                    "his",
+                    "her"
+                )} eyes, making it quite clear ${this.player2.mf(
+                    "he",
+                    "she"
+                )} intends to go to sleep right here.  You see no point in fighting the inevitable and instead give yourself over to slumber - wouldn't be the first time you woke up in dried cum-mud, after all...`
             );
         }
         // Else:
         else {
             this.outx(
-                "\n\nTurning yourself around so that your lover can admire your ass - you croon with enjoyment when " +
-                    this.player2.mf("he", "she") +
-                    " sneaks this opportunity to give it a lustful squeeze, rolling the firm, well-fleshed muscle of each cheek around in the palm of " +
-                    this.player2.mf("his", "her") +
-                    " hand - you hold yourself there long enough to playfully brush your tail across " +
-                    this.player2.mf("his", "her") +
-                    " face before slowly lowering yourself down, painstakingly impaling yourself on " +
-                    this.player2.mf("his", "her") +
-                    " cock.  You can't resist moaning like a slut as the pleasure of being filled by " +
-                    this.player2.mf("his", "her") +
-                    " dick washes through you like a flood of honey-sweet warmth; while you've tried to fill your empty nights with too many toys to be virgin-tight by any means, being filled by the first cock to ever penetrate you for real is still too overwhelming.  Your toy-trained cunt eagerly clamps down on the intruder, squeezing " +
-                    this.player2.mf("his", "her") +
-                    " dick until you hear your partner moan with pain-tinted pleasure at being held so tight by your love-tunnel."
+                `\n\nTurning yourself around so that your lover can admire your ass - you croon with enjoyment when ${this.player2.mf(
+                    "he",
+                    "she"
+                )} sneaks this opportunity to give it a lustful squeeze, rolling the firm, well-fleshed muscle of each cheek around in the palm of ${this.player2.mf(
+                    "his",
+                    "her"
+                )} hand - you hold yourself there long enough to playfully brush your tail across ${this.player2.mf(
+                    "his",
+                    "her"
+                )} face before slowly lowering yourself down, painstakingly impaling yourself on ${this.player2.mf(
+                    "his",
+                    "her"
+                )} cock.  You can't resist moaning like a slut as the pleasure of being filled by ${this.player2.mf(
+                    "his",
+                    "her"
+                )} dick washes through you like a flood of honey-sweet warmth; while you've tried to fill your empty nights with too many toys to be virgin-tight by any means, being filled by the first cock to ever penetrate you for real is still too overwhelming.  Your toy-trained cunt eagerly clamps down on the intruder, squeezing ${this.player2.mf(
+                    "his",
+                    "her"
+                )} dick until you hear your partner moan with pain-tinted pleasure at being held so tight by your love-tunnel.`
             );
 
             this.outx(
-                "\n\nYou throw " +
-                    this.player2.mf("him", "her") +
-                    " a smile over your shoulder and start to bounce up and down in " +
-                    this.player2.mf("his", "her") +
-                    " lap, squeezing and rippling your netherlips around the delicious fuck-stick inside of them as you gyrate, making husky moans of lust to further entice and arouse your partner.  You grind your ass into " +
-                    this.player2.short +
-                    "'s crotch, trying your best to ignore your persistent cock as it slaps wetly into your tits and drools precum all over your nipples - you want to focus on your cunt.  You moan in surprise and pleasure as " +
-                    this.player2.short +
-                    " suddenly reaches around to your front, " +
-                    this.player2.mf("his", "her") +
-                    " skilled hands playing with the pebble-like nubs of your black nipples.  Each touch, stroke, and tweak sending sparks of pleasure racing down to your crotch.  " +
-                    this.player2.mf("He", "She") +
-                    " begins to fondle and stroke your full, furry breasts, and you croon in pleasure at the attention; you've always been rather proud of them, even if they aren't as big as Edryn's.  For all that " +
-                    this.player2.mf("he", "she") +
-                    " seems not to care about your dick, you still can't help but feel surprised when one hand closes on your shaft, teasingly stroking the increasingly slick and unbearably sensitive horse-meat up and down in time with " +
-                    this.player2.mf("his", "her") +
-                    " thrusts into your greedy cunt."
+                `\n\nYou throw ${this.player2.mf(
+                    "him",
+                    "her"
+                )} a smile over your shoulder and start to bounce up and down in ${this.player2.mf(
+                    "his",
+                    "her"
+                )} lap, squeezing and rippling your netherlips around the delicious fuck-stick inside of them as you gyrate, making husky moans of lust to further entice and arouse your partner.  You grind your ass into ${
+                    this.player2.short
+                }'s crotch, trying your best to ignore your persistent cock as it slaps wetly into your tits and drools precum all over your nipples - you want to focus on your cunt.  You moan in surprise and pleasure as ${
+                    this.player2.short
+                } suddenly reaches around to your front, ${this.player2.mf(
+                    "his",
+                    "her"
+                )} skilled hands playing with the pebble-like nubs of your black nipples.  Each touch, stroke, and tweak sending sparks of pleasure racing down to your crotch.  ${this.player2.mf(
+                    "He",
+                    "She"
+                )} begins to fondle and stroke your full, furry breasts, and you croon in pleasure at the attention; you've always been rather proud of them, even if they aren't as big as Edryn's.  For all that ${this.player2.mf(
+                    "he",
+                    "she"
+                )} seems not to care about your dick, you still can't help but feel surprised when one hand closes on your shaft, teasingly stroking the increasingly slick and unbearably sensitive horse-meat up and down in time with ${this.player2.mf(
+                    "his",
+                    "her"
+                )} thrusts into your greedy cunt.`
             );
 
             this.outx(
-                "\n\nAs you and your lover fuck each other, your mind begins to drift down vistas most pleasant.  In your mind's eye, you see yourself with your fertility restored; your breasts swollen to voluptuous orbs heavy with nourishing milk, flowing eagerly into the hungry mouths of suckling kits, your belly swollen into a beautiful gravid roundness with a new litter of children.  You can feel your babies kicking and moving inside of you, wriggling in that way they do, the thought of which has always made you feel all warm and fuzzy inside.  " +
-                    this.player2.short +
-                    " is there, holding you gently in " +
-                    this.player2.mf("his", "her") +
-                    " arms, smiling proudly as " +
-                    this.player2.mf("he", "she") +
-                    " runs " +
-                    this.player2.mf("his", "her") +
-                    " hands over the fullness of your belly, the two of you already anticipating the next litter " +
-                    this.player2.mf("he", "she") +
-                    " will be filling you with..."
+                `\n\nAs you and your lover fuck each other, your mind begins to drift down vistas most pleasant.  In your mind's eye, you see yourself with your fertility restored; your breasts swollen to voluptuous orbs heavy with nourishing milk, flowing eagerly into the hungry mouths of suckling kits, your belly swollen into a beautiful gravid roundness with a new litter of children.  You can feel your babies kicking and moving inside of you, wriggling in that way they do, the thought of which has always made you feel all warm and fuzzy inside.  ${
+                    this.player2.short
+                } is there, holding you gently in ${this.player2.mf(
+                    "his",
+                    "her"
+                )} arms, smiling proudly as ${this.player2.mf("he", "she")} runs ${this.player2.mf(
+                    "his",
+                    "her"
+                )} hands over the fullness of your belly, the two of you already anticipating the next litter ${this.player2.mf(
+                    "he",
+                    "she"
+                )} will be filling you with...`
             );
 
             this.outx(
-                "\n\nCaught up in your vision, you can't resist calling out to your lover in rapture; \"<i>Fuck me full, " +
-                    this.player2.short +
-                    '!  Fill me with your kits!</i>"'
+                `\n\nCaught up in your vision, you can't resist calling out to your lover in rapture; "<i>Fuck me full, ${this.player2.short}!  Fill me with your kits!</i>"`
             );
 
             this.outx(
-                "\n\nYour balls begin to tingle with warmth in that familiar way that they do just before you cum, rising slightly involuntarily as your sack starts to pull tight and release.  Your cock flexes, bulging in " +
-                    this.player2.short +
-                    "'s fingers as the climax builds up within the cumvein and stretches it out.  With an exultant moan, you declare, \"<i>I'm gonna...  CUUUUUUM!</i>\"  " +
-                    this.player2.short +
-                    " answers you with a moan of " +
-                    this.player2.mf("his", "her") +
-                    " own, ramming with increasing speed and force into your cunt."
+                `\n\nYour balls begin to tingle with warmth in that familiar way that they do just before you cum, rising slightly involuntarily as your sack starts to pull tight and release.  Your cock flexes, bulging in ${
+                    this.player2.short
+                }'s fingers as the climax builds up within the cumvein and stretches it out.  With an exultant moan, you declare, "<i>I'm gonna...  CUUUUUUM!</i>"  ${
+                    this.player2.short
+                } answers you with a moan of ${this.player2.mf(
+                    "his",
+                    "her"
+                )} own, ramming with increasing speed and force into your cunt.`
             );
 
             this.outx(
-                "\n\nYour equine cock-head just flares wider and wider as that oh-so-familiar feeling of hot pleasure begins pumping its way up from your swaying balls and along your fat dick, your heart hammering inside your chest and your flare seeming to pulse with every beat.  Thick, hot, salty jizz spurts and sprays in load after load from your cock, rising up into the air and then falling back onto you, completely plastering your tits and belly in your own spunk, smearing your face with it and forcing you to lick it up.  As you arch your back and thrust up your dick, your cunt tightens, anchoring " +
-                    this.player2.short +
-                    " inside of you and giving " +
-                    this.player2.mf("him", "her") +
-                    " no choice but to cum in turn"
+                `\n\nYour equine cock-head just flares wider and wider as that oh-so-familiar feeling of hot pleasure begins pumping its way up from your swaying balls and along your fat dick, your heart hammering inside your chest and your flare seeming to pulse with every beat.  Thick, hot, salty jizz spurts and sprays in load after load from your cock, rising up into the air and then falling back onto you, completely plastering your tits and belly in your own spunk, smearing your face with it and forcing you to lick it up.  As you arch your back and thrust up your dick, your cunt tightens, anchoring ${
+                    this.player2.short
+                } inside of you and giving ${this.player2.mf(
+                    "him",
+                    "her"
+                )} no choice but to cum in turn`
             );
             if (this.player2.hasVagina())
                 this.outx(
@@ -1799,67 +1926,75 @@ export class UrtaQuest extends NPCAwareContent {
             // (PC Cum=Normal or lower:
             if (this.player2.cumQ() < 500)
                 this.outx(
-                    "\n\n" +
-                        this.player2.mf("He", "She") +
-                        " sprays " +
-                        this.player2.mf("his", "her") +
-                        " hot jizz into your milking cunt and you greedily swallow it all, netherlips flexing eagerly in an attempt to coax even more from " +
-                        this.player2.mf("him", "her") +
-                        "; while you can feel that delicious cum slurping around inside of you, your mind is still fixated on the image of your womb filled full and ripe and so you find yourself distantly disappointed that this is all " +
-                        this.player2.mf("he", "she") +
-                        " can manage."
+                    `\n\n${this.player2.mf("He", "She")} sprays ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} hot jizz into your milking cunt and you greedily swallow it all, netherlips flexing eagerly in an attempt to coax even more from ${this.player2.mf(
+                        "him",
+                        "her"
+                    )}; while you can feel that delicious cum slurping around inside of you, your mind is still fixated on the image of your womb filled full and ripe and so you find yourself distantly disappointed that this is all ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} can manage.`
                 );
             // (PC Cum=High:
             else if (this.player2.cumQ() < 1000)
                 this.outx(
-                    "\n\nYou moan and whimper with glee as wave after wave of spooge surges into your burning cunt and is sucked up into your aching womb, stretching it into a blatant little bulge of a belly by the time " +
-                        this.player2.mf("he", "she") +
-                        " has shot " +
-                        this.player2.mf("his", "her") +
-                        " load.  Your hands caress the filled flesh, feeling it squish and churn, and while the skin is delightfully sensitive, you want <i>more</i>..."
+                    `\n\nYou moan and whimper with glee as wave after wave of spooge surges into your burning cunt and is sucked up into your aching womb, stretching it into a blatant little bulge of a belly by the time ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} has shot ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} load.  Your hands caress the filled flesh, feeling it squish and churn, and while the skin is delightfully sensitive, you want <i>more</i>...`
                 );
             // (PC Cum=VeryHigh:)
             else if (this.player2.cumQ() < 2500)
                 this.outx(
-                    "\n\nYou let out a howl of joy as your lover's inhuman load begins inflating your womb like a balloon... bigger, bigger, bigger, you want to be bigger!  Oh, yes, yes - you can feel your belly growing round and full and heavy with the sloshing cum your " +
-                        this.player2.short +
-                        " is stuffing into your womb; by the time " +
-                        this.player2.mf("he", "she") +
-                        " has stopped, you look and feel like a full-term mother.  Your belly weighs you down with its solid, fluid-filled mass, swaying gently to and fro with your motions."
+                    `\n\nYou let out a howl of joy as your lover's inhuman load begins inflating your womb like a balloon... bigger, bigger, bigger, you want to be bigger!  Oh, yes, yes - you can feel your belly growing round and full and heavy with the sloshing cum your ${
+                        this.player2.short
+                    } is stuffing into your womb; by the time ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} has stopped, you look and feel like a full-term mother.  Your belly weighs you down with its solid, fluid-filled mass, swaying gently to and fro with your motions.`
                 );
             // (PC Cum=Extreme:
             else
                 this.outx(
-                    "\n\nYou let out a high-pitched scream of pleasure as the veritable fountain of cum you call your " +
-                        this.player2.mf("boyfriend", "girlfriend") +
-                        " stretches your womb to impossible depths with " +
-                        this.player2.mf("his", "her") +
-                        " inhuman loads of jizz.  Your belly grows and grows and grows, and it seems to show no sign of stopping; the skin is stretched so tight, the fur pulled into a glossy tautness by your distended womb, that even the merest whisper of wind sends sparks of pleasure crashing through your mind.  You grow inexorably tighter, fuller, heavier, until the pleasure of being stuffed so overwhelmingly full starts to become slightly painful and fear begins to dilute your belly-lust... is " +
-                        this.player2.mf("he", "she") +
-                        " ever going to <b>stop</b>?  Thankfully, at last, it ends. Cum spurts noisily out around the impromptu plug of " +
-                        this.player2.mf("his", "her") +
-                        " dick, but without the added pressure of " +
-                        this.player2.mf("his", "her") +
-                        " torrential climax adding to it even that small mercy feels so heavenly that your muscles lose what little strength they had left. Unbalanced by the churning mass of spunk in your womb you slowly topple onto your side, some distant part of your mind grateful that " +
-                        this.player2.short +
-                        " is quick enough to ease your graceless change of position so that you don't bash your head on a rock. You smile in contentment as your hand languidly explores the large expanse of your inflated belly. Your womb is so distended that, if you had a twin sister, she could probably just about fit inside your newly stretched cavern... well, if she curled up like a baby, anyway."
+                    `\n\nYou let out a high-pitched scream of pleasure as the veritable fountain of cum you call your ${this.player2.mf(
+                        "boyfriend",
+                        "girlfriend"
+                    )} stretches your womb to impossible depths with ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} inhuman loads of jizz.  Your belly grows and grows and grows, and it seems to show no sign of stopping; the skin is stretched so tight, the fur pulled into a glossy tautness by your distended womb, that even the merest whisper of wind sends sparks of pleasure crashing through your mind.  You grow inexorably tighter, fuller, heavier, until the pleasure of being stuffed so overwhelmingly full starts to become slightly painful and fear begins to dilute your belly-lust... is ${this.player2.mf(
+                        "he",
+                        "she"
+                    )} ever going to <b>stop</b>?  Thankfully, at last, it ends. Cum spurts noisily out around the impromptu plug of ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} dick, but without the added pressure of ${this.player2.mf(
+                        "his",
+                        "her"
+                    )} torrential climax adding to it even that small mercy feels so heavenly that your muscles lose what little strength they had left. Unbalanced by the churning mass of spunk in your womb you slowly topple onto your side, some distant part of your mind grateful that ${
+                        this.player2.short
+                    } is quick enough to ease your graceless change of position so that you don't bash your head on a rock. You smile in contentment as your hand languidly explores the large expanse of your inflated belly. Your womb is so distended that, if you had a twin sister, she could probably just about fit inside your newly stretched cavern... well, if she curled up like a baby, anyway.`
                 );
 
             this.outx(
-                "\n\nWith a sigh, your " +
-                    this.player2.short +
-                    " gently ruffles your hair, but makes no attempt at trying to shift you.  You welcome " +
-                    this.player2.mf("his", "her") +
-                    " lethargic contentment; with how limp your muscles are after a good fucking"
+                `\n\nWith a sigh, your ${
+                    this.player2.short
+                } gently ruffles your hair, but makes no attempt at trying to shift you.  You welcome ${this.player2.mf(
+                    "his",
+                    "her"
+                )} lethargic contentment; with how limp your muscles are after a good fucking`
             );
             if (this.player2.cumQ() >= 1000)
                 this.outx(" not to mention the weight of your overstuffed belly");
             this.outx(
-                " you don't really feel inclined to move, either.  Instead, you yawn loudly, make yourself comfortable upon your lover's stomach, and allow yourself to drift off to sleep - already, you can hear the quiet breathing of " +
-                    this.player2.short +
-                    " as " +
-                    this.player2.mf("he", "she") +
-                    " does the same thing."
+                ` you don't really feel inclined to move, either.  Instead, you yawn loudly, make yourself comfortable upon your lover's stomach, and allow yourself to drift off to sleep - already, you can hear the quiet breathing of ${
+                    this.player2.short
+                } as ${this.player2.mf("he", "she")} does the same thing.`
             );
         }
         this.player.orgasm();
@@ -1877,11 +2012,7 @@ export class UrtaQuest extends NPCAwareContent {
     private putUrtasWangInPCsCunt(truth: boolean): void {
         this.clearOutput();
         this.outx(
-            "You push " +
-                this.player2.short +
-                " down on her back, a task made all the more difficult by your growing arousal.  Thankfully, she's not wearing her usual " +
-                this.player2.armorName +
-                ".  Instead, her form is bared to your probing fingertips, pliant and exposed.  You cannot help but dip a finger into her moist delta, parting the oozing veil to enjoy the view of her "
+            `You push ${this.player2.short} down on her back, a task made all the more difficult by your growing arousal.  Thankfully, she's not wearing her usual ${this.player2.armorName}.  Instead, her form is bared to your probing fingertips, pliant and exposed.  You cannot help but dip a finger into her moist delta, parting the oozing veil to enjoy the view of her `
         );
         if (this.player.vaginaType() != 5) this.outx("pink, ");
         this.outx(
@@ -1889,15 +2020,11 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                " giggles at the tenting garment, playfully reaching under to caress the sensitive bottom of your swelling bulge.  Fresh length quickly surges out of your sheath in response, popping your tip past the hem in a second to hang there, pulsing, stiff, and slowly winking your urethra at your lover's face.  Your nipples grow so hard that they're almost painful, and they scrape against the interior of your leather breastplate irritatingly.  Struggling with the straps, you do your best to undo the offending armor, but it just... won't... come... free!   Damnit!"
+            `\n\n${this.player2.short} giggles at the tenting garment, playfully reaching under to caress the sensitive bottom of your swelling bulge.  Fresh length quickly surges out of your sheath in response, popping your tip past the hem in a second to hang there, pulsing, stiff, and slowly winking your urethra at your lover's face.  Your nipples grow so hard that they're almost painful, and they scrape against the interior of your leather breastplate irritatingly.  Struggling with the straps, you do your best to undo the offending armor, but it just... won't... come... free!   Damnit!`
         );
 
         this.outx(
-            "\n\nYou twist around and grab at the straps holding your gear together with hands shaking so hard they fumble off of them more often than not.  " +
-                this.player2.short +
-                " laughs again at your mistake, gently cupping your smooth nutsack in her hand.  Your mammoth balls are so large that they hang partway off her palm on either side, but she doesn't seem to mind.  In fact, she begins to roll them back and forth luxuriously.  Your tip flares slightly as it releases a slippery deposit onto "
+            `\n\nYou twist around and grab at the straps holding your gear together with hands shaking so hard they fumble off of them more often than not.  ${this.player2.short} laughs again at your mistake, gently cupping your smooth nutsack in her hand.  Your mammoth balls are so large that they hang partway off her palm on either side, but she doesn't seem to mind.  In fact, she begins to roll them back and forth luxuriously.  Your tip flares slightly as it releases a slippery deposit onto `
         );
         if (this.player2.pregnancyIncubation > 0 && this.player.pregnancyIncubation < 150)
             this.outx("the curve of her pregnant belly");
@@ -1909,17 +2036,11 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n" +
-                this.player2.short +
-                ' gently rests her finger across your nose and lips, commanding, "<i>Hold on a second.</i>"  You look at her and pant, your tongue dangling freely, dripping with frothy saliva as you try to contain yourself.  Your erection, painfully hard, twitches when she finally stops teasing it, already missing the pleasant touches.  Thankfully, she begins to remove your armor for you, smoothly undoing one strap at a time.   You sigh in exquisite relief when your chest bounces free, released from the binding leather bondage.  ' +
-                this.player2.short +
-                " tosses the armor aside before rounding back to your skirt.  A quick twist of the clasps, and it joins the rest of the ensemble, leaving you naked and exposed."
+            `\n\n${this.player2.short} gently rests her finger across your nose and lips, commanding, "<i>Hold on a second.</i>"  You look at her and pant, your tongue dangling freely, dripping with frothy saliva as you try to contain yourself.  Your erection, painfully hard, twitches when she finally stops teasing it, already missing the pleasant touches.  Thankfully, she begins to remove your armor for you, smoothly undoing one strap at a time.   You sigh in exquisite relief when your chest bounces free, released from the binding leather bondage.  ${this.player2.short} tosses the armor aside before rounding back to your skirt.  A quick twist of the clasps, and it joins the rest of the ensemble, leaving you naked and exposed.`
         );
 
         this.outx(
-            '\n\n"<i>Was that what you wanted?</i>" she asks.  You shut her up by kissing her, mashing your tits into her chest so hard that they bulge out obscenely, pressed down painfully.  Your tongue twines with ' +
-                this.player2.short +
-                "'s, twisting into a double helix of lusty licks and slippery, oral caresses.  Pleasantly, your monstrous equine dong is dripping pre all over her middle, right up onto the bottom of her chest.  She has to force you back up off her with both hands, just to be able to talk.  Breathily, she whispers, \"<i>I hope you didn't come all this way just to make out all night.</i>\""
+            `\n\n"<i>Was that what you wanted?</i>" she asks.  You shut her up by kissing her, mashing your tits into her chest so hard that they bulge out obscenely, pressed down painfully.  Your tongue twines with ${this.player2.short}'s, twisting into a double helix of lusty licks and slippery, oral caresses.  Pleasantly, your monstrous equine dong is dripping pre all over her middle, right up onto the bottom of her chest.  She has to force you back up off her with both hands, just to be able to talk.  Breathily, she whispers, "<i>I hope you didn't come all this way just to make out all night.</i>"`
         );
 
         this.outx("\n\nYou answer with a feral, lusty snarl ");
@@ -1927,9 +2048,7 @@ export class UrtaQuest extends NPCAwareContent {
         // {centaur}
         if (this.player2.isTaur()) {
             this.outx(
-                "and climb off the 'taur-woman.  She smirks up at you, until you bid her to rise, telling her that you plan to mount her like the fertile filly she is. Reluctantly, " +
-                    this.player2.short +
-                    " clatters up onto her hooves."
+                `and climb off the 'taur-woman.  She smirks up at you, until you bid her to rise, telling her that you plan to mount her like the fertile filly she is. Reluctantly, ${this.player2.short} clatters up onto her hooves.`
             );
             if (this.player2.tailType > TAIL_TYPE_NONE)
                 this.outx("  You stroke her tail as you shift it aside");
@@ -1988,9 +2107,7 @@ export class UrtaQuest extends NPCAwareContent {
         // {biped}
         else {
             this.outx(
-                "and roll her over on her hands and knees, lifting that sweet butt up in the air where you can admire it.  You kneel behind her and, pressing your nose into her fragrant quim, you extend your tongue, letting the smooth oral muscle taste her juices and tease at her engorging clit.  " +
-                    this.player2.short +
-                    " moans and presses back into you, crying out like a true bitch in heat, one in need of a thorough rutting.  The thought hits your cock like a lightning bolt, and it fills out to painful proportions, every vein and bulge standing out in stark relief, thumping obscenely to the tune of your insatiable lust.  You moan into her lovely-tasting snatch, gulping down "
+                `and roll her over on her hands and knees, lifting that sweet butt up in the air where you can admire it.  You kneel behind her and, pressing your nose into her fragrant quim, you extend your tongue, letting the smooth oral muscle taste her juices and tease at her engorging clit.  ${this.player2.short} moans and presses back into you, crying out like a true bitch in heat, one in need of a thorough rutting.  The thought hits your cock like a lightning bolt, and it fills out to painful proportions, every vein and bulge standing out in stark relief, thumping obscenely to the tune of your insatiable lust.  You moan into her lovely-tasting snatch, gulping down `
             );
             if (this.player2.wetness() < 3) this.outx("every drop of nectar that she gives up");
             else if (this.player2.wetness() < 4)
@@ -2004,24 +2121,16 @@ export class UrtaQuest extends NPCAwareContent {
         }
 
         this.outx(
-            "\n\nGrabbing hold of " +
-                this.player2.short +
-                " by her waist, you level your phallus up against her lips and press forward, hard.  Her velvet curtains part slowly under your relentless pressure, a hanging veil of lubricants sheathing your head as it batters its way inside her in pliant depths.  She fits you like a glove, a soft, squishy, velvet-lined glove that squeezes back against you oh-so-perfectly.  You groan in delight, but she's only taken a few inches - there's at least fifteen more, throbbing bigger in excitement.  " +
-                this.player2.short +
-                " grunts out loud, pushing back against you, stretching herself around you to take a little bit more.  Her lips cling to your girth, welcoming ever greater lengths of your iron shaft into the swelteringly pleasant embrace of her needy hole.  When your medial ring catches her clit, she moans, shaking her asscheeks at you."
+            `\n\nGrabbing hold of ${this.player2.short} by her waist, you level your phallus up against her lips and press forward, hard.  Her velvet curtains part slowly under your relentless pressure, a hanging veil of lubricants sheathing your head as it batters its way inside her in pliant depths.  She fits you like a glove, a soft, squishy, velvet-lined glove that squeezes back against you oh-so-perfectly.  You groan in delight, but she's only taken a few inches - there's at least fifteen more, throbbing bigger in excitement.  ${this.player2.short} grunts out loud, pushing back against you, stretching herself around you to take a little bit more.  Her lips cling to your girth, welcoming ever greater lengths of your iron shaft into the swelteringly pleasant embrace of her needy hole.  When your medial ring catches her clit, she moans, shaking her asscheeks at you.`
         );
 
         this.outx(
-            "\n\nYou smack " +
-                this.player2.short +
-                " on the ass, and she wiggles again, this time slower, and more sensually.  Her cunt feels sinfully tight around you"
+            `\n\nYou smack ${this.player2.short} on the ass, and she wiggles again, this time slower, and more sensually.  Her cunt feels sinfully tight around you`
         );
         if (this.player2.vaginalCapacity() >= 200)
             this.outx(", though you know she can handle cocks with Edryn's ease");
         this.outx(
-            ".  It's a wonderful sensation, and you push the rest of the way in with one, hard thrust.  Your sheath is pushed back against you, releasing an extra inch of horse-cock into your partners willing, lube-dripping pussy.  The oversensitive horseflesh bombards you with a wave of fresh feelings so strong that your legs nearly fold under you.  You dig your hands into " +
-                this.player2.short +
-                "'s haunches for support and hang on for dear life, instinctively plowing her [vagina] like your life depended on it."
+            `.  It's a wonderful sensation, and you push the rest of the way in with one, hard thrust.  Your sheath is pushed back against you, releasing an extra inch of horse-cock into your partners willing, lube-dripping pussy.  The oversensitive horseflesh bombards you with a wave of fresh feelings so strong that your legs nearly fold under you.  You dig your hands into ${this.player2.short}'s haunches for support and hang on for dear life, instinctively plowing her [vagina] like your life depended on it.`
         );
 
         this.outx(
@@ -2029,24 +2138,16 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou oblige your lover's request (as if you had any other option) and hammer your oozing dick deep into " +
-                this.player2.short +
-                "'s puffy vagina so hard that your tip butts up against her cervix, bowing it in towards her unprotected womb.  She squeezes down like a vice, wringing your cock with juicy, slippery walls.  You moan with her, balls tensing, lifting slightly in your sack as they ready your juicy load.  Climactic bliss erupts from within and your flare nearly doubles in size, locking itself in the honeyed heaven it so loves to nestle itself into.  Bubbling heat builds inside until you feel as if your body is about to light aflame, and then, in a dizzying rush, you release the first sticky deposit into your lover's womb.  She moans, wiggling happily as some slips into her womb, while the rest begins to flood every nook and cranny of her violated tunnel."
+            `\n\nYou oblige your lover's request (as if you had any other option) and hammer your oozing dick deep into ${this.player2.short}'s puffy vagina so hard that your tip butts up against her cervix, bowing it in towards her unprotected womb.  She squeezes down like a vice, wringing your cock with juicy, slippery walls.  You moan with her, balls tensing, lifting slightly in your sack as they ready your juicy load.  Climactic bliss erupts from within and your flare nearly doubles in size, locking itself in the honeyed heaven it so loves to nestle itself into.  Bubbling heat builds inside until you feel as if your body is about to light aflame, and then, in a dizzying rush, you release the first sticky deposit into your lover's womb.  She moans, wiggling happily as some slips into her womb, while the rest begins to flood every nook and cranny of her violated tunnel.`
         );
 
         this.outx(
-            "\n\nAgain and again, you fire sticky white loads deep into " +
-                this.player2.short +
-                "'s body, anchored tightly by the flaring horse-cock you used to hate, but have come to accept with " +
-                this.player2.short +
-                "'s help.  She taught you that you could be loved, and as you thoroughly seed her womb a teardrop of moisture beads at the corner of your eye.  She loves you, cock and all, and there's nothing you'd rather be doing than spending the night with her.  Her belly rounds slightly"
+            `\n\nAgain and again, you fire sticky white loads deep into ${this.player2.short}'s body, anchored tightly by the flaring horse-cock you used to hate, but have come to accept with ${this.player2.short}'s help.  She taught you that you could be loved, and as you thoroughly seed her womb a teardrop of moisture beads at the corner of your eye.  She loves you, cock and all, and there's nothing you'd rather be doing than spending the night with her.  Her belly rounds slightly`
         );
         if (this.player2.pregnancyIncubation > 0 && this.player2.pregnancyIncubation < 150)
             this.outx(" (more than it already is)");
         this.outx(
-            " from your prodigious deposit.  The illusion of knocking her up takes hold of you, and your orgasm redoubles, fresh waves of horse-cum pouring out of you unceasingly.  " +
-                this.player2.short +
-                " moans, rubbing her taut"
+            ` from your prodigious deposit.  The illusion of knocking her up takes hold of you, and your orgasm redoubles, fresh waves of horse-cum pouring out of you unceasingly.  ${this.player2.short} moans, rubbing her taut`
         );
         if (this.player2.pregnancyIncubation > 0 && this.player2.pregnancyIncubation < 150)
             this.outx(" pregnant");
@@ -2058,7 +2159,7 @@ export class UrtaQuest extends NPCAwareContent {
         // Slimefeed!   Virgin removal + stretching silently
         if (this.player2.vaginas[0].virgin) {
             this.player2.vaginas[0].virgin = false;
-            this.outx("\n\n<b>You took " + this.player2.short + "'s virginity!</b>");
+            this.outx(`\n\n<b>You took ${this.player2.short}'s virginity!</b>`);
         }
         this.player.orgasm();
         this.dynStats("sen", -2);
@@ -2075,25 +2176,26 @@ export class UrtaQuest extends NPCAwareContent {
     private snuggleWithUrta(truth: boolean): void {
         this.clearOutput();
         this.outx(
-            "You think it over and decide that, for once, you'd like to focus more on love and less on lust.  \"<i>Well... I'd really just like to have a snuggle with you, " +
-                this.player2.short +
-                " - if that's alright?</i>\"  You ask quietly, tail instinctively wagging in an effort to be endearing.  Your lover nods " +
-                this.player2.mf("his", "her") +
-                " head and answers in the positive, opening " +
-                this.player2.mf("his", "her") +
-                " arms for further effect.  You waste no time and eagerly sidle into " +
-                this.player2.mf("his", "her") +
-                " arms."
+            `You think it over and decide that, for once, you'd like to focus more on love and less on lust.  "<i>Well... I'd really just like to have a snuggle with you, ${
+                this.player2.short
+            } - if that's alright?</i>"  You ask quietly, tail instinctively wagging in an effort to be endearing.  Your lover nods ${this.player2.mf(
+                "his",
+                "her"
+            )} head and answers in the positive, opening ${this.player2.mf(
+                "his",
+                "her"
+            )} arms for further effect.  You waste no time and eagerly sidle into ${this.player2.mf(
+                "his",
+                "her"
+            )} arms.`
         );
         // [If PC Centaur or Drider:
         if (this.player2.isTaur() || this.player2.isDrider()) {
-            this.outx(
-                "  It's rather awkward, thanks to " + this.player2.mf("his", "her") + " clunky "
-            );
+            this.outx(`  It's rather awkward, thanks to ${this.player2.mf("his", "her")} clunky `);
             if (this.player2.isTaur()) this.outx("centaur");
             else this.outx("drider");
             this.outx(
-                " body, but you manage to press up against " + this.player2.mf("his", "her") + " "
+                ` body, but you manage to press up against ${this.player2.mf("his", "her")} `
             );
             if (this.player2.isTaur()) this.outx("forehoofs");
             else this.outx("first two pairs of spidery limbs");
@@ -2102,18 +2204,21 @@ export class UrtaQuest extends NPCAwareContent {
         // [if PC Naga:]
         else if (this.player2.isNaga())
             this.outx(
-                "  " +
-                    this.player2.mf("His", "Her") +
-                    " serpentine coils loop snugly around your waist, curling around your legs and holding you gently in place."
+                `  ${this.player2.mf(
+                    "His",
+                    "Her"
+                )} serpentine coils loop snugly around your waist, curling around your legs and holding you gently in place.`
             );
         // [if PC Goo:
         else if (this.player.isGoo())
             this.outx(
-                "  " +
-                    this.player2.mf("His", "Her") +
-                    " soft, squishy goo-body eagerly accepts you, the gelatinous mass of " +
-                    this.player2.mf("his", "her") +
-                    " lower torso reaching out to softly envelop you in its cool, wet embrace."
+                `  ${this.player2.mf(
+                    "His",
+                    "Her"
+                )} soft, squishy goo-body eagerly accepts you, the gelatinous mass of ${this.player2.mf(
+                    "his",
+                    "her"
+                )} lower torso reaching out to softly envelop you in its cool, wet embrace.`
             );
         // [Else:
         else
@@ -2122,17 +2227,18 @@ export class UrtaQuest extends NPCAwareContent {
             );
 
         this.outx(
-            "\n\nProperly positioned, you tuck your vulpine face into your lover's neck, softly inhaling " +
-                this.player2.mf("his", "her") +
-                " scent, listening to the beating of " +
-                this.player2.mf("his", "her") +
-                " heart, basking in the warmth of " +
-                this.player2.mf("his", "her") +
-                " body and simply savoring being so close to the person you love.  Of course, being here like this, breasts pressed to your lover's chest, is all your traitorous horse-cock needs to show itself, wetly sliding from your sheath and poking eagerly into your lover's side.  You giggle nervously and blush, unable to help the flush of shame that slides through your heart, for all that " +
-                this.player2.short +
-                " has assured you that " +
-                this.player2.mf("he", "she") +
-                " loves you despite your dick."
+            `\n\nProperly positioned, you tuck your vulpine face into your lover's neck, softly inhaling ${this.player2.mf(
+                "his",
+                "her"
+            )} scent, listening to the beating of ${this.player2.mf(
+                "his",
+                "her"
+            )} heart, basking in the warmth of ${this.player2.mf(
+                "his",
+                "her"
+            )} body and simply savoring being so close to the person you love.  Of course, being here like this, breasts pressed to your lover's chest, is all your traitorous horse-cock needs to show itself, wetly sliding from your sheath and poking eagerly into your lover's side.  You giggle nervously and blush, unable to help the flush of shame that slides through your heart, for all that ${
+                this.player2.short
+            } has assured you that ${this.player2.mf("he", "she")} loves you despite your dick.`
         );
 
         this.outx("\n\nYour lover simply smiles at you, and gives your cock a ");
@@ -2140,23 +2246,27 @@ export class UrtaQuest extends NPCAwareContent {
         else if (this.player2.cor < 66) this.outx("gentle stroke");
         else this.outx("lascivious caress");
         this.outx(
-            " before pulling you tighter into " +
-                this.player2.mf("his", "her") +
-                " embrace.  Eager to forget your embarrassment, you focus on holding " +
-                this.player2.mf("him", "her") +
-                " tight and close.  Your prick slowly slides back into its sheath from the lack of stimulus as you focus on how safe and content you feel to be here, being held like this."
+            ` before pulling you tighter into ${this.player2.mf(
+                "his",
+                "her"
+            )} embrace.  Eager to forget your embarrassment, you focus on holding ${this.player2.mf(
+                "him",
+                "her"
+            )} tight and close.  Your prick slowly slides back into its sheath from the lack of stimulus as you focus on how safe and content you feel to be here, being held like this.`
         );
 
         this.outx(
-            "\n\nTo your own surprise, you find your eyes growing heavier and heavier.  But you don't want to let your " +
-                this.player2.short +
-                " go yet... besides, may as well start searching from here in the morning, right?  So, you and " +
-                this.player2.short +
-                " carefully lay yourselves back down and quietly drift off to sleep, still holding fast to each other as you do.  The last sounds you hear for the night are your lover breathing, accompanied by the beating of " +
-                this.player2.mf("his", "her") +
-                " heart, and you idly hope that " +
-                this.player2.mf("he", "she") +
-                " can hear the same sounds from you..."
+            `\n\nTo your own surprise, you find your eyes growing heavier and heavier.  But you don't want to let your ${
+                this.player2.short
+            } go yet... besides, may as well start searching from here in the morning, right?  So, you and ${
+                this.player2.short
+            } carefully lay yourselves back down and quietly drift off to sleep, still holding fast to each other as you do.  The last sounds you hear for the night are your lover breathing, accompanied by the beating of ${this.player2.mf(
+                "his",
+                "her"
+            )} heart, and you idly hope that ${this.player2.mf(
+                "he",
+                "she"
+            )} can hear the same sounds from you...`
         );
         this.dynStats("lus", 14);
         this.menu();
@@ -2173,37 +2283,40 @@ export class UrtaQuest extends NPCAwareContent {
         this.model.time.days++;
         this.statScreenRefresh();
         this.outx(
-            "Sadly, morning comes, and your time with " +
-                this.player2.short +
-                " comes to an end.  You push " +
-                this.player2.mf("his", "her") +
-                " shoulder gently to rouse " +
-                this.player2.mf("him", "her") +
-                ", smiling at " +
-                this.player2.mf("him", "her") +
-                " when " +
-                this.player2.mf("he", "she") +
-                " wakes.  You kiss " +
-                this.player2.mf("him", "her") +
-                " on the lips before rolling out from under the blanket.  The two of you eat a quiet breakfast together, simply enjoying each other's company.  "
+            `Sadly, morning comes, and your time with ${
+                this.player2.short
+            } comes to an end.  You push ${this.player2.mf(
+                "his",
+                "her"
+            )} shoulder gently to rouse ${this.player2.mf(
+                "him",
+                "her"
+            )}, smiling at ${this.player2.mf("him", "her")} when ${this.player2.mf(
+                "he",
+                "she"
+            )} wakes.  You kiss ${this.player2.mf(
+                "him",
+                "her"
+            )} on the lips before rolling out from under the blanket.  The two of you eat a quiet breakfast together, simply enjoying each other's company.  `
         );
 
         if (truth) {
             this.outx(
-                "" +
-                    this.player2.mf("He", "She") +
-                    " asks again about coming with you, but you tell " +
-                    this.player2.mf("him", "her") +
-                    " Gul's instructions were quite specific.  You'll need to tackle this alone.  The rest of breakfast passes in uncomfortable silence, broken when you rise to leave."
+                `${this.player2.mf(
+                    "He",
+                    "She"
+                )} asks again about coming with you, but you tell ${this.player2.mf(
+                    "him",
+                    "her"
+                )} Gul's instructions were quite specific.  You'll need to tackle this alone.  The rest of breakfast passes in uncomfortable silence, broken when you rise to leave.`
             );
         }
 
         this.outx(
-            "\n\nYou embrace " +
-                this.player2.short +
-                ", kissing " +
-                this.player2.mf("him", "her") +
-                " on the lips"
+            `\n\nYou embrace ${this.player2.short}, kissing ${this.player2.mf(
+                "him",
+                "her"
+            )} on the lips`
         );
 
         if (truth) {
@@ -2215,10 +2328,10 @@ export class UrtaQuest extends NPCAwareContent {
         }
 
         this.outx(
-            this.player2.short +
-                " nods, and you leave " +
-                this.player2.mf("him", "her") +
-                " behind.  You keep glancing over your shoulder as you leave, praying silently to any god who'll listen that you return safely to your lover."
+            `${this.player2.short} nods, and you leave ${this.player2.mf(
+                "him",
+                "her"
+            )} behind.  You keep glancing over your shoulder as you leave, praying silently to any god who'll listen that you return safely to your lover.`
         );
 
         this.menu();
@@ -2240,9 +2353,7 @@ export class UrtaQuest extends NPCAwareContent {
             );
         } else {
             this.outx(
-                "You set out for Taoth's Temple - or grave, your only clue to its location being the pendant clasped tightly in your hand.  Behind you, the tower slowly shrinks, less imposing now that you've finished that step on your journey.   Ahead lies uncertainty and struggle.  You know you'll likely wind up fighting the corrupted denizens of the lost regions of Mareth in your travels, and it's likely at least a demon or two will get in your way.  Still, as you exit the city gates, you give your home a forlorn gaze.  Things are about to get a lot tougher.  You wish " +
-                    this.player2.short +
-                    " could be standing here with you, but this is a challenge you must face alone."
+                `You set out for Taoth's Temple - or grave, your only clue to its location being the pendant clasped tightly in your hand.  Behind you, the tower slowly shrinks, less imposing now that you've finished that step on your journey.   Ahead lies uncertainty and struggle.  You know you'll likely wind up fighting the corrupted denizens of the lost regions of Mareth in your travels, and it's likely at least a demon or two will get in your way.  Still, as you exit the city gates, you give your home a forlorn gaze.  Things are about to get a lot tougher.  You wish ${this.player2.short} could be standing here with you, but this is a challenge you must face alone.`
             );
             this.outx(
                 "\n\nHolding the pendant in front of you, you set off in a random direction from the city, hoping it will give you some kind of sign.  A couple times, you could swear it flickered with an inner light, but the passing luminance could just be a reflection of the omnipresent sun.  You wipe the sweat from your brow and turn around, a little confused as to how you should progress."
@@ -2262,11 +2373,12 @@ export class UrtaQuest extends NPCAwareContent {
         if (this.monster.HP < 1) this.outx("submissive");
         else this.outx("feverishly masturbating");
         this.outx(
-            " form of your opponent and can't resist licking your black lips in anticipation - any guilt about fucking someone besides " +
-                this.player2.short +
-                " that might make it through the haze of lust consuming you is quickly extinguished by your conviction that " +
-                this.player2.mf("he", "she") +
-                " would understand.  Your growing tower of fuck-meat is already lifting the hem of your armored skirt, making it even easier to grab its lower edge and flip it up out of the way as you advance towards your assailant, eager to see what you can do about blowing off some steam..."
+            ` form of your opponent and can't resist licking your black lips in anticipation - any guilt about fucking someone besides ${
+                this.player2.short
+            } that might make it through the haze of lust consuming you is quickly extinguished by your conviction that ${this.player2.mf(
+                "he",
+                "she"
+            )} would understand.  Your growing tower of fuck-meat is already lifting the hem of your armored skirt, making it even easier to grab its lower edge and flip it up out of the way as you advance towards your assailant, eager to see what you can do about blowing off some steam...`
         );
 
         this.outx(
@@ -2318,9 +2430,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n\"<i>I shoot nothing but blanks and nobody can fix that.</i>\"  You taunt the goblin, deliberately not mentioning that there is a cure and that's what you're after; you want to make kits with " +
-                this.player2.short +
-                ", not more green sluts.  You turn and start walking away as the goblin stares after you, dumbfounded.  \"<i>You- you - bitch!  You - </i>\" A loud belch cuts into her ranting, but by the time she's recovered, you're too far away to hear any more."
+            `\n\n"<i>I shoot nothing but blanks and nobody can fix that.</i>"  You taunt the goblin, deliberately not mentioning that there is a cure and that's what you're after; you want to make kits with ${this.player2.short}, not more green sluts.  You turn and start walking away as the goblin stares after you, dumbfounded.  "<i>You- you - bitch!  You - </i>" A loud belch cuts into her ranting, but by the time she's recovered, you're too far away to hear any more.`
         );
 
         this.outx(
@@ -2550,9 +2660,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.clearOutput();
         const damage: number = this.player.takeDamage(Math.round(this.player.maxHP() / 10));
         this.outx(
-            "You work your body as hard as you can, restoring your fatigue at the cost of health. (" +
-                damage +
-                ")\nRestored 20 fatigue!\n\n"
+            `You work your body as hard as you can, restoring your fatigue at the cost of health. (${damage})\nRestored 20 fatigue!\n\n`
         );
         this.fatigue(-20);
         kGAMECLASS.enemyAI();
@@ -2626,19 +2734,19 @@ export class UrtaQuest extends NPCAwareContent {
         ) {
             if (this.monster.spe - this.player.spe < 8)
                 this.outx(
-                    this.monster.capitalA + this.monster.short + " narrowly avoids your attack!",
+                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`,
                     false
                 );
             if (this.monster.spe - this.player.spe >= 8 && this.monster.spe - this.player.spe < 20)
                 this.outx(
-                    this.monster.capitalA +
-                        this.monster.short +
-                        " dodges your attack with superior quickness!",
+                    `${
+                        this.monster.capitalA + this.monster.short
+                    } dodges your attack with superior quickness!`,
                     false
                 );
             if (this.monster.spe - this.player.spe >= 20)
                 this.outx(
-                    this.monster.capitalA + this.monster.short + " deftly avoids your slow attack.",
+                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`,
                     false
                 );
             this.outx("\n", false);
@@ -2709,26 +2817,17 @@ export class UrtaQuest extends NPCAwareContent {
         if (damage <= 0) {
             damage = 0;
             this.outx(
-                "Your attacks are deflected or blocked by " +
-                    this.monster.a +
-                    this.monster.short +
-                    ".",
+                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`,
                 false
             );
         } else {
-            this.outx(
-                "You hit " + this.monster.a + this.monster.short + "! (" + damage + ")",
-                false
-            );
+            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`, false);
             if (crit) this.outx(" <b>*CRIT*</b>");
         }
         if (this.player.findPerk(PerkLib.BrutalBlows) >= 0 && this.player.str > 75) {
             if (this.monster.armorDef > 0)
                 this.outx(
-                    "\nYour hits are so brutal that you damage " +
-                        this.monster.a +
-                        this.monster.short +
-                        "'s defenses!"
+                    `\nYour hits are so brutal that you damage ${this.monster.a}${this.monster.short}'s defenses!`
                 );
             if (this.monster.armorDef - 10 > 0) this.monster.armorDef -= 10;
             else this.monster.armorDef = 0;
@@ -2772,25 +2871,22 @@ export class UrtaQuest extends NPCAwareContent {
             );
         } else
             this.outx(
-                "Spinning about, you drag your footpaw through the dirt, kicking a wave of debris towards " +
-                    this.monster.a +
-                    this.monster.short +
-                    "!  "
+                `Spinning about, you drag your footpaw through the dirt, kicking a wave of debris towards ${this.monster.a}${this.monster.short}!  `
             );
         // Dodged!
         if (UrtaQuest.rand(20) + 1 + this.monster.spe / 20 > 15 + this.player.spe / 20) {
             this.outx(
-                this.monster.mf("He", "She") +
-                    " manages to shield " +
-                    this.monster.mf("his", "her") +
-                    " eyes.  Damn!\n\n"
+                `${this.monster.mf("He", "She")} manages to shield ${this.monster.mf(
+                    "his",
+                    "her"
+                )} eyes.  Damn!\n\n`
             );
             kGAMECLASS.enemyAI();
             return;
         } else if (this.monster.findStatusAffect(StatusAffects.Blind) >= 0) {
-            this.outx(this.monster.mf("He", "She") + "'s already blinded.  What a waste.\n\n");
+            this.outx(`${this.monster.mf("He", "She")}'s already blinded.  What a waste.\n\n`);
         } else {
-            this.outx(this.monster.mf("He", "She") + "'s blinded!\n\n");
+            this.outx(`${this.monster.mf("He", "She")}'s blinded!\n\n`);
             this.monster.createStatusAffect(StatusAffects.Blind, 2 + UrtaQuest.rand(3), 0, 0, 0);
         }
         kGAMECLASS.enemyAI();
@@ -2826,19 +2922,19 @@ export class UrtaQuest extends NPCAwareContent {
         ) {
             if (this.monster.spe - this.player.spe < 8)
                 this.outx(
-                    this.monster.capitalA + this.monster.short + " narrowly avoids your attack!",
+                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`,
                     false
                 );
             if (this.monster.spe - this.player.spe >= 8 && this.monster.spe - this.player.spe < 20)
                 this.outx(
-                    this.monster.capitalA +
-                        this.monster.short +
-                        " dodges your attack with superior quickness!",
+                    `${
+                        this.monster.capitalA + this.monster.short
+                    } dodges your attack with superior quickness!`,
                     false
                 );
             if (this.monster.spe - this.player.spe >= 20)
                 this.outx(
-                    this.monster.capitalA + this.monster.short + " deftly avoids your slow attack.",
+                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`,
                     false
                 );
             this.outx("\n\n", false);
@@ -2905,26 +3001,17 @@ export class UrtaQuest extends NPCAwareContent {
         if (damage <= 0) {
             damage = 0;
             this.outx(
-                "Your attacks are deflected or blocked by " +
-                    this.monster.a +
-                    this.monster.short +
-                    ".",
+                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`,
                 false
             );
         } else {
-            this.outx(
-                "You hit " + this.monster.a + this.monster.short + "! (" + damage + ")",
-                false
-            );
+            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`, false);
             if (crit) this.outx(" <b>*CRIT*</b>");
         }
         if (this.player.findPerk(PerkLib.BrutalBlows) >= 0 && this.player.str > 75) {
             if (this.monster.armorDef > 0)
                 this.outx(
-                    "\nYour hits are so brutal that you damage " +
-                        this.monster.a +
-                        this.monster.short +
-                        "'s defenses!"
+                    `\nYour hits are so brutal that you damage ${this.monster.a}${this.monster.short}'s defenses!`
                 );
             if (this.monster.armorDef - 10 > 0) this.monster.armorDef -= 10;
             else this.monster.armorDef = 0;
@@ -2935,9 +3022,7 @@ export class UrtaQuest extends NPCAwareContent {
             damage > 0
         ) {
             if (this.monster.tou / 10 + UrtaQuest.rand(20) + 1 < 20) {
-                this.outx(
-                    "\n<b>" + this.monster.capitalA + this.monster.short + " is stunned!</b>"
-                );
+                this.outx(`\n<b>${this.monster.capitalA}${this.monster.short} is stunned!</b>`);
                 this.monster.createStatusAffect(StatusAffects.Stunned, 1, 0, 0, 0);
             }
         } else if (this.monster.findPerk(PerkLib.Resolute) >= 0) {
@@ -2993,9 +3078,7 @@ export class UrtaQuest extends NPCAwareContent {
             );
         } else
             this.outx(
-                "You leap into the air, intent on slamming your " +
-                    this.player.weaponName +
-                    " into your foe!  "
+                `You leap into the air, intent on slamming your ${this.player.weaponName} into your foe!  `
             );
         let damage: number;
         // Determine if dodged!
@@ -3006,19 +3089,19 @@ export class UrtaQuest extends NPCAwareContent {
         ) {
             if (this.monster.spe - this.player.spe < 8)
                 this.outx(
-                    this.monster.capitalA + this.monster.short + " narrowly avoids your attack!",
+                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`,
                     false
                 );
             if (this.monster.spe - this.player.spe >= 8 && this.monster.spe - this.player.spe < 20)
                 this.outx(
-                    this.monster.capitalA +
-                        this.monster.short +
-                        " dodges your attack with superior quickness!",
+                    `${
+                        this.monster.capitalA + this.monster.short
+                    } dodges your attack with superior quickness!`,
                     false
                 );
             if (this.monster.spe - this.player.spe >= 20)
                 this.outx(
-                    this.monster.capitalA + this.monster.short + " deftly avoids your slow attack.",
+                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`,
                     false
                 );
             this.outx("\n", false);
@@ -3090,26 +3173,17 @@ export class UrtaQuest extends NPCAwareContent {
         if (damage <= 0) {
             damage = 0;
             this.outx(
-                "Your attacks are deflected or blocked by " +
-                    this.monster.a +
-                    this.monster.short +
-                    ".",
+                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`,
                 false
             );
         } else {
-            this.outx(
-                "You hit " + this.monster.a + this.monster.short + "! (" + damage + ")",
-                false
-            );
+            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`, false);
             if (crit) this.outx(" <b>*CRIT*</b>");
         }
         if (this.player.findPerk(PerkLib.BrutalBlows) >= 0 && this.player.str > 75) {
             if (this.monster.armorDef > 0)
                 this.outx(
-                    "\nYour hits are so brutal that you damage " +
-                        this.monster.a +
-                        this.monster.short +
-                        "'s defenses!"
+                    `\nYour hits are so brutal that you damage ${this.monster.a}${this.monster.short}'s defenses!`
                 );
             if (this.monster.armorDef - 10 > 0) this.monster.armorDef -= 10;
             else this.monster.armorDef = 0;
@@ -3158,9 +3232,10 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n\"<i>Sirius.  But I'm already with someone, quite happy with " +
-                this.player2.mf("him", "her") +
-                ", and not looking for anyone else.  Besides, I'm only passing through and I have places to go yet,</i>\" you say, trying to be polite but firm; you'd be less than flattered by the attention even if you didn't have a painful history of guys asking you out, then changing their minds upon seeing your stallion-king-sized manhood."
+            `\n\n"<i>Sirius.  But I'm already with someone, quite happy with ${this.player2.mf(
+                "him",
+                "her"
+            )}, and not looking for anyone else.  Besides, I'm only passing through and I have places to go yet,</i>" you say, trying to be polite but firm; you'd be less than flattered by the attention even if you didn't have a painful history of guys asking you out, then changing their minds upon seeing your stallion-king-sized manhood.`
         );
 
         this.outx(
@@ -3318,9 +3393,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n\"<i>Ugh... I'm totally spent.  Sheesh, how long were we fucking?  I can't remember the last time I was that horny... come to think of it, why were we fucking?  I've got " +
-                this.player2.short +
-                " waiting for me back home - why was I getting a blowjob from some random stranger?</i>\"  You wonder; your head feels kind of fuzzy, but now it's clearing up.  You shake it, trying to get your thoughts straight.  You must have really been pent up, though; just look at the evidence.  Trying to be polite, you address the naga."
+            `\n\n"<i>Ugh... I'm totally spent.  Sheesh, how long were we fucking?  I can't remember the last time I was that horny... come to think of it, why were we fucking?  I've got ${this.player2.short} waiting for me back home - why was I getting a blowjob from some random stranger?</i>"  You wonder; your head feels kind of fuzzy, but now it's clearing up.  You shake it, trying to get your thoughts straight.  You must have really been pent up, though; just look at the evidence.  Trying to be polite, you address the naga.`
         );
 
         this.outx(
@@ -3328,23 +3401,25 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nThe only response you get is a snore and a gurgling wet belch; he's out cold.  You can't resist chuckling to yourself; he might have been nicer than you thought, but he's no " +
-                this.player2.short +
-                ".  He just can't keep up with you.  You give the sleeping naga an affectionate pat on the cheek as a thank you, wipe the resultant cum-smear off of your hand onto the grass, get redressed, and leave."
+            `\n\nThe only response you get is a snore and a gurgling wet belch; he's out cold.  You can't resist chuckling to yourself; he might have been nicer than you thought, but he's no ${this.player2.short}.  He just can't keep up with you.  You give the sleeping naga an affectionate pat on the cheek as a thank you, wipe the resultant cum-smear off of your hand onto the grass, get redressed, and leave.`
         );
 
         this.outx(
-            "\n\nAs you walk away, following the pendant once again, you hope that " +
-                this.player2.short +
-                " will understand why you fucked a stranger like that... maybe if you promise to give " +
-                this.player2.mf("him", "her") +
-                " oral with as much enthusiasm as that naga gave you, " +
-                this.player2.mf("he", "she") +
-                "'ll be more understanding?  Mmm... you kind of hope " +
-                this.player2.mf("he", "she") +
-                " agrees, actually; you can already taste " +
-                this.player2.mf("him", "her") +
-                " on your tongue..."
+            `\n\nAs you walk away, following the pendant once again, you hope that ${
+                this.player2.short
+            } will understand why you fucked a stranger like that... maybe if you promise to give ${this.player2.mf(
+                "him",
+                "her"
+            )} oral with as much enthusiasm as that naga gave you, ${this.player2.mf(
+                "he",
+                "she"
+            )}'ll be more understanding?  Mmm... you kind of hope ${this.player2.mf(
+                "he",
+                "she"
+            )} agrees, actually; you can already taste ${this.player2.mf(
+                "him",
+                "her"
+            )} on your tongue...`
         );
         this.player.orgasm();
         this.menu();
@@ -3439,11 +3514,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nSirius wastes no time, positioning you at an angle in his wonderful coils and easily finding your slit behind your balls.  Then he penetrates you and you cry out in bliss, never blinking or breaking your gaze.  Oh, yes!  Yes, yes - he's such a wonderful lover, so masterful, so strong... his cock fills you so well, brings you such pleasure!  So good... something so good could only come from " +
-                this.player2.short +
-                "!  Wait a moment?  " +
-                this.player2.short +
-                "?  That sounds wrong!  You meant Sirius!  Your love!"
+            `\n\nSirius wastes no time, positioning you at an angle in his wonderful coils and easily finding your slit behind your balls.  Then he penetrates you and you cry out in bliss, never blinking or breaking your gaze.  Oh, yes!  Yes, yes - he's such a wonderful lover, so masterful, so strong... his cock fills you so well, brings you such pleasure!  So good... something so good could only come from ${this.player2.short}!  Wait a moment?  ${this.player2.short}?  That sounds wrong!  You meant Sirius!  Your love!`
         );
 
         this.outx(
@@ -3519,11 +3590,12 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nStop that, you admonish yourself.  Master is master; he's always in control.  You just need to take your mind off of this matter.  Hmm... While master does forbid it, you could always lay in his bed and relish the scent of him...  The temptation is too strong, and you quickly scurry over and curl up in the sheets, eagerly inhaling his wondrous scent.  As you do so, your mind drifts against your will to less happy thoughts.  The nightmares, always the nightmares... about a town you never knew... though, somehow, the name Tel'Adre keeps coming to you...  Worse than that are the visions of a life you never had as a watch captain, facing hardship after hardship... and that one " +
-                this.player2.mf("guy", "girl") +
-                ", " +
-                this.player2.short +
-                ".  Worst of all about the nightmares is that you can never seem to meet your master in them.  That's why they scare you so; you dread a world where he doesn't exist.  Thankfully he is always willing to help you forget with his hypnotherapy."
+            `\n\nStop that, you admonish yourself.  Master is master; he's always in control.  You just need to take your mind off of this matter.  Hmm... While master does forbid it, you could always lay in his bed and relish the scent of him...  The temptation is too strong, and you quickly scurry over and curl up in the sheets, eagerly inhaling his wondrous scent.  As you do so, your mind drifts against your will to less happy thoughts.  The nightmares, always the nightmares... about a town you never knew... though, somehow, the name Tel'Adre keeps coming to you...  Worse than that are the visions of a life you never had as a watch captain, facing hardship after hardship... and that one ${this.player2.mf(
+                "guy",
+                "girl"
+            )}, ${
+                this.player2.short
+            }.  Worst of all about the nightmares is that you can never seem to meet your master in them.  That's why they scare you so; you dread a world where he doesn't exist.  Thankfully he is always willing to help you forget with his hypnotherapy.`
         );
 
         this.outx(
@@ -3583,11 +3655,12 @@ export class UrtaQuest extends NPCAwareContent {
     public winRapeHyenaPrincess(): void {
         this.clearOutput();
         this.outx(
-            "Laughing at the Amazonian princess, you unbuckle your skirt, not even bothering to shed your armor.  Sure, your hard onyx nipples are digging into the inner lining of your leather breastplate, but it's just another pleasant sensation feeding your arousal.  In the back of your mind, you hope " +
-                this.player2.short +
-                " won't mind this indiscretion - you can't afford to go wandering around unsated in a place like this.  If a succubus found you all alone and turned on, you might actually fall for her tricks, resistant as you are.  You pray that " +
-                this.player2.mf("he", "she") +
-                "'ll understand."
+            `Laughing at the Amazonian princess, you unbuckle your skirt, not even bothering to shed your armor.  Sure, your hard onyx nipples are digging into the inner lining of your leather breastplate, but it's just another pleasant sensation feeding your arousal.  In the back of your mind, you hope ${
+                this.player2.short
+            } won't mind this indiscretion - you can't afford to go wandering around unsated in a place like this.  If a succubus found you all alone and turned on, you might actually fall for her tricks, resistant as you are.  You pray that ${this.player2.mf(
+                "he",
+                "she"
+            )}'ll understand.`
         );
 
         this.outx(
@@ -4137,16 +4210,10 @@ export class UrtaQuest extends NPCAwareContent {
     private urtaGetsTentaRaped(): void {
         this.clearOutput();
         this.outx(
-            "In your dreams, you're dancing with " +
-                this.player2.short +
-                " at your favorite bar, the bounty of your newly restored genitals bulging between your bodies.  You feel yourself growing warm at the closeness of your lover's body, already aroused and ready for another coupling.  Inhaling deeply, you savor the scent of mixed lust - sweet, so sweet. It makes you a little dizzy to be honest, and you stumble, letting " +
-                this.player2.short +
-                " catch you.  Mmmm, so warm.  A tongue enters your mouth, dripping more sweet scent onto your palette.  You swallow involuntarily, compulsively, as that oral organ penetrates so deeply into your throat."
+            `In your dreams, you're dancing with ${this.player2.short} at your favorite bar, the bounty of your newly restored genitals bulging between your bodies.  You feel yourself growing warm at the closeness of your lover's body, already aroused and ready for another coupling.  Inhaling deeply, you savor the scent of mixed lust - sweet, so sweet. It makes you a little dizzy to be honest, and you stumble, letting ${this.player2.short} catch you.  Mmmm, so warm.  A tongue enters your mouth, dripping more sweet scent onto your palette.  You swallow involuntarily, compulsively, as that oral organ penetrates so deeply into your throat.`
         );
         this.outx(
-            "\n\nWait...  " +
-                this.player2.short +
-                " doesn't smell (or taste) like that.  You're still fucking horny, though!  Waking, you stretch and go to yawn, but all that escapes your mouth is a muffled, \"<i>Mmmph!</i>\""
+            `\n\nWait...  ${this.player2.short} doesn't smell (or taste) like that.  You're still fucking horny, though!  Waking, you stretch and go to yawn, but all that escapes your mouth is a muffled, "<i>Mmmph!</i>"`
         );
         this.outx(
             "\n\nYou go to full alert in an instant.  Looming above, a wriggling monstrosity has eclipsed the moon.  Hundreds of wiggly tentacles coil and move around each other, creating a show of scintillating illumination from the moonlight that can squeeze through the cracks.  There's three dozen of them poised above with bulbous, purple tips that drip clear, sweet sap.  A few lack the tip, instead having pulsing mouths, capped with obscene, smiling black lips; plump, soft, and glossy.  Your blanket is gone.  The creature must have removed it.  With the tentacle leaking down your throat, you can't really get a good look around, but you can feel your dick on your tummy, obscenely rigid and leaking onto your breasts.  It doesn't seem like the beast has come after the rest of you yet...  You can still get free!"
@@ -4248,11 +4315,12 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou black out from the onslaught of pleasure - it's too much for your mere mortal brain to handle, and your mind shuts down.  It doesn't stop you from dreaming of sex for hours more, or from waking up a dripping wreck in the morning, soaked with vine-sperm and drained dry.  Amazingly, your vagina (and hips) have closed back up.  Guiltily, you press your digits into your vagina.  It hugs them tightly, and you sigh in relief.  You look down to pull them out, and realize you've fisted yourself up to your elbow.  Shit.  This won't be easy to explain to " +
-                this.player2.short +
-                ", but maybe " +
-                this.player2.mf("he", "she") +
-                " will like having someone who can combine tightness and an accommodating capacity."
+            `\n\nYou black out from the onslaught of pleasure - it's too much for your mere mortal brain to handle, and your mind shuts down.  It doesn't stop you from dreaming of sex for hours more, or from waking up a dripping wreck in the morning, soaked with vine-sperm and drained dry.  Amazingly, your vagina (and hips) have closed back up.  Guiltily, you press your digits into your vagina.  It hugs them tightly, and you sigh in relief.  You look down to pull them out, and realize you've fisted yourself up to your elbow.  Shit.  This won't be easy to explain to ${
+                this.player2.short
+            }, but maybe ${this.player2.mf(
+                "he",
+                "she"
+            )} will like having someone who can combine tightness and an accommodating capacity.`
         );
         this.flags[kFLAGS.URTA_TENTACLE_GAPED] = 1;
         this.flags[kFLAGS.URTA_TENTACLE_RAPED] = 1;
@@ -4454,9 +4522,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outx('\n\n"<i>Your first taste, huh?  Get used to it.</i>"');
 
         this.outx(
-            "\n\nThe minotaur tosses you back into the puddle, making sure you land on your side at the shallow edge.  Gasping for breath, you inhale more and more of that wonderful aroma, dreamingly sighing as more of it drips from your well-used gash.  The entrance to your vagina is permanently stretched, gaped wide just like 'Fido' would want it.  You dip your lips to drink of his bounty, crying a single tear when the word '" +
-                this.player2.short +
-                "' comes to mind and hoping you'll forget."
+            `\n\nThe minotaur tosses you back into the puddle, making sure you land on your side at the shallow edge.  Gasping for breath, you inhale more and more of that wonderful aroma, dreamingly sighing as more of it drips from your well-used gash.  The entrance to your vagina is permanently stretched, gaped wide just like 'Fido' would want it.  You dip your lips to drink of his bounty, crying a single tear when the word '${this.player2.short}' comes to mind and hoping you'll forget.`
         );
         this.player.orgasm();
 
@@ -4843,13 +4909,12 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nIt's risky, but... surely one fuck can't hurt?  You do want to be faithful to " +
-                this.player2.short +
-                ", you do, but " +
-                this.player2.mf("he", "she") +
-                "'s not here, is " +
-                this.player2.mf("he", "she") +
-                "?  Still, you're sure you can be strong and leave it, you do have the willpower... oh, but the temptation..."
+            `\n\nIt's risky, but... surely one fuck can't hurt?  You do want to be faithful to ${
+                this.player2.short
+            }, you do, but ${this.player2.mf("he", "she")}'s not here, is ${this.player2.mf(
+                "he",
+                "she"
+            )}?  Still, you're sure you can be strong and leave it, you do have the willpower... oh, but the temptation...`
         );
         this.dynStats("lus", 40, "resisted", false);
         // [Leave] [Fuck]
@@ -4862,11 +4927,12 @@ export class UrtaQuest extends NPCAwareContent {
     private leaveTheCowCubi(): void {
         this.clearOutput();
         this.outx(
-            "Your fingers tighten on the shaft of your halberd and suddenly you bring it whipping around, the blunt end slamming into the side of the succubus-cow's head.  As her eyes roll up in her head and she collapses unconscious onto the ground, you spit to the side.  \"<i>Be glad I didn't use the sharp end, monster.</i>\"  With that, you continue on into the depths of the shrine... oh, if only " +
-                this.player2.short +
-                " was here; you'd happily fuck " +
-                this.player2.mf("him", "her") +
-                " senseless right now...  Still, it's something to look forward to once you're done inside."
+            `Your fingers tighten on the shaft of your halberd and suddenly you bring it whipping around, the blunt end slamming into the side of the succubus-cow's head.  As her eyes roll up in her head and she collapses unconscious onto the ground, you spit to the side.  "<i>Be glad I didn't use the sharp end, monster.</i>"  With that, you continue on into the depths of the shrine... oh, if only ${
+                this.player2.short
+            } was here; you'd happily fuck ${this.player2.mf(
+                "him",
+                "her"
+            )} senseless right now...  Still, it's something to look forward to once you're done inside.`
         );
         this.menu();
         this.addButton(0, "Go Inside", this.enteringTaothsShrine);
@@ -5084,9 +5150,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou nod and tell her just how much you want this.  " +
-                this.player2.short +
-                " was wonderful, but obeying this woman's commands is DIVINE.  You see stars just from following her commands, giggling drunkenly from the sex and ecstasy of your obedience.  Crawling to hug against her slippery, sex-soaked leg, you proclaim your love and obedience again and again, begging her to let you suckle her breasts again, even though your belly still jiggles with your last 'snack'."
+            `\n\nYou nod and tell her just how much you want this.  ${this.player2.short} was wonderful, but obeying this woman's commands is DIVINE.  You see stars just from following her commands, giggling drunkenly from the sex and ecstasy of your obedience.  Crawling to hug against her slippery, sex-soaked leg, you proclaim your love and obedience again and again, begging her to let you suckle her breasts again, even though your belly still jiggles with your last 'snack'.`
         );
 
         this.outx(
@@ -5157,15 +5221,14 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n\"<i>It is true that I caused you much grief through my presence, but do remember that if it wasn't for me and the hardships I caused, you would not have been molded into the strong woman you are - Captain of the City Watch, beloved of " +
-                this.player2.short +
-                '.</i>"  The statue folds its arms, eyes blazing in a way that suggests irritation, and you feel a pang of instinctive fear at the unspoken threat.'
+            `\n\n"<i>It is true that I caused you much grief through my presence, but do remember that if it wasn't for me and the hardships I caused, you would not have been molded into the strong woman you are - Captain of the City Watch, beloved of ${this.player2.short}.</i>"  The statue folds its arms, eyes blazing in a way that suggests irritation, and you feel a pang of instinctive fear at the unspoken threat.`
         );
 
         this.outx(
-            '\n\n"<i>If you try anything to hurt ' +
-                this.player2.mf("him", "her") +
-                ", I swear I'll make sure you go to whatever pit awaits dead gods,</i>\" you hiss at him, clenching your fists so tightly you feel your nails bite into your palms.  One of your ears twitches when your better sense reminds you that this deity is still inside you, and you lack even the slightest amount of magical power."
+            `\n\n"<i>If you try anything to hurt ${this.player2.mf(
+                "him",
+                "her"
+            )}, I swear I'll make sure you go to whatever pit awaits dead gods,</i>" you hiss at him, clenching your fists so tightly you feel your nails bite into your palms.  One of your ears twitches when your better sense reminds you that this deity is still inside you, and you lack even the slightest amount of magical power.`
         );
 
         this.outx(
@@ -5191,9 +5254,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou do give the matter some thought, but, really, what choice do you have?  The Covenant wants this god to assist them, and you've dreamed of the ability to have kids ever since you fell in love with " +
-                this.player2.short +
-                ".  You slowly nod your head and voice your agreement to the god's terms."
+            `\n\nYou do give the matter some thought, but, really, what choice do you have?  The Covenant wants this god to assist them, and you've dreamed of the ability to have kids ever since you fell in love with ${this.player2.short}.  You slowly nod your head and voice your agreement to the god's terms.`
         );
 
         this.outx(
@@ -5201,11 +5262,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nThen you awake with a start, still kneeling before the unmoving statue.  Was it all a dream?  You don't know...  Your head is throbbing like mad, and you can't think clearly.  But even as the pain dims, you become aware of another, more pressing matter.  Lust.  That familiar yearning burns inside your arm-length prick like a raging inferno, the tower of equine fuckmeat thrusting boldly before you and steadily gushing precum onto the ground.  Naked, hungry NEED screams and claws and gibbers behind your eyes... " +
-                this.player2.short +
-                ", you must have " +
-                this.player2.short +
-                "!"
+            `\n\nThen you awake with a start, still kneeling before the unmoving statue.  Was it all a dream?  You don't know...  Your head is throbbing like mad, and you can't think clearly.  But even as the pain dims, you become aware of another, more pressing matter.  Lust.  That familiar yearning burns inside your arm-length prick like a raging inferno, the tower of equine fuckmeat thrusting boldly before you and steadily gushing precum onto the ground.  Naked, hungry NEED screams and claws and gibbers behind your eyes... ${this.player2.short}, you must have ${this.player2.short}!`
         );
 
         this.outx(
@@ -5225,9 +5282,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>Hi, ' +
-                this.player.short +
-                "...</i>\" she manages to pant out.  Looking at the state of her, you take a wild guess and suggest she spoke to her 'guest'.  \"<i>Yeah... Taoth's promised to get out of me, but, first, we need to give him a new host body... well, <b>I</b> need to give him a new body.</i>\"  Urta still has control enough to look sheepish, despite the fact her body is blatantly screaming for release.  \"<i>I-I'd rather do it with you, but "
+            `\n\n"<i>Hi, ${this.player.short}...</i>" she manages to pant out.  Looking at the state of her, you take a wild guess and suggest she spoke to her 'guest'.  "<i>Yeah... Taoth's promised to get out of me, but, first, we need to give him a new host body... well, <b>I</b> need to give him a new body.</i>"  Urta still has control enough to look sheepish, despite the fact her body is blatantly screaming for release.  "<i>I-I'd rather do it with you, but `
         );
         // if genderless:
         if (this.player.gender == 0) this.outx("seeing as how you can't make babies");
@@ -5235,9 +5290,7 @@ export class UrtaQuest extends NPCAwareContent {
         this.outx(', I can always go and use Edryn...</i>"');
 
         this.outx(
-            '\n\n"<i>What do we do, ' +
-                this.player2.short +
-                '?</i>" she pants, practically whimpering.  "<i>We need to choose fast... I can\'t hold.... hold back much longer!</i>"'
+            `\n\n"<i>What do we do, ${this.player2.short}?</i>" she pants, practically whimpering.  "<i>We need to choose fast... I can't hold.... hold back much longer!</i>"`
         );
 
         this.outx(
@@ -5277,23 +5330,21 @@ export class UrtaQuest extends NPCAwareContent {
         if (this.player.cockTotal() == 1) this.outx(" your own");
         else this.outx(" [oneCock]");
         this.outx(
-            ".  The nub of her clit is a diamond-hard button that drags across your sensitive " +
-                this.player.skin() +
-                ", aggressively smashed into your genitals.  Still, somehow, she seems to be holding back, probing you with some last vestige of sanity for your consent."
+            `.  The nub of her clit is a diamond-hard button that drags across your sensitive ${this.player.skin()}, aggressively smashed into your genitals.  Still, somehow, she seems to be holding back, probing you with some last vestige of sanity for your consent.`
         );
 
         this.outx(
-            "\n\nSighing, you figure you may as well lie back and enjoy it, and you push your tongue back against hers, letting her set the fevered, frenzied pace but along for the ride regardless.  She picks up on the change in your attitude and shifts, a soft-fingered grip snaring [oneCock] and lifting it up, pressing it into the slick wetness between her thighs.  You gasp, muffled by her overwhelmingly intense french-kiss, the fox-girl's puffy black lips smothering your own in warm, wet affection.  Likewise, the onyx opening of her vagina yields against your " +
-                this.cockDescript(x) +
-                ", clinging tightly around your girth as they swallow the first few inches of you.  Already, you can feel her inner walls massaging your tender erection towards orgasm.  They squeeze and tug on your " +
-                this.player.cockHead(x) +
-                " powerfully while small squirts of fox-lube drizzle down to your [sheath].  The fox drives herself the rest of the way down onto you.  Her hips hit yours with a loud smack, splattering her moisture down your [legs]."
+            `\n\nSighing, you figure you may as well lie back and enjoy it, and you push your tongue back against hers, letting her set the fevered, frenzied pace but along for the ride regardless.  She picks up on the change in your attitude and shifts, a soft-fingered grip snaring [oneCock] and lifting it up, pressing it into the slick wetness between her thighs.  You gasp, muffled by her overwhelmingly intense french-kiss, the fox-girl's puffy black lips smothering your own in warm, wet affection.  Likewise, the onyx opening of her vagina yields against your ${this.cockDescript(
+                x
+            )}, clinging tightly around your girth as they swallow the first few inches of you.  Already, you can feel her inner walls massaging your tender erection towards orgasm.  They squeeze and tug on your ${this.player.cockHead(
+                x
+            )} powerfully while small squirts of fox-lube drizzle down to your [sheath].  The fox drives herself the rest of the way down onto you.  Her hips hit yours with a loud smack, splattering her moisture down your [legs].`
         );
 
         this.outx(
-            "\n\nFinally, Urta breaks the kiss, panting for air as she begins to buck and rock atop you.  Your " +
-                this.cockDescript(x) +
-                " shivers against the squeezing pressures the frenzied fox is forcing upon you, and already you can feel yourself trickling and leaking into her sodden vice.  Both of your bodies have become absolutely drenched in sticky, musky horse-pre"
+            `\n\nFinally, Urta breaks the kiss, panting for air as she begins to buck and rock atop you.  Your ${this.cockDescript(
+                x
+            )} shivers against the squeezing pressures the frenzied fox is forcing upon you, and already you can feel yourself trickling and leaking into her sodden vice.  Both of your bodies have become absolutely drenched in sticky, musky horse-pre`
         );
         if (this.player.cockTotal() > 1)
             this.outx(
@@ -5314,9 +5365,9 @@ export class UrtaQuest extends NPCAwareContent {
             ".  Urta's artless humping would be cringeworthy if she weren't so incredibly wet or overly tight."
         );
         this.outx(
-            "\n\nThe confused girl begins to moan, howl even, yipping wildly as she bottoms out again and again, slathering your loins in her honeyed, female syrup.  She shudders, lost to lust, and the clingy, clenching hole gives a tremendous squeeze around your " +
-                this.cockDescript(x) +
-                '.  Urta babbles, "<i>So good... so good...</i>" over and over, her eyes rolling wildly.  You grab hold of her cushiony, furry behind like a drowning man holding on to a life raft while the pleasure mounts within you, seeming to bubble out of your very balls.  "<i>Cumcumcumcum!</i>" the vixen chants, milking you desperately.  You do just that, squirting out a nice, thick load for the her greedy pussy to drink down.  The runny girl-cum that\'s oozing over your '
+            `\n\nThe confused girl begins to moan, howl even, yipping wildly as she bottoms out again and again, slathering your loins in her honeyed, female syrup.  She shudders, lost to lust, and the clingy, clenching hole gives a tremendous squeeze around your ${this.cockDescript(
+                x
+            )}.  Urta babbles, "<i>So good... so good...</i>" over and over, her eyes rolling wildly.  You grab hold of her cushiony, furry behind like a drowning man holding on to a life raft while the pleasure mounts within you, seeming to bubble out of your very balls.  "<i>Cumcumcumcum!</i>" the vixen chants, milking you desperately.  You do just that, squirting out a nice, thick load for the her greedy pussy to drink down.  The runny girl-cum that's oozing over your `
         );
         if (this.player.balls > 0) this.outx("[sack]");
         else this.outx("taint");
@@ -5349,16 +5400,10 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\nThankfully, Urta spares you the trouble, waking up with a moan.  "<i>Oh... I feel so full,</i>" she grumbles, struggling to get up under the weight of her belly.  When she realizes what\'s holding her down, she stops, staring at it in dumbfounded awe.  "<i>' +
-                this.player.short +
-                ', is this really...?</i>"  When you nod, she shakes her head in disbelief.   "<i>Incredible... it really is real.  Oh, ' +
-                this.player.short +
-                ", I just... I just don't have the words to tell you how I feel about this.</i>\""
+            `\n\nThankfully, Urta spares you the trouble, waking up with a moan.  "<i>Oh... I feel so full,</i>" she grumbles, struggling to get up under the weight of her belly.  When she realizes what's holding her down, she stops, staring at it in dumbfounded awe.  "<i>${this.player.short}, is this really...?</i>"  When you nod, she shakes her head in disbelief.   "<i>Incredible... it really is real.  Oh, ${this.player.short}, I just... I just don't have the words to tell you how I feel about this.</i>"`
         );
         this.outx(
-            "\n\nYou ask her what she's going to do now.  Urta looks thoughtful.  \"<i>Well... the Covenant would want me to stay with them and give birth to Taoth amongst them.  So, I guess, from here, I'll be going to them.</i>\"  She looks at her belly quietly, and you have a feeling she'd be looking at her feet instead if she could still see them.  \"<i>..." +
-                this.player.short +
-                "?  I don't suppose you would come with me?   Please?  I know you're dedicated to guarding this portal, but it would really mean a lot to me if I could have you at my side for however long this pregnancy is going to last.</i>\""
+            `\n\nYou ask her what she's going to do now.  Urta looks thoughtful.  "<i>Well... the Covenant would want me to stay with them and give birth to Taoth amongst them.  So, I guess, from here, I'll be going to them.</i>"  She looks at her belly quietly, and you have a feeling she'd be looking at her feet instead if she could still see them.  "<i>...${this.player.short}?  I don't suppose you would come with me?   Please?  I know you're dedicated to guarding this portal, but it would really mean a lot to me if I could have you at my side for however long this pregnancy is going to last.</i>"`
         );
         this.outx("\n\nYou give the matter some thought, and decide that the risk is worth it");
         if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) >= 0)
@@ -5418,9 +5463,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n<i>None but you and " +
-                this.player.short +
-                "-father have heard this.  Be well, Urta-mother, and should we meet again, do not expect my deals to be so favorable.</i>"
+            `\n\n<i>None but you and ${this.player.short}-father have heard this.  Be well, Urta-mother, and should we meet again, do not expect my deals to be so favorable.</i>`
         );
 
         this.outx(
@@ -5428,9 +5471,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\nThe fox-girl drags you into a huge hug, kissing you passionately.  She whispers, "<i>Thank you so much for getting me started on this road, ' +
-                this.player2.short +
-                ".  I'm so exhausted now, but come see me at the Wet Bitch later, and maybe... maybe we could see about starting a family.  I mean, maybe there's hope after all?  A dead god was reincarnated!</i>\""
+            `\n\nThe fox-girl drags you into a huge hug, kissing you passionately.  She whispers, "<i>Thank you so much for getting me started on this road, ${this.player2.short}.  I'm so exhausted now, but come see me at the Wet Bitch later, and maybe... maybe we could see about starting a family.  I mean, maybe there's hope after all?  A dead god was reincarnated!</i>"`
         );
 
         this.outx(
@@ -5467,9 +5508,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
         if (this.player.wetness() >= 4) this.outx("wet ");
         this.outx(
-            'squish, she lands nose-deep in your vagina, immediately licking at it and tickling you with her smooth, slippery tongue.  "<i>Mmmmm,</i>" she purrs as she suckles your [clit].  Inching upward, the dripping wet fox-girl licks higher and higher, her tongue smearing across the ' +
-                this.player.skinFurScales() +
-                " that covers your "
+            `squish, she lands nose-deep in your vagina, immediately licking at it and tickling you with her smooth, slippery tongue.  "<i>Mmmmm,</i>" she purrs as she suckles your [clit].  Inching upward, the dripping wet fox-girl licks higher and higher, her tongue smearing across the ${this.player.skinFurScales()} that covers your `
         );
         if (this.player.pregnancyIncubation > 0 && this.player.pregnancyIncubation < 150)
             this.outx("rounded ");
@@ -5573,9 +5612,7 @@ export class UrtaQuest extends NPCAwareContent {
             );
         } else if (choice == 3) {
             this.outx(
-                "\n\nUrta gasps when a slithering tongue winds its way around her balls.  Looking back, she sees a scaley visage you'd recognize anywhere - the salamander berserker, Hel.   Hel chuckles around the black, slime-slicked folds in her mouth.  \"<i>Didja thfwink joo could, mmmm, get thwis fwox all to yerself, " +
-                    this.player2.short +
-                    '?</i>" she says through the mouthful of vixensack.   The salamander-slut releases the musky black skin from her oral grip and continues, "<i>You know I\'m always up to get dirty with you and your friends, lover mine.</i>"  She returns her attentions to the cum-bloated orbs before her, licking every bit of mixed cum from Urta\'s sack, replacing the thick sludge with a veneer of shining spit.'
+                `\n\nUrta gasps when a slithering tongue winds its way around her balls.  Looking back, she sees a scaley visage you'd recognize anywhere - the salamander berserker, Hel.   Hel chuckles around the black, slime-slicked folds in her mouth.  "<i>Didja thfwink joo could, mmmm, get thwis fwox all to yerself, ${this.player2.short}?</i>" she says through the mouthful of vixensack.   The salamander-slut releases the musky black skin from her oral grip and continues, "<i>You know I'm always up to get dirty with you and your friends, lover mine.</i>"  She returns her attentions to the cum-bloated orbs before her, licking every bit of mixed cum from Urta's sack, replacing the thick sludge with a veneer of shining spit.`
             );
             if (this.player.balls > 0)
                 this.outx(
@@ -5588,11 +5625,11 @@ export class UrtaQuest extends NPCAwareContent {
         // {Latexy}
         else if (choice == 4) {
             this.outx(
-                "\n\nUrta gasps when a slithering tongue winds its way around her balls.  Looking back, she sees an inky black visage you'd recognize anywhere - your pet latex-girl, " +
-                    this.flags[kFLAGS.GOO_NAME] +
-                    ".  The still-rutting fox-futa seems a little put off by your ebony-skinned slave's dusky visage, but as more and more slippery latex bathes her balls, Urta's confusion softens into pleased acceptance.  Her thick, cum-bloated balls are getting some much-needed TLC, and she's clearly too turned on to care.  " +
-                    this.flags[kFLAGS.GOO_NAME] +
-                    " smoothly sucks one into her mouth, devouring the messy proof of your lover's virility from every inch of the vulpine gal's ball-shroud.   When Urta's nut pops out, it's solid black, encased in wonderful, constricting latex.  She repeats the action on the other side so as to fully clean the fox, and then she turns to you, applying the same treatment to every messy spot below your waist.  Of course, she keeps returning to the blissful, fuck-crazed fox's balls, thickening the plump latex bindings around them at every turn."
+                `\n\nUrta gasps when a slithering tongue winds its way around her balls.  Looking back, she sees an inky black visage you'd recognize anywhere - your pet latex-girl, ${
+                    this.flags[kFLAGS.GOO_NAME]
+                }.  The still-rutting fox-futa seems a little put off by your ebony-skinned slave's dusky visage, but as more and more slippery latex bathes her balls, Urta's confusion softens into pleased acceptance.  Her thick, cum-bloated balls are getting some much-needed TLC, and she's clearly too turned on to care.  ${
+                    this.flags[kFLAGS.GOO_NAME]
+                } smoothly sucks one into her mouth, devouring the messy proof of your lover's virility from every inch of the vulpine gal's ball-shroud.   When Urta's nut pops out, it's solid black, encased in wonderful, constricting latex.  She repeats the action on the other side so as to fully clean the fox, and then she turns to you, applying the same treatment to every messy spot below your waist.  Of course, she keeps returning to the blissful, fuck-crazed fox's balls, thickening the plump latex bindings around them at every turn.`
             );
         }
         // {Valeria}
@@ -5621,9 +5658,7 @@ export class UrtaQuest extends NPCAwareContent {
         else this.outx(", [face] buried in your blankets soaked with Urta's musky fluid");
         this.outx(".");
         this.outx(
-            "\n\nFrom behind, the hot, familiar head of your lover's member pierces your womanly view.  It slides through your slick, cum-soaked passage with ease, butting right up against your cervix as it bottoms out again.  Urta kneads the " +
-                this.player.skinFurScales() +
-                " on your [butt], happily beginning to hump you all over again.  The wet squishes are much louder, wetter, and noisier than ever before.  Voraciously, the fox-girl pounds you, a brutal, wet fuck that sends leftover cum, pre and girlish lube splattering everywhere.  Your blankets, if they weren't already, are now ruined, soaked in an inch-deep puddle of sex."
+            `\n\nFrom behind, the hot, familiar head of your lover's member pierces your womanly view.  It slides through your slick, cum-soaked passage with ease, butting right up against your cervix as it bottoms out again.  Urta kneads the ${this.player.skinFurScales()} on your [butt], happily beginning to hump you all over again.  The wet squishes are much louder, wetter, and noisier than ever before.  Voraciously, the fox-girl pounds you, a brutal, wet fuck that sends leftover cum, pre and girlish lube splattering everywhere.  Your blankets, if they weren't already, are now ruined, soaked in an inch-deep puddle of sex.`
         );
 
         this.outx(
@@ -5646,11 +5681,7 @@ export class UrtaQuest extends NPCAwareContent {
             "  Again and again, muscular contractions wiggle through your canal, wringing Urta's swollen staff of impregnation, milking it for more, even though your womb is STILL slightly distended from her last deposit."
         );
         this.outx(
-            "\n\n\"<i>You're gonna be so pregnant, " +
-                this.player.short +
-                "!</i>\" she cries, smacking her hand across your [butt] hard enough to feel the ripple through your middle.  \"<i>You're going to be the mother of a god, and then... then I'll knock you up with kits!  We'll have so many babies, " +
-                this.player.short +
-                "...</i>\"  Her hand caresses your rump as she rambles, plowing your wet pussy again and again.  \"<i>You're so hot, lover...  Mmmm, your tight little box already knows my dick doesn't it?  I think it's gonna... ooooohhhh...  I'm gonna cum again!</i>\""
+            `\n\n"<i>You're gonna be so pregnant, ${this.player.short}!</i>" she cries, smacking her hand across your [butt] hard enough to feel the ripple through your middle.  "<i>You're going to be the mother of a god, and then... then I'll knock you up with kits!  We'll have so many babies, ${this.player.short}...</i>"  Her hand caresses your rump as she rambles, plowing your wet pussy again and again.  "<i>You're so hot, lover...  Mmmm, your tight little box already knows my dick doesn't it?  I think it's gonna... ooooohhhh...  I'm gonna cum again!</i>"`
         );
 
         this.outx(
@@ -5740,9 +5771,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n<i>None but you and " +
-                this.player.short +
-                "-mother have heard this.  Be well, Urta-father, and should we meet again, do not expect my deals to be so favorable.</i>"
+            `\n\n<i>None but you and ${this.player.short}-mother have heard this.  Be well, Urta-father, and should we meet again, do not expect my deals to be so favorable.</i>`
         );
 
         this.outx(
@@ -5750,9 +5779,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\nThe fox-girl drags you into a huge hug, kissing you passionately.  She whispers, "<i>Thank you so much for getting me started on this road, ' +
-                this.player.short +
-                ".  I bet you're exhausted now, but come see me at the Wet Bitch later, and maybe... maybe we could see about starting a family.  I mean, maybe there's hope after all?  A dead god was reincarnated!</i>\""
+            `\n\nThe fox-girl drags you into a huge hug, kissing you passionately.  She whispers, "<i>Thank you so much for getting me started on this road, ${this.player.short}.  I bet you're exhausted now, but come see me at the Wet Bitch later, and maybe... maybe we could see about starting a family.  I mean, maybe there's hope after all?  A dead god was reincarnated!</i>"`
         );
 
         this.outx(
@@ -5784,9 +5811,7 @@ export class UrtaQuest extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>Hey... ' +
-                this.player.short +
-                "... damn...</i>\" she says, doubling over with her hands on her knees, \"<i>Just gotta catch... my breath...</i>\"  She huffs and puffs, tongue flaring as she pants to recover.  What's the hurry?  Did something happen with that 'Taoth' spirit she was rambling about the other day?  You put your hand on her shoulder and let her lean against you."
+            `\n\n"<i>Hey... ${this.player.short}... damn...</i>" she says, doubling over with her hands on her knees, "<i>Just gotta catch... my breath...</i>"  She huffs and puffs, tongue flaring as she pants to recover.  What's the hurry?  Did something happen with that 'Taoth' spirit she was rambling about the other day?  You put your hand on her shoulder and let her lean against you.`
         );
         this.outx(
             '\n\nUrta turns her green eyes your way and smiles.  "<i>Thanks, love.</i>"  Her happiness at seeing you is short-lived, overpowered almost immediately by some pressing urgency.  "<i>Come on, we have to go back to the city!  I came to get you - Taoth\'s going to be born!  We need to go now - a living god is about to be born!</i>"  She grabs your hand and tugs, starting to drag you along in her haste.'
@@ -5814,9 +5839,7 @@ export class UrtaQuest extends NPCAwareContent {
                 "  Just how did she get pregnant again when she was already knocked up?  ...Magic, maybe."
             );
         this.outx(
-            '  Urta leads you around a bend, squeezing your hand for comfort.  "<i>Thank you for everything, ' +
-                this.player.short +
-                ", most of all being so understanding.</i>\"  The gray-furred fox pushes past the sixth pair of guards you've seen since entering the tower, just inside to see Edryn splayed on the floor, groaning and heaving, her "
+            `  Urta leads you around a bend, squeezing your hand for comfort.  "<i>Thank you for everything, ${this.player.short}, most of all being so understanding.</i>"  The gray-furred fox pushes past the sixth pair of guards you've seen since entering the tower, just inside to see Edryn splayed on the floor, groaning and heaving, her `
         );
         if (kGAMECLASS.telAdre.edryn.pregnancy.isPregnant) this.outx("massively ");
         this.outx(
@@ -5857,9 +5880,7 @@ export class UrtaQuest extends NPCAwareContent {
             "\n\nUrta nods down at the child-god, now standing almost five-foot six.  He gives a wry smile and a mocking bow, then turns, confidently loping down a hallway.  The room erupts into chaos, the mages chasing after him, trailing at his heels.  It seems Taoth can take care of himself, for now, you've got a newly fertile lover."
         );
         this.outx(
-            '\n\nThe fox drags you into a huge hug, kissing you passionately.  She whispers, "<i>Thank you so much for getting me started on this road, ' +
-                this.player.short +
-                ".  I'm exhausted after tending to Edryn and the run to get you, but come see me at the Wet Bitch later, and maybe... maybe we could see about starting a family.  I mean, maybe there's hope after all?  A dead god was reincarnated!</i>\""
+            `\n\nThe fox drags you into a huge hug, kissing you passionately.  She whispers, "<i>Thank you so much for getting me started on this road, ${this.player.short}.  I'm exhausted after tending to Edryn and the run to get you, but come see me at the Wet Bitch later, and maybe... maybe we could see about starting a family.  I mean, maybe there's hope after all?  A dead god was reincarnated!</i>"`
         );
         this.outx(
             "\n\nYou leave the tower arm in arm, saying your goodbye when Urta stops at her place to rest.  She gives you a teary kiss and sends you on your way with a swagger in your step.  You wonder if Taoth will help the Covenant, or if they've bitten off more than they can chew?  Either way, it seems there's a potent new ally on the field."

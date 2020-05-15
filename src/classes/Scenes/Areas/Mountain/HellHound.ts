@@ -19,9 +19,9 @@ export class HellHound extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outx(
-                this.capitalA +
-                    this.short +
-                    " completely misses you with a wave of dark fire! Thank the gods it's blind!",
+                `${
+                    this.capitalA + this.short
+                } completely misses you with a wave of dark fire! Thank the gods it's blind!`,
                 false
             );
             this.combatRoundOver();
@@ -49,10 +49,7 @@ export class HellHound extends Monster {
             this.player.armorName == "red, high-society bodysuit"
         ) {
             this.outx(
-                "Using Raphael's teachings and the movement afforded by your bodysuit, you anticipate and sidestep " +
-                    this.a +
-                    this.short +
-                    "'s fire.\n",
+                `Using Raphael's teachings and the movement afforded by your bodysuit, you anticipate and sidestep ${this.a}${this.short}'s fire.\n`,
                 false
             );
         } else if (
@@ -69,9 +66,7 @@ export class HellHound extends Monster {
             let temp: number = 15 + HellHound.rand(10);
             temp = this.player.takeDamage(temp);
             this.outx(
-                "Both the hellhound's heads breathe in deeply before blasting a wave of dark fire at you. While the flames don't burn much, the unnatural heat fills your body with arousal. (" +
-                    temp +
-                    " damage)",
+                `Both the hellhound's heads breathe in deeply before blasting a wave of dark fire at you. While the flames don't burn much, the unnatural heat fills your body with arousal. (${temp} damage)`,
                 false
             );
             this.game.dynStats("lus", 20 - this.player.sens / 10);

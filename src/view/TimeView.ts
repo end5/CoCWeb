@@ -13,10 +13,10 @@ export class TimeView {
     }
 
     public setDay(day: number) {
-        this.day.textContent = "Day #: " + day;
+        this.day.textContent = `Day #: ${day}`;
     }
 
     public setHour(hour: number) {
-        this.hour.textContent = "Time: " + hour;
+        this.hour.textContent = `Time: ${hour}`;
     }
 }

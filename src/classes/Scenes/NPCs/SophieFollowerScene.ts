@@ -78,9 +78,10 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>Wha... what did you DO TO ME!?!?!</i>" Sophie screams, a look of sheer feral rage splayed across her still-bimbofied face, full-lips drawn into a snarl beneath gleaming eyes and long golden hair.  Her shiny yellow feathers ruffle as she stomps up to you, putting her face right up to yours.  "<i>You ' +
-                this.player.mf("bastard", "bitch") +
-                '!  WHAT DID YOU DO TO ME?</i>"'
+            `\n\n"<i>Wha... what did you DO TO ME!?!?!</i>" Sophie screams, a look of sheer feral rage splayed across her still-bimbofied face, full-lips drawn into a snarl beneath gleaming eyes and long golden hair.  Her shiny yellow feathers ruffle as she stomps up to you, putting her face right up to yours.  "<i>You ${this.player.mf(
+                "bastard",
+                "bitch"
+            )}!  WHAT DID YOU DO TO ME?</i>"`
         );
 
         this.outx(
@@ -334,9 +335,10 @@ export class SophieFollowerScene extends NPCAwareContent {
                 this.outx("restoring her intellect made her quite skilled at it again");
             else this.outx("she's quite skilled at it");
             this.outx(
-                '.  "<i>Ohhh, come on, [name]!  Just give it to me like a good ' +
-                    this.player.mf("boy", "girl") +
-                    ', would you?  I could even give you a special treat.  <b>Just give. It. To. Me.</b></i>"'
+                `.  "<i>Ohhh, come on, [name]!  Just give it to me like a good ${this.player.mf(
+                    "boy",
+                    "girl"
+                )}, would you?  I could even give you a special treat.  <b>Just give. It. To. Me.</b></i>"`
             );
             this.outx(
                 "\n\nYou guess there's no way Sophie would really accept any non-impregnating kind of sex right now, but you could refuse... or pick that special treat over your usual sex."
@@ -364,15 +366,17 @@ export class SophieFollowerScene extends NPCAwareContent {
         } else if (this.flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] > 0)
                 this.outx(
-                    "Sophie leans back in her nest as you approach, her prominent, bare F-cups on display.  She's completely nude, as always, and sits with her avian legs shamelessly spread, revealing the slick slit of her womanhood framed by downy-soft platinum blonde feathers.  \"<i>Hey there, " +
-                        this.player.mf("handsome", "cutey") +
-                        '.  What can Momma Sophie do for you?  Come for a cuddle in my welcoming wings, maybe; or for something more... exciting?</i>"'
+                    `Sophie leans back in her nest as you approach, her prominent, bare F-cups on display.  She's completely nude, as always, and sits with her avian legs shamelessly spread, revealing the slick slit of her womanhood framed by downy-soft platinum blonde feathers.  "<i>Hey there, ${this.player.mf(
+                        "handsome",
+                        "cutey"
+                    )}.  What can Momma Sophie do for you?  Come for a cuddle in my welcoming wings, maybe; or for something more... exciting?</i>"`
                 );
             else
                 this.outx(
-                    "Sophie leans back in her nest as you approach, her prominant, bare DD-cups on display.  She's completely nude, as always, and sits with her avian legs demurely crossed, concealing the slick slit of her womanhood from you.  \"<i>Hey there, " +
-                        this.player.mf("handsome", "cutey") +
-                        '.  What can Momma Sophie do for you?</i>"'
+                    `Sophie leans back in her nest as you approach, her prominant, bare DD-cups on display.  She's completely nude, as always, and sits with her avian legs demurely crossed, concealing the slick slit of her womanhood from you.  "<i>Hey there, ${this.player.mf(
+                        "handsome",
+                        "cutey"
+                    )}.  What can Momma Sophie do for you?</i>"`
                 );
         } else {
             this.outx(
@@ -512,9 +516,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.sophieSprite();
 
         this.outx(
-            "“<i>I’ll make some nice " +
-                selected.toLowerCase() +
-                "eggs for you then, hun,</i>” she says with a small grin. “<i>I can only produce one a week, though. I’ll put it with everything else you earn out of this hole in the ground. How’s that?</i>”"
+            `“<i>I’ll make some nice ${selected.toLowerCase()}eggs for you then, hun,</i>” she says with a small grin. “<i>I can only produce one a week, though. I’ll put it with everything else you earn out of this hole in the ground. How’s that?</i>”`
         );
 
         this.flags[kFLAGS.FOLLOWER_PRODUCTION_SOPHIE] = 1;
@@ -632,13 +634,13 @@ export class SophieFollowerScene extends NPCAwareContent {
                 else this.outx("She has ");
 
                 if (this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] != "")
-                    this.outx(this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE] + "\n");
+                    this.outx(`${this.flags[kFLAGS.SOPHIE_TATTOO_COLLARBONE]}\n`);
                 if (this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] != "")
-                    this.outx(this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS] + "\n");
+                    this.outx(`${this.flags[kFLAGS.SOPHIE_TATTOO_SHOULDERS]}\n`);
                 if (this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] != "")
-                    this.outx(this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK] + "\n");
+                    this.outx(`${this.flags[kFLAGS.SOPHIE_TATTOO_LOWERBACK]}\n`);
                 if (this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] != "")
-                    this.outx(this.flags[kFLAGS.SOPHIE_TATTOO_BUTT] + "\n");
+                    this.outx(`${this.flags[kFLAGS.SOPHIE_TATTOO_BUTT]}\n`);
             }
         }
 
@@ -727,35 +729,34 @@ export class SophieFollowerScene extends NPCAwareContent {
         // Regular Intro
         else {
             this.outx(
-                'Sophie smirks as she saunters closer, fingertips casually exploring your body.  She coos huskily, "<i>So, you want to have a little fun with Momma Sophie, huh?</i>"  She spreads her luscious thighs apart, just enough to show you the glittering moisture on her mound.  "<i>Well, let\'s see how much of a ' +
-                    this.player.mf("man", "'man'") +
-                    ' you are...</i>"'
+                `Sophie smirks as she saunters closer, fingertips casually exploring your body.  She coos huskily, "<i>So, you want to have a little fun with Momma Sophie, huh?</i>"  She spreads her luscious thighs apart, just enough to show you the glittering moisture on her mound.  "<i>Well, let's see how much of a ${this.player.mf(
+                    "man",
+                    "'man'"
+                )} you are...</i>"`
             );
         }
         // Both
         this.outx(
-            "  You strip out of your [armor] without a second thought and present your " +
-                this.cockDescript(x) +
-                " to Sophie."
+            `  You strip out of your [armor] without a second thought and present your ${this.cockDescript(
+                x
+            )} to Sophie.`
         );
 
         // Small
         if (this.player.cockArea(x) <= 5) {
             this.outx(
-                '\n\nShe snickers, "<i>That little thing is going to fuck me?  ' +
-                    this.player.mf(
-                        "I thought you were a man, but that looks like a little girl-clit!",
-                        "I know you're a herm, but maybe you should just turn that little thing into a proper clit!"
-                    ) +
-                    '</i>"  Prodding your girlish member, she comments, "<i>It\'s kind of cute in its own way, though I don\'t think I\'ll feel much.</i>"  Her fingers tickle along the underside of it as she giggles, "<i>I could just play with this dainty girl-cock all day long...</i>"'
+                `\n\nShe snickers, "<i>That little thing is going to fuck me?  ${this.player.mf(
+                    "I thought you were a man, but that looks like a little girl-clit!",
+                    "I know you're a herm, but maybe you should just turn that little thing into a proper clit!"
+                )}</i>"  Prodding your girlish member, she comments, "<i>It's kind of cute in its own way, though I don't think I'll feel much.</i>"  Her fingers tickle along the underside of it as she giggles, "<i>I could just play with this dainty girl-cock all day long...</i>"`
             );
         }
         // Medium
         else if (this.player.cockArea(x) <= this.sophieBimbo.sophieCapacity() / 2) {
             this.outx(
-                '\n\nShe asks, "<i>So this is what you want to fuck me with, huh?  It\'s not THAT impressive.</i>"  Her hand wraps around your ' +
-                    this.cockDescript(x) +
-                    ', squeezing it softly until it rises in her palms.  "<i>Oooh, it does seem nice and virile, though, doesn\'t it?</i>"  She strokes the underside and coos to it, watching raptly as you fully erect.'
+                `\n\nShe asks, "<i>So this is what you want to fuck me with, huh?  It's not THAT impressive.</i>"  Her hand wraps around your ${this.cockDescript(
+                    x
+                )}, squeezing it softly until it rises in her palms.  "<i>Oooh, it does seem nice and virile, though, doesn't it?</i>"  She strokes the underside and coos to it, watching raptly as you fully erect.`
             );
         }
         // Big
@@ -765,17 +766,18 @@ export class SophieFollowerScene extends NPCAwareContent {
             );
         }
         this.outx(
-            "\n\nSophie gives your " +
-                this.cockDescript(x) +
-                " an appreciative swat before pirouetting around, bent over with her hands on her knees and her butt up in the air.  She wiggles back and forth, her lasciviously luscious backside jiggling, the cheeks clapping audibly at the apex of each sway.  Her voice purrs, \"<i>Come and get it, if you think you're " +
-                this.player.mf("man", "woman") +
-                ' enough!</i>"'
+            `\n\nSophie gives your ${this.cockDescript(
+                x
+            )} an appreciative swat before pirouetting around, bent over with her hands on her knees and her butt up in the air.  She wiggles back and forth, her lasciviously luscious backside jiggling, the cheeks clapping audibly at the apex of each sway.  Her voice purrs, "<i>Come and get it, if you think you're ${this.player.mf(
+                "man",
+                "woman"
+            )} enough!</i>"`
         );
 
         this.outx(
-            "\n\nYou prowl forward, but Sophie backs up, wings flapping, her rump pushing right into you.  Her bubble-butt drives you back against one of the many standing stones, pinned between a cunt and a hard place.  Squishing noisily, your " +
-                this.cockDescript(x) +
-                " slides right into Sophie's "
+            `\n\nYou prowl forward, but Sophie backs up, wings flapping, her rump pushing right into you.  Her bubble-butt drives you back against one of the many standing stones, pinned between a cunt and a hard place.  Squishing noisily, your ${this.cockDescript(
+                x
+            )} slides right into Sophie's `
         );
         if (this.sophieBimbo.sophieIsInSeason()) this.outx("gushing, sperm-hungry");
         else this.outx("slippery");
@@ -790,15 +792,16 @@ export class SophieFollowerScene extends NPCAwareContent {
         if (this.player.inte < 50) this.outx("\n\nAbruptly");
         else this.outx("\n\nEven though you know she's using her compulsion");
         this.outx(
-            ", her words still affect you.  Her pussy just feels... so... exquisite.  It's so hot and wet that you almost feel like you could cum right now.  Your [legs] wobble, but Sophie just pushes back even harder, holding you up by your " +
-                this.cockDescript(x) +
-                " and the friction of your [butt] on the boulder.  The harpy watches your expression as her hips continue their slow roll, feeling your fingers twitch and knead her immense backside when the pleasure begins to mount.  You try to stay composed, but it's just so gods-damned good!  Her silken slit is so warm, wet, and just plain... erotic.  Slowly, the point where you would normally orgasm approaches, but instead of the spasming clenches that signal release, your jizz stays bottled up inside you tighter than sperm in a goblin's womb."
+            `, her words still affect you.  Her pussy just feels... so... exquisite.  It's so hot and wet that you almost feel like you could cum right now.  Your [legs] wobble, but Sophie just pushes back even harder, holding you up by your ${this.cockDescript(
+                x
+            )} and the friction of your [butt] on the boulder.  The harpy watches your expression as her hips continue their slow roll, feeling your fingers twitch and knead her immense backside when the pleasure begins to mount.  You try to stay composed, but it's just so gods-damned good!  Her silken slit is so warm, wet, and just plain... erotic.  Slowly, the point where you would normally orgasm approaches, but instead of the spasming clenches that signal release, your jizz stays bottled up inside you tighter than sperm in a goblin's womb.`
         );
 
         this.outx(
-            "\n\nSophie begins to grunt and move more forcefully.  Her slit batters hard up against you as she cries, \"<i>Fuck yes!  Oooh, yeah that feels good.  You're a good " +
-                this.player.mf("boy", "girl") +
-                ', not cumming just yet.</i>"  The compelling tone returns.  "<i>Massage my butt and '
+            `\n\nSophie begins to grunt and move more forcefully.  Her slit batters hard up against you as she cries, "<i>Fuck yes!  Oooh, yeah that feels good.  You're a good ${this.player.mf(
+                "boy",
+                "girl"
+            )}, not cumming just yet.</i>"  The compelling tone returns.  "<i>Massage my butt and `
         );
         if (y >= 0) this.outx("fuck it");
         else this.outx("finger my asshole");
@@ -807,9 +810,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
         if (y >= 0)
             this.outx(
-                "You shift to bring your " +
-                    this.cockDescript(y) +
-                    " up in place, just in time for Sophie's wiggling rectum to spread around it.  It slides on in without so much as a whimper."
+                `You shift to bring your ${this.cockDescript(
+                    y
+                )} up in place, just in time for Sophie's wiggling rectum to spread around it.  It slides on in without so much as a whimper.`
             );
         else
             this.outx(
@@ -860,8 +863,8 @@ export class SophieFollowerScene extends NPCAwareContent {
                 "  A huge wash of white rushes out from her well-sexed fuck-hole, soaking your legs with the mixed cum."
             );
         }
-        this.outx("  Then, you black out, with your " + this.cockDescript(x));
-        if (y >= 0) this.outx(" and " + this.cockDescript(y));
+        this.outx(`  Then, you black out, with your ${this.cockDescript(x)}`);
+        if (y >= 0) this.outx(` and ${this.cockDescript(y)}`);
         this.outx(" still pulsing in ecstasy.  It was such a good cum...");
         this.player.orgasm();
         this.dynStats("sen", -2);
@@ -938,9 +941,7 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou cock an eyebrow in response, but before you can properly answer, the motherly woman is lifting herself up and spinning about, giving you a perfect view of her bodacious heiny before it dips down towards your " +
-                this.player.face() +
-                ", the heavy butt-cheeks and thick thighs utterly blotting out the light as the woman's sodden snatch descends towards your mouth.  Her tangy, sweet scent fills your nostrils more potently by the second, until her slippery warmth and feminine odor are dominating your perception.  Her labia spread wide over your nose and mouth as Sophie's supple, curvy thighs clasp over your ears.  You're literally deaf, blind, and mute at this point, yet there's still one way you can communicate at this point - with your tongue."
+            `\n\nYou cock an eyebrow in response, but before you can properly answer, the motherly woman is lifting herself up and spinning about, giving you a perfect view of her bodacious heiny before it dips down towards your ${this.player.face()}, the heavy butt-cheeks and thick thighs utterly blotting out the light as the woman's sodden snatch descends towards your mouth.  Her tangy, sweet scent fills your nostrils more potently by the second, until her slippery warmth and feminine odor are dominating your perception.  Her labia spread wide over your nose and mouth as Sophie's supple, curvy thighs clasp over your ears.  You're literally deaf, blind, and mute at this point, yet there's still one way you can communicate at this point - with your tongue.`
         );
 
         this.outx(
@@ -955,15 +956,15 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
         if (this.player.cockTotal() > 1)
             this.outx(
-                "s, searching for her target of the day.  At last, she settles on your " +
-                    this.cockDescript(x) +
-                    ", giving it an affectionate squeeze"
+                `s, searching for her target of the day.  At last, she settles on your ${this.cockDescript(
+                    x
+                )}, giving it an affectionate squeeze`
             );
         else this.outx(", giving it an affectionate squeeze");
         this.outx(
-            ".  She exhales on it with breath so hot and moist you almost think the blowjob has begun, but when her lips truly meet your " +
-                this.player.cockHead(x) +
-                ", that notion is shattered by the slippery-sweet embrace.  With your senses so deprived by snatch, smothered in quim, the touch of Sophie's golden cock-pillows on you seems multiplied seven-fold.  Your back arches instinctively, trying to lift your [hips] higher, but the matron's gentle, firm hand pushes you back down.  Her tongue flicks out to dance along the underside of your urethra while her cushiony mouth slips ever-lower."
+            `.  She exhales on it with breath so hot and moist you almost think the blowjob has begun, but when her lips truly meet your ${this.player.cockHead(
+                x
+            )}, that notion is shattered by the slippery-sweet embrace.  With your senses so deprived by snatch, smothered in quim, the touch of Sophie's golden cock-pillows on you seems multiplied seven-fold.  Your back arches instinctively, trying to lift your [hips] higher, but the matron's gentle, firm hand pushes you back down.  Her tongue flicks out to dance along the underside of your urethra while her cushiony mouth slips ever-lower.`
         );
 
         this.outx(
@@ -982,9 +983,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nHer tongue and yours seem to be the only things that matter anymore.  Hers circles the entirety of your " +
-                this.cockDescript(x) +
-                ", accompanied by golden lips that leave behind their drugged, amber residue.  The enjoyable tingling that those chemicals induce is driving you wild with desire.  Your heart is hammering like crazy in your chest, each thrumming beat reinforcing the thickness of your erection in the bird-woman's mouth."
+            `\n\nHer tongue and yours seem to be the only things that matter anymore.  Hers circles the entirety of your ${this.cockDescript(
+                x
+            )}, accompanied by golden lips that leave behind their drugged, amber residue.  The enjoyable tingling that those chemicals induce is driving you wild with desire.  Your heart is hammering like crazy in your chest, each thrumming beat reinforcing the thickness of your erection in the bird-woman's mouth.`
         );
         if (this.player.hasVagina()) {
             this.outx("  She tenderly");
@@ -1007,11 +1008,12 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nSophie hums happily as you begin to drip directly onto her tongue, the pre-cum bubbling out of your spit-polished cum-slit in a steady flow.  Though you know just what is plying your " +
-                this.cockDescript(x) +
-                " with slices of heavenly sensation, your gloss-drugged mind begins to slip into fantasy anyway.  Just like in the real world, Sophie's cunt is slathering your [face] with her fragrant arousal, and your pole is smothered with amber aphrodisiacs.  In the fantasy though, there's a pussy squeezing down on you and a second set of thick harpy thighs clenching around your waist.  Those fertile, egg-bearing thighs are bouncing up and down your length, and the twat above you is ripe with arousal, bounded above by a belly swollen with incubating life that will someday be your daughter.  Every morning you're sucked off to completion by one of your girls and kissed until your lips and rod are slathered to an amber shine.  Then you lie back and partake in the fruits of your position as " +
-                this.player.mf("king", "breeder-queen") +
-                " of the harpies: creampie after creampie, tangy harpy-cunt to lick, and skilled fellatio every single time your lust begins to flag.  You groan into the slit above, your hands grabbing hold of the juicy haunches and pulling them down into you."
+            `\n\nSophie hums happily as you begin to drip directly onto her tongue, the pre-cum bubbling out of your spit-polished cum-slit in a steady flow.  Though you know just what is plying your ${this.cockDescript(
+                x
+            )} with slices of heavenly sensation, your gloss-drugged mind begins to slip into fantasy anyway.  Just like in the real world, Sophie's cunt is slathering your [face] with her fragrant arousal, and your pole is smothered with amber aphrodisiacs.  In the fantasy though, there's a pussy squeezing down on you and a second set of thick harpy thighs clenching around your waist.  Those fertile, egg-bearing thighs are bouncing up and down your length, and the twat above you is ripe with arousal, bounded above by a belly swollen with incubating life that will someday be your daughter.  Every morning you're sucked off to completion by one of your girls and kissed until your lips and rod are slathered to an amber shine.  Then you lie back and partake in the fruits of your position as ${this.player.mf(
+                "king",
+                "breeder-queen"
+            )} of the harpies: creampie after creampie, tangy harpy-cunt to lick, and skilled fellatio every single time your lust begins to flag.  You groan into the slit above, your hands grabbing hold of the juicy haunches and pulling them down into you.`
         );
 
         this.outx(
@@ -1032,9 +1034,9 @@ export class SophieFollowerScene extends NPCAwareContent {
             );
         if (this.player.cumQ() >= 500)
             this.outx(
-                "  She quickly gives up on trying to swallow it after she starts showing some cum-pudge, but her hand pumps you energetically as she milks your " +
-                    this.cockDescript(x) +
-                    ", squeezing the voluminous ropes of cum all over your [chest]."
+                `  She quickly gives up on trying to swallow it after she starts showing some cum-pudge, but her hand pumps you energetically as she milks your ${this.cockDescript(
+                    x
+                )}, squeezing the voluminous ropes of cum all over your [chest].`
             );
         if (this.player.cumQ() >= 3000)
             this.outx(
@@ -1073,24 +1075,24 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nSophie grumbles, but one of her hands does nestle itself down between her feathery thighs, her other going to your groin to fish out your " +
-                this.cockDescript(x) +
-                '.  She looks up at you through angry eyebrows softened slightly by concealed lust.  "<i>I\'ll suck you off... this time,</i>" she declares, '
+            `\n\nSophie grumbles, but one of her hands does nestle itself down between her feathery thighs, her other going to your groin to fish out your ${this.cockDescript(
+                x
+            )}.  She looks up at you through angry eyebrows softened slightly by concealed lust.  "<i>I'll suck you off... this time,</i>" she declares, `
         );
         if (this.player.balls > 0) this.outx("fondling your [balls] with almost eager attention,");
         else this.outx("rubbing your length with almost eager attention,");
         this.outx(
-            " \"<i>but don't make a habit of this, or you'll wake up alone.</i>\"  Sophie's tongue flicks across your " +
-                this.player.cockHead(x) +
-                ' experimentally.  "<i>At least you taste good.</i>"  The slippery muscle slides across your sensitive dick-skin again, longer this time, lingering on the underside as the golden lips edge closer.'
+            ` "<i>but don't make a habit of this, or you'll wake up alone.</i>"  Sophie's tongue flicks across your ${this.player.cockHead(
+                x
+            )} experimentally.  "<i>At least you taste good.</i>"  The slippery muscle slides across your sensitive dick-skin again, longer this time, lingering on the underside as the golden lips edge closer.`
         );
 
         this.outx(
-            "\n\nImpatient, you slide your fingers through her feathery locks and edge her closer.  Her shining, amber mouth bumps into your " +
-                this.player.cockHead(x) +
-                ", followed by a surprised chirp from the unresisting harpy.  At that first touch, the electric tingle of her glossy gold lipstick hits you, causing your heart to beat faster and your " +
-                this.cockDescript(x) +
-                " to thicken slightly with arousal in her hand.  You involuntarily push harder without meaning to, spreading Sophie's plump cock-kissers around the thickening meat, her spit slicking the slow, steady journey into her mouth.  Like magic, she begins to push forward on her own, almost pulling out of your grip in her eagerness.  Her mouth smoothly slides down "
+            `\n\nImpatient, you slide your fingers through her feathery locks and edge her closer.  Her shining, amber mouth bumps into your ${this.player.cockHead(
+                x
+            )}, followed by a surprised chirp from the unresisting harpy.  At that first touch, the electric tingle of her glossy gold lipstick hits you, causing your heart to beat faster and your ${this.cockDescript(
+                x
+            )} to thicken slightly with arousal in her hand.  You involuntarily push harder without meaning to, spreading Sophie's plump cock-kissers around the thickening meat, her spit slicking the slow, steady journey into her mouth.  Like magic, she begins to push forward on her own, almost pulling out of your grip in her eagerness.  Her mouth smoothly slides down `
         );
         if (this.player.cockArea(x) <= 60)
             this.outx(
@@ -1103,9 +1105,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outx(".");
 
         this.outx(
-            "\n\nWith her snug, gold lips clinging around your rod, Sophie looks up with lust-lidded eyes, the noisy squelching that's coming from below leaving no doubt in your mind as to her state.  The burning, lust-fueling make-up that girds her cock-pillows seems to be seeping into you in greater and greater quantities.  It makes your whole body feel flush, burning-hot and ready to fuck her sweet, feathery behind.  You prepare to pull out, until you see those plush golden lips locked in place, sliding with slippery friction along every single inch of your " +
-                this.cockDescript(x) +
-                ".  You throb powerfully at that sight and flex inside her oral embrace, causing the harpy to churn out a delighted giggle, interrupted by a pleasured moan as she masturbates beneath your maleness."
+            `\n\nWith her snug, gold lips clinging around your rod, Sophie looks up with lust-lidded eyes, the noisy squelching that's coming from below leaving no doubt in your mind as to her state.  The burning, lust-fueling make-up that girds her cock-pillows seems to be seeping into you in greater and greater quantities.  It makes your whole body feel flush, burning-hot and ready to fuck her sweet, feathery behind.  You prepare to pull out, until you see those plush golden lips locked in place, sliding with slippery friction along every single inch of your ${this.cockDescript(
+                x
+            )}.  You throb powerfully at that sight and flex inside her oral embrace, causing the harpy to churn out a delighted giggle, interrupted by a pleasured moan as she masturbates beneath your maleness.`
         );
         if (this.player.cockTotal() == 2)
             this.outx(
@@ -1117,9 +1119,9 @@ export class SophieFollowerScene extends NPCAwareContent {
             );
 
         this.outx(
-            "\n\nSophie abruptly grabs hold of one of her big, motherly tits and gropes herself passionately.  Her lips open just enough to separate from your " +
-                this.cockDescript(x) +
-                " and exude a lascivious moan as she masturbates herself.  The quivering tongue tickling at your underside is utterly enjoyable, a fact enhanced by the golden gloss now smeared all over your rod.  There's a tingling, pulsating quickening inside you."
+            `\n\nSophie abruptly grabs hold of one of her big, motherly tits and gropes herself passionately.  Her lips open just enough to separate from your ${this.cockDescript(
+                x
+            )} and exude a lascivious moan as she masturbates herself.  The quivering tongue tickling at your underside is utterly enjoyable, a fact enhanced by the golden gloss now smeared all over your rod.  There's a tingling, pulsating quickening inside you.`
         );
         if (this.player.balls > 0)
             this.outx(
@@ -1136,16 +1138,16 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outx("\n\nSlobber and drool drip down");
         if (this.player.balls > 0) this.outx(" your [sack] and over");
         this.outx(
-            " your legs.  Sophie's eyes roll back slightly - not all the way but enough to proudly display her penultimate pleasure as she cums.  Her syrupy girl-cum splatters off the waste-land earth below, though the sound changes to a wetter, muddy splashing after a few seconds.  Squeezing tightly, the harpy's throat convulses around you.  Her lips lock tight as she hums in ecstasy, languidly beginning to suckle your " +
-                this.cockDescript(x) +
-                " as her own orgasm dies down.  You force her to move faster, pushing her head to pop back and forth, too eager for release to care for her comfort.  Judging by the steady, squelching pumping that begins anew, she doesn't care that much either."
+            ` your legs.  Sophie's eyes roll back slightly - not all the way but enough to proudly display her penultimate pleasure as she cums.  Her syrupy girl-cum splatters off the waste-land earth below, though the sound changes to a wetter, muddy splashing after a few seconds.  Squeezing tightly, the harpy's throat convulses around you.  Her lips lock tight as she hums in ecstasy, languidly beginning to suckle your ${this.cockDescript(
+                x
+            )} as her own orgasm dies down.  You force her to move faster, pushing her head to pop back and forth, too eager for release to care for her comfort.  Judging by the steady, squelching pumping that begins anew, she doesn't care that much either.`
         );
         this.outx(
-            "\n\nSophie suddenly compresses her gold-lacquered cock-pillows around you and sucks harder.  She flicks her eyes up at you to beg for your cum with a sluttier expression than you thought the harpy matron capable, inaudibly demanding you release inside her.  Your [hips] lurch forward to pound your " +
-                this.cockDescript(x) +
-                " deep into her face, and your " +
-                this.player.cockHead(x) +
-                " tingles, expanding in orgasm."
+            `\n\nSophie suddenly compresses her gold-lacquered cock-pillows around you and sucks harder.  She flicks her eyes up at you to beg for your cum with a sluttier expression than you thought the harpy matron capable, inaudibly demanding you release inside her.  Your [hips] lurch forward to pound your ${this.cockDescript(
+                x
+            )} deep into her face, and your ${this.player.cockHead(
+                x
+            )} tingles, expanding in orgasm.`
         );
         if (this.player.hasKnot(x))
             this.outx(
@@ -1224,14 +1226,14 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
         if (this.player.balls > 0) this.outx(" and [balls]");
         this.outx(
-            " before lavishing its slickness along the underside.  You get so stiff - so hard - in just seconds, " +
-                this.cockDescript(x) +
-                " swelling to try and fill the slick prison, but no matter how hard you get, that compressing cavern still seems so much larger and more capable than the small penis that it has to contort itself around."
+            ` before lavishing its slickness along the underside.  You get so stiff - so hard - in just seconds, ${this.cockDescript(
+                x
+            )} swelling to try and fill the slick prison, but no matter how hard you get, that compressing cavern still seems so much larger and more capable than the small penis that it has to contort itself around.`
         );
         this.outx(
-            "\n\nAbruptly, your lusty erection is removed from the heated embrace and left cold and wanting.  You shiver in your bed, still not quite woken, at least not until a playful flick slaps the " +
-                this.cockDescript(x) +
-                " as it pulsates, just hard enough to be noticed without pain.  You start to jolt upright, but are immediately pushed back down by a taloned footclaw pressing down on your shoulder.  You catch a view of feathers and gigantic breasts - it must be the harpy matron, Sophie, come to play with you in the morning."
+            `\n\nAbruptly, your lusty erection is removed from the heated embrace and left cold and wanting.  You shiver in your bed, still not quite woken, at least not until a playful flick slaps the ${this.cockDescript(
+                x
+            )} as it pulsates, just hard enough to be noticed without pain.  You start to jolt upright, but are immediately pushed back down by a taloned footclaw pressing down on your shoulder.  You catch a view of feathers and gigantic breasts - it must be the harpy matron, Sophie, come to play with you in the morning.`
         );
         if (this.player.str >= 70)
             this.outx(
@@ -1241,18 +1243,17 @@ export class SophieFollowerScene extends NPCAwareContent {
             "  Her fluffy behind crashes down on your [legs], just below your waist.  With a familiar coo, she places her other foot on your chest"
         );
         if (this.player.breastRows[0].breastRating >= 1)
-            this.outx(" and squeezes your " + this.player.breastCup(0) + " breast roughy.");
+            this.outx(` and squeezes your ${this.player.breastCup(0)} breast roughy.`);
         else
             this.outx(
-                " and lets the talons dig into your " +
-                    this.player.skinFurScales() +
-                    " just enough to hurt a little."
+                ` and lets the talons dig into your ${this.player.skinFurScales()} just enough to hurt a little.`
             );
 
         this.outx(
-            "\n\nSophie licks her shining lips as she looks down at the little spit-soaked pole that's twitching between her legs, just inches away from her pussy.  \"<i>Oooh, does Momma Sophie's favorite girl" +
-                this.player.mf("-boy", "y-girl") +
-                ' want her little bitch-stick played with?</i>"  She touches it, right below the [cockHead smallest], her warm fingertip sliding in slow, sensuous circles until you begin to twitch at her touches.  "<i>You know what I think?</i>" she purrs, bending over to look you face to face- an amazing feat of flexibility considering her foot is locked on your shoulder.  "<i>I think you like it when I play with this tiny girl-cock.  I think some depraved, sick, nasty part of your brain makes you cum harder when I tease you about how feminine this bitch-cock is.</i>"'
+            `\n\nSophie licks her shining lips as she looks down at the little spit-soaked pole that's twitching between her legs, just inches away from her pussy.  "<i>Oooh, does Momma Sophie's favorite girl${this.player.mf(
+                "-boy",
+                "y-girl"
+            )} want her little bitch-stick played with?</i>"  She touches it, right below the [cockHead smallest], her warm fingertip sliding in slow, sensuous circles until you begin to twitch at her touches.  "<i>You know what I think?</i>" she purrs, bending over to look you face to face- an amazing feat of flexibility considering her foot is locked on your shoulder.  "<i>I think you like it when I play with this tiny girl-cock.  I think some depraved, sick, nasty part of your brain makes you cum harder when I tease you about how feminine this bitch-cock is.</i>"`
         );
 
         this.outx(
@@ -1366,9 +1367,10 @@ export class SophieFollowerScene extends NPCAwareContent {
         }
         // {BOTH END HERE}
         this.outx(
-            '\n\nThe older harpy giggles, when it ends.  "<i>I love sensitive ' +
-                this.player.mf("lady-boys", "girls") +
-                ' like you...  You let me feel so powerful...</i>"'
+            `\n\nThe older harpy giggles, when it ends.  "<i>I love sensitive ${this.player.mf(
+                "lady-boys",
+                "girls"
+            )} like you...  You let me feel so powerful...</i>"`
         );
 
         this.outx(
@@ -1415,34 +1417,35 @@ export class SophieFollowerScene extends NPCAwareContent {
         const x: number = this.player.cockThatFits(this.sophieBimbo.sophieCapacity());
         if (x < 0) this.player.smallestCockIndex();
         this.outx(
-            "\"<i>Ahhh, so you do want a bit of Momma Sophie's special treatment... such a brave " +
-                this.player.mf("boy", "girl") +
-                ', aren\'t you?</i>" She leans in closer as she starts to get rid of your [armor].  "<i>Very brave... we might have to put you back into place.  Momma Sophie will milk this ' +
-                this.cockDescript(x) +
-                ' until the only thing that even allows you to cum anytime in the future will be the fact I drugged you with my lipstick.</i>"'
+            `"<i>Ahhh, so you do want a bit of Momma Sophie's special treatment... such a brave ${this.player.mf(
+                "boy",
+                "girl"
+            )}, aren't you?</i>" She leans in closer as she starts to get rid of your [armor].  "<i>Very brave... we might have to put you back into place.  Momma Sophie will milk this ${this.cockDescript(
+                x
+            )} until the only thing that even allows you to cum anytime in the future will be the fact I drugged you with my lipstick.</i>"`
         );
 
         this.outx(
-            "\n\nSlowly, she sinks to her knees, fishing out your " +
-                this.cockDescript(x) +
-                " from your [armor], licking her lips eagerly.  \"<i>First, we cover it with a lot of my special lipstick, so you'll stay hard no matter what.  That, and, well, so you can't resist when Momma Sophie wants you to squirt.</i>\""
+            `\n\nSlowly, she sinks to her knees, fishing out your ${this.cockDescript(
+                x
+            )} from your [armor], licking her lips eagerly.  "<i>First, we cover it with a lot of my special lipstick, so you'll stay hard no matter what.  That, and, well, so you can't resist when Momma Sophie wants you to squirt.</i>"`
         );
 
         this.outx(
-            "\n\nIndeed, her plush golden lips wrap about your " +
-                this.cockDescript(x) +
-                ", slathering it with both her saliva and lipstick as she bobs her head up and down on your member, causing it to become painfully hard as you thrust your [hips] instinctively, seeking more of this delicious mouth.  She grumbles, displeased at you moving and tries to hold you in place by grabbing your [ass] and trying to hold you in place; however, this proves to be rather uneffective as you begin to shake from her oral assault, her tongue licking up and down your " +
-                this.cockDescript(x) +
-                ", covering it completely in a mix of slutty spit and drugged lipstick... as a matter of fact, you feel light in the head"
+            `\n\nIndeed, her plush golden lips wrap about your ${this.cockDescript(
+                x
+            )}, slathering it with both her saliva and lipstick as she bobs her head up and down on your member, causing it to become painfully hard as you thrust your [hips] instinctively, seeking more of this delicious mouth.  She grumbles, displeased at you moving and tries to hold you in place by grabbing your [ass] and trying to hold you in place; however, this proves to be rather uneffective as you begin to shake from her oral assault, her tongue licking up and down your ${this.cockDescript(
+                x
+            )}, covering it completely in a mix of slutty spit and drugged lipstick... as a matter of fact, you feel light in the head`
         );
         if (this.player.balls > 0)
             this.outx(
                 ", and your [balls] are just waiting to unload a virile, sticky package down her throat"
             );
         this.outx(
-            ".  Sophie seems to sense it and chuckles, pulling her mouth off your " +
-                this.cockDescript(x) +
-                ", causing you to whine as you seek out her mouth again.  \"<i>There, there, my little cum pump.  Momma Sophie wouldn't be so mean as to leave you and your "
+            `.  Sophie seems to sense it and chuckles, pulling her mouth off your ${this.cockDescript(
+                x
+            )}, causing you to whine as you seek out her mouth again.  "<i>There, there, my little cum pump.  Momma Sophie wouldn't be so mean as to leave you and your `
         );
         if (this.player.cockArea(x) <= 5) this.outx("squirting clitty");
         else if (this.player.cockArea(x) <= 30) this.outx("needy boy-cock");
@@ -1452,9 +1455,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nYou feel Sophie simultanously push at your [chest] and pull at your [legs], causing you to slowly move down on your back, as you realize your [armor] has apparently disappeared in the meantime.  The confident harpy matron smirks and giggles while stepping over your body and showing you her plump, jiggly ass as her wet pussy lowers towards your " +
-                this.cockDescript(x) +
-                ", eager to devour it.  With a wet squelch, you're buried inside her and shuddering beneath her big, wobbly ass.  \"<i>My, my... you really can't hold it in at all, can you? I've barely even put you inside me and you're already so eager to paint my walls white that you're simply going to squirt straight away?</i>\""
+            `\n\nYou feel Sophie simultanously push at your [chest] and pull at your [legs], causing you to slowly move down on your back, as you realize your [armor] has apparently disappeared in the meantime.  The confident harpy matron smirks and giggles while stepping over your body and showing you her plump, jiggly ass as her wet pussy lowers towards your ${this.cockDescript(
+                x
+            )}, eager to devour it.  With a wet squelch, you're buried inside her and shuddering beneath her big, wobbly ass.  "<i>My, my... you really can't hold it in at all, can you? I've barely even put you inside me and you're already so eager to paint my walls white that you're simply going to squirt straight away?</i>"`
         );
 
         this.outx(
@@ -1462,8 +1465,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
         if (this.player.balls > 0) this.outx("[balls] and ");
         this.outx(
-            this.cockDescript(x) +
-                " inside Sophie's schlong-milking passage, causing her to moan in satisfaction as the first of your virile cum hits her inner walls."
+            `${this.cockDescript(
+                x
+            )} inside Sophie's schlong-milking passage, causing her to moan in satisfaction as the first of your virile cum hits her inner walls.`
         );
         if (this.player.cumQ() < 250) this.outx("  She milks you for all you're worth.");
         else if (this.player.cumQ() < 750)
@@ -1477,26 +1481,26 @@ export class SophieFollowerScene extends NPCAwareContent {
                 "  Her ass is suddenly pushed out more towards you, cum gushing out of her wet cunt as she starts inflating from the sheer amount of cum in your first load."
             );
 
-        this.outx('\n\n"<i>Good ' + this.player.mf("boy", "girl") + " with a nice, obedient ");
+        this.outx(`\n\n"<i>Good ${this.player.mf("boy", "girl")} with a nice, obedient `);
         if (this.player.cockArea(x) <= 5) this.outx("clitty");
         else if (this.player.cockArea(x) <= 30) this.outx("pretty cock");
         else this.outx("humongous cunt-stretcher");
         this.outx(
-            "... all for me... but you can't go soft, can you?  You just want to squirt more of your virile cum into Momma Sophie.</i>\"  Sophie rolls her hips atop of you, her jizz and girl-cum slickened ass hitting against your pelvis as she ruthlessly uses your overly sensitive " +
-                this.cockDescript(x) +
-                ", going from the tip to the base as she bounces atop of you.  The drugged lipstick and her constant, magic-powered demands don't allow you to go soft even for a moment as she rides you to completion, her hand working between her thighs at her own clit all the while when finally her pussy grips hard at you, causing you to thrust your hips and moan from sheer sensitivity, unable to achieve another orgasm so quickly."
+            `... all for me... but you can't go soft, can you?  You just want to squirt more of your virile cum into Momma Sophie.</i>"  Sophie rolls her hips atop of you, her jizz and girl-cum slickened ass hitting against your pelvis as she ruthlessly uses your overly sensitive ${this.cockDescript(
+                x
+            )}, going from the tip to the base as she bounces atop of you.  The drugged lipstick and her constant, magic-powered demands don't allow you to go soft even for a moment as she rides you to completion, her hand working between her thighs at her own clit all the while when finally her pussy grips hard at you, causing you to thrust your hips and moan from sheer sensitivity, unable to achieve another orgasm so quickly.`
         );
 
-        this.outx("\n\nWith a grin, Sophie rises from your " + this.cockDescript(x) + ", ");
+        this.outx(`\n\nWith a grin, Sophie rises from your ${this.cockDescript(x)}, `);
         if (this.player.cumQ() < 250) this.outx("her pussy dripping your cum down onto the ground");
         else
             this.outx(
                 "your own semen drowning your [hips] and [butt] in a messy cum-puddle as it drips out of her"
             );
         this.outx(
-            ', and turns towards you, jiggling her tits right above your [face] as she bends over you, asking, "<i>Now, wasn\'t that fun, [name]?  You think we should end now, shouldn\'t we?  Or do you want to give momma Sophie more of your thick cum so she\'s definitely pregnant twice over?</i>"  Drugged and fucked to the edge of your sense of self-worth, you practically beg her to put you inside her again, your golden-tinted member standing proudly in the air, waiting for her hips and pussy to descend.  "<i>Good answer, very good answer.</i>"  She descends upon you again, rubbing her pussy against the tip of your ' +
-                this.cockDescript(x) +
-                ", teasing both herself and you before drawing you inside and hilting you down to your [sheath] into her!"
+            `, and turns towards you, jiggling her tits right above your [face] as she bends over you, asking, "<i>Now, wasn't that fun, [name]?  You think we should end now, shouldn't we?  Or do you want to give momma Sophie more of your thick cum so she's definitely pregnant twice over?</i>"  Drugged and fucked to the edge of your sense of self-worth, you practically beg her to put you inside her again, your golden-tinted member standing proudly in the air, waiting for her hips and pussy to descend.  "<i>Good answer, very good answer.</i>"  She descends upon you again, rubbing her pussy against the tip of your ${this.cockDescript(
+                x
+            )}, teasing both herself and you before drawing you inside and hilting you down to your [sheath] into her!`
         );
 
         this.outx(
@@ -1510,21 +1514,22 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\nWith a grunt, you manage to withhold from her command, and Sophie coos with delight at your resistance.  "<i>Look at my ' +
-                this.player.mf("boy", "girl") +
-                ", all grown up now, resisting the pleasures of Momma Sophie's fertile, cum-thirsty cunny!  You shouldn't do that... though, maybe we could cum together if you do... Okay, baby, once you feel Momma Sophie's pussy squeeze you extra hard, you will cum and you won't try to hold back, okay?</i>\"  You grunt and nod, but already find it hard to hold back when you imagine how Sophie will look knocked up with your kids. Once you cum inside her a second time, there's probably no way it won't hold."
+            `\n\nWith a grunt, you manage to withhold from her command, and Sophie coos with delight at your resistance.  "<i>Look at my ${this.player.mf(
+                "boy",
+                "girl"
+            )}, all grown up now, resisting the pleasures of Momma Sophie's fertile, cum-thirsty cunny!  You shouldn't do that... though, maybe we could cum together if you do... Okay, baby, once you feel Momma Sophie's pussy squeeze you extra hard, you will cum and you won't try to hold back, okay?</i>"  You grunt and nod, but already find it hard to hold back when you imagine how Sophie will look knocked up with your kids. Once you cum inside her a second time, there's probably no way it won't hold.`
         );
 
         this.outx(
-            "\n\nYou hear Sophie's shlicking vagina swallow your entire " +
-                this.cockDescript(x) +
-                " and release it repeatedly, her hips and soft, plump ass bouncing off of your [legs] as she continues to fuck herself on your " +
-                this.cockDescript(x) +
-                " harder and harder.  The way her inner folds lap and massage at your drug-infused cock is exquisite, and it takes every ounce of willpower to indeed stop yourself from cumming inside her repeatedly like you were broken down there.  Finally, Sophie slaps her hips into your hardness, moaning out loud as her cunt squeezes and tugs at your member violently, temporarily stopping the flow of cum out of your " +
-                this.cockDescript(x) +
-                ", but only for a split second.  It churns and boils in your [balls], raising through your " +
-                this.cockDescript(x) +
-                " to be fired into Sophie's wet, ravenous cunt and baby-wanting womb.  Sophie's own orgasm and yours blend into one and prolong one another as you release "
+            `\n\nYou hear Sophie's shlicking vagina swallow your entire ${this.cockDescript(
+                x
+            )} and release it repeatedly, her hips and soft, plump ass bouncing off of your [legs] as she continues to fuck herself on your ${this.cockDescript(
+                x
+            )} harder and harder.  The way her inner folds lap and massage at your drug-infused cock is exquisite, and it takes every ounce of willpower to indeed stop yourself from cumming inside her repeatedly like you were broken down there.  Finally, Sophie slaps her hips into your hardness, moaning out loud as her cunt squeezes and tugs at your member violently, temporarily stopping the flow of cum out of your ${this.cockDescript(
+                x
+            )}, but only for a split second.  It churns and boils in your [balls], raising through your ${this.cockDescript(
+                x
+            )} to be fired into Sophie's wet, ravenous cunt and baby-wanting womb.  Sophie's own orgasm and yours blend into one and prolong one another as you release `
         );
         if (this.player.cumQ() < 250) this.outx("several ropes");
         else if (this.player.cumQ() < 750) this.outx("a large, chaotic stream");
@@ -1545,9 +1550,10 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outx(".");
 
         this.outx(
-            '\n\n"<i>Ahhh... ahhh... good ' +
-                this.player.mf("boy", "girl") +
-                "... very good... I'm definitely a momma now.  But... buuuut... You should squirt out more just to make sure... and as punishment for trying to resist when Momma Sophie ordered you to cum!</i>\""
+            `\n\n"<i>Ahhh... ahhh... good ${this.player.mf(
+                "boy",
+                "girl"
+            )}... very good... I'm definitely a momma now.  But... buuuut... You should squirt out more just to make sure... and as punishment for trying to resist when Momma Sophie ordered you to cum!</i>"`
         );
 
         this.outx(
@@ -1555,9 +1561,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nIt feels like you're drowning in liquid... but it's way too sticky, her vaginal muscles clenching around you as you're treated to a faceful of boob when she roughly pushes your face against them, her cunt picking up where it left. Your " +
-                this.cockDescript(x) +
-                " is sore and sensitive, and you definitely already shot out everything you've had, but the harpy's lipstick and her sheer lust for being impregnated seem to keep you going. You almost black out from being suffocated in her breasts, but every few loud smacks she pulls you away for a while, letting you breathe while her breeding passage sups at your erection, drinking your pre and the remains of cum from your urethra greedily, seeking to slowly build another orgasm in you."
+            `\n\nIt feels like you're drowning in liquid... but it's way too sticky, her vaginal muscles clenching around you as you're treated to a faceful of boob when she roughly pushes your face against them, her cunt picking up where it left. Your ${this.cockDescript(
+                x
+            )} is sore and sensitive, and you definitely already shot out everything you've had, but the harpy's lipstick and her sheer lust for being impregnated seem to keep you going. You almost black out from being suffocated in her breasts, but every few loud smacks she pulls you away for a while, letting you breathe while her breeding passage sups at your erection, drinking your pre and the remains of cum from your urethra greedily, seeking to slowly build another orgasm in you.`
         );
 
         this.outx(
@@ -1579,9 +1585,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\nShe says that, but every lift and fall of her hips is a torture on your thoroughly milked, overly sensitive " +
-                this.cockDescript(x) +
-                ".  Her pussy is trying to draw out every drop of fluid you have in your body, and soon, it will succeed at doing just that it seems..."
+            `\n\nShe says that, but every lift and fall of her hips is a torture on your thoroughly milked, overly sensitive ${this.cockDescript(
+                x
+            )}.  Her pussy is trying to draw out every drop of fluid you have in your body, and soon, it will succeed at doing just that it seems...`
         );
 
         this.outx(
@@ -1727,9 +1733,10 @@ export class SophieFollowerScene extends NPCAwareContent {
         this.outx("Approaching the harpy nest you call out for one of your daughters.  ");
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 1)
             this.outx(
-                "The prospect of their " +
-                    this.player.mf("father", "mother") +
-                    "'s attention causes a small scuffle to break out between your feathery daughters. Thankfully, the small fight is soon ended and one of your daughters flies down and stands before you.  "
+                `The prospect of their ${this.player.mf(
+                    "father",
+                    "mother"
+                )}'s attention causes a small scuffle to break out between your feathery daughters. Thankfully, the small fight is soon ended and one of your daughters flies down and stands before you.  `
             );
         else this.outx("Your daughter, hearing your call, is more than happy to come to you.  ");
         this.outx(
@@ -1750,20 +1757,24 @@ export class SophieFollowerScene extends NPCAwareContent {
                 this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0
             )
                 this.outx(
-                    '"<i>Like, how do I look, ' +
-                        this.player.mf("Daddy", "Mommy") +
-                        "?  Aren't my breasts so totally soft?  Don't you just want to suck and squeeze them?  Ooohhh!  " +
-                        this.player.mf("Daddy", "Mommy") +
-                        ', can you please touch me?  I want you so bad!  My pussy gets sooo wet when I, like, think about you pounding my cunny!</i>"'
+                    `"<i>Like, how do I look, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}?  Aren't my breasts so totally soft?  Don't you just want to suck and squeeze them?  Ooohhh!  ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}, can you please touch me?  I want you so bad!  My pussy gets sooo wet when I, like, think about you pounding my cunny!</i>"`
                 );
             // normal speech:
             else
                 this.outx(
-                    "\"<i>Don't you like how big and soft my breasts are, " +
-                        this.player.mf("Daddy", "Mommy") +
-                        "?  Don't you just want to squeeze them and suck on them?  Ooohh, " +
-                        this.player.mf("Daddy", "Mommy") +
-                        ', please, I want you so bad.  I get so hot and wet when I think of you!  I just want your [cock] inside me, pounding my hot cunt until I scream!</i>"'
+                    `"<i>Don't you like how big and soft my breasts are, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}?  Don't you just want to squeeze them and suck on them?  Ooohh, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}, please, I want you so bad.  I get so hot and wet when I think of you!  I just want your [cock] inside me, pounding my hot cunt until I scream!</i>"`
                 );
 
             this.outx(
@@ -1779,20 +1790,24 @@ export class SophieFollowerScene extends NPCAwareContent {
                 this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0
             )
                 this.outx(
-                    '\n\n"<i>Ohhh, oooohhhh!  ' +
-                        this.player.mf("D-Daddy", "M-Mommy") +
-                        "!  L-like, I can't take so much teasing!  Please, Gimme your h-haaard cock, " +
-                        this.player.mf("Dad", "Mom") +
-                        '!<i>"'
+                    `\n\n"<i>Ohhh, oooohhhh!  ${this.player.mf(
+                        "D-Daddy",
+                        "M-Mommy"
+                    )}!  L-like, I can't take so much teasing!  Please, Gimme your h-haaard cock, ${this.player.mf(
+                        "Dad",
+                        "Mom"
+                    )}!<i>"`
                 );
             // [normal speech:
             else
                 this.outx(
-                    '\n\n"<i>Ohhh, oooohhhh!  ' +
-                        this.player.mf("D-Daddy", "M-Mommy") +
-                        "!  Nnnnn... I can't take so much teasing!  Please, please give it to me, fuck me as hard as you can, " +
-                        this.player.mf("Daddy", "Mommy") +
-                        '!<i>"'
+                    `\n\n"<i>Ohhh, oooohhhh!  ${this.player.mf(
+                        "D-Daddy",
+                        "M-Mommy"
+                    )}!  Nnnnn... I can't take so much teasing!  Please, please give it to me, fuck me as hard as you can, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}!<i>"`
                 );
         }
         // second daughter:
@@ -1813,17 +1828,20 @@ export class SophieFollowerScene extends NPCAwareContent {
                 this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0
             )
                 this.outx(
-                    '"<i>Mmmm... doncha want to just like, pound my sexy ass, ' +
-                        this.player.mf("Daddy", "Mommy") +
-                        "?  It's so big, it's just begging to be spanked and squeezed till it's totally red and sensitive</i>\""
+                    `"<i>Mmmm... doncha want to just like, pound my sexy ass, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}?  It's so big, it's just begging to be spanked and squeezed till it's totally red and sensitive</i>"`
                 );
             else
                 this.outx(
-                    '"<i>Come on, ' +
-                        this.player.mf("Daddy", "Mommy") +
-                        ", touch me, spank me like the bad girl I am, lusting after my " +
-                        this.player.mf("Daddy", "Mommy") +
-                        ' like this.  Give it to me hard, spank my big round ass and pound my hot tight cunt like I know you want</i>"'
+                    `"<i>Come on, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}, touch me, spank me like the bad girl I am, lusting after my ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )} like this.  Give it to me hard, spank my big round ass and pound my hot tight cunt like I know you want</i>"`
                 );
 
             this.outx(
@@ -1840,26 +1858,30 @@ export class SophieFollowerScene extends NPCAwareContent {
             );
 
             this.outx(
-                "\n\nYou clap your hands and applaud your daughter's work.  The curvy little harpy is working so hard to please her " +
-                    this.player.mf("daddy", "mommy") +
-                    " and entice him into her nest...  "
+                `\n\nYou clap your hands and applaud your daughter's work.  The curvy little harpy is working so hard to please her ${this.player.mf(
+                    "daddy",
+                    "mommy"
+                )} and entice him into her nest...  `
             );
             if (
                 this.flags[kFLAGS.DAUGHTER_THREE_BIMBO] > 0 &&
                 this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0
             )
                 this.outx(
-                    '"<i>L-like, did I do a good job, ' +
-                        this.player.mf("Daddy", "Mommy") +
-                        "?  I so totally did my best for you.  I know I'm not super sexy like Mom and my sisters... but, " +
-                        this.player.mf("Daddy", "Mommy") +
-                        '.. I will like, still please you, like, totally the best that I can!</i>"'
+                    `"<i>L-like, did I do a good job, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}?  I so totally did my best for you.  I know I'm not super sexy like Mom and my sisters... but, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}.. I will like, still please you, like, totally the best that I can!</i>"`
                 );
             else
                 this.outx(
-                    '"<i>W-well, what did you think, ' +
-                        this.player.mf("Dad", "Mommy") +
-                        "?  Did I do a good job?  I know I'm not as hot as Mom, but I promise I'll please you as best I can!</i>\""
+                    `"<i>W-well, what did you think, ${this.player.mf(
+                        "Dad",
+                        "Mommy"
+                    )}?  Did I do a good job?  I know I'm not as hot as Mom, but I promise I'll please you as best I can!</i>"`
                 );
             this.outx(" she says, wanting more than anything to be able to please you.");
 
@@ -1879,17 +1901,20 @@ export class SophieFollowerScene extends NPCAwareContent {
                 this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0
             )
                 this.outx(
-                    '"<i>Come on ' +
-                        this.player.mf("Daddy", "Mommy") +
-                        ", can't you see how totally hot I am?  Don't you just want to let loose and like, just fuck me till I scream.</i>\""
+                    `"<i>Come on ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}, can't you see how totally hot I am?  Don't you just want to let loose and like, just fuck me till I scream.</i>"`
                 );
             else
                 this.outx(
-                    '"<i>Just look at me, ' +
-                        this.player.mf("Daddy", "Mommy") +
-                        ", so curvy, so ready, so hot and wet for you.  Just let loose and show me your love, show me how much you love me, " +
-                        this.player.mf("Daddy", "Mommy") +
-                        ', fuck me hard, make me scream and claim me as yours.</i>"'
+                    `"<i>Just look at me, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}, so curvy, so ready, so hot and wet for you.  Just let loose and show me your love, show me how much you love me, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}, fuck me hard, make me scream and claim me as yours.</i>"`
                 );
             this.outx(
                 " the horny birdgirl says with a lick of her plump, kissable lips, aching hunger for your incestuous seed.  She wraps her arms around you, pulling her body against yours and sliding a long downy leg around you.  Her position opens her up to you and presses her sodden sex against your crotch.  She's such a lusty, lovely woman, and she wants you so badly, her body begging for you to take her and to seed her fertile body with your potent virility."
@@ -1904,16 +1929,18 @@ export class SophieFollowerScene extends NPCAwareContent {
                 this.flags[kFLAGS.SOPHIES_DAUGHTERS_DEBIMBOED] == 0
             )
                 this.outx(
-                    '  "<i>Ahh... ohhh... oh, ' +
-                        this.player.mf("Daddy", "Mommy") +
-                        "!  You like my butt, don't you; isn't it nice?  It's so good to grab and squeeze.  I bet it would be fun to, like, spank it too....</i>\""
+                    `  "<i>Ahh... ohhh... oh, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}!  You like my butt, don't you; isn't it nice?  It's so good to grab and squeeze.  I bet it would be fun to, like, spank it too....</i>"`
                 );
             // [normal speech:]
             else
                 this.outx(
-                    '  "<i>Mmmm... Oh, ' +
-                        this.player.mf("Daddy", "Mommy") +
-                        ", yessss...  That's it, touch me, touch me and play with me, do whatever you want with me.</i>\""
+                    `  "<i>Mmmm... Oh, ${this.player.mf(
+                        "Daddy",
+                        "Mommy"
+                    )}, yessss...  That's it, touch me, touch me and play with me, do whatever you want with me.</i>"`
                 );
             this.outx(
                 " she coos into your ear, temping you even more with the taboo of her incestuous flesh.  With such a demanding offer of pleasure, your daughter so open and ready to receive your pleasure, how could you say no to such a lovely girl?"
@@ -1934,11 +1961,13 @@ export class SophieFollowerScene extends NPCAwareContent {
         if (daughter == 1) this.outx("massive pillowy tits");
         else this.outx("tender perky breasts");
         this.outx(
-            ", your fingers sinking into her soft flesh as you caress and squeeze your daughter's bountiful body.  You lean down, kissing and sucking her neck, your lips latching on and sucking hard enough to leave your mark on her skin for the world to see.  She's unwilling to do anything against your lustful advances, mind and body ready and fully accepting whatever naughty things you would do to her.  With how heavily she is breathing and how lusty her moans and calls to you are, your daughter clearly wants the sweet incestuous union between " +
-                this.player.mf("father", "mother") +
-                ' and daughter even more than you do.  What a sexy and lovely daughter you have here...  at your aggressive touch, she groans and croons for you, beckoning to you to continue your familial onslaught.  She wraps her legs around your body, grinding her hips against you.  "<i>Yesss, yessss!  More, ' +
-                this.player.mf("Daddy", "Mommy") +
-                '!</i>" she squawks in between her breathy moans.'
+            `, your fingers sinking into her soft flesh as you caress and squeeze your daughter's bountiful body.  You lean down, kissing and sucking her neck, your lips latching on and sucking hard enough to leave your mark on her skin for the world to see.  She's unwilling to do anything against your lustful advances, mind and body ready and fully accepting whatever naughty things you would do to her.  With how heavily she is breathing and how lusty her moans and calls to you are, your daughter clearly wants the sweet incestuous union between ${this.player.mf(
+                "father",
+                "mother"
+            )} and daughter even more than you do.  What a sexy and lovely daughter you have here...  at your aggressive touch, she groans and croons for you, beckoning to you to continue your familial onslaught.  She wraps her legs around your body, grinding her hips against you.  "<i>Yesss, yessss!  More, ${this.player.mf(
+                "Daddy",
+                "Mommy"
+            )}!</i>" she squawks in between her breathy moans.`
         );
 
         this.outx(
@@ -1966,9 +1995,9 @@ export class SophieFollowerScene extends NPCAwareContent {
         }
 
         this.outx(
-            "\n\nBetween your legs, [eachCock] flops free, your " +
-                this.cockDescript(x) +
-                " achingly hard and ready for your fuck-hungry daughter.  The mass of masculine flesh throbs with your arousal, the insatiable organ longing to be sheathed within the welcoming depths of your daughter's soaking cunt, her tight, velvety folds ready to accept your potent, virile essence."
+            `\n\nBetween your legs, [eachCock] flops free, your ${this.cockDescript(
+                x
+            )} achingly hard and ready for your fuck-hungry daughter.  The mass of masculine flesh throbs with your arousal, the insatiable organ longing to be sheathed within the welcoming depths of your daughter's soaking cunt, her tight, velvety folds ready to accept your potent, virile essence.`
         );
 
         let bimbo = false;
@@ -1985,30 +2014,33 @@ export class SophieFollowerScene extends NPCAwareContent {
 
         if (bimbo)
             this.outx(
-                '\n\n"<i>Yessss!  Please, ' +
-                    this.player.mf("Daddy", "Mommy") +
-                    "!  Give it to me!  Like, fuck my brains out till I can't think of anything but your, like, totally amazing cock!</i>\""
+                `\n\n"<i>Yessss!  Please, ${this.player.mf(
+                    "Daddy",
+                    "Mommy"
+                )}!  Give it to me!  Like, fuck my brains out till I can't think of anything but your, like, totally amazing cock!</i>"`
             );
         else
             this.outx(
-                '\n\n"<i>Yesssss! Please, ' +
-                    this.player.mf("Daddy", "Mommy") +
-                    ", I've been wanting this so badly!  Give it to me, fuck me like the stud you are and fuck my cunt full of spunk!</i>\""
+                `\n\n"<i>Yesssss! Please, ${this.player.mf(
+                    "Daddy",
+                    "Mommy"
+                )}, I've been wanting this so badly!  Give it to me, fuck me like the stud you are and fuck my cunt full of spunk!</i>"`
             );
         this.outx(
-            " she croons, her words dripping with raw, passionate need for you and your incestuous love.  The sight of her so needy, so wanting, her body aflame with an unquenchable hunger for you is just too tempting.  Your own lust boils over as a thick dollop of pre-cum bursts from your " +
-                this.player.cockHead(x) +
-                " and splatters across your daughter's sodden snatch, adding to the lube already waiting to welcome you into her body."
+            ` she croons, her words dripping with raw, passionate need for you and your incestuous love.  The sight of her so needy, so wanting, her body aflame with an unquenchable hunger for you is just too tempting.  Your own lust boils over as a thick dollop of pre-cum bursts from your ${this.player.cockHead(
+                x
+            )} and splatters across your daughter's sodden snatch, adding to the lube already waiting to welcome you into her body.`
         );
 
         this.outx(
-            "\n\nTaking your sensitive, throbbing cock in hand, you give yourself a stroke and let out a groan at how ready you are; how hard you are for the incestuous fuck you're going to enjoy.  With as much grace as a fuck-hungry beast, you align yourself with your daughter's tender folds and plunge yourself in, your " +
-                this.cockDescript(x) +
-                " sliding into her slippery cunt easily thanks to all the sweet juices oozing from her.  The sudden hard thrust into her body sends shockwaves of pleasure through your over-aroused daughter, her legs wrapping around your waist as soon as you hilt yourself inside her.  Not waiting for her to get used to you, you start to buck your hips, pistoning your " +
-                this.cockDescript(x) +
-                " into her over and over as you keep her pinned to the ground.  Her bird-like cries of delight fill the air and mix with the hard, slippery slaps of your hips against hers, telling you all you need to know about her pleasure and how she loves to be fucked by her " +
-                this.player.mf("father", "mother") +
-                "."
+            `\n\nTaking your sensitive, throbbing cock in hand, you give yourself a stroke and let out a groan at how ready you are; how hard you are for the incestuous fuck you're going to enjoy.  With as much grace as a fuck-hungry beast, you align yourself with your daughter's tender folds and plunge yourself in, your ${this.cockDescript(
+                x
+            )} sliding into her slippery cunt easily thanks to all the sweet juices oozing from her.  The sudden hard thrust into her body sends shockwaves of pleasure through your over-aroused daughter, her legs wrapping around your waist as soon as you hilt yourself inside her.  Not waiting for her to get used to you, you start to buck your hips, pistoning your ${this.cockDescript(
+                x
+            )} into her over and over as you keep her pinned to the ground.  Her bird-like cries of delight fill the air and mix with the hard, slippery slaps of your hips against hers, telling you all you need to know about her pleasure and how she loves to be fucked by her ${this.player.mf(
+                "father",
+                "mother"
+            )}.`
         );
 
         this.outx(
@@ -2019,15 +2051,17 @@ export class SophieFollowerScene extends NPCAwareContent {
                 "The sensation of your lips pressing against her puffy, sensitive lips so roughly only makes her pleasure greater; her pussy quivering around you and clenching hard as you kiss her.  "
             );
         this.outx(
-            "Eagerly, she kisses you back, wrapping her feathery arms around you as she opens her lips to you.  Her tongue slides out to lick your lips and seek out your tongue to draw it into a sweet, illicit dance of incestuous delight.  Pushing her body, your feathery spawn bucks back against you, wanting more of this spine tingling ecstasy she feels, the all consuming need to rut and breed with her virile mate taking full hold over her, nothing but the dream of having her eggs fertilized by her " +
-                this.player.mf("father", "mother") +
-                " filling her mind."
+            `Eagerly, she kisses you back, wrapping her feathery arms around you as she opens her lips to you.  Her tongue slides out to lick your lips and seek out your tongue to draw it into a sweet, illicit dance of incestuous delight.  Pushing her body, your feathery spawn bucks back against you, wanting more of this spine tingling ecstasy she feels, the all consuming need to rut and breed with her virile mate taking full hold over her, nothing but the dream of having her eggs fertilized by her ${this.player.mf(
+                "father",
+                "mother"
+            )} filling her mind.`
         );
 
         this.outx(
-            "\n\nKissing the horny, needy girl back, you force your tongue against hers, plunging into her warm, wet mouth and silencing her rampant, lusty moans.  Sliding a hand down, you grab a handful of your daughter's ample, spankable butt and squeeze, using her body as a handhold while you screw her and claim her quivering form as yours.  Like her mother before her, she belongs to you.  Your daughter's body is your property, made to sate your boiling lust and take your seed deep into her womb to mother your young as a good, fertile female should.  Already you can feel the swelling pressure inside you, the searing hot pleasure of your impending orgasm, the seed that gave your daughter life soon to be flooding her womb in an explosion of " +
-                this.player.mf("father", "mother") +
-                "ly lust."
+            `\n\nKissing the horny, needy girl back, you force your tongue against hers, plunging into her warm, wet mouth and silencing her rampant, lusty moans.  Sliding a hand down, you grab a handful of your daughter's ample, spankable butt and squeeze, using her body as a handhold while you screw her and claim her quivering form as yours.  Like her mother before her, she belongs to you.  Your daughter's body is your property, made to sate your boiling lust and take your seed deep into her womb to mother your young as a good, fertile female should.  Already you can feel the swelling pressure inside you, the searing hot pleasure of your impending orgasm, the seed that gave your daughter life soon to be flooding her womb in an explosion of ${this.player.mf(
+                "father",
+                "mother"
+            )}ly lust.`
         );
 
         this.outx(
@@ -2042,9 +2076,9 @@ export class SophieFollowerScene extends NPCAwareContent {
                 "Your huge, breeder balls slap hard against your daughter's soft, creamy skin, letting her feel how heavy and overflowing they are with your virile essence.  The very feeling of your aching orbs against her body makes her shudder in delight at the thought of having your frothy seed bloating her belly.  Clenching with mighty contractions, your fat, bloated sack discharges its gushing virility in great, geyserious bursts of thick, sperm-packed spunk.  "
             );
         this.outx(
-            "Your distended cumvein bulges as your sticky seed dilates your " +
-                this.player.cockHead(x) +
-                ", streaming forth in great lances of egg-raping potency.  The very feeling of your spermy seed flooding her clenching, quivering cunt, drives your curvaceous daughter into an eye rolling orgasm, her body bucking and writhing in raw, mind-bending ecstasy as her body clenches and squeezes you tightly."
+            `Your distended cumvein bulges as your sticky seed dilates your ${this.player.cockHead(
+                x
+            )}, streaming forth in great lances of egg-raping potency.  The very feeling of your spermy seed flooding her clenching, quivering cunt, drives your curvaceous daughter into an eye rolling orgasm, her body bucking and writhing in raw, mind-bending ecstasy as her body clenches and squeezes you tightly.`
         );
 
         this.outx(
@@ -2070,9 +2104,10 @@ export class SophieFollowerScene extends NPCAwareContent {
                 "  Your seed floods your daughter's tight, squeezing cunt like a flood, wave after wave of your thick, frothy spunk forces its way through her convulsing cunt and right into her eager, waiting womb.  Geysers of thick, frothy spunk force their way into her womb, filling it fuller and fuller until her belly swells and swells.  Her once tight, flat tummy rounds out into a healthy round cumbaby, your thick, yogurt-like spunk overflowing from her overstuffed snatch in thick, sticky streams."
             );
         this.outx(
-            "  In a moment of lucidity, you look down at your daughter and see the blissed-out look on her face; her creamy skin red; her eyes rolling up into her head.  Her tongue is lolling out from her plump, cocksucking lips.  The sight of your daughter consumed by such mind bending pleasure, the ecstasy of having her " +
-                this.player.mf("father", "mother") +
-                " cumming inside her, only gives you a sense of pride and affection for your sweet daughter."
+            `  In a moment of lucidity, you look down at your daughter and see the blissed-out look on her face; her creamy skin red; her eyes rolling up into her head.  Her tongue is lolling out from her plump, cocksucking lips.  The sight of your daughter consumed by such mind bending pleasure, the ecstasy of having her ${this.player.mf(
+                "father",
+                "mother"
+            )} cumming inside her, only gives you a sense of pride and affection for your sweet daughter.`
         );
 
         this.outx(
@@ -2080,38 +2115,42 @@ export class SophieFollowerScene extends NPCAwareContent {
         );
         if (bimbo)
             this.outx(
-                '  "<i>Oh, ' +
-                    this.player.mf("Daddy", "Mommy") +
-                    ", oh, " +
-                    this.player.mf("Daddy", "Mommy") +
-                    "...  So good!  My " +
-                    this.player.mf("Daddy", "Mommy") +
-                    "'s such a hot, sexy " +
-                    this.player.mf("stud", "herm") +
-                    ".  I so totally thought I was going to like, lose my mind for a second.  I love you, " +
-                    this.player.mf("Daddy", "Mommy") +
-                    '.</i>"'
+                `  "<i>Oh, ${this.player.mf("Daddy", "Mommy")}, oh, ${this.player.mf(
+                    "Daddy",
+                    "Mommy"
+                )}...  So good!  My ${this.player.mf(
+                    "Daddy",
+                    "Mommy"
+                )}'s such a hot, sexy ${this.player.mf(
+                    "stud",
+                    "herm"
+                )}.  I so totally thought I was going to like, lose my mind for a second.  I love you, ${this.player.mf(
+                    "Daddy",
+                    "Mommy"
+                )}.</i>"`
             );
         else
             this.outx(
-                '  "<i>Oh, ' +
-                    this.player.mf("Daddy", "Mommy") +
-                    ", oh, " +
-                    this.player.mf("Daddy", "Mommy") +
-                    "... so good, you're such a fucking " +
-                    this.player.mf("stud", "perfect breeder") +
-                    "!  I could just get addicted to you.  I love you, " +
-                    this.player.mf("Daddy", "Mommy") +
-                    ',</i>"'
+                `  "<i>Oh, ${this.player.mf("Daddy", "Mommy")}, oh, ${this.player.mf(
+                    "Daddy",
+                    "Mommy"
+                )}... so good, you're such a fucking ${this.player.mf(
+                    "stud",
+                    "perfect breeder"
+                )}!  I could just get addicted to you.  I love you, ${this.player.mf(
+                    "Daddy",
+                    "Mommy"
+                )},</i>"`
             );
         this.outx(
             " she says to you as she kisses you with her soft lips.  Chuckling at your affectionate daughter, you snuggle up with her, spending some sweet, comfortable pillow time with your freshly seeded girl."
         );
 
         this.outx(
-            "\n\nFor nearly an hour you lay there, cuddling, kissing and stroking your daughter's body as she hogs you all to herself.  Despite how comfortable it is to cuddle with your daughter like this, you have to pull yourself away from her curvaceous, cock-pleasing body.  She can't help but pout as you pull away, clearly wanting to spend more time with her beloved " +
-                this.player.mf("father", "mother") +
-                ".  Not wanting to leave her so disappointed, you reach around and give her a spank on the ass and pull her close to you, kissing her once more before promising to spend more time with her later.  With a smile, she giggles and nods, her mind happily thinking about the next time you will spend some quality time with her."
+            `\n\nFor nearly an hour you lay there, cuddling, kissing and stroking your daughter's body as she hogs you all to herself.  Despite how comfortable it is to cuddle with your daughter like this, you have to pull yourself away from her curvaceous, cock-pleasing body.  She can't help but pout as you pull away, clearly wanting to spend more time with her beloved ${this.player.mf(
+                "father",
+                "mother"
+            )}.  Not wanting to leave her so disappointed, you reach around and give her a spank on the ass and pull her close to you, kissing her once more before promising to spend more time with her later.  With a smile, she giggles and nods, her mind happily thinking about the next time you will spend some quality time with her.`
         );
         // pass time 1 hour//
         // return PC to camp interface//

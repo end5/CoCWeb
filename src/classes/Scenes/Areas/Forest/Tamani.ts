@@ -71,7 +71,7 @@ export class Tamani extends Goblin {
                 );
                 if (this.player.totalCocks() > 1) this.outx("Each of y");
                 else this.outx("Y");
-                this.outx("our " + this.multiCockDescriptLight(), false);
+                this.outx(`our ${this.multiCockDescriptLight()}`, false);
                 if (this.player.lust > 80) this.outx(" drips pre-cum");
                 else if (this.player.lust > 40) this.outx(" grows harder");
                 else this.outx(" hardens");
@@ -87,7 +87,7 @@ export class Tamani extends Goblin {
                     false
                 );
                 if (this.player.totalCocks() > 1) this.outx("each of ");
-                this.outx("your " + this.player.multiCockDescriptLight(), false);
+                this.outx(`your ${this.player.multiCockDescriptLight()}`, false);
                 if (this.player.lust <= 41) this.outx(" thicken perceptibly");
                 else if (this.player.lust <= 81) this.outx(" twitch eagerly");
                 else this.outx("drip pre-cum");
@@ -112,9 +112,7 @@ export class Tamani extends Goblin {
                 );
                 if (this.player.totalCocks() > 1) this.outx("each of ");
                 this.outx(
-                    "your " +
-                        this.player.multiCockDescriptLight() +
-                        " aches with need.  You battle with the compulsion to kneel before your short, stacked mistress and perform your duties as her breeder husband.",
+                    `your ${this.player.multiCockDescriptLight()} aches with need.  You battle with the compulsion to kneel before your short, stacked mistress and perform your duties as her breeder husband.`,
                     false
                 );
             } else {
@@ -125,9 +123,7 @@ export class Tamani extends Goblin {
                 if (this.player.totalCocks() > 1) this.outx("Each of y");
                 else this.outx("Y");
                 this.outx(
-                    "our " +
-                        this.player.multiCockDescriptLight() +
-                        " pulses and dribbles pre-cum, aching to do its duty and fire load after load into Tamani's perfect pussy.",
+                    `our ${this.player.multiCockDescriptLight()} pulses and dribbles pre-cum, aching to do its duty and fire load after load into Tamani's perfect pussy.`,
                     false
                 );
             }
@@ -211,10 +207,7 @@ export class Tamani extends Goblin {
         this.a = "";
         this.short = "Tamani";
         this.imageName = "tamani";
-        this.long =
-            "She keeps her arms folded across her " +
-            this.game.forest.tamaniScene.tamaniChest() +
-            " and glares at you.  The little thing is only about four feet tall, with pink and black dyed hair cut into a cute little 'do.  The greenish-gray skin of her breasts bulges out around her arms, supported by a few leather straps, amplifying her cleavage.  Her cunt lips are pierced multiple times, inflamed, and slightly parted.  There really isn't any clothing on her to hide them, just more of the ever-present straps wrapping around her thighs.";
+        this.long = `She keeps her arms folded across her ${this.game.forest.tamaniScene.tamaniChest()} and glares at you.  The little thing is only about four feet tall, with pink and black dyed hair cut into a cute little 'do.  The greenish-gray skin of her breasts bulges out around her arms, supported by a few leather straps, amplifying her cleavage.  Her cunt lips are pierced multiple times, inflamed, and slightly parted.  There really isn't any clothing on her to hide them, just more of the ever-present straps wrapping around her thighs.`;
         // this.plural = false;
         this.createVagina(false, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_NORMAL);
         this.createStatusAffect(StatusAffects.BonusVCapacity, 55, 0, 0, 0);

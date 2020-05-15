@@ -111,12 +111,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         let needNext = false;
         this.pregnancy.pregnancyAdvance();
         trace(
-            "\nEmber time change: Time is " +
-                this.model.time.hours +
-                ", incubation: " +
-                this.pregnancy.incubation +
-                ", event: " +
-                this.pregnancy.event
+            `\nEmber time change: Time is ${this.model.time.hours}, incubation: ${this.pregnancy.incubation}, event: ${this.pregnancy.event}`
         );
         if (this.pregnancy.isPregnant) {
             if (this.emberPregUpdate()) needNext = true;
@@ -266,19 +261,20 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // Moderate Affection:
         else if (this.emberAffection() <= 75)
             this.outx(
-                "Ember fidgets as " +
-                    this.emberMF("his", "her") +
-                    " tail starts to sway from side to side, " +
-                    this.emberMF("he", "she") +
-                    ' looks at you and asks, "<i>What is it?</i>"'
+                `Ember fidgets as ${this.emberMF(
+                    "his",
+                    "her"
+                )} tail starts to sway from side to side, ${this.emberMF(
+                    "he",
+                    "she"
+                )} looks at you and asks, "<i>What is it?</i>"`
             );
         else
             this.outx(
-                "Ember's eyes light up as you close in on " +
-                    this.emberMF("him", "her") +
-                    ", and " +
-                    this.emberMF("he", "she") +
-                    ' smiles nervously.  "<i>Y-Yes?</i>"'
+                `Ember's eyes light up as you close in on ${this.emberMF(
+                    "him",
+                    "her"
+                )}, and ${this.emberMF("he", "she")} smiles nervously.  "<i>Y-Yes?</i>"`
             );
         // OPTIONS HERE
         // [APPEARANCE]
@@ -326,30 +322,31 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         if (output) {
             this.clearOutput();
             this.outx(
-                "You ogle Ember, checking out the nuances of " +
-                    this.emberMF("his", "her") +
-                    " body."
+                `You ogle Ember, checking out the nuances of ${this.emberMF("his", "her")} body.`
             );
             // (Low Affection)
             if (this.emberAffection() <= 25)
                 this.outx(
-                    '\n\n"<i>Why are you looking at me like that?</i>" ' +
-                        this.emberMF("he", "she") +
-                        " says, flatly."
+                    `\n\n"<i>Why are you looking at me like that?</i>" ${this.emberMF(
+                        "he",
+                        "she"
+                    )} says, flatly.`
                 );
             // (Medium Affection)
             else if (this.emberAffection() < 75)
                 this.outx(
-                    '\n\n"<i>What is it?  Is something wrong with my body?</i>" Ember asks, checking ' +
-                        this.emberMF("him", "her") +
-                        "self."
+                    `\n\n"<i>What is it?  Is something wrong with my body?</i>" Ember asks, checking ${this.emberMF(
+                        "him",
+                        "her"
+                    )}self.`
                 );
             // (High Affection)
             else
                 this.outx(
-                    '\n\n"<i>D-don\'t stare at me like that!</i>" Ember protests, biting ' +
-                        this.emberMF("his", "her") +
-                        " lip."
+                    `\n\n"<i>D-don't stare at me like that!</i>" Ember protests, biting ${this.emberMF(
+                        "his",
+                        "her"
+                    )} lip.`
                 );
             this.outx(
                 "\n\nYou smile at Ember, admiring the shape of the dragon, and casually mention as much."
@@ -368,19 +365,20 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             // (High Affection)
             else
                 this.outx(
-                    '\n\n"<i>Well, stop it!  You\'re making me...</i>"  Ember never finishes ' +
-                        this.emberMF("his", "her") +
-                        " sentence, flustered with a mixture of arousal and embarrassment."
+                    `\n\n"<i>Well, stop it!  You're making me...</i>"  Ember never finishes ${this.emberMF(
+                        "his",
+                        "her"
+                    )} sentence, flustered with a mixture of arousal and embarrassment.`
                 );
 
             this.outx("  ");
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
-                this.outx(this.emberMF("His", "Her") + " cock ");
+                this.outx(`${this.emberMF("His", "Her")} cock `);
                 if (
                     this.flags[kFLAGS.EMBER_INTERNAL_DICK] == 1 ||
                     this.flags[kFLAGS.EMBER_ROUNDFACE] == 0
                 )
-                    this.outx("is poking out of " + this.emberMF("his", "her") + " slit");
+                    this.outx(`is poking out of ${this.emberMF("his", "her")} slit`);
                 else this.outx("is starting to swell with blood");
                 this.outx(".  ");
             }
@@ -389,17 +387,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     "You can see tiny rivulets of moisture starting to run down Ember's inner thighs as they rub together, barely hiding her precious treasure from your hungry eyes.  "
                 );
             this.outx(
-                "Well, " +
-                    this.emberMF("he", "she") +
-                    " is a sexy beast; you ask what naturally comes to mind."
+                `Well, ${this.emberMF(
+                    "he",
+                    "she"
+                )} is a sexy beast; you ask what naturally comes to mind.`
             );
 
             // (Lo-rider Affection)
             if (this.emberAffection() <= 25)
                 this.outx(
-                    '\n\n"<i>T-this is just a reflex! It has nothing to do with you!</i>"  You chuckle at Ember\'s failed attempt to justify ' +
-                        this.emberMF("his", "her") +
-                        " growing arousal."
+                    `\n\n"<i>T-this is just a reflex! It has nothing to do with you!</i>"  You chuckle at Ember's failed attempt to justify ${this.emberMF(
+                        "his",
+                        "her"
+                    )} growing arousal.`
                 );
             // (Medium Affection)
             else if (this.emberAffection() < 75)
@@ -531,9 +531,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     private destroyBabyEmberYouMonster(): void {
         this.clearOutput();
         this.outx(
-            "Raising your [weapon], you rain down blow after blow upon the egg.  The shell is freakishly tough, taking a lot of punishment before it shatters apart to spill a wave of egg white onto your " +
-                this.player.feet() +
-                "; a great pulpy mass of weirdly bluish-red yolk remains in the broken shell."
+            `Raising your [weapon], you rain down blow after blow upon the egg.  The shell is freakishly tough, taking a lot of punishment before it shatters apart to spill a wave of egg white onto your ${this.player.feet()}; a great pulpy mass of weirdly bluish-red yolk remains in the broken shell.`
         );
         this.outx(
             "\n\nYou have sealed the fate of an entire species... you feel guilty, but this was for the best.  There was no way of knowing what this dragon could do once it hatched."
@@ -698,25 +696,30 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             const choice: number = EmberScene.rand(3);
             if (choice == 0)
                 this.outx(
-                    "Ember is lying in front of " +
-                        this.emberMF("his", "her") +
-                        " excavated den, watching the camp and resting.  Every once in a while " +
-                        this.emberMF("his", "her") +
-                        " eyes dart in your direction, before " +
-                        this.emberMF("he", "she") +
-                        " quickly looks away.\n\n"
+                    `Ember is lying in front of ${this.emberMF(
+                        "his",
+                        "her"
+                    )} excavated den, watching the camp and resting.  Every once in a while ${this.emberMF(
+                        "his",
+                        "her"
+                    )} eyes dart in your direction, before ${this.emberMF(
+                        "he",
+                        "she"
+                    )} quickly looks away.\n\n`
                 );
             else if (choice == 1)
                 this.outx(
-                    "Ember doesn't seem to be around " +
-                        this.emberMF("his", "her") +
-                        " excavated den... it doesn't take long before Ember lands in front of it and then takes off again, apparently occupied with darting around in the sky for fun.\n\n"
+                    `Ember doesn't seem to be around ${this.emberMF(
+                        "his",
+                        "her"
+                    )} excavated den... it doesn't take long before Ember lands in front of it and then takes off again, apparently occupied with darting around in the sky for fun.\n\n`
                 );
             else
                 this.outx(
-                    "Ember appears to be fighting to stay awake; sometimes " +
-                        this.emberMF("he", "she") +
-                        " falls into a doze, but quickly snaps back to consciousness.\n\n"
+                    `Ember appears to be fighting to stay awake; sometimes ${this.emberMF(
+                        "he",
+                        "she"
+                    )} falls into a doze, but quickly snaps back to consciousness.\n\n`
                 );
         }
     }
@@ -1210,9 +1213,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     "wrangling all your shafts together into one awkward bouquet of male organs and furiously stroking and squeezing them as best you can manage"
                 );
             this.outx(
-                ".  The egg's pulsations lure you on, coaxing you to squeeze, pull, thrust, and massage " +
-                    this.sMultiCockDesc() +
-                    " as best you can.  Harder and faster you go, feeling the churning ache from deep inside you.  Finally, with a cry of release, you unleash a "
+                `.  The egg's pulsations lure you on, coaxing you to squeeze, pull, thrust, and massage ${this.sMultiCockDesc()} as best you can.  Harder and faster you go, feeling the churning ache from deep inside you.  Finally, with a cry of release, you unleash a `
             );
             if (this.player.cumQ() < 100) this.outx("trickle");
             else if (this.player.cumQ() <= 500) this.outx("stream");
@@ -1262,9 +1263,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "The light of the egg pulses rapidly, throwing strange illumination and shadow over your form as you hastily peel off your [armor], too far gone to recognize the absurdity.  Your heart is racing so fast with excitement, lust, anticipation... it actually matches the tempo of the pulses from the egg, when you care to notice."
             );
             this.outx(
-                "\n\nTormented by the need in both your " +
-                    this.multiCockDescriptLight() +
-                    " and your [vagina], you awkwardly straddle the egg's upper surface, allowing you to grind your netherlips against its shell and stroke [eachCock] at the same time.  It is an awkward, herky-jerky act, struggling to avoid falling off... but the sensation so makes up for it.  Your [vagina] slides and grinds against the egg's hard, unyielding shell as your hand tugs and pulls "
+                `\n\nTormented by the need in both your ${this.multiCockDescriptLight()} and your [vagina], you awkwardly straddle the egg's upper surface, allowing you to grind your netherlips against its shell and stroke [eachCock] at the same time.  It is an awkward, herky-jerky act, struggling to avoid falling off... but the sensation so makes up for it.  Your [vagina] slides and grinds against the egg's hard, unyielding shell as your hand tugs and pulls `
             );
             if (this.player.cockTotal() == 1) this.outx("your [cock]");
             else this.outx("as many of your cocks as you can manage to grab without falling off");
@@ -1482,9 +1481,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // Anthro Ember's Appearance (Z)
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) {
             this.outx(
-                "Ember is a 7' 3\" tall humanoid dragon, with supple, long limbs and a build that is toned and athletic, with powerful underlying muscles.  " +
-                    this.emberMF("He", "She") +
-                    " looks strong and imposing, but "
+                `Ember is a 7' 3" tall humanoid dragon, with supple, long limbs and a build that is toned and athletic, with powerful underlying muscles.  ${this.emberMF(
+                    "He",
+                    "She"
+                )} looks strong and imposing, but `
             );
             if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outx(" not overly muscled.");
             else this.outx(" feminine.");
@@ -1502,65 +1502,79 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             // (Female/Herm)
             else {
                 this.outx(
-                    "\n\nEmber's body is a curvy thing, not rough like you'd expect from a reptilian creature, but rounded and almost soft-looking, with a taut belly and a perfect hourglass figure, giving " +
-                        this.emberMF("him", "her") +
-                        " the silhouette of an amazon from your village's histories: beautiful but powerful.  Excepting the wings and horns, of course."
+                    `\n\nEmber's body is a curvy thing, not rough like you'd expect from a reptilian creature, but rounded and almost soft-looking, with a taut belly and a perfect hourglass figure, giving ${this.emberMF(
+                        "him",
+                        "her"
+                    )} the silhouette of an amazon from your village's histories: beautiful but powerful.  Excepting the wings and horns, of course.`
                 );
             }
             this.outx(
-                "\n\nThe dragon scorns clothing and exposes " +
-                    this.emberMF("him", "her") +
-                    "self to both you and the elements with equal indifference, claiming " +
-                    this.emberMF("his", "her") +
-                    " scales are all the covering " +
-                    this.emberMF("he", "she") +
-                    " needs... and yet when you admire " +
-                    this.emberMF("his", "her") +
-                    " body, " +
-                    this.emberMF("he", "she") +
-                    " is quick to hide it from your wandering gaze."
+                `\n\nThe dragon scorns clothing and exposes ${this.emberMF(
+                    "him",
+                    "her"
+                )}self to both you and the elements with equal indifference, claiming ${this.emberMF(
+                    "his",
+                    "her"
+                )} scales are all the covering ${this.emberMF(
+                    "he",
+                    "she"
+                )} needs... and yet when you admire ${this.emberMF(
+                    "his",
+                    "her"
+                )} body, ${this.emberMF("he", "she")} is quick to hide it from your wandering gaze.`
             );
             this.outx(
-                "\n\n" +
-                    this.emberMF("His", "Her") +
-                    " head is reptilian, with sharp teeth fit for a predator and strong ridges on the underside of the jaw.  At the sides of " +
-                    this.emberMF("his", "her") +
-                    " head are strange, fin-like growths concealing small holes; you presume these to be the dragon equivalent of ears.  Atop " +
-                    this.emberMF("his", "her") +
-                    " head sit a pair of ebony horns that curve backwards elegantly; despite being as tough as steel, their shape is not fit for use in combat, instead it is simply aesthetical, giving Ember a majestic look.  A long tongue occasionally slips out, to lick at " +
-                    this.emberMF("his", "her") +
-                    " jaws and teeth.  Prideful, fierce eyes, with slit pupils and burning orange irises, glitter even in the darkness."
+                `\n\n${this.emberMF(
+                    "His",
+                    "Her"
+                )} head is reptilian, with sharp teeth fit for a predator and strong ridges on the underside of the jaw.  At the sides of ${this.emberMF(
+                    "his",
+                    "her"
+                )} head are strange, fin-like growths concealing small holes; you presume these to be the dragon equivalent of ears.  Atop ${this.emberMF(
+                    "his",
+                    "her"
+                )} head sit a pair of ebony horns that curve backwards elegantly; despite being as tough as steel, their shape is not fit for use in combat, instead it is simply aesthetical, giving Ember a majestic look.  A long tongue occasionally slips out, to lick at ${this.emberMF(
+                    "his",
+                    "her"
+                )} jaws and teeth.  Prideful, fierce eyes, with slit pupils and burning orange irises, glitter even in the darkness.`
             );
             // (if Ember has any hair)
             if (this.flags[kFLAGS.EMBER_HAIR] == 1) {
                 if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outx("  Short ");
                 else this.outx("  Shoulder-length ");
                 this.outx(
-                    "steel-gray hair sprouts from " +
-                        this.emberMF("his", "her") +
-                        " head.  You'd think that a dragon with hair would look weird, but it actually compliments Ember's looks very well."
+                    `steel-gray hair sprouts from ${this.emberMF(
+                        "his",
+                        "her"
+                    )} head.  You'd think that a dragon with hair would look weird, but it actually compliments Ember's looks very well.`
                 );
             }
             // (if Ember has a level 2 mane)
             else if (this.flags[kFLAGS.EMBER_HAIR] == 2) {
                 this.outx(
-                    "  Tracing " +
-                        this.emberMF("his", "her") +
-                        " spine, a mane of hair grows; starting at the base of " +
-                        this.emberMF("his", "her") +
-                        " neck and continuing down " +
-                        this.emberMF("his", "her") +
-                        " tail, ending on the tip of " +
-                        this.emberMF("his", "her") +
-                        " tail in a small tuft.  It is the same color as the hair on " +
-                        this.emberMF("his", "her") +
-                        " head, but shorter and denser; it grows in a thick vertical strip, maybe two inches wide.  It reminds you vaguely of a horse's mane."
+                    `  Tracing ${this.emberMF(
+                        "his",
+                        "her"
+                    )} spine, a mane of hair grows; starting at the base of ${this.emberMF(
+                        "his",
+                        "her"
+                    )} neck and continuing down ${this.emberMF(
+                        "his",
+                        "her"
+                    )} tail, ending on the tip of ${this.emberMF(
+                        "his",
+                        "her"
+                    )} tail in a small tuft.  It is the same color as the hair on ${this.emberMF(
+                        "his",
+                        "her"
+                    )} head, but shorter and denser; it grows in a thick vertical strip, maybe two inches wide.  It reminds you vaguely of a horse's mane.`
                 );
             }
             this.outx(
-                "\n\n" +
-                    this.emberMF("His", "Her") +
-                    " back supports a pair of strong, scaly dragon wings, covered in membranous leathery scales.  The muscles are held taut, as though ready to extend and take to the skies at any notice."
+                `\n\n${this.emberMF(
+                    "His",
+                    "Her"
+                )} back supports a pair of strong, scaly dragon wings, covered in membranous leathery scales.  The muscles are held taut, as though ready to extend and take to the skies at any notice.`
             );
 
             // (Male)
@@ -1575,37 +1589,47 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 );
 
             this.outx(
-                "\n\nA long, scaly, flexible tail lashes behind " +
-                    this.emberMF("him", "her") +
-                    ", its final third adorned with small bumps that can extend into vicious-looking spikes.  " +
-                    this.emberMF("His", "Her") +
-                    " legs appear humanoid until the feet, where they end in powerful, taloned reptilian claws meant for gripping at the ground."
+                `\n\nA long, scaly, flexible tail lashes behind ${this.emberMF(
+                    "him",
+                    "her"
+                )}, its final third adorned with small bumps that can extend into vicious-looking spikes.  ${this.emberMF(
+                    "His",
+                    "Her"
+                )} legs appear humanoid until the feet, where they end in powerful, taloned reptilian claws meant for gripping at the ground.`
             );
 
             this.outx(
-                "\n\nEmber is covered from head to toe in shield-shaped scales.  " +
-                    this.emberMF("His", "Her") +
-                    " dorsal scales are silver and reflect the light well, while " +
-                    this.emberMF("His", "Her") +
-                    " underbelly is a rich golden color that stands in stark contrast.  These metallic-colored scales are large and prominent on Ember's back and the exterior of " +
-                    this.emberMF("his", "her") +
-                    " limbs, but, on " +
-                    this.emberMF("his", "her") +
-                    " face, the interior of " +
-                    this.emberMF("his", "her") +
-                    " limbs and the front of " +
-                    this.emberMF("his", "her") +
-                    " body, they are very small and fine, giving them a smooth and silken texture."
+                `\n\nEmber is covered from head to toe in shield-shaped scales.  ${this.emberMF(
+                    "His",
+                    "Her"
+                )} dorsal scales are silver and reflect the light well, while ${this.emberMF(
+                    "His",
+                    "Her"
+                )} underbelly is a rich golden color that stands in stark contrast.  These metallic-colored scales are large and prominent on Ember's back and the exterior of ${this.emberMF(
+                    "his",
+                    "her"
+                )} limbs, but, on ${this.emberMF(
+                    "his",
+                    "her"
+                )} face, the interior of ${this.emberMF(
+                    "his",
+                    "her"
+                )} limbs and the front of ${this.emberMF(
+                    "his",
+                    "her"
+                )} body, they are very small and fine, giving them a smooth and silken texture.`
             );
 
             this.outx("  The ");
             if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outx("little ");
             this.outx(
-                "exposed flesh of Ember's body is a light shade of pink; but flushes when " +
-                    this.emberMF("he", "she") +
-                    "'s aroused, drawing your eyes towards " +
-                    this.emberMF("his", "her") +
-                    " most sexual parts."
+                `exposed flesh of Ember's body is a light shade of pink; but flushes when ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s aroused, drawing your eyes towards ${this.emberMF(
+                    "his",
+                    "her"
+                )} most sexual parts.`
             );
 
             switch (this.pregnancy.event) {
@@ -1628,35 +1652,36 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     break;
                 case 7:
                     this.outx(
-                        "  Her swollen belly is as large as that of any pregnant woman you can remember from Ingnam and you " +
-                            (this.flags[kFLAGS.EMBER_OVIPOSITION] > 0
+                        `  Her swollen belly is as large as that of any pregnant woman you can remember from Ingnam and you ${
+                            this.flags[kFLAGS.EMBER_OVIPOSITION] > 0
                                 ? "can easily make out the egg's outline under her golden skin"
-                                : "occasionally see movement as the baby shifts in Ember's womb") +
-                            "."
+                                : "occasionally see movement as the baby shifts in Ember's womb"
+                        }.`
                     );
                     break;
                 case 8:
                 case 9:
                     this.outx(
-                        "  Ember's golden belly is stretched taut by the large " +
-                            (this.flags[kFLAGS.EMBER_OVIPOSITION] > 0 ? "egg" : "baby") +
-                            " in her womb.  You're sure she'll give birth very soon, there just isn't room for the " +
-                            (this.flags[kFLAGS.EMBER_OVIPOSITION] > 0 ? "egg" : "baby") +
-                            " to grow any larger."
+                        `  Ember's golden belly is stretched taut by the large ${
+                            this.flags[kFLAGS.EMBER_OVIPOSITION] > 0 ? "egg" : "baby"
+                        } in her womb.  You're sure she'll give birth very soon, there just isn't room for the ${
+                            this.flags[kFLAGS.EMBER_OVIPOSITION] > 0 ? "egg" : "baby"
+                        } to grow any larger.`
                     );
                     break;
                 default:
             }
 
             // (Ember breast check)
-            this.outx("\n\nSituated upon " + this.emberMF("his", "her") + " chest are a pair of ");
+            this.outx(`\n\nSituated upon ${this.emberMF("his", "her")} chest are a pair of `);
             if (this.flags[kFLAGS.EMBER_MILK] > 0 || this.flags[kFLAGS.EMBER_GENDER] >= 2)
                 this.outx("F-cup soft, pillowy breasts");
             else this.outx("flat manly pecs");
             this.outx(
-                " covered in fine scales excepting " +
-                    this.emberMF("his", "her") +
-                    " areolas; 0.5 inch nipples protrude from the center of the "
+                ` covered in fine scales excepting ${this.emberMF(
+                    "his",
+                    "her"
+                )} areolas; 0.5 inch nipples protrude from the center of the `
             );
             if (this.flags[kFLAGS.EMBER_MILK] > 0 || this.flags[kFLAGS.EMBER_GENDER] >= 2)
                 this.outx("generous mounds");
@@ -1666,16 +1691,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             // (If Ember has a penis)
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
                 this.outx(
-                    "\n\nHanging from " +
-                        this.emberMF("his", "her") +
-                        " crotch, where it emerges from a slit leading to the interior of " +
-                        this.emberMF("his", "her") +
-                        "r pelvic cavity, is a 16 inch-long, two-inch wide penis with a shape unlike any other that you've seen so far in this realm."
+                    `\n\nHanging from ${this.emberMF(
+                        "his",
+                        "her"
+                    )} crotch, where it emerges from a slit leading to the interior of ${this.emberMF(
+                        "his",
+                        "her"
+                    )}r pelvic cavity, is a 16 inch-long, two-inch wide penis with a shape unlike any other that you've seen so far in this realm.`
                 );
                 this.outx(
-                    "\n\nThe head is rounded and elongated, while the shaft has a series of ridges, evenly spaced and so prominent as to give it an almost segmented appearance. When fully extended; a pair of apple-sized testicles drops out of " +
-                        this.emberMF("his", "her") +
-                        " genital slit."
+                    `\n\nThe head is rounded and elongated, while the shaft has a series of ridges, evenly spaced and so prominent as to give it an almost segmented appearance. When fully extended; a pair of apple-sized testicles drops out of ${this.emberMF(
+                        "his",
+                        "her"
+                    )} genital slit.`
                 );
             }
             // (If Ember has a vagina)
@@ -1685,28 +1713,37 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 );
 
             this.outx(
-                "\n\nAt first Ember puffs " +
-                    this.emberMF("his", "her") +
-                    " chest in pride at your obvious appreciation of " +
-                    this.emberMF("his", "her") +
-                    " form, letting you examine " +
-                    this.emberMF("him", "her") +
-                    " as closely as you want, but after a minute " +
-                    this.emberMF("he", "she") +
-                    " starts blushing in both arousal and embarrassment, eventually covering " +
-                    this.emberMF("him", "her") +
-                    'self and blurting out, "<i>That\'s enough looking!</i>"'
+                `\n\nAt first Ember puffs ${this.emberMF(
+                    "his",
+                    "her"
+                )} chest in pride at your obvious appreciation of ${this.emberMF(
+                    "his",
+                    "her"
+                )} form, letting you examine ${this.emberMF(
+                    "him",
+                    "her"
+                )} as closely as you want, but after a minute ${this.emberMF(
+                    "he",
+                    "she"
+                )} starts blushing in both arousal and embarrassment, eventually covering ${this.emberMF(
+                    "him",
+                    "her"
+                )}self and blurting out, "<i>That's enough looking!</i>"`
             );
             this.outx(
-                "\n\n" +
-                    this.emberMF("His", "Her") +
-                    " reaction to your staring is kind of cute, actually.  " +
-                    this.emberMF("His", "Her") +
-                    " swaying tail and small fidgets let you know that " +
-                    this.emberMF("he", "she") +
-                    " actually might've been enjoying " +
-                    this.emberMF("him", "her") +
-                    "self a bit too much..."
+                `\n\n${this.emberMF(
+                    "His",
+                    "Her"
+                )} reaction to your staring is kind of cute, actually.  ${this.emberMF(
+                    "His",
+                    "Her"
+                )} swaying tail and small fidgets let you know that ${this.emberMF(
+                    "he",
+                    "she"
+                )} actually might've been enjoying ${this.emberMF(
+                    "him",
+                    "her"
+                )}self a bit too much...`
             );
         }
         // Dragon-girl Appearance (By Radar) (Z)
@@ -1717,115 +1754,140 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             else if (this.flags[kFLAGS.EMBER_GENDER] == 2) this.outx("female");
             else this.outx("hermaphrodite");
             this.outx(
-                " dragon-" +
-                    this.emberMF("boy", "girl") +
-                    ", with slender limbs and a thin frame; " +
-                    this.emberMF("he", "she") +
-                    " refuses to wear any kind of clothing and exposes " +
-                    this.emberMF("him", "her") +
-                    "self naturally to the world.  " +
-                    this.emberMF("He", "She") +
-                    " sports a rather human looking face, but with several key differences.  Where a normal set of human eyes would be located, instead a pair of orange, reptilian eyes stares back at you, filled with immeasurable pride and ferocity."
+                ` dragon-${this.emberMF(
+                    "boy",
+                    "girl"
+                )}, with slender limbs and a thin frame; ${this.emberMF(
+                    "he",
+                    "she"
+                )} refuses to wear any kind of clothing and exposes ${this.emberMF(
+                    "him",
+                    "her"
+                )}self naturally to the world.  ${this.emberMF(
+                    "He",
+                    "She"
+                )} sports a rather human looking face, but with several key differences.  Where a normal set of human eyes would be located, instead a pair of orange, reptilian eyes stares back at you, filled with immeasurable pride and ferocity.`
             );
             this.outx(
-                "\n\nOn the sides of " +
-                    this.emberMF("his", "her") +
-                    " face, you spot an exotic pattern of dragon scales that are intertwined with " +
-                    this.emberMF("his", "her") +
-                    " olive, human like skin, which branch down " +
-                    this.emberMF("his", "her") +
-                    " neck and shoulders before merging with " +
-                    this.emberMF("his", "her") +
-                    " predominantly scaled body.  Like the dragons from your village lore, Ember sports a pair of ebony, draconic horns that emerge from " +
-                    this.emberMF("his", "her") +
-                    " temples, boldly curved backwards past " +
-                    this.emberMF("his", "her") +
-                    " scalp.  While you aren't certain of their rigidity, they look like they could deflect most overhead attacks.  Drawn to " +
-                    this.emberMF("his", "her") +
-                    " jaw, you zero in on an attractive pair of pink, human lips.  The calm appearance of " +
-                    this.emberMF("his", "her") +
-                    " mouth almost makes you forget the many sharp teeth that Ember sports, which could easily rend flesh from a body if Ember put " +
-                    this.emberMF("his", "her") +
-                    " mind to it."
+                `\n\nOn the sides of ${this.emberMF(
+                    "his",
+                    "her"
+                )} face, you spot an exotic pattern of dragon scales that are intertwined with ${this.emberMF(
+                    "his",
+                    "her"
+                )} olive, human like skin, which branch down ${this.emberMF(
+                    "his",
+                    "her"
+                )} neck and shoulders before merging with ${this.emberMF(
+                    "his",
+                    "her"
+                )} predominantly scaled body.  Like the dragons from your village lore, Ember sports a pair of ebony, draconic horns that emerge from ${this.emberMF(
+                    "his",
+                    "her"
+                )} temples, boldly curved backwards past ${this.emberMF(
+                    "his",
+                    "her"
+                )} scalp.  While you aren't certain of their rigidity, they look like they could deflect most overhead attacks.  Drawn to ${this.emberMF(
+                    "his",
+                    "her"
+                )} jaw, you zero in on an attractive pair of pink, human lips.  The calm appearance of ${this.emberMF(
+                    "his",
+                    "her"
+                )} mouth almost makes you forget the many sharp teeth that Ember sports, which could easily rend flesh from a body if Ember put ${this.emberMF(
+                    "his",
+                    "her"
+                )} mind to it.`
             );
             this.outx(
-                "\n\nThe shiny, silver hair that coiffures the dragon's head compliments " +
-                    this.emberMF("his", "her") +
-                    " facial features well and "
+                `\n\nThe shiny, silver hair that coiffures the dragon's head compliments ${this.emberMF(
+                    "his",
+                    "her"
+                )} facial features well and `
             );
             // Short:
             if (this.flags[kFLAGS.EMBER_HAIR] < 1)
                 this.outx(
-                    "is quite short, giving " +
-                        this.emberMF("him", "her") +
-                        " that definitive " +
-                        this.emberMF("masculine", "tomboy") +
-                        " look."
+                    `is quite short, giving ${this.emberMF(
+                        "him",
+                        "her"
+                    )} that definitive ${this.emberMF("masculine", "tomboy")} look.`
                 );
             else
                 this.outx(
-                    "drops down to " +
-                        this.emberMF("his", "her") +
-                        " shoulders, giving " +
-                        this.emberMF("him", "her") +
-                        " the look of the " +
-                        this.emberMF("handsome", "beautiful") +
-                        " warriors from your village legends."
+                    `drops down to ${this.emberMF("his", "her")} shoulders, giving ${this.emberMF(
+                        "him",
+                        "her"
+                    )} the look of the ${this.emberMF(
+                        "handsome",
+                        "beautiful"
+                    )} warriors from your village legends.`
                 );
 
             this.outx(
-                "\n\n" +
-                    this.emberMF("His", "Her") +
-                    " chest is also human in appearance and houses a pair of "
+                `\n\n${this.emberMF(
+                    "His",
+                    "Her"
+                )} chest is also human in appearance and houses a pair of `
             );
             if (this.flags[kFLAGS.EMBER_MILK] > 0 || this.flags[kFLAGS.EMBER_GENDER] >= 2)
                 this.outx(
-                    "F-cup breasts that support 0.5 inch nipples and hang heavily; you idly wonder if " +
-                        this.emberMF("he", "she") +
-                        "'ll develop lower back problems as she spends more time in Mareth"
+                    `F-cup breasts that support 0.5 inch nipples and hang heavily; you idly wonder if ${this.emberMF(
+                        "he",
+                        "she"
+                    )}'ll develop lower back problems as she spends more time in Mareth`
                 );
             else this.outx("manly pectorals with 0.5 inch nipples");
             this.outx(
-                ".  Just below " +
-                    this.emberMF("his", "her") +
-                    " collarbone, in the middle of " +
-                    this.emberMF("his", "her") +
-                    " chest, you see what looks like a small, golden, heart-shaped scale; adorning the chest like a birthmark of some sort."
+                `.  Just below ${this.emberMF(
+                    "his",
+                    "her"
+                )} collarbone, in the middle of ${this.emberMF(
+                    "his",
+                    "her"
+                )} chest, you see what looks like a small, golden, heart-shaped scale; adorning the chest like a birthmark of some sort.`
             );
 
             this.outx(
-                "\n\nAs you stare down at Ember's stomach, you note that the human-looking layer of flesh ends and the scaly dragon skin begins.  Still humanoid in shape, you can make out the " +
-                    this.emberMF("masculine", "feminine") +
-                    " features of Ember's belly and lower torso well enough."
+                `\n\nAs you stare down at Ember's stomach, you note that the human-looking layer of flesh ends and the scaly dragon skin begins.  Still humanoid in shape, you can make out the ${this.emberMF(
+                    "masculine",
+                    "feminine"
+                )} features of Ember's belly and lower torso well enough.`
             );
 
             this.outx(
-                "\n\nThis layer of scaling extends to " +
-                    this.emberMF("his", "her") +
-                    " back as well, albeit without any patches of human skin.  A fine stripe of white mane adorns Ember's spine and catches your eye.  The leathery wings that jut out of Ember's back around them only add to the fierce appearance of " +
-                    this.emberMF("his", "her") +
-                    " body, and look like they could easily propel their owner into the air."
+                `\n\nThis layer of scaling extends to ${this.emberMF(
+                    "his",
+                    "her"
+                )} back as well, albeit without any patches of human skin.  A fine stripe of white mane adorns Ember's spine and catches your eye.  The leathery wings that jut out of Ember's back around them only add to the fierce appearance of ${this.emberMF(
+                    "his",
+                    "her"
+                )} body, and look like they could easily propel their owner into the air.`
             );
 
             this.outx("\n\nEmber has, in most respects, a rather human-looking pelvis.");
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
                 if (this.flags[kFLAGS.EMBER_INTERNAL_DICK] == 0)
                     this.outx(
-                        "  " +
-                            this.emberMF("He", "She") +
-                            " sports a flaccid penis and a pair of apple-sized balls that sit dangerously exposed to the elements, let alone to naked blades or a heavy blow.  Yet " +
-                            this.emberMF("he", "she") +
-                            " doesn't seem concerned about that in the least, almost daring anyone to focus on them.  While " +
-                            this.emberMF("he", "she") +
-                            " isn't aroused right now, Ember's penis can reach a length of approximately 16 inches, and it looks to be about 2 inches thick."
+                        `  ${this.emberMF(
+                            "He",
+                            "She"
+                        )} sports a flaccid penis and a pair of apple-sized balls that sit dangerously exposed to the elements, let alone to naked blades or a heavy blow.  Yet ${this.emberMF(
+                            "he",
+                            "she"
+                        )} doesn't seem concerned about that in the least, almost daring anyone to focus on them.  While ${this.emberMF(
+                            "he",
+                            "she"
+                        )} isn't aroused right now, Ember's penis can reach a length of approximately 16 inches, and it looks to be about 2 inches thick.`
                     );
                 else
                     this.outx(
-                        "  " +
-                            this.emberMF("He", "She") +
-                            " sports what looks like a protective slit of some sort, protecting " +
-                            this.emberMF("his", "her") +
-                            " dick from the elements as well as stray blows.  You can't see it right now; but you remember it to be about 16 inches long and 2 inches thick."
+                        `  ${this.emberMF(
+                            "He",
+                            "She"
+                        )} sports what looks like a protective slit of some sort, protecting ${this.emberMF(
+                            "his",
+                            "her"
+                        )} dick from the elements as well as stray blows.  You can't see it right now; but you remember it to be about 16 inches long and 2 inches thick.`
                     );
             }
             // Ember has a pussy:
@@ -1835,18 +1897,22 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 );
 
             this.outx(
-                "\n\nEmber's legs themselves are somewhat human-like in appearance, but they're covered in the thick protective scales that don most of " +
-                    this.emberMF("his", "her") +
-                    " extremities.  Only the feet look like anything but normal human anatomy; the clawed feet of a predator decorate " +
-                    this.emberMF("him", "her") +
-                    " instead, capped with talons meant for gripping at the ground... or at prey."
+                `\n\nEmber's legs themselves are somewhat human-like in appearance, but they're covered in the thick protective scales that don most of ${this.emberMF(
+                    "his",
+                    "her"
+                )} extremities.  Only the feet look like anything but normal human anatomy; the clawed feet of a predator decorate ${this.emberMF(
+                    "him",
+                    "her"
+                )} instead, capped with talons meant for gripping at the ground... or at prey.`
             );
             this.outx(
-                "\n\nHaving drawn the dragon's attention with your examination of " +
-                    this.emberMF("his", "her") +
-                    " body, Ember darts a reptilian tongue out from " +
-                    this.emberMF("his", "her") +
-                    " lips, as if to entice you."
+                `\n\nHaving drawn the dragon's attention with your examination of ${this.emberMF(
+                    "his",
+                    "her"
+                )} body, Ember darts a reptilian tongue out from ${this.emberMF(
+                    "his",
+                    "her"
+                )} lips, as if to entice you.`
             );
         }
         this.doNext(this.emberCampMenu);
@@ -1912,25 +1978,26 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     // Talk about Dragons (Z)
     private talkToEmberAboutDragonzzz(): void {
         this.clearOutput();
-        this.outx(
-            "You ask Ember to tell you more about " + this.emberMF("his", "her") + " species."
-        );
+        this.outx(`You ask Ember to tell you more about ${this.emberMF("his", "her")} species.`);
         const choice: number = EmberScene.rand(5);
         if (choice == 0) {
             this.outx(
-                "\n\nEmber crosses " +
-                    this.emberMF("his", "her") +
-                    ' arms.  "<i>Dragons are powerful and proud!  You would never see a dragon back away from a challenge; instead, we relish in competition.</i>"  Ember continues talking about how dragons like to challenge each other.  Although interesting at first, you get bored soon, so you excuse yourself and leave.  Ember seems not to notice, and looks pleased to have had the chance to extoll the virtues of ' +
-                    this.emberMF("his", "her") +
-                    " species."
+                `\n\nEmber crosses ${this.emberMF(
+                    "his",
+                    "her"
+                )} arms.  "<i>Dragons are powerful and proud!  You would never see a dragon back away from a challenge; instead, we relish in competition.</i>"  Ember continues talking about how dragons like to challenge each other.  Although interesting at first, you get bored soon, so you excuse yourself and leave.  Ember seems not to notice, and looks pleased to have had the chance to extoll the virtues of ${this.emberMF(
+                    "his",
+                    "her"
+                )} species.`
             );
             // (+Affection)
             this.emberAffection(2 + EmberScene.rand(3));
         } else if (choice == 1) {
             this.outx(
-                '\n\nEmber thinks for a moment before saying.  "<i>Well, let\'s talk about dragon anatomy.</i>"  Ember begins explaining about the finer points of how a dragon works...  "<i>And if we\'re immobilized we can still use a powerful breath attack.  Normally dragons can only use one element, but I can use three!</i>" Ember says, proudly puffing out ' +
-                    this.emberMF("his", "her") +
-                    " chest.  You thank Ember for the explanation, then leave."
+                `\n\nEmber thinks for a moment before saying.  "<i>Well, let's talk about dragon anatomy.</i>"  Ember begins explaining about the finer points of how a dragon works...  "<i>And if we're immobilized we can still use a powerful breath attack.  Normally dragons can only use one element, but I can use three!</i>" Ember says, proudly puffing out ${this.emberMF(
+                    "his",
+                    "her"
+                )} chest.  You thank Ember for the explanation, then leave.`
             );
             // (+Affection)
             this.emberAffection(2 + EmberScene.rand(3));
@@ -1939,20 +2006,25 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nEmber decides to talk about dragon mating rituals.  \"<i>Dragons prove themselves to each other by showing off their strength... it isn't necessarily limited to just physical strength.  Usually it's done in competition.  A good mate has to be proud, brave, wise and strong.  So, as you can see, it's pretty certain you wouldn't find a dragon mating a non-dragon.</i>\""
             );
             this.outx(
-                "\n\nEmber stops talking, " +
-                    this.emberMF("his", "her") +
-                    " face turns serious for a moment; " +
-                    this.emberMF("he", "she") +
-                    " looks deep in thought.  \"<i>Dragons wouldn't mate a non-dragon... in fact, dragons wouldn't even find non-dragons attractive...</i>\"  You think you hear " +
-                    this.emberMF("him", "her") +
-                    ' mumble.  "<i>Dammit, then why do I feel this way...</i>"'
+                `\n\nEmber stops talking, ${this.emberMF(
+                    "his",
+                    "her"
+                )} face turns serious for a moment; ${this.emberMF(
+                    "he",
+                    "she"
+                )} looks deep in thought.  "<i>Dragons wouldn't mate a non-dragon... in fact, dragons wouldn't even find non-dragons attractive...</i>"  You think you hear ${this.emberMF(
+                    "him",
+                    "her"
+                )} mumble.  "<i>Dammit, then why do I feel this way...</i>"`
             );
             this.outx(
-                "\n\nYou ask " +
-                    this.emberMF("him", "her") +
-                    ' to speak up.  Ember blurts out, "<i>Nothing!  Lesson\'s over...</i>" before withdrawing into ' +
-                    this.emberMF("his", "her") +
-                    " den."
+                `\n\nYou ask ${this.emberMF(
+                    "him",
+                    "her"
+                )} to speak up.  Ember blurts out, "<i>Nothing!  Lesson's over...</i>" before withdrawing into ${this.emberMF(
+                    "his",
+                    "her"
+                )} den.`
             );
             // (+Affection)
             this.emberAffection(5);
@@ -1966,63 +2038,72 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             // Low affection:
             if (this.emberAffection() <= 25)
                 this.outx(
-                    "\n\nSnorting, Ember cracks an amused smile as " +
-                        this.emberMF("he", "she") +
-                        " chuckles. \"<i>What, does the 'Champion' think " +
-                        this.player.mf("him", "her") +
-                        "self worthy of courting me?  That's a good one!</i>\"  " +
-                        this.emberMF("He", "She") +
-                        " giggles openly to make " +
-                        this.emberMF("his", "her") +
-                        " lack of interest in you known... yet, it seems rather forced."
+                    `\n\nSnorting, Ember cracks an amused smile as ${this.emberMF(
+                        "he",
+                        "she"
+                    )} chuckles. "<i>What, does the 'Champion' think ${this.player.mf(
+                        "him",
+                        "her"
+                    )}self worthy of courting me?  That's a good one!</i>"  ${this.emberMF(
+                        "He",
+                        "She"
+                    )} giggles openly to make ${this.emberMF(
+                        "his",
+                        "her"
+                    )} lack of interest in you known... yet, it seems rather forced.`
                 );
             else if (this.emberAffection() <= 75)
                 this.outx(
-                    "\n\nYou swear you can see the dragon daydreaming at your words, but it doesn't last.  \"<i>Look, I don't mind some curiosity, but don't try and get fresh with me!</i>\"  " +
-                        this.emberMF("His", "Her") +
-                        " demeanor suggests annoyance, but just maybe it's a tough front, and " +
-                        this.emberMF("he", "she") +
-                        "'s really waiting for you to show some affection and attention."
+                    `\n\nYou swear you can see the dragon daydreaming at your words, but it doesn't last.  "<i>Look, I don't mind some curiosity, but don't try and get fresh with me!</i>"  ${this.emberMF(
+                        "His",
+                        "Her"
+                    )} demeanor suggests annoyance, but just maybe it's a tough front, and ${this.emberMF(
+                        "he",
+                        "she"
+                    )}'s really waiting for you to show some affection and attention.`
                 );
             // High affection:
             else
                 this.outx(
-                    "\n\nThe dragon makes no effort to hide " +
-                        this.emberMF("his", "her") +
-                        " embarrassed reaction as " +
-                        this.emberMF("he", "she") +
-                        ' reads a little too much into your inquiry.  "<i>Um.. I-ho... well...</i>" Ember stammers out.  "<i>Look, I have other things to do.</i>"'
+                    `\n\nThe dragon makes no effort to hide ${this.emberMF(
+                        "his",
+                        "her"
+                    )} embarrassed reaction as ${this.emberMF(
+                        "he",
+                        "she"
+                    )} reads a little too much into your inquiry.  "<i>Um.. I-ho... well...</i>" Ember stammers out.  "<i>Look, I have other things to do.</i>"`
                 );
             this.outx(
-                "\n\nWondering at the dragon's thoughts, you agree to call the conversation done, and politely thank " +
-                    this.emberMF("him", "her") +
-                    " for " +
-                    this.emberMF("his", "her") +
-                    " time."
+                `\n\nWondering at the dragon's thoughts, you agree to call the conversation done, and politely thank ${this.emberMF(
+                    "him",
+                    "her"
+                )} for ${this.emberMF("his", "her")} time.`
             );
             this.emberAffection(5);
         } else {
             this.outx(
-                "\n\nEmber begins talking about dragon habits, and the cave mouth framing " +
-                    this.emberMF("him", "her") +
-                    " makes you wonder why dragons dig such dens.  Ember shrugs.  \"<i>It's convenient.  The stone is tough and can resist all forms of hazard, plus I'll always know I can keep my stuff safe inside.</i>\"  " +
-                    this.emberMF("he", "she") +
-                    " stares at " +
-                    this.emberMF("his", "her") +
-                    " den in deep thought."
+                `\n\nEmber begins talking about dragon habits, and the cave mouth framing ${this.emberMF(
+                    "him",
+                    "her"
+                )} makes you wonder why dragons dig such dens.  Ember shrugs.  "<i>It's convenient.  The stone is tough and can resist all forms of hazard, plus I'll always know I can keep my stuff safe inside.</i>"  ${this.emberMF(
+                    "he",
+                    "she"
+                )} stares at ${this.emberMF("his", "her")} den in deep thought.`
             );
             this.outx(
                 '\n\n"<i>It\'s kinda small though... I might need a bigger one if...</i>"  Ember stops abruptly'
             );
             if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 1)
-                this.outx(", a blush creeping onto " + this.emberMF("his", "her") + " cheeks");
+                this.outx(`, a blush creeping onto ${this.emberMF("his", "her")} cheeks`);
             this.outx(".");
             this.outx(
-                "\n\nYou ask if " +
-                    this.emberMF("he", "she") +
-                    "'s all right.  \"<i>Huh?  Yes, I'm fine!  Anyways, lesson's over.</i>\"  Ember hurriedly goes back inside " +
-                    this.emberMF("his", "her") +
-                    " den."
+                `\n\nYou ask if ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s all right.  "<i>Huh?  Yes, I'm fine!  Anyways, lesson's over.</i>"  Ember hurriedly goes back inside ${this.emberMF(
+                    "his",
+                    "her"
+                )} den.`
             );
             this.emberAffection(5);
         }
@@ -2035,18 +2116,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         const choice: number = EmberScene.rand(4);
         let subChoice = 0;
         this.outx(
-            "You ask Ember for news of anything interesting " +
-                this.emberMF("he", "she") +
-                " has seen during " +
-                this.emberMF("his", "her") +
-                " aerial explorations of Mareth."
+            `You ask Ember for news of anything interesting ${this.emberMF(
+                "he",
+                "she"
+            )} has seen during ${this.emberMF("his", "her")} aerial explorations of Mareth.`
         );
         this.outx(
-            "\n\nEmber nods " +
-                this.emberMF("his", "her") +
-                " head and scratches " +
-                this.emberMF("his", "her") +
-                ' chin thoughtfully.  "<i>Let me think...</i>"'
+            `\n\nEmber nods ${this.emberMF("his", "her")} head and scratches ${this.emberMF(
+                "his",
+                "her"
+            )} chin thoughtfully.  "<i>Let me think...</i>"`
         );
 
         if (choice == 0) {
@@ -2217,13 +2296,14 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     private talkToEmberAboutYourself(): void {
         this.clearOutput();
         let points = 0;
-        this.outx("You ask Ember what " + this.emberMF("he", "she") + " thinks about you.");
+        this.outx(`You ask Ember what ${this.emberMF("he", "she")} thinks about you.`);
         // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outx(
-                '\n\n"<i>You\'re a waste of time,</i>" Ember says nonchalantly.  ' +
-                    this.emberMF("He", "She") +
-                    " walks past you and then flies off."
+                `\n\n"<i>You're a waste of time,</i>" Ember says nonchalantly.  ${this.emberMF(
+                    "He",
+                    "She"
+                )} walks past you and then flies off.`
             );
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
@@ -2231,11 +2311,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // There's a points system here, that can range from 0 to 8, this is used to check Ember's final answer after " + emberMF("he","she") + "'s done examining the PC.
         // (Medium/High Affection)
         this.outx(
-            "\n\nEmber puts a hand on " +
-                this.emberMF("his", "her") +
-                " chin and looks you over carefully.  " +
-                this.emberMF("He", "She") +
-                " closes up on you and grips your arms, checking your muscles."
+            `\n\nEmber puts a hand on ${this.emberMF(
+                "his",
+                "her"
+            )} chin and looks you over carefully.  ${this.emberMF(
+                "He",
+                "She"
+            )} closes up on you and grips your arms, checking your muscles.`
         );
         // (If PC Str < 50)
         if (this.player.str < 50)
@@ -2275,9 +2357,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (If PC Tou >= 90)
         else {
             this.outx(
-                "\"<i>Your body's as tough as rock, you should show off more frequently...  N-Not that I'd want you to go naked!  You should always wear something to protect yourself,</i>\" " +
-                    this.emberMF("he", "she") +
-                    " quickly adds."
+                `"<i>Your body's as tough as rock, you should show off more frequently...  N-Not that I'd want you to go naked!  You should always wear something to protect yourself,</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} quickly adds.`
             );
             // (+1 Affection)
             this.emberAffection(1);
@@ -2299,21 +2382,25 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (If PC Int >= 90)
         else {
             this.outx(
-                "Ember's eyes widen.  \"<i>I see great wisdom in your eyes...</i>\"  Ember's face grows more absent by the minute as " +
-                    this.emberMF("he", "she") +
-                    " looks at you in deep thought, until the trance breaks.  " +
-                    this.emberMF("He", "She") +
-                    ' blows at your face, brushing a claw on your forehead.  "<i>Y-You had something in your face... I wasn\'t staring into your steely eyes.</i>"'
+                `Ember's eyes widen.  "<i>I see great wisdom in your eyes...</i>"  Ember's face grows more absent by the minute as ${this.emberMF(
+                    "he",
+                    "she"
+                )} looks at you in deep thought, until the trance breaks.  ${this.emberMF(
+                    "He",
+                    "She"
+                )} blows at your face, brushing a claw on your forehead.  "<i>Y-You had something in your face... I wasn't staring into your steely eyes.</i>"`
             );
             // (+2 points)
             points += 2;
         }
         this.outx(
-            "\n\nEmber walks away, back turned to you.  Then suddenly " +
-                this.emberMF("he", "she") +
-                ' says "<i>Think fast!</i>" and flicks ' +
-                this.emberMF("his", "her") +
-                " tail, flinging a pebble at you.  "
+            `\n\nEmber walks away, back turned to you.  Then suddenly ${this.emberMF(
+                "he",
+                "she"
+            )} says "<i>Think fast!</i>" and flicks ${this.emberMF(
+                "his",
+                "her"
+            )} tail, flinging a pebble at you.  `
         );
 
         // (If PC Spd < 50)
@@ -2332,11 +2419,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (If PC Spd >= 90)
         else {
             this.outx(
-                "You easily catch the pebble and throw it back at Ember, surprising " +
-                    this.emberMF("him", "her") +
-                    '.  "<i>With reflexes like these, you could even...</i>" Ember mumbles.  "<i>D-Don\'t even think about it!</i>" ' +
-                    this.emberMF("he", "she") +
-                    " snaps."
+                `You easily catch the pebble and throw it back at Ember, surprising ${this.emberMF(
+                    "him",
+                    "her"
+                )}.  "<i>With reflexes like these, you could even...</i>" Ember mumbles.  "<i>D-Don't even think about it!</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} snaps.`
             );
             // (+2 points
             points += 2;
@@ -2349,13 +2438,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.dragonScore() >= 3
         ) {
             this.outx(
-                "  Ember's eyes linger on your form.  After a moment of awkward silence, you clear your throat.  " +
-                    this.emberMF("he", "she") +
-                    ' blinks and says hurriedly.  "<i>Sorry... I was just admiring you-</i>" Realizing what ' +
-                    this.emberMF("he", "she") +
-                    " was about to say,and quickly blurts out.  \"<i>I mean the weather! Yes, nice day today isn't it?</i>\"  You're not convinced, but let it slide. Ember recomposes and clears " +
-                    this.emberMF("his", "her") +
-                    " throat before saying."
+                `  Ember's eyes linger on your form.  After a moment of awkward silence, you clear your throat.  ${this.emberMF(
+                    "he",
+                    "she"
+                )} blinks and says hurriedly.  "<i>Sorry... I was just admiring you-</i>" Realizing what ${this.emberMF(
+                    "he",
+                    "she"
+                )} was about to say,and quickly blurts out.  "<i>I mean the weather! Yes, nice day today isn't it?</i>"  You're not convinced, but let it slide. Ember recomposes and clears ${this.emberMF(
+                    "his",
+                    "her"
+                )} throat before saying.`
             );
             // (+1 Affection)
             points++;
@@ -2369,17 +2461,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (else if points < 6)
         else if (points < 6) {
             this.outx(
-                "\"<i>You're doing fine, but make sure you don't slack off, and keep training.</i>\"  You thank Ember for sharing " +
-                    this.emberMF("his", "her") +
-                    " thoughts."
+                `"<i>You're doing fine, but make sure you don't slack off, and keep training.</i>"  You thank Ember for sharing ${this.emberMF(
+                    "his",
+                    "her"
+                )} thoughts.`
             );
         }
         // (else)
         else {
             this.outx(
-                "\"<i>You're quite a catch... if you strolled down the street you'd have dragons fawning all over you...</i>\"  Realizing what " +
-                    this.emberMF("he", "she") +
-                    ' just said, Ember coughs furiously.  "<i>I-I mean... lesser dragons might fawn all over you.  You don\'t meet my standards!</i>"'
+                `"<i>You're quite a catch... if you strolled down the street you'd have dragons fawning all over you...</i>"  Realizing what ${this.emberMF(
+                    "he",
+                    "she"
+                )} just said, Ember coughs furiously.  "<i>I-I mean... lesser dragons might fawn all over you.  You don't meet my standards!</i>"`
             );
             this.emberAffection(5);
         }
@@ -2399,11 +2493,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (Low Affection)
         if (this.emberAffection() <= 25)
             this.outx(
-                "The two of you talk about nothing in particular.  It's light, airy and pointless.  When you finish up, though, you realize something odd; Ember was doing " +
-                    this.emberMF("his", "her") +
-                    " best all throughout the conversation to avoid looking at your pregnant belly - almost as if " +
-                    this.emberMF("he", "she") +
-                    " were upset by it?"
+                `The two of you talk about nothing in particular.  It's light, airy and pointless.  When you finish up, though, you realize something odd; Ember was doing ${this.emberMF(
+                    "his",
+                    "her"
+                )} best all throughout the conversation to avoid looking at your pregnant belly - almost as if ${this.emberMF(
+                    "he",
+                    "she"
+                )} were upset by it?`
             );
         // (Moderate Affection)
         else if (this.emberAffection() < 75)
@@ -2413,9 +2509,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (High Affection)
         else
             this.outx(
-                'The expression Ember gives you is very cold.  "<i>What is the meaning of this!?</i>" ' +
-                    this.emberMF("he", "she") +
-                    ' says, motioning towards your bloated belly.  "<i>You\'re supposed to help <b>me</b> breed more dragons; not slut around with trash!</i>"  Ember blows out an indignant puff of smoke and walks away.'
+                `The expression Ember gives you is very cold.  "<i>What is the meaning of this!?</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} says, motioning towards your bloated belly.  "<i>You're supposed to help <b>me</b> breed more dragons; not slut around with trash!</i>"  Ember blows out an indignant puff of smoke and walks away.`
             );
     }
 
@@ -2427,64 +2524,66 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.flags[kFLAGS.EMBER_TALKS_TO_PC_ABOUT_PC_MOTHERING_DRAGONS] = 1;
         this.outx(
-            "You notice Ember's eyes are fixated on your swollen belly, and cautiously ask what " +
-                this.emberMF("he", "she") +
-                "'s looking at."
+            `You notice Ember's eyes are fixated on your swollen belly, and cautiously ask what ${this.emberMF(
+                "he",
+                "she"
+            )}'s looking at.`
         );
         this.outx(
             '\n\n"<i>I hope this is only the first of many...</i>" Ember mumbles, before realizing you asked a question.  "<i>Huh?  What?</i>"'
         );
         this.outx(
-            "\n\nCurious, you press " +
-                this.emberMF("him", "her") +
-                " on what " +
-                this.emberMF("he", "she") +
-                " means by that - about this being the first of many."
+            `\n\nCurious, you press ${this.emberMF("him", "her")} on what ${this.emberMF(
+                "he",
+                "she"
+            )} means by that - about this being the first of many.`
         );
         this.outx(
             '\n\n"<i>That- I didn\'t say anything like that!  I just asked how you were feeling!</i>" Ember steals a glance at your belly.'
         );
         this.outx(
-            "\n\nYou tell " +
-                this.emberMF("him", "her") +
-                " that you're feeling fine... though you must admit, this baby is getting kind of heavy.  You're certain, though, that " +
-                this.emberMF("he", "she") +
-                " said something else; grinning, you teasingly ask what it was."
+            `\n\nYou tell ${this.emberMF(
+                "him",
+                "her"
+            )} that you're feeling fine... though you must admit, this baby is getting kind of heavy.  You're certain, though, that ${this.emberMF(
+                "he",
+                "she"
+            )} said something else; grinning, you teasingly ask what it was.`
         );
         this.outx(
-            "\n\nEmber's shyness reaches a head, and " +
-                this.emberMF("he", "she") +
-                ' finally caves.  "<i>Fine!  So what if I liked having sex and impregnating you?  And what does it matter that I want to do it again?  Big deal!</i>"  Ember averts ' +
-                this.emberMF("his", "her") +
-                " gaze and crosses " +
-                this.emberMF("his", "her") +
-                " arms."
+            `\n\nEmber's shyness reaches a head, and ${this.emberMF(
+                "he",
+                "she"
+            )} finally caves.  "<i>Fine!  So what if I liked having sex and impregnating you?  And what does it matter that I want to do it again?  Big deal!</i>"  Ember averts ${this.emberMF(
+                "his",
+                "her"
+            )} gaze and crosses ${this.emberMF("his", "her")} arms.`
         );
         this.outx("\n\nYou ");
         if (this.player.lib < 40) this.outx("start at this revelation, then ");
         this.outx(
-            "give " +
-                this.emberMF("him", "her") +
-                " a sultry smile and seat yourself in " +
-                this.emberMF("his", "her") +
-                " lap.  Ember tries to hide any kind of reaction, but " +
-                this.emberMF("his", "her") +
-                " hardening prick tells you what " +
-                this.emberMF("he", "she") +
-                "'s really thinking.  " +
-                this.emberMF("He", "She") +
-                " bites " +
-                this.emberMF("his", "her") +
-                ' lower lip and finally gets up.  "<i>Oh, look at the time; I have to go!</i>"  Ember slides from under you and dashes away in an attempt to further conceal ' +
-                this.emberMF("his", "her") +
-                " arousal."
+            `give ${this.emberMF("him", "her")} a sultry smile and seat yourself in ${this.emberMF(
+                "his",
+                "her"
+            )} lap.  Ember tries to hide any kind of reaction, but ${this.emberMF(
+                "his",
+                "her"
+            )} hardening prick tells you what ${this.emberMF(
+                "he",
+                "she"
+            )}'s really thinking.  ${this.emberMF("He", "She")} bites ${this.emberMF(
+                "his",
+                "her"
+            )} lower lip and finally gets up.  "<i>Oh, look at the time; I have to go!</i>"  Ember slides from under you and dashes away in an attempt to further conceal ${this.emberMF(
+                "his",
+                "her"
+            )} arousal.`
         );
         this.outx(
-            "\n\nYou watch " +
-                this.emberMF("him", "her") +
-                " go with a smile; " +
-                this.emberMF("he", "she") +
-                "'s so fun to tease... you place a hand on your stomach for balance and strain yourself upright."
+            `\n\nYou watch ${this.emberMF("him", "her")} go with a smile; ${this.emberMF(
+                "he",
+                "she"
+            )}'s so fun to tease... you place a hand on your stomach for balance and strain yourself upright.`
         );
     }
 
@@ -2555,9 +2654,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     private emberBitchesAboutPCBeingFullOfEggs(): void {
         this.clearOutput();
         this.outx(
-            "As you try and think of a topic to talk about, you realize Ember is staring at your egg-swollen stomach - not with anger or disdain, but with interest.  With a smirk, you place one hand on your belly and ask if " +
-                this.emberMF("he", "she") +
-                " finds you interesting to look at like this."
+            `As you try and think of a topic to talk about, you realize Ember is staring at your egg-swollen stomach - not with anger or disdain, but with interest.  With a smirk, you place one hand on your belly and ask if ${this.emberMF(
+                "he",
+                "she"
+            )} finds you interesting to look at like this.`
         );
         this.outx(
             '\n\n"<i>Huh?  I wasn\'t staring!  Who would find a bunch of your unfertilized eggs interesting?</i>" Ember blurts out, averting her gaze.'
@@ -2567,9 +2667,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Erk... I... I need to go take a bath!  This idea is so gross I need to wash myself of it!</i>"  Ember quickly runs past you.'
         );
         this.outx(
-            "\n\nYou watch " +
-                this.emberMF("him", "her") +
-                " go and shake your head, wondering what that was about."
+            `\n\nYou watch ${this.emberMF(
+                "him",
+                "her"
+            )} go and shake your head, wondering what that was about.`
         );
         this.flags[kFLAGS.EMBER_OVI_BITCHED_YET] = 1;
     }
@@ -2581,13 +2682,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\nYou strive to keep your mind focused, but... your libido is screaming at you, "
         );
         if (this.player.hasCock()) {
-            this.outx("your " + EmberScene.num2Text(this.player.cockTotal()) + " stiff as iron");
+            this.outx(`your ${EmberScene.num2Text(this.player.cockTotal())} stiff as iron`);
             if (this.player.hasVagina()) this.outx(" and ");
         }
         if (this.player.hasVagina())
-            this.outx(
-                "your " + this.vaginaDescript() + " slick and wet with moisture, ready to fuck"
-            );
+            this.outx(`your ${this.vaginaDescript()} slick and wet with moisture, ready to fuck`);
         this.outx(".  You want sex so bad it almost hurts...");
         this.outx('\n\n"<i>What\'s the problem?  Too horny to think straight?</i>" Ember teases.');
         this.outx(
@@ -2605,9 +2704,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
         else
             this.outx(
-                '\n\nEmber plants a kiss on your cheek.  "<i>I could help you with... I-I mean, I suppose I could help you if you get on your knees and ask...</i>"  Judging by ' +
-                    this.emberMF("his", "her") +
-                    " averted gaze and husky voice, you doubt the request would need to be quite so formal."
+                `\n\nEmber plants a kiss on your cheek.  "<i>I could help you with... I-I mean, I suppose I could help you if you get on your knees and ask...</i>"  Judging by ${this.emberMF(
+                    "his",
+                    "her"
+                )} averted gaze and husky voice, you doubt the request would need to be quite so formal.`
             );
         this.outx("\n");
         this.flags[kFLAGS.EMBER_LUST_BITCHING_COUNTER] = 0;
@@ -2621,18 +2721,22 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\nYou try to hold a conversation with Ember, but it's hard for you to concentrate; you keep thinking about the delicious, soul-burning taste of hot, salty minotaur cum, straight from the bull-man's cock.  Inevitably, Ember asks you what the matter is and, salivating, you paint the picture for her."
         );
         this.outx(
-            "\n\nEmber suddenly throws back " +
-                this.emberMF("his", "her") +
-                " head with a terrible roar of fury that rattles the very rocks underfoot.  \"<i>I'll kill them!  I'll bash their brains out - I'll rip off their stinking hairy hides!  I'll gorge myself on their flesh and pick my teeth with their horns!  Nobody will poison you like that - nobody!</i>\""
+            `\n\nEmber suddenly throws back ${this.emberMF(
+                "his",
+                "her"
+            )} head with a terrible roar of fury that rattles the very rocks underfoot.  "<i>I'll kill them!  I'll bash their brains out - I'll rip off their stinking hairy hides!  I'll gorge myself on their flesh and pick my teeth with their horns!  Nobody will poison you like that - nobody!</i>"`
         );
         this.outx(
-            "\n\nBefore you can do anything, the livid dragon spreads " +
-                this.emberMF("his", "her") +
-                ' wings.  "<i>When I return I will watch you carefully, to see that you beat this... addiction.</i>" ' +
-                this.emberMF("He", "She") +
-                " flies away, heading in the direction of the mountains.  You've never seen " +
-                this.emberMF("him", "her") +
-                " so mad before..."
+            `\n\nBefore you can do anything, the livid dragon spreads ${this.emberMF(
+                "his",
+                "her"
+            )} wings.  "<i>When I return I will watch you carefully, to see that you beat this... addiction.</i>" ${this.emberMF(
+                "He",
+                "She"
+            )} flies away, heading in the direction of the mountains.  You've never seen ${this.emberMF(
+                "him",
+                "her"
+            )} so mad before...`
         );
         if (this.followerKiha())
             this.outx('\n\nKiha saunters up and smirks.  "<i>I thought I had a temper.</i>"');
@@ -2646,56 +2750,66 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     public emberGetOverFreakingOutAboutMinoJizz(): void {
         this.flags[kFLAGS.EMBER_CURRENTLY_FREAKING_ABOUT_MINOCUM] = 0;
         this.outx(
-            "\nYou should probably let Ember know that you are no longer plagued by thoughts of minotaurs... if only to prevent ecological collapse.  Fortunately enough, you find " +
-                this.emberMF("him", "her") +
-                " landing in front of " +
-                this.emberMF("his", "her") +
-                " den just then.  " +
-                this.emberMF("he", "she") +
-                " throws another minotaur's skull on the smallest pile, then turns to face you.  \"<i>What's got you so cheerful?</i>\" " +
-                this.emberMF("he", "she") +
-                " asks."
+            `\nYou should probably let Ember know that you are no longer plagued by thoughts of minotaurs... if only to prevent ecological collapse.  Fortunately enough, you find ${this.emberMF(
+                "him",
+                "her"
+            )} landing in front of ${this.emberMF("his", "her")} den just then.  ${this.emberMF(
+                "he",
+                "she"
+            )} throws another minotaur's skull on the smallest pile, then turns to face you.  "<i>What's got you so cheerful?</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} asks.`
         );
 
         this.outx(
-            "\n\nWhen you explain that you feel like you're over your addiction, " +
-                this.emberMF("his", "her") +
-                " face lights up.  " +
-                this.emberMF("he", "she") +
-                " gives a roar of delight and then suddenly envelops you in a crushing embrace - only to realize what " +
-                this.emberMF("he", "she") +
-                " is doing and shortly release you, looking obviously embarrassed."
+            `\n\nWhen you explain that you feel like you're over your addiction, ${this.emberMF(
+                "his",
+                "her"
+            )} face lights up.  ${this.emberMF(
+                "he",
+                "she"
+            )} gives a roar of delight and then suddenly envelops you in a crushing embrace - only to realize what ${this.emberMF(
+                "he",
+                "she"
+            )} is doing and shortly release you, looking obviously embarrassed.`
         );
         this.outx(
             '\n\n"<i>Th-that\'s great to hear.  Nobody should have to put up with something so undignified as an actual craving for sexual fluids, particularly from beasts like that.</i>"'
         );
 
         this.outx(
-            "\n\nYou point out that this means " +
-                this.emberMF("he", "she") +
-                " no longer has to hunt down minotaurs, for your sake. Which furthermore means, you note, that she can stop leaving cow skulls and hooves and other rubbish all over the camp."
+            `\n\nYou point out that this means ${this.emberMF(
+                "he",
+                "she"
+            )} no longer has to hunt down minotaurs, for your sake. Which furthermore means, you note, that she can stop leaving cow skulls and hooves and other rubbish all over the camp.`
         );
 
         this.outx(
-            "\n\n" +
-                this.emberMF("He", "She") +
-                " promptly lets out a thunderous belch, heavy and wet and vulgar, filling the air with the stink of blood and beef.  The dragon then looks idly at the 'trophy piles' " +
-                this.emberMF("he", "she") +
-                "'s built up."
+            `\n\n${this.emberMF(
+                "He",
+                "She"
+            )} promptly lets out a thunderous belch, heavy and wet and vulgar, filling the air with the stink of blood and beef.  The dragon then looks idly at the 'trophy piles' ${this.emberMF(
+                "he",
+                "she"
+            )}'s built up.`
         );
         // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outx(
-                '\n\n"<i>Stupid.  As if I was doing it for you.</i>"  Ember looks at you and quickly adds.  "<i>You\'re not worth the time if you take pleasure from sampling bulls\' dicks.</i>"  ' +
-                    this.emberMF("He", "She") +
-                    " turns away in a dismissive motion.  \"<i>Don't get any ideas; this doesn't mean we're friends or anything.  I just really hate those dumb cows.</i>\""
+                `\n\n"<i>Stupid.  As if I was doing it for you.</i>"  Ember looks at you and quickly adds.  "<i>You're not worth the time if you take pleasure from sampling bulls' dicks.</i>"  ${this.emberMF(
+                    "He",
+                    "She"
+                )} turns away in a dismissive motion.  "<i>Don't get any ideas; this doesn't mean we're friends or anything.  I just really hate those dumb cows.</i>"`
             );
             this.outx(
-                "\n\nWhether " +
-                    this.emberMF("he", "she") +
-                    " was hunting them to help you or " +
-                    this.emberMF("he", "she") +
-                    " just felt like beef for the last few days, the fact remains that she helped tamp down the, ah, temptation they presented."
+                `\n\nWhether ${this.emberMF(
+                    "he",
+                    "she"
+                )} was hunting them to help you or ${this.emberMF(
+                    "he",
+                    "she"
+                )} just felt like beef for the last few days, the fact remains that she helped tamp down the, ah, temptation they presented.`
             );
         }
         // (Medium Affection)
@@ -2704,29 +2818,34 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Finally... I was getting tired of eating roasted beef all the time.</i>"  Ember looks at you and quickly adds.  "<i>You should be grateful that I used a bit of my valuable time to help you!</i>"'
             );
             this.outx(
-                "\n\nYou tell her that you do appreciate " +
-                    this.emberMF("his", "her") +
-                    " intent, and you're sorry " +
-                    this.emberMF("he", "she") +
-                    " had to put " +
-                    this.emberMF("his", "her") +
-                    " stomach through so much abuse on your behalf."
+                `\n\nYou tell her that you do appreciate ${this.emberMF(
+                    "his",
+                    "her"
+                )} intent, and you're sorry ${this.emberMF("he", "she")} had to put ${this.emberMF(
+                    "his",
+                    "her"
+                )} stomach through so much abuse on your behalf.`
             );
             this.outx(
-                '\n\n"<i>Good.  Now, you, if you\'re so sorry, you can start by cooking me something to get the taste off my mouth.</i>"  Ember crosses ' +
-                    this.emberMF("his", "her") +
-                    " arms, waiting for you."
+                `\n\n"<i>Good.  Now, you, if you're so sorry, you can start by cooking me something to get the taste off my mouth.</i>"  Ember crosses ${this.emberMF(
+                    "his",
+                    "her"
+                )} arms, waiting for you.`
             );
             this.outx(
-                "\n\nNoting the chronic indigestion " +
-                    this.emberMF("he", "she") +
-                    " has been plagued with since starting this little crusade, you'd have thought the last thing " +
-                    this.emberMF("he", "she") +
-                    "'d want for a while is more food.  After all, the reason " +
-                    this.emberMF("he", "she") +
-                    "'s got such a bad case of wind is because " +
-                    this.emberMF("he", "she") +
-                    " keeps eating too much."
+                `\n\nNoting the chronic indigestion ${this.emberMF(
+                    "he",
+                    "she"
+                )} has been plagued with since starting this little crusade, you'd have thought the last thing ${this.emberMF(
+                    "he",
+                    "she"
+                )}'d want for a while is more food.  After all, the reason ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s got such a bad case of wind is because ${this.emberMF(
+                    "he",
+                    "she"
+                )} keeps eating too much.`
             );
             this.outx('\n\n"<i>Then get me a tea or something!</i>"  Ember replies indignantly.');
             this.outx("\n\nLife is fucking weird.");
@@ -2740,40 +2859,47 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
                 this.outx(", especially for sucking cock,");
             this.outx(
-                " you should come to me instead; I'll help you.</i>\"  Then as if realising what " +
-                    this.emberMF("he", "she") +
-                    "'s just implied, Ember looks away; and hurriedly adds, \"<i>But not the way you're thinking...</i>\""
+                ` you should come to me instead; I'll help you.</i>"  Then as if realising what ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s just implied, Ember looks away; and hurriedly adds, "<i>But not the way you're thinking...</i>"`
             );
             this.outx(
-                "\n\nYou simply lift an eyebrow and ask how else " +
-                    this.emberMF("he", "she") +
-                    " intends to help."
+                `\n\nYou simply lift an eyebrow and ask how else ${this.emberMF(
+                    "he",
+                    "she"
+                )} intends to help.`
             );
             this.outx(
-                '\n\n"<i>J-just forget it!</i>"  ' +
-                    this.emberMF("He", "She") +
-                    " turns to walk away, stopping briefly to stifle another burp and hold " +
-                    this.emberMF("his", "her") +
-                    " belly.  You call out to the dragon that eating minotaurs, bones and all, really can't be good for " +
-                    this.emberMF("his", "her") +
-                    " stomach; in fact, given the near-constant bellyaching and belching " +
-                    this.emberMF("he", "she") +
-                    "'s suffered through, maybe it's " +
-                    this.emberMF("him", "her") +
-                    " that needs the help?  Some medicine, or at least a bellyrub?"
+                `\n\n"<i>J-just forget it!</i>"  ${this.emberMF(
+                    "He",
+                    "She"
+                )} turns to walk away, stopping briefly to stifle another burp and hold ${this.emberMF(
+                    "his",
+                    "her"
+                )} belly.  You call out to the dragon that eating minotaurs, bones and all, really can't be good for ${this.emberMF(
+                    "his",
+                    "her"
+                )} stomach; in fact, given the near-constant bellyaching and belching ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s suffered through, maybe it's ${this.emberMF(
+                    "him",
+                    "her"
+                )} that needs the help?  Some medicine, or at least a bellyrub?`
             );
             this.outx(
-                '\n\n"<i>B-bellyrub?  What do I look like!?  A pet!?</i>" Ember yells, rubbing ' +
-                    this.emberMF("his", "her") +
-                    " belly " +
-                    this.emberMF("him", "her") +
-                    "self."
+                `\n\n"<i>B-bellyrub?  What do I look like!?  A pet!?</i>" Ember yells, rubbing ${this.emberMF(
+                    "his",
+                    "her"
+                )} belly ${this.emberMF("him", "her")}self.`
             );
         }
         this.outx(
-            "\n\nYou sigh softly, shake your head and walk away.  You're not certain you would have chosen the way that Ember 'helped' you get over your addiction, but you can't deny that " +
-                this.emberMF("he", "she") +
-                " really did mean to help, and in its way, it did.\n"
+            `\n\nYou sigh softly, shake your head and walk away.  You're not certain you would have chosen the way that Ember 'helped' you get over your addiction, but you can't deny that ${this.emberMF(
+                "he",
+                "she"
+            )} really did mean to help, and in its way, it did.\n`
         );
     }
 
@@ -2786,11 +2912,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     private bloodForTheBloodGod(): void {
         this.clearOutput();
         this.outx(
-            "You ask Ember if " +
-                this.emberMF("he", "she") +
-                " would be willing to give you a taste of " +
-                this.emberMF("his", "her") +
-                " blood, desirous of the power that lies within it."
+            `You ask Ember if ${this.emberMF(
+                "he",
+                "she"
+            )} would be willing to give you a taste of ${this.emberMF(
+                "his",
+                "her"
+            )} blood, desirous of the power that lies within it.`
         );
         // (If Ember hasn't recovered from the last time " + emberMF("he","she") + " shared her blood)
         if (this.flags[kFLAGS.DRANK_EMBER_BLOOD_TODAY] == 1 && !this.debug) {
@@ -2811,35 +2939,40 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outx(
-                '\n\n"<i>Hmm... fine!  If anything, I might rub off on you.  You could stand to be a bit more majestic!</i>"  Ember makes a cut on ' +
-                    this.emberMF("his", "her") +
-                    " palm with a claw, and presents to you the bleeding hand."
+                `\n\n"<i>Hmm... fine!  If anything, I might rub off on you.  You could stand to be a bit more majestic!</i>"  Ember makes a cut on ${this.emberMF(
+                    "his",
+                    "her"
+                )} palm with a claw, and presents to you the bleeding hand.`
             );
             this.outx("\n\nYou reach out and take it in yours");
             if (this.player.cor < 50)
                 this.outx(
-                    ", expressing your gratitude; gently, you kiss " +
-                        this.emberMF("his", "her") +
-                        " fingers, then the cut, letting its cool, iron-tinted tang roll across your lips and tongue.  You carefully lick, trying to avoid causing pain as you drink that which " +
-                        this.emberMF("he", "she") +
-                        " has so generously offered you."
+                    `, expressing your gratitude; gently, you kiss ${this.emberMF(
+                        "his",
+                        "her"
+                    )} fingers, then the cut, letting its cool, iron-tinted tang roll across your lips and tongue.  You carefully lick, trying to avoid causing pain as you drink that which ${this.emberMF(
+                        "he",
+                        "she"
+                    )} has so generously offered you.`
                 );
             else
                 this.outx(
                     ", quickly drawing it to your mouth and forming a seal around the cut with your lips, anxious to let not a drop escape."
                 );
             this.outx(
-                "\n\nEmber winces as you start to lick " +
-                    this.emberMF("his", "her") +
-                    " wound, but quickly recovers composure.  You dart your eyes up to look at " +
-                    this.emberMF("his", "her") +
-                    " face momentarily; " +
-                    this.emberMF("he", "she") +
-                    "'s a bit flustered and it's clear that your licking is bringing " +
-                    this.emberMF("him", "her") +
-                    " at least some relief from the pain of " +
-                    this.emberMF("his", "her") +
-                    " injury."
+                `\n\nEmber winces as you start to lick ${this.emberMF(
+                    "his",
+                    "her"
+                )} wound, but quickly recovers composure.  You dart your eyes up to look at ${this.emberMF(
+                    "his",
+                    "her"
+                )} face momentarily; ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s a bit flustered and it's clear that your licking is bringing ${this.emberMF(
+                    "him",
+                    "her"
+                )} at least some relief from the pain of ${this.emberMF("his", "her")} injury.`
             );
 
             this.outx(
@@ -2865,25 +2998,31 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>I think you\'ve been nice enough to deserve a small favor... but I expect you to make it worth my while.  Come and get it.</i>"'
             );
             this.outx(
-                "\n\nEmber bites " +
-                    this.emberMF("his", "her") +
-                    " tongue with a wicked, dagger-like fang and extends it a few inches past " +
-                    this.emberMF("his", "her") +
-                    " lips, smearing bluish blood on them and inviting you with open arms and a small kiss."
+                `\n\nEmber bites ${this.emberMF(
+                    "his",
+                    "her"
+                )} tongue with a wicked, dagger-like fang and extends it a few inches past ${this.emberMF(
+                    "his",
+                    "her"
+                )} lips, smearing bluish blood on them and inviting you with open arms and a small kiss.`
             );
             this.outx(
-                "\n\nIt would be rude to keep " +
-                    this.emberMF("him", "her") +
-                    " waiting; you slide over, letting " +
-                    this.emberMF("him", "her") +
-                    " enfold you in " +
-                    this.emberMF("his", "her") +
-                    " embrace and drawing the bloody tongue into your mouth."
+                `\n\nIt would be rude to keep ${this.emberMF(
+                    "him",
+                    "her"
+                )} waiting; you slide over, letting ${this.emberMF(
+                    "him",
+                    "her"
+                )} enfold you in ${this.emberMF(
+                    "his",
+                    "her"
+                )} embrace and drawing the bloody tongue into your mouth.`
             );
             this.outx(
-                "\n\nEmber kisses you back; " +
-                    this.emberMF("his", "her") +
-                    " bleeding tongue stroking yours lovingly."
+                `\n\nEmber kisses you back; ${this.emberMF(
+                    "his",
+                    "her"
+                )} bleeding tongue stroking yours lovingly.`
             );
             this.outx(
                 "\n\nAs you drink, you feel a rush of energy course throughout your body; you feel lofty, powerful, and erudite.  Who knows what will happen if you keep drinking?"
@@ -2917,42 +3056,45 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.emberAffection() < 75) {
             this.outx(
-                "You decide to stop for now and pull away.  Ember licks " +
-                    this.emberMF("his", "her") +
-                    " own wound " +
-                    this.emberMF("him", "her") +
-                    "self and you thank " +
-                    this.emberMF("him", "her") +
-                    " for sharing."
+                `You decide to stop for now and pull away.  Ember licks ${this.emberMF(
+                    "his",
+                    "her"
+                )} own wound ${this.emberMF("him", "her")}self and you thank ${this.emberMF(
+                    "him",
+                    "her"
+                )} for sharing.`
             );
             this.outx('\n\n"<i>D-Don\'t mention it...</i>"');
         } else {
             this.outx(
-                "You decide to stop for now and pull away.  Ember licks " +
-                    this.emberMF("his", "her") +
-                    " lips, draws " +
-                    this.emberMF("his", "her") +
-                    " tongue back into " +
-                    this.emberMF("his", "her") +
-                    " mouth and purrs with delight.  When " +
-                    this.emberMF("he", "she") +
-                    " realizes what " +
-                    this.emberMF("he", "she") +
-                    "'s doing, though, " +
-                    this.emberMF("he", "she") +
-                    ' sobers.  "<i>D-Don\'t get any strange ideas...</i>"'
+                `You decide to stop for now and pull away.  Ember licks ${this.emberMF(
+                    "his",
+                    "her"
+                )} lips, draws ${this.emberMF("his", "her")} tongue back into ${this.emberMF(
+                    "his",
+                    "her"
+                )} mouth and purrs with delight.  When ${this.emberMF(
+                    "he",
+                    "she"
+                )} realizes what ${this.emberMF("he", "she")}'s doing, though, ${this.emberMF(
+                    "he",
+                    "she"
+                )} sobers.  "<i>D-Don't get any strange ideas...</i>"`
             );
             this.outx(
-                "\n\nYou gently ask what " +
-                    this.emberMF("he", "she") +
-                    ' means by "<i>strange ideas</i>".'
+                `\n\nYou gently ask what ${this.emberMF(
+                    "he",
+                    "she"
+                )} means by "<i>strange ideas</i>".`
             );
             this.outx(
-                '\n\n"<i>The ones you\'re getting!</i>" Ember blurts out, before spinning on ' +
-                    this.emberMF("his", "her") +
-                    " heels and leaving you alone. You watch " +
-                    this.emberMF("him", "her") +
-                    " go and smile."
+                `\n\n"<i>The ones you're getting!</i>" Ember blurts out, before spinning on ${this.emberMF(
+                    "his",
+                    "her"
+                )} heels and leaving you alone. You watch ${this.emberMF(
+                    "him",
+                    "her"
+                )} go and smile.`
             );
         }
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -2968,9 +3110,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.emberTFs();
             this.outx('\n\n"<i>Ugh... you drank too much... I feel woozy,</i>" the dragon gripes.');
             this.outx(
-                "\n\nYou offer " +
-                    this.emberMF("him", "her") +
-                    ' a helping hand.  Ember, surprisingly, accepts your help.  "<i>Thanks.  I guess no more work for today... I need some food and a nap.</i>"'
+                `\n\nYou offer ${this.emberMF(
+                    "him",
+                    "her"
+                )} a helping hand.  Ember, surprisingly, accepts your help.  "<i>Thanks.  I guess no more work for today... I need some food and a nap.</i>"`
             );
         } else {
             this.outx(
@@ -2979,18 +3122,22 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             // output tf from below
             this.emberTFs();
             this.outx(
-                "\n\nAs you break the kiss; Ember leans over, supporting " +
-                    this.emberMF("him", "her") +
-                    'self on your shoulders.  "<i>Ugh... I guess we overdid it... I feel woozy.</i>"'
+                `\n\nAs you break the kiss; Ember leans over, supporting ${this.emberMF(
+                    "him",
+                    "her"
+                )}self on your shoulders.  "<i>Ugh... I guess we overdid it... I feel woozy.</i>"`
             );
             this.outx(
-                "\n\nYou quickly offer " +
-                    this.emberMF("him", "her") +
-                    " a helping hand, inquiring if " +
-                    this.emberMF("he", "she") +
-                    " is all right.  Ember accepts your help, using your hand to balance " +
-                    this.emberMF("him", "her") +
-                    'self.  "<i>I-I\'ll be fine... just, no more sharing for the day...</i>"'
+                `\n\nYou quickly offer ${this.emberMF(
+                    "him",
+                    "her"
+                )} a helping hand, inquiring if ${this.emberMF(
+                    "he",
+                    "she"
+                )} is all right.  Ember accepts your help, using your hand to balance ${this.emberMF(
+                    "him",
+                    "her"
+                )}self.  "<i>I-I'll be fine... just, no more sharing for the day...</i>"`
             );
         }
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -3018,9 +3165,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             // Randomly choose one of those locations
             const select: number = choices[EmberScene.rand(choices.length)];
             this.outx(
-                "\n\nYour " +
-                    this.cockDescript(select) +
-                    " tingles as pins and needles sweep across it.  You pull open your [armor] to watch as it changes; the tip elongates and tapers, like a spear; a series of ridges form along the shaft, giving it an almost segmented look, and a prominent knot swells at its base.  You can't resist stroking it, until it begins dripping pre; "
+                `\n\nYour ${this.cockDescript(
+                    select
+                )} tingles as pins and needles sweep across it.  You pull open your [armor] to watch as it changes; the tip elongates and tapers, like a spear; a series of ridges form along the shaft, giving it an almost segmented look, and a prominent knot swells at its base.  You can't resist stroking it, until it begins dripping pre; `
             );
             if (this.player.sens >= 50)
                 this.outx(
@@ -3171,11 +3318,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             EmberScene.rand(3) == 0
         ) {
             this.outx(
-                "\n\nPrickling discomfort suddenly erupts all over your body, like every last inch of your skin has suddenly developed pins and needles.  You scratch yourself, hoping for relief; and when you look at your hands you notice small fragments of your " +
-                    this.player.skinFurScales() +
-                    " hanging from your fingers.  Nevertheless you continue to scratch yourself, and when you're finally done, you look yourself over. New shield-like scales have grown to replace your peeled off " +
-                    this.player.skinFurScales() +
-                    ".  They are smooth and look nearly as tough as iron. <b>Your body is now covered in shield-shaped dragon scales.</b>"
+                `\n\nPrickling discomfort suddenly erupts all over your body, like every last inch of your skin has suddenly developed pins and needles.  You scratch yourself, hoping for relief; and when you look at your hands you notice small fragments of your ${this.player.skinFurScales()} hanging from your fingers.  Nevertheless you continue to scratch yourself, and when you're finally done, you look yourself over. New shield-like scales have grown to replace your peeled off ${this.player.skinFurScales()}.  They are smooth and look nearly as tough as iron. <b>Your body is now covered in shield-shaped dragon scales.</b>`
             );
             this.player.skinType = SKIN_TYPE_SCALES;
             this.player.skinAdj = "";
@@ -3235,9 +3378,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             // (If no tail)
             if (this.player.tailType == TAIL_TYPE_NONE)
                 this.outx(
-                    "\n\nA sudden dull, throbbing pain in your " +
-                        this.buttDescript() +
-                        " forces your hands to it; you can feel an ominous lump over your tail bone, swelling bigger and bigger with every heartbeat.  All of a sudden, it seems to explode, jutting out and around until it hovers near your ankles, the skin under your flesh hard and scaly.  <b>You now have a dragon tail flicking at your back, flexible as a whip.</b>"
+                    `\n\nA sudden dull, throbbing pain in your ${this.buttDescript()} forces your hands to it; you can feel an ominous lump over your tail bone, swelling bigger and bigger with every heartbeat.  All of a sudden, it seems to explode, jutting out and around until it hovers near your ankles, the skin under your flesh hard and scaly.  <b>You now have a dragon tail flicking at your back, flexible as a whip.</b>`
                 );
             // (If tail)
             else
@@ -3324,9 +3465,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             }
             if (this.player.hasVagina()) this.outx(this.vaginaDescript());
             this.outx(
-                ", making you wish Ember hadn't run you off.  All you can think about now is fucking " +
-                    this.emberMF("his", "her") +
-                    "; "
+                `, making you wish Ember hadn't run you off.  All you can think about now is fucking ${this.emberMF(
+                    "his",
+                    "her"
+                )}; `
             );
             if (this.player.hasCock() && this.flags[kFLAGS.EMBER_GENDER] >= 2) {
                 this.outx("filling her womb with your seed and fertilizing her eggs");
@@ -3338,7 +3480,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 (this.flags[kFLAGS.EMBER_GENDER] == 3 || this.flags[kFLAGS.EMBER_GENDER] == 1)
             )
                 this.outx(
-                    "taking that hard, spurting cock inside your own " + this.vaginaDescript(0)
+                    `taking that hard, spurting cock inside your own ${this.vaginaDescript(0)}`
                 );
             this.outx(
                 "... too late, you realize that <b>Ember's blood has sent your draconic body into "
@@ -3653,13 +3795,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("You think for a few moments, then find your gaze drawn to Ember's round, firm");
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outx(", scaly");
         this.outx(
-            " breasts, " +
-                this.emberMF("his", "her") +
-                " perky nipples bare as always and enticing you.  With a repressed smile, you ask if " +
-                this.emberMF("he", "she") +
-                "'ll let you suckle " +
-                this.emberMF("his", "her") +
-                " milk."
+            ` breasts, ${this.emberMF(
+                "his",
+                "her"
+            )} perky nipples bare as always and enticing you.  With a repressed smile, you ask if ${this.emberMF(
+                "he",
+                "she"
+            )}'ll let you suckle ${this.emberMF("his", "her")} milk.`
         );
         // Summary:
         // Usable only through Follower menu
@@ -3673,107 +3815,128 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>What!?  Why should I let you do that!?  Aren\'t you a bit too old to be suckling from a teat?</i>"'
             );
             this.outx(
-                "\n\nYou tell " +
-                    this.emberMF("him", "her") +
-                    " the honest truth; you're thirsty and " +
-                    this.emberMF("he", "she") +
-                    " looks absolutely delicious.  Besides, doesn't " +
-                    this.emberMF("he", "she") +
-                    " feel even the slightest bit pent up?  Aren't " +
-                    this.emberMF("his", "her") +
-                    " breasts simply aching with how full and heavy they are from all the weighty milk sloshing around inside them?  You're offering to help drain them and make " +
-                    this.emberMF("him", "her") +
-                    " feel better..."
+                `\n\nYou tell ${this.emberMF(
+                    "him",
+                    "her"
+                )} the honest truth; you're thirsty and ${this.emberMF(
+                    "he",
+                    "she"
+                )} looks absolutely delicious.  Besides, doesn't ${this.emberMF(
+                    "he",
+                    "she"
+                )} feel even the slightest bit pent up?  Aren't ${this.emberMF(
+                    "his",
+                    "her"
+                )} breasts simply aching with how full and heavy they are from all the weighty milk sloshing around inside them?  You're offering to help drain them and make ${this.emberMF(
+                    "him",
+                    "her"
+                )} feel better...`
             );
             this.outx(
-                '\n\nEmber\'s face clouds at your comments.  "<i>They do feel full sometimes... but these are not meant for you!</i>"  ' +
-                    this.emberMF("His", "Her") +
-                    " hands cover " +
-                    this.emberMF("his", "her") +
-                    " breasts protectively."
+                `\n\nEmber's face clouds at your comments.  "<i>They do feel full sometimes... but these are not meant for you!</i>"  ${this.emberMF(
+                    "His",
+                    "Her"
+                )} hands cover ${this.emberMF("his", "her")} breasts protectively.`
             );
             this.outx(
-                "\n\nYou ask who they are meant for, then - " +
-                    this.emberMF("he", "she") +
-                    " can't drink from them " +
-                    this.emberMF("him", "her") +
-                    "self and "
+                `\n\nYou ask who they are meant for, then - ${this.emberMF(
+                    "he",
+                    "she"
+                )} can't drink from them ${this.emberMF("him", "her")}self and `
             );
             // noEmberkids:
             if (this.flags[kFLAGS.EMBER_EGGS] == 0 && this.emberChildren() == 0)
-                this.outx(this.emberMF("he", "she") + " has no offspring to feed them with");
+                this.outx(`${this.emberMF("he", "she")} has no offspring to feed them with`);
             // (1+ EmberEggs:
             else if (this.flags[kFLAGS.EMBER_EGGS] > 0)
-                this.outx(this.emberMF("his", "her") + " children haven't hatched yet");
+                this.outx(`${this.emberMF("his", "her")} children haven't hatched yet`);
             else
                 this.outx(
-                    this.emberMF("his", "her") +
-                        " children don't drink nearly enough to properly empty " +
-                        this.emberMF("him", "her") +
-                        "), so is " +
-                        this.emberMF("he", "she") +
-                        " just going to suffer with " +
-                        this.emberMF("his", "her") +
-                        " breasts so full and aching?"
+                    `${this.emberMF(
+                        "his",
+                        "her"
+                    )} children don't drink nearly enough to properly empty ${this.emberMF(
+                        "him",
+                        "her"
+                    )}), so is ${this.emberMF(
+                        "he",
+                        "she"
+                    )} just going to suffer with ${this.emberMF(
+                        "his",
+                        "her"
+                    )} breasts so full and aching?`
                 );
             this.outx(
-                "\n\nEmber's eyes sink, deep in thought; finally, with a sigh, " +
-                    this.emberMF("he", "she") +
-                    ' concedes.  "<i>Fine.  But if you do anything weird I swear I\'ll hit you!</i>"'
+                `\n\nEmber's eyes sink, deep in thought; finally, with a sigh, ${this.emberMF(
+                    "he",
+                    "she"
+                )} concedes.  "<i>Fine.  But if you do anything weird I swear I'll hit you!</i>"`
             );
             this.outx(
-                "\n\nYou promise to behave yourself, and tell " +
-                    this.emberMF("his", "her") +
-                    " to get comfortable so that you can nurse together."
+                `\n\nYou promise to behave yourself, and tell ${this.emberMF(
+                    "his",
+                    "her"
+                )} to get comfortable so that you can nurse together.`
             );
             this.outx(
-                "\n\nEmber reclines on a pile of leaves inside her den, back against the wall, then gently drops " +
-                    this.emberMF("his", "her") +
-                    " arms to " +
-                    this.emberMF("his", "her") +
-                    " side.  " +
-                    this.emberMF("His", "Her") +
-                    " distraction deepens as " +
-                    this.emberMF("he", "she") +
-                    ' says, "<i>Let\'s get this over with, then...</i>"'
+                `\n\nEmber reclines on a pile of leaves inside her den, back against the wall, then gently drops ${this.emberMF(
+                    "his",
+                    "her"
+                )} arms to ${this.emberMF("his", "her")} side.  ${this.emberMF(
+                    "His",
+                    "Her"
+                )} distraction deepens as ${this.emberMF(
+                    "he",
+                    "she"
+                )} says, "<i>Let's get this over with, then...</i>"`
             );
             this.outx(
-                "\n\nYou approach and seat yourself in " +
-                    this.emberMF("his", "her") +
-                    " lap, gently reaching up to stroke " +
-                    this.emberMF("his", "her") +
-                    " bountiful, milk-filled breasts."
+                `\n\nYou approach and seat yourself in ${this.emberMF(
+                    "his",
+                    "her"
+                )} lap, gently reaching up to stroke ${this.emberMF(
+                    "his",
+                    "her"
+                )} bountiful, milk-filled breasts.`
             );
             this.outx(
-                "\n\nEmber flinches at the initial contact but remains calm as you continue to touch and caress " +
-                    this.emberMF("his", "her") +
-                    " bosom, feeling the weight and the smoothness of the "
+                `\n\nEmber flinches at the initial contact but remains calm as you continue to touch and caress ${this.emberMF(
+                    "his",
+                    "her"
+                )} bosom, feeling the weight and the smoothness of the `
             );
             if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outx("scales");
             else this.outx("skin");
             this.outx(
-                ".  " +
-                    this.emberMF("He", "She") +
-                    " lets out a cute gasp of pleasure, eyes darting furiously around to look at anything but you. You beam a smile and " +
-                    this.emberMF("he", "she") +
-                    " turns her head away in embarrassment.  \"<i>T-They're not getting any emptier like this, y'know!?</i>\""
+                `.  ${this.emberMF(
+                    "He",
+                    "She"
+                )} lets out a cute gasp of pleasure, eyes darting furiously around to look at anything but you. You beam a smile and ${this.emberMF(
+                    "he",
+                    "she"
+                )} turns her head away in embarrassment.  "<i>T-They're not getting any emptier like this, y'know!?</i>"`
             );
             this.outx(
-                "\n\nYour ministrations continue unperturbed until " +
-                    this.emberMF("his", "her") +
-                    " nipples perk up and begin to weep the first drops of milk; then, seeing " +
-                    this.emberMF("he", "she") +
-                    " is ready, you gently close your lips around " +
-                    this.emberMF("his", "her") +
-                    " first nipple.  You savor the flavor as it hits your tongue; it's cool and refreshing, crisp and sweet and with a taste you can't quite place... this must be Ember's personal spice.  It's so different from anything else.  It tastes more sweetish, and you pull harder."
+                `\n\nYour ministrations continue unperturbed until ${this.emberMF(
+                    "his",
+                    "her"
+                )} nipples perk up and begin to weep the first drops of milk; then, seeing ${this.emberMF(
+                    "he",
+                    "she"
+                )} is ready, you gently close your lips around ${this.emberMF(
+                    "his",
+                    "her"
+                )} first nipple.  You savor the flavor as it hits your tongue; it's cool and refreshing, crisp and sweet and with a taste you can't quite place... this must be Ember's personal spice.  It's so different from anything else.  It tastes more sweetish, and you pull harder.`
             );
             this.outx('\n\n"<i>Ah!  This feels nice... don\'t you dare stop.</i>"');
             this.outx(
-                "\n\nYou need no further encouragement to bury your face fully into " +
-                    this.emberMF("his", "her") +
-                    " bosom and start suckling in earnest.  Though you can relish the temperature contrast between the two of you with " +
-                    this.emberMF("his", "her") +
-                    " flesh being pleasantly cooler than yours, your focus is on the milk."
+                `\n\nYou need no further encouragement to bury your face fully into ${this.emberMF(
+                    "his",
+                    "her"
+                )} bosom and start suckling in earnest.  Though you can relish the temperature contrast between the two of you with ${this.emberMF(
+                    "his",
+                    "her"
+                )} flesh being pleasantly cooler than yours, your focus is on the milk.`
             );
             // (If Ember is male/herm)
             if (this.flags[kFLAGS.EMBER_GENDER] != 2) {
@@ -3781,13 +3944,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 if (!this.player.isTaur()) this.outx("belly");
                 else this.outx("back");
                 this.outx(
-                    " and look down at Ember's engorging shaft.  Smiling around Ember's nipple, you start to gently stroke and squeeze the partially-erect draconic dick " +
-                        this.emberMF("he", "she") +
-                        "'s presenting.  If " +
-                        this.emberMF("he", "she") +
-                        "'s enjoying this so much, well, why not make it all the more fun for " +
-                        this.emberMF("him", "her") +
-                        "?"
+                    ` and look down at Ember's engorging shaft.  Smiling around Ember's nipple, you start to gently stroke and squeeze the partially-erect draconic dick ${this.emberMF(
+                        "he",
+                        "she"
+                    )}'s presenting.  If ${this.emberMF(
+                        "he",
+                        "she"
+                    )}'s enjoying this so much, well, why not make it all the more fun for ${this.emberMF(
+                        "him",
+                        "her"
+                    )}?`
                 );
             }
             // (else)
@@ -3800,14 +3966,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nSuddenly, as realization dawns, Ember gets up, knocking you flat on your back. \"<i>W-what do you think you're doing!?  I didn't say you could touch me!</i>\""
             );
             this.outx(
-                "\n\nYou apologize, but point out that it looked like " +
-                    this.emberMF("he", "she") +
-                    " was enjoying the contact as much as you were enjoying her milk."
+                `\n\nYou apologize, but point out that it looked like ${this.emberMF(
+                    "he",
+                    "she"
+                )} was enjoying the contact as much as you were enjoying her milk.`
             );
             this.outx(
-                '\n\nEmber flushes with embarrassment.  "<i>I-I... That\'s it!  No more milk for you!</i>" ' +
-                    this.emberMF("he", "she") +
-                    " declares, hauling you upright and shooing you out of her den."
+                `\n\nEmber flushes with embarrassment.  "<i>I-I... That's it!  No more milk for you!</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} declares, hauling you upright and shooing you out of her den.`
             );
             this.outx(
                 "\n\nYou shake your head with good temper.  Still, you got your fill of her milk, and you feel refreshed and renewed, new vitality flowing through your veins."
@@ -3834,9 +4002,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 }
                 if (this.player.hasVagina()) this.outx(this.vaginaDescript());
                 this.outx(
-                    ", making you wish Ember hadn't run you off.  All you can think about now is fucking " +
-                        this.emberMF("his", "her") +
-                        "; "
+                    `, making you wish Ember hadn't run you off.  All you can think about now is fucking ${this.emberMF(
+                        "his",
+                        "her"
+                    )}; `
                 );
                 if (this.player.hasCock() && this.flags[kFLAGS.EMBER_GENDER] >= 2) {
                     this.outx("filling her womb with your seed and fertilizing her eggs");
@@ -3848,7 +4017,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     (this.flags[kFLAGS.EMBER_GENDER] == 3 || this.flags[kFLAGS.EMBER_GENDER] == 1)
                 )
                     this.outx(
-                        "taking that hard, spurting cock inside your own " + this.vaginaDescript(0)
+                        `taking that hard, spurting cock inside your own ${this.vaginaDescript(0)}`
                     );
                 this.outx(
                     "... too late, you realize that <b>Ember's milk has sent your draconic body into "
@@ -3868,46 +4037,54 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outx(
-                '\n\n"<i>Okay.  I guess I can give you a treat... but no funny ideas!</i>"  That said, Ember walks into ' +
-                    this.emberMF("his", "her") +
-                    " den to settle on a pile of soft leaves against the cave wall."
+                `\n\n"<i>Okay.  I guess I can give you a treat... but no funny ideas!</i>"  That said, Ember walks into ${this.emberMF(
+                    "his",
+                    "her"
+                )} den to settle on a pile of soft leaves against the cave wall.`
             );
             this.outx(
-                "\n\nYou promise to behave yourself, and seat yourself in " +
-                    this.emberMF("his", "her") +
-                    " lap, reaching up to stroke " +
-                    this.emberMF("his", "her") +
-                    " bountiful, milk-filled breasts."
+                `\n\nYou promise to behave yourself, and seat yourself in ${this.emberMF(
+                    "his",
+                    "her"
+                )} lap, reaching up to stroke ${this.emberMF(
+                    "his",
+                    "her"
+                )} bountiful, milk-filled breasts.`
             );
             this.outx(
-                "\n\nEmber's eyes widen as " +
-                    this.emberMF("he", "she") +
-                    ' gasps in pleasure at your initial contact.  "<i>N-Not so fast!  At least give me a warning before you start.  They\'re sensitive...</i>"'
+                `\n\nEmber's eyes widen as ${this.emberMF(
+                    "he",
+                    "she"
+                )} gasps in pleasure at your initial contact.  "<i>N-Not so fast!  At least give me a warning before you start.  They're sensitive...</i>"`
             );
             this.outx(
-                "\n\nYou apologize... though now that you know " +
-                    this.emberMF("he", "she") +
-                    " likes this, you can't resist teasing " +
-                    this.emberMF("him", "her") +
-                    " by massaging " +
-                    this.emberMF("his", "her") +
-                    " breasts and twiddling " +
-                    this.emberMF("his", "her") +
-                    " nipples in the most arousing manner you can."
+                `\n\nYou apologize... though now that you know ${this.emberMF(
+                    "he",
+                    "she"
+                )} likes this, you can't resist teasing ${this.emberMF(
+                    "him",
+                    "her"
+                )} by massaging ${this.emberMF("his", "her")} breasts and twiddling ${this.emberMF(
+                    "his",
+                    "her"
+                )} nipples in the most arousing manner you can.`
             );
             this.outx(
-                "\n\nEmber purrs for most of the treatment, and every time your fingers brush against " +
-                    this.emberMF("his", "her") +
-                    ' nipples she gasps in pleasure.  "<i>What are you doing?  Ah!  Are you going to get started or not?  If you keep this up...</i>"'
+                `\n\nEmber purrs for most of the treatment, and every time your fingers brush against ${this.emberMF(
+                    "his",
+                    "her"
+                )} nipples she gasps in pleasure.  "<i>What are you doing?  Ah!  Are you going to get started or not?  If you keep this up...</i>"`
             );
             // (if Ember has a dick)
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
                 this.outx(
-                    "\n\nYou feel a poke; looking down, you spot Ember's shaft, poking at you.  When you look up again, " +
-                        this.emberMF("his", "her") +
-                        ' face goes completely tight with embarrassment.  "<i>This is your fault!</i>" Ember declares dryly, trying to hide the fact that ' +
-                        this.emberMF("he", "she") +
-                        "'s enjoying this a bit too much."
+                    `\n\nYou feel a poke; looking down, you spot Ember's shaft, poking at you.  When you look up again, ${this.emberMF(
+                        "his",
+                        "her"
+                    )} face goes completely tight with embarrassment.  "<i>This is your fault!</i>" Ember declares dryly, trying to hide the fact that ${this.emberMF(
+                        "he",
+                        "she"
+                    )}'s enjoying this a bit too much.`
                 );
             } else {
                 this.outx(
@@ -3915,9 +4092,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
             this.outx(
-                "\n\nYou smile and tell her that you'll take full responsibility.  Deciding you've had enough foreplay for now and seeing that milk has started to seep from " +
-                    this.emberMF("his", "her") +
-                    " flush, aroused nipples, you forego any further conversation by leaning in and capturing the nearest one in your mouth."
+                `\n\nYou smile and tell her that you'll take full responsibility.  Deciding you've had enough foreplay for now and seeing that milk has started to seep from ${this.emberMF(
+                    "his",
+                    "her"
+                )} flush, aroused nipples, you forego any further conversation by leaning in and capturing the nearest one in your mouth.`
             );
             this.outx(
                 "\n\nEmber's rumbling purr as you finally get started on your task vibrates your chosen breast; the yielding "
@@ -3928,52 +4106,64 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 " sloshing with their ever-full load.  It appears that the more you drink, the more milk Ember will produce; you don't have time to ponder such things at the moment, though, as the tasty flow of sweet, refreshing dragon milk spilling into your mouth to settle on your hungry belly is all that you can worry about at the moment."
             );
             this.outx(
-                "\n\nAt one point Ember's arms encircle you, wrapping you in a soft embrace so very unlike " +
-                    this.emberMF("his", "her") +
-                    " brash personality.  You almost lose yourself in Ember's soft mounds, and from the looks of things; Ember seems to be similarly absorbed in nursing you with " +
-                    this.emberMF("his", "her") +
-                    " breast milk.  You happily give yourself over to " +
-                    this.emberMF("his", "her") +
-                    " desires, burying your " +
-                    this.player.face() +
-                    " in the pleasant coolness of " +
-                    this.emberMF("his", "her") +
-                    " bosom and glutting yourself."
+                `\n\nAt one point Ember's arms encircle you, wrapping you in a soft embrace so very unlike ${this.emberMF(
+                    "his",
+                    "her"
+                )} brash personality.  You almost lose yourself in Ember's soft mounds, and from the looks of things; Ember seems to be similarly absorbed in nursing you with ${this.emberMF(
+                    "his",
+                    "her"
+                )} breast milk.  You happily give yourself over to ${this.emberMF(
+                    "his",
+                    "her"
+                )} desires, burying your ${this.player.face()} in the pleasant coolness of ${this.emberMF(
+                    "his",
+                    "her"
+                )} bosom and glutting yourself.`
             );
             this.outx(
-                "\n\nFinally, however, your appetite dwindles; you have stuffed yourself with as much as you can bear and so you stop suckling, letting " +
-                    this.emberMF("his", "her") +
-                    " nipple pop out between your lips to continue dribbling milk down your face and chest, cuddling into the blissed-out dragon while you have the excuse."
+                `\n\nFinally, however, your appetite dwindles; you have stuffed yourself with as much as you can bear and so you stop suckling, letting ${this.emberMF(
+                    "his",
+                    "her"
+                )} nipple pop out between your lips to continue dribbling milk down your face and chest, cuddling into the blissed-out dragon while you have the excuse.`
             );
             this.outx(
-                "\n\nEmber stops " +
-                    this.emberMF("his", "her") +
-                    ' humming and sighs; part in relief and part in disappointment.  "<i>Done?  Have you had enough?</i>"'
+                `\n\nEmber stops ${this.emberMF(
+                    "his",
+                    "her"
+                )} humming and sighs; part in relief and part in disappointment.  "<i>Done?  Have you had enough?</i>"`
             );
             this.outx(
-                "\n\nYou admit to " +
-                    this.emberMF("him", "her") +
-                    " that you are full, and thank " +
-                    this.emberMF("him", "her") +
-                    " for sharing the generous bounty of delicious milk."
+                `\n\nYou admit to ${this.emberMF(
+                    "him",
+                    "her"
+                )} that you are full, and thank ${this.emberMF(
+                    "him",
+                    "her"
+                )} for sharing the generous bounty of delicious milk.`
             );
             this.outx(
-                "\n\nEmber can't hide the faintest of smiles that graces " +
-                    this.emberMF("his", "her") +
-                    " scaly face.  You yelp softly as you feel a sharp prick against your belly; when you feel it again, you jump out of Ember's lap to reveal the clawed finger prodding you.  \"<i>Payback for teasing me earlier.  And don't think I'll be feeding you my milk everytime you ask,</i>\" " +
-                    this.emberMF("he", "she") +
-                    " finishes, with a small puff of smoke."
+                `\n\nEmber can't hide the faintest of smiles that graces ${this.emberMF(
+                    "his",
+                    "her"
+                )} scaly face.  You yelp softly as you feel a sharp prick against your belly; when you feel it again, you jump out of Ember's lap to reveal the clawed finger prodding you.  "<i>Payback for teasing me earlier.  And don't think I'll be feeding you my milk everytime you ask,</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} finishes, with a small puff of smoke.`
             );
             this.outx(
-                "\n\nYou can't resist pointing out that " +
-                    this.emberMF("he", "she") +
-                    " certainly seemed eager to let you drink your fill, and you didn't hear any complaining over " +
-                    this.emberMF("his", "her") +
-                    " purring.  Before " +
-                    this.emberMF("he", "she") +
-                    " can rebut that, you turn and leave the dragon in " +
-                    this.emberMF("his", "her") +
-                    " den."
+                `\n\nYou can't resist pointing out that ${this.emberMF(
+                    "he",
+                    "she"
+                )} certainly seemed eager to let you drink your fill, and you didn't hear any complaining over ${this.emberMF(
+                    "his",
+                    "her"
+                )} purring.  Before ${this.emberMF(
+                    "he",
+                    "she"
+                )} can rebut that, you turn and leave the dragon in ${this.emberMF(
+                    "his",
+                    "her"
+                )} den.`
             );
             this.outx(
                 "\n\nThe drink you got did you plenty of good; you feel refreshed and renewed, new vitality flowing through your veins."
@@ -3999,9 +4189,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 }
                 if (this.player.hasVagina()) this.outx(this.vaginaDescript());
                 this.outx(
-                    ", making you wish Ember hadn't run you off.  All you can think about now is fucking " +
-                        this.emberMF("his", "her") +
-                        "; "
+                    `, making you wish Ember hadn't run you off.  All you can think about now is fucking ${this.emberMF(
+                        "his",
+                        "her"
+                    )}; `
                 );
                 if (this.player.hasCock() && this.flags[kFLAGS.EMBER_GENDER] >= 2) {
                     this.outx("filling her womb with your seed and fertilizing her eggs");
@@ -4013,7 +4204,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     (this.flags[kFLAGS.EMBER_GENDER] == 3 || this.flags[kFLAGS.EMBER_GENDER] == 1)
                 )
                     this.outx(
-                        "taking that hard, spurting cock inside your own " + this.vaginaDescript(0)
+                        `taking that hard, spurting cock inside your own ${this.vaginaDescript(0)}`
                     );
                 this.outx(
                     "... too late, you realize that <b>Ember's milk has sent your draconic body into "
@@ -4036,7 +4227,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nEmber's tail waggles at your request even as she forces a frown, and you swear you can see "
             );
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
-                this.outx("the faintest hint of " + this.emberMF("his", "her") + " cock ");
+                this.outx(`the faintest hint of ${this.emberMF("his", "her")} cock `);
                 if (
                     this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 ||
                     this.flags[kFLAGS.EMBER_INTERNAL_DICK] > 0
@@ -4048,52 +4239,60 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '.  "<i>Ok... I suppose I could use some help draining myself, but no funny moves!</i>"'
             );
             this.outx(
-                "\n\nYou promise that you won't try anything... so long as " +
-                    this.emberMF("he", "she") +
-                    " promises to do the same."
+                `\n\nYou promise that you won't try anything... so long as ${this.emberMF(
+                    "he",
+                    "she"
+                )} promises to do the same.`
             );
             this.outx(
-                "\n\nEmber's frown deepens.  \"<i>Don't be silly!  I would never do that!</i>\" Ember finds a nice spot by the den's wall and plops down on a pile of leaves; then " +
-                    this.emberMF("he", "she") +
-                    " opens " +
-                    this.emberMF("his", "her") +
-                    ' arms invitingly and says, "<i>Come on then, let\'s get this over with.</i>"'
+                `\n\nEmber's frown deepens.  "<i>Don't be silly!  I would never do that!</i>" Ember finds a nice spot by the den's wall and plops down on a pile of leaves; then ${this.emberMF(
+                    "he",
+                    "she"
+                )} opens ${this.emberMF(
+                    "his",
+                    "her"
+                )} arms invitingly and says, "<i>Come on then, let's get this over with.</i>"`
             );
             this.outx(
-                "\n\nWith a wide smile on your face, you approach and seat yourself, noting " +
-                    this.emberMF("his", "her") +
-                    " nipples are already starting to dribble milk.  You wonder if you should play with " +
-                    this.emberMF("him", "her") +
-                    " first or just start suckling..."
+                `\n\nWith a wide smile on your face, you approach and seat yourself, noting ${this.emberMF(
+                    "his",
+                    "her"
+                )} nipples are already starting to dribble milk.  You wonder if you should play with ${this.emberMF(
+                    "him",
+                    "her"
+                )} first or just start suckling...`
             );
 
             this.outx(
-                "\n\nYou don't need to wonder for long; a not-so-innocent caress on your [butt] is all the direction you could want.  You grin wickedly and start to squeeze " +
-                    this.emberMF("his", "her") +
-                    " impressive bosom, telling " +
-                    this.emberMF("him", "her") +
-                    " that " +
-                    this.emberMF("he", "she") +
-                    " must be so proud to be so big and round, and yet so firm, without the slightest hint of sagging or flab in " +
-                    this.emberMF("his", "her") +
-                    " breasts."
+                `\n\nYou don't need to wonder for long; a not-so-innocent caress on your [butt] is all the direction you could want.  You grin wickedly and start to squeeze ${this.emberMF(
+                    "his",
+                    "her"
+                )} impressive bosom, telling ${this.emberMF("him", "her")} that ${this.emberMF(
+                    "he",
+                    "she"
+                )} must be so proud to be so big and round, and yet so firm, without the slightest hint of sagging or flab in ${this.emberMF(
+                    "his",
+                    "her"
+                )} breasts.`
             );
             this.outx(
                 "\n\nEmber blows a puff of smoke in confidence.  \"<i>Of course I'm proud.  Bet you don't see girls with breasts as perfect as mine.</i>\""
             );
             this.outx(
-                "\n\nYou admit you don't, then lean in to kiss " +
-                    this.emberMF("his", "her") +
-                    " seeping nipple, sucking the teat in between your lips and expertly rolling and sliding it between them, tickling its tip and savoring the hints of " +
-                    this.emberMF("his", "her") +
-                    " sweet, cool, naturally-spiced milk."
+                `\n\nYou admit you don't, then lean in to kiss ${this.emberMF(
+                    "his",
+                    "her"
+                )} seeping nipple, sucking the teat in between your lips and expertly rolling and sliding it between them, tickling its tip and savoring the hints of ${this.emberMF(
+                    "his",
+                    "her"
+                )} sweet, cool, naturally-spiced milk.`
             );
             this.outx(
                 "\n\nBut your focus is on playing with your dragon right now, rather than straightforward drinking, and so one hands creeps purposefully towards "
             );
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
                 this.outx(
-                    this.emberMF("his", "her") + " erecting dragon-prick, gently stroking its"
+                    `${this.emberMF("his", "her")} erecting dragon-prick, gently stroking its`
                 );
                 if (
                     this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 ||
@@ -4114,38 +4313,42 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nWith an innocent look, you start to suckle in earnest, even as your hand continues to "
             );
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
-                this.outx("stroke " + this.emberMF("his", "her") + " shaft");
+                this.outx(`stroke ${this.emberMF("his", "her")} shaft`);
             else this.outx("probe gently into her slick depths");
             this.outx(
                 ".  Ember squirms and moans, humming softly, while you suckle and tease, delighting as much in the pleasure you are giving as in the delicious milk cascading down your thirsty throat."
             );
 
             this.outx(
-                '\n\n"<i>S-so this is how it is, huh?</i>"  Ember suddenly pulls your head up and delivers a kiss straight to your lips, forcing ' +
-                    this.emberMF("his", "her") +
-                    " tongue inside your mouth to lap up " +
-                    this.emberMF("his", "her") +
-                    " own milk.  When " +
-                    this.emberMF("he", "she") +
-                    "'s sure " +
-                    this.emberMF("he", "she") +
-                    "'s got everything; Ember drops you again."
+                `\n\n"<i>S-so this is how it is, huh?</i>"  Ember suddenly pulls your head up and delivers a kiss straight to your lips, forcing ${this.emberMF(
+                    "his",
+                    "her"
+                )} tongue inside your mouth to lap up ${this.emberMF(
+                    "his",
+                    "her"
+                )} own milk.  When ${this.emberMF("he", "she")}'s sure ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s got everything; Ember drops you again.`
             );
 
             this.outx(
                 '\n\n"<i>If you\'re not going to behave, then no more milk for you.</i>"  The dragon smiles triumphantly.'
             );
             this.outx(
-                "\n\nRepositioning yourself where " +
-                    this.emberMF("he", "she") +
-                    " dropped you for greater comfort, you smile and adopt your most innocent expression, then go back to your drinking."
+                `\n\nRepositioning yourself where ${this.emberMF(
+                    "he",
+                    "she"
+                )} dropped you for greater comfort, you smile and adopt your most innocent expression, then go back to your drinking.`
             );
             this.outx(
-                "\n\nThis time, you focus on simply drinking from Ember's bountiful breast and the wonderful taste of " +
-                    this.emberMF("his", "her") +
-                    " milk.  You don't think you could ever get tired of this... the milk is sweet, refreshing and just a tad spicy.  You can't help but compare how like " +
-                    this.emberMF("him", "her") +
-                    " it is."
+                `\n\nThis time, you focus on simply drinking from Ember's bountiful breast and the wonderful taste of ${this.emberMF(
+                    "his",
+                    "her"
+                )} milk.  You don't think you could ever get tired of this... the milk is sweet, refreshing and just a tad spicy.  You can't help but compare how like ${this.emberMF(
+                    "him",
+                    "her"
+                )} it is.`
             );
 
             this.outx(
@@ -4166,44 +4369,55 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                '\n\n"<i>You\'re not going anywhere just yet.  You still have one other breast to empty.</i>"  Ember smiles, despite ' +
-                    this.emberMF("his", "her") +
-                    " mockingly stern face."
+                `\n\n"<i>You're not going anywhere just yet.  You still have one other breast to empty.</i>"  Ember smiles, despite ${this.emberMF(
+                    "his",
+                    "her"
+                )} mockingly stern face.`
             );
 
             if (this.player.cor < 50) {
                 this.outx(
-                    "\n\nYou look at " +
-                        this.emberMF("him", "her") +
-                        " and, despite the faint protests from your stomach, reason that you can't disappoint the dragon-" +
-                        this.emberMF("boy", "girl") +
-                        ".  Besides, you know what " +
-                        this.emberMF("his", "her") +
-                        " temper is like... you resettle and begin suckling at " +
-                        this.emberMF("his", "her") +
-                        " other breast."
+                    `\n\nYou look at ${this.emberMF(
+                        "him",
+                        "her"
+                    )} and, despite the faint protests from your stomach, reason that you can't disappoint the dragon-${this.emberMF(
+                        "boy",
+                        "girl"
+                    )}.  Besides, you know what ${this.emberMF(
+                        "his",
+                        "her"
+                    )} temper is like... you resettle and begin suckling at ${this.emberMF(
+                        "his",
+                        "her"
+                    )} other breast.`
                 );
 
                 this.outx(
-                    '\n\n"<i>Ah!  That\'s good...</i>"  Ember embraces you in a tight hug, bringing you as close to ' +
-                        this.emberMF("him", "her") +
-                        " as possible.  You smile around your nipple and enjoy the sensation, languidly suckling from " +
-                        this.emberMF("him", "her") +
-                        " less out of an honest thirst for the milk and more to prolong your excuse to be so close to your strangely fuzzy dragon."
+                    `\n\n"<i>Ah!  That's good...</i>"  Ember embraces you in a tight hug, bringing you as close to ${this.emberMF(
+                        "him",
+                        "her"
+                    )} as possible.  You smile around your nipple and enjoy the sensation, languidly suckling from ${this.emberMF(
+                        "him",
+                        "her"
+                    )} less out of an honest thirst for the milk and more to prolong your excuse to be so close to your strangely fuzzy dragon.`
                 );
                 this.outx(
-                    "\n\nBy the time you're done Ember has melted into a purring pile, content with simply letting you sit on " +
-                        this.emberMF("his", "her") +
-                        " lap.  \"<i>Don't think that just because it felt good, I'm going to let you do this whenever you feel like.</i>\""
+                    `\n\nBy the time you're done Ember has melted into a purring pile, content with simply letting you sit on ${this.emberMF(
+                        "his",
+                        "her"
+                    )} lap.  "<i>Don't think that just because it felt good, I'm going to let you do this whenever you feel like.</i>"`
                 );
                 this.outx(
-                    "\n\nYou tell " +
-                        this.emberMF("him", "her") +
-                        " you wouldn't dream of thinking that, sneaking an opportunity to kiss " +
-                        this.emberMF("him", "her") +
-                        " while " +
-                        this.emberMF("his", "her") +
-                        " guard is so lax.  Even as you do, your stomach begins to gripe, trying and failing to digest the slow-to-process milk before it begins to turn.  You're going to be sick later, that's for sure..."
+                    `\n\nYou tell ${this.emberMF(
+                        "him",
+                        "her"
+                    )} you wouldn't dream of thinking that, sneaking an opportunity to kiss ${this.emberMF(
+                        "him",
+                        "her"
+                    )} while ${this.emberMF(
+                        "his",
+                        "her"
+                    )} guard is so lax.  Even as you do, your stomach begins to gripe, trying and failing to digest the slow-to-process milk before it begins to turn.  You're going to be sick later, that's for sure...`
                 );
                 if (this.player.tou > 40) this.dynStats("tou", -1);
             }
@@ -4213,21 +4427,25 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     "\n\nOh, of all the... your stomach gurgles in protest as you contemplate drinking twice what you expected.  Not particularly warming to the idea of throwing up as the undigested milk begins to curdle in your gut, you only assume the motions of lowering yourself into Ember's lap again and taking the nipple into your mouth."
                 );
                 this.outx(
-                    '\n\nThe milk begins to flow immediately, and you pop the teat out again, to exclamations from your lover.  "<i>Hey, what did I just say?</i>" the dragon demands.  "<i>Finish your drink!</i>"  Instead, you begin pulling and kneading the breast, pointing the nipple at the ground and milking the dragon for all ' +
-                        this.emberMF("he", "she") +
-                        "'s worth.  \"<i>Y-you're wasting it!  Stop it!</i>\"  Despite the protest, Ember moans breathily, just as taken with the work of your hands as " +
-                        this.emberMF("he", "she") +
-                        " was by your mouth."
+                    `\n\nThe milk begins to flow immediately, and you pop the teat out again, to exclamations from your lover.  "<i>Hey, what did I just say?</i>" the dragon demands.  "<i>Finish your drink!</i>"  Instead, you begin pulling and kneading the breast, pointing the nipple at the ground and milking the dragon for all ${this.emberMF(
+                        "he",
+                        "she"
+                    )}'s worth.  "<i>Y-you're wasting it!  Stop it!</i>"  Despite the protest, Ember moans breathily, just as taken with the work of your hands as ${this.emberMF(
+                        "he",
+                        "she"
+                    )} was by your mouth.`
                 );
                 this.outx(
                     '\n\n"<i>Now, now,</i>" you admonish.  "<i>I couldn\'t possibly drink all of your bounty; I\'m just thinking about the pressure.</i>"  Dexterously, you twitch at and tweak the little nub, squirting out the milk into a puddle under Ember\'s butt.'
                 );
                 this.outx(
-                    "\n\n\"<i>D-don't think I'm okay with you spilling my milk like this,</i>\" " +
-                        this.emberMF("he", "she") +
-                        " retorts, a tear coming to " +
-                        this.emberMF("his", "her") +
-                        ' eye at one particularly strong yank.  "<i>I just... don\'t want to feel all lopsided and awkward!  It would make me fly funny...</i>"'
+                    `\n\n"<i>D-don't think I'm okay with you spilling my milk like this,</i>" ${this.emberMF(
+                        "he",
+                        "she"
+                    )} retorts, a tear coming to ${this.emberMF(
+                        "his",
+                        "her"
+                    )} eye at one particularly strong yank.  "<i>I just... don't want to feel all lopsided and awkward!  It would make me fly funny...</i>"`
                 );
                 this.outx(
                     "\n\nYeah, yeah.  You finish draining the second breast and then lift it, planting a kiss on the sensitized nipple."
@@ -4235,14 +4453,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             }
             // merge wuss and jerk forks
             this.outx(
-                "\n\nEmber gets so flustered that " +
-                    this.emberMF("he", "she") +
-                    " just stares at you in stunned silence, wearing a goofy smile.  \"<i>Wha... you know, there's no point in saying anything.  I know you'll just sneak another opportunity like this in the future... doesn't mean I won't make you pay for this when I catch you later.</i>\""
+                `\n\nEmber gets so flustered that ${this.emberMF(
+                    "he",
+                    "she"
+                )} just stares at you in stunned silence, wearing a goofy smile.  "<i>Wha... you know, there's no point in saying anything.  I know you'll just sneak another opportunity like this in the future... doesn't mean I won't make you pay for this when I catch you later.</i>"`
             );
             this.outx(
-                "\n\nYou whisper into her ear that you're looking forward to it, and gently raise yourself from " +
-                    this.emberMF("his", "her") +
-                    " lap to leave."
+                `\n\nYou whisper into her ear that you're looking forward to it, and gently raise yourself from ${this.emberMF(
+                    "his",
+                    "her"
+                )} lap to leave.`
             );
             // (no new PG, PC has dragon-morph status and is opposite Ember's sex:
             if (
@@ -4259,9 +4479,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 }
                 if (this.player.hasVagina()) this.outx(this.vaginaDescript());
                 this.outx(
-                    ", making you wish Ember hadn't run you off.  All you can think about now is fucking " +
-                        this.emberMF("his", "her") +
-                        "; "
+                    `, making you wish Ember hadn't run you off.  All you can think about now is fucking ${this.emberMF(
+                        "his",
+                        "her"
+                    )}; `
                 );
                 if (this.player.hasCock() && this.flags[kFLAGS.EMBER_GENDER] >= 2) {
                     this.outx("filling her womb with your seed and fertilizing her eggs");
@@ -4273,7 +4494,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     (this.flags[kFLAGS.EMBER_GENDER] == 3 || this.flags[kFLAGS.EMBER_GENDER] == 1)
                 )
                     this.outx(
-                        "taking that hard, spurting cock inside your own " + this.vaginaDescript(0)
+                        `taking that hard, spurting cock inside your own ${this.vaginaDescript(0)}`
                     );
                 this.outx(
                     "... too late, you realize that <b>Ember's milk has sent your draconic body into "
@@ -4304,9 +4525,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     private decideToSparEmbra(): void {
         this.clearOutput();
         this.outx(
-            "You feel like you could use some practice; just to be ready for whatever you stumble upon when adventuring, and ask Ember how " +
-                this.emberMF("he", "she") +
-                "'d feel about sparring with you."
+            `You feel like you could use some practice; just to be ready for whatever you stumble upon when adventuring, and ask Ember how ${this.emberMF(
+                "he",
+                "she"
+            )}'d feel about sparring with you.`
         );
         // (Low Affection)
         if (this.emberAffection() <= 25) {
@@ -4314,9 +4536,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\n"<i>Ha!  You have to be joking.  We both know you\'ll end up hurting yourself.</i>"'
             );
             this.outx(
-                "\n\nIntent on proving " +
-                    this.emberMF("him", "her") +
-                    " wrong, you brandish your [weapon]."
+                `\n\nIntent on proving ${this.emberMF(
+                    "him",
+                    "her"
+                )} wrong, you brandish your [weapon].`
             );
             this.outx(
                 '\n\n"<i>Well, if you\'re so set on being knocked about...</i>"  Ember leads you to an isolated clearing on the outskirts of the camp and assumes a battle pose.'
@@ -4325,16 +4548,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outx(
-                '\n\n"<i>Are you sure?  I should have you know that I won\'t be holding back at all!</i>" Ember warns you, assuming ' +
-                    this.emberMF("his", "her") +
-                    " battle stance."
+                `\n\n"<i>Are you sure?  I should have you know that I won't be holding back at all!</i>" Ember warns you, assuming ${this.emberMF(
+                    "his",
+                    "her"
+                )} battle stance.`
             );
             this.outx(
-                "\n\nThat's exactly what you're expecting of " +
-                    this.emberMF("him", "her") +
-                    ".  You need to get strong, and " +
-                    this.emberMF("he", "she") +
-                    "'s the best sparring partner you could hope for."
+                `\n\nThat's exactly what you're expecting of ${this.emberMF(
+                    "him",
+                    "her"
+                )}.  You need to get strong, and ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s the best sparring partner you could hope for.`
             );
             this.outx(
                 '\n\nEmber smiles at you.  "<i>Ha!  Flattery won\'t earn you any mercy!  So get ready!</i>"'
@@ -4343,16 +4569,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (High Affection)
         else {
             this.outx(
-                "\n\n\"<i>Well... don't expect me to go easy on you!  We dragons are very competitive!  And I don't mind beating you up, even if you are my friend!</i>\" Ember warns you, dropping into " +
-                    this.emberMF("his", "her") +
-                    " battle stance."
+                `\n\n"<i>Well... don't expect me to go easy on you!  We dragons are very competitive!  And I don't mind beating you up, even if you are my friend!</i>" Ember warns you, dropping into ${this.emberMF(
+                    "his",
+                    "her"
+                )} battle stance.`
             );
             this.outx(
-                "\n\nYou grin at " +
-                    this.emberMF("him", "her") +
-                    " and tell " +
-                    this.emberMF("him", "her") +
-                    " to bring it on - you're too psyched up to be caught off guard by the dragon openly calling you a friend."
+                `\n\nYou grin at ${this.emberMF("him", "her")} and tell ${this.emberMF(
+                    "him",
+                    "her"
+                )} to bring it on - you're too psyched up to be caught off guard by the dragon openly calling you a friend.`
             );
         }
         this.startCombat(new Ember());
@@ -4362,31 +4588,35 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         if (this.emberAffection() <= 25) {
             this.outx(
-                "Ember lies on " +
-                    this.emberMF("his", "her") +
-                    " back, while you stand over the defeated dragon triumphantly.  You extend a helping hand, intent on pulling " +
-                    this.emberMF("him", "her") +
-                    " up, but " +
-                    this.emberMF("he", "she") +
-                    " bats it away, flinching in shame at " +
-                    this.emberMF("his", "her") +
-                    " defeat."
+                `Ember lies on ${this.emberMF(
+                    "his",
+                    "her"
+                )} back, while you stand over the defeated dragon triumphantly.  You extend a helping hand, intent on pulling ${this.emberMF(
+                    "him",
+                    "her"
+                )} up, but ${this.emberMF(
+                    "he",
+                    "she"
+                )} bats it away, flinching in shame at ${this.emberMF("his", "her")} defeat.`
             );
             this.outx('\n\n"<i>I don\'t need your help you... you... cheater!</i>"');
             this.outx(
-                "\n\nCome again?  You won this fight fair and square.  It's " +
-                    this.emberMF("his", "her") +
-                    " own fault for underestimating you."
+                `\n\nCome again?  You won this fight fair and square.  It's ${this.emberMF(
+                    "his",
+                    "her"
+                )} own fault for underestimating you.`
             );
             this.outx(
-                '\n\n"<i>Yeah, fine!  Maybe I was wrong, but you still cheated!  You attacked me while I was distracted!  That\'s cheating!</i>"  Ember doesn\'t even give you time to answer before getting up and taking wing. "<i>You won\'t get so lucky next time!</i>" ' +
-                    this.emberMF("he", "she") +
-                    " calls down to you."
+                `\n\n"<i>Yeah, fine!  Maybe I was wrong, but you still cheated!  You attacked me while I was distracted!  That's cheating!</i>"  Ember doesn't even give you time to answer before getting up and taking wing. "<i>You won't get so lucky next time!</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} calls down to you.`
             );
             this.outx(
-                "\n\nYou sigh in disappointment; you're not sure why you expected Ember to be less of a sore loser, but you did.  On the bright side, maybe " +
-                    this.emberMF("he", "she") +
-                    "'ll keep that attitude in check from now on..."
+                `\n\nYou sigh in disappointment; you're not sure why you expected Ember to be less of a sore loser, but you did.  On the bright side, maybe ${this.emberMF(
+                    "he",
+                    "she"
+                )}'ll keep that attitude in check from now on...`
             );
             this.outx('\n\n"<i>Argh!  I\'ll win next time!</i>" comes the yell from the distance.');
             this.outx("\n\nMaybe not.");
@@ -4396,23 +4626,25 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // Medium affection
         else if (this.emberAffection() < 75) {
             this.outx(
-                "Ember lies on " +
-                    this.emberMF("his", "her") +
-                    " back, while you stand over the defeated dragon triumphantly.  You extend a helping hand, intent on helping " +
-                    this.emberMF("him", "her") +
-                    " up; " +
-                    this.emberMF("he", "she") +
-                    " takes it."
+                `Ember lies on ${this.emberMF(
+                    "his",
+                    "her"
+                )} back, while you stand over the defeated dragon triumphantly.  You extend a helping hand, intent on helping ${this.emberMF(
+                    "him",
+                    "her"
+                )} up; ${this.emberMF("he", "she")} takes it.`
             );
             this.outx(
                 "\n\n\"<i>You won this time... but you just got lucky!  Don't think you'll beat me next time!</i>\""
             );
             this.outx(
-                "\n\nYou'd certainly hope " +
-                    this.emberMF("he", "she") +
-                    "'d put up a better fight the next time... or was " +
-                    this.emberMF("he", "she") +
-                    " taking it easy on you just now?"
+                `\n\nYou'd certainly hope ${this.emberMF(
+                    "he",
+                    "she"
+                )}'d put up a better fight the next time... or was ${this.emberMF(
+                    "he",
+                    "she"
+                )} taking it easy on you just now?`
             );
             this.outx(
                 '\n\nEmber glares at you.  "<i>Are you mocking me?  I never hold back!  Ever!</i>"'
@@ -4424,17 +4656,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '\n\nEmber snorts a small puff of smoke.  "<i>Yeah, fine... I still say you got lucky!  If I hadn\'t been distracted it would be me helping you up!</i>"'
             );
             this.outx(
-                "\n\n" +
-                    this.emberMF("He", "She") +
-                    " puffs again and turns on " +
-                    this.emberMF("his", "her") +
-                    " heels, walking away; although " +
-                    this.emberMF("he", "she") +
-                    " looks mad, the slight bounce to " +
-                    this.emberMF("his", "her") +
-                    " step lets you know that " +
-                    this.emberMF("he", "she") +
-                    " actually enjoyed your little sparring session."
+                `\n\n${this.emberMF("He", "She")} puffs again and turns on ${this.emberMF(
+                    "his",
+                    "her"
+                )} heels, walking away; although ${this.emberMF(
+                    "he",
+                    "she"
+                )} looks mad, the slight bounce to ${this.emberMF(
+                    "his",
+                    "her"
+                )} step lets you know that ${this.emberMF(
+                    "he",
+                    "she"
+                )} actually enjoyed your little sparring session.`
             );
             // (+ Affection)
             this.emberAffection(8);
@@ -4442,18 +4676,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // High affection
         else {
             this.outx(
-                "Ember lies on " +
-                    this.emberMF("his", "her") +
-                    " back, while you stand over the defeated dragon triumphantly.  You extend a helping hand, intent on helping " +
-                    this.emberMF("him", "her") +
-                    " up; " +
-                    this.emberMF("he", "she") +
-                    " gladly accepts your help."
+                `Ember lies on ${this.emberMF(
+                    "his",
+                    "her"
+                )} back, while you stand over the defeated dragon triumphantly.  You extend a helping hand, intent on helping ${this.emberMF(
+                    "him",
+                    "her"
+                )} up; ${this.emberMF("he", "she")} gladly accepts your help.`
             );
             this.outx(
-                '\n\n"<i>Okay... I guess you have some skill, after all,</i>" Ember admits.  "<i>Next time I\'m beating you up, it\'s a promise!</i>"  You smile, knowing just how much pride the dragon had to swallow, and tell ' +
-                    this.emberMF("him", "her") +
-                    " that you'll see what happens when it happens."
+                `\n\n"<i>Okay... I guess you have some skill, after all,</i>" Ember admits.  "<i>Next time I'm beating you up, it's a promise!</i>"  You smile, knowing just how much pride the dragon had to swallow, and tell ${this.emberMF(
+                    "him",
+                    "her"
+                )} that you'll see what happens when it happens.`
             );
             this.outx(
                 '\n\n"<i>Okay, let\'s go back then,</i>" Ember says, pulling you close and walking back to the camp with you.'
@@ -4475,11 +4710,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYeah, you might have lost this time, but you quietly promise to win, in the future."
             );
             this.outx(
-                '\n\n"<i>I\'ll be waiting.</i>"  Ember turns on ' +
-                    this.emberMF("his", "her") +
-                    " heels and walks back to " +
-                    this.emberMF("his", "her") +
-                    " den.  You decide to head back as well and rest for a while."
+                `\n\n"<i>I'll be waiting.</i>"  Ember turns on ${this.emberMF(
+                    "his",
+                    "her"
+                )} heels and walks back to ${this.emberMF(
+                    "his",
+                    "her"
+                )} den.  You decide to head back as well and rest for a while.`
             );
             // (PC automatically rests and gets some HP back)
             this.emberAffection(-10);
@@ -4496,11 +4733,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou confess your defeat, but smile defiantly and promise next time will be different."
             );
             this.outx(
-                "\n\nEmber smiles at you.  \"<i>Ha!  Alright, I'll make you train so you'll be able to keep your promise next time!</i>\"  The dragon turns on " +
-                    this.emberMF("his", "her") +
-                    " heels, and walks away, elated with " +
-                    this.emberMF("his", "her") +
-                    " victory."
+                `\n\nEmber smiles at you.  "<i>Ha!  Alright, I'll make you train so you'll be able to keep your promise next time!</i>"  The dragon turns on ${this.emberMF(
+                    "his",
+                    "her"
+                )} heels, and walks away, elated with ${this.emberMF("his", "her")} victory.`
             );
             this.emberAffection(-5);
         }
@@ -4510,9 +4746,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "Panting, you drop your fighting stance and sit on the floor, lifting a hand and saying you've had enough."
             );
             this.outx(
-                "\n\nEmber rushes to offer you a helping hand, concern written all over " +
-                    this.emberMF("his", "her") +
-                    ' face.  "<i>Are you okay?  Maybe I should\'ve held back a little...</i>"'
+                `\n\nEmber rushes to offer you a helping hand, concern written all over ${this.emberMF(
+                    "his",
+                    "her"
+                )} face.  "<i>Are you okay?  Maybe I should've held back a little...</i>"`
             );
             this.outx(
                 "\n\nYou shake your head fiercely; you need to get strong, and far better to lose at the hand of a friend than to some lust-mad demonic monster."
@@ -4532,16 +4769,18 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outx(this.images.showImage("ember-fucks-your-ass"));
         this.outx(
-            "You contemplate Ember's somewhat dominant streak in bed and ask if " +
-                this.emberMF("he", "she") +
-                " feels in the mood to ride your ass."
+            `You contemplate Ember's somewhat dominant streak in bed and ask if ${this.emberMF(
+                "he",
+                "she"
+            )} feels in the mood to ride your ass.`
         );
         // (Low affection)
         if (this.emberAffection() <= 25) {
             this.outx(
-                "\n\n\"<i>What!?  That is just gross!  Not to mention, it'd never fit!</i>\"  Ember doesn't bother waiting for your reply, shooing you out of " +
-                    this.emberMF("his", "her") +
-                    " den."
+                `\n\n"<i>What!?  That is just gross!  Not to mention, it'd never fit!</i>"  Ember doesn't bother waiting for your reply, shooing you out of ${this.emberMF(
+                    "his",
+                    "her"
+                )} den.`
             );
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
@@ -4549,9 +4788,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (Moderate affection)
         if (this.emberAffection() < 75) {
             this.outx(
-                '\n\n"<i>If that\'s what you really have in mind.  Maybe, just maybe... I can do that for you...</i>" Ember replies, as ' +
-                    this.emberMF("his", "her") +
-                    " cock peeks out"
+                `\n\n"<i>If that's what you really have in mind.  Maybe, just maybe... I can do that for you...</i>" Ember replies, as ${this.emberMF(
+                    "his",
+                    "her"
+                )} cock peeks out`
             );
             if (
                 this.flags[kFLAGS.EMBER_INTERNAL_DICK] == 1 ||
@@ -4559,58 +4799,66 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             )
                 this.outx(" of its hiding place");
             this.outx(", growing slowly but steadily.");
-            this.outx("\n\nYou smile at " + this.emberMF("him", "her") + ".");
+            this.outx(`\n\nYou smile at ${this.emberMF("him", "her")}.`);
         }
         // (High affection)
         else {
             this.outx(
-                "\n\nEmber swallows audibly, " +
-                    this.emberMF("his", "her") +
-                    ' cock getting even harder at the idea.  "<i>Alright... but I\'m only doing this for you.  I take no enjoyment in this.</i>"  Even as ' +
-                    this.emberMF("he", "she") +
-                    " replies, the dragon's cock begins throbbing visibly."
+                `\n\nEmber swallows audibly, ${this.emberMF(
+                    "his",
+                    "her"
+                )} cock getting even harder at the idea.  "<i>Alright... but I'm only doing this for you.  I take no enjoyment in this.</i>"  Even as ${this.emberMF(
+                    "he",
+                    "she"
+                )} replies, the dragon's cock begins throbbing visibly.`
             );
             this.outx(
-                "\n\nYou tell " +
-                    this.emberMF("him", "her") +
-                    " that you understand perfectly, letting " +
-                    this.emberMF("him", "her") +
-                    " get away with the obvious lie."
+                `\n\nYou tell ${this.emberMF(
+                    "him",
+                    "her"
+                )} that you understand perfectly, letting ${this.emberMF(
+                    "him",
+                    "her"
+                )} get away with the obvious lie.`
             );
         }
         this.outx(
-            "\n\nEmber leads you a short distance away from camp, to a small clearing next to a dried river.  " +
-                this.emberMF("He", "She") +
-                " selects a relatively lush-looking patch of grass and gestures at it.  Eagerly, you disrobe, casually throwing your [armor] aside as you present Ember with an enticing view of your " +
-                this.buttDescript() +
-                ","
+            `\n\nEmber leads you a short distance away from camp, to a small clearing next to a dried river.  ${this.emberMF(
+                "He",
+                "She"
+            )} selects a relatively lush-looking patch of grass and gestures at it.  Eagerly, you disrobe, casually throwing your [armor] aside as you present Ember with an enticing view of your ${this.buttDescript()},`
         );
         // PC has balls:
         if (this.player.balls > 0) {
             this.outx(
-                " testicles swaying lightly as you arch your backside up at " +
-                    this.emberMF("him", "her")
+                ` testicles swaying lightly as you arch your backside up at ${this.emberMF(
+                    "him",
+                    "her"
+                )}`
             );
             if (this.player.hasVagina()) this.outx(" while... ");
             else this.outx(".");
         }
         if (this.player.hasVagina())
-            this.outx(" your " + this.clitDescript() + " drips with every passing moment.");
+            this.outx(` your ${this.clitDescript()} drips with every passing moment.`);
 
         this.outx(
-            "\n\nEmber greedily drinks in every last inch of your naked body, " +
-                this.emberMF("his", "her") +
-                ' long tongue sliding out, already oozing with drool, before noisily being slurped back up.  "<i>Keep in mind, I\'m only doing this because you asked; I feel no pleasure from it,</i>" ' +
-                this.emberMF("he", "she") +
-                " states, despite " +
-                this.emberMF("his", "her") +
-                " raging erection.  Finally done waiting, " +
-                this.emberMF("he", "she") +
-                " sashays towards you, tail waving gently behind " +
-                this.emberMF("him", "her") +
-                ", cock bobbing up and down as " +
-                this.emberMF("he", "she") +
-                " approaches."
+            `\n\nEmber greedily drinks in every last inch of your naked body, ${this.emberMF(
+                "his",
+                "her"
+            )} long tongue sliding out, already oozing with drool, before noisily being slurped back up.  "<i>Keep in mind, I'm only doing this because you asked; I feel no pleasure from it,</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} states, despite ${this.emberMF(
+                "his",
+                "her"
+            )} raging erection.  Finally done waiting, ${this.emberMF(
+                "he",
+                "she"
+            )} sashays towards you, tail waving gently behind ${this.emberMF(
+                "him",
+                "her"
+            )}, cock bobbing up and down as ${this.emberMF("he", "she")} approaches.`
         );
 
         this.outx("\n\nEmber stops right behind you, gently rubbing the ");
@@ -4618,108 +4866,125 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx("segmented");
         else this.outx("smooth");
         this.outx(
-            " length of " +
-                this.emberMF("his", "her") +
-                " prick between your " +
-                this.buttDescript() +
-                " cheeks, letting you feel the refreshing coolness of " +
-                this.emberMF("his", "her") +
-                ' pre dripping from the tip.  "<i>This... isn\'t going to work,</i>" ' +
-                this.emberMF("he", "she") +
-                " growls."
+            ` length of ${this.emberMF(
+                "his",
+                "her"
+            )} prick between your ${this.buttDescript()} cheeks, letting you feel the refreshing coolness of ${this.emberMF(
+                "his",
+                "her"
+            )} pre dripping from the tip.  "<i>This... isn't going to work,</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} growls.`
         );
 
         this.outx(
-            "\n\n" +
-                this.emberMF("His", "Her") +
-                " hands take hold of your butt, squeezing it slowly and firmly, caressing and massaging it with greedy anticipation.  From where you are you can't see what " +
-                this.emberMF("he", "she") +
-                "'s doing, but you can certainly hear it.  Soft, wet slurps and smacks emanate from behind you, and you realize the dragon must be licking " +
-                this.emberMF("his", "her") +
-                " own cock until it's soaked with gooey dragon-drool."
+            `\n\n${this.emberMF(
+                "His",
+                "Her"
+            )} hands take hold of your butt, squeezing it slowly and firmly, caressing and massaging it with greedy anticipation.  From where you are you can't see what ${this.emberMF(
+                "he",
+                "she"
+            )}'s doing, but you can certainly hear it.  Soft, wet slurps and smacks emanate from behind you, and you realize the dragon must be licking ${this.emberMF(
+                "his",
+                "her"
+            )} own cock until it's soaked with gooey dragon-drool.`
         );
 
         this.outx(
-            "\n\nYou certainly didn't expect that " +
-                this.emberMF("he", "she") +
-                " would take to lubing " +
-                this.emberMF("his", "her") +
-                " penis up so... intimately.  Your arousal floods throughout your veins and fills you with giddiness at the thought of being penetrated by " +
-                this.emberMF("his", "her") +
-                " saliva-coated cock and swallowing it into your depths."
+            `\n\nYou certainly didn't expect that ${this.emberMF(
+                "he",
+                "she"
+            )} would take to lubing ${this.emberMF(
+                "his",
+                "her"
+            )} penis up so... intimately.  Your arousal floods throughout your veins and fills you with giddiness at the thought of being penetrated by ${this.emberMF(
+                "his",
+                "her"
+            )} saliva-coated cock and swallowing it into your depths.`
         );
 
         this.outx(
-            '\n\n"<i>I guess I can work with it now,</i>" Ember croons, after slurping the long tongue back into ' +
-                this.emberMF("his", "her") +
-                " "
+            `\n\n"<i>I guess I can work with it now,</i>" Ember croons, after slurping the long tongue back into ${this.emberMF(
+                "his",
+                "her"
+            )} `
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] > 0) this.outx("mouth");
         else this.outx("maw");
         this.outx(
-            " and sliding " +
-                this.emberMF("his", "her") +
-                ' cock meaningfully against your pucker.  "<i>You sure you want this?  Last chance to back out.</i>"  As if you\'re going to turn away now, so close to filling that hunger for a nice, hot cock in your ass.  Rearing your rump up, you show ' +
-                this.emberMF("him", "her") +
-                " that you're ready if " +
-                this.emberMF("he", "she") +
-                " is."
+            ` and sliding ${this.emberMF(
+                "his",
+                "her"
+            )} cock meaningfully against your pucker.  "<i>You sure you want this?  Last chance to back out.</i>"  As if you're going to turn away now, so close to filling that hunger for a nice, hot cock in your ass.  Rearing your rump up, you show ${this.emberMF(
+                "him",
+                "her"
+            )} that you're ready if ${this.emberMF("he", "she")} is.`
         );
 
         this.outx(
-            "\n\n" +
-                this.emberMF("He", "She") +
-                " growls hungrily, and wastes no more time.  Fingers digging deeply into your [butt], " +
-                this.emberMF("he", "she") +
-                " forces the glans of " +
-                this.emberMF("his", "her") +
-                " shaft through your [asshole] and begins pushing past the opening "
+            `\n\n${this.emberMF(
+                "He",
+                "She"
+            )} growls hungrily, and wastes no more time.  Fingers digging deeply into your [butt], ${this.emberMF(
+                "he",
+                "she"
+            )} forces the glans of ${this.emberMF(
+                "his",
+                "her"
+            )} shaft through your [asshole] and begins pushing past the opening `
         );
         // (PC has a virgin/tight asshole:)
         if (this.player.ass.analLooseness == 0 || this.player.analCapacity() < 25)
             this.outx(
-                ", leaving both of you wincing as the sensitive head of " +
-                    this.emberMF("his", "her") +
-                    " cock struggles to make room for its insertion.  \"<i>I can't believe you really want me to put it here... you're so tight it almost hurts,</i>\" " +
-                    this.emberMF("he", "she") +
-                    " whimpers."
+                `, leaving both of you wincing as the sensitive head of ${this.emberMF(
+                    "his",
+                    "her"
+                )} cock struggles to make room for its insertion.  "<i>I can't believe you really want me to put it here... you're so tight it almost hurts,</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} whimpers.`
             );
         // (PC has a loose asshole:)
         if (this.player.analCapacity() < 50) {
-            this.outx(", causing you to gasp as " + this.emberMF("his", "her") + " ");
+            this.outx(`, causing you to gasp as ${this.emberMF("his", "her")} `);
             if (
                 this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 ||
                 this.flags[kFLAGS.EMBER_INTERNAL_DICK] == 1
             )
                 this.outx("draconic ");
             this.outx(
-                "dick slips inside of you; stretching you and making you wince a bit in pain as " +
-                    this.emberMF("his", "her") +
-                    ' spit rubs off along the interior of your anus.  "<i>It feels pretty snug... good thing I prepared for this,</i>" ' +
-                    this.emberMF("he", "she") +
-                    " remarks with a gasp of pleasure."
+                `dick slips inside of you; stretching you and making you wince a bit in pain as ${this.emberMF(
+                    "his",
+                    "her"
+                )} spit rubs off along the interior of your anus.  "<i>It feels pretty snug... good thing I prepared for this,</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} remarks with a gasp of pleasure.`
             );
         }
         // (PC has a gaping asshole:)
         else {
             this.outx(
-                "; the looseness of your " +
-                    this.assholeDescript() +
-                    " gives " +
-                    this.emberMF("him", "her") +
-                    " no resistance whatsoever as " +
-                    this.emberMF("he", "she") +
-                    ' glides in without trouble.  "<i>Huh... that was easier than I expected,</i>" ' +
-                    this.emberMF("he", "she") +
-                    ' remarks in surprise.  "<i>What have you been getting yourself into?</i>"'
+                `; the looseness of your ${this.assholeDescript()} gives ${this.emberMF(
+                    "him",
+                    "her"
+                )} no resistance whatsoever as ${this.emberMF(
+                    "he",
+                    "she"
+                )} glides in without trouble.  "<i>Huh... that was easier than I expected,</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} remarks in surprise.  "<i>What have you been getting yourself into?</i>"`
             );
         }
         this.player.buttChange(32, true, true, false);
 
         this.outx(
-            "\n\nEmber settles for a slow rhythm, pumping with slow strokes; gently guiding " +
-                this.emberMF("his", "her") +
-                " "
+            `\n\nEmber settles for a slow rhythm, pumping with slow strokes; gently guiding ${this.emberMF(
+                "his",
+                "her"
+            )} `
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] == 1)
             this.outx("draconic ");
@@ -4728,20 +4993,21 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou gasp and moan as Ember works into you, feeling " +
-                this.emberMF("him", "her") +
-                " extending " +
-                this.emberMF("his", "her") +
-                " prick to its full length and using that as a way to push " +
-                this.emberMF("himself", "herself") +
-                " ever deeper into your bowels."
+            `\n\nYou gasp and moan as Ember works into you, feeling ${this.emberMF(
+                "him",
+                "her"
+            )} extending ${this.emberMF(
+                "his",
+                "her"
+            )} prick to its full length and using that as a way to push ${this.emberMF(
+                "himself",
+                "herself"
+            )} ever deeper into your bowels.`
         );
         // (PC has prick:
         if (this.player.hasCock())
             this.outx(
-                "  You can feel the dragon's member rubbing against your prostate, making " +
-                    this.sMultiCockDesc() +
-                    " jump to painful erectness, bubble pre-cum, and drool it down the shaft to pool on the ground."
+                `  You can feel the dragon's member rubbing against your prostate, making ${this.sMultiCockDesc()} jump to painful erectness, bubble pre-cum, and drool it down the shaft to pool on the ground.`
             );
         // (PC has cunt:
         if (this.player.hasVagina()) {
@@ -4757,51 +5023,65 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
 
         this.outx(
-            '\n\n"<i>Oh!  I\'m going to start moving now...</i>" Ember says, beginning to pick up the pace and gently rock you with ' +
-                this.emberMF("his", "her") +
-                " increasingly faster thrusts.  Fuck, wasn't " +
-                this.emberMF("he", "she") +
-                " already?  You groan, long and hollow, deep in your throat, savoring the deep probes.  You try to enjoy yourself, to fully immerse yourself in the sensations, but find yourself dissatisfied.  The dragon just can't seem to pick up a proper tempo, and you beg " +
-                this.emberMF("him", "her") +
-                " to speed things up, to start really giving it to you... you're not made of glass, and you won't break."
+            `\n\n"<i>Oh!  I'm going to start moving now...</i>" Ember says, beginning to pick up the pace and gently rock you with ${this.emberMF(
+                "his",
+                "her"
+            )} increasingly faster thrusts.  Fuck, wasn't ${this.emberMF(
+                "he",
+                "she"
+            )} already?  You groan, long and hollow, deep in your throat, savoring the deep probes.  You try to enjoy yourself, to fully immerse yourself in the sensations, but find yourself dissatisfied.  The dragon just can't seem to pick up a proper tempo, and you beg ${this.emberMF(
+                "him",
+                "her"
+            )} to speed things up, to start really giving it to you... you're not made of glass, and you won't break.`
         );
         this.outx(
-            "\n\nEmber furrows " +
-                this.emberMF("his", "her") +
-                ' brows.  "<i>You want it?  Okay, I\'ll give it to you...</i>"  ' +
-                this.emberMF("He", "She") +
-                " growls - or perhaps purrs?  Finally, you're going to get what you want; you can feel it as Ember rears " +
-                this.emberMF("his", "her") +
-                " hips in preparation for " +
-                this.emberMF("his", "her") +
-                " brutal assault on you, and true to " +
-                this.emberMF("his", "her") +
-                " word, the dragon finally begins pistoning into you, slapping against your butt in a lewd sonata of raw pleasure and ferocious sex."
+            `\n\nEmber furrows ${this.emberMF(
+                "his",
+                "her"
+            )} brows.  "<i>You want it?  Okay, I'll give it to you...</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} growls - or perhaps purrs?  Finally, you're going to get what you want; you can feel it as Ember rears ${this.emberMF(
+                "his",
+                "her"
+            )} hips in preparation for ${this.emberMF(
+                "his",
+                "her"
+            )} brutal assault on you, and true to ${this.emberMF(
+                "his",
+                "her"
+            )} word, the dragon finally begins pistoning into you, slapping against your butt in a lewd sonata of raw pleasure and ferocious sex.`
         );
         // (if PC has balls:
         if (this.player.balls > 0)
             this.outx(
-                "  " +
-                    this.emberMF("His", "Her") +
-                    " own balls swing into yours, and every time they connect a shrill wave of pleasure flows through you."
+                `  ${this.emberMF(
+                    "His",
+                    "Her"
+                )} own balls swing into yours, and every time they connect a shrill wave of pleasure flows through you.`
             );
 
         this.outx(
-            "\n\nYou cry out throatily, savoring the sensation of your dragon pounding into you hard and fast.  Ember leans over you, hugging you from behind as " +
-                this.emberMF("his", "her") +
-                " hips continue to move with a mind of their own; " +
-                this.emberMF("his", "her") +
-                " tongue hangs and " +
-                this.emberMF("he", "she") +
-                ' pants hotly against your ear.  "<i>Ugh... so good.  I can\'t believe how this feels. Ah!... I never expected... Hah!... something like this.  C-come on [name], shake that ass for me.  Show me just how good this feels for you!</i>"  Ember seems to be losing ' +
-                this.emberMF("him", "her") +
-                "self in the sensation of your [butt]."
+            `\n\nYou cry out throatily, savoring the sensation of your dragon pounding into you hard and fast.  Ember leans over you, hugging you from behind as ${this.emberMF(
+                "his",
+                "her"
+            )} hips continue to move with a mind of their own; ${this.emberMF(
+                "his",
+                "her"
+            )} tongue hangs and ${this.emberMF(
+                "he",
+                "she"
+            )} pants hotly against your ear.  "<i>Ugh... so good.  I can't believe how this feels. Ah!... I never expected... Hah!... something like this.  C-come on [name], shake that ass for me.  Show me just how good this feels for you!</i>"  Ember seems to be losing ${this.emberMF(
+                "him",
+                "her"
+            )}self in the sensation of your [butt].`
         );
 
         this.outx(
-            "\n\nYou thrust and grind your rear against Ember's cock, squeezing as best you can with your anal muscles, teasing and wringing... but, still it's not quite right.  You can't keep a smile from your voice as you playfully warn Ember that maybe you'll have to take charge and show " +
-                this.emberMF("him", "her") +
-                " just how to do you properly."
+            `\n\nYou thrust and grind your rear against Ember's cock, squeezing as best you can with your anal muscles, teasing and wringing... but, still it's not quite right.  You can't keep a smile from your voice as you playfully warn Ember that maybe you'll have to take charge and show ${this.emberMF(
+                "him",
+                "her"
+            )} just how to do you properly.`
         );
 
         this.outx(
@@ -4812,25 +5092,29 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.silly()) this.outx("ASSUMING DIRECT CONTROL.");
         else this.outx("time to take control.");
         this.outx(
-            "  Bunching your muscles, you push up off the ground and against " +
-                this.emberMF("him", "her") +
-                ", trying to knock the dragon over onto " +
-                this.emberMF("his", "her") +
-                " back.  As lost in pleasure as " +
-                this.emberMF("he", "she") +
-                ' is, Ember doesn\'t even try to fight back, going down with a heavy <i>thud</i>.  "<i>Ah!  Going to take my little dragon for a ride?</i>" ' +
-                this.emberMF("he", "she") +
-                " gasps at you, too excited to care that " +
-                this.emberMF("he", "she") +
-                " isn't the one in charge anymore."
+            `  Bunching your muscles, you push up off the ground and against ${this.emberMF(
+                "him",
+                "her"
+            )}, trying to knock the dragon over onto ${this.emberMF(
+                "his",
+                "her"
+            )} back.  As lost in pleasure as ${this.emberMF(
+                "he",
+                "she"
+            )} is, Ember doesn't even try to fight back, going down with a heavy <i>thud</i>.  "<i>Ah!  Going to take my little dragon for a ride?</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} gasps at you, too excited to care that ${this.emberMF(
+                "he",
+                "she"
+            )} isn't the one in charge anymore.`
         );
 
         this.outx(
-            "\n\nWith a smirk you swivel in Ember's lap, shuddering in delight at the sensations of Ember's dick sliding round inside your depths, until you are face to face with the bucking, writhing dragon.  You reach out and pinch " +
-                this.emberMF("his", "her") +
-                " nipples, trailing your fingers enticingly down " +
-                this.emberMF("his", "her") +
-                " "
+            `\n\nWith a smirk you swivel in Ember's lap, shuddering in delight at the sensations of Ember's dick sliding round inside your depths, until you are face to face with the bucking, writhing dragon.  You reach out and pinch ${this.emberMF(
+                "his",
+                "her"
+            )} nipples, trailing your fingers enticingly down ${this.emberMF("his", "her")} `
         );
         if (this.pregnancy.event > 3) {
             if (this.flags[kFLAGS.EMBER_OVIPOSITION] == 0) this.outx("swollen ");
@@ -4841,9 +5125,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            '\n\n"<i>How does it feel?  Having my cock deep inside you?  I hope I\'m good for you... ah!</i>" ' +
-                this.emberMF("he", "she") +
-                " gasps."
+            `\n\n"<i>How does it feel?  Having my cock deep inside you?  I hope I'm good for you... ah!</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} gasps.`
         );
 
         this.outx(
@@ -4851,67 +5136,80 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            '\n\n"<i>Hah!  Best... ride... ever... ah!</i>"  Ember grunts lewdly, doing ' +
-                this.emberMF("his", "her") +
-                " best to piston " +
-                this.emberMF("his", "her") +
-                " prick into your greedy ass when you're the one pinning " +
-                this.emberMF("him", "her") +
-                " down."
+            `\n\n"<i>Hah!  Best... ride... ever... ah!</i>"  Ember grunts lewdly, doing ${this.emberMF(
+                "his",
+                "her"
+            )} best to piston ${this.emberMF(
+                "his",
+                "her"
+            )} prick into your greedy ass when you're the one pinning ${this.emberMF(
+                "him",
+                "her"
+            )} down.`
         );
 
         this.outx(
-            "\n\nYou grin down at the thrashing dragon and with slow, deliberate motions, you lift yourself up to the point where " +
-                this.emberMF("his", "her") +
-                " cock almost pops free... and then, painfully slowly, you grind your hips down " +
-                this.emberMF("his", "her") +
-                " thighs until you have swallowed every last one of " +
-                this.emberMF("his", "her") +
-                " sixteen inches.  You repeat this again, and then again, wondering with cruel innocence how long it will take before " +
-                this.emberMF("he", "she") +
-                " pops " +
-                this.emberMF("his", "her") +
-                " cork and blows a nice load of dragon-spunk into your belly."
+            `\n\nYou grin down at the thrashing dragon and with slow, deliberate motions, you lift yourself up to the point where ${this.emberMF(
+                "his",
+                "her"
+            )} cock almost pops free... and then, painfully slowly, you grind your hips down ${this.emberMF(
+                "his",
+                "her"
+            )} thighs until you have swallowed every last one of ${this.emberMF(
+                "his",
+                "her"
+            )} sixteen inches.  You repeat this again, and then again, wondering with cruel innocence how long it will take before ${this.emberMF(
+                "he",
+                "she"
+            )} pops ${this.emberMF(
+                "his",
+                "her"
+            )} cork and blows a nice load of dragon-spunk into your belly.`
         );
 
         this.outx(
-            '\n\n"<i>[name]!  I\'m going to cum!  Ah!  Inside this beautiful, wonderful ass of yours!  Oh!  Kiss me!  I want to feel all of you as I take you!</i>" ' +
-                this.emberMF("he", "she") +
-                " howls at you, too swept up in the emotion to care about " +
-                this.emberMF("his", "her") +
-                " image."
+            `\n\n"<i>[name]!  I'm going to cum!  Ah!  Inside this beautiful, wonderful ass of yours!  Oh!  Kiss me!  I want to feel all of you as I take you!</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} howls at you, too swept up in the emotion to care about ${this.emberMF(
+                "his",
+                "her"
+            )} image.`
         );
 
         this.outx(
-            "\n\nYou bend down and kiss " +
-                this.emberMF("him", "her") +
-                " as deeply as you can, flicking your tongue against " +
-                this.emberMF("his", "her") +
-                " lips and inviting " +
-                this.emberMF("him", "her") +
-                " to put " +
-                this.emberMF("his", "her") +
-                " own tongue to use.  And all the while, you continue to flex your internal muscles, massaging " +
-                this.emberMF("him", "her") +
-                " until " +
-                this.emberMF("he", "she") +
-                " has no choice but to release..."
+            `\n\nYou bend down and kiss ${this.emberMF(
+                "him",
+                "her"
+            )} as deeply as you can, flicking your tongue against ${this.emberMF(
+                "his",
+                "her"
+            )} lips and inviting ${this.emberMF("him", "her")} to put ${this.emberMF(
+                "his",
+                "her"
+            )} own tongue to use.  And all the while, you continue to flex your internal muscles, massaging ${this.emberMF(
+                "him",
+                "her"
+            )} until ${this.emberMF("he", "she")} has no choice but to release...`
         );
 
         this.outx(
-            "\n\nYou can see that perfect moment when Ember finally pops; " +
-                this.emberMF("his", "her") +
-                " eyes roll back and " +
-                this.emberMF("he", "she") +
-                " purrs in joy, sending little vibrations along your throat.  " +
-                this.emberMF("His", "Her") +
-                " cock twitches once, twice and then finally distends as it unleashes all of Ember's pent-up seed inside your bowels.  You can even feel " +
-                this.emberMF("his", "her") +
-                " balls shrinking with each gob of cum " +
-                this.emberMF("he", "she") +
-                " pumps into you, flooding you with " +
-                this.emberMF("his", "her") +
-                " enjoyment."
+            `\n\nYou can see that perfect moment when Ember finally pops; ${this.emberMF(
+                "his",
+                "her"
+            )} eyes roll back and ${this.emberMF(
+                "he",
+                "she"
+            )} purrs in joy, sending little vibrations along your throat.  ${this.emberMF(
+                "His",
+                "Her"
+            )} cock twitches once, twice and then finally distends as it unleashes all of Ember's pent-up seed inside your bowels.  You can even feel ${this.emberMF(
+                "his",
+                "her"
+            )} balls shrinking with each gob of cum ${this.emberMF(
+                "he",
+                "she"
+            )} pumps into you, flooding you with ${this.emberMF("his", "her")} enjoyment.`
         );
 
         this.outx(
@@ -4928,9 +5226,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             else if (this.player.cumQ() < 1000) this.outx("raining spunk across the supine dragon");
             else
                 this.outx(
-                    "cascading your man-cream across your blissed-out lover until " +
-                        this.emberMF("he", "she") +
-                        " is completely glazed in a sperm coating"
+                    `cascading your man-cream across your blissed-out lover until ${this.emberMF(
+                        "he",
+                        "she"
+                    )} is completely glazed in a sperm coating`
                 );
         }
         this.outx(".");
@@ -4939,45 +5238,55 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.gender > 0)
             this.outx(" and rubbing the results of your own orgasm against you");
         this.outx(
-            ".  You sink readily into the dragon's embrace, rubbing against " +
-                this.emberMF("him", "her") +
-                ", feeling sleepy and blissful after a good, hard fuck.  Sadly, this moment of respite doesn't last long; you feel a certain discomfort as Ember's body heats up.  Looking up, you see " +
-                this.emberMF("his", "her") +
-                " eyes are wide open.  Before you can ask " +
-                this.emberMF("him", "her") +
-                " what's wrong, " +
-                this.emberMF("he", "she") +
-                " knocks you off with a start."
+            `.  You sink readily into the dragon's embrace, rubbing against ${this.emberMF(
+                "him",
+                "her"
+            )}, feeling sleepy and blissful after a good, hard fuck.  Sadly, this moment of respite doesn't last long; you feel a certain discomfort as Ember's body heats up.  Looking up, you see ${this.emberMF(
+                "his",
+                "her"
+            )} eyes are wide open.  Before you can ask ${this.emberMF(
+                "him",
+                "her"
+            )} what's wrong, ${this.emberMF("he", "she")} knocks you off with a start.`
         );
 
         this.outx(
-            '\n\n"<i>You... y-you... you pervert!  H-how dare you make me say those... those... embarrassing things... and... and... you kissed me!  Just like that!  You pulled my tongue out of my mouth and into yours...  Ugh... Just thinking about it...</i>"  Contrary to what Ember might be saying, you actually see ' +
-                this.emberMF("his", "her") +
-                " half-erect cock getting harder as the dragon starts turning " +
-                this.emberMF("him", "her") +
-                "self back on!"
+            `\n\n"<i>You... y-you... you pervert!  H-how dare you make me say those... those... embarrassing things... and... and... you kissed me!  Just like that!  You pulled my tongue out of my mouth and into yours...  Ugh... Just thinking about it...</i>"  Contrary to what Ember might be saying, you actually see ${this.emberMF(
+                "his",
+                "her"
+            )} half-erect cock getting harder as the dragon starts turning ${this.emberMF(
+                "him",
+                "her"
+            )}self back on!`
         );
 
         this.outx(
-            "\n\nYou smile languidly; from what you recall, " +
-                this.emberMF("he", "she") +
-                " was enjoying it.  Your hand slips between your [legs] to gently swipe up a handful of the draconic seed dripping out of your newly-filled asshole, which you hold out to " +
-                this.emberMF("him", "her") +
-                ".  You certainly didn't fill your belly by yourself."
+            `\n\nYou smile languidly; from what you recall, ${this.emberMF(
+                "he",
+                "she"
+            )} was enjoying it.  Your hand slips between your [legs] to gently swipe up a handful of the draconic seed dripping out of your newly-filled asshole, which you hold out to ${this.emberMF(
+                "him",
+                "her"
+            )}.  You certainly didn't fill your belly by yourself.`
         );
 
         this.outx(
-            "\n\nEmber makes the best face of disgust " +
-                this.emberMF("he", "she") +
-                ' can manage.  "<i>Argh!  I need a bath!  Now!</i>"  And with a quick spin, ' +
-                this.emberMF("he", "she") +
-                " dashes off to find a stream.  You watch " +
-                this.emberMF("him", "her") +
-                " go and smile bitterly; you've grown used to how the dragon behaves and you know " +
-                this.emberMF("he", "she") +
-                " really did enjoy " +
-                this.emberMF("him", "her") +
-                "self, but the act might be getting a bit tiresome.  Grabbing a handful of dried grass, you wipe the worst smears of sexual fluids from your body, redress yourself, and head lazily back to the camp."
+            `\n\nEmber makes the best face of disgust ${this.emberMF(
+                "he",
+                "she"
+            )} can manage.  "<i>Argh!  I need a bath!  Now!</i>"  And with a quick spin, ${this.emberMF(
+                "he",
+                "she"
+            )} dashes off to find a stream.  You watch ${this.emberMF(
+                "him",
+                "her"
+            )} go and smile bitterly; you've grown used to how the dragon behaves and you know ${this.emberMF(
+                "he",
+                "she"
+            )} really did enjoy ${this.emberMF(
+                "him",
+                "her"
+            )}self, but the act might be getting a bit tiresome.  Grabbing a handful of dried grass, you wipe the worst smears of sexual fluids from your body, redress yourself, and head lazily back to the camp.`
         );
         // (+Affection, minus lust, reset hours since cum, slimefeed)
         this.emberAffection(6);
@@ -4992,59 +5301,64 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outx(this.images.showImage("ember-give-her-a-blowjob"));
         this.outx(
-            "You stare at Ember's crotch, imagining the taste of draconic cum on your tongue.  The thought makes you lick your lips in eagerness, and you ask if Ember would enjoy having you suck on " +
-                this.emberMF("his", "her") +
-                " cock."
+            `You stare at Ember's crotch, imagining the taste of draconic cum on your tongue.  The thought makes you lick your lips in eagerness, and you ask if Ember would enjoy having you suck on ${this.emberMF(
+                "his",
+                "her"
+            )} cock.`
         );
 
         // (Low Affection)
         if (this.emberAffection() <= 25)
             this.outx(
-                '\n\n"<i>Huh... I guess I could do something like that.</i>"\n\nYou note that, despite the lack of verbal enthusiasm, Ember\'s shaft is already starting to poke out of ' +
-                    this.emberMF("his", "her") +
-                    " groin, but keep it to yourself."
+                `\n\n"<i>Huh... I guess I could do something like that.</i>"\n\nYou note that, despite the lack of verbal enthusiasm, Ember's shaft is already starting to poke out of ${this.emberMF(
+                    "his",
+                    "her"
+                )} groin, but keep it to yourself.`
             );
         // (Medium Affection)
         else if (this.emberAffection() < 75)
             this.outx(
-                "\n\n\"<i>I suppose I would like that... don't think I accept you just because I'm okay with it though!</i>\"\n\nYou bite back a smile and insist you understand; " +
-                    this.emberMF("he", "she") +
-                    "'s just using you for release, that's all.  Wondering at the look of mingled hurt and gratitude in " +
-                    this.emberMF("his", "her") +
-                    " eyes, you ask the inscrutable dragon to lead the way."
+                `\n\n"<i>I suppose I would like that... don't think I accept you just because I'm okay with it though!</i>"\n\nYou bite back a smile and insist you understand; ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s just using you for release, that's all.  Wondering at the look of mingled hurt and gratitude in ${this.emberMF(
+                    "his",
+                    "her"
+                )} eyes, you ask the inscrutable dragon to lead the way.`
             );
         // (High Affection)
         else
             this.outx(
-                "\n\nEven before Ember replies, " +
-                    this.emberMF("his", "her") +
-                    " cock throbs in anticipation.  \"<i>Sure!  I'd love... I mean... I'm okay with this,</i>\" Ember says, trying to hide " +
-                    this.emberMF("his", "her") +
-                    " excitement, despite " +
-                    this.emberMF("his", "her") +
-                    " whole body conspiring against " +
-                    this.emberMF("him", "her") +
-                    "."
+                `\n\nEven before Ember replies, ${this.emberMF(
+                    "his",
+                    "her"
+                )} cock throbs in anticipation.  "<i>Sure!  I'd love... I mean... I'm okay with this,</i>" Ember says, trying to hide ${this.emberMF(
+                    "his",
+                    "her"
+                )} excitement, despite ${this.emberMF(
+                    "his",
+                    "her"
+                )} whole body conspiring against ${this.emberMF("him", "her")}.`
             );
 
         this.outx(
-            "\n\nYou follow your draconic lover, waiting to see where " +
-                this.emberMF("he", "she") +
-                " will take you, which turns out to be a simple, dried-up clearing, dominated by a large, lichen-carpeted stump in its center.  Ember releases your hand and heads to the stump, seating " +
-                this.emberMF("him", "her") +
-                "self on it as imperiously as any " +
-                this.emberMF("emperor", "empress") +
-                " on " +
-                this.emberMF("his", "her") +
-                " throne."
+            `\n\nYou follow your draconic lover, waiting to see where ${this.emberMF(
+                "he",
+                "she"
+            )} will take you, which turns out to be a simple, dried-up clearing, dominated by a large, lichen-carpeted stump in its center.  Ember releases your hand and heads to the stump, seating ${this.emberMF(
+                "him",
+                "her"
+            )}self on it as imperiously as any ${this.emberMF(
+                "emperor",
+                "empress"
+            )} on ${this.emberMF("his", "her")} throne.`
         );
 
         this.outx(
-            "\n\n" +
-                this.emberMF("He", "She") +
-                " spreads " +
-                this.emberMF("his", "her") +
-                " legs wide, revealing "
+            `\n\n${this.emberMF("He", "She")} spreads ${this.emberMF(
+                "his",
+                "her"
+            )} legs wide, revealing `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) {
             if (
@@ -5061,7 +5375,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outx("her twin genital slits");
             else this.outx("her genitals");
         }
-        this.outx(", " + this.emberMF("his", "her") + " ");
+        this.outx(`, ${this.emberMF("his", "her")} `);
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] == 1)
             this.outx("draconic ");
         this.outx(
@@ -5069,11 +5383,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou swiftly strip off your [armor], lest they be dirtied by what you are about to do, approach, and kneel before " +
-                this.emberMF("him", "her") +
-                ", reaching out to gently grasp the erect shaft of " +
-                this.emberMF("his", "her") +
-                " cock.  The lewdness of what you're about to do makes a perverse thrill run through you."
+            `\n\nYou swiftly strip off your [armor], lest they be dirtied by what you are about to do, approach, and kneel before ${this.emberMF(
+                "him",
+                "her"
+            )}, reaching out to gently grasp the erect shaft of ${this.emberMF(
+                "his",
+                "her"
+            )} cock.  The lewdness of what you're about to do makes a perverse thrill run through you.`
         );
         if (this.player.hasCock())
             this.outx("  [EachCock] hardens, spearing aimlessly into the ground in your arousal.");
@@ -5083,9 +5399,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
         this.outx(
-            '\n\n"<i>J-just get started with it,</i>" Ember stammers, opening ' +
-                this.emberMF("his", "her") +
-                " legs wider and breathing heavily."
+            `\n\n"<i>J-just get started with it,</i>" Ember stammers, opening ${this.emberMF(
+                "his",
+                "her"
+            )} legs wider and breathing heavily.`
         );
 
         this.outx(
@@ -5095,7 +5412,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 ||
             this.flags[kFLAGS.EMBER_INTERNAL_DICK] == 1
         ) {
-            this.outx(" that is even now springing forth from " + this.emberMF("his", "her") + " ");
+            this.outx(` that is even now springing forth from ${this.emberMF("his", "her")} `);
             if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outx("first ");
             this.outx("genital slit");
         }
@@ -5103,13 +5420,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] == 1)
             this.outx("dragon ");
         this.outx(
-            "dick are proudly lancing towards your face, pre-cum gently bubbling from the tip and flowing down its length as you massage and lubricate it for ease of swallowing.  You cast a coy look at the dragon, who is shivering from your ministrations, but stoically refuses to show how much you are affecting " +
-                this.emberMF("him", "her") +
-                ".  Not willing to play any more if " +
-                this.emberMF("he", "she") +
-                " isn't willing to cooperate, you open your mouth and start to swallow " +
-                this.emberMF("his", "her") +
-                " cock."
+            `dick are proudly lancing towards your face, pre-cum gently bubbling from the tip and flowing down its length as you massage and lubricate it for ease of swallowing.  You cast a coy look at the dragon, who is shivering from your ministrations, but stoically refuses to show how much you are affecting ${this.emberMF(
+                "him",
+                "her"
+            )}.  Not willing to play any more if ${this.emberMF(
+                "he",
+                "she"
+            )} isn't willing to cooperate, you open your mouth and start to swallow ${this.emberMF(
+                "his",
+                "her"
+            )} cock.`
         );
 
         this.outx(
@@ -5119,23 +5439,27 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx('\n\n"<i>Rrr... S-stop teasing me and just do this,</i>" Ember goads you.');
 
         this.outx(
-            "\n\nEnthused by " +
-                this.emberMF("his", "her") +
-                " obvious enjoyment, you continue, swallowing as much as you can.  At around the six-inch mark, though, you find yourself forced to a halt; Ember's cock is jabbing against the back of your throat and triggering your gag reflex.  You try to calm yourself and breathe deeply, seeing that at least half " +
-                this.emberMF("his", "her") +
-                " length is still outside your mouth."
+            `\n\nEnthused by ${this.emberMF(
+                "his",
+                "her"
+            )} obvious enjoyment, you continue, swallowing as much as you can.  At around the six-inch mark, though, you find yourself forced to a halt; Ember's cock is jabbing against the back of your throat and triggering your gag reflex.  You try to calm yourself and breathe deeply, seeing that at least half ${this.emberMF(
+                "his",
+                "her"
+            )} length is still outside your mouth.`
         );
 
         this.outx(
-            "\n\n\"<i>D-don't force yourself.  Don't want you choking on my dick,</i>\" Ember pants, starting to lose " +
-                this.emberMF("his", "her") +
-                " cool as the pleasure escalates."
+            `\n\n"<i>D-don't force yourself.  Don't want you choking on my dick,</i>" Ember pants, starting to lose ${this.emberMF(
+                "his",
+                "her"
+            )} cool as the pleasure escalates.`
         );
 
         this.outx(
-            "\n\n" +
-                this.emberMF("His", "Her") +
-                " words merely spark an ember of pride in your heart; you won't be beaten, not by this dick!  There are monster cocks out there much larger than your little dragon's, after all.  Inhaling as much as you can fit in your lungs, you thrust your head forward, straining to pierce your closing throat until, at last, it pops wetly through into your gullet.  With the head of the shaft already inside your throat, it's easier to continue sliding it in.  Inch by inch you push forward, feeling it stretching out your neck and plunging down, down inside you.  Finally, you find your nose pressed gently into Ember's "
+            `\n\n${this.emberMF(
+                "His",
+                "Her"
+            )} words merely spark an ember of pride in your heart; you won't be beaten, not by this dick!  There are monster cocks out there much larger than your little dragon's, after all.  Inhaling as much as you can fit in your lungs, you thrust your head forward, straining to pierce your closing throat until, at last, it pops wetly through into your gullet.  With the head of the shaft already inside your throat, it's easier to continue sliding it in.  Inch by inch you push forward, feeling it stretching out your neck and plunging down, down inside you.  Finally, you find your nose pressed gently into Ember's `
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outx("scaly");
         else this.outx("soft-skinned");
@@ -5146,41 +5470,47 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nLooking up to see Ember's reaction, what greets your straining eyes is a slack-jawed, panting dragon, and " +
-                this.emberMF("he", "she") +
-                "'s looking straight at you.  \"<i>You don't know how sexy you look like this...</i>\""
+            `\n\nLooking up to see Ember's reaction, what greets your straining eyes is a slack-jawed, panting dragon, and ${this.emberMF(
+                "he",
+                "she"
+            )}'s looking straight at you.  "<i>You don't know how sexy you look like this...</i>"`
         );
 
         this.outx(
-            "\n\nYou weakly grin around " +
-                this.emberMF("his", "her") +
-                " jaw-stretcher of a cock and start to bob your head back and forth as much as you can.  You can feel " +
-                this.emberMF("his", "her") +
-                " tip jabbing into what feels like your belly and you try to clench your throat around the inhumanly-long tool, sucking madly on the part still inside your actual mouth."
+            `\n\nYou weakly grin around ${this.emberMF(
+                "his",
+                "her"
+            )} jaw-stretcher of a cock and start to bob your head back and forth as much as you can.  You can feel ${this.emberMF(
+                "his",
+                "her"
+            )} tip jabbing into what feels like your belly and you try to clench your throat around the inhumanly-long tool, sucking madly on the part still inside your actual mouth.`
         );
         if (
             this.flags[kFLAGS.EMBER_GENDER] == 3 &&
             (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] > 0)
         ) {
             this.outx(
-                "  Struck by perverse inspiration, you manage to wriggle your tongue under the base of " +
-                    this.emberMF("his", "her") +
-                    " cock and thrust it into " +
-                    this.emberMF("his", "her") +
-                    " genital slit.  You guide it as deep into the strangely pussy-like orifice as you can, tickling and caressing."
+                `  Struck by perverse inspiration, you manage to wriggle your tongue under the base of ${this.emberMF(
+                    "his",
+                    "her"
+                )} cock and thrust it into ${this.emberMF(
+                    "his",
+                    "her"
+                )} genital slit.  You guide it as deep into the strangely pussy-like orifice as you can, tickling and caressing.`
             );
             // (DemonTongue:
             if (this.player.tongueType > TONUGE_HUMAN)
                 this.outx(
-                    "  Your inhuman length slithers deeper and deeper inside, and you realize you can feel two rounded objects; " +
-                        this.emberMF("his", "her") +
-                        " balls! You're actually touching the testicles that are normally locked away inside " +
-                        this.emberMF("his", "her") +
-                        " body, except when " +
-                        this.emberMF("he", "she") +
-                        " reaches " +
-                        this.emberMF("his", "her") +
-                        " most aroused states..."
+                    `  Your inhuman length slithers deeper and deeper inside, and you realize you can feel two rounded objects; ${this.emberMF(
+                        "his",
+                        "her"
+                    )} balls! You're actually touching the testicles that are normally locked away inside ${this.emberMF(
+                        "his",
+                        "her"
+                    )} body, except when ${this.emberMF("he", "she")} reaches ${this.emberMF(
+                        "his",
+                        "her"
+                    )} most aroused states...`
                 );
         }
 
@@ -5188,152 +5518,196 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             '\n\n"<i>Ah!  M-more... touch me more...</i>" Ember pleads, surrendering to pleasure at your hands.'
         );
         this.outx(
-            "\n\nYou bob and swallow, slurping on " +
-                this.emberMF("his", "her") +
-                " cock and massaging it"
+            `\n\nYou bob and swallow, slurping on ${this.emberMF(
+                "his",
+                "her"
+            )} cock and massaging it`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 3)
-            this.outx(", your tongue wriggling around in " + this.emberMF("his", "her") + " slit");
+            this.outx(`, your tongue wriggling around in ${this.emberMF("his", "her")} slit`);
         this.outx(
-            ", all for the purpose of having " +
-                this.emberMF("him", "her") +
-                " deliver that creamy dragon spunk directly into your hungry belly.  You do what you can, but you're not certain how else you can please " +
-                this.emberMF("him", "her") +
-                " with " +
-                this.emberMF("his", "her") +
-                " entire length buried in your throat.  You look up at the dragon with a pleading expression, silently begging " +
-                this.emberMF("him", "her") +
-                " to take an active hand in matters, or else " +
-                this.emberMF("he", "she") +
-                "'ll never get off!"
+            `, all for the purpose of having ${this.emberMF(
+                "him",
+                "her"
+            )} deliver that creamy dragon spunk directly into your hungry belly.  You do what you can, but you're not certain how else you can please ${this.emberMF(
+                "him",
+                "her"
+            )} with ${this.emberMF(
+                "his",
+                "her"
+            )} entire length buried in your throat.  You look up at the dragon with a pleading expression, silently begging ${this.emberMF(
+                "him",
+                "her"
+            )} to take an active hand in matters, or else ${this.emberMF(
+                "he",
+                "she"
+            )}'ll never get off!`
         );
         this.outx(
-            '\n\nEmber murmurs with delight and eagerness.  "<i>If you keep looking at me like that... I don\'t think I can... mmm... hold back.</i>"  True to ' +
-                this.emberMF("his", "her") +
-                " words, you actually feel " +
-                this.emberMF("his", "her") +
-                " dick twitch within your hungry maw.  You give your most pleading look; not caring if " +
-                this.emberMF("he", "she") +
-                " has to fuck your throat to get off, you just need " +
-                this.emberMF("him", "her") +
-                " to cum inside you before you pass out!"
-        );
-
-        this.outx(
-            "\n\nFinally, Ember's hands move to your cheeks, rubbing along them as " +
-                this.emberMF("he", "she") +
-                ' feels every contour, every little curve on your face, and declares, "<i>Can\'t hold back!</i>"  ' +
-                this.emberMF("He", "She") +
-                " takes hold of your head and begins forcing you up and down " +
-                this.emberMF("his", "her") +
-                " length.  You go limp and allow " +
-                this.emberMF("him", "her") +
-                " to use you like a living onahole, feeling the dragon piston you back and forth across the cock, struggling to constrict your throat to a properly pussy-like tightness."
+            `\n\nEmber murmurs with delight and eagerness.  "<i>If you keep looking at me like that... I don't think I can... mmm... hold back.</i>"  True to ${this.emberMF(
+                "his",
+                "her"
+            )} words, you actually feel ${this.emberMF(
+                "his",
+                "her"
+            )} dick twitch within your hungry maw.  You give your most pleading look; not caring if ${this.emberMF(
+                "he",
+                "she"
+            )} has to fuck your throat to get off, you just need ${this.emberMF(
+                "him",
+                "her"
+            )} to cum inside you before you pass out!`
         );
 
         this.outx(
-            "\n\n" +
-                this.emberMF("He", "She") +
-                " thrusts with ever-increasing force, bucking and groaning loudly as " +
-                this.emberMF("his", "her") +
-                " tongue lolls down across " +
-                this.emberMF("his", "her") +
-                ' chest.  "<i>Oh!  Oh!  Gonna... gonna...!</i>"  ' +
-                this.emberMF("He", "She") +
-                " lets out a full-throated bellow and discharges an explosive gout of cum into you.  With " +
-                this.emberMF("his", "her") +
-                " cock buried fully into you, you have no choice but to swallow - or, more accurately, let " +
-                this.emberMF("him", "her") +
-                " discharge stream after stream of jizz directly into your belly."
+            `\n\nFinally, Ember's hands move to your cheeks, rubbing along them as ${this.emberMF(
+                "he",
+                "she"
+            )} feels every contour, every little curve on your face, and declares, "<i>Can't hold back!</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} takes hold of your head and begins forcing you up and down ${this.emberMF(
+                "his",
+                "her"
+            )} length.  You go limp and allow ${this.emberMF(
+                "him",
+                "her"
+            )} to use you like a living onahole, feeling the dragon piston you back and forth across the cock, struggling to constrict your throat to a properly pussy-like tightness.`
         );
 
         this.outx(
-            "\n\nGushes of spooge flow into your midriff, which you can feel growing heavier and heavier with the accumulation, your skin stretching into a pregnancy-mocking bulge.  Suddenly Ember pulls you away from " +
-                this.emberMF("him", "her") +
-                ", giving you a mouthful of cum; you do your best to swallow, but can't help but let some of it escape.  Not that it would matter much anyway, because shortly after Ember extracts " +
-                this.emberMF("his", "her") +
-                " spewing member from your mouth and paints your face with the last few jets of jism."
+            `\n\n${this.emberMF(
+                "He",
+                "She"
+            )} thrusts with ever-increasing force, bucking and groaning loudly as ${this.emberMF(
+                "his",
+                "her"
+            )} tongue lolls down across ${this.emberMF(
+                "his",
+                "her"
+            )} chest.  "<i>Oh!  Oh!  Gonna... gonna...!</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} lets out a full-throated bellow and discharges an explosive gout of cum into you.  With ${this.emberMF(
+                "his",
+                "her"
+            )} cock buried fully into you, you have no choice but to swallow - or, more accurately, let ${this.emberMF(
+                "him",
+                "her"
+            )} discharge stream after stream of jizz directly into your belly.`
         );
 
         this.outx(
-            "\n\nYou simply kneel there and take it, too full and out of breath to do anything about the cum-bath you're getting.  Finally, though, the dragon's overstimulated dick belches its last few blasts of frothy spunk, which land on your face as Ember slumps into " +
-                this.emberMF("his", "her") +
-                " seat, panting with exhaustion.  You heave and gasp for air, cum escaping your mouth, sighing in relief as you finally fill your lungs, then cradle your gurgling, sloshing belly, a grimace of discomfort crossing your face at the pressure before you expel a spunk-scented belch.  That feels better."
+            `\n\nGushes of spooge flow into your midriff, which you can feel growing heavier and heavier with the accumulation, your skin stretching into a pregnancy-mocking bulge.  Suddenly Ember pulls you away from ${this.emberMF(
+                "him",
+                "her"
+            )}, giving you a mouthful of cum; you do your best to swallow, but can't help but let some of it escape.  Not that it would matter much anyway, because shortly after Ember extracts ${this.emberMF(
+                "his",
+                "her"
+            )} spewing member from your mouth and paints your face with the last few jets of jism.`
         );
 
         this.outx(
-            "\n\nYour relief is short-lived, because Ember takes your head in " +
-                this.emberMF("his", "her") +
-                " hands and delivers a passionate kiss to your lips, tasting " +
-                this.emberMF("him", "her") +
-                "self and you as " +
-                this.emberMF("he", "she") +
-                " licks the stray gobs of cum that remain.  " +
-                this.emberMF("He", "She") +
-                " releases you with a wet smack, strands of saliva linking your mouth to " +
-                this.emberMF("his", "hers") +
-                ", while " +
-                this.emberMF("he", "she") +
-                " begins licking your face clean of the mess " +
-                this.emberMF("he", "she") +
-                " made earlier."
+            `\n\nYou simply kneel there and take it, too full and out of breath to do anything about the cum-bath you're getting.  Finally, though, the dragon's overstimulated dick belches its last few blasts of frothy spunk, which land on your face as Ember slumps into ${this.emberMF(
+                "his",
+                "her"
+            )} seat, panting with exhaustion.  You heave and gasp for air, cum escaping your mouth, sighing in relief as you finally fill your lungs, then cradle your gurgling, sloshing belly, a grimace of discomfort crossing your face at the pressure before you expel a spunk-scented belch.  That feels better.`
         );
 
         this.outx(
-            "\n\nYou close your eyes and submit to the dragon's gentle ministrations, savoring the close contact as " +
-                this.emberMF("his", "her") +
-                " cool tongue glides across your " +
-                this.player.skinFurScales() +
-                ".  Ember takes " +
-                this.emberMF("his", "her") +
-                " time, making sure you're absolutely spotless.  Once you've been cleaned and licked to " +
-                this.emberMF("his", "her") +
-                " satisfaction, " +
-                this.emberMF("he", "she") +
-                " finally settles down; getting off the stump to lay on the floor and pull you atop " +
-                this.emberMF("him", "her") +
-                "; hugging you close."
+            `\n\nYour relief is short-lived, because Ember takes your head in ${this.emberMF(
+                "his",
+                "her"
+            )} hands and delivers a passionate kiss to your lips, tasting ${this.emberMF(
+                "him",
+                "her"
+            )}self and you as ${this.emberMF(
+                "he",
+                "she"
+            )} licks the stray gobs of cum that remain.  ${this.emberMF(
+                "He",
+                "She"
+            )} releases you with a wet smack, strands of saliva linking your mouth to ${this.emberMF(
+                "his",
+                "hers"
+            )}, while ${this.emberMF(
+                "he",
+                "she"
+            )} begins licking your face clean of the mess ${this.emberMF(
+                "he",
+                "she"
+            )} made earlier.`
         );
 
         this.outx(
-            "\n\nYou don't quite know why " +
-                this.emberMF("he", "she") +
-                " feels like cuddling you after just feeding you " +
-                this.emberMF("his", "her") +
-                " cum, but you aren't too inclined to complain.  Still, eventually you realize time is slipping away and so gently try to wriggle out of " +
-                this.emberMF("his", "her") +
-                " embrace, playfully telling " +
-                this.emberMF("him", "her") +
-                " that as much as you like being close to " +
-                this.emberMF("him", "her") +
-                ", you have other things to do."
+            `\n\nYou close your eyes and submit to the dragon's gentle ministrations, savoring the close contact as ${this.emberMF(
+                "his",
+                "her"
+            )} cool tongue glides across your ${this.player.skinFurScales()}.  Ember takes ${this.emberMF(
+                "his",
+                "her"
+            )} time, making sure you're absolutely spotless.  Once you've been cleaned and licked to ${this.emberMF(
+                "his",
+                "her"
+            )} satisfaction, ${this.emberMF(
+                "he",
+                "she"
+            )} finally settles down; getting off the stump to lay on the floor and pull you atop ${this.emberMF(
+                "him",
+                "her"
+            )}; hugging you close.`
         );
 
         this.outx(
-            "\n\nEmber opens " +
-                this.emberMF("his", "her") +
-                " eyes wide open, and roughly pushes you to the side and off " +
-                this.emberMF("him", "her") +
-                '.  "<i>W-what did you make me do... my cum... the kiss...  you... you made me lick my own cum off your face!</i>"'
+            `\n\nYou don't quite know why ${this.emberMF(
+                "he",
+                "she"
+            )} feels like cuddling you after just feeding you ${this.emberMF(
+                "his",
+                "her"
+            )} cum, but you aren't too inclined to complain.  Still, eventually you realize time is slipping away and so gently try to wriggle out of ${this.emberMF(
+                "his",
+                "her"
+            )} embrace, playfully telling ${this.emberMF(
+                "him",
+                "her"
+            )} that as much as you like being close to ${this.emberMF(
+                "him",
+                "her"
+            )}, you have other things to do.`
         );
 
         this.outx(
-            "\n\nYou point out that " +
-                this.emberMF("he", "she") +
-                " kissed you, not the other way around.  You certainly didn't make " +
-                this.emberMF("him", "her") +
-                " lick you.  Besides, why should you be the only one who gets to enjoy how " +
-                this.emberMF("he", "she") +
-                " tastes?"
+            `\n\nEmber opens ${this.emberMF(
+                "his",
+                "her"
+            )} eyes wide open, and roughly pushes you to the side and off ${this.emberMF(
+                "him",
+                "her"
+            )}.  "<i>W-what did you make me do... my cum... the kiss...  you... you made me lick my own cum off your face!</i>"`
         );
 
         this.outx(
-            '\n\n"<i>I need a bath!</i>" ' +
-                this.emberMF("he", "she") +
-                " declares hurriedly and dashes off.  You watch the dragon go, "
+            `\n\nYou point out that ${this.emberMF(
+                "he",
+                "she"
+            )} kissed you, not the other way around.  You certainly didn't make ${this.emberMF(
+                "him",
+                "her"
+            )} lick you.  Besides, why should you be the only one who gets to enjoy how ${this.emberMF(
+                "he",
+                "she"
+            )} tastes?`
+        );
+
+        this.outx(
+            `\n\n"<i>I need a bath!</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} declares hurriedly and dashes off.  You watch the dragon go, `
         );
         if (this.player.cor < 80) this.outx("amused");
-        else this.outx("increasingly leery of " + this.emberMF("his", "her") + " batty behavior");
+        else this.outx(`increasingly leery of ${this.emberMF("his", "her")} batty behavior`);
         this.outx(", then pick yourself up to head back to the camp.");
         // (+Affection, lust, reset hours since cum, slimefeed)
         this.player.slimeFeed();
@@ -5347,9 +5721,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outx(this.images.showImage("ember-gives-you-a-blowjob"));
         this.outx(
-            "Trying to appear confident and a little aloof, you suggest that maybe Ember would be willing to put " +
-                this.emberMF("his", "her") +
-                " kinky tongue to work on your cock."
+            `Trying to appear confident and a little aloof, you suggest that maybe Ember would be willing to put ${this.emberMF(
+                "his",
+                "her"
+            )} kinky tongue to work on your cock.`
         );
 
         // (Low Affection)
@@ -5363,9 +5738,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outx(
-                '\n\n"<i>No way!  Doing something like that is below me; think of something else!</i>"  Ember crosses ' +
-                    this.emberMF("his", "her") +
-                    ' arms, awaiting your reply.</i>"'
+                `\n\n"<i>No way!  Doing something like that is below me; think of something else!</i>"  Ember crosses ${this.emberMF(
+                    "his",
+                    "her"
+                )} arms, awaiting your reply.</i>"`
             );
             // Sex menu hooooo
             this.emberSexMenu(false);
@@ -5374,17 +5750,20 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (High Affection)
         else {
             this.outx(
-                "\n\nEmber looks at your crotch, then back at you; " +
-                    this.emberMF("his", "her") +
-                    ' eyes glitter conspiratorially. "<i>Ok... but only this once!</i>"'
+                `\n\nEmber looks at your crotch, then back at you; ${this.emberMF(
+                    "his",
+                    "her"
+                )} eyes glitter conspiratorially. "<i>Ok... but only this once!</i>"`
             );
         }
         this.outx(
-            "\n\nRealising " +
-                this.emberMF("he", "she") +
-                " is looking at you to lead, you indicate " +
-                this.emberMF("he", "she") +
-                " should follow you and start heading for the outskirts of camp.  Once you trust you are a safe distance away, you "
+            `\n\nRealising ${this.emberMF(
+                "he",
+                "she"
+            )} is looking at you to lead, you indicate ${this.emberMF(
+                "he",
+                "she"
+            )} should follow you and start heading for the outskirts of camp.  Once you trust you are a safe distance away, you `
         );
         if (!this.player.isNaga())
             this.outx("seat yourself on a conveniently lichen-covered boulder.");
@@ -5394,7 +5773,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
         this.outx(
-            "\n\nEmber's eyes glow when " + this.emberMF("his", "her") + " gaze sets on your dick"
+            `\n\nEmber's eyes glow when ${this.emberMF("his", "her")} gaze sets on your dick`
         );
         if (this.player.cockTotal() > 1) this.outx("s");
         this.outx(".");
@@ -5402,17 +5781,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         const y: number = x + 1;
         if (this.player.cockTotal() > 1) {
             this.outx(
-                "  " +
-                    this.emberMF("He", "She") +
-                    " selects the biggest cock and gives it a gentle stroke,"
+                `  ${this.emberMF(
+                    "He",
+                    "She"
+                )} selects the biggest cock and gives it a gentle stroke,`
             );
         } else
             this.outx(
-                "  " +
-                    this.emberMF("He", "She") +
-                    " takes your [cock " +
-                    y +
-                    "] in hand and begins gently stroking it,"
+                `  ${this.emberMF(
+                    "He",
+                    "She"
+                )} takes your [cock ${y}] in hand and begins gently stroking it,`
             );
         this.outx(" sniffing your musk with obvious delight.");
 
@@ -5427,76 +5806,79 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
         this.outx(
-            "\n\nYou shiver at the sensations of " +
-                this.emberMF("his", "her") +
-                " hands on your cock"
+            `\n\nYou shiver at the sensations of ${this.emberMF("his", "her")} hands on your cock`
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0)
             this.outx(
-                ", the scales on " +
-                    this.emberMF("his", "her") +
-                    " palms producing an indescribable feeling as they slide across your sensitive flesh,"
+                `, the scales on ${this.emberMF(
+                    "his",
+                    "her"
+                )} palms producing an indescribable feeling as they slide across your sensitive flesh,`
             );
         this.outx(" and unthinkingly blurt out your understanding.");
 
         this.outx(
-            "\n\nSatisfied at that, Ember extends " +
-                this.emberMF("his", "her") +
-                " tongue, slowly wrapping it around your " +
-                this.cockDescript(x) +
-                ", an act that makes you shiver as the inhumanly long, prehensile appendage twines around your member like a slick-skinned snake.  " +
-                this.emberMF("He", "She") +
-                " coils it around your shaft expertly, gripping you into a makeshift cock-sleeve."
+            `\n\nSatisfied at that, Ember extends ${this.emberMF(
+                "his",
+                "her"
+            )} tongue, slowly wrapping it around your ${this.cockDescript(
+                x
+            )}, an act that makes you shiver as the inhumanly long, prehensile appendage twines around your member like a slick-skinned snake.  ${this.emberMF(
+                "He",
+                "She"
+            )} coils it around your shaft expertly, gripping you into a makeshift cock-sleeve.`
         );
 
         this.outx(
-            "\n\nLooking down at Ember, you see the dragon wreathed in happiness; " +
-                this.emberMF("he", "she") +
-                "'s so focused on " +
-                this.emberMF("his", "her") +
-                " task that " +
-                this.emberMF("he", "she") +
-                " doesn't even notice you staring.  Using " +
-                this.emberMF("his", "her") +
-                " coiled tongue " +
-                this.emberMF("he", "she") +
-                " begins jerking you off; the sensation is familiar and yet so alien... it only takes a few strokes before your " +
-                this.cockDescript(x) +
-                " is glistening with Ember's saliva, and in a particularly pleasurable tug, you moan.  A bead of pre escapes your " +
-                this.player.cockHead(x) +
-                " and slowly slides down your shaft, until it makes contact with Ember's tongue."
+            `\n\nLooking down at Ember, you see the dragon wreathed in happiness; ${this.emberMF(
+                "he",
+                "she"
+            )}'s so focused on ${this.emberMF("his", "her")} task that ${this.emberMF(
+                "he",
+                "she"
+            )} doesn't even notice you staring.  Using ${this.emberMF(
+                "his",
+                "her"
+            )} coiled tongue ${this.emberMF(
+                "he",
+                "she"
+            )} begins jerking you off; the sensation is familiar and yet so alien... it only takes a few strokes before your ${this.cockDescript(
+                x
+            )} is glistening with Ember's saliva, and in a particularly pleasurable tug, you moan.  A bead of pre escapes your ${this.player.cockHead(
+                x
+            )} and slowly slides down your shaft, until it makes contact with Ember's tongue.`
         );
 
         this.outx(
-            "\n\nThe moment " +
-                this.emberMF("he", "she") +
-                " tastes you, " +
-                this.emberMF("his", "her") +
-                " eyes seem to glow.  In a whip-like motion, Ember pulls " +
-                this.emberMF("his", "her") +
-                " tongue back into " +
-                this.emberMF("his", "her") +
-                " awaiting mouth, engulfing your " +
-                this.cockDescript(x) +
-                ".  You gasp as the cool, slick flesh surrounds you, heedless of the sharp teeth whose hard surfaces you can occasionally feel grazing you.  You trust your dragon too much to believe " +
-                this.emberMF("he", "she") +
-                " would hurt you."
+            `\n\nThe moment ${this.emberMF("he", "she")} tastes you, ${this.emberMF(
+                "his",
+                "her"
+            )} eyes seem to glow.  In a whip-like motion, Ember pulls ${this.emberMF(
+                "his",
+                "her"
+            )} tongue back into ${this.emberMF(
+                "his",
+                "her"
+            )} awaiting mouth, engulfing your ${this.cockDescript(
+                x
+            )}.  You gasp as the cool, slick flesh surrounds you, heedless of the sharp teeth whose hard surfaces you can occasionally feel grazing you.  You trust your dragon too much to believe ${this.emberMF(
+                "he",
+                "she"
+            )} would hurt you.`
         );
 
         this.outx(
-            "\n\nEmber sucks you hard, slurping around your shaft with " +
-                this.emberMF("his", "her") +
-                " prehensile tongue and cooing with pleasure."
+            `\n\nEmber sucks you hard, slurping around your shaft with ${this.emberMF(
+                "his",
+                "her"
+            )} prehensile tongue and cooing with pleasure.`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
             this.outx(
-                "  " +
-                    this.emberMF("His", "Her") +
-                    " shaft is already hard as rock, and sometimes you can feel it poke your " +
-                    this.player.feet() +
-                    ", smearing small beads of Ember's barely contained pleasure on your " +
-                    this.player.skinFurScales() +
-                    "."
+                `  ${this.emberMF(
+                    "His",
+                    "Her"
+                )} shaft is already hard as rock, and sometimes you can feel it poke your ${this.player.feet()}, smearing small beads of Ember's barely contained pleasure on your ${this.player.skinFurScales()}.`
             );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2)
             this.outx(
@@ -5504,11 +5886,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
         this.outx(
-            "\n\nIn a swift move, Ember sucks you as hard as " +
-                this.emberMF("he", "she") +
-                " can and releases you with a resounding lip-smack.  You cry out, unsure of what's going on, wordlessly looking towards the dragon and pleading with " +
-                this.emberMF("him", "her") +
-                " to finish you off; you were just starting to get into things!"
+            `\n\nIn a swift move, Ember sucks you as hard as ${this.emberMF(
+                "he",
+                "she"
+            )} can and releases you with a resounding lip-smack.  You cry out, unsure of what's going on, wordlessly looking towards the dragon and pleading with ${this.emberMF(
+                "him",
+                "her"
+            )} to finish you off; you were just starting to get into things!`
         );
 
         this.outx(
@@ -5516,75 +5900,81 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou watch with a smile at once aroused and amused, and can't resist stroking " +
-                this.emberMF("him", "her") +
-                " gently on " +
-                this.emberMF("his", "her") +
-                " "
+            `\n\nYou watch with a smile at once aroused and amused, and can't resist stroking ${this.emberMF(
+                "him",
+                "her"
+            )} gently on ${this.emberMF("his", "her")} `
         );
         if (this.flags[kFLAGS.EMBER_HAIR] == 0 && this.flags[kFLAGS.EMBER_ROUNDFACE] == 0)
             this.outx("scaly pate");
         else this.outx("hair");
         this.outx(
-            ", telling " +
-                this.emberMF("him", "her") +
-                " that " +
-                this.emberMF("he", "she") +
-                " certainly has your attention and you're looking forward to finding out what " +
-                this.emberMF("he", "she") +
-                " has in mind."
+            `, telling ${this.emberMF("him", "her")} that ${this.emberMF(
+                "he",
+                "she"
+            )} certainly has your attention and you're looking forward to finding out what ${this.emberMF(
+                "he",
+                "she"
+            )} has in mind.`
         );
 
-        this.outx("\n\nEmber flicks " + this.emberMF("his", "her") + " tongue against your ");
+        this.outx(`\n\nEmber flicks ${this.emberMF("his", "her")} tongue against your `);
         if (this.player.balls > 0) this.outx("balls");
         else if (this.player.hasVagina()) this.outx(this.vaginaDescript());
-        else this.outx("[cock " + y + "]");
+        else this.outx(`[cock ${y}]`);
         this.outx(
-            " and begins licking you from base to tip in slow, almost torturous, strokes.  \"<i>Mmm.  So tasty...</i>\"  Sparks of pleasure surge up your body from the dragon's ministrations, and you find yourself biting back words because you're not sure if you want " +
-                this.emberMF("him", "her") +
-                " to go faster or to keep at it like this."
+            ` and begins licking you from base to tip in slow, almost torturous, strokes.  "<i>Mmm.  So tasty...</i>"  Sparks of pleasure surge up your body from the dragon's ministrations, and you find yourself biting back words because you're not sure if you want ${this.emberMF(
+                "him",
+                "her"
+            )} to go faster or to keep at it like this.`
         );
 
         this.outx(
-            "\n\nBy now you're leaking like a spring, and Ember greedily laps up every little drop.  \"<i>Feed me, [name].  I'm sooo thirsty...</i>\" Ember teases you, giving your leaking tip the softest of kisses.  You buck forward, eager to be re-engulfed in the dragon's tantalizing mouth, promising to feed " +
-                this.emberMF("him", "her") +
-                " everything you have if only " +
-                this.emberMF("he", "she") +
-                "'ll keep doing that!  Ember smiles at your promise, and obliges by sucking you back in like a popsicle."
+            `\n\nBy now you're leaking like a spring, and Ember greedily laps up every little drop.  "<i>Feed me, [name].  I'm sooo thirsty...</i>" Ember teases you, giving your leaking tip the softest of kisses.  You buck forward, eager to be re-engulfed in the dragon's tantalizing mouth, promising to feed ${this.emberMF(
+                "him",
+                "her"
+            )} everything you have if only ${this.emberMF(
+                "he",
+                "she"
+            )}'ll keep doing that!  Ember smiles at your promise, and obliges by sucking you back in like a popsicle.`
         );
 
         this.outx(
-            "\n\nClawed hands grab at your waist for support as " +
-                this.emberMF("he", "she") +
-                " finally begins bobbing " +
-                this.emberMF("his", "her") +
-                " head with abandon, intent on milking you of every single drop you're worth.  Your own hands unthinkingly latch onto " +
-                this.emberMF("his", "her") +
-                " horns, using them to help pin " +
-                this.emberMF("his", "her") +
-                " head in place, thrusting your cock obligingly into Ember's jaws as " +
-                this.emberMF("his", "her") +
-                " lips and long, prehensile tongue send ecstasy coursing through you from their efforts to wring you of your seed."
+            `\n\nClawed hands grab at your waist for support as ${this.emberMF(
+                "he",
+                "she"
+            )} finally begins bobbing ${this.emberMF(
+                "his",
+                "her"
+            )} head with abandon, intent on milking you of every single drop you're worth.  Your own hands unthinkingly latch onto ${this.emberMF(
+                "his",
+                "her"
+            )} horns, using them to help pin ${this.emberMF(
+                "his",
+                "her"
+            )} head in place, thrusting your cock obligingly into Ember's jaws as ${this.emberMF(
+                "his",
+                "her"
+            )} lips and long, prehensile tongue send ecstasy coursing through you from their efforts to wring you of your seed.`
         );
 
         this.outx(
-            "\n\nYou don't have long to wait, and with a wordless cry, you unleash yourself into Ember's thirsty mouth.  As the first jet hits Ember's tongue, " +
-                this.emberMF("he", "she") +
-                " cries out in bliss and buries your erupting [cock " +
-                y +
-                "] as far into " +
-                this.emberMF("him", "her") +
-                "self as far as " +
-                this.emberMF("he", "she") +
-                " can."
+            `\n\nYou don't have long to wait, and with a wordless cry, you unleash yourself into Ember's thirsty mouth.  As the first jet hits Ember's tongue, ${this.emberMF(
+                "he",
+                "she"
+            )} cries out in bliss and buries your erupting [cock ${y}] as far into ${this.emberMF(
+                "him",
+                "her"
+            )}self as far as ${this.emberMF("he", "she")} can.`
         );
 
         // (Low Cum Amount)
         if (this.player.cumQ() < 250) {
             this.outx(
-                "\n\nEmber sucks every single drop of cum out of you, taking you for everything you're worth, drinking it like a thirsty person in the desert.  Even when you feel you've given " +
-                    this.emberMF("him", "her") +
-                    " all you can, Ember inserts "
+                `\n\nEmber sucks every single drop of cum out of you, taking you for everything you're worth, drinking it like a thirsty person in the desert.  Even when you feel you've given ${this.emberMF(
+                    "him",
+                    "her"
+                )} all you can, Ember inserts `
             );
             if (!this.player.isTaur()) this.outx("a finger");
             else this.outx("the thumb of her wing");
@@ -5595,79 +5985,90 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000) {
             this.outx(
-                "\n\nEmber drinks all you have to offer with a smile.  Once you've given all you can, Ember lets go of you, licking " +
-                    this.emberMF("his", "her") +
-                    " lips as if " +
-                    this.emberMF("he", "she") +
-                    "'d just been fed a treat.  " +
-                    this.emberMF("His", "Her") +
-                    " belly is visibly bulging by the time you have finished."
+                `\n\nEmber drinks all you have to offer with a smile.  Once you've given all you can, Ember lets go of you, licking ${this.emberMF(
+                    "his",
+                    "her"
+                )} lips as if ${this.emberMF("he", "she")}'d just been fed a treat.  ${this.emberMF(
+                    "His",
+                    "Her"
+                )} belly is visibly bulging by the time you have finished.`
             );
         }
         // (High Cum Amount)
         else {
             this.outx(
-                "\n\nEmber insists on drinking every single drop, even though " +
-                    this.emberMF("he", "she") +
-                    " can barely contain the amazing amount of cum you're pumping into " +
-                    this.emberMF("his", "her") +
-                    " eager "
+                `\n\nEmber insists on drinking every single drop, even though ${this.emberMF(
+                    "he",
+                    "she"
+                )} can barely contain the amazing amount of cum you're pumping into ${this.emberMF(
+                    "his",
+                    "her"
+                )} eager `
             );
             if (this.flags[kFLAGS.EMBER_ROUNDFACE] > 0) this.outx("mouth");
             else this.outx("maw");
             this.outx(
-                ".  For a moment you get the impression " +
-                    this.emberMF("he", "she") +
-                    "'s drowning on your cum and try to pull away, but Ember won't have it; " +
-                    this.emberMF("he", "she") +
-                    " coaxes you back into position with careful encouragement from " +
-                    this.emberMF("his", "her") +
-                    " sharp teeth and continues drinking.  By the time you're done, " +
-                    this.emberMF("he", "she") +
-                    " looks almost pregnant from how distended " +
-                    this.emberMF("his", "her") +
-                    " cum-filled stomach is."
+                `.  For a moment you get the impression ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s drowning on your cum and try to pull away, but Ember won't have it; ${this.emberMF(
+                    "he",
+                    "she"
+                )} coaxes you back into position with careful encouragement from ${this.emberMF(
+                    "his",
+                    "her"
+                )} sharp teeth and continues drinking.  By the time you're done, ${this.emberMF(
+                    "he",
+                    "she"
+                )} looks almost pregnant from how distended ${this.emberMF(
+                    "his",
+                    "her"
+                )} cum-filled stomach is.`
             );
         }
 
         this.outx(
-            "\n\nWith a happy sigh, Ember hugs your midriff and buries " +
-                this.emberMF("his", "her") +
-                " head in your belly, licking " +
-                this.emberMF("his", "her") +
-                " lips happily.  You sink blissfully into the embrace, savoring the sensations of afterglow.  Lazily, you stroke Ember's head in a sign of affection.  Sadly you don't get to enjoy this for long, " +
-                this.emberMF("he", "she") +
-                " suddenly snaps and backs away from you, landing on " +
-                this.emberMF("his", "her") +
-                ' ass.  "<i>W-what do you think you\'re doing!?  Wait a moment... did... did you just make me drink all of your cum!?</i>"'
+            `\n\nWith a happy sigh, Ember hugs your midriff and buries ${this.emberMF(
+                "his",
+                "her"
+            )} head in your belly, licking ${this.emberMF(
+                "his",
+                "her"
+            )} lips happily.  You sink blissfully into the embrace, savoring the sensations of afterglow.  Lazily, you stroke Ember's head in a sign of affection.  Sadly you don't get to enjoy this for long, ${this.emberMF(
+                "he",
+                "she"
+            )} suddenly snaps and backs away from you, landing on ${this.emberMF(
+                "his",
+                "her"
+            )} ass.  "<i>W-what do you think you're doing!?  Wait a moment... did... did you just make me drink all of your cum!?</i>"`
         );
 
         this.outx(
-            "\n\nYou cast " +
-                this.emberMF("him", "her") +
-                " an idle look, gently pointing out you didn't make " +
-                this.emberMF("him", "her") +
-                " drink it.  The thought does cross your mind that it was swallow or let it splatter all over " +
-                this.emberMF("his", "her") +
-                " face, but you decide to keep that to yourself."
+            `\n\nYou cast ${this.emberMF(
+                "him",
+                "her"
+            )} an idle look, gently pointing out you didn't make ${this.emberMF(
+                "him",
+                "her"
+            )} drink it.  The thought does cross your mind that it was swallow or let it splatter all over ${this.emberMF(
+                "his",
+                "her"
+            )} face, but you decide to keep that to yourself.`
         );
 
         this.outx(
-            '\n\n"<i>I-I would never do something like that!</i>" Ember protests.  "<i>Never!  I wouldn\'t be caught dead drinking your tas... I mean, terrible cum!  I can\'t believe you did that to me!  I need to wash my mouth off!</i>"   ' +
-                this.emberMF("He", "She") +
-                " gets up and dashes away towards the nearest stream."
+            `\n\n"<i>I-I would never do something like that!</i>" Ember protests.  "<i>Never!  I wouldn't be caught dead drinking your tas... I mean, terrible cum!  I can't believe you did that to me!  I need to wash my mouth off!</i>"   ${this.emberMF(
+                "He",
+                "She"
+            )} gets up and dashes away towards the nearest stream.`
         );
 
-        this.outx("\n\nYou watch " + this.emberMF("him", "her") + " go");
+        this.outx(`\n\nYou watch ${this.emberMF("him", "her")} go`);
         if (this.player.cor < 75)
-            this.outx(
-                " and chuckle; you know " + this.emberMF("he", "she") + " loves you, really."
-            );
+            this.outx(` and chuckle; you know ${this.emberMF("he", "she")} loves you, really.`);
         else
             this.outx(
-                ", folding your arms; " +
-                    this.emberMF("his", "her") +
-                    " dementia is getting worse..."
+                `, folding your arms; ${this.emberMF("his", "her")} dementia is getting worse...`
             );
 
         // lose lust, reset hours since cum
@@ -5681,21 +6082,25 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outx(this.images.showImage("ember-fuck-her-in-her-buttz"));
         this.outx(
-            "Your eyes are drawn to Ember's butt like iron filings to a magnet.  Haunted by the temptation to see " +
-                this.emberMF("him", "her") +
-                " bent over and offering " +
-                this.emberMF("his", "her") +
-                " ass to your hungry touch, you ask if Ember would be willing to be the catcher in a bout of anal sex."
+            `Your eyes are drawn to Ember's butt like iron filings to a magnet.  Haunted by the temptation to see ${this.emberMF(
+                "him",
+                "her"
+            )} bent over and offering ${this.emberMF(
+                "his",
+                "her"
+            )} ass to your hungry touch, you ask if Ember would be willing to be the catcher in a bout of anal sex.`
         );
 
         // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outx(
-                "\n\n" +
-                    this.emberMF("His", "Her") +
-                    ' eyes widen.  "<i>Never!  N-E-V-E-R!  Not even over my dead body!</i>" Ember exclaims.  The dragon unfurls ' +
-                    this.emberMF("his", "her") +
-                    " wings and lifts off, beating the air furiously."
+                `\n\n${this.emberMF(
+                    "His",
+                    "Her"
+                )} eyes widen.  "<i>Never!  N-E-V-E-R!  Not even over my dead body!</i>" Ember exclaims.  The dragon unfurls ${this.emberMF(
+                    "his",
+                    "her"
+                )} wings and lifts off, beating the air furiously.`
             );
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
@@ -5703,11 +6108,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (Medium Affection)
         else if (this.emberAffection() < 75) {
             this.outx(
-                '\n\n"<i>Ewww!  How can you ask something like that of me!?  Think of something else.</i>"  Ember\'s protest is emphasized by a small puff of smoke that escapes ' +
-                    this.emberMF("his", "her") +
-                    " nostrils, though you can't help but notice " +
-                    this.emberMF("his", "her") +
-                    " nipples getting hard..."
+                `\n\n"<i>Ewww!  How can you ask something like that of me!?  Think of something else.</i>"  Ember's protest is emphasized by a small puff of smoke that escapes ${this.emberMF(
+                    "his",
+                    "her"
+                )} nostrils, though you can't help but notice ${this.emberMF(
+                    "his",
+                    "her"
+                )} nipples getting hard...`
             );
             // TO ZE SEX MENU
             this.emberSexMenu(false);
@@ -5719,7 +6126,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\n\"<i>I would, b-but it would never fit... and... and... well, it just won't fit!</i>\" Ember's eyes lock onto your crotch; "
             );
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
-                this.outx(this.emberMF("his", "her") + " stiffening cock");
+                this.outx(`${this.emberMF("his", "her")} stiffening cock`);
                 if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outx(" and ");
             }
             if (this.flags[kFLAGS.EMBER_GENDER] == 2) this.outx("her ");
@@ -5729,157 +6136,170 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (first time and corr < 40)
         if (this.flags[kFLAGS.TIMES_BUTTFUCKED_EMBER] == 0)
             this.outx(
-                "\n\nYou ask if " +
-                    this.emberMF("he", "she") +
-                    "'s really so certain that it won't fit; you're eager to give it a try if " +
-                    this.emberMF("he", "she") +
-                    " is, but you won't push if " +
-                    this.emberMF("he", "she") +
-                    "'s really that scared of the idea..."
+                `\n\nYou ask if ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s really so certain that it won't fit; you're eager to give it a try if ${this.emberMF(
+                    "he",
+                    "she"
+                )} is, but you won't push if ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s really that scared of the idea...`
             );
         else
             this.outx(
-                "\n\nYou ask how " +
-                    this.emberMF("he", "she") +
-                    " can be so certain... could it be " +
-                    this.emberMF("he", "she") +
-                    "'s scared? Because if " +
-                    this.emberMF("he", "she") +
-                    " is, you won't push the issue..."
+                `\n\nYou ask how ${this.emberMF(
+                    "he",
+                    "she"
+                )} can be so certain... could it be ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s scared? Because if ${this.emberMF(
+                    "he",
+                    "she"
+                )} is, you won't push the issue...`
             );
         this.flags[kFLAGS.TIMES_BUTTFUCKED_EMBER]++;
 
         this.outx(
-            "\n\nAt the mention of the word 'scared', Ember stares at you with renewed fire in " +
-                this.emberMF("his", "her") +
-                ' eyes.  "<i>Scared!?  I\'m not scared of anything!  Bring it on!</i>" ' +
-                this.emberMF("he", "she") +
-                ' proudly declares, grabbing your hand and leading you away towards a small clearing nearby.  "<i>Strip!</i>" Ember demands, hurriedly.'
+            `\n\nAt the mention of the word 'scared', Ember stares at you with renewed fire in ${this.emberMF(
+                "his",
+                "her"
+            )} eyes.  "<i>Scared!?  I'm not scared of anything!  Bring it on!</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} proudly declares, grabbing your hand and leading you away towards a small clearing nearby.  "<i>Strip!</i>" Ember demands, hurriedly.`
         );
 
         this.outx("\n\nYou quickly hasten to obey, undressing yourself and exposing [eachCock] ");
         if (this.player.hasVagina()) this.outx("and [vagina] ");
         this.outx(
-            "to the dragon.  Once you're fully undressed, you turn to look at Ember, to see " +
-                this.emberMF("him", "her") +
-                " openly masturbating; " +
-                this.emberMF("he", "she") +
-                " pants as " +
-                this.emberMF("he", "she") +
-                " strokes " +
-                this.emberMF("his", "her") +
-                " "
+            `to the dragon.  Once you're fully undressed, you turn to look at Ember, to see ${this.emberMF(
+                "him",
+                "her"
+            )} openly masturbating; ${this.emberMF("he", "she")} pants as ${this.emberMF(
+                "he",
+                "she"
+            )} strokes ${this.emberMF("his", "her")} `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
             this.outx("cock ");
         if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outx("and ");
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2) this.outx("pussy ");
         this.outx(
-            "with a hand, while " +
-                this.emberMF("he", "she") +
-                " suckles on the fingers of the other."
+            `with a hand, while ${this.emberMF("he", "she")} suckles on the fingers of the other.`
         );
 
         let x: number = this.player.cockThatFits(this.emberAnalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
 
         this.outx(
-            "\n\nOnce " +
-                this.emberMF("he", "she") +
-                " sees you're fully stripped, " +
-                this.emberMF("he", "she") +
-                " walks over to you and pushes you on the grassy ground with a growl of lust.  The slick digits of one hand find themselves wrapped around your erect " +
-                this.cockDescript(x) +
-                ", while the others press into Ember's tight pucker, slowly stretching it to accommodate you."
+            `\n\nOnce ${this.emberMF("he", "she")} sees you're fully stripped, ${this.emberMF(
+                "he",
+                "she"
+            )} walks over to you and pushes you on the grassy ground with a growl of lust.  The slick digits of one hand find themselves wrapped around your erect ${this.cockDescript(
+                x
+            )}, while the others press into Ember's tight pucker, slowly stretching it to accommodate you.`
         );
 
         // First Time
         if (this.flags[kFLAGS.TIMES_BUTTFUCKED_EMBER] == 1) {
             this.outx(
-                "\n\nThe dragon moans softly and growls with more than a hint of nervousness tinged pain; " +
-                    this.emberMF("he", "she") +
-                    " is giving up " +
-                    this.emberMF("his", "her") +
-                    " black cherry to you, after all, so " +
-                    this.emberMF("he", "she") +
-                    " has all the tightness and fear of a virgin.  You promise the dragon that you'll be slow and gentle."
+                `\n\nThe dragon moans softly and growls with more than a hint of nervousness tinged pain; ${this.emberMF(
+                    "he",
+                    "she"
+                )} is giving up ${this.emberMF(
+                    "his",
+                    "her"
+                )} black cherry to you, after all, so ${this.emberMF(
+                    "he",
+                    "she"
+                )} has all the tightness and fear of a virgin.  You promise the dragon that you'll be slow and gentle.`
             );
             this.outx(
-                '\n\nEmber shoots you a nervous glare, before demanding, "<i>You won\'t do anything!  Just sit there and let me handle this!</i>"  Not keen on starting an argument, you decide to do as ' +
-                    this.emberMF("he", "she") +
-                    " says."
+                `\n\nEmber shoots you a nervous glare, before demanding, "<i>You won't do anything!  Just sit there and let me handle this!</i>"  Not keen on starting an argument, you decide to do as ${this.emberMF(
+                    "he",
+                    "she"
+                )} says.`
             );
             this.outx(
-                "\n\n\"<i>I can't believe I have to do this... to do something some humiliating... so weird...</i>\"  With a sigh, you tell Ember that's enough; " +
-                    this.emberMF("he", "she") +
-                    " doesn't have to do anything " +
-                    this.emberMF("he", "she") +
-                    " doesn't want to, you didn't mean to tease " +
-                    this.emberMF("him", "her") +
-                    " about being scared.  Ember interrupts you with a clawed finger.  \"<i>Just be quiet.  I... I want to do this... no one tells me what to do!  So if I'm doing this... it's because I want to!</i>\""
+                `\n\n"<i>I can't believe I have to do this... to do something some humiliating... so weird...</i>"  With a sigh, you tell Ember that's enough; ${this.emberMF(
+                    "he",
+                    "she"
+                )} doesn't have to do anything ${this.emberMF(
+                    "he",
+                    "she"
+                )} doesn't want to, you didn't mean to tease ${this.emberMF(
+                    "him",
+                    "her"
+                )} about being scared.  Ember interrupts you with a clawed finger.  "<i>Just be quiet.  I... I want to do this... no one tells me what to do!  So if I'm doing this... it's because I want to!</i>"`
             );
             this.outx(
-                "\n\nYou smile reassuringly at " +
-                    this.emberMF("him", "her") +
-                    ", as " +
-                    this.emberMF("he", "she") +
-                    " says that, and decide to let Ember prepare " +
-                    this.emberMF("him", "her") +
-                    "self in peace."
+                `\n\nYou smile reassuringly at ${this.emberMF("him", "her")}, as ${this.emberMF(
+                    "he",
+                    "she"
+                )} says that, and decide to let Ember prepare ${this.emberMF(
+                    "him",
+                    "her"
+                )}self in peace.`
             );
             this.outx(
-                "\n\nOnce " +
-                    this.emberMF("he", "she") +
-                    " feels ready, the dragon extracts " +
-                    this.emberMF("his", "her") +
-                    " fingers from the puckered rose, now blooming, and turns to you."
+                `\n\nOnce ${this.emberMF(
+                    "he",
+                    "she"
+                )} feels ready, the dragon extracts ${this.emberMF(
+                    "his",
+                    "her"
+                )} fingers from the puckered rose, now blooming, and turns to you.`
             );
         }
         // (else)
         else {
             this.outx(
-                "\n\nThe dragon moans softly and growls, stretching " +
-                    this.emberMF("him", "her") +
-                    "self once more to take you.  You consider saying something, but remembering Ember's words from the first time, you figure that if " +
-                    this.emberMF("he", "she") +
-                    "'s doing this, then it's because " +
-                    this.emberMF("he", "she") +
-                    " wants to... so you just give " +
-                    this.emberMF("him", "her") +
-                    " a reassuring smile."
+                `\n\nThe dragon moans softly and growls, stretching ${this.emberMF(
+                    "him",
+                    "her"
+                )}self once more to take you.  You consider saying something, but remembering Ember's words from the first time, you figure that if ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s doing this, then it's because ${this.emberMF(
+                    "he",
+                    "she"
+                )} wants to... so you just give ${this.emberMF("him", "her")} a reassuring smile.`
             );
             this.outx(
-                "\n\nTaking notice of your smile, Ember stops " +
-                    this.emberMF("his", "her") +
-                    ' preparations.  "<i>W-what are you smiling about?</i>"'
+                `\n\nTaking notice of your smile, Ember stops ${this.emberMF(
+                    "his",
+                    "her"
+                )} preparations.  "<i>W-what are you smiling about?</i>"`
             );
             this.outx(
-                "\n\n" +
-                    this.emberMF("He", "She") +
-                    " looks cute, getting ready just like for " +
-                    this.emberMF("his", "her") +
-                    " first time.  Ember turns away as the memory returns.  After a few moments of silence, " +
-                    this.emberMF("he", "she") +
-                    " moans once more as " +
-                    this.emberMF("he", "she") +
-                    " resumes working " +
-                    this.emberMF("his", "her") +
-                    " fingers on " +
-                    this.emberMF("his", "her") +
-                    " ass."
+                `\n\n${this.emberMF(
+                    "He",
+                    "She"
+                )} looks cute, getting ready just like for ${this.emberMF(
+                    "his",
+                    "her"
+                )} first time.  Ember turns away as the memory returns.  After a few moments of silence, ${this.emberMF(
+                    "he",
+                    "she"
+                )} moans once more as ${this.emberMF("he", "she")} resumes working ${this.emberMF(
+                    "his",
+                    "her"
+                )} fingers on ${this.emberMF("his", "her")} ass.`
             );
             this.outx(
-                "\n\nOnce " +
-                    this.emberMF("he", "she") +
-                    " feels " +
-                    this.emberMF("he", "she") +
-                    "'s ready, " +
-                    this.emberMF("he", "she") +
-                    " extracts " +
-                    this.emberMF("his", "her") +
-                    " fingers from " +
-                    this.emberMF("his", "her") +
-                    " puckered rose, now blooming, and turns to you."
+                `\n\nOnce ${this.emberMF("he", "she")} feels ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s ready, ${this.emberMF("he", "she")} extracts ${this.emberMF(
+                    "his",
+                    "her"
+                )} fingers from ${this.emberMF(
+                    "his",
+                    "her"
+                )} puckered rose, now blooming, and turns to you.`
             );
         }
         this.outx(
@@ -5888,149 +6308,175 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("\n\nYou ");
         if (this.player.cor < 50)
             this.outx(
-                "promise the dragon you understand, and insist you wouldn't dream of doing otherwise; you want this to be good for " +
-                    this.emberMF("him", "her") +
-                    ", not to cause " +
-                    this.emberMF("him", "her") +
-                    " pain."
+                `promise the dragon you understand, and insist you wouldn't dream of doing otherwise; you want this to be good for ${this.emberMF(
+                    "him",
+                    "her"
+                )}, not to cause ${this.emberMF("him", "her")} pain.`
             );
         else this.outx("nod.");
 
         this.outx(
-            '\n\n"<i>Umm... okay then.</i>"  Stepping over you, the dragon lifts ' +
-                this.emberMF("his", "her") +
-                " tail and aligns you with the puckered hole.  Slowly, Ember rubs " +
-                this.emberMF("his", "her") +
-                " ass against you, stimulating you to produce a single drop of pre to ease your way in.  " +
-                this.emberMF("He", "She") +
-                " doesn't have to wait long, and with a deep breath, " +
-                this.emberMF("he", "she") +
-                " finally lets gravity run its course and your " +
-                this.cockDescript(x) +
-                " plunges into " +
-                this.emberMF("his", "her") +
-                " tight depths."
+            `\n\n"<i>Umm... okay then.</i>"  Stepping over you, the dragon lifts ${this.emberMF(
+                "his",
+                "her"
+            )} tail and aligns you with the puckered hole.  Slowly, Ember rubs ${this.emberMF(
+                "his",
+                "her"
+            )} ass against you, stimulating you to produce a single drop of pre to ease your way in.  ${this.emberMF(
+                "He",
+                "She"
+            )} doesn't have to wait long, and with a deep breath, ${this.emberMF(
+                "he",
+                "she"
+            )} finally lets gravity run its course and your ${this.cockDescript(
+                x
+            )} plunges into ${this.emberMF("his", "her")} tight depths.`
         );
         this.outx(
-            "\n\nYou moan softly as Ember's back passage opens up and swallows you.  Just like the rest of " +
-                this.emberMF("him", "her") +
-                ", it's cooler than it would be for a human, but not so cold as to be unpleasant. It's a kind of peppery, refreshing chill that makes you shudder with delight. You squeeze Ember's ass, gripping tightly and pulling " +
-                this.emberMF("him", "her") +
-                " fully down your length, struggling to keep from pushing the dragon faster than " +
-                this.emberMF("he", "she") +
-                " is comfortable with."
+            `\n\nYou moan softly as Ember's back passage opens up and swallows you.  Just like the rest of ${this.emberMF(
+                "him",
+                "her"
+            )}, it's cooler than it would be for a human, but not so cold as to be unpleasant. It's a kind of peppery, refreshing chill that makes you shudder with delight. You squeeze Ember's ass, gripping tightly and pulling ${this.emberMF(
+                "him",
+                "her"
+            )} fully down your length, struggling to keep from pushing the dragon faster than ${this.emberMF(
+                "he",
+                "she"
+            )} is comfortable with.`
         );
         this.outx('\n\n"<i>H-hey!  Ah!  I didn\'t tell you to pull me down!</i>" Ember protests.');
         this.outx(
-            "\n\nYou tell the dragon you're sorry, but you can't help it; " +
-                this.emberMF("his", "her") +
-                " ass is just so full and round, so deliciously cool and tight - it's utterly irresistible.  You thrust into " +
-                this.emberMF("his", "her") +
-                " ass for emphasis, roughly squeezing " +
-                this.emberMF("his", "her") +
-                " luscious "
+            `\n\nYou tell the dragon you're sorry, but you can't help it; ${this.emberMF(
+                "his",
+                "her"
+            )} ass is just so full and round, so deliciously cool and tight - it's utterly irresistible.  You thrust into ${this.emberMF(
+                "his",
+                "her"
+            )} ass for emphasis, roughly squeezing ${this.emberMF("his", "her")} luscious `
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outx("scaly ");
         this.outx(
-            "cheeks and rubbing the base of " +
-                this.emberMF("his", "her") +
-                " long, flexible tail to try and convey just how wild " +
-                this.emberMF("his", "her") +
-                " ass is driving you."
+            `cheeks and rubbing the base of ${this.emberMF(
+                "his",
+                "her"
+            )} long, flexible tail to try and convey just how wild ${this.emberMF(
+                "his",
+                "her"
+            )} ass is driving you.`
         );
 
         this.outx(
             '\n\n"<i>Ow!  Okay, okay!  Just stop and give me a moment to adjust at least,</i>" Ember replies'
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outx(", panting with lust");
-        else this.outx(", a blush adorning " + this.emberMF("his", "her") + " face");
+        else this.outx(`, a blush adorning ${this.emberMF("his", "her")} face`);
         this.outx(
-            ".  You force yourself to remain still, giving the horny dragon a chance to recover from your " +
-                this.cockDescript(x) +
-                " impaling " +
-                this.emberMF("his", "her") +
-                " back passage, savoring the feeling of " +
-                this.emberMF("his", "her") +
-                " cool muscles squeezing and rippling around your shaft."
+            `.  You force yourself to remain still, giving the horny dragon a chance to recover from your ${this.cockDescript(
+                x
+            )} impaling ${this.emberMF(
+                "his",
+                "her"
+            )} back passage, savoring the feeling of ${this.emberMF(
+                "his",
+                "her"
+            )} cool muscles squeezing and rippling around your shaft.`
         );
 
         this.outx(
-            "\n\nAfter a few minutes, Ember finally starts to move, stroking you with " +
-                this.emberMF("his", "her") +
-                " inner muscles.  "
+            `\n\nAfter a few minutes, Ember finally starts to move, stroking you with ${this.emberMF(
+                "his",
+                "her"
+            )} inner muscles.  `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
             this.outx(
-                "Droplets of pre slide along " +
-                    this.emberMF("his", "her") +
-                    " own shaft and down " +
-                    this.emberMF("his", "her") +
-                    " balls to gather at your belly.  "
+                `Droplets of pre slide along ${this.emberMF(
+                    "his",
+                    "her"
+                )} own shaft and down ${this.emberMF(
+                    "his",
+                    "her"
+                )} balls to gather at your belly.  `
             );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2)
             this.outx(
                 "Her slick pussy drips rhythmically, wetting your lower body with slick dragon juice.  "
             );
         this.outx(
-            this.emberMF("His", "Her") +
-                " lusty moans each time " +
-                this.emberMF("he", "she") +
-                " comes down on your " +
-                this.cockDescript(x) +
-                " send a thrill up your spine, and the deep purring emanating from " +
-                this.emberMF("his", "her") +
-                " chest is audible enough to give you an idea of how much Ember is enjoying this, despite " +
-                this.emberMF("his", "her") +
-                " initial reluctance."
+            `${this.emberMF("His", "Her")} lusty moans each time ${this.emberMF(
+                "he",
+                "she"
+            )} comes down on your ${this.cockDescript(
+                x
+            )} send a thrill up your spine, and the deep purring emanating from ${this.emberMF(
+                "his",
+                "her"
+            )} chest is audible enough to give you an idea of how much Ember is enjoying this, despite ${this.emberMF(
+                "his",
+                "her"
+            )} initial reluctance.`
         );
         this.outx(
-            "\n\nIt's not the purring, or the tight innards, or the soft moans that finally make you lose control and give in to your basest instincts, it is Ember's face... a look of pure bliss, lust and love " +
-                this.emberMF("he", "she") +
-                " shoots your way.  It hits you right in the core of your being.  Your hands fly from Ember's ass to wrap around " +
-                this.emberMF("his", "her") +
-                " chest, your fingers beginning to stroke, caress, and gently roll " +
-                this.emberMF("his", "her") +
-                " nipples, striving to drive the dragon even wilder with lust as you furiously piston your hips into " +
-                this.emberMF("his", "her") +
-                " inviting ass."
-        );
-
-        this.outx(
-            "\n\nThe surprise over your sudden movement is enough to knock Ember on " +
-                this.emberMF("his", "her") +
-                " back; as " +
-                this.emberMF("he", "she") +
-                " falls " +
-                this.emberMF("he", "she") +
-                " drags you with " +
-                this.emberMF("him", "her") +
-                ", reversing your roles; now it is you who is on top, driving yourself powerfully inside " +
-                this.emberMF("his", "her") +
-                " inviting bowels.  Each time your hips slam against " +
-                this.emberMF("his", "her") +
-                " butt, " +
-                this.emberMF("he", "she") +
-                ' squirms in pleasure; each time a loud slap resounds on the clearing, Ember moans.  "<i>I... ah! didn\'t... Oh! tell you... Mmm! to start moving!</i>"'
+            `\n\nIt's not the purring, or the tight innards, or the soft moans that finally make you lose control and give in to your basest instincts, it is Ember's face... a look of pure bliss, lust and love ${this.emberMF(
+                "he",
+                "she"
+            )} shoots your way.  It hits you right in the core of your being.  Your hands fly from Ember's ass to wrap around ${this.emberMF(
+                "his",
+                "her"
+            )} chest, your fingers beginning to stroke, caress, and gently roll ${this.emberMF(
+                "his",
+                "her"
+            )} nipples, striving to drive the dragon even wilder with lust as you furiously piston your hips into ${this.emberMF(
+                "his",
+                "her"
+            )} inviting ass.`
         );
 
         this.outx(
-            "\n\nYou ask if " +
-                this.emberMF("he", "she") +
-                " really wants you to stop now, making one last forceful thrust and then slowly, languidly drawing yourself out for emphasis.  You give " +
-                this.emberMF("his", "her") +
-                " rump a playful spank; you'd thought that both of you were almost done.  Still, if " +
-                this.emberMF("he", "she") +
-                " really wants to stop now..."
+            `\n\nThe surprise over your sudden movement is enough to knock Ember on ${this.emberMF(
+                "his",
+                "her"
+            )} back; as ${this.emberMF("he", "she")} falls ${this.emberMF(
+                "he",
+                "she"
+            )} drags you with ${this.emberMF(
+                "him",
+                "her"
+            )}, reversing your roles; now it is you who is on top, driving yourself powerfully inside ${this.emberMF(
+                "his",
+                "her"
+            )} inviting bowels.  Each time your hips slam against ${this.emberMF(
+                "his",
+                "her"
+            )} butt, ${this.emberMF(
+                "he",
+                "she"
+            )} squirms in pleasure; each time a loud slap resounds on the clearing, Ember moans.  "<i>I... ah! didn't... Oh! tell you... Mmm! to start moving!</i>"`
+        );
+
+        this.outx(
+            `\n\nYou ask if ${this.emberMF(
+                "he",
+                "she"
+            )} really wants you to stop now, making one last forceful thrust and then slowly, languidly drawing yourself out for emphasis.  You give ${this.emberMF(
+                "his",
+                "her"
+            )} rump a playful spank; you'd thought that both of you were almost done.  Still, if ${this.emberMF(
+                "he",
+                "she"
+            )} really wants to stop now...`
         );
 
         this.outx('\n\n"<i>No!  Don\'t you dare stop!  Pound my ass raw!  Ah!  I need you!</i>"');
 
         this.outx(
-            "\n\nYou thought that's what " +
-                this.emberMF("he", "she") +
-                " would say, and you proceed to give it to " +
-                this.emberMF("him", "her") +
-                " with everything you have.  You can feel that oh-so-familiar, oh-so-wonderful tightness coiling in "
+            `\n\nYou thought that's what ${this.emberMF(
+                "he",
+                "she"
+            )} would say, and you proceed to give it to ${this.emberMF(
+                "him",
+                "her"
+            )} with everything you have.  You can feel that oh-so-familiar, oh-so-wonderful tightness coiling in `
         );
         if (this.player.balls > 0) this.outx("your [balls]");
         else this.outx("the base of your spine");
@@ -6041,30 +6487,33 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nWell, if that's what " +
-                this.emberMF("he", "she") +
-                " wants... with a gasp and a cry, you give in to the feeling, letting the waves of pleasure roll through you and send your cum cascading forth into Ember's waiting bowels.  Your orgasm triggers " +
-                this.emberMF("his", "her") +
-                " own and with a roar " +
-                this.emberMF("he", "she") +
-                " cums"
+            `\n\nWell, if that's what ${this.emberMF(
+                "he",
+                "she"
+            )} wants... with a gasp and a cry, you give in to the feeling, letting the waves of pleasure roll through you and send your cum cascading forth into Ember's waiting bowels.  Your orgasm triggers ${this.emberMF(
+                "his",
+                "her"
+            )} own and with a roar ${this.emberMF("he", "she")} cums`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
             this.outx(
-                ", jet upon jet of spunk arcing over " +
-                    this.emberMF("his", "her") +
-                    " head to paint the ground below"
+                `, jet upon jet of spunk arcing over ${this.emberMF(
+                    "his",
+                    "her"
+                )} head to paint the ground below`
             );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2)
             this.outx(
                 "; a veritable gush of juices spews forth from her forgotten love-hole to splash against your lower body and over herself"
             );
         this.outx(
-            ".  The force of " +
-                this.emberMF("his", "her") +
-                " orgasm makes the dragon clench " +
-                this.emberMF("his", "her") +
-                " ass, sending waves of renewed pleasure through you."
+            `.  The force of ${this.emberMF(
+                "his",
+                "her"
+            )} orgasm makes the dragon clench ${this.emberMF(
+                "his",
+                "her"
+            )} ass, sending waves of renewed pleasure through you.`
         );
 
         // (Low Cum Amount)
@@ -6075,54 +6524,68 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (Medium Cum Amount)
         else if (this.player.cumQ() < 1000)
             this.outx(
-                "\n\nYour orgasm lasts far longer than usual, filling Ember's tight little hole to the brim, even to the point of slightly distending " +
-                    this.emberMF("his", "her") +
-                    " belly."
+                `\n\nYour orgasm lasts far longer than usual, filling Ember's tight little hole to the brim, even to the point of slightly distending ${this.emberMF(
+                    "his",
+                    "her"
+                )} belly.`
             );
         // (High Cum Amount)
         else
             this.outx(
-                "\n\nYour thunderous orgasm threatens to rip Ember's tender little hole apart as you spew jets of cum with such force that you manage to rock " +
-                    this.emberMF("him", "her") +
-                    " back and forth.  Ember doesn't look filled, nor even overfilled; " +
-                    this.emberMF("he", "she") +
-                    " looks like a pregnant mother waiting to give birth anytime now.  As tight as " +
-                    this.emberMF("he", "she") +
-                    " is, " +
-                    this.emberMF("he", "she") +
-                    " still doesn't manage to hold all your cum in, and the backflow escapes " +
-                    this.emberMF("his", "her") +
-                    " ass with tremendous force, to plaster on your lower body and Ember's legs."
+                `\n\nYour thunderous orgasm threatens to rip Ember's tender little hole apart as you spew jets of cum with such force that you manage to rock ${this.emberMF(
+                    "him",
+                    "her"
+                )} back and forth.  Ember doesn't look filled, nor even overfilled; ${this.emberMF(
+                    "he",
+                    "she"
+                )} looks like a pregnant mother waiting to give birth anytime now.  As tight as ${this.emberMF(
+                    "he",
+                    "she"
+                )} is, ${this.emberMF(
+                    "he",
+                    "she"
+                )} still doesn't manage to hold all your cum in, and the backflow escapes ${this.emberMF(
+                    "his",
+                    "her"
+                )} ass with tremendous force, to plaster on your lower body and Ember's legs.`
             );
 
         this.outx(
-            "\n\nSpent, Ember collapses in a blissed-out heap of fulfillment and satisfaction.  You're not much better yourself and fall over " +
-                this.emberMF("him", "her") +
-                ' with an "<i>omph</i>".  Ember pants for a while, before guiding your head up with ' +
-                this.emberMF("his", "her") +
-                " hands and delivering a kiss straight to your lips.  Surprised, but pleased, you sink into the kiss, stroking " +
-                this.emberMF("his", "her") +
-                " cheek for emphasis and letting the contentment roll over the pair of you. Once you break the kiss Ember smiles at you and closes " +
-                this.emberMF("his", "her") +
-                " eyes to nap for a bit."
+            `\n\nSpent, Ember collapses in a blissed-out heap of fulfillment and satisfaction.  You're not much better yourself and fall over ${this.emberMF(
+                "him",
+                "her"
+            )} with an "<i>omph</i>".  Ember pants for a while, before guiding your head up with ${this.emberMF(
+                "his",
+                "her"
+            )} hands and delivering a kiss straight to your lips.  Surprised, but pleased, you sink into the kiss, stroking ${this.emberMF(
+                "his",
+                "her"
+            )} cheek for emphasis and letting the contentment roll over the pair of you. Once you break the kiss Ember smiles at you and closes ${this.emberMF(
+                "his",
+                "her"
+            )} eyes to nap for a bit.`
         );
 
         this.outx(
-            "\n\nYou smile at the sleeping dragon and gently extract yourself from " +
-                this.emberMF("him", "her") +
-                "; then walk off to the nearest stream to wash yourself.  After you are cleaned, you return to where you left Ember.  You're met with a surprise when you see " +
-                this.emberMF("him", "her") +
-                " hugging " +
-                this.emberMF("his", "her") +
-                " knees and rocking slowly, and... is " +
-                this.emberMF("he", "she") +
-                " humming?  Slowly you approach and " +
-                this.emberMF("he", "she") +
-                " looks at you with a smile, but after realizing just who you are, " +
-                this.emberMF("he", "she") +
-                " gasps and " +
-                this.emberMF("his", "her") +
-                " face turns into a frown."
+            `\n\nYou smile at the sleeping dragon and gently extract yourself from ${this.emberMF(
+                "him",
+                "her"
+            )}; then walk off to the nearest stream to wash yourself.  After you are cleaned, you return to where you left Ember.  You're met with a surprise when you see ${this.emberMF(
+                "him",
+                "her"
+            )} hugging ${this.emberMF(
+                "his",
+                "her"
+            )} knees and rocking slowly, and... is ${this.emberMF(
+                "he",
+                "she"
+            )} humming?  Slowly you approach and ${this.emberMF(
+                "he",
+                "she"
+            )} looks at you with a smile, but after realizing just who you are, ${this.emberMF(
+                "he",
+                "she"
+            )} gasps and ${this.emberMF("his", "her")} face turns into a frown.`
         );
 
         this.outx(
@@ -6140,59 +6603,67 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             "\n\nYou point out you're not saying that, just that Ember also has responsibility here."
         );
         this.outx(
-            '\n\n"<i>I don\'t need to hear any more!</i>"  Ember gets up and pushes you with ' +
-                this.emberMF("his", "her") +
-                " tail, hefting a pile of folded clothes.  In fact... that pile is quite familiar... actually... that's your [armor]."
+            `\n\n"<i>I don't need to hear any more!</i>"  Ember gets up and pushes you with ${this.emberMF(
+                "his",
+                "her"
+            )} tail, hefting a pile of folded clothes.  In fact... that pile is quite familiar... actually... that's your [armor].`
         );
         this.outx(
             '\n\n"<i>And I even picked these up for you... Well, you can do it yourself!</i>"  Ember begins tossing your clothes around in random directions, you '
         );
         if (this.player.str < 70) {
             this.outx(
-                "desperately try to grab any of the flying pieces, but Ember keeps you pinned with " +
-                    this.emberMF("his", "her") +
-                    " tail"
+                `desperately try to grab any of the flying pieces, but Ember keeps you pinned with ${this.emberMF(
+                    "his",
+                    "her"
+                )} tail`
             );
             this.outx(".");
 
             this.outx(
-                '\n\n"<i>That ought to teach you!</i>" ' +
-                    this.emberMF("he", "she") +
-                    " declares with a confident puff of smoke, turning on " +
-                    this.emberMF("his", "her") +
-                    " heels and walking away... rather awkwardly at that.  You feel like you should point out that the results of your earlier activities are still dripping out of " +
-                    this.emberMF("his", "her") +
-                    " ass as " +
-                    this.emberMF("he", "she") +
-                    " heads back to the camp, but figure you'll stay quiet lest you aggravate the matter.  Plus, it's payback for tossing your clothes."
+                `\n\n"<i>That ought to teach you!</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} declares with a confident puff of smoke, turning on ${this.emberMF(
+                    "his",
+                    "her"
+                )} heels and walking away... rather awkwardly at that.  You feel like you should point out that the results of your earlier activities are still dripping out of ${this.emberMF(
+                    "his",
+                    "her"
+                )} ass as ${this.emberMF(
+                    "he",
+                    "she"
+                )} heads back to the camp, but figure you'll stay quiet lest you aggravate the matter.  Plus, it's payback for tossing your clothes.`
             );
             this.outx(
-                "\n\nYou sigh, wondering why Ember has to be so temperamental, and start gathering your clothes to return to camp with them. It takes a minute or two, but " +
-                    this.emberMF("he", "she") +
-                    " didn't really put any effort into scattering them, and you know it could have been worse."
+                `\n\nYou sigh, wondering why Ember has to be so temperamental, and start gathering your clothes to return to camp with them. It takes a minute or two, but ${this.emberMF(
+                    "he",
+                    "she"
+                )} didn't really put any effort into scattering them, and you know it could have been worse.`
             );
         }
         // (else str >=80)
         else {
             this.outx(
-                "grab " +
-                    this.emberMF("his", "her") +
-                    " tail, pulling the dragon off " +
-                    this.emberMF("his", "her") +
-                    " feet and throwing " +
-                    this.emberMF("him", "her") +
-                    " to the ground as you roll over... and causing " +
-                    this.emberMF("him", "her") +
-                    " to drop them everywhere as " +
-                    this.emberMF("he", "she") +
-                    " falls."
+                `grab ${this.emberMF("his", "her")} tail, pulling the dragon off ${this.emberMF(
+                    "his",
+                    "her"
+                )} feet and throwing ${this.emberMF(
+                    "him",
+                    "her"
+                )} to the ground as you roll over... and causing ${this.emberMF(
+                    "him",
+                    "her"
+                )} to drop them everywhere as ${this.emberMF("he", "she")} falls.`
             );
             this.outx(
-                "\n\nEmber yelps, thrashing and struggling back to " +
-                    this.emberMF("his", "her") +
-                    " feet.  A gobbet of white drops to the ground from between " +
-                    this.emberMF("his", "her") +
-                    " cheeks, forced out by the tumble, and the dragon freezes in place.  You smile wryly.  "
+                `\n\nEmber yelps, thrashing and struggling back to ${this.emberMF(
+                    "his",
+                    "her"
+                )} feet.  A gobbet of white drops to the ground from between ${this.emberMF(
+                    "his",
+                    "her"
+                )} cheeks, forced out by the tumble, and the dragon freezes in place.  You smile wryly.  `
             );
             /* OLD
              \"<i>Asshole!  Bite me!</i>\" " + emberMF("he","she") + " shrieks, turning hurriedly toward the stream.");
@@ -6202,55 +6673,67 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 '"<i>What do you think you\'re doing!?</i>" Ember yells at you, obviously mad at your little stunt, one hand reaching behind to prevent any more cum from spilling.'
             );
             this.outx(
-                "\n\nYou tell " +
-                    this.emberMF("him", "her") +
-                    " that you don't feel in the mood to play " +
-                    this.emberMF("his", "her") +
-                    " little game today; " +
-                    this.emberMF("he", "she") +
-                    " really needs to work on that temper of " +
-                    this.emberMF("his", "her") +
-                    ", or one day " +
-                    this.emberMF("he", "she") +
-                    " might bite off something more than even " +
-                    this.emberMF("he", "she") +
-                    " can chew."
+                `\n\nYou tell ${this.emberMF(
+                    "him",
+                    "her"
+                )} that you don't feel in the mood to play ${this.emberMF(
+                    "his",
+                    "her"
+                )} little game today; ${this.emberMF(
+                    "he",
+                    "she"
+                )} really needs to work on that temper of ${this.emberMF(
+                    "his",
+                    "her"
+                )}, or one day ${this.emberMF(
+                    "he",
+                    "she"
+                )} might bite off something more than even ${this.emberMF("he", "she")} can chew.`
             );
 
             this.outx(
-                "\n\nEmber growls at you, and for a moment you think " +
-                    this.emberMF("he", "she") +
-                    "'s going to yell at you, but to your surprise " +
-                    this.emberMF("he", "she") +
-                    " averts " +
-                    this.emberMF("his", "her") +
-                    ' gaze and utter a barely audible. "<i>Sorry...</i>"'
+                `\n\nEmber growls at you, and for a moment you think ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s going to yell at you, but to your surprise ${this.emberMF(
+                    "he",
+                    "she"
+                )} averts ${this.emberMF(
+                    "his",
+                    "her"
+                )} gaze and utter a barely audible. "<i>Sorry...</i>"`
             );
 
             this.outx(
-                "\n\nYou sigh softly and nod your head; it's not much, but with as proud as " +
-                    this.emberMF("he", "she") +
-                    " is, that's quite an admission. You tell " +
-                    this.emberMF("him", "her") +
-                    " it's alright, but " +
-                    this.emberMF("he", "she") +
-                    " still shouldn't get so upset when " +
-                    this.emberMF("he", "she") +
-                    " enjoyed it as much as you did."
+                `\n\nYou sigh softly and nod your head; it's not much, but with as proud as ${this.emberMF(
+                    "he",
+                    "she"
+                )} is, that's quite an admission. You tell ${this.emberMF(
+                    "him",
+                    "her"
+                )} it's alright, but ${this.emberMF(
+                    "he",
+                    "she"
+                )} still shouldn't get so upset when ${this.emberMF(
+                    "he",
+                    "she"
+                )} enjoyed it as much as you did.`
             );
 
             this.outx(
-                "\n\nEmber shudders as you finish talking and blows a puff of smoke, then turns around and hurries away to the nearest stream. You just watch " +
-                    this.emberMF("him", "her") +
-                    " go, plugging " +
-                    this.emberMF("his", "her") +
-                    " used rosebud with a finger, you make note of " +
-                    this.emberMF("his", "her") +
-                    " awkward stride, somehow... " +
-                    this.emberMF("he", "she") +
-                    " didn't seem that angry as " +
-                    this.emberMF("he", "she") +
-                    " left..."
+                `\n\nEmber shudders as you finish talking and blows a puff of smoke, then turns around and hurries away to the nearest stream. You just watch ${this.emberMF(
+                    "him",
+                    "her"
+                )} go, plugging ${this.emberMF(
+                    "his",
+                    "her"
+                )} used rosebud with a finger, you make note of ${this.emberMF(
+                    "his",
+                    "her"
+                )} awkward stride, somehow... ${this.emberMF(
+                    "he",
+                    "she"
+                )} didn't seem that angry as ${this.emberMF("he", "she")} left...`
             );
         }
         this.player.orgasm();
@@ -6341,9 +6824,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
             this.outx(
-                ", heedless of the steady rain of pre dribbling into your " +
-                    this.hairDescript() +
-                    ".  You're confident she'll crack soon..."
+                `, heedless of the steady rain of pre dribbling into your ${this.hairDescript()}.  You're confident she'll crack soon...`
             );
 
         this.outx(
@@ -6401,18 +6882,21 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.clearOutput();
         this.outx(this.images.showImage("ember-eats-your-vagoo-out"));
         this.outx(
-            "You think about Ember's long tongue and the many advantages it must have, when you suddenly get an idea of what you'd like to do. You ask Ember if " +
-                this.emberMF("he", "she") +
-                "'d be willing to put that tongue of " +
-                this.emberMF("his", "hers") +
-                " to use and eat you out."
+            `You think about Ember's long tongue and the many advantages it must have, when you suddenly get an idea of what you'd like to do. You ask Ember if ${this.emberMF(
+                "he",
+                "she"
+            )}'d be willing to put that tongue of ${this.emberMF(
+                "his",
+                "hers"
+            )} to use and eat you out.`
         );
         // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outx(
-                '\n\n"<i>No way!  I have no idea what\'s been there!  Plus, that is just gross!</i>"  Ember spins on ' +
-                    this.emberMF("his", "her") +
-                    " heels and walks away."
+                `\n\n"<i>No way!  I have no idea what's been there!  Plus, that is just gross!</i>"  Ember spins on ${this.emberMF(
+                    "his",
+                    "her"
+                )} heels and walks away.`
             );
             // End scene
             this.doNext(this.camp.returnToCampUseOneHour);
@@ -6430,108 +6914,125 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (High Affection)
         else
             this.outx(
-                '\n\n"<i>I guess I could do that... if you asked nicely...</i>" Ember replies, although ' +
-                    this.emberMF("his", "her") +
-                    " body language suggests " +
-                    this.emberMF("he", "she") +
-                    "'s quite eager to get a taste of you."
+                `\n\n"<i>I guess I could do that... if you asked nicely...</i>" Ember replies, although ${this.emberMF(
+                    "his",
+                    "her"
+                )} body language suggests ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s quite eager to get a taste of you.`
             );
 
         this.outx(
-            "\n\nYou decide to play along and politely ask if " +
-                this.emberMF("he", "she") +
-                " will pleasure your womanly flower with " +
-                this.emberMF("his", "her") +
-                " long, nimble, draconic tongue, giving " +
-                this.emberMF("him", "her") +
-                " a smouldering look and a flirtatious wriggle of your [hips].  Ember swallows nervously as " +
-                this.emberMF("he", "she") +
-                ' looks at your teasing form.  "<i>Since you asked so nicely... okay then... come with me.</i>"  ' +
-                this.emberMF("He", "She") +
-                " grabs one of your hands and drags you away hurriedly to a more private setting."
+            `\n\nYou decide to play along and politely ask if ${this.emberMF(
+                "he",
+                "she"
+            )} will pleasure your womanly flower with ${this.emberMF(
+                "his",
+                "her"
+            )} long, nimble, draconic tongue, giving ${this.emberMF(
+                "him",
+                "her"
+            )} a smouldering look and a flirtatious wriggle of your [hips].  Ember swallows nervously as ${this.emberMF(
+                "he",
+                "she"
+            )} looks at your teasing form.  "<i>Since you asked so nicely... okay then... come with me.</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} grabs one of your hands and drags you away hurriedly to a more private setting.`
         );
         this.outx(
-            "\n\nOnce Ember is satisfied you won't be spied on, " +
-                this.emberMF("he", "she") +
-                " turns to look at you, drinking in your body, appraising you with a mixture of reverence and desire.  Ember opens " +
-                this.emberMF("his", "her") +
-                " mouth to say something, but words fail the dragon and " +
-                this.emberMF("he", "she") +
-                " ends up just breathing airily.  Closing the distance between the two of you, Ember kneels before you and begins undoing your [armor], peeling the lower parts off your body with shaky hands."
+            `\n\nOnce Ember is satisfied you won't be spied on, ${this.emberMF(
+                "he",
+                "she"
+            )} turns to look at you, drinking in your body, appraising you with a mixture of reverence and desire.  Ember opens ${this.emberMF(
+                "his",
+                "her"
+            )} mouth to say something, but words fail the dragon and ${this.emberMF(
+                "he",
+                "she"
+            )} ends up just breathing airily.  Closing the distance between the two of you, Ember kneels before you and begins undoing your [armor], peeling the lower parts off your body with shaky hands.`
         );
         this.outx(
-            "\n\nYou watch " +
-                this.emberMF("him", "her") +
-                ", visibly shivering with excitement, and spare the dragon a predatory grin, thinking to yourself that this is certainly not how the tales of dragons and maidens went back in the village.  Confidently, you strut towards a tree and position yourself before it, leaning back against it for support"
+            `\n\nYou watch ${this.emberMF(
+                "him",
+                "her"
+            )}, visibly shivering with excitement, and spare the dragon a predatory grin, thinking to yourself that this is certainly not how the tales of dragons and maidens went back in the village.  Confidently, you strut towards a tree and position yourself before it, leaning back against it for support`
         );
         if (!this.player.isNaga()) this.outx(" with your [legs] spread wide");
         this.outx(
-            ", displaying your [vagina].  You tell Ember that " +
-                this.emberMF("he", "she") +
-                "'ll need to make the next move from here, smiling as you do so."
+            `, displaying your [vagina].  You tell Ember that ${this.emberMF(
+                "he",
+                "she"
+            )}'ll need to make the next move from here, smiling as you do so.`
         );
 
         this.outx(
-            "\n\nThe dragon crawls towards you and gently brings " +
-                this.emberMF("his", "her") +
-                " nose closer to your moistening snatch, catching a whiff of your feminine scent"
+            `\n\nThe dragon crawls towards you and gently brings ${this.emberMF(
+                "his",
+                "her"
+            )} nose closer to your moistening snatch, catching a whiff of your feminine scent`
         );
         if (this.player.hasCock())
             this.outx(", as well as the musk emanating from your drooling cock");
         this.outx(
-            ".  Ember's eyes close as " +
-                this.emberMF("he", "she") +
-                " savors your scent, committing it to memory and licking " +
-                this.emberMF("his", "her") +
-                " lips in preparation for the task ahead."
+            `.  Ember's eyes close as ${this.emberMF(
+                "he",
+                "she"
+            )} savors your scent, committing it to memory and licking ${this.emberMF(
+                "his",
+                "her"
+            )} lips in preparation for the task ahead.`
         );
 
         this.outx(
-            "\n\nFinally deciding to get about " +
-                this.emberMF("his", "her") +
-                ' task, the dragon licks your moist slit from top to bottom, stopping briefly to kiss your [clit].  "<i>So good...</i>" you hear Ember whisper, before ' +
-                this.emberMF("he", "she") +
-                " suddenly plunges " +
-                this.emberMF("his", "her") +
-                " tongue inside your warm depths, exploring every nook and cranny, much to your pleasure."
+            `\n\nFinally deciding to get about ${this.emberMF(
+                "his",
+                "her"
+            )} task, the dragon licks your moist slit from top to bottom, stopping briefly to kiss your [clit].  "<i>So good...</i>" you hear Ember whisper, before ${this.emberMF(
+                "he",
+                "she"
+            )} suddenly plunges ${this.emberMF(
+                "his",
+                "her"
+            )} tongue inside your warm depths, exploring every nook and cranny, much to your pleasure.`
         );
 
         this.outx(
             "\n\nYou shudder and moan, feeling your juices dribble from your womanhood onto the dragon's tongue"
         );
         if (this.player.hasCock())
-            this.outx(", and pre-cum beginning to bubble out of " + this.sMultiCockDesc());
+            this.outx(`, and pre-cum beginning to bubble out of ${this.sMultiCockDesc()}`);
         this.outx(
-            ".  You wriggle in delight, praising Ember's skill with " +
-                this.emberMF("his", "her") +
-                " tongue and begging " +
-                this.emberMF("him", "her") +
-                " to keep going."
+            `.  You wriggle in delight, praising Ember's skill with ${this.emberMF(
+                "his",
+                "her"
+            )} tongue and begging ${this.emberMF("him", "her")} to keep going.`
         );
 
         this.outx(
-            "\n\nEmber presses on, nudging your pleasure button with " +
-                this.emberMF("his", "her") +
-                " nose and wrapping your [vagina] with " +
-                this.emberMF("his", "her") +
-                " "
+            `\n\nEmber presses on, nudging your pleasure button with ${this.emberMF(
+                "his",
+                "her"
+            )} nose and wrapping your [vagina] with ${this.emberMF("his", "her")} `
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outx("maw");
         else this.outx("mouth");
         this.outx(
-            ", kissing your contracting box as if it were a long-lost lover, pushing " +
-                this.emberMF("his", "her") +
-                " tongue ever deeper inside you, as if intent on reaching your womb."
+            `, kissing your contracting box as if it were a long-lost lover, pushing ${this.emberMF(
+                "his",
+                "her"
+            )} tongue ever deeper inside you, as if intent on reaching your womb.`
         );
 
         this.outx(
-            "\n\nYou howl and cry, writhing as your dragon busily devours your womanhood, and find yourself sliding to the ground so you can wrap your [legs] around Ember's neck and pull " +
-                this.emberMF("his", "her") +
-                " face right up against your cunt.  Desirous as you are to feel the dragon fill you with that long, squirmy wet tongue of " +
-                this.emberMF("his", "hers") +
-                ", you command " +
-                this.emberMF("him", "her") +
-                " to lick deeper."
+            `\n\nYou howl and cry, writhing as your dragon busily devours your womanhood, and find yourself sliding to the ground so you can wrap your [legs] around Ember's neck and pull ${this.emberMF(
+                "his",
+                "her"
+            )} face right up against your cunt.  Desirous as you are to feel the dragon fill you with that long, squirmy wet tongue of ${this.emberMF(
+                "his",
+                "hers"
+            )}, you command ${this.emberMF("him", "her")} to lick deeper.`
         );
 
         this.outx(
@@ -6542,58 +7043,68 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(" Ember's face with your feminine honey");
         if (this.player.hasCock())
             this.outx(
-                " even as " + this.sMultiCockDesc() + " belches cum all over the preoccupied dragon"
+                ` even as ${this.sMultiCockDesc()} belches cum all over the preoccupied dragon`
             );
         this.outx(".");
 
         this.outx(
-            "\n\nYour juices flow into Ember's waiting mouth, guided by the dragon's tongue, and " +
-                this.emberMF("he", "she") +
-                " is only too happy to drink, trying " +
-                this.emberMF("his", "her") +
-                " best not to waste even a single drop."
+            `\n\nYour juices flow into Ember's waiting mouth, guided by the dragon's tongue, and ${this.emberMF(
+                "he",
+                "she"
+            )} is only too happy to drink, trying ${this.emberMF(
+                "his",
+                "her"
+            )} best not to waste even a single drop.`
         );
         if (this.player.wetness() >= 4)
             this.outx(
-                "  However, your squirting spatters make this an impossible task.  Ember doesn't seem to care, even as " +
-                    this.emberMF("his", "her") +
-                    " face is completely covered in femcum."
+                `  However, your squirting spatters make this an impossible task.  Ember doesn't seem to care, even as ${this.emberMF(
+                    "his",
+                    "her"
+                )} face is completely covered in femcum.`
             );
 
         this.outx(
-            "\n\nFinally, with a few last groans and hollow moans, you slump down, completely spent.  Your [legs] release Ember's neck as your muscles are overwhelmed by the glorious numbness that comes of being very well fucked.  Weakly, you compliment Ember on " +
-                this.emberMF("his", "her") +
-                " skills at eating pussy."
+            `\n\nFinally, with a few last groans and hollow moans, you slump down, completely spent.  Your [legs] release Ember's neck as your muscles are overwhelmed by the glorious numbness that comes of being very well fucked.  Weakly, you compliment Ember on ${this.emberMF(
+                "his",
+                "her"
+            )} skills at eating pussy.`
         );
 
         this.outx(
-            "\n\nEmber licks " +
-                this.emberMF("his", "her") +
-                " own face as best as " +
-                this.emberMF("he", "she") +
-                " can, making sure " +
-                this.emberMF("he", "she") +
-                "'s completely clean.  Your compliment brings a soft glow of pride to Ember's eyes and " +
-                this.emberMF("he", "she") +
-                ' shoots you an embarrassed look.  "<i>Umm... thanks, I guess.  Just don\'t get used to it!</i>" ' +
-                this.emberMF("he", "she") +
-                " adds in a renewed burst of defiance, before turning to leave."
+            `\n\nEmber licks ${this.emberMF("his", "her")} own face as best as ${this.emberMF(
+                "he",
+                "she"
+            )} can, making sure ${this.emberMF(
+                "he",
+                "she"
+            )}'s completely clean.  Your compliment brings a soft glow of pride to Ember's eyes and ${this.emberMF(
+                "he",
+                "she"
+            )} shoots you an embarrassed look.  "<i>Umm... thanks, I guess.  Just don't get used to it!</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} adds in a renewed burst of defiance, before turning to leave.`
         );
 
         this.outx(
-            "\n\nYou idly tell " +
-                this.emberMF("him", "her") +
-                " that you certainly hope not to get used to it; it wouldn't be fun any more if you did.  Ember turns around to snort a puff of smoke in your direction indignantly before continuing on " +
-                this.emberMF("his", "her") +
-                " way."
+            `\n\nYou idly tell ${this.emberMF(
+                "him",
+                "her"
+            )} that you certainly hope not to get used to it; it wouldn't be fun any more if you did.  Ember turns around to snort a puff of smoke in your direction indignantly before continuing on ${this.emberMF(
+                "his",
+                "her"
+            )} way.`
         );
 
         this.outx(
-            "\n\nYou smile, hating to see " +
-                this.emberMF("him", "her") +
-                " go, but so loving to watch " +
-                this.emberMF("him", "her") +
-                " leave.  Shaking off your pleasurable fantasies, you manage to pull yourself back upright, redress yourself, and return to camp."
+            `\n\nYou smile, hating to see ${this.emberMF(
+                "him",
+                "her"
+            )} go, but so loving to watch ${this.emberMF(
+                "him",
+                "her"
+            )} leave.  Shaking off your pleasurable fantasies, you manage to pull yourself back upright, redress yourself, and return to camp.`
         );
         // minus some fukkin' lust, reset hours since cum
         this.player.orgasm();
@@ -6692,9 +7203,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // If the PC is too big
         if (this.player.cockThatFits(this.emberVaginalCapacity()) == -1) {
             this.outx(
-                "\n\nEmber looks at your " +
-                    this.multiCockDescriptLight() +
-                    ', then touches her pussy in thought.  Finally, she growls in exasperation.  "<i>'
+                `\n\nEmber looks at your ${this.multiCockDescriptLight()}, then touches her pussy in thought.  Finally, she growls in exasperation.  "<i>`
             );
             if (this.player.cockTotal() == 1) this.outx("It doesn't ");
             else this.outx("None of them ");
@@ -6730,9 +7239,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.cockThatFits2(this.emberVaginalCapacity()) >= 0
         ) {
             this.outx(
-                '\n\n"<i>You have quite a selection, but I only need one... this one!</i>" Ember says, taking your ' +
-                    this.cockDescript(x) +
-                    " in her hand and stroking it into a full erection."
+                `\n\n"<i>You have quite a selection, but I only need one... this one!</i>" Ember says, taking your ${this.cockDescript(
+                    x
+                )} in her hand and stroking it into a full erection.`
             );
         }
         // (if PC has a dragon cock)
@@ -6748,16 +7257,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
         } else {
             this.outx(
-                "\n\nEmber takes your " +
-                    this.cockDescript(x) +
-                    ' in her hand and begins gently stroking you to full mast.  "<i>I hope you know how to use this,</i>" Ember remarks.'
+                `\n\nEmber takes your ${this.cockDescript(
+                    x
+                )} in her hand and begins gently stroking you to full mast.  "<i>I hope you know how to use this,</i>" Ember remarks.`
             );
             this.outx("\n\nYou assure her that you know exactly what you're doing. ");
         }
         this.outx(
-            "\n\nDeciding it's better for the dragon to psyche herself up first, you wait patiently; it doesn't look like it will be long before she makes the first move.  Ember's hands roam all over your " +
-                this.cockDescript(x) +
-                " and you think you can almost hear a faint purring emanating from her chest.  Slowly one of her hands reaches down to massage her moistened netherlips.  Ember gasps in pleasure as she continues masturbating both of you in a daze, until she suddenly snaps out of her trance."
+            `\n\nDeciding it's better for the dragon to psyche herself up first, you wait patiently; it doesn't look like it will be long before she makes the first move.  Ember's hands roam all over your ${this.cockDescript(
+                x
+            )} and you think you can almost hear a faint purring emanating from her chest.  Slowly one of her hands reaches down to massage her moistened netherlips.  Ember gasps in pleasure as she continues masturbating both of you in a daze, until she suddenly snaps out of her trance.`
         );
 
         this.outx(
@@ -6769,28 +7278,30 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nEmber can't resist licking " +
-                this.emberMF("his", "her") +
-                " lips as she straddles you, aligning your " +
-                this.cockDescript(x) +
-                " with her dripping pussy; then finally, with a sigh, letting gravity help your erect shaft inside her inviting depths.  You grit your teeth as her walls close around your prick, the firm muscles inside hungrily swallowing your length and starting to instinctively ripple and surge around it, beginning to milk you.  Your own instincts in turn compel you to buck and thrust, striving to bury yourself further into Ember's eager depths."
+            `\n\nEmber can't resist licking ${this.emberMF(
+                "his",
+                "her"
+            )} lips as she straddles you, aligning your ${this.cockDescript(
+                x
+            )} with her dripping pussy; then finally, with a sigh, letting gravity help your erect shaft inside her inviting depths.  You grit your teeth as her walls close around your prick, the firm muscles inside hungrily swallowing your length and starting to instinctively ripple and surge around it, beginning to milk you.  Your own instincts in turn compel you to buck and thrust, striving to bury yourself further into Ember's eager depths.`
         );
 
         // (First time)
         if (this.flags[kFLAGS.EMBER_PUSSY_FUCK_COUNT] == 0) {
             this.outx(
-                "\n\nEmber hisses in pain as you tear her hymen apart; scolding yourself for your carelessness, you stop and begin to withdraw.  Ember opens " +
-                    this.emberMF("his", "her") +
-                    " mouth, as if to protest, but to your surprise all that comes out of her is a moan of pleasure.  Startled, you immediately switch directions, thrusting back into her depths; once again Ember hisses, but this time, in pleasure rather than pain.  You quickly realize that Ember is as ready for this as she'll ever be, and so you continue to pump yourself into her, losing yourself in the act."
+                `\n\nEmber hisses in pain as you tear her hymen apart; scolding yourself for your carelessness, you stop and begin to withdraw.  Ember opens ${this.emberMF(
+                    "his",
+                    "her"
+                )} mouth, as if to protest, but to your surprise all that comes out of her is a moan of pleasure.  Startled, you immediately switch directions, thrusting back into her depths; once again Ember hisses, but this time, in pleasure rather than pain.  You quickly realize that Ember is as ready for this as she'll ever be, and so you continue to pump yourself into her, losing yourself in the act.`
             );
         }
         this.outx(
             '\n\nEmber gasps and moans as you hilt yourself within her.  "<i>H-hey!  I\'m supposed to be in control here!</i>" the dragon protests, despite her enjoyment of your initiative.'
         );
         this.outx(
-            "\n\nYou are too caught up in your thrusting to reply for a moment, but manage to snatch back enough of your wits to tell her that if she wants to be in control, she'll need to act like the one in control.  You then resume plunging your hips up into hers, sheathing and unsheathing your " +
-                this.cockDescript(x) +
-                " with each powerful, anxious thrust."
+            `\n\nYou are too caught up in your thrusting to reply for a moment, but manage to snatch back enough of your wits to tell her that if she wants to be in control, she'll need to act like the one in control.  You then resume plunging your hips up into hers, sheathing and unsheathing your ${this.cockDescript(
+                x
+            )} with each powerful, anxious thrust.`
         );
 
         this.outx(
@@ -6995,19 +7506,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx("dragon");
         else this.outx("human");
         this.outx(
-            " dick between Ember's legs, and you lick your lips hungrily.  Your " +
-                this.vaginaDescript() +
-                " throbs eagerly as you tell Ember you have certain itches you need to scratch... is Ember enough of a " +
-                this.emberMF("man", "herm") +
-                " to scratch them for you?"
+            ` dick between Ember's legs, and you lick your lips hungrily.  Your ${this.vaginaDescript()} throbs eagerly as you tell Ember you have certain itches you need to scratch... is Ember enough of a ${this.emberMF(
+                "man",
+                "herm"
+            )} to scratch them for you?`
         );
 
         // (Low Affection)
         if (this.emberAffection() <= 25) {
             this.outx(
-                '\n\n"<i>Ha!  I\'m much more than you can handle!  Talk to me when you have something that can take even half of me.</i>"  Ember mocks you, as ' +
-                    this.emberMF("he", "she") +
-                    " walks away."
+                `\n\n"<i>Ha!  I'm much more than you can handle!  Talk to me when you have something that can take even half of me.</i>"  Ember mocks you, as ${this.emberMF(
+                    "he",
+                    "she"
+                )} walks away.`
             );
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
@@ -7028,9 +7539,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outx("to attention");
             else this.outx("out of its protective slit");
             this.outx(
-                " at the mere mention of what you expect " +
-                    this.emberMF("him", "her") +
-                    ' to do.  "<i>I\'m more than enough to handle two... no... three of you!  And if you want proof all you have to do is ask!</i>" Ember boasts proudly.'
+                ` at the mere mention of what you expect ${this.emberMF(
+                    "him",
+                    "her"
+                )} to do.  "<i>I'm more than enough to handle two... no... three of you!  And if you want proof all you have to do is ask!</i>" Ember boasts proudly.`
             );
         }
         this.outx(
@@ -7038,56 +7550,64 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            '\n\n"<i>Fine, come here!</i>"  Ember grasps your arm and leads you away towards the wastes and beyond.  Once you arrive at a small clearing on the outskirts of your camp, Ember turns to look at you. "<i>W-why are you still dressed?</i>" Ember asks, crossing ' +
-                this.emberMF("his", "her") +
-                " arms and tapping " +
-                this.emberMF("his", "her") +
-                " foot impatiently."
+            `\n\n"<i>Fine, come here!</i>"  Ember grasps your arm and leads you away towards the wastes and beyond.  Once you arrive at a small clearing on the outskirts of your camp, Ember turns to look at you. "<i>W-why are you still dressed?</i>" Ember asks, crossing ${this.emberMF(
+                "his",
+                "her"
+            )} arms and tapping ${this.emberMF("his", "her")} foot impatiently.`
         );
 
         this.outx(
-            "\n\nYou strip down until you are unabashedly naked, drinking in the look of stunned rapturous lust that Ember is giving you.  Playing your fingers gently across your upper arms, you pout and ask if " +
-                this.emberMF("he", "she") +
-                "'s going to keep you waiting, enjoying your emotional control over the horny dragon."
+            `\n\nYou strip down until you are unabashedly naked, drinking in the look of stunned rapturous lust that Ember is giving you.  Playing your fingers gently across your upper arms, you pout and ask if ${this.emberMF(
+                "he",
+                "she"
+            )}'s going to keep you waiting, enjoying your emotional control over the horny dragon.`
         );
 
         this.outx(
-            "\n\nEmber flinches, " +
-                this.emberMF("his", "her") +
-                ' trance broken.  "<i>I... umm... fine!  Come here!</i>"  Ember steps toward you.  You open your arms, ready to wrap ' +
-                this.emberMF("him", "her") +
-                " in a hug, but instead find yourself swept off of your feet.  The dragon grins wickedly at you before suddenly plunging into a ferocious kiss, " +
-                this.emberMF("his", "her") +
-                " long tongue worming its way around "
+            `\n\nEmber flinches, ${this.emberMF(
+                "his",
+                "her"
+            )} trance broken.  "<i>I... umm... fine!  Come here!</i>"  Ember steps toward you.  You open your arms, ready to wrap ${this.emberMF(
+                "him",
+                "her"
+            )} in a hug, but instead find yourself swept off of your feet.  The dragon grins wickedly at you before suddenly plunging into a ferocious kiss, ${this.emberMF(
+                "his",
+                "her"
+            )} long tongue worming its way around `
         );
         if (this.player.tongueType == TONUGE_HUMAN) this.outx("yours ");
         else this.outx("your own inhumanly sinuous muscle ");
         this.outx(
-            "and slithering almost into your throat.  " +
-                this.emberMF("He", "She") +
-                " kisses you madly, even as " +
-                this.emberMF("he", "she") +
-                " sinks to " +
-                this.emberMF("his", "her") +
-                " knees and gently lays you out on the ground, clearly ready to start the sexing."
+            `and slithering almost into your throat.  ${this.emberMF(
+                "He",
+                "She"
+            )} kisses you madly, even as ${this.emberMF("he", "she")} sinks to ${this.emberMF(
+                "his",
+                "her"
+            )} knees and gently lays you out on the ground, clearly ready to start the sexing.`
         );
         if (this.player.hasCock())
             this.outx(
-                "  As if " +
-                    this.emberMF("his", "her") +
-                    " hands caressing your cock weren't evidence of that."
+                `  As if ${this.emberMF(
+                    "his",
+                    "her"
+                )} hands caressing your cock weren't evidence of that.`
             );
 
         this.outx(
-            "\n\nEmber begins by gently probing your [vagina] with " +
-                this.emberMF("his", "her") +
-                ' tip, savoring the heat emanating from your oozing cock-sleeve.  "<i>Ready for this?</i>" Ember asks, trembling in barely contained anticipation.  You groan throatily and try to wrap your [legs] around ' +
-                this.emberMF("his", "her") +
-                " hips in hopes of pulling " +
-                this.emberMF("him", "her") +
-                " into connection with you.  Catching the hint, Ember begins " +
-                this.emberMF("his", "her") +
-                " slow plunge into your depths."
+            `\n\nEmber begins by gently probing your [vagina] with ${this.emberMF(
+                "his",
+                "her"
+            )} tip, savoring the heat emanating from your oozing cock-sleeve.  "<i>Ready for this?</i>" Ember asks, trembling in barely contained anticipation.  You groan throatily and try to wrap your [legs] around ${this.emberMF(
+                "his",
+                "her"
+            )} hips in hopes of pulling ${this.emberMF(
+                "him",
+                "her"
+            )} into connection with you.  Catching the hint, Ember begins ${this.emberMF(
+                "his",
+                "her"
+            )} slow plunge into your depths.`
         );
 
         this.outx("\n\nYou gasp and then moan in pleasure as Ember's ");
@@ -7099,15 +7619,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (if Ember has a dragon cock)
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] > 0) {
             this.outx(
-                "\n\nFirst comes the tapered spear-like head of Ember's penis; it slowly stretches you, sliding into you without resistance.  Then comes " +
-                    this.emberMF("his", "her") +
-                    " ridged shaft; each ridge driven inside feels like a milestone being conquered.  "
+                `\n\nFirst comes the tapered spear-like head of Ember's penis; it slowly stretches you, sliding into you without resistance.  Then comes ${this.emberMF(
+                    "his",
+                    "her"
+                )} ridged shaft; each ridge driven inside feels like a milestone being conquered.  `
             );
             this.player.cuntChange(32, true, false, true);
             this.outx(
-                "Finally you arrive at the base of " +
-                    this.emberMF("his", "her") +
-                    " cock where a bulbous knot sits; thankfully it hasn't inflated yet, but still, you can't help but groan as you are stretched even more by its entrance."
+                `Finally you arrive at the base of ${this.emberMF(
+                    "his",
+                    "her"
+                )} cock where a bulbous knot sits; thankfully it hasn't inflated yet, but still, you can't help but groan as you are stretched even more by its entrance.`
             );
         }
         // else
@@ -7121,19 +7643,22 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
         this.outx(
-            '\n\n"<i>I-it\'s in!</i>" Ember remarks happily as ' +
-                this.emberMF("his", "her") +
-                ' hips make contact with yours.  "<i>I\'m going to start moving now.</i>"  You nod your permission.'
+            `\n\n"<i>I-it's in!</i>" Ember remarks happily as ${this.emberMF(
+                "his",
+                "her"
+            )} hips make contact with yours.  "<i>I'm going to start moving now.</i>"  You nod your permission.`
         );
 
         // (if Ember has a dragon cock)
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] > 0) {
             this.outx(
-                "\n\nThe way back as Ember slowly pulls " +
-                    this.emberMF("his", "her") +
-                    " cock out of your dripping pussy is as pleasurable as " +
-                    this.emberMF("his", "her") +
-                    " entrance was.  First the knot tugs at your insides, drawing a sigh of relief as it slips out of your stretched netherlips.  Then come the oh-so-delicious ridges, tugging and massing your passage with small ripples of pleasure that rock you to your core.  Finally comes the tip... the stubborn tip that tugs at your pussy lips, refusing to leave its warm confines, pulling at your labia until Ember decides to plunge back."
+                `\n\nThe way back as Ember slowly pulls ${this.emberMF(
+                    "his",
+                    "her"
+                )} cock out of your dripping pussy is as pleasurable as ${this.emberMF(
+                    "his",
+                    "her"
+                )} entrance was.  First the knot tugs at your insides, drawing a sigh of relief as it slips out of your stretched netherlips.  Then come the oh-so-delicious ridges, tugging and massing your passage with small ripples of pleasure that rock you to your core.  Finally comes the tip... the stubborn tip that tugs at your pussy lips, refusing to leave its warm confines, pulling at your labia until Ember decides to plunge back.`
             );
         } else {
             this.outx(
@@ -7141,67 +7666,80 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
         }
         this.outx(
-            "\n\nYou delight in Ember's motions; insecure " +
-                this.emberMF("he", "she") +
-                " may be when it comes to showing feelings, but get " +
-                this.emberMF("him", "her") +
-                " into the actual act of lovemaking and " +
-                this.emberMF("he", "she") +
-                " really starts to show what " +
-                this.emberMF("he", "she") +
-                "'s made of!  You wrap Ember tighter in your [legs] and begin to buck and thrust, repeatedly impaling yourself on " +
-                this.emberMF("his", "her") +
-                " delicious manhood, savoring the feeling of being stretched and filled, scraping your [clit] up and down " +
-                this.emberMF("his", "her") +
-                " cock in order to heighten the sensations of your lovemaking."
+            `\n\nYou delight in Ember's motions; insecure ${this.emberMF(
+                "he",
+                "she"
+            )} may be when it comes to showing feelings, but get ${this.emberMF(
+                "him",
+                "her"
+            )} into the actual act of lovemaking and ${this.emberMF(
+                "he",
+                "she"
+            )} really starts to show what ${this.emberMF(
+                "he",
+                "she"
+            )}'s made of!  You wrap Ember tighter in your [legs] and begin to buck and thrust, repeatedly impaling yourself on ${this.emberMF(
+                "his",
+                "her"
+            )} delicious manhood, savoring the feeling of being stretched and filled, scraping your [clit] up and down ${this.emberMF(
+                "his",
+                "her"
+            )} cock in order to heighten the sensations of your lovemaking.`
         );
 
         this.outx(
-            "\n\nEmber leans over you, panting, " +
-                this.emberMF("his", "her") +
-                " hot breath mere inches from your " +
-                this.player.face() +
-                ', gazing at you through half-lidded, lust-addled eyes.  "<i>You feel so good... so hot... so sexy...</i>" Ember says mid-pant.  You pant right back, reaching up and wrapping your arms around ' +
-                this.emberMF("his", "her") +
-                " neck, staring back at " +
-                this.emberMF("him", "her") +
-                " with the same expression and telling " +
-                this.emberMF("him", "her") +
-                " you think " +
-                this.emberMF("he", "she") +
-                " feels just as good."
+            `\n\nEmber leans over you, panting, ${this.emberMF(
+                "his",
+                "her"
+            )} hot breath mere inches from your ${this.player.face()}, gazing at you through half-lidded, lust-addled eyes.  "<i>You feel so good... so hot... so sexy...</i>" Ember says mid-pant.  You pant right back, reaching up and wrapping your arms around ${this.emberMF(
+                "his",
+                "her"
+            )} neck, staring back at ${this.emberMF(
+                "him",
+                "her"
+            )} with the same expression and telling ${this.emberMF(
+                "him",
+                "her"
+            )} you think ${this.emberMF("he", "she")} feels just as good.`
         );
 
         this.outx(
-            "\n\nEmber thrusts deeply into you and gasps; pre shoots out of " +
-                this.emberMF("his", "her") +
-                " cock into your well lubed tunnel and " +
-                this.emberMF("he", "she") +
-                ' stops moving.  "<i>I-I\'m getting close...</i>" Ember warns, trembling in pleasure as your walls constrict and grab at ' +
-                this.emberMF("his", "her") +
-                " shaft, eager for the friction that sets your nerves alight with pleasure."
+            `\n\nEmber thrusts deeply into you and gasps; pre shoots out of ${this.emberMF(
+                "his",
+                "her"
+            )} cock into your well lubed tunnel and ${this.emberMF(
+                "he",
+                "she"
+            )} stops moving.  "<i>I-I'm getting close...</i>" Ember warns, trembling in pleasure as your walls constrict and grab at ${this.emberMF(
+                "his",
+                "her"
+            )} shaft, eager for the friction that sets your nerves alight with pleasure.`
         );
 
         this.outx(
-            "\n\nYou snarl back softly through your teeth; you're not ready yet!  Well, if " +
-                this.emberMF("he", "she") +
-                "'s close, then " +
-                this.emberMF("he", "she") +
-                " needs to go faster, so you can cum too!  You wrap your arms and [legs] jealously around " +
-                this.emberMF("him", "her") +
-                ", pistoning back and forth with all the speed and force you can muster, using every muscle you can control in your [vagina] to milk and squeeze your draconic lover... yes, yes, just a little more... Ember groans at your sudden movements, faltering and crashing atop you limply as the overwhelming pleasure saps " +
-                this.emberMF("him", "her") +
-                " of all " +
-                this.emberMF("his", "her") +
-                " strength."
+            `\n\nYou snarl back softly through your teeth; you're not ready yet!  Well, if ${this.emberMF(
+                "he",
+                "she"
+            )}'s close, then ${this.emberMF(
+                "he",
+                "she"
+            )} needs to go faster, so you can cum too!  You wrap your arms and [legs] jealously around ${this.emberMF(
+                "him",
+                "her"
+            )}, pistoning back and forth with all the speed and force you can muster, using every muscle you can control in your [vagina] to milk and squeeze your draconic lover... yes, yes, just a little more... Ember groans at your sudden movements, faltering and crashing atop you limply as the overwhelming pleasure saps ${this.emberMF(
+                "him",
+                "her"
+            )} of all ${this.emberMF("his", "her")} strength.`
         );
 
         this.outx(
-            "\n\nFrustrated, horny, and almost there, you roll " +
-                this.emberMF("him", "her") +
-                " over onto " +
-                this.emberMF("his", "her") +
-                " back and continue to buck... yes, yes, here it is!  You cry out in ecstasy as the waves of pleasure rock and surge through your body; orgasm hits you like a tidal wave, cascading through your nerves and driving you into welcome, blissful release."
+            `\n\nFrustrated, horny, and almost there, you roll ${this.emberMF(
+                "him",
+                "her"
+            )} over onto ${this.emberMF(
+                "his",
+                "her"
+            )} back and continue to buck... yes, yes, here it is!  You cry out in ecstasy as the waves of pleasure rock and surge through your body; orgasm hits you like a tidal wave, cascading through your nerves and driving you into welcome, blissful release.`
         );
         if (this.player.hasCock()) {
             this.outx("  Your cock explodes, belching cum to ");
@@ -7212,21 +7750,26 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(" your draconic partner.");
         }
         this.outx(
-            "\n\nYour orgasm triggers Ember's own, and you feel " +
-                this.emberMF("his", "her") +
-                " cock throb and grow even harder.  With a roar, Ember blows " +
-                this.emberMF("his", "her") +
-                " load deep into your convulsing [vagina], making sure to paint every nook and cranny inside you with white, refreshing dragon-spunk.  You can't help but sigh in relief as you feel Ember's seed trail its way inside you, into your waiting womb; the feeling is so intense it feels as if you were set ablaze and " +
-                this.emberMF("he", "she") +
-                " just poured a bucket of water, mercifully putting out the flames.  With a groan, Ember rolls you over on your side and pulls out, letting a cascade of white dragon-jism leak from your used and abused [vagina]."
+            `\n\nYour orgasm triggers Ember's own, and you feel ${this.emberMF(
+                "his",
+                "her"
+            )} cock throb and grow even harder.  With a roar, Ember blows ${this.emberMF(
+                "his",
+                "her"
+            )} load deep into your convulsing [vagina], making sure to paint every nook and cranny inside you with white, refreshing dragon-spunk.  You can't help but sigh in relief as you feel Ember's seed trail its way inside you, into your waiting womb; the feeling is so intense it feels as if you were set ablaze and ${this.emberMF(
+                "he",
+                "she"
+            )} just poured a bucket of water, mercifully putting out the flames.  With a groan, Ember rolls you over on your side and pulls out, letting a cascade of white dragon-jism leak from your used and abused [vagina].`
         );
 
         this.outx(
-            "\n\nYou sigh softly in pleasure and relief, basking in the wonderful afterglow of a nice fuck with a nice lover.  Unthinkingly, you cuddle up to the dragon, trying to entrap " +
-                this.emberMF("him", "her") +
-                " so you can hold " +
-                this.emberMF("him", "her") +
-                " close and savor this feeling of bliss together.  Absently, one of your hands drifts down to your pussy, feeling the dragon-jism leaking from it and starting to play with it.  Like a child with water you dabble your fingers in the thick, frothy, strong-smelling spunk, smearing it around with carefree abandon, painting the inside of your thighs and streaking it up your belly."
+            `\n\nYou sigh softly in pleasure and relief, basking in the wonderful afterglow of a nice fuck with a nice lover.  Unthinkingly, you cuddle up to the dragon, trying to entrap ${this.emberMF(
+                "him",
+                "her"
+            )} so you can hold ${this.emberMF(
+                "him",
+                "her"
+            )} close and savor this feeling of bliss together.  Absently, one of your hands drifts down to your pussy, feeling the dragon-jism leaking from it and starting to play with it.  Like a child with water you dabble your fingers in the thick, frothy, strong-smelling spunk, smearing it around with carefree abandon, painting the inside of your thighs and streaking it up your belly.`
         );
 
         this.outx(
@@ -7234,51 +7777,67 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou merely smile hungrily.  Well, if " +
-                this.emberMF("he", "she") +
-                "'s so eager for a second round, you're not going to disappoint " +
-                this.emberMF("him", "her") +
-                ".  You gently take hold of " +
-                this.emberMF("his", "her") +
-                " penis and slowly guide it back between your netherlips, playfully telling Ember you'll go slower and easier on " +
-                this.emberMF("him", "her") +
-                " this time."
+            `\n\nYou merely smile hungrily.  Well, if ${this.emberMF(
+                "he",
+                "she"
+            )}'s so eager for a second round, you're not going to disappoint ${this.emberMF(
+                "him",
+                "her"
+            )}.  You gently take hold of ${this.emberMF(
+                "his",
+                "her"
+            )} penis and slowly guide it back between your netherlips, playfully telling Ember you'll go slower and easier on ${this.emberMF(
+                "him",
+                "her"
+            )} this time.`
         );
 
         this.outx(
-            "\n\nEmber hisses in pleasure; " +
-                this.emberMF("his", "her") +
-                " still-sensitive shaft barely makes its way inside you before it throbs and explodes in a second orgasm, filling you up with an extra barrage of dragon-seed.  You can't help but giggle at Ember's unexpected climax. \"<i>C-careful!  I'm still sensitive!</i>\" Ember gasps, as " +
-                this.emberMF("he", "she") +
-                " slowly pulls out of you again.  You give " +
-                this.emberMF("him", "her") +
-                " an expression so innocent that butter wouldn't melt in your mouth, and then gently reinsert " +
-                this.emberMF("him", "her") +
-                " again.  " +
-                this.emberMF("He", "She") +
-                "'s still flaccid by this point, but you're confident that will soon change."
+            `\n\nEmber hisses in pleasure; ${this.emberMF(
+                "his",
+                "her"
+            )} still-sensitive shaft barely makes its way inside you before it throbs and explodes in a second orgasm, filling you up with an extra barrage of dragon-seed.  You can't help but giggle at Ember's unexpected climax. "<i>C-careful!  I'm still sensitive!</i>" Ember gasps, as ${this.emberMF(
+                "he",
+                "she"
+            )} slowly pulls out of you again.  You give ${this.emberMF(
+                "him",
+                "her"
+            )} an expression so innocent that butter wouldn't melt in your mouth, and then gently reinsert ${this.emberMF(
+                "him",
+                "her"
+            )} again.  ${this.emberMF(
+                "He",
+                "She"
+            )}'s still flaccid by this point, but you're confident that will soon change.`
         );
 
         this.outx(
-            "\n\nEmber groans as " +
-                this.emberMF("he", "she") +
-                " grows hard once more, sensitive and throbbing as " +
-                this.emberMF("his", "her") +
-                ' shaft slowly fills you with its increasing girth.  You begin to buck your hips back and forth; you wonder how many orgasms you can coax from your helpless draconic lover...  "<i>C-cumming!!</i>" Ember roars as ' +
-                this.emberMF("he", "she") +
-                " shoots a few more jets inside you."
+            `\n\nEmber groans as ${this.emberMF(
+                "he",
+                "she"
+            )} grows hard once more, sensitive and throbbing as ${this.emberMF(
+                "his",
+                "her"
+            )} shaft slowly fills you with its increasing girth.  You begin to buck your hips back and forth; you wonder how many orgasms you can coax from your helpless draconic lover...  "<i>C-cumming!!</i>" Ember roars as ${this.emberMF(
+                "he",
+                "she"
+            )} shoots a few more jets inside you.`
         );
 
         this.outx(
-            "\n\n\"<i>I-I can't keep doing this... you're going to dry me out...</i>\" Ember says, panting in exhaustion, although from " +
-                this.emberMF("his", "her") +
-                " expression you'd have a hard time believing " +
-                this.emberMF("he", "she") +
-                " isn't enjoying it.  You give " +
-                this.emberMF("him", "her") +
-                " an exaggerated pout and tell " +
-                this.emberMF("him", "her") +
-                " you're not quite done yet.  Surely, just one or two more...?"
+            `\n\n"<i>I-I can't keep doing this... you're going to dry me out...</i>" Ember says, panting in exhaustion, although from ${this.emberMF(
+                "his",
+                "her"
+            )} expression you'd have a hard time believing ${this.emberMF(
+                "he",
+                "she"
+            )} isn't enjoying it.  You give ${this.emberMF(
+                "him",
+                "her"
+            )} an exaggerated pout and tell ${this.emberMF(
+                "him",
+                "her"
+            )} you're not quite done yet.  Surely, just one or two more...?`
         );
         // [(has History: Slut or Whore)
         if (
@@ -7293,15 +7852,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nEventually, exhausted, belly stuffed with dragon-spunk to the point you look ready to birth a pair of dragon toddlers, and feeling incredibly well-sated, you lay on Ember's chest, cuddling your limp, utterly drained lover.  The dragon is fast asleep, having passed out from exhaustion, and you amuse yourself by listening to " +
-                this.emberMF("his", "her") +
-                " heart beating as " +
-                this.emberMF("he", "she") +
-                " inhales and exhales softly in " +
-                this.emberMF("his", "her") +
-                " sleep.  To be honest, you could use a nap too, and you pass out atop " +
-                this.emberMF("him", "her") +
-                "."
+            `\n\nEventually, exhausted, belly stuffed with dragon-spunk to the point you look ready to birth a pair of dragon toddlers, and feeling incredibly well-sated, you lay on Ember's chest, cuddling your limp, utterly drained lover.  The dragon is fast asleep, having passed out from exhaustion, and you amuse yourself by listening to ${this.emberMF(
+                "his",
+                "her"
+            )} heart beating as ${this.emberMF(
+                "he",
+                "she"
+            )} inhales and exhales softly in ${this.emberMF(
+                "his",
+                "her"
+            )} sleep.  To be honest, you could use a nap too, and you pass out atop ${this.emberMF(
+                "him",
+                "her"
+            )}.`
         );
         this.player.orgasm();
         this.dynStats("sen", -2);
@@ -7314,26 +7877,31 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     private getPenetratedByEmberLastSexSceneWooooPartII(): void {
         this.clearOutput();
         this.outx(
-            "You manage to wake up before your sleeping draconic lover; it seems at some point in " +
-                this.emberMF("his", "her") +
-                " sleep Ember saw it fit to wrap you tightly in " +
-                this.emberMF("his", "her") +
-                " arms, tail and even legs.  You snuggle deeper into the dragon's embrace and enjoy it; " +
-                this.emberMF("he", "she") +
-                "'s usually too emotionally cowardly to treat you like this.  Unfortunately the embrace doesn't last long... Ember soon wakes up, yawning groggily and slowly disentangling " +
-                this.emberMF("him", "her") +
-                "self in order to stretch.  The dragon's face lights in pain and " +
-                this.emberMF("he", "she") +
-                " quickly moves " +
-                this.emberMF("his", "her") +
-                " hand to hold " +
-                this.emberMF("his", "her") +
-                " crotch."
+            `You manage to wake up before your sleeping draconic lover; it seems at some point in ${this.emberMF(
+                "his",
+                "her"
+            )} sleep Ember saw it fit to wrap you tightly in ${this.emberMF(
+                "his",
+                "her"
+            )} arms, tail and even legs.  You snuggle deeper into the dragon's embrace and enjoy it; ${this.emberMF(
+                "he",
+                "she"
+            )}'s usually too emotionally cowardly to treat you like this.  Unfortunately the embrace doesn't last long... Ember soon wakes up, yawning groggily and slowly disentangling ${this.emberMF(
+                "him",
+                "her"
+            )}self in order to stretch.  The dragon's face lights in pain and ${this.emberMF(
+                "he",
+                "she"
+            )} quickly moves ${this.emberMF("his", "her")} hand to hold ${this.emberMF(
+                "his",
+                "her"
+            )} crotch.`
         );
         this.outx(
-            '\n\n"<i>Ow...</i>"  Ember looks at you accusingly.  "<i>I feel sore all over... especially down here...</i>" Ember says, massaging ' +
-                this.emberMF("his", "her") +
-                " "
+            `\n\n"<i>Ow...</i>"  Ember looks at you accusingly.  "<i>I feel sore all over... especially down here...</i>" Ember says, massaging ${this.emberMF(
+                "his",
+                "her"
+            )} `
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 || this.flags[kFLAGS.EMBER_INTERNAL_DICK] == 1)
             this.outx("protective slit");
@@ -7341,18 +7909,22 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx('.  "<i>You used me like a fucktoy!</i>"');
 
         this.outx(
-            "\n\nYou admit, yes, you did... but is " +
-                this.emberMF("he", "she") +
-                " really going to sit here and tell you that " +
-                this.emberMF("he", "she") +
-                " didn't love being used?  Besides, who was it who said "
+            `\n\nYou admit, yes, you did... but is ${this.emberMF(
+                "he",
+                "she"
+            )} really going to sit here and tell you that ${this.emberMF(
+                "he",
+                "she"
+            )} didn't love being used?  Besides, who was it who said `
         );
         if (this.emberAffection() < 75)
-            this.outx(this.emberMF("his", "her") + " cock was unlike anything else in this world?");
+            this.outx(`${this.emberMF("his", "her")} cock was unlike anything else in this world?`);
         else
             this.outx(
-                this.emberMF("he", "she") +
-                    " could handle two or even three of you at the same time?"
+                `${this.emberMF(
+                    "he",
+                    "she"
+                )} could handle two or even three of you at the same time?`
             );
         this.outx("  You expected more resistance if that was the case.");
 
@@ -7361,21 +7933,26 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou heave a great sigh in exaggerated pity.  Well, you're sure " +
-                this.emberMF("he", "she") +
-                " will be full and ready to go in no time, you tell " +
-                this.emberMF("him", "her") +
-                ".  You get up, stifle a wince - your body is going to be paying for your extravagance, but you don't need Ember to know that - and try to make the task of heading over and picking up your clothes as erotic as possible.  When you look back, you smirk at the sight of your success; Ember's trembling, trying to contain another hard-on.  Gently, you ask if maybe " +
-                this.emberMF("he", "she") +
-                " wants to have round... hmm, what would it be?  Round twelve?"
+            `\n\nYou heave a great sigh in exaggerated pity.  Well, you're sure ${this.emberMF(
+                "he",
+                "she"
+            )} will be full and ready to go in no time, you tell ${this.emberMF(
+                "him",
+                "her"
+            )}.  You get up, stifle a wince - your body is going to be paying for your extravagance, but you don't need Ember to know that - and try to make the task of heading over and picking up your clothes as erotic as possible.  When you look back, you smirk at the sight of your success; Ember's trembling, trying to contain another hard-on.  Gently, you ask if maybe ${this.emberMF(
+                "he",
+                "she"
+            )} wants to have round... hmm, what would it be?  Round twelve?`
         );
 
         this.outx(
-            '\n\nEmber\'s eyes widen in terror.  "<i>What!?  No!  Not again!</i>" Ember screams, getting up and wasting no time in bolting away, setting into a unsteady flight as soon as ' +
-                this.emberMF("he", "she") +
-                "'s gotten far enough.  You wait until " +
-                this.emberMF("he", "she") +
-                "'s gone, and then burst out laughing.  Totally worth it... even if you are, as the saying goes, going to be sleeping on the couch for a week as a result."
+            `\n\nEmber's eyes widen in terror.  "<i>What!?  No!  Not again!</i>" Ember screams, getting up and wasting no time in bolting away, setting into a unsteady flight as soon as ${this.emberMF(
+                "he",
+                "she"
+            )}'s gotten far enough.  You wait until ${this.emberMF(
+                "he",
+                "she"
+            )}'s gone, and then burst out laughing.  Totally worth it... even if you are, as the saying goes, going to be sleeping on the couch for a week as a result.`
         );
         // slimefeed, preg check, reduce lust, reset hours since cum, drain massive libido
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -7401,9 +7978,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou don't even start at " +
-                this.emberMF("his", "her") +
-                " actions; all you can think of is the deep need burning in your crotch, "
+            `\n\nYou don't even start at ${this.emberMF(
+                "his",
+                "her"
+            )} actions; all you can think of is the deep need burning in your crotch, `
         );
         if (
             this.player.hasVagina() &&
@@ -7453,45 +8031,47 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(" so yearn");
         if (this.player.gender == 1 || this.player.gender == 2) this.outx("s");
         this.outx(
-            " to take Ember up on " +
-                this.emberMF("his", "her") +
-                " offer! ...But you are better than this; you are not some mindless animal, a slave to your lusts.  You fight down the arousal gnawing at you and tell Ember you don't want to fuck " +
-                this.emberMF("him", "her") +
-                "."
+            ` to take Ember up on ${this.emberMF(
+                "his",
+                "her"
+            )} offer! ...But you are better than this; you are not some mindless animal, a slave to your lusts.  You fight down the arousal gnawing at you and tell Ember you don't want to fuck ${this.emberMF(
+                "him",
+                "her"
+            )}.`
         );
         this.outx(
             "\n\nEmber whimpers at your words.  \"<i>C-can't you see what you're doing to me? C'mon [name], just a quick romp!</i>\" Ember pleads."
         );
         this.outx(
-            "\n\nYou tell " +
-                this.emberMF("him", "her") +
-                " that you're sorry, but you don't want to have children - at least, not yet.  And if you have sex in your state, that's what will happen."
+            `\n\nYou tell ${this.emberMF(
+                "him",
+                "her"
+            )} that you're sorry, but you don't want to have children - at least, not yet.  And if you have sex in your state, that's what will happen.`
         );
         this.outx(
-            '\n\nEmber growls, spins you around and steals a kiss right out of your mouth.  "<i>I hate you... you... you sexy beast!</i>"  Having said that ' +
-                this.emberMF("he", "she") +
-                " unfurls her wings and flies off into the sky, barely managing to fly straight due to " +
-                this.emberMF("his", "her") +
-                " "
+            `\n\nEmber growls, spins you around and steals a kiss right out of your mouth.  "<i>I hate you... you... you sexy beast!</i>"  Having said that ${this.emberMF(
+                "he",
+                "she"
+            )} unfurls her wings and flies off into the sky, barely managing to fly straight due to ${this.emberMF(
+                "his",
+                "her"
+            )} `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
             this.outx("protruding prick");
         if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outx(" and ");
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2) this.outx("creaming wet vagina");
         this.outx(
-            ".  No doubt " +
-                this.emberMF("he", "she") +
-                "'s off to take care of " +
-                this.emberMF("his", "her") +
-                " needs by " +
-                this.emberMF("him", "her") +
-                "self.  You doubt " +
-                this.emberMF("he", "she") +
-                "'s going to be happy once " +
-                this.emberMF("his", "her") +
-                " head is clear... still, " +
-                this.emberMF("he", "she") +
-                "'ll get over it."
+            `.  No doubt ${this.emberMF("he", "she")}'s off to take care of ${this.emberMF(
+                "his",
+                "her"
+            )} needs by ${this.emberMF("him", "her")}self.  You doubt ${this.emberMF(
+                "he",
+                "she"
+            )}'s going to be happy once ${this.emberMF(
+                "his",
+                "her"
+            )} head is clear... still, ${this.emberMF("he", "she")}'ll get over it.`
         );
         this.emberAffection(-10);
         // Set some cooldown so this doesn't proc all the goddamn time!
@@ -7503,45 +8083,45 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     private timeToPuffTheMagicDragon(): void {
         this.clearOutput();
         this.outx(
-            "Dazed and befuddled, you sniff Ember right back.  Mmm... " +
-                this.emberMF("He", "She") +
-                " smells delicious too, you tell " +
-                this.emberMF("him", "her") +
-                "."
+            `Dazed and befuddled, you sniff Ember right back.  Mmm... ${this.emberMF(
+                "He",
+                "She"
+            )} smells delicious too, you tell ${this.emberMF("him", "her")}.`
         );
         this.outx(
             '\n\n"<i>I know, rrrrriggghhht?</i>" Ember purrs in your ear, stealing a teasing lick. "<i>Oh by Marae, take off your [armor] and let\'s do it!  I don\'t care if we\'re in the middle of the camp!</i>"'
         );
 
         this.outx(
-            "\n\nYou barely manage to resist " +
-                this.emberMF("his", "her") +
-                " insinuations, instead forcing yourself to stagger over to your tent for privacy's sake.  It's harder than you'd think, not just because of the raging fire in your loins, but because Ember is insistently clinging to you, doing " +
-                this.emberMF("his", "her") +
-                " damndest to remove your [armor].  You can appreciate " +
-                this.emberMF("his", "her") +
-                " enthusiasm, but all " +
-                this.emberMF("he", "she") +
-                "'s doing is getting in the way!"
+            `\n\nYou barely manage to resist ${this.emberMF(
+                "his",
+                "her"
+            )} insinuations, instead forcing yourself to stagger over to your tent for privacy's sake.  It's harder than you'd think, not just because of the raging fire in your loins, but because Ember is insistently clinging to you, doing ${this.emberMF(
+                "his",
+                "her"
+            )} damndest to remove your [armor].  You can appreciate ${this.emberMF(
+                "his",
+                "her"
+            )} enthusiasm, but all ${this.emberMF("he", "she")}'s doing is getting in the way!`
         );
 
         this.outx(
-            "\n\nSomehow you manage to avoid " +
-                this.emberMF("his", "her") +
-                " clinging claws and strip off to your undergarments, which Ember promptly bites into, nearly ripping them off your [legs].  Ember flops down on your bedroll, chewing on your undies.  " +
-                this.emberMF("He", "She") +
-                " spreads her legs invitingly and spits out your - now soaked - underpants.  \"<i>Let's do it on your bed!  It smells so much like you...  Did I say how good you smell?  C'mon, [name]; fuck me dammit!</i>\""
+            `\n\nSomehow you manage to avoid ${this.emberMF(
+                "his",
+                "her"
+            )} clinging claws and strip off to your undergarments, which Ember promptly bites into, nearly ripping them off your [legs].  Ember flops down on your bedroll, chewing on your undies.  ${this.emberMF(
+                "He",
+                "She"
+            )} spreads her legs invitingly and spits out your - now soaked - underpants.  "<i>Let's do it on your bed!  It smells so much like you...  Did I say how good you smell?  C'mon, [name]; fuck me dammit!</i>"`
         );
         this.outx(
-            "\n\nYou can't take it anymore and throw yourself at " +
-                this.emberMF("him", "her") +
-                "; " +
-                this.emberMF("he", "she") +
-                " wants you so bad?  Well, you want " +
-                this.emberMF("him", "her") +
-                " just as bad; let's see what " +
-                this.emberMF("he", "she") +
-                "'ll do with you!"
+            `\n\nYou can't take it anymore and throw yourself at ${this.emberMF(
+                "him",
+                "her"
+            )}; ${this.emberMF("he", "she")} wants you so bad?  Well, you want ${this.emberMF(
+                "him",
+                "her"
+            )} just as bad; let's see what ${this.emberMF("he", "she")}'ll do with you!`
         );
         // (if PC and Ember are herms AND not pregnant){
         if (
@@ -7590,46 +8170,53 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     private getKnockedUpByEmbrahBroBaby(): void {
         this.clearOutput();
         this.outx(
-            "Ember grabs you and rolls you around, pinning you under " +
-                this.emberMF("his", "her") +
-                " weight, whilst kissing you.  You allow the dragon to press you into the ground, rubbing your hands across "
+            `Ember grabs you and rolls you around, pinning you under ${this.emberMF(
+                "his",
+                "her"
+            )} weight, whilst kissing you.  You allow the dragon to press you into the ground, rubbing your hands across `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 && this.flags[kFLAGS.EMBER_MILK] == 0)
             this.outx("his flat, muscular chest");
-        else this.outx(this.emberMF("his", "her") + " soft, squeezable boobs");
+        else this.outx(`${this.emberMF("his", "her")} soft, squeezable boobs`);
         this.outx(
-            " and savoring the kiss.  Emboldened, you poke your tongue into " +
-                this.emberMF("his", "her") +
-                " mouth, to see how " +
-                this.emberMF("he", "she") +
-                " will react."
+            ` and savoring the kiss.  Emboldened, you poke your tongue into ${this.emberMF(
+                "his",
+                "her"
+            )} mouth, to see how ${this.emberMF("he", "she")} will react.`
         );
 
         this.outx(
-            "\n\nEmber shows no resistance, pushing " +
-                this.emberMF("his", "her") +
-                " chest out into your hands and using " +
-                this.emberMF("his", "her") +
-                " own tongue to draw yours in, while simultaneously probing your mouth.  With a wet <b>smack</b> Ember breaks the kiss.  \"<i>Don't worry about anything... I'll make sure to make this enjoyable for both of us, and by the end, you'll be full of "
+            `\n\nEmber shows no resistance, pushing ${this.emberMF(
+                "his",
+                "her"
+            )} chest out into your hands and using ${this.emberMF(
+                "his",
+                "her"
+            )} own tongue to draw yours in, while simultaneously probing your mouth.  With a wet <b>smack</b> Ember breaks the kiss.  "<i>Don't worry about anything... I'll make sure to make this enjoyable for both of us, and by the end, you'll be full of `
         );
         if (this.flags[kFLAGS.EMBER_OVIPOSITION] == 0) this.outx("little dragons");
         else this.outx("dragon eggs");
         this.outx(
-            ', my beautiful.</i>"  Ember resumes ' +
-                this.emberMF("his", "her") +
-                " kissing; " +
-                this.emberMF("his", "her") +
-                " own hands roaming all over your body, as if mapping you out through touch, looking for the best places to touch and tease."
+            `, my beautiful.</i>"  Ember resumes ${this.emberMF(
+                "his",
+                "her"
+            )} kissing; ${this.emberMF(
+                "his",
+                "her"
+            )} own hands roaming all over your body, as if mapping you out through touch, looking for the best places to touch and tease.`
         );
 
         this.outx(
-            "\n\nYou try to hold your own against your overly affectionate draconic lover, stroking " +
-                this.emberMF("his", "her") +
-                " scaly limbs and trying to discover where " +
-                this.emberMF("his", "her") +
-                " erogenous zones are so that you can show " +
-                this.emberMF("him", "her") +
-                " what it's like to be ready to beg and plead for sex.  You can feel the heat burning in your loins, a wet, ready fire in your [vagina]; you're ready to be bred, to have your gut filled with Ember's seed until your womb is jam-packed with "
+            `\n\nYou try to hold your own against your overly affectionate draconic lover, stroking ${this.emberMF(
+                "his",
+                "her"
+            )} scaly limbs and trying to discover where ${this.emberMF(
+                "his",
+                "her"
+            )} erogenous zones are so that you can show ${this.emberMF(
+                "him",
+                "her"
+            )} what it's like to be ready to beg and plead for sex.  You can feel the heat burning in your loins, a wet, ready fire in your [vagina]; you're ready to be bred, to have your gut filled with Ember's seed until your womb is jam-packed with `
         );
         if (this.flags[kFLAGS.EMBER_OVIPOSITION] == 0) this.outx("dragonlings");
         else this.outx("dragon eggs");
@@ -7638,49 +8225,59 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         // (if PC has a dick)
         if (this.player.hasCock()) {
             this.outx(
-                "\n\nOne of Ember's roaming hands find your erect [cock biggest] and begins stroking, not caring that you're smearing " +
-                    this.emberMF("his", "her") +
-                    " body with pre.  While Ember's other hand settles on stroking your thighs, coaxing you to open your legs before aligning " +
-                    this.emberMF("his", "her") +
-                    " rock hard shaft with your waiting [vagina]."
+                `\n\nOne of Ember's roaming hands find your erect [cock biggest] and begins stroking, not caring that you're smearing ${this.emberMF(
+                    "his",
+                    "her"
+                )} body with pre.  While Ember's other hand settles on stroking your thighs, coaxing you to open your legs before aligning ${this.emberMF(
+                    "his",
+                    "her"
+                )} rock hard shaft with your waiting [vagina].`
             );
         } else {
             this.outx(
-                "\n\nEmber's roaming hands settle on your thighs, coaxing you to open your legs before aligning " +
-                    this.emberMF("his", "her") +
-                    " rock hard shaft with your waiting [vagina]."
+                `\n\nEmber's roaming hands settle on your thighs, coaxing you to open your legs before aligning ${this.emberMF(
+                    "his",
+                    "her"
+                )} rock hard shaft with your waiting [vagina].`
             );
         }
         this.outx(
-            "  You groan throatily, your need burning through you, and start trying to grind yourself against Ember's shaft.  " +
-                this.emberMF("He", "She") +
-                " pins you down, though, making it impossible for you to actually do anything more than rub " +
-                this.emberMF("his", "her") +
-                " glans against your needy netherlips."
+            `  You groan throatily, your need burning through you, and start trying to grind yourself against Ember's shaft.  ${this.emberMF(
+                "He",
+                "She"
+            )} pins you down, though, making it impossible for you to actually do anything more than rub ${this.emberMF(
+                "his",
+                "her"
+            )} glans against your needy netherlips.`
         );
 
         this.outx(
-            "\n\nFortunately, the dragon " +
-                this.emberMF("himself", "herself") +
-                " seems just as turned on and ready as you are.  \"<i>You're so hot I can feel your flesh burning against mine.  I-I can't hold back!</i>\" " +
-                this.emberMF("he", "she") +
-                " growls deep in " +
-                this.emberMF("his", "her") +
-                " throat."
+            `\n\nFortunately, the dragon ${this.emberMF(
+                "himself",
+                "herself"
+            )} seems just as turned on and ready as you are.  "<i>You're so hot I can feel your flesh burning against mine.  I-I can't hold back!</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} growls deep in ${this.emberMF("his", "her")} throat.`
         );
 
         this.outx(
-            "\n\nEmber first thrust is awkward, missing its target and instead grinding against your netherlips; you almost curse the dragon's lousy aim, but fortunately " +
-                this.emberMF("his", "her") +
-                " second thrust hits true and you sigh in relief as you feel Ember's tapered shaft settle inside your contracting walls, pulsing, massaging your insides as much you work to massage " +
-                this.emberMF("his", "her") +
-                " own shaft.  You exchange moans of pleasure between kisses, Ember's rumbling purr massages your [chest] as " +
-                this.emberMF("he", "she") +
-                " grinds " +
-                this.emberMF("his", "her") +
-                " whole body against you.  Briefly, you open your eyes to gaze into " +
-                this.emberMF("his", "hers") +
-                "; you almost cum at the sight. Ember's eyes are set aglow with lust, burning with a primal, instinctual need..."
+            `\n\nEmber first thrust is awkward, missing its target and instead grinding against your netherlips; you almost curse the dragon's lousy aim, but fortunately ${this.emberMF(
+                "his",
+                "her"
+            )} second thrust hits true and you sigh in relief as you feel Ember's tapered shaft settle inside your contracting walls, pulsing, massaging your insides as much you work to massage ${this.emberMF(
+                "his",
+                "her"
+            )} own shaft.  You exchange moans of pleasure between kisses, Ember's rumbling purr massages your [chest] as ${this.emberMF(
+                "he",
+                "she"
+            )} grinds ${this.emberMF(
+                "his",
+                "her"
+            )} whole body against you.  Briefly, you open your eyes to gaze into ${this.emberMF(
+                "his",
+                "hers"
+            )}; you almost cum at the sight. Ember's eyes are set aglow with lust, burning with a primal, instinctual need...`
         );
         this.player.cuntChange(20, true, true, false);
 
@@ -7691,33 +8288,41 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
         else this.outx("\n\n");
         this.outx(
-            "You growl throatily, feeling that same need burning inside you. You clutch and claw against the dragon, fingers grasping deeply into " +
-                this.emberMF("his", "her") +
-                " scaly limbs as you drag, scrape, and thrust yourself against " +
-                this.emberMF("him", "her")
+            `You growl throatily, feeling that same need burning inside you. You clutch and claw against the dragon, fingers grasping deeply into ${this.emberMF(
+                "his",
+                "her"
+            )} scaly limbs as you drag, scrape, and thrust yourself against ${this.emberMF(
+                "him",
+                "her"
+            )}`
         );
         if (this.player.hasCock())
             this.outx(
-                ", your neglected [cock] drooling pre-cum that is being smeared all across your belly and " +
-                    this.emberMF("his", "hers") +
-                    " with every move you make"
+                `, your neglected [cock] drooling pre-cum that is being smeared all across your belly and ${this.emberMF(
+                    "his",
+                    "hers"
+                )} with every move you make`
             );
-        this.outx(".  Gods, you can feel " + this.emberMF("him", "her") + " filling you...");
+        this.outx(`.  Gods, you can feel ${this.emberMF("him", "her")} filling you...`);
 
         this.outx(
-            "\n\nEmber huffs and growls with each thrust, until with a roar " +
-                this.emberMF("he", "she") +
-                " clutches your hips, penetrating you as far as " +
-                this.emberMF("he", "she") +
-                " can, then blowing " +
-                this.emberMF("his", "her") +
-                ' load deep into your womb.  "<i>Aah! T-take it all!</i>" Ember groans.'
+            `\n\nEmber huffs and growls with each thrust, until with a roar ${this.emberMF(
+                "he",
+                "she"
+            )} clutches your hips, penetrating you as far as ${this.emberMF(
+                "he",
+                "she"
+            )} can, then blowing ${this.emberMF(
+                "his",
+                "her"
+            )} load deep into your womb.  "<i>Aah! T-take it all!</i>" Ember groans.`
         );
 
         this.outx(
-            "\n\nIt's not as if you have much of a choice, but you're happy to receive it, letting the dragon's cool, refreshing spunk surge into your burning cunt, deluging into your aching, <i>needing</i> womb. You groan with hollow joy; it feels so good... but it's not enough, you want more, and you tell the dragon that " +
-                this.emberMF("he", "she") +
-                " isn't done with you yet."
+            `\n\nIt's not as if you have much of a choice, but you're happy to receive it, letting the dragon's cool, refreshing spunk surge into your burning cunt, deluging into your aching, <i>needing</i> womb. You groan with hollow joy; it feels so good... but it's not enough, you want more, and you tell the dragon that ${this.emberMF(
+                "he",
+                "she"
+            )} isn't done with you yet.`
         );
 
         this.outx(
@@ -7725,63 +8330,70 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou find yourself snarling in frustration, displaying your teeth - a few minutes isn't good enough!  You need more, and you need it now!  With a sudden thrust of motion you slam into the dragon, striving to push " +
-                this.emberMF("him", "her") +
-                " over so you can mount " +
-                this.emberMF("him", "her") +
-                " instead."
+            `\n\nYou find yourself snarling in frustration, displaying your teeth - a few minutes isn't good enough!  You need more, and you need it now!  With a sudden thrust of motion you slam into the dragon, striving to push ${this.emberMF(
+                "him",
+                "her"
+            )} over so you can mount ${this.emberMF("him", "her")} instead.`
         );
 
         this.outx(
-            "\n\nStartled and caught off-guard, you are soon straddling the bewildered dragon.  With a lustful sneer you tell " +
-                this.emberMF("him", "her") +
-                " that you want " +
-                this.emberMF("him", "her") +
-                " now, not in a few minutes, and start to buck and thrust your hips to make it clear you're getting what you want, even if it means taking Ember along for the ride instead."
+            `\n\nStartled and caught off-guard, you are soon straddling the bewildered dragon.  With a lustful sneer you tell ${this.emberMF(
+                "him",
+                "her"
+            )} that you want ${this.emberMF(
+                "him",
+                "her"
+            )} now, not in a few minutes, and start to buck and thrust your hips to make it clear you're getting what you want, even if it means taking Ember along for the ride instead.`
         );
 
         this.outx(
-            '\n\n"<i>Ah! Taking charge, are you?  Oh!  Okay, but... Ah!... only this time.</i>"  Ember lays back, thrusting lightly to meet your own bucks into ' +
-                this.emberMF("his", "her") +
-                " dick, panting and moaning as the sound of wet slapping fills the tent."
+            `\n\n"<i>Ah! Taking charge, are you?  Oh!  Okay, but... Ah!... only this time.</i>"  Ember lays back, thrusting lightly to meet your own bucks into ${this.emberMF(
+                "his",
+                "her"
+            )} dick, panting and moaning as the sound of wet slapping fills the tent.`
         );
 
         this.outx(
-            "\n\nYou don't dignify that with a response, instead savoring the sensation of feeling " +
-                this.emberMF("his", "her") +
-                " long, thick cock in your needy cunt, squeezing and clenching with all the instinctual knowledge and practice this world has given you.  Mmm... the segment-like ridges stroke your inner walls in the most delicious ways...  You moan throatily, needily, riding the dragon with fervor of a " +
-                this.player.mf("herm", "woman") +
-                " possessed; you want to get pregnant... you <b>have</b> to get pregnant!"
+            `\n\nYou don't dignify that with a response, instead savoring the sensation of feeling ${this.emberMF(
+                "his",
+                "her"
+            )} long, thick cock in your needy cunt, squeezing and clenching with all the instinctual knowledge and practice this world has given you.  Mmm... the segment-like ridges stroke your inner walls in the most delicious ways...  You moan throatily, needily, riding the dragon with fervor of a ${this.player.mf(
+                "herm",
+                "woman"
+            )} possessed; you want to get pregnant... you <b>have</b> to get pregnant!`
         );
 
         this.outx(
-            "\n\nDriven by the most primal of instincts, you start trying to coax Ember into doing you harder; doesn't " +
-                this.emberMF("he", "she") +
-                " want to be a father?  Doesn't " +
-                this.emberMF("he", "she") +
-                " want you to bear " +
-                this.emberMF("his", "her") +
-                " offspring?  Or would " +
-                this.emberMF("he", "she") +
-                " rather you go out into the wilderness and risk letting some degenerate monster take advantage of your ripe, ready womb instead?  See you wandering around camp with your belly distended with a litter of imps or a bestial minotaur's calf instead of a new dragon, Ember's own blood-child?"
+            `\n\nDriven by the most primal of instincts, you start trying to coax Ember into doing you harder; doesn't ${this.emberMF(
+                "he",
+                "she"
+            )} want to be a father?  Doesn't ${this.emberMF(
+                "he",
+                "she"
+            )} want you to bear ${this.emberMF("his", "her")} offspring?  Or would ${this.emberMF(
+                "he",
+                "she"
+            )} rather you go out into the wilderness and risk letting some degenerate monster take advantage of your ripe, ready womb instead?  See you wandering around camp with your belly distended with a litter of imps or a bestial minotaur's calf instead of a new dragon, Ember's own blood-child?`
         );
 
         this.outx(
-            "\n\nYour words seem to have the desired effect; because shortly after you're done Ember lifts you off along with " +
-                this.emberMF("him", "her") +
-                " into " +
-                this.emberMF("his", "her") +
-                " arms.  " +
-                this.emberMF("He", "She") +
-                ' looks deeply into your eyes with renewed fire.  "<i>Never,</i>" Ember says, kissing you deeply and beginning to pump into you with abandon.  This is what you were waiting for.  Finally!'
+            `\n\nYour words seem to have the desired effect; because shortly after you're done Ember lifts you off along with ${this.emberMF(
+                "him",
+                "her"
+            )} into ${this.emberMF("his", "her")} arms.  ${this.emberMF(
+                "He",
+                "She"
+            )} looks deeply into your eyes with renewed fire.  "<i>Never,</i>" Ember says, kissing you deeply and beginning to pump into you with abandon.  This is what you were waiting for.  Finally!`
         );
 
         this.outx(
-            "\n\nEmber's brutal thrusts rock you to the core, sending rippling waves of pleasure through you.  " +
-                this.emberMF("He", "She") +
-                " kisses you passionately, slurping and suckling on your tongue, savoring your taste.  You gasp and shudder, thrusting back just as brutally, striving to grapple and suckle the dragon's inhumanly long and nimble tongue so that you can savor " +
-                this.emberMF("his", "her") +
-                " taste as well."
+            `\n\nEmber's brutal thrusts rock you to the core, sending rippling waves of pleasure through you.  ${this.emberMF(
+                "He",
+                "She"
+            )} kisses you passionately, slurping and suckling on your tongue, savoring your taste.  You gasp and shudder, thrusting back just as brutally, striving to grapple and suckle the dragon's inhumanly long and nimble tongue so that you can savor ${this.emberMF(
+                "his",
+                "her"
+            )} taste as well.`
         );
 
         // (if Ember has a pussy)
@@ -7795,9 +8407,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou are so close now... so close!  Your hands unthinkingly reach out for Ember's, seeking to entwine your fingers with those of the " +
-                this.emberMF("male", "herm") +
-                " that you know is about to father your child.  You break the kiss, throwing your head back to moan towards the sky as you finally achieve orgasm."
+            `\n\nYou are so close now... so close!  Your hands unthinkingly reach out for Ember's, seeking to entwine your fingers with those of the ${this.emberMF(
+                "male",
+                "herm"
+            )} that you know is about to father your child.  You break the kiss, throwing your head back to moan towards the sky as you finally achieve orgasm.`
         );
 
         // (if PC has a dick)
@@ -7815,9 +8428,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nYou can feel it.  Ember continues to fill you with a slower but steady trickles of seed.  You briefly wonder how the dragon can hold so much cum inside " +
-                this.emberMF("him", "her") +
-                ", but ultimately you decide that doesn't matter and relax on top of the spent dragon, enjoying your closeness while it lasts."
+            `\n\nYou can feel it.  Ember continues to fill you with a slower but steady trickles of seed.  You briefly wonder how the dragon can hold so much cum inside ${this.emberMF(
+                "him",
+                "her"
+            )}, but ultimately you decide that doesn't matter and relax on top of the spent dragon, enjoying your closeness while it lasts.`
         );
 
         this.outx(
@@ -7825,9 +8439,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            '\n\n"<i>Don\'t you just assume this makes us official mates,</i>" Ember murmurs into your ear.  You lift your head to look into ' +
-                this.emberMF("his", "her") +
-                " "
+            `\n\n"<i>Don't you just assume this makes us official mates,</i>" Ember murmurs into your ear.  You lift your head to look into ${this.emberMF(
+                "his",
+                "her"
+            )} `
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 1) this.outx("blushing ");
         this.outx(
@@ -7835,11 +8450,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nFeeling " +
-                this.emberMF("his", "her") +
-                " knot still swollen and anchoring you together, you sigh softly and settle down with the dragon to recover, figuring you'll be free in about an hour's time.  In the meantime, you're content to just cuddle " +
-                this.emberMF("him", "her") +
-                " close, one hand going to your cum-inflated belly.  You'd almost swear you can feel the draconic virility cream at work, the cool fluid of life drowning your burning need to breed and already beginning to brew what will be a new "
+            `\n\nFeeling ${this.emberMF(
+                "his",
+                "her"
+            )} knot still swollen and anchoring you together, you sigh softly and settle down with the dragon to recover, figuring you'll be free in about an hour's time.  In the meantime, you're content to just cuddle ${this.emberMF(
+                "him",
+                "her"
+            )} close, one hand going to your cum-inflated belly.  You'd almost swear you can feel the draconic virility cream at work, the cool fluid of life drowning your burning need to breed and already beginning to brew what will be a new `
         );
         if (this.flags[kFLAGS.EMBER_OVIPOSITION] == 0) this.outx("baby dragon");
         else this.outx("dragon egg");
@@ -7865,9 +8482,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         let x: number = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outx(
-            "Ember catches you and rolls you around, pinning you to the ground under her.  She smiles at you seductively and reaches down to stroke your " +
-                this.cockDescript(x) +
-                "."
+            `Ember catches you and rolls you around, pinning you to the ground under her.  She smiles at you seductively and reaches down to stroke your ${this.cockDescript(
+                x
+            )}.`
         );
         if (this.player.balls > 0)
             this.outx("  She then reaches down lower to rub at your cum filled orbs.");
@@ -7882,15 +8499,15 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nEmber jumps off you momentarily to inhale your musk, stroking you until a bead of pre forms on your " +
-                this.player.cockHead(x) +
-                ".  Ember's eyes grow wide, as if she had spotted a pearl; and she wastes no time in extending her tongue to lick the bead away.  \"<i>Hmm, delicious...  You're ready, and so am I!</i>\""
+            `\n\nEmber jumps off you momentarily to inhale your musk, stroking you until a bead of pre forms on your ${this.player.cockHead(
+                x
+            )}.  Ember's eyes grow wide, as if she had spotted a pearl; and she wastes no time in extending her tongue to lick the bead away.  "<i>Hmm, delicious...  You're ready, and so am I!</i>"`
         );
 
         this.outx(
-            "\n\nAiming your cock upwards; Ember straddles you and lowers herself on your pulsing " +
-                this.cockDescript(x) +
-                ", hissing in pleasure as your hot flesh finally makes contact with her drooling fuckhole"
+            `\n\nAiming your cock upwards; Ember straddles you and lowers herself on your pulsing ${this.cockDescript(
+                x
+            )}, hissing in pleasure as your hot flesh finally makes contact with her drooling fuckhole`
         );
         if (this.emberHasCock())
             this.outx(", her own cock springing up and throbbing with the electric contact.");
@@ -8001,7 +8618,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.hasVagina())
             this.outx("your neglected cunt splashing fluid down your [legs] and ");
-        this.outx("your " + this.cockDescript(x) + " gushing into the dragon's ready womb.");
+        this.outx(`your ${this.cockDescript(x)} gushing into the dragon's ready womb.`);
 
         this.outx(
             "\n\nEmber growls and purrs as she feels your hot seed drive itself into her womb, looking for her fertile eggs to impregnate.  Her pussy lips clamp down on your shaft, holding it in place with a watertight seal to prevent any of your seed from spilling as her walls work to milk you."
@@ -8033,9 +8650,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("feeling the heat in her gut that marks the beginning of a child.");
 
         this.outx(
-            "\n\nEmber purrs and pulls you into another kiss, holding you close with her tail, legs and arms; intent on keeping you right where you are.  Well, it's not like you could go anywhere else with her pussy effectively keeping your " +
-                this.cockDescript(x) +
-                " hostage inside its depths."
+            `\n\nEmber purrs and pulls you into another kiss, holding you close with her tail, legs and arms; intent on keeping you right where you are.  Well, it's not like you could go anywhere else with her pussy effectively keeping your ${this.cockDescript(
+                x
+            )} hostage inside its depths.`
         );
 
         this.outx(
@@ -8070,96 +8687,109 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nLooking around for the dragon, you spot " +
-                this.emberMF("him", "her") +
-                " seated in a cross-legged position halfway in and out of the tent's door.  Was " +
-                this.emberMF("he", "she") +
-                " guarding you while you slept?"
+            `\n\nLooking around for the dragon, you spot ${this.emberMF(
+                "him",
+                "her"
+            )} seated in a cross-legged position halfway in and out of the tent's door.  Was ${this.emberMF(
+                "he",
+                "she"
+            )} guarding you while you slept?`
         );
 
         this.outx(
-            "\n\nEmber takes a happy glance in your direction, when " +
-                this.emberMF("he", "she") +
-                ' notices you\'re awake.  "<i>So you finally woke up, huh?  Good, I was getting tired of sitting here...</i>"'
+            `\n\nEmber takes a happy glance in your direction, when ${this.emberMF(
+                "he",
+                "she"
+            )} notices you're awake.  "<i>So you finally woke up, huh?  Good, I was getting tired of sitting here...</i>"`
         );
 
         this.outx(
-            "\n\nYou thank " +
-                this.emberMF("him", "her") +
-                " for cleaning the place up, and tell " +
-                this.emberMF("him", "her") +
-                " that you appreciate it.  " +
-                this.emberMF("He", "She") +
-                "'s actually quite good at doing that kind of thing."
+            `\n\nYou thank ${this.emberMF(
+                "him",
+                "her"
+            )} for cleaning the place up, and tell ${this.emberMF(
+                "him",
+                "her"
+            )} that you appreciate it.  ${this.emberMF(
+                "He",
+                "She"
+            )}'s actually quite good at doing that kind of thing.`
         );
 
         this.outx("\n\nEmber's cheeks ");
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0)
-            this.outx(" are probably blushing under " + this.emberMF("his", "her") + " scales.");
+            this.outx(` are probably blushing under ${this.emberMF("his", "her")} scales.`);
         else this.outx("blush.");
         this.outx(
             "  \"<i>You're welcome, but this is the only time I'll clean up after you!  I'm not your personal maid!</i>\""
         );
 
         this.outx(
-            "\n\nYou wonder if you should point out that it's only fair Ember cleaned it, seeing as how " +
-                this.emberMF("he", "she") +
-                " made the bulk of the mess, but decide to simply thank " +
-                this.emberMF("him", "her") +
-                " for " +
-                this.emberMF("his", "her") +
-                " generosity.  Absently, your hand goes to "
+            `\n\nYou wonder if you should point out that it's only fair Ember cleaned it, seeing as how ${this.emberMF(
+                "he",
+                "she"
+            )} made the bulk of the mess, but decide to simply thank ${this.emberMF(
+                "him",
+                "her"
+            )} for ${this.emberMF("his", "her")} generosity.  Absently, your hand goes to `
         );
         if (!emberPregged) this.outx("touch your belly");
         else this.outx("point at Ember's belly");
         this.outx(
-            ", and you ask the dragon if " + this.emberMF("he", "she") + ' thinks it "<i>took</i>".'
+            `, and you ask the dragon if ${this.emberMF("he", "she")} thinks it "<i>took</i>".`
         );
 
         this.outx(
-            "\n\nEmber puffs " +
-                this.emberMF("his", "her") +
-                " chest and proudly boasts, \"<i>Of course it did!  We're both very virile!  And after all the cum you "
+            `\n\nEmber puffs ${this.emberMF(
+                "his",
+                "her"
+            )} chest and proudly boasts, "<i>Of course it did!  We're both very virile!  And after all the cum you `
         );
         if (emberPregged) this.outx("pumped into me...");
         else this.outx("had me pump into you...");
         this.outx(
-            '</i>" Ember trails off, and you can see ' +
-                this.emberMF("his", "her") +
-                " hand move to " +
-                this.emberMF("his", "her") +
-                " crotch to caress " +
-                this.emberMF("his", "her") +
-                " "
+            `</i>" Ember trails off, and you can see ${this.emberMF(
+                "his",
+                "her"
+            )} hand move to ${this.emberMF("his", "her")} crotch to caress ${this.emberMF(
+                "his",
+                "her"
+            )} `
         );
         if (emberPregged) this.outx("slit");
         else this.outx("cock");
         this.outx(", as if remembering the intense sex session you two just had.");
 
         this.outx(
-            "\n\nYou can't resist pointing out that " +
-                this.emberMF("he", "she") +
-                " wore out first; you were the one who had to make " +
-                this.emberMF("him", "her") +
-                " keep on going...  So doesn't that make you more virile than " +
-                this.emberMF("him", "her") +
-                "?"
+            `\n\nYou can't resist pointing out that ${this.emberMF(
+                "he",
+                "she"
+            )} wore out first; you were the one who had to make ${this.emberMF(
+                "him",
+                "her"
+            )} keep on going...  So doesn't that make you more virile than ${this.emberMF(
+                "him",
+                "her"
+            )}?`
         );
         this.outx("\n\nEmber's ");
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 1) this.outx("blush");
         else this.outx("discomfort");
         this.outx(
-            " deepens, and " +
-                this.emberMF("he", "she") +
-                ' frowns at you.  "<i>A-are you questioning my virility!?  Well, if you want, I can go again, right now!</i>"'
+            ` deepens, and ${this.emberMF(
+                "he",
+                "she"
+            )} frowns at you.  "<i>A-are you questioning my virility!?  Well, if you want, I can go again, right now!</i>"`
         );
 
         this.outx(
-            "\n\nYou stifle a laugh and tell " +
-                this.emberMF("him", "her") +
-                " that's not necessary.  Still, you do want to know if " +
-                this.emberMF("he", "she") +
-                " thinks the two of you are going to have a baby now."
+            `\n\nYou stifle a laugh and tell ${this.emberMF(
+                "him",
+                "her"
+            )} that's not necessary.  Still, you do want to know if ${this.emberMF(
+                "he",
+                "she"
+            )} thinks the two of you are going to have a baby now.`
         );
 
         this.outx(
@@ -8174,15 +8804,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 1) this.outx("blushes");
         else this.outx("frowns");
         this.outx(
-            ' once more.  "<i>D-don\'t get ahead of yourself!</i>" ' +
-                this.emberMF("he", "she") +
-                " yells indignantly, then gets up and rushes away.  You watch and give a smile; " +
-                this.emberMF("he", "she") +
-                " is champing at the bit to make children with you, but can't bring " +
-                this.emberMF("himself", "herself") +
-                " to confess how " +
-                this.emberMF("he", "she") +
-                " really feels.  Still, you're quite certain your efforts took."
+            ` once more.  "<i>D-don't get ahead of yourself!</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} yells indignantly, then gets up and rushes away.  You watch and give a smile; ${this.emberMF(
+                "he",
+                "she"
+            )} is champing at the bit to make children with you, but can't bring ${this.emberMF(
+                "himself",
+                "herself"
+            )} to confess how ${this.emberMF(
+                "he",
+                "she"
+            )} really feels.  Still, you're quite certain your efforts took.`
         );
         // (if PC now pregnant:
         if (!emberPregged)
@@ -8220,9 +8854,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     );
                 } else {
                     this.outx(
-                        "Ember catches you looking" +
-                            (this.flags[kFLAGS.EMBER_ROUNDFACE] == 1 ? " and blushes" : "") +
-                            '.  "<i>W-what is it?</i>"  You reply merely that she carries a baby bump very well; she looks good pregnant.  "<i>Oh, uh...  Thanks I guess?</i>" she replies, looking away and flicking her tongue out nervously.\n'
+                        `Ember catches you looking${
+                            this.flags[kFLAGS.EMBER_ROUNDFACE] == 1 ? " and blushes" : ""
+                        }.  "<i>W-what is it?</i>"  You reply merely that she carries a baby bump very well; she looks good pregnant.  "<i>Oh, uh...  Thanks I guess?</i>" she replies, looking away and flicking her tongue out nervously.\n`
                     );
                 }
                 return true;
@@ -8233,9 +8867,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                     );
                 } else {
                     this.outx(
-                        '\nEmber is sitting down with a smile, rubbing her belly; you approach and ask if she\'s feeling well.\n\n"<i>Yes, both of us are.  I can already feel our baby starting to move.  Do you want to feel it too?</i>"  You respond that you do, and gently approach her, reaching out to stroke her gravid stomach, feeling the ' +
-                            (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 ? "scales" : "skin") +
-                            " already stretched taut over her burgeoning womb.\n\nYou feel what seems to be a small kick under your hand.  A faint hint of paternal pride fills you, and you can't resist rubbing the spot where the baby kicked.  Ember sighs and lets you rub her belly to your heart's content.  Unfortunately duty calls, so you bid Ember farewell and return to your duties.\n"
+                        `\nEmber is sitting down with a smile, rubbing her belly; you approach and ask if she's feeling well.\n\n"<i>Yes, both of us are.  I can already feel our baby starting to move.  Do you want to feel it too?</i>"  You respond that you do, and gently approach her, reaching out to stroke her gravid stomach, feeling the ${
+                            this.flags[kFLAGS.EMBER_ROUNDFACE] == 0 ? "scales" : "skin"
+                        } already stretched taut over her burgeoning womb.\n\nYou feel what seems to be a small kick under your hand.  A faint hint of paternal pride fills you, and you can't resist rubbing the spot where the baby kicked.  Ember sighs and lets you rub her belly to your heart's content.  Unfortunately duty calls, so you bid Ember farewell and return to your duties.\n`
                     );
                 }
                 return true;
@@ -8264,19 +8898,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             case 8:
                 if (this.flags[kFLAGS.EMBER_OVIPOSITION] > 0) {
                     this.outx(
-                        "\n\nHer breasts look bloated, and you think you can see a drop of milk leaking from one of her perky nubs.  \"<i>Help me drain these,</i>\" she says, lifting her milky jugs and letting them fall.\n\nYou ask her if she'll have enough for the baby.  \"<i>Of course I will, it won't need any milk.  At least not until it hatches.  It'll take some time until then, and my breasts feel so uncomfortable.  So don't question me, just drink it!</i>\" she demands" +
-                            (this.flags[kFLAGS.EMBER_ROUNDFACE] > 0
+                        `\n\nHer breasts look bloated, and you think you can see a drop of milk leaking from one of her perky nubs.  "<i>Help me drain these,</i>" she says, lifting her milky jugs and letting them fall.\n\nYou ask her if she'll have enough for the baby.  "<i>Of course I will, it won't need any milk.  At least not until it hatches.  It'll take some time until then, and my breasts feel so uncomfortable.  So don't question me, just drink it!</i>" she demands${
+                            this.flags[kFLAGS.EMBER_ROUNDFACE] > 0
                                 ? ", a blush forming on her cheeks at her request"
-                                : "") +
-                            ".\n\nYou nod and lay down beside her, gently taking one of her nubs inside your mouth; then you begin suckling.  \"<i>Ooooh, yes...  Keep going...  This feels so good,</i>\" she moans in equal parts pleasure and relief.\n\nYou're happy to oblige, and begin drinking without stopping.  Ember's nutritious milk fills you.  "
+                                : ""
+                        }.\n\nYou nod and lay down beside her, gently taking one of her nubs inside your mouth; then you begin suckling.  "<i>Ooooh, yes...  Keep going...  This feels so good,</i>" she moans in equal parts pleasure and relief.\n\nYou're happy to oblige, and begin drinking without stopping.  Ember's nutritious milk fills you.  `
                     );
                     if (this.flags[kFLAGS.EMBER_MILK] > 0) {
                         this.outx(
-                            "Her breasts have always been full, but this time there's an incredible amount coming out.  She must've been really uncomfortable, and each suckle earns you a jet of milk and a moan of relief from Ember.  You keep at it for a long time; until you've drained one of Ember's ripe tits.\n\nThen you move to the other, intent on doing the same, however you feel very full already; you don't think you'll manage to empty this one.  Ember's moans of pleasure and relief push you on. You keep drinking regardless, and before you realize it, her other breast has been drained.\n\n\"<i>Ahhh, that feels much better.  I guess you're not too bad at making this feel good.</i>\" she admits" +
-                                (this.flags[kFLAGS.EMBER_ROUNDFACE] > 0
-                                    ? ", blushing softly"
-                                    : "") +
-                                ". You stifle a burp and smile, then return to your duties.\n"
+                            `Her breasts have always been full, but this time there's an incredible amount coming out.  She must've been really uncomfortable, and each suckle earns you a jet of milk and a moan of relief from Ember.  You keep at it for a long time; until you've drained one of Ember's ripe tits.\n\nThen you move to the other, intent on doing the same, however you feel very full already; you don't think you'll manage to empty this one.  Ember's moans of pleasure and relief push you on. You keep drinking regardless, and before you realize it, her other breast has been drained.\n\n"<i>Ahhh, that feels much better.  I guess you're not too bad at making this feel good.</i>" she admits${
+                                this.flags[kFLAGS.EMBER_ROUNDFACE] > 0 ? ", blushing softly" : ""
+                            }. You stifle a burp and smile, then return to your duties.\n`
                         );
                     } else {
                         this.outx(
@@ -8393,9 +9025,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nYou stroke her cheek back, sinking eagerly into her kiss, opening your mouth and allowing her tongue to probe teasingly into yours, brushing against your own tongue and then twining gently about it, like an amorous serpent.  Ember breaks the kiss with a sigh, tiredness overtaking " +
-                    this.emberMF("him", "her") +
-                    '.  She leans in to give you one final peck in cheek and lays down in the soft leaves that litter her den.  "<i>Sorry... I need to sleep now...</i>"'
+                `\n\nYou stroke her cheek back, sinking eagerly into her kiss, opening your mouth and allowing her tongue to probe teasingly into yours, brushing against your own tongue and then twining gently about it, like an amorous serpent.  Ember breaks the kiss with a sigh, tiredness overtaking ${this.emberMF(
+                    "him",
+                    "her"
+                )}.  She leans in to give you one final peck in cheek and lays down in the soft leaves that litter her den.  "<i>Sorry... I need to sleep now...</i>"`
             );
 
             this.outx(
@@ -8481,7 +9114,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.EMBER_EGGS] > 0) {
                 this.outx(", along with the ");
                 if (this.flags[kFLAGS.EMBER_EGGS] == 1) this.outx("other");
-                else this.outx(EmberScene.num2Text(this.flags[kFLAGS.EMBER_EGGS]) + " others");
+                else this.outx(`${EmberScene.num2Text(this.flags[kFLAGS.EMBER_EGGS])} others`);
             }
             this.outx(
                 ", before telling her that she's beautiful too, and your daughters will certainly hatch and grow up to be just as gorgeous as she."
@@ -8527,75 +9160,91 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.createVagina();
             }
             this.outx(
-                'You find yourself doubling over - well, as far as you can given your hugely gravid stomach, letting out a hollow cry of pain.  You can feel the muscles in your midriff starting to squeeze and ripple in a fashion you just know signifies the onset of labor.  You cry out for Ember to come and attend you.  Ember rushes towards you in a blur, stopping mere inches from you, panting.  "<i>What is it?  Is it time!?  Are you in labor!?</i>" ' +
-                    this.emberMF("he", "she") +
-                    " asks in a hurry.  You nod and tell " +
-                    this.emberMF("him", "her") +
-                    " that you are."
+                `You find yourself doubling over - well, as far as you can given your hugely gravid stomach, letting out a hollow cry of pain.  You can feel the muscles in your midriff starting to squeeze and ripple in a fashion you just know signifies the onset of labor.  You cry out for Ember to come and attend you.  Ember rushes towards you in a blur, stopping mere inches from you, panting.  "<i>What is it?  Is it time!?  Are you in labor!?</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} asks in a hurry.  You nod and tell ${this.emberMF("him", "her")} that you are.`
             );
 
             this.outx(
-                "\n\nEmber wastes no time, " +
-                    this.emberMF("he", "she") +
-                    " hefts you into " +
-                    this.emberMF("his", "her") +
-                    " arms and takes you to " +
-                    this.emberMF("his", "her") +
-                    " den, gently setting you down on the soft leaves; then " +
-                    this.emberMF("he", "she") +
-                    " starts undressing you, stripping your [armor] as quickly as " +
-                    this.emberMF("he", "she") +
-                    ' can.  "<i>Okay, Okay...  What do you need?  W-what should I do!?  Do you need anything!?  How are you feeling!?</i>" Ember asks in panic, the excitement of what\'s about to happen too much to bear for the dragon' +
-                    this.emberMF("-boy", "-girl") +
-                    "."
+                `\n\nEmber wastes no time, ${this.emberMF(
+                    "he",
+                    "she"
+                )} hefts you into ${this.emberMF(
+                    "his",
+                    "her"
+                )} arms and takes you to ${this.emberMF(
+                    "his",
+                    "her"
+                )} den, gently setting you down on the soft leaves; then ${this.emberMF(
+                    "he",
+                    "she"
+                )} starts undressing you, stripping your [armor] as quickly as ${this.emberMF(
+                    "he",
+                    "she"
+                )} can.  "<i>Okay, Okay...  What do you need?  W-what should I do!?  Do you need anything!?  How are you feeling!?</i>" Ember asks in panic, the excitement of what's about to happen too much to bear for the dragon${this.emberMF(
+                    "-boy",
+                    "-girl"
+                )}.`
             );
             this.outx(
-                "\n\nYou grit out between your teeth that you are feeling very sore, and what you want is for " +
-                    this.emberMF("him", "her") +
-                    " to help you somewhere comfortable so you can get this slithering snake of a baby out of your guts - preferably before he or she kicks his-her way out straight through your belly rather than coming down the birth canal!"
+                `\n\nYou grit out between your teeth that you are feeling very sore, and what you want is for ${this.emberMF(
+                    "him",
+                    "her"
+                )} to help you somewhere comfortable so you can get this slithering snake of a baby out of your guts - preferably before he or she kicks his-her way out straight through your belly rather than coming down the birth canal!`
             );
             this.outx(
-                '\n\n"<i>Okay!  Right!</i>" Ember hurries off to fetch a bunch of clean cloths, then spreads them all over the leafy grass of ' +
-                    this.emberMF("his", "her") +
-                    " den.  " +
-                    this.emberMF("He", "She") +
-                    " carefully helps you onto them and spreads your legs, kneeling between them.  \"<i>I'm going to try something... tell me how you're feeling.</i>\""
+                `\n\n"<i>Okay!  Right!</i>" Ember hurries off to fetch a bunch of clean cloths, then spreads them all over the leafy grass of ${this.emberMF(
+                    "his",
+                    "her"
+                )} den.  ${this.emberMF(
+                    "He",
+                    "She"
+                )} carefully helps you onto them and spreads your legs, kneeling between them.  "<i>I'm going to try something... tell me how you're feeling.</i>"`
             );
 
             this.outx(
-                "\n\nEmber lowers " +
-                    this.emberMF("his", "her") +
-                    " head towards your quivering vagina, "
+                `\n\nEmber lowers ${this.emberMF(
+                    "his",
+                    "her"
+                )} head towards your quivering vagina, `
             );
             if (this.player.balls > 0) this.outx("slowly pushing your [balls]");
             else if (this.player.hasCock())
-                this.outx("slowly pushing your " + this.multiCockDescriptLight());
+                this.outx(`slowly pushing your ${this.multiCockDescriptLight()}`);
             if (this.player.balls > 0 || this.player.hasCock())
-                this.outx(" out of " + this.emberMF("his", "her") + " way, ");
+                this.outx(` out of ${this.emberMF("his", "her")} way, `);
             this.outx(
-                "then " +
-                    this.emberMF("he", "she") +
-                    " blows softly on your contracting love-hole, slowly extending " +
-                    this.emberMF("his", "her") +
-                    " tongue to penetrate you."
+                `then ${this.emberMF(
+                    "he",
+                    "she"
+                )} blows softly on your contracting love-hole, slowly extending ${this.emberMF(
+                    "his",
+                    "her"
+                )} tongue to penetrate you.`
             );
 
             this.outx(
-                "\n\nYou moan in equal parts pleasure and pain, telling " +
-                    this.emberMF("him", "her") +
-                    " that " +
-                    this.emberMF("his", "her") +
-                    ' treatment feels good and is soothing.  "<i>Please, keep going,</i>" you plead.  You ask if ' +
-                    this.emberMF("he", "she") +
-                    " can try to massage your stomach as well, to help relax the tension in your muscles."
+                `\n\nYou moan in equal parts pleasure and pain, telling ${this.emberMF(
+                    "him",
+                    "her"
+                )} that ${this.emberMF(
+                    "his",
+                    "her"
+                )} treatment feels good and is soothing.  "<i>Please, keep going,</i>" you plead.  You ask if ${this.emberMF(
+                    "he",
+                    "she"
+                )} can try to massage your stomach as well, to help relax the tension in your muscles.`
             );
 
             this.outx(
-                "\n\nEmber complies, digging deeper into your searing hot canal.  One of " +
-                    this.emberMF("his", "her") +
-                    " clawed hands gently reaches out to touch the slithering bulge within your belly, massaging you as best as " +
-                    this.emberMF("he", "she") +
-                    " can.  Slowly but steadily, the baby dragon within you starts making its way down your birth canal, stretching you out as it seeks freedom."
+                `\n\nEmber complies, digging deeper into your searing hot canal.  One of ${this.emberMF(
+                    "his",
+                    "her"
+                )} clawed hands gently reaches out to touch the slithering bulge within your belly, massaging you as best as ${this.emberMF(
+                    "he",
+                    "she"
+                )} can.  Slowly but steadily, the baby dragon within you starts making its way down your birth canal, stretching you out as it seeks freedom.`
             );
             this.player.cuntChange(80, true, true, false);
 
@@ -8608,9 +9257,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nEmber suddenly withdraws " +
-                    this.emberMF("his", "her") +
-                    ' tongue and screams in joy, "<i>I can see it! Push [name]!  You\'re almost done!</i>"'
+                `\n\nEmber suddenly withdraws ${this.emberMF(
+                    "his",
+                    "her"
+                )} tongue and screams in joy, "<i>I can see it! Push [name]!  You're almost done!</i>"`
             );
 
             this.outx(
@@ -8618,22 +9268,25 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                '\n\n"<i>...you... alright?...</i>" You faintly hear Ember asking you.  You look into ' +
-                    this.emberMF("his", "her") +
-                    " eyes and manage to nod weakly.  Ember's worried face turns to one of relief, " +
-                    this.emberMF("he", "she") +
-                    " calmly tends to the wailing dragonling while waiting for you to rest for a little while, licking it over to clean it from the fluids that came with and on your baby."
+                `\n\n"<i>...you... alright?...</i>" You faintly hear Ember asking you.  You look into ${this.emberMF(
+                    "his",
+                    "her"
+                )} eyes and manage to nod weakly.  Ember's worried face turns to one of relief, ${this.emberMF(
+                    "he",
+                    "she"
+                )} calmly tends to the wailing dragonling while waiting for you to rest for a little while, licking it over to clean it from the fluids that came with and on your baby.`
             );
 
             this.outx(
                 "\n\nYou close your eyes, exhausted and happy to see your child. Before you realize it, you've passed out.  When you awaken, you find yourself lying in your bedroll, Ember hovering protectively over you. You ask where the baby is."
             );
             this.outx(
-                "\n\nEmber calmly smiles at you and points to your [chest].  You follow " +
-                    this.emberMF("his", "her") +
-                    " finger to see the little dragon nursing from your " +
-                    this.nippleDescript(0) +
-                    '. "<i>Sorry.  '
+                `\n\nEmber calmly smiles at you and points to your [chest].  You follow ${this.emberMF(
+                    "his",
+                    "her"
+                )} finger to see the little dragon nursing from your ${this.nippleDescript(
+                    0
+                )}. "<i>Sorry.  `
             );
 
             if (roll < 40) this.outx("He");
@@ -8650,9 +9303,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             }
 
             this.outx(
-                "\n\nYou sigh softly, stroking your newborn's head even as it industriously sucks away at your " +
-                    this.nippleDescript(0) +
-                    ".  Speaking of which, you ask Ember what you've had - a boy?  A girl?  Both?"
+                `\n\nYou sigh softly, stroking your newborn's head even as it industriously sucks away at your ${this.nippleDescript(
+                    0
+                )}.  Speaking of which, you ask Ember what you've had - a boy?  A girl?  Both?`
             );
 
             this.outx("\n\nEmber sighs and smiles at you. \"<i>It's a beautiful, healthy, little ");
@@ -8662,9 +9315,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx('.</i>"');
 
             this.outx(
-                "\n\nYou smile at " +
-                    this.emberMF("him", "her") +
-                    " and your beautiful new baby, who suddenly stops suckling, screws up "
+                `\n\nYou smile at ${this.emberMF(
+                    "him",
+                    "her"
+                )} and your beautiful new baby, who suddenly stops suckling, screws up `
             );
             if (roll < 40) this.outx("his");
             else this.outx("her");
@@ -8688,9 +9342,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                '\n\n"<i>I\'ll tend to the little one, you can just rest for a while longer,</i>" Ember offers, taking the cute little dragon up in ' +
-                    this.emberMF("his", "her") +
-                    " arms.  You sigh and nod your head gratefully, then lay back down to get some more rest.\n"
+                `\n\n"<i>I'll tend to the little one, you can just rest for a while longer,</i>" Ember offers, taking the cute little dragon up in ${this.emberMF(
+                    "his",
+                    "her"
+                )} arms.  You sigh and nod your head gratefully, then lay back down to get some more rest.\n`
             );
             if (roll < 40) this.flags[kFLAGS.EMBER_CHILDREN_MALES]++;
             else if (roll < 80) this.flags[kFLAGS.EMBER_CHILDREN_FEMALES]++;
@@ -8706,77 +9361,93 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.createVagina();
             }
             this.outx(
-                'You find yourself doubling over - well, as far as you can given your hugely gravid stomach, letting out a hollow cry of pain.  You can feel the muscles in your midriff starting to squeeze and ripple in a fashion you just know signifies the onset of labor.  You cry out for Ember to come and attend you.  Ember rushes towards you in a blur, stopping mere inches from you, panting.  "<i>What is it? Is it time!? Are you ready to lay!?</i>" ' +
-                    this.emberMF("he", "she") +
-                    " asks in a hurry.  You nod and tell " +
-                    this.emberMF("him", "her") +
-                    " that you are."
+                `You find yourself doubling over - well, as far as you can given your hugely gravid stomach, letting out a hollow cry of pain.  You can feel the muscles in your midriff starting to squeeze and ripple in a fashion you just know signifies the onset of labor.  You cry out for Ember to come and attend you.  Ember rushes towards you in a blur, stopping mere inches from you, panting.  "<i>What is it? Is it time!? Are you ready to lay!?</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} asks in a hurry.  You nod and tell ${this.emberMF("him", "her")} that you are.`
             );
 
             this.outx(
-                "\n\nEmber wastes no time - " +
-                    this.emberMF("he", "she") +
-                    " hefts you into " +
-                    this.emberMF("his", "her") +
-                    " arms and takes you to " +
-                    this.emberMF("his", "her") +
-                    " den, gently setting you down on the soft leaves.  Then " +
-                    this.emberMF("he", "she") +
-                    " starts undressing you, stripping your [armor] as quickly as " +
-                    this.emberMF("he", "she") +
-                    ' can.  "<i>Okay, Okay...  What do you need?  W-what should I do!?  Do you need anything!?  How are you feeling!?</i>" Ember asks in panic, the excitement of what\'s about to happen too much to bear for the dragon' +
-                    this.emberMF("-boy", "-girl") +
-                    "."
+                `\n\nEmber wastes no time - ${this.emberMF(
+                    "he",
+                    "she"
+                )} hefts you into ${this.emberMF(
+                    "his",
+                    "her"
+                )} arms and takes you to ${this.emberMF(
+                    "his",
+                    "her"
+                )} den, gently setting you down on the soft leaves.  Then ${this.emberMF(
+                    "he",
+                    "she"
+                )} starts undressing you, stripping your [armor] as quickly as ${this.emberMF(
+                    "he",
+                    "she"
+                )} can.  "<i>Okay, Okay...  What do you need?  W-what should I do!?  Do you need anything!?  How are you feeling!?</i>" Ember asks in panic, the excitement of what's about to happen too much to bear for the dragon${this.emberMF(
+                    "-boy",
+                    "-girl"
+                )}.`
             );
 
             this.outx(
-                "\n\nYou grit out between your teeth that you are feeling very sore, and what you want is for " +
-                    this.emberMF("him", "her") +
-                    " to help you somewhere comfortable so you can get this huge damn egg out of you."
+                `\n\nYou grit out between your teeth that you are feeling very sore, and what you want is for ${this.emberMF(
+                    "him",
+                    "her"
+                )} to help you somewhere comfortable so you can get this huge damn egg out of you.`
             );
 
             this.outx(
-                '\n\n"<i>Okay! Right!</i>" Ember hurries off to fetch a bunch of clean cloths; then spreads them all over the leafy grass of ' +
-                    this.emberMF("his", "her") +
-                    " den.  Carefully, " +
-                    this.emberMF("he", "she") +
-                    " helps you on them and spreads your [legs], kneeling between them.  \"<i>I'm going to try something...  Tell me how you're feeling.</i>\""
+                `\n\n"<i>Okay! Right!</i>" Ember hurries off to fetch a bunch of clean cloths; then spreads them all over the leafy grass of ${this.emberMF(
+                    "his",
+                    "her"
+                )} den.  Carefully, ${this.emberMF(
+                    "he",
+                    "she"
+                )} helps you on them and spreads your [legs], kneeling between them.  "<i>I'm going to try something...  Tell me how you're feeling.</i>"`
             );
 
             this.outx(
-                "\n\nEmber lowers " +
-                    this.emberMF("his", "her") +
-                    " head towards your quivering [vagina], "
+                `\n\nEmber lowers ${this.emberMF(
+                    "his",
+                    "her"
+                )} head towards your quivering [vagina], `
             );
             if (this.player.balls > 0) this.outx("slowly pushing your [balls]");
             else if (this.player.hasCock())
-                this.outx("slowly pushing your " + this.multiCockDescriptLight());
+                this.outx(`slowly pushing your ${this.multiCockDescriptLight()}`);
             if (this.player.balls > 0 || this.player.hasCock())
-                this.outx(" out of " + this.emberMF("his", "her") + " way, ");
+                this.outx(` out of ${this.emberMF("his", "her")} way, `);
             this.outx(
-                "then " +
-                    this.emberMF("he", "she") +
-                    " blows softly on your contracting love-hole, slowly extending " +
-                    this.emberMF("his", "her") +
-                    " tongue to penetrate you."
+                `then ${this.emberMF(
+                    "he",
+                    "she"
+                )} blows softly on your contracting love-hole, slowly extending ${this.emberMF(
+                    "his",
+                    "her"
+                )} tongue to penetrate you.`
             );
 
             this.outx(
-                "\n\nYou moan in equal parts pleasure and pain, telling " +
-                    this.emberMF("him", "her") +
-                    " that " +
-                    this.emberMF("his", "her") +
-                    ' treatment feels good and is soothing. "<i>Please, keep going,</i>" you plead.  You ask if ' +
-                    this.emberMF("he", "she") +
-                    " can try to massage your stomach as well, to help relax the tension in your muscles."
+                `\n\nYou moan in equal parts pleasure and pain, telling ${this.emberMF(
+                    "him",
+                    "her"
+                )} that ${this.emberMF(
+                    "his",
+                    "her"
+                )} treatment feels good and is soothing. "<i>Please, keep going,</i>" you plead.  You ask if ${this.emberMF(
+                    "he",
+                    "she"
+                )} can try to massage your stomach as well, to help relax the tension in your muscles.`
             );
 
             this.outx(
-                "\n\nEmber complies, digging deeper into your searing hot canal; one of " +
-                    this.emberMF("his", "her") +
-                    " clawed hands, gently reach out to the protruding bulge within your belly, massaging you as best as " +
-                    this.emberMF("he", "she") +
-                    " can.  Slowly but steadily, the draconic egg within you starts making its way down your birth canal, stretching you out as it seeks freedom."
+                `\n\nEmber complies, digging deeper into your searing hot canal; one of ${this.emberMF(
+                    "his",
+                    "her"
+                )} clawed hands, gently reach out to the protruding bulge within your belly, massaging you as best as ${this.emberMF(
+                    "he",
+                    "she"
+                )} can.  Slowly but steadily, the draconic egg within you starts making its way down your birth canal, stretching you out as it seeks freedom.`
             );
 
             this.outx(
@@ -8788,9 +9459,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nEmber suddenly withdraws " +
-                    this.emberMF("his", "her") +
-                    ' tongue and screams in joy, "<i>I can see it! Push [name]!  You\'re almost done!</i>"'
+                `\n\nEmber suddenly withdraws ${this.emberMF(
+                    "his",
+                    "her"
+                )} tongue and screams in joy, "<i>I can see it! Push [name]!  You're almost done!</i>"`
             );
 
             this.outx(
@@ -8799,19 +9471,20 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.cuntChange(80, true, true, false);
 
             this.outx(
-                '\n\n"<i>...you... all right?...</i>" You faintly hear Ember asking you.  You look into ' +
-                    this.emberMF("his", "her") +
-                    " eyes and manage to nod weakly.  Ember's worried face turns to one of relief, " +
-                    this.emberMF("he", "she") +
-                    " calmly tends to the egg while waiting for you to rest for a little while, licking it over to clean it from the fluids that came with and on the egg."
+                `\n\n"<i>...you... all right?...</i>" You faintly hear Ember asking you.  You look into ${this.emberMF(
+                    "his",
+                    "her"
+                )} eyes and manage to nod weakly.  Ember's worried face turns to one of relief, ${this.emberMF(
+                    "he",
+                    "she"
+                )} calmly tends to the egg while waiting for you to rest for a little while, licking it over to clean it from the fluids that came with and on the egg.`
             );
 
             this.outx(
-                "\n\nYou watch " +
-                    this.emberMF("him", "her") +
-                    " as " +
-                    this.emberMF("he", "she") +
-                    " tends to it, and faintly ask who'll be responsible for keeping it safe until it hatches.  \"<i>Don't worry about that, [name].  I'll care for the egg.  For now, just rest,</i>\" Ember replies, leaning down to give you a little peck on the forehead."
+                `\n\nYou watch ${this.emberMF("him", "her")} as ${this.emberMF(
+                    "he",
+                    "she"
+                )} tends to it, and faintly ask who'll be responsible for keeping it safe until it hatches.  "<i>Don't worry about that, [name].  I'll care for the egg.  For now, just rest,</i>" Ember replies, leaning down to give you a little peck on the forehead.`
             );
 
             this.outx(
@@ -8819,55 +9492,66 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nYou're not certain how long you were sleeping for when you finally regain consciousness.  You wake, though, to the most wonderful sensations emanating from your " +
-                    this.nippleDescript(0) +
-                    ", and the feel of soft hands caressing and squeezing your [chest].  You open your eyes and find Ember leaning over you, greedily nursing " +
-                    this.emberMF("himself", "herself") +
-                    " from your milk.  You can't resist asking what " +
-                    this.emberMF("he", "she") +
-                    "'s doing."
+                `\n\nYou're not certain how long you were sleeping for when you finally regain consciousness.  You wake, though, to the most wonderful sensations emanating from your ${this.nippleDescript(
+                    0
+                )}, and the feel of soft hands caressing and squeezing your [chest].  You open your eyes and find Ember leaning over you, greedily nursing ${this.emberMF(
+                    "himself",
+                    "herself"
+                )} from your milk.  You can't resist asking what ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s doing.`
             );
 
             this.outx("\n\nEmber ");
             if (this.flags[kFLAGS.EMBER_ROUNDFACE] > 0) this.outx("blushes and ");
             this.outx(
-                "withdraws, licking " +
-                    this.emberMF("his", "her") +
-                    " lips of a stray droplet of milk.  \"<i>Sorry, it's just that you looked so full, and all that milk would've been wasted...  So, I thought I could help myself, not that I've been wanting to drink your milk or anything like that.</i>\""
+                `withdraws, licking ${this.emberMF(
+                    "his",
+                    "her"
+                )} lips of a stray droplet of milk.  "<i>Sorry, it's just that you looked so full, and all that milk would've been wasted...  So, I thought I could help myself, not that I've been wanting to drink your milk or anything like that.</i>"`
             );
 
             this.outx(
-                "\n\nYou tell " +
-                    this.emberMF("him", "her") +
-                    " that it's only polite to ask first.  Still, you're happy to let " +
-                    this.emberMF("him", "her") +
-                    " drink " +
-                    this.emberMF("his", "her") +
-                    " fill.  It does make your breasts feel so much better.  Ember slowly makes " +
-                    this.emberMF("his", "her") +
-                    " way back to your awaiting nipples to resume " +
-                    this.emberMF("his", "her") +
-                    " drinking."
+                `\n\nYou tell ${this.emberMF(
+                    "him",
+                    "her"
+                )} that it's only polite to ask first.  Still, you're happy to let ${this.emberMF(
+                    "him",
+                    "her"
+                )} drink ${this.emberMF(
+                    "his",
+                    "her"
+                )} fill.  It does make your breasts feel so much better.  Ember slowly makes ${this.emberMF(
+                    "his",
+                    "her"
+                )} way back to your awaiting nipples to resume ${this.emberMF(
+                    "his",
+                    "her"
+                )} drinking.`
             );
 
             this.outx(
-                "\n\nYou lay back and enjoy it, waiting for " +
-                    this.emberMF("him", "her") +
-                    " to drink " +
-                    this.emberMF("his", "her") +
-                    " fill.  When " +
-                    this.emberMF("he", "she") +
-                    ' is finally done, Ember gives you a small peck on the cheek and says, "<i>Thanks for the milk.  You should rest a while longer, and I\'m sorry I woke you up.</i>"'
+                `\n\nYou lay back and enjoy it, waiting for ${this.emberMF(
+                    "him",
+                    "her"
+                )} to drink ${this.emberMF("his", "her")} fill.  When ${this.emberMF(
+                    "he",
+                    "she"
+                )} is finally done, Ember gives you a small peck on the cheek and says, "<i>Thanks for the milk.  You should rest a while longer, and I'm sorry I woke you up.</i>"`
             );
 
             this.outx(
-                "\n\nYou tell " +
-                    this.emberMF("him", "her") +
-                    " that it's fine.  Then, you give " +
-                    this.emberMF("him", "her") +
-                    " a wry grin and tell " +
-                    this.emberMF("him", "her") +
-                    " it's probably good practice for when the egg"
+                `\n\nYou tell ${this.emberMF(
+                    "him",
+                    "her"
+                )} that it's fine.  Then, you give ${this.emberMF(
+                    "him",
+                    "her"
+                )} a wry grin and tell ${this.emberMF(
+                    "him",
+                    "her"
+                )} it's probably good practice for when the egg`
             );
             if (this.flags[kFLAGS.EMBER_EGGS] > 0) this.outx("s hatch");
             else this.outx(" hatches");
@@ -8897,15 +9581,15 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         let x: number = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outx(
-            "You strip your [armor] and watch Ember as " +
-                this.emberMF("he", "she") +
-                " appraises your naked body.  You can see " +
-                this.emberMF("his", "her")
+            `You strip your [armor] and watch Ember as ${this.emberMF(
+                "he",
+                "she"
+            )} appraises your naked body.  You can see ${this.emberMF("his", "her")}`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
             this.outx(" dragon cock ");
             if (this.emberInternalDick())
-                this.outx("poking out of " + this.emberMF("his", "her") + " protective slit");
+                this.outx(`poking out of ${this.emberMF("his", "her")} protective slit`);
             else this.outx("growing erect");
         }
         if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outx(" and");
@@ -8914,61 +9598,75 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(".");
 
         this.outx(
-            "\n\n\"<i>Mmm... now that's a view and a half; just look at you... what a gorgeous " +
-                this.player.mf("man", "girl") +
-                ", with such "
+            `\n\n"<i>Mmm... now that's a view and a half; just look at you... what a gorgeous ${this.player.mf(
+                "man",
+                "girl"
+            )}, with such `
         );
-        if (this.player.cockTotal() == 1) this.outx("a wonderful " + this.cockDescript(0));
+        if (this.player.cockTotal() == 1) this.outx(`a wonderful ${this.cockDescript(0)}`);
         else this.outx(" wonderful cocks");
         this.outx(
-            "... and you're all mine, here and now,</i>\" " +
-                this.emberMF("he", "she") +
-                " croons appreciatively, giving you a lewd wink and flick of " +
-                this.emberMF("his", "her") +
-                " tongue.  \"<i>Still, while I'm enjoying the view, don't keep a " +
-                this.emberMF("guy", "girl") +
-                ' in suspense; what do you have planned?</i>" ' +
-                this.emberMF("he", "she") +
-                " asks, tail flicking from side to side in an amused manner."
+            `... and you're all mine, here and now,</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} croons appreciatively, giving you a lewd wink and flick of ${this.emberMF(
+                "his",
+                "her"
+            )} tongue.  "<i>Still, while I'm enjoying the view, don't keep a ${this.emberMF(
+                "guy",
+                "girl"
+            )} in suspense; what do you have planned?</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} asks, tail flicking from side to side in an amused manner.`
         );
 
         this.outx(
-            "\n\nYou tell " +
-                this.emberMF("him", "her") +
-                " you were thinking of giving your dragon mate a proper fucking.  Maybe the two of you could use that book " +
-                this.emberMF("he", "she") +
-                " picked up from the library."
+            `\n\nYou tell ${this.emberMF(
+                "him",
+                "her"
+            )} you were thinking of giving your dragon mate a proper fucking.  Maybe the two of you could use that book ${this.emberMF(
+                "he",
+                "she"
+            )} picked up from the library.`
         );
 
         this.outx(
-            "\n\n" +
-                this.emberMF("He", "She") +
-                " stares at you, clearly dumbstruck.  If it was possible for a dragon to blush, " +
-                this.emberMF("he'd", "she'd") +
-                " be blushing, but the "
+            `\n\n${this.emberMF(
+                "He",
+                "She"
+            )} stares at you, clearly dumbstruck.  If it was possible for a dragon to blush, ${this.emberMF(
+                "he'd",
+                "she'd"
+            )} be blushing, but the `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
-            this.outx("stiffness of " + this.emberMF("his", "her") + " cock");
+            this.outx(`stiffness of ${this.emberMF("his", "her")} cock`);
         if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outx(" and ");
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2) this.outx("the slickness of her pussy");
         this.outx(
-            ", combined with " +
-                this.emberMF("his", "her") +
-                " general body language, makes it quite clear " +
-                this.emberMF("he", "she") +
-                " likes what you're saying.  Spinning on " +
-                this.emberMF("his", "her") +
-                " heel, " +
-                this.emberMF("he", "she") +
-                " walks away, waggling that ass of " +
-                this.emberMF("his", "hers") +
-                " as " +
-                this.emberMF("he", "she") +
-                " goes for your appreciation.  As quickly as possible without actually running, " +
-                this.emberMF("he", "she") +
-                ' returns with the book in question and holds it up.  "<i>So... what poses do you have in mind?</i>" ' +
-                this.emberMF("he", "she") +
-                " trills, anxious to hear what's on your mind."
+            `, combined with ${this.emberMF(
+                "his",
+                "her"
+            )} general body language, makes it quite clear ${this.emberMF(
+                "he",
+                "she"
+            )} likes what you're saying.  Spinning on ${this.emberMF(
+                "his",
+                "her"
+            )} heel, ${this.emberMF("he", "she")} walks away, waggling that ass of ${this.emberMF(
+                "his",
+                "hers"
+            )} as ${this.emberMF(
+                "he",
+                "she"
+            )} goes for your appreciation.  As quickly as possible without actually running, ${this.emberMF(
+                "he",
+                "she"
+            )} returns with the book in question and holds it up.  "<i>So... what poses do you have in mind?</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} trills, anxious to hear what's on your mind.`
         );
 
         // 1st time:
@@ -8977,32 +9675,37 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nYou smile and take the offered book, flipping through a few pages and showing the ones that you like the most to Ember."
             );
             this.outx(
-                "\n\n\"<i>Little more specific, please, my mate; I can see that you favor those, but you still haven't told me which one we're doing,</i>\" " +
-                    this.emberMF("he", "she") +
-                    " says, playfully rolling her eyes at your silliness."
+                `\n\n"<i>Little more specific, please, my mate; I can see that you favor those, but you still haven't told me which one we're doing,</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} says, playfully rolling her eyes at your silliness.`
             );
             this.outx('"<i>All of them,</i>" you state.');
 
             this.outx(
-                "\n\nAn incredulous stare greets you.  Eventually, Ember manages to pick " +
-                    this.emberMF("his", "her") +
-                    ' jaw off the ground.  "<i>A-all of them!?</i>" ' +
-                    this.emberMF("he", "she") +
-                    " blurts.  You simply nod."
+                `\n\nAn incredulous stare greets you.  Eventually, Ember manages to pick ${this.emberMF(
+                    "his",
+                    "her"
+                )} jaw off the ground.  "<i>A-all of them!?</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} blurts.  You simply nod.`
             );
 
             this.outx(
-                '\n\n"<i>Well, I\'m all for it, but are you <b>sure</b> you have what it takes to perform all of these, one after the other, hmm?</i>" Ember says, rolling ' +
-                    this.emberMF("his", "her") +
-                    " eyes in good-natured exasperation."
+                `\n\n"<i>Well, I'm all for it, but are you <b>sure</b> you have what it takes to perform all of these, one after the other, hmm?</i>" Ember says, rolling ${this.emberMF(
+                    "his",
+                    "her"
+                )} eyes in good-natured exasperation.`
             );
 
             // if PC has Libido or Min Lust requirements fulfilled:
             if (this.player.lib >= 50 || this.player.minLust() >= 40) {
                 this.outx(
-                    "\n\nYou're pretty confident in your libido, the real question is if " +
-                        this.emberMF("he", "she") +
-                        "'ll have what it takes."
+                    `\n\nYou're pretty confident in your libido, the real question is if ${this.emberMF(
+                        "he",
+                        "she"
+                    )}'ll have what it takes.`
                 );
             } else {
                 this.outx(
@@ -9012,9 +9715,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             }
         } else {
             this.outx(
-                '\n\n"<i>I\'m guessing somebody wants to try and handle all of the poses in one session again, hmm?</i>" ' +
-                    this.emberMF("he", "she") +
-                    " laughs, looking quite pleased at the prospect."
+                `\n\n"<i>I'm guessing somebody wants to try and handle all of the poses in one session again, hmm?</i>" ${this.emberMF(
+                    "he",
+                    "she"
+                )} laughs, looking quite pleased at the prospect.`
             );
 
             this.outx("\n\nYou nod");
@@ -9027,41 +9731,51 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.flags[kFLAGS.TIMES_EMBER_LUSTY_FUCKED]++;
 
         this.outx(
-            "\n\n\"<i>Well, it's a dragon's duty to sate each and every need " +
-                this.emberMF("his", "her") +
-                " mate may have... Not that I'm not going to be enjoying every minute of it,</i>\" " +
-                this.emberMF("he", "she") +
-                " croons, long tongue slithering into the air in a lewd slurping gesture.  " +
-                this.emberMF("He", "She") +
-                " turns and starts walking towards " +
-                this.emberMF("his", "her") +
-                " den, the tip of " +
-                this.emberMF("his", "her") +
-                " long, prehensile tail running its sensitive underside teasingly under your chin, slowly sliding off of you as " +
-                this.emberMF("he", "she") +
-                " walks away and disappears into the opening."
+            `\n\n"<i>Well, it's a dragon's duty to sate each and every need ${this.emberMF(
+                "his",
+                "her"
+            )} mate may have... Not that I'm not going to be enjoying every minute of it,</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} croons, long tongue slithering into the air in a lewd slurping gesture.  ${this.emberMF(
+                "He",
+                "She"
+            )} turns and starts walking towards ${this.emberMF(
+                "his",
+                "her"
+            )} den, the tip of ${this.emberMF(
+                "his",
+                "her"
+            )} long, prehensile tail running its sensitive underside teasingly under your chin, slowly sliding off of you as ${this.emberMF(
+                "he",
+                "she"
+            )} walks away and disappears into the opening.`
         );
 
         this.outx(
-            "\n\nYou follow after " +
-                this.emberMF("his", "her") +
-                ", feeling yourself get even harder at what you're about to do."
+            `\n\nYou follow after ${this.emberMF(
+                "his",
+                "her"
+            )}, feeling yourself get even harder at what you're about to do.`
         );
 
         this.outx(
-            "\n\nEmber has already made " +
-                this.emberMF("him", "her") +
-                "self comfortable, laying flat on " +
-                this.emberMF("his", "her") +
-                " back, " +
-                this.emberMF("his", "her") +
-                " wings outspread amidst the leaves for stability, " +
-                this.emberMF("his", "her") +
-                " legs lifted up in front of " +
-                this.emberMF("him", "her") +
-                " with hands wrapped around the curled crooks of " +
-                this.emberMF("his", "her") +
-                " knees to hold them out of the way."
+            `\n\nEmber has already made ${this.emberMF(
+                "him",
+                "her"
+            )}self comfortable, laying flat on ${this.emberMF("his", "her")} back, ${this.emberMF(
+                "his",
+                "her"
+            )} wings outspread amidst the leaves for stability, ${this.emberMF(
+                "his",
+                "her"
+            )} legs lifted up in front of ${this.emberMF(
+                "him",
+                "her"
+            )} with hands wrapped around the curled crooks of ${this.emberMF(
+                "his",
+                "her"
+            )} knees to hold them out of the way.`
         );
 
         // If Ember is male:
@@ -9076,17 +9790,17 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "\n\nEmber looks embarrassed as he can get without blushing, then smiles happily and stares up at you with a doting smile.  His tongue slicks out to lick your cheek in an affectionate gesture."
             );
             this.outx(
-                "\n\nYou get yourself in position and align your shaft with the dragon's puckered hole.  You hump a few times experimentally; each time your " +
-                    this.player.cockHead(x) +
-                    " bumps against his tight ass and threatens to push past his sphincter, the dragon gasps.  You would be worried if his gaze wasn't so lusty and expectant."
+                `\n\nYou get yourself in position and align your shaft with the dragon's puckered hole.  You hump a few times experimentally; each time your ${this.player.cockHead(
+                    x
+                )} bumps against his tight ass and threatens to push past his sphincter, the dragon gasps.  You would be worried if his gaze wasn't so lusty and expectant.`
             );
             this.outx(
                 '\n\n"<i>P-please, stop teasing; go on.  Oh, I want you inside me so badly...</i>" he tells you in a stage-whisper, his voice husky with want.'
             );
             this.outx(
-                "\n\nYou look into his eyes and smile, slowly pressing into his tight boy-pussy and spreading his cheeks with your girth.  Ember moans, arches his back and growls with delight, ass already clenching eagerly around your invading " +
-                    this.cockDescript(x) +
-                    ".  A few more humps and you feel yourself go as far inside his ass as possible."
+                `\n\nYou look into his eyes and smile, slowly pressing into his tight boy-pussy and spreading his cheeks with your girth.  Ember moans, arches his back and growls with delight, ass already clenching eagerly around your invading ${this.cockDescript(
+                    x
+                )}.  A few more humps and you feel yourself go as far inside his ass as possible.`
             );
             this.outx(
                 "\n\n\"<i>Oh... oh, Marae, I feel so full, so stuffed with my mate's cock... it feels great,</i>\" he moans, though you're well aware of the tinge of pain in his voice, the grimace of discomfort on his face."
@@ -9164,11 +9878,11 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nYou have the urge to do just that, but you'd also like to savor it.  You align your shafts with her ready holes and begin pushing in.  It's a strange, but pleasant, feeling.  Her ass tries to reject the intruding advances of your " +
-                    this.cockDescript(x) +
-                    ", while her pussy seems intent on pulling your other " +
-                    this.cockDescript(x) +
-                    " in.  It only takes a couple insistent humps before you pierce the barrier formed by her sphincter and penetrate her ass."
+                `\n\nYou have the urge to do just that, but you'd also like to savor it.  You align your shafts with her ready holes and begin pushing in.  It's a strange, but pleasant, feeling.  Her ass tries to reject the intruding advances of your ${this.cockDescript(
+                    x
+                )}, while her pussy seems intent on pulling your other ${this.cockDescript(
+                    x
+                )} in.  It only takes a couple insistent humps before you pierce the barrier formed by her sphincter and penetrate her ass.`
             );
             this.outx(
                 "\n\nEmber cries out, her whole body quivering in delight, both holes squeezing and clenching as they try to suck you inside"
@@ -9193,24 +9907,29 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
 
         this.outx(
-            "\n\nYou take Ember's legs and support them over your shoulders.  This allows you to hug around them and slide your hips even closer to " +
-                this.emberMF("him", "her") +
-                ".  Eyes glittering with wanton lust, unabashed in " +
-                this.emberMF("his", "her") +
-                " naked desire for you, the dragon braces " +
-                this.emberMF("him", "her") +
-                "self against the leafy bedding of " +
-                this.emberMF("his", "her") +
-                " den and waits for you to begin, fingers rustling through the leaves and grass."
+            `\n\nYou take Ember's legs and support them over your shoulders.  This allows you to hug around them and slide your hips even closer to ${this.emberMF(
+                "him",
+                "her"
+            )}.  Eyes glittering with wanton lust, unabashed in ${this.emberMF(
+                "his",
+                "her"
+            )} naked desire for you, the dragon braces ${this.emberMF(
+                "him",
+                "her"
+            )}self against the leafy bedding of ${this.emberMF(
+                "his",
+                "her"
+            )} den and waits for you to begin, fingers rustling through the leaves and grass.`
         );
 
         this.outx(
-            "\n\nYou begin humping away, slowly at first, but quickly speeding your tempo until the cave is flooded with the noise of your crotch slapping against " +
-                this.emberMF("his butt", "her soft folds") +
-                ".  Ember groans and gasps, thrusting " +
-                this.emberMF("his", "her") +
-                " ass back against you, " +
-                this.emberMF("his ass", "her cunt")
+            `\n\nYou begin humping away, slowly at first, but quickly speeding your tempo until the cave is flooded with the noise of your crotch slapping against ${this.emberMF(
+                "his butt",
+                "her soft folds"
+            )}.  Ember groans and gasps, thrusting ${this.emberMF(
+                "his",
+                "her"
+            )} ass back against you, ${this.emberMF("his ass", "her cunt")}`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2 && this.player.cockTotal() > 1)
             this.outx(" and ass");
@@ -9219,25 +9938,26 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(".");
 
         this.outx(
-            "\n\nHearing your dragon mate's moans of approval you redouble your efforts at pistoning into " +
-                this.emberMF("him", "her") +
-                ", giving that tight "
+            `\n\nHearing your dragon mate's moans of approval you redouble your efforts at pistoning into ${this.emberMF(
+                "him",
+                "her"
+            )}, giving that tight `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2) this.outx("vagina");
         else this.outx("ass");
-        this.outx(" of " + this.emberMF("his", "hers") + " the pounding it deserves.");
+        this.outx(` of ${this.emberMF("his", "hers")} the pounding it deserves.`);
 
         this.outx(
             '\n\n"<i>C-come on... cum into me, please!  Fill me with your seed!</i>" Ember gasps, pleading with you.'
         );
 
         this.outx(
-            "\n\nYou penetrate " +
-                this.emberMF("him", "her") +
-                " once, twice and finally hilt as much of your " +
-                this.cockDescript(x) +
-                " as you can inside " +
-                this.emberMF("his", "her")
+            `\n\nYou penetrate ${this.emberMF(
+                "him",
+                "her"
+            )} once, twice and finally hilt as much of your ${this.cockDescript(
+                x
+            )} as you can inside ${this.emberMF("his", "her")}`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2) {
             this.outx(" slick pussy");
@@ -9246,11 +9966,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(" and blow your load.");
 
         this.outx(
-            "\n\nEmber howls exultantly as your steaming load gushes inside of " +
-                this.emberMF("him", "her") +
-                ".  " +
-                this.emberMF("His", "Her") +
-                " "
+            `\n\nEmber howls exultantly as your steaming load gushes inside of ${this.emberMF(
+                "him",
+                "her"
+            )}.  ${this.emberMF("His", "Her")} `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2) {
             this.outx("cunt shudders, splashing femcum all over your intruding shaft");
@@ -9259,153 +9978,175 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (this.flags[kFLAGS.EMBER_GENDER] == 3 || this.flags[kFLAGS.EMBER_GENDER] == 1) {
             this.outx(
-                "cock erupts, spraying draconic cum up into the air to rain back down upon " +
-                    this.emberMF("his", "her") +
-                    " body, spattering " +
-                    this.emberMF("him", "her") +
-                    " in " +
-                    this.emberMF("his", "her") +
-                    " own juices and "
+                `cock erupts, spraying draconic cum up into the air to rain back down upon ${this.emberMF(
+                    "his",
+                    "her"
+                )} body, spattering ${this.emberMF("him", "her")} in ${this.emberMF(
+                    "his",
+                    "her"
+                )} own juices and `
             );
         }
         this.outx(
-            "leaving " + this.emberMF("him", "her") + " gasping for breath as the climax ebbs away."
+            `leaving ${this.emberMF("him", "her")} gasping for breath as the climax ebbs away.`
         );
 
         this.outx(
-            "\n\nThe two of you pant in unison, it takes only a few moments of getting your breath back before you pull out of " +
-                this.emberMF("his", "her") +
-                " hole"
+            `\n\nThe two of you pant in unison, it takes only a few moments of getting your breath back before you pull out of ${this.emberMF(
+                "his",
+                "her"
+            )} hole`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2 && this.player.cockTotal() > 1) this.outx("s");
         this.outx(
             ", letting a satisfying stream of white mat the leaves below.  You smile at Ember, shaft"
         );
         if (this.player.cockTotal() > 1) this.outx("s");
-        this.outx(" still flagging above " + this.emberMF("him", "her") + ".");
+        this.outx(` still flagging above ${this.emberMF("him", "her")}.`);
 
         this.outx(
-            '\n\n"<i>Still not satisfied?</i>" ' +
-                this.emberMF("he", "she") +
-                " croons, tenderly brushing your cheek.  Then " +
-                this.emberMF("his", "her") +
-                ' lips curl into a wicked, fang-baring grin.  "<i>Good.  Neither am I.  Time for round two...</i>"  ' +
-                this.emberMF("He", "She") +
-                " wriggles about under you, repositioning " +
-                this.emberMF("him", "her") +
-                "self so that " +
-                this.emberMF("he", "she") +
-                " is on " +
-                this.emberMF("his", "her") +
-                " hands and knees, tail curled back out of the way and looking over " +
-                this.emberMF("his", "her") +
-                " shoulder under " +
-                this.emberMF("his", "her") +
-                ' wing at you.  "<i>Well?  What are you waiting for, an engraved invitation?</i>" ' +
-                this.emberMF("he", "she") +
-                " teases you.  A shake of the hips makes it quite clear " +
-                this.emberMF("he", "she") +
-                " is expecting you to take " +
-                this.emberMF("him", "her") +
-                " from behind, now."
+            `\n\n"<i>Still not satisfied?</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} croons, tenderly brushing your cheek.  Then ${this.emberMF(
+                "his",
+                "her"
+            )} lips curl into a wicked, fang-baring grin.  "<i>Good.  Neither am I.  Time for round two...</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} wriggles about under you, repositioning ${this.emberMF(
+                "him",
+                "her"
+            )}self so that ${this.emberMF("he", "she")} is on ${this.emberMF(
+                "his",
+                "her"
+            )} hands and knees, tail curled back out of the way and looking over ${this.emberMF(
+                "his",
+                "her"
+            )} shoulder under ${this.emberMF(
+                "his",
+                "her"
+            )} wing at you.  "<i>Well?  What are you waiting for, an engraved invitation?</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} teases you.  A shake of the hips makes it quite clear ${this.emberMF(
+                "he",
+                "she"
+            )} is expecting you to take ${this.emberMF("him", "her")} from behind, now.`
         );
 
         this.outx(
-            "\n\nYou caress " +
-                this.emberMF("his", "her") +
-                " tail, as " +
-                this.emberMF("he", "she") +
-                " wraps it lovingly around you, and then unceremoniously drive yourself back into " +
-                this.emberMF("his", "her") +
-                " still loose "
+            `\n\nYou caress ${this.emberMF("his", "her")} tail, as ${this.emberMF(
+                "he",
+                "she"
+            )} wraps it lovingly around you, and then unceremoniously drive yourself back into ${this.emberMF(
+                "his",
+                "her"
+            )} still loose `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outx("ass");
         else if (this.player.cockTotal() == 1) this.outx("pussy");
         else this.outx("holes");
         this.outx(
-            " with a squelch.  It feels so good... taking " +
-                this.emberMF("him", "her") +
-                " one time after the other."
+            ` with a squelch.  It feels so good... taking ${this.emberMF(
+                "him",
+                "her"
+            )} one time after the other.`
         );
 
         this.outx(
-            '\n\n"<i>Ughhh... lean over, grab hold of me around the belly,</i>" the dragon instructs you, groaning in desire at being filled so.  You do as ' +
-                this.emberMF("he", "she") +
-                ' tells you, squeezing with all your strength.  "<i>Not that tight, dummy!</i>" ' +
-                this.emberMF("he", "she") +
-                " snaps back, tail lightly slapping against your forehead in chastisement.  You utter an apology and loosen your grip.  \"<i>Oh, yeah, that's much better... now, hump away, or I'm going to start humping you myself,</i>\" " +
-                this.emberMF("he", "she") +
-                " says, " +
-                this.emberMF("his", "her") +
-                " smirk blatant in " +
-                this.emberMF("his", "her") +
-                " voice."
+            `\n\n"<i>Ughhh... lean over, grab hold of me around the belly,</i>" the dragon instructs you, groaning in desire at being filled so.  You do as ${this.emberMF(
+                "he",
+                "she"
+            )} tells you, squeezing with all your strength.  "<i>Not that tight, dummy!</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} snaps back, tail lightly slapping against your forehead in chastisement.  You utter an apology and loosen your grip.  "<i>Oh, yeah, that's much better... now, hump away, or I'm going to start humping you myself,</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} says, ${this.emberMF("his", "her")} smirk blatant in ${this.emberMF(
+                "his",
+                "her"
+            )} voice.`
         );
 
         this.outx(
-            "\n\nYou start at a steady rhythm.  Ember moans below you, " +
-                this.emberMF("his", "her") +
-                " chest vibrating with " +
-                this.emberMF("his", "her") +
-                " rumbling purr.  " +
-                this.emberMF("He", "She") +
-                " moves in tandem with your own thrusts, helping you drive in and out of " +
-                this.emberMF("his", "her") +
-                " "
+            `\n\nYou start at a steady rhythm.  Ember moans below you, ${this.emberMF(
+                "his",
+                "her"
+            )} chest vibrating with ${this.emberMF("his", "her")} rumbling purr.  ${this.emberMF(
+                "He",
+                "She"
+            )} moves in tandem with your own thrusts, helping you drive in and out of ${this.emberMF(
+                "his",
+                "her"
+            )} `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outx("ass");
         else if (this.player.cockTotal() == 1) this.outx("pussy");
         else this.outx("holes");
         this.outx(
-            ".  The wet squelching of your hips slapping against each other resounds in the den, much to your enjoyment.  \"<i>Mmm, so good... but, can't you go any harder?  Come on, my mate; I'm a dragon, not some powderpuff princess type - this is one " +
-                this.emberMF("guy", "princess") +
-                ' who can most definitely take it,</i>" ' +
-                this.emberMF("he", "she") +
-                " growls to you in " +
-                this.emberMF("his", "her") +
-                " pleasure, moaning lewdly and clenching you with each stroke inside of " +
-                this.emberMF("him", "her") +
-                "."
+            `.  The wet squelching of your hips slapping against each other resounds in the den, much to your enjoyment.  "<i>Mmm, so good... but, can't you go any harder?  Come on, my mate; I'm a dragon, not some powderpuff princess type - this is one ${this.emberMF(
+                "guy",
+                "princess"
+            )} who can most definitely take it,</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} growls to you in ${this.emberMF(
+                "his",
+                "her"
+            )} pleasure, moaning lewdly and clenching you with each stroke inside of ${this.emberMF(
+                "him",
+                "her"
+            )}.`
         );
 
         this.outx(
-            "\n\nYou do as " +
-                this.emberMF("he", "she") +
-                " suggests and begin driving yourself in and out of " +
-                this.emberMF("him", "her") +
-                ' with more intensity.  "<i>Harder!  Give it to me harder!</i>" ' +
-                this.emberMF("he", "she") +
-                ' snaps.  You redouble your efforts, huffing with each hip-shaking thrust into your dragon mate.  "<i>Ah!  Just like that.  Show me that you own me, just like I own you.  Ugh!  Show me what a powerful champion you are.  Hmm!  So powerful that you can bend over a dragon like me and fuck me silly.  [name], I love you so much...</i>" ' +
-                this.emberMF("he", "she") +
-                " trails off into a rumbling purr.  Enflamed by " +
-                this.emberMF("his", "her") +
-                " encouraging words you grip " +
-                this.emberMF("him", "her") +
-                " with all your might and thrust into " +
-                this.emberMF("him", "her") +
-                ".  You'd be worried about hurting " +
-                this.emberMF("him", "her") +
-                " if it weren't for " +
-                this.emberMF("his", "her") +
-                " lewd moans at your roughness as " +
-                this.emberMF("he", "she") +
-                " does " +
-                this.emberMF("his", "her") +
-                " best to push back against you."
+            `\n\nYou do as ${this.emberMF(
+                "he",
+                "she"
+            )} suggests and begin driving yourself in and out of ${this.emberMF(
+                "him",
+                "her"
+            )} with more intensity.  "<i>Harder!  Give it to me harder!</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} snaps.  You redouble your efforts, huffing with each hip-shaking thrust into your dragon mate.  "<i>Ah!  Just like that.  Show me that you own me, just like I own you.  Ugh!  Show me what a powerful champion you are.  Hmm!  So powerful that you can bend over a dragon like me and fuck me silly.  [name], I love you so much...</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} trails off into a rumbling purr.  Enflamed by ${this.emberMF(
+                "his",
+                "her"
+            )} encouraging words you grip ${this.emberMF(
+                "him",
+                "her"
+            )} with all your might and thrust into ${this.emberMF(
+                "him",
+                "her"
+            )}.  You'd be worried about hurting ${this.emberMF(
+                "him",
+                "her"
+            )} if it weren't for ${this.emberMF(
+                "his",
+                "her"
+            )} lewd moans at your roughness as ${this.emberMF("he", "she")} does ${this.emberMF(
+                "his",
+                "her"
+            )} best to push back against you.`
         );
 
         this.outx(
-            "\n\nYou feel something pop inside you, and you lean over the moaning dragon below, biting " +
-                this.emberMF("his", "her") +
-                " back as you ejaculate inside once more.  Spurt after spurt of cum jets inside " +
-                this.emberMF("his", "her") +
-                " willing hole"
+            `\n\nYou feel something pop inside you, and you lean over the moaning dragon below, biting ${this.emberMF(
+                "his",
+                "her"
+            )} back as you ejaculate inside once more.  Spurt after spurt of cum jets inside ${this.emberMF(
+                "his",
+                "her"
+            )} willing hole`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 1 && this.player.cockTotal() > 1) this.outx("s");
         this.outx(
-            ".  The dragon lets out an exultant cry as " +
-                this.emberMF("his", "her") +
-                " cum-slimed "
+            `.  The dragon lets out an exultant cry as ${this.emberMF("his", "her")} cum-slimed `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outx("ass squeezes");
         else if (this.player.cockTotal() == 1) this.outx("pussy squeezes");
@@ -9430,15 +10171,19 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(".");
         }
         this.outx(
-            "  Groaning and moaning like a whore, the dragon's wings beat, sending  cool air wafting over your overheating bodies before " +
-                this.emberMF("he", "she") +
-                " slumps onto the ground, barely able to hold " +
-                this.emberMF("him", "her") +
-                'self upright.  "<i>...So good...</i>"  Ember pants.  "<i>I... uh... are you sure you want... round three?</i>" ' +
-                this.emberMF("he", "she") +
-                " asks, sounding a little tired as " +
-                this.emberMF("he", "she") +
-                " does, obviously not sure if you'll manage it."
+            `  Groaning and moaning like a whore, the dragon's wings beat, sending  cool air wafting over your overheating bodies before ${this.emberMF(
+                "he",
+                "she"
+            )} slumps onto the ground, barely able to hold ${this.emberMF(
+                "him",
+                "her"
+            )}self upright.  "<i>...So good...</i>"  Ember pants.  "<i>I... uh... are you sure you want... round three?</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} asks, sounding a little tired as ${this.emberMF(
+                "he",
+                "she"
+            )} does, obviously not sure if you'll manage it.`
         );
 
         // if PC has libido/lust:
@@ -9449,39 +10194,44 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.flags[kFLAGS.EMBER_GENDER] >= 2) this.outx("her cunt starting to drip");
             if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outx(" and ");
             if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
-                this.outx(this.emberMF("his", "her") + " cock growing hard again");
+                this.outx(`${this.emberMF("his", "her")} cock growing hard again`);
             this.outx(
-                " at the sight, equally impressed and aroused by your prodigious appetite for sex.  You did say you were going to give " +
-                    this.emberMF("him", "her") +
-                    " the fucking " +
-                    this.emberMF("he", "she") +
-                    " deserves.  Ember smiles tenderly at hearing that, then growls throatily as " +
-                    this.emberMF("he", "she") +
-                    ' stares at you with both parts adoration and lust.  "<i>Well, in that case...</i>"'
+                ` at the sight, equally impressed and aroused by your prodigious appetite for sex.  You did say you were going to give ${this.emberMF(
+                    "him",
+                    "her"
+                )} the fucking ${this.emberMF(
+                    "he",
+                    "she"
+                )} deserves.  Ember smiles tenderly at hearing that, then growls throatily as ${this.emberMF(
+                    "he",
+                    "she"
+                )} stares at you with both parts adoration and lust.  "<i>Well, in that case...</i>"`
             );
         }
         // Else:
         else {
             this.outx(
-                "\n\nWell, you don't feel like " +
-                    this.emberMF("he", "she") +
-                    "'s gotten the fucking " +
-                    this.emberMF("he", "she") +
-                    " deserves just yet.  Besides, you did come prepared.  You take hold of your vial.  Ember smiles tenderly at you.  \"<i>You don't have to go to such lengths for me, you know?  Still, I'm glad you like fucking me so much.</i>\"  You smile back and pop the cork, downing the draft in one big chug.  Ember watches in amazement as [eachCock] goes back into a raging erection.  As the dragon watches, "
+                `\n\nWell, you don't feel like ${this.emberMF(
+                    "he",
+                    "she"
+                )}'s gotten the fucking ${this.emberMF(
+                    "he",
+                    "she"
+                )} deserves just yet.  Besides, you did come prepared.  You take hold of your vial.  Ember smiles tenderly at you.  "<i>You don't have to go to such lengths for me, you know?  Still, I'm glad you like fucking me so much.</i>"  You smile back and pop the cork, downing the draft in one big chug.  Ember watches in amazement as [eachCock] goes back into a raging erection.  As the dragon watches, `
             );
             if (this.flags[kFLAGS.EMBER_GENDER] >= 2)
                 this.outx("her cunt starts to drip with moisture");
             if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outx(" and ");
             if (this.flags[kFLAGS.EMBER_GENDER] == 3 || this.flags[kFLAGS.EMBER_GENDER] == 1)
-                this.outx(this.emberMF("his", "her") + " cock begins to grow erect again");
+                this.outx(`${this.emberMF("his", "her")} cock begins to grow erect again`);
             this.outx(
-                ", amazement giving way to arousal.  " +
-                    this.emberMF("He", "She") +
-                    " licks " +
-                    this.emberMF("his", "her") +
-                    " lips with " +
-                    this.emberMF("his", "her") +
-                    " inhuman tongue, clearly eager to begin again."
+                `, amazement giving way to arousal.  ${this.emberMF(
+                    "He",
+                    "She"
+                )} licks ${this.emberMF("his", "her")} lips with ${this.emberMF(
+                    "his",
+                    "her"
+                )} inhuman tongue, clearly eager to begin again.`
             );
         }
 
@@ -9496,121 +10246,136 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             ".  It's just so... intoxicating... your scent, the way you look at me, everything really.</i>\"  You pat Ember's head"
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 1 || this.flags[kFLAGS.EMBER_HAIR] > 0) {
-            this.outx(", ruffling " + this.emberMF("his ", "her "));
+            this.outx(`, ruffling ${this.emberMF("his ", "her ")}`);
             if (this.flags[kFLAGS.EMBER_HAIR] >= 2) this.outx("mane");
             else this.outx("hair");
         }
         this.outx(
-            ".  " +
-                this.emberMF("He", "She") +
-                " leans against your hand, hugging your midriff and letting your shaft"
+            `.  ${this.emberMF(
+                "He",
+                "She"
+            )} leans against your hand, hugging your midriff and letting your shaft`
         );
         if (this.player.cockTotal() > 1) this.outx("s");
-        this.outx(" brush against " + this.emberMF("his", "her") + " cheek.");
+        this.outx(` brush against ${this.emberMF("his", "her")} cheek.`);
 
         this.outx(
-            "\n\nThe dragon smiles at you, and then Ember opens " +
-                this.emberMF("his", "her") +
-                " mouth, letting " +
-                this.emberMF("his", "her") +
-                " inhuman tongue slither out and out.  With lovingly lavish strokes it slides up and down your [cock biggest]'s length, cleaning it of your "
+            `\n\nThe dragon smiles at you, and then Ember opens ${this.emberMF(
+                "his",
+                "her"
+            )} mouth, letting ${this.emberMF(
+                "his",
+                "her"
+            )} inhuman tongue slither out and out.  With lovingly lavish strokes it slides up and down your [cock biggest]'s length, cleaning it of your `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 0) this.outx("mingled ");
         this.outx(
-            "fluids before sinuously coiling around it like a snake, surrounding you in cool, slick, velvet.  Insistently it begins to slide back into " +
-                this.emberMF("his", "her") +
-                " mouth, taking your cock along for the ride until the dragon closes " +
-                this.emberMF("his", "her") +
-                " mouth, enveloping your shaft in the process, and starts to suckle eagerly, " +
-                this.emberMF("his", "her") +
-                " tongue caressing and squeezing inside as " +
-                this.emberMF("he", "she") +
-                " does so."
+            `fluids before sinuously coiling around it like a snake, surrounding you in cool, slick, velvet.  Insistently it begins to slide back into ${this.emberMF(
+                "his",
+                "her"
+            )} mouth, taking your cock along for the ride until the dragon closes ${this.emberMF(
+                "his",
+                "her"
+            )} mouth, enveloping your shaft in the process, and starts to suckle eagerly, ${this.emberMF(
+                "his",
+                "her"
+            )} tongue caressing and squeezing inside as ${this.emberMF("he", "she")} does so.`
         );
 
         this.outx(
-            "\n\n You moan as the dragon begins sucking you off.  It's hard to believe how into you " +
-                this.emberMF("he", "she") +
-                " is now... previously " +
-                this.emberMF("he", "she") +
-                " didn't seem to like blowing you, but now?  " +
-                this.emberMF("He", "She") +
-                " does it with such eagerness, you can't help but reward " +
-                this.emberMF("his", "her") +
-                " with a few spurts of pre."
+            `\n\n You moan as the dragon begins sucking you off.  It's hard to believe how into you ${this.emberMF(
+                "he",
+                "she"
+            )} is now... previously ${this.emberMF(
+                "he",
+                "she"
+            )} didn't seem to like blowing you, but now?  ${this.emberMF(
+                "He",
+                "She"
+            )} does it with such eagerness, you can't help but reward ${this.emberMF(
+                "his",
+                "her"
+            )} with a few spurts of pre.`
         );
 
         this.outx(
-            "\n\nEmber slurps and sucks loudly and lewdly, her tongue continuing its dance around your dick, but then it uncoils and " +
-                this.emberMF("he", "she") +
-                " pulls off with a wet pop, her fingers gently stroking the sensitive flesh, blowing a ticklish breeze over it with " +
-                this.emberMF("his", "her") +
-                " lips."
+            `\n\nEmber slurps and sucks loudly and lewdly, her tongue continuing its dance around your dick, but then it uncoils and ${this.emberMF(
+                "he",
+                "she"
+            )} pulls off with a wet pop, her fingers gently stroking the sensitive flesh, blowing a ticklish breeze over it with ${this.emberMF(
+                "his",
+                "her"
+            )} lips.`
         );
 
         this.outx(
-            '\n\n"<i>Do you like it?  When I blow you?</i>" ' +
-                this.emberMF("he", "she") +
-                " looks up at you expectantly.  It's hard not to like it when " +
-                this.emberMF("he", "she") +
-                " does such a fine job.  At this " +
-                this.emberMF("he", "she") +
-                ' smiles.  "<i>I\'m glad you like it.  I really like your taste, you know?</i>"  Ember gets up and walks towards the far wall of the den, sticking ' +
-                this.emberMF("his", "her") +
-                " ass out and swaying " +
-                this.emberMF("his", "her") +
-                " tail enticingly.  " +
-                this.emberMF("He", "She") +
-                ' looks back lovingly at you and blows you a ring of smoke, blowing a straight line through its center shortly after.  "<i>I\'m ready...</i>" ' +
-                this.emberMF("he", "she") +
-                " whispers."
+            `\n\n"<i>Do you like it?  When I blow you?</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} looks up at you expectantly.  It's hard not to like it when ${this.emberMF(
+                "he",
+                "she"
+            )} does such a fine job.  At this ${this.emberMF(
+                "he",
+                "she"
+            )} smiles.  "<i>I'm glad you like it.  I really like your taste, you know?</i>"  Ember gets up and walks towards the far wall of the den, sticking ${this.emberMF(
+                "his",
+                "her"
+            )} ass out and swaying ${this.emberMF("his", "her")} tail enticingly.  ${this.emberMF(
+                "He",
+                "She"
+            )} looks back lovingly at you and blows you a ring of smoke, blowing a straight line through its center shortly after.  "<i>I'm ready...</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} whispers.`
         );
 
         this.outx(
-            "\n\nYou advance on " +
-                this.emberMF("him", "her") +
-                ", roughly gripping " +
-                this.emberMF("his", "her") +
-                " butt and spreading " +
-                this.emberMF("his", "her") +
-                " cheeks, as you plunge yourself back into " +
-                this.emberMF("his", "her") +
-                " "
+            `\n\nYou advance on ${this.emberMF("him", "her")}, roughly gripping ${this.emberMF(
+                "his",
+                "her"
+            )} butt and spreading ${this.emberMF(
+                "his",
+                "her"
+            )} cheeks, as you plunge yourself back into ${this.emberMF("his", "her")} `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outx("depths");
         else this.outx("nethers");
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2 && this.player.cockTotal() > 1)
             this.outx(" and depths");
         this.outx(
-            '.  "<i>Ahn.  D-deeper...</i>"  You hook your arm under ' +
-                this.emberMF("his", "her") +
-                " knee and pull " +
-                this.emberMF("his", "her") +
-                ' leg up, nearly throwing the dragon off balance.  "<i>Ah!  D-do you like it when I let you take charge?  Ugh- oh!  Well, I think maybe I kind of like letting you be in charge, too...</i>"  You barely pay attention to ' +
-                this.emberMF("his", "her") +
-                " teasing remarks, instead focusing on exploring " +
-                this.emberMF("his", "her") +
-                " cummy "
+            `.  "<i>Ahn.  D-deeper...</i>"  You hook your arm under ${this.emberMF(
+                "his",
+                "her"
+            )} knee and pull ${this.emberMF(
+                "his",
+                "her"
+            )} leg up, nearly throwing the dragon off balance.  "<i>Ah!  D-do you like it when I let you take charge?  Ugh- oh!  Well, I think maybe I kind of like letting you be in charge, too...</i>"  You barely pay attention to ${this.emberMF(
+                "his",
+                "her"
+            )} teasing remarks, instead focusing on exploring ${this.emberMF("his", "her")} cummy `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outx("ass");
         else if (this.player.cockTotal() == 1) this.outx("pussy");
         else this.outx("love-holes");
         this.outx(
-            '.  "<i>Uhn... yes...  take me again.</i>"  ' +
-                this.emberMF("He", "She") +
-                " lets " +
-                this.emberMF("his", "her") +
-                " tongue loll out as " +
-                this.emberMF("he", "she") +
-                " pants in pleasure."
+            `.  "<i>Uhn... yes...  take me again.</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} lets ${this.emberMF("his", "her")} tongue loll out as ${this.emberMF(
+                "he",
+                "she"
+            )} pants in pleasure.`
         );
 
         this.outx(
-            "\n\nMoans fit to make a whore blush spill from Ember's throat as " +
-                this.emberMF("he", "she") +
-                " eagerly grinds and thrusts against you.  " +
-                this.emberMF("His", "Her") +
-                " inner walls grip and squeeze around "
+            `\n\nMoans fit to make a whore blush spill from Ember's throat as ${this.emberMF(
+                "he",
+                "she"
+            )} eagerly grinds and thrusts against you.  ${this.emberMF(
+                "His",
+                "Her"
+            )} inner walls grip and squeeze around `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2 && this.player.cockTotal() > 1)
             this.outx("both of your dicks");
@@ -9621,37 +10386,42 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3)
             this.outx(
-                "  " +
-                    this.emberMF("His", "Her") +
-                    " cock throbs and pulsates, ripples of arousal giving way to cumvein-bulging jets that shoot from " +
-                    this.emberMF("his", "her") +
-                    " prick to splatter wetly against the wall."
+                `  ${this.emberMF(
+                    "His",
+                    "Her"
+                )} cock throbs and pulsates, ripples of arousal giving way to cumvein-bulging jets that shoot from ${this.emberMF(
+                    "his",
+                    "her"
+                )} prick to splatter wetly against the wall.`
             );
         this.outx(
-            "  Wobbling unsteadily, the dragon becomes increasingly dependent on you to hold " +
-                this.emberMF("him", "her") +
-                " upright - a climax is coming, and it looks like it's going to be big..."
+            `  Wobbling unsteadily, the dragon becomes increasingly dependent on you to hold ${this.emberMF(
+                "him",
+                "her"
+            )} upright - a climax is coming, and it looks like it's going to be big...`
         );
 
         this.outx(
-            "\n\nYou release " +
-                this.emberMF("his", "her") +
-                " leg and grab " +
-                this.emberMF("him", "her") +
-                " by " +
-                this.emberMF("his", "her") +
-                " midriff, pulling " +
-                this.emberMF("him", "her") +
-                " against you and letting " +
-                this.emberMF("him", "her") +
-                " literally fall into your arms, penetrating your dragon mate deeper than ever.  With a thunderous roar that rattles off of the walls of " +
-                this.emberMF("his", "her") +
-                " den, Ember cums, "
+            `\n\nYou release ${this.emberMF("his", "her")} leg and grab ${this.emberMF(
+                "him",
+                "her"
+            )} by ${this.emberMF("his", "her")} midriff, pulling ${this.emberMF(
+                "him",
+                "her"
+            )} against you and letting ${this.emberMF(
+                "him",
+                "her"
+            )} literally fall into your arms, penetrating your dragon mate deeper than ever.  With a thunderous roar that rattles off of the walls of ${this.emberMF(
+                "his",
+                "her"
+            )} den, Ember cums, `
         );
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
             this.outx(
-                this.emberMF("his", "her") +
-                    " cock fountaining seed across the wall, practically whitewashing it in steaming hot dragon-spunk"
+                `${this.emberMF(
+                    "his",
+                    "her"
+                )} cock fountaining seed across the wall, practically whitewashing it in steaming hot dragon-spunk`
             );
         }
         if (this.flags[kFLAGS.EMBER_GENDER] == 3) this.outx(" and ");
@@ -9662,9 +10432,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(".");
 
         this.outx(
-            "\n\nEmber's orgasm forces your own.  You spew wave after wave of liquid love into " +
-                this.emberMF("his", "her") +
-                " used "
+            `\n\nEmber's orgasm forces your own.  You spew wave after wave of liquid love into ${this.emberMF(
+                "his",
+                "her"
+            )} used `
         );
 
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) this.outx("ass");
@@ -9673,25 +10444,29 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(", feeling the excess slide out around your cock");
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2 && this.player.cockTotal() > 1) this.outx("s");
         this.outx(
-            '.  "<i>Ahh... more seed from my lover...</i>" ' +
-                this.emberMF("he", "she") +
-                " whispers, nearly passing out from the pleasure.  You feel yourself grow dizzy with pleasure and tumble onto the soft grass covering the den's floor, bringing Ember along.  Your dick"
+            `.  "<i>Ahh... more seed from my lover...</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} whispers, nearly passing out from the pleasure.  You feel yourself grow dizzy with pleasure and tumble onto the soft grass covering the den's floor, bringing Ember along.  Your dick`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2 && this.player.cockTotal() > 1) this.outx("s");
         this.outx(" slide");
         if (this.player.cockTotal() == 1) this.outx("s");
         this.outx(
-            " out of " +
-                this.emberMF("his", "her") +
-                " with a wet slurp, allowing your deposit to leak its way under your prone forms."
+            ` out of ${this.emberMF(
+                "his",
+                "her"
+            )} with a wet slurp, allowing your deposit to leak its way under your prone forms.`
         );
 
         this.outx(
-            "\n\nYou both take a few moments to catch your breath, before Ember rolls over to look at you.  " +
-                this.emberMF("He", "She") +
-                ' extends a clawed hand to lightly brush your cheek.  "<i>[name]... you really know how to make a dragon feel loved...</i>"  You return the gesture, telling ' +
-                this.emberMF("him", "her") +
-                ' it\'s easy when a dragon seems to love you just as much.  Ember smiles adoringly at you.  "<i>Hey, can I ask you something, [name]?</i>"  You indicate that it\'s okay.  "<i>I want to be with you... hold you for a little while... is it okay if we do that?</i>"'
+            `\n\nYou both take a few moments to catch your breath, before Ember rolls over to look at you.  ${this.emberMF(
+                "He",
+                "She"
+            )} extends a clawed hand to lightly brush your cheek.  "<i>[name]... you really know how to make a dragon feel loved...</i>"  You return the gesture, telling ${this.emberMF(
+                "him",
+                "her"
+            )} it's easy when a dragon seems to love you just as much.  Ember smiles adoringly at you.  "<i>Hey, can I ask you something, [name]?</i>"  You indicate that it's okay.  "<i>I want to be with you... hold you for a little while... is it okay if we do that?</i>"`
         );
         this.player.orgasm();
         this.dynStats("sen", -5);
@@ -9707,11 +10482,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
     private noStayingForCuddlesPostLustFuck(): void {
         this.clearOutput();
         this.outx(
-            "You tell Ember that you can't stay, you have to get going now.  " +
-                this.emberMF("He", "She") +
-                " looks a bit disappointed, but forces " +
-                this.emberMF("him", "her") +
-                'self to smile all the same.  "<i>I understand, you have other things to do... just know that I\'ll always be here for you, for better or worse.</i>"  You '
+            `You tell Ember that you can't stay, you have to get going now.  ${this.emberMF(
+                "He",
+                "She"
+            )} looks a bit disappointed, but forces ${this.emberMF(
+                "him",
+                "her"
+            )}self to smile all the same.  "<i>I understand, you have other things to do... just know that I'll always be here for you, for better or worse.</i>"  You `
         );
         // 50 or less Corruption:
         if (this.player.cor < 50) this.outx("thank her for being so understanding");
@@ -9726,21 +10503,22 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         let x: number = this.player.cockThatFits(this.emberVaginalCapacity());
         if (x < 0) x = this.player.smallestCockIndex();
         this.outx(
-            "With a smile, you tell " +
-                this.emberMF("him", "her") +
-                ' that you\'d be happy to.  "<i>Great, come here...</i>" ' +
-                this.emberMF("he", "she") +
-                " croons, scooting over towards you.  You open your arms and allow the dragon to snuggle up against you, folding your arms comfortably under " +
-                this.emberMF("his", "her") +
-                " wings."
+            `With a smile, you tell ${this.emberMF(
+                "him",
+                "her"
+            )} that you'd be happy to.  "<i>Great, come here...</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} croons, scooting over towards you.  You open your arms and allow the dragon to snuggle up against you, folding your arms comfortably under ${this.emberMF(
+                "his",
+                "her"
+            )} wings.`
         );
 
         // If Ember is male:
         if (this.flags[kFLAGS.EMBER_GENDER] == 1) {
             this.outx(
-                "\n\nAs you embrace each other, you feel something stirring against your " +
-                    this.player.skinFurScales() +
-                    ".  Breaking up the hug to look downwards you spot Ember's draconic member, erect once more.  \"<i>I... well... you can't expect me to keep it down when I'm holding my naked mate now, can you?</i>\" he states, quite flustered at his reaction.  [OneCock] growing erect, brushing against his, serves as your answer."
+                `\n\nAs you embrace each other, you feel something stirring against your ${this.player.skinFurScales()}.  Breaking up the hug to look downwards you spot Ember's draconic member, erect once more.  "<i>I... well... you can't expect me to keep it down when I'm holding my naked mate now, can you?</i>" he states, quite flustered at his reaction.  [OneCock] growing erect, brushing against his, serves as your answer.`
             );
 
             this.outx(
@@ -9770,18 +10548,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                "\n\nShe breaks the kiss and lightly strokes your shaft, smiling at you.  Then she aligns the tip of your " +
-                    this.cockDescript(x) +
-                    " with her pussy."
+                `\n\nShe breaks the kiss and lightly strokes your shaft, smiling at you.  Then she aligns the tip of your ${this.cockDescript(
+                    x
+                )} with her pussy.`
             );
             this.menu();
             this.addButton(0, "Next", this.penetrateWithEmber);
         } else {
             // if Ember is herm:
             this.outx(
-                "\n\nAs you embrace each other, you feel something stirring against your " +
-                    this.player.skinFurScales() +
-                    ".  Breaking up the hug to look downwards you spot Ember's draconic member, erect once more.  \"<i>I... well... you can't expect me to keep it down when I'm holding my naked mate now, can you?</i>\"  She states, quite flustered at her reaction.  Your own [cock biggest] growing erect, brushing against hers, serves as your answer."
+                `\n\nAs you embrace each other, you feel something stirring against your ${this.player.skinFurScales()}.  Breaking up the hug to look downwards you spot Ember's draconic member, erect once more.  "<i>I... well... you can't expect me to keep it down when I'm holding my naked mate now, can you?</i>"  She states, quite flustered at her reaction.  Your own [cock biggest] growing erect, brushing against hers, serves as your answer.`
             );
             this.outx(
                 '\n\nEmber trembles at the contact, electrical waves of pleasure coursing through her body as your members touch.  "<i>T-That felt good!</i>" she exclaims humping slightly to rub your shafts together once more.  "<i>This feels so good I\'m getting even wetter down there,</i>"  The herm dragon'
@@ -9826,25 +10602,28 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         if (clear) this.clearOutput();
         else this.outx("\n\n");
         this.outx(
-            "Ember thrusts against your shaft; the ridges of " +
-                this.emberMF("his", "her") +
-                " dick stimulate your " +
-                this.cockDescript(x) +
-                ' and you moan at the feeling.  "<i>Come on, [name].  Are you going to make me do all the work?</i>" ' +
-                this.emberMF("he", "she") +
-                " teases you.  You slowly stroke your shaft against " +
-                this.emberMF("his", "hers") +
-                ", asking just what " +
-                this.emberMF("he", "she") +
-                " has in mind; wasn't " +
-                this.emberMF("he", "she") +
-                " planning on taking a breather?"
+            `Ember thrusts against your shaft; the ridges of ${this.emberMF(
+                "his",
+                "her"
+            )} dick stimulate your ${this.cockDescript(
+                x
+            )} and you moan at the feeling.  "<i>Come on, [name].  Are you going to make me do all the work?</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} teases you.  You slowly stroke your shaft against ${this.emberMF(
+                "his",
+                "hers"
+            )}, asking just what ${this.emberMF("he", "she")} has in mind; wasn't ${this.emberMF(
+                "he",
+                "she"
+            )} planning on taking a breather?`
         );
 
         this.outx(
-            '\n\n"<i>I\'m always ready to pleasure my mate... besides, I can still hug you while we hump each other,</i>" Ember says, grabbing you into a hug and pulling you tightly against ' +
-                this.emberMF("his", "her") +
-                "self, mashing your shafts together."
+            `\n\n"<i>I'm always ready to pleasure my mate... besides, I can still hug you while we hump each other,</i>" Ember says, grabbing you into a hug and pulling you tightly against ${this.emberMF(
+                "his",
+                "her"
+            )}self, mashing your shafts together.`
         );
 
         // if PC and Ember are male:
@@ -9854,11 +10633,13 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
         this.outx(
-            "\n\nHaving your shaft pressed so tightly between the two of you stimulates your sensitive member enough that you can't help but drool pre on both your bellies.  Ember is much ahead of you, however.  " +
-                this.emberMF("His", "Her") +
-                " cock dribbles slickness, lubing your bellies up and easing the contact between your shafts, making it even easier to hump against " +
-                this.emberMF("his", "her") +
-                "."
+            `\n\nHaving your shaft pressed so tightly between the two of you stimulates your sensitive member enough that you can't help but drool pre on both your bellies.  Ember is much ahead of you, however.  ${this.emberMF(
+                "His",
+                "Her"
+            )} cock dribbles slickness, lubing your bellies up and easing the contact between your shafts, making it even easier to hump against ${this.emberMF(
+                "his",
+                "her"
+            )}.`
         );
 
         this.outx(
@@ -9866,9 +10647,10 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] > 0) this.outx(this.emberMF("-boy", "-girl"));
         this.outx(
-            "'s overly long tongue sticks out as pleasure overrides " +
-                this.emberMF("his", "her") +
-                " senses.  You groan as you slide your cock against Ember's, the thought occurring to you that this is going to be pretty messy when the inevitable comes, but you are too overwhelmed to actually say so."
+            `'s overly long tongue sticks out as pleasure overrides ${this.emberMF(
+                "his",
+                "her"
+            )} senses.  You groan as you slide your cock against Ember's, the thought occurring to you that this is going to be pretty messy when the inevitable comes, but you are too overwhelmed to actually say so.`
         );
 
         this.outx(
@@ -9876,13 +10658,16 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\nEmber doesn't bother wasting time with idle chatter anymore, " +
-                this.emberMF("he", "she") +
-                " embraces you tightly against " +
-                this.emberMF("him", "her") +
-                "self and begins truly thrusting against your slickened belly, not caring that " +
-                this.emberMF("his", "her") +
-                " pre seems to be pooling between the two of you."
+            `\n\nEmber doesn't bother wasting time with idle chatter anymore, ${this.emberMF(
+                "he",
+                "she"
+            )} embraces you tightly against ${this.emberMF(
+                "him",
+                "her"
+            )}self and begins truly thrusting against your slickened belly, not caring that ${this.emberMF(
+                "his",
+                "her"
+            )} pre seems to be pooling between the two of you.`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2)
             this.outx(
@@ -9890,35 +10675,39 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
         this.outx(
-            "\n\nYou match the dragon thrust for thrust and hump for hump, mewling softly; it's not like fucking a hole, but it's certainly not without its charms.  You can feel that wonderful pressure building inside you for the fourth time, and gasp to Ember that climax is close.  \"<i>Don't hold anything back...</i>\" " +
-                this.emberMF("he", "she") +
-                " whispers, kissing you deeply."
+            `\n\nYou match the dragon thrust for thrust and hump for hump, mewling softly; it's not like fucking a hole, but it's certainly not without its charms.  You can feel that wonderful pressure building inside you for the fourth time, and gasp to Ember that climax is close.  "<i>Don't hold anything back...</i>" ${this.emberMF(
+                "he",
+                "she"
+            )} whispers, kissing you deeply.`
         );
 
         this.outx(
-            "\n\nWith a moan and a gasp, you do as " +
-                this.emberMF("he", "she") +
-                " says, letting the pleasure wash over you and spilling seed over the dragon's belly, twitching as the sparks fly through your nerves.  Ember breaks the kiss and roars as " +
-                this.emberMF("his", "her") +
-                " own shaft joins yours in making a mess of both your bellies.  Sighing with relief as the last of it ebbs out of you, instinctively you snuggle against the slimy form of your draconic lover, holding " +
-                this.emberMF("his", "her") +
-                " closer as the last of your orgasm seeps out of you and smears you both in semen."
+            `\n\nWith a moan and a gasp, you do as ${this.emberMF(
+                "he",
+                "she"
+            )} says, letting the pleasure wash over you and spilling seed over the dragon's belly, twitching as the sparks fly through your nerves.  Ember breaks the kiss and roars as ${this.emberMF(
+                "his",
+                "her"
+            )} own shaft joins yours in making a mess of both your bellies.  Sighing with relief as the last of it ebbs out of you, instinctively you snuggle against the slimy form of your draconic lover, holding ${this.emberMF(
+                "his",
+                "her"
+            )} closer as the last of your orgasm seeps out of you and smears you both in semen.`
         );
 
         this.outx(
-            "\n\nEmber breaks the hug and scoots back, sitting against the den's wall.  You keep watching " +
-                this.emberMF("him", "her") +
-                " as " +
-                this.emberMF("his", "she") +
-                " scoops some of your cum from " +
-                this.emberMF("his", "her") +
-                " own body and uses it to stroke " +
-                this.emberMF("him", "her") +
-                "self into another, weaker, climax.  A couple of weak ropes of jism spurt from " +
-                this.emberMF("his", "her") +
-                " tapered tip to fall weakly on the ground before " +
-                this.emberMF("him", "her") +
-                "."
+            `\n\nEmber breaks the hug and scoots back, sitting against the den's wall.  You keep watching ${this.emberMF(
+                "him",
+                "her"
+            )} as ${this.emberMF("his", "she")} scoops some of your cum from ${this.emberMF(
+                "his",
+                "her"
+            )} own body and uses it to stroke ${this.emberMF(
+                "him",
+                "her"
+            )}self into another, weaker, climax.  A couple of weak ropes of jism spurt from ${this.emberMF(
+                "his",
+                "her"
+            )} tapered tip to fall weakly on the ground before ${this.emberMF("him", "her")}.`
         );
         if (this.flags[kFLAGS.EMBER_GENDER] >= 2)
             this.outx(
@@ -9928,20 +10717,25 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("\n\nThe dragon");
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] > 0) this.outx(this.emberMF("-boy", "-girl"));
         this.outx(
-            " uses what strength " +
-                this.emberMF("he", "she") +
-                ' still has to crawl over to you and slide back between your arms.  "<i>Sorry, just had to get that last bit out of my system.</i>"  ' +
-                this.emberMF("He", "She") +
-                ' yawns lowdly.  "<i>[name]?  How about a quick nap?</i>"  ' +
-                this.emberMF("He", "She") +
-                " asks not even bothering to hear your reply before exhaustion gets " +
-                this.emberMF("his", "her") +
-                " and " +
-                this.emberMF("he", "she") +
-                " falls asleep, snoring lightly.  You smile at " +
-                this.emberMF("him", "her") +
-                " and stroke " +
-                this.emberMF("his", "her")
+            ` uses what strength ${this.emberMF(
+                "he",
+                "she"
+            )} still has to crawl over to you and slide back between your arms.  "<i>Sorry, just had to get that last bit out of my system.</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} yawns lowdly.  "<i>[name]?  How about a quick nap?</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} asks not even bothering to hear your reply before exhaustion gets ${this.emberMF(
+                "his",
+                "her"
+            )} and ${this.emberMF(
+                "he",
+                "she"
+            )} falls asleep, snoring lightly.  You smile at ${this.emberMF(
+                "him",
+                "her"
+            )} and stroke ${this.emberMF("his", "her")}`
         );
         if (this.flags[kFLAGS.EMBER_HAIR] == 0 && this.flags[kFLAGS.EMBER_ROUNDFACE] == 0)
             this.outx(" head");
@@ -10002,9 +10796,7 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.wingType > WING_TYPE_NONE)
             this.outx(
-                "stopping momentarily to stroke along your " +
-                    this.player.wingDesc +
-                    " wings before continuing up and "
+                `stopping momentarily to stroke along your ${this.player.wingDesc} wings before continuing up and `
             );
         this.outx("stopping at the back of your head.");
 
@@ -10042,9 +10834,9 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
                 "allowing milk to spill into your mouth and gulp down sweet load after load, "
             );
         this.outx(
-            "listening to her moan softly in pleasure from your actions, feeling her netherlips rippling around your " +
-                this.cockDescript(x) +
-                ".  Your nursing is suddenly interrupted when you're pulled off Ember's breasts and into a deep kiss.  The dragon-girl shoves her tongue inside your mouth, exploring it in detail"
+            `listening to her moan softly in pleasure from your actions, feeling her netherlips rippling around your ${this.cockDescript(
+                x
+            )}.  Your nursing is suddenly interrupted when you're pulled off Ember's breasts and into a deep kiss.  The dragon-girl shoves her tongue inside your mouth, exploring it in detail`
         );
         if (this.flags[kFLAGS.EMBER_MILK] > 0)
             this.outx(
@@ -10096,99 +10888,119 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\n" +
-                this.emberMF("He", "She") +
-                " looks up and smiles as well as " +
-                this.emberMF("he", "she") +
-                " can around your cock.  Inside " +
-                this.emberMF("his", "her") +
-                " mouth you can feel " +
-                this.emberMF("his", "her") +
-                " tongue wrapping tightly around you, like a snake, then " +
-                this.emberMF("he", "she") +
-                " sucks sharply, slurping on your dick like a fancy treat.  Any thoughts you might have had about speaking to " +
-                this.emberMF("him", "her") +
-                " are lost as you gasp and spasm, firing a last sizable spurt of cum into the dragon's sucking mouth.  Ember is surprised at first, but quickly takes you in as far as " +
-                this.emberMF("he", "she") +
-                " can and lets you shoot straight into " +
-                this.emberMF("his", "her") +
-                " throat.  " +
-                this.emberMF("His", "Her") +
-                " tongue laps around your shaft, tasting you before " +
-                this.emberMF("he", "she") +
-                " pulls off slowly, letting some of your seed gather in " +
-                this.emberMF("his", "her") +
-                " mouth.  You moan when " +
-                this.emberMF("he", "she") +
-                " moves away, letting the cold wind bat against your sensitive shaft.  " +
-                this.emberMF("He", "She") +
-                " opens her "
+            `\n\n${this.emberMF("He", "She")} looks up and smiles as well as ${this.emberMF(
+                "he",
+                "she"
+            )} can around your cock.  Inside ${this.emberMF(
+                "his",
+                "her"
+            )} mouth you can feel ${this.emberMF(
+                "his",
+                "her"
+            )} tongue wrapping tightly around you, like a snake, then ${this.emberMF(
+                "he",
+                "she"
+            )} sucks sharply, slurping on your dick like a fancy treat.  Any thoughts you might have had about speaking to ${this.emberMF(
+                "him",
+                "her"
+            )} are lost as you gasp and spasm, firing a last sizable spurt of cum into the dragon's sucking mouth.  Ember is surprised at first, but quickly takes you in as far as ${this.emberMF(
+                "he",
+                "she"
+            )} can and lets you shoot straight into ${this.emberMF(
+                "his",
+                "her"
+            )} throat.  ${this.emberMF(
+                "His",
+                "Her"
+            )} tongue laps around your shaft, tasting you before ${this.emberMF(
+                "he",
+                "she"
+            )} pulls off slowly, letting some of your seed gather in ${this.emberMF(
+                "his",
+                "her"
+            )} mouth.  You moan when ${this.emberMF(
+                "he",
+                "she"
+            )} moves away, letting the cold wind bat against your sensitive shaft.  ${this.emberMF(
+                "He",
+                "She"
+            )} opens her `
         );
         if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outx("maw");
         else this.outx("mouth");
         this.outx(
-            ", letting you see the whiteness on " +
-                this.emberMF("his", "her") +
-                " tongue, before tipping " +
-                this.emberMF("his", "her") +
-                " head back and gulping it down, licking " +
-                this.emberMF("his", "her") +
-                " lips and moaning as if " +
-                this.emberMF("he", "she") +
-                ' was tasting a fine wine.  "<i>Thanks for the snack, my mate.</i>" ' +
-                this.emberMF("He", "She") +
-                " croons at you, a teasing expression on " +
-                this.emberMF("his", "her") +
-                " face."
+            `, letting you see the whiteness on ${this.emberMF(
+                "his",
+                "her"
+            )} tongue, before tipping ${this.emberMF(
+                "his",
+                "her"
+            )} head back and gulping it down, licking ${this.emberMF(
+                "his",
+                "her"
+            )} lips and moaning as if ${this.emberMF(
+                "he",
+                "she"
+            )} was tasting a fine wine.  "<i>Thanks for the snack, my mate.</i>" ${this.emberMF(
+                "He",
+                "She"
+            )} croons at you, a teasing expression on ${this.emberMF("his", "her")} face.`
         );
 
         this.outx(
-            "\n\n" +
-                this.emberMF("He", "She") +
-                " really does enjoy " +
-                this.emberMF("his", "her") +
-                " sessions with you, doesn't " +
-                this.emberMF("he", "she") +
-                '?  "<i>What do you think?</i>"  ' +
-                this.emberMF("He", "She") +
-                ' grins.  "<i>Still, I can see I picked quite a virile mate.  To be able to cum after all the sex we had previously?  You really are something else, my mate...</i>"  ' +
-                this.emberMF("He", "She") +
-                " licks " +
-                this.emberMF("his", "her") +
-                " lips and gets up."
+            `\n\n${this.emberMF("He", "She")} really does enjoy ${this.emberMF(
+                "his",
+                "her"
+            )} sessions with you, doesn't ${this.emberMF(
+                "he",
+                "she"
+            )}?  "<i>What do you think?</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} grins.  "<i>Still, I can see I picked quite a virile mate.  To be able to cum after all the sex we had previously?  You really are something else, my mate...</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} licks ${this.emberMF("his", "her")} lips and gets up.`
         );
 
         // if Ember has a dick (male/herm):
         if (this.flags[kFLAGS.EMBER_GENDER] == 1 || this.flags[kFLAGS.EMBER_GENDER] == 3) {
             this.outx(
-                "\n\n\"<i>I doubt I'd be able to even get an erection after the last session.</i>\"  Then what's that bobbing between " +
-                    this.emberMF("his", "her") +
-                    " legs, you note sarcastically, pointing at the erection Ember is most definitely sporting of " +
-                    this.emberMF("his", "her") +
-                    " own accord."
+                `\n\n"<i>I doubt I'd be able to even get an erection after the last session.</i>"  Then what's that bobbing between ${this.emberMF(
+                    "his",
+                    "her"
+                )} legs, you note sarcastically, pointing at the erection Ember is most definitely sporting of ${this.emberMF(
+                    "his",
+                    "her"
+                )} own accord.`
             );
 
             this.outx(
                 '\n\n"<i>Umm... okay, maybe I can still get hard, but I surely can\'t cum anymore.</i>"  You look at the dragon and tap your fingers, waiting for the sheepish '
             );
             if (this.flags[kFLAGS.EMBER_ROUNDFACE] == 0) this.outx("anthro");
-            else this.outx("monster-" + this.emberMF("boy", "girl"));
+            else this.outx(`monster-${this.emberMF("boy", "girl")}`);
             this.outx(
-                " to come clean.  \"<i>Cut me some slack... I'm not made of stone, you know.  I was just giving my mate a blowjob, you can't seriously expect me not to react to that...</i>\"  " +
-                    this.emberMF("He", "She") +
-                    " crosses " +
-                    this.emberMF("his", "her") +
-                    " arms and blows a puff of smoke as " +
-                    this.emberMF("he", "she") +
-                    " looks away, obviously flustered."
+                ` to come clean.  "<i>Cut me some slack... I'm not made of stone, you know.  I was just giving my mate a blowjob, you can't seriously expect me not to react to that...</i>"  ${this.emberMF(
+                    "He",
+                    "She"
+                )} crosses ${this.emberMF(
+                    "his",
+                    "her"
+                )} arms and blows a puff of smoke as ${this.emberMF(
+                    "he",
+                    "she"
+                )} looks away, obviously flustered.`
             );
 
             this.outx(
-                "\n\nYou can't help but laugh; Ember's attitude may have perked up, but " +
-                    this.emberMF("he's", "she's") +
-                    " just as easy to tease as ever.  " +
-                    this.emberMF("He", "She") +
-                    ' blows another puff of smoke at you.  "<i>You\'re lucky I love you or I swear I would make you regret teasing me.</i>"'
+                `\n\nYou can't help but laugh; Ember's attitude may have perked up, but ${this.emberMF(
+                    "he's",
+                    "she's"
+                )} just as easy to tease as ever.  ${this.emberMF(
+                    "He",
+                    "She"
+                )} blows another puff of smoke at you.  "<i>You're lucky I love you or I swear I would make you regret teasing me.</i>"`
             );
         }
         this.outx(
@@ -10196,25 +11008,30 @@ export class EmberScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            "\n\n\"<i>Oh, don't worry about all of this, I'll get cleaned up later.  As for you, my mate, I suppose it's time you got going, huh?</i>\"  You note that " +
-                this.emberMF("he", "she") +
-                "'s right, and start picking yourself up off of Ember's bed.  \"<i>I'll help you.</i>\""
+            `\n\n"<i>Oh, don't worry about all of this, I'll get cleaned up later.  As for you, my mate, I suppose it's time you got going, huh?</i>"  You note that ${this.emberMF(
+                "he",
+                "she"
+            )}'s right, and start picking yourself up off of Ember's bed.  "<i>I'll help you.</i>"`
         );
 
         this.outx(
-            "\n\nEmber steps outside to gather your clothes, dusting them off before bringing them for you.  The dragon is earnest in " +
-                this.emberMF("his", "her") +
-                " efforts and you find yourself dressed quite quickly, though " +
-                this.emberMF("he", "she") +
-                '\'s not so professional as to resist the option to steal a few gropes in the process.  "<i>There you go.</i>"'
+            `\n\nEmber steps outside to gather your clothes, dusting them off before bringing them for you.  The dragon is earnest in ${this.emberMF(
+                "his",
+                "her"
+            )} efforts and you find yourself dressed quite quickly, though ${this.emberMF(
+                "he",
+                "she"
+            )}'s not so professional as to resist the option to steal a few gropes in the process.  "<i>There you go.</i>"`
         );
 
         this.outx(
-            '\n\nYour dragon mate leans in to give you a quick peck on the lips.  "<i>We should do this again sometime... I really enjoyed myself.</i>"  ' +
-                this.emberMF("He", "She") +
-                ' smiles awkwardly.  "<i>Now I gotta get cleaned!</i>"  ' +
-                this.emberMF("He", "She") +
-                " doesn't wait for your reply and dashes off beyond the bushes towards the nearest stream."
+            `\n\nYour dragon mate leans in to give you a quick peck on the lips.  "<i>We should do this again sometime... I really enjoyed myself.</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} smiles awkwardly.  "<i>Now I gotta get cleaned!</i>"  ${this.emberMF(
+                "He",
+                "She"
+            )} doesn't wait for your reply and dashes off beyond the bushes towards the nearest stream.`
         );
 
         this.outx("\n\nYou head off yourself, ready to resume the rest of your day.");

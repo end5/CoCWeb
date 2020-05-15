@@ -31,24 +31,16 @@ export class EncapsulationPod extends Monster {
         // [Round 1 Description]
         let _long: string;
         if (this.findStatusAffect(StatusAffects.Round) < 0)
-            _long =
-                "You're totally trapped inside a pod!  The walls are slimy and oozing moisture that makes the air sickeningly sweet.  It makes you feel a little dizzy.  Tentacles are climbing up your " +
-                this.game.player.legs() +
-                " towards your crotch, doing their best to get under you " +
-                this.game.player.armorName +
-                ".  There's too many to try to pull away.  Your only chance of escape is to create a way out!";
+            _long = `You're totally trapped inside a pod!  The walls are slimy and oozing moisture that makes the air sickeningly sweet.  It makes you feel a little dizzy.  Tentacles are climbing up your ${this.game.player.legs()} towards your crotch, doing their best to get under you ${
+                this.game.player.armorName
+            }.  There's too many to try to pull away.  Your only chance of escape is to create a way out!`;
         // [Round 2 Description]
         else if (this.statusAffectv1(StatusAffects.Round) == 2) {
             _long =
                 "You're still trapped inside the pod!  By now the walls are totally soaked with some kind of viscous slime.  The smell of it is unbearably sweet and you have to put a hand against the wall to steady yourself.  Warm tentacles are curling and twisting underneath your armor, caressing every ";
             if (this.player.skinType == SKIN_TYPE_FUR) _long += "furry ";
             if (this.player.skinType == SKIN_TYPE_SCALES) _long += "scaley ";
-            _long +=
-                "inch of your " +
-                this.player.legs() +
-                ", crotch, and " +
-                this.game.assDescript() +
-                ".";
+            _long += `inch of your ${this.player.legs()}, crotch, and ${this.game.assDescript()}.`;
         }
         // [Round 3 Description]
         else if (this.statusAffectv1(StatusAffects.Round) == 3) {
@@ -60,7 +52,7 @@ export class EncapsulationPod extends Monster {
             _long =
                 "You're trapped inside the pod and being violated by tentacles from the shoulders down!  The slime around your waist is rising even faster now.  It will probably reach ";
             if (this.player.biggestTitSize() >= 1)
-                _long += "the underside of your " + this.game.allBreastsDescript();
+                _long += `the underside of your ${this.game.allBreastsDescript()}`;
             else _long += "your chest";
             _long +=
                 " in moments.  You're being fucked by a bevy of tentacles while your nipples are ";

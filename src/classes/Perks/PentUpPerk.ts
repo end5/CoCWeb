@@ -8,11 +8,9 @@ import { PerkType } from "../PerkType";
 export class PentUpPerk extends PerkType {
     public desc(params?: PerkClass): string {
         if (params)
-            return (
-                "Increases minimum lust by " +
-                Math.round(params.value1) +
-                " and makes you more vulnerable to seduction."
-            );
+            return `Increases minimum lust by ${Math.round(
+                params.value1
+            )} and makes you more vulnerable to seduction.`;
         return "";
     }
 

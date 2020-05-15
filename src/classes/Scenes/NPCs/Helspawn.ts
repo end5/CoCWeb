@@ -42,13 +42,15 @@ export class Helspawn extends Monster {
         // if Bowmander
         if (this.flags[kFLAGS.HELSPAWN_WEAPON] == "bow")
             this.outx(
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " leaps back out of your reach and nocks a pair of blunted arrows, drawing them back together and loosing them at once!\n"
+                `${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } leaps back out of your reach and nocks a pair of blunted arrows, drawing them back together and loosing them at once!\n`
             );
         else
             this.outx(
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                    " lunges at you, scimitar cleaving through the air toward your throat!\n"
+                `${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                } lunges at you, scimitar cleaving through the air toward your throat!\n`
             );
         this.createStatusAffect(StatusAffects.Attacks, 0, 0, 0, 0);
         this.eAttack();
@@ -58,8 +60,9 @@ export class Helspawn extends Monster {
     // Super-high chance of hitting. On hit, speed debuff
     private calledShot(): void {
         this.outx(
-            this.flags[kFLAGS.HELSPAWN_NAME] +
-                " draws back her bowstring, spending an extra second aiming before letting fly!"
+            `${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } draws back her bowstring, spending an extra second aiming before letting fly!`
         );
         let damage: number = Math.floor(
             this.str + this.weaponAttack - Helspawn.rand(this.player.tou) - this.player.armorDef
@@ -100,7 +103,7 @@ export class Helspawn extends Monster {
                 }
             }
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
     }
 
@@ -108,8 +111,9 @@ export class Helspawn extends Monster {
     // Gives Helspawn the benefit of the Berzerk special ability
     private helSpawnBerserk(): void {
         this.outx(
-            this.flags[kFLAGS.HELSPAWN_NAME] +
-                " lets out a savage warcry, throwing her head back in primal exaltation before charging back into the fray with utter bloodlust in her wild eyes!"
+            `${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } lets out a savage warcry, throwing her head back in primal exaltation before charging back into the fray with utter bloodlust in her wild eyes!`
         );
         this.weaponAttack = this.weaponAttack + 30;
         this.armorDef = 0;
@@ -123,8 +127,9 @@ export class Helspawn extends Monster {
         );
         // Stuns a bitch
         this.outx(
-            this.flags[kFLAGS.HELSPAWN_NAME] +
-                " lashes out with her shield, trying to knock you back!"
+            `${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } lashes out with her shield, trying to knock you back!`
         );
         // standard dodge/miss text
         if (
@@ -144,7 +149,7 @@ export class Helspawn extends Monster {
                 this.player.createStatusAffect(StatusAffects.Stunned, 0, 0, 0, 0);
                 this.outx(" <b>The hit stuns you.</b>");
             }
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
     }
 
@@ -153,9 +158,9 @@ export class Helspawn extends Monster {
         // Light physical, armor piercing (fire, bitch). Random chance to get this on top of any other attack
         let damage: number = Math.floor(this.str - Helspawn.rand(this.player.tou));
         this.outx(
-            "\n" +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                " whips at you with her tail, trying to sear you with her brilliant flames!"
+            `\n${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } whips at you with her tail, trying to sear you with her brilliant flames!`
         );
         // standard dodge/miss text
         if (
@@ -168,12 +173,12 @@ export class Helspawn extends Monster {
             this.outx("\nYou evade the strike.");
         else {
             this.outx(
-                "\n" +
-                    this.flags[kFLAGS.HELSPAWN_NAME] +
-                    "'s tail catches you as you try to dodge.  Your [armor] sizzles, and you leap back with a yelp as she gives you a light burning."
+                `\n${
+                    this.flags[kFLAGS.HELSPAWN_NAME]
+                }'s tail catches you as you try to dodge.  Your [armor] sizzles, and you leap back with a yelp as she gives you a light burning.`
             );
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
     }
 
@@ -181,8 +186,9 @@ export class Helspawn extends Monster {
     private sluttyMander(): void {
         // Medium Lust damage
         this.outx(
-            this.flags[kFLAGS.HELSPAWN_NAME] +
-                " jumps just out of reach before spinning around, planting her weapon in the ground as she turns her backside to you and gives her sizable ass a rhythmic shake, swaying her full hips hypnotically."
+            `${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } jumps just out of reach before spinning around, planting her weapon in the ground as she turns her backside to you and gives her sizable ass a rhythmic shake, swaying her full hips hypnotically.`
         );
         // if no effect:
         if (Helspawn.rand(2) == 0)
@@ -199,7 +205,7 @@ export class Helspawn extends Monster {
             // lustDown.visible = false;
             // lustUp.visible = true;
             lustDelta = Math.round(lustDelta * 10) / 10;
-            this.outx(" (" + lustDelta + ")", false);
+            this.outx(` (${lustDelta})`, false);
         }
     }
 
@@ -207,11 +213,11 @@ export class Helspawn extends Monster {
     // Self-healing & lust restoration
     private helSpawnFocus(): void {
         this.outx(
-            "Seeing a momentary lull in the melee, " +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ' slips out of reach, stumbling back and clutching at the bruises forming all over her body.  "<i>Come on, ' +
-                this.flags[kFLAGS.HELSPAWN_NAME] +
-                ', you can do this. Focus, focus,</i>" she mutters, trying to catch her breath.  A moment later and she seems to have taken a second wind as she readies her weapon with a renewed vigor.'
+            `Seeing a momentary lull in the melee, ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            } slips out of reach, stumbling back and clutching at the bruises forming all over her body.  "<i>Come on, ${
+                this.flags[kFLAGS.HELSPAWN_NAME]
+            }, you can do this. Focus, focus,</i>" she mutters, trying to catch her breath.  A moment later and she seems to have taken a second wind as she readies her weapon with a renewed vigor.`
         );
         this.lust -= 30;
         if (this.lust < 0) this.lust = 0;
@@ -232,20 +238,20 @@ export class Helspawn extends Monster {
         this.a = "";
         this.short = this.game.flags[kFLAGS.HELSPAWN_NAME];
         this.imageName = "hollispawn";
-        this.long =
-            this.game.flags[kFLAGS.HELSPAWN_NAME] +
-            " is a young salamander, appearing in her later teens.  Clad in " +
-            (this.game.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50
+        this.long = `${
+            this.game.flags[kFLAGS.HELSPAWN_NAME]
+        } is a young salamander, appearing in her later teens.  Clad in ${
+            this.game.flags[kFLAGS.HELSPAWN_PERSONALITY] >= 50
                 ? "a slutty scale bikini like her mother's, barely concealing anything"
-                : "a short skirt, thigh-high boots, and a sky-blue blouse, in stark contrast to her mother’s sluttier attire") +
-            ", she stands about six feet in height, with a lengthy, fiery tail swishing menacingly behind her. She's packing a " +
+                : "a short skirt, thigh-high boots, and a sky-blue blouse, in stark contrast to her mother’s sluttier attire"
+        }, she stands about six feet in height, with a lengthy, fiery tail swishing menacingly behind her. She's packing a ${
             {
                 bow: "recurve bow, using blunted, soft-tipped arrows",
                 scimitar:
                     "scimitar, just like her mom's, and holds it in the same berzerk stance Helia is wont to use",
                 "scimitar and shield": "scimitar and shield, giving her a balanced fighting style",
-            }[weapon] +
-            ".  Pacing around you, the well-built young warrior intently studies her mentor's defenses, readying for your next attack.";
+            }[weapon]
+        }.  Pacing around you, the well-built young warrior intently studies her mentor's defenses, readying for your next attack.`;
         // this.plural = false;
         this.createVagina(false, VAGINA_WETNESS_NORMAL, VAGINA_LOOSENESS_NORMAL);
         this.createStatusAffect(StatusAffects.BonusVCapacity, 85, 0, 0, 0);

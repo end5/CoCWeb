@@ -59,9 +59,7 @@ export class Vala extends Monster {
         if (this.findStatusAffect(StatusAffects.Milk) >= 0) {
             this.addStatusValue(StatusAffects.Milk, 1, 5);
             this.outx(
-                "Your " +
-                    this.player.skinDesc +
-                    " tingles pleasantly, making you feel sexy and exposed.  Oh no!  It seems each coating of milk and glitter is stronger than the last!",
+                `Your ${this.player.skinDesc} tingles pleasantly, making you feel sexy and exposed.  Oh no!  It seems each coating of milk and glitter is stronger than the last!`,
                 false
             );
         } else {

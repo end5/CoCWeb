@@ -234,9 +234,10 @@ export class Loppe extends TelAdreAbstractContent {
         );
 
         this.outx(
-            "\n\nYou tell her that you aren't, you just didn't expect her to have such an appetite.  With a playful smile, you ask what other not-so-dainty secrets she's hiding; does she burp loudly to show she enjoyed her meal?  Loppe smiles mischievously, \"<i>Oh, my sweet " +
-                this.player.mf("boy", "girl") +
-                '...  When I get my hands on something I like, I eat it up whole...</i>"  Slowly, you feel a foot gently glide across your [legs].'
+            `\n\nYou tell her that you aren't, you just didn't expect her to have such an appetite.  With a playful smile, you ask what other not-so-dainty secrets she's hiding; does she burp loudly to show she enjoyed her meal?  Loppe smiles mischievously, "<i>Oh, my sweet ${this.player.mf(
+                "boy",
+                "girl"
+            )}...  When I get my hands on something I like, I eat it up whole...</i>"  Slowly, you feel a foot gently glide across your [legs].`
         );
 
         // (Low Libido)
@@ -330,9 +331,10 @@ export class Loppe extends TelAdreAbstractContent {
         );
 
         this.outx(
-            '\n\n"<i>Hey, [name],</i>" she says quietly, "<i>you\'re really ' +
-                this.player.mf("handsome", "beautiful") +
-                ", y'know?  And kind... how about a quick stop at my place, before we say goodbye?</i>\""
+            `\n\n"<i>Hey, [name],</i>" she says quietly, "<i>you're really ${this.player.mf(
+                "handsome",
+                "beautiful"
+            )}, y'know?  And kind... how about a quick stop at my place, before we say goodbye?</i>"`
         );
 
         // [Yes][No]
@@ -679,9 +681,10 @@ export class Loppe extends TelAdreAbstractContent {
         );
         this.outx("\n\nHmm... is that a suggestion?");
         this.outx(
-            "\n\nLoppe grins at you.  \"<i>Oh... I don't know.  I'm sure a " +
-                this.player.mf("handsome", "beautiful") +
-                " person like you has already drawn quite a few stares,</i>\" Loppe teases, batting her eyes at you.  \"<i>But, if the time is right, and you ask nicely... I'm pretty sure there's a certain bunny-girl around here who wouldn't mind...</i>\""
+            `\n\nLoppe grins at you.  "<i>Oh... I don't know.  I'm sure a ${this.player.mf(
+                "handsome",
+                "beautiful"
+            )} person like you has already drawn quite a few stares,</i>" Loppe teases, batting her eyes at you.  "<i>But, if the time is right, and you ask nicely... I'm pretty sure there's a certain bunny-girl around here who wouldn't mind...</i>"`
         );
 
         this.outx(
@@ -1113,9 +1116,10 @@ export class Loppe extends TelAdreAbstractContent {
                 "\n\nSo, if she's so confident that her mom wouldn't disapprove of her daughter's sexual awakening... what about your relationship?\n\n"
             );
             this.outx(
-                "Loppe looks you over, thoughtful.  \"<i>To be honest... I don't think she would mind.  Want me to introduce you to her?  To become my 'official' " +
-                    this.player.mf("boy", "girl") +
-                    "friend?  I know I certainly wouldn't mind having a 'serious' relationship with a cutie like you.</i>\"  The dancer winks at you. \"<i>How about it Sugar, do you wanna go visit my mom?</i>\""
+                `Loppe looks you over, thoughtful.  "<i>To be honest... I don't think she would mind.  Want me to introduce you to her?  To become my 'official' ${this.player.mf(
+                    "boy",
+                    "girl"
+                )}friend?  I know I certainly wouldn't mind having a 'serious' relationship with a cutie like you.</i>"  The dancer winks at you. "<i>How about it Sugar, do you wanna go visit my mom?</i>"`
             );
         }
 
@@ -1414,9 +1418,7 @@ export class Loppe extends TelAdreAbstractContent {
         );
 
         this.outx(
-            '\n\n"<i>I would love to, sugar!</i>"  Loppe gazes at your ' +
-                this.multiCockDescriptLight() +
-                "."
+            `\n\n"<i>I would love to, sugar!</i>"  Loppe gazes at your ${this.multiCockDescriptLight()}.`
         );
         // [(2 fit cocks)
         const x: number = this.player.cockThatFits(this.loppeCapacity());
@@ -1450,9 +1452,7 @@ export class Loppe extends TelAdreAbstractContent {
         if (y < 0) this.outx("slide your shaft against her");
         else this.outx("pinion her shaft between your");
         this.outx(
-            " own, shivering from the sensation of your sensitive " +
-                this.player.skin() +
-                " against her proud horseflesh, already drooling even though you can plainly feel that it's only half-erect."
+            ` own, shivering from the sensation of your sensitive ${this.player.skin()} against her proud horseflesh, already drooling even though you can plainly feel that it's only half-erect.`
         );
         if (this.player.balls > 0)
             this.outx(
@@ -1460,9 +1460,9 @@ export class Loppe extends TelAdreAbstractContent {
             );
 
         this.outx(
-            '\n\n"<i>Okay, that\'s enough foreplay!</i>" Loppe announces suddenly, eyeing your ' +
-                this.cockDescript(x) +
-                " with a hunger that you never expected to see on her face.  Loppe quickly straddles you, aligning it with her pussy"
+            `\n\n"<i>Okay, that's enough foreplay!</i>" Loppe announces suddenly, eyeing your ${this.cockDescript(
+                x
+            )} with a hunger that you never expected to see on her face.  Loppe quickly straddles you, aligning it with her pussy`
         );
         if (y >= 0) this.outx("; its neighbor is aimed for her tight rosebud");
         this.outx(
@@ -1565,15 +1565,15 @@ export class Loppe extends TelAdreAbstractContent {
         if (this.player.isDrider()) this.outx("legs");
         else this.outx("arms");
         this.outx(
-            " wrapped around your lover, welcoming what's approaching as her horse-prick throbs and her flared tip inflates.  With a rapturous howl the laquine's cumslit opens like a floodgate, spurting jet after jet of cum onto your [chest], [face] and even the wall behind you; her own pillowy breasts and face are splashed with the force of her orgasm.  Her tight pussy contracts, milking your " +
-                this.cockDescript(x) +
-                " for all its worth"
+            ` wrapped around your lover, welcoming what's approaching as her horse-prick throbs and her flared tip inflates.  With a rapturous howl the laquine's cumslit opens like a floodgate, spurting jet after jet of cum onto your [chest], [face] and even the wall behind you; her own pillowy breasts and face are splashed with the force of her orgasm.  Her tight pussy contracts, milking your ${this.cockDescript(
+                x
+            )} for all its worth`
         );
         if (y >= 0)
             this.outx(
-                ", while her anal ring constricts your " +
-                    this.cockDescript(y) +
-                    " tightly, intent on holding you in place"
+                `, while her anal ring constricts your ${this.cockDescript(
+                    y
+                )} tightly, intent on holding you in place`
             );
         this.outx(".");
 
@@ -1601,14 +1601,14 @@ export class Loppe extends TelAdreAbstractContent {
         const y: number = this.player.cockThatFits2(this.loppeCapacity());
 
         this.outx(this.images.showImage("loppe-rides-your-cock"));
-        this.outx("\n\nYour " + this.cockDescript(x) + " gushes fluids into her hungry womb");
+        this.outx(`\n\nYour ${this.cockDescript(x)} gushes fluids into her hungry womb`);
         if (y >= 0 || this.player.hasVagina()) {
             this.outx(", while ");
             if (y >= 0)
                 this.outx(
-                    "your second " +
-                        this.cockDescript(y) +
-                        " just as easily pumps her perverted ass full of baby juice"
+                    `your second ${this.cockDescript(
+                        y
+                    )} just as easily pumps her perverted ass full of baby juice`
                 );
             if (y >= 0 && this.player.hasVagina()) this.outx(" and ");
             if (this.player.hasVagina()) {
@@ -1653,8 +1653,7 @@ export class Loppe extends TelAdreAbstractContent {
 
         this.outx("\n\nLoppe quietly disentangles herself from your half-staff ");
         this.outx(
-            this.multiCockDescriptLight() +
-                " and slides down your body, pressing her soft, cum-slickened breasts against you.  You moan as the smooth curves of her chest press against [eachCock]; the cum-slick "
+            `${this.multiCockDescriptLight()} and slides down your body, pressing her soft, cum-slickened breasts against you.  You moan as the smooth curves of her chest press against [eachCock]; the cum-slick `
         );
         if (this.flags[kFLAGS.LOPPE_FURRY] == 0) this.outx("skin");
         else this.outx("fur");
@@ -1662,7 +1661,7 @@ export class Loppe extends TelAdreAbstractContent {
             " give you the impression of being wrapped in the moist folds of a woman's sex.  As Loppe slides further down you feel her teasingly licking at the tip"
         );
         if (y >= 0) this.outx("s");
-        this.outx(" of your " + this.multiCockDescriptLight() + ".");
+        this.outx(` of your ${this.multiCockDescriptLight()}.`);
 
         this.outx(
             "\n\nThe skillful dance of her warm, wet tongue on the sensitive skin of your post-orgasmic member"
@@ -1702,9 +1701,7 @@ export class Loppe extends TelAdreAbstractContent {
         this.outx("\n\n<b>One hour and several orgasms later...</b>");
 
         this.outx(
-            '\n\n"<i>Thanks, sugar.  You\'re the best!  I feel completely satisfied!</i>" Loppe says, happily smiling and hugging you tightly.  As she snuggles up to you, you can feel the distinct bump of her gravid-looking belly rubbing against your ' +
-                this.player.skin() +
-                "; the cum-filled flesh deforms as the pressure pushes some of the skin-stretching load out of her nethers and further smears the proof of your pleasure on your entwined lower halves, but even so she still looks ready to pop with three or four kids.  You consider answering her, but find that you lack the will to do so... in fact, you lack the energy to do anything at all, Loppe having fucked you until you were shooting blanks"
+            `\n\n"<i>Thanks, sugar.  You're the best!  I feel completely satisfied!</i>" Loppe says, happily smiling and hugging you tightly.  As she snuggles up to you, you can feel the distinct bump of her gravid-looking belly rubbing against your ${this.player.skin()}; the cum-filled flesh deforms as the pressure pushes some of the skin-stretching load out of her nethers and further smears the proof of your pleasure on your entwined lower halves, but even so she still looks ready to pop with three or four kids.  You consider answering her, but find that you lack the will to do so... in fact, you lack the energy to do anything at all, Loppe having fucked you until you were shooting blanks`
         );
         // [(if high cum amount)]
         if (this.player.cumQ() >= 500) this.outx(" despite your usually messy orgasms");
@@ -1931,7 +1928,7 @@ export class Loppe extends TelAdreAbstractContent {
         );
         // [(herm non-horse)
         if (this.player.gender == 3 && !this.player.isTaur()) {
-            this.outx(", though she needs to move aside " + this.sMultiCockDesc() + " ");
+            this.outx(`, though she needs to move aside ${this.sMultiCockDesc()} `);
             if (this.player.balls > 0) this.outx("and [balls] ");
             this.outx("to really get at your cunt");
         }
@@ -2024,7 +2021,7 @@ export class Loppe extends TelAdreAbstractContent {
             "\n\nYou hiss and shudder, writhing across the bedsheets as your lover works her magic on you, filling you with pleasure.  Juices flow wet and thick from your pussy"
         );
         if (this.player.hasCock())
-            this.outx(", precum begins to drool from your " + this.multiCockDescriptLight());
+            this.outx(`, precum begins to drool from your ${this.multiCockDescriptLight()}`);
         this.outx(".");
 
         // Not Centaur:
@@ -2650,9 +2647,10 @@ export class Loppe extends TelAdreAbstractContent {
         );
 
         this.outx(
-            '\n\n"<i>[name]?  [name], are you... oh.</i>"  Loppe smiles as she sees you\'ve dozed off.  Quietly she slips away to the bed and pulls off her blanket, moving around to carefully seat herself against your bloated stomach, draping her blanket over the both of you and gently resting her head on your distended horse-gut.  "<i>Sweet dreams, lover-' +
-                this.player.mf("boy", "girl") +
-                ',</i>" she stage-whispers to you, then closes her eyes, just as eager for some rest, listening to the gurgling of your flooded stomach as she drifts off.'
+            `\n\n"<i>[name]?  [name], are you... oh.</i>"  Loppe smiles as she sees you've dozed off.  Quietly she slips away to the bed and pulls off her blanket, moving around to carefully seat herself against your bloated stomach, draping her blanket over the both of you and gently resting her head on your distended horse-gut.  "<i>Sweet dreams, lover-${this.player.mf(
+                "boy",
+                "girl"
+            )},</i>" she stage-whispers to you, then closes her eyes, just as eager for some rest, listening to the gurgling of your flooded stomach as she drifts off.`
         );
 
         this.outx("\n\n<b>Two hours later...</b>");
@@ -3015,9 +3013,7 @@ export class Loppe extends TelAdreAbstractContent {
         );
 
         this.outx(
-            "\n\nEmboldened, you clasp your breasts firmer together and start to rise and fall, slowly scraping your " +
-                this.player.skin() +
-                " up and down the half-breed's prick.  It feels so hot and firm against your chest, growing increasingly damp as Loppe oozes gouts as voluminous as the cumshots of ordinary men, making your breasts and her prick alike equally slippery and enabling you to stroke her faster and faster. \"<i>K-keep that up and I'm gonna shoot anytime,</i>\" Loppe groans, trying to hump into your cleavage."
+            `\n\nEmboldened, you clasp your breasts firmer together and start to rise and fall, slowly scraping your ${this.player.skin()} up and down the half-breed's prick.  It feels so hot and firm against your chest, growing increasingly damp as Loppe oozes gouts as voluminous as the cumshots of ordinary men, making your breasts and her prick alike equally slippery and enabling you to stroke her faster and faster. "<i>K-keep that up and I'm gonna shoot anytime,</i>" Loppe groans, trying to hump into your cleavage.`
         );
 
         // [(Normal/Naga tongue)
@@ -3126,9 +3122,7 @@ export class Loppe extends TelAdreAbstractContent {
             );
 
             this.outx(
-                "\n\nLooking at your own " +
-                    this.player.skinFurScales() +
-                    ", now off-white from the glazing she's given you inadvertently, you concede the point to yourself.  Still..."
+                `\n\nLooking at your own ${this.player.skinFurScales()}, now off-white from the glazing she's given you inadvertently, you concede the point to yourself.  Still...`
             );
 
             this.outx('\n\n"<i>Pleaaase?</i>" she asks, giving you her best doe eyes.');

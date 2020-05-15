@@ -482,19 +482,18 @@ export class Creature extends Utils {
         // 4. Inconsistent fields
         // 4.1. balls
         if (this.balls > 0 && this.ballSize <= 0) {
-            error += "Balls are present but ballSize = " + this.ballSize + ". ";
+            error += `Balls are present but ballSize = ${this.ballSize}. `;
         }
         if (this.ballSize > 0 && this.balls <= 0) {
-            error += "No balls but ballSize = " + this.ballSize + ". ";
+            error += `No balls but ballSize = ${this.ballSize}. `;
         }
         // 4.2. hair
         if (this.hairLength <= 0) {
-            if (this.hairType != HAIR_NORMAL)
-                error += "No hair but hairType = " + this.hairType + ". ";
+            if (this.hairType != HAIR_NORMAL) error += `No hair but hairType = ${this.hairType}. `;
         }
         // 4.3. tail
         if (this.tailType == TAIL_TYPE_NONE) {
-            if (this.tailVenom != 0) error += "No tail but tailVenom = " + this.tailVenom + ". ";
+            if (this.tailVenom != 0) error += `No tail but tailVenom = ${this.tailVenom}. `;
         }
         // 4.4. horns
         if (this.hornType == HORNS_NONE) {
@@ -546,11 +545,9 @@ export class Creature extends Utils {
             const bonusGems: number =
                 Creature.rand(this.cocks[randomCock].cockThickness) + this.countCockSocks("gilded"); // int so AS rounds to whole numbers
             this.game.outx(
-                "\n\nFeeling some minor discomfort in your " +
-                    this.cockDescript(randomCock) +
-                    " you slip it out of your [armor] and examine it. <b>With a little exploratory rubbing and massaging, you manage to squeeze out " +
-                    bonusGems +
-                    " gems from its cum slit.</b>\n\n"
+                `\n\nFeeling some minor discomfort in your ${this.cockDescript(
+                    randomCock
+                )} you slip it out of your [armor] and examine it. <b>With a little exploratory rubbing and massaging, you manage to squeeze out ${bonusGems} gems from its cum slit.</b>\n\n`
             );
             this.gems += bonusGems;
         }
@@ -683,16 +680,12 @@ export class Creature extends Utils {
         const counter: number = this.findPerk(ptype);
         if (counter < 0) {
             trace(
-                "ERROR? Looking for perk '" +
-                    ptype +
-                    "' to change value " +
-                    valueIdx +
-                    ", and player does not have the perk."
+                `ERROR? Looking for perk '${ptype}' to change value ${valueIdx}, and player does not have the perk.`
             );
             return;
         }
         if (valueIdx < 1 || valueIdx > 4) {
-            CocSettings.error("addPerkValue(" + ptype.id + ", " + valueIdx + ", " + bonus + ").");
+            CocSettings.error(`addPerkValue(${ptype.id}, ${valueIdx}, ${bonus}).`);
             return;
         }
         if (valueIdx == 1) this.perk(counter).value1 += bonus;
@@ -706,16 +699,12 @@ export class Creature extends Utils {
         // Various Errors preventing action
         if (counter < 0) {
             trace(
-                "ERROR? Looking for perk '" +
-                    ptype +
-                    "' to change value " +
-                    valueIdx +
-                    ", and player does not have the perk."
+                `ERROR? Looking for perk '${ptype}' to change value ${valueIdx}, and player does not have the perk.`
             );
             return;
         }
         if (valueIdx < 1 || valueIdx > 4) {
-            CocSettings.error("setPerkValue(" + ptype.id + ", " + valueIdx + ", " + newNum + ").");
+            CocSettings.error(`setPerkValue(${ptype.id}, ${valueIdx}, ${newNum}).`);
             return;
         }
         if (valueIdx == 1) this.perk(counter).value1 = newNum;
@@ -745,7 +734,7 @@ export class Creature extends Utils {
     public perkv3(ptype: PerkType): number {
         const counter: number = this.findPerk(ptype);
         if (counter < 0) {
-            trace("ERROR? Looking for perk '" + ptype + "', but player does not have it.");
+            trace(`ERROR? Looking for perk '${ptype}', but player does not have it.`);
             return 0;
         }
         return this.perk(counter).value3;
@@ -754,7 +743,7 @@ export class Creature extends Utils {
     public perkv4(ptype: PerkType): number {
         const counter: number = this.findPerk(ptype);
         if (counter < 0) {
-            trace("ERROR? Looking for perk '" + ptype + "', but player does not have it.");
+            trace(`ERROR? Looking for perk '${ptype}', but player does not have it.`);
             return 0;
         }
         return this.perk(counter).value4;
@@ -1770,7 +1759,7 @@ export class Creature extends Utils {
                 count++;
             }
         }
-        trace("countCockSocks found " + count + " " + type);
+        trace(`countCockSocks found ${count} ${type}`);
         return count;
     }
 
@@ -2111,7 +2100,7 @@ export class Creature extends Utils {
                     }
                     this.cocks.splice(arraySpot, totalRemoved);
                 } catch (e) {
-                    trace("Argument error in Creature[" + this._short + "]: " + e.message);
+                    trace(`Argument error in Creature[${this._short}]: ${e.message}`);
                 }
                 // trace("Attempted to remove " + totalRemoved + " cocks.");
             }
@@ -2214,7 +2203,7 @@ export class Creature extends Utils {
             else this.changeStatusValue(StatusAffects.ButtStretched, 1, 0);
         }
         if (stretched) {
-            trace("BUTT STRETCHED TO " + this.ass.analLooseness + ".");
+            trace(`BUTT STRETCHED TO ${this.ass.analLooseness}.`);
         }
         return stretched;
     }
@@ -2256,7 +2245,7 @@ export class Creature extends Utils {
             else this.changeStatusValue(StatusAffects.CuntStretched, 1, 0);
         }
         if (stretched) {
-            trace("CUNT STRETCHED TO " + this.vaginas[0].vaginalLooseness + ".");
+            trace(`CUNT STRETCHED TO ${this.vaginas[0].vaginalLooseness}.`);
         }
         return stretched;
     }
@@ -2364,11 +2353,11 @@ export class Creature extends Utils {
     public skinFurScales(): string {
         let skinzilla = "";
         // Adjectives first!
-        if (this.skinAdj != "") skinzilla += this.skinAdj + ", ";
+        if (this.skinAdj != "") skinzilla += `${this.skinAdj}, `;
         // Fur handled a little differently since it uses
         // haircolor
-        if (this._skinType == 1) skinzilla += this.hairColor + " ";
-        else skinzilla += this._skinTone + " ";
+        if (this._skinType == 1) skinzilla += `${this.hairColor} `;
+        else skinzilla += `${this._skinTone} `;
         skinzilla += this.skinDesc;
         return skinzilla;
     }
@@ -3052,15 +3041,15 @@ export class Creature extends Utils {
             case CockTypesEnum.LIZARD:
             case CockTypesEnum.TENTACLE:
                 if (this.countCocksOfType(this.cocks[0].cockType) == this.cocks.length)
-                    return Appearance.cockNoun(this.cocks[0].cockType) + "s";
+                    return `${Appearance.cockNoun(this.cocks[0].cockType)}s`;
                 break;
             case CockTypesEnum.DOG:
             case CockTypesEnum.FOX:
                 if (this.dogCocks() == this.cocks.length)
-                    return Appearance.cockNoun(CockTypesEnum.DOG) + "s";
+                    return `${Appearance.cockNoun(CockTypesEnum.DOG)}s`;
             default:
         }
-        return Appearance.cockNoun(CockTypesEnum.HUMAN) + "s";
+        return `${Appearance.cockNoun(CockTypesEnum.HUMAN)}s`;
     }
 
     public hasSheath(): boolean {

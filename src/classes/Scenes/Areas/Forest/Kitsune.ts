@@ -21,9 +21,7 @@ export class Kitsune extends Monster {
     // Entwine:
     private kitsuneEntwine(): void {
         this.outx(
-            "The kitsune closes in on you with a mischievous glint in her eyes.  You raise your guard, keeping your eyes trained on her to ensure that she doesn't try to pull anything.  Suddenly, you feel something coiling around your " +
-                this.player.leg() +
-                ", and let out a yelp as you are suddenly lifted into the air, entangled in the kitsune's tails!"
+            `The kitsune closes in on you with a mischievous glint in her eyes.  You raise your guard, keeping your eyes trained on her to ensure that she doesn't try to pull anything.  Suddenly, you feel something coiling around your ${this.player.leg()}, and let out a yelp as you are suddenly lifted into the air, entangled in the kitsune's tails!`
         );
         this.outx(
             "\n\nYour limbs are bound tightly while coils of delightfully soft fur caress you on all sides.  You can do little besides struggle against your furry bonds as the constant writhing of her tails sends shudders flying up and down your spine."
@@ -90,7 +88,7 @@ export class Kitsune extends Monster {
         );
         let damage: number = 5 + Kitsune.rand(20);
         damage = this.player.takeDamage(damage);
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
         this.game.dynStats("lus", 15 + this.player.sens / 10);
         this.combatRoundOver();
     }
@@ -165,9 +163,7 @@ export class Kitsune extends Monster {
         // Run:
         else if (select == 4) {
             this.outx(
-                '"<i>Tsk tsk, leaving so soon?</i>"  the kitsune says, popping up in front of you suddenly as you attempt to make your escape.  Before you can react, she draws a small circle on your chest with her fingertip, leaving behind a glowing rune made of crackling blue flames.  You try to run the other way, but your ' +
-                    this.player.legs() +
-                    " won't budge!\n\n\"<i>Sorry baby, you'll just have to stay and play~.</i>\" she says in a singsong tone, appearing in front of you again.  <b>The kitsune's spell prevents your escape!</b>  You'll have to tough it out until the spell wears off."
+                `"<i>Tsk tsk, leaving so soon?</i>"  the kitsune says, popping up in front of you suddenly as you attempt to make your escape.  Before you can react, she draws a small circle on your chest with her fingertip, leaving behind a glowing rune made of crackling blue flames.  You try to run the other way, but your ${this.player.legs()} won't budge!\n\n"<i>Sorry baby, you'll just have to stay and play~.</i>" she says in a singsong tone, appearing in front of you again.  <b>The kitsune's spell prevents your escape!</b>  You'll have to tough it out until the spell wears off.`
             );
             this.player.createStatusAffect(StatusAffects.Sealed, 4, 4, 0, 0);
         }
@@ -263,14 +259,13 @@ export class Kitsune extends Monster {
         this.a = "a ";
         this.short = "kitsune";
         this.imageName = "kitsune";
-        this.long =
-            "A kitsune stands in front of you, about five and a half feet tall.  She has a head of " +
+        this.long = `A kitsune stands in front of you, about five and a half feet tall.  She has a head of ${
             {
                 blonde: "long flaxen",
                 black: "lustrous, ass-length black",
                 red: "unkempt, shoulder-length reddish",
-            }[hairColor] +
-            " hair.  She appears mostly human, except for a pair of large, furry ears poking through her hair and six luxurious silky tails swaying in the air behind her.  Her robes are revealing but comfortable-looking, hugging her voluptuous curves and exposing large swaths of tattooed skin.  A layer of ornate tattoos covers patches of her exposed flesh, accentuating her feminine curves nicely, and each movement brings a pleasant jiggle from her plump backside and large breasts.";
+            }[hairColor]
+        } hair.  She appears mostly human, except for a pair of large, furry ears poking through her hair and six luxurious silky tails swaying in the air behind her.  Her robes are revealing but comfortable-looking, hugging her voluptuous curves and exposing large swaths of tattooed skin.  A layer of ornate tattoos covers patches of her exposed flesh, accentuating her feminine curves nicely, and each movement brings a pleasant jiggle from her plump backside and large breasts.`;
         // this.plural = false;
         if (hairColor == "red" && this.game.flags[kFLAGS.redheadIsFuta] == 1) {
             this.createCock(Kitsune.rand(13) + 14, 1.5 + Kitsune.rand(20) / 2, CockTypesEnum.HUMAN);

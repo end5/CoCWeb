@@ -95,17 +95,16 @@ export class MinotaurMob extends Monster {
         // (Medium damage taken)
         else if (damage <= 14) {
             this.outx(
-                "The powerful pheromones and scents hanging in the air around you make your body flush hotly.  Your " +
-                    this.player.nippleDescript(0) +
-                    "s grow harder",
+                `The powerful pheromones and scents hanging in the air around you make your body flush hotly.  Your ${this.player.nippleDescript(
+                    0
+                )}s grow harder`,
                 false
             );
             if (this.player.lust > 70)
                 this.outx(", though you didn't think such a thing was possible");
             else
                 this.outx(
-                    ", feeling like two bullets scraping along the inside of your " +
-                        this.player.armorName,
+                    `, feeling like two bullets scraping along the inside of your ${this.player.armorName}`,
                     false
                 );
             this.outx(
@@ -135,9 +134,7 @@ export class MinotaurMob extends Monster {
             }
             if (this.player.hasCock())
                 this.outx(
-                    "  " +
-                        this.SMultiCockDesc() +
-                        " twitches and dribbles its own pre-seed, but it doesn't smell anywhere near as good!",
+                    `  ${this.SMultiCockDesc()} twitches and dribbles its own pre-seed, but it doesn't smell anywhere near as good!`,
                     false
                 );
             this.outx(
@@ -162,11 +159,9 @@ export class MinotaurMob extends Monster {
     private minotaurGangGropeAttack(): void {
         this.game.spriteSelect(94);
         this.outx(
-            "Strong hands come from behind and slide under your equipment to squeeze your " +
-                this.chestDesc() +
-                ".  The brutish fingers immediately locate and pinch at your " +
-                this.nippleDescript(0) +
-                "s, the sensitive flesh on your chest lighting up with pain and pleasure.  You arch your back in surprise, utterly stunned by the violation of your body.  After a moment you regain your senses and twist away, but the damage is already done.  You're breathing a bit quicker now",
+            `Strong hands come from behind and slide under your equipment to squeeze your ${this.chestDesc()}.  The brutish fingers immediately locate and pinch at your ${this.nippleDescript(
+                0
+            )}s, the sensitive flesh on your chest lighting up with pain and pleasure.  You arch your back in surprise, utterly stunned by the violation of your body.  After a moment you regain your senses and twist away, but the damage is already done.  You're breathing a bit quicker now`,
             false
         );
         if (this.player.lust >= 80) this.outx(", and your pussy is absolutely soaking wet");
@@ -178,11 +173,7 @@ export class MinotaurMob extends Monster {
     private minotaurGangGangGropeAttack(): void {
         this.game.spriteSelect(94);
         this.outx(
-            "Before you can react, hands reach out from multiple angles and latch onto your body.  One pair squeezes at your " +
-                this.game.buttDescript() +
-                ", the strong grip massaging your cheeks with loving touches.  Another set of hands are sliding along your tummy, reaching down for, but not quite touching, the juicy delta below.  Palms encircle your " +
-                this.player.chestDesc() +
-                " and caress them, gently squeezing in spite of the brutish hands holding you.  You wriggle and squirm in the collective grip of the many minotaurs for a few moments, growing more and more turned on by the treatment.  At last, you shake out of their hold and stand free, panting hard from exertion and desire.",
+            `Before you can react, hands reach out from multiple angles and latch onto your body.  One pair squeezes at your ${this.game.buttDescript()}, the strong grip massaging your cheeks with loving touches.  Another set of hands are sliding along your tummy, reaching down for, but not quite touching, the juicy delta below.  Palms encircle your ${this.player.chestDesc()} and caress them, gently squeezing in spite of the brutish hands holding you.  You wriggle and squirm in the collective grip of the many minotaurs for a few moments, growing more and more turned on by the treatment.  At last, you shake out of their hold and stand free, panting hard from exertion and desire.`,
             false
         );
         this.game.dynStats("lus", 15 + this.player.sens / 10);
@@ -230,12 +221,13 @@ export class MinotaurMob extends Monster {
         if (this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] < 20) this.short = "minotaur gang";
         else this.short = "minotaur tribe";
         this.imageName = "minotaurmob";
-        this.long =
-            MinotaurMob.Num2Text(this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326]) +
-            " shaggy beastmen stand around you in a loose circle.  Their postures aren't exactly threatening.  If anything, they seem to be standing protectively around you, as if their presence would somehow shelter you from the rest of the mountain.  All of their features share a brotherly similarity, though there's still a fair bit of differences between your minotaur sons.  One of them is a head above the rest, a massive hulk of muscle so big he seems to dwarf the rest.  In stark contrast, a feminine minitaur keeps his distance in the rear." +
-            (this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 20
+        this.long = `${MinotaurMob.Num2Text(
+            this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326]
+        )} shaggy beastmen stand around you in a loose circle.  Their postures aren't exactly threatening.  If anything, they seem to be standing protectively around you, as if their presence would somehow shelter you from the rest of the mountain.  All of their features share a brotherly similarity, though there's still a fair bit of differences between your minotaur sons.  One of them is a head above the rest, a massive hulk of muscle so big he seems to dwarf the rest.  In stark contrast, a feminine minitaur keeps his distance in the rear.${
+            this.game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 20
                 ? "  The tribe constantly makes hoots and cat-calls, fully expecting to be fucking you soon."
-                : "");
+                : ""
+        }`;
         this.plural = true;
         this.pronoun1 = "they";
         this.pronoun2 = "them";

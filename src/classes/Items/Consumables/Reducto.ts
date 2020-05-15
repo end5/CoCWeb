@@ -76,16 +76,12 @@ export class Reducto extends Consumable {
     private reductoBalls(): void {
         this.clearOutput();
         this.outx(
-            "You smear the foul-smelling paste onto your " +
-                this.game.player.sackDescript() +
-                ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n"
+            `You smear the foul-smelling paste onto your ${this.game.player.sackDescript()}.  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n`
         );
         this.game.player.ballSize -= Utils.rand(4) + 2;
         if (this.game.player.ballSize < 1) this.game.player.ballSize = 1;
         this.outx(
-            "You feel your scrotum shift, shrinking down along with your " +
-                this.game.player.ballsDescriptLight() +
-                ".  Within a few seconds the paste has been totally absorbed and the shrinking stops."
+            `You feel your scrotum shift, shrinking down along with your ${this.game.player.ballsDescriptLight()}.  Within a few seconds the paste has been totally absorbed and the shrinking stops.`
         );
         this.game.dynStats("lib", -2, "lus", -10);
         this.game.inventory.itemGoNext();
@@ -94,11 +90,9 @@ export class Reducto extends Consumable {
     private reductoBreasts(): void {
         this.clearOutput();
         this.outx(
-            "You smear the foul-smelling ointment all over your " +
-                this.game.player.allBreastsDescript() +
-                ", covering them entirely as the paste begins to get absorbed into your " +
-                this.game.player.skinDesc +
-                ".\n"
+            `You smear the foul-smelling ointment all over your ${this.game.player.allBreastsDescript()}, covering them entirely as the paste begins to get absorbed into your ${
+                this.game.player.skinDesc
+            }.\n`
         );
         this.game.player.shrinkTits(true);
         if (Utils.rand(2) == 0 && this.game.player.biggestTitSize() >= 1) {
@@ -115,9 +109,7 @@ export class Reducto extends Consumable {
     private reductoButt(): void {
         this.clearOutput();
         this.outx(
-            "You smear the foul-smelling paste onto your " +
-                this.game.player.buttDescript() +
-                ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n"
+            `You smear the foul-smelling paste onto your ${this.game.player.buttDescript()}.  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n`
         );
         if (this.game.player.buttRating >= 15) {
             this.game.player.buttRating -= 3 + Math.floor(this.game.player.buttRating / 3);
@@ -127,17 +119,13 @@ export class Reducto extends Consumable {
         } else if (this.game.player.buttRating >= 10) {
             this.game.player.buttRating -= 3;
             this.outx(
-                "You feel much lighter as your " +
-                    this.game.player.buttDescript() +
-                    " jiggles slightly, adjusting to its smaller size."
+                `You feel much lighter as your ${this.game.player.buttDescript()} jiggles slightly, adjusting to its smaller size.`
             );
         } else {
             this.game.player.buttRating -= Utils.rand(3) + 1;
             if (this.game.player.buttRating < 1) this.game.player.buttRating = 1;
             this.outx(
-                "After a few seconds your " +
-                    this.game.player.buttDescript() +
-                    " has shrunk to a much smaller size!"
+                `After a few seconds your ${this.game.player.buttDescript()} has shrunk to a much smaller size!`
             );
         }
         this.game.dynStats("lib", -2, "lus", -10);
@@ -147,19 +135,15 @@ export class Reducto extends Consumable {
     private reductoClit(): void {
         this.clearOutput();
         this.outx(
-            "You carefully apply the paste to your " +
-                this.game.player.clitDescript() +
-                ", being very careful to avoid getting it on your " +
-                this.game.player.vaginaDescript(0) +
-                ".  It burns with heat as it begins to make its effects known...\n\n"
+            `You carefully apply the paste to your ${this.game.player.clitDescript()}, being very careful to avoid getting it on your ${this.game.player.vaginaDescript(
+                0
+            )}.  It burns with heat as it begins to make its effects known...\n\n`
         );
         this.game.player.clitLength /= 1.7;
         // Set clitlength down to 2 digits in length
         this.game.player.clitLength = Math.floor(this.game.player.clitLength * 100) / 100;
         this.outx(
-            "Your " +
-                this.game.player.clitDescript() +
-                " shrinks rapidly, dwindling down to almost half its old size before it finishes absorbing the paste."
+            `Your ${this.game.player.clitDescript()} shrinks rapidly, dwindling down to almost half its old size before it finishes absorbing the paste.`
         );
         this.game.dynStats("sen", 2, "lus", 10);
         this.game.inventory.itemGoNext();
@@ -169,39 +153,33 @@ export class Reducto extends Consumable {
         this.clearOutput();
         if (this.game.player.cocks[0].cockType == CockTypesEnum.BEE) {
             this.outx(
-                "The gel produces an odd effect when you rub it into your " +
-                    this.game.player.cockDescript(0) +
-                    ".  It actually seems to calm the need that usually fills you.  In fact, as your " +
-                    this.game.player.cockDescript(0) +
-                    " shrinks, its skin tone changes to be more in line with yours and the bee hair that covered it falls out.  <b>You now have a human cock!</b>"
+                `The gel produces an odd effect when you rub it into your ${this.game.player.cockDescript(
+                    0
+                )}.  It actually seems to calm the need that usually fills you.  In fact, as your ${this.game.player.cockDescript(
+                    0
+                )} shrinks, its skin tone changes to be more in line with yours and the bee hair that covered it falls out.  <b>You now have a human cock!</b>`
             );
             this.game.player.cocks[0].cockType = CockTypesEnum.HUMAN;
         } else {
             this.outx(
-                "You smear the repulsive smelling paste over your " +
-                    this.game.player.multiCockDescriptLight() +
-                    ".  It immediately begins to grow warm, almost uncomfortably so, as your " +
-                    this.game.player.multiCockDescriptLight() +
-                    " begins to shrink.\n\n"
+                `You smear the repulsive smelling paste over your ${this.game.player.multiCockDescriptLight()}.  It immediately begins to grow warm, almost uncomfortably so, as your ${this.game.player.multiCockDescriptLight()} begins to shrink.\n\n`
             );
             if (this.game.player.cocks.length == 1) {
                 this.outx(
-                    "Your " +
-                        this.game.player.cockDescript(0) +
-                        " twitches as it shrinks, disappearing steadily into your " +
-                        (this.game.player.hasSheath() ? "sheath" : "crotch") +
-                        " until it has lost about a third of its old size."
+                    `Your ${this.game.player.cockDescript(
+                        0
+                    )} twitches as it shrinks, disappearing steadily into your ${
+                        this.game.player.hasSheath() ? "sheath" : "crotch"
+                    } until it has lost about a third of its old size.`
                 );
                 this.game.player.cocks[0].cockLength *= 2 / 3;
                 this.game.player.cocks[0].cockThickness *= 2 / 3;
             } else {
                 // MULTI
                 this.outx(
-                    "Your " +
-                        this.game.player.multiCockDescriptLight() +
-                        " twitch and shrink, each member steadily disappearing into your " +
-                        (this.game.player.hasSheath() ? "sheath" : "crotch") +
-                        " until they've lost about a third of their old size."
+                    `Your ${this.game.player.multiCockDescriptLight()} twitch and shrink, each member steadily disappearing into your ${
+                        this.game.player.hasSheath() ? "sheath" : "crotch"
+                    } until they've lost about a third of their old size.`
                 );
                 for (const cock of this.game.player.cocks) {
                     cock.cockLength *= 2 / 3;
@@ -240,9 +218,9 @@ export class Reducto extends Consumable {
     private reductoNipples(): void {
         this.clearOutput();
         this.outx(
-            "You rub the paste evenly over your " +
-                this.game.player.nippleDescript(0) +
-                "s, being sure to cover them completely.\n\n"
+            `You rub the paste evenly over your ${this.game.player.nippleDescript(
+                0
+            )}s, being sure to cover them completely.\n\n`
         );
         // Shrink
         if (this.game.player.nippleLength / 2 < 0.25) {
@@ -250,9 +228,9 @@ export class Reducto extends Consumable {
             this.game.player.nippleLength = 0.25;
         } else {
             this.outx(
-                "Your " +
-                    this.game.player.nippleDescript(0) +
-                    "s get smaller and smaller, stopping when they are roughly half their previous size."
+                `Your ${this.game.player.nippleDescript(
+                    0
+                )}s get smaller and smaller, stopping when they are roughly half their previous size.`
             );
             this.game.player.nippleLength /= 2;
         }

@@ -31,9 +31,7 @@ export class RizzaRoot extends SimpleConsumable {
                 );
             else if (player.skinType > 2)
                 this.outx(
-                    "\n\nYour " +
-                        player.skinDesc +
-                        " itches incessantly, and as you scratch it shifts and changes, becoming normal human-like skin. <b>Your skin is once again normal!</b>"
+                    `\n\nYour ${player.skinDesc} itches incessantly, and as you scratch it shifts and changes, becoming normal human-like skin. <b>Your skin is once again normal!</b>`
                 );
             player.skinDesc = "skin";
             player.skinType = 0;
@@ -43,9 +41,7 @@ export class RizzaRoot extends SimpleConsumable {
             player.earType = 4;
             changes++;
             this.outx(
-                "\n\nA weird tingling runs through your scalp as your " +
-                    player.hairDescript() +
-                    " shifts slightly.  You reach up and your hand bumps against <b>your new pointed elfin ears</b>.  You bet they look cute!"
+                `\n\nA weird tingling runs through your scalp as your ${player.hairDescript()} shifts slightly.  You reach up and your hand bumps against <b>your new pointed elfin ears</b>.  You bet they look cute!`
             );
         }
         if (changes < changeLimit && player.tallness < 108) {

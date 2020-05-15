@@ -346,9 +346,7 @@ export class Lake extends BaseContent {
             kGAMECLASS.rathazul.encounterRathazul();
         } else {
             this.outx(
-                "OH SHIT! LAKE EXPLORE BE BROKED.  SELECT: " +
-                    select +
-                    ".  You should probably go to fenoxo.com and click the link to report a bug and tell Fen about it."
+                `OH SHIT! LAKE EXPLORE BE BROKED.  SELECT: ${select}.  You should probably go to fenoxo.com and click the link to report a bug and tell Fen about it.`
             );
         }
     }
@@ -437,9 +435,10 @@ export class Lake extends BaseContent {
             this.outx("\n\nYou can't help your eyebrow from quirking upwards.  What did she say?");
 
             this.outx(
-                "\n\n\"<i>Fish'n'fuck,</i>\" she replies, simply.  \"<i>I fish, you fuck. Ya ain't dense, are you " +
-                    this.player.mf("boy", "girl") +
-                    '?</i>"'
+                `\n\n"<i>Fish'n'fuck,</i>" she replies, simply.  "<i>I fish, you fuck. Ya ain't dense, are you ${this.player.mf(
+                    "boy",
+                    "girl"
+                )}?</i>"`
             );
 
             this.outx(
@@ -542,9 +541,9 @@ export class Lake extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou feel slender but powerful fingers wrap around your cock, followed shortly after by a pair of lips. They encircle your " +
-                this.player.cockHead(x) +
-                " and suck, creating a delightful tingling sensation that travels down your cock and into your core."
+            `\n\nYou feel slender but powerful fingers wrap around your cock, followed shortly after by a pair of lips. They encircle your ${this.player.cockHead(
+                x
+            )} and suck, creating a delightful tingling sensation that travels down your cock and into your core.`
         );
 
         this.outx("\n\n\"<i>Hey darlin', better get to lickin', we want this ");
@@ -556,9 +555,9 @@ export class Lake extends BaseContent {
         );
 
         this.outx(
-            "\n\nLikewise, her tongue and lips dance over your " +
-                this.cockDescript(x) +
-                " like a trio of dancers. They spin, twist, hop and tease, ensuring that no inch is left untouched."
+            `\n\nLikewise, her tongue and lips dance over your ${this.cockDescript(
+                x
+            )} like a trio of dancers. They spin, twist, hop and tease, ensuring that no inch is left untouched.`
         );
         this.outx("  She pays particularly close attention ");
 
@@ -585,11 +584,11 @@ export class Lake extends BaseContent {
         this.outx(" as they dribble down and form a small puddle between your [legs].");
 
         this.outx(
-            '\n\nAfter several minutes of this, Callu relinquishes her hold on your member and says, "<i>Mm, I reckon that\'ll work just fine.</i>"  She sits up and positions herself over your ' +
-                this.cockDescript(x) +
-                ".  Slowly she lowers herself, first taking your " +
-                this.player.cockHead(x) +
-                ".  Her cunt, slick and aroused as it is, offers no resistance despite its tightness.  Its walls pulse and quiver around you, as though the otter has complete control over it.  Inch by inch she sinks down further, "
+            `\n\nAfter several minutes of this, Callu relinquishes her hold on your member and says, "<i>Mm, I reckon that'll work just fine.</i>"  She sits up and positions herself over your ${this.cockDescript(
+                x
+            )}.  Slowly she lowers herself, first taking your ${this.player.cockHead(
+                x
+            )}.  Her cunt, slick and aroused as it is, offers no resistance despite its tightness.  Its walls pulse and quiver around you, as though the otter has complete control over it.  Inch by inch she sinks down further, `
         );
         // (dicks 10" or less)
         if (this.player.cocks[x].cockLength < 10) this.outx("until she comes to rest on your lap");
@@ -611,9 +610,9 @@ export class Lake extends BaseContent {
         );
 
         this.outx(
-            "\n\nSurprisingly, you can still feel a throbbing around your " +
-                this.cockDescript(x) +
-                ", reaffirming your belief that she can somehow control the muscles buried within her abdomen.  Even as you lay stock-still on the sandy beach, you feel the sensation of thrusting, as though you were actively fucking this little slut sitting atop you.  The feeling is extremely pleasant, not to mention a little hypnotic.  You reach your hands up to grasp Callu's hips lightly.  She doesn't seem to mind, though as you start squeezing her in time with your phantom thrusts a quick swat to your hand lets you know that you're crossing an unspoken boundary."
+            `\n\nSurprisingly, you can still feel a throbbing around your ${this.cockDescript(
+                x
+            )}, reaffirming your belief that she can somehow control the muscles buried within her abdomen.  Even as you lay stock-still on the sandy beach, you feel the sensation of thrusting, as though you were actively fucking this little slut sitting atop you.  The feeling is extremely pleasant, not to mention a little hypnotic.  You reach your hands up to grasp Callu's hips lightly.  She doesn't seem to mind, though as you start squeezing her in time with your phantom thrusts a quick swat to your hand lets you know that you're crossing an unspoken boundary.`
         );
 
         this.outx(
@@ -621,9 +620,9 @@ export class Lake extends BaseContent {
         );
 
         this.outx(
-            "\n\nA sudden, strange high-pitched sound suddenly rings out and your head bolts upright, only to see Callu reeling in a fish.  She looks it over, nods once to herself and tucks it away in an ice chest cleverly buried under the sand right next to the two of you.  Afterwards she stands up, letting your dick fall out of her.  Your " +
-                this.cockDescript(x) +
-                " feels strange, and uncomfortably naked somehow, especially as a cool wind blows over its saliva and femcum-covered skin."
+            `\n\nA sudden, strange high-pitched sound suddenly rings out and your head bolts upright, only to see Callu reeling in a fish.  She looks it over, nods once to herself and tucks it away in an ice chest cleverly buried under the sand right next to the two of you.  Afterwards she stands up, letting your dick fall out of her.  Your ${this.cockDescript(
+                x
+            )} feels strange, and uncomfortably naked somehow, especially as a cool wind blows over its saliva and femcum-covered skin.`
         );
 
         this.outx(

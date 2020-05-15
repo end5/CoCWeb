@@ -115,8 +115,7 @@ export class InputManager {
 
         // this.HideBindingPane();
 
-        this._mainView.mainText.innerHTML =
-            "<b>Hit the key that you want to bind " + funcName + " to!</b>";
+        this._mainView.mainText.innerHTML = `<b>Hit the key that you want to bind ${funcName} to!</b>`;
     }
 
     /**

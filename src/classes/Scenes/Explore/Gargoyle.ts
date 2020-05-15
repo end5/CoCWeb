@@ -145,9 +145,10 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            '\n\n"<i>I am your humble servant, Master.  Your tool.  Your plaything.  Your toy.  Ask, and I shall obey.</i>"  She seems to pause for a moment, and adds in an emotionless whisper, "<i>this one would be honored to pleasure Master, if ' +
-                this.player.mf("he", "she") +
-                ' desires.</i>"'
+            `\n\n"<i>I am your humble servant, Master.  Your tool.  Your plaything.  Your toy.  Ask, and I shall obey.</i>"  She seems to pause for a moment, and adds in an emotionless whisper, "<i>this one would be honored to pleasure Master, if ${this.player.mf(
+                "he",
+                "she"
+            )} desires.</i>"`
         );
 
         this.outx(
@@ -186,13 +187,9 @@ export class Gargoyle extends BaseContent {
 
         this.clearOutput();
         this.outx(
-            '"<i>' +
-                this.flags[kFLAGS.GAR_NAME] +
-                ',</i>" she purrs, "<i>' +
-                this.flags[kFLAGS.GAR_NAME] +
-                ", " +
-                this.flags[kFLAGS.GAR_NAME] +
-                '.  Master has interesting taste.</i>"'
+            `"<i>${this.flags[kFLAGS.GAR_NAME]},</i>" she purrs, "<i>${
+                this.flags[kFLAGS.GAR_NAME]
+            }, ${this.flags[kFLAGS.GAR_NAME]}.  Master has interesting taste.</i>"`
         );
 
         this.outx(
@@ -217,11 +214,11 @@ export class Gargoyle extends BaseContent {
             'If she\'s so intent on playing the servant, you suppose you can play along.  Summoning up your most commanding voice, you snap, "<i>ROLL OVER!</i>"'
         );
         this.outx(
-            "\n\nTo her credit, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " hesitates only for a moment before dropping to the floor and rolling belly-up, limbs upraised like a puppy in training.  Stifling a chuckle, you lean down and do just that, giving her a quick belly rub.  Her skin is cool to the touch, and impeccably smooth, as you might expect from a marble statue.  Seemingly pleased, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " scrambles back to a low crouch before you, awaiting your next command."
+            `\n\nTo her credit, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } hesitates only for a moment before dropping to the floor and rolling belly-up, limbs upraised like a puppy in training.  Stifling a chuckle, you lean down and do just that, giving her a quick belly rub.  Her skin is cool to the touch, and impeccably smooth, as you might expect from a marble statue.  Seemingly pleased, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } scrambles back to a low crouch before you, awaiting your next command.`
         );
         this.gargoyleStarterMenu();
     }
@@ -230,9 +227,9 @@ export class Gargoyle extends BaseContent {
     private carnalOrder(): void {
         this.clearOutput();
         this.outx(
-            "Well, well. " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " seems willing to follow any order you give, no matter how carnal, and you could not help but notice her rather <i>arousing</i> attributes earlier.  Smirking wickedly, you command your new gargoyle to finger herself."
+            `Well, well. ${
+                this.flags[kFLAGS.GAR_NAME]
+            } seems willing to follow any order you give, no matter how carnal, and you could not help but notice her rather <i>arousing</i> attributes earlier.  Smirking wickedly, you command your new gargoyle to finger herself.`
         );
 
         this.outx(
@@ -250,9 +247,9 @@ export class Gargoyle extends BaseContent {
     private firstGargoyleTalk(): void {
         this.clearOutput();
         this.outx(
-            "You decide against giving " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " an order for now.  Instead, you right a nearby toppled pew and seat yourself across from the crouching gargoyle, returning her intense stare with one of your own."
+            `You decide against giving ${
+                this.flags[kFLAGS.GAR_NAME]
+            } an order for now.  Instead, you right a nearby toppled pew and seat yourself across from the crouching gargoyle, returning her intense stare with one of your own.`
         );
         this.outx(
             '\n\n"<i>Why were you chained up?</i>" you finally ask, glancing at the shattered bonds on the ground.'
@@ -274,15 +271,15 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nSuddenly, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " breaks the stare and looks away, as if in shame.  \"<i>The demons' doom that even now blights Mareth took its toll here, too.  The people of a town no longer here believed they were safe under Marae's roof.  Protected.  Their faith was. . . Misplaced.</i>\""
+            `\n\nSuddenly, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } breaks the stare and looks away, as if in shame.  "<i>The demons' doom that even now blights Mareth took its toll here, too.  The people of a town no longer here believed they were safe under Marae's roof.  Protected.  Their faith was. . . Misplaced.</i>"`
         );
 
         this.outx(
-            "\n\nIt seems the events that led to the cathedral's destruction weigh heavily on " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s heart.  What do you do?"
+            `\n\nIt seems the events that led to the cathedral's destruction weigh heavily on ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s heart.  What do you do?`
         );
         // (Display options: [Berate] and [Reassure])
         this.menu();
@@ -299,9 +296,9 @@ export class Gargoyle extends BaseContent {
             "A pillar of rage boils up inside you.  You are [name], Champion of Ingnam, you tell her, rising to your feet, fists clenched.  Your duty is the same as hers was, to protect your home.  And she failed.  She let all those people down.  You tell her that she's worthless, disgusting, a failure."
         );
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.GAR_NAME] +
-                " recoils, flinching from you in expectation of assault. Instead, you spit on the ground and start for the exit.  You shout over your shoulder for her to stay here and wallow in her failure until you deign to use her."
+            `\n\n${
+                this.flags[kFLAGS.GAR_NAME]
+            } recoils, flinching from you in expectation of assault. Instead, you spit on the ground and start for the exit.  You shout over your shoulder for her to stay here and wallow in her failure until you deign to use her.`
         );
         this.outx(
             "\n\nYou storm out of the cathedral with a knot of disdain in your gut.  From behind you, you're not quite sure, but perhaps you heard \"<i>I couldn't leave here if I wanted to.</i>\""
@@ -319,9 +316,9 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' looks up at you, her ruby-red eyes shining in the dim hit of light in the cathedral.  You cup her cheek and give her a smile.  "<i>Come on, now,</i>" you reply, offering her a hand up.  "<i>Let\'s get out of here.</i>"'
+            `\n\n${
+                this.flags[kFLAGS.GAR_NAME]
+            } looks up at you, her ruby-red eyes shining in the dim hit of light in the cathedral.  You cup her cheek and give her a smile.  "<i>Come on, now,</i>" you reply, offering her a hand up.  "<i>Let's get out of here.</i>"`
         );
 
         this.outx(
@@ -333,9 +330,9 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou rustle " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s hair and assure her you will before you take your leave and return to camp."
+            `\n\nYou rustle ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s hair and assure her you will before you take your leave and return to camp.`
         );
         // (Return to camp, advance time 1 hour)
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -349,9 +346,9 @@ export class Gargoyle extends BaseContent {
             this.clearOutput();
             if (Gargoyle.rand(3) == 0)
                 this.outx(
-                    "You make your way back to the ruined Cathedral in the wastelands.  You notice some of the debris has been cleared away from the courtyard, and some of the windows have been boarded up.  " +
-                        this.flags[kFLAGS.GAR_NAME] +
-                        "'s obviously been working since you last left, trying to make the building more habitable.  With your path less obstructed than before, you enter."
+                    `You make your way back to the ruined Cathedral in the wastelands.  You notice some of the debris has been cleared away from the courtyard, and some of the windows have been boarded up.  ${
+                        this.flags[kFLAGS.GAR_NAME]
+                    }'s obviously been working since you last left, trying to make the building more habitable.  With your path less obstructed than before, you enter.`
                 );
             // [b]Player Returns to the Cathedral B[/b]
             else if (Gargoyle.rand(2) == 0)
@@ -372,9 +369,9 @@ export class Gargoyle extends BaseContent {
                 if (this.model.time.hours <= 9) this.outx("early morning");
                 else this.outx("late evening");
                 this.outx(
-                    " light streaming in from the broken windows, you see " +
-                        this.flags[kFLAGS.GAR_NAME] +
-                        " poking around some of the rubble, slowly but surely making efforts to repair the damage done to the Cathedral.  Seeing you, however, she immediately drops what she was doing and "
+                    ` light streaming in from the broken windows, you see ${
+                        this.flags[kFLAGS.GAR_NAME]
+                    } poking around some of the rubble, slowly but surely making efforts to repair the damage done to the Cathedral.  Seeing you, however, she immediately drops what she was doing and `
                 );
                 if (this.gargoyleConfidence() < 70) this.outx("kneels before you, head bowed low.");
                 else if (this.gargoyleConfidence() < 99)
@@ -384,9 +381,7 @@ export class Gargoyle extends BaseContent {
                         "with a sexy sway of her hips, approaches you and lays a small but tender kiss upon your cheek before bowing her head to you."
                     );
 
-                this.outx(
-                    '\n\n"<i>Master has returned,</i>" ' + this.flags[kFLAGS.GAR_NAME] + " says "
-                );
+                this.outx(`\n\n"<i>Master has returned,</i>" ${this.flags[kFLAGS.GAR_NAME]} says `);
                 if (this.gargoyleConfidence() > 50) this.outx("happily.");
                 else this.outx("solemnly.");
                 this.outx('  "<i>What would you have of me?</i>"');
@@ -408,9 +403,9 @@ export class Gargoyle extends BaseContent {
         else {
             if (!woken) {
                 this.outx(
-                    "\n\nWithin the ruins, you can see " +
-                        this.flags[kFLAGS.GAR_NAME] +
-                        " perched atop her pedestal in a low, predatory crouch, much as you found her.  Waving a hand in front of her eyes, you confirm she's in some sort of dormant mode.  A simple touch from her Master could revive her"
+                    `\n\nWithin the ruins, you can see ${
+                        this.flags[kFLAGS.GAR_NAME]
+                    } perched atop her pedestal in a low, predatory crouch, much as you found her.  Waving a hand in front of her eyes, you confirm she's in some sort of dormant mode.  A simple touch from her Master could revive her`
                 );
                 if (this.player.lust >= 33)
                     this.outx(
@@ -434,9 +429,9 @@ export class Gargoyle extends BaseContent {
     private gargoyleSexMenu(): void {
         this.clearOutput();
         this.outx(
-            "You approach " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " and tell her you have some... pressure that needs relieving."
+            `You approach ${
+                this.flags[kFLAGS.GAR_NAME]
+            } and tell her you have some... pressure that needs relieving.`
         );
         // (if Confidence =< 69:
         if (this.gargoyleConfidence() <= 69)
@@ -486,11 +481,11 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.GAR_NAME] +
-                " makes a sharp little gasp as you push your finger into her.  You slide into her with surprising ease, reveling in how <i>cold</i> her interior is.  She's like ice inside!  You start thrusting your finger faster, trying to get her warmed up a little as your prepare her anus.  " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " squirms and moans softly as you finger-fuck her bum, slowly changing from moans of discomfort to little gasps of pleasure."
+            `\n\n${
+                this.flags[kFLAGS.GAR_NAME]
+            } makes a sharp little gasp as you push your finger into her.  You slide into her with surprising ease, reveling in how <i>cold</i> her interior is.  She's like ice inside!  You start thrusting your finger faster, trying to get her warmed up a little as your prepare her anus.  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } squirms and moans softly as you finger-fuck her bum, slowly changing from moans of discomfort to little gasps of pleasure.`
         );
 
         this.outx(
@@ -500,17 +495,17 @@ export class Gargoyle extends BaseContent {
         // (if PC's first cock is 50 inches or bigger; Silly Mode only:)
         if (this.player.cocks[this.player.biggestCockIndex()].cockLength >= 50) {
             this.outx(
-                "\n\nKnowing full well the living statue doesn't have much in the way of anatomy, you continue to push more and more of monstrous manhood into " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    "'s asshole, watching with glee as her stomach begins to distend with the massive size of your prick.  Then her chest bulges, making her gasp in pain and clutch at her breast; that doesn't stop you, though.  With one mighty, massive thrust, you slam yourself up to the hilt in " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    "'s ass, and watch with glee as the head bursts out of her mouth, squirting pre and drool all over the floor.  The poor gargoyle makes a muffled scream and starts flailing around helplessly, trying to do <i>something</i> about the massive member now protruding from her mouth."
+                `\n\nKnowing full well the living statue doesn't have much in the way of anatomy, you continue to push more and more of monstrous manhood into ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }'s asshole, watching with glee as her stomach begins to distend with the massive size of your prick.  Then her chest bulges, making her gasp in pain and clutch at her breast; that doesn't stop you, though.  With one mighty, massive thrust, you slam yourself up to the hilt in ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }'s ass, and watch with glee as the head bursts out of her mouth, squirting pre and drool all over the floor.  The poor gargoyle makes a muffled scream and starts flailing around helplessly, trying to do <i>something</i> about the massive member now protruding from her mouth.`
             );
 
             this.outx(
-                "\n\nWith gusto, you start hammering away at your living cock-sleeve, using her entire body as one great big ona-hole to take your gargantuan girth.  Resigned to her fate, " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " slumps forward and grasps the head of your [cock biggest], giving you a handy through her mouth as her innards milk the rest of your shaft."
+                `\n\nWith gusto, you start hammering away at your living cock-sleeve, using her entire body as one great big ona-hole to take your gargantuan girth.  Resigned to her fate, ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } slumps forward and grasps the head of your [cock biggest], giving you a handy through her mouth as her innards milk the rest of your shaft.`
             );
 
             this.outx(
@@ -532,15 +527,15 @@ export class Gargoyle extends BaseContent {
             );
 
             this.outx(
-                "\n\nSoon, she's moaning again, this time all in pleasure, utterly enthralled in the assault you're laying onto her behind.  Her spiked tail and wings spasm and twitch wildly around you, a sure sign of her having given over to the pleasure of your rough buttfucking.  She's only able to keep up for a few minutes, however, before you feel her ass contracting hard upon your shaft, her muscles clamping down as her body prepares for a massive anal orgasm.  Pleased that your ministrations are close to bringing her to orgasm, you let yourself go, and quickly feel the tell-tale rush of seed up your shaft.  You hold out for just a moment more, until " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " cries out with pleasure, letting loose a scream that echoes to the rafters.  You cum, too, shooting your jism up her ass in thick spurts that only serve to provide you further lubrication, letting you pound her hard until you've shot off every last bit of cum."
+                `\n\nSoon, she's moaning again, this time all in pleasure, utterly enthralled in the assault you're laying onto her behind.  Her spiked tail and wings spasm and twitch wildly around you, a sure sign of her having given over to the pleasure of your rough buttfucking.  She's only able to keep up for a few minutes, however, before you feel her ass contracting hard upon your shaft, her muscles clamping down as her body prepares for a massive anal orgasm.  Pleased that your ministrations are close to bringing her to orgasm, you let yourself go, and quickly feel the tell-tale rush of seed up your shaft.  You hold out for just a moment more, until ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } cries out with pleasure, letting loose a scream that echoes to the rafters.  You cum, too, shooting your jism up her ass in thick spurts that only serve to provide you further lubrication, letting you pound her hard until you've shot off every last bit of cum.`
             );
 
             this.outx(
-                "\n\nUtterly sated, you gently push " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " off your cock.  She collapses on the floor, insensate, and soon is surrounded by a pool of your spooge leaking from her ass.  With a grin, you pat her on the head and collect your [armor] before heading back to camp."
+                `\n\nUtterly sated, you gently push ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } off your cock.  She collapses on the floor, insensate, and soon is surrounded by a pool of your spooge leaking from her ass.  With a grin, you pat her on the head and collect your [armor] before heading back to camp.`
             );
         }
         this.player.orgasm();
@@ -556,27 +551,27 @@ export class Gargoyle extends BaseContent {
         if (x < 0) x = this.player.smallestCockIndex();
 
         this.outx(
-            "You gently push " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " onto her back and spread her long, marble legs, giving you a clear view of her tight little pussy.  You brush your hand along her thighs, making her gasp with the sensation as your knuckles run along her smooth, cool flesh.  Your fingers come to her small clit, and you caress her tiny pleasure buzzer, eliciting a tiny moan from the gargoyle.  Grinning, you give it another flick; " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " squirms, trying to either enhance or end the sensation, you can't be sure.  You start to finger her clitty harder, creating little circles around it as you slip another finger into her tight passage."
+            `You gently push ${
+                this.flags[kFLAGS.GAR_NAME]
+            } onto her back and spread her long, marble legs, giving you a clear view of her tight little pussy.  You brush your hand along her thighs, making her gasp with the sensation as your knuckles run along her smooth, cool flesh.  Your fingers come to her small clit, and you caress her tiny pleasure buzzer, eliciting a tiny moan from the gargoyle.  Grinning, you give it another flick; ${
+                this.flags[kFLAGS.GAR_NAME]
+            } squirms, trying to either enhance or end the sensation, you can't be sure.  You start to finger her clitty harder, creating little circles around it as you slip another finger into her tight passage.`
         );
 
         this.outx(
-            "\n\nYou're rewarded for your efforts by " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' bucking her hips into your hands, moaning, "<i>M-Master... please...</i>"  Not done teasing her yet, you put your other hand on her flat belly and start to crawl it up, tickling her as you make your way toward her sizable breasts.  You glomp onto one of them, giving it a rough squeeze as you drive your finger into her a little further than before.  "<i>Masterrrrr...</i>" ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                " whines, reaching up to stroke your cheek.  Deciding you've teased the poor girl enough, you prepare for the main course."
+            `\n\nYou're rewarded for your efforts by ${
+                this.flags[kFLAGS.GAR_NAME]
+            } bucking her hips into your hands, moaning, "<i>M-Master... please...</i>"  Not done teasing her yet, you put your other hand on her flat belly and start to crawl it up, tickling her as you make your way toward her sizable breasts.  You glomp onto one of them, giving it a rough squeeze as you drive your finger into her a little further than before.  "<i>Masterrrrr...</i>" ${
+                this.flags[kFLAGS.GAR_NAME]
+            } whines, reaching up to stroke your cheek.  Deciding you've teased the poor girl enough, you prepare for the main course.`
         );
 
         this.outx(
-            "\n\nYou pull your " +
-                this.cockDescript(x) +
-                " from your [armor], letting it flop down atop her crotch.  Embarrassed, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " looks away as you rub the underside of your cock across her mons, spitting on it for a bit of extra lubricant.  You lean back, lining the tip of your cockhead with the gargoyle's tight slit, and press forward.  She lets out a sharp gasp as your cock presses against her, pushing it past her lips and finally slipping into her depths."
+            `\n\nYou pull your ${this.cockDescript(
+                x
+            )} from your [armor], letting it flop down atop her crotch.  Embarrassed, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } looks away as you rub the underside of your cock across her mons, spitting on it for a bit of extra lubricant.  You lean back, lining the tip of your cockhead with the gargoyle's tight slit, and press forward.  She lets out a sharp gasp as your cock presses against her, pushing it past her lips and finally slipping into her depths.`
         );
 
         this.outx(
@@ -588,33 +583,31 @@ export class Gargoyle extends BaseContent {
             "  Now that you're so deep in the gargoyle, you can see her visibly trembling, panting with pleasure.  Leaning down, you cup her cheek and plant a kiss on her thin lips.  She returns it eagerly, letting your probing tongue in to play with hers.  Mid-kiss, she wraps her arms and legs around you, holding you close against her heaving chest."
         );
         this.outx(
-            "\n\nYou start to thrust against her, making short, fast strokes in and out of her cool passage.  Soon, you're both moaning with pleasure as you change the tempo, switching to long and hard pumps that make the Cathedral echo with the sound of your hips slapping into " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s raised asscheeks.  She can only hold on to you tighter, biting her lower lip, eyes closed, as you start to well and truly pound her."
+            `\n\nYou start to thrust against her, making short, fast strokes in and out of her cool passage.  Soon, you're both moaning with pleasure as you change the tempo, switching to long and hard pumps that make the Cathedral echo with the sound of your hips slapping into ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s raised asscheeks.  She can only hold on to you tighter, biting her lower lip, eyes closed, as you start to well and truly pound her.`
         );
 
         this.outx(
-            "\n\nTo your dismay, you feel the tell-tale clenching in your gut, signaling your impending orgasm.  You clutch at " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s shoulders as you slam into her one last time, as far as you'll go, and shoot out the first of your load.  The sensation of your thick, hot jizz exploding into her sets the gargoyle off as well: she rolls her head back and lets out a soft scream, crunching down on your cock until you're afraid it's going to burst.  You bury your face in her neck and let her milk your cock for all it's worth, until your spooge threatens to overflow and pool on the ground."
+            `\n\nTo your dismay, you feel the tell-tale clenching in your gut, signaling your impending orgasm.  You clutch at ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s shoulders as you slam into her one last time, as far as you'll go, and shoot out the first of your load.  The sensation of your thick, hot jizz exploding into her sets the gargoyle off as well: she rolls her head back and lets out a soft scream, crunching down on your cock until you're afraid it's going to burst.  You bury your face in her neck and let her milk your cock for all it's worth, until your spooge threatens to overflow and pool on the ground.`
         );
 
         this.outx(
-            "\n\nThe two of you lay there for a while after, until your " +
-                this.cockDescript(x) +
-                " has deflated and you've both stopped panting from exertion and pleasure.  Giving her another kiss, you pull out of her cold depths – now significantly warmer thanks to your passion – and stuff your dick back into your armor."
+            `\n\nThe two of you lay there for a while after, until your ${this.cockDescript(
+                x
+            )} has deflated and you've both stopped panting from exertion and pleasure.  Giving her another kiss, you pull out of her cold depths – now significantly warmer thanks to your passion – and stuff your dick back into your armor.`
         );
         if (this.gargoyleConfidence() >= 70)
             this.outx(
-                "  Before you can stand, though, " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " hugs her arms tightly around you pulling you down on top of her and mashing your face between her soft tits."
+                `  Before you can stand, though, ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } hugs her arms tightly around you pulling you down on top of her and mashing your face between her soft tits.`
             );
 
         this.outx(
-            '\n\n"<i>Thank you, Master,</i>" she says, running a hand through your ' +
-                this.hairDescript() +
-                '.  "<i>That was wonderful.</i>"'
+            `\n\n"<i>Thank you, Master,</i>" she says, running a hand through your ${this.hairDescript()}.  "<i>That was wonderful.</i>"`
         );
 
         this.outx("\n\nYou give her a pat on the head and head on back to camp.");
@@ -627,27 +620,27 @@ export class Gargoyle extends BaseContent {
     private titFuckTheGargoyle(): void {
         this.clearOutput();
         this.outx(
-            "You situate yourself on a pew and spread your legs.  You pat your thighs, telling " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " to sit between your legs as you fish out your [cock biggest].  She approaches, hesitantly placing herself on the floor between your legs as you recline and stroke your shaft to full hardness.  You let the gargoyle sit there, watching you wide-eyed as you continue to masturbate.  Though you're only preparing for the main act, you can't help but enjoy the sensation of such a basic sexual act, made all the more pleasurable by the creature at your feet, her face barely an inch from your cock's head as you stroke yourself."
+            `You situate yourself on a pew and spread your legs.  You pat your thighs, telling ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to sit between your legs as you fish out your [cock biggest].  She approaches, hesitantly placing herself on the floor between your legs as you recline and stroke your shaft to full hardness.  You let the gargoyle sit there, watching you wide-eyed as you continue to masturbate.  Though you're only preparing for the main act, you can't help but enjoy the sensation of such a basic sexual act, made all the more pleasurable by the creature at your feet, her face barely an inch from your cock's head as you stroke yourself.`
         );
 
         this.outx(
-            "\n\nOnce you're satisfied at your cock's rigid hardness, you tell " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' to put those big, soft tits of hers to work.  "<i>M-Master?</i>" she gasps, making a cute little “o” with her mouth just an inch from your shaft.  You repeat the order, and giver her a thump on the nose with your cock for emphasis.  Shyly, she cups her D-cups and leans into you, squeezing your [cock biggest] between them.'
+            `\n\nOnce you're satisfied at your cock's rigid hardness, you tell ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to put those big, soft tits of hers to work.  "<i>M-Master?</i>" she gasps, making a cute little “o” with her mouth just an inch from your shaft.  You repeat the order, and giver her a thump on the nose with your cock for emphasis.  Shyly, she cups her D-cups and leans into you, squeezing your [cock biggest] between them.`
         );
 
         this.outx(
-            "\n\nWith a little encouragement, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " starts to rise and fall on her knees, dragging your shaft through her soft, cool mounds.  With a pleasured sigh, you reach down and stroke her hair, petting the girl as she begins to slowly but steadily titfuck you.  Still mumbling encouragements, you sit back and let the pleasure run over you, reveling in the incredible softness of her sizable chest massaging your cock, making steady progress toward stroking the cum out of you."
+            `\n\nWith a little encouragement, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } starts to rise and fall on her knees, dragging your shaft through her soft, cool mounds.  With a pleasured sigh, you reach down and stroke her hair, petting the girl as she begins to slowly but steadily titfuck you.  Still mumbling encouragements, you sit back and let the pleasure run over you, reveling in the incredible softness of her sizable chest massaging your cock, making steady progress toward stroking the cum out of you.`
         );
 
         this.outx(
-            "\n\nSuddenly, you feel an overwhelming wetness on your cock.  You look down, expecting to see pre flowing freely from you, but are instead greeted with the sight of " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " sliding the tip of your cock into her mouth, starting to fellate you on top of the tittyfuck.  You give her a few more words of encouragement and press her head down further onto your shaft, forcing her to take all that's left over from her breasts.  Despite her marble nature, her mouth is moist and surprisingly warm, and her long tongue is quick to wrap around your [cock biggest], wringing it in time with her chest-thrusts."
+            `\n\nSuddenly, you feel an overwhelming wetness on your cock.  You look down, expecting to see pre flowing freely from you, but are instead greeted with the sight of ${
+                this.flags[kFLAGS.GAR_NAME]
+            } sliding the tip of your cock into her mouth, starting to fellate you on top of the tittyfuck.  You give her a few more words of encouragement and press her head down further onto your shaft, forcing her to take all that's left over from her breasts.  Despite her marble nature, her mouth is moist and surprisingly warm, and her long tongue is quick to wrap around your [cock biggest], wringing it in time with her chest-thrusts.`
         );
 
         this.outx(
@@ -655,20 +648,20 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou grab " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " and push her down hard, slamming your cock down her throat as you cum.  A human would surely have choked with this maneuver – instead, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " squirms and flails, but you can see and feel her swallow your cum as it pours into her mouth, her throat massaging your flaring head, milking it harder than any tit-job ever could have.  Once her face has been ground into your pubes, you buck your hips sharply, thrusting into her throat as the last of your jizz spurts out and down her gizzard."
+            `\n\nYou grab ${
+                this.flags[kFLAGS.GAR_NAME]
+            } and push her down hard, slamming your cock down her throat as you cum.  A human would surely have choked with this maneuver – instead, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } squirms and flails, but you can see and feel her swallow your cum as it pours into her mouth, her throat massaging your flaring head, milking it harder than any tit-job ever could have.  Once her face has been ground into your pubes, you buck your hips sharply, thrusting into her throat as the last of your jizz spurts out and down her gizzard.`
         );
 
         this.outx(
-            "\n\nBy the time you're done, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s face is an utter mess, with white lines trickling down her cheeks.  You drag your [cock biggest] out of her with a wet POP, unleashing a dam of jizz that quickly leaks out of her agape mouth to stain her breasts and belly.  You chuckle at the sight"
+            `\n\nBy the time you're done, ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s face is an utter mess, with white lines trickling down her cheeks.  You drag your [cock biggest] out of her with a wet POP, unleashing a dam of jizz that quickly leaks out of her agape mouth to stain her breasts and belly.  You chuckle at the sight`
         );
         if (this.gargoyleConfidence() >= 70)
-            this.outx(", and to your surprise, so does " + this.flags[kFLAGS.GAR_NAME] + "");
+            this.outx(`, and to your surprise, so does ${this.flags[kFLAGS.GAR_NAME]}`);
         this.outx(".");
 
         this.outx('\n\n"<i>Was that... pleasing, Master?</i>" she asks innocently.');
@@ -686,29 +679,29 @@ export class Gargoyle extends BaseContent {
     private strapOnGargoyle(): void {
         this.clearOutput();
         this.outx(
-            "Giving a quick look around the ruins, you tell " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " to go find something that can bring you two a little <i>closer</i>."
+            `Giving a quick look around the ruins, you tell ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to go find something that can bring you two a little <i>closer</i>.`
         );
 
         this.outx(
-            '\n\n"<i>Closer?</i>" she asks, confused.  You roll your eyes and tell her to grab the holy rod sitting on the altar and put it through a leather strap.  She hesitates for a moment, but dutifully does as you ask, returning a moment later with the smooth, silver cylinder and a leather thong.  With a bit of work, you\'ve created a simple strap-on out of the holy rod, and instruct ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                " to put it on.  Now she's getting it!  The gargoyle slips into the leather, giving a cute little shiver as one end of the rod slips inside her.  Before she has a chance to recompose herself, you grab her rod-cock in one hand and give her a gentle push with the other."
+            `\n\n"<i>Closer?</i>" she asks, confused.  You roll your eyes and tell her to grab the holy rod sitting on the altar and put it through a leather strap.  She hesitates for a moment, but dutifully does as you ask, returning a moment later with the smooth, silver cylinder and a leather thong.  With a bit of work, you've created a simple strap-on out of the holy rod, and instruct ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to put it on.  Now she's getting it!  The gargoyle slips into the leather, giving a cute little shiver as one end of the rod slips inside her.  Before she has a chance to recompose herself, you grab her rod-cock in one hand and give her a gentle push with the other.`
         );
 
         this.outx(
-            "\n\nShe lays down with you atop her, straddling her waist as you stroke her rod, rewarded with sharp pleasure-gasps from the statue-girl.  You're hardly stimulating her pussy with these actions – she must be able to feel <i>through</i> the rod, as if it were a real cock.  Amused, you start to jerk the rod off, sliding it through your clenched fist with slow, measured strokes.  " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " squirms under the pleasurable attention, and is soon groping her big breasts and bucking her hips into your fists, shoving more of her rod-cock into your hand with each of your jerks."
+            `\n\nShe lays down with you atop her, straddling her waist as you stroke her rod, rewarded with sharp pleasure-gasps from the statue-girl.  You're hardly stimulating her pussy with these actions – she must be able to feel <i>through</i> the rod, as if it were a real cock.  Amused, you start to jerk the rod off, sliding it through your clenched fist with slow, measured strokes.  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } squirms under the pleasurable attention, and is soon groping her big breasts and bucking her hips into your fists, shoving more of her rod-cock into your hand with each of your jerks.`
         );
 
         this.outx(
-            '\n\n"<i>Well, someone\'s enjoying herself,</i>" you tease, and immediately ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                " freezes, her mouth agape with embarrassment.  With a little laugh, you give her a pat on the thigh and start to strip out of your [armor].  But you can't just leave " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " without SOME stimulation: "
+            `\n\n"<i>Well, someone's enjoying herself,</i>" you tease, and immediately ${
+                this.flags[kFLAGS.GAR_NAME]
+            } freezes, her mouth agape with embarrassment.  With a little laugh, you give her a pat on the thigh and start to strip out of your [armor].  But you can't just leave ${
+                this.flags[kFLAGS.GAR_NAME]
+            } without SOME stimulation: `
         );
         // (If Human Legs/Feet [ie, needs toes], as new paragraph):
         if (
@@ -718,9 +711,9 @@ export class Gargoyle extends BaseContent {
             !this.player.isNaga()
         )
             this.outx(
-                "you reveal your leg first, moving slowly and sensually, giving her a tantalizing look at your nethers before hiding them again.  With a wide grin, you creep your foot up to her thighs and gently run your heel along her smooth, tender flesh.  You come to the base of her rod, standing stark straight in the air like a flag-pole.  As you strip, you grasp her cock between your big and second toe, sliding them up the smooth shaft to the tip.  " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " moans, rolling her head back as you start to foot-fuck her cock, slowly putting more and more pressure on the steel member until it's pressed against her belly.  Your heel takes over, running quickly along the underside of her cock as you finally rid yourself of your [armor]."
+                `you reveal your leg first, moving slowly and sensually, giving her a tantalizing look at your nethers before hiding them again.  With a wide grin, you creep your foot up to her thighs and gently run your heel along her smooth, tender flesh.  You come to the base of her rod, standing stark straight in the air like a flag-pole.  As you strip, you grasp her cock between your big and second toe, sliding them up the smooth shaft to the tip.  ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } moans, rolling her head back as you start to foot-fuck her cock, slowly putting more and more pressure on the steel member until it's pressed against her belly.  Your heel takes over, running quickly along the underside of her cock as you finally rid yourself of your [armor].`
             );
         // Else, continued from above paragraph:
         else
@@ -730,67 +723,67 @@ export class Gargoyle extends BaseContent {
         // (From Both, if has Vagina:)
         if (this.player.hasVagina()) {
             this.outx(
-                "\n\n" +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " is panting with lust by the time you're done teasing and stripping for her. Now nude, you drop back to your knees over her holy rod-cock, straddling her hips and lining her up with your [vagina]. You lower yourself until the tip of the rod is pressing against your lower lips – you're pleasantly surprised by the warm tingling sensation that quickly spreads out around the point of contact, and your cunny responds immediately by letting loose a little trickle of moisture that beads down on the gargoyle's shaft."
+                `\n\n${
+                    this.flags[kFLAGS.GAR_NAME]
+                } is panting with lust by the time you're done teasing and stripping for her. Now nude, you drop back to your knees over her holy rod-cock, straddling her hips and lining her up with your [vagina]. You lower yourself until the tip of the rod is pressing against your lower lips – you're pleasantly surprised by the warm tingling sensation that quickly spreads out around the point of contact, and your cunny responds immediately by letting loose a little trickle of moisture that beads down on the gargoyle's shaft.`
             );
 
             this.outx(
-                "\n\nWithout further ado, you drop down on the strap-on, lowering yourself onto the tingling metal rod until your groin is pressed against " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    "'s.  She, all the while, is biting her lower lip and whimpering with pleasure as your [vagina] swallows her length. Once you've taken all she has to offer, you begin grinding your hips against her, rocking back and forth atop the gargoyle.  To your surprise, " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " grabs you, squeezing her long fingers into your [hips] and pulling you up, almost off her rod. You decide to go with it; you grab her tits for support and start to bounce on her cock."
+                `\n\nWithout further ado, you drop down on the strap-on, lowering yourself onto the tingling metal rod until your groin is pressed against ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }'s.  She, all the while, is biting her lower lip and whimpering with pleasure as your [vagina] swallows her length. Once you've taken all she has to offer, you begin grinding your hips against her, rocking back and forth atop the gargoyle.  To your surprise, ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } grabs you, squeezing her long fingers into your [hips] and pulling you up, almost off her rod. You decide to go with it; you grab her tits for support and start to bounce on her cock.`
             );
             this.player.cuntChange(15, true, true, false);
             this.outx(
-                "\n\nSoon, you're both moaning with pleasure, bucking and thrusting your hips to meet each other as you continue to ride " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    "'s strap-on.  However, you can feel the clenching sensation of a coming orgasm building in your gut, and if the strained panting of your partner is any indication, she isn't far behind.  You start bouncing faster, increasing to a wild pace as your cunt contracts on the metal rod inside it, trying to milk the fake cock as waves of pleasure roll over you.  You don't let up throughout the orgasm, quite literally riding it out until " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " lets out a high-pitched shriek and grabs your back, smashing your face into her tits and holding you tight as she, too cums.  Suddenly she's the one pounding you, thrusting her hips into your [vagina]."
+                `\n\nSoon, you're both moaning with pleasure, bucking and thrusting your hips to meet each other as you continue to ride ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }'s strap-on.  However, you can feel the clenching sensation of a coming orgasm building in your gut, and if the strained panting of your partner is any indication, she isn't far behind.  You start bouncing faster, increasing to a wild pace as your cunt contracts on the metal rod inside it, trying to milk the fake cock as waves of pleasure roll over you.  You don't let up throughout the orgasm, quite literally riding it out until ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } lets out a high-pitched shriek and grabs your back, smashing your face into her tits and holding you tight as she, too cums.  Suddenly she's the one pounding you, thrusting her hips into your [vagina].`
             );
 
             this.outx(
-                "\n\nBy the time she's done, both your hips and thighs are spattered with your sweat and girlcum. Still panting from the ordeal, you slowly drag yourself off of " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    "'s cock and roll onto your back, exhausted. By the time you've recovered enough to stumble to your feet, " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " is fast asleep beside you, snoring cutely, her metal cock still standing straight up in the air.  You give her a gentle pat on the thigh and get dressed, leaving the gargoyle snoozing peacefully as you head back to camp."
+                `\n\nBy the time she's done, both your hips and thighs are spattered with your sweat and girlcum. Still panting from the ordeal, you slowly drag yourself off of ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }'s cock and roll onto your back, exhausted. By the time you've recovered enough to stumble to your feet, ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } is fast asleep beside you, snoring cutely, her metal cock still standing straight up in the air.  You give her a gentle pat on the thigh and get dressed, leaving the gargoyle snoozing peacefully as you head back to camp.`
             );
         }
         // (ELSE, PC has no vagina:)
         else {
             this.outx(
-                "\n\n" +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " is panting with lust by the time you're done teasing and stripping for her. Now nude, you drop back to your knees over her holy rod-cock, straddling her hips and lining her up with your [asshole].  You lower yourself until the tip of the rod is pressing against your clenched backdoor – and you're pleasantly surprised by the warm tingling sensation that quickly spreads out around the point of contact. Your anus responds immediately by utterly relaxing, letting just the tip of " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    "'s strap-on slide inside you."
+                `\n\n${
+                    this.flags[kFLAGS.GAR_NAME]
+                } is panting with lust by the time you're done teasing and stripping for her. Now nude, you drop back to your knees over her holy rod-cock, straddling her hips and lining her up with your [asshole].  You lower yourself until the tip of the rod is pressing against your clenched backdoor – and you're pleasantly surprised by the warm tingling sensation that quickly spreads out around the point of contact. Your anus responds immediately by utterly relaxing, letting just the tip of ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }'s strap-on slide inside you.`
             );
 
             this.outx(
-                "\n\nWithout further ado, you drop down on the strap-on, lowering yourself onto the tingling metal rod until your ass is pressed against " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    "'s thighs.  She, all the while, is biting her lower lip and whimpering with pleasure as your ass swallows her length.  Once you've taken all she has to offer, you begin grinding your hips against her, rocking back and forth atop the gargoyle.  To your surprise, " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " grabs you, squeezing her long fingers into your [hips] and pulling you up, almost off her rod.  You decide to go with it; you grab her tits for support and start to bounce on her cock."
+                `\n\nWithout further ado, you drop down on the strap-on, lowering yourself onto the tingling metal rod until your ass is pressed against ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }'s thighs.  She, all the while, is biting her lower lip and whimpering with pleasure as your ass swallows her length.  Once you've taken all she has to offer, you begin grinding your hips against her, rocking back and forth atop the gargoyle.  To your surprise, ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } grabs you, squeezing her long fingers into your [hips] and pulling you up, almost off her rod.  You decide to go with it; you grab her tits for support and start to bounce on her cock.`
             );
             this.player.buttChange(15, true, true, false);
             this.outx(
-                "\n\nSoon, you're both moaning with pleasure, bucking and thrusting your hips to meet each other as you continue to ride " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    "'s strap-on.  However, you can feel the clenching sensation of a coming anal orgasm building in your gut, and if the strained panting of your partner is any indication, she isn't far behind.  You start bouncing faster, increasing to a wild pace as your hole contracts on the metal rod inside it, instinctively trying to force out the intruder, but only serving to let waves of pleasure roll over you.  You don't let up throughout the orgasm, quite literally riding it out until " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " lets out a high-pitched shriek and grabs your back, smashing your face into her tits and holding you tight as she, too cums.  Suddenly she's the one pounding you, thrusting her hips into your [asshole] until you've both cum, hard, clutching each other as orgasmic pleasure slams through you."
+                `\n\nSoon, you're both moaning with pleasure, bucking and thrusting your hips to meet each other as you continue to ride ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }'s strap-on.  However, you can feel the clenching sensation of a coming anal orgasm building in your gut, and if the strained panting of your partner is any indication, she isn't far behind.  You start bouncing faster, increasing to a wild pace as your hole contracts on the metal rod inside it, instinctively trying to force out the intruder, but only serving to let waves of pleasure roll over you.  You don't let up throughout the orgasm, quite literally riding it out until ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } lets out a high-pitched shriek and grabs your back, smashing your face into her tits and holding you tight as she, too cums.  Suddenly she's the one pounding you, thrusting her hips into your [asshole] until you've both cum, hard, clutching each other as orgasmic pleasure slams through you.`
             );
 
             this.outx(
-                "\n\nStill panting from the ordeal, you slowly drag yourself off of " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    "'s cock and roll onto your back, exhausted. By the time you've recovered enough to stumble to your feet, " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " is fast asleep beside you, snoring cutely, her metal cock still standing straight up in the air.  You give her a gentle pat on the thigh and get dressed, leaving the gargoyle snoozing peacefully as you head back to camp."
+                `\n\nStill panting from the ordeal, you slowly drag yourself off of ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }'s cock and roll onto your back, exhausted. By the time you've recovered enough to stumble to your feet, ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } is fast asleep beside you, snoring cutely, her metal cock still standing straight up in the air.  You give her a gentle pat on the thigh and get dressed, leaving the gargoyle snoozing peacefully as you head back to camp.`
             );
         }
         this.player.orgasm();
@@ -803,9 +796,9 @@ export class Gargoyle extends BaseContent {
     private tailFuckGargoyleScene(): void {
         this.clearOutput();
         this.outx(
-            "Without warning, you grab " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s thick, spiked tail and give it a playful yank.  She lets out a surprised \"<i>EEP,</i>\" but settles down after you tell her to cop a squat and stiffen it up.  Obediently, she assumes a low crouch and stiffens her tail into a “U” shape between her legs, its tip pointed straight up between your belly and her face.  You ruffle her hair and strip out of your [armor], soon standing nude before the gargoyle.  At a command from you, the brutal stone spikes protruding from her tail's tip retract, leaving the appendage a smooth, cool surface."
+            `Without warning, you grab ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s thick, spiked tail and give it a playful yank.  She lets out a surprised "<i>EEP,</i>" but settles down after you tell her to cop a squat and stiffen it up.  Obediently, she assumes a low crouch and stiffens her tail into a “U” shape between her legs, its tip pointed straight up between your belly and her face.  You ruffle her hair and strip out of your [armor], soon standing nude before the gargoyle.  At a command from you, the brutal stone spikes protruding from her tail's tip retract, leaving the appendage a smooth, cool surface.`
         );
 
         this.outx(
@@ -817,9 +810,9 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nNow firmly inside your depths, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " begins to wiggle her tail inside you, slithering a few inches in and out of your [vagina].  Encouraging her, you grasp her shoulders for support and push your cunt a little closer to her face.  Taking the hint, she snakes out her long tongue and gives your clitty a little flick, eliciting an immediate gasp of pleasure from you.  She's soon engaging in a double-assault on you, suckling on your [clit] one moment, and ramming her tail into your [vagina] the next."
+            `\n\nNow firmly inside your depths, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } begins to wiggle her tail inside you, slithering a few inches in and out of your [vagina].  Encouraging her, you grasp her shoulders for support and push your cunt a little closer to her face.  Taking the hint, she snakes out her long tongue and gives your clitty a little flick, eliciting an immediate gasp of pleasure from you.  She's soon engaging in a double-assault on you, suckling on your [clit] one moment, and ramming her tail into your [vagina] the next.`
         );
 
         this.outx(
@@ -827,15 +820,15 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nBefore you can get used to the anal intruder, your eyes have rolled back in your head with pleasure.  Girlcum spurts from your cunt, splattering " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s face with your juices as you cum.  Your holes squeeze down on her appendages, trapping them inside you as your ride out the orgasm, bouncing on her rigid, rapidly-moistening tail until your body settles down."
+            `\n\nBefore you can get used to the anal intruder, your eyes have rolled back in your head with pleasure.  Girlcum spurts from your cunt, splattering ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s face with your juices as you cum.  Your holes squeeze down on her appendages, trapping them inside you as your ride out the orgasm, bouncing on her rigid, rapidly-moistening tail until your body settles down.`
         );
 
         this.outx(
-            "\n\nWhen you've finished, you carefully extricate yourself from the gargoyle's tail and, a bit bow-legged, gather up your [armor].  By the time you're dressed, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s cleaned herself off and is eagerly awaiting some token of your approval."
+            `\n\nWhen you've finished, you carefully extricate yourself from the gargoyle's tail and, a bit bow-legged, gather up your [armor].  By the time you're dressed, ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s cleaned herself off and is eagerly awaiting some token of your approval.`
         );
 
         this.outx('\n\n"<i>Was Master satisfied?</i>" she asks');
@@ -860,23 +853,23 @@ export class Gargoyle extends BaseContent {
             "\n\nTo your surprise, the gargoyle does not even respond to your tongue as you slide it inside her.  She's completely motionless – even the walls of her love canal are still as you spread your saliva around inside her.  After a few minutes of preparation, you grab your [cock biggest] and slide on home.  Despite her natural tightness, it's relatively easy going thanks to the liberal lubrication you applied moments ago, and soon you're buried up to the hilt inside the gargoyle.  You give a few quick thrusts into her tight, smooth hole that quickly build up to a fast, hard fucking."
         );
         this.outx(
-            '\n\nBut you aren\'t quite satisfied just pounding an insensate hole.  Knowing that you have the power to "revive" ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                " through touch, you decide to put this to rather devious use.  You reach around her body and grab one of her breasts, giving it a few hard squeezes until you hear the faintest gasp from the little gargoyle.  You release it immediately.  Your hand switches down to her taut ass and gives it a loud swat.  You repeat the action twice, and finally feel her cunt contract – just a bit – around your shaft.  You switch your attentions down to her thighs, gently running your hands along both expanses of gray skin beneath your thrusting [cock biggest].  You feel her shudder, ever so slightly, but just as she's on the verge of reviving, you pull back your hands."
+            `\n\nBut you aren't quite satisfied just pounding an insensate hole.  Knowing that you have the power to "revive" ${
+                this.flags[kFLAGS.GAR_NAME]
+            } through touch, you decide to put this to rather devious use.  You reach around her body and grab one of her breasts, giving it a few hard squeezes until you hear the faintest gasp from the little gargoyle.  You release it immediately.  Your hand switches down to her taut ass and gives it a loud swat.  You repeat the action twice, and finally feel her cunt contract – just a bit – around your shaft.  You switch your attentions down to her thighs, gently running your hands along both expanses of gray skin beneath your thrusting [cock biggest].  You feel her shudder, ever so slightly, but just as she's on the verge of reviving, you pull back your hands.`
         );
 
         this.outx(
-            "\n\nYou return to thrusting into her, going fast and furious as your pleasure climbs steadily towards climax.  Only when you're bursting over the threshold of orgasm do you lay your hands on " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " again, grabbing her ass and giving one last massive thrust into her, shoving your [cock biggest] in to the hilt.  You cum inside her just as she awakens, moaning lustily into her ear as spunk drizzles out around your member."
+            `\n\nYou return to thrusting into her, going fast and furious as your pleasure climbs steadily towards climax.  Only when you're bursting over the threshold of orgasm do you lay your hands on ${
+                this.flags[kFLAGS.GAR_NAME]
+            } again, grabbing her ass and giving one last massive thrust into her, shoving your [cock biggest] in to the hilt.  You cum inside her just as she awakens, moaning lustily into her ear as spunk drizzles out around your member.`
         );
 
         this.outx(
-            '\n\n"<i>M-Master?</i>" ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                " gasps, giving a full-body shudder as you slowly pull out from inside her.  Your cum drools out of her snatch and pools beneath her.  Playfully, you jam your fingers up between her legs, damming your sperm inside her.  To your glee, this simple act sends " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " right over the edge: convulsing, she collapses on the floor with a heavy THUNK!"
+            `\n\n"<i>M-Master?</i>" ${
+                this.flags[kFLAGS.GAR_NAME]
+            } gasps, giving a full-body shudder as you slowly pull out from inside her.  Your cum drools out of her snatch and pools beneath her.  Playfully, you jam your fingers up between her legs, damming your sperm inside her.  To your glee, this simple act sends ${
+                this.flags[kFLAGS.GAR_NAME]
+            } right over the edge: convulsing, she collapses on the floor with a heavy THUNK!`
         );
 
         this.outx(
@@ -899,23 +892,23 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nCompletely insensate, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " remains in her low crouch ahead of you, not so much as breathing.  Still, she stretches you nice and wide as your bounce on her tail, spearing yourself over and over again on her smooth appendage.  By way of reward, you reach forward and slip a few fingers into her cool, tight cunny.  She can't respond as such, but you're confident she can still feel you sliding your fingers inside her, pushing in for each bounce you make atop her meaty tail."
+            `\n\nCompletely insensate, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } remains in her low crouch ahead of you, not so much as breathing.  Still, she stretches you nice and wide as your bounce on her tail, spearing yourself over and over again on her smooth appendage.  By way of reward, you reach forward and slip a few fingers into her cool, tight cunny.  She can't respond as such, but you're confident she can still feel you sliding your fingers inside her, pushing in for each bounce you make atop her meaty tail.`
         );
 
         this.outx(
-            "\n\nYou're pleased to note that the gargoyle's tail is now dark and wet thanks to the liberal streams of lubricant pouring from your [vagina].  Now you're practically sliding on " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s tail, riding toward inevitable orgasm.  You cum at the apex of a bounce, slamming yourself down hard upon " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s tail until her tip breaches the entrance to your womb.  You scream in ecstasy, squirting your girl-cum freely onto the gargoyle's tail, back, and legs until you're completely and utterly spent."
+            `\n\nYou're pleased to note that the gargoyle's tail is now dark and wet thanks to the liberal streams of lubricant pouring from your [vagina].  Now you're practically sliding on ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s tail, riding toward inevitable orgasm.  You cum at the apex of a bounce, slamming yourself down hard upon ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s tail until her tip breaches the entrance to your womb.  You scream in ecstasy, squirting your girl-cum freely onto the gargoyle's tail, back, and legs until you're completely and utterly spent.`
         );
 
         this.outx(
-            "\n\nContented, you spend a few minutes recovering before slowly dressing back up into your [armor]. You head on out, making sure to give " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " a little pat on the head on your way out."
+            `\n\nContented, you spend a few minutes recovering before slowly dressing back up into your [armor]. You head on out, making sure to give ${
+                this.flags[kFLAGS.GAR_NAME]
+            } a little pat on the head on your way out.`
         );
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -927,9 +920,9 @@ export class Gargoyle extends BaseContent {
         if (this.flags[kFLAGS.RITUAL_INTRO] == 0) {
             this.flags[kFLAGS.RITUAL_INTRO] = 1;
             this.outx(
-                "You note that the sanctuary's altar has been cleared of rubble, and a number of candles have been lit upon it. Resting atop the flat stone surface is a simple iron bowl filled with what appears to be water. Curious, you ask " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " what she's been up to."
+                `You note that the sanctuary's altar has been cleared of rubble, and a number of candles have been lit upon it. Resting atop the flat stone surface is a simple iron bowl filled with what appears to be water. Curious, you ask ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } what she's been up to.`
             );
             this.outx(
                 '\n\n"<i>Long before Master came, I watched over the parishioners and their faith. They performed strange sacraments and rituals to purify the body and dispel evils. '
@@ -942,9 +935,9 @@ export class Gargoyle extends BaseContent {
         // [b]Ritual (Any after First)[/b]
         else {
             this.outx(
-                "You walk to the church's alter, shortly followed by " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    ".  You ask her if she's still able to perform the church's Rituals, to which she replies \"<i>Of course, Master.  Do you have need of one?</i>\""
+                `You walk to the church's alter, shortly followed by ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }.  You ask her if she's still able to perform the church's Rituals, to which she replies "<i>Of course, Master.  Do you have need of one?</i>"`
             );
         }
         // (Display Options: [Body] [Mind] [Banish (only with Exgartuan or Worms)] and [Leave])
@@ -964,25 +957,25 @@ export class Gargoyle extends BaseContent {
     private bodyRitual(): void {
         this.clearOutput();
         this.outx(
-            "You tell " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " that you could stand to reverse some of the corruption that has affected your body.  With an solemn nod, she takes you to a side alcove near the altar and instructs you to spread your arms and legs.  Hesitantly, you do so, and from the floor and ceiling " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " produces leather straps with rough looped straps.  Before you can react, she binds your arms and legs, spreading you eagle against the cold stone wall."
+            `You tell ${
+                this.flags[kFLAGS.GAR_NAME]
+            } that you could stand to reverse some of the corruption that has affected your body.  With an solemn nod, she takes you to a side alcove near the altar and instructs you to spread your arms and legs.  Hesitantly, you do so, and from the floor and ceiling ${
+                this.flags[kFLAGS.GAR_NAME]
+            } produces leather straps with rough looped straps.  Before you can react, she binds your arms and legs, spreading you eagle against the cold stone wall.`
         );
 
         this.outx(
-            '\n\n"<i>With pain comes purity,</i>" ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' says, so quietly you can barely hear her.  "<i>Prepare yourself, Master,</i>" she adds, and your heart nearly skips a beat when you hear the crack of a whip behind you.  Oh, shit, this is going to hu-CRACK!  You see stars as white-hot pain arcs through your body, making you scream into the wall.  You can feel the burning streak left across your back by the bullwhip, throbbing mercilessly in the moments before CRACK!  She hits you again, throwing you forward against your bonds with the force of the blow.'
+            `\n\n"<i>With pain comes purity,</i>" ${
+                this.flags[kFLAGS.GAR_NAME]
+            } says, so quietly you can barely hear her.  "<i>Prepare yourself, Master,</i>" she adds, and your heart nearly skips a beat when you hear the crack of a whip behind you.  Oh, shit, this is going to hu-CRACK!  You see stars as white-hot pain arcs through your body, making you scream into the wall.  You can feel the burning streak left across your back by the bullwhip, throbbing mercilessly in the moments before CRACK!  She hits you again, throwing you forward against your bonds with the force of the blow.`
         );
 
         this.outx(
-            "\n\nOver your ragged, pained breathing, you can just hear " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' chanting: "<i>With pain comes purity... CRACK!  With agony comes enlightenment... CRACK!  Through torment comes holiness... CRACK!</i>"  The last crack of the whip leaves you groaning, breathless, sagging in your bonds. Somehow, though, you do feel... cleaner?  Like a weight was just lifted from your heart.  And you know you\'re going to be thicker-skinned after that!  Quietly, reservedly, ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                " releases you from your bonds, and you stagger into her waiting arms.  She helps you over to the altar and lays you down, letting you rest after your ordeal.  She stands over you, watching you pant and gasp.  You suppose you could get some vengeance for her brutality – or you could be kind.  What do you do?"
+            `\n\nOver your ragged, pained breathing, you can just hear ${
+                this.flags[kFLAGS.GAR_NAME]
+            } chanting: "<i>With pain comes purity... CRACK!  With agony comes enlightenment... CRACK!  Through torment comes holiness... CRACK!</i>"  The last crack of the whip leaves you groaning, breathless, sagging in your bonds. Somehow, though, you do feel... cleaner?  Like a weight was just lifted from your heart.  And you know you're going to be thicker-skinned after that!  Quietly, reservedly, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } releases you from your bonds, and you stagger into her waiting arms.  She helps you over to the altar and lays you down, letting you rest after your ordeal.  She stands over you, watching you pant and gasp.  You suppose you could get some vengeance for her brutality – or you could be kind.  What do you do?`
         );
         this.dynStats("lib", -0.5, "sen", -2);
         this.player.takeDamage(Math.round(this.player.maxHP() / 2));
@@ -997,9 +990,9 @@ export class Gargoyle extends BaseContent {
     private noReactionToBodyRitual(): void {
         this.clearOutput();
         this.outx(
-            "You simply lie still and try to recover from " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s \"gentle ministrations.\"  After a few minutes, you've caught your breath and, gathering your possessions, make your way out of the Cathedral without another word.  Damn, you're sore."
+            `You simply lie still and try to recover from ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s "gentle ministrations."  After a few minutes, you've caught your breath and, gathering your possessions, make your way out of the Cathedral without another word.  Damn, you're sore.`
         );
         this.doNext(this.camp.returnToCampUseOneHour);
         // (Return PC to camp, advance time 1 hour)
@@ -1010,9 +1003,9 @@ export class Gargoyle extends BaseContent {
     private gargoyleRevengeAfterBodyRitual(): void {
         this.clearOutput();
         this.outx(
-            "Seeing " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " just standing over you, gloating, causes you to sneer and lash out.  You strike her dead-center in the chest, throwing her back against the tree-idol at the church's head.  She slumps to the floor, looking meekly away from you.  While she's stunned, you gather your [armor] and stagger out of the Cathedral."
+            `Seeing ${
+                this.flags[kFLAGS.GAR_NAME]
+            } just standing over you, gloating, causes you to sneer and lash out.  You strike her dead-center in the chest, throwing her back against the tree-idol at the church's head.  She slumps to the floor, looking meekly away from you.  While she's stunned, you gather your [armor] and stagger out of the Cathedral.`
         );
         // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(-5);
@@ -1024,9 +1017,9 @@ export class Gargoyle extends BaseContent {
     private gargoyleCuddleAfterBodyRitual(): void {
         this.clearOutput();
         this.outx(
-            "Despite the pain she's caused you, you know " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " did it at your command – and hell, it could only have helped you.  Before she can react, you reach up and pull the gray gargoyle down into a kiss, pressing firmly against her soft, cold lips.  She makes a cute little gasp, but soon relaxes into your hold, allowing you to shift her weight so that she's nearly lying atop you.  You sigh contentedly and wrap your gargoyle in a tight hug, holding her close for the few minutes it takes you to recover.  When you're feeling up to it, you rustle her hair and thank her for her... gentle ministrations.  If she could blush, you're sure she would be as she looks upon you with gleaming fiery eyes.  You gather your belongings and exit the Cathedral."
+            `Despite the pain she's caused you, you know ${
+                this.flags[kFLAGS.GAR_NAME]
+            } did it at your command – and hell, it could only have helped you.  Before she can react, you reach up and pull the gray gargoyle down into a kiss, pressing firmly against her soft, cold lips.  She makes a cute little gasp, but soon relaxes into your hold, allowing you to shift her weight so that she's nearly lying atop you.  You sigh contentedly and wrap your gargoyle in a tight hug, holding her close for the few minutes it takes you to recover.  When you're feeling up to it, you rustle her hair and thank her for her... gentle ministrations.  If she could blush, you're sure she would be as she looks upon you with gleaming fiery eyes.  You gather your belongings and exit the Cathedral.`
         );
         // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(5);
@@ -1038,31 +1031,34 @@ export class Gargoyle extends BaseContent {
     private mindGargoyleRitual(): void {
         this.clearOutput();
         this.outx(
-            "You tell " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " that you've been plagued with dirty thoughts, and would like to undo some of the corruption that's spread to your mind.  " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " nods respectfully and tells you to kneel before the altar. You do so, assuming a low, supplicating stance before the tree-idol at the Cathedral's head as the gargoyle picks up the bowl of water and raises it on high."
+            `You tell ${
+                this.flags[kFLAGS.GAR_NAME]
+            } that you've been plagued with dirty thoughts, and would like to undo some of the corruption that's spread to your mind.  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } nods respectfully and tells you to kneel before the altar. You do so, assuming a low, supplicating stance before the tree-idol at the Cathedral's head as the gargoyle picks up the bowl of water and raises it on high.`
         );
         this.outx(
-            '\n\n"<i>Blessed is ' +
-                this.player.mf("he", "she") +
-                ' who seeks purity,</i>" she says, closing her eyes and bowing her head, "<i>Blessed is ' +
-                this.player.mf("he", "she") +
-                " who seeks wisdom; and blessed is " +
-                this.player.mf("he", "she") +
-                ' who lusts after holiness and virtue before pleasures of the flesh.</i>"'
+            `\n\n"<i>Blessed is ${this.player.mf(
+                "he",
+                "she"
+            )} who seeks purity,</i>" she says, closing her eyes and bowing her head, "<i>Blessed is ${this.player.mf(
+                "he",
+                "she"
+            )} who seeks wisdom; and blessed is ${this.player.mf(
+                "he",
+                "she"
+            )} who lusts after holiness and virtue before pleasures of the flesh.</i>"`
         );
         this.outx(
-            "  " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' brings the invocation to a quiet close, and rests the bowl back upon the altar. "<i>Drink of this, Master,</i>" she says, offering you the bowl, "<i>and be healed of mind.</i>"'
+            `  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } brings the invocation to a quiet close, and rests the bowl back upon the altar. "<i>Drink of this, Master,</i>" she says, offering you the bowl, "<i>and be healed of mind.</i>"`
         );
 
         this.outx(
-            "\n\nYou do so, taking a long draught of the holy water.  By the time you've set the bowl down, you feel light-headed, as if a fog has receded from your mind.  You gasp happily, able to think more clearly than you have in days.  You thank " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ", give her a pat on the head, and head back to camp with a skip in your step."
+            `\n\nYou do so, taking a long draught of the holy water.  By the time you've set the bowl down, you feel light-headed, as if a fog has receded from your mind.  You gasp happily, able to think more clearly than you have in days.  You thank ${
+                this.flags[kFLAGS.GAR_NAME]
+            }, give her a pat on the head, and head back to camp with a skip in your step.`
         );
         this.dynStats("lus", -10, "cor", -0.5);
         // player.takeDamage(Math.round(player.maxHP()/2));
@@ -1075,9 +1071,9 @@ export class Gargoyle extends BaseContent {
     private banishmentGargoyleRitual(): void {
         this.clearOutput();
         this.outx(
-            "Talking about " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s rituals, you explain that you seem to have picked up "
+            `Talking about ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s rituals, you explain that you seem to have picked up `
         );
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0) this.outx("a hitchhiker");
         else this.outx("some hitchhikerss");
@@ -1089,16 +1085,16 @@ export class Gargoyle extends BaseContent {
         this.outx(" out of your system.");
 
         this.outx(
-            "\n\nFrom beneath the altar, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' withdraws what looks like a perfectly cylindrical dildo, covered with dozens of dark, dimly-glowing blue runes.  Slowly, she makes her way around you and kneels behind your [butt].  "<i>Take a deep breath, Master, and relax yourself.  It will be better this way.</i>"'
+            `\n\nFrom beneath the altar, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } withdraws what looks like a perfectly cylindrical dildo, covered with dozens of dark, dimly-glowing blue runes.  Slowly, she makes her way around you and kneels behind your [butt].  "<i>Take a deep breath, Master, and relax yourself.  It will be better this way.</i>"`
         );
 
         this.outx(
             "\n\nYou try your best to relax yourself, though as soon as you make any headway, you feel an intense, invasive pressure against your [asshole].  You take a deep breath, grit your teeth, and force yourself to relax.  The smooth holy rod slips in, forcing its way inexorably into your anus.  You feel a burning sensation begin to spread throughout your body, creeping outward from your asshole like little tendrils of fire."
         );
 
-        this.outx('\n\n"<i>Do not worry, Master,</i>" ' + this.flags[kFLAGS.GAR_NAME] + " says");
+        this.outx(`\n\n"<i>Do not worry, Master,</i>" ${this.flags[kFLAGS.GAR_NAME]} says`);
         if (this.gargoyleConfidence() >= 50)
             this.outx(" soothingly, using her free hand to stroke your thighs");
         this.outx('.  "<i>The pain is necessary.  Everything will be all right.</i>"');
@@ -1124,18 +1120,18 @@ export class Gargoyle extends BaseContent {
             this.outx("creature within you has");
         else this.outx("creatures within you have");
         this.outx(
-            " been absorbed and purged by the rod, which " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " proceeds to chuck out a window.  Hopefully she has more, in case you ever get "
+            ` been absorbed and purged by the rod, which ${
+                this.flags[kFLAGS.GAR_NAME]
+            } proceeds to chuck out a window.  Hopefully she has more, in case you ever get `
         );
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0) this.outx("possessed");
         else this.outx("infested");
         this.outx(" again.");
 
         this.outx(
-            "\n\nStill panting and gasping from your ordeal, you notice " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " looming over you, smiling.  You could be a dick for all that pain she caused you, or thank her for helping you."
+            `\n\nStill panting and gasping from your ordeal, you notice ${
+                this.flags[kFLAGS.GAR_NAME]
+            } looming over you, smiling.  You could be a dick for all that pain she caused you, or thank her for helping you.`
         );
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0)
             this.player.removeStatusAffect(StatusAffects.Exgartuan);
@@ -1152,9 +1148,9 @@ export class Gargoyle extends BaseContent {
     private dontFreakOutAfterBanishment(): void {
         this.clearOutput();
         this.outx(
-            "You simply lie still and try to recover from " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s “gentle ministrations. ” After a few minutes, you've caught your breath and, gathering your possessions, make your way out of the Cathedral without another word. Damn, you're sore."
+            `You simply lie still and try to recover from ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s “gentle ministrations. ” After a few minutes, you've caught your breath and, gathering your possessions, make your way out of the Cathedral without another word. Damn, you're sore.`
         );
         // (Return PC to camp, advance time 1 hour)
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -1165,9 +1161,9 @@ export class Gargoyle extends BaseContent {
     private getRevengeForBanishments(): void {
         this.clearOutput();
         this.outx(
-            "Seeing " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " just standing over you, gloating, causes you to sneer and lash out.  You strike her dead-center in the chest, throwing her back against the tree-idol at the church's head.  She slumps to the floor, looking meekly away from you.  While she's stunned, you gather your [armor] and stagger out of the Cathedral."
+            `Seeing ${
+                this.flags[kFLAGS.GAR_NAME]
+            } just standing over you, gloating, causes you to sneer and lash out.  You strike her dead-center in the chest, throwing her back against the tree-idol at the church's head.  She slumps to the floor, looking meekly away from you.  While she's stunned, you gather your [armor] and stagger out of the Cathedral.`
         );
         // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(-5);
@@ -1179,9 +1175,9 @@ export class Gargoyle extends BaseContent {
     private cuddleForBanishments(): void {
         this.clearOutput();
         this.outx(
-            "Despite the pain she's caused you, you know " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " did it at your command – and hell, it could only have helped you.  Before she can react, you reach up and pull the gray gargoyle down into your lap, hugging her around the waist and putting a quick kiss into the nape of her neck.  Giggling, she wraps her tail around you, giving you a gentle squeeze as she nuzzles into your chest.  You stay like that for a few minutes, cuddling the cute gargoyle, but eventually you know you need to check on things back at camp.  When you're feeling up to it, you rustle her hair and thank her for her... gentle ministrations.  If she could blush, you're sure she would be as she looks upon you with gleaming fiery eyes.  You gather your belongings and exit the Cathedral."
+            `Despite the pain she's caused you, you know ${
+                this.flags[kFLAGS.GAR_NAME]
+            } did it at your command – and hell, it could only have helped you.  Before she can react, you reach up and pull the gray gargoyle down into your lap, hugging her around the waist and putting a quick kiss into the nape of her neck.  Giggling, she wraps her tail around you, giving you a gentle squeeze as she nuzzles into your chest.  You stay like that for a few minutes, cuddling the cute gargoyle, but eventually you know you need to check on things back at camp.  When you're feeling up to it, you rustle her hair and thank her for her... gentle ministrations.  If she could blush, you're sure she would be as she looks upon you with gleaming fiery eyes.  You gather your belongings and exit the Cathedral.`
         );
         // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(5);
@@ -1193,9 +1189,9 @@ export class Gargoyle extends BaseContent {
         this.clearOutput();
         if (this.flags[kFLAGS.KINKY_RITUALS_SPOKEN] == 0) {
             this.outx(
-                "You broach the subject of rituals to your gargoyle and are met with a surprisingly coy smile from her.  You ask her what's on her mind, to which " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " chuckles and says, \"<i>I've been thinking, Master. If you so desire, it may be possible to... enhance... the rituals that I've been using.</i>\""
+                `You broach the subject of rituals to your gargoyle and are met with a surprisingly coy smile from her.  You ask her what's on her mind, to which ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } chuckles and says, "<i>I've been thinking, Master. If you so desire, it may be possible to... enhance... the rituals that I've been using.</i>"`
             );
             this.outx("\n\nYou ask her exactly what she has in mind.");
             this.outx(
@@ -1207,9 +1203,9 @@ export class Gargoyle extends BaseContent {
         // (While Confidence 70+)
         else {
             this.outx(
-                "You walk to the church's alter, shortly followed by " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    '.  You tell her you need one of her holy rituals, but that you\'d prefer to have some fun as well.  Grinning, she says, "<i>It would be my pleasure, my Master. What shall we do?</i>"'
+                `You walk to the church's alter, shortly followed by ${
+                    this.flags[kFLAGS.GAR_NAME]
+                }.  You tell her you need one of her holy rituals, but that you'd prefer to have some fun as well.  Grinning, she says, "<i>It would be my pleasure, my Master. What shall we do?</i>"`
             );
         }
         // (Display Options: [Body] [Mind] [Banish (only with Exgartuan or Worms)] and [Leave])
@@ -1230,9 +1226,9 @@ export class Gargoyle extends BaseContent {
         // (Confidence +2)
         // (PC decreases Libido and Sensitivity. Suffers 20% Max HP damage, to a minimum of 1 pt. remaining)
         this.outx(
-            "You tell " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " that you could stand to reverse some of the corruption that has affected your body.  With an eager nod, she strips you down, takes you to a side alcove near the altar and instructs you to spread your arms and legs.  Putting your trust in your little gargoyle, you do so, allowing her to bind you spread-eagle with long leather straps."
+            `You tell ${
+                this.flags[kFLAGS.GAR_NAME]
+            } that you could stand to reverse some of the corruption that has affected your body.  With an eager nod, she strips you down, takes you to a side alcove near the altar and instructs you to spread your arms and legs.  Putting your trust in your little gargoyle, you do so, allowing her to bind you spread-eagle with long leather straps.`
         );
 
         this.outx(
@@ -1245,11 +1241,12 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\n\"<i>You've been a very naughty " +
-                this.player.mf("boy", "girl") +
-                ", to have a body so warped,</i>\" she says, again running the crop along your incredibly sensitive inner thighs, making you tremble with the sensation.  You're acutely aware of her large, soft breasts pressing into your sweat-slicked back.  Huskily, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " whispers, \"<i>Don't worry, Master. I'll take good care of you...</i>\"  CRACK!  She lays on with the crop, a short, stinging stoke across your thigh.  You gasp, as much in pleasure as in pain, still reveling in the sensation of her embrace."
+            `\n\n"<i>You've been a very naughty ${this.player.mf(
+                "boy",
+                "girl"
+            )}, to have a body so warped,</i>" she says, again running the crop along your incredibly sensitive inner thighs, making you tremble with the sensation.  You're acutely aware of her large, soft breasts pressing into your sweat-slicked back.  Huskily, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } whispers, "<i>Don't worry, Master. I'll take good care of you...</i>"  CRACK!  She lays on with the crop, a short, stinging stoke across your thigh.  You gasp, as much in pleasure as in pain, still reveling in the sensation of her embrace.`
         );
 
         this.outx(
@@ -1264,15 +1261,15 @@ export class Gargoyle extends BaseContent {
         else if (this.player.hasVagina()) this.outx(this.vaginaDescript());
         else this.outx("barren crotch");
         this.outx(
-            ".  She breaks the kiss and steps back, laying on one last time – CRACK! with the crop, stinging you again with an intense mix of pain and pleasure.  Gasping and panting from stimulation, you nearly collapse when " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " unbinds you, though she's quick to catch you before you fall."
+            `.  She breaks the kiss and steps back, laying on one last time – CRACK! with the crop, stinging you again with an intense mix of pain and pleasure.  Gasping and panting from stimulation, you nearly collapse when ${
+                this.flags[kFLAGS.GAR_NAME]
+            } unbinds you, though she's quick to catch you before you fall.`
         );
 
         this.outx(
-            "\n\nShe guides you over to the altar and helps you lie atop it to rest.  Once you're comfortably situated, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " slips up beside you, resting her cheek "
+            `\n\nShe guides you over to the altar and helps you lie atop it to rest.  Once you're comfortably situated, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } slips up beside you, resting her cheek `
         );
         if (this.player.biggestTitSize() < 1) this.outx("on your chest");
         else this.outx("between your [chest]");
@@ -1281,9 +1278,9 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou spend a few minutes cuddling with " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ", but sadly, you know you can't leave your camp unattended for too long.  Giving her a pat on the head and a kiss on the brow, you gather up your clothes and head on back to camp."
+            `\n\nYou spend a few minutes cuddling with ${
+                this.flags[kFLAGS.GAR_NAME]
+            }, but sadly, you know you can't leave your camp unattended for too long.  Giving her a pat on the head and a kiss on the brow, you gather up your clothes and head on back to camp.`
         );
         this.dynStats("tou", 0.5, "lib", -0.5, "sen", -2);
         this.gargoyleConfidence(2);
@@ -1298,51 +1295,52 @@ export class Gargoyle extends BaseContent {
         this.clearOutput();
         this.gargoyleConfidence(2);
         this.outx(
-            "You tell " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " that you've been plagued with dirty thoughts, and would like to undo some of the corruption that's spread to your mind.  With a deep nod conveying both a respect for your choice and an eagerness to engage in the ritual, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " tells you to kneel before the altar.  You do so, assuming a low, supplicating stance before the tree-idol at the Cathedral's head as the gargoyle clears off the altar save for the humble bowl of water."
+            `You tell ${
+                this.flags[kFLAGS.GAR_NAME]
+            } that you've been plagued with dirty thoughts, and would like to undo some of the corruption that's spread to your mind.  With a deep nod conveying both a respect for your choice and an eagerness to engage in the ritual, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } tells you to kneel before the altar.  You do so, assuming a low, supplicating stance before the tree-idol at the Cathedral's head as the gargoyle clears off the altar save for the humble bowl of water.`
         );
 
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' lifts herself to perch atop the alter with a single beat of her wings, coming to rest cross-legged before you.  Grinning a sexy grin, she picks up the small waterbasin and lifts it up to her lips, taking a small drink of it.  "<i>Blessed is ' +
-                this.player.mf("he", "she") +
-                ' who seeks the pure,</i>" she begins to chant, lowering the bowl from her thin lips. As she does so, she slowly raises her left leg, resting her toes upon your chin.  Locking eyes with you, ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' lowers the basin to her thigh and begins to pour, letting the water trickle sensually down her stone-smooth leg.  "<i>Blessed is ' +
-                this.player.mf("he", "she") +
-                ' who seeks wisdom,</i>" she purrs as you instinctively open your mouth, allowing the holy water to trickle in from her foot.'
+            `\n\n${
+                this.flags[kFLAGS.GAR_NAME]
+            } lifts herself to perch atop the alter with a single beat of her wings, coming to rest cross-legged before you.  Grinning a sexy grin, she picks up the small waterbasin and lifts it up to her lips, taking a small drink of it.  "<i>Blessed is ${this.player.mf(
+                "he",
+                "she"
+            )} who seeks the pure,</i>" she begins to chant, lowering the bowl from her thin lips. As she does so, she slowly raises her left leg, resting her toes upon your chin.  Locking eyes with you, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } lowers the basin to her thigh and begins to pour, letting the water trickle sensually down her stone-smooth leg.  "<i>Blessed is ${this.player.mf(
+                "he",
+                "she"
+            )} who seeks wisdom,</i>" she purrs as you instinctively open your mouth, allowing the holy water to trickle in from her foot.`
         );
 
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' quickly slips her small toes into your mouth, letting you suckle the holy water from them like an infant.  She lets you remain like that for nearly a minute, nursing from the rivulets that come your way, before pulling her leg back and taking your head with it.  She leans backwards as you approach, balancing upon her bat-like wings as she finishes the chant: "<i>And blessed is ' +
-                this.player.mf("he", "she") +
-                ' who lusts after holiness and virtue before pleasures of the flesh.</i>"  She pours from the basin once again, releasing the holy water directly onto the large, shapely mounds of her breasts.  The water runs down her chest and belly, creating a tiny waterfall over the nub of her clitoris to which she guides you.'
+            `\n\n${
+                this.flags[kFLAGS.GAR_NAME]
+            } quickly slips her small toes into your mouth, letting you suckle the holy water from them like an infant.  She lets you remain like that for nearly a minute, nursing from the rivulets that come your way, before pulling her leg back and taking your head with it.  She leans backwards as you approach, balancing upon her bat-like wings as she finishes the chant: "<i>And blessed is ${this.player.mf(
+                "he",
+                "she"
+            )} who lusts after holiness and virtue before pleasures of the flesh.</i>"  She pours from the basin once again, releasing the holy water directly onto the large, shapely mounds of her breasts.  The water runs down her chest and belly, creating a tiny waterfall over the nub of her clitoris to which she guides you.`
         );
 
         this.outx(
-            "\n\nYou do as she so obviously wishes, and spread her legs to get a good look at her now-sopping wet slit. Her vagina seems small, but an experimental touch proves it to be quite malleable – and your single touch causes " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " to arch her back, gasping with the sudden pleasure.  Smiling at the adorable, enraptured look on her face, you start lapping with a vengeance, grasping her thighs and burying your face between her legs.  You flick your tongue into her smooth, cool slit, lapping up a few drops of water with each flick of your dexterous tongue, and eliciting a gasp or moan each time."
+            `\n\nYou do as she so obviously wishes, and spread her legs to get a good look at her now-sopping wet slit. Her vagina seems small, but an experimental touch proves it to be quite malleable – and your single touch causes ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to arch her back, gasping with the sudden pleasure.  Smiling at the adorable, enraptured look on her face, you start lapping with a vengeance, grasping her thighs and burying your face between her legs.  You flick your tongue into her smooth, cool slit, lapping up a few drops of water with each flick of your dexterous tongue, and eliciting a gasp or moan each time.`
         );
 
         this.outx(
-            "\n\nSoon, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " is clutching at her breasts and quickly fingering her cherry-nub clit as you lick her out, trying her best to keep an even rhythm with you, even as the waterfall comes to an end and you begin to feel light-headed, as if a fog has lifted from your mind.  By way of thanks, you redouble your efforts to pleasure her, ramming your tongue into her depths and fucking her mercilessly.  Quickly, she begins to tense, stopping her own actions to grasp at your " +
-                this.hairDescript() +
-                " and shove your face further into her crotch, locking her legs and tail around your back as she approaches orgasm."
+            `\n\nSoon, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } is clutching at her breasts and quickly fingering her cherry-nub clit as you lick her out, trying her best to keep an even rhythm with you, even as the waterfall comes to an end and you begin to feel light-headed, as if a fog has lifted from your mind.  By way of thanks, you redouble your efforts to pleasure her, ramming your tongue into her depths and fucking her mercilessly.  Quickly, she begins to tense, stopping her own actions to grasp at your ${this.hairDescript()} and shove your face further into her crotch, locking her legs and tail around your back as she approaches orgasm.`
         );
 
         this.outx(
-            "\n\nScreaming, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " arches her back and thrusts out her bat-wings to their full expanse, clamping down on your tongue as she cums.  You slow your pace, giving her a last few licks as she pants, gasps, and moans, slowly coming down from an orgasmic high.  She collapses backwards, clutching her chest and staring into the rafters.  Chuckling, you stand and give her a pleased pat on the inner thigh, letting her know she did a good job for you.  You leave her smiling atop the altar, slowly getting her breath under control."
+            `\n\nScreaming, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } arches her back and thrusts out her bat-wings to their full expanse, clamping down on your tongue as she cums.  You slow your pace, giving her a last few licks as she pants, gasps, and moans, slowly coming down from an orgasmic high.  She collapses backwards, clutching her chest and staring into the rafters.  Chuckling, you stand and give her a pleased pat on the inner thigh, letting her know she did a good job for you.  You leave her smiling atop the altar, slowly getting her breath under control.`
         );
         // (Return PC to camp, advance time 1 hour)
         this.dynStats("int", 0.5, "lus", -10, "cor", -0.5);
@@ -1355,30 +1353,28 @@ export class Gargoyle extends BaseContent {
     private banishPervRitual(): void {
         this.clearOutput();
         // (PC is cleared of Worms and/or Exgartuan)
-        this.outx(
-            "You explain to " + this.flags[kFLAGS.GAR_NAME] + " that you seem to have picked up "
-        );
+        this.outx(`You explain to ${this.flags[kFLAGS.GAR_NAME]} that you seem to have picked up `);
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0) this.outx("a hitchhiker");
         else this.outx("some hitchhikers");
         this.outx(" in your travels, and you're tired of ");
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0) this.outx("it");
         else this.outx("them");
         this.outx(
-            ".  She gives you an understanding nod and tells you to strip.  As you do so, she dips beneath the altar, reappearing with a silver, blue-rune covered rod nestled into what looks like a leather thong.  " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " slips the thong on, letting a slight gasp escape her lips as the inner end of the rod enters her."
+            `.  She gives you an understanding nod and tells you to strip.  As you do so, she dips beneath the altar, reappearing with a silver, blue-rune covered rod nestled into what looks like a leather thong.  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } slips the thong on, letting a slight gasp escape her lips as the inner end of the rod enters her.`
         );
 
         this.outx(
-            "\n\nShe gives the shaft of the strap-on a few experimental strokes and, satisfied, says, \"<i>I've turned down the power of the runes, so it will not hurt you so much... though it will take longer than normal.  I suggest you lubricate it, Master.</i>\"  Smiling, she sits herself atop the alter and presents her silver “cock” to you.  You kneel and slip your face between her spread legs, giving the rod a quick lick.  It's incredibly smooth and quite cold, much like its wearer, but your tongue comes away with a warm tingle spreading through it – not pain, but more like numbness.  You take the rod into your mouth, running your tongue across its length and thrusting your face against it, blowing it like a cock while getting it sopping wet with your saliva.  You've only been at it for a minute when you notice " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " is bucking her hips slightly and moaning quietly, obviously getting more than a little enjoyment from the sensation.  Perhaps she can feel through it, like a real dick?  Grinning, you redouble your efforts to suck her off."
+            `\n\nShe gives the shaft of the strap-on a few experimental strokes and, satisfied, says, "<i>I've turned down the power of the runes, so it will not hurt you so much... though it will take longer than normal.  I suggest you lubricate it, Master.</i>"  Smiling, she sits herself atop the alter and presents her silver “cock” to you.  You kneel and slip your face between her spread legs, giving the rod a quick lick.  It's incredibly smooth and quite cold, much like its wearer, but your tongue comes away with a warm tingle spreading through it – not pain, but more like numbness.  You take the rod into your mouth, running your tongue across its length and thrusting your face against it, blowing it like a cock while getting it sopping wet with your saliva.  You've only been at it for a minute when you notice ${
+                this.flags[kFLAGS.GAR_NAME]
+            } is bucking her hips slightly and moaning quietly, obviously getting more than a little enjoyment from the sensation.  Perhaps she can feel through it, like a real dick?  Grinning, you redouble your efforts to suck her off.`
         );
 
         this.outx(
-            '\n\n"<i>Enough, Master,</i>" she gasps, pushing you back.  Breathing heavily, she takes you by the hand and gets you to brace yourself against the altar.  Your entire mouth is numb now, tingling from the strange sensation given off by the holy rod-cock.  ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                " slips behind you, putting a cool, soft hand on your [hips] as she lines up for penetration.  You grip down hard on the edge of the altar, and try your best to relax your sphincter as you begin to feel a tingling pressure against your back door."
+            `\n\n"<i>Enough, Master,</i>" she gasps, pushing you back.  Breathing heavily, she takes you by the hand and gets you to brace yourself against the altar.  Your entire mouth is numb now, tingling from the strange sensation given off by the holy rod-cock.  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } slips behind you, putting a cool, soft hand on your [hips] as she lines up for penetration.  You grip down hard on the edge of the altar, and try your best to relax your sphincter as you begin to feel a tingling pressure against your back door.`
         );
         if (this.player.ass.analWetness > 0)
             this.outx(
@@ -1391,9 +1387,9 @@ export class Gargoyle extends BaseContent {
         this.outx(".");
 
         this.outx(
-            "\n\nWith her rod firmly inside you, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " puts her hands on your [hips] for leverage and begins to pull out again, leaving a hot, intense tingling sensation in your rectum.  She thrusts in, this time much more quickly than you were expecting, making you gasp and moan as her hips slam into yours."
+            `\n\nWith her rod firmly inside you, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } puts her hands on your [hips] for leverage and begins to pull out again, leaving a hot, intense tingling sensation in your rectum.  She thrusts in, this time much more quickly than you were expecting, making you gasp and moan as her hips slam into yours.`
         );
         // If PC has Worms:
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) < 0)
@@ -1401,9 +1397,9 @@ export class Gargoyle extends BaseContent {
                 "  You can feel her cock ram against your prostate, and shudder as the writhing mass of worms begin to panic as her cock pushes against them, obviously causing the creatures great pain."
             );
         this.outx(
-            "  " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " begins to fuck you in earnest, hammering your [asshole] with the strap-on until you're both panting and gasping, nearly overwhelmed by sensation."
+            `  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } begins to fuck you in earnest, hammering your [asshole] with the strap-on until you're both panting and gasping, nearly overwhelmed by sensation.`
         );
         // (If PC has Exgartuan:
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0)
@@ -1414,15 +1410,15 @@ export class Gargoyle extends BaseContent {
         // (If PC has a cock:
         if (this.player.hasCock()) {
             this.outx(
-                "\n\n" +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " suddenly releases your hips and, pressing her soft breasts into your sweat-slicked back, grabs your [cock biggest] in her cold hand.  You let out a little gasp as she begins to jerk you off, rapidly pistoning your cock as she continues to pound your ass.  Between the dual stimulation, you feel a pressure begin to swell up inside your abused prostate, a tell-tale sign of orgasm.  She gives you a few last thrusts before you cum, splattering the altar with thick ropes of cum as you both yell in ecstasy."
+                `\n\n${
+                    this.flags[kFLAGS.GAR_NAME]
+                } suddenly releases your hips and, pressing her soft breasts into your sweat-slicked back, grabs your [cock biggest] in her cold hand.  You let out a little gasp as she begins to jerk you off, rapidly pistoning your cock as she continues to pound your ass.  Between the dual stimulation, you feel a pressure begin to swell up inside your abused prostate, a tell-tale sign of orgasm.  She gives you a few last thrusts before you cum, splattering the altar with thick ropes of cum as you both yell in ecstasy.`
             );
         } else {
             this.outx(
-                "\n\n" +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " reaches the peak of her speed, utterly reaming you as "
+                `\n\n${
+                    this.flags[kFLAGS.GAR_NAME]
+                } reaches the peak of her speed, utterly reaming you as `
             );
             if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0)
                 this.outx("Exgartuan is");
@@ -1433,9 +1429,9 @@ export class Gargoyle extends BaseContent {
         }
 
         this.outx(
-            "\n\nSuddenly, the holy rod jammed up your [asshole] makes a loud hissing sound, and withdraws. Panting, you collapse to the ground, gripping your gut.  It's over, and though a part of you feels suddenly very empty, it's soon forgotten as " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " slips down beside you, having already tossed the holy rod out the window.  The creature"
+            `\n\nSuddenly, the holy rod jammed up your [asshole] makes a loud hissing sound, and withdraws. Panting, you collapse to the ground, gripping your gut.  It's over, and though a part of you feels suddenly very empty, it's soon forgotten as ${
+                this.flags[kFLAGS.GAR_NAME]
+            } slips down beside you, having already tossed the holy rod out the window.  The creature`
         );
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0)
             this.outx(" within you has");
@@ -1445,15 +1441,15 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nStill panting and gasping from your ordeal, you slip an arm around " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s shoulders, bringing her into a tight embrace.  Smiling cutely, she nuzzles her cheek against your chest, and winds her large bat-wings around the two of you, wrapping you together.  You give her a long, tender kiss on the brow, and let her remain like that for a good long while, basking in each others' presence."
+            `\n\nStill panting and gasping from your ordeal, you slip an arm around ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s shoulders, bringing her into a tight embrace.  Smiling cutely, she nuzzles her cheek against your chest, and winds her large bat-wings around the two of you, wrapping you together.  You give her a long, tender kiss on the brow, and let her remain like that for a good long while, basking in each others' presence.`
         );
 
         this.outx(
-            "\n\nEventually, though, you know you need to get back to camp.  You try to tell " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ", but to your surprise, she's fast asleep, snoring softly.  With a grin, you untangle yourself from her embrace and find something to cover her with before giving her another kiss and making your way home."
+            `\n\nEventually, though, you know you need to get back to camp.  You try to tell ${
+                this.flags[kFLAGS.GAR_NAME]
+            }, but to your surprise, she's fast asleep, snoring softly.  With a grin, you untangle yourself from her embrace and find something to cover her with before giving her another kiss and making your way home.`
         );
         // (Return PC to camp, advance time 1 hour)
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0)
@@ -1470,9 +1466,9 @@ export class Gargoyle extends BaseContent {
         if (output) {
             this.clearOutput();
             this.outx(
-                "You take a seat on one of the sanctuary's pews, motioning for " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " to join you."
+                `You take a seat on one of the sanctuary's pews, motioning for ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } to join you.`
             );
             // If Confidence <50:
             if (this.gargoyleConfidence() < 50)
@@ -1520,9 +1516,9 @@ export class Gargoyle extends BaseContent {
         this.clearOutput();
 
         this.outx(
-            "You ask " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " what she can tell you about the history of Mareth.  She shrugs lightly.  \"<i>I can't tell you much, Master.  I've spent my entire life on these grounds.  Most of what I know was doctrine taught by the church. Is that acceptable?</i>\""
+            `You ask ${
+                this.flags[kFLAGS.GAR_NAME]
+            } what she can tell you about the history of Mareth.  She shrugs lightly.  "<i>I can't tell you much, Master.  I've spent my entire life on these grounds.  Most of what I know was doctrine taught by the church. Is that acceptable?</i>"`
         );
 
         this.outx(
@@ -1540,9 +1536,9 @@ export class Gargoyle extends BaseContent {
         // (Confidence -5)
         this.gargoyleConfidence(-5);
         this.outx(
-            "\n\nYou attempt to give " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " a none-too-gentle swat on the head, and tell her off for presuming to refuse you information.  The harshness of your voice only causes her to sob openly, however, and recoil away from you before you can hit her.  You sigh with frustration, and storm out of the cathedral before you have to listen to a moment more of your servant's cries."
+            `\n\nYou attempt to give ${
+                this.flags[kFLAGS.GAR_NAME]
+            } a none-too-gentle swat on the head, and tell her off for presuming to refuse you information.  The harshness of your voice only causes her to sob openly, however, and recoil away from you before you can hit her.  You sigh with frustration, and storm out of the cathedral before you have to listen to a moment more of your servant's cries.`
         );
         // (Return PC to camp, advance time 1 hour.)
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -1553,13 +1549,13 @@ export class Gargoyle extends BaseContent {
         this.clearOutput();
         // (Confidence +3)
         this.gargoyleConfidence(10);
-        this.outx("You sigh and reach over to " + this.flags[kFLAGS.GAR_NAME] + "; ");
+        this.outx(`You sigh and reach over to ${this.flags[kFLAGS.GAR_NAME]}; `);
         // if Confidence <50:
         if (this.gargoyleConfidence() < 50) this.outx("she recoils, but ");
         this.outx(
-            "you cup her cheek, and turn her to face you.  If she could produce tears, you're sure they'd be streaming down her cheeks.  You give her your most reassuring smile and lean in to give her a quick kiss on the brow.  She gasps, but before you know it, she has leapt into your lap and has buried her face into your chest, holding onto you as if for dear life.  You put your arms around her and hold her close while she cries, spending the next few minutes either whispering reassurances to her or stroking her back and hair.  Eventually, she calms down.  Ever so shyly, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " returns the kiss you'd given her.  \"<i>I'm sorry, Master,</i>\" she whispers, curling up beside you.  \"<i>I should have been strong enough to protect my people.  I know that.  That it's my fault they've all been dragged off to some unholy carnal pit.  I just...</i>\"  You stop her before she can go on and tell her that no, it wasn't her fault.  She couldn't have done anything to stop it.  She tries to give you a brave smile and says, \"<i>I know. Can we... talk about something else, Master?</i>\""
+            `you cup her cheek, and turn her to face you.  If she could produce tears, you're sure they'd be streaming down her cheeks.  You give her your most reassuring smile and lean in to give her a quick kiss on the brow.  She gasps, but before you know it, she has leapt into your lap and has buried her face into your chest, holding onto you as if for dear life.  You put your arms around her and hold her close while she cries, spending the next few minutes either whispering reassurances to her or stroking her back and hair.  Eventually, she calms down.  Ever so shyly, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } returns the kiss you'd given her.  "<i>I'm sorry, Master,</i>" she whispers, curling up beside you.  "<i>I should have been strong enough to protect my people.  I know that.  That it's my fault they've all been dragged off to some unholy carnal pit.  I just...</i>"  You stop her before she can go on and tell her that no, it wasn't her fault.  She couldn't have done anything to stop it.  She tries to give you a brave smile and says, "<i>I know. Can we... talk about something else, Master?</i>"`
         );
         // (Return PC to the Talk menu)
         this.talkToGargoyle(false);
@@ -1569,9 +1565,9 @@ export class Gargoyle extends BaseContent {
     private historyOfGargoylesB(): void {
         this.clearOutput();
         this.outx(
-            "You ask " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " to tell you a little bit about the demons coming to Mareth"
+            `You ask ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to tell you a little bit about the demons coming to Mareth`
         );
         if (this.gargoyleConfidence() >= 70) this.outx(" if she's up to it");
         this.outx(".  ");
@@ -1599,20 +1595,20 @@ export class Gargoyle extends BaseContent {
             kGAMECLASS.isabellaFollowerScene.isabellaFollower()
         ) {
             this.outx(
-                "You ask " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    ' to tell you a little bit about the world of Mareth.  Giving it a few moments of quiet thought, she answers: "<i>I do not have any experience outside of the church grounds, Master, but I remember the words of the last Master, and the parishioners before her.  There are... the world has a vast expanse of plains and woodlands, broken up by a mountain range and lake.  Those last two are populated by savage beasts, minotaurs, cow-girls, anemone, and shark-people, both of whom will rend your flesh or rape you half to death.</i>"'
+                `You ask ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } to tell you a little bit about the world of Mareth.  Giving it a few moments of quiet thought, she answers: "<i>I do not have any experience outside of the church grounds, Master, but I remember the words of the last Master, and the parishioners before her.  There are... the world has a vast expanse of plains and woodlands, broken up by a mountain range and lake.  Those last two are populated by savage beasts, minotaurs, cow-girls, anemone, and shark-people, both of whom will rend your flesh or rape you half to death.</i>"`
             );
             this.outx(
-                "\n\nWhoa, there. You stop " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " and explain to her that some of your lovers – mates, even – are just such beasts.  You tell her a little bit about Izma and Isabella, enforcing the fact that they're both not only quite friendly, but sweet as well.  They're just regular people"
+                `\n\nWhoa, there. You stop ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } and explain to her that some of your lovers – mates, even – are just such beasts.  You tell her a little bit about Izma and Isabella, enforcing the fact that they're both not only quite friendly, but sweet as well.  They're just regular people`
             );
             if (this.gargoyleConfidence() > 50) this.outx(" just like her");
             this.outx(
-                ".  If she could, you're sure " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " would be blushing bright crimson as you educate her on a little inter-special tolerance and understanding.  Chastened, she nods her comprehension when you're finished and, after a long pause, asks, \"<i>I-If Master really has many... girlfriends... does... no, it's silly, of course not...</i>\""
+                `.  If she could, you're sure ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } would be blushing bright crimson as you educate her on a little inter-special tolerance and understanding.  Chastened, she nods her comprehension when you're finished and, after a long pause, asks, "<i>I-If Master really has many... girlfriends... does... no, it's silly, of course not...</i>"`
             );
             this.outx(
                 '\n\nGiving her a pat on the head, you encourage her to speak her mind.  Meekly she whimpers, "<i>If master has many girlfriends... what am I?</i>"'
@@ -1629,19 +1625,19 @@ export class Gargoyle extends BaseContent {
         // (If PC has Marble as a follower)
         else if (this.player.findStatusAffect(StatusAffects.CampMarble) >= 0) {
             this.outx(
-                "You ask " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " to tell you a little bit about the world of Mareth.  Giving it a few moments of quiet thought, she answers: \"<i>I do not have any experience outside of the church grounds, Master, but I remember the words of the last Master, and the parishioners before her.  I believe there is a lake not far from here.  Beyond that, the world has a vast expanse of plains and woodlands, broken up by a great mountain range – strange monsters live there, but worst of all are savage bull-like beasts called Minotaurs.  And the cow-girls... Lacta-Bovines, I think they're called, who're just as nasty.</i>\""
+                `You ask ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } to tell you a little bit about the world of Mareth.  Giving it a few moments of quiet thought, she answers: "<i>I do not have any experience outside of the church grounds, Master, but I remember the words of the last Master, and the parishioners before her.  I believe there is a lake not far from here.  Beyond that, the world has a vast expanse of plains and woodlands, broken up by a great mountain range – strange monsters live there, but worst of all are savage bull-like beasts called Minotaurs.  And the cow-girls... Lacta-Bovines, I think they're called, who're just as nasty.</i>"`
             );
             this.outx(
-                "\n\nYou cut " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " off right there, and explain that one of those 'savage beasts' is your lover, Marble, who's really quite sweet.  The gargoyle makes a horrified gasp and covers her mouth.  \"<i>I'm so sorry, Master! I didn't know...  All I'd heard were stories, years ago.  I didn't mean... but...  I-I didn't know Master had a girlfriend,</i>\" she whines pitifully.  Obviously, knowing that she's not your only lady-friend has upset the poor thing."
+                `\n\nYou cut ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } off right there, and explain that one of those 'savage beasts' is your lover, Marble, who's really quite sweet.  The gargoyle makes a horrified gasp and covers her mouth.  "<i>I'm so sorry, Master! I didn't know...  All I'd heard were stories, years ago.  I didn't mean... but...  I-I didn't know Master had a girlfriend,</i>" she whines pitifully.  Obviously, knowing that she's not your only lady-friend has upset the poor thing.`
             );
             this.outx(
-                "\n\nWell.  What do you say to that: that you're not exclusive with Marble, or that " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " doesn't count, being a statue and all?"
+                `\n\nWell.  What do you say to that: that you're not exclusive with Marble, or that ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } doesn't count, being a statue and all?`
             );
             // (Display Options: [Not Exclusive] [Doesn't Count])
             this.menu();
@@ -1651,11 +1647,11 @@ export class Gargoyle extends BaseContent {
         // (If PC has Izma as a follower)
         else if (kGAMECLASS.izmaScene.izmaFollower()) {
             this.outx(
-                "You ask " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    ' to tell you a little bit about the world of Mareth.  Giving it a few moments of quiet thought, she answers: "<i>I do not have any experience outside of the church grounds, Master, but I remember the words of the last Master, and the parishioners before her.  There are... the world has a vast expanse of plains and woodlands, broken up by a great mountain range.  There is a lake not far from here, if I recall; a race of very dangerous shark-folk live there.</i>"  With a chuckle, you tell ' +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    " that you're more than well aware of that; indeed, you consider one such creature to be your mate, your beta.  She makes a slight gasp, and gushes out an apology.  \"<i>I'm so sorry, Master!  I hadn't realized... I thought...</i>\" she falls silent for a moment, then says shyly, \"<i>I wasn't aware Master had a girlfriend.</i>\"  Obviously, knowing that she's not your only lady-friend has upset the poor thing."
+                `You ask ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } to tell you a little bit about the world of Mareth.  Giving it a few moments of quiet thought, she answers: "<i>I do not have any experience outside of the church grounds, Master, but I remember the words of the last Master, and the parishioners before her.  There are... the world has a vast expanse of plains and woodlands, broken up by a great mountain range.  There is a lake not far from here, if I recall; a race of very dangerous shark-folk live there.</i>"  With a chuckle, you tell ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } that you're more than well aware of that; indeed, you consider one such creature to be your mate, your beta.  She makes a slight gasp, and gushes out an apology.  "<i>I'm so sorry, Master!  I hadn't realized... I thought...</i>" she falls silent for a moment, then says shyly, "<i>I wasn't aware Master had a girlfriend.</i>"  Obviously, knowing that she's not your only lady-friend has upset the poor thing.`
             );
 
             this.outx(
@@ -1668,9 +1664,9 @@ export class Gargoyle extends BaseContent {
         } else {
             // (If PC has neither Marble nor Izma as a follower)
             this.outx(
-                "You ask " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    ' to tell you a little bit about the world of Mareth.  Giving it a few moments of quiet thought, she answers: "<i>I do not have any experience outside of the church grounds, Master, but I remember the words of the last Master, and the parishioners before her.  There are... the world has a vast expanse of plains and woodlands, broken up by a great mountain range.  There is a lake not far from here, if I recall...</i>" she goes on to tell you about some of the more common Marethian monsters, though she\'s short on details except about those that regularly bother the church – imps and goblins, mostly.  You thank her for the talk and turn toward another subject...'
+                `You ask ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } to tell you a little bit about the world of Mareth.  Giving it a few moments of quiet thought, she answers: "<i>I do not have any experience outside of the church grounds, Master, but I remember the words of the last Master, and the parishioners before her.  There are... the world has a vast expanse of plains and woodlands, broken up by a great mountain range.  There is a lake not far from here, if I recall...</i>" she goes on to tell you about some of the more common Marethian monsters, though she's short on details except about those that regularly bother the church – imps and goblins, mostly.  You thank her for the talk and turn toward another subject...`
             );
             this.gargoyleConfidence(5);
             this.returnToCathedral(true);
@@ -1682,9 +1678,9 @@ export class Gargoyle extends BaseContent {
     private marbleAintExclusiveBiatch(): void {
         this.clearOutput();
         this.outx(
-            "You run a hand through " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s hair and reassure her that being with Marble won't affect the way you interact with her – you're more than able to be fond of many girls at once.  This doesn't seem to entirely please her, but neither does she throw a tantrum, so you suppose that's good enough."
+            `You run a hand through ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s hair and reassure her that being with Marble won't affect the way you interact with her – you're more than able to be fond of many girls at once.  This doesn't seem to entirely please her, but neither does she throw a tantrum, so you suppose that's good enough.`
         );
         this.returnToCathedral(true);
     }
@@ -1705,9 +1701,9 @@ export class Gargoyle extends BaseContent {
     private sharkgirlsArentExclusiveBiatch(): void {
         this.clearOutput();
         this.outx(
-            "You run a hand through " +
-                this.flags[kFLAGS.GAR_NAME] +
-                "'s hair and reassure her that being with Izma won't affect the way you interact with her – you're more than able to be fond of many girls at once.  This doesn't seem to entirely please her, but neither does she throw a tantrum, so you suppose that's good enough."
+            `You run a hand through ${
+                this.flags[kFLAGS.GAR_NAME]
+            }'s hair and reassure her that being with Izma won't affect the way you interact with her – you're more than able to be fond of many girls at once.  This doesn't seem to entirely please her, but neither does she throw a tantrum, so you suppose that's good enough.`
         );
         this.returnToCathedral(true);
     }
@@ -1731,9 +1727,9 @@ export class Gargoyle extends BaseContent {
         // (Confidence -5)
         this.gargoyleConfidence(-5);
         this.outx(
-            "You make a shitty joke and laugh awkwardly, trying to avoid the topic altogether.  " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " makes a pitiful little sniffle, but takes the hint and falls silent, allowing you to change the subject."
+            `You make a shitty joke and laugh awkwardly, trying to avoid the topic altogether.  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } makes a pitiful little sniffle, but takes the hint and falls silent, allowing you to change the subject.`
         );
         // (Return PC to Talk menu)
         this.returnToCathedral(true);
@@ -1758,17 +1754,17 @@ export class Gargoyle extends BaseContent {
 
         this.gargoyleConfidence(15);
         this.outx(
-            "You smile at " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " and tussle her hair.  Warmly, you tell her that, if she wants, she can be your girlfriend too.  Polyamory is just your thing, you suppose.  With a happy gasp, the little gargoyle leaps into your lap and wraps her arms around you, hugging you so tight you almost can't breathe.  She gives you a flurry of little kisses all along your neck and cheek before planting a long, deep one on your lips.  You kiss her back, soon laughing amicably as you return her embrace.  Once she's calmed down, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " settles into your lap, resting her cheek against your chest and wrapping her tail and wings lovingly around you.  You give her a little peck on the forehead and nuzzle your chin into her hair, content to stay like this forever."
+            `You smile at ${
+                this.flags[kFLAGS.GAR_NAME]
+            } and tussle her hair.  Warmly, you tell her that, if she wants, she can be your girlfriend too.  Polyamory is just your thing, you suppose.  With a happy gasp, the little gargoyle leaps into your lap and wraps her arms around you, hugging you so tight you almost can't breathe.  She gives you a flurry of little kisses all along your neck and cheek before planting a long, deep one on your lips.  You kiss her back, soon laughing amicably as you return her embrace.  Once she's calmed down, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } settles into your lap, resting her cheek against your chest and wrapping her tail and wings lovingly around you.  You give her a little peck on the forehead and nuzzle your chin into her hair, content to stay like this forever.`
         );
 
         this.outx(
-            "\n\nYet, you're soon surprised when " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' withdraws slightly from you, though her arms are still hooked about your neck.  "<i>Master... if you want me to be your girlfriend, then... we should – if you want, Master, of course – maybe...  Master, will you make love to me?</i>" she blurts, suddenly taken aback by her own forwardness.'
+            `\n\nYet, you're soon surprised when ${
+                this.flags[kFLAGS.GAR_NAME]
+            } withdraws slightly from you, though her arms are still hooked about your neck.  "<i>Master... if you want me to be your girlfriend, then... we should – if you want, Master, of course – maybe...  Master, will you make love to me?</i>" she blurts, suddenly taken aback by her own forwardness.`
         );
         // (Male Display Options: [Vaginal] [Leave])
         // (All Other Display Options: [Strap-on] [Leave])
@@ -1796,15 +1792,15 @@ export class Gargoyle extends BaseContent {
     private talkCathedralA(): void {
         this.clearOutput();
         this.outx(
-            "You ask " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' to tell you a little about the Cathedral around you.  She visibly brightens at the idea.  "<i>This is the greatest structure for miles around,</i>" she claims proudly, motioning toward the vaulted ceiling and the remaining stained glass windows.  "<i>Well, it isn\'t much to look at now, Master, but it was magnificent.  People came from all around to pray here.  It was wonderful...</i>" she trails off, looking misty-eyed into the distance, remembering.'
+            `You ask ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to tell you a little about the Cathedral around you.  She visibly brightens at the idea.  "<i>This is the greatest structure for miles around,</i>" she claims proudly, motioning toward the vaulted ceiling and the remaining stained glass windows.  "<i>Well, it isn't much to look at now, Master, but it was magnificent.  People came from all around to pray here.  It was wonderful...</i>" she trails off, looking misty-eyed into the distance, remembering.`
         );
 
         this.outx(
-            '\n\n"<i>Master?</i>" she asks, looking you in the eye.  "<i>I...  I want to rebuild the Cathedral.  I know there... there\'s no one to return to it, but...  I don\'t know.  It feels like repairing the damage that\'s been done would be a victory.  Just a little tiny one, but still a victory.</i>"  ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' makes a sudden little gasp and says, "<i>I-If that\'s all right with you, Master?</i>"'
+            `\n\n"<i>Master?</i>" she asks, looking you in the eye.  "<i>I...  I want to rebuild the Cathedral.  I know there... there's no one to return to it, but...  I don't know.  It feels like repairing the damage that's been done would be a victory.  Just a little tiny one, but still a victory.</i>"  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } makes a sudden little gasp and says, "<i>I-If that's all right with you, Master?</i>"`
         );
 
         this.outx("\n\nYou could tell her it's pointless or encourage her.");
@@ -1836,15 +1832,15 @@ export class Gargoyle extends BaseContent {
         this.clearOutput();
         this.gargoyleConfidence(10);
         this.outx(
-            "You give " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " a pat on the head and tell her it's a wonderful idea.  She makes a happy squeak and immediately flutters over to a pile of debris and starts cleaning it up.  Before you know it, the little gargoyle's on a roll, whistling a jaunty tune as she starts repairing some of the more obvious damage.  Seeing her so engrossed, you can't help but smile.  You wander over and start to give her a hand."
+            `You give ${
+                this.flags[kFLAGS.GAR_NAME]
+            } a pat on the head and tell her it's a wonderful idea.  She makes a happy squeak and immediately flutters over to a pile of debris and starts cleaning it up.  Before you know it, the little gargoyle's on a roll, whistling a jaunty tune as she starts repairing some of the more obvious damage.  Seeing her so engrossed, you can't help but smile.  You wander over and start to give her a hand.`
         );
 
         this.outx(
-            "\n\nWithin the hour, the two of you have made a sizable dent in the debris of the Cathedral, and " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " has even managed to hang one of the candelabras back up in the rafters.  Exhausted, you say goodbye to the happy little gargoyle and head on back to camp."
+            `\n\nWithin the hour, the two of you have made a sizable dent in the debris of the Cathedral, and ${
+                this.flags[kFLAGS.GAR_NAME]
+            } has even managed to hang one of the candelabras back up in the rafters.  Exhausted, you say goodbye to the happy little gargoyle and head on back to camp.`
         );
         // (Return PC to camp, advance time 1 hour, +10 fatigue.
         this.fatigue(10);
@@ -1855,9 +1851,9 @@ export class Gargoyle extends BaseContent {
     private cathedralBTalk(): void {
         this.clearOutput();
         this.outx(
-            "You ask " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' to tell you a little bit more about the religion that called the Cathedral its home.  Happily, this seems to be an engaging topic for the little gargoyle, who eagerly explains: "<i>They worshiped a pantheon of gods – the beings that inhabited this world before the animal-morphs were raised up, and long before the demons came.  Marae was the chief goddess,</i>" she says, nodding to the tree-shaped icon at the head of the sanctuary.  "<i>She taught the people rituals to better their lives, rituals to purify their minds and bodies, and even helped them learn the basics of life.  These gods were creators, raising up the animals of the world to intelligence, mirroring that of the humans.  For that, they were worshiped and... in some cases, imitated.</i>"'
+            `You ask ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to tell you a little bit more about the religion that called the Cathedral its home.  Happily, this seems to be an engaging topic for the little gargoyle, who eagerly explains: "<i>They worshiped a pantheon of gods – the beings that inhabited this world before the animal-morphs were raised up, and long before the demons came.  Marae was the chief goddess,</i>" she says, nodding to the tree-shaped icon at the head of the sanctuary.  "<i>She taught the people rituals to better their lives, rituals to purify their minds and bodies, and even helped them learn the basics of life.  These gods were creators, raising up the animals of the world to intelligence, mirroring that of the humans.  For that, they were worshiped and... in some cases, imitated.</i>"`
         );
 
         this.outx(
@@ -1875,14 +1871,14 @@ export class Gargoyle extends BaseContent {
     private cathedralC(): void {
         this.clearOutput();
         this.outx(
-            "As you sit down with " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " to talk, you remember her words when you first met indicating that she could not – or would not – leave the Cathedral, even if you asked her to.   You ask her about that."
+            `As you sit down with ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to talk, you remember her words when you first met indicating that she could not – or would not – leave the Cathedral, even if you asked her to.   You ask her about that.`
         );
         this.outx(
-            '\n\n"<i>Master,</i>" ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                " says, now looking you straight in the eye, \"<i>the Cathedral is my home, the only home I've ever known.  Even if I could leave, I would not want to"
+            `\n\n"<i>Master,</i>" ${
+                this.flags[kFLAGS.GAR_NAME]
+            } says, now looking you straight in the eye, "<i>the Cathedral is my home, the only home I've ever known.  Even if I could leave, I would not want to`
         );
         if (this.gargoyleConfidence() > 69) this.outx(" unless it were to be with you, that is");
         this.outx(
@@ -1915,9 +1911,9 @@ export class Gargoyle extends BaseContent {
     private comfortGargoyle(): void {
         this.clearOutput();
         this.outx(
-            "You pick " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " up and wrap her in a tight hug, telling her that's everything's going to be all right and that you're here for her.  She makes a happy, girlish squeal and hugs you back, quickly wrapping her legs around your waist and planting a kiss on your cheek.  You sit back down, resting her on your lap, and ruffle her hair.  She grins and hugs you tighter until you're almost struggling to breathe."
+            `You pick ${
+                this.flags[kFLAGS.GAR_NAME]
+            } up and wrap her in a tight hug, telling her that's everything's going to be all right and that you're here for her.  She makes a happy, girlish squeal and hugs you back, quickly wrapping her legs around your waist and planting a kiss on your cheek.  You sit back down, resting her on your lap, and ruffle her hair.  She grins and hugs you tighter until you're almost struggling to breathe.`
         );
         this.outx(
             '\n\n"<i>Thank you, Master,</i>" she whispers into your ear, giving it a little kiss.  "<i>I\'ll always be here for you, too.  I swear it.</i>"'
@@ -1928,11 +1924,11 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nTo your surprise, " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " follows you, running to catch up with you.  She takes your hand in hers and wraps one of her wings around you as you walk, holding you close as you make your way out the doors and onto the grounds.  Soon, though, you see " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " slowing and grimacing – approaching the edge of her boundary.  The two of you stop at the wrought-iron fence surrounding the Cathedral, and face each other."
+            `\n\nTo your surprise, ${
+                this.flags[kFLAGS.GAR_NAME]
+            } follows you, running to catch up with you.  She takes your hand in hers and wraps one of her wings around you as you walk, holding you close as you make your way out the doors and onto the grounds.  Soon, though, you see ${
+                this.flags[kFLAGS.GAR_NAME]
+            } slowing and grimacing – approaching the edge of her boundary.  The two of you stop at the wrought-iron fence surrounding the Cathedral, and face each other.`
         );
 
         this.outx(
@@ -1948,9 +1944,9 @@ export class Gargoyle extends BaseContent {
     private berateDatGargoyle4SomeSavin(): void {
         this.clearOutput();
         this.outx(
-            "Right.  Because becoming a living footstool for you was TOTALLY worth everyone she ever knew being raped out of their minds.  You give " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " a hard swat and remind her exactly how moronic she's being.  She recoils, shying away from you as you stand up and head for the door.  Over your shoulder, you tell her you're glad she's bound here – that way she can't fuck up and get you killed, too."
+            `Right.  Because becoming a living footstool for you was TOTALLY worth everyone she ever knew being raped out of their minds.  You give ${
+                this.flags[kFLAGS.GAR_NAME]
+            } a hard swat and remind her exactly how moronic she's being.  She recoils, shying away from you as you stand up and head for the door.  Over your shoulder, you tell her you're glad she's bound here – that way she can't fuck up and get you killed, too.`
         );
         // (Return PC to camp, advance time 1 hour)
         this.gargoyleConfidence(-10);
@@ -1975,9 +1971,9 @@ export class Gargoyle extends BaseContent {
     private garNameA(): void {
         this.clearOutput();
         this.outx(
-            "Curious about your gargoyle, you ask " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' to tell you a little bit about her life before you arrived.  She makes a nervous chuckle at the request, and shyly says, "<i>Master is too kind...  I am no one special...</i>"'
+            `Curious about your gargoyle, you ask ${
+                this.flags[kFLAGS.GAR_NAME]
+            } to tell you a little bit about her life before you arrived.  She makes a nervous chuckle at the request, and shyly says, "<i>Master is too kind...  I am no one special...</i>"`
         );
 
         this.outx(
@@ -2011,9 +2007,9 @@ export class Gargoyle extends BaseContent {
             );
         else
             this.outx(
-                "After what she did to me, I never thought I'd enjoy sex again.</i>\"  With a loving smile, " +
-                    this.flags[kFLAGS.GAR_NAME] +
-                    ' takes your hand in hers and brushes it against her cheek.  "<i>But for you, Master, I think I could make an exception.</i>"'
+                `After what she did to me, I never thought I'd enjoy sex again.</i>"  With a loving smile, ${
+                    this.flags[kFLAGS.GAR_NAME]
+                } takes your hand in hers and brushes it against her cheek.  "<i>But for you, Master, I think I could make an exception.</i>"`
             );
 
         this.outx(
@@ -2042,9 +2038,9 @@ export class Gargoyle extends BaseContent {
         this.clearOutput();
         // (Confidence +3)
         this.outx(
-            "Settling in for what could be a long talk, you ask " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' if she\'s finally ready to tell you about her last Master.  She sighs heavily, but with a bit of encouragement, she begins to speak: "<i>Master was... an unusual specimen, I should think.  She was so very beautiful, so very gentle,</i>" the gargoyle says, almost wistfully.'
+            `Settling in for what could be a long talk, you ask ${
+                this.flags[kFLAGS.GAR_NAME]
+            } if she's finally ready to tell you about her last Master.  She sighs heavily, but with a bit of encouragement, she begins to speak: "<i>Master was... an unusual specimen, I should think.  She was so very beautiful, so very gentle,</i>" the gargoyle says, almost wistfully.`
         );
 
         this.outx(
@@ -2059,9 +2055,9 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou don't need to prompt " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' this time.  "<i>She left, perhaps ten years ago.  One day I was following orders to Master\'s pleasure, and the next I was bound to my pedestal, wearing the chains that Master broke to set me free.</i>"'
+            `\n\nYou don't need to prompt ${
+                this.flags[kFLAGS.GAR_NAME]
+            } this time.  "<i>She left, perhaps ten years ago.  One day I was following orders to Master's pleasure, and the next I was bound to my pedestal, wearing the chains that Master broke to set me free.</i>"`
         );
 
         this.outx(
@@ -2077,9 +2073,9 @@ export class Gargoyle extends BaseContent {
         this.gargoyleConfidence(5);
         this.clearOutput();
         this.outx(
-            "You ask " +
-                this.flags[kFLAGS.GAR_NAME] +
-                ' if she\'s finally ready to talk to you about what happened to her previous Master, and what happened to her since.  Hesitantly, she agrees to your request.  "<i>Master was a dark sorceress, gifted with the skill of manipulating the bodies of others, though it caused them incredible pain.  I think... perhaps her fascination with me came from my immutability, that she couldn\'t change my body to her whims through her magic.  So she sought to change my mind, breaking my will and shaping me to her desires.</i>"  With a rueful smile, she adds, "<i>You could say that she made me the creature I am today.</i>"'
+            `You ask ${
+                this.flags[kFLAGS.GAR_NAME]
+            } if she's finally ready to talk to you about what happened to her previous Master, and what happened to her since.  Hesitantly, she agrees to your request.  "<i>Master was a dark sorceress, gifted with the skill of manipulating the bodies of others, though it caused them incredible pain.  I think... perhaps her fascination with me came from my immutability, that she couldn't change my body to her whims through her magic.  So she sought to change my mind, breaking my will and shaping me to her desires.</i>"  With a rueful smile, she adds, "<i>You could say that she made me the creature I am today.</i>"`
         );
 
         this.outx(
@@ -2087,9 +2083,9 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\n" +
-                this.flags[kFLAGS.GAR_NAME] +
-                " pauses in her story, sniffling and wiping the back of her hand across her eye, even though she can produce no tears.  \"<i>I knew what would happen.  I tried to tell her.  I'd seen what demons can do, experienced their cruelty firsthand.  But I'm not even a person; my opinions don't matter.  We both knew that.  She even chained me, left me, so that I would not interfere.  And so out she went, all arrogance and bravado.</i>\""
+            `\n\n${
+                this.flags[kFLAGS.GAR_NAME]
+            } pauses in her story, sniffling and wiping the back of her hand across her eye, even though she can produce no tears.  "<i>I knew what would happen.  I tried to tell her.  I'd seen what demons can do, experienced their cruelty firsthand.  But I'm not even a person; my opinions don't matter.  We both knew that.  She even chained me, left me, so that I would not interfere.  And so out she went, all arrogance and bravado.</i>"`
         );
         this.outx(
             '\n\nShe continues, "<i>She never stood a chance.  Master was obliterated, utterly and completely beaten.  The last I saw of her, she was being dragged away by the hair, kicking and screaming, begging for my help.  But I could do nothing.  I was helpless, I was powerless.  As always.</i>"'
@@ -2109,9 +2105,9 @@ export class Gargoyle extends BaseContent {
     private comfortGarNameC(): void {
         this.clearOutput();
         this.outx(
-            "You pull " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " onto your lap and run your hand through her hair.  You tell her that she's wrong – dead wrong.  She is a person, and she is not helpless.  She's anything but."
+            `You pull ${
+                this.flags[kFLAGS.GAR_NAME]
+            } onto your lap and run your hand through her hair.  You tell her that she's wrong – dead wrong.  She is a person, and she is not helpless.  She's anything but.`
         );
 
         this.outx(
@@ -2123,9 +2119,9 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            '\n\nShe smiles weakly, and rests her head on your chest.  "<i>As you command, Master,</i>" she says, and falls silent.  You sit there for a long while, stroking the gargoyle\'s soft hair and hoping you have made an impression on her.  But, eventually, you know you have to part.  You give ' +
-                this.flags[kFLAGS.GAR_NAME] +
-                " a little kiss on the forehead and tell her to do whatever she wants while you're gone."
+            `\n\nShe smiles weakly, and rests her head on your chest.  "<i>As you command, Master,</i>" she says, and falls silent.  You sit there for a long while, stroking the gargoyle's soft hair and hoping you have made an impression on her.  But, eventually, you know you have to part.  You give ${
+                this.flags[kFLAGS.GAR_NAME]
+            } a little kiss on the forehead and tell her to do whatever she wants while you're gone.`
         );
 
         this.outx(
@@ -2133,9 +2129,9 @@ export class Gargoyle extends BaseContent {
         );
 
         this.outx(
-            "\n\nSighing, you pat " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " on the head and tell her you'd be happy to stay for a while longer.  Beaming, she asks you what you'd like to do."
+            `\n\nSighing, you pat ${
+                this.flags[kFLAGS.GAR_NAME]
+            } on the head and tell her you'd be happy to stay for a while longer.  Beaming, she asks you what you'd like to do.`
         );
         // (Return to normal interaction menu)
         this.gargoyleConfidence(15);
@@ -2147,9 +2143,9 @@ export class Gargoyle extends BaseContent {
     private berateGargoyleC(): void {
         this.clearOutput();
         this.outx(
-            "You laugh, and tell " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " exactly what you think about her – that for a talking lump of rock, she's too damn talkative and way the hell too emotional about everything.  She sits there, very quietly, listening to your every word.  She even nods, from time to time, agreeing with you!  You're not sure if that makes you angrier or not."
+            `You laugh, and tell ${
+                this.flags[kFLAGS.GAR_NAME]
+            } exactly what you think about her – that for a talking lump of rock, she's too damn talkative and way the hell too emotional about everything.  She sits there, very quietly, listening to your every word.  She even nods, from time to time, agreeing with you!  You're not sure if that makes you angrier or not.`
         );
 
         this.outx(
@@ -2170,9 +2166,9 @@ export class Gargoyle extends BaseContent {
     private gargoyleAppearance(): void {
         this.clearOutput();
         this.outx(
-            "" +
-                this.flags[kFLAGS.GAR_NAME] +
-                " is a gray marble statue that, through magics you can't quite grasp, has been animated."
+            `${
+                this.flags[kFLAGS.GAR_NAME]
+            } is a gray marble statue that, through magics you can't quite grasp, has been animated.`
         );
         this.outx(
             "\n\nShe stands roughly six feet tall, with a slender, girly frame.  She wears no clothes, seemingly possessing no modesty at all, and uses her brutally spiked tail as a weapon.  She has a cute, somewhat angular face that is very feminine.  Her skin and hair are a light shade of gray, though she has solid, ruby-red eyes which "
@@ -2184,9 +2180,9 @@ export class Gargoyle extends BaseContent {
                 "have a cool fire in them, showing her steadily-growing confidence and warmth toward you."
             );
         this.outx(
-            "  Her skin is cold and smooth to the touch, a consequence of her marble material, yet she is quite soft, almost squishy.  " +
-                this.flags[kFLAGS.GAR_NAME] +
-                " has a pair of cute little horns upon her brow, and has bat-like wings sprouting from her back which give a gentle flap every few seconds, an unconscious gesture on her part as you stare at her.  She has a long, spiked tail that curls "
+            `  Her skin is cold and smooth to the touch, a consequence of her marble material, yet she is quite soft, almost squishy.  ${
+                this.flags[kFLAGS.GAR_NAME]
+            } has a pair of cute little horns upon her brow, and has bat-like wings sprouting from her back which give a gentle flap every few seconds, an unconscious gesture on her part as you stare at her.  She has a long, spiked tail that curls `
         );
         if (this.gargoyleConfidence() < 70) this.outx("timidly");
         else this.outx("playfully");

@@ -106,8 +106,8 @@ export class Parser {
             if (obj == undefined) {
                 // Completely bad tag
                 if (this.lookupParserDebug || this.logErrors)
-                    trace("WARNING: Unknown subject in " + arg);
-                return '<b>!Unknown subject in "' + arg + '"!</b>';
+                    trace(`WARNING: Unknown subject in ${arg}`);
+                return `<b>!Unknown subject in "${arg}"!</b>`;
             }
             if (obj.hasOwnProperty("getDescription") && arg.indexOf(".") > 0) {
                 return obj.getDescription(descriptorArray[1], "");
@@ -130,7 +130,7 @@ export class Parser {
             } else {
                 if (this.lookupParserDebug || this.logErrors)
                     trace("WARNING: No lookup found for", arg, " search result is: ", obj);
-                return '<b>!Unknown tag "' + arg + '"!</b>';
+                return `<b>!Unknown tag "${arg}"!</b>`;
             }
         }
     }
@@ -144,8 +144,8 @@ export class Parser {
 
         const argTemp: any[] = inputArg.split(" ");
         if (argTemp.length != 2) {
-            if (this.logErrors) trace("WARNING: Not actually a two word tag! " + inputArg);
-            return '<b>!Not actually a two-word tag!"' + inputArg + '"!</b>';
+            if (this.logErrors) trace(`WARNING: Not actually a two word tag! ${inputArg}`);
+            return `<b>!Not actually a two-word tag!"${inputArg}"!</b>`;
         }
         const subject: string = argTemp[0];
         const aspect: any = argTemp[1];
@@ -184,18 +184,9 @@ export class Parser {
             } else {
                 if (this.logErrors)
                     trace(
-                        "WARNING: Unknown aspect in two-word tag. Arg: " +
-                            inputArg +
-                            " Aspect: " +
-                            aspectLower
+                        `WARNING: Unknown aspect in two-word tag. Arg: ${inputArg} Aspect: ${aspectLower}`
                     );
-                return (
-                    '<b>!Unknown aspect in two-word tag "' +
-                    inputArg +
-                    '"! ASCII Aspect = "' +
-                    aspectLower +
-                    '"</b>'
-                );
+                return `<b>!Unknown aspect in two-word tag "${inputArg}"! ASCII Aspect = "${aspectLower}"</b>`;
             }
         }
 
@@ -211,8 +202,8 @@ export class Parser {
         const thing: any = this.getObjectFromString(this._ownerClass, descriptorArray[0]);
         if (thing == undefined) {
             // Completely bad tag
-            if (this.logErrors) trace("WARNING: Unknown subject in " + inputArg);
-            return '<b>!Unknown subject in "' + inputArg + '"!</b>';
+            if (this.logErrors) trace(`WARNING: Unknown subject in ${inputArg}`);
+            return `<b>!Unknown subject in "${inputArg}"!</b>`;
         }
         if (thing.hasOwnProperty("getDescription") && subject.indexOf(".") > 0) {
             if (argTemp.length > 1) {
@@ -236,22 +227,9 @@ export class Parser {
                 if (isNaN(indice)) {
                     if (this.logErrors)
                         trace(
-                            "WARNING: Cannot use non-number as indice to Array. Arg " +
-                                inputArg +
-                                " Subject: " +
-                                subject +
-                                " Aspect: " +
-                                aspect
+                            `WARNING: Cannot use non-number as indice to Array. Arg ${inputArg} Subject: ${subject} Aspect: ${aspect}`
                         );
-                    return (
-                        '<b>Cannot use non-number as indice to Array "' +
-                        inputArg +
-                        '"! Subject = "' +
-                        subject +
-                        ", Aspect = " +
-                        aspect +
-                        "</b>"
-                    );
+                    return `<b>Cannot use non-number as indice to Array "${inputArg}"! Subject = "${subject}, Aspect = ${aspect}</b>`;
                 } else return thing[indice];
             } else if (typeof thing == "object") {
                 if (thing.hasOwnProperty(aspectLookup)) return thing[aspectLookup];
@@ -259,26 +237,9 @@ export class Parser {
                 else {
                     if (this.logErrors)
                         trace(
-                            "WARNING: Record<string, any> does not have aspect as a member. Arg: " +
-                                inputArg +
-                                " Subject: " +
-                                subject +
-                                " Aspect:" +
-                                aspect +
-                                " or " +
-                                aspectLookup
+                            `WARNING: Record<string, any> does not have aspect as a member. Arg: ${inputArg} Subject: ${subject} Aspect:${aspect} or ${aspectLookup}`
                         );
-                    return (
-                        '<b>Object does not have aspect as a member "' +
-                        inputArg +
-                        '"! Subject = "' +
-                        subject +
-                        ", Aspect = " +
-                        aspect +
-                        " or " +
-                        aspectLookup +
-                        "</b>"
-                    );
+                    return `<b>Object does not have aspect as a member "${inputArg}"! Subject = "${subject}, Aspect = ${aspect} or ${aspectLookup}</b>`;
                 }
             } else {
                 // This will work, but I don't know why you'd want to
@@ -291,15 +252,7 @@ export class Parser {
 
         if (this.lookupParserDebug || this.logErrors)
             trace("WARNING: No lookup found for", inputArg, " search result is: ", thing);
-        return (
-            '<b>!Unknown subject in two-word tag "' +
-            inputArg +
-            '"! Subject = "' +
-            subject +
-            ", Aspect = " +
-            aspect +
-            "</b>"
-        );
+        return `<b>!Unknown subject in two-word tag "${inputArg}"! Subject = "${subject}, Aspect = ${aspect}</b>`;
     }
 
     // Provides the conditionalOptions object
@@ -433,16 +386,7 @@ export class Parser {
         else retVal = condArg1 != condArg2;
 
         if (this.printConditionalEvalDebug)
-            trace(
-                "WARNING: Check: " +
-                    condArg1 +
-                    " " +
-                    operator +
-                    " " +
-                    condArg2 +
-                    " result: " +
-                    retVal
-            );
+            trace(`WARNING: Check: ${condArg1} ${operator} ${condArg2} result: ${retVal}`);
 
         return retVal;
     }
@@ -617,8 +561,8 @@ export class Parser {
             }
         } else {
             if (this._settingsClass.haltOnErrors)
-                throw new Error("Invalid if statement!" + textCtnt);
-            return "<b>Invalid IF Statement<b/>" + textCtnt;
+                throw new Error(`Invalid if statement!${textCtnt}`);
+            return `<b>Invalid IF Statement<b/>${textCtnt}`;
         }
         return "";
     }
@@ -669,7 +613,7 @@ export class Parser {
     private getSceneSectionToInsert(inputArg: string): string {
         const argTemp: any[] = inputArg.split(" ");
         if (argTemp.length != 2) {
-            return '<b>!Not actually a valid insertSection tag:!"' + inputArg + '"!</b>';
+            return `<b>!Not actually a valid insertSection tag:!"${inputArg}"!</b>`;
         }
         const callName: string = argTemp[0];
         const sceneName: any = argTemp[1];
@@ -688,9 +632,7 @@ export class Parser {
 
         if (sceneName in this.parserState) {
             if (this.sceneParserDebug)
-                trace(
-                    'WARNING: Have sceneSection "' + sceneName + '". Parsing and setting up menu'
-                );
+                trace(`WARNING: Have sceneSection "${sceneName}". Parsing and setting up menu`);
 
             this.buttonNum = 0; // Clear the button number, so we start adding buttons from button 0
 
@@ -703,11 +645,7 @@ export class Parser {
 
             // if (sceneParserDebug) trace("WARNING: Scene contents: \"" + tmp1 + "\" as parsed: \"" + tmp2 + "\"")
         } else {
-            return (
-                'Insert sceneSection called with unknown arg "' +
-                sceneName +
-                '". falling back to the debug pane'
-            );
+            return `Insert sceneSection called with unknown arg "${sceneName}". falling back to the debug pane`;
         }
     }
 
@@ -736,7 +674,7 @@ export class Parser {
         */
         let ret = "";
 
-        if (this.sceneParserDebug) trace('WARNING: Entering parser scene: "' + sceneName + '"');
+        if (this.sceneParserDebug) trace(`WARNING: Entering parser scene: "${sceneName}"`);
         if (this.sceneParserDebug)
             trace("WARNING: Do we have the scene name? ", sceneName in this.parserState);
         if (sceneName == "exit") {
@@ -749,7 +687,7 @@ export class Parser {
             this._ownerClass.debugPane();
         } else if (sceneName in this.parserState) {
             if (this.sceneParserDebug)
-                trace('WARNING: Have scene "' + sceneName + '". Parsing and setting up menu');
+                trace(`WARNING: Have scene "${sceneName}". Parsing and setting up menu`);
             this._ownerClass.menu();
 
             this.buttonNum = 0; // Clear the button number, so we start adding buttons from button 0
@@ -761,17 +699,14 @@ export class Parser {
             this._ownerClass.rawOutputText(ret, true); // and then stick it on the display
 
             // if (sceneParserDebug) trace("WARNING: Scene contents: \"" + tmp1 + "\" as parsed: \"" + tmp2 + "\"")
-            if (this.sceneParserDebug)
-                trace('WARNING: Scene contents after markdown: "' + ret + '"');
+            if (this.sceneParserDebug) trace(`WARNING: Scene contents after markdown: "${ret}"`);
         } else if (this.getObjectFromString(this._ownerClass, sceneName) != undefined) {
             if (this.sceneParserDebug)
-                trace('WARNING: Have function "' + sceneName + '" in this!. Calling.');
+                trace(`WARNING: Have function "${sceneName}" in this!. Calling.`);
             this.getObjectFromString(this._ownerClass, sceneName)();
         } else {
             trace(
-                'WARNING: Enter scene called with unknown arg/function "' +
-                    sceneName +
-                    '". falling back to the debug pane'
+                `WARNING: Enter scene called with unknown arg/function "${sceneName}". falling back to the debug pane`
             );
             this._ownerClass.doNext(this._ownerClass.debugPane);
         }
@@ -795,7 +730,7 @@ export class Parser {
         sceneCont = textCtnt.substr(textCtnt.indexOf("|") + 1);
 
         sceneName = this.stripStr(sceneName);
-        if (this.sceneParserDebug) trace('WARNING: Adding scene with name "' + sceneName + '"');
+        if (this.sceneParserDebug) trace(`WARNING: Adding scene with name "${sceneName}"`);
 
         // Cleanup the scene content from spurious leading and trailing space.
         sceneCont = this.trimStr(sceneCont, "\n");
@@ -875,7 +810,7 @@ export class Parser {
             retStr += this.convertDoubleArg(textCtnt);
         } else {
             if (this.mainParserDebug) trace("WARNING: Cannot parse content. What?", textCtnt);
-            retStr += '<b>!Unknown multi-word tag "' + retStr + '"!</b>';
+            retStr += `<b>!Unknown multi-word tag "${retStr}"!</b>`;
         }
 
         return retStr;

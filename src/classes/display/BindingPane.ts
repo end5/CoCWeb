@@ -163,7 +163,7 @@ export class BindingPane {
             // newLabel.name = func.Name;
             // newLabel.x = 2;
             // newLabel.y = (BindDisplay.BUTTON_Y_DELTA * i) + (7 + helpLabel.textHeight);
-            newLabel.htmlText = "<b>" + func.Name + ":</b>";
+            newLabel.htmlText = `<b>${func.Name}:</b>`;
             newLabel.button1Text = String.fromCharCode(func.PrimaryKey);
             newLabel.button2Text = String.fromCharCode(func.SecondaryKey);
 

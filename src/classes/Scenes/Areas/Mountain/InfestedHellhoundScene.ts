@@ -19,9 +19,7 @@ export class InfestedHellhoundScene extends BaseContent {
             this.outx("making your jello-like body jiggle");
         else this.outx("rattling your teeth");
         this.outx(
-            ".  Peeking fearfully over your shoulder, you see the black-furred form of a hell-hound emerging from behind a rock.  Its eyes narrow as its gaze locks onto your " +
-                this.player.assholeOrPussy() +
-                ", a pair of black, shiny dog-cocks emerge underneath him, dangling freely.  His balls look bloated and distended, the skin around them crawling and wriggling.  A few worms drip from its over-sized peckers, crawling on the ground under the infested beast.\n\n",
+            `.  Peeking fearfully over your shoulder, you see the black-furred form of a hell-hound emerging from behind a rock.  Its eyes narrow as its gaze locks onto your ${this.player.assholeOrPussy()}, a pair of black, shiny dog-cocks emerge underneath him, dangling freely.  His balls look bloated and distended, the skin around them crawling and wriggling.  A few worms drip from its over-sized peckers, crawling on the ground under the infested beast.\n\n`,
             false
         );
         this.outx("Somehow you know this thing isn't going to let you just walk away.", false);
@@ -46,35 +44,25 @@ export class InfestedHellhoundScene extends BaseContent {
                 else if (this.player.cor < 66) this.outx("In spite of your better sense ");
                 else this.outx("With a perverse sense of anticipation ");
                 this.outx(
-                    "you remove your " +
-                        this.player.armorName +
-                        " and roll onto your back, exposing your vulnerable groin to the beast.\n\n",
+                    `you remove your ${this.player.armorName} and roll onto your back, exposing your vulnerable groin to the beast.\n\n`,
                     false
                 );
             }
             // (HP)
             else
                 this.outx(
-                    "Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-sharp teeth easily sink into your " +
-                        this.player.armorName +
-                        " before tearing away the offending armor, exposing your " +
-                        this.assDescript() +
-                        " and " +
-                        this.multiCockDescriptLight() +
-                        ".  A cold mountain breeze blows across your now-exposed " +
-                        this.player.skinDesc +
-                        ", reminding you just how utterly vulnerable you are to the alien lusts of this symbiotic monstrosity. With a brutal lunge it knocks you off your " +
-                        this.player.feet() +
-                        " and onto your back.\n\n",
+                    `Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-sharp teeth easily sink into your ${
+                        this.player.armorName
+                    } before tearing away the offending armor, exposing your ${this.assDescript()} and ${this.multiCockDescriptLight()}.  A cold mountain breeze blows across your now-exposed ${
+                        this.player.skinDesc
+                    }, reminding you just how utterly vulnerable you are to the alien lusts of this symbiotic monstrosity. With a brutal lunge it knocks you off your ${this.player.feet()} and onto your back.\n\n`,
                     false
                 );
 
             this.outx(
-                "The beast takes a sniff at your groin, then backs away, looking confused.  You glance down and realize just how hard you've become.  A few of your worms are hanging from the " +
-                    this.player.cockHead() +
-                    " of your " +
-                    this.cockDescript(0) +
-                    ", starting to flow out in a steady stream.  It feels better than it has any right to.   A shadow falls across you as the hellhound moves over you, its imposing twin members hard and pulsating above you.  Hot splatters of jism drip onto your chest as the beast's worms begin escaping, forcing thick globules of dog-semen out along with them.\n\n",
+                `The beast takes a sniff at your groin, then backs away, looking confused.  You glance down and realize just how hard you've become.  A few of your worms are hanging from the ${this.player.cockHead()} of your ${this.cockDescript(
+                    0
+                )}, starting to flow out in a steady stream.  It feels better than it has any right to.   A shadow falls across you as the hellhound moves over you, its imposing twin members hard and pulsating above you.  Hot splatters of jism drip onto your chest as the beast's worms begin escaping, forcing thick globules of dog-semen out along with them.\n\n`,
                 false
             );
 
@@ -103,26 +91,18 @@ export class InfestedHellhoundScene extends BaseContent {
                 else if (this.player.cor < 66) this.outx("In spite of your better sense ");
                 else this.outx("With a perverse sense of anticipation ");
                 this.outx(
-                    "you remove your " +
-                        this.player.armorName +
-                        " and roll onto your back, exposing your vulnerable groin to the beast.\n\n",
+                    `you remove your ${this.player.armorName} and roll onto your back, exposing your vulnerable groin to the beast.\n\n`,
                     false
                 );
             }
             // (HP)
             else {
                 this.outx(
-                    "Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your " +
-                        this.player.armorName +
-                        " before tearing it off, exposing your " +
-                        this.assDescript() +
-                        " and " +
-                        this.multiCockDescriptLight() +
-                        ".  A cold mountain breeze blows across your now exposed " +
-                        this.player.skinDesc +
-                        ", reminding you just how utterly vulnerable you are to the alien lusts of this symbiotic monstrosity.  With a brutal lunge it knocks you off your " +
-                        this.player.feet() +
-                        " and onto your back.\n\n",
+                    `Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your ${
+                        this.player.armorName
+                    } before tearing it off, exposing your ${this.assDescript()} and ${this.multiCockDescriptLight()}.  A cold mountain breeze blows across your now exposed ${
+                        this.player.skinDesc
+                    }, reminding you just how utterly vulnerable you are to the alien lusts of this symbiotic monstrosity.  With a brutal lunge it knocks you off your ${this.player.feet()} and onto your back.\n\n`,
                     false
                 );
             }
@@ -132,15 +112,11 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
                 this.outx(
-                    "each of your " +
-                        this.multiCockDescriptLight() +
-                        ".  It feels good, better than it has any right to.  ",
+                    `each of your ${this.multiCockDescriptLight()}.  It feels good, better than it has any right to.  `,
                     false
                 );
                 this.outx(
-                    "Every single one of your " +
-                        this.multiCockDescriptLight() +
-                        " hardens under the stimulation, happy to be so well-treated.\n\n",
+                    `Every single one of your ${this.multiCockDescriptLight()} hardens under the stimulation, happy to be so well-treated.\n\n`,
                     false
                 );
 
@@ -150,17 +126,14 @@ export class InfestedHellhoundScene extends BaseContent {
                 );
 
                 this.outx(
-                    "Gods, it's shoving its infected cocks up your urethras!  It's trying to infect you with those worms!  The dog-demon keeps pushing further and further, sliding deep inside you, the outline of its members easily visible through the skin of your " +
-                        this.multiCockDescriptLight() +
-                        ".  It starts feeling good, the wriggling parasite-infested dicks begin sliding in and out, fucking your urethras in earnest and depositing their wormy cargo deep inside you.\n\n",
+                    `Gods, it's shoving its infected cocks up your urethras!  It's trying to infect you with those worms!  The dog-demon keeps pushing further and further, sliding deep inside you, the outline of its members easily visible through the skin of your ${this.multiCockDescriptLight()}.  It starts feeling good, the wriggling parasite-infested dicks begin sliding in and out, fucking your urethras in earnest and depositing their wormy cargo deep inside you.\n\n`,
                     false
                 );
 
                 this.outx("Your ");
                 if (this.player.balls > 0)
                     this.outx(
-                        this.ballsDescriptLight() +
-                            " shiver as hot doggie-cum and wiggling worms are pumped directly into them.  ",
+                        `${this.ballsDescriptLight()} shiver as hot doggie-cum and wiggling worms are pumped directly into them.  `,
                         false
                     );
                 else
@@ -183,37 +156,28 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
                 this.outx(
-                    "your " +
-                        this.multiCockDescriptLight() +
-                        ".  It feels good, better than it has any right to.  ",
+                    `your ${this.multiCockDescriptLight()}.  It feels good, better than it has any right to.  `,
                     false
                 );
                 this.outx(
-                    "Your " +
-                        this.multiCockDescriptLight() +
-                        " hardens under the stimulation, happy to be so well-treated.\n\n",
+                    `Your ${this.multiCockDescriptLight()} hardens under the stimulation, happy to be so well-treated.\n\n`,
                     false
                 );
 
                 this.outx(
-                    "Stopping its licking, the beast begins to shuffle forwards, pre-cum coated worms plopping out of its double-dicks onto your belly.  They crawl lamely around as the beast works to line itself up, though you're unsure what it could possibly be aiming for.  Your questions are answered as the slightly pointed tip of one of its twin-members presses forward, bumping against your " +
-                        this.player.cockHead() +
-                        ".   It pushes forward with an intense sort of care, slowly forcing itself into your urethra, dribbling painfully hot cum directly into your cock-passage and dripping the stuff all over your groin.\n\n",
+                    `Stopping its licking, the beast begins to shuffle forwards, pre-cum coated worms plopping out of its double-dicks onto your belly.  They crawl lamely around as the beast works to line itself up, though you're unsure what it could possibly be aiming for.  Your questions are answered as the slightly pointed tip of one of its twin-members presses forward, bumping against your ${this.player.cockHead()}.   It pushes forward with an intense sort of care, slowly forcing itself into your urethra, dribbling painfully hot cum directly into your cock-passage and dripping the stuff all over your groin.\n\n`,
                     false
                 );
 
                 this.outx(
-                    "Gods, it's shoving its infected cock up your urethra!  It's trying to infect you with those worms!  The dog-demon keeps pushing further and further, sliding deep inside you, the outline of its member easily visible through the skin of your " +
-                        this.multiCockDescriptLight() +
-                        ".  It starts feeling good, the wriggling parasite-infested dick begins sliding in and out, fucking your urethra in earnest and depositing its wormy cargo deep inside you.\n\n",
+                    `Gods, it's shoving its infected cock up your urethra!  It's trying to infect you with those worms!  The dog-demon keeps pushing further and further, sliding deep inside you, the outline of its member easily visible through the skin of your ${this.multiCockDescriptLight()}.  It starts feeling good, the wriggling parasite-infested dick begins sliding in and out, fucking your urethra in earnest and depositing its wormy cargo deep inside you.\n\n`,
                     false
                 );
 
                 this.outx("Your ");
                 if (this.player.balls > 0)
                     this.outx(
-                        this.ballsDescriptLight() +
-                            " shiver as hot doggie-cum and wiggling worms are pumped directly into them.",
+                        `${this.ballsDescriptLight()} shiver as hot doggie-cum and wiggling worms are pumped directly into them.`,
                         false
                     );
                 else
@@ -258,24 +222,20 @@ export class InfestedHellhoundScene extends BaseContent {
                 else if (this.player.cor < 66) this.outx("In spite of your better sense ");
                 else this.outx("With a perverse sense of anticipation ");
                 this.outx(
-                    "you remove your " +
-                        this.player.armorName +
-                        " and drop to all fours, mimicking what you think a dog would do.\n\n",
+                    `you remove your ${this.player.armorName} and drop to all fours, mimicking what you think a dog would do.\n\n`,
                     false
                 );
             }
             // (HP)
             else {
                 this.outx(
-                    "Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your " +
-                        this.player.armorName +
-                        " before tearing it off, exposing your " +
-                        this.assDescript() +
-                        " and " +
-                        this.vaginaDescript(0) +
-                        ".  A cold mountain breeze blows across your now exposed " +
-                        this.player.skinDesc +
-                        ", reminding you just how utterly exposed you are to the alien lusts of this symbiotic monstrosity.\n\n",
+                    `Too wounded to stand, you drop down to all fours in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your ${
+                        this.player.armorName
+                    } before tearing it off, exposing your ${this.assDescript()} and ${this.vaginaDescript(
+                        0
+                    )}.  A cold mountain breeze blows across your now exposed ${
+                        this.player.skinDesc
+                    }, reminding you just how utterly exposed you are to the alien lusts of this symbiotic monstrosity.\n\n`,
                     false
                 );
             }
@@ -300,18 +260,14 @@ export class InfestedHellhoundScene extends BaseContent {
                 false
             );
             this.outx(
-                "Incredible heat radiates from the pair of rods inside you, making your whole body break out in a cold sweat in an attempt to deal with the situation.  You're rocked back and forth as the beast begins fucking you in earnest, slamming its fur-covered hips against your " +
-                    this.assDescript() +
-                    " with animalistic intensity.  Thankfully, the fucking isn't that painful, but the small mercy is ruined by the hot fluid you can feel starting to pour into you.\n\n",
+                `Incredible heat radiates from the pair of rods inside you, making your whole body break out in a cold sweat in an attempt to deal with the situation.  You're rocked back and forth as the beast begins fucking you in earnest, slamming its fur-covered hips against your ${this.assDescript()} with animalistic intensity.  Thankfully, the fucking isn't that painful, but the small mercy is ruined by the hot fluid you can feel starting to pour into you.\n\n`,
                 false
             );
 
             this.outx(
-                "Oh gods no, you can feel something squirming inside you!  It's dripping worms into your intestines and pussy!   Its hot spittle drips onto your back as it ruts hard and fast, spurting and dripping a small portion of its wormy cargo inside you.  They're wriggling and squirming around, rubbing you in such an obscene way, bringing you closer and closer to orgasm in spite of the budding horror gnawing at your gut.   The beast on your back seems oblivious to it all, pushing more roughly into your " +
-                    this.vaginaDescript(0) +
-                    " and " +
-                    this.assholeDescript() +
-                    " with every stroke until with a burst of pressure, he manages to bottom out both of his throbbing, black fuck-sticks at once.\n\n",
+                `Oh gods no, you can feel something squirming inside you!  It's dripping worms into your intestines and pussy!   Its hot spittle drips onto your back as it ruts hard and fast, spurting and dripping a small portion of its wormy cargo inside you.  They're wriggling and squirming around, rubbing you in such an obscene way, bringing you closer and closer to orgasm in spite of the budding horror gnawing at your gut.   The beast on your back seems oblivious to it all, pushing more roughly into your ${this.vaginaDescript(
+                    0
+                )} and ${this.assholeDescript()} with every stroke until with a burst of pressure, he manages to bottom out both of his throbbing, black fuck-sticks at once.\n\n`,
                 false
             );
 
@@ -365,22 +321,18 @@ export class InfestedHellhoundScene extends BaseContent {
                 else if (this.player.cor < 66) this.outx("In spite of your better sense ");
                 else this.outx("With a perverse sense of anticipation ");
                 this.outx(
-                    "you remove your " +
-                        this.player.armorName +
-                        " and drop to your elbows, mimicking what you think a dog would do.\n\n",
+                    `you remove your ${this.player.armorName} and drop to your elbows, mimicking what you think a dog would do.\n\n`,
                     false
                 );
             }
             // (HP)
             else {
                 this.outx(
-                    "Too wounded to stand, you drop down to on your elbows in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your " +
-                        this.player.armorName +
-                        " before tearing it off, exposing your " +
-                        this.assDescript() +
-                        ".  A cold mountain breeze blows across your now exposed " +
-                        this.player.skinDesc +
-                        ", reminding you just how utterly exposed you are to the alien lusts of this symbiotic monstrosity.\n\n",
+                    `Too wounded to stand, you drop down to on your elbows in order to keep yourself off the ground.   Too late you realize your mistake – the snarling beast is behind you and its razor-shark teeth easily sink into your ${
+                        this.player.armorName
+                    } before tearing it off, exposing your ${this.assDescript()}.  A cold mountain breeze blows across your now exposed ${
+                        this.player.skinDesc
+                    }, reminding you just how utterly exposed you are to the alien lusts of this symbiotic monstrosity.\n\n`,
                     false
                 );
             }
@@ -400,24 +352,16 @@ export class InfestedHellhoundScene extends BaseContent {
                 );
 
             this.outx(
-                "The demon-dog tries to penetrate you all at once, but it isn't lined up properly, and all it manages to do is bump against your taint and rub its other dick on your back.   You gasp in pain, momentarily thankful not to be impaled by such a bestial implement, but knowing all too well the brief reprieve will be over all too soon.   As if it can read your thoughts, the demon-hound repositions itself and slams forward, this time managing to line its dog-dicks up with your " +
-                    this.assholeDescript() +
-                    " correctly.  It feels far larger than it looked, filling you with a painful suddenness that brings tears to your eyes.\n\n",
+                `The demon-dog tries to penetrate you all at once, but it isn't lined up properly, and all it manages to do is bump against your taint and rub its other dick on your back.   You gasp in pain, momentarily thankful not to be impaled by such a bestial implement, but knowing all too well the brief reprieve will be over all too soon.   As if it can read your thoughts, the demon-hound repositions itself and slams forward, this time managing to line its dog-dicks up with your ${this.assholeDescript()} correctly.  It feels far larger than it looked, filling you with a painful suddenness that brings tears to your eyes.\n\n`,
                 false
             );
             this.outx(
-                "Incredible heat radiates from the thick black rod inside you, making your whole body break out in a cold sweat in an attempt to deal with the situation.  You're rocked back and forth as the beast begins fucking you in earnest, slamming its fur-covered hips against your " +
-                    this.assDescript() +
-                    " with animalistic intensity.  Thankfully, the fucking isn't that painful, but the small mercy is ruined by the hot fluid you can feel starting to pour into your " +
-                    this.assholeDescript() +
-                    " and onto your back.\n\n",
+                `Incredible heat radiates from the thick black rod inside you, making your whole body break out in a cold sweat in an attempt to deal with the situation.  You're rocked back and forth as the beast begins fucking you in earnest, slamming its fur-covered hips against your ${this.assDescript()} with animalistic intensity.  Thankfully, the fucking isn't that painful, but the small mercy is ruined by the hot fluid you can feel starting to pour into your ${this.assholeDescript()} and onto your back.\n\n`,
                 false
             );
 
             this.outx(
-                "Oh gods no, you can feel something squirming inside you!  It's dripping worms into your intestines!   Its hot spittle and doggie-cum drips onto your back as it ruts hard and fast, spurting and dripping a small portion of its wormy cargo inside you.  They're wriggling and squirming around, rubbing you in such an obscene way, bringing you closer and closer to orgasm in spite of the budding horror gnawing at your gut.   The beast on your back seems oblivious to it all, pushing more roughly into your " +
-                    this.assholeDescript() +
-                    " with every stroke until with a burst of pressure, he manages to bottom out his throbbing, black fuck-stick.\n\n",
+                `Oh gods no, you can feel something squirming inside you!  It's dripping worms into your intestines!   Its hot spittle and doggie-cum drips onto your back as it ruts hard and fast, spurting and dripping a small portion of its wormy cargo inside you.  They're wriggling and squirming around, rubbing you in such an obscene way, bringing you closer and closer to orgasm in spite of the budding horror gnawing at your gut.   The beast on your back seems oblivious to it all, pushing more roughly into your ${this.assholeDescript()} with every stroke until with a burst of pressure, he manages to bottom out his throbbing, black fuck-stick.\n\n`,
                 false
             );
 
@@ -427,9 +371,7 @@ export class InfestedHellhoundScene extends BaseContent {
             );
 
             this.outx(
-                "Unable to support yourself any longer, you collapse, your hips held up by the demonic black dog-dick lodged in your orifice.  They keep cumming and cumming, until your body takes a slow slide off to the ground.  Your eyes drift closed, lulled to sleep by the squirming warmth plugging your " +
-                    this.assholeDescript() +
-                    " and coating your back.",
+                `Unable to support yourself any longer, you collapse, your hips held up by the demonic black dog-dick lodged in your orifice.  They keep cumming and cumming, until your body takes a slow slide off to the ground.  Your eyes drift closed, lulled to sleep by the squirming warmth plugging your ${this.assholeDescript()} and coating your back.`,
                 false
             );
             this.outx("  ");

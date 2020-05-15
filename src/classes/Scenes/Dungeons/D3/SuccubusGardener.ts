@@ -286,9 +286,7 @@ export class SuccubusGardener extends Monster {
             this.game.dynStats("lus+", damage);
             sL = Math.round(this.player.lust - sL);
             this.outx(
-                " The sinuous plant-based tentacles lash at you like a dozen tiny whips! Preparing for stinging pain, you're somewhat taken aback when they pull back at the last moment, sensually caressing your most sensitive places! (" +
-                    sL +
-                    ")"
+                ` The sinuous plant-based tentacles lash at you like a dozen tiny whips! Preparing for stinging pain, you're somewhat taken aback when they pull back at the last moment, sensually caressing your most sensitive places! (${sL})`
             );
         } else {
             this.outx(
@@ -347,9 +345,7 @@ export class SuccubusGardener extends Monster {
             );
         } else if (this.player.lust < 80) {
             this.outx(
-                "You whimper as the insidious plant-sperm works on your vulnerable " +
-                    this.player.skinDesc +
-                    ", building pernicious desires in tiny, insistent increments. It's getting harder to focus... harder not to think about how good all those tentacles would feel in you and on you, caressing your most intimate places.\n\n"
+                `You whimper as the insidious plant-sperm works on your vulnerable ${this.player.skinDesc}, building pernicious desires in tiny, insistent increments. It's getting harder to focus... harder not to think about how good all those tentacles would feel in you and on you, caressing your most intimate places.\n\n`
             );
         } else if (this.player.lust < 90) {
             this.outx(
@@ -361,15 +357,15 @@ export class SuccubusGardener extends Monster {
             );
             if (this.player.hasCock()) {
                 this.outx(
-                    ", even while your rigid cock" +
-                        (this.player.cocks.length > 1 ? "s are" : " is") +
-                        " drizzling ropes of pre unimpeded."
+                    `, even while your rigid cock${
+                        this.player.cocks.length > 1 ? "s are" : " is"
+                    } drizzling ropes of pre unimpeded.`
                 );
             } else if (this.player.hasVagina()) {
                 this.outx(
-                    " soaked twat threatens to " +
-                        (this.player.wetness() == 4 ? "drown" : "further soak") +
-                        " your [legs]."
+                    ` soaked twat threatens to ${
+                        this.player.wetness() == 4 ? "drown" : "further soak"
+                    } your [legs].`
                 );
             } else this.outx(".");
         } else {

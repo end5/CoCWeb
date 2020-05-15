@@ -30,13 +30,13 @@ export class Doppleganger extends Monster {
         this.createStatusAffect(StatusAffects.MirroredAttack, 0, 0, 0, 0);
 
         this.outx(
-            "As you swing your [weapon] at the doppleganger, " +
-                this.player.mf("he", "she") +
-                " smiles mockingly, and mirrors your move exactly, lunging forward with " +
-                this.player.mf("his", "her") +
-                " duplicate " +
-                this.weaponName +
-                "."
+            `As you swing your [weapon] at the doppleganger, ${this.player.mf(
+                "he",
+                "she"
+            )} smiles mockingly, and mirrors your move exactly, lunging forward with ${this.player.mf(
+                "his",
+                "her"
+            )} duplicate ${this.weaponName}.`
         );
 
         // Cribbing from combat mechanics - if the number we got here is <= 0, it was deflected, blocked or otherwise missed.
@@ -44,29 +44,28 @@ export class Doppleganger extends Monster {
         // tl;dr this avoids a bunch of weapon effects and perks, but given the specific means of attack, I think it actually makes sense overall. (Basically having to pull back from what you would normally do mid-attack to successfully land any kind of hit).
         if (damage > 0 && Doppleganger.rand(8) < 6) {
             this.outx(
-                "  At the very last moment, you twist downwards and strike into your opponent’s trunk, drawing a gasp of pain from " +
-                    this.player.mf("him", "her") +
-                    " as " +
-                    this.player.mf("he", "she") +
-                    " clumsily lashes " +
-                    this.player.mf("his", "her") +
-                    " own " +
-                    this.weaponName +
-                    " over you. It’s your turn to mirror " +
-                    this.player.mf("him", "her") +
-                    ", smiling mockingly at " +
-                    this.player.mf("his", "her") +
-                    " rabid snarls as " +
-                    this.player.mf("he", "she") +
-                    " resets " +
-                    this.player.mf("him", "her") +
-                    "self, " +
-                    this.player.mf("his", "her") +
-                    " voice bubbling and flickering for a moment as " +
-                    this.player.mf("he", "she") +
-                    " tries to maintain control. (" +
-                    damage +
-                    ")"
+                `  At the very last moment, you twist downwards and strike into your opponent’s trunk, drawing a gasp of pain from ${this.player.mf(
+                    "him",
+                    "her"
+                )} as ${this.player.mf("he", "she")} clumsily lashes ${this.player.mf(
+                    "his",
+                    "her"
+                )} own ${this.weaponName} over you. It’s your turn to mirror ${this.player.mf(
+                    "him",
+                    "her"
+                )}, smiling mockingly at ${this.player.mf(
+                    "his",
+                    "her"
+                )} rabid snarls as ${this.player.mf("he", "she")} resets ${this.player.mf(
+                    "him",
+                    "her"
+                )}self, ${this.player.mf(
+                    "his",
+                    "her"
+                )} voice bubbling and flickering for a moment as ${this.player.mf(
+                    "he",
+                    "she"
+                )} tries to maintain control. (${damage})`
             );
             this.HP -= damage;
         } else {
@@ -87,50 +86,59 @@ export class Doppleganger extends Monster {
     public mirrorTease(damage: number, successful: boolean): void {
         this.clearOutput();
         this.outx(
-            "You move your hands seductively over your body, and - you stop. The doppelganger stops too, staring at you with wicked coyness, " +
-                this.player.mf("his", "her") +
-                " hands frozen on " +
-                this.player.mf("his", "her") +
-                " form exactly where yours are. Glaring back, you begin your slow, lustful motions again, as your reflection does the exact same thing. It’s a lust off!"
+            `You move your hands seductively over your body, and - you stop. The doppelganger stops too, staring at you with wicked coyness, ${this.player.mf(
+                "his",
+                "her"
+            )} hands frozen on ${this.player.mf(
+                "his",
+                "her"
+            )} form exactly where yours are. Glaring back, you begin your slow, lustful motions again, as your reflection does the exact same thing. It’s a lust off!`
         );
 
         if (damage > 0 && successful) {
             this.outx(
-                "\n\nYou determinedly display and twist your carnality to what you know are its best advantages, ignoring what the doppelganger is doing- you’re extremely familiar with it, after all. After a few slow seconds crawl past a blush settles upon your reflection’s face, and " +
-                    this.player.mf("he", "she") +
-                    " hands falter and stop being able to follow yours as " +
-                    this.player.mf("he", "she") +
-                    " stares at what you’re doing."
+                `\n\nYou determinedly display and twist your carnality to what you know are its best advantages, ignoring what the doppelganger is doing- you’re extremely familiar with it, after all. After a few slow seconds crawl past a blush settles upon your reflection’s face, and ${this.player.mf(
+                    "he",
+                    "she"
+                )} hands falter and stop being able to follow yours as ${this.player.mf(
+                    "he",
+                    "she"
+                )} stares at what you’re doing.`
             );
 
             this.outx(
-                "\n\n“<i>It’s- it’s been so long,</i>” " +
-                    this.player.mf("he", "she") +
-                    " groans, managing to break away to stare into your smirking, smouldering eyes with lust-filled rage. “<i>But I’ll have that, I’ll have everything soon enough!</i>”"
+                `\n\n“<i>It’s- it’s been so long,</i>” ${this.player.mf(
+                    "he",
+                    "she"
+                )} groans, managing to break away to stare into your smirking, smouldering eyes with lust-filled rage. “<i>But I’ll have that, I’ll have everything soon enough!</i>”`
             );
 
             this.applyTease(damage);
         } else {
             this.outx(
-                "You keep moving and displaying your body as best you can, but an overwhelming amount of self-awareness creeps in as your doppelganger mockingly copies you. Is that really what you look like when you do this? It looks so cheap, so clumsy, so desperate. As a blush climbs onto your face you feel a vague sense of vertigo as control of the situation shifts- you copy the doppelganger as " +
-                    this.player.mf("he", "she") +
-                    " cruelly continues to slide " +
-                    this.player.mf("his", "her") +
-                    " hands over " +
-                    this.player.mf("his", "her") +
-                    " body exaggeratedly."
+                `You keep moving and displaying your body as best you can, but an overwhelming amount of self-awareness creeps in as your doppelganger mockingly copies you. Is that really what you look like when you do this? It looks so cheap, so clumsy, so desperate. As a blush climbs onto your face you feel a vague sense of vertigo as control of the situation shifts- you copy the doppelganger as ${this.player.mf(
+                    "he",
+                    "she"
+                )} cruelly continues to slide ${this.player.mf(
+                    "his",
+                    "her"
+                )} hands over ${this.player.mf("his", "her")} body exaggeratedly.`
             );
 
             this.outx(
-                "\n\n“<i>What’s the matter, [name]?</i>” " +
-                    this.player.mf("he", "she") +
-                    " breathes, staring lustfully into your eyes as " +
-                    this.player.mf("he", "she") +
-                    " sinks both hands into " +
-                    this.player.mf("his", "her") +
-                    " crotch and bends forward, forcing you close to " +
-                    this.player.mf("his", "her") +
-                    " face. “<i>Never tried it in front of a mirror? You were missing out on the nasty little tramp you are.</i>”"
+                `\n\n“<i>What’s the matter, [name]?</i>” ${this.player.mf(
+                    "he",
+                    "she"
+                )} breathes, staring lustfully into your eyes as ${this.player.mf(
+                    "he",
+                    "she"
+                )} sinks both hands into ${this.player.mf(
+                    "his",
+                    "her"
+                )} crotch and bends forward, forcing you close to ${this.player.mf(
+                    "his",
+                    "her"
+                )} face. “<i>Never tried it in front of a mirror? You were missing out on the nasty little tramp you are.</i>”`
             );
 
             this.game.dynStats("lus", damage + (Doppleganger.rand(7) - 3));
@@ -190,9 +198,7 @@ export class Doppleganger extends Monster {
                     this.outx(" slides two fingers into [his] [vagina] and gently frigs [himself]");
                 else this.outx(" slips a hand ");
                 this.outx(
-                    " underneath [his] " +
-                        this.armorName +
-                        ". The sheer bizarreness of seeing yourself masturbate gives you pause; again the unreality intensifies, and you feel yourself shimmer uncertainly. “<i>Once I’m out of here, I’m going to hang onto this. Revel in not changing my form for once, as a tribute to the kind soul who gave me it!</i>”"
+                    ` underneath [his] ${this.armorName}. The sheer bizarreness of seeing yourself masturbate gives you pause; again the unreality intensifies, and you feel yourself shimmer uncertainly. “<i>Once I’m out of here, I’m going to hang onto this. Revel in not changing my form for once, as a tribute to the kind soul who gave me it!</i>”`
                 );
                 this.outx(
                     "\n\nIt’s getting harder to ignore the way your body shimmers and bleeds contrast at the edges, whilst your reflection only becomes more and more sharply defined."
@@ -255,17 +261,13 @@ export class Doppleganger extends Monster {
 
         if (spell == "fireball") {
             this.outx(
-                " (" +
-                    this.player.takeDamage(this.player.level * 10 + 45 + Doppleganger.rand(10)) +
-                    ")"
+                ` (${this.player.takeDamage(this.player.level * 10 + 45 + Doppleganger.rand(10))})`
             );
         } else if (spell == "whitefire") {
             this.outx(
-                " (" +
-                    this.player.takeDamage(
-                        10 + (this.player.inte / 3 + Doppleganger.rand(this.player.inte / 2))
-                    ) +
-                    ")"
+                ` (${this.player.takeDamage(
+                    10 + (this.player.inte / 3 + Doppleganger.rand(this.player.inte / 2))
+                )})`
             );
         }
 
@@ -370,19 +372,15 @@ export class Doppleganger extends Monster {
     public get long(): string {
         let str = "";
 
-        str += "You are fighting the doppelganger. " + this.player.mf("He", "She") + " is a ";
+        str += `You are fighting the doppelganger. ${this.player.mf("He", "She")} is a `;
         str += String(
-            Math.floor(this.player.tallness / 12) +
-                " foot " +
-                (this.player.tallness % 12) +
-                " inch tall "
+            `${Math.floor(this.player.tallness / 12)} foot ${this.player.tallness % 12} inch tall `
         );
-        str += this.player.race() + ", with " + this.player.bodyType() + ". ";
+        str += `${this.player.race()}, with ${this.player.bodyType()}. `;
 
-        str += this.player.mf("His", "Her") + " face is " + this.player.faceDesc() + ".";
+        str += `${this.player.mf("His", "Her")} face is ${this.player.faceDesc()}.`;
 
-        str +=
-            " " + this.player.mf("His", "Her") + " " + this.player.hairDescript() + " is parted by";
+        str += ` ${this.player.mf("His", "Her")} ${this.player.hairDescript()} is parted by`;
 
         switch (this.player.earType) {
             case EARS_HORSE:
@@ -424,41 +422,29 @@ export class Doppleganger extends Monster {
                 break;
         }
 
-        str +=
-            ". " +
-            this.player.mf("He", "She") +
-            " keeps exploring the area around " +
-            this.player.mf("his", "her") +
-            " mouth with " +
-            this.player.mf("his", "her") +
-            " tongue with a horribly acquisitive, sensual interest.";
-        str +=
-            " " +
-            this.player.mf("He", "She") +
-            " moves around on " +
-            this.player.mf("his", "her") +
-            " " +
-            this.player.legs() +
-            " with a twitchy jerkiness, " +
-            this.player.mf("his", "her") +
-            " " +
-            this.game.hipDescript() +
-            " swinging and tightening.";
+        str += `. ${this.player.mf("He", "She")} keeps exploring the area around ${this.player.mf(
+            "his",
+            "her"
+        )} mouth with ${this.player.mf(
+            "his",
+            "her"
+        )} tongue with a horribly acquisitive, sensual interest.`;
+        str += ` ${this.player.mf("He", "She")} moves around on ${this.player.mf(
+            "his",
+            "her"
+        )} ${this.player.legs()} with a twitchy jerkiness, ${this.player.mf(
+            "his",
+            "her"
+        )} ${this.game.hipDescript()} swinging and tightening.`;
         if (this.player.tailType != 0)
-            str += " " + this.player.mf("His", "Her") + " tail flicks this way and that.";
-        str +=
-            " " +
-            this.player.mf("He", "She") +
-            " wields the exact same " +
-            this.player.weaponName +
-            " you do, and is dressed in the mirror image of your " +
-            this.player.armorName +
-            ". ";
+            str += ` ${this.player.mf("His", "Her")} tail flicks this way and that.`;
+        str += ` ${this.player.mf("He", "She")} wields the exact same ${
+            this.player.weaponName
+        } you do, and is dressed in the mirror image of your ${this.player.armorName}. `;
         if (this.player.biggestTitSize() >= 2)
-            str +=
-                "It’s difficult not to notice the way the mirror image of your " +
-                this.player.breastDescript(this.player.biggestTitRow()) +
-                " ebbs and heaves within it.";
+            str += `It’s difficult not to notice the way the mirror image of your ${this.player.breastDescript(
+                this.player.biggestTitRow()
+            )} ebbs and heaves within it.`;
 
         return str;
     }

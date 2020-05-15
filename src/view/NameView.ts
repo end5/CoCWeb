@@ -7,6 +7,6 @@ export class NameView {
     }
 
     public setText(text: string) {
-        this.element.textContent = "Name: " + text;
+        this.element.textContent = `Name: ${text}`;
     }
 }

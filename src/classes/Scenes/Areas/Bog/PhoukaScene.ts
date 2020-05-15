@@ -104,9 +104,10 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             );
         else
             this.outx(
-                "\n\nAt the moment you don't feel the need to meet one of those " +
-                    this.phoukaNameText("phouka", "creatures") +
-                    " again."
+                `\n\nAt the moment you don't feel the need to meet one of those ${this.phoukaNameText(
+                    "phouka",
+                    "creatures"
+                )} again.`
             );
         this.doNext(this.camp.returnToCampUseOneHour); // Return to camp, 1 hour used
     }
@@ -120,17 +121,11 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         if (this.player.isNaga()) this.outx("tail is");
         else this.outx("legs are");
         this.outx(
-            " soon tangled in a solid web of intertwined roots.  Once you are bound in place, a large black eel launches itself free of the muck and lands in a nearby puddle.\n\nYour attacker seems to melt, then reforms, becoming a five inch tall " +
-                this.phoukaName() +
-                ".  His skin and wings are coal black, and his eyes are green and shiny like those of a cat.  He isn't wearing any clothes, and a fully erect cock almost an inch long juts out of his groin.  Apart from that and a lack of breasts, his body looks feminine, much like the faeries of the woods.\n\nThe " +
-                this.phoukaName() +
-                " leers at you, clearly deciding what he wants to do next."
+            ` soon tangled in a solid web of intertwined roots.  Once you are bound in place, a large black eel launches itself free of the muck and lands in a nearby puddle.\n\nYour attacker seems to melt, then reforms, becoming a five inch tall ${this.phoukaName()}.  His skin and wings are coal black, and his eyes are green and shiny like those of a cat.  He isn't wearing any clothes, and a fully erect cock almost an inch long juts out of his groin.  Apart from that and a lack of breasts, his body looks feminine, much like the faeries of the woods.\n\nThe ${this.phoukaName()} leers at you, clearly deciding what he wants to do next.`
         );
         if (hasAlcohol)
             this.outx(
-                "\n\nYou suspect that if you offer up that whiskey in your pack the " +
-                    this.phoukaName() +
-                    " probably won’t try to rape you."
+                `\n\nYou suspect that if you offer up that whiskey in your pack the ${this.phoukaName()} probably won’t try to rape you.`
             );
         if (this.flags[kFLAGS.PHOUKA_ENCOUNTER_STATUS] == 0)
             this.flags[kFLAGS.PHOUKA_ENCOUNTER_STATUS] = 1;
@@ -144,9 +139,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
     protected phoukaStuckOfferWhiskey(): void {
         this.clearOutput();
         this.outx(
-            "You pull out the bottle and ask the " +
-                this.phoukaName() +
-                " if he might be interested in a drink.  He looks at the bottle and says <i>“Well we both know where ya picked that up, hmmm?”</i>  Then he smiles and adds <i>“Course that’s some other phouka’s problem if he let ye beat him.”</i>"
+            `You pull out the bottle and ask the ${this.phoukaName()} if he might be interested in a drink.  He looks at the bottle and says <i>“Well we both know where ya picked that up, hmmm?”</i>  Then he smiles and adds <i>“Course that’s some other phouka’s problem if he let ye beat him.”</i>`
         );
         if (this.flags[kFLAGS.PHOUKA_LORE] == 0) this.flags[kFLAGS.PHOUKA_LORE] = 1; // Now you know what to call them
         this.player.consumeItem(this.consumables.P_WHSKY, 1);
@@ -165,13 +158,10 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         // Old Irish folklore again - Phoukas were supposed to be responsible for the berries rotting away at the end of the year
         this.clearOutput();
         this.outx(
-            "You are wandering through the bog when you hear the unmistakable sound of someone fapping like there's no tomorrow.  You sneak up on the small group of shrubs expecting to find an imp who has finally been overcome by his own lust.  Instead it's a " +
-                this.phoukaNameText("phouka", "small black faerie") +
-                " you see madly jerking off.  He grunts and strains but seems unable to finish.  With an annoyed look he dives for the bush, grabbing some small ripe berries from a branch.  The " +
-                this.phoukaName() +
-                " rubs the berries on his cock until it drips with blue and black fruit juices.  He tosses the remains of the fruits to the ground and goes back to wanking.\n\nAfter another minute or so he finally thrusts his hips forward in mid-air and begins squirting streams of thick grey cum all over the bushes.  He produces far more cum than he should be able to for a creature his size.  He aims the last several streams directly onto the berries for some reason.  By the time he's done the bush looks like it's covered in a layer of off-white frosting.\n\nThe " +
-                this.phoukaName() +
-                " gives a satisfied <i>“Ha!”</i> and flies off.  Glancing at the bush you decide you won't be making any preserves from the fruits in the bog and turn back toward camp."
+            `You are wandering through the bog when you hear the unmistakable sound of someone fapping like there's no tomorrow.  You sneak up on the small group of shrubs expecting to find an imp who has finally been overcome by his own lust.  Instead it's a ${this.phoukaNameText(
+                "phouka",
+                "small black faerie"
+            )} you see madly jerking off.  He grunts and strains but seems unable to finish.  With an annoyed look he dives for the bush, grabbing some small ripe berries from a branch.  The ${this.phoukaName()} rubs the berries on his cock until it drips with blue and black fruit juices.  He tosses the remains of the fruits to the ground and goes back to wanking.\n\nAfter another minute or so he finally thrusts his hips forward in mid-air and begins squirting streams of thick grey cum all over the bushes.  He produces far more cum than he should be able to for a creature his size.  He aims the last several streams directly onto the berries for some reason.  By the time he's done the bush looks like it's covered in a layer of off-white frosting.\n\nThe ${this.phoukaName()} gives a satisfied <i>“Ha!”</i> and flies off.  Glancing at the bush you decide you won't be making any preserves from the fruits in the bog and turn back toward camp.`
         );
         this.doNext(this.camp.returnToCampUseOneHour); // Return to camp, 1 hour used
     }
@@ -190,7 +180,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
 
     protected phoukaTalk(): void {
         this.clearOutput();
-        this.outx("You ask the " + this.phoukaName());
+        this.outx(`You ask the ${this.phoukaName()}`);
         if (this.player.level < 10) this.outx(" if perhaps there's some way he could release you.");
         else this.outx(" if he really wants a taste of what you're going to give him.");
 
@@ -199,8 +189,8 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             // The phouka is not in the mood for talk, start the fight gagged as punishment for trying to talk
             this.outx("  You open your mouth to say something more to the ");
             if (this.player.cor < 34) this.outx("vile little monster");
-            else if (this.player.cor < 67) this.outx("perverted " + this.phoukaName());
-            else this.outx("fuckable little " + this.phoukaName());
+            else if (this.player.cor < 67) this.outx(`perverted ${this.phoukaName()}`);
+            else this.outx(`fuckable little ${this.phoukaName()}`);
             this.outx(
                 " but he must not feel like listening.  He launches a ball of black mud at your face, sealing your mouth with sticky and [if (corruption <= 50)ewww -][if (corruption > 50)mmmm -] salty muck."
             );
@@ -208,7 +198,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             this.player.createStatusAffect(StatusAffects.WebSilence, 0, 0, 0, 0);
         } else {
             // The phouka would rather talk
-            this.outx("\n\nThe " + this.phoukaName());
+            this.outx(`\n\nThe ${this.phoukaName()}`);
             switch (
                 this.player.level < 10 ? PhoukaScene.rand(8) : PhoukaScene.rand(12) // Low level characters don't get the chance to be offered whiskey
             ) {
@@ -220,11 +210,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 case 5:
                 case 6: // Offers you a chance to submit, which leads to the various defeat sex scenes
                     this.outx(
-                        " considers for a moment and then says, <i>“You can't get away from me right now, so why don't you enjoy it?  Otherwise, maybe I bring in some of my friends an we all have at ya.”</i> The confidence in the " +
-                            this.phoukaName() +
-                            "'s gaze suggests he isn't bluffing.  He slowly circles you, hovering a few feet out of reach.  His eyes seem to be drinking in every detail of your body in a way that [if (corruption < 50)makes shivers run down your spine][if (corruption >= 50)makes your heart beat faster].\n\nThe " +
-                            this.phoukaName() +
-                            " continues, "
+                        ` considers for a moment and then says, <i>“You can't get away from me right now, so why don't you enjoy it?  Otherwise, maybe I bring in some of my friends an we all have at ya.”</i> The confidence in the ${this.phoukaName()}'s gaze suggests he isn't bluffing.  He slowly circles you, hovering a few feet out of reach.  His eyes seem to be drinking in every detail of your body in a way that [if (corruption < 50)makes shivers run down your spine][if (corruption >= 50)makes your heart beat faster].\n\nThe ${this.phoukaName()} continues, `
                     );
                     if (this.player.hasVagina())
                         this.outx(
@@ -255,13 +241,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 default:
                     // (9, 10 or 11) Offers to share some whiskey
                     this.outx(
-                        " buzzes around in a wide circle and finally comes to a stop near a broken tree.  He lands and reaches into a hollow, pulling out a glass bottle larger than he is.\n\nThe " +
-                            this.phoukaName() +
-                            " has some trouble with the stopper and once again seems to melt in front of your eyes.  He grows and changes into the form of a large, black furred bunny, nearly four feet tall that has a very human face and hands.  The bunny yanks the stopper free and pulls some leather drinking cups from the same hollow.  Finally the " +
-                            this.phoukaName() +
-                            " looks back at you, holding up the bottle.\n\n<i>“I could beat you, of course.  But it looks like it might be a long fight, and I don’t feel like starting one of those without drinkin more whiskey.”</i> The " +
-                            this.phoukaName() +
-                            " spreads his large bunny feet wide to give himself more support while he tips the cup back.  He hacks and coughs, but after the drink, he grins at you a little less lustily. <i>“Great stuff, this.  We phouka make it right here in the bog.  Best water, best peat, best everything for making phouka whiskey.”</i>"
+                        ` buzzes around in a wide circle and finally comes to a stop near a broken tree.  He lands and reaches into a hollow, pulling out a glass bottle larger than he is.\n\nThe ${this.phoukaName()} has some trouble with the stopper and once again seems to melt in front of your eyes.  He grows and changes into the form of a large, black furred bunny, nearly four feet tall that has a very human face and hands.  The bunny yanks the stopper free and pulls some leather drinking cups from the same hollow.  Finally the ${this.phoukaName()} looks back at you, holding up the bottle.\n\n<i>“I could beat you, of course.  But it looks like it might be a long fight, and I don’t feel like starting one of those without drinkin more whiskey.”</i> The ${this.phoukaName()} spreads his large bunny feet wide to give himself more support while he tips the cup back.  He hacks and coughs, but after the drink, he grins at you a little less lustily. <i>“Great stuff, this.  We phouka make it right here in the bog.  Best water, best peat, best everything for making phouka whiskey.”</i>`
                     );
                     if (this.flags[kFLAGS.PHOUKA_LORE] == 0) this.flags[kFLAGS.PHOUKA_LORE] = 1; // Now you know what to call them
                     PhoukaScene.phoukaForm = PhoukaScene.PHOUKA_FORM_BUNNY;
@@ -290,9 +270,9 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         const acceptable: number = this.consumables.P_WHSKY.phoukaWhiskeyAcceptable(this.player);
         if (acceptable < 0) {
             this.outx(
-                "\n\nYou think about the unborn child" +
-                    (acceptable <= -3 ? "ren" : "") +
-                    " you're carrying."
+                `\n\nYou think about the unborn child${
+                    acceptable <= -3 ? "ren" : ""
+                } you're carrying.`
             );
             if (acceptable == -4)
                 this.outx(
@@ -307,9 +287,9 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             );
             if (acceptable <= 2)
                 this.outx(
-                    "baby needs.  Some light kicks inside your " +
-                        (acceptable == 2 ? "distended colon" : "womb") +
-                        " suggest that your child knows"
+                    `baby needs.  Some light kicks inside your ${
+                        acceptable == 2 ? "distended colon" : "womb"
+                    } suggest that your child knows`
                 );
             else
                 this.outx(
@@ -480,11 +460,9 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 this.outx("\n\nYou look at the sleeping phouka");
                 if (this.player.hasCock())
                     this.outx(
-                        ", [eachCock] beginning to swell" +
-                            (this.player.hasVagina()
-                                ? " and your [vagina] starting to moisten"
-                                : "") +
-                            "."
+                        `, [eachCock] beginning to swell${
+                            this.player.hasVagina() ? " and your [vagina] starting to moisten" : ""
+                        }.`
                     );
                 else if (this.player.hasVagina()) this.outx(", your [vagina] starting to moisten.");
                 else
@@ -555,9 +533,10 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
 
     protected phoukaHalloweenLeave(): void {
         this.outx(
-            "\n\nFeeling you're better off not finding out you excuse yourself, telling them they can enjoy the treacle amongst themselves.  As you walk away you just catch the boss telling the others <i>“Watch out fer that one, " +
-                this.player.mf("He", "She") +
-                "'s a smart one.”</i>"
+            `\n\nFeeling you're better off not finding out you excuse yourself, telling them they can enjoy the treacle amongst themselves.  As you walk away you just catch the boss telling the others <i>“Watch out fer that one, ${this.player.mf(
+                "He",
+                "She"
+            )}'s a smart one.”</i>`
         );
         this.doNext(this.camp.returnToCampUseOneHour); // Return to camp, 1 hour used
     }
@@ -574,9 +553,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         if (newScreen) this.clearOutput();
         else this.outx("\n\n");
         this.outx(
-            "The lusty " +
-                this.phoukaName() +
-                " continues to pound his cock into the earth as you prepare to go, oblivious to your presence."
+            `The lusty ${this.phoukaName()} continues to pound his cock into the earth as you prepare to go, oblivious to your presence.`
         );
         kGAMECLASS.clearStatuses(false);
         kGAMECLASS.awardPlayer(); // This will provide loot and return to camp, 1 hour used
@@ -587,18 +564,14 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         if (hpVictory) {
             // You win by physical damage, the phouka cheats and runs
             this.outx(
-                "The seriously injured " +
-                    this.phoukaName() +
-                    " stumbles backward, but before you can strike again it twists and stretches in mid-air, dropping to the ground in the form of a long black eel.  You're pretty sure you hear the eel curse at you as it dives into the mire and sinks out of view.\n\nWith your attacker gone you struggle and strain to get yourself free of the thick mass of roots and muck around your [legs].  Your lower half is soaked and you decide to head home."
+                `The seriously injured ${this.phoukaName()} stumbles backward, but before you can strike again it twists and stretches in mid-air, dropping to the ground in the form of a long black eel.  You're pretty sure you hear the eel curse at you as it dives into the mire and sinks out of view.\n\nWith your attacker gone you struggle and strain to get yourself free of the thick mass of roots and muck around your [legs].  Your lower half is soaked and you decide to head home.`
             );
             kGAMECLASS.clearStatuses(false);
             kGAMECLASS.awardPlayer(); // This will provide loot and return to camp, 1 hour used
         } else {
             // You win by lust and have the chance to fuck the phouka if you’re horny
             this.outx(
-                "The " +
-                    this.phoukaName() +
-                    " collapses to the ground and begins to jab his cock into the peat."
+                `The ${this.phoukaName()} collapses to the ground and begins to jab his cock into the peat.`
             );
             if (PhoukaScene.phoukaForm != PhoukaScene.PHOUKA_FORM_FAERIE) {
                 this.outx(
@@ -611,9 +584,10 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 else if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE)
                     this.outx("stallion");
                 this.outx(
-                    " has shrunk back down to the size and shape of a " +
-                        this.phoukaNameText("phouka", "faerie") +
-                        "."
+                    ` has shrunk back down to the size and shape of a ${this.phoukaNameText(
+                        "phouka",
+                        "faerie"
+                    )}.`
                 );
                 PhoukaScene.phoukaForm = PhoukaScene.PHOUKA_FORM_FAERIE;
             }
@@ -624,8 +598,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 this.phoukaLeaveOnLustWin(false);
             } else {
                 this.outx(
-                    "  While he's busy, you extract yourself from the muck, and once you're free, you look over at the lusty " +
-                        this.phoukaName()
+                    `  While he's busy, you extract yourself from the muck, and once you're free, you look over at the lusty ${this.phoukaName()}`
                 );
                 if (this.player.cor < 34)
                     this.outx(
@@ -658,9 +631,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.PREGNANCY_CORRUPTION] > 6) {
             // You’ve been drinking like a fish, haven’t you?
             this.outx(
-                "Your belly begins to deflate and a stream of nearly black sludge oozes from your vagina.  You lay on the ground and wait, wondering how this birth will go.  As your belly gets flatter and flatter you begin to wonder where the baby is.\n\nThen you feel it - something is stuck inside you.  You begin to push and realize it's not stuck - it doesn't want to come out, and it's holding on to your cervix!  Your body, on the other hand, does want it out and keeps going through contraction after contraction to rid you of this little, freeloading bastard.  The black molasses makes your birth canal sticky, helping to hold the baby in place.  You soon lose track of time as the contractions keep coming.  After several minutes you are beginning to wonder if you'll ever be free of this child when you feel a tingling in your clit.\n\nDespite the pain, or perhaps because of it, your body is headed for an orgasm!  At first you try to fight it, but you soon realize there’s no point.  You’re still in enough pain that you can do nothing but lie there and wait.  Finally you cum and you feel a wash of girl-cum drip from your gaping hole.[if (hasCock = true) At the same time [eachCock] fires numerous strands of cum, coating you and the ground around you.]  Luckily all the girl-cum you produced also fills your pussy and starts to dilute the thick black molasses inside you.  After many more contractions, you feel the baby shift inside you and it finally pops free, landing on the ground between your thighs.\n\nThe " +
-                    this.phoukaName() +
-                    " seems to be almost full grown at birth.  He spins round and stares at you, as if it's your fault he had to leave the comfort of your womb.  Before you recover enough to do much, he spreads his wings, shakes the sludge away and flies off toward the bog.\n\nYou lay on the ground, utterly exhausted by the ordeal.  You can feel a slight burning sensation inside your pussy and a throbbing from your womb.  You’re sure that carrying that nasty looking black sludge around inside you has affected your ability to produce children."
+                `Your belly begins to deflate and a stream of nearly black sludge oozes from your vagina.  You lay on the ground and wait, wondering how this birth will go.  As your belly gets flatter and flatter you begin to wonder where the baby is.\n\nThen you feel it - something is stuck inside you.  You begin to push and realize it's not stuck - it doesn't want to come out, and it's holding on to your cervix!  Your body, on the other hand, does want it out and keeps going through contraction after contraction to rid you of this little, freeloading bastard.  The black molasses makes your birth canal sticky, helping to hold the baby in place.  You soon lose track of time as the contractions keep coming.  After several minutes you are beginning to wonder if you'll ever be free of this child when you feel a tingling in your clit.\n\nDespite the pain, or perhaps because of it, your body is headed for an orgasm!  At first you try to fight it, but you soon realize there’s no point.  You’re still in enough pain that you can do nothing but lie there and wait.  Finally you cum and you feel a wash of girl-cum drip from your gaping hole.[if (hasCock = true) At the same time [eachCock] fires numerous strands of cum, coating you and the ground around you.]  Luckily all the girl-cum you produced also fills your pussy and starts to dilute the thick black molasses inside you.  After many more contractions, you feel the baby shift inside you and it finally pops free, landing on the ground between your thighs.\n\nThe ${this.phoukaName()} seems to be almost full grown at birth.  He spins round and stares at you, as if it's your fault he had to leave the comfort of your womb.  Before you recover enough to do much, he spreads his wings, shakes the sludge away and flies off toward the bog.\n\nYou lay on the ground, utterly exhausted by the ordeal.  You can feel a slight burning sensation inside your pussy and a throbbing from your womb.  You’re sure that carrying that nasty looking black sludge around inside you has affected your ability to produce children.`
             );
             this.player.fertility -= 18; // At low fertility the PC just gained up to 3 fertility due to standard post-pregnancy code. So -18 is really more like -10.
             if (this.player.fertility < 5) this.player.fertility = 5;
@@ -669,9 +640,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             this.player.orgasm();
         } else if (this.flags[kFLAGS.PREGNANCY_CORRUPTION] > 0) {
             this.outx(
-                "Your belly begins to deflate and a stream of thick grey sugary sludge dribbles from your vagina.  You lay on the ground and wait, wondering how this birth will go.  As your belly gets flatter and flatter you begin to wonder where the baby is.\n\nThen you feel it - something is stuck inside you.  You begin to push and realize it's not stuck - it doesn't want to come out and it's holding on to your cervix!  Your body, on the other hand, does want it out and keeps going through contraction after contraction to rid you of this little freeloading bastard.  After several minutes you are beginning to wonder if you'll ever be free of this child, when it suddenly shifts inside you and pops free, landing on the ground between your thighs.\n\nThe " +
-                    this.phoukaName() +
-                    " seems to be almost full grown at birth.  He spins round and stares at you, as if it's your fault he had to leave the comfort of your womb.  Before you recover enough to do much, he spreads his wings, shakes the sludge away and flies off toward the bog.\n\nYou lay on the ground, exhausted by the ordeal and wondering if carrying that nasty looking sludge around inside you has affected your ability to produce children."
+                `Your belly begins to deflate and a stream of thick grey sugary sludge dribbles from your vagina.  You lay on the ground and wait, wondering how this birth will go.  As your belly gets flatter and flatter you begin to wonder where the baby is.\n\nThen you feel it - something is stuck inside you.  You begin to push and realize it's not stuck - it doesn't want to come out and it's holding on to your cervix!  Your body, on the other hand, does want it out and keeps going through contraction after contraction to rid you of this little freeloading bastard.  After several minutes you are beginning to wonder if you'll ever be free of this child, when it suddenly shifts inside you and pops free, landing on the ground between your thighs.\n\nThe ${this.phoukaName()} seems to be almost full grown at birth.  He spins round and stares at you, as if it's your fault he had to leave the comfort of your womb.  Before you recover enough to do much, he spreads his wings, shakes the sludge away and flies off toward the bog.\n\nYou lay on the ground, exhausted by the ordeal and wondering if carrying that nasty looking sludge around inside you has affected your ability to produce children.`
             );
             this.player.fertility -= 8; // At low fertility the PC just gained up to 3 fertility due to standard post-pregnancy code. So - 8 is really more like -5.
             if (this.player.fertility < 5) this.player.fertility = 5;
@@ -781,7 +750,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         // Player must have a vagina for bunny-morph sex
         this.clearOutput();
         if (postCombat) {
-            this.outx("As you collapse the " + this.phoukaName());
+            this.outx(`As you collapse the ${this.phoukaName()}`);
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_BUNNY)
                 this.outx(" hops over and stands in front of you");
             else
@@ -795,22 +764,14 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         } else {
             if (this.player.cor <= 50) {
                 this.outx(
-                    "It might not be the wisest move, but you decide to let the " +
-                        this.phoukaName() +
-                        " have his way with you.  You tell him you would prefer a little bunny loving and the " +
-                        this.phoukaName() +
-                        " grins from ear to ear. <i>“Comin' right up,”</i> he says"
+                    `It might not be the wisest move, but you decide to let the ${this.phoukaName()} have his way with you.  You tell him you would prefer a little bunny loving and the ${this.phoukaName()} grins from ear to ear. <i>“Comin' right up,”</i> he says`
                 );
                 if (PhoukaScene.phoukaForm != PhoukaScene.PHOUKA_FORM_BUNNY)
                     this.outx(", and morphs into a rabbit");
                 this.outx(".  Hopefully he'll be gentle with a willing partner.");
             } else {
                 this.outx(
-                    "You can't think of any good reason to refuse a roll in the hay (or the mire) with this " +
-                        this.phoukaName() +
-                        ".  You tell him that you want to feel his big bunny cock deep inside you.  The " +
-                        this.phoukaName() +
-                        " grins as you begin seductively stripping off you armor."
+                    `You can't think of any good reason to refuse a roll in the hay (or the mire) with this ${this.phoukaName()}.  You tell him that you want to feel his big bunny cock deep inside you.  The ${this.phoukaName()} grins as you begin seductively stripping off you armor.`
                 );
                 if (PhoukaScene.phoukaForm != PhoukaScene.PHOUKA_FORM_BUNNY)
                     this.outx(
@@ -831,26 +792,19 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 " You are powerless to stop the bunny-morph as he undoes the last few straps holding your [armor] in place."
             );
         this.outx(
-            "\n\nThe bunny's large feet take up position on either side of your [if (isNaga = true)tail][if (isNaga = false)rump] and you feel the tip of his cock brush against your cunt.  The bunny whispers <i>“[if (isPregnant = true)Time te feed the baby][if (isPregnant = false)Maybe today I'll leave ye a present].”</i>\n\nThe " +
-                this.phoukaName() +
-                " [if (isNaga = true)bends you over backwards, exposing your slit.  He][if (isTaur = true)strokes your flanks with his paws.  Next he] begins to grind his cock [if (isNaga = true)against your exposed underbelly][if (isNaga = false)between your legs], sliding it against your [clit] each time.  Shivers run up your spine as his fur tickles your [if (isNaga = true)scales from the top to the tip of your tail][if (isNaga = false)legs, back, butt and thighs].  When the bunny-morph is good and ready, he lines up and jams his pole into your moist pussy.  "
+            `\n\nThe bunny's large feet take up position on either side of your [if (isNaga = true)tail][if (isNaga = false)rump] and you feel the tip of his cock brush against your cunt.  The bunny whispers <i>“[if (isPregnant = true)Time te feed the baby][if (isPregnant = false)Maybe today I'll leave ye a present].”</i>\n\nThe ${this.phoukaName()} [if (isNaga = true)bends you over backwards, exposing your slit.  He][if (isTaur = true)strokes your flanks with his paws.  Next he] begins to grind his cock [if (isNaga = true)against your exposed underbelly][if (isNaga = false)between your legs], sliding it against your [clit] each time.  Shivers run up your spine as his fur tickles your [if (isNaga = true)scales from the top to the tip of your tail][if (isNaga = false)legs, back, butt and thighs].  When the bunny-morph is good and ready, he lines up and jams his pole into your moist pussy.  `
         );
         if (this.player.hasVirginVagina())
             this.outx(
-                "You scream as the " +
-                    this.phoukaName() +
-                    "'s cock tears your hymen apart.  He stops thrusting and says <i>“A virgin? Here? Good goddess, missy, ya should have told me.”</i> In a lower tone he adds <i>“so I could have enjoyed it more.”</i> Your whole vagina burns as every fold is stretched and widened by the passage of the rabbit's cock."
+                `You scream as the ${this.phoukaName()}'s cock tears your hymen apart.  He stops thrusting and says <i>“A virgin? Here? Good goddess, missy, ya should have told me.”</i> In a lower tone he adds <i>“so I could have enjoyed it more.”</i> Your whole vagina burns as every fold is stretched and widened by the passage of the rabbit's cock.`
             );
         else if (postCombat && this.player.vaginas[0].vaginalLooseness < 2)
             this.outx(
-                "You nearly pass out from the pain as the " +
-                    this.phoukaName() +
-                    "'s cock lengthens and thickens inside you."
+                `You nearly pass out from the pain as the ${this.phoukaName()}'s cock lengthens and thickens inside you.`
             );
         else if (!postCombat || this.player.cor > 50)
             this.outx(
-                "Even as the invader lengthens and thickens you push back against it. <i>“Good girl. Good little fuck slut,”</i> whispers the " +
-                    this.phoukaName()
+                `Even as the invader lengthens and thickens you push back against it. <i>“Good girl. Good little fuck slut,”</i> whispers the ${this.phoukaName()}`
             );
         this.player.cuntChange(50, true);
         this.outx(
@@ -869,27 +823,19 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         if (postCombat) {
             if (lustLoss)
                 this.outx(
-                    "Panting with need, you begin to strip off your [armor].  The " +
-                        this.phoukaName() +
-                        " watches the show with an evil smile."
+                    `Panting with need, you begin to strip off your [armor].  The ${this.phoukaName()} watches the show with an evil smile.`
                 );
             else
                 this.outx(
-                    "Your body falls to the ground, too weak to fight back against the " +
-                        this.phoukaName() +
-                        " any longer."
+                    `Your body falls to the ground, too weak to fight back against the ${this.phoukaName()} any longer.`
                 );
             if (PhoukaScene.phoukaForm != PhoukaScene.PHOUKA_FORM_GOAT)
                 this.outx(
-                    "  As you lay there, the " +
-                        this.phoukaName() +
-                        "'s body stretches and morphs until it takes the form of a large, black furred goat-morph."
+                    `  As you lay there, the ${this.phoukaName()}'s body stretches and morphs until it takes the form of a large, black furred goat-morph.`
                 );
         } else {
             this.outx(
-                "You tell the " +
-                    this.phoukaName() +
-                    " you're willing to let him take your ass in his goat form.  He smiles and lands near you.  His body warps into the form of a black furred goat morph.  "
+                `You tell the ${this.phoukaName()} you're willing to let him take your ass in his goat form.  He smiles and lands near you.  His body warps into the form of a black furred goat morph.  `
             );
             if (this.player.cor <= 50)
                 this.outx("You steel yourself for an asspounding while you remove your [armor].");
@@ -920,9 +866,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         );
         if (postCombat)
             this.outx(
-                "The " +
-                    this.phoukaName() +
-                    " shows no interest in you except as a receptacle for his cum.  After stabbing his hips at you several times you feel the full length of his cock penetrate your pucker."
+                `The ${this.phoukaName()} shows no interest in you except as a receptacle for his cum.  After stabbing his hips at you several times you feel the full length of his cock penetrate your pucker.`
             );
         else
             this.outx(
@@ -933,11 +877,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         );
         this.player.buttChange(45, true);
         this.outx(
-            "\n\nWith his cock expanded to full size and buried inside you, the goat begins rocking back and forth. <i>“How do ye like it?”</i> the " +
-                this.phoukaName() +
-                " bleats in your ear as he tries to force yet more of his cock inside you.  [if (corruption <= 50)You can't answer the goat, the pain of being split open is too great][if (corruption > 50)You pant with excitement from being dominated by this filthy shapeshifting goat].  The " +
-                this.phoukaName() +
-                " tenses once more, and this time you feel a thick deposit of semen being squirted into your violated ass.  "
+            `\n\nWith his cock expanded to full size and buried inside you, the goat begins rocking back and forth. <i>“How do ye like it?”</i> the ${this.phoukaName()} bleats in your ear as he tries to force yet more of his cock inside you.  [if (corruption <= 50)You can't answer the goat, the pain of being split open is too great][if (corruption > 50)You pant with excitement from being dominated by this filthy shapeshifting goat].  The ${this.phoukaName()} tenses once more, and this time you feel a thick deposit of semen being squirted into your violated ass.  `
         );
         if (postCombat)
             this.outx(
@@ -954,9 +894,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 "  While you're recovering the goat-morph reaches into your gem pouch and takes a handful."
             );
         this.outx(
-            "\n\nThe goat morph begins to dissolve and reform.  Soon you're looking at a tiny faerie that buzzes up in front of your face.  He says <i>“[if (hasVagina = true)Well I enjoyed that, and it looks like you did too.  Next time I catch ya I really want te try yer cunt.  Can’t wait te see yer belly all swollen up with my seed.][if (hasVagina = false)Do us both a favor - eat some eggs or drink some milk before ye come back.  Since you like being my bitch so much ye might as well have the right parts for it.]”</i> With that the " +
-                this.phoukaName() +
-                " buzzes up into the canopy and out of sight."
+            `\n\nThe goat morph begins to dissolve and reform.  Soon you're looking at a tiny faerie that buzzes up in front of your face.  He says <i>“[if (hasVagina = true)Well I enjoyed that, and it looks like you did too.  Next time I catch ya I really want te try yer cunt.  Can’t wait te see yer belly all swollen up with my seed.][if (hasVagina = false)Do us both a favor - eat some eggs or drink some milk before ye come back.  Since you like being my bitch so much ye might as well have the right parts for it.]”</i> With that the ${this.phoukaName()} buzzes up into the canopy and out of sight.`
         );
         if (postCombat) {
             this.outx(
@@ -979,7 +917,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         // Player has a vagina
         this.clearOutput();
         if (postCombat) {
-            this.outx("As you collapse the " + this.phoukaName());
+            this.outx(`As you collapse the ${this.phoukaName()}`);
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE)
                 this.outx(
                     " circles you in a slow trot, his top half shaping into a centaur form before finally stopping directly in front of you."
@@ -992,19 +930,11 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             // Phouka can’t be a horse if the player is choosing this. Must be either a faerie or a bunny.
             if (this.player.cor <= 50)
                 this.outx(
-                    "Perhaps this land is finally starting to get to you.  You tell the " +
-                        this.phoukaName() +
-                        " you want him to fuck you with a great big horse cock.  The " +
-                        this.phoukaName() +
-                        "'s eyes light up. <i>“Sure thing missy”</i> he says, and his form stretches into that of a huge, black furred, centaur stallion.  You hope he'll be gentle with a willing partner."
+                    `Perhaps this land is finally starting to get to you.  You tell the ${this.phoukaName()} you want him to fuck you with a great big horse cock.  The ${this.phoukaName()}'s eyes light up. <i>“Sure thing missy”</i> he says, and his form stretches into that of a huge, black furred, centaur stallion.  You hope he'll be gentle with a willing partner.`
                 );
             else
                 this.outx(
-                    "The more you think about it the more you decide you could use a real fucking.  You smile at the " +
-                        this.phoukaName() +
-                        ", telling him you want the biggest cock he can muster.  The " +
-                        this.phoukaName() +
-                        "morphs into the form you expected, that of a black, centaur stallion [if (tallness <= 96)taller than you are][if (tallness > 96)that's about your height].  Maybe that tree trunk between his legs can scratch your itch."
+                    `The more you think about it the more you decide you could use a real fucking.  You smile at the ${this.phoukaName()}, telling him you want the biggest cock he can muster.  The ${this.phoukaName()}morphs into the form you expected, that of a black, centaur stallion [if (tallness <= 96)taller than you are][if (tallness > 96)that's about your height].  Maybe that tree trunk between his legs can scratch your itch.`
                 );
         }
         PhoukaScene.phoukaForm = PhoukaScene.PHOUKA_FORM_HORSE;
@@ -1024,9 +954,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.isTaur())
             this.outx(
-                "He walks up behind you and mounts you.  You feel his front legs rubbing against your flanks and have to admit to yourself that this feels right.  The " +
-                    this.phoukaName() +
-                    "'s equine cock was built to force its way inside a mare[if (vagCapacity < 40), but it has difficulty with your tight cuntlips.  The stallion has to try twice more before his cock slides into place between your labia][if (vagCapacity >= 40) and it does just that]."
+                `He walks up behind you and mounts you.  You feel his front legs rubbing against your flanks and have to admit to yourself that this feels right.  The ${this.phoukaName()}'s equine cock was built to force its way inside a mare[if (vagCapacity < 40), but it has difficulty with your tight cuntlips.  The stallion has to try twice more before his cock slides into place between your labia][if (vagCapacity >= 40) and it does just that].`
             );
         else {
             if (this.player.isNaga())
@@ -1038,9 +966,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                     "He walks up behind you and then simply walks right over top of you, his chest knocking you to the ground.  You find yourself on all fours with a massive cockhead grinding against your ass."
                 );
             this.outx(
-                "  You hear the " +
-                    this.phoukaName() +
-                    " say <i>“Now line me up with yer cunt lass, or I'll lay down on top of ya and have a nap.”</i> Not wanting to be crushed under that kind of bulk, you reach [if (isNaga = true)up][if (isNaga = false)behind you] and grab his member.  You place his cock at the entrance to your [vagina] and the stallion steps forward.  [if (vagCapacity < 50)His cock bends and then snaps free of your cunt, slapping against his belly. <i>“Again! And do it right this time!”</i> he shouts.  You line it up once more and press against it with your hands so it has nowhere to go but in.]"
+                `  You hear the ${this.phoukaName()} say <i>“Now line me up with yer cunt lass, or I'll lay down on top of ya and have a nap.”</i> Not wanting to be crushed under that kind of bulk, you reach [if (isNaga = true)up][if (isNaga = false)behind you] and grab his member.  You place his cock at the entrance to your [vagina] and the stallion steps forward.  [if (vagCapacity < 50)His cock bends and then snaps free of your cunt, slapping against his belly. <i>“Again! And do it right this time!”</i> he shouts.  You line it up once more and press against it with your hands so it has nowhere to go but in.]`
             );
         }
         this.outx(
@@ -1048,23 +974,15 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.hasVirginVagina())
             this.outx(
-                "You scream as the " +
-                    this.phoukaName() +
-                    "'s cock tears your hymen apart.  He stops mid-thrust and asks <i>“A virgin? Here? Good goddess missy ya should have told me.”</i> In a lower tone he adds <i>“so I could have enjoyed it more.”</i> Your whole vagina burns as every fold is stretched and widened by the passage of the " +
-                    this.phoukaName() +
-                    "'s huge horse cock.  You think he's delighted to have taken a woman from virgin to gaping in just one thrust.  "
+                `You scream as the ${this.phoukaName()}'s cock tears your hymen apart.  He stops mid-thrust and asks <i>“A virgin? Here? Good goddess missy ya should have told me.”</i> In a lower tone he adds <i>“so I could have enjoyed it more.”</i> Your whole vagina burns as every fold is stretched and widened by the passage of the ${this.phoukaName()}'s huge horse cock.  You think he's delighted to have taken a woman from virgin to gaping in just one thrust.  `
             );
         else if (postCombat && this.player.vaginas[0].vaginalLooseness < 3)
             this.outx(
-                "You nearly pass out from the pain as the " +
-                    this.phoukaName() +
-                    "'s cock drives deeper and deeper inside you.  With such a wide head forcing its way in, you're sure the stretching will be permanent.  "
+                `You nearly pass out from the pain as the ${this.phoukaName()}'s cock drives deeper and deeper inside you.  With such a wide head forcing its way in, you're sure the stretching will be permanent.  `
             );
         else if (!postCombat || this.player.cor > 50)
             this.outx(
-                "Even as the invader thrusts deeper you push back against it. <i>“Good girl, ya love horse cock, don't ya?”</i> whispers the " +
-                    this.phoukaName() +
-                    ".  "
+                `Even as the invader thrusts deeper you push back against it. <i>“Good girl, ya love horse cock, don't ya?”</i> whispers the ${this.phoukaName()}.  `
             );
         this.player.cuntChange(80, true);
         this.outx(
@@ -1076,9 +994,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             );
         else {
             this.outx(
-                "You whimper in pain, hoping the " +
-                    this.phoukaName() +
-                    " will soon be done with you.  "
+                `You whimper in pain, hoping the ${this.phoukaName()} will soon be done with you.  `
             );
             if (this.player.isTaur())
                 this.outx(
@@ -1090,9 +1006,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 );
         }
         this.outx(
-            "  You feel those cum-stuffed balls twitch once, twice, three times.  The pressure must be building in the " +
-                this.phoukaName() +
-                "'s prostate.  He groans <i>“[if (isPregnant = true)Time te feed the baby.][if (isPregnant = false)Maybe today I'll leave ye a present.]”</i>  When he cums it's not a series of ripples moving up his urethra, it's a single long blast of stallion seed."
+            `  You feel those cum-stuffed balls twitch once, twice, three times.  The pressure must be building in the ${this.phoukaName()}'s prostate.  He groans <i>“[if (isPregnant = true)Time te feed the baby.][if (isPregnant = false)Maybe today I'll leave ye a present.]”</i>  When he cums it's not a series of ripples moving up his urethra, it's a single long blast of stallion seed.`
         );
         this.phoukaSexPregnate(postCombat);
     }
@@ -1104,13 +1018,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
     protected phoukaSexFaerie(postCombat: boolean): void {
         this.clearOutput();
         this.outx(
-            "The faerie doesn't look like he's in any condition to refuse your orders.  You grab him by his tiny pointed ears to get his attention.  The " +
-                this.phoukaName() +
-                " looks startled.  A firm, commanding voice should be all you need to get what you want.  You let him know that you're in charge right now and you've decided you want to feel his cock inside your [vagOrAss].  The " +
-                this.phoukaName() +
-                " looks both surprised and worried. <i>“I... I don't know if I have the control right now,”</i> he sputters.  He concentrates for a moment, his form goes fuzzy, but then he snaps back.  You rub his cock and ask if he can manage just one change. <i>“Errr - maybe?”</i> As you stroke his inch long pecker, he furrows his brow and sure enough you see it begin to grow.  Then it deflates like a balloon.\n\nHe brushes your hand away. <i>“Just gimme a sec,”</i> he says, now determined to grow his cock.  You're beginning to wonder if that vein on his forehead is going to pop when suddenly his cock expands to be over a foot long.  Just as suddenly, it shrinks again and his balls expand.  Then, they shrink but his hips expands.  It's painful to look at.\n\nAfter another few moments all his parts stabilize and you're left looking at a much larger " +
-                this.phoukaName() +
-                ", about four and a half feet tall, with cock and balls both only slightly larger than those of a normal human. <i>“Huh”</i> he says, looking himself over, <i>“well that's new.  Didn't know I could do that.”</i> He tugs on his cock and fondles his balls, then declares, <i>“Yup, everything's workin,”</i> and smiles at you.\n\n"
+            `The faerie doesn't look like he's in any condition to refuse your orders.  You grab him by his tiny pointed ears to get his attention.  The ${this.phoukaName()} looks startled.  A firm, commanding voice should be all you need to get what you want.  You let him know that you're in charge right now and you've decided you want to feel his cock inside your [vagOrAss].  The ${this.phoukaName()} looks both surprised and worried. <i>“I... I don't know if I have the control right now,”</i> he sputters.  He concentrates for a moment, his form goes fuzzy, but then he snaps back.  You rub his cock and ask if he can manage just one change. <i>“Errr - maybe?”</i> As you stroke his inch long pecker, he furrows his brow and sure enough you see it begin to grow.  Then it deflates like a balloon.\n\nHe brushes your hand away. <i>“Just gimme a sec,”</i> he says, now determined to grow his cock.  You're beginning to wonder if that vein on his forehead is going to pop when suddenly his cock expands to be over a foot long.  Just as suddenly, it shrinks again and his balls expand.  Then, they shrink but his hips expands.  It's painful to look at.\n\nAfter another few moments all his parts stabilize and you're left looking at a much larger ${this.phoukaName()}, about four and a half feet tall, with cock and balls both only slightly larger than those of a normal human. <i>“Huh”</i> he says, looking himself over, <i>“well that's new.  Didn't know I could do that.”</i> He tugs on his cock and fondles his balls, then declares, <i>“Yup, everything's workin,”</i> and smiles at you.\n\n`
         );
         if (this.player.isTaur())
             this.outx(
@@ -1118,32 +1026,24 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             );
         else
             this.outx(
-                "Not wanting him to think he's an equal partner in all this, you shove him onto his back and [if (isNaga = true)coil your tail over][if (isNaga = false)straddle] your full sized faerie lover while you strip off the last of your armor.  You can feel his hot and hard cock rubbing against your [if (isNaga = true)scales][if (isNaga = false)ass].  Maybe this isn't getting through to him.  Oh well, you're primed for a good fuck anyway.  He's already leaked enough pre for lubrication so you guide his dick to your waiting [vagOrAss].\n\nThe " +
-                    this.phoukaName() +
-                    " thrusts upward, trying to spear you from the ground.  'No more of that' you think, planting one hand on his belly.  You lower yourself slowly onto the oversized faerie's cock, hoping to get more out of this than him.  Now that you're holding him down you set the pace.  You also control the angle of his cock, making sure it hits all the high notes inside your "
+                `Not wanting him to think he's an equal partner in all this, you shove him onto his back and [if (isNaga = true)coil your tail over][if (isNaga = false)straddle] your full sized faerie lover while you strip off the last of your armor.  You can feel his hot and hard cock rubbing against your [if (isNaga = true)scales][if (isNaga = false)ass].  Maybe this isn't getting through to him.  Oh well, you're primed for a good fuck anyway.  He's already leaked enough pre for lubrication so you guide his dick to your waiting [vagOrAss].\n\nThe ${this.phoukaName()} thrusts upward, trying to spear you from the ground.  'No more of that' you think, planting one hand on his belly.  You lower yourself slowly onto the oversized faerie's cock, hoping to get more out of this than him.  Now that you're holding him down you set the pace.  You also control the angle of his cock, making sure it hits all the high notes inside your `
             );
         if (this.player.hasVagina()) {
             this.outx("[vagina].");
             this.player.cuntChange(20, true);
             this.outx(
-                "\n\nYou're getting closer and closer to cumming when you feel the " +
-                    this.phoukaName() +
-                    "'s cock twitch inside you.  The bastard is already there!"
+                `\n\nYou're getting closer and closer to cumming when you feel the ${this.phoukaName()}'s cock twitch inside you.  The bastard is already there!`
             );
             this.phoukaSexPregnate(true);
         } else {
             this.outx("[butt].");
             this.player.buttChange(20, true);
             this.outx(
-                "\n\nYou're loving the feeling of this faerie's cock sliding around inside your asshole.  In fact you're loving it so much that you're surprised when he thrusts upward and you feel his prick jerking and twitching.  Your colon starts to stretch as the " +
-                    this.phoukaName() +
-                    " pumps gallon after gallon into your accomodating asshole.  Your gut expands slightly, making you look slightly pregnant.  "
+                `\n\nYou're loving the feeling of this faerie's cock sliding around inside your asshole.  In fact you're loving it so much that you're surprised when he thrusts upward and you feel his prick jerking and twitching.  Your colon starts to stretch as the ${this.phoukaName()} pumps gallon after gallon into your accomodating asshole.  Your gut expands slightly, making you look slightly pregnant.  `
             );
             if (this.player.isTaur())
                 this.outx(
-                    "You sigh in frustration as the " +
-                        this.phoukaName() +
-                        " pulls free from your ass, obviously about to leave.  He notices your condition and thinks better of it. <i>“Just gimme a sec.  I’ll get ye off,”</i> he says. <i>“After all, I do want ye to come back fer more.”</i>\n\nHe starts jacking himself off, whispering something to himself under his breath.  When his cock looks nice and hard he grabs your flanks and drives the full length back inside you.  As he pistons into your rectum, you feel that denied orgasm building and at last you cum."
+                    `You sigh in frustration as the ${this.phoukaName()} pulls free from your ass, obviously about to leave.  He notices your condition and thinks better of it. <i>“Just gimme a sec.  I’ll get ye off,”</i> he says. <i>“After all, I do want ye to come back fer more.”</i>\n\nHe starts jacking himself off, whispering something to himself under his breath.  When his cock looks nice and hard he grabs your flanks and drives the full length back inside you.  As he pistons into your rectum, you feel that denied orgasm building and at last you cum.`
                 );
             else
                 this.outx(
@@ -1154,11 +1054,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                     "  [EachCock] fires several blasts of cum into the bog [if (isTaur = true)beneath you][if (isTaur = false)and all over your faerie partner]."
                 );
             this.outx(
-                "\n\nYour sphincter clenches on the intruder, either trying to force it out or draw more in, even you can't say which.  You let out a sigh and put a hand on your belly, still heavy with a thick cum slurry.\n\nYou're just about to [if (isTaur = true)stand up when your partner thrusts forward][if (isTaur = false)roll off your spent partner when he thrusts upward] violently with his hips.  Caught off guard you try to steady yourself, only to feel his hands [if (isTaur = true)grip your flanks][if (isTaur = false)wrap around your waist].  The " +
-                    this.phoukaName() +
-                    " cums a second time, blasting another load of cum deep into your bowels.  Your stomach muscles are no match for this wave of spooge and [if (isTaur = true)you feel your heavy belly sink deeper into the bog][if (isTaur = false)you topple forward], stuffed with enough cum for anyone to assume you're pregnant with twins.  More than that you can feel each of the one-way valves in your gut give way, one after another, until a fountain of thick sugary sperm bubbles into your stomach.  If the " +
-                    this.phoukaName() +
-                    " had made one more deposit you probably would have tasted it.\n\nYour partner pushes on you, [if (isTaur = true)pulling his spent member from your rectum.  ][if (isTaur = false)rolling you off of him, wheezing, <i>“Air, air!”</i> ]He shrinks back to his normal size and recovers faster than you.  Before he leaves, he takes the time to pat your belly. <i>“Awful waste lad.  Go swallow an egg, a pink one.  That or suck down some o’ that succubi milk.  Then you come back here and I'll give you a real party.”</i>"
+                `\n\nYour sphincter clenches on the intruder, either trying to force it out or draw more in, even you can't say which.  You let out a sigh and put a hand on your belly, still heavy with a thick cum slurry.\n\nYou're just about to [if (isTaur = true)stand up when your partner thrusts forward][if (isTaur = false)roll off your spent partner when he thrusts upward] violently with his hips.  Caught off guard you try to steady yourself, only to feel his hands [if (isTaur = true)grip your flanks][if (isTaur = false)wrap around your waist].  The ${this.phoukaName()} cums a second time, blasting another load of cum deep into your bowels.  Your stomach muscles are no match for this wave of spooge and [if (isTaur = true)you feel your heavy belly sink deeper into the bog][if (isTaur = false)you topple forward], stuffed with enough cum for anyone to assume you're pregnant with twins.  More than that you can feel each of the one-way valves in your gut give way, one after another, until a fountain of thick sugary sperm bubbles into your stomach.  If the ${this.phoukaName()} had made one more deposit you probably would have tasted it.\n\nYour partner pushes on you, [if (isTaur = true)pulling his spent member from your rectum.  ][if (isTaur = false)rolling you off of him, wheezing, <i>“Air, air!”</i> ]He shrinks back to his normal size and recovers faster than you.  Before he leaves, he takes the time to pat your belly. <i>“Awful waste lad.  Go swallow an egg, a pink one.  That or suck down some o’ that succubi milk.  Then you come back here and I'll give you a real party.”</i>`
             );
             this.dynStats("cor", PhoukaScene.rand(1) + 3); // Extra two corruption for being enough of a pervert to want to fuck the phouka
             if (postCombat) {
@@ -1178,9 +1074,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
 
     protected phoukaSexFaerieFemale(postCombat: boolean): void {
         this.outx(
-            "\n\nThe faerie doesn't look like he's in any condition to refuse your orders.  You grab him by his tiny pointed ears to get his attention.  The " +
-                this.phoukaName() +
-                " looks startled.  A firm, commanding voice should be all you need to get what you want.  You let him know that you're in charge right now and you're going to do unto others.  He looks confused, then realizes you intend to fuck him.  You ask if he can change shape into a woman, like the faeries in the forest.\n\n<i>“Yeah, I guess.  None of us phouka like doin’ that 'cause round here somebody always tries to fuck ya if ya got a cunt.”</i>"
+            `\n\nThe faerie doesn't look like he's in any condition to refuse your orders.  You grab him by his tiny pointed ears to get his attention.  The ${this.phoukaName()} looks startled.  A firm, commanding voice should be all you need to get what you want.  You let him know that you're in charge right now and you're going to do unto others.  He looks confused, then realizes you intend to fuck him.  You ask if he can change shape into a woman, like the faeries in the forest.\n\n<i>“Yeah, I guess.  None of us phouka like doin’ that 'cause round here somebody always tries to fuck ya if ya got a cunt.”</i>`
         );
         if (this.flags[kFLAGS.PHOUKA_LORE] == 0) this.flags[kFLAGS.PHOUKA_LORE] = 1; // Now you know what to call them
         this.outx(
@@ -1205,15 +1099,15 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.biggestCockLength() < 8)
             this.outx(
-                "You push the last inch of your " +
-                    Math.floor(this.player.biggestCockLength()) +
-                    " prick into the moaning slut."
+                `You push the last inch of your ${Math.floor(
+                    this.player.biggestCockLength()
+                )} prick into the moaning slut.`
             );
         else if (this.player.biggestCockLength() < 15)
             this.outx(
-                "You feed the last inch of your " +
-                    Math.floor(this.player.biggestCockLength()) +
-                    " cock into her.  Your cockhead bumps against her cervix and the slut beneath you begs for more."
+                `You feed the last inch of your ${Math.floor(
+                    this.player.biggestCockLength()
+                )} cock into her.  Your cockhead bumps against her cervix and the slut beneath you begs for more.`
             );
         else {
             this.outx(
@@ -1262,9 +1156,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         if (this.player.isPregnant()) {
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE)
                 this.outx(
-                    "\n\nYou just feel constant pressure against your sealed cervix.  The " +
-                        this.phoukaName() +
-                        "’s balls shows no signs of slowing down and the pressure continues to build.  Finally your vagina expands enough to allow an ocean of cum to jet out of you."
+                    `\n\nYou just feel constant pressure against your sealed cervix.  The ${this.phoukaName()}’s balls shows no signs of slowing down and the pressure continues to build.  Finally your vagina expands enough to allow an ocean of cum to jet out of you.`
                 );
             else
                 this.outx(
@@ -1287,50 +1179,32 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         }
         if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE)
             this.outx(
-                "\n\nYou just feel constant pressure building inside your belly.  In moments you look nine months pregnant.  An unwholesome feeling of saccharine sweetness seems to permeate your whole body.  Your teeth feel like they're rotting from the root out.  The " +
-                    this.phoukaName() +
-                    " shows no signs of slowing down and the pressure continues to build.  Finally your womb can hold no more and the stallion seed leaks back out of your violated cervix.\n\nThe winded horse morph [if (isTaur = true)rubs the side of his head against your mane and asks you, <i>“Are ye ready to be my breeding mare? 'Cause I stuffed yer twat with enough seed fer a dozen babies.”</i>][if (isTaur = false)says, <i>“Well slut, I hope ye liked the feel of a real stallion cock.”</i> Then he whispers, <i>“The big question is how fertile is that spacious womb o' yours?”</i>]"
+                `\n\nYou just feel constant pressure building inside your belly.  In moments you look nine months pregnant.  An unwholesome feeling of saccharine sweetness seems to permeate your whole body.  Your teeth feel like they're rotting from the root out.  The ${this.phoukaName()} shows no signs of slowing down and the pressure continues to build.  Finally your womb can hold no more and the stallion seed leaks back out of your violated cervix.\n\nThe winded horse morph [if (isTaur = true)rubs the side of his head against your mane and asks you, <i>“Are ye ready to be my breeding mare? 'Cause I stuffed yer twat with enough seed fer a dozen babies.”</i>][if (isTaur = false)says, <i>“Well slut, I hope ye liked the feel of a real stallion cock.”</i> Then he whispers, <i>“The big question is how fertile is that spacious womb o' yours?”</i>]`
             );
         // Horse
         else
             this.outx(
-                "\n\nGallons of warm cum force past your cervix and into your womb.  You start to feel sick to your stomach, like you've eaten way too much candy.  Your belly begins to expand and you feel the " +
-                    this.phoukaName() +
-                    "'s fingers running across the tightening flesh.  As your belly button pops out he laughs and asks you, <i>“What do ya think my chances are, slut?  How fertile is that big womb o' yours?”</i>"
+                `\n\nGallons of warm cum force past your cervix and into your womb.  You start to feel sick to your stomach, like you've eaten way too much candy.  Your belly begins to expand and you feel the ${this.phoukaName()}'s fingers running across the tightening flesh.  As your belly button pops out he laughs and asks you, <i>“What do ya think my chances are, slut?  How fertile is that big womb o' yours?”</i>`
             );
         this.player.knockUp(PregnancyStore.PREGNANCY_FAERIE, PregnancyStore.INCUBATION_FAERIE);
         if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE) {
             this.outx(
-                " The " +
-                    this.phoukaName() +
-                    " may have cum, but his cock is still rock solid.  You ignore his comments and start rocking your hips faster, determined to get more enjoyment out of him than this. <i>“Yes missy, yes. That's right - cum fer me an drop an egg or two.”</i>\n\nYou can feel the cum sloshing around inside your womb, you can feel the sweet taste in the back of your throat, but you need more!  Finally you close your eyes and your whole body shudders as you cum.[if (hasCock = true)  [EachCock] fires long strands of cum into the bog and all over your faerie partner.]\n\nYour [vagina] goes to work milking the " +
-                    this.phoukaName() +
-                    "'s prick and you hear a moan of pleasure from the little monster.  You feel even greater pressure building inside your womb.  The clenching of your love tunnel has driven him over the edge and the " +
-                    this.phoukaName() +
-                    " is cumming again.  You try to [if (isTaur = true)pull away from][if (isTaur = false)lift yourself off] him, but another of your own orgasms hits.  When it’s over, you're left with a distended belly that wouldn't look out of place on a woman giving birth.  You roll onto your side and the enlarged faerie slides out of your box.  You hope most of that mess will leak out.  Instead you see only a few dribbles of thick grey cum ooze out of your pussy."
+                ` The ${this.phoukaName()} may have cum, but his cock is still rock solid.  You ignore his comments and start rocking your hips faster, determined to get more enjoyment out of him than this. <i>“Yes missy, yes. That's right - cum fer me an drop an egg or two.”</i>\n\nYou can feel the cum sloshing around inside your womb, you can feel the sweet taste in the back of your throat, but you need more!  Finally you close your eyes and your whole body shudders as you cum.[if (hasCock = true)  [EachCock] fires long strands of cum into the bog and all over your faerie partner.]\n\nYour [vagina] goes to work milking the ${this.phoukaName()}'s prick and you hear a moan of pleasure from the little monster.  You feel even greater pressure building inside your womb.  The clenching of your love tunnel has driven him over the edge and the ${this.phoukaName()} is cumming again.  You try to [if (isTaur = true)pull away from][if (isTaur = false)lift yourself off] him, but another of your own orgasms hits.  When it’s over, you're left with a distended belly that wouldn't look out of place on a woman giving birth.  You roll onto your side and the enlarged faerie slides out of your box.  You hope most of that mess will leak out.  Instead you see only a few dribbles of thick grey cum ooze out of your pussy.`
             );
         }
         if (!postCombat || this.player.cor > 50) {
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE)
                 this.outx(
-                    " The " +
-                        this.phoukaName() +
-                        " certainly got off, but you're still horny.  Despite the pain you begin working your body forward and back along his cock.  Your nerves have gone dull so you can't even feel most of his cock.  Luckily your cervix is still tight, so you can feel him there.\n\nThe " +
-                        this.phoukaName() +
-                        " stands still and begins to laugh. <i>“That's right, prove yer a slut fer stallions like me.  Cum for me bitch.”</i> Your belly wobbles obscenely as you move, the skin stretched tight and your belly button rubbing against the mud.  Finally your entire vagina, from lips to cervix, clenches down on his wonderful shaft.  You want nothing more than for this moment to continue, to be filled completely by this super-sized, fuckhole destroying horse-cock.[if (hasCock = true)  At the same time [eachCock] releases the cum that has been building up in your [balls].  The mud beneath you become warm and white.]"
+                    ` The ${this.phoukaName()} certainly got off, but you're still horny.  Despite the pain you begin working your body forward and back along his cock.  Your nerves have gone dull so you can't even feel most of his cock.  Luckily your cervix is still tight, so you can feel him there.\n\nThe ${this.phoukaName()} stands still and begins to laugh. <i>“That's right, prove yer a slut fer stallions like me.  Cum for me bitch.”</i> Your belly wobbles obscenely as you move, the skin stretched tight and your belly button rubbing against the mud.  Finally your entire vagina, from lips to cervix, clenches down on his wonderful shaft.  You want nothing more than for this moment to continue, to be filled completely by this super-sized, fuckhole destroying horse-cock.[if (hasCock = true)  At the same time [eachCock] releases the cum that has been building up in your [balls].  The mud beneath you become warm and white.]`
                 );
             else {
                 // BUNNY
                 this.outx(
-                    " Thankfully, the " +
-                        this.phoukaName() +
-                        " begins to rub his fingers against your clit.  Your orgasm causes your whole vagina to ripple as your body tries to draw even more sperm inside your belly.  [if (hasCock = true)[EachCock] fires long strands of cum uselessly into the bog.  ]"
+                    ` Thankfully, the ${this.phoukaName()} begins to rub his fingers against your clit.  Your orgasm causes your whole vagina to ripple as your body tries to draw even more sperm inside your belly.  [if (hasCock = true)[EachCock] fires long strands of cum uselessly into the bog.  ]`
                 );
                 if (postCombat)
                     this.outx(
-                        "The bastard " +
-                            this.phoukaName() +
-                            " laughs as you cum. <i>“Yeah, get nice and comfy while my seed takes root.  You lasses always love bein’ bred.”</i>"
+                        `The bastard ${this.phoukaName()} laughs as you cum. <i>“Yeah, get nice and comfy while my seed takes root.  You lasses always love bein’ bred.”</i>`
                     );
                 else
                     this.outx(
@@ -1340,15 +1214,11 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         } else {
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE)
                 this.outx(
-                    " You feel the " +
-                        this.phoukaName() +
-                        " lift one of his front legs [if (isNaga = true)and place it against your soft underbelly][if (isNaga = false)between your thighs].  You doubt a real horse's leg could bend that way, but the cursed shapeshifter manages it with ease.  He starts rubbing the smooth surface of his hoof against your clit until you can take no more.  Still impaled on his meaty mast, you can't even fight back."
+                    ` You feel the ${this.phoukaName()} lift one of his front legs [if (isNaga = true)and place it against your soft underbelly][if (isNaga = false)between your thighs].  You doubt a real horse's leg could bend that way, but the cursed shapeshifter manages it with ease.  He starts rubbing the smooth surface of his hoof against your clit until you can take no more.  Still impaled on his meaty mast, you can't even fight back.`
                 );
             else
                 this.outx(
-                    " To add insult to injury the " +
-                        this.phoukaName() +
-                        " starts to rub his fingers against your clit, forcing you to have an orgasm against your will."
+                    ` To add insult to injury the ${this.phoukaName()} starts to rub his fingers against your clit, forcing you to have an orgasm against your will.`
                 );
             this.outx(
                 "  As he gets you off your abused cunt muscles try in vain to pull even more cum into your womb.  [if (hasCock = true)[EachCock] fires long strands of cum into the bog, wasting your seed in the lifeless waters.  ]You try to hold back tears that are half pain, half embarrassment at being so completely dominated by this perverted faerie."
@@ -1356,9 +1226,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         }
         if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE)
             this.outx(
-                "\n\nThe " +
-                    this.phoukaName() +
-                    "'s whole body deflates along with his cock.  You're too tired to stop him as he"
+                `\n\nThe ${this.phoukaName()}'s whole body deflates along with his cock.  You're too tired to stop him as he`
             );
         else if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE)
             this.outx(
@@ -1376,11 +1244,9 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
                 this.flags[kFLAGS.BIRTHS_PHOUKA] == 0 && this.flags[kFLAGS.BIRTHS_FAERIE] == 0;
             this.flags[kFLAGS.PREGNANCY_CORRUPTION] = 2; // Start off with a corrupt little phouka. It will take three drinks of pure honey to turn it into a faerie
             this.outx(
-                "You're about to lift yourself up when you feel " +
-                    (isFirstTime ? "an unusual" : "a familiar") +
-                    " sensation inside your belly.  All that cum is hardening!  You can feel it set, almost like mortar left out in the sun!  You stand and some clear water drains out, your belly shrinking in size to that of a watermelon.  Whatever's left inside your belly is solid, like you're carrying a smooth ball of wood inside you.\n\nYou run a hand over your belly.  Thankfully it isn't any heavier than a normal pregnancy, nor does it hurt at all.\n\n<i>“Yes!”</i> shouts the " +
-                    this.phoukaName() +
-                    ". <i>“I'm gonna be a daddy!  Thanks fer letting me fill ya up girl, there’s plenty o’ space in there fer the little guy.  I gotta tell all the other phouka about ya"
+                `You're about to lift yourself up when you feel ${
+                    isFirstTime ? "an unusual" : "a familiar"
+                } sensation inside your belly.  All that cum is hardening!  You can feel it set, almost like mortar left out in the sun!  You stand and some clear water drains out, your belly shrinking in size to that of a watermelon.  Whatever's left inside your belly is solid, like you're carrying a smooth ball of wood inside you.\n\nYou run a hand over your belly.  Thankfully it isn't any heavier than a normal pregnancy, nor does it hurt at all.\n\n<i>“Yes!”</i> shouts the ${this.phoukaName()}. <i>“I'm gonna be a daddy!  Thanks fer letting me fill ya up girl, there’s plenty o’ space in there fer the little guy.  I gotta tell all the other phouka about ya`
             );
             if (this.flags[kFLAGS.PHOUKA_LORE] == 0) this.flags[kFLAGS.PHOUKA_LORE] = 1; // Now you know what to call them
             if (!postCombat || this.player.cor > 50) this.outx(", yer a real prize slut");
@@ -1394,9 +1260,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
             else this.outx("At least you know what to expect from this form of pregnancy now.");
         } else
             this.outx(
-                "When you pull yourself up your belly begins to deflate and leak its gooey grey payload into the mud.  The " +
-                    this.phoukaName() +
-                    " says <i>“Ah well, there's always next time,”</i> and buzzes away to some other part of the bog."
+                `When you pull yourself up your belly begins to deflate and leak its gooey grey payload into the mud.  The ${this.phoukaName()} says <i>“Ah well, there's always next time,”</i> and buzzes away to some other part of the bog.`
             );
         this.phoukaSexPregnateEnd(postCombat);
     }
@@ -1412,9 +1276,7 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE) {
             // In this case postCombat means you need an award because you must have won to get faerie sex
             this.outx(
-                "\n\nSatisfied for now you begin to put your clothes back on.  Maybe that " +
-                    this.phoukaName() +
-                    " will learn, maybe not."
+                `\n\nSatisfied for now you begin to put your clothes back on.  Maybe that ${this.phoukaName()} will learn, maybe not.`
             );
             if (this.player.cor > 50)
                 this.outx("  But either way you plan to return and give all of them that lesson.");
@@ -1425,14 +1287,10 @@ export class PhoukaScene extends BaseContent implements TimeAwareInterface {
         } else {
             if (postCombat && this.player.gems > 0)
                 this.outx(
-                    "  While you're recovering the " +
-                        this.phoukaName() +
-                        " reaches into your gem pouch and takes a handful."
+                    `  While you're recovering the ${this.phoukaName()} reaches into your gem pouch and takes a handful.`
                 );
             this.outx(
-                "\n\nNow that it's finished with you the " +
-                    this.phoukaName() +
-                    " shrinks back down into a small black faerie and buzzes off to some other part of the bog."
+                `\n\nNow that it's finished with you the ${this.phoukaName()} shrinks back down into a small black faerie and buzzes off to some other part of the bog.`
             );
             this.outx("\n\nYou ");
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE && !this.player.isTaur())

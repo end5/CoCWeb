@@ -202,17 +202,16 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         if (this.edryn.pregnancy.isPregnant)
             this.outx(" stop her pregnancy-induced feasting, stifle a belch and");
         this.outx(
-            " smile happily at you.  “<i>Hello " +
-                this.player.short +
-                ", what’s on your mind?</i>” she asks.\n\n"
+            ` smile happily at you.  “<i>Hello ${this.player.short}, what’s on your mind?</i>” she asks.\n\n`
         );
         this.outx(
             "You ask if there might be any positions available in the Watch?  You wanted to talk to her about joining it.\n\n"
         );
         this.outx(
-            "Edryn stares at you in surprise.  “<i>Well, yes, we always have room for new recruits... don’t tell me that you want to give up the adventurer’s life and settle down as a watch" +
-                this.player.mf("man", "woman") +
-                "?</i>”  She asks."
+            `Edryn stares at you in surprise.  “<i>Well, yes, we always have room for new recruits... don’t tell me that you want to give up the adventurer’s life and settle down as a watch${this.player.mf(
+                "man",
+                "woman"
+            )}?</i>”  She asks.`
         );
         const edrynKidsPlus: number =
             this.flags[kFLAGS.EDRYN_NUMBER_OF_KIDS] + (this.edryn.pregnancy.isPregnant ? 1 : 0);
@@ -221,9 +220,9 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             if (this.edryn.pregnancy.isPregnant)
                 this.outx(", one hand brushing against her swollen equine belly as best it can");
             this.outx(
-                ".  “<i>Don’t tell me this has to do with the " +
-                    (edrynKidsPlus > 1 ? "kids" : "baby") +
-                    ".  I mean, it’s not that I don’t appreciate the sentiment and all, but you don’t have to do this because of me!</i>” she protests."
+                `.  “<i>Don’t tell me this has to do with the ${
+                    edrynKidsPlus > 1 ? "kids" : "baby"
+                }.  I mean, it’s not that I don’t appreciate the sentiment and all, but you don’t have to do this because of me!</i>” she protests.`
             );
         }
         this.outx(
@@ -461,9 +460,9 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             withUrta = undefined; // Urta must be a lover and you must have talked about Kath
         if (!urtaAvailable && withUrta != undefined) {
             this.outx(
-                "\n\nPerhaps you should wait for a time when you know Urta will be available " +
-                    (this.urta.pregnancy.isPregnant ? "" : "(and sober enough) ") +
-                    "to help."
+                `\n\nPerhaps you should wait for a time when you know Urta will be available ${
+                    this.urta.pregnancy.isPregnant ? "" : "(and sober enough) "
+                }to help.`
             );
             withUrta = undefined; // She has to be in the bar
         }
@@ -530,10 +529,11 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     public katherineTrainingStage1(clearOut = true): void {
         if (clearOut) this.clearOutput();
         this.outx(
-            (this.flags[kFLAGS.KATHERINE_TRAINING] == 0
-                ? "  You"
-                : "Kath readies herself quickly and you") +
-                " lead her on a long, winding trek through the desert sands.  You always keep Tel’Adre in sight so that if the two of you are somehow separated Kath will be able to find her way home.\n\n"
+            `${
+                this.flags[kFLAGS.KATHERINE_TRAINING] == 0
+                    ? "  You"
+                    : "Kath readies herself quickly and you"
+            } lead her on a long, winding trek through the desert sands.  You always keep Tel’Adre in sight so that if the two of you are somehow separated Kath will be able to find her way home.\n\n`
         );
         this.outx(
             "You show her some strategies and good tricks for staying alive out here and moving across the sand without tiring yourself as much.  Kath’s good at listening and while she doesn’t improve much you know she’ll do better tomorrow.\n\n"
@@ -571,9 +571,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Lashing down the canvas takes a lot more effort, but Kath is soon sitting inside a completed tent.  It’s not perfect, the wind can still blow through a few seams and gaps, but it’s not bad either.\n\n"
         );
         this.outx(
-            "Now shielded from the sun Kath begins to recover some of her usual energy and smiles at you from inside the tent.  “<i>Wanna test this thing out " +
-                this.player.short +
-                "?</i>”\n\n"
+            `Now shielded from the sun Kath begins to recover some of her usual energy and smiles at you from inside the tent.  “<i>Wanna test this thing out ${this.player.short}?</i>”\n\n`
         );
         this.outx(
             "It’s not the best idea to get distracted out here so you decline.  Besides, part of Kath’s training is to boost her endurance.  If you laze about all afternoon it won’t help her very much.\n\n"
@@ -621,11 +619,12 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You’re in the desert, so there are only so many things that could sound so wet.  You rip the sack off her and are treated to a view of Kath with her hands jammed down her pants.\n\n"
         );
         this.outx(
-            "She sits up, embarrassed despite the fact there’s no one else within a mile.  “<i>Come on " +
-                this.player.short +
-                " - You had me walking all over the place.  My cock" +
-                this.katherine.cockMultiple("", "s") +
-                " kept rubbing against my pants.  I need to do this to even think straight.</i>”\n\n"
+            `She sits up, embarrassed despite the fact there’s no one else within a mile.  “<i>Come on ${
+                this.player.short
+            } - You had me walking all over the place.  My cock${this.katherine.cockMultiple(
+                "",
+                "s"
+            )} kept rubbing against my pants.  I need to do this to even think straight.</i>”\n\n`
         );
         this.outx(
             "You realize there is no way you’re going to get Kath to do anything useful out here.  On the other hand it’s a nice day and your girlfriend is very, very horny.  Might as well make the most of this trip."
@@ -650,9 +649,9 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You’re sure Kath’s basic survival skills are now good enough to pass any tests the watch might put her through; now it’s time to work on her combat skills.  You’re still trying to work on her endurance, so you march her even further from Tel’Adre.  Only when you reach a quiet spot on the shores of the lake do you finally stop.\n\n"
         );
         this.outx(
-            "Katherine is a little winded from the walk" +
-                (this.player.tou < 50 ? " and frankly so are you" : "") +
-                ".  Kath keeps looking around, examining the lakeshore and the plants that grow nearby.  You tell her not to stray too far.  It might look a lot prettier than the desert but there are dangerous creatures near the lake.  You sit on a large rock and wait for Kath to regain some energy and return."
+            `Katherine is a little winded from the walk${
+                this.player.tou < 50 ? " and frankly so are you" : ""
+            }.  Kath keeps looking around, examining the lakeshore and the plants that grow nearby.  You tell her not to stray too far.  It might look a lot prettier than the desert but there are dangerous creatures near the lake.  You sit on a large rock and wait for Kath to regain some energy and return.`
         );
         switch (KatherineEmployment.rand(3)) {
             case 0:
@@ -764,11 +763,11 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Now that you know Kath can handle the job physically all that’s left is teaching her how to act.  First you give Kath a rundown on some of Tel’Adre’s laws and how the watch is expected to enforce them.\n\n"
         );
         this.outx(
-            "Then you tell Kath to stick the training sword and practice club into her belt.  She does and you then straighten her clothes and adjust her posture so she’s standing up straight." +
-                (this.player.lust >= 50
+            `Then you tell Kath to stick the training sword and practice club into her belt.  She does and you then straighten her clothes and adjust her posture so she’s standing up straight.${
+                this.player.lust >= 50
                     ? "  Before you begin her training you take a moment to appreciate what her ramrod straight posture does to Katherine’s chest."
-                    : "") +
-                "  You tell Kath that she will have to imagine the uniform and helmet.  Right now she is a watch officer out on patrol.  Kath examines herself, fidgets and mumbles, “<i>I feel kind of silly like this.</i>”"
+                    : ""
+            }  You tell Kath that she will have to imagine the uniform and helmet.  Right now she is a watch officer out on patrol.  Kath examines herself, fidgets and mumbles, “<i>I feel kind of silly like this.</i>”`
         );
         if (this.flags[kFLAGS.KATHERINE_TRAINING] >= 99) {
             this.doNext(this.katherineTrainingStage3Success);
@@ -838,13 +837,13 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     private katherineTrainingStage3Horny(): void {
         this.clearOutput();
         this.outx(
-            "You try to press on and explain the crime she has to deal with but you realize Katherine is shifting uncomfortably.  " +
-                (this.katherine.cockLength <= 10
+            `You try to press on and explain the crime she has to deal with but you realize Katherine is shifting uncomfortably.  ${
+                this.katherine.cockLength <= 10
                     ? "At first you aren’t sure why, but Kath’s embarrassment tips you off.  A little bulge is developing between her legs."
-                    : "The reason is immediately apparent.  The crotch of Katherine’s pants is bulging thanks to her sizeable dog dick.") +
-                "  “<i>I’m sorry " +
-                this.player.short +
-                ", I really want to keep training.  It’s just when you were touching me and straightening me up you smelled nice and it feels like its been so long since we had fun.</i>”\n\n"
+                    : "The reason is immediately apparent.  The crotch of Katherine’s pants is bulging thanks to her sizeable dog dick."
+            }  “<i>I’m sorry ${
+                this.player.short
+            }, I really want to keep training.  It’s just when you were touching me and straightening me up you smelled nice and it feels like its been so long since we had fun.</i>”\n\n`
         );
         this.outx(
             "You tell Kath that she needs to control herself.  What if this happened while she was out on patrol?  You are about to start explaining what the criminal is up to when Kath’s tattered pants give way.  Her canine member pops out and smacks audibly against her midriff.\n\n"
@@ -853,9 +852,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Kath looks down at her treacherous cock and back up at you.  She straightens up again, assuming the correct posture for a watch officer and puffing her chest out.  In a stern, commanding voice she says, “<i>I arrest officer Katherine for indecent exposure.</i>”\n\n"
         );
         this.outx(
-            "Then Kath starts to snicker.  You can’t help yourself and both of you are soon sitting on crates laughing like mad.  Kath recovers first and puts her arms around you while her cock pokes into your side.  “<i>I’m sorry " +
-                this.player.short +
-                ", but after that I just can’t take this seriously.  How about we blow some steam off so this doesn’t happen next time, hmmm?</i>”\n\n"
+            `Then Kath starts to snicker.  You can’t help yourself and both of you are soon sitting on crates laughing like mad.  Kath recovers first and puts her arms around you while her cock pokes into your side.  “<i>I’m sorry ${this.player.short}, but after that I just can’t take this seriously.  How about we blow some steam off so this doesn’t happen next time, hmmm?</i>”\n\n`
         );
         this.outx(
             "You sigh, but the feel of Katherine’s fuzzy face against your cheek weakens your resolve.  It’s not as though she has to take the test tomorrow, so why not take a break?  Kath whispers in your ear, “<i>So how would you like me, lover?</i>”"
@@ -938,21 +935,17 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             if (this.flags[kFLAGS.TIMES_FUCKED_URTA] > 0) {
                 // Urta is either your lover or a fuckbuddy
                 this.outx(
-                    "Urta gives you a big smile as you lead Katherine over to her table.  “<i>How’s it going, " +
-                        this.player.short +
-                        "?</i>”  When Kath sits down, she adds, “<i>And who’s this?</i>” in a friendly tone.\n\n"
+                    `Urta gives you a big smile as you lead Katherine over to her table.  “<i>How’s it going, ${this.player.short}?</i>”  When Kath sits down, she adds, “<i>And who’s this?</i>” in a friendly tone.\n\n`
                 );
                 this.outx(
-                    "You explain to Urta how you’ve been training Kath in the hopes of getting her a job in the watch.  Urta sips from her mug and listens closely as you go over the training.  When you finish Urta says, “<i>" +
-                        (this.urta.urtaLove()
+                    `You explain to Urta how you’ve been training Kath in the hopes of getting her a job in the watch.  Urta sips from her mug and listens closely as you go over the training.  When you finish Urta says, “<i>${
+                        this.urta.urtaLove()
                             ? "You know, I could have given you a hand with that, love"
-                            : "Well love, the watch can always use new recruits if they’re well trained") +
-                        ".</i>”  Kath’s jaw hits the floor and she asks, “<i>You’re sleeping with the captain of the guard?</i>”\n\n"
+                            : "Well love, the watch can always use new recruits if they’re well trained"
+                    }.</i>”  Kath’s jaw hits the floor and she asks, “<i>You’re sleeping with the captain of the guard?</i>”\n\n`
                 );
                 this.outx(
-                    "Urta knocks back her mug and says, “<i>Oh yes, we’ve been sleeping together for a while.  I’m guessing from the look on your face, you two have been sleeping together for a while too, hmmm?  Where have you been hiding her, " +
-                        this.player.short +
-                        "?  And why haven’t you introduced us?</i>”"
+                    `Urta knocks back her mug and says, “<i>Oh yes, we’ve been sleeping together for a while.  I’m guessing from the look on your face, you two have been sleeping together for a while too, hmmm?  Where have you been hiding her, ${this.player.short}?  And why haven’t you introduced us?</i>”`
                 );
                 this.flags[kFLAGS.KATHERINE_URTA_AFFECTION] = 1;
                 if (
@@ -961,17 +954,14 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                         this.flags[kFLAGS.URTA_KNOWS_PC_HAS_MARBLE_FOLLOWER] > 0)
                 ) {
                     this.outx(
-                        "\n\nBefore Katherine can respond Urta adds, “<i>Don’t worry, I’m not angry about " +
-                            this.player.short +
-                            " sleeping around"
+                        `\n\nBefore Katherine can respond Urta adds, “<i>Don’t worry, I’m not angry about ${this.player.short} sleeping around`
                     );
                     if (this.flags[kFLAGS.URTA_OPEN_ABOUT_EDRYN] > 0)
                         this.outx(
-                            " and " +
-                                this.player.mf("he", "she") +
-                                " doesn’t get " +
-                                this.player.mf("his", "her") +
-                                " back up when I sleep around"
+                            ` and ${this.player.mf("he", "she")} doesn’t get ${this.player.mf(
+                                "his",
+                                "her"
+                            )} back up when I sleep around`
                         );
                     this.outx(
                         ".  Considering the world we live in it’s a fine arrangement.</i>”\n\n"
@@ -990,11 +980,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                     "\n\nKath looks a little shellshocked and you don’t want to frighten her any more before her testing, so you give a noncommittal answer and force the conversation back on topic.\n\n"
                 );
                 this.outx(
-                    "Urta tosses back the last of her drink and stands up.  “<i>Ok then recruit, lets see what you can do.  I’m tough but fair and if you’ve learned from " +
-                        this.player.short +
-                        " you should do just fine.</i>”  She starts to lead Kath out of the bar but stops to tell you, “<i>Just wait around here for us " +
-                        this.player.short +
-                        ", we’ll be back in a few hours or so.</i>”"
+                    `Urta tosses back the last of her drink and stands up.  “<i>Ok then recruit, lets see what you can do.  I’m tough but fair and if you’ve learned from ${this.player.short} you should do just fine.</i>”  She starts to lead Kath out of the bar but stops to tell you, “<i>Just wait around here for us ${this.player.short}, we’ll be back in a few hours or so.</i>”`
                 );
                 this.doNext(this.katherineTrainingCompleteUrtaLover);
             } else {
@@ -1045,9 +1031,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You spend the next few hours alternately waiting in the bar and strolling around the block to stretch your legs, all the while wondering how Kath is doing.  You’ve just stepped back into the bar when you hear footsteps fast approaching from behind.\n\n"
         );
         this.outx(
-            "Kath races into the bar and leaps into your arms, nearly knocking you off your feet.  “<i>I did it!  I did it!</i>” she cries while hugging you tight enough to squeeze the breath out of you.  “<i>Oh thank you " +
-                this.player.short +
-                ", I couldn’t have done it without you.  The tests were hard but I knew what she wanted.</i>”\n\n"
+            `Kath races into the bar and leaps into your arms, nearly knocking you off your feet.  “<i>I did it!  I did it!</i>” she cries while hugging you tight enough to squeeze the breath out of you.  “<i>Oh thank you ${this.player.short}, I couldn’t have done it without you.  The tests were hard but I knew what she wanted.</i>”\n\n`
         );
         this.outx(
             "You stroke her hair and Katherine finally calms down enough to show you her new badge.  “<i>I’m starting tomorrow.  Oh - and that’s not even the best part.  I didn’t know about this, but because I’m in the watch they can give me papers that show I have a good job, that I’m a good citizen.  I forget what it’s called, but it means I’ll be able to get a house really soon cause they know I’m good for it and I’ll be earning a wage.</i>”\n\n"
@@ -1070,9 +1054,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     private katherineTrainingCompleteNeverSpokenOrPermanentlyPissed(): void {
         this.clearOutput();
         this.outx(
-            "You go back to Kath’s alley and pace back and forth, waiting.  Hours later Kath races into the alley and leaps into your arms, nearly knocking you off your feet.  “<i>I did it!  I did it!</i>” she cries while hugging you tight enough to squeeze the breath out of you.  “<i>Oh thank you " +
-                this.player.short +
-                ", I couldn’t have done it without you.  The tests were hard but I knew what she wanted.</i>”\n\n"
+            `You go back to Kath’s alley and pace back and forth, waiting.  Hours later Kath races into the alley and leaps into your arms, nearly knocking you off your feet.  “<i>I did it!  I did it!</i>” she cries while hugging you tight enough to squeeze the breath out of you.  “<i>Oh thank you ${this.player.short}, I couldn’t have done it without you.  The tests were hard but I knew what she wanted.</i>”\n\n`
         );
         this.outx(
             "You stroke her hair and Katherine finally calms down enough to show you her new badge.  “<i>I’m starting tomorrow.  Oh - and that’s not even the best part.  I didn’t know about this, but because I’m in the watch they can give me papers that show I have a good job, that I’m a good citizen.  I forget what it’s called, but it means I’ll be able to get a house really soon cause they know I’m good for it and I’ll be earning a wage.</i>”\n\n"
@@ -1089,9 +1071,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You spend the next few hours alternately waiting in the bar and strolling around the block to stretch your legs, all the while wondering how Kath is doing.  You’ve just stepped back into the bar when you hear footsteps fast approaching from behind.\n\n"
         );
         this.outx(
-            "Kath races into the bar and leaps into your arms, nearly knocking you off your feet.  “<i>I did it!  I did it!</i>” she cries while hugging you tight enough to squeeze the breath out of you.  “<i>Oh thank you " +
-                this.player.short +
-                ", I couldn’t have done it without you.  The tests were hard but I knew what she wanted.</i>”\n\n"
+            `Kath races into the bar and leaps into your arms, nearly knocking you off your feet.  “<i>I did it!  I did it!</i>” she cries while hugging you tight enough to squeeze the breath out of you.  “<i>Oh thank you ${this.player.short}, I couldn’t have done it without you.  The tests were hard but I knew what she wanted.</i>”\n\n`
         );
         this.outx(
             "You stroke her hair and Katherine finally calms down enough to show you her new badge.  “<i>I’m starting tomorrow.  Oh - and that’s not even the best part.  I didn’t know about this, but because I’m in the watch they can give me papers that show I have a good job, that I’m a good citizen.  I forget what it’s called, but it means I’ll be able to get a house really soon cause they know I’m good for it and I’ll be earning a wage.</i>”\n\n"
@@ -1111,11 +1091,11 @@ export class KatherineEmployment extends TelAdreAbstractContent {
     private urtaForgivesYou(): void {
         this.clearOutput();
         this.outx(
-            "She leads you over to her table and soon you’re " +
-                (this.player.isPregnant()
+            `She leads you over to her table and soon you’re ${
+                this.player.isPregnant()
                     ? "drinking some hot chocolate while Urta sips some kind of hard liquor"
-                    : "sipping some harsh form of whiskey with her") +
-                ".  Urta starts by complimenting you on Kath’s training.  It seems few candidates are that well prepared on their first attempt to take the tests.  She seems nervous, even acts bit deferential to you.\n\n"
+                    : "sipping some harsh form of whiskey with her"
+            }.  Urta starts by complimenting you on Kath’s training.  It seems few candidates are that well prepared on their first attempt to take the tests.  She seems nervous, even acts bit deferential to you.\n\n`
         );
         this.outx(
             "From how she’s acting you feel there’s more to this talk than that but it takes a while, and several more drinks, for Urta to work up her courage.  Finally she says, “<i>From the way Katherine acted I know you two are together.</i>”  She tilts her glass and looks at the amber liquid.  “<i>From the testing I can tell Kath is a herm.  I mean, we did some combat tests, some grappling.  It’s kind of hard to miss.</i>”\n\n"
@@ -1167,9 +1147,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "With a smile, you turn and make your way to the Wet Bitch.  Once inside you easily spot Urta and sit at her table.\n\n"
         );
         this.outx(
-            "Urta smiles openly and warmly, her tail abandoning it’s habitual position obscuring her sizable cock to instead wag in vulpine greeting.  “<i>Hello, " +
-                this.player.short +
-                "; so, how is your would-be watchman coming along?</i>” she asks.  Then she takes another look at you and smirks.  “<i>From that look on your face, I’m thinking you’re here to ask for my help, yes?</i>”\n\n"
+            `Urta smiles openly and warmly, her tail abandoning it’s habitual position obscuring her sizable cock to instead wag in vulpine greeting.  “<i>Hello, ${this.player.short}; so, how is your would-be watchman coming along?</i>” she asks.  Then she takes another look at you and smirks.  “<i>From that look on your face, I’m thinking you’re here to ask for my help, yes?</i>”\n\n`
         );
         this.outx(
             "You nod in confirmation, telling Urta that you are here to give her more information on Kath, so the two of you can come up with a good training schedule for her.\n\n"
@@ -1244,9 +1222,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You lift the chastity belt off her hands and look it over.  Then give her a lusty look.  Realizing what you’re thinking, she protests, “<i>Lover, no, just... no.  I already told you it gets me so worked up I’m ready to burst when I get it off - the last time I dared wear that, when I finally got it off, I damn near flooded the whole house venting the pressure that had built up in my balls!  Please, I love you, but don’t make me wear that again!</i>” she begs you.\n\n"
         );
         this.outx(
-            "Flooded the house?  Your smile widens and you look at the belt... then back at her again.  You raise your eyebrows, as if asking an unspoken question.  Urta winces and whimpers like the fox she so resembles.  “<i>Please, " +
-                this.player.short +
-                ", please don’t look at me like that... I don’t want to do it, it hurts when I’m trapped in that thing.</i>”  she pleads.\n\n"
+            `Flooded the house?  Your smile widens and you look at the belt... then back at her again.  You raise your eyebrows, as if asking an unspoken question.  Urta winces and whimpers like the fox she so resembles.  “<i>Please, ${this.player.short}, please don’t look at me like that... I don’t want to do it, it hurts when I’m trapped in that thing.</i>”  she pleads.\n\n`
         );
         this.outx(
             "You look down at the floor in disappointment... then look back at her, trying to make the best ‘puppy eyes’ you can manage.  Urta does a fullbody wince... and then sighs loudly.  “<i>Why, why can I never resist you, lover?  Alright, give the damn thing here,</i>” she tells you, holding out one hand hesitantly.  “<i>Though I hope you know that you won’t be able to do anything to me while I’m wearing it either, so I don’t see how you plan on getting satisfaction out of me being in it!</i>” she barks defiantly.\n\n"
@@ -1274,9 +1250,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You approach the alleyway behind the pawn shop, looking for Kath... and sure enough, you spot the cat-herm grooming herself.  Gently coughing to get her attention, you wave a hand at her.\n\n"
         );
         this.outx(
-            "She looks up and gives you a strained smile.  “<i>Hi, " +
-                this.player.short +
-                ".  So... uh, something you need?</i>” she asks weakly, clearly still not too enthused about signing up for the Watch.\n\n"
+            `She looks up and gives you a strained smile.  “<i>Hi, ${this.player.short}.  So... uh, something you need?</i>” she asks weakly, clearly still not too enthused about signing up for the Watch.\n\n`
         );
         this.outx(
             "You nod, and simply state that, “<i>It’s time</i>”.  You tell her to pack up whatever she needs and wait while you go check up on her trainer.  “<i>Trainer?</i>” Kath repeats, curious.  But she doesn’t press on the matter, instead indicating you should go while she gets her meager belongings together to move out of the alley.\n\n"
@@ -1319,9 +1293,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Sighing at their social ineptitude... you tell Kath that Urta is actually the captain of the guard, she’s also pretty well-known and respected in Tel’Adre, so she couldn’t be in better hands if she’s hoping to join.\n\n"
         );
         this.outx(
-            "The cat looks at you dully.  “<i>I know who she is, " +
-                this.player.short +
-                ".  You sure this booze-hound can stay sober long enough to help?</i>” she jerks a thumb at Urta, who is fuming already.\n\n"
+            `The cat looks at you dully.  “<i>I know who she is, ${this.player.short}.  You sure this booze-hound can stay sober long enough to help?</i>” she jerks a thumb at Urta, who is fuming already.\n\n`
         );
         this.outx(
             "“<i>Listen here, pussy cat, I’m doing this as a favor, so knock off the insults,</i>” Urta snaps back.\n\n"
@@ -1409,9 +1381,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                     "“<i>Oh, dear sweet Marae’s mercy, we finally lost that freaky ghoulie,</i>” Urta pants, tongue lolling out in a very canine fashion.\n\n"
                 );
                 this.outx(
-                    "“<i>That’s not funny, " +
-                        this.player.short +
-                        "! Kath shouts at you, tail jutting out like someone stuck a broom up her ass and swollen twice its usual girth with bristling hair.\n\n"
+                    `“<i>That’s not funny, ${this.player.short}! Kath shouts at you, tail jutting out like someone stuck a broom up her ass and swollen twice its usual girth with bristling hair.\n\n`
                 );
                 this.outx(
                     "You just shrug and tell them that - unfortunately - that one is out of your control.  “<i>So why do you put up with her?</i>” they promptly ask, even as they recompose themselves.  You shrug once more, replying that even you don’t know that..."
@@ -1419,9 +1389,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             } else if (this.flags[kFLAGS.TIMES_MET_SHOULDRA] > 0) {
                 this.outx("You would beg to differ... you happen to know one actually...\n\n");
                 this.outx(
-                    "“<i>...Have you been spending too much time out in the sun, " +
-                        this.player.short +
-                        "?</i>”  Urta's the one who said it, but Katherine nods her head in agreement, looking just as concerned that you’ve lost it.\n\n"
+                    `“<i>...Have you been spending too much time out in the sun, ${this.player.short}?</i>”  Urta's the one who said it, but Katherine nods her head in agreement, looking just as concerned that you’ve lost it.\n\n`
                 );
                 this.outx(
                     "You just shrug... telling them that if they don’t believe you, maybe you should take them to meet her someday?\n\n"
@@ -1453,9 +1421,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Yep... Urta wasn’t kidding when she said she was bad at giving “<i>pep talks</i>”...  You decide to end this increasingly painful string of nonsense and state the point Urta is trying to make.  Basically, you tell Kath, Urta means that if you work hard, you’re sure to make it into the Watch, and she knows what you have to go through on a daily basis, so she can understand your reluctance to join.  But she shouldn’t give up on joining, because this is her shot at a better life, a better future, and not just for herself;  her friends and Tel’Adre are sure to benefit from a recruit as fine as Kath will be.\n\n"
         );
         this.outx(
-            "Urta pouts, clearly not too happy at having her thunder stolen, while Kath rolls her eyes.  “<i>Corny much, " +
-                this.player.short +
-                "?</i>”  Still, there’s a twinkle in her eyes that makes you feel you really have bolstered her spirits.  “<i>So, what does this training consist of, anyway?</i>”\n\n"
+            `Urta pouts, clearly not too happy at having her thunder stolen, while Kath rolls her eyes.  “<i>Corny much, ${this.player.short}?</i>”  Still, there’s a twinkle in her eyes that makes you feel you really have bolstered her spirits.  “<i>So, what does this training consist of, anyway?</i>”\n\n`
         );
         this.outx(
             "Upon hearing that, you grin evilly at Urta and ask her if you should get the package?\n\n"
@@ -1497,9 +1463,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                 "It’s a long shot... but you decide to try something... You extend a hand and start chanting, “<i>here, kitty, kitty.</i>”\n\n"
             );
             this.outx(
-                "Urta stops bristling in anticipation of a fight with Kath and instead looks at you in confusion.  “<i>What are you doing, " +
-                    this.player.short +
-                    "?</i>”\n\n"
+                `Urta stops bristling in anticipation of a fight with Kath and instead looks at you in confusion.  “<i>What are you doing, ${this.player.short}?</i>”\n\n`
             );
             this.outx(
                 "You explain this is just a method you used to use in order to get stray cats to approach you back in your village.\n\n"
@@ -1571,9 +1535,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
 
     private katherineTrainingWithUrtaStage1(): void {
         this.outx(
-            "“<i>Come in, " +
-                this.player.short +
-                "! It’s open!</i>”  You hear Urta’s voice from the other side, followed shortly by a string of yells aimed at someone you can only presume to be Katherine.  “<i>No, no, no!  Sheesh, <b>I</b> can do it better than that, and I spend half my life parked behind a desk filling paperwork!</i>” she yells; evidently, Katherine isn’t doing so well.\n\n"
+            `“<i>Come in, ${this.player.short}! It’s open!</i>”  You hear Urta’s voice from the other side, followed shortly by a string of yells aimed at someone you can only presume to be Katherine.  “<i>No, no, no!  Sheesh, <b>I</b> can do it better than that, and I spend half my life parked behind a desk filling paperwork!</i>” she yells; evidently, Katherine isn’t doing so well.\n\n`
         );
         this.outx(
             "“<i>Is that what you call sitting in a bar and drinking yourself into a stupor?</i>” the cat-herm sarcastically retorts.  You wonder if you’ll hear a whip cracking in response, but the fox-herm evidently has better control of herself than that.\n\n"
@@ -1702,9 +1664,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You sigh and tell Kath you also made many mistakes before finally managing to build one.  But what’s important is her determination; as long as she keeps trying, she is bound to make it, and you’ll be cheering for her.\n\n"
         );
         this.outx(
-            "“<i>You really think so, " +
-                this.player.short +
-                "?</i>” she asks, looking to you with a hopeful expression.\n\n"
+            `“<i>You really think so, ${this.player.short}?</i>” she asks, looking to you with a hopeful expression.\n\n`
         );
         this.outx("“<i>Of course!</i>” you say, smiling.\n\n");
         this.outx(
@@ -1790,9 +1750,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Well... one of them has to give... otherwise this just won’t work.  Seeing no other option, you take hold of Urta’s head and pull her into a kiss, letting your hands wander over her butt and rapidly erecting horse-cock.  The surprised fox stiffens, but then eagerly melts into your embrace, too hungry for your affection to hold onto her frustration with Kath.\n\n"
         );
         this.outx(
-            "Breaking the kiss you ask her to do this for you... in exchange you’ll make it worth her while.  You smile seductively at her.  “<i>You do not play fair, " +
-                this.player.short +
-                ",</i>” Urta tells you, tapping you playfully on the nose, a wicked grin curling on her lips.  “<i>What do you have in mind, hmm?  Something special?</i>”\n\n"
+            `Breaking the kiss you ask her to do this for you... in exchange you’ll make it worth her while.  You smile seductively at her.  “<i>You do not play fair, ${this.player.short},</i>” Urta tells you, tapping you playfully on the nose, a wicked grin curling on her lips.  “<i>What do you have in mind, hmm?  Something special?</i>”\n\n`
         );
         this.outx(
             "You suggest that if she gives Kath a hand with her problem... you’d be happy to give her a hand with her own problem.  You gently reach for her shaft, sensuously teasing it with light touches.  Your vulpine partner moans, precum already starting to bubble out of her ever-ready prick.  “<i>Alright, you got a deal, sweet thing.</i>”  She suddenly grabs you and kisses you fiercely, striving to stun you with the intensity of her gesture.  “<i>I’m a lucky girl to have you... I just hope kitty realizes how lucky she is that she’s got you too.</i>”  She says after she finally breaks the liplock.\n\n"
@@ -1801,13 +1759,15 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You smile at her, and motion for her to lead the way.  She nods, her prick bobbing before her.  Kath looks up in puzzlement as the two of you approach, while Urta tries to avoid blushing as she is exposed to her fellow mismatched herm.  “<i>Alright, seeing as how I’m in the mood too, I guess I can help you.</i>”\n\n"
         );
         this.outx(
-            "The cat simply shrugs, as if to say ‘what the heck’, and then nods.  Urta produces the key and unlocks the belt, which Kath practically tears off, her " +
-                this.katherine.cockMultiple("", "twin ") +
-                "doggie-dongs stabbing fiercely into the air, dripping with their need.  She promptly sits herself down on the floor, waiting for Urta to do the same.  With surprising shyness, the herm fox seats herself beside the cat.  “<i>Now, let’s see... you’re " +
-                (this.katherine.cockLength <= 10 ? "a lot " : "") +
-                " smaller than me, so let’s see how works...</i>” Urta mutters, cracking her fingers.  She then reaches out a hand and closes her fingers gently around Kath’s " +
-                this.katherine.cockMultiple("", "upper ") +
-                "shaft...\n\n"
+            `The cat simply shrugs, as if to say ‘what the heck’, and then nods.  Urta produces the key and unlocks the belt, which Kath practically tears off, her ${this.katherine.cockMultiple(
+                "",
+                "twin "
+            )}doggie-dongs stabbing fiercely into the air, dripping with their need.  She promptly sits herself down on the floor, waiting for Urta to do the same.  With surprising shyness, the herm fox seats herself beside the cat.  “<i>Now, let’s see... you’re ${
+                this.katherine.cockLength <= 10 ? "a lot " : ""
+            } smaller than me, so let’s see how works...</i>” Urta mutters, cracking her fingers.  She then reaches out a hand and closes her fingers gently around Kath’s ${this.katherine.cockMultiple(
+                "",
+                "upper "
+            )}shaft...\n\n`
         );
         this.outx(
             "You could probably try and live up to your promise by giving Urta a handjob yourself, or just leave the two to pleasure each other."
@@ -1855,9 +1815,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "When you come to you're lying on your back - fairly clean, but still matted in some places with the results of your session with the lovely herms.  You stretch the kinks out of your limbs and sit up.  Immediately, you gaze upon Urta, scolding Kath for something she did wrong... both already dressed.  You don’t really catch what’s being said as Kath retorts... so the two are still bickering... you sigh.  Upon closer inspection though... you see something different... rather than scowling at each other they’re... smiling?  Well, well.  It seems these two can get along after all.\n\n"
         );
         this.outx(
-            "With a groan you rise to your feet, looking around to see if you can spot your " +
-                this.player.armorName +
-                ".  “<i>Hello, sleepy-head; 'bout time you woke up.</i>” Kath suddenly declares, spotting you getting up.  Urta turns to confirm and smiles.  “<i>Well, I guess we wore you out, huh?</i>” she jokes.  No kidding... you might have to think twice next time you decide to join them...\n\n"
+            `With a groan you rise to your feet, looking around to see if you can spot your ${this.player.armorName}.  “<i>Hello, sleepy-head; 'bout time you woke up.</i>” Kath suddenly declares, spotting you getting up.  Urta turns to confirm and smiles.  “<i>Well, I guess we wore you out, huh?</i>” she jokes.  No kidding... you might have to think twice next time you decide to join them...\n\n`
         );
         this.outx(
             "“<i>Well, maybe we’ll need to get together like this a little more often; we’re a trio now, aren’t we?</i>” Urta asks, smiling - and not a playful smile, a genuine one.\n\n"
@@ -1876,9 +1834,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         );
         this.outx("“<i>Then why are you getting hard at the idea, prickvixen?</i>”\n\n");
         this.outx(
-            "Uuuh... looks like you’d better be going.  Looking around you quickly spot your " +
-                this.player.armorName +
-                " and get dressed, then bid the girls farewell, hurrying away back to camp before they get any more ideas."
+            `Uuuh... looks like you’d better be going.  Looking around you quickly spot your ${this.player.armorName} and get dressed, then bid the girls farewell, hurrying away back to camp before they get any more ideas.`
         );
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -1888,9 +1844,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "The sound of combat echoes from inside the safehouse; it being obvious you’re not going to get Urta or Kath to come and see you, you push on the door - surprisingly, it swings open, not being locked, and you head on inside.\n\n"
         );
         this.outx(
-            "“<i>Oh, hello, " +
-                this.player.short +
-                ",</i>” Urta calls to you, looking right at you even as she throws a punch that Katherine narrowly avoids.  The cat growls in frustration and charges at the fox, throwing a clumsy but strong-looking haymaker that Urta ducks, right before she attempts to grab and throw her “<i>trainee</i>”.\n\n"
+            `“<i>Oh, hello, ${this.player.short},</i>” Urta calls to you, looking right at you even as she throws a punch that Katherine narrowly avoids.  The cat growls in frustration and charges at the fox, throwing a clumsy but strong-looking haymaker that Urta ducks, right before she attempts to grab and throw her “<i>trainee</i>”.\n\n`
         );
         this.outx(
             "You watch them practice and jokingly ask if they have any popcorn around here?  It’s not everyday you get to watch a literal cat-fight.\n\n"
@@ -1912,17 +1866,13 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "“<i>Sure couldn’t hurt - she needs all the help she can get.  Go on, kitty, have yourself a private lesson,</i>”  Urta drawls, then surprises you by giving you a wink.\n\n"
         );
         this.outx(
-            "“<i>I thought you were supposed to be my private tutor,</i>” Kath deadpans, but she eagerly approaches you.  “<i>So, " +
-                this.player.short +
-                ", what did you want to tell me?</i>” she asks, curious.\n\n"
+            `“<i>I thought you were supposed to be my private tutor,</i>” Kath deadpans, but she eagerly approaches you.  “<i>So, ${this.player.short}, what did you want to tell me?</i>” she asks, curious.\n\n`
         );
         this.outx(
             "You ask if she’d like a few pointers?  You’re no expert at hand-to-hand combat, but you did come to this realm without any weapons on you, so you can handle yourself... plus you’ve been travelling all over, facing the dangers of this realm, surely you can impart some of the knowledge you’ve gained to her?\n\n"
         );
         this.outx(
-            "“<i>Please, " +
-                this.player.short +
-                ", I’d love to hear some pointers from an expert,</i>”  Kath replies, giving a teasing grin at her vulpine tutor, who simply huffs noisily.\n\n"
+            `“<i>Please, ${this.player.short}, I’d love to hear some pointers from an expert,</i>”  Kath replies, giving a teasing grin at her vulpine tutor, who simply huffs noisily.\n\n`
         );
         this.outx(
             "You loop an arm around her waist and draw her closer, conveying what you can in a hushed tone.  A little ways away, drinking from a small mug of water, Urta’s triangular ears twitch and you wonder if she’s trying to listen in to your conversation somehow... in any case you pull Kath even closer.  Kath clearly does her best to listen to you, but the way she fidgets makes it obvious that your proximity is starting to turn her mind to other matters...\n\n"
@@ -1937,9 +1887,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Before Kath can go, you pull her close once more to give her a light kiss on the lips, wishing her good luck.\n\n"
         );
         this.outx(
-            "The cat meows softly and breaks away, blushing softly.  “<i>T-thank you, " +
-                this.player.short +
-                ",</i>” she says, even as she walks away from you.  A certain awkwardness in her step suggests that maybe that wasn’t such a good idea; it looks like you’ve turned her on...\n\n"
+            `The cat meows softly and breaks away, blushing softly.  “<i>T-thank you, ${this.player.short},</i>” she says, even as she walks away from you.  A certain awkwardness in her step suggests that maybe that wasn’t such a good idea; it looks like you’ve turned her on...\n\n`
         );
         this.outx(
             "As the two herms adopt a fighting stance, Urta leers.  “<i>Just be lucky that this isn’t the wasteland, kitty, or I’d be sticking this cock of mine into you and filling you up like an old condom when I win.</i>”\n\n"
@@ -2044,9 +1992,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                 "\n\nYou’ve already been away from camp for a while.  You need to get back there and check on the portal.  Besides, Kath and Urta are getting along with each other better every time they have sex.  Katherine starts to lick at one of Urta’s nipples."
             );
         this.outx(
-            "  Urta tries to fight her off, calling out, “<i>" +
-                this.player.short +
-                "!  I need some backup here.  This is <b>your</b> cock hungry kitty.</i>”  Urta tries to bat Kath’s arms away but she’s clearly turned on and you slip out before you get too horny to leave.  You’re sure they’re getting along just fine without you."
+            `  Urta tries to fight her off, calling out, “<i>${this.player.short}!  I need some backup here.  This is <b>your</b> cock hungry kitty.</i>”  Urta tries to bat Kath’s arms away but she’s clearly turned on and you slip out before you get too horny to leave.  You’re sure they’re getting along just fine without you.`
         );
         this.katherine.katherineAndUrtaHadSex(false);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -2058,9 +2004,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         );
         this.outx("“<i>Greetings citizen, how may I help you?</i>” she asks, shakily.\n\n");
         this.outx(
-            "“<i>No, no, no,</i>” Urta states, appearing behind the depressed-looking cat.  “<i>You need to be confident, but relaxed at the same time.  Oh, hello, " +
-                this.player.short +
-                "; come on in, I’m just trying to help Kath learn how to talk like a guard.</i>”\n\n"
+            `“<i>No, no, no,</i>” Urta states, appearing behind the depressed-looking cat.  “<i>You need to be confident, but relaxed at the same time.  Oh, hello, ${this.player.short}; come on in, I’m just trying to help Kath learn how to talk like a guard.</i>”\n\n`
         );
         this.outx(
             "Katherine mumbles something half-hearted, but then steps aside to let you in.\n\n"
@@ -2078,9 +2022,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Well, this kind of training is really important.  If Kath can’t sound authoritative when out on patrol how can she expect to be respected?  Or feared, if it comes to that.\n\n"
         );
         this.outx(
-            "Urta nods her head sagely.  “<i>" +
-                this.player.short +
-                ", perhaps you’d be willing to help us?  Having somebody else to act as the civilian would probably work better than just the two of us going back and forth,</i>” she suggests.  Kath nods her head, making it clear that she agrees to Urta’s suggestion.\n\n"
+            `Urta nods her head sagely.  “<i>${this.player.short}, perhaps you’d be willing to help us?  Having somebody else to act as the civilian would probably work better than just the two of us going back and forth,</i>” she suggests.  Kath nods her head, making it clear that she agrees to Urta’s suggestion.\n\n`
         );
         this.outx(
             "Considering Urta’s demeanor, it’s more likely that she’s the one doing the intimidating in their exchange, you joke.\n\n"
@@ -2089,9 +2031,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "“<i>Well that may be true, but she’s actually pretty good at standing up to me... most of the time,</i>” Urta concedes.  “<i>It’s getting her to be more assertive herself that’s the tricky part.</i>”\n\n"
         );
         this.outx(
-            "Hmm... well Urta is the specialist, so you’ll leave things in her hands.  Adjusting your " +
-                this.player.armorName +
-                " you ask what you should do?\n\n"
+            `Hmm... well Urta is the specialist, so you’ll leave things in her hands.  Adjusting your ${this.player.armorName} you ask what you should do?\n\n`
         );
         this.outx(
             "The fox shrugs.  “<i>Just act like a defiant, disrespectful citizen - refuse to listen to her, try to make her back down, just generally encourage her to make you respect her.</i>”\n\n"
@@ -2110,9 +2050,10 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You glare right back at her with a menacing gaze.  If she wants to get you out... why doesn’t she come here and make you leave?  Stupid vixen...\n\n"
         );
         this.outx(
-            "Urta promptly surges forward, seizing your wrists and rapidly pulling you into a powerful wrist-lock.  Even if this weren’t for pretend, you think you’d have a hard time pulling free of it.  “<i>You were warned, " +
-                this.player.mf("mister", "miss") +
-                "!</i>” she growls.  “<i>Come on now, let’s go, move it!</i>” she barks, pushing you to indicate you should start walking.\n\n"
+            `Urta promptly surges forward, seizing your wrists and rapidly pulling you into a powerful wrist-lock.  Even if this weren’t for pretend, you think you’d have a hard time pulling free of it.  “<i>You were warned, ${this.player.mf(
+                "mister",
+                "miss"
+            )}!</i>” she growls.  “<i>Come on now, let’s go, move it!</i>” she barks, pushing you to indicate you should start walking.\n\n`
         );
         this.outx(
             "With no other choice, you grudgingly follow her instructions, murmuring a string of insults at her.\n\n"
@@ -2161,9 +2102,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "Kath hugs Urta even harder at that, and starts to purr - much to Urta’s surprise, from the look on the vulpine herm’s face.  You repress a smile and tell Kath and Urta that, if they don’t need you anymore, you’ll head back to camp for now.\n\n"
         );
         this.outx(
-            "“<i>Ah, sure, " +
-                this.player.short +
-                ", go ahead,</i>” Urta replies in a distracted tone, still cuddling the purring cat-herm and looking kind of spooked at the fact.  You wish Kath luck in her upcoming tests, and then head back to camp."
+            `“<i>Ah, sure, ${this.player.short}, go ahead,</i>” Urta replies in a distracted tone, still cuddling the purring cat-herm and looking kind of spooked at the fact.  You wish Kath luck in her upcoming tests, and then head back to camp.`
         );
         this.flags[kFLAGS.KATHERINE_TRAINING] += 16;
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -2178,9 +2117,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "“<i>Alright, that’s enough, stop it the pair of you!</i>” Urta snaps, suddenly interposing herself between you.\n\n"
         );
         this.outx(
-            "Kath sniffles, visibly weeping in front of you.  “<i>H-how could you be so cruel to me, " +
-                this.player.short +
-                "?  I-I thought you cared about me!</i>” she wails.\n\n"
+            `Kath sniffles, visibly weeping in front of you.  “<i>H-how could you be so cruel to me, ${this.player.short}?  I-I thought you cared about me!</i>” she wails.\n\n`
         );
         this.outx(
             "You defend that you were just playing your part in this little act... you don’t really think Kath is a waste of time, nor anything of the sort.  You try to calm the crying cat-herm as best as you can.  Unfortunately, Kath doesn’t seem to hear anything you say, being too upset to listen to you, the one who upset her in the first place.\n\n"
@@ -2189,9 +2126,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "“<i>Oh, for the love of...</i>” Urta sighs in exasperation, unable to even finish her sentence.  “<i>Alright, alright... there, there, kitty.  It’s okay, we were only playing, you know that,</i>” she says, awkwardly patting Katherine on the shoulder; she obviously isn’t too good at this side of her job.  Still bawling her eyes out, Kath promptly glomps onto Urta, wrapping her arms around the vulpine officer’s midriff and burying her face there.  Urta looks at you with an expression that is at once panicked and unidentifiable, then, hesitantly, wraps her arms back around Kath.\n\n"
         );
         this.outx(
-            "Now that’s a nice scene... still... you decide to join on the girls, gently patting Kath’s back and hugging her along with Urta.  Eventually, Kath hiccups and sniffles her eyes dry.  “<i>I’m sorry, " +
-                this.player.short +
-                ", Urta... I just, I couldn’t help it,</i>” she admits, clearly terribly ashamed of losing control of her emotions like that.  You tell Kath that it’s fine... but she shouldn’t let these words get to her.\n\n"
+            `Now that’s a nice scene... still... you decide to join on the girls, gently patting Kath’s back and hugging her along with Urta.  Eventually, Kath hiccups and sniffles her eyes dry.  “<i>I’m sorry, ${this.player.short}, Urta... I just, I couldn’t help it,</i>” she admits, clearly terribly ashamed of losing control of her emotions like that.  You tell Kath that it’s fine... but she shouldn’t let these words get to her.\n\n`
         );
         this.outx(
             "“<i>It’s alright, Kath, we understand... words hurt more than any strike.  I know... but you gotta learn to ignore what others say, or you’ll be their victim forever,</i>” Urta tells the cat, stroking her hair in a surprisingly maternal gesture.  Neither you, nor Urta, nor Kath seem willing break the hug, preferring to stay in your current position for a while longer... maybe too long... your arms are starting to hurt...\n\n"
@@ -2201,17 +2136,13 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         );
         if (this.silly()) {
             this.outx(
-                "You joke right back, asking her what bug has bitten her?  Does she need a hug herself to make it all better?  You open your arms in a welcoming fashion and slowly walk up to the retreating vulpine.  “<i>Okay, okay, that’s enough, now stop that, " +
-                    this.player.short +
-                    "!</i>” Urta says, backing up warily.  “<i>I don’t know what you got planned, but I’m sure I wouldn’t like it!</i>”  Come now, you say.  She hugged Kath without hesitation... and she used to bicker with the cat-herm all the time, why is she denying your fun now?  You ask, as she slowly backs against a wall.\n\n"
+                `You joke right back, asking her what bug has bitten her?  Does she need a hug herself to make it all better?  You open your arms in a welcoming fashion and slowly walk up to the retreating vulpine.  “<i>Okay, okay, that’s enough, now stop that, ${this.player.short}!</i>” Urta says, backing up warily.  “<i>I don’t know what you got planned, but I’m sure I wouldn’t like it!</i>”  Come now, you say.  She hugged Kath without hesitation... and she used to bicker with the cat-herm all the time, why is she denying your fun now?  You ask, as she slowly backs against a wall.\n\n`
             );
             this.outx(
                 "“<i>That was!  But she!</i>” Urta starts and stammers, trying to find an excuse to get out of being hugged.\n\n"
             );
             this.outx(
-                "“<i>Leave captain Urta alone, " +
-                    this.player.short +
-                    "!</i>” Kath’s voice suddenly rings out from behind you, and before you know it, the cat has playfully leapt at you and enveloped you in a tight hug.  “<i>Run for it while I distract [him], Urta!</i>” Kath cries out dramatically, spoiling the image she is going for with a delighted giggle; looks like you’ve turned her mood around.  You can’t resist playing along and cursing the cat for foiling your plans of vulpine entrapment.\n\n"
+                `“<i>Leave captain Urta alone, ${this.player.short}!</i>” Kath’s voice suddenly rings out from behind you, and before you know it, the cat has playfully leapt at you and enveloped you in a tight hug.  “<i>Run for it while I distract [him], Urta!</i>” Kath cries out dramatically, spoiling the image she is going for with a delighted giggle; looks like you’ve turned her mood around.  You can’t resist playing along and cursing the cat for foiling your plans of vulpine entrapment.\n\n`
             );
             this.outx("“<i>...What ARE you two doing?</i>” Urta says, completely baffled.\n\n");
             this.outx(
@@ -2221,27 +2152,19 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                 "Urta blushes.  “<i>I...er... well... oh, you two are just being ridiculous!</i>” she complains, throwing her arms up in exasperation.\n\n"
             );
             this.outx(
-                "You and Kath look at each other and then burst out laughing.  Urta looks on with an annoyed expression, triangular ears twitching at the sound of your laughter.  With a mutter and a scowl she storms over and physically separates the pair of you.  “<i>Alright, kitty, that’s enough goofing off!  And you, " +
-                    this.player.short +
-                    "; if you aren’t going to help, then maybe you should just leave and let us get on with practicing,</i>” she growls.\n\n"
+                `You and Kath look at each other and then burst out laughing.  Urta looks on with an annoyed expression, triangular ears twitching at the sound of your laughter.  With a mutter and a scowl she storms over and physically separates the pair of you.  “<i>Alright, kitty, that’s enough goofing off!  And you, ${this.player.short}; if you aren’t going to help, then maybe you should just leave and let us get on with practicing,</i>” she growls.\n\n`
             );
             this.outx(
                 "Still smiling, you tell Kath that you’ll stop by later to check up on her, encouraging her to keep trying until she’s able to properly get into the mindset.  “<i>I will, name, don’t you worry - I’m so close now, I won’t let you down!</i>” she vows.\n\n"
             );
             this.outx(
-                "Then you turn to Urta and wink at her, telling her there’s no need to be such a killjoy... you’ll be happy to help her get over her grumpiness later, in bed.  “<i>I bet you will, " +
-                    this.player.short +
-                    ",</i>” Kath jokes.  “<i>But, you know, Urta, if if " +
-                    this.player.short +
-                    "’s not giving you enough love, I’ve got a pole you could use to loosen up with.</i>”\n\n"
+                `Then you turn to Urta and wink at her, telling her there’s no need to be such a killjoy... you’ll be happy to help her get over her grumpiness later, in bed.  “<i>I bet you will, ${this.player.short},</i>” Kath jokes.  “<i>But, you know, Urta, if if ${this.player.short}’s not giving you enough love, I’ve got a pole you could use to loosen up with.</i>”\n\n`
             );
             this.outx(
                 "You frown jokingly and tell Kath to find her own fox-herm, you got dibs on this one.  “<i>Dibs?  When did you call that?  And besides, she’s really kind of sexy now that I've got to know her - why shouldn’t I have some fun if she’s willing?</i>” the cat-herm jokes.  You smile confidently and boast of all the experience you have handling this particular piece of horse-dicked fox ass, and tell her of how overfilled Urta’s condoms get when the two of you happen to have some fun.\n\n"
             );
             this.outx(
-                "“<i>Oh so the two of you have THAT much fun, huh?  Well now I just have to have a piece of that vixen all for myself...</i>” Kath laughs, licking her lips with an exaggerated leer.  Not if you can help it, you argue stepping in front of Urta and blocking Kath’s hungry eyes.  “<i>Move aside, " +
-                    this.player.short +
-                    ".  This is a free city, I’m allowed to look at whatever piece of ass I damn well please,</i>” Kath protests, grabbing your arm and trying to get you to move away playfully.\n\n"
+                `“<i>Oh so the two of you have THAT much fun, huh?  Well now I just have to have a piece of that vixen all for myself...</i>” Kath laughs, licking her lips with an exaggerated leer.  Not if you can help it, you argue stepping in front of Urta and blocking Kath’s hungry eyes.  “<i>Move aside, ${this.player.short}.  This is a free city, I’m allowed to look at whatever piece of ass I damn well please,</i>” Kath protests, grabbing your arm and trying to get you to move away playfully.\n\n`
             );
             this.outx(
                 "“<i>You know, I am not some piece of meat you two can fight over!</i>” Urta interjects, blushing fiercely and with her forearm-length prick jutting before her.  “<i>Maybe I ought to shove the two of you full of this here, if you’re so eager for sex!</i>” she blusters.\n\n"
@@ -2254,9 +2177,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
                 "Urta starts giving Kath more instruction on holding up under pressure.  Though she looks a little worn out you would say Kath's in much better spirits than she was when you arrived.  Hopefully she'll learn and do better the next time you visit.  Noticing the time you go to the door and wave to the girls."
             );
         this.outx(
-            "\n\n“<i>See you later, " +
-                this.player.short +
-                "!</i>” Kath calls out to you as you go.\n\n"
+            `\n\n“<i>See you later, ${this.player.short}!</i>” Kath calls out to you as you go.\n\n`
         );
         this.outx(
             "“<i>You just better bring that sweet ass of yours around some time soon, y’hear?</i>” Urta adds.  She really must be pent up to overcome her shyness and be that direct in public."
@@ -2310,17 +2231,13 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You smile and wave to the excited vixen, approaching her.  Once you’re close enough you ask what is the reason for all that happiness?  Could it be that she’s just that happy to see you? you joke.\n\n"
         );
         this.outx(
-            "“<i>You know I’m always happy to see you, " +
-                this.player.short +
-                ".</i>”  Urta says with a smile - indeed, you think you can see the faintest signs of that familiar stirring in her oversized prick.  “<i>But this time, I've got good news; introducing the Watch’s newest Corporal, Katherine!</i>”  She proclaims in a proud, excited tone, stepping away from the door and performing a surprisingly elegant bow as it flies open and out marches a very proud-looking black cat-morph.  Clad in a new helmet and chainmail jerkin, sporting a decent-looking broadsword at her hip, Kath smiles at you, pride and nervousness mingling on her face as she awaits your opinion.\n\n"
+            `“<i>You know I’m always happy to see you, ${this.player.short}.</i>”  Urta says with a smile - indeed, you think you can see the faintest signs of that familiar stirring in her oversized prick.  “<i>But this time, I've got good news; introducing the Watch’s newest Corporal, Katherine!</i>”  She proclaims in a proud, excited tone, stepping away from the door and performing a surprisingly elegant bow as it flies open and out marches a very proud-looking black cat-morph.  Clad in a new helmet and chainmail jerkin, sporting a decent-looking broadsword at her hip, Kath smiles at you, pride and nervousness mingling on her face as she awaits your opinion.\n\n`
         );
         this.outx(
             "You look her over and nod your head in approval, commenting that the look suits Kath well.  Why... if you knew she was going to look so good in her gear, you might have skipped all this training and just gotten her some fetish clothing... then the two of you could...\n\n"
         );
         this.outx(
-            "Kath promptly lunges for you, latching her arms around your waist - whether she couldn’t stand to hear any more or is just that excited, who can say?  “<i>Thank you, " +
-                this.player.short +
-                "!  Thank you, thank you, thank you, thank you!</i>” she cheers, laughing wildly with glee and squeezing for all she’s worth.  Then, out of the corner of her eye, she spots the grinning fox-herm watching the display, promptly lets go of you and hurls herself at Urta, knocking her to the floor and cuddling her like a cat possessed.  “<i>And thank you, Urta!  Without the two of you, I wouldn’t... well, I...</i>”\n\n"
+            `Kath promptly lunges for you, latching her arms around your waist - whether she couldn’t stand to hear any more or is just that excited, who can say?  “<i>Thank you, ${this.player.short}!  Thank you, thank you, thank you, thank you!</i>” she cheers, laughing wildly with glee and squeezing for all she’s worth.  Then, out of the corner of her eye, she spots the grinning fox-herm watching the display, promptly lets go of you and hurls herself at Urta, knocking her to the floor and cuddling her like a cat possessed.  “<i>And thank you, Urta!  Without the two of you, I wouldn’t... well, I...</i>”\n\n`
         );
         this.outx(
             "“<i>It’s alright, Kath, it’s alright.  I knew you had it in you,</i>” Urta says, stroking the cat’s ears.  “<i>Now, if you’d kindly get off of me and help me up...?</i>” she suggests with an embarrassed blush.  Kath promptly blushes as well and stands up, helping her new superior officer to her feet.\n\n"
@@ -2341,30 +2258,28 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "“<i>You can say that again, but a job is a job, and it feels great - finally, I’ll be something more than a homeless vagrant!  I can hold my head high - even go and see my parents again!</i>” Kath cheers.  You smile at the cat-herm, then turn to Urta and take the vixen’s hands in yours, thanking her for her time and patience.  Kath would never have managed it if it weren’t for her.\n\n"
         );
         this.outx(
-            "Urta smiles and waves her hand in a casual manner.  “<i>It’s okay; I was doing something to help out my " +
-                this.player.mf("boy", "girl") +
-                "friend; I got a petty criminal off the street and rehabilitated, and, heck, I even netted a cute little assistant to boot.  Though I wouldn’t say no to a little personal thank you later on...</i>” she trails off, winking at you.\n\n"
+            `Urta smiles and waves her hand in a casual manner.  “<i>It’s okay; I was doing something to help out my ${this.player.mf(
+                "boy",
+                "girl"
+            )}friend; I got a petty criminal off the street and rehabilitated, and, heck, I even netted a cute little assistant to boot.  Though I wouldn’t say no to a little personal thank you later on...</i>” she trails off, winking at you.\n\n`
         );
         this.outx(
             "“<i>Wait, assistant?</i>” Kath asks, clearly baffled to hear that.  You can’t help but voice your surprise as well, asking Urta to elaborate.\n\n"
         );
         this.outx(
-            "“<i>They were originally discussing assigning Kath to another part of the city, but I pulled a few strings and, well, you’re now my official assistant, Corporal Kath.  Which, incidentally, means you’ll be hanging around here where you and " +
-                this.player.short +
-                " have ample opportunities to bump into each other,</i>” The fox herm explains, giving her a knowing wink as she finishes.  This makes Kath blush and giggle nervously."
+            `“<i>They were originally discussing assigning Kath to another part of the city, but I pulled a few strings and, well, you’re now my official assistant, Corporal Kath.  Which, incidentally, means you’ll be hanging around here where you and ${this.player.short} have ample opportunities to bump into each other,</i>” The fox herm explains, giving her a knowing wink as she finishes.  This makes Kath blush and giggle nervously.`
         );
         this.outx(
             "“<i>That’s wonderful news!</i>” you say.  This way you'll always be able to see two of your favorite girls anytime.  Now that you have not one... but two girlfriends working in the watch... you ask what you get as a reward, grinning at both of them.\n\n"
         );
         this.outx(
-            "The two herms look at each other, grin and then look back at you.  “<i>Hmm... what do you say, Kath?  Would a nice, long spitroasting be reward enough?</i>” Urta suggests.  “<i>" +
-                this.katherine.cockMultiple(
-                    "I bag " +
-                        this.player.mf("his ass", "her pussy") +
-                        ", foxy - you’ll choke [him] on that supersize sausage of yours",
-                    "I bag the back end, I got two shafts for the price of one"
-                ) +
-                ",</i>” Kath purrs.\n\n"
+            `The two herms look at each other, grin and then look back at you.  “<i>Hmm... what do you say, Kath?  Would a nice, long spitroasting be reward enough?</i>” Urta suggests.  “<i>${this.katherine.cockMultiple(
+                `I bag ${this.player.mf(
+                    "his ass",
+                    "her pussy"
+                )}, foxy - you’ll choke [him] on that supersize sausage of yours`,
+                "I bag the back end, I got two shafts for the price of one"
+            )},</i>” Kath purrs.\n\n`
         );
         this.outx(
             "The two of them start advancing menacingly towards you, and then they spring...!  ...Only to start smothering you in kisses.  You can’t help but scream at their lunge, only to begin laughing, tossing and turning as the girls continue to kiss you, you try to kiss them back, but the flurry of kisses you’re getting makes the task nearly impossible.  By the time Urta and Kath let you up, you’re panting, and more than a little aroused.  You grin at the girls and tell them you’ll take this as an invitation to seek them out later for some proper “<i>rewards</i>”.  Now then, this begs for a celebration.  “<i>Any ideas?</i>” you ask the two of them.\n\n"
@@ -2383,18 +2298,16 @@ export class KatherineEmployment extends TelAdreAbstractContent {
 
     private katherineTrainingWithUrtaCompleteContinued(): void {
         this.clearOutput();
-        this.outx("Later that " + (this.model.time.hours + 3 > 18 ? "evening" : "day") + "...\n\n");
+        this.outx(`Later that ${this.model.time.hours + 3 > 18 ? "evening" : "day"}...\n\n`);
         this.outx(
-            "You laugh at Urta’s joke, indicating that if that were you, things would have been very different.  Then you take a sip of your drink.  Kath is currently gulping her way down a very large, fruity-smelling drink, while Urta, having finished her joke, is chugging down yet another " +
-                (this.urta.pregnancy.isPregnant
+            `You laugh at Urta’s joke, indicating that if that were you, things would have been very different.  Then you take a sip of your drink.  Kath is currently gulping her way down a very large, fruity-smelling drink, while Urta, having finished her joke, is chugging down yet another ${
+                this.urta.pregnancy.isPregnant
                     ? "virgin margarita.  You and Kath already had a laugh about how inappropriate it is for any of you to be drinking something 'virgin'"
-                    : "of her favorite bottles of alcohol, the strange amber-colored stuff with the JD label - odd, you can’t remember what it’s called") +
-                ".  The two herms seem to be having a great time here.\n\n"
+                    : "of her favorite bottles of alcohol, the strange amber-colored stuff with the JD label - odd, you can’t remember what it’s called"
+            }.  The two herms seem to be having a great time here.\n\n`
         );
         this.outx(
-            "Once you finish your drink you announce that you will have to leave shortly.  “<i>Wha?  Already?  But we're just getting started!</i>” Urta protests.  “<i>Yeah, " +
-                this.player.short +
-                ".  Don’t be such a spoilsport!</i>” Kath protests alongside, stopping momentarily to sip her drink.  “<i>Wow... tish shtuff is really good... no wonder you’re always here drinking your face off prickvixen,</i>” Kath comments happily.  The vixen laughs drunkenly and retorts “<i>Look who’s slurring their words already!  You’re such a lightweight, my little pussy.</i>”\n\n"
+            `Once you finish your drink you announce that you will have to leave shortly.  “<i>Wha?  Already?  But we're just getting started!</i>” Urta protests.  “<i>Yeah, ${this.player.short}.  Don’t be such a spoilsport!</i>” Kath protests alongside, stopping momentarily to sip her drink.  “<i>Wow... tish shtuff is really good... no wonder you’re always here drinking your face off prickvixen,</i>” Kath comments happily.  The vixen laughs drunkenly and retorts “<i>Look who’s slurring their words already!  You’re such a lightweight, my little pussy.</i>”\n\n`
         );
         this.outx(
             "You laugh and reply that as much as you’d love to stay, you have to return to your duties... speaking of which... don’t they have duties of their own to return to?  “<i>Not today, sexy!  I officially took the day off - and my little corporal pussy is taking it off with me,</i>” Urta laughs.  “<i>Yeah, you tell [him] boss,</i>” Kath giggles at that statement.  You click your tongue and shake your head... scolding them jokingly, saying that you didn’t get Kath off the streets so they could waste their days away at a bar.\n\n"
@@ -2449,9 +2362,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "You cough, feeling the need to remind the two girls that, not only are you feeling a bit left out... but also that it’s not polite to invite someone over and then forget about them.  The two stop what they’re doing with a visible start, giving you a matching pair of sheepish looks.\n\n"
         );
         this.outx(
-            "“<i>Right, ah, of course, " +
-                this.player.short +
-                ".  So, what do you want me to do to you?</i>” Kath purrs, tail languidly waving in delight.\n\n"
+            `“<i>Right, ah, of course, ${this.player.short}.  So, what do you want me to do to you?</i>” Kath purrs, tail languidly waving in delight.\n\n`
         );
         this.outx(
             "“<i>Get back in line, kitty-Kath, I want [him] first!</i>” Urta interjects.\n\n"
@@ -2500,11 +2411,11 @@ export class KatherineEmployment extends TelAdreAbstractContent {
             "As you make your way past the familiar sight of the gate guards to Tel’Adre, you think one of them looks familiar.  Then, a moment later, you recognize who she is and stop.  There, grinning widely at you, clad in the usual armor and helmet of the Watch and with a brand-new sword strapped to her waist, is Katherine.\n\n"
         );
         this.outx(
-            "“<i>Hi, " +
-                this.player.short +
-                " - what, didn’t you recognize me?</i>” she jokes.  “<i>I finally did it!  I’m in the Watch now - I have a job and a home and everything, and I owe it all to you" +
-                (this.flags[kFLAGS.KATHERINE_TRAINING] == 200 ? " and Captain Urta" : "") +
-                "!</i>”\n\n"
+            `“<i>Hi, ${
+                this.player.short
+            } - what, didn’t you recognize me?</i>” she jokes.  “<i>I finally did it!  I’m in the Watch now - I have a job and a home and everything, and I owe it all to you${
+                this.flags[kFLAGS.KATHERINE_TRAINING] == 200 ? " and Captain Urta" : ""
+            }!</i>”\n\n`
         );
         this.outx(
             "You smile proudly and congratulate her, asking how she’s handling the changes?\n\n"
@@ -2536,9 +2447,7 @@ export class KatherineEmployment extends TelAdreAbstractContent {
         if (!this.katherine.isAt(Katherine.KLOC_KATHS_APT)) {
             // Only possible if she's already been seen on guard duty at the gate and you've slept once since
             this.outx(
-                "You see a note tucked into the side of the crate Kath used to sleep on.  It says, 'Hi " +
-                    this.player.short +
-                    ", everything is going great!  Come and see me at the Wet Bitch.  I'll try to be there from mid-morning to mid-afternoon.  Can't wait to see you again, love you, bye'.  It's signed with a kiss."
+                `You see a note tucked into the side of the crate Kath used to sleep on.  It says, 'Hi ${this.player.short}, everything is going great!  Come and see me at the Wet Bitch.  I'll try to be there from mid-morning to mid-afternoon.  Can't wait to see you again, love you, bye'.  It's signed with a kiss.`
             );
         } else if (this.flags[kFLAGS.KATHERINE_TRAINING] >= 100) {
             this.outx(

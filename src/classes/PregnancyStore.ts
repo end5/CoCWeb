@@ -122,15 +122,7 @@ export class PregnancyStore {
             pregInc == buttPregInc
         ) {
             trace(
-                "Error: PregnancyStore created with invalid values for its flags. PregnancyStore(" +
-                    pregType +
-                    ", " +
-                    pregInc +
-                    ", " +
-                    buttPregType +
-                    ", " +
-                    buttPregInc +
-                    ")"
+                `Error: PregnancyStore created with invalid values for its flags. PregnancyStore(${pregType}, ${pregInc}, ${buttPregType}, ${buttPregInc})`
             );
         }
     }

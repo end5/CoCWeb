@@ -298,9 +298,11 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         // both output
         if (this.model.time.hours <= 15)
             this.outx(
-                '\n\n"<i>Thanks for the business, ' +
-                    this.player.mfn("laddie", "lassie", "customer") +
-                    '!  Remember, Niamh sells her Black Cat Beer every day from 8 until 4.</i>"  You nod your head in thanks and step away from the table.'
+                `\n\n"<i>Thanks for the business, ${this.player.mfn(
+                    "laddie",
+                    "lassie",
+                    "customer"
+                )}!  Remember, Niamh sells her Black Cat Beer every day from 8 until 4.</i>"  You nod your head in thanks and step away from the table.`
             );
         // 16:00 ending
         else {
@@ -326,9 +328,11 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         // both output
         if (this.model.time.hours <= 15)
             this.outx(
-                '\n\n"<i>Thanks for the business, ' +
-                    this.player.mfn("laddie", "lassie", "customer") +
-                    '!  Remember, Niamh sells her Black Cat Beer every day from 8 until 4.</i>"  You nod your head in thanks and step away from the table.'
+                `\n\n"<i>Thanks for the business, ${this.player.mfn(
+                    "laddie",
+                    "lassie",
+                    "customer"
+                )}!  Remember, Niamh sells her Black Cat Beer every day from 8 until 4.</i>"  You nod your head in thanks and step away from the table.`
             );
         // 16:00 ending
         else {
@@ -546,9 +550,10 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 "\n\nYou pop the seal of your bottle of Bimbo Liqueur, recoiling at the cloying, spiced scent that paints visions of a slutty slave-girl's slightly spread folds.  With a grimace, you pour the potent stuff evenly into the glasses.  Hefting the mugs, you rise and start towards Niamh."
             );
             this.outx(
-                '\n\nHer expression brightens when she notices your approach, and she giggles when she regards the quarter-full mugs of liqueur.  "<i>What, that\'s it?</i>" she quips curiously.  "<i>This stuff had better pack some punch, ' +
-                    this.player.mf("lad", "lass") +
-                    '.</i>"  You assure her that it will knock her socks off.'
+                `\n\nHer expression brightens when she notices your approach, and she giggles when she regards the quarter-full mugs of liqueur.  "<i>What, that's it?</i>" she quips curiously.  "<i>This stuff had better pack some punch, ${this.player.mf(
+                    "lad",
+                    "lass"
+                )}.</i>"  You assure her that it will knock her socks off.`
             );
             this.outx(
                 '\n\nNiamh reaches for a mug, but you draw it away from her questing hand, instead sinking it into her considerable expanse of cleavage.  A devious grin flits across your features as she subsequently shivers from the cold glass between her fluid-filled bosom.  "<i>Wh-why you...</i>" she gasps, quickly snatching the drink and rubbing warmth back into her goosebumped flesh.  "<i>You scoundrel...</i>"'
@@ -608,9 +613,10 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         this.outx(" Niamh, and it's obvious she's completely hammered.  ");
         if (this.flags[kFLAGS.NIAMH_STATUS] == 1)
             this.outx(
-                "\"<i>W'hey there " +
-                    this.player.mf("boyo", "big girl") +
-                    ", wanna...g'forrra goooo-gfh...time?</i>\""
+                `"<i>W'hey there ${this.player.mf(
+                    "boyo",
+                    "big girl"
+                )}, wanna...g'forrra goooo-gfh...time?</i>"`
             );
         else this.outx("\"<i>W'heeeey, honey!  I never thought I'd see yaaaagain!</i>\"");
         this.outx(
@@ -720,9 +726,10 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 "\n\nGlancing around, you can't help but agree, judging by the lake of ale surrounding you both.  Luckily, her self-entertainment seems to have shrunk her normally-gigantic tits to a more manageable size, and with your assistance, she's soon back on her feet.  \"<i>I heard there was a form of refuge for... well, differently-blessed lassies like meself,</i>\" she says, somewhat drily, patting the top of her huge azure bosom for emphasis.  \"<i>I'm heading there.  Maybe I'll find you there eventually, hey?</i>\""
             );
             this.outx(
-                "\n\nShe gives you a little punch in the shoulder, shooting you a wink and walking away.  \"<i>Don't think I forgot about how I got like this,  " +
-                    this.player.mf("boy", "gal") +
-                    ', ,</i>" she yells over her shoulder, stopping you in your tracks as you turn to leave.  Several moments pass before she finally turns around and resumes her departure.'
+                `\n\nShe gives you a little punch in the shoulder, shooting you a wink and walking away.  "<i>Don't think I forgot about how I got like this,  ${this.player.mf(
+                    "boy",
+                    "gal"
+                )}, ,</i>" she yells over her shoulder, stopping you in your tracks as you turn to leave.  Several moments pass before she finally turns around and resumes her departure.`
             );
             this.outx(
                 '\n\nJust before you move out of earshot, a last word from Niamh floats to your ears.  You can\'t be sure, but... did she say... "<i>Thanks?</i>"'
@@ -976,9 +983,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 '\n\nYou plant your hands firmly on her thighs, leaning in to give the pussy an experimental lick.  She giggles again, reaching down to rub her prominent little clit above your intruding tongue.  "<i>Like, that feels awesome, babe.  Can you do it again?  Pretty please?</i>"  Well, you can hardly resist such a polite request, and quickly bury your face between her thighs, slurping along the length of her slit.  "<i>A-aaaah!</i>" Niamh moans.  "<i>Feels good, [name]!</i>"'
             );
             this.outx(
-                "\n\nYou tell her it'll feel even better in a second, and pull your tongue away from her to grab your half-erect [cock " +
-                    y +
-                    "].  Shifting around a bit, you thrust it between her boozy boobs.  She yelps in surprise as you grab her tits and push them together around your prick, forming a big, all-enveloping sheath for you to thrust into.  Niamh mewls helplessly as you give yourself a titty-fuck at her expense, ramming your hips into the bottoms of her mounds and sending quakes through her overly-fluid, bubbly flesh."
+                `\n\nYou tell her it'll feel even better in a second, and pull your tongue away from her to grab your half-erect [cock ${y}].  Shifting around a bit, you thrust it between her boozy boobs.  She yelps in surprise as you grab her tits and push them together around your prick, forming a big, all-enveloping sheath for you to thrust into.  Niamh mewls helplessly as you give yourself a titty-fuck at her expense, ramming your hips into the bottoms of her mounds and sending quakes through her overly-fluid, bubbly flesh.`
             );
             this.outx(
                 "\n\nYou pinch the cat-slut's big nipples together, grinning as a trickle of booze leaks out.  Giving her quivering tits a rough slap, you jam both nips between the cat-girl's lips, giving her such a mouthful of booze that her cheeks swell.  She squirms under your assault, but you keep her teats firmly in her mouth, filling Niamh with more and more booze until your can see her eyes start swimming and her body begin to go languid, relaxing into your firm grip as you flood her already-addled mind with alcohol."
@@ -1137,9 +1142,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             if (this.player.hasVagina()) this.outx("You can feel your labia dripping with need.  ");
             if (this.player.hasCock()) {
                 this.outx(
-                    "pre-cum drizzles down your " +
-                        this.multiCockDescriptLight() +
-                        " as the need to fuck a pussy grows stronger.  A few wandering hands reveals some apparent interest amongst the folks in the bar in seeing your genitals as active as your nipples."
+                    `pre-cum drizzles down your ${this.multiCockDescriptLight()} as the need to fuck a pussy grows stronger.  A few wandering hands reveals some apparent interest amongst the folks in the bar in seeing your genitals as active as your nipples.`
                 );
             }
             // [FUCK THE BAR] [LEAVE]
@@ -1203,7 +1206,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             (this.player.pregnancyIncubation == 0 || this.player.pregnancyIncubation > 100) &&
             this.player.bRows() > 1
         )
-            this.outx("  You are essentially a pile of " + this.boozeBoobsType() + " filled tits.");
+            this.outx(`  You are essentially a pile of ${this.boozeBoobsType()} filled tits.`);
         // [IF player is hugely pregnant with four or more tits]
         else if (this.player.bRows() > 1)
             this.outx(
@@ -1267,9 +1270,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         // ELSE IF [Player has multiple cocks]
         else if (this.player.cockTotal() > 1)
             this.outx(
-                '\n\n"<i>Ooooh, how delightful.  Ye come overly equipped dontcha?</i>"  Niamh grabs a handful of your cock meat as she settles her hips down to smother your face with her vaginal folds.  Her labia slip between your lips and you find yourself tonguing her cunt in search of her entrance.  With your cocks in her hands she begins glomping down on one of your shafts with her own mouth, eagerly sucking you off while giving you a hand job at the same time.  Excessive amounts of your pre-cum serve as the perfect lubricant for her hands as they stroke you off.  "<i>Mmmmm,</i>"  Niamh purrs, "<i>I hope your cum is as good as your ' +
-                    this.boozeBoobsType() +
-                    '.</i>"'
+                `\n\n"<i>Ooooh, how delightful.  Ye come overly equipped dontcha?</i>"  Niamh grabs a handful of your cock meat as she settles her hips down to smother your face with her vaginal folds.  Her labia slip between your lips and you find yourself tonguing her cunt in search of her entrance.  With your cocks in her hands she begins glomping down on one of your shafts with her own mouth, eagerly sucking you off while giving you a hand job at the same time.  Excessive amounts of your pre-cum serve as the perfect lubricant for her hands as they stroke you off.  "<i>Mmmmm,</i>"  Niamh purrs, "<i>I hope your cum is as good as your ${this.boozeBoobsType()}.</i>"`
             );
         // IF [Player has 2+ inch clit]
         if (this.player.clitLength >= 2)
@@ -1281,18 +1282,14 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         // Fifth Paragraph
         // ===============
         this.outx(
-            "\n\nYour nipples squirt relentlessly while the crowd thickens around you.  Each customer tries to suck off mouthfuls of your delectable " +
-                this.boozeBoobsType() +
-                ".  Niamh allows her own breasts to rest on top of you, pushed out to the sides so that others may slurp up the beer leaking from her tender nipples as well.  The two of you become a mass of tit flesh spraying alcohol into the waiting mouths of customers."
+            `\n\nYour nipples squirt relentlessly while the crowd thickens around you.  Each customer tries to suck off mouthfuls of your delectable ${this.boozeBoobsType()}.  Niamh allows her own breasts to rest on top of you, pushed out to the sides so that others may slurp up the beer leaking from her tender nipples as well.  The two of you become a mass of tit flesh spraying alcohol into the waiting mouths of customers.`
         );
         // IF[Character has fuckable nipples]
         if (this.player.hasFuckableNipples())
             this.outx(
-                "  Eventually some of the randier drunks start whipping out their cocks, and begin pressing the heads against the openings of your nipples.  Within moments you feel your booze bloated breasts being fucked silly by " +
-                    Niamh.num2Text(this.player.totalNipples()) +
-                    " hard cocks.  Each thrust causes " +
-                    this.boozeBoobsType() +
-                    " to spill out around their shafts."
+                `  Eventually some of the randier drunks start whipping out their cocks, and begin pressing the heads against the openings of your nipples.  Within moments you feel your booze bloated breasts being fucked silly by ${Niamh.num2Text(
+                    this.player.totalNipples()
+                )} hard cocks.  Each thrust causes ${this.boozeBoobsType()} to spill out around their shafts.`
             );
         // ELSE[Character doesn't have fuckable nipples]
         else
@@ -1304,16 +1301,12 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
         // Sixth Paragraph
         // ===============
         this.outx(
-            "\n\nAltogether the bar fucks you silly.  Your " +
-                this.boozeBoobsType() +
-                " filled tits jiggle with the relentless sex.  Orgasms run down your spine; quaking your flesh in pleasure as you cum.  Niamh's sweet pussy soaks your face with her own orgasms while others in the bar fill your canyons of cleavage with jizz."
+            `\n\nAltogether the bar fucks you silly.  Your ${this.boozeBoobsType()} filled tits jiggle with the relentless sex.  Orgasms run down your spine; quaking your flesh in pleasure as you cum.  Niamh's sweet pussy soaks your face with her own orgasms while others in the bar fill your canyons of cleavage with jizz.`
         );
         // IF [Player has fuckable nipples]
         if (this.player.hasFuckableNipples())
             this.outx(
-                "  The cocks filling your nipples start pumping hot sperm into your breasts, mixing with your " +
-                    this.boozeBoobsType() +
-                    " and causing every nerve ending in your nipples to tingle.  Some of them ejaculate so much that it feels as if your breasts are swelling even larger, almost to the point of bursting before the cum spills out."
+                `  The cocks filling your nipples start pumping hot sperm into your breasts, mixing with your ${this.boozeBoobsType()} and causing every nerve ending in your nipples to tingle.  Some of them ejaculate so much that it feels as if your breasts are swelling even larger, almost to the point of bursting before the cum spills out.`
             );
         // IF [Player has cocks]
         if (this.player.cockTotal() > 0) {
@@ -1354,9 +1347,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
             // If [player has multiple cocks]
             else if (this.player.cockTotal() > 1)
                 this.outx(
-                    "  The heads of your cocks press in between Edryn's labia causing her to cry out, \"<i>Oh gawd!  How many dicks are y-you f-f-fucking meeee with???</i>\"  Edryn's orgasm cuts her voice off and every muscle in her cunt contracts around your " +
-                        this.multiCockDescriptLight() +
-                        "."
+                    `  The heads of your cocks press in between Edryn's labia causing her to cry out, "<i>Oh gawd!  How many dicks are y-you f-f-fucking meeee with???</i>"  Edryn's orgasm cuts her voice off and every muscle in her cunt contracts around your ${this.multiCockDescriptLight()}.`
                 );
             this.outx(
                 "\n\nAs Edryn's cunt literally sucks you in deeper you feel Urta move up behind you.  As her horse-cock pokes against your pussy lips you realize just before the first thrust what is about to happen.  Tel'Adre's finest guard rams her massive member inside you, making you the center of a fuck sandwich."
@@ -1373,9 +1364,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 );
 
             this.outx(
-                "\n\nBetween Edryn's horse-cunt and Urta's horse-cock you effectively become their living fucktoy.  Your body shakes and shimmies back and forth as the two of them grind you between their sexes.  Your breasts spray " +
-                    this.boozeBoobsType() +
-                    " everywhere, slapping against Edryn's ass in the process."
+                `\n\nBetween Edryn's horse-cunt and Urta's horse-cock you effectively become their living fucktoy.  Your body shakes and shimmies back and forth as the two of them grind you between their sexes.  Your breasts spray ${this.boozeBoobsType()} everywhere, slapping against Edryn's ass in the process.`
             );
             // IF [player has four huge tits]
             if (this.player.bRows() == 2)
@@ -1397,9 +1386,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 );
 
             this.outx(
-                "\n\nThe two of them fuck you senseless while the rest of the bar watches and cheers.  You start cumming without control which only eggs the two of them on to even rougher thrusts and grinds.  Long after the " +
-                    this.boozeBoobsType() +
-                    " stops leaking from your nipples and is replaced with your normal flow of milk, the two of them continue to fuck you hard enough to make your heavy tits shake and bounce for the crowd's enjoyment."
+                `\n\nThe two of them fuck you senseless while the rest of the bar watches and cheers.  You start cumming without control which only eggs the two of them on to even rougher thrusts and grinds.  Long after the ${this.boozeBoobsType()} stops leaking from your nipples and is replaced with your normal flow of milk, the two of them continue to fuck you hard enough to make your heavy tits shake and bounce for the crowd's enjoyment.`
             );
 
             this.outx(
@@ -1439,9 +1426,7 @@ export class Niamh extends TelAdreAbstractContent implements TimeAwareInterface 
                 );
 
             this.outx(
-                "\n\nOrgasm after orgasm keeps you dizzy and drunk while you gush " +
-                    this.boozeBoobsType() +
-                    " and take in cum.  The bar patrons finally wear themselves out with fucking your oversexed body.  Niamh crawls off of your face and back down to the floor.  She pauses to catch her breath and regain her sense of balance, leaning on the table and resting her breasts on your face.  You've barely regained your own senses when Urta tries to help you up."
+                `\n\nOrgasm after orgasm keeps you dizzy and drunk while you gush ${this.boozeBoobsType()} and take in cum.  The bar patrons finally wear themselves out with fucking your oversexed body.  Niamh crawls off of your face and back down to the floor.  She pauses to catch her breath and regain her sense of balance, leaning on the table and resting her breasts on your face.  You've barely regained your own senses when Urta tries to help you up.`
             );
             // IF [Player has four or more breasts]
             if (this.player.bRows() > 1)

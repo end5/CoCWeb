@@ -24,20 +24,18 @@ export class GoblinAssassin extends Monster {
         // Throw offensive potions at the player
         if (color != "blue") {
             this.outx(
-                this.capitalA +
-                    this.short +
-                    " uncorks a glass bottle full of " +
-                    color +
-                    " fluid and swings her arm, flinging a wave of fluid at you.",
+                `${
+                    this.capitalA + this.short
+                } uncorks a glass bottle full of ${color} fluid and swings her arm, flinging a wave of fluid at you.`,
                 false
             );
         }
         // Drink blue pots
         else {
             this.outx(
-                this.capitalA +
-                    this.short +
-                    " pulls out a blue vial and uncaps it, swiftly downing its contents.",
+                `${
+                    this.capitalA + this.short
+                } pulls out a blue vial and uncaps it, swiftly downing its contents.`,
                 false
             );
             if (this.HPRatio() < 1) {
@@ -143,7 +141,7 @@ export class GoblinAssassin extends Monster {
                     this.player.armorDef
             );
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         this.combatRoundOver();
     }
@@ -158,7 +156,7 @@ export class GoblinAssassin extends Monster {
         // (High HP loss, no lust gain)
         let damage: number = 25 + GoblinAssassin.rand(75);
         damage = this.player.takeDamage(damage);
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
         this.combatRoundOver();
     }
     public defeated(hpVictory: boolean): void {

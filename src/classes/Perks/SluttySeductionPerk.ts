@@ -8,11 +8,7 @@ import { PerkType } from "../PerkType";
 export class SluttySeductionPerk extends PerkType {
     public desc(params?: PerkClass): string {
         if (params)
-            return (
-                "Increases odds of successfully teasing and lust damage of successful teases by " +
-                params.value1 +
-                " points."
-            );
+            return `Increases odds of successfully teasing and lust damage of successful teases by ${params.value1} points.`;
         return "";
     }
 

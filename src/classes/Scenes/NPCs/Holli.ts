@@ -36,14 +36,12 @@ export class Holli extends Monster {
         this.outx("You ");
         if (this.player.canFly()) this.outx("beat your wings and ");
         this.outx(
-            "try to escape, but " +
-                this.short +
-                ' wraps one of her writhing roots around your [leg], slamming you to the ground and tying you up with several more!  "<i>And just where do you think you\'re going, my little meat?</i>" she hisses.  Her bark splits open, exposing her body, and a green shaft snakes out of her crotch, sprouting thorns and blooming into a rose at the tip.  She holds the drooling blossom over your [face] as she forces your mouth open with her roots!'
+            `try to escape, but ${this.short} wraps one of her writhing roots around your [leg], slamming you to the ground and tying you up with several more!  "<i>And just where do you think you're going, my little meat?</i>" she hisses.  Her bark splits open, exposing her body, and a green shaft snakes out of her crotch, sprouting thorns and blooming into a rose at the tip.  She holds the drooling blossom over your [face] as she forces your mouth open with her roots!`
         );
         // hp loss, begin lust constrict next round
         let damage = 15;
         damage = this.player.takeDamage(damage);
-        this.outx(" (" + damage + ")\n\n");
+        this.outx(` (${damage})\n\n`);
         this.player.createStatusAffect(StatusAffects.HolliConstrict, 0, 0, 0, 0);
         this.combatRoundOver();
     }
@@ -125,9 +123,7 @@ export class Holli extends Monster {
     // fuckin' Jumanji flower darts -Z
     private fuckinJamanjiFlowerDarts(): void {
         this.outx(
-            "A blossom opens up on a high branch of the tree, revealing an evil-looking eye surrounded by vicious spines.  With a gesture, " +
-                this.short +
-                " fires several at you!"
+            `A blossom opens up on a high branch of the tree, revealing an evil-looking eye surrounded by vicious spines.  With a gesture, ${this.short} fires several at you!`
         );
 
         // Blinded - no hit penalty
@@ -156,7 +152,7 @@ export class Holli extends Monster {
             this.game.dynStats("lus", 25);
             let damage: number = 20 + Holli.rand(10);
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
         this.combatRoundOver();
     }

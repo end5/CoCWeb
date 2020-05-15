@@ -52,7 +52,7 @@ export class Utils {
     // curryFunction(f,args1)(args2)=f(args1.concat(args2))
     // e.g. curryFunction(f,x,y)(z,w) = f(x,y,z,w)
     public static curry(func: any, ...args: any[]) {
-        if (func == undefined) CocSettings.error("carryFunction(undefined," + args + ")");
+        if (func == undefined) CocSettings.error(`carryFunction(undefined,${args})`);
         return function (...args2: any[]): any {
             return func(...args, ...args2);
         };
@@ -66,12 +66,12 @@ export class Utils {
             case 1:
                 return stringList[0];
             case 2:
-                return stringList[0] + " and " + stringList[1];
+                return `${stringList[0]} and ${stringList[1]}`;
             default:
         }
         let concat: string = stringList[0];
-        for (let x = 1; x < stringList.length - 1; x++) concat += ", " + stringList[x];
-        return concat + " and " + stringList[stringList.length - 1];
+        for (let x = 1; x < stringList.length - 1; x++) concat += `, ${stringList[x]}`;
+        return `${concat} and ${stringList[stringList.length - 1]}`;
     }
 
     public static num2Text(numeric: number): string {
@@ -84,14 +84,14 @@ export class Utils {
         if (numeric <= 10) return Utils.NUMBER_WORDS_POSITIONAL[numeric];
         switch (numeric % 10) {
             case 1:
-                return numeric.toString() + "st";
+                return `${numeric.toString()}st`;
             case 2:
-                return numeric.toString() + "nd";
+                return `${numeric.toString()}nd`;
             case 3:
-                return numeric.toString() + "rd";
+                return `${numeric.toString()}rd`;
             default:
         }
-        return numeric.toString() + "th";
+        return `${numeric.toString()}th`;
     }
 
     public static Num2Text(numeric: number): string {
@@ -126,9 +126,9 @@ export class Utils {
         let error = "";
         for (const field of nnf) {
             if (!(field in o) || (!(typeof o[field] == "number") && o[field] != undefined))
-                error += "Misspelling in " + func + ".nnf: '" + field + "'. ";
-            else if (o[field] == undefined) error += "Null '" + field + "'. ";
-            else if (o[field] < 0) error += "Negative '" + field + "'. ";
+                error += `Misspelling in ${func}.nnf: '${field}'. `;
+            else if (o[field] == undefined) error += `Null '${field}'. `;
+            else if (o[field] < 0) error += `Negative '${field}'. `;
         }
         return error;
     }
@@ -141,9 +141,9 @@ export class Utils {
         let error = "";
         for (const field of nef) {
             if (!(field in o) || (!(typeof o[field] == "string") && o[field] != undefined))
-                error += "Misspelling in " + func + ".nef: '" + field + "'. ";
-            else if (o[field] == undefined) error += "Null '" + field + "'. ";
-            else if (o[field] == "") error += "Empty '" + field + "'. ";
+                error += `Misspelling in ${func}.nef: '${field}'. `;
+            else if (o[field] == undefined) error += `Null '${field}'. `;
+            else if (o[field] == "") error += `Empty '${field}'. `;
         }
         return error;
     }

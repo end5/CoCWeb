@@ -24,9 +24,7 @@ export class DemonPack extends Monster {
     public defeated(hpVictory: boolean): void {
         if (hpVictory) {
             this.outx(
-                "You strike out and the last of the demons tumbles to the ground with a thud. You stand there for a second surrounded by dead or unconscious demons feeling like a god of battle. Then you realize that if a god of battle does exist he lives on a demonic plane like this, so to avoid insulting him you take your hands off your hips and your " +
-                    this.player.legs() +
-                    " off the head of the demon leader before you start to search the bodies.",
+                `You strike out and the last of the demons tumbles to the ground with a thud. You stand there for a second surrounded by dead or unconscious demons feeling like a god of battle. Then you realize that if a god of battle does exist he lives on a demonic plane like this, so to avoid insulting him you take your hands off your hips and your ${this.player.legs()} off the head of the demon leader before you start to search the bodies.`,
                 true
             );
             this.game.dynStats("lus", 1);
@@ -84,12 +82,12 @@ export class DemonPack extends Monster {
             if (this.player.cocks.length > 0) {
                 if (this.player.cockTotal() > 1) this.outx("Each of y");
                 else this.outx("Y");
-                this.outx("our " + this.player.multiCockDescriptLight() + " throbs ", false);
+                this.outx(`our ${this.player.multiCockDescriptLight()} throbs `, false);
                 if (this.player.hasVagina()) this.outx(" and your ");
             }
             if (this.player.vaginas.length > 0) {
                 if (!this.player.hasCock()) this.outx("Your ");
-                this.outx(this.game.vaginaDescript(0) + " burns ", false);
+                this.outx(`${this.game.vaginaDescript(0)} burns `, false);
             }
             this.outx(
                 "with arousal.  You make a grab for the nearest demon and catch a handful of jiggly breast. You try desperately to use your other arm to pull her closer to slake your thirst but you both go tumbling to the ground. The demonic leader laughs out loud and the rest of the tribe falls on you, grabbing for anything it can find.",
@@ -101,7 +99,7 @@ export class DemonPack extends Monster {
 
     public teased(lustDelta: number): void {
         this.outx("\n", false);
-        if (lustDelta == 0) this.outx("\n" + this.capitalA + this.short + " seems unimpressed.");
+        if (lustDelta == 0) this.outx(`\n${this.capitalA}${this.short} seems unimpressed.`);
         else if (lustDelta > 0 && lustDelta < 5)
             this.outx(
                 "The demons lessen somewhat in the intensity of their attack, and some even eye up your assets as they strike at you.",
@@ -126,11 +124,11 @@ export class DemonPack extends Monster {
         this.a = "the ";
         this.short = "demons";
         this.imageName = "demonmob";
-        this.long =
-            "The group is composed of roughly twenty tan-skinned demons, mostly humanoid in shape with many and varied corruptions across the mob. You see demonic high heels, twisting horns and swinging cocks of all shapes and sizes. There even seems to be a bull head in there somewhere. You also make out plenty of breasts ranging from tiny ones to a pair that requires a second person to carry them, and with those breasts a wide range of pussies, dripping and dry, sometimes nestled below some form of demonic dick.  The small tribe carries no weapons and what little clothing they wear is well-shredded, except for one hefty male wearing a cloak of what appears to be snakeskin across his broad shoulders." +
-            (this.game.silly()
+        this.long = `The group is composed of roughly twenty tan-skinned demons, mostly humanoid in shape with many and varied corruptions across the mob. You see demonic high heels, twisting horns and swinging cocks of all shapes and sizes. There even seems to be a bull head in there somewhere. You also make out plenty of breasts ranging from tiny ones to a pair that requires a second person to carry them, and with those breasts a wide range of pussies, dripping and dry, sometimes nestled below some form of demonic dick.  The small tribe carries no weapons and what little clothing they wear is well-shredded, except for one hefty male wearing a cloak of what appears to be snakeskin across his broad shoulders.${
+            this.game.silly()
                 ? '  You spot an odd patch that reads, "<i>41st Engineer Company: Vaginal Clearance</i>" on his shoulder.'
-                : "");
+                : ""
+        }`;
         this.plural = true;
         this.pronoun1 = "they";
         this.pronoun2 = "them";

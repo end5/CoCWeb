@@ -89,7 +89,7 @@ export class LivingStatue extends Monster {
             );
         }
 
-        this.outx(" (" + damage + ")");
+        this.outx(` (${damage})`);
     }
 
     private dirtKick(): void {
@@ -135,7 +135,7 @@ export class LivingStatue extends Monster {
             this.createStatusAffect(StatusAffects.KnockedBack, 0, 0, 0, 0); // Applying to mob as a "used ability" marker
             damage = this.player.takeDamage(damage);
 
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
     }
 
@@ -166,7 +166,7 @@ export class LivingStatue extends Monster {
             // Hit
             this.outx(" The concussive strike impacts you with bonecrushing force.");
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
     }
 
@@ -186,9 +186,9 @@ export class LivingStatue extends Monster {
         // Oh noes!
         else {
             this.outx(
-                " Your equipment flies off into the bushes! You'll have to fight another way. (" +
-                    this.player.takeDamage(this.str + this.weaponAttack) +
-                    ")"
+                ` Your equipment flies off into the bushes! You'll have to fight another way. (${this.player.takeDamage(
+                    this.str + this.weaponAttack
+                )})`
             );
             this.player.createStatusAffect(StatusAffects.Disarmed, 0, 0, 0, 0);
             this.createStatusAffect(StatusAffects.Disarmed, 0, 0, 0, 0);
@@ -229,7 +229,7 @@ export class LivingStatue extends Monster {
             // Hit
             this.outx(" You're squarely struck by the spinning hammer.");
             damage = this.player.takeDamage(damage);
-            this.outx(" (" + damage + ")");
+            this.outx(` (${damage})`);
         }
     }
 

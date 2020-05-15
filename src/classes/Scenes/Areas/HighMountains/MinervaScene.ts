@@ -414,9 +414,7 @@ export class MinervaScene extends BaseContent {
                 "  Minerva seems quite pleased that you accepted her offer.  Seeing you have powerful wings of your own, she slowly lets go, allowing your wings to spread out and beat as you hover next to her.  The pair of you fly out of the tower together, streaking through the air as you both zoom around the mountain, and it becomes almost like a playful race between you."
             );
             this.outx(
-                "\n\nThe sound of powerful wing beats and the rushing of air mixes with the sound of joyful laughter as you race and play with the flying siren.  Reaching out to you with a hand, Minerva decides to put on a show for you.  Beating her wings harder, she pushes ahead of you, twisting and twirling as she rolls above you, your eyes locking with hers for a fleeting moment and catching the look of joy in them.  Not one to be outdone in a race, you flap your " +
-                    this.player.wingDesc +
-                    " wings harder and harder, speeding ahead on the final turn as you both rush toward the tower."
+                `\n\nThe sound of powerful wing beats and the rushing of air mixes with the sound of joyful laughter as you race and play with the flying siren.  Reaching out to you with a hand, Minerva decides to put on a show for you.  Beating her wings harder, she pushes ahead of you, twisting and twirling as she rolls above you, your eyes locking with hers for a fleeting moment and catching the look of joy in them.  Not one to be outdone in a race, you flap your ${this.player.wingDesc} wings harder and harder, speeding ahead on the final turn as you both rush toward the tower.`
             );
             this.outx(
                 "\n\nSeeing you getting ahead brings a grin to Minerva's face.  Gritting her teeth, she pushes herself to catch up with you, her arms reaching out and grabbing you in a playful air tackle."
@@ -1120,17 +1118,17 @@ export class MinervaScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nDeciding that you've finally teased her quite enough, you drag your " +
-                this.cockDescript(x) +
-                " down through the crack of her ass one last time, then align your " +
-                this.player.cockHead(x) +
-                " with her tight, puckered asshole.  You ask her if she's ready for this, if she's ready to have her ass filled by your throbbing cock.  She nods her head, looking back at you with her bright, blushing face, her eyes locking onto yours as she spreads her knees a little further apart.  \"<i>I... yes, I'm ready, don't be too rough, all right?</i>\""
+            `\n\nDeciding that you've finally teased her quite enough, you drag your ${this.cockDescript(
+                x
+            )} down through the crack of her ass one last time, then align your ${this.player.cockHead(
+                x
+            )} with her tight, puckered asshole.  You ask her if she's ready for this, if she's ready to have her ass filled by your throbbing cock.  She nods her head, looking back at you with her bright, blushing face, her eyes locking onto yours as she spreads her knees a little further apart.  "<i>I... yes, I'm ready, don't be too rough, all right?</i>"`
         );
 
         this.outx(
-            "\n\nDrawing your [hips] back and sinking your fingers into her squeezable butt, you begin to push forward into her back passage.  It's surprisingly cool, perhaps because of the shark essence in her blood.  Her throbbing anal walls are slick enough to let you slip in easily, but grip tightly around your " +
-                this.cockDescript(x) +
-                ".  The inner muscles tighten around you and let you feel dozens of tiny, smooth bumps lining the passage inside.  Minerva's walls ripple and massage you as you finally bury yourself to the hilt inside her, groaning in pleasure at her tight anal embrace."
+            `\n\nDrawing your [hips] back and sinking your fingers into her squeezable butt, you begin to push forward into her back passage.  It's surprisingly cool, perhaps because of the shark essence in her blood.  Her throbbing anal walls are slick enough to let you slip in easily, but grip tightly around your ${this.cockDescript(
+                x
+            )}.  The inner muscles tighten around you and let you feel dozens of tiny, smooth bumps lining the passage inside.  Minerva's walls ripple and massage you as you finally bury yourself to the hilt inside her, groaning in pleasure at her tight anal embrace.`
         );
 
         this.outx(
@@ -1138,13 +1136,13 @@ export class MinervaScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou draw yourself back, dragging your " +
-                this.cockDescript(x) +
-                " inch by inch through her grinding, squeezing walls, then thrust yourself firmly back inside her.  You repeat the process again, and then again, picking up speed as you pull and push.  The siren's lyrical moans slowly start to fill the air, her body rocking with your thrusts, pressing and grinding her pierced nipples against the ground as you pound her slick rear.  The longest of her cock tentacles manage to reach back and grabs hold of your " +
-                this.cockDescript(x) +
-                ", feverishly stroking you as you thrust into her.  The naughty little things sting you hard, oozing their aphrodisiac venom into your " +
-                this.cockDescript(x) +
-                " instinctively.  You cry out, shivering as the potent venom immediately streams through your body, setting your blood aboil with lust, and causing you to piston into her ass with ever-increasing speeds.  More and more toxin floods you, combining with the incredible sensations of her anal walls gripping and squeezing you to turn you into a mindlessly rutting beast."
+            `\n\nYou draw yourself back, dragging your ${this.cockDescript(
+                x
+            )} inch by inch through her grinding, squeezing walls, then thrust yourself firmly back inside her.  You repeat the process again, and then again, picking up speed as you pull and push.  The siren's lyrical moans slowly start to fill the air, her body rocking with your thrusts, pressing and grinding her pierced nipples against the ground as you pound her slick rear.  The longest of her cock tentacles manage to reach back and grabs hold of your ${this.cockDescript(
+                x
+            )}, feverishly stroking you as you thrust into her.  The naughty little things sting you hard, oozing their aphrodisiac venom into your ${this.cockDescript(
+                x
+            )} instinctively.  You cry out, shivering as the potent venom immediately streams through your body, setting your blood aboil with lust, and causing you to piston into her ass with ever-increasing speeds.  More and more toxin floods you, combining with the incredible sensations of her anal walls gripping and squeezing you to turn you into a mindlessly rutting beast.`
         );
 
         this.outx(
@@ -1183,9 +1181,9 @@ export class MinervaScene extends BaseContent {
         // Very high cum volume:
         else
             this.outx(
-                "\n\nGasping and gurgling softly, Minerva does her best to hold in the veritable pond of jizz you shot into her.  Her hands keep running up and down the huge, swollen belly she has now, clearly amazed that she was able to withstand such a ridiculous stuffing.  Swallowing again, she slowly pulls away from you, clearly needing to let off the pressure.  As soon as your " +
-                    this.cockDescript(x) +
-                    " is free, like a cork from a overpressured bottle, your belly packing load bursts from her body, soaking your pelvis and her legs in thick, white cream.  Sighing in great relief, Minerva turns toward you and pulls you into a gentle after-sex cuddle, her lips brushing against your neck as she gives you a gentle peck."
+                `\n\nGasping and gurgling softly, Minerva does her best to hold in the veritable pond of jizz you shot into her.  Her hands keep running up and down the huge, swollen belly she has now, clearly amazed that she was able to withstand such a ridiculous stuffing.  Swallowing again, she slowly pulls away from you, clearly needing to let off the pressure.  As soon as your ${this.cockDescript(
+                    x
+                )} is free, like a cork from a overpressured bottle, your belly packing load bursts from her body, soaking your pelvis and her legs in thick, white cream.  Sighing in great relief, Minerva turns toward you and pulls you into a gentle after-sex cuddle, her lips brushing against your neck as she gives you a gentle peck.`
             );
 
         this.outx(
@@ -1245,31 +1243,31 @@ export class MinervaScene extends BaseContent {
             );
 
         this.outx(
-            "\n\nWith a smile, you gently remove your clothes and put them aside, giving Minerva a chance to see your naked body.  Your " +
-                this.cockDescript(x) +
-                " already starting to stiffen, you lie back down on the ground, patiently waiting for the siren to make the first move.  You don't have to do so for long, as soon, Minerva's tight tube-top and short shorts are pulled off, her firm, pierced DD's bouncing free of their fabric prison.  Clearly excited by the thrill of actually having regular sex, you can see her male endowment quickly growing hard between her legs, the forearm-length appendage ready to go despite the fact it won't be used for the main event.  Looking down at you, Minerva approaches, swaying her hips to and fro.  She kneels down, crawling over you like some predator, one of her hands briefly stroking your " +
-                this.cockDescript(x) +
-                ' before sliding up to feel your [chest].  "<i>I promise not to get too excited,</i>" she says before grabbing hold of your maleness and stroking it again.  Bringing her own male organ up against yours, her tentacles encircle your ' +
-                this.cockDescript(x) +
-                ', stinging it with her potent venom to really get you fired up as she teases you.  "<i>This stuff is always floating around in me - that\'s why I get so damn hard so fast...  I hope you like my special venom.</i>"'
+            `\n\nWith a smile, you gently remove your clothes and put them aside, giving Minerva a chance to see your naked body.  Your ${this.cockDescript(
+                x
+            )} already starting to stiffen, you lie back down on the ground, patiently waiting for the siren to make the first move.  You don't have to do so for long, as soon, Minerva's tight tube-top and short shorts are pulled off, her firm, pierced DD's bouncing free of their fabric prison.  Clearly excited by the thrill of actually having regular sex, you can see her male endowment quickly growing hard between her legs, the forearm-length appendage ready to go despite the fact it won't be used for the main event.  Looking down at you, Minerva approaches, swaying her hips to and fro.  She kneels down, crawling over you like some predator, one of her hands briefly stroking your ${this.cockDescript(
+                x
+            )} before sliding up to feel your [chest].  "<i>I promise not to get too excited,</i>" she says before grabbing hold of your maleness and stroking it again.  Bringing her own male organ up against yours, her tentacles encircle your ${this.cockDescript(
+                x
+            )}, stinging it with her potent venom to really get you fired up as she teases you.  "<i>This stuff is always floating around in me - that's why I get so damn hard so fast...  I hope you like my special venom.</i>"`
         );
 
         this.outx(
-            "\n\nYou groan softly, feeling the venom already coursing through you.  Your " +
-                this.cockDescript(x) +
-                " surges erect, the venom-induced lust making you swell larger than usual, ready for her to do with as she pleases, your limbs numb and useless from the lust-inducing toxins coursing through your body.  You are completely helpless and at her mercy...  And part of you seems to like that."
+            `\n\nYou groan softly, feeling the venom already coursing through you.  Your ${this.cockDescript(
+                x
+            )} surges erect, the venom-induced lust making you swell larger than usual, ready for her to do with as she pleases, your limbs numb and useless from the lust-inducing toxins coursing through your body.  You are completely helpless and at her mercy...  And part of you seems to like that.`
         );
 
         this.outx(
-            "\n\nMinerva seems to enjoy seeing you helpless like this, as her dick seems to just get harder and harder while her tentacles caress your member, though they no longer sting; instead, they just tease you with their slick and gentle touch.  \"<i>You like that, don't you?  You're so hard I can feel your need growing more and more.  You want my tight pussy so badly,</i>\" she says with a lecherous grin before rising her body up and pressing against your " +
-                this.cockDescript(x) +
-                " with her surprisingly cool cunt.  Already her lips are soaked, her slick juices running down your dick as she teases you even further."
+            `\n\nMinerva seems to enjoy seeing you helpless like this, as her dick seems to just get harder and harder while her tentacles caress your member, though they no longer sting; instead, they just tease you with their slick and gentle touch.  "<i>You like that, don't you?  You're so hard I can feel your need growing more and more.  You want my tight pussy so badly,</i>" she says with a lecherous grin before rising her body up and pressing against your ${this.cockDescript(
+                x
+            )} with her surprisingly cool cunt.  Already her lips are soaked, her slick juices running down your dick as she teases you even further.`
         );
 
         this.outx(
-            "\n\nFinally, she ends your torment and brings your " +
-                this.player.cockHead(x) +
-                " to her refreshingly wet entrance before pushing down, letting you penetrate her with agonizing slowness, her longer tentacles still stroking and caressing your length as she pulls you into the vicelike grip of her snatch.  Inside, you can feel smaller tendrils starting to caress and squeeze you, clearly another trait she was gifted with from the shark girls."
+            `\n\nFinally, she ends your torment and brings your ${this.player.cockHead(
+                x
+            )} to her refreshingly wet entrance before pushing down, letting you penetrate her with agonizing slowness, her longer tentacles still stroking and caressing your length as she pulls you into the vicelike grip of her snatch.  Inside, you can feel smaller tendrils starting to caress and squeeze you, clearly another trait she was gifted with from the shark girls.`
         );
 
         this.outx(
@@ -1281,20 +1279,20 @@ export class MinervaScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou moan and shudder, shivering violently as Minerva's poisons boil through your blood and countless tendrils stoke your lust to a fever pitch.  Your brain seethes and roils with pleasure as you are surrounded, engulfed.  You don't think you can hold back from cumming for very long, and gasp a warning to the siren that you will cum inside her if she isn't careful.  Clearly hearing your response, a sinister grin grows on Minerva's face as two of her longest and strongest tentacles wrap around the base of your " +
-                this.cockDescript(x) +
-                ' and squeeze tightly, "<i>Ah-ah-ah... no cumming for you, not until I get mine... I\'m the one in charge, here, remember?</i>"'
+            `\n\nYou moan and shudder, shivering violently as Minerva's poisons boil through your blood and countless tendrils stoke your lust to a fever pitch.  Your brain seethes and roils with pleasure as you are surrounded, engulfed.  You don't think you can hold back from cumming for very long, and gasp a warning to the siren that you will cum inside her if she isn't careful.  Clearly hearing your response, a sinister grin grows on Minerva's face as two of her longest and strongest tentacles wrap around the base of your ${this.cockDescript(
+                x
+            )} and squeeze tightly, "<i>Ah-ah-ah... no cumming for you, not until I get mine... I'm the one in charge, here, remember?</i>"`
         );
         this.outx(
-            "\n\nYou can't help but beg and plead for her to show mercy on you, you can't bear this much longer!  Unfortunately for you, the only response you get from Minerva is a smirk, and the tentacles tightening around your throbbing maleness as she draws you in deeper.  The venom and the aggressive treatment makes your dick swell even more, stretching her tight squirming walls around you, the sensation drawing a sharp gasp and soft moan from your siren lover.  The siren's balls come to a rest just above your " +
-                this.cockDescript(x) +
-                ", the heavy, swollen orbs a reminder that she is enjoying this just as much as you."
+            `\n\nYou can't help but beg and plead for her to show mercy on you, you can't bear this much longer!  Unfortunately for you, the only response you get from Minerva is a smirk, and the tentacles tightening around your throbbing maleness as she draws you in deeper.  The venom and the aggressive treatment makes your dick swell even more, stretching her tight squirming walls around you, the sensation drawing a sharp gasp and soft moan from your siren lover.  The siren's balls come to a rest just above your ${this.cockDescript(
+                x
+            )}, the heavy, swollen orbs a reminder that she is enjoying this just as much as you.`
         );
 
         this.outx(
-            "\n\nBiting her lip, she pushes down harder, sinking her soothingly cool pussy down until your whole cock is engulfed in her tight, cilia-filled snatch.  \"<i>Mmm, oh yesss... don't you just love how your " +
-                this.cockDescript(x) +
-                " stretches me... and all those little things in there, stroking you like little tongues.  Tell me how much you need to cum.  Tell me and I'll let you blow your pent-up load deep inside me.  I doubt you could get me pregnant, I'm probably too unstable to breed with someone like you.  Or maybe you'd like to take a gamble and try?  Do it, fill my pussy with your cum!</i>\""
+            `\n\nBiting her lip, she pushes down harder, sinking her soothingly cool pussy down until your whole cock is engulfed in her tight, cilia-filled snatch.  "<i>Mmm, oh yesss... don't you just love how your ${this.cockDescript(
+                x
+            )} stretches me... and all those little things in there, stroking you like little tongues.  Tell me how much you need to cum.  Tell me and I'll let you blow your pent-up load deep inside me.  I doubt you could get me pregnant, I'm probably too unstable to breed with someone like you.  Or maybe you'd like to take a gamble and try?  Do it, fill my pussy with your cum!</i>"`
         );
 
         this.outx(
@@ -1321,9 +1319,9 @@ export class MinervaScene extends BaseContent {
         // Moderate-very high only:
         if (this.player.cumQ() >= 500) {
             this.outx(
-                "\n\nNot nearly done, but needing to let off a bit of your load so the fun can continue, Minerva slowly rises from your " +
-                    this.cockDescript(x) +
-                    ", grinning as her tentacles make sure to sting you again, wanting to keep you hard and aroused so she can play some more.  The perky, cum-filled siren doesn't bother moving off of your body before pressing on her tummy and making a veritable flood of hot, thick cum pour from her tight, sharky cunt and splatter across you; she is going to be very well-lubed for the next stage of fun.  Squatting back down, she slowly licks her lips before sliding back down onto your, once again, venom-bloated dick, her tentacles getting ready to sting you some more for good measure."
+                `\n\nNot nearly done, but needing to let off a bit of your load so the fun can continue, Minerva slowly rises from your ${this.cockDescript(
+                    x
+                )}, grinning as her tentacles make sure to sting you again, wanting to keep you hard and aroused so she can play some more.  The perky, cum-filled siren doesn't bother moving off of your body before pressing on her tummy and making a veritable flood of hot, thick cum pour from her tight, sharky cunt and splatter across you; she is going to be very well-lubed for the next stage of fun.  Squatting back down, she slowly licks her lips before sliding back down onto your, once again, venom-bloated dick, her tentacles getting ready to sting you some more for good measure.`
             );
         } else {
             this.outx(
@@ -1335,9 +1333,9 @@ export class MinervaScene extends BaseContent {
             );
             if (this.player.balls > 0) this.outx(" your balls and");
             this.outx(
-                " the base of your " +
-                    this.cockDescript(x) +
-                    ", stinging you again and again like an overzealous jellyfish, pumping more of her aphrodisiac venom into your genitals in mind-numbing quantities."
+                ` the base of your ${this.cockDescript(
+                    x
+                )}, stinging you again and again like an overzealous jellyfish, pumping more of her aphrodisiac venom into your genitals in mind-numbing quantities.`
             );
             if (this.player.hasVagina())
                 this.outx(
@@ -1465,9 +1463,9 @@ export class MinervaScene extends BaseContent {
         // PC herm:
         if (this.player.gender == 3)
             this.outx(
-                "  One of her hands trail down to your hard herm " +
-                    this.cockDescript(x) +
-                    ", stroking you softly."
+                `  One of her hands trail down to your hard herm ${this.cockDescript(
+                    x
+                )}, stroking you softly.`
             );
 
         this.outx(
@@ -1738,21 +1736,21 @@ export class MinervaScene extends BaseContent {
         // If naga:
         if (this.player.isNaga())
             this.outx(
-                " lounge against the rock, spreading open your protective slit and letting your " +
-                    this.cockDescript(x) +
-                    " hang free."
+                ` lounge against the rock, spreading open your protective slit and letting your ${this.cockDescript(
+                    x
+                )} hang free.`
             );
         else
             this.outx(
-                " sit down, spreading your [legs] and opening up the crotch of your [armor] to the air, letting your " +
-                    this.cockDescript(x) +
-                    " hang free."
+                ` sit down, spreading your [legs] and opening up the crotch of your [armor] to the air, letting your ${this.cockDescript(
+                    x
+                )} hang free.`
             );
 
         this.outx(
-            "\n\nAnxious and ready, Minerva looks down at you before kneeling, placing a hand on your [hips] as she takes hold of your " +
-                this.cockDescript(x) +
-                " and slowly starts to stroke it.  Her eyes looking up at you, she leans in and starts to gently lick your hardening flesh with the tip of her tongue.  Under her careful, deliberate attentions your manhood is quickly brought to full attention."
+            `\n\nAnxious and ready, Minerva looks down at you before kneeling, placing a hand on your [hips] as she takes hold of your ${this.cockDescript(
+                x
+            )} and slowly starts to stroke it.  Her eyes looking up at you, she leans in and starts to gently lick your hardening flesh with the tip of her tongue.  Under her careful, deliberate attentions your manhood is quickly brought to full attention.`
         );
 
         // if cock area 21+:
@@ -1774,11 +1772,11 @@ export class MinervaScene extends BaseContent {
             );
 
         this.outx(
-            "\n\nTaking a relaxing breath, Minerva dives right into it, her long tongue slithering out to lick your hard, sensitive flesh, wrapping around the tip and giving the most sensitive part of your dick a good squeeze.  The heat-quenching chill of her wet tongue feels remarkable on your hard prick, the tight squeeze pulling a gasp from your mouth.  Your hands move over her head and into her dark red hair, and you're suddenly relieved that she can't envenom you this way.  Wanting to show you what she's made of, your siren leans in, dragging her cool wet tongue up your " +
-                this.cockDescript(x) +
-                " from base to tip before planting a kiss right on the " +
-                this.player.cockHead(x) +
-                " of your throbbing, needy dick."
+            `\n\nTaking a relaxing breath, Minerva dives right into it, her long tongue slithering out to lick your hard, sensitive flesh, wrapping around the tip and giving the most sensitive part of your dick a good squeeze.  The heat-quenching chill of her wet tongue feels remarkable on your hard prick, the tight squeeze pulling a gasp from your mouth.  Your hands move over her head and into her dark red hair, and you're suddenly relieved that she can't envenom you this way.  Wanting to show you what she's made of, your siren leans in, dragging her cool wet tongue up your ${this.cockDescript(
+                x
+            )} from base to tip before planting a kiss right on the ${this.player.cockHead(
+                x
+            )} of your throbbing, needy dick.`
         );
 
         // If balls:
@@ -1795,9 +1793,9 @@ export class MinervaScene extends BaseContent {
         this.outx(".");
 
         this.outx(
-            "\n\nWith your " +
-                this.cockDescript(x) +
-                " firmly captured by her tongue, Minerva leans down, opening her mouth wide and taking you inside its cool, wet confines, even as her tongue squeezes you and slides around your warm, sensitive flesh.  Looking up at you with a playful twinkle in her eyes, she starts to suck and squirm her tongue around on you, the long, prehensile appendage switching between licking over your throbbing cockmeat and squeezing it in a snakelike embrace."
+            `\n\nWith your ${this.cockDescript(
+                x
+            )} firmly captured by her tongue, Minerva leans down, opening her mouth wide and taking you inside its cool, wet confines, even as her tongue squeezes you and slides around your warm, sensitive flesh.  Looking up at you with a playful twinkle in her eyes, she starts to suck and squirm her tongue around on you, the long, prehensile appendage switching between licking over your throbbing cockmeat and squeezing it in a snakelike embrace.`
         );
 
         this.outx(
@@ -1806,9 +1804,9 @@ export class MinervaScene extends BaseContent {
         // If cockarea 50+:
         if (this.player.cockArea(x) >= 50)
             this.outx(
-                ", your huge cock deep inside her mouth, and soon far down her throat.  With some difficulty, her slightly angular nose presses down against your crotch, every inch of your " +
-                    this.cockDescript(x) +
-                    " trapped inside her cool, wet mouth and throat"
+                `, your huge cock deep inside her mouth, and soon far down her throat.  With some difficulty, her slightly angular nose presses down against your crotch, every inch of your ${this.cockDescript(
+                    x
+                )} trapped inside her cool, wet mouth and throat`
             );
         this.outx(".");
 
@@ -1836,9 +1834,9 @@ export class MinervaScene extends BaseContent {
         this.outx(".");
 
         this.outx(
-            "\n\nGripping Minerva's head tightly, you let out a long deep moan, your " +
-                this.cockDescript(x) +
-                " bloating with each ejaculation.  Eager to please, Minerva does her best to drink down every drop you give her, her hands gripping your [hips] and pressing her nose against your crotch, puckering her full black lips around your [sheath]."
+            `\n\nGripping Minerva's head tightly, you let out a long deep moan, your ${this.cockDescript(
+                x
+            )} bloating with each ejaculation.  Eager to please, Minerva does her best to drink down every drop you give her, her hands gripping your [hips] and pressing her nose against your crotch, puckering her full black lips around your [sheath].`
         );
 
         // Low cum:
@@ -1859,9 +1857,10 @@ export class MinervaScene extends BaseContent {
         // holy shit cum volume:
         else
             this.outx(
-                "\n\nFeeling your orgasm suddenly burst inside her, Minerva's long tongue licks up every drop as she keeps sucking you hard, your colossal load far more than she was expecting.  Like a great flood, your sperm gushes into her sucking mouth, quickly overflowing Minerva despite her constant swallowing and attempts to contain it, her stomach rapidly bloating under the intense flow.  Choking and gagging on the thick cream filling her throat, Minerva squeezes her eyes shut, not about to give up and pull away.  She swallows great gulps of your thick, hot cum, but can't catch it all and some begins to gush from her nose and the seal of her lips.\n\nWith your orgasm lasting for what has to be several minutes, you let out a long, satisfied groan as your sperm fountain of a cock is finally released from Minerva's sucking mouth.  The filled up siren groans and leans back, a hand on her bloated, cum-stuffed belly, her chest and face plastered with your thick, white cream.  Coughing a couple of times to free her throat and sinuses from your jizz, she stares up at you with shock and awe.  \"<i>Gods... I had no idea you could cum so much, I've never seen such a potent " +
-                    this.player.mf("male", "herm") +
-                    " before...</i>\" she chuckles, before coughing some more, \"<i> I don't think I'm going to have to eat dinner tonight, that's for sure...</i>\" she says with a bit of a laugh as she pats her tummy.  \"<i>Despite almost drowning me in your cum, I wouldn't mind doing this again with you, you're surprisingly delicious!</i>\""
+                `\n\nFeeling your orgasm suddenly burst inside her, Minerva's long tongue licks up every drop as she keeps sucking you hard, your colossal load far more than she was expecting.  Like a great flood, your sperm gushes into her sucking mouth, quickly overflowing Minerva despite her constant swallowing and attempts to contain it, her stomach rapidly bloating under the intense flow.  Choking and gagging on the thick cream filling her throat, Minerva squeezes her eyes shut, not about to give up and pull away.  She swallows great gulps of your thick, hot cum, but can't catch it all and some begins to gush from her nose and the seal of her lips.\n\nWith your orgasm lasting for what has to be several minutes, you let out a long, satisfied groan as your sperm fountain of a cock is finally released from Minerva's sucking mouth.  The filled up siren groans and leans back, a hand on her bloated, cum-stuffed belly, her chest and face plastered with your thick, white cream.  Coughing a couple of times to free her throat and sinuses from your jizz, she stares up at you with shock and awe.  "<i>Gods... I had no idea you could cum so much, I've never seen such a potent ${this.player.mf(
+                    "male",
+                    "herm"
+                )} before...</i>" she chuckles, before coughing some more, "<i> I don't think I'm going to have to eat dinner tonight, that's for sure...</i>" she says with a bit of a laugh as she pats her tummy.  "<i>Despite almost drowning me in your cum, I wouldn't mind doing this again with you, you're surprisingly delicious!</i>"`
             );
 
         this.outx(
@@ -1907,15 +1906,15 @@ export class MinervaScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nWith her so wet now, it's the perfect time to strike!  Deftly pulling your [armor] from your body, you toss the useless pieces away and expose [eachCock] to the air.  Taking hold of [oneCock], you drag its length across Minerva's thighs and rump just to tease her a little more before giving the horny herm the hard dicking she craves.  Reaching down, you lift and spread her curvy rear before aligning yourself, your " +
-                this.player.cockHead(x) +
-                " pressing and kissing her netherlips for a moment, drawing a lusty whimper from the siren before tensing your hips and plowing your iron-hard breeding meat into her with body-jerking power."
+            `\n\nWith her so wet now, it's the perfect time to strike!  Deftly pulling your [armor] from your body, you toss the useless pieces away and expose [eachCock] to the air.  Taking hold of [oneCock], you drag its length across Minerva's thighs and rump just to tease her a little more before giving the horny herm the hard dicking she craves.  Reaching down, you lift and spread her curvy rear before aligning yourself, your ${this.player.cockHead(
+                x
+            )} pressing and kissing her netherlips for a moment, drawing a lusty whimper from the siren before tensing your hips and plowing your iron-hard breeding meat into her with body-jerking power.`
         );
 
         this.outx(
-            "\n\nDespite your brutal thrust, you slide in with ease, Minerva's tight walls so slickened with her arousal.  You squeeze into the deliciously tight herm like butter, easily ramming every inch of your " +
-                this.cockDescript(x) +
-                " into her with only a few hard, deep thrusts.  With your hips pressed against Minerva's accepting body, you grind against her, making sure she can feel every inch moving inside her clinging cunt."
+            `\n\nDespite your brutal thrust, you slide in with ease, Minerva's tight walls so slickened with her arousal.  You squeeze into the deliciously tight herm like butter, easily ramming every inch of your ${this.cockDescript(
+                x
+            )} into her with only a few hard, deep thrusts.  With your hips pressed against Minerva's accepting body, you grind against her, making sure she can feel every inch moving inside her clinging cunt.`
         );
         // If balls:
         if (this.player.balls > 0)
@@ -1932,9 +1931,9 @@ export class MinervaScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nGrunting with the sudden heat flooding your blood, you only seem to thrust harder into the red-haired siren, the anemone venom filling you with a deep lust and sexual hunger, your newfound lust spurring your movements.  The potent toxin not only fills you with lust, but seems to enlarge your " +
-                this.cockDescript(x) +
-                " with aphrodisiac, making your sexual organ swell longer and thicker inside the siren's slippery snatch.  The deep stretching forces a long, throaty moan of pleasure from Minerva as her refreshingly cool cunt is stretched from the sudden thickness.  \"<i>F-fuuuck... w-what happened?!  Hngh!  Fucking me so hard, now... you're like an animaaal!</i>\" the siren practically screams with new ecstasy as you really start to get into the spine-tingling, heart-pounding, nut-busting action with your dangerous new thickness."
+            `\n\nGrunting with the sudden heat flooding your blood, you only seem to thrust harder into the red-haired siren, the anemone venom filling you with a deep lust and sexual hunger, your newfound lust spurring your movements.  The potent toxin not only fills you with lust, but seems to enlarge your ${this.cockDescript(
+                x
+            )} with aphrodisiac, making your sexual organ swell longer and thicker inside the siren's slippery snatch.  The deep stretching forces a long, throaty moan of pleasure from Minerva as her refreshingly cool cunt is stretched from the sudden thickness.  "<i>F-fuuuck... w-what happened?!  Hngh!  Fucking me so hard, now... you're like an animaaal!</i>" the siren practically screams with new ecstasy as you really start to get into the spine-tingling, heart-pounding, nut-busting action with your dangerous new thickness.`
         );
 
         this.outx(

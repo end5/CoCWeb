@@ -56,9 +56,9 @@ export class KitsuneGift extends Consumable {
                 );
                 const gems: number = 2 + Utils.rand(20);
                 this.outx(
-                    "\n\n<b>You've received " +
-                        Utils.num2Text(gems) +
-                        " shining gems from the kitsune's gift!  How generous!</b>"
+                    `\n\n<b>You've received ${Utils.num2Text(
+                        gems
+                    )} shining gems from the kitsune's gift!  How generous!</b>`
                 );
                 this.game.player.gems += gems;
                 // add X gems to inventory
@@ -93,9 +93,7 @@ export class KitsuneGift extends Consumable {
                 ][Utils.rand(4)];
 
                 this.outx(
-                    "\n\n<b>You've received " +
-                        itype.longName +
-                        " from the kitsune's gift!  How generous!</b>  "
+                    `\n\n<b>You've received ${itype.longName} from the kitsune's gift!  How generous!</b>  `
                 );
                 // add <color> Dye to inventory
                 this.game.inventory.takeItem(itype, this.game.inventory.inventoryMenu);

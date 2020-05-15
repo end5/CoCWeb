@@ -198,9 +198,7 @@ export class Jasun extends TelAdreAbstractContent {
                 );
 
                 this.outx(
-                    '"<i>' +
-                        this.player.short +
-                        ", you know, I still don't think you're quite ready to swim with me. That's fine, and it's entirely up to you, but I think today I should probably swim alone. You can come and visit me anytime, of course, maybe when you're ",
+                    `"<i>${this.player.short}, you know, I still don't think you're quite ready to swim with me. That's fine, and it's entirely up to you, but I think today I should probably swim alone. You can come and visit me anytime, of course, maybe when you're `,
                     false
                 );
                 if (this.player.tone < 75) this.outx("fit enough");
@@ -249,9 +247,7 @@ export class Jasun extends TelAdreAbstractContent {
                 );
 
                 this.outx(
-                    '"<i>' +
-                        this.player.short +
-                        ", you know, I see that a lot has changed with you. That's fine, and it's entirely up to you, but I think today I should probably swim alone. You can come and visit me anytime, of course, maybe things will be like they were before in time.</i>\" He hesitates for a moment at the mirror, and then walks past you quickly without making eye contact. Feeling dejected and suddenly very alone, you ignore the sensation caused by his skin brushing against yours and walk back to the gym's entrance. Maybe you can work yourself back into Jasun's graces with time.\n\n",
+                    `"<i>${this.player.short}, you know, I see that a lot has changed with you. That's fine, and it's entirely up to you, but I think today I should probably swim alone. You can come and visit me anytime, of course, maybe things will be like they were before in time.</i>" He hesitates for a moment at the mirror, and then walks past you quickly without making eye contact. Feeling dejected and suddenly very alone, you ignore the sensation caused by his skin brushing against yours and walk back to the gym's entrance. Maybe you can work yourself back into Jasun's graces with time.\n\n`,
                     false
                 );
                 // (-15 Lust, back to gym entrance)
@@ -287,9 +283,7 @@ export class Jasun extends TelAdreAbstractContent {
         );
 
         this.outx(
-            '"<i>My name is Jasun, ' +
-                this.player.short +
-                ". My people love the water, but most of them are ferocious and have lost their way. Seeing as I could no longer stay with them without risking my own life constantly, I came to Tel'Adre and set about working with the gym here to set up this wondrous pool. I spend most of my time here. Not many people get to use it, but I think you are ready.</i>\" He smiles at you without baring his teeth and you're flattered, knowing how difficult that must be for something with his jaw structure. \"<i>Come, let's swim.</i>\" He puts out his hand, palm up, literally asking for your hand for him to take you into the water.\n\n",
+            `"<i>My name is Jasun, ${this.player.short}. My people love the water, but most of them are ferocious and have lost their way. Seeing as I could no longer stay with them without risking my own life constantly, I came to Tel'Adre and set about working with the gym here to set up this wondrous pool. I spend most of my time here. Not many people get to use it, but I think you are ready.</i>" He smiles at you without baring his teeth and you're flattered, knowing how difficult that must be for something with his jaw structure. "<i>Come, let's swim.</i>" He puts out his hand, palm up, literally asking for your hand for him to take you into the water.\n\n`,
             false
         );
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00181] = 1;

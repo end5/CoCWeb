@@ -32,9 +32,7 @@ export class Faerie extends BaseContent {
                         false
                     );
                     this.outx(
-                        "It would be cute if she wasn't dressed up like such a slut.  You bet you could get her to help pleasure you, but she might not like it.  Or you could be a nice " +
-                            this.player.guyGirl() +
-                            " and let her go...\n\nDo you force her to pleasure you?",
+                        `It would be cute if she wasn't dressed up like such a slut.  You bet you could get her to help pleasure you, but she might not like it.  Or you could be a nice ${this.player.guyGirl()} and let her go...\n\nDo you force her to pleasure you?`,
                         false
                     );
                 } else if (this.player.statusAffectv1(StatusAffects.FaerieFucked) < 10) {
@@ -49,9 +47,7 @@ export class Faerie extends BaseContent {
                     );
                 } else
                     this.outx(
-                        '\n\nYou lazily make a grab for her and easily snatch her out of the air.  Her body is sticky with a mix of desire and your last encounter.  You can feel her humping against your pinky while she begs, "<i>Come on, let me crawl into your ' +
-                            this.player.armorName +
-                            " and wrap myself around your shaft.  I promise I'll only drink a little pre-cum this time, just enough to let me get off.  I'll be a good faerie slut, just let me get you off!</i>\"\n\nDo you let the faerie get you off?",
+                        `\n\nYou lazily make a grab for her and easily snatch her out of the air.  Her body is sticky with a mix of desire and your last encounter.  You can feel her humping against your pinky while she begs, "<i>Come on, let me crawl into your ${this.player.armorName} and wrap myself around your shaft.  I promise I'll only drink a little pre-cum this time, just enough to let me get off.  I'll be a good faerie slut, just let me get you off!</i>"\n\nDo you let the faerie get you off?`,
                         false
                     );
                 this.dynStats("lus", this.player.lib / 10 + 2);
@@ -143,85 +139,71 @@ export class Faerie extends BaseContent {
         // Special Taurness
         if (this.player.isTaur()) {
             this.outx(
-                "\n\nYou bop the tiny Faerie on the head to daze her briefly, then place her on a branch. You back yourself up against the tiny creature, lifting your tail so she can see your " +
-                    this.vaginaDescript(0) +
-                    ". The scent washes toward her and you hear a high pitched giggle; evidently that was more than enough to give her quite the contact high.  You feel a strange sensation in your slit as she slides her legs inside you and wraps her arms around your " +
-                    this.clitDescript() +
-                    ".\n\n",
+                `\n\nYou bop the tiny Faerie on the head to daze her briefly, then place her on a branch. You back yourself up against the tiny creature, lifting your tail so she can see your ${this.vaginaDescript(
+                    0
+                )}. The scent washes toward her and you hear a high pitched giggle; evidently that was more than enough to give her quite the contact high.  You feel a strange sensation in your slit as she slides her legs inside you and wraps her arms around your ${this.clitDescript()}.\n\n`,
                 false
             );
 
             // [If cock-like clit:
             if (this.player.clitLength >= 3) {
                 this.outx(
-                    "The tiny fae begins jerking your clit like a cock, squeezing her arms tightly around you and sliding in and out of your " +
-                        this.vaginaDescript(0) +
-                        ". Her motions are frenetic and unpredictable, but incredibly pleasurable.  She starts licking at your " +
-                        this.clitDescript() +
-                        ' as your femcum runs down it, which only serves to make her more excited. She gets so excited that her legs start kicking wildly as she screams "<i>Swim! Swim! Swim! Swim!</i>" over and over again.  ',
+                    `The tiny fae begins jerking your clit like a cock, squeezing her arms tightly around you and sliding in and out of your ${this.vaginaDescript(
+                        0
+                    )}. Her motions are frenetic and unpredictable, but incredibly pleasurable.  She starts licking at your ${this.clitDescript()} as your femcum runs down it, which only serves to make her more excited. She gets so excited that her legs start kicking wildly as she screams "<i>Swim! Swim! Swim! Swim!</i>" over and over again.  `,
                     false
                 );
                 // [Small amount of cum:
                 if (this.player.vaginas[0].vaginalWetness <= VAGINA_WETNESS_WET)
                     this.outx(
-                        "The fae giggles more and more as the fluid seeps about her and your " +
-                            this.vaginaDescript(0) +
-                            " ripples. She hugs your " +
-                            this.clitDescript() +
-                            " tighter and starts gently gnawing at it, such a peculiar sensation that you cum suddenly, and wetly.  Her giggles quickly become all-out laughter, and she loses her grip on your clit, sprawling to the ground into a small puddle of femcum.\n\n",
+                        `The fae giggles more and more as the fluid seeps about her and your ${this.vaginaDescript(
+                            0
+                        )} ripples. She hugs your ${this.clitDescript()} tighter and starts gently gnawing at it, such a peculiar sensation that you cum suddenly, and wetly.  Her giggles quickly become all-out laughter, and she loses her grip on your clit, sprawling to the ground into a small puddle of femcum.\n\n`,
                         false
                     );
                 // [Normal amount of cum:
                 else if (this.player.vaginas[0].vaginalWetness <= VAGINA_WETNESS_DROOLING)
                     this.outx(
-                        "The fae giggles more and more as the fluid squirts about her and your " +
-                            this.vaginaDescript(0) +
-                            " ripples. She hugs your " +
-                            this.clitDescript() +
-                            " tighter and starts gently gnawing at it, such a peculiar sensation that you cum suddenly, and wetly.  Her giggles quickly become all-out laughter, and she loses her grip on your clit, sprawling to the ground into a puddle of femcum.\n\n",
+                        `The fae giggles more and more as the fluid squirts about her and your ${this.vaginaDescript(
+                            0
+                        )} ripples. She hugs your ${this.clitDescript()} tighter and starts gently gnawing at it, such a peculiar sensation that you cum suddenly, and wetly.  Her giggles quickly become all-out laughter, and she loses her grip on your clit, sprawling to the ground into a puddle of femcum.\n\n`,
                         false
                     );
                 // [Huge amount of cum:
                 else
                     this.outx(
-                        "The fae giggles more and more as the fluid sprays about her and your " +
-                            this.vaginaDescript(0) +
-                            " ripples. She hugs your " +
-                            this.clitDescript() +
-                            " tighter and starts gently gnawing at it, such a peculiar sensation that you cum suddenly, and wetly.  Her giggles quickly become all-out laughter, and she loses her grip on your clit, sprawling to the ground into a huge puddle of femcum, her giggling frame floating on the surface as her legs kick about erratically.\n\n",
+                        `The fae giggles more and more as the fluid sprays about her and your ${this.vaginaDescript(
+                            0
+                        )} ripples. She hugs your ${this.clitDescript()} tighter and starts gently gnawing at it, such a peculiar sensation that you cum suddenly, and wetly.  Her giggles quickly become all-out laughter, and she loses her grip on your clit, sprawling to the ground into a huge puddle of femcum, her giggling frame floating on the surface as her legs kick about erratically.\n\n`,
                         false
                     );
             }
             // [All other clits:
             else {
                 this.outx(
-                    "The tiny fae rubs her hands around your " +
-                        this.clitDescript() +
-                        ' as if entranced by it. Your body responds by pumping out more femcum, which she laps up happily.  She starts laughing maniacally and banging on your clit like a drum, periodically yelling out "<i>CONGA!</i>" for some reason. The strange ministrations feel incredible though, and you feel your love canal squeezing down on the faerie\'s tiny body.  ',
+                    `The tiny fae rubs her hands around your ${this.clitDescript()} as if entranced by it. Your body responds by pumping out more femcum, which she laps up happily.  She starts laughing maniacally and banging on your clit like a drum, periodically yelling out "<i>CONGA!</i>" for some reason. The strange ministrations feel incredible though, and you feel your love canal squeezing down on the faerie's tiny body.  `,
                     false
                 );
                 // [Small amount of cum:
                 if (this.player.vaginas[0].vaginalWetness <= VAGINA_WETNESS_WET)
                     this.outx(
-                        "You cum suddenly, and wetly. The fae giggles more and more as the fluid seeps about her and your " +
-                            this.vaginaDescript(0) +
-                            " ripples. Her giggles quickly become all-out laughter, and she loses her grip on your innards, sprawling to the ground into a small puddle of femcum.\n\n",
+                        `You cum suddenly, and wetly. The fae giggles more and more as the fluid seeps about her and your ${this.vaginaDescript(
+                            0
+                        )} ripples. Her giggles quickly become all-out laughter, and she loses her grip on your innards, sprawling to the ground into a small puddle of femcum.\n\n`,
                         false
                     );
                 // [Normal amount of cum:
                 else if (this.player.vaginas[0].vaginalWetness <= VAGINA_WETNESS_DROOLING)
                     this.outx(
-                        "You cum suddenly, and wetly. The fae giggles more and more as the fluid squirts around her and your " +
-                            this.vaginaDescript(0) +
-                            " ripples. Her giggles quickly become all-out laughter, and she loses her grip on your innards, sprawling to the ground into a puddle of femcum.\n\n",
+                        `You cum suddenly, and wetly. The fae giggles more and more as the fluid squirts around her and your ${this.vaginaDescript(
+                            0
+                        )} ripples. Her giggles quickly become all-out laughter, and she loses her grip on your innards, sprawling to the ground into a puddle of femcum.\n\n`,
                         false
                     );
                 // [Huge amount of cum:
                 else
                     this.outx(
-                        "You cum suddenly, and wetly. The fae tries desperately to hold on to your " +
-                            this.clitDescript() +
-                            " but the amount of fluid overwhelms her and she's sent spiralling to the ground into a huge puddle of your fluid, her giggling frame floating on the surface as her legs kick about erratically.\n\n",
+                        `You cum suddenly, and wetly. The fae tries desperately to hold on to your ${this.clitDescript()} but the amount of fluid overwhelms her and she's sent spiralling to the ground into a huge puddle of your fluid, her giggling frame floating on the surface as her legs kick about erratically.\n\n`,
                         false
                     );
             }
@@ -229,9 +211,7 @@ export class Faerie extends BaseContent {
         // Non-Taurs
         else {
             this.outx(
-                "\n\nYou release the lower portion of your " +
-                    this.player.armorName +
-                    ", revealing your aroused slit to the faerie.  ",
+                `\n\nYou release the lower portion of your ${this.player.armorName}, revealing your aroused slit to the faerie.  `,
                 false
             );
             if (this.player.statusAffectv1(StatusAffects.FaerieFemFuck) < 4)
@@ -260,98 +240,68 @@ export class Faerie extends BaseContent {
             // (small) <= .50\"
             if (this.player.clitLength <= 0.5) {
                 this.outx(
-                    "She pulls apart your lips, revealing your tiny bud and repositioning herself to plant her feet inside you.  The flawless skin of her thighs pulls another gasp of pleasure from your lips.  They squeeze tightly around your " +
-                        this.clitDescript() +
-                        ", scissoring her gash across its sensitive surface.   You squirm, too engrossed in the rough grinding your button is receiving to worry about the faerie.   She clings to you, hanging on for dear life as your crotch nearly throws her free.  During the gyrations, she's slammed back into the " +
-                        this.clitDescript() +
-                        ", instantly penetrated by the nub with a wet 'schlick'.\n\n",
+                    `She pulls apart your lips, revealing your tiny bud and repositioning herself to plant her feet inside you.  The flawless skin of her thighs pulls another gasp of pleasure from your lips.  They squeeze tightly around your ${this.clitDescript()}, scissoring her gash across its sensitive surface.   You squirm, too engrossed in the rough grinding your button is receiving to worry about the faerie.   She clings to you, hanging on for dear life as your crotch nearly throws her free.  During the gyrations, she's slammed back into the ${this.clitDescript()}, instantly penetrated by the nub with a wet 'schlick'.\n\n`,
                     false
                 );
                 this.outx(
-                    "Squealing and bouncing as she hangs on tightly, the faerie noisily orgasms around your clit, squirting her own fluids into your aching " +
-                        this.vaginaDescript(0) +
-                        ".  The fluid tingles, and you shove your fingers in, smearing the sticky-sweet faerie-cum through your passage.   Before you can get far with it, your own orgasm goes off, squeezing your fingers and rippling around them, trying to milk your hand as if it was a dick.  Your legs go weak and wobbly, forcing you down on your " +
-                        this.buttDescript() +
-                        " as the waves of pleasure flow through you, soaking the faerie in girlcum.\n\n",
+                    `Squealing and bouncing as she hangs on tightly, the faerie noisily orgasms around your clit, squirting her own fluids into your aching ${this.vaginaDescript(
+                        0
+                    )}.  The fluid tingles, and you shove your fingers in, smearing the sticky-sweet faerie-cum through your passage.   Before you can get far with it, your own orgasm goes off, squeezing your fingers and rippling around them, trying to milk your hand as if it was a dick.  Your legs go weak and wobbly, forcing you down on your ${this.buttDescript()} as the waves of pleasure flow through you, soaking the faerie in girlcum.\n\n`,
                     false
                 );
             }
             // (medium) <= .1.25\"
             else if (this.player.clitLength <= 1.25) {
                 this.outx(
-                    "She watches, entranced as your " +
-                        this.clitDescript() +
-                        " hardens, poking between your lips, flushed with blood like a tiny cock.   The faerie swivels around, planting her dainty butt squarely on your snatch, sinking down a bit into the folds as she wraps her legs around the pulsating 'shaft'.   She hugs it, pressing it between her tiny breasts and licking it up and down, making you moan and squirm from unexpected stimulation of your most sensitive area.\n\n",
+                    `She watches, entranced as your ${this.clitDescript()} hardens, poking between your lips, flushed with blood like a tiny cock.   The faerie swivels around, planting her dainty butt squarely on your snatch, sinking down a bit into the folds as she wraps her legs around the pulsating 'shaft'.   She hugs it, pressing it between her tiny breasts and licking it up and down, making you moan and squirm from unexpected stimulation of your most sensitive area.\n\n`,
                     false
                 );
                 this.outx(
-                    "You spread your " +
-                        this.player.legs() +
-                        ", careful not to dislodge the faerie as she releases the " +
-                        this.clitDescript() +
-                        " and stands up, placing her dripping gash against the tip.   A quick plunge later and she's bottomed out, pressing her hips into the opening of your " +
-                        this.vaginaDescript(0) +
-                        " her feet slipping over the outer folds as she tries to maintain her balance.   You start rocking back and forth happily, bouncing the faerie up and down.  She moans, cute and barely audible, but sexy in a way that makes your sopping fuckhole even wetter.\n\n",
+                    `You spread your ${this.player.legs()}, careful not to dislodge the faerie as she releases the ${this.clitDescript()} and stands up, placing her dripping gash against the tip.   A quick plunge later and she's bottomed out, pressing her hips into the opening of your ${this.vaginaDescript(
+                        0
+                    )} her feet slipping over the outer folds as she tries to maintain her balance.   You start rocking back and forth happily, bouncing the faerie up and down.  She moans, cute and barely audible, but sexy in a way that makes your sopping fuckhole even wetter.\n\n`,
                     false
                 );
                 this.outx(
-                    "She orgasms on you, squirting copiously, drenching your " +
-                        this.clitDescript() +
-                        " and " +
-                        this.vaginaDescript(0) +
-                        " in clear faerie-fluid.  It tingles, wicking into your button and soaking into your snatch, enhancing every sensation.  You can feel the cool forest air as it flows over your vulva, seeming to stroke you, and without any chance of holding yourself back, you plunge your fingers into your " +
-                        this.vaginaDescript(0) +
-                        ", immediately orgasming from the penetration, not even noticing the exhausted faerie sliding off the large clit and slipping partway into your cunt.\n\n",
+                    `She orgasms on you, squirting copiously, drenching your ${this.clitDescript()} and ${this.vaginaDescript(
+                        0
+                    )} in clear faerie-fluid.  It tingles, wicking into your button and soaking into your snatch, enhancing every sensation.  You can feel the cool forest air as it flows over your vulva, seeming to stroke you, and without any chance of holding yourself back, you plunge your fingers into your ${this.vaginaDescript(
+                        0
+                    )}, immediately orgasming from the penetration, not even noticing the exhausted faerie sliding off the large clit and slipping partway into your cunt.\n\n`,
                     false
                 );
             }
             // (streeeetch – large) <= 4.5\"
             else if (this.player.clitLength <= 4.5) {
                 this.outx(
-                    "Entranced by the growing " +
-                        this.clitDescript() +
-                        ', the faerie caresses her body, watching your love-button swell up, not stopping until it looks too huge for her tiny frame.  She climbs in a circle around it, awestruck by the size and majesty of your cock-like button.    She looks up at you, aroused but worried, saying, "<i>You\'re so... BIG.  Oh goddess, I want to feel it inside me!</i>"\n\n',
+                    `Entranced by the growing ${this.clitDescript()}, the faerie caresses her body, watching your love-button swell up, not stopping until it looks too huge for her tiny frame.  She climbs in a circle around it, awestruck by the size and majesty of your cock-like button.    She looks up at you, aroused but worried, saying, "<i>You're so... BIG.  Oh goddess, I want to feel it inside me!</i>"\n\n`,
                     false
                 );
                 this.outx(
-                    "She grabs hold of its slippery surface with both hands and jumps, lifting her lower body up before gravity yanks it back down onto the tip of your " +
-                        this.clitDescript() +
-                        ".  The tip barely slips in, despite the slippery wetness of the faerie.   She screams, though in pleasure or pain you cannot be sure.  You reason that it must be pleasure, because the faerie is wiggling her hips and grabbing hold of the rest of your " +
-                        this.clitDescript() +
-                        ", straining to pull herself further down the fem-cock.  Her belly starts to distort, displaying the cylindrical bulge on her tummy, expanding and contracting slightly as each of your heart-beats works through your clit.\n\n",
+                    `She grabs hold of its slippery surface with both hands and jumps, lifting her lower body up before gravity yanks it back down onto the tip of your ${this.clitDescript()}.  The tip barely slips in, despite the slippery wetness of the faerie.   She screams, though in pleasure or pain you cannot be sure.  You reason that it must be pleasure, because the faerie is wiggling her hips and grabbing hold of the rest of your ${this.clitDescript()}, straining to pull herself further down the fem-cock.  Her belly starts to distort, displaying the cylindrical bulge on her tummy, expanding and contracting slightly as each of your heart-beats works through your clit.\n\n`,
                     false
                 );
                 this.outx(
-                    "In time, she manages to fully impale herself, quivering in orgasm as she gets off from the vibrations your pounding heart sends through your " +
-                        this.clitDescript() +
-                        ".  Her tongue lolls out and her eyes roll back, shut down by the extreme penetration, pain, and pleasure of the act.  You feel her cum soaking into you, sliding down into your slit and making your sensitive slit tingle.  Watching her get off is all it takes to bring you to orgasm with her, and the walls of your " +
-                        this.vaginaDescript(0) +
-                        " clamp down hungrily, contracting and gushing fluids over the faerie as she lies there, impaled on your crotch like a perverted ornament.\n\n",
+                    `In time, she manages to fully impale herself, quivering in orgasm as she gets off from the vibrations your pounding heart sends through your ${this.clitDescript()}.  Her tongue lolls out and her eyes roll back, shut down by the extreme penetration, pain, and pleasure of the act.  You feel her cum soaking into you, sliding down into your slit and making your sensitive slit tingle.  Watching her get off is all it takes to bring you to orgasm with her, and the walls of your ${this.vaginaDescript(
+                        0
+                    )} clamp down hungrily, contracting and gushing fluids over the faerie as she lies there, impaled on your crotch like a perverted ornament.\n\n`,
                     false
                 );
             }
             // (too big) (else – hump dat shit)
             else {
                 this.outx(
-                    "Entranced by your swollen " +
-                        this.clitDescript() +
-                        ', the faerie watches it slowly erect, filling with blood like a smooth over-sensitive cock.  She tentatively touches it, gasping and pulling back when it twitches in response.   With a look of awe, she turns to you and says, "<i>There\'s no way I could take this beautiful monster, but I know I can make it feel good!</i>"\n\n',
+                    `Entranced by your swollen ${this.clitDescript()}, the faerie watches it slowly erect, filling with blood like a smooth over-sensitive cock.  She tentatively touches it, gasping and pulling back when it twitches in response.   With a look of awe, she turns to you and says, "<i>There's no way I could take this beautiful monster, but I know I can make it feel good!</i>"\n\n`,
                     false
                 );
                 this.outx(
-                    "She jumps onto it, making it bounce in the air as it takes her relatively insubstantial weight.  Embracing it in a full-body hug, she starts grinding on it, smearing her thick faerie juices into the clit and giggling every time you twitch from the feeling.  You squirm, sinking down from the raw sensation, your " +
-                        this.player.legs() +
-                        " giving out underneath you.   Grabbing hold of a stump, you try to steady yourself, but the faerie humping your " +
-                        this.clitDescript() +
-                        " is interfering with your motor ability, and you slump into the forest loam, happily twitching as orgasm washes over you.\n\n",
+                    `She jumps onto it, making it bounce in the air as it takes her relatively insubstantial weight.  Embracing it in a full-body hug, she starts grinding on it, smearing her thick faerie juices into the clit and giggling every time you twitch from the feeling.  You squirm, sinking down from the raw sensation, your ${this.player.legs()} giving out underneath you.   Grabbing hold of a stump, you try to steady yourself, but the faerie humping your ${this.clitDescript()} is interfering with your motor ability, and you slump into the forest loam, happily twitching as orgasm washes over you.\n\n`,
                     false
                 );
                 this.outx(
-                    "Your " +
-                        this.clitDescript() +
-                        " jumps, throwing the tiny woman off.  She slips and scrabbles across the surface of your " +
-                        this.vaginaDescript(0) +
-                        ", sliding into your soaking gash.  She's squeezed tightly, sloshed around in the wetness of your orgasm.   The faerie's eyes cross, as she grows dizzy and battered in the sizzling whirlpool that is your groin.\n\n",
+                    `Your ${this.clitDescript()} jumps, throwing the tiny woman off.  She slips and scrabbles across the surface of your ${this.vaginaDescript(
+                        0
+                    )}, sliding into your soaking gash.  She's squeezed tightly, sloshed around in the wetness of your orgasm.   The faerie's eyes cross, as she grows dizzy and battered in the sizzling whirlpool that is your groin.\n\n`,
                     false
                 );
             }
@@ -368,9 +318,9 @@ export class Faerie extends BaseContent {
         // [REPEAT LOW]
         else if (this.player.statusAffectv1(StatusAffects.FaerieFemFuck) <= 5) {
             this.outx(
-                "The faerie slowly drags herself out of your " +
-                    this.vaginaDescript(0) +
-                    ', smiling broadly with her eyes dilated wide.  She slips off you, dropping to the ground and giggling, "<i>Everything feels so soft.  Mmmm that was fun!</i>"\n\n',
+                `The faerie slowly drags herself out of your ${this.vaginaDescript(
+                    0
+                )}, smiling broadly with her eyes dilated wide.  She slips off you, dropping to the ground and giggling, "<i>Everything feels so soft.  Mmmm that was fun!</i>"\n\n`,
                 false
             );
             this.outx(
@@ -424,9 +374,9 @@ export class Faerie extends BaseContent {
             this.outx("Eventually you both find a rhythm and soon she's moaning loudly.  ", false);
             if (this.player.hasVagina())
                 this.outx(
-                    "With your other hand you start diddling your " +
-                        this.vaginaDescript(0) +
-                        ", adding your own soft moans to hers.  ",
+                    `With your other hand you start diddling your ${this.vaginaDescript(
+                        0
+                    )}, adding your own soft moans to hers.  `,
                     false
                 );
             this.outx(
@@ -525,18 +475,16 @@ export class Faerie extends BaseContent {
             );
         }
         this.outx(
-            "You let her loose and she hovers in place, as if pondering her one last chance to escape.  She sighs and looks back up, blushing fiercely as she lands on your hip and gazes down at the bulge of your groin.  You can't help but laugh as she slips under your " +
-                this.player.armorName +
-                ", crawling across your sensitive thigh towards your " +
-                this.multiCockDescriptLight() +
-                ".\n\n",
+            `You let her loose and she hovers in place, as if pondering her one last chance to escape.  She sighs and looks back up, blushing fiercely as she lands on your hip and gazes down at the bulge of your groin.  You can't help but laugh as she slips under your ${
+                this.player.armorName
+            }, crawling across your sensitive thigh towards your ${this.multiCockDescriptLight()}.\n\n`,
             false
         );
         // Taurs get a special scene!
         if (this.player.isTaur()) {
-            this.outx("The tiny Faerie climbs on top of your " + this.cockDescript(0), false);
+            this.outx(`The tiny Faerie climbs on top of your ${this.cockDescript(0)}`, false);
             if (this.player.cockTotal() > 0)
-                this.outx("largest " + Appearance.cockNoun(CockTypesEnum.HUMAN), false);
+                this.outx(`largest ${Appearance.cockNoun(CockTypesEnum.HUMAN)}`, false);
             this.outx(
                 " and crawls about on it for a while, getting used to its shape and taking in deep lungfuls of its musky odor. She wraps herself around you and begins rubbing herself up and down your hard length. As she moves around her tiny slit leaks cum in long streaks, teasing you with a cunt you can't penetrate. Pre begins to leak steadily from your tip as the faerie continues to work her way around, moaning quietly and betraying her inner desire.\n\n",
                 false
@@ -546,9 +494,7 @@ export class Faerie extends BaseContent {
                 false
             );
             this.outx(
-                "She smashes onto the end of your " +
-                    this.multiCockDescriptLight() +
-                    " and grasps at it. Her face crushes into your urethra as her tiny legs wrap themselves around the tip. Your wildly flailing cock starts to grow larger as your orgasm approaches, but the faerie doesn't notice as she happily drinks up your pre.\n\n",
+                `She smashes onto the end of your ${this.multiCockDescriptLight()} and grasps at it. Her face crushes into your urethra as her tiny legs wrap themselves around the tip. Your wildly flailing cock starts to grow larger as your orgasm approaches, but the faerie doesn't notice as she happily drinks up your pre.\n\n`,
                 false
             );
             // [No testicles:
@@ -567,17 +513,13 @@ export class Faerie extends BaseContent {
                 // [Normal amount of cum:
                 else if (this.player.cumQ() < 200)
                     this.outx(
-                        "Your semen washes into her face and she loses her grip on your " +
-                            this.multiCockDescriptLight() +
-                            ". She falls with a splat onto the pre soaked ground and you spray her with periodic spurts of fresh cum.\n\n",
+                        `Your semen washes into her face and she loses her grip on your ${this.multiCockDescriptLight()}. She falls with a splat onto the pre soaked ground and you spray her with periodic spurts of fresh cum.\n\n`,
                         false
                     );
                 // [Huge amount of cum:
                 else
                     this.outx(
-                        "Your semen collides with her face and she is propelled off of your cock onto the pre soaked ground. Your " +
-                            this.ballsDescriptLight() +
-                            " continue pumping out cum like a hose until she's almost swimming in it.\n\n",
+                        `Your semen collides with her face and she is propelled off of your cock onto the pre soaked ground. Your ${this.ballsDescriptLight()} continue pumping out cum like a hose until she's almost swimming in it.\n\n`,
                         false
                     );
             }
@@ -591,9 +533,7 @@ export class Faerie extends BaseContent {
                 );
             else if (this.player.statusAffectv1(StatusAffects.FaerieFucked) < 15)
                 this.outx(
-                    "The faerie burps and laughs drunkenly, patting the side of your " +
-                        this.player.leg() +
-                        ' and slurring, "<i>Oh by Marae\'s ripe titsh!  I needed that.  Do you thhink you could catsch me again?  I love feeling your cum coating my body.</i>"\n\n',
+                    `The faerie burps and laughs drunkenly, patting the side of your ${this.player.leg()} and slurring, "<i>Oh by Marae's ripe titsh!  I needed that.  Do you thhink you could catsch me again?  I love feeling your cum coating my body.</i>"\n\n`,
                     false
                 );
             else
@@ -621,23 +561,23 @@ export class Faerie extends BaseContent {
                 );
             else if (this.player.cocks[0].cockType == CockTypesEnum.HORSE)
                 this.outx(
-                    "climbs atop your " +
-                        this.cockDescript(0) +
-                        ", hanging onto your ring of prepuce and wrapping her legs as far around your horse-like maleness as she can.  ",
+                    `climbs atop your ${this.cockDescript(
+                        0
+                    )}, hanging onto your ring of prepuce and wrapping her legs as far around your horse-like maleness as she can.  `,
                     false
                 );
             else if (this.player.cocks[0].cockType == CockTypesEnum.DEMON)
                 this.outx(
-                    "climbs atop your " +
-                        this.cockDescript(0) +
-                        ", hanging on to the corrupted nubs and nodules as she threads her legs between them, squeezing you tightly as she hangs on.  You can feel her wet gash sitting atop a particularly sensitive bump, teasing you with a tiny cunt you'll never be able to penetrate.  ",
+                    `climbs atop your ${this.cockDescript(
+                        0
+                    )}, hanging on to the corrupted nubs and nodules as she threads her legs between them, squeezing you tightly as she hangs on.  You can feel her wet gash sitting atop a particularly sensitive bump, teasing you with a tiny cunt you'll never be able to penetrate.  `,
                     false
                 );
             else if (this.player.cocks[0].cockType == CockTypesEnum.TENTACLE)
                 this.outx(
-                    "climbs onto your squirming " +
-                        this.cockDescript(0) +
-                        ", wrapping her legs tightly around it as it wiggles and writhes with excitement.  Unbidden, it curls around and rubs its reddish-purple head against her face like an animal.  She gives it a gentle squeeze and licks it.  ",
+                    `climbs onto your squirming ${this.cockDescript(
+                        0
+                    )}, wrapping her legs tightly around it as it wiggles and writhes with excitement.  Unbidden, it curls around and rubs its reddish-purple head against her face like an animal.  She gives it a gentle squeeze and licks it.  `,
                     false
                 );
             else
@@ -646,22 +586,16 @@ export class Faerie extends BaseContent {
                     false
                 );
             this.outx(
-                "Your internal muscles clench unconsciously, squeezing out a dollop of pre that rolls down into the faerie's hair, soaking her head and face.  You can't see her reaction, but you can feel it oozing between her body and you, lubricating her as she humps and rubs against you.  Tiny muffled moans escape your " +
-                    this.player.armorName +
-                    ", indicating that some part of her is enjoying the task.\n\n",
+                `Your internal muscles clench unconsciously, squeezing out a dollop of pre that rolls down into the faerie's hair, soaking her head and face.  You can't see her reaction, but you can feel it oozing between her body and you, lubricating her as she humps and rubs against you.  Tiny muffled moans escape your ${this.player.armorName}, indicating that some part of her is enjoying the task.\n\n`,
                 false
             );
             this.outx(
-                "Though she can only stimulate a few inches of you at a time, it feels really good – better than it should, and a budding warmth on the edge of release builds inside you.  Too late you realize you should have gotten at least partially undressed.  You cum before you can do anything about it, splattering your " +
-                    this.player.armorName +
-                    " with seed and leaving a wet patch on the crotch.  You can feel it dripping back onto you and the faerie as more spunk squirts out, soaking the tiny girl in spooge as the wet spot grows.  ",
+                `Though she can only stimulate a few inches of you at a time, it feels really good – better than it should, and a budding warmth on the edge of release builds inside you.  Too late you realize you should have gotten at least partially undressed.  You cum before you can do anything about it, splattering your ${this.player.armorName} with seed and leaving a wet patch on the crotch.  You can feel it dripping back onto you and the faerie as more spunk squirts out, soaking the tiny girl in spooge as the wet spot grows.  `,
                 false
             );
             if (this.player.cumQ() > 250) {
                 this.outx(
-                    "You cum uncontrollably, regretting your fertility as your body paints the inside of your " +
-                        this.player.armorName +
-                        " with goopy whiteness.  ",
+                    `You cum uncontrollably, regretting your fertility as your body paints the inside of your ${this.player.armorName} with goopy whiteness.  `,
                     false
                 );
                 if (this.player.cumQ() > 500)
@@ -688,9 +622,7 @@ export class Faerie extends BaseContent {
                 );
             else if (this.player.statusAffectv1(StatusAffects.FaerieFucked) < 15)
                 this.outx(
-                    "The faerie burps and laughs drunkenly, patting the side of your " +
-                        this.player.leg() +
-                        ' and slurring, "<i>Oh by Marae\'s ripe titsh!  I needed that.  Do you thhink you could catsch me again?  I love feeling your cum coating my body.</i>"\n\n',
+                    `The faerie burps and laughs drunkenly, patting the side of your ${this.player.leg()} and slurring, "<i>Oh by Marae's ripe titsh!  I needed that.  Do you thhink you could catsch me again?  I love feeling your cum coating my body.</i>"\n\n`,
                     false
                 );
             else

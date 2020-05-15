@@ -282,9 +282,7 @@ export class Maddie extends TelAdreAbstractContent {
         this.spriteSelect(39);
         this.outx("", true);
         this.outx(
-            "You try to speak as calmly as you can in the face of a giant, jiggling sex-pastry, but she ignores your demands to 'wait', 'listen', or 'stop'.  Sponge-cake-soft fists envelop your arms, lifting you from the ground to pin you against some flour sacks.   The cherries covering the cupcake-girl's whipped-cream bra drop off, pushed away by two candy-pink nipples the size of water bottles.  As one, they discharge thick splorts of thick, gooey icing to splatter over the length of your exposed arms.  It hardens nigh-instantaneously in the comparatively cool air, and you're helpless to do anything but squirm as she applies the same treatment to your " +
-                this.player.legs() +
-                ", immobilizing you completely.\n\n",
+            `You try to speak as calmly as you can in the face of a giant, jiggling sex-pastry, but she ignores your demands to 'wait', 'listen', or 'stop'.  Sponge-cake-soft fists envelop your arms, lifting you from the ground to pin you against some flour sacks.   The cherries covering the cupcake-girl's whipped-cream bra drop off, pushed away by two candy-pink nipples the size of water bottles.  As one, they discharge thick splorts of thick, gooey icing to splatter over the length of your exposed arms.  It hardens nigh-instantaneously in the comparatively cool air, and you're helpless to do anything but squirm as she applies the same treatment to your ${this.player.legs()}, immobilizing you completely.\n\n`,
             false
         );
         this.outx(
@@ -308,11 +306,9 @@ export class Maddie extends TelAdreAbstractContent {
             let x: number = this.player.cockThatFits(60);
             if (x < 0) x = 0;
             this.outx(
-                "\"<i>Dad said my name is Madeleine, but that's no fun.  Just call me Maddie.  You've got lots of icing like Dad, right?  I-I... need more icing.  It's in my recipe,</i>\" says Maddie.  The baked broad strips your " +
-                    this.player.armorName +
-                    " to expose your " +
-                    this.multiCockDescriptLight() +
-                    ".  Cooing with excitement, she examines your ",
+                `"<i>Dad said my name is Madeleine, but that's no fun.  Just call me Maddie.  You've got lots of icing like Dad, right?  I-I... need more icing.  It's in my recipe,</i>" says Maddie.  The baked broad strips your ${
+                    this.player.armorName
+                } to expose your ${this.multiCockDescriptLight()}.  Cooing with excitement, she examines your `,
                 false
             );
             if (this.player.lust >= 75) this.outx("rock-hard");
@@ -338,11 +334,11 @@ export class Maddie extends TelAdreAbstractContent {
                 this.outx("You offhandedly mention that you don't actually make icing.", false);
             else this.outx("You smirk and mention that what you squirt isn't quite icing.", false);
             this.outx(
-                '  "<i>Liar!  If that wasn\'t icing, then why would Daddy have put his in all those eclairs and me?</i>" retorts the busty cupcake, continuing on to say, "<i>I know, I can suck it out!</i>"  She purses her jelly-like lips and plunges forward, slurping all ' +
-                    Maddie.num2Text(Math.floor(this.player.cocks[x].cockLength)) +
-                    " inches into her oven-warmed esophagus.  Your protests are cut off by the tightness squeezing around your " +
-                    this.cockDescript(x) +
-                    ".  It milks you in rippling motions, buttery-slick and pulsing hungrily.\n\n",
+                `  "<i>Liar!  If that wasn't icing, then why would Daddy have put his in all those eclairs and me?</i>" retorts the busty cupcake, continuing on to say, "<i>I know, I can suck it out!</i>"  She purses her jelly-like lips and plunges forward, slurping all ${Maddie.num2Text(
+                    Math.floor(this.player.cocks[x].cockLength)
+                )} inches into her oven-warmed esophagus.  Your protests are cut off by the tightness squeezing around your ${this.cockDescript(
+                    x
+                )}.  It milks you in rippling motions, buttery-slick and pulsing hungrily.\n\n`,
                 false
             );
 
@@ -350,28 +346,25 @@ export class Maddie extends TelAdreAbstractContent {
             if (!this.player.hasSheath()) this.outx("encircles the base");
             else this.outx("pokes and prods into your sheath");
             this.outx(
-                ", leaving a syrupy residue trailing over your " +
-                    this.cockDescript(x) +
-                    ".  You groan, sagging into the sugary suspension.  The strength is completely gone from your limbs, stolen by the pastry's prick-devouring maw.  Her shining eyes look up to gloat once she realizes how completely you've submitted to her ministrations, and in no time, her cake-soft hands catch and squeeze your " +
-                    this.cockDescript(x) +
-                    " into the gargantuan swell of her spongy breasts.  A smile crosses your face as you get pleasured by the motherly mounds and the familiar, sweet smell that Maddie exudes.\n\n",
+                `, leaving a syrupy residue trailing over your ${this.cockDescript(
+                    x
+                )}.  You groan, sagging into the sugary suspension.  The strength is completely gone from your limbs, stolen by the pastry's prick-devouring maw.  Her shining eyes look up to gloat once she realizes how completely you've submitted to her ministrations, and in no time, her cake-soft hands catch and squeeze your ${this.cockDescript(
+                    x
+                )} into the gargantuan swell of her spongy breasts.  A smile crosses your face as you get pleasured by the motherly mounds and the familiar, sweet smell that Maddie exudes.\n\n`,
                 false
             );
 
             this.outx(
-                "Suction starts, hollowing the cupcake-girl's plush cheeks into a concave, cock-slurping form.  The constant squeezing of your " +
-                    this.cockDescript(x) +
-                    " combines with the sucking to make you swell larger inside Maddie's gullet while she kisses your groin.  The confection's oral charms show no signs of stopping as she noisily slurps away at her treat, and her pillowy breasts are so spongy-soft and calming that you're happy to let her sample your 'icing' if it means you can feel like this.  Your " +
-                    this.hipDescript() +
-                    " push back into the baby blue lips, pumping and thrusting as your instinct to fuck and breed takes over, working your " +
-                    this.cockDescript(x) +
-                    " in and out of the pastry's puckered mouth.\n\n",
+                `Suction starts, hollowing the cupcake-girl's plush cheeks into a concave, cock-slurping form.  The constant squeezing of your ${this.cockDescript(
+                    x
+                )} combines with the sucking to make you swell larger inside Maddie's gullet while she kisses your groin.  The confection's oral charms show no signs of stopping as she noisily slurps away at her treat, and her pillowy breasts are so spongy-soft and calming that you're happy to let her sample your 'icing' if it means you can feel like this.  Your ${this.hipDescript()} push back into the baby blue lips, pumping and thrusting as your instinct to fuck and breed takes over, working your ${this.cockDescript(
+                    x
+                )} in and out of the pastry's puckered mouth.\n\n`,
                 false
             );
 
             this.outx(
-                "Maddie pushes further forward, her bosom crushing you against the wall to hold your hips immobile while she sucks harder and harder.  Your cock balloons from the suction, thickening inside her neck and beginning to twitch from the irresistible fellative pleasure. An orgasm grows in your " +
-                    this.ballsDescriptLight(),
+                `Maddie pushes further forward, her bosom crushing you against the wall to hold your hips immobile while she sucks harder and harder.  Your cock balloons from the suction, thickening inside her neck and beginning to twitch from the irresistible fellative pleasure. An orgasm grows in your ${this.ballsDescriptLight()}`,
                 false
             );
             if (this.player.balls > 0)
@@ -387,9 +380,9 @@ export class Maddie extends TelAdreAbstractContent {
             this.outx("Maddie milks you for what seems like ages");
             if (this.player.cockTotal() == 1)
                 this.outx(
-                    ", your " +
-                        this.cockDescript(x) +
-                        " emptying every drop of jizz into the baked cum-tank.",
+                    `, your ${this.cockDescript(
+                        x
+                    )} emptying every drop of jizz into the baked cum-tank.`,
                     false
                 );
             else {
@@ -414,16 +407,15 @@ export class Maddie extends TelAdreAbstractContent {
             );
 
             this.outx(
-                'The cream-filled creation leans back and squirts some more icing onto the straps holding you, but instead of reinforcing the bonds, it eats through the hardened confection to release you into her waiting bosom.  She catches you in the pillowy chest-embrace, stroking your hair while she says in a sing-song voice, "<i>Thanks for all the icing ' +
-                    this.player.mf("mister", "miss") +
-                    "!  I think I have enough for now.  I think I'll go like, check on my Dad and stuff.  Maybe he wants to add some icing to the recipe?</i>\"\n\n",
+                `The cream-filled creation leans back and squirts some more icing onto the straps holding you, but instead of reinforcing the bonds, it eats through the hardened confection to release you into her waiting bosom.  She catches you in the pillowy chest-embrace, stroking your hair while she says in a sing-song voice, "<i>Thanks for all the icing ${this.player.mf(
+                    "mister",
+                    "miss"
+                )}!  I think I have enough for now.  I think I'll go like, check on my Dad and stuff.  Maybe he wants to add some icing to the recipe?</i>"\n\n`,
                 false
             );
 
             this.outx(
-                "Oven-warmed tiles kiss your exposed " +
-                    this.buttDescript() +
-                    " as you're gently placed on the floor next to your discarded equipment.  Exhausted and satiated as you are, your eyes drift closed, lulling you into slumber.\n\n",
+                `Oven-warmed tiles kiss your exposed ${this.buttDescript()} as you're gently placed on the floor next to your discarded equipment.  Exhausted and satiated as you are, your eyes drift closed, lulling you into slumber.\n\n`,
                 false
             );
 
@@ -455,9 +447,10 @@ export class Maddie extends TelAdreAbstractContent {
             );
 
             this.outx(
-                "\"<i>Shhh, shhh... that's a good " +
-                    this.player.mf("boy", "girl") +
-                    '.  Isn\'t my icing the absolute best?</i>" she verbally gushes, just like the nipple between your teeth.  "<i>Drink up',
+                `"<i>Shhh, shhh... that's a good ${this.player.mf(
+                    "boy",
+                    "girl"
+                )}.  Isn't my icing the absolute best?</i>" she verbally gushes, just like the nipple between your teeth.  "<i>Drink up`,
                 false
             );
             if (this.player.thickness < 60) this.outx(", you're looking awful thin");

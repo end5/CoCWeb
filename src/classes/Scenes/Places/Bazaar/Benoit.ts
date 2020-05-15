@@ -264,9 +264,9 @@ export class Benoit extends BazaarAbstractContent {
             // Missed it by a week
             if (this.flags[kFLAGS.FEMOIT_INCUBATION] < -168) {
                 this.outx(
-                    "When you enter the stall, you notice that Benoite's stomach is flat again. She gives you a toothy grin when you enter her stall. \"<i>I have good newz [name]! You are a fazer! " +
-                        String(this.flags[kFLAGS.FEMOIT_EGGS]) +
-                        " timez over in fact! Oh I wish zat you could have helped; but I was ztrong, ztrong enough get through it on my own.</i>\" she gushes, speaking at a mile-a-minute. She's clearly pleased with herself; and your virility."
+                    `When you enter the stall, you notice that Benoite's stomach is flat again. She gives you a toothy grin when you enter her stall. "<i>I have good newz [name]! You are a fazer! ${String(
+                        this.flags[kFLAGS.FEMOIT_EGGS]
+                    )} timez over in fact! Oh I wish zat you could have helped; but I was ztrong, ztrong enough get through it on my own.</i>" she gushes, speaking at a mile-a-minute. She's clearly pleased with herself; and your virility.`
                 );
 
                 this.outx(
@@ -342,16 +342,15 @@ export class Benoit extends BazaarAbstractContent {
                 this.firstTimeAfterBoningEncounterBenoit();
             else if (this.benoitAffection() < 35)
                 this.outx(
-                    "Once again, you carefully enter the gloom of Benoit's salvage shop.  The proprietor sniffs the air as you enter, and then relaxes in his seat.  \"<i>Allo again, " +
-                        this.player.short +
-                        ".  What brings you 'ere?</i>\""
+                    `Once again, you carefully enter the gloom of Benoit's salvage shop.  The proprietor sniffs the air as you enter, and then relaxes in his seat.  "<i>Allo again, ${this.player.short}.  What brings you 'ere?</i>"`
                 );
             // Subsequent Visit, Affection 35+ but pre-lover/pre-fem:
             else {
                 this.outx(
-                    "Once again, you carefully enter the gloom of " +
-                        this.benoitMF("Benoit", "Benoite") +
-                        "'s salvage shop.  The proprietor sniffs the air as you enter, and then smiles widely.  \"<i>If it isn't my favorite customer!  Do not 'ang around out zere, [name]; please, come in and let us, 'ow you say, chew ze fat.</i>\""
+                    `Once again, you carefully enter the gloom of ${this.benoitMF(
+                        "Benoit",
+                        "Benoite"
+                    )}'s salvage shop.  The proprietor sniffs the air as you enter, and then smiles widely.  "<i>If it isn't my favorite customer!  Do not 'ang around out zere, [name]; please, come in and let us, 'ow you say, chew ze fat.</i>"`
                 );
 
                 // Preggers stuff
@@ -462,24 +461,21 @@ export class Benoit extends BazaarAbstractContent {
                 '"<i>Some may call zis junk,</i>" says Benoit, indicating his latest wares.  "<i>Me... I call it garbage.</i>"'
             );
         }
-        this.outx("\n\n<b><u>" + this.benoitMF("Benoit", "Benoite") + "'s Prices</u></b>", false);
+        this.outx(`\n\n<b><u>${this.benoitMF("Benoit", "Benoite")}'s Prices</u></b>`, false);
         this.outx(
-            "\n" +
-                ItemType.lookupItem(this.flags[kFLAGS.BENOIT_1]).longName +
-                ": " +
-                Math.round(buyMod * ItemType.lookupItem(this.flags[kFLAGS.BENOIT_1]).value)
+            `\n${ItemType.lookupItem(this.flags[kFLAGS.BENOIT_1]).longName}: ${Math.round(
+                buyMod * ItemType.lookupItem(this.flags[kFLAGS.BENOIT_1]).value
+            )}`
         );
         this.outx(
-            "\n" +
-                ItemType.lookupItem(this.flags[kFLAGS.BENOIT_2]).longName +
-                ": " +
-                Math.round(buyMod * ItemType.lookupItem(this.flags[kFLAGS.BENOIT_2]).value)
+            `\n${ItemType.lookupItem(this.flags[kFLAGS.BENOIT_2]).longName}: ${Math.round(
+                buyMod * ItemType.lookupItem(this.flags[kFLAGS.BENOIT_2]).value
+            )}`
         );
         this.outx(
-            "\n" +
-                ItemType.lookupItem(this.flags[kFLAGS.BENOIT_3]).longName +
-                ": " +
-                Math.round(buyMod * ItemType.lookupItem(this.flags[kFLAGS.BENOIT_3]).value)
+            `\n${ItemType.lookupItem(this.flags[kFLAGS.BENOIT_3]).longName}: ${Math.round(
+                buyMod * ItemType.lookupItem(this.flags[kFLAGS.BENOIT_3]).value
+            )}`
         );
         this.simpleChoices(
             this.flags[kFLAGS.BENOIT_1],
@@ -500,16 +496,15 @@ export class Benoit extends BazaarAbstractContent {
         if (this.flags[kFLAGS.BENOIT_EXPLAINED_SHOP] == 0) this.buyOrSellExplanationFirstTime();
         else
             this.outx(
-                '"<i>Let us feel what you are trying to palm off upon me zis time, zen,</i>" sighs Benoit' +
-                    this.benoitMF("", "e") +
-                    ", sitting down and opening " +
-                    this.benoitMF("his", "her") +
-                    " hand to you."
+                `"<i>Let us feel what you are trying to palm off upon me zis time, zen,</i>" sighs Benoit${this.benoitMF(
+                    "",
+                    "e"
+                )}, sitting down and opening ${this.benoitMF("his", "her")} hand to you.`
             );
         let sellMod = 3;
         if (this.flags[kFLAGS.BENOIT_EGGS] > 0 || this.flags[kFLAGS.BENOIT_STATUS] != 0)
             sellMod = 2;
-        this.outx("\n\n<b><u>Benoit" + this.benoitMF("", "e") + "'s Estimates</u></b>");
+        this.outx(`\n\n<b><u>Benoit${this.benoitMF("", "e")}'s Estimates</u></b>`);
         this.menu();
         let totalItems = 0;
         for (let slot = 0; slot < 5; slot++) {
@@ -518,17 +513,13 @@ export class Benoit extends BazaarAbstractContent {
                 Math.floor(this.player.itemSlots[slot].itype.value / sellMod) >= 1
             ) {
                 this.outx(
-                    "\n" +
-                        Math.floor(this.player.itemSlots[slot].itype.value / sellMod) +
-                        " gems for " +
-                        this.player.itemSlots[slot].itype.longName +
-                        "."
+                    `\n${Math.floor(this.player.itemSlots[slot].itype.value / sellMod)} gems for ${
+                        this.player.itemSlots[slot].itype.longName
+                    }.`
                 );
                 this.addButton(
                     slot,
-                    this.player.itemSlots[slot].itype.shortName +
-                        " x" +
-                        this.player.itemSlots[slot].quantity,
+                    `${this.player.itemSlots[slot].itype.shortName} x${this.player.itemSlots[slot].quantity}`,
                     this.createCallBackFunction2(this.benoitSellTransact, slot, sellMod)
                 );
                 totalItems += this.player.itemSlots[slot].quantity;
@@ -562,19 +553,23 @@ export class Benoit extends BazaarAbstractContent {
         }
         if (this.benoitLover())
             this.outx(
-                "After examining what you've picked out with " +
-                    this.benoitMF("his", "her") +
-                    " fingers, " +
-                    this.benoitMF("Benoit", "Benoite") +
-                    " hands it over and accepts your gems with a grin."
+                `After examining what you've picked out with ${this.benoitMF(
+                    "his",
+                    "her"
+                )} fingers, ${this.benoitMF(
+                    "Benoit",
+                    "Benoite"
+                )} hands it over and accepts your gems with a grin.`
             );
         else
             this.outx(
-                "After examining what you've picked out with " +
-                    this.benoitMF("his", "her") +
-                    " fingers, " +
-                    this.benoitMF("Benoit", "Benoite") +
-                    " hands it over, names the price and accepts your gems with a curt nod.\n\n"
+                `After examining what you've picked out with ${this.benoitMF(
+                    "his",
+                    "her"
+                )} fingers, ${this.benoitMF(
+                    "Benoit",
+                    "Benoite"
+                )} hands it over, names the price and accepts your gems with a curt nod.\n\n`
             );
         // (+3 Affection)
         this.benoitAffection(3);
@@ -588,11 +583,13 @@ export class Benoit extends BazaarAbstractContent {
         this.clearOutput();
         if (this.benoitLover())
             this.outx(
-                "Benoit" +
-                    this.benoitMF("", "e") +
-                    " gives your object the briefest of goings-over with " +
-                    this.benoitMF("his", "her") +
-                    " fingers before stowing it away and handing over your gem reward with a trusting smile."
+                `Benoit${this.benoitMF(
+                    "",
+                    "e"
+                )} gives your object the briefest of goings-over with ${this.benoitMF(
+                    "his",
+                    "her"
+                )} fingers before stowing it away and handing over your gem reward with a trusting smile.`
             );
         else
             this.outx(
@@ -622,19 +619,21 @@ export class Benoit extends BazaarAbstractContent {
         }
         if (this.benoitLover())
             this.outx(
-                "Benoit" +
-                    this.benoitMF("", "e") +
-                    " gives your objects the briefest of goings-over with " +
-                    this.benoitMF("his", "her") +
-                    " fingers before stowing them away and handing over your " +
-                    Benoit.num2Text(itemValue) +
-                    " gem reward with a trusting smile."
+                `Benoit${this.benoitMF(
+                    "",
+                    "e"
+                )} gives your objects the briefest of goings-over with ${this.benoitMF(
+                    "his",
+                    "her"
+                )} fingers before stowing them away and handing over your ${Benoit.num2Text(
+                    itemValue
+                )} gem reward with a trusting smile.`
             );
         else
             this.outx(
-                "Following a painstaking examination of the items you've given him with his hands and nose, Benoit grudgingly accepts them and carefully counts out your " +
-                    Benoit.num2Text(itemValue) +
-                    " gem reward."
+                `Following a painstaking examination of the items you've given him with his hands and nose, Benoit grudgingly accepts them and carefully counts out your ${Benoit.num2Text(
+                    itemValue
+                )} gem reward.`
             );
         this.player.gems += itemValue;
         this.statScreenRefresh();
@@ -718,11 +717,10 @@ export class Benoit extends BazaarAbstractContent {
             this.player.hasVagina()
         ) {
             this.outx(
-                "You ask " +
-                    this.benoitMF("Benoit", "Benoite") +
-                    " if " +
-                    this.benoitMF("he", "she") +
-                    " has ever thought about trying to do something to help his people's plight."
+                `You ask ${this.benoitMF("Benoit", "Benoite")} if ${this.benoitMF(
+                    "he",
+                    "she"
+                )} has ever thought about trying to do something to help his people's plight.`
             );
 
             this.outx(
@@ -829,39 +827,40 @@ export class Benoit extends BazaarAbstractContent {
             const choice: number = choices[Benoit.rand(choices.length)];
             // (Randomly generated)
             if (choice == 0) {
+                this.outx(`You ask if all basilisks talk as ${this.benoitMF("he", "she")} does.`);
                 this.outx(
-                    "You ask if all basilisks talk as " + this.benoitMF("he", "she") + " does."
-                );
-                this.outx(
-                    '\n\n"<i>Only on zis side of ze mountain,</i>" comes the reply.  "<i>Ze uzzer side are all stuck-up snobs who speak \'orribly.  Zey are all pale and flabby too, and zeir cooking is terrible.  Pwah!</i>"  ' +
-                        this.benoitMF("He", "She") +
-                        " makes an exasperated gesture with a claw."
+                    `\n\n"<i>Only on zis side of ze mountain,</i>" comes the reply.  "<i>Ze uzzer side are all stuck-up snobs who speak 'orribly.  Zey are all pale and flabby too, and zeir cooking is terrible.  Pwah!</i>"  ${this.benoitMF(
+                        "He",
+                        "She"
+                    )} makes an exasperated gesture with a claw.`
                 );
             } else if (choice == 1) {
-                this.outx("You ask " + this.benoitMF("Benoit", "Benoite") + " about the dog.");
+                this.outx(`You ask ${this.benoitMF("Benoit", "Benoite")} about the dog.`);
                 this.outx(
                     "\n\n\"<i>Pierre 'asn't been giving you trouble, as 'e?  Big stupid mutt does not know 'is mouth from 'is arse.  Which is why 'e checks so often,</i>\" says the basilisk fondly, rubbing the Alsatian behind his ear.  \"<i>I found 'im prowling around eating scraps from ze food sellers when I first got ere; I sink 'e must 'ave belonged to anuzzer trader 'oo left him behind.  I do not sink I could run this shop without him - every evening I go out into the wilds with him and 'unt down more salvage.  'Ee is so good at finding perfectly good sings other people 'ave left behind.  Particularly cloze.  'E loves robes, Pierre.  Don't you, boy?</i>\"  Pierre whines."
                 );
             } else if (choice == 2) {
+                this.outx(`You ask ${this.benoitMF("him", "her")} about the sign above the shop.`);
                 this.outx(
-                    "You ask " + this.benoitMF("him", "her") + " about the sign above the shop."
-                );
-                this.outx(
-                    "\n\n\"<i>It's good, isn't it?</i>\"  the trader says proudly.  \"<i>I got a catguy to do it when I first got 'ere and didn't know ze language so well.  'E suggested...</i>\"  " +
-                        this.benoitMF("He", "She") +
-                        " spreads " +
-                        this.benoitMF("his", "her") +
-                        " claws expressively.  \"<i>'Salamander's Salubrious Salvage'.  Because, everyone likes salamanders, and once zey get in and realize I am not a salamander and it is just a play on words, zey would be so entranced by what I am selling zey would not care.</i>\"  " +
-                        this.benoitMF("Benoit", "Benoite") +
-                        ' taps the counter happily.  "<i>In gold print, too!  It is a surprise it has not brought more customers in.</i>"'
+                    `\n\n"<i>It's good, isn't it?</i>"  the trader says proudly.  "<i>I got a catguy to do it when I first got 'ere and didn't know ze language so well.  'E suggested...</i>"  ${this.benoitMF(
+                        "He",
+                        "She"
+                    )} spreads ${this.benoitMF(
+                        "his",
+                        "her"
+                    )} claws expressively.  "<i>'Salamander's Salubrious Salvage'.  Because, everyone likes salamanders, and once zey get in and realize I am not a salamander and it is just a play on words, zey would be so entranced by what I am selling zey would not care.</i>"  ${this.benoitMF(
+                        "Benoit",
+                        "Benoite"
+                    )} taps the counter happily.  "<i>In gold print, too!  It is a surprise it has not brought more customers in.</i>"`
                 );
                 this.outx("\n\nYou decide not to disillusion the blind basilisk.");
             } else if (choice == 3) {
-                this.outx("You ask if " + this.benoitMF("he", "she") + " has always been blind.");
+                this.outx(`You ask if ${this.benoitMF("he", "she")} has always been blind.`);
                 this.outx(
-                    '\n\n"<i>I don\'t know,</i>" ' +
-                        this.benoitMF("he", "she") +
-                        ' says. "<i>Ask me what red is.</i>"'
+                    `\n\n"<i>I don't know,</i>" ${this.benoitMF(
+                        "he",
+                        "she"
+                    )} says. "<i>Ask me what red is.</i>"`
                 );
                 this.outx("\n\nYou ask what red is.");
                 this.outx(
@@ -870,137 +869,160 @@ export class Benoit extends BazaarAbstractContent {
                 this.outx("\n\nYou decide not to pursue the subject.");
             } else if (choice == 4) {
                 this.outx(
-                    "You ask " +
-                        this.benoitMF("Benoit", "Benoite") +
-                        " how " +
-                        this.benoitMF("he", "she") +
-                        " got into this line of work."
+                    `You ask ${this.benoitMF("Benoit", "Benoite")} how ${this.benoitMF(
+                        "he",
+                        "she"
+                    )} got into this line of work.`
                 );
                 this.outx(
-                    '\n\n"<i>I \'ave always worked with salvage,</i>" ' +
-                        this.benoitMF("he", "she") +
-                        " shrugs.  \"<i>Back in ze mountains I worked in ze magpie room - obviously, because I was no good on ze outside.  You can tell from ze weight of sings, and 'ow zey smell, what it is and 'ow much it is worth.  More zan zat you can tell... what it meant to its last owner.  Zat is ze true worse of an object.</i>\"  " +
-                        this.benoitMF("He", "She") +
-                        " taps his claws on the counter, lost in thought.  \"<i>Ze magpie room is amazing, [name], I wish I could show it to you.  Such good acoustics, filled with ze sound and smell of a thousand pieces of junk - every day a new symphony.  And 'oo would ever steal ze demons' treasures?  You would 'ave to be mad to try to steal from a hall full of basilisks.  Or blind.</i>\""
+                    `\n\n"<i>I 'ave always worked with salvage,</i>" ${this.benoitMF(
+                        "he",
+                        "she"
+                    )} shrugs.  "<i>Back in ze mountains I worked in ze magpie room - obviously, because I was no good on ze outside.  You can tell from ze weight of sings, and 'ow zey smell, what it is and 'ow much it is worth.  More zan zat you can tell... what it meant to its last owner.  Zat is ze true worse of an object.</i>"  ${this.benoitMF(
+                        "He",
+                        "She"
+                    )} taps his claws on the counter, lost in thought.  "<i>Ze magpie room is amazing, [name], I wish I could show it to you.  Such good acoustics, filled with ze sound and smell of a thousand pieces of junk - every day a new symphony.  And 'oo would ever steal ze demons' treasures?  You would 'ave to be mad to try to steal from a hall full of basilisks.  Or blind.</i>"`
                 );
                 this.outx(
-                    "\n\n" +
-                        this.benoitMF("He", "She") +
-                        ' laughs throatily, then sighs.  "<i>Ah, but it was rotten, really - always a sour note underneath everysing.  A thousand basilisks, driven by nussing but greed and lust.  I got sick of it, being stuck in zat place with zose thoughts, zat \'opeless cycle, and one day ran away.  I took what I could carry and used zat to start up here.  Away from ze mountains, I can zink clearly.  I can say what ze uzzer basilisks only know at ze back of zeir minds.</i>"  ' +
-                        this.benoitMF("Benoit", "Benoite") +
-                        ' slams a fist into the counter, making you jump.  "<i>Don\'t ever make a deal with a demon, [name],</i>" ' +
-                        this.benoitMF("he", "she") +
-                        ' says, voice thick with rage.  "<i>Even when you sink it is a win-win?  Zey will still find a way to fuck you good.</i>"'
+                    `\n\n${this.benoitMF(
+                        "He",
+                        "She"
+                    )} laughs throatily, then sighs.  "<i>Ah, but it was rotten, really - always a sour note underneath everysing.  A thousand basilisks, driven by nussing but greed and lust.  I got sick of it, being stuck in zat place with zose thoughts, zat 'opeless cycle, and one day ran away.  I took what I could carry and used zat to start up here.  Away from ze mountains, I can zink clearly.  I can say what ze uzzer basilisks only know at ze back of zeir minds.</i>"  ${this.benoitMF(
+                        "Benoit",
+                        "Benoite"
+                    )} slams a fist into the counter, making you jump.  "<i>Don't ever make a deal with a demon, [name],</i>" ${this.benoitMF(
+                        "he",
+                        "she"
+                    )} says, voice thick with rage.  "<i>Even when you sink it is a win-win?  Zey will still find a way to fuck you good.</i>"`
                 );
                 this.dynStats("cor", -1);
             } else if (choice == 5) {
                 this.outx(
-                    "You ask Benoit if " +
-                        this.benoitMF("he", "she") +
-                        " can tell you anything about the Bazaar."
+                    `You ask Benoit if ${this.benoitMF(
+                        "he",
+                        "she"
+                    )} can tell you anything about the Bazaar.`
                 );
 
                 this.outx(
-                    '\n\n"<i>You are really asking zis question to a blind person?</i>" comes the reply.  "<i>Ok, I will tell you what I know, for what it is worth.  Over zeir by ze fire, I know zeir are lizans having a good time, because zey shout insults when zey get really drunk.  Zey would get violent with me I sink, if it weren\'t for Pierre.  Zeir leader has a big problem with her male hormones, judging from ze way she smells.</i>"  ' +
-                        this.benoitMF("He", "She") +
-                        ' sniggers with a distinct lack of sympathy.  "<i>In ze uzzer direction, I can smell a lot of males together in one place.  Smell like zey are doing something very macho - and a bit painful, from ze sound of zeir walk afterwards.</i>"  ' +
-                        this.benoitMF("He", "She") +
-                        ' points in the opposite direction.  "<i>Zerr are plenty of, ow you say, crumpets who work around here.  Some of zem can do some pretty wild sings for you, for a fee.  Or so I\'m told.</i>"  ' +
-                        this.benoitMF("He", "She") +
-                        " coughs."
+                    `\n\n"<i>You are really asking zis question to a blind person?</i>" comes the reply.  "<i>Ok, I will tell you what I know, for what it is worth.  Over zeir by ze fire, I know zeir are lizans having a good time, because zey shout insults when zey get really drunk.  Zey would get violent with me I sink, if it weren't for Pierre.  Zeir leader has a big problem with her male hormones, judging from ze way she smells.</i>"  ${this.benoitMF(
+                        "He",
+                        "She"
+                    )} sniggers with a distinct lack of sympathy.  "<i>In ze uzzer direction, I can smell a lot of males together in one place.  Smell like zey are doing something very macho - and a bit painful, from ze sound of zeir walk afterwards.</i>"  ${this.benoitMF(
+                        "He",
+                        "She"
+                    )} points in the opposite direction.  "<i>Zerr are plenty of, ow you say, crumpets who work around here.  Some of zem can do some pretty wild sings for you, for a fee.  Or so I'm told.</i>"  ${this.benoitMF(
+                        "He",
+                        "She"
+                    )} coughs.`
                 );
             } else if (choice == 6) {
                 this.outx(
-                    "You ask " +
-                        this.benoitMF("Benoit", "Benoite") +
-                        " for any rumors going around."
+                    `You ask ${this.benoitMF("Benoit", "Benoite")} for any rumors going around.`
                 );
                 // [Deep cave cleared:
                 if (this.flags[kFLAGS.DEFEATED_ZETAZ] > 0)
                     this.outx(
-                        '\n\n"<i>Somesing strange did \'appen ze uzzer day, now you mention it,</i>" ' +
-                            this.benoitMF("he", "she") +
-                            " says, tapping a curved tooth.  \"<i>I got a big group of imps in ere.  I normally don't serve zem because zey are always stealing sings whilst one of zem is paying, but zese guys seemed too worked up to even sink about lifting ze shop - zey smelt of fear.  Zey were buying lots of food and survival gear - one of zem kept going on and on about ze fact zey left \"<i>ze fairy</i>\" behind, until one of ze uzzers slapped 'im and said if 'ee didn't shut up, 'ee would be ze fairy.</i>\"  " +
-                            this.benoitMF("Benoit", "Benoite") +
-                            ' shrugs.  "<i>Nasty little sings.  Tasty, though.</i>"'
+                        `\n\n"<i>Somesing strange did 'appen ze uzzer day, now you mention it,</i>" ${this.benoitMF(
+                            "he",
+                            "she"
+                        )} says, tapping a curved tooth.  "<i>I got a big group of imps in ere.  I normally don't serve zem because zey are always stealing sings whilst one of zem is paying, but zese guys seemed too worked up to even sink about lifting ze shop - zey smelt of fear.  Zey were buying lots of food and survival gear - one of zem kept going on and on about ze fact zey left "<i>ze fairy</i>" behind, until one of ze uzzers slapped 'im and said if 'ee didn't shut up, 'ee would be ze fairy.</i>"  ${this.benoitMF(
+                            "Benoit",
+                            "Benoite"
+                        )} shrugs.  "<i>Nasty little sings.  Tasty, though.</i>"`
                     );
                 // [Factory not cleared:
                 else if (this.player.findStatusAffect(StatusAffects.DungeonShutDown) < 0)
                     this.outx(
-                        '\n\n"<i>Not anysing very interesting,</i>" ' +
-                            this.benoitMF("he", "she") +
-                            " shrugs.  \"<i>I get a few customers from ze desert city, Tel'Adre, coming in 'ere in secret to pick up a few sings zey cannot find back 'ome.  So zey are still a sing.  You 'ave to wonder ow much longer zey can keep hiding, though.</i>\""
+                        `\n\n"<i>Not anysing very interesting,</i>" ${this.benoitMF(
+                            "he",
+                            "she"
+                        )} shrugs.  "<i>I get a few customers from ze desert city, Tel'Adre, coming in 'ere in secret to pick up a few sings zey cannot find back 'ome.  So zey are still a sing.  You 'ave to wonder ow much longer zey can keep hiding, though.</i>"`
                     );
                 else {
                     // [Factory destroyed:
                     if (this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0) {
                         this.outx(
-                            "\n\n\"<i>I don't know what is 'appening exactly,</i>\" " +
-                                this.benoitMF("he", "she") +
-                                ' says, leaning over the counter. "<i>But ze demons \'oo I trade with, zey seem very worked up about sumsing.  Sumsing went wrong at one of zeir facilities, I sink.  I also get a number of shark ladies coming in ere, asking if I sell fresh water.  Zey also seem very unhappy.</i>"'
+                            `\n\n"<i>I don't know what is 'appening exactly,</i>" ${this.benoitMF(
+                                "he",
+                                "she"
+                            )} says, leaning over the counter. "<i>But ze demons 'oo I trade with, zey seem very worked up about sumsing.  Sumsing went wrong at one of zeir facilities, I sink.  I also get a number of shark ladies coming in ere, asking if I sell fresh water.  Zey also seem very unhappy.</i>"`
                         );
                     } else
                         this.outx(
-                            "\n\n\"<i>I don't know what is 'appening exactly,</i>\" " +
-                                this.benoitMF("he", "she") +
-                                ' says, leaning over the counter.  "<i>But ze demons \'oo I trade with, zey seem very worked up about somesing.  Sumsing went wrong at one of zeir facilities, I sink.  I also hear a number of passers-by talking about ze lake.  Apparently it is much cleaner now; many are going back to use it for water.  Now if only someone could make zose crazy cultists go away, eh?</i>"'
+                            `\n\n"<i>I don't know what is 'appening exactly,</i>" ${this.benoitMF(
+                                "he",
+                                "she"
+                            )} says, leaning over the counter.  "<i>But ze demons 'oo I trade with, zey seem very worked up about somesing.  Sumsing went wrong at one of zeir facilities, I sink.  I also hear a number of passers-by talking about ze lake.  Apparently it is much cleaner now; many are going back to use it for water.  Now if only someone could make zose crazy cultists go away, eh?</i>"`
                         );
                 }
             } else if (choice == 7) {
                 this.outx(
-                    "You ask if " +
-                        this.benoitMF("he", "she") +
-                        "'s ever had any trouble with the demons who frequent the Bazaar."
+                    `You ask if ${this.benoitMF(
+                        "he",
+                        "she"
+                    )}'s ever had any trouble with the demons who frequent the Bazaar.`
                 );
                 this.outx(
-                    '\n\n"<i>Not really,</i>" ' +
-                        this.benoitMF("he", "she") +
-                        " replies.  \"<i>I don't like zem, but zey are my main source of income.  Zey are always coming in here to sell zeir fluids.  The truth is it's worthless - I pour most of ze disgusting stuff away.  But it is worth paying for zeir custom because zey are always buying many more potions.  It isn't a good demon party unless you 'ave sprouted two new dicks and four new nipples for it, apparently.  Always one of zem is asking if zey can 'do ze dinosaur' as way of payment.  I 'ate zem so much.</i>\""
+                    `\n\n"<i>Not really,</i>" ${this.benoitMF(
+                        "he",
+                        "she"
+                    )} replies.  "<i>I don't like zem, but zey are my main source of income.  Zey are always coming in here to sell zeir fluids.  The truth is it's worthless - I pour most of ze disgusting stuff away.  But it is worth paying for zeir custom because zey are always buying many more potions.  It isn't a good demon party unless you 'ave sprouted two new dicks and four new nipples for it, apparently.  Always one of zem is asking if zey can 'do ze dinosaur' as way of payment.  I 'ate zem so much.</i>"`
                 );
                 if (this.silly())
                     this.outx(
-                        "\n\nThe basilisk rubs Pierre behind the ear as " +
-                            this.benoitMF("he", "she") +
-                            " thinks.  \"<i>I did once get a group of demons coming in ere, asking me what 'cheese omelette' is in basilisk.  When I told zem, zey ran away laughing, shouting 'Zat is all you can say! Zat is all you can say!'</i>\"  " +
-                            this.benoitMF("He", "She") +
-                            ' shrugs, irritated.  "<i>Arseholes.</i>"'
+                        `\n\nThe basilisk rubs Pierre behind the ear as ${this.benoitMF(
+                            "he",
+                            "she"
+                        )} thinks.  "<i>I did once get a group of demons coming in ere, asking me what 'cheese omelette' is in basilisk.  When I told zem, zey ran away laughing, shouting 'Zat is all you can say! Zat is all you can say!'</i>"  ${this.benoitMF(
+                            "He",
+                            "She"
+                        )} shrugs, irritated.  "<i>Arseholes.</i>"`
                     );
             } else if (choice == 8) {
                 this.outx(
-                    "You ask " +
-                        this.benoitMF("Benoit", "Benoite") +
-                        " what results when basilisks mate with harpies."
+                    `You ask ${this.benoitMF(
+                        "Benoit",
+                        "Benoite"
+                    )} what results when basilisks mate with harpies.`
                 );
                 this.outx(
-                    '\n\n"<i>Most of ze time?  Basilisks,</i>" ' +
-                        this.benoitMF("he", "she") +
-                        " replies, carefully counting gems with " +
-                        this.benoitMF("his", "her") +
-                        " fingers.  \"<i>Some of ze time?  'Arpies.  But ze arpies feed zeir basilisk children to zeir chicks if ze former do not get away in time, so it works out.  Really, we are doing zem and ze world a favor by stealing zeir eggs - if we weren't around ze 'ole world would be drowned in guano by now.</i>\"  Satisfied with the takings, " +
-                        this.benoitMF("he", "she") +
-                        ' stows the money away underneath the counter.  "<i>Very rarely, you get cockatrices.  Now ZEY are weird-looking.</i>"'
+                    `\n\n"<i>Most of ze time?  Basilisks,</i>" ${this.benoitMF(
+                        "he",
+                        "she"
+                    )} replies, carefully counting gems with ${this.benoitMF(
+                        "his",
+                        "her"
+                    )} fingers.  "<i>Some of ze time?  'Arpies.  But ze arpies feed zeir basilisk children to zeir chicks if ze former do not get away in time, so it works out.  Really, we are doing zem and ze world a favor by stealing zeir eggs - if we weren't around ze 'ole world would be drowned in guano by now.</i>"  Satisfied with the takings, ${this.benoitMF(
+                        "he",
+                        "she"
+                    )} stows the money away underneath the counter.  "<i>Very rarely, you get cockatrices.  Now ZEY are weird-looking.</i>"`
                 );
             } else if (choice == 9) {
                 // non-lover non-fem only
                 this.outx(
-                    "You ask if " +
-                        this.benoitMF("Benoit", "Benoite") +
-                        " really can tell who you are just by smell."
+                    `You ask if ${this.benoitMF(
+                        "Benoit",
+                        "Benoite"
+                    )} really can tell who you are just by smell.`
                 );
 
                 if (this.player.race() == "human")
                     this.outx(
-                        '\n\n"<i>Certainly!</i>" ' +
-                            this.benoitMF("he", "she") +
-                            ' smiles.  "<i>Ze smell of shaved monkey is distinctive.  I get very few \'uman customers, you know.</i>"  The basilisk scratches ' +
-                            this.benoitMF("his", "her") +
-                            ' jaw absent-mindedly.  "<i>If you do not mind me saying so, [name], you also smell... different.  Like you do not really belong \'ere.  In ze nicest possible way, of course.</i>"'
+                        `\n\n"<i>Certainly!</i>" ${this.benoitMF(
+                            "he",
+                            "she"
+                        )} smiles.  "<i>Ze smell of shaved monkey is distinctive.  I get very few 'uman customers, you know.</i>"  The basilisk scratches ${this.benoitMF(
+                            "his",
+                            "her"
+                        )} jaw absent-mindedly.  "<i>If you do not mind me saying so, [name], you also smell... different.  Like you do not really belong 'ere.  In ze nicest possible way, of course.</i>"`
                     );
                 else
                     this.outx(
-                        '\n\n"<i>Certainly!</i>" ' +
-                            this.benoitMF("he", "she") +
-                            " smiles.  \"<i>Ze smell of shaved monkey is distinctive.  I get very few 'uman customers, you know.</i>\"  You look down at yourself, then back at the basilisk suspiciously, before saying you don't much look or feel human.  \"<i>Oh, I do not doubt zat,</i>\" says the trader.  \"<i>You 'umans and your flexible genes - zat makes you very alluring, as I am sure you 'ave already noticed, eh?  I am sure somebody 'oo relied upon sight would not be able to tell you are 'uman.  But 'oo you are underneath all zat, zat never changes, and I can smell zat.  All you are doing really is dressing up as something else.  If you wanted to, you could change back tomorrow, if you 'ad ze right ingredienns.</i>\""
+                        `\n\n"<i>Certainly!</i>" ${this.benoitMF(
+                            "he",
+                            "she"
+                        )} smiles.  "<i>Ze smell of shaved monkey is distinctive.  I get very few 'uman customers, you know.</i>"  You look down at yourself, then back at the basilisk suspiciously, before saying you don't much look or feel human.  "<i>Oh, I do not doubt zat,</i>" says the trader.  "<i>You 'umans and your flexible genes - zat makes you very alluring, as I am sure you 'ave already noticed, eh?  I am sure somebody 'oo relied upon sight would not be able to tell you are 'uman.  But 'oo you are underneath all zat, zat never changes, and I can smell zat.  All you are doing really is dressing up as something else.  If you wanted to, you could change back tomorrow, if you 'ad ze right ingredienns.</i>"`
                     );
                 // [(male Benoit only)
                 if (this.benoitMF("he", "she") == "he")
@@ -1016,9 +1038,10 @@ export class Benoit extends BazaarAbstractContent {
                 );
 
                 this.outx(
-                    "\n\n\"<i>I'm afraid I cannot be very 'elpful zeir, [name],</i>\" " +
-                        this.benoitMF("he", "she") +
-                        ' sighs.  "<i>Unless you want me to tell you what zey smell like.  I do not sink you want to be knowing zis.  Ze demons, zey were not much in ze business of telling us what zeir plans were, and zey did not much like \'anging around us, which is understandable.   Zair is every treasure you can ever imagine in ze magpie room, but zeir is no way you could ever get at zem unless you could work out some way of making many undreds of basilisks close zeir eyes at once.</i>"'
+                    `\n\n"<i>I'm afraid I cannot be very 'elpful zeir, [name],</i>" ${this.benoitMF(
+                        "he",
+                        "she"
+                    )} sighs.  "<i>Unless you want me to tell you what zey smell like.  I do not sink you want to be knowing zis.  Ze demons, zey were not much in ze business of telling us what zeir plans were, and zey did not much like 'anging around us, which is understandable.   Zair is every treasure you can ever imagine in ze magpie room, but zeir is no way you could ever get at zem unless you could work out some way of making many undreds of basilisks close zeir eyes at once.</i>"`
                 );
             } else if (choice == 11) {
                 this.outx(
@@ -1123,9 +1146,7 @@ export class Benoit extends BazaarAbstractContent {
         );
 
         this.outx(
-            '\n\n("<i>Suggest</i>" option added to ' +
-                this.benoitMF("Benoit's", "Benoite's") +
-                " menu.)"
+            `\n\n("<i>Suggest</i>" option added to ${this.benoitMF("Benoit's", "Benoite's")} menu.)`
         );
     }
 
@@ -1177,9 +1198,7 @@ export class Benoit extends BazaarAbstractContent {
                 "\n\n“You- I- what?” he replies, looking slightly stunned. “You don't? Are you... I don't know if....” You reach across and squeeze Benoit's hands until his nervous babble dies out and hesitantly, he squeezes back.  Still holding his hand, you move behind the crates and then gently lead him behind the stall's canopy."
             );
             this.outx(
-                "\n\nWhat passes for Benoit's back office is perfect for your purposes; the two wagons between which his stall is sandwiched close together here and the triangular space is filled with crates and unsorted salvage.  You carefully inch your blind charge to a clear cranny and push him against a wooden wall, standing back to slowly peel off your " +
-                    this.player.armorName +
-                    ".  You grin as you ostentatiously drop each piece onto the packed earth, allowing him to guess what it is by the sound it makes.  His breathing comes heavier as your undergarments make a feathery sound as they fall."
+                `\n\nWhat passes for Benoit's back office is perfect for your purposes; the two wagons between which his stall is sandwiched close together here and the triangular space is filled with crates and unsorted salvage.  You carefully inch your blind charge to a clear cranny and push him against a wooden wall, standing back to slowly peel off your ${this.player.armorName}.  You grin as you ostentatiously drop each piece onto the packed earth, allowing him to guess what it is by the sound it makes.  His breathing comes heavier as your undergarments make a feathery sound as they fall.`
             );
             this.outx(
                 "\n\n“Zis will sound strange,” says Benoit in a thick voice, “But- would you mind if I just touched you a bit first? All I know about you is ze sound of your voice.”  You acquiesce and draw close, taking his hands once again and gently laying them upon you.  You sigh as, holding his index claws back, he begins to move them slowly up and down."
@@ -1394,9 +1413,7 @@ export class Benoit extends BazaarAbstractContent {
                 if (!this.player.isTaur()) this.outx("  Stuck between your two burning bodies, y");
                 else this.outx("Y");
                 this.outx(
-                    "our " +
-                        this.cockDescript(0) +
-                        " spurts in sympathy to your female high, soaking "
+                    `our ${this.cockDescript(0)} spurts in sympathy to your female high, soaking `
                 );
                 if (!this.player.isTaur()) this.outx("both of you");
                 else this.outx("the dry dirt");
@@ -1539,9 +1556,9 @@ export class Benoit extends BazaarAbstractContent {
             );
         } else {
             this.outx(
-                "For the moment you don't do anything; you simply stand back and let his hands slowly move across your frame.  One of his hands comes to rest upon your " +
-                    this.nippleDescript(0) +
-                    "; as he gently teases and kneads the soft, sensitive flesh his other hand drift downwards, across your belly, around over the crack of your [butt] then down to cup your behind.  Although he is familiar with your frame by now, Benoit never seems to stop being enthralled by your body; there is an unconscious frown of concentration on his face as his smooth hands move across your warm skin, as if he were mapping you in his mind's eye."
+                `For the moment you don't do anything; you simply stand back and let his hands slowly move across your frame.  One of his hands comes to rest upon your ${this.nippleDescript(
+                    0
+                )}; as he gently teases and kneads the soft, sensitive flesh his other hand drift downwards, across your belly, around over the crack of your [butt] then down to cup your behind.  Although he is familiar with your frame by now, Benoit never seems to stop being enthralled by your body; there is an unconscious frown of concentration on his face as his smooth hands move across your warm skin, as if he were mapping you in his mind's eye.`
             );
 
             this.outx(
@@ -1666,9 +1683,9 @@ export class Benoit extends BazaarAbstractContent {
             );
         } else {
             this.outx(
-                "For the moment you don't do anything; you simply stand back and let his hands slowly move across your frame.  One of his hands comes to rest upon your " +
-                    this.nippleDescript(0) +
-                    "; as he gently teases and kneads the soft, sensitive flesh his other hand drift downwards, across your belly, around over the crack of your [butt] then down to cup your behind.  Although he is familiar with your frame by now Benoit never seems to stop being enthralled by your body; there is an unconscious frown of concentration on his face as his smooth hands move across your warm skin, as if he were mapping you in his mind's eye."
+                `For the moment you don't do anything; you simply stand back and let his hands slowly move across your frame.  One of his hands comes to rest upon your ${this.nippleDescript(
+                    0
+                )}; as he gently teases and kneads the soft, sensitive flesh his other hand drift downwards, across your belly, around over the crack of your [butt] then down to cup your behind.  Although he is familiar with your frame by now Benoit never seems to stop being enthralled by your body; there is an unconscious frown of concentration on his face as his smooth hands move across your warm skin, as if he were mapping you in his mind's eye.`
             );
 
             if (this.player.hasCock())
@@ -1725,9 +1742,7 @@ export class Benoit extends BazaarAbstractContent {
                 if (!this.player.isTaur()) this.outx("  Stuck between your two burning bodies, y");
                 else this.outx("Y");
                 this.outx(
-                    "our " +
-                        this.cockDescript(0) +
-                        " spurts in sympathy to your female high, soaking "
+                    `our ${this.cockDescript(0)} spurts in sympathy to your female high, soaking `
                 );
                 if (!this.player.isTaur()) this.outx("both of you");
                 else this.outx("the dry dirt");
@@ -1762,9 +1777,10 @@ export class Benoit extends BazaarAbstractContent {
             )
         ) {
             this.outx(
-                "You don't have the necessary ingredients to attempt this yet.  You recall " +
-                    this.benoitMF("Benoit", "Benoite") +
-                    " mentioning that you would need Reptilum, two Ovi Elixirs, and Goblin Ale."
+                `You don't have the necessary ingredients to attempt this yet.  You recall ${this.benoitMF(
+                    "Benoit",
+                    "Benoite"
+                )} mentioning that you would need Reptilum, two Ovi Elixirs, and Goblin Ale.`
             );
             this.doNext(this.benoitIntro);
         }
@@ -1985,9 +2001,9 @@ export class Benoit extends BazaarAbstractContent {
         this.outx(".");
 
         this.outx(
-            "\n\nWhen you find yourself able to stand, you examine what it is you have birthed: " +
-                Benoit.num2Text(Math.floor(this.player.totalFertility() / 10)) +
-                " large, jade-colored eggs, the unmistakable shape of reptile eggs.  You pick one up and hold it gently against your ear; inside, you can hear a little heart, beating strong and quick; Benoit's child and yours.  You place the egg back down and gather them all up, moving them closer to the campfire to warm while you recover from your exertions."
+            `\n\nWhen you find yourself able to stand, you examine what it is you have birthed: ${Benoit.num2Text(
+                Math.floor(this.player.totalFertility() / 10)
+            )} large, jade-colored eggs, the unmistakable shape of reptile eggs.  You pick one up and hold it gently against your ear; inside, you can hear a little heart, beating strong and quick; Benoit's child and yours.  You place the egg back down and gather them all up, moving them closer to the campfire to warm while you recover from your exertions.`
         );
 
         this.outx(
@@ -2081,9 +2097,10 @@ export class Benoit extends BazaarAbstractContent {
             );
 
             this.outx(
-                '\n\n("<i>Feminize</i>" option added to ' +
-                    this.benoitMF("Benoit's", "Benoite's") +
-                    " menu.)"
+                `\n\n("<i>Feminize</i>" option added to ${this.benoitMF(
+                    "Benoit's",
+                    "Benoite's"
+                )} menu.)`
             );
 
             this.flags[kFLAGS.FEMOIT_UNLOCKED] = 1;
@@ -2176,9 +2193,10 @@ export class Benoit extends BazaarAbstractContent {
         );
 
         this.outx(
-            '\n\nShe sounds slightly choked, and stops for a moment. "<i> It is very, very little, but for you I buy and sell sings at zeir true value.  If zere is anysing I can do for you, ever, please just say. </i >"  You are slightly embarrassed by her effusiveness and mumble something along the lines of it being all her doing.  Perhaps aware of this, Benoite sits back down, hatches her fingers and smiles at you primly.  "<i> Now... is ' +
-                this.player.mf("sir", "madam") +
-                ' buying or selling? </i>" '
+            `\n\nShe sounds slightly choked, and stops for a moment. "<i> It is very, very little, but for you I buy and sell sings at zeir true value.  If zere is anysing I can do for you, ever, please just say. </i >"  You are slightly embarrassed by her effusiveness and mumble something along the lines of it being all her doing.  Perhaps aware of this, Benoite sits back down, hatches her fingers and smiles at you primly.  "<i> Now... is ${this.player.mf(
+                "sir",
+                "madam"
+            )} buying or selling? </i>" `
         );
 
         // [Benoite buys at same rate Oswald does and sells at a 33% discount]
@@ -2439,9 +2457,10 @@ export class Benoit extends BazaarAbstractContent {
             );
 
             this.outx(
-                "\n\n\"<i>So, zat is what you 'ave in mind?  Kinky " +
-                    this.player.mf("boy", "girl") +
-                    '...</i>" Benoite replies.  Her long tongue flickers out to dart across your other cheek, and then she carefully lowers herself to the ground, making herself comfortable and groaning softly with relief. "<i>I must say, zat is much more better on my poor feet... all zese eggs are \'eavy, you know?</i>"'
+                `\n\n"<i>So, zat is what you 'ave in mind?  Kinky ${this.player.mf(
+                    "boy",
+                    "girl"
+                )}...</i>" Benoite replies.  Her long tongue flickers out to dart across your other cheek, and then she carefully lowers herself to the ground, making herself comfortable and groaning softly with relief. "<i>I must say, zat is much more better on my poor feet... all zese eggs are 'eavy, you know?</i>"`
             );
 
             this.outx(
@@ -2489,9 +2508,10 @@ export class Benoit extends BazaarAbstractContent {
             );
 
             this.outx(
-                '\n\nBenoite stirs first.  "<i>Mmm... I guess being so pregnant is not such a bad sing if it means we can have sex like zis...</i>" she murmurs, though it\'s quite obvious she intends for you to hear her. With a groan of effort, she heaves herself back upright.  "<i>Come back and see me any time, lover-' +
-                    this.player.mf("boy", "girl") +
-                    ',</i>" she tells you.  "<i>But don\'t sink zat you need me to be pregnant to give me a good time, okay?</i>"  Benoite smirks, striding across the floor and giving you a hand up before delicately flicking her tongue across your lips in a reptilian kiss.'
+                `\n\nBenoite stirs first.  "<i>Mmm... I guess being so pregnant is not such a bad sing if it means we can have sex like zis...</i>" she murmurs, though it's quite obvious she intends for you to hear her. With a groan of effort, she heaves herself back upright.  "<i>Come back and see me any time, lover-${this.player.mf(
+                    "boy",
+                    "girl"
+                )},</i>" she tells you.  "<i>But don't sink zat you need me to be pregnant to give me a good time, okay?</i>"  Benoite smirks, striding across the floor and giving you a hand up before delicately flicking her tongue across your lips in a reptilian kiss.`
             );
 
             this.outx(
@@ -2668,27 +2688,27 @@ export class Benoit extends BazaarAbstractContent {
 
             if (this.benoitRegularPreggers()) {
                 this.outx(
-                    "\n\nHer labors are over quickly; the clutch isn't that big, and her muscles are already well prepared.  Soon, she's squatting over a pile of" +
-                        Benoit.num2Text(this.flags[kFLAGS.FEMOIT_EGGS]) +
-                        " eggs."
+                    `\n\nHer labors are over quickly; the clutch isn't that big, and her muscles are already well prepared.  Soon, she's squatting over a pile of${Benoit.num2Text(
+                        this.flags[kFLAGS.FEMOIT_EGGS]
+                    )} eggs.`
                 );
             } else if (this.benoitHeavyPreggers()) {
                 this.outx(
-                    "\n\nThanks to the shape of her eggs and the fact she's already properly dilated, the rest of the clutch comes relatively quickly.  It's a pretty decent brood of children, you feel; " +
-                        Benoit.num2Text(this.flags[kFLAGS.FEMOIT_EGGS]) +
-                        " eggs, all told."
+                    `\n\nThanks to the shape of her eggs and the fact she's already properly dilated, the rest of the clutch comes relatively quickly.  It's a pretty decent brood of children, you feel; ${Benoit.num2Text(
+                        this.flags[kFLAGS.FEMOIT_EGGS]
+                    )} eggs, all told.`
                 );
             } else if (this.benoitVeryHeavyPreggers()) {
                 this.outx(
-                    "\n\nYou're glad that giving birth is easier for Benoite than it would be for a mammal, as she needs all the help she can get.  Her huge stomach proves that she wasn't merely putting on weight as egg after egg pushes out of her stretched cunt.  By the time she's flat as a board again, you've counted her offspring; " +
-                        Benoit.num2Text(this.flags[kFLAGS.FEMOIT_EGGS]) +
-                        " eggs, each with a baby basilisk still growing inside it."
+                    `\n\nYou're glad that giving birth is easier for Benoite than it would be for a mammal, as she needs all the help she can get.  Her huge stomach proves that she wasn't merely putting on weight as egg after egg pushes out of her stretched cunt.  By the time she's flat as a board again, you've counted her offspring; ${Benoit.num2Text(
+                        this.flags[kFLAGS.FEMOIT_EGGS]
+                    )} eggs, each with a baby basilisk still growing inside it.`
                 );
             } else if (this.benoitExtremePreggers()) {
                 this.outx(
-                    "\n\nBenoite groans and moans like she's dying, but somehow finds the strength to soldier on as egg after egg after egg slides from her well-stuffed womb.  For a moment you wonder just how many she's got in there, but the cascade finally comes to an end; with a great deal of relief on both your parts.  While Benoite gasps for breath from her labors, you busy yourself counting your brood... " +
-                        Benoit.num2Text(this.flags[kFLAGS.FEMOIT_EGGS]) +
-                        " eggs!"
+                    `\n\nBenoite groans and moans like she's dying, but somehow finds the strength to soldier on as egg after egg after egg slides from her well-stuffed womb.  For a moment you wonder just how many she's got in there, but the cascade finally comes to an end; with a great deal of relief on both your parts.  While Benoite gasps for breath from her labors, you busy yourself counting your brood... ${Benoit.num2Text(
+                        this.flags[kFLAGS.FEMOIT_EGGS]
+                    )} eggs!`
                 );
             }
         }

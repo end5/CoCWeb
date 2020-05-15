@@ -149,9 +149,7 @@ export class SatyrScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nYou can't resist the soft melody and begin to feel sleepy; you stop your drinking and eating to yawn... now that you've stopped, you feel awfully hot.  You strip off your [armor] without a second thought, not even bothering to protect your modesty.  Once you feel the cool air against your " +
-                this.player.skinFurScales() +
-                " you sigh and lay to relax for a nap."
+            `\n\nYou can't resist the soft melody and begin to feel sleepy; you stop your drinking and eating to yawn... now that you've stopped, you feel awfully hot.  You strip off your [armor] without a second thought, not even bothering to protect your modesty.  Once you feel the cool air against your ${this.player.skinFurScales()} you sigh and lay to relax for a nap.`
         );
         this.outx(
             "\n\nThe satyr keeps playing, smiling.  The last thing you see before unconsciousness takes you is an eager light in strangely goat-like eyes..."
@@ -413,7 +411,7 @@ export class SatyrScene extends BaseContent {
         if (this.player.hasCock()) {
             this.outx(", even going as far as to deliver a tongue-stroke or two to ");
             if (this.player.balls > 0) this.outx("your [sack]");
-            else this.outx("the base of your " + this.multiCockDescriptLight());
+            else this.outx(`the base of your ${this.multiCockDescriptLight()}`);
         }
         this.outx(
             "; despite your earlier hint about how disobedience might be dealt with, the satyr bucks and thrusts against your hands, hoping to achieve release by any means available.  You scowl and grab hold of his shaft, slimy with pre-cum already, and squeeze it tightly to warn him to stay still and focus on licking you, gripping his head with your thighs in an effort to hold him in place."
@@ -475,9 +473,9 @@ export class SatyrScene extends BaseContent {
         );
 
         this.outx(
-            "\n\nThe moment your fingers slide inside the helpless satyr he bleats, not in horror, but in delight.  His insistent struggles to get away from you make a complete U-turn, and instead he struggles to get more of your hand inside his gripping hole; his cock throbs and grows even harder, spurting pre on the ground below, as his balls churn and slosh eager for the prostate massage you'll be giving him with your own " +
-                this.cockDescript(x) +
-                ".  You can't help but laugh at the satyr's change of heart; what a slut."
+            `\n\nThe moment your fingers slide inside the helpless satyr he bleats, not in horror, but in delight.  His insistent struggles to get away from you make a complete U-turn, and instead he struggles to get more of your hand inside his gripping hole; his cock throbs and grows even harder, spurting pre on the ground below, as his balls churn and slosh eager for the prostate massage you'll be giving him with your own ${this.cockDescript(
+                x
+            )}.  You can't help but laugh at the satyr's change of heart; what a slut.`
         );
 
         this.outx(
@@ -544,9 +542,10 @@ export class SatyrScene extends BaseContent {
         else this.outx("[ass], spreading your cheeks apart to gaze at your winking rosebud.");
 
         this.outx(
-            "\"<i>Wonderful!  With a [vagOrAss] like this I'm sure you'll make a great " +
-                this.player.mf("father", "mother") +
-                ' for our children,</i>" he says, leaning closer to sniff at your '
+            `"<i>Wonderful!  With a [vagOrAss] like this I'm sure you'll make a great ${this.player.mf(
+                "father",
+                "mother"
+            )} for our children,</i>" he says, leaning closer to sniff at your `
         );
         if (this.player.hasVagina())
             this.outx("[vagina], licking all over your netherlips and tasting your juices.");

@@ -237,9 +237,7 @@ export class ShouldraFollower extends NPCAwareContent {
             this.outx("  Inspired by this, your own body has long since responded");
             if (this.player.hasCock())
                 this.outx(
-                    ", becoming firmly erect.  You happily piston your hips to grind your " +
-                        this.multiCockDescriptLight() +
-                        " along the pink-glossed walls, oozing your fluids in delight."
+                    `, becoming firmly erect.  You happily piston your hips to grind your ${this.multiCockDescriptLight()} along the pink-glossed walls, oozing your fluids in delight.`
                 );
             else
                 this.outx(
@@ -1026,9 +1024,9 @@ export class ShouldraFollower extends NPCAwareContent {
                     "\n\nYou sheepishly pulse confirmation back to her that you can.  You're not really used to talking about that sort of thing, but you <b>are</b> sharing a body.  \"<i>Oh, now that's just adorable!</i>\" Shouldra exclaims, having already searched you for mental images of your own flexibility.  You blush at the tease, but you can feel her lust spike at the thoughts, telling you that it's more than just a fun thought for your ethereal partner."
                 );
                 this.outx(
-                    '\n\nShe sits you down and lets her dildos fall to the ground, forgotten for the moment.  "<i>How\'s this one go?</i>" she asks, leaning down in an awkward attempt to get your face in your ' +
-                        this.vaginaDescript(0) +
-                        ".  You start to explain the proper 'technique' to what she's trying to do, but before you can even finish your thought she's stuck a leg up in the air and has your mouth to your own snatch.  You doubt you'll ever get used to having her inside your thoughts."
+                    `\n\nShe sits you down and lets her dildos fall to the ground, forgotten for the moment.  "<i>How's this one go?</i>" she asks, leaning down in an awkward attempt to get your face in your ${this.vaginaDescript(
+                        0
+                    )}.  You start to explain the proper 'technique' to what she's trying to do, but before you can even finish your thought she's stuck a leg up in the air and has your mouth to your own snatch.  You doubt you'll ever get used to having her inside your thoughts.`
                 );
             }
             // else if event occurrence > 0
@@ -1038,9 +1036,7 @@ export class ShouldraFollower extends NPCAwareContent {
                 );
             }
             this.outx(
-                '\n\nIt feels absolutely <b>fantastic</b> as she begins to take a few testing licks at your pussy.  "<i>Oooh, Champ, I could get used to this...</i>" Shouldra moans from somewhere within you.  Truth be told, it does pretty nice to have someone else doing the work for you.  Her vast pool of libido laps at you, arousing you and making every one of her flicks across your engorged ' +
-                    this.clitDescript() +
-                    " feel better than they have any right to.  She caresses your slickening lips with your small, tender tongue, granting you all the pleasure of her expert form.  Thoughts fog and blow away as you ride the waves of pleasure inside your mind, body a <b>very</b> willing slave to the ghostly girl's desires."
+                `\n\nIt feels absolutely <b>fantastic</b> as she begins to take a few testing licks at your pussy.  "<i>Oooh, Champ, I could get used to this...</i>" Shouldra moans from somewhere within you.  Truth be told, it does pretty nice to have someone else doing the work for you.  Her vast pool of libido laps at you, arousing you and making every one of her flicks across your engorged ${this.clitDescript()} feel better than they have any right to.  She caresses your slickening lips with your small, tender tongue, granting you all the pleasure of her expert form.  Thoughts fog and blow away as you ride the waves of pleasure inside your mind, body a <b>very</b> willing slave to the ghostly girl's desires.`
             );
             this.outx(
                 '\n\n"<i>Need... more...</i>"  Without bothering to get your opinion on the matter, Shouldra starts to mutter a soft incantation into your steamy sex.  Much to your dismay, she momentarily lifts your head from your crotch.  With the hand that she isn\'t propping you up on, she takes your tongue between your thumb and a couple fingers and begins to gently tug and stroke on it.  Though imperceptible at first, a few strokes later the change becomes obvious: inches of muscle spill forth from your mouth.'
@@ -1083,9 +1079,7 @@ export class ShouldraFollower extends NPCAwareContent {
                 "\n\nYou tell your experimentative friend to see for herself.  She opens your jaw wide, letting inch after inch of your demonic tongue spill out.  A happy squeak, made rather awkward by the floppy appendage, comes from you as Shouldra checks out what you've been packing in your mouth.  \"<i>Tho yuv ha tis-</i>\" she giggles at the sound of talking with it hanging out, but continues talking in your mind.  \"<i>So you've had this thing all this time and I haven't gotten to play with it?  Well that just won't do.</i>\""
             );
             this.outx(
-                '\n\nShe sits you down and lets her dildos fall to the ground, forgotten for the moment.  It feels absolutely <b>fantastic</b> as she begins to take a few testing licks at your pussy.  "<i>Oooh, Champ, I could get used to this...</i>"  Shouldra moans from somewhere within you.  Truth be told, it does pretty nice to have someone else doing the work for you.  Her vast pool of libido laps at you, arousing you and making every one of her flicks across your engorged ' +
-                    this.clitDescript() +
-                    " feel better than they have any right to.  She caresses your slickening lips with your lengthy prehensile tongue, granting you all the pleasure of her expert technique.  Thoughts fog and blow away as you ride the waves of pleasure inside your mind, body a <b>very</b> willing slave to the ghostly girl's desires."
+                `\n\nShe sits you down and lets her dildos fall to the ground, forgotten for the moment.  It feels absolutely <b>fantastic</b> as she begins to take a few testing licks at your pussy.  "<i>Oooh, Champ, I could get used to this...</i>"  Shouldra moans from somewhere within you.  Truth be told, it does pretty nice to have someone else doing the work for you.  Her vast pool of libido laps at you, arousing you and making every one of her flicks across your engorged ${this.clitDescript()} feel better than they have any right to.  She caresses your slickening lips with your lengthy prehensile tongue, granting you all the pleasure of her expert technique.  Thoughts fog and blow away as you ride the waves of pleasure inside your mind, body a <b>very</b> willing slave to the ghostly girl's desires.`
             );
             this.outx(
                 '\n\n"<i>Need... more...</i>" Without bothering to get your opinion on the matter, Shouldra starts to mutter a soft incantation into your steamy sex.  Much to your dismay, she momentarily snakes your tongue out from your crotch.  With the hand that she isn\'t propping you up on, she takes your demonic tongue between your thumb and a couple fingers and begins to gently tug and stroke on it.  Though imperceptible at first, a few strokes later the change becomes obvious: even more inches of muscle spill forth from your mouth.'
@@ -1885,18 +1879,14 @@ export class ShouldraFollower extends NPCAwareContent {
         if (ShouldraFollower.rand(5) == 0) {
             this.player.ballSize += 2 + ShouldraFollower.rand(4);
             this.outx(
-                "\n\nYour testicles rumble greatly, inch after inch of " +
-                    this.player.skinTone +
-                    " flesh enveloping their impressive new bulk.  Shouldra gives your enlarged [balls] a little squeeze and leaves you to reacquaint yourself with a new center of balance."
+                `\n\nYour testicles rumble greatly, inch after inch of ${this.player.skinTone} flesh enveloping their impressive new bulk.  Shouldra gives your enlarged [balls] a little squeeze and leaves you to reacquaint yourself with a new center of balance.`
             );
         }
         // ballsize + 1 + rand(2) Else
         else {
             this.player.ballSize += 1 + ShouldraFollower.rand(2);
             this.outx(
-                "\n\nA tingling sensation courses through your scrotum, your " +
-                    this.player.skinTone +
-                    " going taut as it gains additional mass.  Shouldra rewards your new [balls] with a light massage."
+                `\n\nA tingling sensation courses through your scrotum, your ${this.player.skinTone} going taut as it gains additional mass.  Shouldra rewards your new [balls] with a light massage.`
             );
         }
         // if ballsize > 10
@@ -2137,9 +2127,7 @@ export class ShouldraFollower extends NPCAwareContent {
         this.clearOutput();
         this.spriteSelect(67);
         this.outx(
-            "Your hands dart for your " +
-                this.multiCockDescriptLight() +
-                ' as if to protect your poor masculinity.  "<i>You\'re kidding, right?  You can\'t mean to rob me of my pride and joy!</i>"  You remind Shouldra just whose dick she\'s talking about; the eidolon is getting a little too accustomed to your [if (cocks = 1) dick][if (cocks > 1) dicks].  "<i>Please, Champ.  Not the dick...</i>"  You slowly remove your hands from your crotch, asking the ghost to proceed.  She complies with a frustrated sigh and a rather perturbed incantation.'
+            `Your hands dart for your ${this.multiCockDescriptLight()} as if to protect your poor masculinity.  "<i>You're kidding, right?  You can't mean to rob me of my pride and joy!</i>"  You remind Shouldra just whose dick she's talking about; the eidolon is getting a little too accustomed to your [if (cocks = 1) dick][if (cocks > 1) dicks].  "<i>Please, Champ.  Not the dick...</i>"  You slowly remove your hands from your crotch, asking the ghost to proceed.  She complies with a frustrated sigh and a rather perturbed incantation.`
         );
         if (this.player.cocks.length == 1) {
             this.outx(
@@ -3115,9 +3103,10 @@ export class ShouldraFollower extends NPCAwareContent {
             "\n\n\"<i>I'M running this show and I don't like stage jumpers! Now get OUT!</i>\""
         );
         this.outx(
-            "\n\nYour [cock] thrusts to one side, forcing Shouldra right out of your contested cock, taking your sheets along with her as she pushes into the side of your tent.  This bickering is getting stupid now.  These two could probably go on like this forever.  Neither of them seem to have given you even the slightest bit of attention on the matter.  You know, the " +
-                this.player.mf("guy", "gal") +
-                " ATTACHED to the world's most popular shaft?"
+            `\n\nYour [cock] thrusts to one side, forcing Shouldra right out of your contested cock, taking your sheets along with her as she pushes into the side of your tent.  This bickering is getting stupid now.  These two could probably go on like this forever.  Neither of them seem to have given you even the slightest bit of attention on the matter.  You know, the ${this.player.mf(
+                "guy",
+                "gal"
+            )} ATTACHED to the world's most popular shaft?`
         );
         this.outx(
             "\n\nShouldra untangles herself out of your sheets, tossing them back to the ground in a huff.  You groggily raise to your [feet], spurred on by your raging demonic erection and its vendetta against your cock-hungry, post-mortem playmate."
@@ -3533,9 +3522,7 @@ export class ShouldraFollower extends NPCAwareContent {
 
         if (this.player.hasCock()) {
             this.outx(
-                "\n\nYou run a hand down your chest, examining the new material.  Silky smooth...  As your hand slides across your stomach, you press in slightly.  You've only made a small dent in the food before you, but there's already a noticeable bulge beneath your belt, and a few slivers of " +
-                    this.player.skinFurScales() +
-                    ' are visible between the buttons.  You rub the modest mound, resulting in a subdued gurgling and a content burp; you\'ve gotten full pretty quickly.  Maybe you should just leave the rest of the food and- "<i>Not so fast, bucko!</i>" Shouldra fumes, causing you to jump in your seat.  "<i>You might be full, but <b>I\'ve</b> barely started!</i>" Your gut churns violently as the ghost girl\'s inhuman appetite infects your own.  Oh dear...'
+                `\n\nYou run a hand down your chest, examining the new material.  Silky smooth...  As your hand slides across your stomach, you press in slightly.  You've only made a small dent in the food before you, but there's already a noticeable bulge beneath your belt, and a few slivers of ${this.player.skinFurScales()} are visible between the buttons.  You rub the modest mound, resulting in a subdued gurgling and a content burp; you've gotten full pretty quickly.  Maybe you should just leave the rest of the food and- "<i>Not so fast, bucko!</i>" Shouldra fumes, causing you to jump in your seat.  "<i>You might be full, but <b>I've</b> barely started!</i>" Your gut churns violently as the ghost girl's inhuman appetite infects your own.  Oh dear...`
             );
             this.outx(
                 "You quickly grab something, an eclair, from the table in an effort to ease the pain in your stomach.  The taste is incredible; you don't know if it's the hunger or Shouldra's magic, but this is easily the best eclair you've ever eaten.  You moan low in your throat as you savor the eclair, thick sweet cream exploding in your mouth, chilled chocolatey pastry caressing your tongue like a skilled lover.  Sugar and pastry mix and twirl around your mouth, and you can't help but close your eyes and relax, mind and body comforted by a glucose euphoria."
@@ -3611,9 +3598,7 @@ export class ShouldraFollower extends NPCAwareContent {
         // [(if hasCock = false)
         else {
             this.outx(
-                "\n\nYou run a hand down your chest, examining the new material.  Silky smooth...  As your hand slides across your stomach, you press in slightly.  You've only made a small dent in the food before you, but there's already a noticeable bulge beneath the hem of your skirt, and a few inches of soft " +
-                    this.player.skinTone +
-                    ' skin are visible beneath the top.  You rub the modest mound, resulting in a subdued gurgling and a content burp; you\'ve gotten full pretty quickly.  Maybe you should just leave the rest of the food and- "<i>Not so fast, bucko!</i>"  Shouldra fumes, causing you to jump in your seat.  "<i>You might be full, but </i>I\'ve<i> barely started!</i>"  Your gut churns violently as the ghost girl\'s inhuman appetite infects your own.  Oh dear...'
+                `\n\nYou run a hand down your chest, examining the new material.  Silky smooth...  As your hand slides across your stomach, you press in slightly.  You've only made a small dent in the food before you, but there's already a noticeable bulge beneath the hem of your skirt, and a few inches of soft ${this.player.skinTone} skin are visible beneath the top.  You rub the modest mound, resulting in a subdued gurgling and a content burp; you've gotten full pretty quickly.  Maybe you should just leave the rest of the food and- "<i>Not so fast, bucko!</i>"  Shouldra fumes, causing you to jump in your seat.  "<i>You might be full, but </i>I've<i> barely started!</i>"  Your gut churns violently as the ghost girl's inhuman appetite infects your own.  Oh dear...`
             );
             this.outx(
                 "\n\nYou quickly grab something, an eclair, from the table in an effort to ease the pain in your stomach.  The taste is incredible; you don't know if it's the hunger or Shouldra's magic, but this is easily the best eclair you've ever eaten.  You moan low in your throat as you savor the eclair, thick sweet cream exploding in your mouth, chilled chocolatey pastry caressing your tongue like a skilled lover.  Sugar and pastry mix and twirl around your mouth, and you can't help but close your eyes and relax, mind and body comforted by a glucose euphoria."
@@ -3684,11 +3669,13 @@ export class ShouldraFollower extends NPCAwareContent {
                 '  "<i>D... dedicated customers?</i>"\n\nShouldra sighs, "<i>Knock that shit off kid, it ain\'t cute.  You want the course or not?</i>"'
             );
         this.outx(
-            '\n\n"<i>Oh, well, er, okay,</i>" she stammers.  The possessed pastry beams and leads her towards your table.  The mousy girl\'s eyes are drawn to the feast laid out upon the counter; she bites her lower lip in anticipation.  As Shouldra seats her down opposite you, however, she can\'t help but stare at you timidly.  "<i>Just our chef, dear,</i>" the ghost girl assures her, "<i>' +
-                this.player.mf("he", "she") +
-                " just wants to make sure you enjoy " +
-                this.player.mf("his", "her") +
-                ' food.  Now, dig in!</i>"'
+            `\n\n"<i>Oh, well, er, okay,</i>" she stammers.  The possessed pastry beams and leads her towards your table.  The mousy girl's eyes are drawn to the feast laid out upon the counter; she bites her lower lip in anticipation.  As Shouldra seats her down opposite you, however, she can't help but stare at you timidly.  "<i>Just our chef, dear,</i>" the ghost girl assures her, "<i>${this.player.mf(
+                "he",
+                "she"
+            )} just wants to make sure you enjoy ${this.player.mf(
+                "his",
+                "her"
+            )} food.  Now, dig in!</i>"`
         );
         this.outx(
             "\n\nThe shy girl fidgets for a bit, glancing between you and the 'All-You-Can-Eat course', before picking up a sugar-laden donut and taking a few tentative nibbles.  The nibbles turn into full-blown bites as she becomes focused on sating her food-lust, swallowing larger and larger chunks of baked goods down into her eager stomach."

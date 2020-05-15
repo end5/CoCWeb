@@ -95,12 +95,12 @@ export class Character extends Creature {
         if (this.femininity < 10) {
             faceo = "a square chin";
             if (!this.hasBeard()) faceo += " and chiseled jawline";
-            else faceo += ", chiseled jawline, and " + this.beard();
+            else faceo += `, chiseled jawline, and ${this.beard()}`;
         }
         // 10+ -20
         else if (this.femininity < 20) {
-            faceo = "a rugged looking " + this.face() + " ";
-            if (this.hasBeard()) faceo += "and " + this.beard();
+            faceo = `a rugged looking ${this.face()} `;
+            if (this.hasBeard()) faceo += `and ${this.beard()}`;
             faceo += "that's surely handsome";
         }
         // 21-28
@@ -162,32 +162,16 @@ export class Character extends Creature {
         if (old != this.faceDesc()) {
             // Gain fem?
             if (goal > oldN)
-                output =
-                    "\n\n<b>Your facial features soften as your body becomes more feminine. (+" +
-                    strength +
-                    ")</b>";
+                output = `\n\n<b>Your facial features soften as your body becomes more feminine. (+${strength})</b>`;
             if (goal < oldN)
-                output =
-                    "\n\n<b>Your facial features harden as your body becomes more masculine. (+" +
-                    strength +
-                    ")</b>";
+                output = `\n\n<b>Your facial features harden as your body becomes more masculine. (+${strength})</b>`;
         }
         // Barely noticable change!
         else {
             if (goal > oldN)
-                output =
-                    "\n\nThere's a tingling in your " +
-                    this.face() +
-                    " as it changes imperceptibly towards being more feminine. (+" +
-                    strength +
-                    ")";
+                output = `\n\nThere's a tingling in your ${this.face()} as it changes imperceptibly towards being more feminine. (+${strength})`;
             else if (goal < oldN)
-                output =
-                    "\n\nThere's a tingling in your " +
-                    this.face() +
-                    " as it changes imperciptibly towards being more masculine. (+" +
-                    strength +
-                    ")";
+                output = `\n\nThere's a tingling in your ${this.face()} as it changes imperciptibly towards being more masculine. (+${strength})`;
         }
         return output;
     }
@@ -209,18 +193,10 @@ export class Character extends Creature {
         trace("MOD THICKNESS FIRE");
         // DIsplay 'U GOT FAT'
         if (goal >= this.thickness && goal >= 50)
-            return (
-                "\n\nYour center of balance changes a little bit as your body noticeably widens. (+" +
-                strength +
-                " body thickness)"
-            );
+            return `\n\nYour center of balance changes a little bit as your body noticeably widens. (+${strength} body thickness)`;
         // GET THIN BITCH
         else if (goal <= this.thickness && goal <= 50)
-            return (
-                "\n\nEach movement feels a tiny bit easier than the last.  Did you just lose a little weight!? (+" +
-                strength +
-                " thin)"
-            );
+            return `\n\nEach movement feels a tiny bit easier than the last.  Did you just lose a little weight!? (+${strength} thin)`;
         return "";
     }
 
@@ -232,11 +208,7 @@ export class Character extends Creature {
             // YOUVE GONE TOO FAR! TURN BACK!
             if (this.tone < goal) {
                 this.tone = goal;
-                return (
-                    "\n\nYou've lost some tone, but can't lose any more this way. (-" +
-                    strength +
-                    " muscle tone)"
-                );
+                return `\n\nYou've lost some tone, but can't lose any more this way. (-${strength} muscle tone)`;
             }
         }
         // MOAR hulkness
@@ -245,27 +217,15 @@ export class Character extends Creature {
             // YOUVE GONE TOO FAR! TURN BACK!
             if (this.tone > goal) {
                 this.tone = goal;
-                return (
-                    "\n\nYou've gained some muscle tone, but can't gain any more this way. (+" +
-                    strength +
-                    " muscle tone)"
-                );
+                return `\n\nYou've gained some muscle tone, but can't gain any more this way. (+${strength} muscle tone)`;
             }
         }
         // DIsplay BITCH I WORK OUT
         if (goal >= this.tone && goal > 50)
-            return (
-                "\n\nYour body feels a little more solid as you move, and your muscles look slightly more visible. (+" +
-                strength +
-                " muscle tone)"
-            );
+            return `\n\nYour body feels a little more solid as you move, and your muscles look slightly more visible. (+${strength} muscle tone)`;
         // Display DERP I HAVE GIRL MUSCLES
         else if (goal <= this.tone && goal < 50)
-            return (
-                "\n\nMoving brings with it a little more jiggle than you're used to.  You don't seem to have gained weight, but your muscles look less visible. (-" +
-                strength +
-                " muscle tone)"
-            );
+            return `\n\nMoving brings with it a little more jiggle than you're used to.  You don't seem to have gained weight, but your muscles look less visible. (-${strength} muscle tone)`;
         return "";
     }
 
@@ -278,8 +238,7 @@ export class Character extends Creature {
                 output +=
                     "\n<b>Your incredibly masculine, chiseled features become a little bit softer from your body's changing hormones.";
                 if (this.hasBeard()) {
-                    output +=
-                        "  As if that wasn't bad enough, your " + this.beard() + " falls out too!";
+                    output += `  As if that wasn't bad enough, your ${this.beard()} falls out too!`;
                     this.beardLength = 0;
                     this.beardStyle = 0;
                 }
@@ -297,8 +256,7 @@ export class Character extends Creature {
                 output +=
                     "\n<b>Your incredibly masculine, chiseled features become a little bit softer from your body's changing hormones.";
                 if (this.hasBeard()) {
-                    output +=
-                        "  As if that wasn't bad enough, your " + this.beard() + " falls out too!";
+                    output += `  As if that wasn't bad enough, your ${this.beard()} falls out too!`;
                     this.beardLength = 0;
                     this.beardStyle = 0;
                 }
@@ -314,14 +272,13 @@ export class Character extends Creature {
                 this.femininity = 70;
             }
             if (this.femininity > 40 && this.hasBeard()) {
-                output +=
-                    "\n<b>Your beard falls out, leaving you with " + this.faceDesc() + ".</b>\n";
+                output += `\n<b>Your beard falls out, leaving you with ${this.faceDesc()}.</b>\n`;
                 this.beardLength = 0;
                 this.beardStyle = 0;
             }
         }
         if (this.gender != 1 && this.hasBeard()) {
-            output += "\n<b>Your beard falls out, leaving you with " + this.faceDesc() + ".</b>\n";
+            output += `\n<b>Your beard falls out, leaving you with ${this.faceDesc()}.</b>\n`;
             this.beardLength = 0;
             this.beardStyle = 0;
         }
@@ -351,7 +308,7 @@ export class Character extends Creature {
                 else skinzilla += ", ";
             }
         }
-        if (!noTone) skinzilla += this.skinTone + " ";
+        if (!noTone) skinzilla += `${this.skinTone} `;
         // Fur handled a little differently since it uses
         // haircolor
         if (this.skinType == 1) skinzilla += "skin";
@@ -394,25 +351,25 @@ export class Character extends Creature {
             if (Math.floor(Math.random() * 2) == 0) return "muzzle";
             if (Math.floor(Math.random() * 3) == 0 && this.faceType == 1) stringo = "long ";
             if (Math.floor(Math.random() * 3) == 0 && this.faceType == 6) stringo = "feline ";
-            return stringo + "face";
+            return `${stringo}face`;
         }
         // 3 - cowface
         if (this.faceType == 3) {
             if (Math.floor(Math.random() * 4) == 0) stringo = "bovine ";
             if (Math.floor(Math.random() * 2) == 0) return "muzzle";
-            return stringo + "face";
+            return `${stringo}face`;
         }
         // 4 - sharkface-teeth
         if (this.faceType == 4) {
             if (Math.floor(Math.random() * 4) == 0) stringo = "angular ";
-            return stringo + "face";
+            return `${stringo}face`;
         }
         // 7 - lizard face (durned argonians!)
         if (this.faceType == 7 || this.faceType == 12) {
             if (Math.floor(Math.random() * 4) == 0) stringo = "reptilian ";
-            if (Math.floor(Math.random() * 4) == 0) return stringo + "muzzle";
-            if (Math.floor(Math.random() * 4) == 0) return stringo + "snout";
-            return stringo + "face";
+            if (Math.floor(Math.random() * 4) == 0) return `${stringo}muzzle`;
+            if (Math.floor(Math.random() * 4) == 0) return `${stringo}snout`;
+            return `${stringo}face`;
         }
         return "face";
     }
@@ -468,9 +425,7 @@ export class Character extends Creature {
             this.hasVagina()
         ) {
             this.knockUpForce(type, incubation);
-            trace(
-                "PC Knocked up with pregnancy type: " + type + " for " + incubation + " incubation."
-            );
+            trace(`PC Knocked up with pregnancy type: ${type} for ${incubation} incubation.`);
         }
         // Chance for eggs fertilization - ovi elixir and imps excluded!
         if (
@@ -510,13 +465,7 @@ export class Character extends Creature {
             this.totalFertility() + bonus > Math.floor(Math.random() * beat)
         ) {
             this.buttKnockUpForce(type, incubation);
-            trace(
-                "PC Butt Knocked up with pregnancy type: " +
-                    type +
-                    " for " +
-                    incubation +
-                    " incubation."
-            );
+            trace(`PC Butt Knocked up with pregnancy type: ${type} for ${incubation} incubation.`);
         }
     }
 
@@ -629,7 +578,7 @@ export class Character extends Creature {
             counter--;
             if (this.keyItems[counter].keyName == itemName) {
                 this.keyItems.splice(counter, 1);
-                trace('Attempted to remove "' + itemName + '" keyItem.');
+                trace(`Attempted to remove "${itemName}" keyItem.`);
                 counter = 0;
             }
         }

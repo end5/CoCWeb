@@ -180,9 +180,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.lust > 90) this.dynStats("lus", -5);
         // Introduction
         this.outx(
-            'Rathazul looks up from his equipment and gives you an uncertain smile.\n\n"<i>Oh, don\'t mind me,</i>" he says, "<i>I\'m just running some tests here.  Was there something you needed, ' +
-                this.player.short +
-                '?</i>"\n\n',
+            `Rathazul looks up from his equipment and gives you an uncertain smile.\n\n"<i>Oh, don't mind me,</i>" he says, "<i>I'm just running some tests here.  Was there something you needed, ${this.player.short}?</i>"\n\n`,
             true
         );
         // player.createStatusAffect(StatusAffects.metRathazul,0,0,0,0);
@@ -634,7 +632,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
         this.doNext(this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00275] = robeType;
         this.flags[kFLAGS.RATHAZUL_SILK_ARMOR_COUNTDOWN] = 24;
-        trace("274: " + this.flags[kFLAGS.RATHAZUL_SILK_ARMOR_COUNTDOWN]);
+        trace(`274: ${this.flags[kFLAGS.RATHAZUL_SILK_ARMOR_COUNTDOWN]}`);
     }
     private collectRathazulArmor(): void {
         this.spriteSelect(49);
@@ -799,9 +797,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             );
         if (this.player.biggestTitSize() >= 8)
             this.outx(
-                "Your " +
-                    this.biggestBreastSizeDescript() +
-                    " barely fit into the breastplate, leaving you displaying a large amount of jiggling cleavage.\n\n",
+                `Your ${this.biggestBreastSizeDescript()} barely fit into the breastplate, leaving you displaying a large amount of jiggling cleavage.\n\n`,
                 false
             );
         this.player.destroyItems(this.useables.B_CHITN, 5);

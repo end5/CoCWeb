@@ -6,9 +6,7 @@ export class SwordInStone extends AbstractLakeContent {
         if (this.player.findStatusAffect(StatusAffects.FactoryOverload) < 0) {
             // Encounter it!
             this.outx(
-                "While walking along the lake, the glint of metal catches your eye.  You drop into a combat stance, readying your " +
-                    this.player.weaponName +
-                    " for another fight.   Your eyes dart about, searching for the source of the light. You feel rather foolish when you locate the source of the reflection.  It came from a sword lodged hilt-deep in the trunk of a tree.  You relax a bit, approaching the odd sight to get a better look.\n\n",
+                `While walking along the lake, the glint of metal catches your eye.  You drop into a combat stance, readying your ${this.player.weaponName} for another fight.   Your eyes dart about, searching for the source of the light. You feel rather foolish when you locate the source of the reflection.  It came from a sword lodged hilt-deep in the trunk of a tree.  You relax a bit, approaching the odd sight to get a better look.\n\n`,
                 true
             );
 

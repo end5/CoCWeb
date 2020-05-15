@@ -52,7 +52,7 @@ export class Camp extends NPCAwareContent {
     public returnToCamp(timeUsed: number): void {
         this.clearOutput();
         if (timeUsed == 1) this.outx("An hour passes...\n");
-        else this.outx(Camp.Num2Text(timeUsed) + " hours pass...\n");
+        else this.outx(`${Camp.Num2Text(timeUsed)} hours pass...\n`);
         if (!this.getGame().inCombat) this.spriteSelect(-1);
         this.hideMenus();
         this.timeQ = timeUsed;
@@ -697,7 +697,7 @@ export class Camp extends NPCAwareContent {
             );
             if (this.flags[kFLAGS.MARBLE_KIDS] == 0) this.outx("future children");
             else {
-                this.outx(Camp.num2Text(this.flags[kFLAGS.MARBLE_KIDS]) + " child", false);
+                this.outx(`${Camp.num2Text(this.flags[kFLAGS.MARBLE_KIDS])} child`, false);
                 if (this.flags[kFLAGS.MARBLE_KIDS] > 1) this.outx("ren");
             }
             this.outx(".");
@@ -768,11 +768,13 @@ export class Camp extends NPCAwareContent {
         if (this.flags[kFLAGS.EMBER_CURRENTLY_FREAKING_ABOUT_MINOCUM] == 1) {
             // Modified Camp Description
             this.outx(
-                "Since Ember began " +
-                    this.emberMF("his", "her") +
-                    " 'crusade' against the minotaur population, skulls have begun to pile up on either side of the entrance to " +
-                    this.emberScene.emberMF("his", "her") +
-                    " den.  There're quite a lot of them.\n\n"
+                `Since Ember began ${this.emberMF(
+                    "his",
+                    "her"
+                )} 'crusade' against the minotaur population, skulls have begun to pile up on either side of the entrance to ${this.emberScene.emberMF(
+                    "his",
+                    "her"
+                )} den.  There're quite a lot of them.\n\n`
             );
         }
         // Dat tree!
@@ -832,9 +834,9 @@ export class Camp extends NPCAwareContent {
                 // requires at least 6 kids, and no other parental characters in camp
                 if (Camp.rand(2) == 0 && this.flags[kFLAGS.MARBLE_KIDS] > 5)
                     this.outx(
-                        "Marble is currently tending to your kids, but she looks a bit stressed out right now.  It looks like " +
-                            Camp.num2Text(this.flags[kFLAGS.MARBLE_KIDS]) +
-                            " might just be too many for her to handle on her own..."
+                        `Marble is currently tending to your kids, but she looks a bit stressed out right now.  It looks like ${Camp.num2Text(
+                            this.flags[kFLAGS.MARBLE_KIDS]
+                        )} might just be too many for her to handle on her own...`
                     );
                 // requires at least 4 kids
                 else if (Camp.rand(3) == 0 && this.flags[kFLAGS.MARBLE_KIDS] > 3)
@@ -1520,8 +1522,9 @@ export class Camp extends NPCAwareContent {
         }
         if (this.latexGooFollower() && this.flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 0) {
             this.outx(
-                this.flags[kFLAGS.GOO_NAME] +
-                    " lurks in a secluded section of rocks, only venturing out when called for or when she needs to gather water from the stream.\n\n"
+                `${
+                    this.flags[kFLAGS.GOO_NAME]
+                } lurks in a secluded section of rocks, only venturing out when called for or when she needs to gather water from the stream.\n\n`
             );
             goo = this.latexGirl.approachLatexy;
         }
@@ -1694,7 +1697,7 @@ export class Camp extends NPCAwareContent {
         } else {
             if (this.timeQ != 1)
                 this.outx(
-                    "You continue to rest for " + Camp.num2Text(this.timeQ) + " more hours.\n",
+                    `You continue to rest for ${Camp.num2Text(this.timeQ)} more hours.\n`,
                     true
                 );
             else this.outx("You continue to rest for another hour.\n", true);
@@ -1729,7 +1732,7 @@ export class Camp extends NPCAwareContent {
         } else {
             if (this.timeQ != 1)
                 this.outx(
-                    "You continue to wait for " + Camp.num2Text(this.timeQ) + " more hours.\n",
+                    `You continue to wait for ${Camp.num2Text(this.timeQ)} more hours.\n`,
                     false
                 );
             else this.outx("You continue to wait for another hour.\n", false);
@@ -1764,7 +1767,7 @@ export class Camp extends NPCAwareContent {
                 this.player.autoSave &&
                 this.mainView.bottomButtons[0].labelText != "Game Over"
             ) {
-                trace("Autosaving to slot: " + this.player.slotName);
+                trace(`Autosaving to slot: ${this.player.slotName}`);
 
                 this.getGame().saves.saveGame(this.player.slotName);
             }
@@ -1837,9 +1840,9 @@ export class Camp extends NPCAwareContent {
                 // (1)
                 if (Camp.rand(4) == 0) {
                     this.outx(
-                        "You curl up next to Sophie, planning to sleep for " +
-                            Camp.num2Text(this.timeQ) +
-                            " hour"
+                        `You curl up next to Sophie, planning to sleep for ${Camp.num2Text(
+                            this.timeQ
+                        )} hour`
                     );
                     if (this.timeQ > 1) this.outx("s");
                     this.outx(
@@ -1849,18 +1852,16 @@ export class Camp extends NPCAwareContent {
                 // (2)
                 else if (Camp.rand(3) == 0) {
                     this.outx(
-                        "While you're getting ready for bed, you see that Sophie has already beaten you there.  She's sprawled out on her back with her arms outstretched, making little beckoning motions towards the valley of her cleavage.  You snuggle in against her, her pillowy breasts supporting your head and her familiar heartbeat drumming you to sleep for " +
-                            Camp.num2Text(this.timeQ) +
-                            " hour"
+                        `While you're getting ready for bed, you see that Sophie has already beaten you there.  She's sprawled out on her back with her arms outstretched, making little beckoning motions towards the valley of her cleavage.  You snuggle in against her, her pillowy breasts supporting your head and her familiar heartbeat drumming you to sleep for ${Camp.num2Text(
+                            this.timeQ
+                        )} hour`
                     );
                     if (this.timeQ > 1) this.outx("s");
                     this.outx(".");
                 }
                 // (3)
                 else if (Camp.rand(2) == 0) {
-                    this.outx(
-                        "As you lay down to sleep for " + Camp.num2Text(this.timeQ) + " hour"
-                    );
+                    this.outx(`As you lay down to sleep for ${Camp.num2Text(this.timeQ)} hour`);
                     if (this.timeQ > 1) this.outx("s");
                     this.outx(
                         ', you find the harpy-girl, Sophie, snuggling herself under her blankets with you.  She slips in between your arms and guides your hands to her enormous breasts, her backside already snug against your loins.  She whispers, "<i>Something to think about for next morning...  Sweet dreams.</i>" as she settles in for the night.'
@@ -1869,9 +1870,9 @@ export class Camp extends NPCAwareContent {
                 // (4)
                 else {
                     this.outx(
-                        "Sophie climbs under the sheets with you when you go to sleep, planning on resting for " +
-                            Camp.num2Text(this.timeQ) +
-                            " hour"
+                        `Sophie climbs under the sheets with you when you go to sleep, planning on resting for ${Camp.num2Text(
+                            this.timeQ
+                        )} hour`
                     );
                     if (this.timeQ > 1) this.outx("s");
                     this.outx(
@@ -1882,15 +1883,15 @@ export class Camp extends NPCAwareContent {
             } else {
                 if (this.flags[kFLAGS.SLEEP_WITH] == "Helia" && kGAMECLASS.helScene.followerHel()) {
                     this.outx(
-                        "You curl up next to Helia, planning to sleep for " +
-                            Camp.num2Text(this.timeQ) +
-                            " "
+                        `You curl up next to Helia, planning to sleep for ${Camp.num2Text(
+                            this.timeQ
+                        )} `
                     );
                 }
                 // Normal sleep message
                 else
                     this.outx(
-                        "You curl up, planning to sleep for " + Camp.num2Text(this.timeQ) + " ",
+                        `You curl up, planning to sleep for ${Camp.num2Text(this.timeQ)} `,
                         false
                     );
                 if (this.timeQ == 1) this.outx("hour.\n", false);
@@ -1900,9 +1901,9 @@ export class Camp extends NPCAwareContent {
         } else {
             if (this.timeQ != 1)
                 this.outx(
-                    "You lie down to resume sleeping for the remaining " +
-                        Camp.num2Text(this.timeQ) +
-                        " hours.\n",
+                    `You lie down to resume sleeping for the remaining ${Camp.num2Text(
+                        this.timeQ
+                    )} hours.\n`,
                     true
                 );
             else this.outx("You lie down to resume sleeping for the remaining hour.\n", true);
@@ -1928,9 +1929,9 @@ export class Camp extends NPCAwareContent {
         this.clearOutput();
         if (this.timeQ != 1)
             this.outx(
-                "You lie down to resume sleeping for the remaining " +
-                    Camp.num2Text(this.timeQ) +
-                    " hours.\n",
+                `You lie down to resume sleeping for the remaining ${Camp.num2Text(
+                    this.timeQ
+                )} hours.\n`,
                 true
             );
         else this.outx("You lie down to resume sleeping for the remaining hour.\n", true);
@@ -2088,10 +2089,9 @@ export class Camp extends NPCAwareContent {
         // Update Exgartuan stuff
         if (this.player.findStatusAffect(StatusAffects.Exgartuan) >= 0) {
             trace(
-                "EXGARTUAN V1: " +
-                    this.player.statusAffectv1(StatusAffects.Exgartuan) +
-                    " V2: " +
-                    this.player.statusAffectv2(StatusAffects.Exgartuan)
+                `EXGARTUAN V1: ${this.player.statusAffectv1(
+                    StatusAffects.Exgartuan
+                )} V2: ${this.player.statusAffectv2(StatusAffects.Exgartuan)}`
             );
             // if too small dick, remove him
             if (
@@ -2119,9 +2119,9 @@ export class Camp extends NPCAwareContent {
             ) {
                 this.outx("", true);
                 this.outx(
-                    "<b>Black milk dribbles from your " +
-                        this.nippleDescript(0) +
-                        ".  It immediately dissipates into the air, leaving you feeling alone.  It looks like you became too small for Exgartuan!\n</b>",
+                    `<b>Black milk dribbles from your ${this.nippleDescript(
+                        0
+                    )}.  It immediately dissipates into the air, leaving you feeling alone.  It looks like you became too small for Exgartuan!\n</b>`,
                     false
                 );
                 this.player.removeStatusAffect(StatusAffects.Exgartuan);

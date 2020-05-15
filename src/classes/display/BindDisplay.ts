@@ -184,14 +184,14 @@ export class BindDisplay {
     public set button1Text(value) {
         // if (value != this._button1Text) {
         //     this._button1Text = value;
-        this._buttons[0].labelText = "<b>" + value + "</b>";
+        this._buttons[0].labelText = `<b>${value}</b>`;
         // }
     }
 
     public set button2Text(value) {
         // if (value != this._button2Text) {
         //     this._button2Text = value;
-        this._buttons[1].labelText = "<b>" + value + "</b>";
+        this._buttons[1].labelText = `<b>${value}</b>`;
         // }
     }
 

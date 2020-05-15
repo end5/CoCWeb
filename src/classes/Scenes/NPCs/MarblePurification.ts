@@ -206,9 +206,10 @@ export class MarblePurification extends NPCAwareContent {
         // the quest is written under the assumption that Rath is in your camp.  I recently found out it is possible to lock him out of being a follower, so I added in this section to ensure that he is.
         if (this.player.findStatusAffect(StatusAffects.CampRathazul) < 0) {
             this.outx(
-                '\n\n"<i>Whoa, hold on there, ' +
-                    this.player.mf("boy", "girl") +
-                    ',</i>" Rathazul stops you, "<i>Hearing about your quest for purification makes my heart feel warm again for the first time in years.  In exchange for helping you out in this endeavor, please allow me stay at your camp.  I\'m sure you\'d appreciate saving yourself the trouble of going back and forth for each little thing.</i>"'
+                `\n\n"<i>Whoa, hold on there, ${this.player.mf(
+                    "boy",
+                    "girl"
+                )},</i>" Rathazul stops you, "<i>Hearing about your quest for purification makes my heart feel warm again for the first time in years.  In exchange for helping you out in this endeavor, please allow me stay at your camp.  I'm sure you'd appreciate saving yourself the trouble of going back and forth for each little thing.</i>"`
             );
             this.outx(
                 "\n\nConsidering just how important his help has been in purifying Marble, you doubt that you'd be able to get any further without his help, and agree to let him stay in your camp."
@@ -266,9 +267,7 @@ export class MarblePurification extends NPCAwareContent {
             '\n\n"<i>Milk from a relative would probably be the best of all.</i>" Rathazul enthuses.'
         );
         this.outx(
-            '\n\n"<i>Then that’s the solution!</i>" Marble declares, full of cheer. But then her face falls. "<i>But it’ll take me a few days to get from here to home, and then more to get back. ' +
-                this.player.short +
-                ', I don’t want to leave you here alone if you need my help,</i>" she insists.'
+            `\n\n"<i>Then that’s the solution!</i>" Marble declares, full of cheer. But then her face falls. "<i>But it’ll take me a few days to get from here to home, and then more to get back. ${this.player.short}, I don’t want to leave you here alone if you need my help,</i>" she insists.`
         );
         this.outx("\n\nDo you tell her it’s okay, or tell her you’re not ready to send her away?");
         // [Go] [Stay]
@@ -364,13 +363,15 @@ export class MarblePurification extends NPCAwareContent {
             '\n\nClara looks at her sister, an irked expression on her face, making you recall the fights you often saw between older and younger siblings back in Ingnam. "<i>Ooh come on sis, there’s nothing wrong with getting out a little this way... besides, it will be a lot faster this way, and more fun.</i>"  She turns to you, whispers the last bit in your ear then gives you a wink.'
         );
         this.outx(
-            '\n\nAt this point Rathazul suddenly interjects. "<i>If ' +
-                this.player.short +
-                " gets the milk by suckling on your breasts, " +
-                this.player.mf("he", "she") +
-                " would probably contaminate it with " +
-                this.player.mf("his", "her") +
-                ' saliva and make it useless. I need it to be as pure as possible; hand-milking would be preferable, if you can do that, but if you must use the milkers at Whitney’s farm, that will suffice.</i>"'
+            `\n\nAt this point Rathazul suddenly interjects. "<i>If ${
+                this.player.short
+            } gets the milk by suckling on your breasts, ${this.player.mf(
+                "he",
+                "she"
+            )} would probably contaminate it with ${this.player.mf(
+                "his",
+                "her"
+            )} saliva and make it useless. I need it to be as pure as possible; hand-milking would be preferable, if you can do that, but if you must use the milkers at Whitney’s farm, that will suffice.</i>"`
         );
 
         this.outx(
@@ -597,7 +598,7 @@ export class MarblePurification extends NPCAwareContent {
         this.clearOutput();
         this.outx("You steel yourself, ");
         if (this.player.weaponName == "fists") this.outx("raise your fists");
-        else this.outx("grab your " + this.player.weaponName);
+        else this.outx(`grab your ${this.player.weaponName}`);
         this.outx(
             ' and get ready to fight to free yourself from this mad milkmaid’s mammaries.  Realizing your intentions, Clara’s face turns from a crazed grin to an angry glare.  With barely contained fury, she screams at you, "<i>Oh don’t you worry darling, I will <b>make</b> you love drinking my milk!</i>" before standing up, hefting a nasty looking heavy mace, and charging at you.'
         );
@@ -614,9 +615,10 @@ export class MarblePurification extends NPCAwareContent {
     public voluntarilyChooseCowCuntBadEndYouBad(): void {
         this.clearOutput();
         this.outx(
-            "Giving into the desires that your addiction has granted you, you return to Clara’s breast, much to the young cow-girl’s moans and sighs of pleasure.  \"<i>Ahh, yes, that's a goood " +
-                this.player.mf("boy", "girl") +
-                ',</i>" is whispered in your ear.'
+            `Giving into the desires that your addiction has granted you, you return to Clara’s breast, much to the young cow-girl’s moans and sighs of pleasure.  "<i>Ahh, yes, that's a goood ${this.player.mf(
+                "boy",
+                "girl"
+            )},</i>" is whispered in your ear.`
         );
         // go to Clara’s bad end
         this.menu();
@@ -658,9 +660,10 @@ export class MarblePurification extends NPCAwareContent {
         );
 
         this.outx(
-            '\n\n"<i>You really are a smart ' +
-                this.player.mf("boy", "girl") +
-                ',</i>" the girl speaks, ignoring your question, "<i>I shoould have known you wouldn’t be so easy to trick.</i>"  You make your demand of her once more.  "<i>Don’t worry about them, my darling.  They’ll be awake in an hour or so, but by that time we’ll be long goone.</i>"'
+            `\n\n"<i>You really are a smart ${this.player.mf(
+                "boy",
+                "girl"
+            )},</i>" the girl speaks, ignoring your question, "<i>I shoould have known you wouldn’t be so easy to trick.</i>"  You make your demand of her once more.  "<i>Don’t worry about them, my darling.  They’ll be awake in an hour or so, but by that time we’ll be long goone.</i>"`
         );
         this.outx(
             '\n\nGone?  You wonder, why would you be gone?  "<i>Isn’t it obvious?  This is our chance to run away toogether, and not have to worry about old romantic baggage!</i>" she cries out with a crazed grin on her face, "<i>You’re the perfect milk mate for me, and I won’t let you slip out of my fingers.  If I have to force you to come away with me and get hoooked on my milk, I will.  So don’t make this hard on yourself.  Oh, and if you try to run, I will kill Marble, that rat, and anyone else you’ve got in this camp.  Now, drink, your, tea.</i>"  She pulls open her shirt and then holds up another cup towards you, all the while looking more and more deranged.'
@@ -764,9 +767,7 @@ export class MarblePurification extends NPCAwareContent {
                 );
             }
             this.outx(
-                "\n\nYou stand up as well and ready your " +
-                    this.player.weaponName +
-                    ", since even with such opposition it looks like the mad cow-girl still plans on fighting you.  A few minutes and bruises later, her beaten body proves this to have been a bit of a mistake on her part."
+                `\n\nYou stand up as well and ready your ${this.player.weaponName}, since even with such opposition it looks like the mad cow-girl still plans on fighting you.  A few minutes and bruises later, her beaten body proves this to have been a bit of a mistake on her part.`
             );
 
             // Proceed to after combat in camp.
@@ -824,11 +825,7 @@ export class MarblePurification extends NPCAwareContent {
         else if (this.player.tallness <= 82) this.outx("just your size.");
         else this.outx("way too small for your stature.");
         this.outx(
-            "  You also find that you aren’t wearing your " +
-                this.player.armorName +
-                ", and your " +
-                this.player.weaponName +
-                " is nowhere to be seen.  "
+            `  You also find that you aren’t wearing your ${this.player.armorName}, and your ${this.player.weaponName} is nowhere to be seen.  `
         );
         // ifPC does not have: dick has more than 40 area, or breasts bigger then HHH cup, or centaur lower body, or naga lower body, or slime lower body, or drider lower body)
         if (
@@ -882,9 +879,10 @@ export class MarblePurification extends NPCAwareContent {
         this.outx(".  Then your eyes drop down to Clara’s chest, and you think of your need.");
 
         this.outx(
-            '\n\nIt feels like you’re ordering the deaths of everyone you’ve ever cared about, but you do nod your head.  "<i>That’s not goood enough, ' +
-                this.player.mf("lover-boy", "lover-girl") +
-                '.  I want to hear you say, ‘I love you, I love only you, and I will love only you.’  If you don’t, then there will be no milk for you.</i>"  An exaggerated sad expression falls across her face, and it sounds like she is chastising a misbehaving child as she says that.'
+            `\n\nIt feels like you’re ordering the deaths of everyone you’ve ever cared about, but you do nod your head.  "<i>That’s not goood enough, ${this.player.mf(
+                "lover-boy",
+                "lover-girl"
+            )}.  I want to hear you say, ‘I love you, I love only you, and I will love only you.’  If you don’t, then there will be no milk for you.</i>"  An exaggerated sad expression falls across her face, and it sounds like she is chastising a misbehaving child as she says that.`
         );
         this.outx(
             '\n\nYou hesitate, and in response the white haired cow-girl slaps you across the face.  "<i>Say it!</i>" she shrieks, her face a picture of madness.'
@@ -923,16 +921,17 @@ export class MarblePurification extends NPCAwareContent {
         this.outx(
             '\n\n"<i>Such enthusiasm!</i>" a distant voice calls out above you, "<i>Not even Oophelia talking about the latest adventures of Mighty Moo and Bovine Lass can compare to this!</i>"  You feel fingers run '
         );
-        if (this.player.hairLength > 0) this.outx("through your " + this.hairDescript());
+        if (this.player.hairLength > 0) this.outx(`through your ${this.hairDescript()}`);
         else this.outx("across your scalp");
         this.outx(
             ', then they suddenly grip down tight.  "<i>Let’s see if you can pick up the pace.  Drink faster, my love slave!</i>"  You do as the voice asks, and loud moans of pleasure follow.'
         );
 
         this.outx(
-            '\n\nYou suck as hard as you possibly can: you need to!  You can’t possibly care about anything else than satisfying your need, and you want to do it in the best possible way for the subject of your love.  You don’t know how long this continues for, but eventually you’re pulled back abruptly from the tap from which the elixir of the gods flows.  You notice that your [leg] is wet.  You look down and find that Clara’s dress is soaked, right in front of her womanhood.  "<i>Time to switch nipples, ' +
-                this.player.mf("lover-boy", "lover-girl") +
-                '</i>" Clara says breathlessly, calling your gaze back up.  "<i>This time, we’re going to try it a bit slower.</i>"'
+            `\n\nYou suck as hard as you possibly can: you need to!  You can’t possibly care about anything else than satisfying your need, and you want to do it in the best possible way for the subject of your love.  You don’t know how long this continues for, but eventually you’re pulled back abruptly from the tap from which the elixir of the gods flows.  You notice that your [leg] is wet.  You look down and find that Clara’s dress is soaked, right in front of her womanhood.  "<i>Time to switch nipples, ${this.player.mf(
+                "lover-boy",
+                "lover-girl"
+            )}</i>" Clara says breathlessly, calling your gaze back up.  "<i>This time, we’re going to try it a bit slower.</i>"`
         );
         // new page
         this.menu();
@@ -942,9 +941,7 @@ export class MarblePurification extends NPCAwareContent {
     public cowCuntBadEndPartIV(): void {
         this.clearOutput();
         this.outx(
-            "Now you get a chance to see a softer side to Clara.  The cow-girl gently takes your head and guides you to the other nipple.  She continues to hold you with one arm as you gently start drinking.  With her other hand, she caresses you.  She starts with your head, slowly cleaning up your " +
-                this.hairDescript() +
-                '.  Your feeder then delivers a small pinch to your cheek, and you hear her say, "<i>You really are a damn sexy piece of woork.</i>"'
+            `Now you get a chance to see a softer side to Clara.  The cow-girl gently takes your head and guides you to the other nipple.  She continues to hold you with one arm as you gently start drinking.  With her other hand, she caresses you.  She starts with your head, slowly cleaning up your ${this.hairDescript()}.  Your feeder then delivers a small pinch to your cheek, and you hear her say, "<i>You really are a damn sexy piece of woork.</i>"`
         );
         this.outx(
             "\n\nHer hand moves down your body, and finds itself on your [chest].  She toys a bit with the nipples, giggling at your reaction, then moves down to your stomach and pokes you.  Your reaction only promotes more laughter.  You guess that she wants to get a <i>feel</i> for her new toy, and your thoughts are confirmed when she grips your legs, continuing to test you for any places that might be suitable targets for tickling you."
@@ -955,17 +952,11 @@ export class MarblePurification extends NPCAwareContent {
         // if (player is male)
         if (this.player.hasCock() && !this.player.hasVagina()) {
             this.outx(
-                "At this point your " +
-                    this.multiCockDescriptLight() +
-                    " is rock hard, and Clara gives it a few strokes.  She does seem to lose interest surprisingly quick though."
+                `At this point your ${this.multiCockDescriptLight()} is rock hard, and Clara gives it a few strokes.  She does seem to lose interest surprisingly quick though.`
             );
         } else if (this.player.hasVagina() && !this.player.hasCock()) {
             this.outx(
-                "You’ve become quite wet at this point, and Clara gives your " +
-                    this.vaginaDescript() +
-                    " a few rubs, before tugging on your " +
-                    this.clitDescript() +
-                    " once."
+                `You’ve become quite wet at this point, and Clara gives your ${this.vaginaDescript()} a few rubs, before tugging on your ${this.clitDescript()} once.`
             );
         } else if (this.player.hasCock() && this.player.hasVagina()) {
             this.outx(
@@ -978,11 +969,7 @@ export class MarblePurification extends NPCAwareContent {
         }
         // Clara fingers the PC’s asshole
         this.outx(
-            "\n\nIt then becomes rather apparent exactly what Clara really wants to play with now, and you feel her fingers slip down and around your body.  She gets herself a handful of your " +
-                this.buttDescript() +
-                ", and then slips her fingers into your crevice.  That finger doesn't stop until it's pushed itself inside your " +
-                this.assholeDescript() +
-                " and triggered a response that makes Clara laugh with delight.  Feeling emboldened, the bovine girl thrusts another finger into your back entrance and starts wiggling them around."
+            `\n\nIt then becomes rather apparent exactly what Clara really wants to play with now, and you feel her fingers slip down and around your body.  She gets herself a handful of your ${this.buttDescript()}, and then slips her fingers into your crevice.  That finger doesn't stop until it's pushed itself inside your ${this.assholeDescript()} and triggered a response that makes Clara laugh with delight.  Feeling emboldened, the bovine girl thrusts another finger into your back entrance and starts wiggling them around.`
         );
         this.outx(
             '\n\nBy now you’re so over aroused from nursing that you cum on the spot from her playing with your ass.  The nipple that you’d been sucking on up until now slips out of your mouth, and the woman holding you lies you back on the ground, smiling.  Clearly your orgasm did not go unnoticed by her.  "<i>I’m definitely going to have to find new ways to play with you after this,</i>" she says, that crazed smile back on her face, "<i>but for now, I think it is time for soome sex.</i>"'
@@ -1021,15 +1008,15 @@ export class MarblePurification extends NPCAwareContent {
             );
         }
         this.outx(
-            "You’re still erect from the arousal that nursing from Clara gave you.  The young cow-girl straddles your calves and gives your " +
-                this.cockDescript(x) +
-                ' a slight flick with her finger and continues to smile broadly at you.  "<i>One thing that I was really worried about was that you woouldn’t have a penis that I could actually fit inside me.  Thankfully, that isn’t the case, and that pretty pecker is just my size!</i>"  She pulls apart the lips of her womanhood before continuing, "<i>This will be my first time ever putting anything in here, take note just how special of a slave you are to me!</i>"'
+            `You’re still erect from the arousal that nursing from Clara gave you.  The young cow-girl straddles your calves and gives your ${this.cockDescript(
+                x
+            )} a slight flick with her finger and continues to smile broadly at you.  "<i>One thing that I was really worried about was that you woouldn’t have a penis that I could actually fit inside me.  Thankfully, that isn’t the case, and that pretty pecker is just my size!</i>"  She pulls apart the lips of her womanhood before continuing, "<i>This will be my first time ever putting anything in here, take note just how special of a slave you are to me!</i>"`
         );
 
         this.outx(
-            "\n\nWell, she certainly isn’t wasting any time, as the very next instant she has lowered her opened labia onto the tip of your " +
-                this.cockDescript(x) +
-                ".  The passage is already wet and slick, thanks to her previous orgasm.  Immediately, an expression of both pain and pleasure crosses over the bovine woman’s face and she starts to pant.  You lift up your hands, bClara issues a sharp command that you aren’t to do anything at all while she has the sex she wants.  You can’t do much else but just lie back and take it."
+            `\n\nWell, she certainly isn’t wasting any time, as the very next instant she has lowered her opened labia onto the tip of your ${this.cockDescript(
+                x
+            )}.  The passage is already wet and slick, thanks to her previous orgasm.  Immediately, an expression of both pain and pleasure crosses over the bovine woman’s face and she starts to pant.  You lift up your hands, bClara issues a sharp command that you aren’t to do anything at all while she has the sex she wants.  You can’t do much else but just lie back and take it.`
         );
         this.outx(
             "\n\nThe woman using you as a sex toy takes things almost agonizingly slowly.  For some time she only puts the tip in, and stirs it around her entrance with her fingers while panting in unfamiliar pleasure.  There isn’t much question that she is indeed a virgin; she quite clearly has no idea what she is doing.  Of course, any attempts to help her just get you an icy glare and you return to waiting for what she intends to do next."
@@ -1093,18 +1080,14 @@ export class MarblePurification extends NPCAwareContent {
         if (this.player.tongueType > 0) {
             // PC tentatively probes Clara’s insides, and she is very surprised at just how much tongue they have.  She orders them to stop, and just use the tip to lick her labia and clit.
             this.outx(
-                '\n\n"<i>Lick my hole, stick yourself way inside!</i>" Clara orders.  You tentatively push your ' +
-                    this.tongueDescript() +
-                    ' into the entrance of the slit that has been roughly lowered onto your face.  You soon find your goal and begin the process of filling her with your great lengths of inhuman mouth muscle.  Clara gasps in surprise and quickly exclaims, "<i>What are you dooing?!  What is that?  Stop!</i>"  You do as requested and remove your appendage from her depths.  The cow-girl pants for a moment then speaks again, "<i>Okay, that’s a bit much to start with.  Uh, I didn’t think your tongue would be that long!  Now, let’s try again.  Using just the tip of your tongue, lick me.</i>"'
+                `\n\n"<i>Lick my hole, stick yourself way inside!</i>" Clara orders.  You tentatively push your ${this.tongueDescript()} into the entrance of the slit that has been roughly lowered onto your face.  You soon find your goal and begin the process of filling her with your great lengths of inhuman mouth muscle.  Clara gasps in surprise and quickly exclaims, "<i>What are you dooing?!  What is that?  Stop!</i>"  You do as requested and remove your appendage from her depths.  The cow-girl pants for a moment then speaks again, "<i>Okay, that’s a bit much to start with.  Uh, I didn’t think your tongue would be that long!  Now, let’s try again.  Using just the tip of your tongue, lick me.</i>"`
             );
             // Spend some time with the PC licking Clara while she gives orders and directions while the PC hears the results of their work.  Clara then orgasms.
             this.outx(
                 '\n\nYou start again, and using just the tip, you lick the sides of folds of the woman above you, prompting an encouraging groan of pleasure.  "<i>Yes, keep doing that.</i>" Clara instructs while sighing.  Thick drops of lubricant start to fill the folds that your tongue is probing, and you lap up her nectar while continuing to explore all parts of the labia that you can find.'
             );
             this.outx(
-                '\n\n"<i>Mhh, huh, ah, higher!</i>"  You obey, and move up to Clara’s clit, and the hood around it.  She has already become heavily engorged, and the instant your ' +
-                    this.tongueDescript() +
-                    ' touches the bovine woman’s erect love button, she lets out a low shriek of pleasure!  "<i>Woah!  Wah, mah, mooo!</i>" she cries out as a torrent of fluid sprays from her womanhood and drenches your face.  Clara is unquestionably an inexperienced virgin, given her rapid and unexpected orgasm.  She spends several moments trying to catch her breath.'
+                `\n\n"<i>Mhh, huh, ah, higher!</i>"  You obey, and move up to Clara’s clit, and the hood around it.  She has already become heavily engorged, and the instant your ${this.tongueDescript()} touches the bovine woman’s erect love button, she lets out a low shriek of pleasure!  "<i>Woah!  Wah, mah, mooo!</i>" she cries out as a torrent of fluid sprays from her womanhood and drenches your face.  Clara is unquestionably an inexperienced virgin, given her rapid and unexpected orgasm.  She spends several moments trying to catch her breath.`
             );
             // Now feeling bolder, Clara has the PC use the full extent of their tongue to penetrate her.  Clara orgasms again fairly shortly thereafter.
             this.outx(
@@ -1114,15 +1097,14 @@ export class MarblePurification extends NPCAwareContent {
                 "\n\nFor a while all you hear is the loud squelching of your licker in her womanhood, and the young cow-girl’s cries of pleasure above you.  Then you suddenly don’t hear anything at all, thanks to the hands that have been clamped down onto your ears.  Clara suddenly takes a much more active role in the oral you’re giving her and starts to roughly ride your face.  In response, you intensify your tongue teasing and spin your length about her interior."
             );
             this.outx(
-                "\n\nAbruptly, a large torrent of fluid comes rushing down the hole you’ve been pleasing.  Much to your dismay, the flood of fluid actually forces your " +
-                    this.tongueDescript() +
-                    " out of her passage before nearly drowning you in girl cum.  You cough and sputter for several seconds until air finally returns to your lungs.  What energy you had before now is now gone."
+                `\n\nAbruptly, a large torrent of fluid comes rushing down the hole you’ve been pleasing.  Much to your dismay, the flood of fluid actually forces your ${this.tongueDescript()} out of her passage before nearly drowning you in girl cum.  You cough and sputter for several seconds until air finally returns to your lungs.  What energy you had before now is now gone.`
             );
             // Clara expresses her appreciation of this unexpected feature of her new slave, but does say that she has plans for them to offer her another means of pleasing her as well.
             this.outx(
-                '\n\nClara finally releases your head from her death grip, and lets you move around again.  "<i>Wow, ' +
-                    this.player.mf("lover-boy", "lover-girl") +
-                    '.  I never imagined you’d be able to do that!  I guess the slave I got had an unexpected feature.  I’m still going to be changing you up to give me anoother kind of pleasure, but damn!  Look at what you made me doo!</i>"  She indicates the large pool of vaginal fluids covering the floor.  The bedroll you woke up on is completely ruined.'
+                `\n\nClara finally releases your head from her death grip, and lets you move around again.  "<i>Wow, ${this.player.mf(
+                    "lover-boy",
+                    "lover-girl"
+                )}.  I never imagined you’d be able to do that!  I guess the slave I got had an unexpected feature.  I’m still going to be changing you up to give me anoother kind of pleasure, but damn!  Look at what you made me doo!</i>"  She indicates the large pool of vaginal fluids covering the floor.  The bedroll you woke up on is completely ruined.`
             );
             this.outx(
                 '\n\n"<i>I guess you’re going to need new sleeping arrangements noow,</i>" the young bovine remarks, "<i>Still, I think you earned a place in my bed.</i>"  She reaches down and scoops up your exhausted form and takes you out of the room.  Just before you pass out in her arms, you hear her whisper in your ears, "<i>I’ll never let you leave me, you’re mine forever and ever...</i>" You aren’t sure if you should be happy or not at that prospect.'
@@ -1183,20 +1165,14 @@ export class MarblePurification extends NPCAwareContent {
         );
         // Interaction with one husband in the garden, a friendly and talkative fox-morph.
         this.outx(
-            '\n\nSpeaking of that friendly fox, there he is now; picking some strawberries and potatoes for supper.  You call out to him in greeting and head over to have a more personal talk.  "<i>Hey there ' +
-                this.player.short +
-                ', afternoon!</i>" a broad smile accompanies this declaration, it’s always a friendly face from him.  Sam gets up and dusts off the day’s dirt, then takes a look at the bounty to be served as the main course of tonight’s meal.  "<i>Hot damn!  Is that a turkey you’ve got there?</i>"  At your nod, it looks almost like his face would split in two with the way he’s grinning.  "<i>Well, don’t let me keep you.  Get that bird to Tim right away!</i>"  Nodding once more to your fellow, you continue onward.'
+            `\n\nSpeaking of that friendly fox, there he is now; picking some strawberries and potatoes for supper.  You call out to him in greeting and head over to have a more personal talk.  "<i>Hey there ${this.player.short}, afternoon!</i>" a broad smile accompanies this declaration, it’s always a friendly face from him.  Sam gets up and dusts off the day’s dirt, then takes a look at the bounty to be served as the main course of tonight’s meal.  "<i>Hot damn!  Is that a turkey you’ve got there?</i>"  At your nod, it looks almost like his face would split in two with the way he’s grinning.  "<i>Well, don’t let me keep you.  Get that bird to Tim right away!</i>"  Nodding once more to your fellow, you continue onward.`
         );
         // Interaction with the other in the kitchen or work room, a timid cat-boy.
         this.outx(
-            '\n\n"<i>Sam, that you?  Is ' +
-                this.player.short +
-                ' back with something?</i>" a timid voice calls out when you let yourself through the cottage door.  You reply by asking him to come and see for himself.  A short, slim, feline male comes racing into the room.  Catching sight of just what something you brought back was, a look of amazement crosses his face.  "<i>Woah, now that’s a catch!  I’m glad to see you managed to get something this time, the girls won’t stop asking for something other than veggies...</i>"  You move into the kitchen with him, while two excited cow-girls come clopping out.  If things get really bad, you’ll have to start harvesting tainted meat.  Tim grimaces, "<i>I’m not looking forward to that, I kinda like having kids that actually stay as kids right now.</i>"'
+            `\n\n"<i>Sam, that you?  Is ${this.player.short} back with something?</i>" a timid voice calls out when you let yourself through the cottage door.  You reply by asking him to come and see for himself.  A short, slim, feline male comes racing into the room.  Catching sight of just what something you brought back was, a look of amazement crosses his face.  "<i>Woah, now that’s a catch!  I’m glad to see you managed to get something this time, the girls won’t stop asking for something other than veggies...</i>"  You move into the kitchen with him, while two excited cow-girls come clopping out.  If things get really bad, you’ll have to start harvesting tainted meat.  Tim grimaces, "<i>I’m not looking forward to that, I kinda like having kids that actually stay as kids right now.</i>"`
         );
         this.outx(
-            '\n\nYou give the small feline a pat on the head.  He shouldn’t worry too much right now, we’re actually in good shape today.  That cute face perks up, "<i>You’re right ' +
-                this.player.short +
-                '.  I’m sure you’ll be able to figure something out anyway, that’s why you’re the first husband.</i>"  That certainly is true.  There is no way you could ever let down your loved ones, especially your mistress.  You wash up, and go up stairs.  She will want to see you before supper.  She always does.'
+            `\n\nYou give the small feline a pat on the head.  He shouldn’t worry too much right now, we’re actually in good shape today.  That cute face perks up, "<i>You’re right ${this.player.short}.  I’m sure you’ll be able to figure something out anyway, that’s why you’re the first husband.</i>"  That certainly is true.  There is no way you could ever let down your loved ones, especially your mistress.  You wash up, and go up stairs.  She will want to see you before supper.  She always does.`
         );
         // PC goes to serve and service Clara, they perform demeaning things for Clara for her amusement, and she then gives them the milk they need.
         this.outx(
@@ -1209,9 +1185,7 @@ export class MarblePurification extends NPCAwareContent {
             "\n\nClara has grown in the years since she came into possession of you, through multiple pregnancies and two more slaves.  Her breasts are now easily into the I cup range, and her hips have widened considerably.  Vanity is certainly something that she has grown into with her newfound power.  What hasn’t changed, are her crazed gaze and wicked smile.  <i>Everything about her is more beautiful and wonderful, you only wish to dedicate yourself even more as she grows more lovely!</i>"
         );
         this.outx(
-            '\n\n"<i>Coome here milk slave.  Beg for your sustenance and maybe I will indulge you,</i>" she says with a dismissive wave.  With reluctance (<i>reverence</i>) you get down on the ground in front of her, <i>it feels right to acknowledge your superior</i>.  After several minutes of postulating yourself, the voice of the vane and voluptuous woman above you calls out once more, <i>Goood, speak now ' +
-                this.player.short +
-                '.</i>"  Turning your head up, with great hesitance (<i>eagerness!</i>) you recite the same demeaning words you have said every day for the last several years.'
+            `\n\n"<i>Coome here milk slave.  Beg for your sustenance and maybe I will indulge you,</i>" she says with a dismissive wave.  With reluctance (<i>reverence</i>) you get down on the ground in front of her, <i>it feels right to acknowledge your superior</i>.  After several minutes of postulating yourself, the voice of the vane and voluptuous woman above you calls out once more, <i>Goood, speak now ${this.player.short}.</i>"  Turning your head up, with great hesitance (<i>eagerness!</i>) you recite the same demeaning words you have said every day for the last several years.`
         );
         this.outx(
             '\n\n"<i>My mistress, my goddess.  I exist to serve you.  My life is yours, your milk is my life.  I shall debase myself to the lowest of the lows, or overcome the mightiest of the mighty should you command it.  Please take pity on this one who is unworthy, and grant to me my lifeblood.</i>"'
@@ -1275,21 +1249,24 @@ export class MarblePurification extends NPCAwareContent {
             '"<i>Clara, what the hell were you trying to pull there?</i>" Marble demands of her sister, her hands shaking in rage.'
         );
         this.outx(
-            '\n\n"<i>Getting a mate, what doo you think?  I was going to take ' +
-                this.player.mf("lover-boy", "lover-girl") +
-                ' here away to live with me,</i>" comes the incredulous reply.'
+            `\n\n"<i>Getting a mate, what doo you think?  I was going to take ${this.player.mf(
+                "lover-boy",
+                "lover-girl"
+            )} here away to live with me,</i>" comes the incredulous reply.`
         );
         this.outx(
-            "\n\n\"<i>Getting a... out of my sweetie?!  We're already mates, where do you go off thinking you can just come in here and steal " +
-                this.player.mf("him", "her") +
-                '?</i>"'
+            `\n\n"<i>Getting a... out of my sweetie?!  We're already mates, where do you go off thinking you can just come in here and steal ${this.player.mf(
+                "him",
+                "her"
+            )}?</i>"`
         );
         this.outx(
-            '\n\n"<i>No sis, you had your chance.  ' +
-                this.player.short +
-                " isn't addicted to you, that means that " +
-                this.player.mf("he", "she") +
-                "'s up for grabs.  That's how things work for our race.</i>\""
+            `\n\n"<i>No sis, you had your chance.  ${
+                this.player.short
+            } isn't addicted to you, that means that ${this.player.mf(
+                "he",
+                "she"
+            )}'s up for grabs.  That's how things work for our race.</i>"`
         );
 
         this.outx(
@@ -1303,39 +1280,40 @@ export class MarblePurification extends NPCAwareContent {
             "\n\n\"<i>YES HE WAS!  What are you, stupid sis?  I can't believe you don't even remember the big argument that mom and dad got in when you asked to be trained how to fight.  'Battle is no place for a woman,' dad went on and on about, 'there was no way he'd train a girl.'  Well, a few hours of withdrawal shut up that little rebellion.  Mom even watched him during your sessions to make absolutely sure he didn't skimp up or seriously hurt you.</i>\""
         );
         this.outx(
-            '\n\nMarble looks at her hands in horror, just barely above a whisper you manage to hear her say, "<i>His hands were shaking, just like ' +
-                this.player.short +
-                "'s...</i>\""
+            `\n\nMarble looks at her hands in horror, just barely above a whisper you manage to hear her say, "<i>His hands were shaking, just like ${this.player.short}'s...</i>"`
         );
         this.outx(
             "\n\n\"<i>Finally you're getting it.  Damn it sis, I can't believe that it took you this long to realize it.  Mom used threats on dad to get him to do what she wanted all the time.  I mean seriously, don't you feel an incredible urge to nurse people?  Find a good mate and get them addicted to you?</i>\"  Clara leans forward, \"<i>Tell me, did you ever consider starting a loving relationship with someone who didn't nurse from you?</i>\""
         );
         this.outx('\n\nMarble clenches her hands and seethes at Clara.  "<i>I, I...</i>"');
         this.outx(
-            "\n\n\"<i>Admit it, you don't feel like '" +
-                this.player.mf("lover-boy", "lover-girl") +
-                "' here actually cares for you.  How could they if they won't drink your milk?  You're a Lacta Bovine, giving your milk is the most important thing in the world to you.  This isn't love.  Without " +
-                this.player.mf("him", "her") +
-                " actually being addicted to you, it's just a one sided infatuation.  I was doing you a favor by taking " +
-                this.player.mf("him", "her") +
-                ' away from you.</i>"'
+            `\n\n"<i>Admit it, you don't feel like '${this.player.mf(
+                "lover-boy",
+                "lover-girl"
+            )}' here actually cares for you.  How could they if they won't drink your milk?  You're a Lacta Bovine, giving your milk is the most important thing in the world to you.  This isn't love.  Without ${this.player.mf(
+                "him",
+                "her"
+            )} actually being addicted to you, it's just a one sided infatuation.  I was doing you a favor by taking ${this.player.mf(
+                "him",
+                "her"
+            )} away from you.</i>"`
         );
         this.outx(
-            '\n\nYour cow-girl companion continues to shake in anger, but also fear and frustration.  "<i>I, I, YES!  I want to addict ' +
-                this.player.short +
-                " to my milk!  I want to so much!  I'm so afraid that " +
-                this.player.mf("he", "she") +
-                " won't stay by my side, but I also feel so bottled up.  "
+            `\n\nYour cow-girl companion continues to shake in anger, but also fear and frustration.  "<i>I, I, YES!  I want to addict ${
+                this.player.short
+            } to my milk!  I want to so much!  I'm so afraid that ${this.player.mf(
+                "he",
+                "she"
+            )} won't stay by my side, but I also feel so bottled up.  `
         ); // no new paragraph
 
         // if (PC has another lover in camp)
         if (kGAMECLASS.camp.loversCount() > 1) {
             this.outx(
-                "I'm not even " +
-                    this.player.short +
-                    "'s only mate.  " +
-                    this.player.mf("He", "She") +
-                    " can satisfy their needs, but can't satisfy mine?  "
+                `I'm not even ${this.player.short}'s only mate.  ${this.player.mf(
+                    "He",
+                    "She"
+                )} can satisfy their needs, but can't satisfy mine?  `
             ); // no new paragraph
         }
         this.outx(
@@ -1343,13 +1321,15 @@ export class MarblePurification extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n\"<i>There, you see?  Now I'm sure you understand why me and " +
-                this.player.short +
-                " here belong toogether.  I won't deny the proper order of things, and I'll make sure that " +
-                this.player.mf("he", "she") +
-                " leads a fulfilling life as my milk slave.  " +
-                this.player.mf("He", "She") +
-                "'ll even by my first husband!</i>\""
+            `\n\n"<i>There, you see?  Now I'm sure you understand why me and ${
+                this.player.short
+            } here belong toogether.  I won't deny the proper order of things, and I'll make sure that ${this.player.mf(
+                "he",
+                "she"
+            )} leads a fulfilling life as my milk slave.  ${this.player.mf(
+                "He",
+                "She"
+            )}'ll even by my first husband!</i>"`
         );
         this.outx("\n\nTentatively you ask what Clara means by first husband?");
 
@@ -1363,9 +1343,10 @@ export class MarblePurification extends NPCAwareContent {
 
         this.outx('\n\nMarble takes a deep breath, then says, "<i>That isn\'t love.</i>"');
         this.outx(
-            "\n\nThe younger cow-girl scoffs, \"<i>Haven't you been listening to me sis?  " +
-                this.player.mf("He", "She") +
-                "'ll be addicted to me.  That.  Is.  Love.  How else can you show just how much you care?</i>\""
+            `\n\nThe younger cow-girl scoffs, "<i>Haven't you been listening to me sis?  ${this.player.mf(
+                "He",
+                "She"
+            )}'ll be addicted to me.  That.  Is.  Love.  How else can you show just how much you care?</i>"`
         );
 
         this.outx(
@@ -1373,39 +1354,34 @@ export class MarblePurification extends NPCAwareContent {
         );
 
         this.outx(
-            "\n\n\"<i>Really?  Didn't you say that the reason you were purifying yourself was so that " +
-                this.player.mf("he", "she") +
-                " would nurse from you again?  Sounds pretty selfish to me after what you were saying about doing things for who you 'love'.</i>\""
+            `\n\n"<i>Really?  Didn't you say that the reason you were purifying yourself was so that ${this.player.mf(
+                "he",
+                "she"
+            )} would nurse from you again?  Sounds pretty selfish to me after what you were saying about doing things for who you 'love'.</i>"`
         );
         this.outx(
             '\n\n"<i>Well, that might be true, but there is more to it than that,</i>" a shadow crosses over Marble\'s face for a moment before she says softly, "<i>Even if it hurts me.</i>"'
         );
         this.outx(
-            '\n\n"<i>Then if ' +
-                this.player.short +
-                " loves you so much, why can't " +
-                this.player.mf("he", "she") +
-                " change for your sake?  Why can't they become addicted to show just how much they love you?</i>\""
+            `\n\n"<i>Then if ${this.player.short} loves you so much, why can't ${this.player.mf(
+                "he",
+                "she"
+            )} change for your sake?  Why can't they become addicted to show just how much they love you?</i>"`
         );
         this.outx(
-            '\n\nMarble swallows before saying, "<i>Do you have any idea of what ' +
-                this.player.short +
-                " is trying to do?  " +
-                this.player.mf("He", "She") +
-                ' is trying to defeat the demons!  To stop the corruption for good!</i>"'
+            `\n\nMarble swallows before saying, "<i>Do you have any idea of what ${
+                this.player.short
+            } is trying to do?  ${this.player.mf(
+                "He",
+                "She"
+            )} is trying to defeat the demons!  To stop the corruption for good!</i>"`
         );
         this.outx(
-            '\n\nAt this Clara bursts out laughing, "<i>Oh, and save the world I take it?  This ' +
-                this.player.race() +
-                "?  Don't be ridiculous.</i>\""
+            `\n\nAt this Clara bursts out laughing, "<i>Oh, and save the world I take it?  This ${this.player.race()}?  Don't be ridiculous.</i>"`
         );
         this.outx("\n\nMarble starts quivering in rage once more.");
         this.outx(
-            '\n\n"<i>Seriously, there is no damn way someone as pathetic as ' +
-                this.player.short +
-                ' could accomplish that,</i>" she continues while struggling to her feet.  "<i>You need to be like a twenty foot giant, champion fighter, god master of magic to pull a stunt like wiping out the demons.  ' +
-                this.player.short +
-                " is none of those things.  Do you really think someone who could would actually care about a lowly Lacta Bovine like you?</i>\"  Clara pokes her finger into Marble's chest.  \"<i>I guess the saying among our kind is right, 'the first daughter has the sourest milk.'</i>\""
+            `\n\n"<i>Seriously, there is no damn way someone as pathetic as ${this.player.short} could accomplish that,</i>" she continues while struggling to her feet.  "<i>You need to be like a twenty foot giant, champion fighter, god master of magic to pull a stunt like wiping out the demons.  ${this.player.short} is none of those things.  Do you really think someone who could would actually care about a lowly Lacta Bovine like you?</i>"  Clara pokes her finger into Marble's chest.  "<i>I guess the saying among our kind is right, 'the first daughter has the sourest milk.'</i>"`
         );
         this.outx(
             "\n\nYou can't help but muse that a cow-girl's endurance is something that should never be underestimated.  Their strength certainly isn't as great, but is still more than an average human's by a fair margin.  Making someone who is quite strong completely enraged is generally a bad idea.  Especially when that someone has been working on a farm for close to a year lifting increasingly heavy loads and training with a massive hammer."
@@ -1467,9 +1443,7 @@ export class MarblePurification extends NPCAwareContent {
             "\n\nYou calmly suggest to Marble that her hits might have more of the desired effect if they were on a bare bottom.  She nods at your suggestion, and promptly rolls up Clara's dress.  \"<i>Hey?  What are you doing?!</i>\"  Your mate ignores the question and removes her sibling's... wait, are those, <i>lacy black panties</i>?  Well, looks like the use of underwear is one more difference between the sisters."
         );
         this.outx(
-            "\n\nWith the white haired bovine's pale bare bottom high in the air, Marble gruffly commands, \"<i>Now, say you're sorry for trying to kidnap " +
-                this.player.short +
-                '.</i>"'
+            `\n\nWith the white haired bovine's pale bare bottom high in the air, Marble gruffly commands, "<i>Now, say you're sorry for trying to kidnap ${this.player.short}.</i>"`
         );
         this.outx(
             '\n\n"<i>No!  I was...</i>"  There is a loud sharp smack as Marble\'s hand comes down hard onto her sister\'s unprotected rear, leaving an angry red mark.  "<i>OOIE!  Ooie, ooie, ooie.</i>" Clara whimpers as small tears of pain start to flow down her cheeks.'
@@ -1506,9 +1480,7 @@ export class MarblePurification extends NPCAwareContent {
             "You step forward and suggest to Marble that the two of you should work together to punish Clara.  She nods and asks what you have in mind.  Well, you were thinking that a sexual punishment from the two of you would be appropriate."
         );
         this.outx(
-            "\n\n\"<i>What?  I don't want to have a threesome with my sister!  Only " +
-                this.player.short +
-                ' should be able to touch me!</i>"'
+            `\n\n"<i>What?  I don't want to have a threesome with my sister!  Only ${this.player.short} should be able to touch me!</i>"`
         );
         this.outx(
             "\n\nThat outburst from the younger sibling seems to have been enough to convince your lover to go along with it.  If it wasn't for her current mood, you doubt that she'd ever have agreed."
@@ -1527,9 +1499,9 @@ export class MarblePurification extends NPCAwareContent {
             );
             this.outx('\n\n"<i>What?  Fuck noo, your </i>sweetie<i> should be mine.</i>"');
             this.outx(
-                "\n\nMarble looks to the side of her sister's head, and gives you a solemn nod.  You take that as an invitation to begin the violation and grab a good grip of Clara's expansive rear.  Then you prod your " +
-                    this.cockDescript(x) +
-                    " at the entrance to her anus, prompting a gasp and plea from the woman you're about to penetrate to stop.  Her sister doesn't heed her begging, and neither do you."
+                `\n\nMarble looks to the side of her sister's head, and gives you a solemn nod.  You take that as an invitation to begin the violation and grab a good grip of Clara's expansive rear.  Then you prod your ${this.cockDescript(
+                    x
+                )} at the entrance to her anus, prompting a gasp and plea from the woman you're about to penetrate to stop.  Her sister doesn't heed her begging, and neither do you.`
             );
             this.outx(
                 "\n\nThere is a sharp gasp from the girls in front of you as you push into Clara's ass while Marble takes her vagina.  \"<i>Nooo,</i>\" comes a cross between a whimper and a moan in front of you, \"<i>It wasn't suppose to be this way....</i>\"  You ignore that and instead start to push and pull inside the young cow-girl's back entrance, while enjoying the feeling of Marble's member moving in an out of the other opening against your own.  It isn't often you get to double team someone like this."
@@ -1538,9 +1510,9 @@ export class MarblePurification extends NPCAwareContent {
                 "\n\nYou wipe a trickle of sweat off of your face and continue to revel in the feeling of filling up a cow-girl's wide bum, with dual stimulation from both her contractions against your member and the other shaft so close you can feel it sliding against you through the cow-girl.  At the same time, you can hear loud moaning coming from the two girls.  The familiar earthy 'ahhs' and subdued moos from Marble, along with the sharp gasps, 'oohs', and long loud moos from her younger sister.  Clara hasn't actually protested the situation for some time now, the dual penetration clearly too much for her virgin mind to endure."
             );
             this.outx(
-                "\n\nSuddenly Clara's anus clamps down sharply on your " +
-                    this.cockDescript(x) +
-                    ' and she lets out a long, "<i>Moooo!</i>" in orgasm.  She certainly came fast from this; you\'ve barely even begun to build up your own pleasure.  You look around her to see that Marble seems to be rather surprised about this as well.  "<i>Should we continue?</i>" she asks somewhat uncertainly, then considers her sister again with a frown.  You shrug your shoulders and suggest that a little longer is just what you both need and well within the bounds of a reasonable punishment.  Your partner agrees, and the fucking resumes.'
+                `\n\nSuddenly Clara's anus clamps down sharply on your ${this.cockDescript(
+                    x
+                )} and she lets out a long, "<i>Moooo!</i>" in orgasm.  She certainly came fast from this; you've barely even begun to build up your own pleasure.  You look around her to see that Marble seems to be rather surprised about this as well.  "<i>Should we continue?</i>" she asks somewhat uncertainly, then considers her sister again with a frown.  You shrug your shoulders and suggest that a little longer is just what you both need and well within the bounds of a reasonable punishment.  Your partner agrees, and the fucking resumes.`
             );
             this.outx(
                 "\n\nThis time Clara's anus is much more relaxed and accommodating to your violation.  It almost seems to invite you in when you push forward and try to keep there when you pull back.  Maybe the gangbang has brought out her natural skills at anal sex?  It's hard to say, but it's definitely enjoyable.  A quick check on the elder sister's face reveals that she is certainly enjoying this as well, but the sounds coming from the younger sister suggest that she is enjoying this the most.  Then again, it is hard to tell if that babbling is from pleasure or just from a complete mental breakdown."
@@ -1549,9 +1521,7 @@ export class MarblePurification extends NPCAwareContent {
                 "\n\nIt doesn't take much longer for you and Marble to rush to your peaks and fill up the cow-girl holes together.  Clara seems to have fallen just short of her peak when the two of you pull back, and she seems to suddenly regain her composure.  \"<i>Wait, what?  Noo!  You can't just, uh....  What am I saying?!</i>\"  It looks like she's having a bit of a crisis deciding if she wants to cum or is too bothered by the thought of what just happened to her."
             );
             this.outx(
-                "\n\n\"<i>Damn it all, why couldn't " +
-                    this.player.short +
-                    " have taken the front?  Now I'll never be able to experience it for the first time with my perfect mate!  You're evil, sister.</i>\"  Marble looks like she is about to blow up once more at that comment...."
+                `\n\n"<i>Damn it all, why couldn't ${this.player.short} have taken the front?  Now I'll never be able to experience it for the first time with my perfect mate!  You're evil, sister.</i>"  Marble looks like she is about to blow up once more at that comment....`
             );
         } // else if (PC has a cock, Marble does not)
         else if (this.player.hasCock() && x >= 0 && this.flags[kFLAGS.MARBLE_DICK_TYPE] == 0) {
@@ -1560,11 +1530,11 @@ export class MarblePurification extends NPCAwareContent {
                 "\n\nEventually you push her down on all fours.  You stand behind her, while Marble stands in front of her sister's face.  \"<i>Wait, do you actually think I'll service yoou?</i>\" Clara asks indignantly."
             );
             this.outx(
-                '\n\n"<i>You will if you don\'t want me to twist your ears,</i>" comes the response.  You prod your ' +
-                    this.cockDescript(x) +
-                    " up against her tight asshole and suggest that you might be taking a different entrance if she doesn't cooperate for her punishment.  \"<i>Of course, if you're sorry for what you tried to do to " +
-                    this.player.short +
-                    '...</i>" Marble suggests.'
+                `\n\n"<i>You will if you don't want me to twist your ears,</i>" comes the response.  You prod your ${this.cockDescript(
+                    x
+                )} up against her tight asshole and suggest that you might be taking a different entrance if she doesn't cooperate for her punishment.  "<i>Of course, if you're sorry for what you tried to do to ${
+                    this.player.short
+                }...</i>" Marble suggests.`
             );
             this.outx(
                 '\n\n"<i>What?  Why the hell would I be sorry for that?  Moop!</i>"  In goes your length into her virginal pussy.  "<i>Hey!  Yo-mmph,</i>" and she is silenced as her face is forced into Marble\'s womanhood.  You give her a moment to get use to the sensation, then begin thrusting into her opening in earnest.  At the same time, Marble twists her sister\'s ears a bit and reminds her what to do before letting out a sigh of pleasure when Clara evidently complies.'
@@ -1576,9 +1546,9 @@ export class MarblePurification extends NPCAwareContent {
                 "\n\nWhile continuing to savor the unpredictableness of Clara's interior, you turn your attention to how your partner in the punishment threesome is enjoying the experience.  Unfortunately, the younger sister's inexperience with pussy licking is showing.  Marble's expression is a mix of both enjoyment and exasperation.  Hoping to give your mate a little more of the former, you grab the cow-tail that's swishing around the bountiful rear you're connect to through your cunt claiming cock, and give it a tug.  You tell Clara that she needs to do a better job of pleasing your love.  She needs to work that cow-tongue, get all the way in there and pay special attention to... this.  With that last word, you give her clitoris a little rub."
             );
             this.outx(
-                "\n\nInstantly Marble's expression changes and she lets out a long low moan.  As a reward, you switch from quick thrusts to a slow rub against her entrance.  This proves to be quite a reward indeed as you feel a flood of Clara's juices spill out onto your groin from around the " +
-                    this.cockDescript(x) +
-                    " teasing her insides.  You, however, aren't finished yet.  You start a mix of both thrusting into her womanhood, and twisting your length around her innards."
+                `\n\nInstantly Marble's expression changes and she lets out a long low moan.  As a reward, you switch from quick thrusts to a slow rub against her entrance.  This proves to be quite a reward indeed as you feel a flood of Clara's juices spill out onto your groin from around the ${this.cockDescript(
+                    x
+                )} teasing her insides.  You, however, aren't finished yet.  You start a mix of both thrusting into her womanhood, and twisting your length around her innards.`
             );
             this.outx(
                 "\n\nA muffled, but loud, moaning moo starts to rise out of the before you, somewhat complementing the quieter sighs and gasps you're more familiar with coming from your mate.  The whole situation is incredibly lewd, and you're loving every second of it.  It isn't often that you get to have three sweaty bodies slapping and slobbering on one another.  The fact that one of them is tied up might bother you a little, if she wasn't so clearly enjoying herself."
@@ -1587,9 +1557,7 @@ export class MarblePurification extends NPCAwareContent {
                 "\n\nIn fact, she is enjoying herself so much that she cums a second time before either you or Marble reach your peaks.  Still, you and Marble do manage to bring yourselves over the top just after that and ride out the afterglow together.  Clara stumbles to the ground, coughing and sputtering from the proof of Marble's orgasm while yours spills out of her lower hole."
             );
             this.outx(
-                '\n\n"<i>Gah, sis, does your milk taste as bad as your pussy juices?  No wonder ' +
-                    this.player.short +
-                    " didn't want yoou!</i>\"  Another shock of anger shoots through Marble's features.  Is she going to try and inflict more punishment on her sister?"
+                `\n\n"<i>Gah, sis, does your milk taste as bad as your pussy juices?  No wonder ${this.player.short} didn't want yoou!</i>"  Another shock of anger shoots through Marble's features.  Is she going to try and inflict more punishment on her sister?`
             );
         }
         // else if (PC does not have a cock, Marble does)
@@ -1598,32 +1566,25 @@ export class MarblePurification extends NPCAwareContent {
                 "\n\nEventually you push her down on all fours.  You stand in front of her while Marble stands behind her sister's backside.  \"<i>Hey, you can't do this to me!  I don't want to looose my virginity to my sister!</i>\" Clara cries out indignantly."
             );
             this.outx(
-                "\n\nYou grab ahold of her ears and give them a slight tug.  She'd better go along with her punishment like a good girl, or you'll be adding some extra pain onto her head.  \"<i>Of course, if you're sorry for what you tried to do to " +
-                    this.player.short +
-                    '...</i>" Marble suggests.'
+                `\n\nYou grab ahold of her ears and give them a slight tug.  She'd better go along with her punishment like a good girl, or you'll be adding some extra pain onto her head.  "<i>Of course, if you're sorry for what you tried to do to ${this.player.short}...</i>" Marble suggests.`
             );
             this.outx(
-                '\n\n"<i>What?  Why the hell would I be sorry for that?  Moop!</i>"  There is a low slurp as your mate pushes her newly acquired seven inch shaft deep inside her sister\'s womanhood.  "<i>Hey!  Yo-mmph,</i>"  You silence her with your ' +
-                    this.vaginaDescript() +
-                    ", roughly forcing it into her face.  You give a slight twist to the young bovine's ears to remind her what she should be doing, and right away her tongue comes out and starts giving you experimental licks."
+                `\n\n"<i>What?  Why the hell would I be sorry for that?  Moop!</i>"  There is a low slurp as your mate pushes her newly acquired seven inch shaft deep inside her sister's womanhood.  "<i>Hey!  Yo-mmph,</i>"  You silence her with your ${this.vaginaDescript()}, roughly forcing it into her face.  You give a slight twist to the young bovine's ears to remind her what she should be doing, and right away her tongue comes out and starts giving you experimental licks.`
             );
             this.outx(
                 "\n\nYou let out a sigh and see how Marble is doing.  The older cow-girl is certainly enjoying herself.  It isn't often she gets this into sex involving her cock, but the urgency of her thrusts, the blissful expression of her face, and the happy low groans and moans certainly suggest that she is enjoying herself immensely."
             );
             this.outx(
-                "\n\nFor your own sexual experience, you're rather underwhelmed so far.  The malefactor's skills at oral certainly leave something to be desired.  She's barely doing much more than just lightly licking the edges, barely even teasing you.  Sensing that you aren't having a good time, Marble grabs her sister's tail and gives it a good tug.  \"<i>Hey, 'sis', I see you aren't doing a good job up there.  You damn well better work that tongue deep inside " +
-                    this.player.mf("him", "her") +
-                    ", or I'll be using your tail as a leash.  Put that length to work!</i>\"  That little display certainly seems to have gotten the message through as the real performance now begins."
+                `\n\nFor your own sexual experience, you're rather underwhelmed so far.  The malefactor's skills at oral certainly leave something to be desired.  She's barely doing much more than just lightly licking the edges, barely even teasing you.  Sensing that you aren't having a good time, Marble grabs her sister's tail and gives it a good tug.  "<i>Hey, 'sis', I see you aren't doing a good job up there.  You damn well better work that tongue deep inside ${this.player.mf(
+                    "him",
+                    "her"
+                )}, or I'll be using your tail as a leash.  Put that length to work!</i>"  That little display certainly seems to have gotten the message through as the real performance now begins.`
             );
             this.outx(
                 "\n\nNow you feel the natural power of a cow-girl's tongue at giving pleasure to a woman's parts.  Her pussy-licker is at least twice as long as a normal human's, able to easily explore your folds and go deep inside your interior.  \"<i>Good girl, be sure to pay special attention to this little button here,</i>\" comes further instructions, accompanied by Marble reaching down under her sister's legs and fingering what must be the would-be-thief's clitoris.  You're sure that's what she just touched because it triggered a shudder through Clara's body and a loud cry of orgasm into your mound."
             );
             this.outx(
-                "\n\nYou express your disappointment to Marble at her sister's unfinished performance, so the fucking continues.  Thankfully, it seems that the bad bovine did get the message and has started to tease and suck on your " +
-                    this.clitDescript() +
-                    " as well as continuing with her teases of your folds and depths.  You'd almost feel bad for doing what you two are doing to her if she wasn't evidently enjoying it as much as she is.  Muffled but loud gasps and moos are constantly being uttered into your " +
-                    this.vaginaDescript() +
-                    " by the bound girl between you and your lover.  Her breath upon your womanhood only serves to make you feel even better."
+                `\n\nYou express your disappointment to Marble at her sister's unfinished performance, so the fucking continues.  Thankfully, it seems that the bad bovine did get the message and has started to tease and suck on your ${this.clitDescript()} as well as continuing with her teases of your folds and depths.  You'd almost feel bad for doing what you two are doing to her if she wasn't evidently enjoying it as much as she is.  Muffled but loud gasps and moos are constantly being uttered into your ${this.vaginaDescript()} by the bound girl between you and your lover.  Her breath upon your womanhood only serves to make you feel even better.`
             );
             this.outx(
                 "\n\nShe is enjoying herself so much that she cums a second time before either you or Marble reach your peaks.  Still, you and Marble do manage to bring yourselves over the top just after that and ride out the afterglow together.  Clara stumbles to the ground, coughing and sputtering from the proof of your orgasm while Marble's spills out of her lower hole."
@@ -1635,11 +1596,7 @@ export class MarblePurification extends NPCAwareContent {
         // PC and Marble only have their vaginas
         else {
             this.outx(
-                "\n\nEventually you roll her onto her back.  Then Marble sits down on her sister's face while you put your mouth to Clara's womanhood and raise your " +
-                    this.buttDescript() +
-                    " up into the air so that your mate can reach your own " +
-                    this.vaginaDescript() +
-                    "."
+                `\n\nEventually you roll her onto her back.  Then Marble sits down on her sister's face while you put your mouth to Clara's womanhood and raise your ${this.buttDescript()} up into the air so that your mate can reach your own ${this.vaginaDescript()}.`
             );
             this.outx(
                 "\n\nThis little triangle is about all you can think of doing since there isn't a whole lot three girls can do to one another if one of them is tied up, that is if you're looking for everyone to get pleasure out of the experience.  \"<i>Okay, what the hell is this?  Doo you really think I'm going to actually service -mmph!</i>\"  The naughty girl is interrupted when her elder sister smothers her face in cow-girl pussy."
@@ -1654,11 +1611,7 @@ export class MarblePurification extends NPCAwareContent {
                 "\n\n\"<i>Haven't I already told you that I was dooing the right thing?  Why would I -mmph!</i>\"  Once again she is silenced by a mouth full of another girl's snatch.  It looks like the punishment is on, and you start to mercilessly tease the cow-girl mound in front of your face.  Instantly she starts to squirm under your ministrations, desperately trying to get you to actually penetrate her or touch her emerging clitoris.  You don't give her that mercy, not yet."
             );
             this.outx(
-                "\n\nNow you get to experience the pleasure of Marble's tongue starting to tease your " +
-                    this.vaginaDescript() +
-                    " with her bovine tongue.  It's easily twice the length of a human's and quite adept at pleasuring a woman's passages.  Your mate is certainly quite willing to put it to that very use, using it to plunge deep inside your depths and also expertly explore and pleasure your " +
-                    this.clitDescript() +
-                    "."
+                `\n\nNow you get to experience the pleasure of Marble's tongue starting to tease your ${this.vaginaDescript()} with her bovine tongue.  It's easily twice the length of a human's and quite adept at pleasuring a woman's passages.  Your mate is certainly quite willing to put it to that very use, using it to plunge deep inside your depths and also expertly explore and pleasure your ${this.clitDescript()}.`
             );
             this.outx(
                 "\n\nMeanwhile, the young cow-girl under your care continues to squirm and struggle more and more urgently.  You take a short break to suggest to her that all she needs to do is properly please Marble if she wants relief.  Finally, you hear an approving moan from your mate and take that as your cue to dive deep into Clara's needy nethers.  Almost instantly, a muffled but clearly audible moan of pleasure rises out of the woman."
@@ -1670,9 +1623,7 @@ export class MarblePurification extends NPCAwareContent {
                 "\n\nIt's around the same time that the girl under you cries out a long loud moo through Marble's womanhood, signalling her surrender to your lips.  You pull back and see your mate regard her sister with disappointment, you poke the bad bound girl in the belly and tell her to finish the job.  She gasps and returns to licking cow-girl snatch enough to bring out a nice low moan and moo from your mate's body."
             );
             this.outx(
-                "\n\nYour hot and sweaty bodies separate from one another, each face bearing the fluids of one another's orgasms.  Clara is coughing and sputtering, \"<i>Gah, sis, does your milk taste as bad as your pussy juices?  No woonder " +
-                    this.player.short +
-                    " didn't want you!</i>\"  Another shock of anger shoots through Marble's features.  Is she going to try and inflict more punishment on her sister?"
+                `\n\nYour hot and sweaty bodies separate from one another, each face bearing the fluids of one another's orgasms.  Clara is coughing and sputtering, "<i>Gah, sis, does your milk taste as bad as your pussy juices?  No woonder ${this.player.short} didn't want you!</i>"  Another shock of anger shoots through Marble's features.  Is she going to try and inflict more punishment on her sister?`
             );
         }
         this.player.orgasm();
@@ -1687,14 +1638,10 @@ export class MarblePurification extends NPCAwareContent {
         this.clearOutput();
         this.outx("You ");
         this.outx(
-            "step forward and tell Marble that you think that since Clara thinks your love for one another isn't real, how about the two of you show her just how real it is?  \"<i>Good idea, " +
-                this.player.short +
-                ",</i>\" your lover tersely replies through her still seething visage and steps forwards.  In an instant you're forcibly pulled into a strong passionate kiss upon humanlike lips while a decidedly inhumanly long tongue invades your mouth.  “<i>Wait, are you two just gooing to fuck right in front of me?</i>\" comes an incredulous voice from somewhere behind the woman you're kissing.  Neither of you pay it any mind and continue to taste, devour, and lavish affection on each other's mouths.  An angry grunt comes once more from the woman you're showing what loves means to, and sounds of a struggle accompany it."
+            `step forward and tell Marble that you think that since Clara thinks your love for one another isn't real, how about the two of you show her just how real it is?  "<i>Good idea, ${this.player.short},</i>" your lover tersely replies through her still seething visage and steps forwards.  In an instant you're forcibly pulled into a strong passionate kiss upon humanlike lips while a decidedly inhumanly long tongue invades your mouth.  “<i>Wait, are you two just gooing to fuck right in front of me?</i>" comes an incredulous voice from somewhere behind the woman you're kissing.  Neither of you pay it any mind and continue to taste, devour, and lavish affection on each other's mouths.  An angry grunt comes once more from the woman you're showing what loves means to, and sounds of a struggle accompany it.`
         );
         this.outx(
-            "\n\nProper lovemaking does not stop at kissing.  You have to be sure to show a would be thief the whole process.  Your partner is already working on that matter through efforts to free your body from the " +
-                this.player.armorName +
-                " that contains it.  Not one to be outdone, you begin to remove the familiar top that oh-so-often holds bovine breasts at bay.  With Marble's melons free, she immediately pulls your head down into the great valley of flesh her breasts create."
+            `\n\nProper lovemaking does not stop at kissing.  You have to be sure to show a would be thief the whole process.  Your partner is already working on that matter through efforts to free your body from the ${this.player.armorName} that contains it.  Not one to be outdone, you begin to remove the familiar top that oh-so-often holds bovine breasts at bay.  With Marble's melons free, she immediately pulls your head down into the great valley of flesh her breasts create.`
         );
         this.outx(
             "\n\nFrom there, you decide it is time to let your partner lead for a while.  She is quite happy to roll her massive melons around your face while you snuggle against the wonderfully smooth skin.  Abruptly, you feel the woman whose breasts you're trapped within turn around.  \"<i>The fuck is this, sis?</i>\"  The voice is spitting mad now.  You can hear that it's behind you, evidently someone wants to make sure the audience gets a full view of your sexual escapade."
@@ -1706,9 +1653,9 @@ export class MarblePurification extends NPCAwareContent {
         const x: number = this.player.cockThatFits(this.marbleScene.marbleCuntCapacity());
         if (this.player.hasCock() && x >= 0) {
             this.outx(
-                "she drops herself onto your " +
-                    this.cockDescript(x) +
-                    ".  Since your bovine mate isn't in the habit of wearing any form of undergarments, her skirt doesn't really do much to get in the way of penetration.  A shriek of dismay accompanies this act."
+                `she drops herself onto your ${this.cockDescript(
+                    x
+                )}.  Since your bovine mate isn't in the habit of wearing any form of undergarments, her skirt doesn't really do much to get in the way of penetration.  A shriek of dismay accompanies this act.`
             );
             this.outx(
                 "\n\nThere is no hesitation after you've been mounted.  Instantly you're being roughly ridden by a beast that has been awakened in Marble, and there is nothing that can stop it.  A loud slapping sound fills the air with each drop of her hips, then they rise up again and drop once more.  What is essentially a hollow jackhammer seems to be running on your lap right now, and its operator's hands are holding firm to your shoulders to make sure you stay in place."
@@ -1720,9 +1667,7 @@ export class MarblePurification extends NPCAwareContent {
                 "she drops herself onto the ground next to you.  Abruptly, she lifts you up and drops your womanhood onto the member you gave her.  Since your bovine mate isn't in the habit of wearing any form of undergarments, her skirt doesn't really do much to get in the way of penetration.  A shriek of dismay accompanies this act."
             );
             this.outx(
-                "\n\nThere is no hesitation after you've been invaded, instantly you're being roughly lifted and dropped by a beast that has been awakened in Marble, and there is nothing that can stop it.  A loud slapping sound fills the air with each drop of your hips, only for them to be lifted up and dropped once more.  Your " +
-                    this.hipDescript() +
-                    " have been essentially turned into a jackhammer right now, and its operator shows no signs allowing you to stray from your place on her lap."
+                `\n\nThere is no hesitation after you've been invaded, instantly you're being roughly lifted and dropped by a beast that has been awakened in Marble, and there is nothing that can stop it.  A loud slapping sound fills the air with each drop of your hips, only for them to be lifted up and dropped once more.  Your ${this.hipDescript()} have been essentially turned into a jackhammer right now, and its operator shows no signs allowing you to stray from your place on her lap.`
             );
         }
         // else if (PC has a vagina and Marble does not have a cock)
@@ -1757,9 +1702,7 @@ export class MarblePurification extends NPCAwareContent {
             '\n\n"<i>What new appendage?</i>" Clara asks in apprehension, a picture of fear now painted across her face.  Marble lifts up her skirt and reveals her growing erection.  "<i>What the hell?!</i>" is the response to this revelation.  Under normal circumstances, your mate is filled with trepidation when it comes using her seven inch cock.  Now, she only shows eagerness when she pushes Clara onto her back and positions her sister\'s legs against her torso.  "<i>No, no, no, I\'m not about to looose my virginity to my sister, I\'m not about to looose my virginity to my sister.  DAMN IT MARBLE, STOP!</i>"'
         );
         this.outx(
-            '\n\nThe older sister hesitates for a moment, "<i>Are you sorry for trying to steal ' +
-                this.player.short +
-                ' from me?</i>"'
+            `\n\nThe older sister hesitates for a moment, "<i>Are you sorry for trying to steal ${this.player.short} from me?</i>"`
         );
         this.outx('\n\n"<i>What?  No, why would I be?</i>"');
         this.outx("\n\nMarble squats down in front of her sister's vaginal virgin opening.");
@@ -1827,9 +1770,7 @@ export class MarblePurification extends NPCAwareContent {
         // Initial check
         this.clearOutput();
         this.outx(
-            "The rather colorful events of the morning seem to have gone largely unnoticed by the elderly rat.  He is uncharacteristically engrossed in the whitish bubbling formula in front of him, so much so that he doesn't actually notice when you and Marble come up to him.  The two of you are surprised that he doesn't address your presence at all.  It's several moments before you clear your throat and announce your presence.  Starting, the camp's alchemist turns to you blinking in confusion for another moment, then addresses you, \"<i>Ah, " +
-                this.player.short +
-                ', Marble.  Good news, you two!  This will likely be very potent and capable of purifying cow-girls in very small doses.  Even those who have not yet been fed doses of purified LaBova.  However, it may not be effective on those unrelated to you.</i>"'
+            `The rather colorful events of the morning seem to have gone largely unnoticed by the elderly rat.  He is uncharacteristically engrossed in the whitish bubbling formula in front of him, so much so that he doesn't actually notice when you and Marble come up to him.  The two of you are surprised that he doesn't address your presence at all.  It's several moments before you clear your throat and announce your presence.  Starting, the camp's alchemist turns to you blinking in confusion for another moment, then addresses you, "<i>Ah, ${this.player.short}, Marble.  Good news, you two!  This will likely be very potent and capable of purifying cow-girls in very small doses.  Even those who have not yet been fed doses of purified LaBova.  However, it may not be effective on those unrelated to you.</i>"`
         );
         this.outx('\n\n"<i>So does that mean it is ready?</i>" your mate asks.');
         this.outx(
@@ -1870,9 +1811,7 @@ export class MarblePurification extends NPCAwareContent {
             "\n\nYou calmly tell Marble that you're quite certain that she wouldn't have come out here to think on her own for so long if all she was worried about was your condition.  There is something else bothering her, something that she doesn't want you to worry about.  You're here for her just as she is there for you.  You ask her to just tell you what is wrong."
         );
         this.outx(
-            "\n\nMarble's forced smile fades and her features resume the crestfallen look she had earlier, thinking about the right words to say to you.  Seeing as there is no other way around the conversation she says, \"<i>To be honest sweetie, you're right, I'm not all right.</i>\"  There is a moment's hesitation before she continues, \"<i>Oh " +
-                this.player.short +
-                ", so much has happened in such a short time and it's all that's on my mind. After all the things that Clara has said I just don't know what to do.</i>\""
+            `\n\nMarble's forced smile fades and her features resume the crestfallen look she had earlier, thinking about the right words to say to you.  Seeing as there is no other way around the conversation she says, "<i>To be honest sweetie, you're right, I'm not all right.</i>"  There is a moment's hesitation before she continues, "<i>Oh ${this.player.short}, so much has happened in such a short time and it's all that's on my mind. After all the things that Clara has said I just don't know what to do.</i>"`
         );
         this.outx(
             "\n\nYou recall everything that Clara has revealed and ask Marble if it's about her parents and her race.  \"<i>Yes, hearing about how my father's addiction was like and the way my mother used it to manipulate him, my race's methods to find a mate, and finally thinking about my own instincts and desires, then it all falls together.</i>\""
@@ -1917,18 +1856,14 @@ export class MarblePurification extends NPCAwareContent {
             "\n\n\"<i>The most troubling part about all this is that I think of what my mom did to my dad, and that I would have done the same thing to you.  If you had become addicted to me, I wouldn't have even realized I was doing it either.  You would have been slowly twisted into my perfect mate, and as sick as that sounds, I genuinely want that.  Almost every part of my being wants that so much.  Ever since I was a little girl, I've dreamt of having a mate just like daddy...</i>\""
         );
         this.outx(
-            '\n\nMarble looks at you once more, somewhat passively.  You swear her expression is that of someone waiting for her execution.  "<i>So, ' +
-                this.player.short +
-                ", now you know the real me.  Can you still love me?</i>\"  You reach out to your lover's face and caress her cheek.  She then takes your hand and holds it tight against her face. In an instant, her stoicism shatters, and tears look to be on the verge of streaming down her face once more.  You tell her that everything will work out; it'll just take one step at a time."
+            `\n\nMarble looks at you once more, somewhat passively.  You swear her expression is that of someone waiting for her execution.  "<i>So, ${this.player.short}, now you know the real me.  Can you still love me?</i>"  You reach out to your lover's face and caress her cheek.  She then takes your hand and holds it tight against her face. In an instant, her stoicism shatters, and tears look to be on the verge of streaming down her face once more.  You tell her that everything will work out; it'll just take one step at a time.`
         );
 
         this.outx(
             '\n\n"<i>B-But sweetie...!</i>"  You reassure her that even if what Clara said had some truth to her words, even if she said your relationship with Marble was only a one-sided romance, it wouldn\'t change the fact that you love her with all your heart.  Even if she did addict you to her milk, you would have stayed by her side and continued to love her.  You once again tell her it was her you were in love with, not what she could give you, and nothing would change that fact.'
         );
         this.outx(
-            '\n\nMarble bursts into tears and pulls you into a nearly back-breaking hug, calling out your name and declaring her love for you as she continues to embrace you.  She gives you a deep kiss and you return it wholeheartedly.  When she finally lets you go, she jumps down from the wall, giving you a delightful, beautiful smile.  "<i>You really are too good for me, ' +
-                this.player.short +
-                '.  I feel a lot better now.</i>"'
+            `\n\nMarble bursts into tears and pulls you into a nearly back-breaking hug, calling out your name and declaring her love for you as she continues to embrace you.  She gives you a deep kiss and you return it wholeheartedly.  When she finally lets you go, she jumps down from the wall, giving you a delightful, beautiful smile.  "<i>You really are too good for me, ${this.player.short}.  I feel a lot better now.</i>"`
         );
         this.outx(
             "\n\nYou jump down as well, smiling back, then laugh and remind Marble that she needs to remember that soon, all her instincts will be washed away, and she'll be able to live her life the way she thinks is right, not the way that Clara thinks is right, not the way her mother thinks is right, not the way her race thinks is right.  Marble will be living Marble's life the way that Marble thinks is right.  Plus, maybe you'll just start a race of pure cow-girls with her?  The smile on Marble's face only gets bigger at this."
@@ -1974,9 +1909,7 @@ export class MarblePurification extends NPCAwareContent {
             "\n\nShe then grabs her breasts in surprise, and seems to weigh them, getting a feel for the change.  \"<i>Can't say I'm too happy about this...</i>\" she mutters.  Then there is a sharp intake of breath, and her eyes go wide.  Her body starts to sway and then fall over.  Thankfully, you're easily able to catch her and gently lower her body to the ground.  Checking her yields the same wide eyes and unfocused expression."
         );
         this.outx(
-            '\n\nYou call out to her in worry, begging for her to come back to you.  After a moment, her eyes go back into focus, and you hear her voice call out hesitantly, "<i>' +
-                this.player.short +
-                '?</i>"  You let out a sigh of relief and ask how she feels.  "<i>I feel... different.  Like I\'m seeing the world for the first time.</i>"  You help her to her feet.  "<i>I guess that makes sense, I was born corrupt, so being purified is something I\'ve never felt before.  It\'ll be a while before I can really give you an idea of what this is like.  What I can say is that my mind feels... clean, free.</i>"'
+            `\n\nYou call out to her in worry, begging for her to come back to you.  After a moment, her eyes go back into focus, and you hear her voice call out hesitantly, "<i>${this.player.short}?</i>"  You let out a sigh of relief and ask how she feels.  "<i>I feel... different.  Like I'm seeing the world for the first time.</i>"  You help her to her feet.  "<i>I guess that makes sense, I was born corrupt, so being purified is something I've never felt before.  It'll be a while before I can really give you an idea of what this is like.  What I can say is that my mind feels... clean, free.</i>"`
         );
         this.outx(
             "\n\nWell, there is one way to know for certain, and you offer to give her pure milk a taste test.  \"<i>Ah, you don't know how good that offer makes me feel sweetie, come on!</i>\"  You don't need to be told twice, in an instant you're upon her breasts.  For a moment after your lips wrap around her sweet teats, nothing meets your tongue.  Fear that perhaps Marble has become dry fills you, then, a trickle of flavor caresses your tongue.  A new milk is coming out, different from the old drugged stuff that is so familiar to you.  There is no mistaking it; it is pure, safe, and delicious.  You draw back, smile at Marble, and relay this revelation.  Marble laughs, \"<i>I'm sorry that I haven't got too much to give right now, but just give me a little time, and I'll give you a delicious feast of pure Lacta Bovine breastmilk.</i>\""
@@ -2037,23 +1970,23 @@ export class MarblePurification extends NPCAwareContent {
             '\n\n"<i>The kind who thinks they deserve the world thanks to a parent spoiling them horribly as a child,</i>" Marble responds.  "<i>However, you do deserve one thing.  Thank you, sister, for giving me your milk.  I\'ve been purified now, and my milk is safe for anyone to drink.</i>"'
         );
         this.outx(
-            "\n\n\"<i>Congratulations!  You're not a Lacta Bovine anymore.  It isn't like I was trying to stop you from doing that, but now you sure as hell don't deserve a mate anymore.  You can't even claim one.</i>\"  Clara turns her attention to you, \"<i>Did you hear that, " +
-                this.player.mf("lover-boy", "lover-girl") +
-                "?  You don't deserve a pseudo Lacta Bovine like her.  I can give you want you really want.</i>\""
+            `\n\n"<i>Congratulations!  You're not a Lacta Bovine anymore.  It isn't like I was trying to stop you from doing that, but now you sure as hell don't deserve a mate anymore.  You can't even claim one.</i>"  Clara turns her attention to you, "<i>Did you hear that, ${this.player.mf(
+                "lover-boy",
+                "lover-girl"
+            )}?  You don't deserve a pseudo Lacta Bovine like her.  I can give you want you really want.</i>"`
         );
 
         this.outx(
             '\n\n"<i>I can\'t believe this Clara, why are you even bothering at this point?</i>"'
         );
         this.outx(
-            '\n\n"<i>Fuck off, mutant,</i>" she dismisses her sister in an instant.  "<i>I want to tell my destined mate what kind of a life ' +
-                this.player.mf("he", "she") +
-                " is missing out on!  I know you still want true Lacta Bovine milk.  Once you've tasted it, you'll know that you truly want it forever.  Come away with me, be my slave, and you'll be truly happy again!</i>\" A sick smile plays over her face, her madness clear for all to see."
+            `\n\n"<i>Fuck off, mutant,</i>" she dismisses her sister in an instant.  "<i>I want to tell my destined mate what kind of a life ${this.player.mf(
+                "he",
+                "she"
+            )} is missing out on!  I know you still want true Lacta Bovine milk.  Once you've tasted it, you'll know that you truly want it forever.  Come away with me, be my slave, and you'll be truly happy again!</i>" A sick smile plays over her face, her madness clear for all to see.`
         );
         this.outx(
-            '\n\nMarble sighs, then speaks once more, "<i>I figured you should know at least that, sister, before we decided what to do with you.</i>"  She turns to you, "<i>Well, ' +
-                this.player.short +
-                ', you were the one she tried to kidnap and enslave.  What do you think we should do with her?</i>"'
+            `\n\nMarble sighs, then speaks once more, "<i>I figured you should know at least that, sister, before we decided what to do with you.</i>"  She turns to you, "<i>Well, ${this.player.short}, you were the one she tried to kidnap and enslave.  What do you think we should do with her?</i>"`
         );
         this.outx(
             "\n\nAs you and Marble were discussing before, purifying Clara would be a very fitting punishment for her.  It will forever prevent her from ever addicting anyone to her, and you won't need to worry about letting her out.  Of course, she certainly won't like that one bit."
@@ -2227,13 +2160,11 @@ export class MarblePurification extends NPCAwareContent {
         // if (Marble's breast size < 3)
         if (this.flags[kFLAGS.MARBLE_BREAST_SIZE] < 3) {
             this.outx(
-                '\n\n"<i>Alright, if you say so.</i>"  Marble lifts the bottle to her mouth, and drinks the substance down.  She lets out a soft sigh and starts massaging her bouncy tit flesh as it expands outwards.  Through her shirt, you can see her ' +
-                    kGAMECLASS.marbleScene.marbleBreastSize() +
-                    " breasts balloon into "
+                `\n\n"<i>Alright, if you say so.</i>"  Marble lifts the bottle to her mouth, and drinks the substance down.  She lets out a soft sigh and starts massaging her bouncy tit flesh as it expands outwards.  Through her shirt, you can see her ${kGAMECLASS.marbleScene.marbleBreastSize()} breasts balloon into `
             );
             // increase Marble's breast size by 1
             this.flags[kFLAGS.MARBLE_BREAST_SIZE]++;
-            this.outx(kGAMECLASS.marbleScene.marbleBreastSize() + " melons!");
+            this.outx(`${kGAMECLASS.marbleScene.marbleBreastSize()} melons!`);
             // if (Marble's breast size == 1)
             if (this.flags[kFLAGS.MARBLE_BREAST_SIZE] == 1) {
                 this.outx(
@@ -2282,13 +2213,11 @@ export class MarblePurification extends NPCAwareContent {
         );
         if (this.flags[kFLAGS.MARBLE_BREAST_SIZE] > 0) {
             this.outx(
-                '\n\n"<i>Alright, if you say so.</i>"  Marble opens the jar of reducto, lifts up her top, and slathers the green gel onto her breasts.  She lets out a soft sigh as the substance takes effect, and her tremendous ' +
-                    kGAMECLASS.marbleScene.marbleBreastSize() +
-                    " tits slowly shrink in size, becoming a pair of more modest "
+                `\n\n"<i>Alright, if you say so.</i>"  Marble opens the jar of reducto, lifts up her top, and slathers the green gel onto her breasts.  She lets out a soft sigh as the substance takes effect, and her tremendous ${kGAMECLASS.marbleScene.marbleBreastSize()} tits slowly shrink in size, becoming a pair of more modest `
             );
             // decrease Marble's breast size by 1
             this.flags[kFLAGS.MARBLE_BREAST_SIZE]--;
-            this.outx(kGAMECLASS.marbleScene.marbleBreastSize() + " sized breasts.");
+            this.outx(`${kGAMECLASS.marbleScene.marbleBreastSize()} sized breasts.`);
             if (this.flags[kFLAGS.MARBLE_BREAST_SIZE] == 0) {
                 this.outx(
                     "\n\nYour mate grips one of her sizable DDs, and gives an exaggerated sigh.  \"<i>This is just so tiny.  Remember that I'm only doing this because I care about you sweetie.  I'm not going to shrink them any further.</i>\""
@@ -2347,9 +2276,7 @@ export class MarblePurification extends NPCAwareContent {
                 "Feeling a bit thirsty, you ask Marble if theres any chance she has some milk for you.  She smiles at you and tells you she was worried you'd never ask, then leads you to a familiar, secluded part of the rocks around the camp."
             );
             this.outx(
-                "\n\nOnce you arrive, your lover teases you a bit by grabbing her " +
-                    kGAMECLASS.marbleScene.marbleBreastSize() +
-                    " breasts through her top and playing around with them for a moment.  The bouncy flesh rolls around her hands in a very pleasant manner, and you feel your mouth water in anticipation of the delicious milk hidden within."
+                `\n\nOnce you arrive, your lover teases you a bit by grabbing her ${kGAMECLASS.marbleScene.marbleBreastSize()} breasts through her top and playing around with them for a moment.  The bouncy flesh rolls around her hands in a very pleasant manner, and you feel your mouth water in anticipation of the delicious milk hidden within.`
             );
             this.outx(
                 "\n\nYou're given a sultry smile, and Marble hooks her shirt with her thumb pulling it up over her chest, letting her bovine bust spill forth.  The invitation to partake in her revitalizing and rich fluids comes not long after, and you waste no time in doing just that.  "

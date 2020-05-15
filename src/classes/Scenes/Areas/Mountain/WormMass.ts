@@ -16,9 +16,9 @@ export class WormMass extends Monster {
 
     public won(hpVictory: boolean, pcCameWorms: boolean): void {
         this.outx(
-            "Overcome by your " +
-                (hpVictory ? "wounds" : "lust") +
-                ", you sink to your knees as the colony of worms swarms all over your body...\n\n",
+            `Overcome by your ${
+                hpVictory ? "wounds" : "lust"
+            }, you sink to your knees as the colony of worms swarms all over your body...\n\n`,
             true
         );
         this.game.infest1();

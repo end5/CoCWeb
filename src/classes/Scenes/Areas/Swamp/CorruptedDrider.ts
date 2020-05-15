@@ -134,27 +134,19 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                 // (HIT? + 15 lust)
                 this.game.dynStats("lus", 15);
                 this.outx(
-                    "Again, the drider ties your mouth up in her syrupy lip-lock, seeming to bind your mouth as effectively as her webs bind your body.  Her sweet venom bubbles and froths at the corners of the oral embrace, dripping over her many-breasted bosom and your " +
-                        this.player.chestDesc() +
-                        ".",
+                    `Again, the drider ties your mouth up in her syrupy lip-lock, seeming to bind your mouth as effectively as her webs bind your body.  Her sweet venom bubbles and froths at the corners of the oral embrace, dripping over her many-breasted bosom and your ${this.player.chestDesc()}.`,
                     false
                 );
                 if (this.player.hasCock())
                     this.outx(
-                        "  " +
-                            this.SMultiCockDesc() +
-                            " spews a rope of pre-cum into your " +
-                            this.player.armorName +
-                            ", desperate to get out and fuck.",
+                        `  ${this.SMultiCockDesc()} spews a rope of pre-cum into your ${
+                            this.player.armorName
+                        }, desperate to get out and fuck.`,
                         false
                     );
                 if (this.player.hasVagina())
                     this.outx(
-                        "  Fem-cum dribbles down your " +
-                            this.player.legs() +
-                            " while your " +
-                            this.player.clitDescript() +
-                            " gets so hard you think it'll explode.",
+                        `  Fem-cum dribbles down your ${this.player.legs()} while your ${this.player.clitDescript()} gets so hard you think it'll explode.`,
                         false
                     );
                 this.outx(
@@ -167,11 +159,9 @@ export class CorruptedDrider extends AbstractSpiderMorph {
             // (Get hit 3rd+ time)
             else {
                 this.outx(
-                    "This time you barely move.  Your body is too entranced by the idea of another venom-laced kiss to resist.  Glorious purple goo washes into your mouth as her lips meet yours, sealing tight but letting your tongue enter her mouth to swirl around and feel the venom drip from her fangs.  It's heavenly!  Your " +
-                        this.player.skin() +
-                        " grows hot and tingly, and you ache to be touched so badly.  Your " +
-                        this.nippleDescript(0) +
-                        "s feel hard enough to cut glass, and a growing part of you admits that you'd love to feel the drider's chitinous fingers pulling on them.",
+                    `This time you barely move.  Your body is too entranced by the idea of another venom-laced kiss to resist.  Glorious purple goo washes into your mouth as her lips meet yours, sealing tight but letting your tongue enter her mouth to swirl around and feel the venom drip from her fangs.  It's heavenly!  Your ${this.player.skin()} grows hot and tingly, and you ache to be touched so badly.  Your ${this.nippleDescript(
+                        0
+                    )}s feel hard enough to cut glass, and a growing part of you admits that you'd love to feel the drider's chitinous fingers pulling on them.`,
                     false
                 );
                 // (HIT? + 20 lust)
@@ -186,9 +176,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                         this.outx("large");
                     else this.outx("massive");
                     this.outx(
-                        " wet stain that reeks of your sheer sexual ache has formed in your " +
-                            this.player.armorName +
-                            ".",
+                        ` wet stain that reeks of your sheer sexual ache has formed in your ${this.player.armorName}.`,
                         false
                     );
                     if (this.player.lust <= 99)
@@ -285,18 +273,11 @@ export class CorruptedDrider extends AbstractSpiderMorph {
         this.a = "the ";
         this.short = "corrupted drider";
         this.imageName = "corrupteddrider";
-        this.long =
-            "This particular spider-woman is a drider - a creature with a humanoid top half and the lower body of a giant arachnid.  From a quick glance, you can tell that this one has fallen deeply to corruption.  She is utterly nude, exposing her four well-rounded, D-cup breasts with their shiny black nipples.  " +
-            (pierced
+        this.long = `This particular spider-woman is a drider - a creature with a humanoid top half and the lower body of a giant arachnid.  From a quick glance, you can tell that this one has fallen deeply to corruption.  She is utterly nude, exposing her four well-rounded, D-cup breasts with their shiny black nipples.  ${
+            pierced
                 ? "Gold piercings and chains link the curvy tits together, crossing in front of her four mounds in an 'x' pattern.  "
-                : "") +
-            "On her face and forehead, a quartet of lust-filled, " +
-            skinTone +
-            " eyes gaze back at you.  Behind her, the monster-girl's " +
-            hairColor +
-            " hair drapes down her back like a cloak.  The drider's lips seem to shine with a light all their own, and a steady trickle of purple, reflective fluid beads and drips from them.  At her waist, there's a juicy looking snatch with a large, highly visible clit.  From time to time it pulsates and grows, turning part-way into a demon-dick.  Her spider-half has eight spindly legs with black and " +
-            hairColor +
-            " stripes - a menacing display if ever you've seen one.";
+                : ""
+        }On her face and forehead, a quartet of lust-filled, ${skinTone} eyes gaze back at you.  Behind her, the monster-girl's ${hairColor} hair drapes down her back like a cloak.  The drider's lips seem to shine with a light all their own, and a steady trickle of purple, reflective fluid beads and drips from them.  At her waist, there's a juicy looking snatch with a large, highly visible clit.  From time to time it pulsates and grows, turning part-way into a demon-dick.  Her spider-half has eight spindly legs with black and ${hairColor} stripes - a menacing display if ever you've seen one.`;
         // this.plural = false;
         this.createCock(9, 2, CockTypesEnum.DEMON);
         this.createVagina(false, VAGINA_WETNESS_DROOLING, VAGINA_LOOSENESS_GAPING);
