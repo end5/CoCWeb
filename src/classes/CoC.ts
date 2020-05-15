@@ -338,7 +338,7 @@ export class CoC {
     // Note that they're set up in the constructor, not here.
     public debug: boolean;
     public ver: string;
-    public version: string;
+    public versionComment: string;
     public mobile: boolean;
     public images: ImageManager;
     public player: Player;
@@ -459,8 +459,8 @@ export class CoC {
         // model.debug = debug; // TODO: Set on model?
 
         // Version NUMBER
-        this.ver = "1.0.2";
-        this.version = `${this.ver} (<b>Random words go here</b>)`;
+        this.ver = "1.0.3";
+        this.versionComment = `Gotta love saves!`;
 
         // Indicates if building for mobile?
         this.mobile = false;
@@ -3410,14 +3410,6 @@ export class CoC {
     public mainMenu(): void {
         // stage.focus = (this.mainView as MainView).mainText;
 
-        //     if (CONFIG:: debug) {
-        //         CoC_Settings.debugBuild = true;
-        //     }
-        // else
-        // {
-        CocSettings.debugBuild = false;
-        // }
-
         // if (this.mainView.aCb.parent != undefined) {
         //     this.mainView.removeChild(this.mainView.aCb);
         // }
@@ -3437,10 +3429,7 @@ export class CoC {
         // Sets game state to 3, used for determining back functionality of save/load menu.
         this.gameState = 3;
 
-        this.outx(`<b>Corruption of Champions (${this.version})</b>`, true);
-
-        if (CocSettings.debugBuild) this.outx(" Debug Build.");
-        else this.outx(" Release Build");
+        this.outx(`<b>Corruption of Champions (version <a href="https://github.com/loxaxs/CoCWeb/blob/master/CHANGELOG.md">${this.ver}</a> "${this.versionComment}")</b>`, true);
 
         // doThatTestingThang();
 
@@ -3493,17 +3482,16 @@ export class CoC {
 
         this.outx(
             `
-(Formerly Unnamed Text Game)
 <u>Created by: Fenoxo </u>
 
 Edited By:
-    Ashi, SoS, Prisoner416, Zeikfried, et al
+Ashi, SoS, Prisoner416, Zeikfried, et al
 
 Open - source contributions by:
-    aimozg, Amygdala, Cmacleod42, Enterprise2001, Fake - Name, Gedan, Yoffy, et al
+aimozg, Amygdala, Cmacleod42, Enterprise2001, Fake - Name, Gedan, Yoffy, et al
 
-<b>Ported to the web by end5 <u><a href='https://github.com/end5/CoCWeb'>(Source Code)</a></u>, <u><a href='https://github.com/loxaxs/CoCWeb/issues'>(Bug Tracker)</a></u></b>
 <b>This copy is maintained by loxaxs <u><a href='https://github.com/loxaxs/CoCWeb'>(Source Code)</a></u></b>
+<b>Ported to the web by end5 <u><a href='https://github.com/end5/CoCWeb'>(Source Code)</a></u>, <u><a href='https://github.com/end5/CoCWeb/issues'>(Bug Tracker)</a></u></b>
 
 <b><u>DISCLAIMER</u></b>
     <b>- There are many strange and odd fetishes contained in this flash. Peruse at your own risk.</b>
@@ -4580,7 +4568,7 @@ convert "
                 this.wait
             );
             this.addButton(8, "Fantasize", this.fantasize);
-            // if (CoC_Settings.debugBuild && !debug) addButton(9, "Inspect", debugInspect);
+
             if (this.monster instanceof DriderIncubus) {
                 const mdi = this.monster;
                 if (!mdi.goblinFree) this.addButton(9, "Goblin", mdi.freeGoblin);

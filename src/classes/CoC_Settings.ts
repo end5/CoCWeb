@@ -4,7 +4,6 @@
  * @author Fake-Name
  */
 export class CocSettings {
-    public static debugBuild = true;
 
     // Horrible static abuse FTW
     public static haltOnErrors = false;
