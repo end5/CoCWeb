@@ -540,7 +540,10 @@ export class ErlKingScene extends BaseContent {
             "Even with so many of these thoughts crowding your mind, there’s still a tiny spark of resentment burning.  You could rush him and turn the tables on this cocky asshole.\n\n"
         );
 
-        // Sex	 	What’s my prize?		Stop the Madness 		Surrender Forever		How Dare You!
+        // Sex	 	What’s my prize?
+        // Stop the Madness
+        // Surrender Forever
+        // How Dare You!
         this.fatigue(10);
         this.menu();
         this.addButton(0, "Sex", this.predatoryPrey);
@@ -751,8 +754,10 @@ export class ErlKingScene extends BaseContent {
         );
         this.getGame().gameOver();
 
-        // 			menu();
-        // 			doNext(5025); // Find out the gameover shits
+        //
+        // 	menu();
+        //
+        // 	doNext(5025); // Find out the gameover shits
     }
 
     protected predatoryPrey(): void {

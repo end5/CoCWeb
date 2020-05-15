@@ -24,6 +24,7 @@ import { Inventory } from "./Scenes/Inventory";
  * function instances/properties of CoC in the same manner older content does with the minimal amount
  * of modification.
  * Also this means we might start being able to get IDE autocomplete shit working again! Huzzah!
+ *
  * @author Gedan
  */
 export class BaseContent extends Utils {
@@ -139,7 +140,7 @@ export class BaseContent extends Utils {
         kGAMECLASS.enemyAI();
     }
 
-    protected spriteSelect(choice: number = 0): void {
+    protected spriteSelect(choice = 0): void {
         kGAMECLASS.spriteSelect(choice);
     }
 
@@ -183,24 +184,20 @@ export class BaseContent extends Utils {
         );
     }
 
-    protected startCombat(monster_: Monster, plotFight_: boolean = false): void {
+    protected startCombat(monster_: Monster, plotFight_ = false): void {
         kGAMECLASS.startCombat(monster_, plotFight_);
     }
-    protected startCombatImmediate(monster: Monster, _plotFight: boolean = false): void {
+    protected startCombatImmediate(monster: Monster, _plotFight = false): void {
         kGAMECLASS.startCombatImmediate(monster, _plotFight);
     }
 
     // Needed in a few rare cases for dumping text coming from a source that can't properly escape it's brackets
     // (Mostly traceback printing, etc...)
-    protected rawOutputText(output: string, purgeText: boolean = false): void {
+    protected rawOutputText(output: string, purgeText = false): void {
         kGAMECLASS.rawOutputText(output, purgeText);
     }
 
-    protected outputText(
-        output: string,
-        purgeText: boolean = false,
-        parseAsMarkdown: boolean = false
-    ): void {
+    protected outputText(output: string, purgeText = false, parseAsMarkdown = false): void {
         kGAMECLASS.outputText(output, purgeText, parseAsMarkdown);
     }
 
@@ -300,7 +297,7 @@ export class BaseContent extends Utils {
         kGAMECLASS.doYesNo(eventYes, eventNo);
     }
 
-    protected addButton(pos: number, text: string = "", func1?: any, arg1: any = -9000): void {
+    protected addButton(pos: number, text = "", func1?: any, arg1: any = -9000): void {
         kGAMECLASS.addButton(pos, text, func1, arg1);
     }
 
@@ -326,7 +323,7 @@ export class BaseContent extends Utils {
         return Appearance.sackDescript(this.player);
     }
 
-    protected cockClit(value: number = 0): string {
+    protected cockClit(value = 0): string {
         return kGAMECLASS.cockClit(value);
     }
 
@@ -374,7 +371,7 @@ export class BaseContent extends Utils {
         return kGAMECLASS.tongueDescript();
     }
 
-    protected ballsDescriptLight(forcedSize: boolean = true): string {
+    protected ballsDescriptLight(forcedSize = true): string {
         return kGAMECLASS.ballsDescriptLight(forcedSize);
     }
 
@@ -460,7 +457,7 @@ export class BaseContent extends Utils {
         return kGAMECLASS.nippleDescript(rowNum);
     }
 
-    protected cockDescript(cockNum: number = 0): string {
+    protected cockDescript(cockNum = 0): string {
         return kGAMECLASS.player.cockDescript(cockNum);
     }
 
@@ -527,7 +524,7 @@ export class BaseContent extends Utils {
         return kGAMECLASS.clitDescript();
     }
 
-    protected vaginaDescript(vaginaNum: number = 0): string {
+    protected vaginaDescript(vaginaNum = 0): string {
         return kGAMECLASS.vaginaDescript(vaginaNum);
     }
 
@@ -550,7 +547,8 @@ export class BaseContent extends Utils {
     */
 
     /**
-     * Apply statmods to the player. dynStats wraps the regular stats call, but supports "named" arguments of the form: any 		"statname", value.
+     * Apply statmods to the player. dynStats wraps the regular stats call, but supports "named" arguments of the form: any
+// "statname", value.
      * Exclusively supports either long or short stat names with a single call.
      * "str", "lib" "lus", "cor" etc
      * "strength, "libido", lust", "corruption"
@@ -576,7 +574,7 @@ export class BaseContent extends Utils {
         kGAMECLASS.HPChange(changeNum, display);
     }
 
-    protected fatigue(mod: number, type: number = 0): void {
+    protected fatigue(mod: number, type = 0): void {
         kGAMECLASS.fatigue(mod, type);
     }
 

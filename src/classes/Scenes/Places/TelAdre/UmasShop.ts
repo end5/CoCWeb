@@ -450,7 +450,8 @@ export class UmasShop extends TelAdreAbstractContent {
 
     /**
      * "Joiner" scene for all of the subtypes of massage selection
-     * @param	selectedMassage		int key of the massage type, for later application of benefits.
+     * @param	selectedMassage
+// int key of the massage type, for later application of benefits.
      * Edit Status: 95%
      */
     public massageMain(selectedMassage: number): void {
@@ -514,7 +515,8 @@ export class UmasShop extends TelAdreAbstractContent {
 
     /**
      * Extensions to Massage Joiner.
-     * @param	selectedMassage		Massage bonus ID to apply
+     * @param	selectedMassage
+// Massage bonus ID to apply
      * Edit Status: 95%
      */
     public massageCommence(selectedMassage: number): void {
@@ -717,8 +719,12 @@ export class UmasShop extends TelAdreAbstractContent {
 
     /**
      * Return a short string representation of the selected bonus index
-     * @param	needleworkType		Static index value of the selected bonus scene
-     * @return						String representation of the selected bonus scene
+     * @param	needleworkType
+// Static index value of the selected bonus scene
+     * @return
+//
+//
+// String representation of the selected bonus scene
      */
     public needleworkString(needleworkType: number): string {
         if (needleworkType == UmasShop.NEEDLEWORK_SPEED) {
@@ -740,7 +746,9 @@ export class UmasShop extends TelAdreAbstractContent {
      * To save having to bullshit around with the perk list description stuff, the functions been modified to call this function to get
      * descriptions about accpuncture PerkLib. Let's us contain all of the related content together in a neater manner.
      * @param	perkName	PerkName currently being searched for
-     * @return				Description of what the perk does.
+     * @return
+//
+// Description of what the perk does.
      */
     public listPerkDescription(perkName: string): string {
         switch (perkName) {
@@ -816,7 +824,8 @@ export class UmasShop extends TelAdreAbstractContent {
      * Apply a Needlework perk to the player.
      * I don't want to stuff the stat values themselves into the Perk itself, because then we have to figure out if a player was saved with different bonuses applied to the perk than what we currently have defined.
      * ie. it makes future balancing of the perks more of a chore. Rather, other code can just reference the static vars we have here using UmasShop.NEEDLEWORK_MAGIC_blah. It's still bad, but its an shader of bad lighter so fuck it!
-     * @param	selectedSession		Static bonus index to apply to the player
+     * @param	selectedSession
+// Static bonus index to apply to the player
      */
     public applyNeedlework(selectedSession: number): void {
         if (selectedSession == UmasShop.NEEDLEWORK_UNDO) {
@@ -843,7 +852,9 @@ export class UmasShop extends TelAdreAbstractContent {
     /**
      * Present player with acupuncture details.
      * Edit Status: 85%
-     * 				Some of the session descriptions might be a little... off. I've touched up one or two.
+     *
+//
+// Some of the session descriptions might be a little... off. I've touched up one or two.
      */
     public acupunctureMenu(): void {
         this.clearOutput();
@@ -961,7 +972,8 @@ export class UmasShop extends TelAdreAbstractContent {
     /**
      * Opening of the Accupuncture session itself. Minor variantion/cost changes
      * Edit Status: 100%
-     * @param	selectedSession		Static var indicating the desired outcome based on player selection. See NEEDLEWORK_ vars.
+     * @param	selectedSession
+// Static var indicating the desired outcome based on player selection. See NEEDLEWORK_ vars.
      */
     public needleworkSession(selectedSession: number): void {
         this.clearOutput();
@@ -997,7 +1009,8 @@ export class UmasShop extends TelAdreAbstractContent {
     /**
      * Actual scene for the acupuncture stuff to happen.
      * Edit Status: 90%
-     * @param	selectedSession		Static var indicating the desired outcome based on player selection. See NEEDLEWORK_ vars.
+     * @param	selectedSession
+// Static var indicating the desired outcome based on player selection. See NEEDLEWORK_ vars.
      */
     public doNeedleworkSession(selectedSession: number): void {
         this.clearOutput();
@@ -1443,8 +1456,12 @@ export class UmasShop extends TelAdreAbstractContent {
      * Loppe Talk - Loppe's Last Girlfriend
      * whoaboy. SublimeText, my hero~ <3
      * Edit Status: SHOOT ME.
-     * 				Calling it 75%. I've been through all of it and some of the tensing seems off in places, but I've cleaned up a bunch of shit. I don't even know if this should stay;
-     * 				It's good, but it's doesn't exactly fit with the style of anything else in CoC outside of Urta's Quest in a way, so...
+     *
+//
+// Calling it 75%. I've been through all of it and some of the tensing seems off in places, but I've cleaned up a bunch of shit. I don't even know if this should stay;
+     *
+//
+// It's good, but it's doesn't exactly fit with the style of anything else in CoC outside of Urta's Quest in a way, so...
      */
     public talkLoppesFirstGirl(): void {
         this.outputText(

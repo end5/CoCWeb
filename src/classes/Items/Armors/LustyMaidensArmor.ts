@@ -370,7 +370,8 @@ export class LustyMaidensArmor extends Armor {
                 Special Bonus: Every time you use the special titfuck scene, you gain two defense and 2 tease damage up to a max of 8.  Every night you lose half your bonus (minimum 1).
                 Min lust: 30
                 Min libido: 50*/
-    /*			if(wearer.hasVirginVagina()) {
+    /*
+// 	if(wearer.hasVirginVagina()) {
                     while(wearer.findPerk(PerkLib.SluttySeduction) >= 0) wearer.removePerk(PerkLib.SluttySeduction);
                     wearer.createPerk(PerkLib.SluttySeduction,10 + game.flags[kFLAGS.BIKINI_ARMOR_BONUS],0,0,0);
                 }

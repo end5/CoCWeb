@@ -23,21 +23,85 @@ export class KatherineThreesome extends TelAdreAbstractContent {
 
     /*
     Contains the following scenes:
-        circlejerk					Not available if Kath has no cock, Works for all except genderless characters
+        circlejerk
+//
+// 	Not available if Kath has no cock, Works for all except genderless characters
         threeSixtyNine
-        roastYou					Not available if Kath has no cock
-        spitroastKath				Works for all except genderless characters
-        pinAndFuck					Not available if Kath has no cock					Kath is sober, Urta is drunk
-        watch																			Kath is sober, Urta is drunk
-        kathLicksOutUrta																Kath is drunk, Urta is sober
-        knothole					Not available if Kath has no cock					Kath is drunk, Urta is sober
-        sandwich					Not available if Kath has no cock					Kath is drunk, Urta is sober
-        orgy																			Both Kath and Urta are drunk
-        doubleStuffKath																	Both Kath and Urta are drunk
-        doublePenetrateKath																Both Kath and Urta are drunk
+        roastYou
+//
+// 	Not available if Kath has no cock
+        spitroastKath
+//
+// Works for all except genderless characters
+        pinAndFuck
+//
+// 	Not available if Kath has no cock
+//
+// 	Kath is sober, Urta is drunk
+        watch
+//
+//
+//
+//
+//
+//
+//
+//
+// 	Kath is sober, Urta is drunk
+        kathLicksOutUrta
+//
+//
+//
+//
+//
+//
+//
+// Kath is drunk, Urta is sober
+        knothole
+//
+// 	Not available if Kath has no cock
+//
+// 	Kath is drunk, Urta is sober
+        sandwich
+//
+// 	Not available if Kath has no cock
+//
+// 	Kath is drunk, Urta is sober
+        orgy
+//
+//
+//
+//
+//
+//
+//
+//
+// 	Both Kath and Urta are drunk
+        doubleStuffKath
+//
+//
+//
+//
+//
+//
+//
+// 	Both Kath and Urta are drunk
+        doublePenetrateKath
+//
+//
+//
+//
+//
+//
+//
+// Both Kath and Urta are drunk
         fistKathAndVala
-        doubleStuffVala				Not available if Kath has no cock
-        eatOutVala					Not available if Kath has no cock
+        doubleStuffVala
+//
+// Not available if Kath has no cock
+        eatOutVala
+//
+// 	Not available if Kath has no cock
     */
 
     public circlejerk(): void {

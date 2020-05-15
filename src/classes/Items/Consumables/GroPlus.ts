@@ -20,14 +20,15 @@ export class GroPlus extends Consumable {
         return true;
     }
 
-    // 		override public function hasSubMenu(): boolean { return true; } //Only GroPlus and Reducto use this.
+    //
+    // override public function hasSubMenu(): boolean { return true; } //Only GroPlus and Reducto use this.
 
     public useItem(): boolean {
-        var gpBalls = this.game.player.balls > 0 ? this.growPlusBalls : undefined;
-        var gpBreasts = this.game.player.breastRows.length > 0 ? this.growPlusBreasts : undefined;
-        var gpClit = this.game.player.vaginas.length > 0 ? this.growPlusClit : undefined;
-        var gpCock = this.game.player.cockTotal() > 0 ? this.growPlusCock : undefined;
-        var gpNipples = this.game.player.totalNipples() > 0 ? this.growPlusNipples : undefined;
+        const gpBalls = this.game.player.balls > 0 ? this.growPlusBalls : undefined;
+        const gpBreasts = this.game.player.breastRows.length > 0 ? this.growPlusBreasts : undefined;
+        const gpClit = this.game.player.vaginas.length > 0 ? this.growPlusClit : undefined;
+        const gpCock = this.game.player.cockTotal() > 0 ? this.growPlusCock : undefined;
+        const gpNipples = this.game.player.totalNipples() > 0 ? this.growPlusNipples : undefined;
         this.clearOutput();
         this.outputText(
             "You ponder the needle in your hand knowing it will enlarge the injection site.  What part of your body will you use it on?  "
@@ -160,7 +161,7 @@ export class GroPlus extends Consumable {
                     this.game.player.multiCockDescriptLight() +
                     " twitch and thicken, each member pouring out more than an inch of new length from your "
             );
-            for (var i: number = 0; i < this.game.player.cocks.length; i++) {
+            for (let i = 0; i < this.game.player.cocks.length; i++) {
                 this.game.player.increaseCock(i, 2);
                 this.game.player.cocks[i].cockLength += 1;
                 this.game.player.cocks[i].cockThickness += 0.5;
@@ -190,8 +191,8 @@ export class GroPlus extends Consumable {
         this.game.dynStats("lus", 15);
         // NIPPLECUNTZZZ
         if (!this.game.player.hasFuckableNipples() && Utils.rand(4) == 0) {
-            var nowFuckable: boolean = false;
-            for (var x: number = 0; x < this.game.player.breastRows.length; x++) {
+            let nowFuckable = false;
+            for (let x = 0; x < this.game.player.breastRows.length; x++) {
                 if (
                     !this.game.player.breastRows[x].fuckable &&
                     this.game.player.nippleLength >= 2

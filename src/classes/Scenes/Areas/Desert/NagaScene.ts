@@ -1770,7 +1770,8 @@ export class NagaScene extends BaseContent {
                 "You just don't have the energy to wrap yourself so tightly around someone right now...",
                 true
             );
-            // Gone		menuLoc = 1;
+            // Gone
+            // menuLoc = 1;
             this.menu();
             this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
             return;
@@ -1790,7 +1791,8 @@ export class NagaScene extends BaseContent {
         }
         if (this.monster.short == "pod") {
             this.outputText("You can't constrict something you're trapped inside of!", true);
-            // Gone		menuLoc = 1;
+            // Gone
+            // menuLoc = 1;
             this.menu();
             this.addButton(0, "Next", kGAMECLASS.combatMenu, false);
             return;

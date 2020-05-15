@@ -44,7 +44,7 @@ import {
 import { PerkClass } from "./PerkClass";
 import { PerkLib } from "./PerkLib";
 
-//CoC Creature.as
+// CoC Creature.as
 
 export class Creature extends Utils {
     // include "../../includes/appearanceDefs.as";
@@ -60,8 +60,8 @@ export class Creature extends Utils {
 
     // Short refers to player name and monster name. BEST VARIABLE NAME EVA!
     // "a" refers to how the article "a" should appear in text.
-    private _short: string = "You";
-    private _a: string = "a ";
+    private _short = "You";
+    private _a = "a ";
     public get short(): string {
         return this._short;
     }
@@ -80,11 +80,11 @@ export class Creature extends Utils {
     }
 
     // Weapon
-    private _weaponName: string = "";
-    private _weaponVerb: string = "";
-    private _weaponAttack: number = 0;
-    private _weaponPerk: string = "";
-    private _weaponValue: number = 0;
+    private _weaponName = "";
+    private _weaponVerb = "";
+    private _weaponAttack = 0;
+    private _weaponPerk = "";
+    private _weaponValue = 0;
     public get weaponName(): string {
         return this._weaponName;
     }
@@ -116,10 +116,10 @@ export class Creature extends Utils {
         this._weaponValue = value;
     }
     // Clothing/Armor
-    private _armorName: string = "";
-    private _armorDef: number = 0;
-    private _armorPerk: string = "";
-    private _armorValue: number = 0;
+    private _armorName = "";
+    private _armorDef = 0;
+    private _armorPerk = "";
+    private _armorValue = 0;
     public get armorName(): string {
         return this._armorName;
     }
@@ -146,29 +146,29 @@ export class Creature extends Utils {
     }
 
     // Primary stats
-    public str: number = 0;
-    public tou: number = 0;
-    public spe: number = 0;
-    public inte: number = 0;
-    public lib: number = 0;
-    public sens: number = 0;
-    public cor: number = 0;
-    public fatigue: number = 0;
+    public str = 0;
+    public tou = 0;
+    public spe = 0;
+    public inte = 0;
+    public lib = 0;
+    public sens = 0;
+    public cor = 0;
+    public fatigue = 0;
 
     // Combat Stats
-    public HP: number = 0;
-    public lust: number = 0;
+    public HP = 0;
+    public lust = 0;
 
     // Level Stats
-    public XP: number = 0;
-    public level: number = 0;
-    public gems: number = 0;
-    public additionalXP: number = 0;
+    public XP = 0;
+    public level = 0;
+    public gems = 0;
+    public additionalXP = 0;
 
     // Appearance Variables
     // Gender 1M, 2F, 3H
     public gender: number = GENDER_NONE;
-    private _tallness: number = 0;
+    private _tallness = 0;
     public get tallness(): number {
         return this._tallness;
     }
@@ -176,17 +176,17 @@ export class Creature extends Utils {
         this._tallness = value;
     }
 
-    /*Hairtype
+    /* Hairtype
     0- normal
     1- feather
     2- ghost
     3- goo!
     4- anemononeoenoeneo!*/
     public hairType: number = HAIR_NORMAL;
-    public hairColor: string = "no";
-    public hairLength: number = 0;
+    public hairColor = "no";
+    public hairLength = 0;
 
-    /*Skintype
+    /* Skintype
     0 - skin
     1 - furry
     2 - scaley
@@ -198,17 +198,18 @@ export class Creature extends Utils {
     public set skinType(value: number) {
         this._skinType = value;
     }
-    private _skinTone: string = "albino";
+    private _skinTone = "albino";
     public get skinTone(): string {
         return this._skinTone;
     }
     public set skinTone(value: string) {
         this._skinTone = value;
     }
-    public skinDesc: string = "skin";
-    public skinAdj: string = "";
+    public skinDesc = "skin";
+    public skinAdj = "";
 
-    /*		Facetype:
+    /*
+// Facetype:
             0 - human
             1 - horse
             2 - dogface
@@ -228,7 +229,7 @@ export class Creature extends Utils {
             16 - fullmouse*/
     public faceType: number = FACE_HUMAN;
 
-    /*EarType
+    /* EarType
     -1 - none!
     0 - human
     1 - horse
@@ -244,18 +245,18 @@ export class Creature extends Utils {
     11 - coon
     12 - mouse*/
     public earType: number = EARS_HUMAN;
-    public earValue: number = 0;
+    public earValue = 0;
 
-    /*Horntype
+    /* Horntype
     1 - demonic
     2 - minotaur (cowlike)
     3 - Draconic/Lizard
     4 - Double draconic
     5 - Antlers*/
     public hornType: number = HORNS_NONE;
-    public horns: number = 0;
+    public horns = 0;
 
-    /*Wingtype
+    /* Wingtype
     0 - none
     1 - bee
     2 - large bee
@@ -270,7 +271,7 @@ export class Creature extends Utils {
     11 - trogdor wings
     12 - sandtrap wings*/
     private _wingType: number = WING_TYPE_NONE;
-    public wingDesc: string = "non-existant";
+    public wingDesc = "non-existant";
     public get wingType(): number {
         return this._wingType;
     }
@@ -301,7 +302,7 @@ export class Creature extends Utils {
     19 - raccoonfeet*/
     public lowerBody: number = LOWER_BODY_TYPE_HUMAN;
 
-    /*tailType:
+    /* tailType:
     0 - none
     1 - horse
     2 - dog
@@ -322,11 +323,11 @@ export class Creature extends Utils {
     public tailType: number = TAIL_TYPE_NONE;
 
     // Tail venom is a 0-100 slider used for tail attacks. Recharges per hour.
-    public tailVenom: number = 0;
+    public tailVenom = 0;
     // Tail recharge determines how fast venom/webs comes back per hour.
-    public tailRecharge: number = 5;
+    public tailRecharge = 5;
 
-    /*hipRating
+    /* hipRating
     0 - boyish
     2 - slender
     4 - average
@@ -336,7 +337,7 @@ export class Creature extends Utils {
     20 - inhumanly wide*/
     public hipRating: number = HIP_RATING_BOYISH;
 
-    /*buttRating
+    /* buttRating
     0 - buttless
     2 - tight
     4 - average
@@ -350,24 +351,24 @@ export class Creature extends Utils {
 
     // Piercings
     // TODO: Pull this out into it's own class and enum.
-    public nipplesPierced: number = 0;
-    public nipplesPShort: string = "";
-    public nipplesPLong: string = "";
-    public lipPierced: number = 0;
-    public lipPShort: string = "";
-    public lipPLong: string = "";
-    public tonguePierced: number = 0;
-    public tonguePShort: string = "";
-    public tonguePLong: string = "";
-    public eyebrowPierced: number = 0;
-    public eyebrowPShort: string = "";
-    public eyebrowPLong: string = "";
-    public earsPierced: number = 0;
-    public earsPShort: string = "";
-    public earsPLong: string = "";
-    public nosePierced: number = 0;
-    public nosePShort: string = "";
-    public nosePLong: string = "";
+    public nipplesPierced = 0;
+    public nipplesPShort = "";
+    public nipplesPLong = "";
+    public lipPierced = 0;
+    public lipPShort = "";
+    public lipPLong = "";
+    public tonguePierced = 0;
+    public tonguePShort = "";
+    public tonguePLong = "";
+    public eyebrowPierced = 0;
+    public eyebrowPShort = "";
+    public eyebrowPLong = "";
+    public earsPierced = 0;
+    public earsPShort = "";
+    public earsPLong = "";
+    public nosePierced = 0;
+    public nosePShort = "";
+    public nosePLong = "";
 
     // Head ornaments. Definitely need to convert away from hard coded types.
     public antennae: number = ANTENNAE_NONE;
@@ -382,7 +383,7 @@ export class Creature extends Utils {
     public armType: number = ARM_TYPE_HUMAN;
 
     // Gills
-    public gills: boolean = false;
+    public gills = false;
 
     // Sexual Stuff
     // MALE STUFF
@@ -390,16 +391,16 @@ export class Creature extends Utils {
     // TODO: Tuck away into Male genital class?
     public cocks: any[];
     // balls
-    public balls: number = 0;
-    public cumMultiplier: number = 1;
-    public ballSize: number = 0;
+    public balls = 0;
+    public cumMultiplier = 1;
+    public ballSize = 0;
 
-    private _hoursSinceCum: number = 0;
+    private _hoursSinceCum = 0;
     public get hoursSinceCum(): number {
         return this._hoursSinceCum;
     }
     public set hoursSinceCum(v: number) {
-        /*if (v == 0)
+        /* if (v == 0)
         {
             trace("noop");
         }*/
@@ -410,14 +411,14 @@ export class Creature extends Utils {
     // TODO: Box into Female genital class?
     public vaginas: any[];
     // Fertility is a % out of 100.
-    public fertility: number = 10;
-    public clitLength: number = 0.5;
-    public nippleLength: number = 0.25;
+    public fertility = 10;
+    public clitLength = 0.5;
+    public nippleLength = 0.25;
     public breastRows: any[];
     public ass: AssClass = new AssClass();
 
     public validate(): string {
-        var error: string = "";
+        let error = "";
         // 2. Value boundaries etc
         // 2.1. non-negative Number fields
         error += Utils.validateNonNegativeNumberFields(this, "Monster.validate", [
@@ -467,13 +468,13 @@ export class Creature extends Utils {
             "armorName",
         ]);
         // 3. validate members
-        for (var cock of this.cocks) {
+        for (const cock of this.cocks) {
             error += cock.validate();
         }
-        for (var vagina of this.vaginas) {
+        for (const vagina of this.vaginas) {
             error += vagina.validate();
         }
-        for (var row of this.breastRows) {
+        for (const row of this.breastRows) {
             error += row.validate();
         }
         error += this.ass.validate();
@@ -540,8 +541,8 @@ export class Creature extends Utils {
         this.hoursSinceCum = 0;
 
         if (this.countCockSocks("gilded") > 0) {
-            var randomCock: number = Creature.rand(this.cocks.length);
-            var bonusGems: number =
+            const randomCock: number = Creature.rand(this.cocks.length);
+            const bonusGems: number =
                 Creature.rand(this.cocks[randomCock].cockThickness) + this.countCockSocks("gilded"); // int so AS rounds to whole numbers
             this.game.outputText(
                 "\n\nFeeling some minor discomfort in your " +
@@ -562,12 +563,12 @@ export class Creature extends Utils {
         value3: number,
         value4: number
     ): void {
-        var newKeyItem: PerkClass = new PerkClass(ptype);
+        const newKeyItem: PerkClass = new PerkClass(ptype);
         // used to denote that the array has already had its new spot pushed on.
-        var arrayed: boolean = false;
+        let arrayed = false;
         // used to store where the array goes
-        var keySlot: number = 0;
-        var counter: number = 0;
+        let keySlot = 0;
+        let counter = 0;
         // Start the array if its the first bit
         if (this.perks.length == 0) {
             // trace("New Perk Started Array! " + keyName);
@@ -636,7 +637,7 @@ export class Creature extends Utils {
      * Remove perk. Return true if there was such perk
      */
     public removePerk(ptype: PerkType): boolean {
-        var counter: number = this.perks.length;
+        let counter: number = this.perks.length;
         // Various Errors preventing action
         if (this.perks.length <= 0) {
             return false;
@@ -655,7 +656,7 @@ export class Creature extends Utils {
     // has perk?
     public findPerk(ptype: PerkType): number {
         if (this.perks.length <= 0) return -2;
-        for (var counter: number = 0; counter < this.perks.length; counter++) {
+        for (let counter = 0; counter < this.perks.length; counter++) {
             if (this.perk(counter).ptype == ptype) return counter;
         }
         return -1;
@@ -664,9 +665,9 @@ export class Creature extends Utils {
     // Duplicate perk
     // Deprecated?
     public perkDuplicated(ptype: PerkType): boolean {
-        var timesFound: number = 0;
+        let timesFound = 0;
         if (this.perks.length <= 0) return false;
-        for (var counter: number = 0; counter < this.perks.length; counter++) {
+        for (let counter = 0; counter < this.perks.length; counter++) {
             if (this.perk(counter).ptype == ptype) timesFound++;
         }
         return timesFound > 1;
@@ -677,8 +678,8 @@ export class Creature extends Utils {
         this._perks = [];
     }
 
-    public addPerkValue(ptype: PerkType, valueIdx: number = 1, bonus: number = 0): void {
-        var counter: number = this.findPerk(ptype);
+    public addPerkValue(ptype: PerkType, valueIdx = 1, bonus = 0): void {
+        const counter: number = this.findPerk(ptype);
         if (counter < 0) {
             trace(
                 "ERROR? Looking for perk '" +
@@ -699,8 +700,8 @@ export class Creature extends Utils {
         if (valueIdx == 4) this.perk(counter).value4 += bonus;
     }
 
-    public setPerkValue(ptype: PerkType, valueIdx: number = 1, newNum: number = 0): void {
-        var counter: number = this.findPerk(ptype);
+    public setPerkValue(ptype: PerkType, valueIdx = 1, newNum = 0): void {
+        const counter: number = this.findPerk(ptype);
         // Various Errors preventing action
         if (counter < 0) {
             trace(
@@ -723,7 +724,7 @@ export class Creature extends Utils {
     }
 
     public perkv1(ptype: PerkType): number {
-        var counter: number = this.findPerk(ptype);
+        const counter: number = this.findPerk(ptype);
         if (counter < 0) {
             // trace("ERROR? Looking for perk '" + ptype + "', but player does not have it.");
             return 0;
@@ -732,7 +733,7 @@ export class Creature extends Utils {
     }
 
     public perkv2(ptype: PerkType): number {
-        var counter: number = this.findPerk(ptype);
+        const counter: number = this.findPerk(ptype);
         if (counter < 0) {
             // trace("ERROR? Looking for perk '" + ptype + "', but player does not have it.");
             return 0;
@@ -741,7 +742,7 @@ export class Creature extends Utils {
     }
 
     public perkv3(ptype: PerkType): number {
-        var counter: number = this.findPerk(ptype);
+        const counter: number = this.findPerk(ptype);
         if (counter < 0) {
             trace("ERROR? Looking for perk '" + ptype + "', but player does not have it.");
             return 0;
@@ -750,7 +751,7 @@ export class Creature extends Utils {
     }
 
     public perkv4(ptype: PerkType): number {
-        var counter: number = this.findPerk(ptype);
+        const counter: number = this.findPerk(ptype);
         if (counter < 0) {
             trace("ERROR? Looking for perk '" + ptype + "', but player does not have it.");
             return 0;
@@ -767,7 +768,7 @@ export class Creature extends Utils {
         value3: number,
         value4: number
     ): void {
-        var newStatusAffect: StatusAffectClass = new StatusAffectClass(
+        const newStatusAffect: StatusAffectClass = new StatusAffectClass(
             stype,
             value1,
             value2,
@@ -781,26 +782,22 @@ export class Creature extends Utils {
 
     // Remove a status
     public removeStatusAffect(stype: StatusAffectType): void {
-        var counter: number = this.findStatusAffect(stype);
+        const counter: number = this.findStatusAffect(stype);
         if (counter < 0) return;
         this.statusAffects.splice(counter, 1);
         // trace("removeStatusAffect -> "+statusAffects.join(","));
     }
 
     public findStatusAffect(stype: StatusAffectType): number {
-        for (var counter: number = 0; counter < this.statusAffects.length; counter++) {
+        for (let counter = 0; counter < this.statusAffects.length; counter++) {
             if (this.statusAffect(counter).stype == stype) return counter;
         }
         return -1;
     }
     // }endregion
 
-    public changeStatusValue(
-        stype: StatusAffectType,
-        statusValueNum: number = 1,
-        newNum: number = 0
-    ): void {
-        var counter: number = this.findStatusAffect(stype);
+    public changeStatusValue(stype: StatusAffectType, statusValueNum = 1, newNum = 0): void {
+        const counter: number = this.findStatusAffect(stype);
         // Various Errors preventing action
         if (counter < 0) return;
         if (statusValueNum < 1 || statusValueNum > 4) {
@@ -813,12 +810,8 @@ export class Creature extends Utils {
         if (statusValueNum == 4) this.statusAffect(counter).value4 = newNum;
     }
 
-    public addStatusValue(
-        stype: StatusAffectType,
-        statusValueNum: number = 1,
-        bonus: number = 0
-    ): void {
-        var counter: number = this.findStatusAffect(stype);
+    public addStatusValue(stype: StatusAffectType, statusValueNum = 1, bonus = 0): void {
+        const counter: number = this.findStatusAffect(stype);
         // Various Errors preventing action
         if (counter < 0) {
             return;
@@ -838,27 +831,27 @@ export class Creature extends Utils {
     }
 
     public statusAffectv1(stype: StatusAffectType): number {
-        var counter: number = this.findStatusAffect(stype);
+        const counter: number = this.findStatusAffect(stype);
         return counter < 0 ? 0 : this.statusAffect(counter).value1;
     }
 
     public statusAffectv2(stype: StatusAffectType): number {
-        var counter: number = this.findStatusAffect(stype);
+        const counter: number = this.findStatusAffect(stype);
         return counter < 0 ? 0 : this.statusAffect(counter).value2;
     }
 
     public statusAffectv3(stype: StatusAffectType): number {
-        var counter: number = this.findStatusAffect(stype);
+        const counter: number = this.findStatusAffect(stype);
         return counter < 0 ? 0 : this.statusAffect(counter).value3;
     }
 
     public statusAffectv4(stype: StatusAffectType): number {
-        var counter: number = this.findStatusAffect(stype);
+        const counter: number = this.findStatusAffect(stype);
         return counter < 0 ? 0 : this.statusAffect(counter).value4;
     }
 
     public removeStatuses(): void {
-        var counter: number = this.statusAffects.length;
+        let counter: number = this.statusAffects.length;
         while (counter > 0) {
             counter--;
             this.statusAffects.splice(counter, 1);
@@ -867,8 +860,8 @@ export class Creature extends Utils {
 
     public biggestTitSize(): number {
         if (this.breastRows.length == 0) return -1;
-        var counter: number = this.breastRows.length;
-        var index: number = 0;
+        let counter: number = this.breastRows.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.breastRows[index].breastRating < this.breastRows[counter].breastRating)
@@ -889,8 +882,8 @@ export class Creature extends Utils {
 
     public biggestCockArea(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cockArea(index) < this.cockArea(counter)) index = counter;
@@ -901,9 +894,9 @@ export class Creature extends Utils {
     // Find the second biggest dick and it's area.
     public biggestCockArea2(): number {
         if (this.cocks.length <= 1) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
-        var index2: number = -1;
+        let counter: number = this.cocks.length;
+        let index = 0;
+        let index2 = -1;
         // Find the biggest
         while (counter > 0) {
             counter--;
@@ -930,8 +923,8 @@ export class Creature extends Utils {
 
     public longestCock(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cocks[index].cockLength < this.cocks[counter].cockLength) index = counter;
@@ -941,8 +934,8 @@ export class Creature extends Utils {
 
     public longestCockLength(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cocks[index].cockLength < this.cocks[counter].cockLength) index = counter;
@@ -952,8 +945,8 @@ export class Creature extends Utils {
 
     public longestHorseCockLength(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (
@@ -973,10 +966,10 @@ export class Creature extends Utils {
 
         // Set up vars
         // Get thinnest, work done already
-        var thinnest: number = this.thinnestCockIndex();
-        var thinnest2: number = 0;
+        const thinnest: number = this.thinnestCockIndex();
+        let thinnest2 = 0;
         // For ze loop
-        var temp: number = 0;
+        let temp = 0;
         // Make sure they arent the same at initialization
         if (thinnest2 == thinnest) thinnest2 = 1;
         // Loop through to find 2nd thinnest
@@ -993,8 +986,8 @@ export class Creature extends Utils {
     }
 
     public totalCockThickness(): number {
-        var thick: number = 0;
-        var counter: number = this.cocks.length;
+        let thick = 0;
+        let counter: number = this.cocks.length;
         while (counter > 0) {
             counter--;
             thick += this.cocks[counter].cockThickness;
@@ -1004,8 +997,8 @@ export class Creature extends Utils {
 
     public thickestCock(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cocks[index].cockThickness < this.cocks[counter].cockThickness)
@@ -1016,8 +1009,8 @@ export class Creature extends Utils {
 
     public thickestCockThickness(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cocks[index].cockThickness < this.cocks[counter].cockThickness)
@@ -1028,8 +1021,8 @@ export class Creature extends Utils {
 
     public thinnestCockIndex(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cocks[index].cockThickness > this.cocks[counter].cockThickness)
@@ -1040,8 +1033,8 @@ export class Creature extends Utils {
 
     public smallestCockIndex(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cockArea(index) > this.cockArea(counter)) {
@@ -1058,8 +1051,8 @@ export class Creature extends Utils {
 
     public shortestCockIndex(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cocks[index].cockLength > this.cocks[counter].cockLength) index = counter;
@@ -1069,8 +1062,8 @@ export class Creature extends Utils {
 
     public shortestCockLength(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cocks[index].cockLength > this.cocks[counter].cockLength) index = counter;
@@ -1079,11 +1072,11 @@ export class Creature extends Utils {
     }
 
     // Find the biggest cock that fits inside a given value
-    public cockThatFits(i_fits: number = 0, type: string = "area"): number {
+    public cockThatFits(i_fits = 0, type = "area"): number {
         if (this.cocks.length <= 0) return -1;
-        var cockIdxPtr: number = this.cocks.length;
+        let cockIdxPtr: number = this.cocks.length;
         // Current largest fitter
-        var cockIndex: number = -1;
+        let cockIndex = -1;
         while (cockIdxPtr > 0) {
             cockIdxPtr--;
             if (type == "area") {
@@ -1114,12 +1107,12 @@ export class Creature extends Utils {
     }
 
     // Find the 2nd biggest cock that fits inside a given value
-    public cockThatFits2(fits: number = 0): number {
+    public cockThatFits2(fits = 0): number {
         if (this.cockTotal() == 1) return -1;
-        var counter: number = this.cocks.length;
+        let counter: number = this.cocks.length;
         // Current largest fitter
-        var index: number = -1;
-        var index2: number = -1;
+        let index = -1;
+        let index2 = -1;
         while (counter > 0) {
             counter--;
             // Does this one fit?
@@ -1159,8 +1152,8 @@ export class Creature extends Utils {
 
     public biggestCockIndex(): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.cockArea(index) < this.cockArea(counter)) index = counter;
@@ -1171,9 +1164,9 @@ export class Creature extends Utils {
     // Find the second biggest dick's index.
     public biggestCockIndex2(): number {
         if (this.cocks.length <= 1) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
-        var index2: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
+        let index2 = 0;
         // Find the biggest
         while (counter > 0) {
             counter--;
@@ -1201,9 +1194,9 @@ export class Creature extends Utils {
 
     public smallestCockIndex2(): number {
         if (this.cocks.length <= 1) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
-        var index2: number = 0;
+        let counter: number = this.cocks.length;
+        let index = 0;
+        let index2 = 0;
         // Find the smallest
         while (counter > 0) {
             counter--;
@@ -1232,10 +1225,10 @@ export class Creature extends Utils {
     // Find the third biggest dick index.
     public biggestCockIndex3(): number {
         if (this.cocks.length <= 2) return 0;
-        var counter: number = this.cocks.length;
-        var index: number = 0;
-        var index2: number = -1;
-        var index3: number = -1;
+        let counter: number = this.cocks.length;
+        let index = 0;
+        let index2 = -1;
+        let index3 = -1;
         // Find the biggest
         while (counter > 0) {
             counter--;
@@ -1276,15 +1269,15 @@ export class Creature extends Utils {
         return index3;
     }
 
-    public cockDescript(cockIndex: number = 0): string {
+    public cockDescript(cockIndex = 0): string {
         return Appearance.cockDescript(this, cockIndex);
     }
 
-    public cockAdjective(index: number = -1): string {
+    public cockAdjective(index = -1): string {
         if (index < 0) index = this.biggestCockIndex();
-        var isPierced: boolean = this.cocks.length == 1 && this.cocks[index].isPierced; //Only describe as pierced or sock covered if the creature has just one cock
-        var hasSock: boolean = this.cocks.length == 1 && this.cocks[index].sock != "";
-        var isGooey: boolean = this.skinType == CoC.SKIN_TYPE_GOO;
+        const isPierced: boolean = this.cocks.length == 1 && this.cocks[index].isPierced; // Only describe as pierced or sock covered if the creature has just one cock
+        const hasSock: boolean = this.cocks.length == 1 && this.cocks[index].sock != "";
+        const isGooey: boolean = this.skinType == CoC.SKIN_TYPE_GOO;
         return Appearance.cockAdjective(
             this.cocks[index].cockType,
             this.cocks[index].cockLength,
@@ -1302,7 +1295,7 @@ export class Creature extends Utils {
         else return this.vaginas[0].vaginalWetness;
     }
 
-    public vaginaType(newType: number = -1): number {
+    public vaginaType(newType = -1): number {
         if (!this.hasVagina()) return -1;
         if (newType != -1) {
             this.vaginas[0].type = newType;
@@ -1310,7 +1303,7 @@ export class Creature extends Utils {
         return this.vaginas[0].type;
     }
 
-    public looseness(vag: boolean = true): number {
+    public looseness(vag = true): number {
         if (vag) {
             if (this.vaginas.length == 0) return 0;
             else return this.vaginas[0].vaginalLooseness;
@@ -1322,8 +1315,8 @@ export class Creature extends Utils {
     public vaginalCapacity(): number {
         // If the player has no vaginas
         if (this.vaginas.length == 0) return 0;
-        var total: number;
-        var bonus: number = 0;
+        let total: number;
+        let bonus = 0;
         // Centaurs = +50 capacity
         if (this.lowerBody == 4) bonus = 50;
         // Naga = +20 capacity
@@ -1344,7 +1337,7 @@ export class Creature extends Utils {
     }
 
     public analCapacity(): number {
-        var bonus: number = 0;
+        let bonus = 0;
         // Centaurs = +30 capacity
         if (this.lowerBody == 4) bonus = 30;
         if (this.findPerk(PerkLib.HistorySlut) >= 0) bonus += 20;
@@ -1360,7 +1353,7 @@ export class Creature extends Utils {
     }
 
     public hasFuckableNipples(): boolean {
-        var counter: number = this.breastRows.length;
+        let counter: number = this.breastRows.length;
         while (counter > 0) {
             counter--;
             if (this.breastRows[counter].fuckable) return true;
@@ -1376,7 +1369,7 @@ export class Creature extends Utils {
     }
 
     public hasNipples(): boolean {
-        var counter: number = this.breastRows.length;
+        let counter: number = this.breastRows.length;
         while (counter > 0) {
             counter--;
             if (this.breastRows[counter].nipplesPerBreast > 0) return true;
@@ -1403,8 +1396,8 @@ export class Creature extends Utils {
 
     public biggestLactation(): number {
         if (this.breastRows.length == 0) return 0;
-        var counter: number = this.breastRows.length;
-        var index: number = 0;
+        let counter: number = this.breastRows.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (
@@ -1434,10 +1427,10 @@ export class Creature extends Utils {
     }
     public boostLactation(todo: number): number {
         if (this.breastRows.length == 0) return 0;
-        var counter: number = this.breastRows.length;
-        var index: number = 0;
-        var changes: number = 0;
-        var temp2: number = 0;
+        let counter: number = this.breastRows.length;
+        let index = 0;
+        let changes = 0;
+        let temp2 = 0;
         // Prevent lactation decrease if lactating.
         if (todo >= 0) {
             if (this.findStatusAffect(StatusAffects.LactationReduction) >= 0)
@@ -1511,8 +1504,8 @@ export class Creature extends Utils {
 
     public averageLactation(): number {
         if (this.breastRows.length == 0) return 0;
-        var counter: number = this.breastRows.length;
-        var index: number = 0;
+        let counter: number = this.breastRows.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             index += this.breastRows[counter].lactationMultiplier;
@@ -1524,7 +1517,7 @@ export class Creature extends Utils {
     // anywhere from 5% to 100% of normal cum effectiveness thru herbs!
     public virilityQ(): number {
         if (!this.hasCock()) return 0;
-        var percent: number = 0.01;
+        let percent = 0.01;
         if (this.cumQ() >= 250) percent += 0.01;
         if (this.cumQ() >= 800) percent += 0.01;
         if (this.cumQ() >= 1600) percent += 0.02;
@@ -1545,12 +1538,12 @@ export class Creature extends Utils {
     // Calculate cum return
     public cumQ(): number {
         if (!this.hasCock()) return 0;
-        var quantity: number = 0;
+        let quantity = 0;
         // Base value is ballsize*ballQ*cumefficiency by a factor of 2.
         // Other things that affect it:
         // lust - 50% = normal output.  0 = half output. 100 = +50% output.
         // trace("CUM ESTIMATE: " + int(1.25*2*cumMultiplier*2*(lust + 50)/10 * (hoursSinceCum+10)/24)/10 + "(no balls), " + int(ballSize*balls*cumMultiplier*2*(lust + 50)/10 * (hoursSinceCum+10)/24)/10 + "(withballs)");
-        var lustCoefficient: number = (this.lust + 50) / 10;
+        let lustCoefficient: number = (this.lust + 50) / 10;
         // Pilgrim's bounty maxxes lust coefficient
         if (this.findPerk(PerkLib.PilgrimsBounty) >= 0) lustCoefficient = 150 / 10;
         if (this.balls == 0)
@@ -1596,8 +1589,8 @@ export class Creature extends Utils {
 
     public countCocksOfType(type: CockTypesEnum): number {
         if (this.cocks.length == 0) return 0;
-        var counter: number = 0;
-        for (var x: number = 0; x < this.cocks.length; x++) {
+        let counter = 0;
+        for (let x = 0; x < this.cocks.length; x++) {
             if (this.cocks[x].cockType == type) counter++;
         }
         return counter;
@@ -1629,8 +1622,8 @@ export class Creature extends Utils {
     public dogCocks(): number {
         // How many dogCocks
         if (this.cocks.length == 0) return 0;
-        var counter: number = 0;
-        for (var x: number = 0; x < this.cocks.length; x++) {
+        let counter = 0;
+        for (let x = 0; x < this.cocks.length; x++) {
             if (
                 this.cocks[x].cockType == CockTypesEnum.DOG ||
                 this.cocks[x].cockType == CockTypesEnum.FOX
@@ -1676,7 +1669,7 @@ export class Creature extends Utils {
     }
 
     public findFirstCockType(ctype: CockTypesEnum): number {
-        var index: number = 0;
+        let index = 0;
         if (this.cocks[index].cockType == ctype) return index;
         while (index < this.cocks.length) {
             index++;
@@ -1686,7 +1679,7 @@ export class Creature extends Utils {
         return 0;
     }
 
-    /*public function findFirstCockType(type: number = 0): number
+    /* public function findFirstCockType(type: number = 0): number
     {
     var  index: number = 0;
         if (cocks[index].cockType == type)
@@ -1704,7 +1697,7 @@ export class Creature extends Utils {
     // Change first normal cock to horsecock!
     // Return number of affected cock, otherwise -1
     public addHorseCock(): number {
-        var counter: number = this.cocks.length;
+        let counter: number = this.cocks.length;
         while (counter > 0) {
             counter--;
             // Human - > horse
@@ -1753,7 +1746,7 @@ export class Creature extends Utils {
     }
 
     public hasSockRoom(): boolean {
-        var index: number = this.cocks.length;
+        let index: number = this.cocks.length;
         while (index > 0) {
             index--;
             if (this.cocks[index].sock == "") return true;
@@ -1762,8 +1755,8 @@ export class Creature extends Utils {
     }
 
     // Deprecated
-    public hasSock(arg: string = ""): boolean {
-        var index: number = this.cocks.length;
+    public hasSock(arg = ""): boolean {
+        let index: number = this.cocks.length;
 
         while (index > 0) {
             index--;
@@ -1774,9 +1767,9 @@ export class Creature extends Utils {
         return false;
     }
     public countCockSocks(type: string): number {
-        var count: number = 0;
+        let count = 0;
 
-        for (var i: number = 0; i < this.cocks.length; i++) {
+        for (let i = 0; i < this.cocks.length; i++) {
             if (this.cocks[i].sock == type) {
                 count++;
             }
@@ -1813,12 +1806,7 @@ export class Creature extends Utils {
         return false;
     }
 
-    public genderText(
-        male: string = "man",
-        female: string = "woman",
-        futa: string = "herm",
-        eunuch: string = "eunuch"
-    ): string {
+    public genderText(male = "man", female = "woman", futa = "herm", eunuch = "eunuch"): string {
         if (this.vaginas.length > 0) {
             if (this.cocks.length > 0) return futa;
             return female;
@@ -1828,7 +1816,7 @@ export class Creature extends Utils {
         return eunuch;
     }
 
-    public manWoman(caps: boolean = false): string {
+    public manWoman(caps = false): string {
         // Dicks?
         if (this.totalCocks() > 0) {
             if (this.hasVagina()) {
@@ -1849,7 +1837,7 @@ export class Creature extends Utils {
         }
     }
 
-    public guyGirl(caps: boolean = false): string {
+    public guyGirl(caps = false): string {
         // Dicks?
         if (this.totalCocks() > 0) {
             if (this.hasVagina()) {
@@ -1893,7 +1881,7 @@ export class Creature extends Utils {
         }
     }
 
-    public boyGirl(caps: boolean = false): string {
+    public boyGirl(caps = false): string {
         // Dicks?
         if (this.totalCocks() > 0) {
             if (this.hasVagina()) {
@@ -1918,7 +1906,7 @@ export class Creature extends Utils {
         }
     }
 
-    public heShe(caps: boolean = false): string {
+    public heShe(caps = false): string {
         // Dicks?
         if (this.totalCocks() > 0) {
             if (this.hasVagina()) {
@@ -1943,7 +1931,7 @@ export class Creature extends Utils {
         }
     }
 
-    public himHer(caps: boolean = false): string {
+    public himHer(caps = false): string {
         // Dicks?
         if (this.totalCocks() > 0) {
             if (this.hasVagina()) {
@@ -1968,7 +1956,7 @@ export class Creature extends Utils {
         }
     }
 
-    public maleFemale(caps: boolean = false): string {
+    public maleFemale(caps = false): string {
         // Dicks?
         if (this.totalCocks() > 0) {
             if (this.hasVagina()) {
@@ -1993,7 +1981,7 @@ export class Creature extends Utils {
         }
     }
 
-    public hisHer(caps: boolean = false): string {
+    public hisHer(caps = false): string {
         // Dicks?
         if (this.totalCocks() > 0) {
             if (this.hasVagina()) {
@@ -2019,7 +2007,7 @@ export class Creature extends Utils {
     }
 
     // sir/madam
-    public sirMadam(caps: boolean = false): string {
+    public sirMadam(caps = false): string {
         // Dicks?
         if (this.totalCocks() > 0) {
             // herm
@@ -2063,14 +2051,10 @@ export class Creature extends Utils {
     }
 
     // Create a cock. Default type is HUMAN
-    public createCock(
-        clength: number = 5.5,
-        cthickness: number = 1,
-        ctype?: CockTypesEnum
-    ): boolean {
+    public createCock(clength = 5.5, cthickness = 1, ctype?: CockTypesEnum): boolean {
         if (ctype == undefined) ctype = CockTypesEnum.HUMAN;
         if (this.cocks.length >= 10) return false;
-        var newCock: Cock = new Cock(clength, cthickness, ctype);
+        const newCock: Cock = new Cock(clength, cthickness, ctype);
         // var newCock:cockClass = new cockClass();
         this.cocks.push(newCock);
         this.cocks[this.cocks.length - 1].cockThickness = cthickness;
@@ -2079,21 +2063,17 @@ export class Creature extends Utils {
     }
 
     // create vagoo
-    public createVagina(
-        virgin: boolean = true,
-        vaginalWetness: number = 1,
-        vaginalLooseness: number = 0
-    ): boolean {
+    public createVagina(virgin = true, vaginalWetness = 1, vaginalLooseness = 0): boolean {
         if (this.vaginas.length >= 2) return false;
-        var newVagina: VaginaClass = new VaginaClass(vaginalWetness, vaginalLooseness, virgin);
+        const newVagina: VaginaClass = new VaginaClass(vaginalWetness, vaginalLooseness, virgin);
         this.vaginas.push(newVagina);
         return true;
     }
 
     // create a row of breasts
-    public createBreastRow(size: number = 0, nipplesPerBreast: number = 1): boolean {
+    public createBreastRow(size = 0, nipplesPerBreast = 1): boolean {
         if (this.breastRows.length >= 10) return false;
-        var newBreastRow: BreastRowClass = new BreastRowClass();
+        const newBreastRow: BreastRowClass = new BreastRowClass();
         newBreastRow.breastRating = size;
         newBreastRow.nipplesPerBreast = nipplesPerBreast;
         this.breastRows.push(newBreastRow);
@@ -2121,12 +2101,12 @@ export class Creature extends Utils {
                 // trace("ERROR: removeCock failed - array location is beyond the bounds of the array.");
             } else {
                 try {
-                    var cock: Cock = this.cocks[arraySpot];
+                    const cock: Cock = this.cocks[arraySpot];
                     if (cock.sock == "viridian") {
                         this.removePerk(PerkLib.LustyRegeneration);
                     } else if (cock.sock == "cockring") {
-                        var numRings: number = 0;
-                        for (var i: number = 0; i < this.cocks.length; i++) {
+                        let numRings = 0;
+                        for (let i = 0; i < this.cocks.length; i++) {
                             if (this.cocks[i].sock == "cockring") numRings++;
                         }
 
@@ -2144,7 +2124,7 @@ export class Creature extends Utils {
     }
 
     // REmove vaginas
-    public removeVagina(arraySpot: number = 0, totalRemoved: number = 1): void {
+    public removeVagina(arraySpot = 0, totalRemoved = 1): void {
         // Various Errors preventing action
         if (arraySpot < -1 || totalRemoved <= 0) {
             // trace("ERROR: removeVagina called but arraySpot is negative or totalRemoved is 0.");
@@ -2196,7 +2176,7 @@ export class Creature extends Utils {
     // }
 
     public buttChangeNoDisplay(cArea: number): boolean {
-        var stretched: boolean = false;
+        let stretched = false;
         // cArea > capacity = autostreeeeetch half the time.
         if (cArea >= this.analCapacity() && Creature.rand(2) == 0) {
             if (this.ass.analLooseness >= 5) {
@@ -2245,7 +2225,7 @@ export class Creature extends Utils {
 
     public cuntChangeNoDisplay(cArea: number): boolean {
         if (this.vaginas.length == 0) return false;
-        var stretched: boolean = false;
+        let stretched = false;
         if (
             this.findPerk(PerkLib.FerasBoonMilkingTwat) < 0 ||
             this.vaginas[0].vaginalLooseness <= VAGINA_LOOSENESS_NORMAL
@@ -2294,7 +2274,7 @@ export class Creature extends Utils {
     }
 
     public bonusFertility(): number {
-        var counter: number = 0;
+        let counter = 0;
         if (this.inHeat) counter += this.statusAffectv1(StatusAffects.Heat);
         if (this.findPerk(PerkLib.FertilityPlus) >= 0) counter += 15;
         if (this.findPerk(PerkLib.MaraesGiftFertility) >= 0) counter += 50;
@@ -2339,7 +2319,7 @@ export class Creature extends Utils {
     }
 
     public legs(): string {
-        var select: number = 0;
+        let select = 0;
         // lowerBody:
         // 0 - normal
         if (this.lowerBody == 0) return "legs";
@@ -2386,7 +2366,7 @@ export class Creature extends Utils {
     }
 
     public skinFurScales(): string {
-        var skinzilla: string = "";
+        let skinzilla = "";
         // Adjectives first!
         if (this.skinAdj != "") skinzilla += this.skinAdj + ", ";
         // Fur handled a little differently since it uses
@@ -2398,7 +2378,7 @@ export class Creature extends Utils {
     }
 
     public leg(): string {
-        var select: number = 0;
+        let select = 0;
         // lowerBody:
         // 0 - normal
         if (this.lowerBody == 0) return "leg";
@@ -2444,7 +2424,7 @@ export class Creature extends Utils {
     }
 
     public feet(): string {
-        var select: number = 0;
+        let select = 0;
         // lowerBody:
         // 0 - normal
         if (this.lowerBody == 0) return "feet";
@@ -2495,7 +2475,7 @@ export class Creature extends Utils {
     }
 
     public foot(): string {
-        var select: number = 0;
+        let select = 0;
         // lowerBody:
         // 0 - normal
         if (this.lowerBody == 0) return "foot";
@@ -2572,7 +2552,7 @@ export class Creature extends Utils {
         else return this.perkv1(PerkLib.BeeOvipositor);
     }
 
-    public addEggs(arg: number = 0): number {
+    public addEggs(arg = 0): number {
         if (this.findPerk(PerkLib.SpiderOvipositor) < 0 && this.findPerk(PerkLib.BeeOvipositor) < 0)
             return -1;
         else {
@@ -2596,7 +2576,7 @@ export class Creature extends Utils {
         this.fertilizeEggs();
     }
 
-    public setEggs(arg: number = 0): number {
+    public setEggs(arg = 0): number {
         if (this.findPerk(PerkLib.SpiderOvipositor) < 0 && this.findPerk(PerkLib.BeeOvipositor) < 0)
             return -1;
         else {
@@ -2631,7 +2611,8 @@ export class Creature extends Utils {
 
     public breastCup(rowNum: number): string {
         return Appearance.breastCup(this.breastRows[rowNum].breastRating);
-        // Should change this to make use of Appearance			return BreastStore.cupSize(breastRows[rowNum].breastRating);
+        // Should change this to make use of Appearance
+        // 	return BreastStore.cupSize(breastRows[rowNum].breastRating);
         /*
         if (breastRows[rowNum].breastRating < 1)
             return "flat, manly breast";
@@ -2860,8 +2841,8 @@ export class Creature extends Utils {
     }
 
     public totalBreasts(): number {
-        var counter: number = this.breastRows.length;
-        var total: number = 0;
+        let counter: number = this.breastRows.length;
+        let total = 0;
         while (counter > 0) {
             counter--;
             total += this.breastRows[counter].breasts;
@@ -2870,8 +2851,8 @@ export class Creature extends Utils {
     }
 
     public totalNipples(): number {
-        var counter: number = this.breastRows.length;
-        var total: number = 0;
+        let counter: number = this.breastRows.length;
+        let total = 0;
         while (counter > 0) {
             counter--;
             total += this.breastRows[counter].nipplesPerBreast * this.breastRows[counter].breasts;
@@ -2881,8 +2862,8 @@ export class Creature extends Utils {
 
     public smallestTitSize(): number {
         if (this.breastRows.length == 0) return -1;
-        var counter: number = this.breastRows.length;
-        var index: number = 0;
+        let counter: number = this.breastRows.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.breastRows[index].breastRating > this.breastRows[counter].breastRating)
@@ -2893,8 +2874,8 @@ export class Creature extends Utils {
 
     public smallestTitRow(): number {
         if (this.breastRows.length == 0) return -1;
-        var counter: number = this.breastRows.length;
-        var index: number = 0;
+        let counter: number = this.breastRows.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.breastRows[index].breastRating > this.breastRows[counter].breastRating)
@@ -2904,8 +2885,8 @@ export class Creature extends Utils {
     }
 
     public biggestTitRow(): number {
-        var counter: number = this.breastRows.length;
-        var index: number = 0;
+        let counter: number = this.breastRows.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.breastRows[index].breastRating < this.breastRows[counter].breastRating)
@@ -2915,8 +2896,8 @@ export class Creature extends Utils {
     }
 
     public averageBreastSize(): number {
-        var counter: number = this.breastRows.length;
-        var average: number = 0;
+        let counter: number = this.breastRows.length;
+        let average = 0;
         while (counter > 0) {
             counter--;
             average += this.breastRows[counter].breastRating;
@@ -2926,8 +2907,8 @@ export class Creature extends Utils {
     }
 
     public averageCockThickness(): number {
-        var counter: number = this.cocks.length;
-        var average: number = 0;
+        let counter: number = this.cocks.length;
+        let average = 0;
         while (counter > 0) {
             counter--;
             average += this.cocks[counter].cockThickness;
@@ -2937,8 +2918,8 @@ export class Creature extends Utils {
     }
 
     public averageNippleLength(): number {
-        var counter: number = this.breastRows.length;
-        var average: number = 0;
+        let counter: number = this.breastRows.length;
+        let average = 0;
         while (counter > 0) {
             counter--;
             average += this.breastRows[counter].breastRating / 10 + 0.2;
@@ -2947,8 +2928,8 @@ export class Creature extends Utils {
     }
 
     public averageVaginalLooseness(): number {
-        var counter: number = this.vaginas.length;
-        var average: number = 0;
+        let counter: number = this.vaginas.length;
+        let average = 0;
         // If the player has no vaginas
         if (this.vaginas.length == 0) return 2;
         while (counter > 0) {
@@ -2961,8 +2942,8 @@ export class Creature extends Utils {
     public averageVaginalWetness(): number {
         // If the player has no vaginas
         if (this.vaginas.length == 0) return 2;
-        var counter: number = this.vaginas.length;
-        var average: number = 0;
+        let counter: number = this.vaginas.length;
+        let average = 0;
         while (counter > 0) {
             counter--;
             average += this.vaginas[counter].vaginalWetness;
@@ -2971,8 +2952,8 @@ export class Creature extends Utils {
     }
 
     public averageCockLength(): number {
-        var counter: number = this.cocks.length;
-        var average: number = 0;
+        let counter: number = this.cocks.length;
+        let average = 0;
         while (counter > 0) {
             counter--;
             average += this.cocks[counter].cockLength;
@@ -2984,8 +2965,8 @@ export class Creature extends Utils {
     public canTitFuck(): boolean {
         if (this.breastRows.length == 0) return false;
 
-        var counter: number = this.breastRows.length;
-        var index: number = 0;
+        let counter: number = this.breastRows.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (
@@ -3002,8 +2983,8 @@ export class Creature extends Utils {
     public mostBreastsPerRow(): number {
         if (this.breastRows.length == 0) return 2;
 
-        var counter: number = this.breastRows.length;
-        var index: number = 0;
+        let counter: number = this.breastRows.length;
+        let index = 0;
         while (counter > 0) {
             counter--;
             if (this.breastRows[index].breasts < this.breastRows[counter].breasts) index = counter;
@@ -3012,9 +2993,9 @@ export class Creature extends Utils {
     }
 
     public averageNipplesPerBreast(): number {
-        var counter: number = this.breastRows.length;
-        var breasts: number = 0;
-        var nipples: number = 0;
+        let counter: number = this.breastRows.length;
+        let breasts = 0;
+        let nipples = 0;
         while (counter > 0) {
             counter--;
             breasts += this.breastRows[counter].breasts;
@@ -3063,7 +3044,7 @@ export class Creature extends Utils {
             return Appearance.cockDescript(this, 0);
         }
         switch (
-            this.cocks[0].cockType //With multiple cocks only use the descriptions for specific cock types if all cocks are of a single type
+            this.cocks[0].cockType // With multiple cocks only use the descriptions for specific cock types if all cocks are of a single type
         ) {
             case CockTypesEnum.ANEMONE:
             case CockTypesEnum.CAT:
@@ -3088,7 +3069,7 @@ export class Creature extends Utils {
 
     public hasSheath(): boolean {
         if (this.cocks.length == 0) return false;
-        for (var x: number = 0; x < this.cocks.length; x++) {
+        for (let x = 0; x < this.cocks.length; x++) {
             switch (this.cocks[x].cockType) {
                 case CockTypesEnum.CAT:
                 case CockTypesEnum.DISPLACER:
@@ -3096,7 +3077,7 @@ export class Creature extends Utils {
                 case CockTypesEnum.FOX:
                 case CockTypesEnum.HORSE:
                 case CockTypesEnum.KANGAROO:
-                    return true; //If there's even one cock of any of these types then return true
+                    return true; // If there's even one cock of any of these types then return true
                 default:
             }
         }
@@ -3108,7 +3089,7 @@ export class Creature extends Utils {
         return "base";
     }
 
-    public vaginaDescript(idx: number = 0): string {
+    public vaginaDescript(idx = 0): string {
         return Appearance.vaginaDescript(this, 0);
     }
 
@@ -3119,7 +3100,8 @@ export class Creature extends Utils {
     public chestDesc(): string {
         if (this.biggestTitSize() < 1) return "chest";
         return Appearance.biggestBreastSizeDescript(this);
-        // 			return Appearance.chestDesc(this);
+        //
+        // 	return Appearance.chestDesc(this);
     }
 
     public allChestDesc(): string {
@@ -3131,7 +3113,7 @@ export class Creature extends Utils {
         return Appearance.clitDescription(this);
     }
 
-    public cockHead(cockNum: number = 0): string {
+    public cockHead(cockNum = 0): string {
         if (cockNum < 0 || cockNum > this.cocks.length - 1) {
             CoC_Settings.error("");
             return "ERROR";
@@ -3180,13 +3162,13 @@ export class Creature extends Utils {
     }
 
     // Short cock description. Describes length or girth. Supports multiple cocks.
-    public cockDescriptShort(i_cockIndex: number = 0): string {
+    public cockDescriptShort(i_cockIndex = 0): string {
         // catch calls where we're outside of combat, and eCockDescript could be called.
         if (this.cocks.length == 0)
             return "<B>ERROR. INVALID CREATURE SPECIFIED to cockDescriptShort</B>";
 
-        var description: string = "";
-        var descripted: boolean = false;
+        let description = "";
+        let descripted = false;
         // Discuss length one in 3 times
         if (Creature.rand(3) == 0) {
             if (this.cocks[i_cockIndex].cockLength >= 30) description = "towering ";
@@ -3219,7 +3201,8 @@ export class Creature extends Utils {
             if (this.cocks[i_cockIndex].cockThickness > 3.5) description = "distended ";
             descripted = true;
         }
-        // Seems to work better without this comma:			if (descripted && cocks[i_cockIndex].cockType != CockTypesEnum.HUMAN) description += ", ";
+        // Seems to work better without this comma:
+        // 	if (descripted && cocks[i_cockIndex].cockType != CockTypesEnum.HUMAN) description += ", ";
         description += Appearance.cockNoun(this.cocks[i_cockIndex].cockType);
 
         return description;
@@ -3237,7 +3220,7 @@ export class Creature extends Utils {
         return Appearance.multiCockDescript(this);
     }
 
-    public ballsDescriptLight(forcedSize: boolean = true): string {
+    public ballsDescriptLight(forcedSize = true): string {
         return Appearance.ballsDescription(forcedSize, true, this);
     }
 

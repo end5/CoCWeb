@@ -21,7 +21,7 @@ import { Mutations } from "./Mutations";
  */
 
 export class ConsumableLib extends BaseContent {
-    public static DEFAULT_VALUE: number = 6;
+    public static DEFAULT_VALUE = 6;
     public AUBURND: SimpleConsumable = ConsumableLib.mk(
         "AuburnD",
         "AuburnD",
@@ -319,7 +319,8 @@ export class ConsumableLib extends BaseContent {
         "A yellow, fibrous, tubular pod.  A split in the end reveals many lumpy, small seeds inside.  The smell of mild fermentation wafts from them."
     );
     public KITGIFT: KitsuneGift = new KitsuneGift();
-    // 		public const KITGIFT:SimpleConsumable = mk("KitGift","KitGift", "a kitsune's gift", m.kitsunesGift, "A small square package given to you by a forest kitsune.  It is wrapped up in plain white paper and tied with a string.  Who knows what's inside?", 0);
+    //
+    // public const KITGIFT:SimpleConsumable = mk("KitGift","KitGift", "a kitsune's gift", m.kitsunesGift, "A small square package given to you by a forest kitsune.  It is wrapped up in plain white paper and tied with a string.  Who knows what's inside?", 0);
     public KNOTTYP: SimpleConsumable = ConsumableLib.mk(
         "KnottyP",
         "KnottyP",
@@ -775,6 +776,7 @@ export class ConsumableLib extends BaseContent {
     /**
      * A handy function to create SimpleConsumables (useable by any player, effect is a function accepting player:Player,
      * shortName, longName, description and value are const)
+     *
      * @param id id. Must be String 7 chars long
      * @param shortName shortName, undefined to use id as shortName
      * @param longName undefined to use shortName as longName

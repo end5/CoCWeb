@@ -31,7 +31,7 @@ export class HighMountains extends BaseContent {
             return;
         }
 
-        var chooser: number = HighMountains.rand(4);
+        let chooser: number = HighMountains.rand(4);
         // Boosts mino and hellhound rates!
         if (this.player.findPerk(PerkLib.PiercedFurrite) >= 0 && HighMountains.rand(3) == 0) {
             chooser = 1;
@@ -189,7 +189,8 @@ export class HighMountains extends BaseContent {
             // [Give Two][Give Three]	[No, I Must Now Return To My People]
         }
         this.flags[kFLAGS.TIMES_MET_CHICKEN_HARPY]++;
-        // [Give Two][Give Three]		[Not Really, No]
+        // [Give Two][Give Three]
+        // [Not Really, No]
         this.menu();
         if (this.player.hasItem(this.consumables.OVIELIX, 2))
             this.addButton(0, "Give Two", this.giveTwoOviElix);

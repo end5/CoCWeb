@@ -6,6 +6,7 @@ import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...
+ *
  * @author Gedan
  */
 export class LivingStatue extends Monster {
@@ -73,7 +74,7 @@ export class LivingStatue extends Monster {
         );
 
         // Light magic-type damage!
-        var damage: number = 100 * (this.inte / this.player.inte / 4);
+        let damage: number = 100 * (this.inte / this.player.inte / 4);
         damage = this.player.takeDamage(damage);
 
         // Stun success
@@ -114,7 +115,7 @@ export class LivingStatue extends Monster {
             "The marble golem's visage twists into a grimace of irritation, and it swings its hand at you in a vicious backhand."
         );
 
-        var damage: number = Math.floor(
+        let damage: number = Math.floor(
             this.str + this.weaponAttack - LivingStatue.rand(this.player.tou) - this.player.armorDef
         );
         // Dodge
@@ -146,7 +147,7 @@ export class LivingStatue extends Monster {
             "Raising its hammer high overhead, the giant swiftly brings its hammer down in a punishing strike!"
         );
 
-        var damage: number =
+        let damage: number =
             175 +
             Math.floor(
                 this.str +
@@ -196,7 +197,9 @@ export class LivingStatue extends Monster {
             this.flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID] = this.player.weapon.id;
             this.flags[kFLAGS.PLAYER_DISARMED_WEAPON_ATTACK] = this.player.weaponAttack;
             this.player.setWeapon(WeaponLib.FISTS);
-            // 				player.weapon.unequip(player,false,true);
+            //
+            //
+            // player.weapon.unequip(player,false,true);
         }
     }
 
@@ -206,7 +209,7 @@ export class LivingStatue extends Monster {
             "Twisting back, the giant abruptly launches into a circular spin. Its hammer stays low enough to the ground that its circular path is tearing a swath of destruction through the once pristine garden, and it's coming in your direction!"
         );
 
-        var damage: number =
+        let damage: number =
             (175 +
                 Math.floor(
                     this.str +
@@ -242,7 +245,7 @@ export class LivingStatue extends Monster {
         ) {
             this.disarm();
         } else {
-            var opts: any[] = [];
+            const opts: any[] = [];
 
             if (
                 this.player.findStatusAffect(StatusAffects.Blind) < 0 &&

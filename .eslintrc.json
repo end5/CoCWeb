@@ -15,7 +15,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "jsdoc"
     ],
     "rules": {
         "@typescript-eslint/array-type": "off",
@@ -44,6 +45,7 @@
                 }
             }
         ],
+        "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/dot-notation": "error",
         "@typescript-eslint/interface-name-prefix": "off",
         "@typescript-eslint/member-ordering": "off",
@@ -108,7 +110,6 @@
         "no-fallthrough": "off",
         "no-invalid-this": "off",
         "no-new-wrappers": "error",
-        "no-null/no-null": "error",
         "no-shadow": [
             "error",
             {
@@ -126,7 +127,6 @@
             "error",
             "never"
         ],
-        "prefer-arrow/prefer-arrow-functions": "error",
         "radix": "error",
         "spaced-comment": [
             "error",

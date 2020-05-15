@@ -133,7 +133,8 @@ export class CharCreation extends BaseContent {
         this.player.slotName = "VOID";
         this.player.autoSave = false;
         // RESET DUNGEOn
-        // No need, dungeonLoc = 0 does this:			kGAMECLASS.inDungeon = false;
+        // No need, dungeonLoc = 0 does this:
+        // 	kGAMECLASS.inDungeon = false;
         kGAMECLASS.dungeonLoc = 0;
         kGAMECLASS.inRoomedDungeon = false;
         kGAMECLASS.inRoomedDungeonResume = undefined;
@@ -1543,7 +1544,8 @@ export class CharCreation extends BaseContent {
 
     private customLeah(): void {
         this.player.setArmor(this.armors.LEATHRA);
-        // 		if(player.findPerk(PerkLib.WizardsEndurance) < 0) player.createPerk(PerkLib.WizardsEndurance,30,0,0,0);
+        //
+        // if(player.findPerk(PerkLib.WizardsEndurance) < 0) player.createPerk(PerkLib.WizardsEndurance,30,0,0,0);
         this.player.setWeapon(this.weapons.W_STAFF);
         this.player.itemSlot1.setItemAndQty(this.consumables.B__BOOK, 1);
         this.player.itemSlot2.setItemAndQty(this.consumables.W__BOOK, 2);

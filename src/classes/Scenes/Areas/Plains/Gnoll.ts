@@ -15,13 +15,14 @@ import { StatusAffects } from "../../../StatusAffects";
 
 /**
  * ...
+ *
  * @author ...
  */
 export class Gnoll extends Monster {
     // Gnoll Description
     private gnollAttackText(): void {
-        var damage: number = 0;
-        var attack: number = Gnoll.rand(6);
+        let damage = 0;
+        const attack: number = Gnoll.rand(6);
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         // Blind dodge change
@@ -194,8 +195,8 @@ export class Gnoll extends Monster {
     }
 
     private gnollTease(): void {
-        var tease: number = Gnoll.rand(6);
-        var bonus: number = 0;
+        const tease: number = Gnoll.rand(6);
+        let bonus = 0;
         // Gnoll Tease #1
         if (tease == 0) {
             this.outputText(
@@ -250,8 +251,8 @@ export class Gnoll extends Monster {
     }
 
     public eAttack(): void {
-        var damage: number = 0;
-        var attack: number = Gnoll.rand(6);
+        let damage = 0;
+        const attack: number = Gnoll.rand(6);
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         // Blind dodge change
@@ -502,9 +503,11 @@ export class Gnoll extends Monster {
                         // 1 - lust determines > 50 grapple
                         // 2 - random
                         // 3 - love grapples
-                        // 		if(temperment == 0) eGrappleRetreat();
+                        //
+// if(temperment == 0) eGrappleRetreat();
                         if (temperment == 1) {
-                            // 			if(lust < 50) eGrappleRetreat();
+                            //
+// 	if(lust < 50) eGrappleRetreat();
                             doNext(3);
                         }
                         outputText("Lust Placeholder!!", false);
@@ -513,8 +516,8 @@ export class Gnoll extends Monster {
         */
         if (Gnoll.rand(2) == 0) this.gnollTease();
         else {
-            var damage: number = 0;
-            var attack: number = Gnoll.rand(6);
+            let damage = 0;
+            const attack: number = Gnoll.rand(6);
             // return to combat menu when finished
             this.doNext(this.game.playerMenu);
             // Blind dodge change

@@ -44,34 +44,34 @@ export class PhoukaWhiskey extends Consumable {
                 return false;
             default:
         }
-        return true; //Zero and up will return true
+        return true; // Zero and up will return true
     }
 
     public useItem(): boolean {
         this.game.player.slimeFeed();
         switch (this.phoukaWhiskeyDrink(this.game.player)) {
-            case 0: //Player isn't pregnant
+            case 0: // Player isn't pregnant
                 this.outputText(
                     "You uncork the bottle and drink some whiskey, hoping it will let you relax for a while.\n\nIt's strong stuff and afterwards you worry a bit less about the future.  Surely things will right themselves in the end."
                 );
-                this.game.dynStats("cor", Utils.rand(2) + 1, "lus", Utils.rand(8) + 1); //These gains are permanent
+                this.game.dynStats("cor", Utils.rand(2) + 1, "lus", Utils.rand(8) + 1); // These gains are permanent
                 break;
-            case 1: //Child is a phouka or satyr, loves alcohol
+            case 1: // Child is a phouka or satyr, loves alcohol
                 this.outputText(
                     "You uncork the bottle and drink some whiskey, hoping it will help with the gnawing hunger for alcohol you've had since this baby started growing inside you.\n\nYou down the booze in one shot and a wave of contentment washes over you.  It seems your passenger enjoyed the meal."
                 );
                 break;
-            case 2: //Child is a faerie but will become a phouka with this drink
+            case 2: // Child is a faerie but will become a phouka with this drink
                 this.outputText(
                     "At first you feel your baby struggle against the whiskey, then it seems to grow content and enjoy it."
                 );
                 break;
-            case 3: //Child is a faerie, hates phouka whiskey
+            case 3: // Child is a faerie, hates phouka whiskey
                 this.outputText(
                     "You feel queasy and want to throw up.  There's a pain in your belly and you realize the baby you're carrying didn't like that at all."
                 );
         }
-        this.game.flags[kFLAGS.PREGNANCY_CORRUPTION]++; //Faerie or phouka babies become more corrupted, no effect if the player is not pregnant or on other types of babies
+        this.game.flags[kFLAGS.PREGNANCY_CORRUPTION]++; // Faerie or phouka babies become more corrupted, no effect if the player is not pregnant or on other types of babies
         this.phoukaWhiskeyAddStatus(this.game.player);
         return false;
     }
@@ -79,9 +79,10 @@ export class PhoukaWhiskey extends Consumable {
     public phoukaWhiskeyAcceptable(player: Player): number {
         // This function provides a single common test that can be used both by this class and the PhoukaScene class
         // Returns:	0 = canUse (not pregnant), 1 = canUse (single pregnancy, womb), 2 = canUse (single pregnancy, colon), 3 = canUse (double pregnancy, both OK),
-        // 			-1 = No (single pregnancy, womb), -2 = No (single pregnancy, colon), -3 = No (double pregnancy, both not OK), -4 = No (double pregnancy, one OK, one not)
+        //
+        // 	-1 = No (single pregnancy, womb), -2 = No (single pregnancy, colon), -3 = No (double pregnancy, both not OK), -4 = No (double pregnancy, one OK, one not)
         if (player.pregnancyIncubation == 0) {
-            if (player.buttPregnancyIncubation == 0) return 0; //No baby. Simplest, most common case
+            if (player.buttPregnancyIncubation == 0) return 0; // No baby. Simplest, most common case
             if (player.buttPregnancyType == PregnancyStore.PREGNANCY_SATYR) return 2;
             return -2;
         }
@@ -92,10 +93,10 @@ export class PhoukaWhiskey extends Consumable {
             return -1;
         }
         // Double pregnancy
-        var wombBabyLikesAlcohol: boolean =
+        const wombBabyLikesAlcohol: boolean =
             player.pregnancyType == PregnancyStore.PREGNANCY_SATYR ||
             player.pregnancyType == PregnancyStore.PREGNANCY_FAERIE;
-        var colonBabyLikesAlcohol: boolean =
+        const colonBabyLikesAlcohol: boolean =
             player.buttPregnancyType == PregnancyStore.PREGNANCY_SATYR;
         if (wombBabyLikesAlcohol && colonBabyLikesAlcohol) return 3;
         if (!wombBabyLikesAlcohol && !colonBabyLikesAlcohol) return -3;
@@ -105,25 +106,26 @@ export class PhoukaWhiskey extends Consumable {
     public phoukaWhiskeyDrink(player: Player): number {
         // This function provides a single common test that can be used both by this class and the PhoukaScene class
         // Returns:	0 = Player is not pregnant, 1 = Player is pregnant with a satyr or phouka, 2 = Player is pregnant with a faerie that will become a phouka with this drink,
-        // 			3 = Player is pregnant with a faerie that will remain a faerie after this drink
+        //
+        // 	3 = Player is pregnant with a faerie that will remain a faerie after this drink
         if (player.pregnancyIncubation == 0 && player.buttPregnancyIncubation == 0) return 0;
         if (player.pregnancyType == PregnancyStore.PREGNANCY_FAERIE) {
             if (this.game.flags[kFLAGS.PREGNANCY_CORRUPTION] == 0) return 2;
             if (this.game.flags[kFLAGS.PREGNANCY_CORRUPTION] < 0) return 3;
         }
-        return 1; //Pregnancy has to be either a satyr or a phouka
+        return 1; // Pregnancy has to be either a satyr or a phouka
     }
 
     public phoukaWhiskeyAddStatus(player: Player): void {
-        var libidoChange: number = player.lib + 25 > 100 ? 100 - player.lib : 25;
-        var sensChange: number = player.sens < 10 ? player.sens : 10;
-        var speedChange: number = player.spe < 20 ? player.spe : 20;
-        var intChange: number = player.inte < 20 ? player.inte : 20;
+        const libidoChange: number = player.lib + 25 > 100 ? 100 - player.lib : 25;
+        const sensChange: number = player.sens < 10 ? player.sens : 10;
+        const speedChange: number = player.spe < 20 ? player.spe : 20;
+        const intChange: number = player.inte < 20 ? player.inte : 20;
         if (player.findStatusAffect(StatusAffects.PhoukaWhiskeyAffect) >= 0) {
-            var drinksSoFar: number = player.statusAffectv2(StatusAffects.PhoukaWhiskeyAffect);
+            const drinksSoFar: number = player.statusAffectv2(StatusAffects.PhoukaWhiskeyAffect);
             if (drinksSoFar < 4)
                 player.addStatusValue(StatusAffects.PhoukaWhiskeyAffect, 1, 8 - 2 * drinksSoFar);
-            else player.addStatusValue(StatusAffects.PhoukaWhiskeyAffect, 1, 1); //Always get at least one more hour of drunkenness
+            else player.addStatusValue(StatusAffects.PhoukaWhiskeyAffect, 1, 1); // Always get at least one more hour of drunkenness
             player.addStatusValue(StatusAffects.PhoukaWhiskeyAffect, 2, 1);
             player.addStatusValue(
                 StatusAffects.PhoukaWhiskeyAffect,
@@ -171,14 +173,14 @@ export class PhoukaWhiskey extends Consumable {
     }
 
     public phoukaWhiskeyExpires(player: Player): void {
-        var numDrunk: number = player.statusAffectv2(StatusAffects.PhoukaWhiskeyAffect);
-        var libidoSensCombined: number = player.statusAffectv3(StatusAffects.PhoukaWhiskeyAffect);
-        var intSpeedCombined: number = player.statusAffectv4(StatusAffects.PhoukaWhiskeyAffect);
+        const numDrunk: number = player.statusAffectv2(StatusAffects.PhoukaWhiskeyAffect);
+        const libidoSensCombined: number = player.statusAffectv3(StatusAffects.PhoukaWhiskeyAffect);
+        const intSpeedCombined: number = player.statusAffectv4(StatusAffects.PhoukaWhiskeyAffect);
 
-        var sensChange: number = libidoSensCombined & 255;
-        var libidoChange: number = (libidoSensCombined - sensChange) / 256;
-        var intChange: number = intSpeedCombined & 255;
-        var speedChange: number = (intSpeedCombined - intChange) / 256;
+        const sensChange: number = libidoSensCombined & 255;
+        const libidoChange: number = (libidoSensCombined - sensChange) / 256;
+        const intChange: number = intSpeedCombined & 255;
+        const speedChange: number = (intSpeedCombined - intChange) / 256;
         this.game.dynStats(
             "lib",
             -libidoChange,
@@ -188,7 +190,7 @@ export class PhoukaWhiskey extends Consumable {
             speedChange,
             "int",
             intChange
-        ); //Get back all the stats you lost
+        ); // Get back all the stats you lost
         player.removeStatusAffect(StatusAffects.PhoukaWhiskeyAffect);
         if (numDrunk > 3)
             this.outputText(

@@ -5,6 +5,7 @@
  * The keyCodes are stored here primarily for ease of display, as we have a handy refernece for
  * a displayable function name AND the actual keyCodes the function uses. The actual interface used
  * for incoming key code -> do action is internal to the InputManager instance.
+ *
  * @author Gedan
  */
 export class BoundControlMethod {
@@ -20,10 +21,14 @@ export class BoundControlMethod {
     /**
      * Define a new bindable control method with "Unbound" keys.
      *
-     * @param	func			The function closure used by this BoundControlMethod
-     * @param	name			The friendly name used for this BoundControlMethod
-     * @param	desc			A Description of what the BoundControlMethod does
-     * @param 	primaryKey		The primary bound key code
+     * @param	func
+// 	The function closure used by this BoundControlMethod
+     * @param	name
+// 	The friendly name used for this BoundControlMethod
+     * @param	desc
+// 	A Description of what the BoundControlMethod does
+     * @param 	primaryKey
+// The primary bound key code
      * @param	secondarykey 	The secondary bound key code
      */
     public constructor(
@@ -31,8 +36,8 @@ export class BoundControlMethod {
         name: string,
         desc: string,
         index: number,
-        primaryKey: number = -1,
-        secondaryKey: number = -1
+        primaryKey = -1,
+        secondaryKey = -1
     ) {
         this._funcToCall = func;
         this._shortName = name;
@@ -46,6 +51,7 @@ export class BoundControlMethod {
     /**
      * Execute the wrapped BoundControlMethod. Uses an apply() call, so that arguments
      * can be passed to the wrapped function.
+     *
      * @param	... args	Args to pass to the wrapped function.
      */
     public ExecFunc(...args: any[]): void {

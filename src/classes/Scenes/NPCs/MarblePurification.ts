@@ -1506,7 +1506,8 @@ export class MarblePurification extends NPCAwareContent {
     }
     // PC and Marble rape Clara
     // Double team Clara, will be rough forceful sex.
-    public pcAndMurbleDoubleTeamCowButt(): void { //does not work with centaur, naga, drider, or goo bodies.  However, I don't particularly want to just say you can't do this scene if you have them.
+    public pcAndMurbleDoubleTeamCowButt(): void {
+        //does not work with centaur, naga, drider, or goo bodies.  However, I don't particularly want to just say you can't do this scene if you have them.
         this.clearOutput();
         var x: number = this.player.cockThatFits(20);
         this.outputText(

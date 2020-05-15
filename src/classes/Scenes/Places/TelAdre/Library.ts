@@ -48,7 +48,7 @@ export class Library extends TelAdreAbstractContent {
             this.outputText(
                 "\n\nThere doesn't appear to be anyone here, so there's nothing stopping you from reading some of the books and scrolls left out on the tables.  Looking up and down the staircases reveals two locked doors, so it's unlikely you could do anything else here."
             );
-            this.flags[kFLAGS.TIMES_BEEN_TO_LIBRARY] = -2; //This will be incremented to -1 by the visitZeMagesTower function after we return
+            this.flags[kFLAGS.TIMES_BEEN_TO_LIBRARY] = -2; // This will be incremented to -1 by the visitZeMagesTower function after we return
         }
     }
 
@@ -65,7 +65,7 @@ export class Library extends TelAdreAbstractContent {
                 this.outputText(
                     "As before, there's no one here.  At least there's no lack of reading material.  Looking up and down the staircases reveals two locked doors, so it's unlikely you could do anything but study here."
                 );
-                this.flags[kFLAGS.TIMES_BEEN_TO_LIBRARY] = -2; //This will be incremented to -1 by the visitZeMagesTower function after we return
+                this.flags[kFLAGS.TIMES_BEEN_TO_LIBRARY] = -2; // This will be incremented to -1 by the visitZeMagesTower function after we return
             }
             return;
         }
@@ -338,8 +338,10 @@ export class Library extends TelAdreAbstractContent {
             this.outputText("\n\n(<b>Conclusion not yet complete...</b>)");
             if (this.player.weapon == this.weapons.S_BLADE) {
                 this.player.setWeapon(WeaponLib.FISTS);
-                // 			player.weapon.unequip(player, false, true);
-                // 			player.removePerk(PerkLib.WizardsFocus);
+                //
+                // 	player.weapon.unequip(player, false, true);
+                //
+                // 	player.removePerk(PerkLib.WizardsFocus);
             } else {
                 this.player.consumeItem(this.weapons.S_BLADE);
             }

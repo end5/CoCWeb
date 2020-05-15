@@ -23,12 +23,18 @@ export class Brooke extends TelAdreAbstractContent {
     // 	Gym Members
     // 	Her Rockin’ Bod
     // 	Grope
-    // 		Penetrate Her
-    // 		Anal
-    // 		Tribadism
-    // 		Down On Her
-    // 		Get Laid
-    // 		Double-Dicked
+    //
+    // Penetrate Her
+    //
+    // Anal
+    //
+    // Tribadism
+    //
+    // Down On Her
+    //
+    // Get Laid
+    //
+    // Double-Dicked
     // Fourth Scene
     // 	Male Only
     // 	Female Only
@@ -36,11 +42,15 @@ export class Brooke extends TelAdreAbstractContent {
     // Talk to Heckel
     // 	Leave
     // 	Butterfly
-    // 		Aftermath
+    //
+    // Aftermath
     // 	Leg Press
-    // 		Males/Herms Only
-    // 		Females Only
-    // 		Aftermath
+    //
+    // Males/Herms Only
+    //
+    // Females Only
+    //
+    // Aftermath
 
     public brookeAffection(arg: number = 0): number {
         this.flags[kFLAGS.BROOKE_AFFECTION] += arg;

@@ -909,7 +909,8 @@ export class Salon extends BaseContent implements TimeAwareInterface {
     }
     /*
     public static  LYNNETTE_PREGNANCY_CYCLE: number                                    = 1022; //0-3 = pregnant. 4-6 = not.
-    public static  LYNNETTE_APPROVAL: number		                                     = 1023;
+    public static  LYNNETTE_APPROVAL: number
+//                                      = 1023;
     public static  LYNNETTE_BABY_COUNT: number                                         = 1024;
     public static  LYNNETTE_CARRYING_COUNT: number                                     = 1025;
     */

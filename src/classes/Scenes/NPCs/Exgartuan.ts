@@ -128,29 +128,98 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                             needNext = true;
                         } else if (Exgartuan.rand(10) == 0 && this.player.armor.supportsBulge) {
                             /* Old way of doing it.
-							(armorName == "sexy black chitin armor-plating" ||
-							armorName == "glistening gel-armor plates" ||
-							player.armorName == "leather armor segments" ||
-							player.armorName == "comfortable clothes" ||
-							player.armorName == "bondage patient clothes" ||
-							player.armorName == "crotch-revealing clothes" ||
-							player.armorName == "cute servant's clothes" ||
-							player.armorName == "maid's clothes" ||
-							player.armorName == "servant's clothes" ||
-							player.armorName == "maid's clothes" ||
-							player.armorName == "practically indecent steel armor" ||
-							player.armorName == "red, high-society bodysuit" ||
-							player.armorName == "spider-silk armor" ||
-							player.armorName == "slutty swimwear" ||
-							player.armorName == "full-body chainmail" ||
-							player.armorName == "revealing chainmail bikini" ||
-							player.armorName == "full platemail" ||
-							player.armorName == "scale-mail armor" ||
-							player.armorName == "black leather armor surrounded by voluminous robes" ||
-							player.armorName == "rubber fetish clothes" ||
-							player.armorName == "green adventurer's clothes" ||
-							player.armorName == "white shirt and overalls")) {
-							*/
+
+//
+//
+// 	(armorName == "sexy black chitin armor-plating" ||
+
+//
+//
+// 	armorName == "glistening gel-armor plates" ||
+
+//
+//
+// 	player.armorName == "leather armor segments" ||
+
+//
+//
+// 	player.armorName == "comfortable clothes" ||
+
+//
+//
+// 	player.armorName == "bondage patient clothes" ||
+
+//
+//
+// 	player.armorName == "crotch-revealing clothes" ||
+
+//
+//
+// 	player.armorName == "cute servant's clothes" ||
+
+//
+//
+// 	player.armorName == "maid's clothes" ||
+
+//
+//
+// 	player.armorName == "servant's clothes" ||
+
+//
+//
+// 	player.armorName == "maid's clothes" ||
+
+//
+//
+// 	player.armorName == "practically indecent steel armor" ||
+
+//
+//
+// 	player.armorName == "red, high-society bodysuit" ||
+
+//
+//
+// 	player.armorName == "spider-silk armor" ||
+
+//
+//
+// 	player.armorName == "slutty swimwear" ||
+
+//
+//
+// 	player.armorName == "full-body chainmail" ||
+
+//
+//
+// 	player.armorName == "revealing chainmail bikini" ||
+
+//
+//
+// 	player.armorName == "full platemail" ||
+
+//
+//
+// 	player.armorName == "scale-mail armor" ||
+
+//
+//
+// 	player.armorName == "black leather armor surrounded by voluminous robes" ||
+
+//
+//
+// 	player.armorName == "rubber fetish clothes" ||
+
+//
+//
+// 	player.armorName == "green adventurer's clothes" ||
+
+//
+//
+// 	player.armorName == "white shirt and overalls")) {
+
+//
+//
+// 	*/
                             this.outputText("\n<b>");
                             this.exgartuanArmorShift();
                             this.outputText("</b>\n");

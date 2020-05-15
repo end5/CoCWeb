@@ -21,28 +21,29 @@ export class Reducto extends Consumable {
         return true;
     }
 
-    // 		override public function hasSubMenu(): boolean { return true; } //Only GroPlus and Reducto use this.
+    //
+    // override public function hasSubMenu(): boolean { return true; } //Only GroPlus and Reducto use this.
 
     public useItem(): boolean {
-        var rdtBalls =
+        const rdtBalls =
             this.game.player.balls > 0 && this.game.player.ballSize > 1
                 ? this.reductoBalls
                 : undefined;
-        var rdtBreasts =
+        const rdtBreasts =
             this.game.player.breastRows.length > 0 && this.game.player.biggestTitSize() > 0
                 ? this.reductoBreasts
                 : undefined;
-        var rdtButt = this.game.player.buttRating > 1 ? this.reductoButt : undefined;
-        var rdtClit =
+        const rdtButt = this.game.player.buttRating > 1 ? this.reductoButt : undefined;
+        const rdtClit =
             this.game.player.vaginas.length > 0 && this.game.player.clitLength > 0.25
                 ? this.reductoClit
                 : undefined;
-        var rdtCock =
+        const rdtCock =
             this.game.player.cockTotal() > 0 && this.game.player.biggestCockArea() > 6
                 ? this.reductoCock
                 : undefined;
-        var rdtHips = this.game.player.hipRating > 2 ? this.reductoHips : undefined;
-        var rdtNipples = this.game.player.nippleLength > 0.25 ? this.reductoNipples : undefined;
+        const rdtHips = this.game.player.hipRating > 2 ? this.reductoHips : undefined;
+        const rdtNipples = this.game.player.nippleLength > 0.25 ? this.reductoNipples : undefined;
         this.clearOutput();
         this.outputText(
             "You ponder the paste in your hand and wonder what part of your body you would like to shrink.  What will you use it on?"
@@ -202,7 +203,7 @@ export class Reducto extends Consumable {
                         (this.game.player.hasSheath() ? "sheath" : "crotch") +
                         " until they've lost about a third of their old size."
                 );
-                for (var i: number = 0; i < this.game.player.cocks.length; i++) {
+                for (let i = 0; i < this.game.player.cocks.length; i++) {
                     this.game.player.cocks[i].cockLength *= 2 / 3;
                     this.game.player.cocks[i].cockThickness *= 2 / 3;
                 }

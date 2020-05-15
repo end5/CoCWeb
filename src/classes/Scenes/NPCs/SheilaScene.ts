@@ -34,22 +34,29 @@ export class SheilaScene extends NPCAwareContent implements TimeAwareInterface {
     // flags required: sheila xp, sheila corruption, demon sheila, sheila clock, sheilapreg, joeycount, sheilacite, sheilaforge
     // functions to run at 00:00 each day
     // 	-sheila clock + 1
-    // 		-makes encounter available only once per day in conjunction with functions afterward; allows timing manipulations for her to get mad at PC for a while
+    //
+    // -makes encounter available only once per day in conjunction with functions afterward; allows timing manipulations for her to get mad at PC for a while
     // 	-if sheilapreg >= 1, sheilapreg + 1
-    // 		-'birth' occurs at sheilapreg >= 4
+    //
+    // -'birth' occurs at sheilapreg >= 4
     // 	-if sheilaforge > 0 and sheilacite = 3, sheilaforge + 1
-    // 		-blade forging is finished at sheilaforge >= 14 but is turned over to the Covenant as a dangerous item at sheilaforge >= 21
+    //
+    // -blade forging is finished at sheilaforge >= 14 but is turned over to the Covenant as a dangerous item at sheilaforge >= 21
 
     // functions to run before initiating a sheila encounter, in order (by no means mandatory if you have a better way):
     // 	-if sheilapreg < 0, prevent encounter
-    // 		-no Sheila at all if PC rejects her pregnancy; too bad, so sad (also used as the general 'off' toggle)
+    //
+    // -no Sheila at all if PC rejects her pregnancy; too bad, so sad (also used as the general 'off' toggle)
     // 	-if sheila clock < 1, prevent encounter
     // 	-if sheila clock = 1, set sheila clock = 0
-    // 		-avoids having to run it at the end of every single output; disregard if unfeasible
+    //
+    // -avoids having to run it at the end of every single output; disregard if unfeasible
     // 	-if sheila corruption >= 100 and demon sheila = 0, set demon sheila = 1
-    // 		-prevents save editors from changing Sheila's corruption without demonifying her and thereby fucking the game
+    //
+    // -prevents save editors from changing Sheila's corruption without demonifying her and thereby fucking the game
     // 	-if demon sheila = 1, set sheila xp = 4
-    // 		-prevents save editor from making a situation that bypasses the demon Sheila imp birth notif and thereby not incrementing the imp birth counter
+    //
+    // -prevents save editor from making a situation that bypasses the demon Sheila imp birth notif and thereby not incrementing the imp birth counter
     // 	-if sheilapreg >= 4 and sheila xp >= -2, search up a birth announcement instead of outputting usual encounter
     // 	-else, output the encounter that matches her current state
 

@@ -5,6 +5,7 @@ import { BindDisplay } from "./BindDisplay";
 /**
  * Defines a new UI element, providing a scrollable container to be used for display of bound
  * keyboard controls.
+ *
  * @author Gedan
  */
 export class BindingPane {
@@ -28,10 +29,14 @@ export class BindingPane {
      * so we can generate function callbacks later.
      *
      * @param	inputManager	Reference to the game input manager for method access
-     * @param	xPos			X position on the stage for the top-left corner of the ScrollPane
-     * @param	yPos			Y position on the stage for the top-left corner of the ScrollPane
-     * @param	width			Fixed width of the containing ScrollPane
-     * @param	height			Fixed height of the containing ScrollPane
+     * @param	xPos
+// 	X position on the stage for the top-left corner of the ScrollPane
+     * @param	yPos
+// 	Y position on the stage for the top-left corner of the ScrollPane
+     * @param	width
+// 	Fixed width of the containing ScrollPane
+     * @param	height
+// 	Fixed height of the containing ScrollPane
      */
     public constructor(inputManager: InputManager) {
         this._inputManager = inputManager;
@@ -71,6 +76,7 @@ export class BindingPane {
 
     /**
      * Cleanly get us a reference to the stage to add/remove other event listeners
+     *
      * @param	e
      */
     // private AddedToStage(e: Event): void {

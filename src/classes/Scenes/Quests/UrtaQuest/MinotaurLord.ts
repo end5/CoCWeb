@@ -65,7 +65,8 @@ export class MinotaurLord extends Monster {
             "\n\nThe succubus laughs maniacally.  \"<i>Good boy, Fido!  Take that fox slut's toys away so she'll be easier to play with!</i>\"  The minotaur puffs his chest, proud of himself for pleasing his mistress."
         );
         this.player.setWeapon(WeaponLib.FISTS);
-        // 			player.weapon.unequip(player, false, true);
+        //
+        // 	player.weapon.unequip(player, false, true);
         kGAMECLASS.combatRoundOver();
     }
 

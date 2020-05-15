@@ -5141,6 +5141,134 @@ export class Mutations extends BaseContent {
         if (player.findPerk(PerkLib.PurityBlessing) < 0)
             player.createPerk(PerkLib.PurityBlessing, 0, 0, 0, 0);
     } /*
+                kGAMECLASS.itemSubMenu = true;
+                clearOutput();
+                outputText("You ponder the paste in your hand and wonder what part of your body you would like to shrink.  What will you use it on?");
+                choices("Balls", rdtBalls, "Breasts", rdtBreasts, "Butt", rdtButt, "Clit", rdtClit, "Cock", rdtCock,
+                    "Hips", rdtHips, "Nipples", rdtNipples, "", undefined, "", undefined, "Nevermind", reductoCancel);
+            }
+
+            private  reductoBalls(): void {
+                clearOutput();
+                outputText("You smear the foul-smelling paste onto your " + sackDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
+                player.ballSize -= (2 + rand(4));
+                if (player.ballSize < 1) player.ballSize = 1;
+                outputText("You feel your scrotum shift, shrinking down along with your " + ballsDescriptLight() + ".  Within a few seconds the paste has been totally absorbed and the shrinking stops.");
+                dynStats("lib", -2, "lus", -10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoBreasts(): void {
+                clearOutput();
+                outputText("You smear the foul-smelling ointment all over your " + allBreastsDescript() + ", covering them entirely as the paste begins to get absorbed into your " + player.skinDesc + ".\n");
+                player.shrinkTits(true);
+                if (rand(2) == 0 && player.biggestTitSize() >= 1) {
+                    outputText("\nThe effects of the paste continue to manifest themselves, and your body begins to change again...");
+                    player.shrinkTits(true);
+                }
+                outputText("\nThe last of it wicks away into your skin, completing the changes.");
+                dynStats("sen", -2, "lus", -5);
+                inventory.itemGoNext();
+            }
+
+            private  reductoButt(): void {
+                clearOutput();
+                outputText("You smear the foul-smelling paste onto your " + buttDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
+                if (player.buttRating >= 15) {
+                    player.buttRating -= (3 + int(player.buttRating / 3));
+                    outputText("Within seconds you feel noticeably lighter, and a quick glance shows your ass is significantly smaller.");
+                }
+                else if (player.buttRating >= 10) {
+                    player.buttRating -= 3;
+                    outputText("You feel much lighter as your " + buttDescript() + " jiggles slightly, adjusting to its smaller size.");
+                }
+                else {
+                    player.buttRating -= 1 + rand(3);
+                    if (player.buttRating < 1) player.buttRating = 1;
+                    outputText("After a few seconds your " + buttDescript() + " has shrunk to a much smaller size!");
+                }
+                dynStats("lib", -2, "lus", -10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoClit(): void {
+                clearOutput();
+                outputText("You carefully apply the paste to your " + clitDescript() + ", being very careful to avoid getting it on your " + vaginaDescript(0) + ".  It burns with heat as it begins to make its effects known...\n\n");
+                player.clitLength /= 1.7;
+                // Set clitlength down to 2 digits in length
+                player.clitLength = int(player.clitLength * 100) / 100;
+                outputText("Your " + clitDescript() + " shrinks rapidly, dwindling down to almost half its old size before it finishes absorbing the paste.");
+                dynStats("sen", 2, "lus", 10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoCock(): void {
+                clearOutput();
+                outputText("You smear the repulsive smelling paste over your " + multiCockDescriptLight() + ".  It immediately begins to grow warm, almost uncomfortably so, as your " + multiCockDescriptLight() + " begins to shrink.\n\n");
+                if (player.cocks.length == 1) {
+                    outputText("Your " + cockDescript(0) + " twitches as it shrinks, disappearing steadily into your " + (player.hasSheath() ? "sheath" : "crotch") + " until it has lost about a third of its old size.");
+                    player.cocks[0].cockLength *= 2 / 3;
+                    player.cocks[0].cockThickness *= 2 / 3;
+                }
+                // MULTI
+                else {
+                    outputText("Your " + multiCockDescriptLight() + " twitch and shrink, each member steadily disappearing into your " + (player.hasSheath() ? "sheath" : "crotch") + " until they've lost about a third of their old size.");
+                    for (var i: number = 0; i < player.cocks.length; i++) {
+                        player.cocks[i].cockLength
+// *= 2 / 3;
+                        player.cocks[i].cockThickness	*= 2 / 3;
+                    }
+                }
+                dynStats("sen", -2, "lus", -10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoHips(): void {
+                clearOutput();
+                outputText("You smear the foul-smelling paste onto your [hips].  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
+                if (player.hipRating >= 15) {
+                    player.hipRating -= (3 + int(player.hipRating / 3));
+                    outputText("Within seconds you feel noticeably lighter, and a quick glance at your hips shows they've gotten significantly narrower.");
+                }
+                else if (player.hipRating >= 10) {
+                    player.hipRating -= 3;
+                    outputText("You feel much lighter as your [hips] shift slightly, adjusting to their smaller size.");
+                }
+                else {
+                    player.hipRating -= 1 + rand(3);
+                    if (player.hipRating < 1) player.hipRating = 1;
+                    outputText("After a few seconds your [hips] have shrunk to a much smaller size!");
+                }
+                dynStats("lib", -2, "lus", -10);
+                inventory.itemGoNext();
+            }
+
+            private  reductoNipples(): void {
+                clearOutput();
+                outputText("You rub the paste evenly over your " + nippleDescript(0) + "s, being sure to cover them completely.\n\n");
+                // Shrink
+                if (player.nippleLength / 2 < 0.25) {
+                    outputText("Your nipples continue to shrink down until they stop at 1/4\" long.");
+                    player.nippleLength = 0.25;
+                }
+                else {
+                    outputText("Your " + nippleDescript(0) + "s get smaller and smaller, stopping when they are roughly half their previous size.");
+                    player.nippleLength /= 2;
+                }
+                dynStats("sen", -5, "lus", -5);
+                inventory.itemGoNext();
+            }
+
+            private  reductoCancel(): void {
+                clearOutput();
+                if (debug)
+                    eventParser(inventory.inventoryMenu);
+                else {
+                    inventory.takeItem(consumables.REDUCTO);
+                    itemSwapping = true;
+                }
+            }
+    */ /*
             var  ballsEvent: number = 0;
                 if (player.balls > 0) ballsEvent = 1039;
             var  clitEvent: number = 0;
@@ -5169,7 +5297,8 @@ export class Mutations extends BaseContent {
                 if (player.buttRating > 1) buttEvent = 1071;
             var  hipEvent: number = 0;
                 if (player.hipRating > 2) hipEvent = 1122;
-                */ /*		}
+                */ /*
+// }
 
             private  growPlusBalls(): void {
                 clearOutput();
@@ -5278,133 +5407,6 @@ export class Mutations extends BaseContent {
                         outputText("\n\n");
                         enemyAI();
                     }
-                }
-            }
-    */ /*
-                kGAMECLASS.itemSubMenu = true;
-                clearOutput();
-                outputText("You ponder the paste in your hand and wonder what part of your body you would like to shrink.  What will you use it on?");
-                choices("Balls", rdtBalls, "Breasts", rdtBreasts, "Butt", rdtButt, "Clit", rdtClit, "Cock", rdtCock,
-                    "Hips", rdtHips, "Nipples", rdtNipples, "", undefined, "", undefined, "Nevermind", reductoCancel);
-            }
-
-            private  reductoBalls(): void {
-                clearOutput();
-                outputText("You smear the foul-smelling paste onto your " + sackDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
-                player.ballSize -= (2 + rand(4));
-                if (player.ballSize < 1) player.ballSize = 1;
-                outputText("You feel your scrotum shift, shrinking down along with your " + ballsDescriptLight() + ".  Within a few seconds the paste has been totally absorbed and the shrinking stops.");
-                dynStats("lib", -2, "lus", -10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoBreasts(): void {
-                clearOutput();
-                outputText("You smear the foul-smelling ointment all over your " + allBreastsDescript() + ", covering them entirely as the paste begins to get absorbed into your " + player.skinDesc + ".\n");
-                player.shrinkTits(true);
-                if (rand(2) == 0 && player.biggestTitSize() >= 1) {
-                    outputText("\nThe effects of the paste continue to manifest themselves, and your body begins to change again...");
-                    player.shrinkTits(true);
-                }
-                outputText("\nThe last of it wicks away into your skin, completing the changes.");
-                dynStats("sen", -2, "lus", -5);
-                inventory.itemGoNext();
-            }
-
-            private  reductoButt(): void {
-                clearOutput();
-                outputText("You smear the foul-smelling paste onto your " + buttDescript() + ".  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
-                if (player.buttRating >= 15) {
-                    player.buttRating -= (3 + int(player.buttRating / 3));
-                    outputText("Within seconds you feel noticeably lighter, and a quick glance shows your ass is significantly smaller.");
-                }
-                else if (player.buttRating >= 10) {
-                    player.buttRating -= 3;
-                    outputText("You feel much lighter as your " + buttDescript() + " jiggles slightly, adjusting to its smaller size.");
-                }
-                else {
-                    player.buttRating -= 1 + rand(3);
-                    if (player.buttRating < 1) player.buttRating = 1;
-                    outputText("After a few seconds your " + buttDescript() + " has shrunk to a much smaller size!");
-                }
-                dynStats("lib", -2, "lus", -10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoClit(): void {
-                clearOutput();
-                outputText("You carefully apply the paste to your " + clitDescript() + ", being very careful to avoid getting it on your " + vaginaDescript(0) + ".  It burns with heat as it begins to make its effects known...\n\n");
-                player.clitLength /= 1.7;
-                // Set clitlength down to 2 digits in length
-                player.clitLength = int(player.clitLength * 100) / 100;
-                outputText("Your " + clitDescript() + " shrinks rapidly, dwindling down to almost half its old size before it finishes absorbing the paste.");
-                dynStats("sen", 2, "lus", 10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoCock(): void {
-                clearOutput();
-                outputText("You smear the repulsive smelling paste over your " + multiCockDescriptLight() + ".  It immediately begins to grow warm, almost uncomfortably so, as your " + multiCockDescriptLight() + " begins to shrink.\n\n");
-                if (player.cocks.length == 1) {
-                    outputText("Your " + cockDescript(0) + " twitches as it shrinks, disappearing steadily into your " + (player.hasSheath() ? "sheath" : "crotch") + " until it has lost about a third of its old size.");
-                    player.cocks[0].cockLength *= 2 / 3;
-                    player.cocks[0].cockThickness *= 2 / 3;
-                }
-                // MULTI
-                else {
-                    outputText("Your " + multiCockDescriptLight() + " twitch and shrink, each member steadily disappearing into your " + (player.hasSheath() ? "sheath" : "crotch") + " until they've lost about a third of their old size.");
-                    for (var i: number = 0; i < player.cocks.length; i++) {
-                        player.cocks[i].cockLength		*= 2 / 3;
-                        player.cocks[i].cockThickness	*= 2 / 3;
-                    }
-                }
-                dynStats("sen", -2, "lus", -10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoHips(): void {
-                clearOutput();
-                outputText("You smear the foul-smelling paste onto your [hips].  It feels cool at first but rapidly warms to an uncomfortable level of heat.\n\n");
-                if (player.hipRating >= 15) {
-                    player.hipRating -= (3 + int(player.hipRating / 3));
-                    outputText("Within seconds you feel noticeably lighter, and a quick glance at your hips shows they've gotten significantly narrower.");
-                }
-                else if (player.hipRating >= 10) {
-                    player.hipRating -= 3;
-                    outputText("You feel much lighter as your [hips] shift slightly, adjusting to their smaller size.");
-                }
-                else {
-                    player.hipRating -= 1 + rand(3);
-                    if (player.hipRating < 1) player.hipRating = 1;
-                    outputText("After a few seconds your [hips] have shrunk to a much smaller size!");
-                }
-                dynStats("lib", -2, "lus", -10);
-                inventory.itemGoNext();
-            }
-
-            private  reductoNipples(): void {
-                clearOutput();
-                outputText("You rub the paste evenly over your " + nippleDescript(0) + "s, being sure to cover them completely.\n\n");
-                // Shrink
-                if (player.nippleLength / 2 < 0.25) {
-                    outputText("Your nipples continue to shrink down until they stop at 1/4\" long.");
-                    player.nippleLength = 0.25;
-                }
-                else {
-                    outputText("Your " + nippleDescript(0) + "s get smaller and smaller, stopping when they are roughly half their previous size.");
-                    player.nippleLength /= 2;
-                }
-                dynStats("sen", -5, "lus", -5);
-                inventory.itemGoNext();
-            }
-
-            private  reductoCancel(): void {
-                clearOutput();
-                if (debug)
-                    eventParser(inventory.inventoryMenu);
-                else {
-                    inventory.takeItem(consumables.REDUCTO);
-                    itemSwapping = true;
                 }
             }
     */
@@ -13389,7 +13391,8 @@ export class Mutations extends BaseContent {
                 clearOutput();
                 outputText("Curiosity gets the best of you, and you decide to open the package.  After all, what's the worst that could happen?\n\n");
                 // Opening the gift randomly results in one of the following:
-    // 			menuLoc = MENU_LOCATION_KITSUNE_GIFT;
+    //
+// 	menuLoc = MENU_LOCATION_KITSUNE_GIFT;
 
                 switch(rand(12)) {
                 // [Fox Jewel]

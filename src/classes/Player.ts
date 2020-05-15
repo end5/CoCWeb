@@ -1709,8 +1709,12 @@ export class Player extends Character {
         if (this.findStatusAffect(StatusAffects.Disarmed) >= 0) {
             this.removeStatusAffect(StatusAffects.Disarmed);
             if (this.weapon == WeaponLib.FISTS) {
-                // 					weapon = ItemType.lookupItem(flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon;
-                // 					(ItemType.lookupItem(flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon).doEffect(this, false);
+                //
+                //
+                // 	weapon = ItemType.lookupItem(flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon;
+                //
+                //
+                // 	(ItemType.lookupItem(flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon).doEffect(this, false);
                 this.setWeapon(
                     ItemType.lookupItem(this.flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID]) as Weapon
                 );

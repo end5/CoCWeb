@@ -588,7 +588,9 @@ STATUSES:
             this.doNext(this.keltBlowjobRequirementEagerly);
             return;
         }
-        // Never!			Shamefully			Eagerly
+        // Never!
+        // 	Shamefully
+        // 	Eagerly
         if (
             this.player.inte > 40 &&
             this.player.cor > 70 &&
@@ -907,7 +909,8 @@ STATUSES:
                         "\r\rYou're not certain you want to practice naked again... particularly with the way Kelt is looking at you, his arrogant smirk plastered on his face.  Do you agree to his terms?",
                         false
                     );
-                    // (Yes[+5 Submissive]			No[Never event])
+                    // (Yes[+5 Submissive]
+                    // 	No[Never event])
                     // Link this to reluctant && never
 
                     if (
@@ -1562,7 +1565,9 @@ STATUSES:
                     "Despite the need, despite the desire, you are still in control of yourself enough to make a choice.  Do you submit to the centaur's will, and your own hunger?  Or will you somehow find the strength to walk away?",
                     false
                 );
-                // Submit				Resist!
+                // Submit
+                //
+                // Resist!
                 this.simpleChoices(
                     "Submit",
                     this.keltSubmitGivingBJ,

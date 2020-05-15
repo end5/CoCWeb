@@ -10,18 +10,19 @@ import { StatusAffects } from "./StatusAffects";
 
 /**
  * Character class for player and NPCs. Has subclasses Player and NonPlayer.
+ *
  * @author Yoffy
  */
 export class Character extends Creature {
-    private _femininity: number = 50;
+    private _femininity = 50;
 
     // This is the easiest way I could think of to apply "flat" bonuses to certain stats without having to write a whole shitload of crazyshit
     // I think a better long-term solution may be to hang function references off the end of the statusAffect class and move all of the value
     // calculation into methods of ContentClasses, so rather than having walls of logic, we just call the method reference with a value, and get back the modified value.
     // It's still shitty, but it would possibly be an improvement.
     public get femininity(): number {
-        var fem: number = this._femininity;
-        var statIndex: number = this.findStatusAffect(StatusAffects.UmasMassage);
+        let fem: number = this._femininity;
+        const statIndex: number = this.findStatusAffect(StatusAffects.UmasMassage);
 
         if (statIndex >= 0) {
             if (this.statusAffect(statIndex).value1 == UmasShop.MASSAGE_MODELLING_BONUS) {
@@ -47,31 +48,31 @@ export class Character extends Creature {
     }
 
     // BEARDS! Not used anywhere right now but WHO WANTS A BEARD?
-    public beardLength: number = 0;
-    public beardStyle: number = 0;
+    public beardLength = 0;
+    public beardStyle = 0;
 
     // Used for hip ratings
-    public thickness: number = 0;
+    public thickness = 0;
 
     // Body tone i.e. Lithe, stocky, etc
-    public tone: number = 0;
+    public tone = 0;
 
-    private _pregnancyType: number = 0;
+    private _pregnancyType = 0;
     public get pregnancyType(): number {
         return this._pregnancyType;
     }
 
-    private _pregnancyIncubation: number = 0;
+    private _pregnancyIncubation = 0;
     public get pregnancyIncubation(): number {
         return this._pregnancyIncubation;
     }
 
-    private _buttPregnancyType: number = 0;
+    private _buttPregnancyType = 0;
     public get buttPregnancyType(): number {
         return this._buttPregnancyType;
     }
 
-    private _buttPregnancyIncubation: number = 0;
+    private _buttPregnancyIncubation = 0;
     public get buttPregnancyIncubation(): number {
         return this._buttPregnancyIncubation;
     }
@@ -89,7 +90,7 @@ export class Character extends Creature {
     // return total fertility
 
     public faceDesc(): string {
-        var faceo: string = "";
+        let faceo = "";
         // 0-10
         if (this.femininity < 10) {
             faceo = "a square chin";
@@ -132,11 +133,11 @@ export class Character extends Creature {
     }
 
     // Modify femininity!
-    public modFem(goal: number, strength: number = 1): string {
-        var output: string = "";
-        var old: string = this.faceDesc();
-        var oldN: number = this.femininity;
-        var Changed: boolean = false;
+    public modFem(goal: number, strength = 1): string {
+        let output = "";
+        const old: string = this.faceDesc();
+        const oldN: number = this.femininity;
+        let Changed = false;
         // If already perfect!
         if (goal == this.femininity) return "";
         // If turning MANLYMAN
@@ -191,7 +192,7 @@ export class Character extends Creature {
         return output;
     }
 
-    public modThickness(goal: number, strength: number = 1): string {
+    public modThickness(goal: number, strength = 1): string {
         if (goal == this.thickness) return "";
         // Lose weight fatty!
         if (goal < this.thickness && goal < 50) {
@@ -223,7 +224,7 @@ export class Character extends Creature {
         return "";
     }
 
-    public modTone(goal: number, strength: number = 1): string {
+    public modTone(goal: number, strength = 1): string {
         if (goal == this.tone) return "";
         // Lose muscle visibility!
         if (goal < this.tone && goal < 50) {
@@ -270,7 +271,7 @@ export class Character extends Creature {
 
     // Run this every hour to 'fix' femininity.
     public fixFemininity(): string {
-        var output: string = "";
+        let output = "";
         // Genderless/herms share the same bounds
         if (this.gender == 0 || this.gender == 3) {
             if (this.femininity < 20) {
@@ -339,8 +340,8 @@ export class Character extends Creature {
         }
     }
 
-    public skin(noAdj: boolean = false, noTone: boolean = false): string {
-        var skinzilla: string = "";
+    public skin(noAdj = false, noTone = false): string {
+        let skinzilla = "";
         // Only show stuff other than skinDesc if justSkin is false
         if (!noAdj) {
             // Adjectives first!
@@ -373,7 +374,7 @@ export class Character extends Creature {
     }
 
     public face(): string {
-        var stringo: string = "";
+        let stringo = "";
         // 0 - human
         // 5 - Human w/Naga fangz
         // 8 - bunnah faceahhh bunbun
@@ -451,16 +452,12 @@ export class Character extends Creature {
 
     // fertility must be >= random(0-beat)
     // If arg == 1 then override any contraceptives and guarantee fertilization
-    public knockUp(
-        type: number = 0,
-        incubation: number = 0,
-        beat: number = 100,
-        arg: number = 0
-    ): void {
+    public knockUp(type = 0, incubation = 0, beat = 100, arg = 0): void {
         // Contraceptives cancel!
         if (this.findStatusAffect(StatusAffects.Contraceptives) >= 0 && arg < 1) return;
-        // 			if (findStatusAffect(StatusAffects.GooStuffed) >= 0) return; //No longer needed thanks to PREGNANCY_GOO_STUFFED being used as a blocking value
-        var bonus: number = 0;
+        //
+        // 	if (findStatusAffect(StatusAffects.GooStuffed) >= 0) return; //No longer needed thanks to PREGNANCY_GOO_STUFFED being used as a blocking value
+        let bonus = 0;
         // If arg = 1 (always pregnant), bonus = 9000
         if (arg >= 1) bonus = 9000;
         if (arg <= -1) bonus = -9000;
@@ -494,21 +491,16 @@ export class Character extends Creature {
 
     // The more complex knockUp function used by the player is defined above
     // The player doesn't need to be told of the last event triggered, so the code here is quite a bit simpler than that in PregnancyStore
-    public knockUpForce(type: number = 0, incubation: number = 0): void {
+    public knockUpForce(type = 0, incubation = 0): void {
         this._pregnancyType = type;
-        this._pregnancyIncubation = type == 0 ? 0 : incubation; //Won't allow incubation time without pregnancy type
+        this._pregnancyIncubation = type == 0 ? 0 : incubation; // Won't allow incubation time without pregnancy type
     }
 
     // fertility must be >= random(0-beat)
-    public buttKnockUp(
-        type: number = 0,
-        incubation: number = 0,
-        beat: number = 100,
-        arg: number = 0
-    ): void {
+    public buttKnockUp(type = 0, incubation = 0, beat = 100, arg = 0): void {
         // Contraceptives cancel!
         if (this.findStatusAffect(StatusAffects.Contraceptives) >= 0 && arg < 1) return;
-        var bonus: number = 0;
+        let bonus = 0;
         // If arg = 1 (always pregnant), bonus = 9000
         if (arg >= 1) bonus = 9000;
         if (arg <= -1) bonus = -9000;
@@ -529,9 +521,9 @@ export class Character extends Creature {
     }
 
     // The more complex buttKnockUp function used by the player is defined in Character.as
-    public buttKnockUpForce(type: number = 0, incubation: number = 0): void {
+    public buttKnockUpForce(type = 0, incubation = 0): void {
         this._buttPregnancyType = type;
-        this._buttPregnancyIncubation = type == 0 ? 0 : incubation; //Won't allow incubation time without pregnancy type
+        this._buttPregnancyIncubation = type == 0 ? 0 : incubation; // Won't allow incubation time without pregnancy type
     }
 
     public pregnancyAdvance(): boolean {
@@ -554,12 +546,12 @@ export class Character extends Creature {
         value3: number,
         value4: number
     ): void {
-        var newKeyItem: KeyItemClass = new KeyItemClass();
+        const newKeyItem: KeyItemClass = new KeyItemClass();
         // used to denote that the array has already had its new spot pushed on.
-        var arrayed: boolean = false;
+        let arrayed = false;
         // used to store where the array goes
-        var keySlot: number = 0;
-        var counter: number = 0;
+        let keySlot = 0;
+        let counter = 0;
         // Start the array if its the first bit
         if (this.keyItems.length == 0) {
             // trace("New Key Item Started Array! " + keyName);
@@ -627,7 +619,7 @@ export class Character extends Creature {
 
     // Remove a key item
     public removeKeyItem(itemName: string): void {
-        var counter: number = this.keyItems.length;
+        let counter: number = this.keyItems.length;
         // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             // trace("ERROR: KeyItem could not be removed because player has no key items.");
@@ -643,8 +635,8 @@ export class Character extends Creature {
         }
     }
 
-    public addKeyValue(statusName: string, statusValueNum: number = 1, newNum: number = 0): void {
-        var counter: number = this.keyItems.length;
+    public addKeyValue(statusName: string, statusValueNum = 1, newNum = 0): void {
+        let counter: number = this.keyItems.length;
         // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return;
@@ -669,7 +661,7 @@ export class Character extends Creature {
     }
 
     public keyItemv1(statusName: string): number {
-        var counter: number = this.keyItems.length;
+        let counter: number = this.keyItems.length;
         // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return 0;
@@ -684,7 +676,7 @@ export class Character extends Creature {
     }
 
     public keyItemv2(statusName: string): number {
-        var counter: number = this.keyItems.length;
+        let counter: number = this.keyItems.length;
         // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return 0;
@@ -699,7 +691,7 @@ export class Character extends Creature {
     }
 
     public keyItemv3(statusName: string): number {
-        var counter: number = this.keyItems.length;
+        let counter: number = this.keyItems.length;
         // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return 0;
@@ -714,7 +706,7 @@ export class Character extends Creature {
     }
 
     public keyItemv4(statusName: string): number {
-        var counter: number = this.keyItems.length;
+        let counter: number = this.keyItems.length;
         // Various Errors preventing action
         if (this.keyItems.length <= 0) {
             return 0;
@@ -729,7 +721,7 @@ export class Character extends Creature {
     }
 
     public removeKeyItems(): void {
-        var counter: number = this.keyItems.length;
+        let counter: number = this.keyItems.length;
         while (counter > 0) {
             counter--;
             this.keyItems.splice(counter, 1);
@@ -737,7 +729,7 @@ export class Character extends Creature {
     }
 
     public hasKeyItem(keyName: string): number {
-        var counter: number = this.keyItems.length;
+        let counter: number = this.keyItems.length;
         // Various Errors preventing action
         if (this.keyItems.length <= 0) return -2;
         while (counter > 0) {
@@ -751,7 +743,7 @@ export class Character extends Creature {
 
     // BreastCup
 
-    /*OLD AND UNUSED
+    /* OLD AND UNUSED
        public  breastCupS(rowNum: number): string {
        if(breastRows[rowNum].breastRating < 1) return "tiny";
        else if(breastRows[rowNum].breastRating < 2) return "A";
@@ -769,7 +761,7 @@ export class Character extends Creature {
        return "massive custom-made";
      }*/
     public viridianChange(): boolean {
-        var count: number = this.cockTotal();
+        let count: number = this.cockTotal();
         if (count == 0) return false;
         while (count > 0) {
             count--;
@@ -782,7 +774,7 @@ export class Character extends Creature {
         return false;
     }
 
-    public hasKnot(arg: number = 0): boolean {
+    public hasKnot(arg = 0): boolean {
         if (arg > this.cockTotal() - 1 || arg < 0) return false;
         return (
             this.cocks[arg].cockType == CockTypesEnum.DOG ||
@@ -792,7 +784,7 @@ export class Character extends Creature {
     }
 
     public maxHP(): number {
-        var max: number = 0;
+        let max = 0;
         max += Math.floor(this.tou * 2 + 50);
         if (this.findPerk(PerkLib.Tank) >= 0) max += 50;
         if (this.findPerk(PerkLib.Tank2) >= 0) max += Math.round(this.tou);

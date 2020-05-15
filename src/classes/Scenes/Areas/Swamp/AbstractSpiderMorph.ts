@@ -102,7 +102,7 @@ export class AbstractSpiderMorph extends Monster {
                 );
             }
             // Only apply as much speed slow as necessary.
-            var amount: number = 25;
+            let amount = 25;
             if (this.player.spe - amount < 1) {
                 amount = this.player.spe - 1;
             }
@@ -116,7 +116,7 @@ export class AbstractSpiderMorph extends Monster {
         this.combatRoundOver();
     }
 
-    /**-Bite - Raises arousal by 30*/
+    /** -Bite - Raises arousal by 30*/
     public getBitten(): void {
         // -Languid Bite - Inflicted on PC's who have been reduced to 1 speed by webbing, raises arousal by 60.
         if (this.player.spe < 2 && this.player.findStatusAffect(StatusAffects.Web) >= 0) {
@@ -270,7 +270,7 @@ export class AbstractSpiderMorph extends Monster {
         this.combatRoundOver();
     }
 
-    /**-Disarm - hits the PC's weapon with web and sticks it to a
+    /** -Disarm - hits the PC's weapon with web and sticks it to a
      nearby tree, reducing PC's attack to 0 for the rest of the fight.*/
     public spiderDisarm(): void {
         this.outputText(
@@ -348,14 +348,18 @@ export class AbstractSpiderMorph extends Monster {
             );
             this.flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID] = this.player.weapon.id;
             this.player.setWeapon(WeaponLib.FISTS);
-            // No longer appears to be used				flags[kFLAGS.PLAYER_DISARMED_WEAPON_ATTACK] = player.weaponAttack;
-            // 				player.weapon.unequip(player,false,true);
+            // No longer appears to be used
+            //
+            // flags[kFLAGS.PLAYER_DISARMED_WEAPON_ATTACK] = player.weaponAttack;
+            //
+            //
+            // player.weapon.unequip(player,false,true);
             this.player.createStatusAffect(StatusAffects.Disarmed, 0, 0, 0, 0);
         }
         this.combatRoundOver();
     }
 
-    /**-Silence - sprays webs on the PC's mouth, silencing them for 1 to 3 turns.*/
+    /** -Silence - sprays webs on the PC's mouth, silencing them for 1 to 3 turns.*/
     public spiderSilence(): void {
         this.outputText(
             this.capitalA +

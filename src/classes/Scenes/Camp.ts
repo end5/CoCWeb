@@ -107,7 +107,8 @@ export class Camp extends NPCAwareContent {
             this.flags[kFLAGS.HISTORY_PERK_SELECTED] = 2;
             this.hideMenus();
             this.getGame().charCreation.chooseHistory();
-            // 		fixHistory();
+            //
+            // fixHistory();
             return;
         }
         if (!this.marbleScene.marbleFollower()) {

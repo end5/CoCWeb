@@ -175,8 +175,8 @@ export class Appearance extends Utils {
     // include "../../includes/appearanceDefs.as";
 
     public static inverseMap(x: Record<string, any>): Record<string, any> {
-        var result: Record<string, any> = {};
-        for (var i of Object.keys(x)) {
+        const result: Record<string, any> = {};
+        for (const i of Object.keys(x)) {
             result[String(x[i])] = i;
         }
         return result;
@@ -188,8 +188,8 @@ export class Appearance extends Utils {
     }
 
     public static hairDescription(i_creature: Creature): string {
-        var description: string = "";
-        var options: any[];
+        let description = "";
+        let options: any[];
         //
         // LENGTH ADJECTIVE!
         //
@@ -240,7 +240,7 @@ export class Appearance extends Utils {
         }
         // if medium length refer to as locks sometimes
         // CUT - locks is plural and screws up tense.
-        /*if(creature.hairLength >= 3 && creature.hairLength < 16 && rand(2) == 0) {
+        /* if(creature.hairLength >= 3 && creature.hairLength < 16 && rand(2) == 0) {
          descript += "locks of hair";
          return descript;
          }*/
@@ -256,6 +256,7 @@ export class Appearance extends Utils {
 
     /**
      * Describe tongue. Monsters don't have tongues, apparently.
+     *
      * @param    i_character Either Player or NonPlayer
      * @return    A beautiful description of a tongue.
      */
@@ -284,9 +285,9 @@ export class Appearance extends Utils {
                 "<B>Error: Invalid breastRows (" + i_rowNum + ") passed to nippleDescription()</b>"
             );
         }
-        var haveDescription: boolean = false;
-        var description: string = "";
-        var options: any[];
+        let haveDescription = false;
+        let description = "";
+        let options: any[];
         // var rando: number = 0;
         // Size descriptors 33% chance
         if (Appearance.rand(4) == 0) {
@@ -408,7 +409,7 @@ export class Appearance extends Utils {
         }
 
         // Nounsssssssss*BOOM*
-        var choice: number = 0;
+        let choice = 0;
         choice = Appearance.rand(5);
         if (choice == 0) description += "nipple";
         if (choice == 1) {
@@ -436,7 +437,7 @@ export class Appearance extends Utils {
             else description += "nipple";
         }
         return description;
-        /*OLD
+        /* OLD
          if(creature.breastRows[rowNum].lactationMultiplier >= 1.5 && creature.breastRows[rowNum].lactationMultiplier < 1.75) {
          if(creature.breastRows[rowNum].milkFullness > 75) return "over-full leaking teat";
          if(rand(2) == 0) return "milky teat";
@@ -461,8 +462,8 @@ export class Appearance extends Utils {
     }
 
     public static hipDescription(i_character: Character): string {
-        var description: string = "";
-        var options: any[];
+        let description = "";
+        let options: any[];
         if (i_character.hipRating <= 1) {
             options = ["tiny ", "narrow ", "boyish "];
             description = Appearance.randomChoice(options);
@@ -589,10 +590,10 @@ export class Appearance extends Utils {
             }
     */
 
-    public static cockDescript(creature: Creature, cockIndex: number = 0): string {
+    public static cockDescript(creature: Creature, cockIndex = 0): string {
         if (creature.cocks.length == 0)
             return "<b>ERROR: CockDescript Called But No Cock Present</b>";
-        var cockType: CockTypesEnum = CockTypesEnum.HUMAN;
+        let cockType: CockTypesEnum = CockTypesEnum.HUMAN;
         if (cockIndex != 99) {
             // CockIndex 99 forces a human cock description
             if (creature.cocks.length <= cockIndex)
@@ -603,9 +604,10 @@ export class Appearance extends Utils {
                 );
             cockType = creature.cocks[cockIndex].cockType;
         }
-        var isPierced: boolean = creature.cocks.length == 1 && creature.cocks[cockIndex].isPierced; //Only describe as pierced or sock covered if the creature has just one cock
-        var hasSock: boolean = creature.cocks.length == 1 && creature.cocks[cockIndex].sock != "";
-        var isGooey: boolean = creature.skinType == CoC.SKIN_TYPE_GOO;
+        const isPierced: boolean =
+            creature.cocks.length == 1 && creature.cocks[cockIndex].isPierced; // Only describe as pierced or sock covered if the creature has just one cock
+        const hasSock: boolean = creature.cocks.length == 1 && creature.cocks[cockIndex].sock != "";
+        const isGooey: boolean = creature.skinType == CoC.SKIN_TYPE_GOO;
         return Appearance.cockDescription(
             cockType,
             creature.cocks[cockIndex].cockLength,
@@ -624,11 +626,11 @@ export class Appearance extends Utils {
         cockType: CockTypesEnum,
         length: number,
         girth: number,
-        lust: number = 50,
-        cumQ: number = 10,
-        isPierced: boolean = false,
-        hasSock: boolean = false,
-        isGooey: boolean = false
+        lust = 50,
+        cumQ = 10,
+        isPierced = false,
+        hasSock = false,
+        isGooey = false
     ): string {
         if (Appearance.rand(2) == 0) {
             if (cockType == CockTypesEnum.HUMAN)
@@ -861,11 +863,11 @@ export class Appearance extends Utils {
         cockType: CockTypesEnum,
         length: number,
         girth: number,
-        lust: number = 50,
-        cumQ: number = 10,
-        isPierced: boolean = false,
-        hasSock: boolean = false,
-        isGooey: boolean = false
+        lust = 50,
+        cumQ = 10,
+        isPierced = false,
+        hasSock = false,
+        isGooey = false
     ): string {
         // First, the three possible special cases
         if (isPierced && Appearance.rand(5) == 0) return "pierced";
@@ -906,15 +908,15 @@ export class Appearance extends Utils {
         else if (lust > 75 && Appearance.rand(2) == 0) {
             if (lust > 90) {
                 // Uber horny like a baws!
-                if (cumQ < 50) return Appearance.randomChoice("throbbing", "pulsating"); //Weak as shit cum
-                if (cumQ < 200) return Appearance.randomChoice("dribbling", "leaking", "drooling"); //lots of cum? drippy.
+                if (cumQ < 50) return Appearance.randomChoice("throbbing", "pulsating"); // Weak as shit cum
+                if (cumQ < 200) return Appearance.randomChoice("dribbling", "leaking", "drooling"); // lots of cum? drippy.
                 return Appearance.randomChoice(
                     "very drippy",
                     "pre-gushing",
                     "cum-bubbling",
                     "pre-slicked",
                     "pre-drooling"
-                ); //Tons of cum
+                ); // Tons of cum
             } else {
                 // A little less lusty, but still lusty.
                 if (cumQ < 50)
@@ -924,7 +926,7 @@ export class Appearance extends Utils {
                         "rock-hard",
                         "stiff",
                         "eager"
-                    ); //Weak as shit cum
+                    ); // Weak as shit cum
                 if (cumQ < 200)
                     return Appearance.randomChoice(
                         "turgid",
@@ -934,8 +936,8 @@ export class Appearance extends Utils {
                         "eager",
                         "fluid-beading",
                         "slowly-oozing"
-                    ); //A little drippy
-                return Appearance.randomChoice("dribbling", "drooling", "fluid-leaking", "leaking"); //uber drippy
+                    ); // A little drippy
+                return Appearance.randomChoice("dribbling", "drooling", "fluid-leaking", "leaking"); // uber drippy
             }
         }
         // Girth - fallback
@@ -1097,9 +1099,9 @@ export class Appearance extends Utils {
         i_cockType: CockTypesEnum,
         i_creature: Creature
     ): string {
-        var description: string = "";
-        var rando: number = 0;
-        var descripts: number = 0;
+        let description = "";
+        let rando = 0;
+        let descripts = 0;
         // length or thickness, usually length.
         if (Appearance.rand(4) == 0) {
             if (i_cockLength < 3) {
@@ -1155,7 +1157,7 @@ export class Appearance extends Utils {
             descripts = 1;
         }
         // Length/Thickness done.  Moving on to special animal characters/lust stuff.
-        /*Animal Fillers - turned off due to duplication in noun segment
+        /* Animal Fillers - turned off due to duplication in noun segment
          else if(type == 1 && descripts == 0 && rand(2) == 0) {
          if(rand(2) == 0) descript += "flared ";
          else descript += "musky ";
@@ -1222,8 +1224,8 @@ export class Appearance extends Utils {
             cockType = CockTypesEnum.ParseConstantByIndex(cockType);
         }
         */
-        var options: any[];
-        var description: string = "";
+        let options: any[];
+        let description = "";
         if (cockType == CockTypesEnum.HUMAN) {
             options = [
                 "cock",
@@ -1344,6 +1346,7 @@ export class Appearance extends Utils {
     // TODO Give Method a better name
     /**
      * Descripes cocks, either singular ("one of"/"one of your") or each ("each of"/"each of your").
+     *
      * @param    i_creature Creature type, either Player or Monster
      * @param    i_capitalised Capitalised for start of sentence.
      * @param    i_singular true = "one of", false = "each"
@@ -1403,6 +1406,7 @@ export class Appearance extends Utils {
 
     /**
      * Describe creatures balls.
+     *
      * @param    i_forcedSize    Force a description of the size of the balls
      * @param    i_plural        Show plural forms
      * @param    i_creature        Monster, Player or NonPlayer
@@ -1413,14 +1417,14 @@ export class Appearance extends Utils {
         i_forcedSize: boolean,
         i_plural: boolean,
         i_creature: Creature,
-        i_withArticle: boolean = false
+        i_withArticle = false
     ): string {
         if (i_creature.balls == 0) return "prostate";
 
         // var haveDescription: boolean = false;
         // var rando: number = 0;
-        var description: string = "";
-        var options: any[];
+        let description = "";
+        let options: any[];
 
         if (i_plural && i_creature.findStatusAffect(StatusAffects.Uniball) < 0) {
             if (i_creature.balls == 1) {
@@ -1531,8 +1535,8 @@ export class Appearance extends Utils {
     public static sackDescript(i_creature: Creature): string {
         if (i_creature.balls == 0) return "prostate";
 
-        var options: any[];
-        var description: string = "";
+        let options: any[];
+        let description = "";
 
         options = ["scrotum", "sack", "nutsack", "ballsack", "beanbag", "pouch"];
 
@@ -1549,7 +1553,7 @@ export class Appearance extends Utils {
             }
     */
 
-    public static vaginaDescript(i_creature: Creature, i_vaginaIndex: number = 0): string {
+    public static vaginaDescript(i_creature: Creature, i_vaginaIndex = 0): string {
         if (i_vaginaIndex > i_creature.vaginas.length - 1) {
             CoC_Settings.error(
                 "<B>Error: Invalid vagina number (" +
@@ -1575,10 +1579,10 @@ export class Appearance extends Utils {
             return "ERROR: Called vaginaDescription with no vaginas";
         }
 
-        var description: string = "";
-        var weighting: number = 0;
+        let description = "";
+        let weighting = 0;
         // var haveDescription: boolean = false;
-        var options: any[];
+        let options: any[];
 
         // Very confusing way to display values.
         if (i_creature.vaginas[i_vaginaIndex].vaginalLooseness == 0) weighting = 61;
@@ -1646,9 +1650,9 @@ export class Appearance extends Utils {
     }
 
     public static clitDescription(i_creature: Creature): string {
-        var description: string = "";
-        var options: any[];
-        var haveDescription: boolean = false;
+        let description = "";
+        let options: any[];
+        let haveDescription = false;
         // Length Adjective - 50% chance
         if (Appearance.rand(2) == 0) {
             // small clits!
@@ -1679,7 +1683,7 @@ export class Appearance extends Utils {
                 description += "bitch-";
                 haveDescription = true;
             }
-            /*Horse descriptors - 50%
+            /* Horse descriptors - 50%
              if(creature.skinType == 1 > 2 && !descripted && rand(2) == 0) {
              descripted = true;
              descript += "mare-";
@@ -1728,12 +1732,13 @@ export class Appearance extends Utils {
     /**
      * Gives a full description of a Character's butt.
      * Be aware that it only supports Characters, not all Creatures.
+     *
      * @param    i_character
      * @return    A full description of a Character's butt.
      */
     public static buttDescription(i_character: Character): string {
-        var description: string = "";
-        var options: any[];
+        let description = "";
+        let options: any[];
         if (i_character.buttRating <= 1) {
             if (i_character.tone >= 60) description += "incredibly tight, perky ";
             else {
@@ -2048,12 +2053,13 @@ export class Appearance extends Utils {
      * Gives a short description of a creature's butt.
      * Different from buttDescription in that it supports all creatures, not just characters.
      * Warning, very judgemental.
+     *
      * @param    creature
      * @return Short description of a butt.
      */
     public static buttDescriptionShort(i_creature: Creature): string {
-        var description: string = "";
-        var options: any[];
+        let description = "";
+        let options: any[];
         if (i_creature.buttRating <= 1) {
             options = ["insignificant ", "very small "];
             description = Appearance.randomChoice(options);
@@ -2100,7 +2106,7 @@ export class Appearance extends Utils {
     }
 
     public static assholeDescript(i_creature: Creature): string {
-        var description: string = "";
+        let description = "";
 
         // The way this was setup didn't work. Trying to inline-define object key-values wasn't looking up the variable *VALUES* it was using the string representation
         // of the variable name as the key.
@@ -2108,7 +2114,7 @@ export class Appearance extends Utils {
         // This is just fucking awful but I'm just making things work in the face of bugs I'm running into.
 
         // 66% Wetness Descript
-        var ANAL_WETNESS_DESCRIPTORS: Record<string, any> = new Object();
+        const ANAL_WETNESS_DESCRIPTORS: Record<string, any> = new Object();
         ANAL_WETNESS_DESCRIPTORS[ANAL_WETNESS_DRY] = "";
         ANAL_WETNESS_DESCRIPTORS[ANAL_WETNESS_NORMAL] = "";
         ANAL_WETNESS_DESCRIPTORS[ANAL_WETNESS_MOIST] = "moist ";
@@ -2120,7 +2126,7 @@ export class Appearance extends Utils {
             description += ANAL_WETNESS_DESCRIPTORS[i_creature.ass.analWetness];
         }
 
-        var ANAL_TIGHTNESS_DESCRIPTORS: Record<string, any> = new Object();
+        const ANAL_TIGHTNESS_DESCRIPTORS: Record<string, any> = new Object();
         ANAL_TIGHTNESS_DESCRIPTORS[ANAL_LOOSENESS_VIRGIN] = "virgin ";
         ANAL_TIGHTNESS_DESCRIPTORS[ANAL_LOOSENESS_TIGHT] = "tight ";
         ANAL_TIGHTNESS_DESCRIPTORS[ANAL_LOOSENESS_NORMAL] = "loose ";
@@ -2255,8 +2261,19 @@ export class Appearance extends Utils {
     */
 
     public static BREAST_CUP_NAMES: any[] = [
-        "flat", //0
-        // 				1			2			3			4			5				6			7		8			9
+        "flat", // 0
+        //
+        //
+        // 1
+        // 	2
+        // 	3
+        // 	4
+        // 	5
+        //
+        // 6
+        // 	7
+        // 8
+        // 	9
         "A-cup",
         "B-cup",
         "C-cup",
@@ -2275,7 +2292,7 @@ export class Appearance extends Utils {
         "big G-cup",
         "GG-cup",
         "big GG-cup",
-        "H-cup", //10-19
+        "H-cup", // 10-19
         "big H-cup",
         "HH-cup",
         "big HH-cup",
@@ -2285,7 +2302,7 @@ export class Appearance extends Utils {
         "II-cup",
         "big II-cup",
         "J-cup",
-        "big J-cup", //20-29
+        "big J-cup", // 20-29
         "JJ-cup",
         "big JJ-cup",
         "K-cup",
@@ -2295,7 +2312,7 @@ export class Appearance extends Utils {
         "L-cup",
         "big L-cup",
         "LL-cup",
-        "big LL-cup", //30-39
+        "big LL-cup", // 30-39
         "M-cup",
         "big M-cup",
         "MM-cup",
@@ -2305,7 +2322,7 @@ export class Appearance extends Utils {
         "N-cup",
         "large N-cup",
         "NN-cup",
-        "large NN-cup", //40-49
+        "large NN-cup", // 40-49
         "O-cup",
         "large O-cup",
         "OO-cup",
@@ -2315,7 +2332,7 @@ export class Appearance extends Utils {
         "PP-cup",
         "large PP-cup",
         "Q-cup",
-        "large Q-cup", //50-59
+        "large Q-cup", // 50-59
         "QQ-cup",
         "large QQ-cup",
         "R-cup",
@@ -2325,7 +2342,7 @@ export class Appearance extends Utils {
         "S-cup",
         "large S-cup",
         "SS-cup",
-        "large SS-cup", //60-69
+        "large SS-cup", // 60-69
         "T-cup",
         "large T-cup",
         "TT-cup",
@@ -2335,7 +2352,7 @@ export class Appearance extends Utils {
         "UU-cup",
         "large UU-cup",
         "V-cup",
-        "large V-cup", //70-79
+        "large V-cup", // 70-79
         "VV-cup",
         "large VV-cup",
         "W-cup",
@@ -2345,7 +2362,7 @@ export class Appearance extends Utils {
         "X-cup",
         "large X-cup",
         "XX-cup",
-        "large XX-cup", //80-89
+        "large XX-cup", // 80-89
         "Y-cup",
         "large Y-cup",
         "YY-cup",
@@ -2355,7 +2372,7 @@ export class Appearance extends Utils {
         "ZZ-cup",
         "large ZZ-cup",
         "ZZZ-cup",
-        "large ZZZ-cup", //90-99
+        "large ZZZ-cup", // 90-99
     ];
 
     public static breastCup(size: number): string {
@@ -2368,12 +2385,12 @@ export class Appearance extends Utils {
      * Returns breast size from cup name.
      * Acceptable input: "flat","A","B","C","D","DD","DD+",... "ZZZ","ZZZ+" or exact match from BREAST_CUP_NAMES array
      */
-    public static breastCupInverse(name: string, defaultValue: number = 0): number {
+    public static breastCupInverse(name: string, defaultValue = 0): number {
         if (name.length == 0) return defaultValue;
         if (name == "flat") return 0;
-        var big: boolean = name.charAt(name.length - 1) == "+";
+        const big: boolean = name.endsWith("+");
         if (big) name = name.substr(0, name.length - 1);
-        for (var i: number = 0; i < Appearance.BREAST_CUP_NAMES.length; i++) {
+        for (let i = 0; i < Appearance.BREAST_CUP_NAMES.length; i++) {
             if (name == Appearance.BREAST_CUP_NAMES[i]) return i;
             if (Appearance.BREAST_CUP_NAMES[i].indexOf(name) == 0) return i + (big ? 1 : 0);
         }
@@ -2381,8 +2398,8 @@ export class Appearance extends Utils {
     }
 
     public static createMapFromPairs(src: any[]): Record<string, any> {
-        var result: Record<string, any> = {};
-        for (var i: number = 0; i < src.length; i++) result[src[i][0]] = src[i][1];
+        const result: Record<string, any> = {};
+        for (let i = 0; i < src.length; i++) result[src[i][0]] = src[i][1];
         return result;
     }
 
@@ -2622,14 +2639,14 @@ export class Appearance extends Utils {
     public static describeByScale(
         value: number,
         scale: any[],
-        lessThan: string = "less than",
-        moreThan: string = "more than"
+        lessThan = "less than",
+        moreThan = "more than"
     ): string {
         if (scale.length == 0) return "undescribeale";
         if (scale.length == 1) return "about " + scale[0][1];
         if (value < scale[0][0]) return lessThan + " " + scale[0][1];
         if (value == scale[0][0]) return scale[0][1];
-        for (var i: number = 1; i < scale.length; i++) {
+        for (let i = 1; i < scale.length; i++) {
             if (value < scale[i][0]) return "between " + scale[i - 1][1] + " and " + scale[i][1];
             if (value == scale[i][0]) return scale[i][1];
         }
@@ -2655,8 +2672,8 @@ export class Appearance extends Utils {
      * Positive only!
      */
     public static feetsAndInches(n: number): string {
-        var feet: number = Math.floor(n / 12);
-        var inches: number = n - feet * 12;
+        const feet: number = Math.floor(n / 12);
+        const inches: number = n - feet * 12;
         if (feet > 0) return feet + "'" + inches + '"';
         else return inches + '"';
     }
@@ -2670,7 +2687,7 @@ export class Appearance extends Utils {
     }
 
     public static allBreastsDescript(creature: Creature): string {
-        var storage: string = "";
+        let storage = "";
         if (creature.breastRows.length == 0) return "unremarkable chest muscles ";
         if (creature.breastRows.length == 2) {
             // if(creature.totalBreasts() == 4) storage += "quartet of ";
@@ -2698,7 +2715,7 @@ export class Appearance extends Utils {
             return "<b>!Creature has no tails to describe!</b>";
         }
 
-        var descript: string = "";
+        let descript = "";
 
         if (i_creature.tailType == TAIL_TYPE_FOX && i_creature.tailVenom >= 1) {
             // Kitsune tails, we're using tailVenom to track tail count
@@ -2725,7 +2742,7 @@ export class Appearance extends Utils {
             return "<b>!Creature has no tails to describe!</b>";
         }
 
-        var descript: string = "";
+        let descript = "";
 
         if (i_creature.tailType == TAIL_TYPE_FOX && i_creature.tailVenom >= 1) {
             if (i_creature.tailVenom == 1) {
@@ -2741,9 +2758,9 @@ export class Appearance extends Utils {
     }
 
     public static biggestBreastSizeDescript(creature: Creature): string {
-        var temp14: number = Math.random() * 3;
-        var descript: string = "";
-        var temp142: number = creature.biggestTitRow();
+        let temp14: number = Math.random() * 3;
+        let descript = "";
+        const temp142: number = creature.biggestTitRow();
         // ERROR PREVENTION
         if (creature.breastRows.length - 1 < temp142) {
             CoC_Settings.error("");
@@ -2796,7 +2813,7 @@ export class Appearance extends Utils {
     }
 
     public static breastSize(val: number): string {
-        var descript: string = "";
+        let descript = "";
         // Catch all for dudes.
         if (val < 1) return "manly ";
         // Small - A->B
@@ -2882,21 +2899,21 @@ export class Appearance extends Utils {
             return "<B>Error: multiCockDescriptLight() called with no penises present.</B>";
         }
         // Get cock counts
-        var descript: string = "";
-        var currCock: number = 0;
-        var totCock: number = creature.cocks.length;
-        var dogCocks: number = 0;
-        var horseCocks: number = 0;
-        var normalCocks: number = 0;
+        let descript = "";
+        let currCock = 0;
+        const totCock: number = creature.cocks.length;
+        let dogCocks = 0;
+        let horseCocks = 0;
+        let normalCocks = 0;
         // var normalCockKey: number = 0;
         // var dogCockKey: number = 0;
         // var horseCockKey: number = 0;
         // var averageLength: number = 0;
         // var averageThickness: number = 0;
-        var same: boolean = true;
+        let same = true;
         // For temp14 random values
         // var rando: number = 0;
-        var descripted: boolean = false;
+        let descripted = false;
         // If one, return normal cock descript
         if (totCock == 1) return creature.cockDescript(0);
         // Count cocks & Prep average totals
@@ -3050,21 +3067,21 @@ export class Appearance extends Utils {
             return "<B>Error: multiCockDescript() called with no penises present.</B>";
         }
         // Get cock counts
-        var descript: string = "";
-        var currCock: number = 0;
-        var totCock: number = creature.cocks.length;
-        var dogCocks: number = 0;
-        var horseCocks: number = 0;
-        var normalCocks: number = 0;
+        let descript = "";
+        let currCock = 0;
+        const totCock: number = creature.cocks.length;
+        let dogCocks = 0;
+        let horseCocks = 0;
+        let normalCocks = 0;
         // var normalCockKey: number = 0;
         // var dogCockKey: number = 0;
         // var horseCockKey: number = 0;
-        var averageLength: number = 0;
-        var averageThickness: number = 0;
-        var same: boolean = true;
+        let averageLength = 0;
+        let averageThickness = 0;
+        let same = true;
         // For temp14 random values
         // var rando: number = 0;
-        var descripted: boolean = false;
+        let descripted = false;
         // Count cocks & Prep average totals
         while (currCock <= totCock - 1) {
             // trace("Counting cocks!");

@@ -21,9 +21,9 @@ export class Inventory extends BaseContent {
 
     private itemStorage: any[];
     private gearStorage: any[];
-    private callNext: any; //These are used so that we know what has to happen once the player finishes with an item
-    private callOnAbandon: any; //They simplify dealing with items that have a sub menu. Set in inventoryMenu and in takeItem
-    private currentItemSlot: ItemSlotClass | undefined; //The slot previously occupied by the current item - only needed for stashes and items with a sub menu.
+    private callNext: any; // These are used so that we know what has to happen once the player finishes with an item
+    private callOnAbandon: any; // They simplify dealing with items that have a sub menu. Set in inventoryMenu and in takeItem
+    private currentItemSlot: ItemSlotClass | undefined; // The slot previously occupied by the current item - only needed for stashes and items with a sub menu.
 
     public constructor(saveSystem: Saves) {
         super();
@@ -49,20 +49,21 @@ export class Inventory extends BaseContent {
         return this.gearStorage;
     }
 
-    // 		public function currentCallNext() { return callNext; }
+    //
+    // public function currentCallNext() { return callNext; }
 
     public itemGoNext(): void {
         if (this.callNext != undefined) this.doNext(this.callNext);
     }
 
     public inventoryMenu(): void {
-        var x: number;
-        var foundItem: boolean = false;
+        let x: number;
+        let foundItem = false;
         if (this.getGame().inCombat) {
-            this.callNext = this.inventoryCombatHandler; //Player will return to combat after item use
+            this.callNext = this.inventoryCombatHandler; // Player will return to combat after item use
         } else {
             this.spriteSelect(-1);
-            this.callNext = this.inventoryMenu; //In camp or in a dungeon player will return to inventory menu after item use
+            this.callNext = this.inventoryMenu; // In camp or in a dungeon player will return to inventory menu after item use
         }
         this.hideMenus();
         this.hideUpDown();
@@ -162,11 +163,12 @@ export class Inventory extends BaseContent {
         if (this.getGame().inCombat) this.addButton(9, "Back", kGAMECLASS.combatMenu, false);
         // Player returns to the combat menu on cancel
         else this.addButton(9, "Back", this.playerMenu);
-        // Gone			menuLoc = 1;
+        // Gone
+        // 	menuLoc = 1;
     }
 
     public stash(): void {
-        /*Hacked in cheat to enable shit
+        /* Hacked in cheat to enable shit
         flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00254] = 1;
         flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00255] = 1;*/
         // REMOVE THE ABOVE BEFORE RELASE ()
@@ -223,7 +225,7 @@ export class Inventory extends BaseContent {
         if (nextAction != undefined) this.callNext = nextAction;
         else this.callNext = this.playerMenu;
         // Check for an existing stack with room in the inventory and return the value for it.
-        var temp: number = this.player.roomInExistingStack(itype);
+        let temp: number = this.player.roomInExistingStack(itype);
         if (temp >= 0) {
             // First slot go!
             this.player.itemSlots[temp].quantity++;
@@ -262,11 +264,11 @@ export class Inventory extends BaseContent {
         this.takeItemFull(itype, true, source);
     }
 
-    public returnItemToInventory(item: Useable, showNext: boolean = true): void {
+    public returnItemToInventory(item: Useable, showNext = true): void {
         // Used only by items that have a sub menu if the player cancels
         if (!this.debug) {
             if (this.currentItemSlot == undefined) {
-                this.takeItem(item, this.callNext, this.callNext, undefined); //Give player another chance to put item in inventory
+                this.takeItem(item, this.callNext, this.callNext, undefined); // Give player another chance to put item in inventory
             } else if (this.currentItemSlot.quantity > 0) {
                 // Add it back to the existing stack
                 this.currentItemSlot.quantity++;
@@ -281,7 +283,7 @@ export class Inventory extends BaseContent {
         }
         if (showNext) this.doNext(this.callNext);
         // Items with sub menus should return to the inventory screen if the player decides not to use them
-        else this.callNext(); //When putting items back in your stash we should skip to the take from stash menu
+        else this.callNext(); // When putting items back in your stash we should skip to the take from stash menu
     }
 
     // Check to see if anything is stored
@@ -322,7 +324,7 @@ export class Inventory extends BaseContent {
     // Create a storage slot
     public createStorage(): boolean {
         if (this.itemStorage.length >= 16) return false;
-        var newSlot: ItemSlotClass = new ItemSlotClass();
+        const newSlot: ItemSlotClass = new ItemSlotClass();
         this.itemStorage.push(newSlot);
         return true;
     }
@@ -357,7 +359,7 @@ export class Inventory extends BaseContent {
             this.gearStorage.splice(0, this.gearStorage.length);
         }
         // Rebuild a new one!
-        var newSlot: ItemSlotClass;
+        let newSlot: ItemSlotClass;
         while (this.gearStorage.length < 18) {
             newSlot = new ItemSlotClass();
             this.gearStorage.push(newSlot);
@@ -367,7 +369,7 @@ export class Inventory extends BaseContent {
     private useItemInInventory(slotNum: number): void {
         this.clearOutput();
         if (this.player.itemSlots[slotNum].itype instanceof Useable) {
-            var item: Useable = this.player.itemSlots[slotNum].itype as Useable;
+            const item: Useable = this.player.itemSlots[slotNum].itype as Useable;
             if (item.canUse()) {
                 // If an item cannot be used then canUse should provide a description of why the item cannot be used
                 if (!this.debug) this.player.itemSlots[slotNum].removeOneItem();
@@ -379,7 +381,7 @@ export class Inventory extends BaseContent {
                 "You cannot use " + this.player.itemSlots[slotNum].itype.longName + "!\n\n"
             );
         }
-        this.itemGoNext(); //Normally returns to the inventory menu. In combat it goes to the inventoryCombatHandler function
+        this.itemGoNext(); // Normally returns to the inventory menu. In combat it goes to the inventoryCombatHandler function
         /* menuLoc is no longer needed, after enemyAI game will always move to the next round
                     else if (menuLoc == 1) {
                         menuLoc = 0;
@@ -403,20 +405,22 @@ export class Inventory extends BaseContent {
         item.useText();
         if (item instanceof Armor) {
             this.player.armor.removeText();
-            let oldItem = this.player.setArmor(item as Armor); //Item is now the player's old armor
+            const oldItem = this.player.setArmor(item); // Item is now the player's old armor
             if (oldItem == undefined) this.itemGoNext();
             else this.takeItem(oldItem, this.callNext);
         } else if (item instanceof Weapon) {
             this.player.weapon.removeText();
-            let oldItem = this.player.setWeapon(item as Weapon); //Item is now the player's old weapon
+            const oldItem = this.player.setWeapon(item); // Item is now the player's old weapon
             if (oldItem == undefined) this.itemGoNext();
             else this.takeItem(oldItem, this.callNext);
         } else {
             this.currentItemSlot = fromSlot;
-            if (!item.useItem()) this.itemGoNext(); //Items should return true if they have provided some form of sub-menu.
+            if (!item.useItem()) this.itemGoNext(); // Items should return true if they have provided some form of sub-menu.
             // This is used for Reducto and GroPlus (which always present the player with a sub-menu)
             // and for the Kitsune Gift (which may show a sub-menu if the player has a full inventory)
-            // 				if (!item.hasSubMenu()) itemGoNext(); //Don't call itemGoNext if there's a sub menu, otherwise it would never be displayed
+            //
+            //
+            // if (!item.hasSubMenu()) itemGoNext(); //Don't call itemGoNext if there's a sub menu, otherwise it would never be displayed
         }
     }
 
@@ -429,7 +433,7 @@ export class Inventory extends BaseContent {
                 " or abandon it."
         );
         this.menu();
-        for (var x: number = 0; x < 5; x++) {
+        for (let x = 0; x < 5; x++) {
             if (this.player.itemSlots[x].unlocked)
                 this.addButton(
                     x,
@@ -451,9 +455,9 @@ export class Inventory extends BaseContent {
             this.addButton(
                 8,
                 "Use Now",
-                this.createCallBackFunction2(this.useItemNow, itype as Useable, source)
+                this.createCallBackFunction2(this.useItemNow, itype, source)
             );
-        this.addButton(9, "Abandon", this.callOnAbandon); //Does not doNext - immediately executes the callOnAbandon function
+        this.addButton(9, "Abandon", this.callOnAbandon); // Does not doNext - immediately executes the callOnAbandon function
     }
 
     private useItemNow(item: Useable, source: ItemSlotClass): void {
@@ -462,7 +466,7 @@ export class Inventory extends BaseContent {
             // If an item cannot be used then canUse should provide a description of why the item cannot be used
             this.useItem(item, source);
         } else {
-            this.takeItemFull(item, false, source); //Give the player another chance to take this item
+            this.takeItemFull(item, false, source); // Give the player another chance to take this item
         }
     }
 
@@ -514,8 +518,8 @@ export class Inventory extends BaseContent {
 
     private armorRackDescription(): boolean {
         if (this.itemAnyInStorage(this.gearStorage, 9, 18)) {
-            var itemList: any[] = [];
-            for (var x: number = 9; x < 18; x++)
+            const itemList: any[] = [];
+            for (let x = 9; x < 18; x++)
                 if (this.gearStorage[x].quantity > 0)
                     itemList[itemList.length] = this.gearStorage[x].itype.longName;
             this.outputText("  It currently holds " + Inventory.formatStringArray(itemList) + ".");
@@ -526,8 +530,8 @@ export class Inventory extends BaseContent {
 
     private weaponRackDescription(): boolean {
         if (this.itemAnyInStorage(this.gearStorage, 0, 9)) {
-            var itemList: any[] = [];
-            for (var x: number = 0; x < 9; x++)
+            const itemList: any[] = [];
+            for (let x = 0; x < 9; x++)
                 if (this.gearStorage[x].quantity > 0)
                     itemList[itemList.length] = this.gearStorage[x].itype.longName;
             this.outputText("  It currently holds " + Inventory.formatStringArray(itemList) + ".");
@@ -537,7 +541,7 @@ export class Inventory extends BaseContent {
     }
 
     private itemAnyInStorage(storage: any[], startSlot: number, endSlot: number): boolean {
-        for (var x: number = startSlot; x < endSlot; x++) if (storage[x].quantity > 0) return true;
+        for (let x: number = startSlot; x < endSlot; x++) if (storage[x].quantity > 0) return true;
         return false;
     }
 
@@ -547,7 +551,7 @@ export class Inventory extends BaseContent {
         endSlot: number,
         itype: ItemType
     ): boolean {
-        for (var x: number = startSlot; x < endSlot; x++)
+        for (let x: number = startSlot; x < endSlot; x++)
             if (storage[x].quantity > 0 && storage[x].itype == itype) return true;
         return false;
     }
@@ -573,7 +577,7 @@ export class Inventory extends BaseContent {
         endSlot: number,
         text: string
     ): void {
-        this.clearOutput(); //Selects an item from a gear slot. Rewritten so that it no longer needs to use numbered events
+        this.clearOutput(); // Selects an item from a gear slot. Rewritten so that it no longer needs to use numbered events
         this.hideUpDown();
         if (!this.itemAnyInStorage(storage, startSlot, endSlot)) {
             // If no items are left then return to the camp menu. Can only happen if the player removes the last item.
@@ -581,9 +585,9 @@ export class Inventory extends BaseContent {
             return;
         }
         this.outputText("What " + text + " slot do you wish to take an item from?");
-        var button: number = 0;
+        let button = 0;
         this.menu();
-        for (var x: number = startSlot; x < endSlot; x++, button++) {
+        for (let x: number = startSlot; x < endSlot; x++, button++) {
             if (storage[x].quantity > 0)
                 this.addButton(
                     button,
@@ -596,7 +600,7 @@ export class Inventory extends BaseContent {
 
     private pickFrom(storage: any[], slotNum: number): void {
         this.clearOutput();
-        var itype: ItemType = storage[slotNum].itype;
+        const itype: ItemType = storage[slotNum].itype;
         storage[slotNum].quantity--;
         this.inventory.takeItem(itype, this.callNext, this.callNext, storage[slotNum]);
     }
@@ -646,12 +650,12 @@ export class Inventory extends BaseContent {
         text: string,
         showEmptyWarning: boolean
     ): void {
-        this.clearOutput(); //Selects an item to place in a gear slot. Rewritten so that it no longer needs to use numbered events
+        this.clearOutput(); // Selects an item to place in a gear slot. Rewritten so that it no longer needs to use numbered events
         this.hideUpDown();
         this.outputText("What item slot do you wish to empty into your " + text + "?");
         this.menu();
-        var foundItem: boolean = false;
-        for (var x: number = 0; x < 5; x++) {
+        let foundItem = false;
+        for (let x = 0; x < 5; x++) {
             if (
                 this.player.itemSlots[x].unlocked &&
                 this.player.itemSlots[x].quantity > 0 &&
@@ -690,11 +694,11 @@ export class Inventory extends BaseContent {
 
     private placeIn(storage: any[], startSlot: number, endSlot: number, slotNum: number): void {
         this.clearOutput();
-        var x: number;
-        var temp: number;
-        var itype: ItemType = this.player.itemSlots[slotNum].itype;
-        var qty: number = this.player.itemSlots[slotNum].quantity;
-        var orig: number = qty;
+        let x: number;
+        let temp: number;
+        const itype: ItemType = this.player.itemSlots[slotNum].itype;
+        let qty: number = this.player.itemSlots[slotNum].quantity;
+        const orig: number = qty;
         this.player.itemSlots[slotNum].emptySlot();
         for (x = startSlot; x < endSlot && qty > 0; x++) {
             // Find any slots which already hold the item that is being stored

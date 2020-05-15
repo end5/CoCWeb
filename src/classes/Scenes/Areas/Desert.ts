@@ -30,9 +30,15 @@ export class Desert extends BaseContent {
             this.flags[kFLAGS.DISCOVERED_WITCH_DUNGEON] == 0
         ) {
             kGAMECLASS.enterBoobsDungeon();
-            // 				kGAMECLASS.inDungeon = true;
-            // 				kGAMECLASS.dungeonLoc = 23;
-            // 				eventParser(1);
+            //
+            //
+            // kGAMECLASS.inDungeon = true;
+            //
+            //
+            // kGAMECLASS.dungeonLoc = 23;
+            //
+            //
+            // eventParser(1);
             return;
         }
         if (Desert.rand(40) == 0) {
@@ -125,9 +131,9 @@ export class Desert extends BaseContent {
             kGAMECLASS.exploration.bigJunkDesertScene();
             return;
         }
-        var choices: any[] = [];
+        const choices: any[] = [];
         // -8008 is cheating for "no arg"
-        var args: any[] = [];
+        const args: any[] = [];
 
         // Encounter Sandwitch
         if (this.flags[kFLAGS.SAND_WITCH_LEAVE_ME_ALONE] == 0) {
@@ -158,7 +164,7 @@ export class Desert extends BaseContent {
             choices[choices.length] = this.sandTrapScene.encounterASandTarp;
             args[args.length] = -8008;
         }
-        var select: number = Desert.rand(choices.length);
+        const select: number = Desert.rand(choices.length);
         if (args[select] == -8008) {
             choices[select]();
         } else choices[select](args[select]);

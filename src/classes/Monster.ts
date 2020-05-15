@@ -350,9 +350,12 @@ export class Monster extends Creature {
         //// .addMany(itemWeight,itemType1,itemType2,...)
         //// Example:
         //// this.drop = new WeightedDrop()
-        //// 		.add(A,2)
-        //// 		.add(B,10)
-        //// 		.add(C,1)
+        ////
+        // .add(A,2)
+        ////
+        // .add(B,10)
+        ////
+        // .add(C,1)
         //// 	will drop B 10 times more often than C, and 5 times more often than A.
         //// 	To be precise, \forall add(A_i,w_i): P(A_i)=w_i/\sum_j w_j
         //// 14.4. Random chained check drop
@@ -363,17 +366,22 @@ export class Monster extends Creature {
         ////
         //// Example 1:
         //// init14ChainedDrop(A)
-        //// 		.add(B,0.01)
-        //// 		.add(C,0.5)
+        ////
+        // .add(B,0.01)
+        ////
+        // .add(C,0.5)
         //// 	will FIRST check B vs 0.01 chance,
         //// 	if it fails, C vs 0.5 chance,
         //// 	else A
         ////
         //// 	Example 2:
         //// 	init14ChainedDrop()
-        //// 		.add(B,0.01)
-        //// 		.add(C,0.5)
-        //// 		.elseDrop(A)
+        ////
+        // .add(B,0.01)
+        ////
+        // .add(C,0.5)
+        ////
+        // .elseDrop(A)
         //// 	for same result
 
         //// 15. Special attacks. No need to set them if the monster has custom AI.
@@ -642,7 +650,8 @@ export class Monster extends Creature {
             attacks--;
         }
         this.removeStatusAffect(StatusAffects.Attacks);
-        // 			if (!game.combatRoundOver()) game.doNext(1);
+        //
+        // 	if (!game.combatRoundOver()) game.doNext(1);
         this.game.combatRoundOver(); //The doNext here was not required
     }
 
@@ -870,24 +879,30 @@ export class Monster extends Creature {
             if (!this.handleConstricted()) return;
         }
         // If grappling... TODO implement grappling
-        // 			if (game.gameState == 2) {
-        // 				game.gameState = 1;
+        //
+        // 	if (game.gameState == 2) {
+        //
+        //
+        // game.gameState = 1;
         // temperment - used for determining grapple behaviors
         // 0 - avoid grapples/break grapple
         // 1 - lust determines > 50 grapple
         // 2 - random
         // 3 - love grapples
         /*
-         // 		if(temperment == 0) eGrappleRetreat();
+         //
+// if(temperment == 0) eGrappleRetreat();
          if (temperment == 1) {
-         // 			if(lust < 50) eGrappleRetreat();
+         //
+// 	if(lust < 50) eGrappleRetreat();
          mainClassPtr.doNext(3);
          return;
          }
          mainClassPtr.outputText("Lust Placeholder!!", false);
          mainClassPtr.doNext(3);
          return;*/
-        // 			}
+        //
+        // 	}
         this.performCombatAction();
     }
 
