@@ -118,6 +118,10 @@ export class Utils {
         return Math.floor(Math.random() * max);
     }
 
+    public static randomChoiceTyped<T>(optionArray: Array<T>): T {
+        return optionArray[this.rand(optionArray.length)];
+    }
+
     public static validateNonNegativeNumberFields(
         o: Record<string, any>,
         func: string,

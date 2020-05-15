@@ -1,3 +1,5 @@
+import { saveAs } from 'file-saver'
+
 import { BaseContent } from "./BaseContent";
 import { kGAMECLASS } from "./GlobalFlags/kGAMECLASS";
 import { trace } from "../console";
@@ -109,27 +111,27 @@ export class Saves extends BaseContent {
 
         this.outx("<b><u>Slot: Sex,  Game Days Played</u></b>\r", true);
 
-        for (let i = 0; i < this.saveFileNames.length; i += 1) {
-            const test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
+        this.saveFileNames.forEach((name, i) => {
+            const test: Record<string, any> = this.getSaveObj(name);
+
             this.outx(this.loadSaveDisplay(test, String(i + 1)), false);
+
             if (test.exists && test.flags[2066] == undefined) {
                 // trace("Creating function with indice = ", i);
-                ((ii: number) => {
-                    slots[ii] = () => {
-                        trace("Loading save with name", this.saveFileNames[ii], "at index", ii);
-                        this.loadGame(this.saveFileNames[ii]);
-                        // if (this.loadGame(this.saveFileNames[i])) {
-                        //     this.doNext(this.playerMenu);
-                        //     this.showStats();
-                        //     this.statScreenRefresh();
-                        //     this.outx("Slot " + i + " Loaded!", true);
-                        // }
-                    };
-                })(i);
+                slots[i] = () => {
+                    trace("Loading save with name", name, "at index", i);
+                    this.loadGame(name);
+                    // if (this.loadGame(name)) {
+                    //     this.doNext(this.playerMenu);
+                    //     this.showStats();
+                    //     this.statScreenRefresh();
+                    //     this.outx("Slot " + i + " Loaded!", true);
+                    // }
+                };
             } else {
                 slots[i] = undefined; // You have to set the parameter to 0 to disable the button
             }
-        }
+        });
 
         this.choices(
             "Slot 1",
@@ -363,7 +365,7 @@ export class Saves extends BaseContent {
     }
 
     private saveToFile(notes: HTMLInputElement): void {
-        this.saveGameObject(`CoC_${this.player.short}`, notes);
+        this.saveGameObject(`CoC_${this.player.short}`, notes, true);
     }
 
     private loadFromFile(): void {
@@ -382,21 +384,17 @@ export class Saves extends BaseContent {
 
         const delFuncs: any[] = [];
 
-        for (let i = 0; i < this.saveFileNames.length; i += 1) {
-            const test: Record<string, any> = this.getSaveObj(this.saveFileNames[i]);
-            this.outx(this.loadSaveDisplay(test, String(i + 1)), false);
-            if (test.exists) {
-                // slots[i] = loadFuncs[i];
+        this.saveFileNames.forEach((name, i) => {
+            const test: Record<string, any> = this.getSaveObj(name);
 
-                trace("Creating function with indice = ", i);
-                ((ii: number) => {
-                    delFuncs[ii] = () => {
-                        this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] = this.saveFileNames[ii];
-                        this.confirmDelete();
-                    };
-                })(i);
-            } else delFuncs[i] = undefined; // disable buttons for empty slots
-        }
+            this.outx(this.loadSaveDisplay(test, String(i + 1)), false);
+            delFuncs[i] = test.exists
+                ? () => {
+                      this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION] = name;
+                      this.confirmDelete();
+                  }
+                : undefined; // disable buttons for empty slots
+        });
 
         this.outx("\n<b>ONCE DELETED, YOUR SAVE IS GONE FOREVER.</b>", false);
         this.choices(
@@ -445,9 +443,11 @@ export class Saves extends BaseContent {
     }
 
     public purgeTheMutant(): void {
-        const test: any = this.getSaveObj(`${this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]}`);
+        const slot = `${this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]}`
+
+        const test: any = this.getSaveObj(slot);
         trace(`DELETING SLOT: ${this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]}`);
-        const blah: any[] = [
+        const commentList: string[] = [
             "been virus bombed",
             "been purged",
             "been vaped",
@@ -459,10 +459,12 @@ export class Saves extends BaseContent {
             "suffered the following error: (404) Porn Not Found",
         ];
 
-        trace(`${blah.length} array slots`);
-        const select: number = Saves.rand(blah.length);
-        this.outx(`${this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]} has ${blah[select]}.`, true);
-        test.clear();
+        trace(`${commentList.length} array slots`);
+        const comment = Saves.randomChoiceTyped(commentList);
+        this.outx(`${this.flags[kFLAGS.TEMP_STORAGE_SAVE_DELETION]} has ${comment}.`, true);
+
+        localStorage.removeItem(slot)
+
         this.doNext(this.deleteScreen);
     }
 
@@ -898,7 +900,12 @@ export class Saves extends BaseContent {
         // Something to do in the future
         if (exportFile) {
             // outx(serializeToString(saveFile), true);
-            saveAs(JSON.stringify(saveFile), "cocsave");
+            let text = JSON.stringify(saveFile, null, 2)
+            let blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+            let filename = this.generateFilename(slot);
+
+            saveAs(blob, filename);
+
             this.outx("Attempted to save to file.", true);
         } else {
             // Write the file
@@ -946,6 +953,15 @@ export class Saves extends BaseContent {
             this.addButton(0, "Next", this.playerMenu);
             this.addButton(9, "Restore", this.restore, slot);
         }
+    }
+
+    private generateFilename(saveName: string) {
+        let domain = location.host.replace(/\./g, '-').replace(/-[^-]+$/, '');
+        let save = saveName.replace(/^CoC_?/, '').replace(/_/g, '');
+        let time = new Date().toISOString().replace(/T(\d+-\d+).*/g, '--$1');
+        let pre = `CoC--${domain}--${save}--${time}.coc`
+        let filename = pre.replace(/[\\/:*"<>|]/, '')
+        return filename;
     }
 
     public restore(slotName: string): void {
