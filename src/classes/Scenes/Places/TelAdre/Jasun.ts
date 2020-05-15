@@ -198,8 +198,7 @@ export class Jasun extends TelAdreAbstractContent {
                 );
 
                 this.outx(
-                    `"<i>${this.player.short}, you know, I still don't think you're quite ready to swim with me. That's fine, and it's entirely up to you, but I think today I should probably swim alone. You can come and visit me anytime, of course, maybe when you're `,
-                    false
+                    `"<i>${this.player.short}, you know, I still don't think you're quite ready to swim with me. That's fine, and it's entirely up to you, but I think today I should probably swim alone. You can come and visit me anytime, of course, maybe when you're `
                 );
                 if (this.player.tone < 75) this.outx("fit enough");
                 else if (this.player.armorName != "slutty swimwear") this.outx("properly attired");
@@ -276,7 +275,7 @@ export class Jasun extends TelAdreAbstractContent {
             false
         );
         if (this.player.str < 50)
-            this.outx("that you're pretty sure you couldn't have moved on your own at all ", false);
+            this.outx("that you're pretty sure you couldn't have moved on your own at all ");
         this.outx(
             "and then suddenly stops. The light in the room blinds you for a moment, but then your eyes adjust and what you see makes you gasp. There's an entire swimming pool in here, and it's absolutely gargantuan! You pull away from the shark-man and walk up to the water, running your hand through it and looking about like a kid who just walked into a toy store. He walks up behind you slowly and sits down on the ledge into the pool beside you.\n\n",
             false

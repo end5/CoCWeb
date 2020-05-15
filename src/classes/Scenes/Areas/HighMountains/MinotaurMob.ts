@@ -97,15 +97,13 @@ export class MinotaurMob extends Monster {
             this.outx(
                 `The powerful pheromones and scents hanging in the air around you make your body flush hotly.  Your ${this.player.nippleDescript(
                     0
-                )}s grow harder`,
-                false
+                )}s grow harder`
             );
             if (this.player.lust > 70)
                 this.outx(", though you didn't think such a thing was possible");
             else
                 this.outx(
-                    `, feeling like two bullets scraping along the inside of your ${this.player.armorName}`,
-                    false
+                    `, feeling like two bullets scraping along the inside of your ${this.player.armorName}`
                 );
             this.outx(
                 ", but it... it could have been worse.  You shudder as a little fantasy of letting them dribble it all over your body works through your mind.",
@@ -134,8 +132,7 @@ export class MinotaurMob extends Monster {
             }
             if (this.player.hasCock())
                 this.outx(
-                    `  ${this.SMultiCockDesc()} twitches and dribbles its own pre-seed, but it doesn't smell anywhere near as good!`,
-                    false
+                    `  ${this.SMultiCockDesc()} twitches and dribbles its own pre-seed, but it doesn't smell anywhere near as good!`
                 );
             this.outx(
                 "  Shuddering and moaning, your body is wracked by ever-increasing arousal.  Fantasies of crawling under the beast-men's soaked legs and lapping at their drooling erections inundate your mind, your body shivering and shaking in response.  ",
@@ -161,8 +158,7 @@ export class MinotaurMob extends Monster {
         this.outx(
             `Strong hands come from behind and slide under your equipment to squeeze your ${this.chestDesc()}.  The brutish fingers immediately locate and pinch at your ${this.nippleDescript(
                 0
-            )}s, the sensitive flesh on your chest lighting up with pain and pleasure.  You arch your back in surprise, utterly stunned by the violation of your body.  After a moment you regain your senses and twist away, but the damage is already done.  You're breathing a bit quicker now`,
-            false
+            )}s, the sensitive flesh on your chest lighting up with pain and pleasure.  You arch your back in surprise, utterly stunned by the violation of your body.  After a moment you regain your senses and twist away, but the damage is already done.  You're breathing a bit quicker now`
         );
         if (this.player.lust >= 80) this.outx(", and your pussy is absolutely soaking wet");
         this.outx(".");
@@ -173,8 +169,7 @@ export class MinotaurMob extends Monster {
     private minotaurGangGangGropeAttack(): void {
         this.game.spriteSelect(94);
         this.outx(
-            `Before you can react, hands reach out from multiple angles and latch onto your body.  One pair squeezes at your ${this.game.buttDescript()}, the strong grip massaging your cheeks with loving touches.  Another set of hands are sliding along your tummy, reaching down for, but not quite touching, the juicy delta below.  Palms encircle your ${this.player.chestDesc()} and caress them, gently squeezing in spite of the brutish hands holding you.  You wriggle and squirm in the collective grip of the many minotaurs for a few moments, growing more and more turned on by the treatment.  At last, you shake out of their hold and stand free, panting hard from exertion and desire.`,
-            false
+            `Before you can react, hands reach out from multiple angles and latch onto your body.  One pair squeezes at your ${this.game.buttDescript()}, the strong grip massaging your cheeks with loving touches.  Another set of hands are sliding along your tummy, reaching down for, but not quite touching, the juicy delta below.  Palms encircle your ${this.player.chestDesc()} and caress them, gently squeezing in spite of the brutish hands holding you.  You wriggle and squirm in the collective grip of the many minotaurs for a few moments, growing more and more turned on by the treatment.  At last, you shake out of their hold and stand free, panting hard from exertion and desire.`
         );
         this.game.dynStats("lus", 15 + this.player.sens / 10);
         this.combatRoundOver();

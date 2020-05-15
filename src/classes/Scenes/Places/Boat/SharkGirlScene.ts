@@ -195,8 +195,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                     x
                 )} and tail.  The widening circumference of your tapered tail spreads her already loose vagina until you're sure it will gape when you pull out. You're amazed at how deep she is able to take you, but never more so than when your tail begins to bump against the ground through her belly.  Her moans grow louder beneath you, and you find that the pleasure building in your own ${this.cockDescript(
                     x
-                )} is rapidly bringing you towards your own climax.  You thrust into her one final time and hold her ass against you, pushing your tail in as far as it will go.  As you fill her ass with your load of hot cum, you see her eyes roll back and her mouth open wide as she reaches orgasm.  She pushes back against you now, using her arms for leverage, before finally going limp beneath you.  When your member begins to soften, you pull it and your tail out of her, and leave her in a tired heap in the sand.  You think you notice a sly smile creep to her face as she looks back at you just before she blacks out.  You slither off, shaking your head at the thought of the slutty creature.`,
-                false
+                )} is rapidly bringing you towards your own climax.  You thrust into her one final time and hold her ass against you, pushing your tail in as far as it will go.  As you fill her ass with your load of hot cum, you see her eyes roll back and her mouth open wide as she reaches orgasm.  She pushes back against you now, using her arms for leverage, before finally going limp beneath you.  When your member begins to soften, you pull it and your tail out of her, and leave her in a tired heap in the sand.  You think you notice a sly smile creep to her face as she looks back at you just before she blacks out.  You slither off, shaking your head at the thought of the slutty creature.`
             );
         }
         // Non-nagaz
@@ -218,16 +217,14 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             this.outx(
                 `You abruptly pull your cock from her mouth, causing the shark girl to gasp in surprise. She looks up at you, tears welling up in her eyes, "<i>Please let me finish! I need this!</i>" You smirk and order the shark girl onto her hands and knees. Her expression brightens and she obediently complies, getting down and raising her ass towards you. Taking a firm grip on her well-toned buttocks, you quickly shove your ${this.cockDescript(
                     0
-                )} into her damp pussy and the shark girl squeals in excitement. You find yourself surprised by its texture; while it looks human enough on the outside, the inside is actually filled with strange feeler-like structures that wriggle and massage your cock as it pushes through.`,
-                false
+                )} into her damp pussy and the shark girl squeals in excitement. You find yourself surprised by its texture; while it looks human enough on the outside, the inside is actually filled with strange feeler-like structures that wriggle and massage your cock as it pushes through.`
             );
             // [if herm]
             if (this.player.gender == 3)
                 this.outx(
                     `  The sensation is incredible, and you find yourself massaging your ${this.biggestBreastSizeDescript()} and tweaking your ${this.nippleDescript(
                         0
-                    )}s in an attempt to bring your pleasure to even greater heights.`,
-                    false
+                    )}s in an attempt to bring your pleasure to even greater heights.`
                 );
             this.outx("\n\n", false);
 
@@ -278,27 +275,21 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             this.outx(
                 `Pleasure robbing you of thought, you look up, breaking your spell over the shark-girl.  Quickly realizing your mistake, you glance back down to see her paralyzed with confusion, apparently having been dropped back into her own body during her orgasm.  She doesn't dare to move a muscle, her hand still inside her bikini and her mouth still pressed to your ${this.vaginaDescript(
                     0
-                )}.  You smile down at her, and she smiles a shier, more confused smile back at you for a moment before shaking her head and pulling her hand out.  You giggle as she struggles awkwardly to get out from beneath your coils.  She finally does, and begins to stagger back towards the water.  You head back to camp, feeling satisfied with the encounter.`,
-                false
+                )}.  You smile down at her, and she smiles a shier, more confused smile back at you for a moment before shaking her head and pulling her hand out.  You giggle as she struggles awkwardly to get out from beneath your coils.  She finally does, and begins to stagger back towards the water.  You head back to camp, feeling satisfied with the encounter.`
             );
         } else {
             this.outx(
-                `Making up your mind to rape the shark girl, you remove your ${this.player.armorName} and approach the slut before taking a firm grip on her silver hair. "<i>You know what to do, bitch,</i>" you sneer, pulling her head into your damp cunt. The shark girl needs no encouragement, eagerly probing your pussy with her long tongue`,
-                false
+                `Making up your mind to rape the shark girl, you remove your ${this.player.armorName} and approach the slut before taking a firm grip on her silver hair. "<i>You know what to do, bitch,</i>" you sneer, pulling her head into your damp cunt. The shark girl needs no encouragement, eagerly probing your pussy with her long tongue`
             );
             // [if female]
             if (this.player.gender == 2)
-                this.outx(
-                    `, pulling out every few minutes to lick your ${this.clitDescript()}.`,
-                    false
-                );
+                this.outx(`, pulling out every few minutes to lick your ${this.clitDescript()}.`);
             // [if herm]
             if (this.player.gender == 3)
                 this.outx(
                     `. You remind her not to neglect your ${this.cockDescript(
                         0
-                    )}, and the shark girl responds by thoroughly licking your hard erection and sucking at your ${this.ballsDescriptLight()}.`,
-                    false
+                    )}, and the shark girl responds by thoroughly licking your hard erection and sucking at your ${this.ballsDescriptLight()}.`
                 );
             this.outx("\n\n", false);
             this.outx(
@@ -310,14 +301,13 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                 false
             );
             if (this.player.gender == 2)
-                this.outx(", juices spraying from your sex and coating the girl's face.", false);
+                this.outx(", juices spraying from your sex and coating the girl's face.");
             // [if herm]
             else
                 this.outx(
                     ` and stand up, gripping your ${this.cockDescript(
                         0
-                    )} and splattering thick jets of cum onto her face.`,
-                    false
+                    )} and splattering thick jets of cum onto her face.`
                 );
             this.outx("  The shark slut licks up your fluids hungrily.\n\n", false);
 
@@ -448,8 +438,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             else this.outx("horny ");
             this.outx("to fight on.\n\n", false);
             this.outx(
-                `The shark girl does a little victory dance, swaying her hips to and fro before moving over to you. She quickly removes your ${this.player.armorName}, but her smile fades to a blank expression when she notices you lack any genitalia. "<i>What the...</i>" she mumbles, poking you in the groin. Finding you completely useless, she growls in frustration and stomps on your face in anger. The sudden pain makes you pass out.`,
-                false
+                `The shark girl does a little victory dance, swaying her hips to and fro before moving over to you. She quickly removes your ${this.player.armorName}, but her smile fades to a blank expression when she notices you lack any genitalia. "<i>What the...</i>" she mumbles, poking you in the groin. Finding you completely useless, she growls in frustration and stomps on your face in anger. The sudden pain makes you pass out.`
             );
             this.cleanupAfterCombat();
             this.dynStats("tou", -2);
@@ -481,8 +470,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
                 this.outx(
                     `Seeing your ${this.cockDescript(
                         0
-                    )} puts a smile on the shark girl's face as she takes a firm grip on your erection. "<i>Well, you're just full of surprises, aren't you? Maybe I'll give this bad boy a whirl sometime. For now though...</i>"  `,
-                    false
+                    )} puts a smile on the shark girl's face as she takes a firm grip on your erection. "<i>Well, you're just full of surprises, aren't you? Maybe I'll give this bad boy a whirl sometime. For now though...</i>"  `
                 );
             this.outx(
                 `Her gaze drifts over to your ${this.vaginaDescript(

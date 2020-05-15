@@ -30,8 +30,7 @@ export class GooGirl extends Monster {
             this.outx("Her body quivering from your flames, the goo-girl ");
         else
             this.outx(
-                `The slime holds its hands up and they morph into a replica of your ${this.player.weaponName}.  Happily, she swings at you`,
-                false
+                `The slime holds its hands up and they morph into a replica of your ${this.player.weaponName}.  Happily, she swings at you`
             );
         // Determine if dodged!
         if (
@@ -68,7 +67,7 @@ export class GooGirl extends Monster {
         // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && GooGirl.rand(100) < 6) {
             if (this.findPerk(PerkLib.Acid) >= 0)
-                this.outx("tries to slap you, but misses due to your cat-like evasion.", false);
+                this.outx("tries to slap you, but misses due to your cat-like evasion.");
             else this.outx(", missing due to your cat-like evasion.");
             return;
         }
@@ -91,8 +90,7 @@ export class GooGirl extends Monster {
             if (this.findPerk(PerkLib.Acid) >= 0) {
                 if (GooGirl.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        `tries to slap you, but the acid-bearing slap spatters weakly off your ${this.player.armorName}.`,
-                        false
+                        `tries to slap you, but the acid-bearing slap spatters weakly off your ${this.player.armorName}.`
                     );
                 else
                     this.outx(
@@ -103,8 +101,7 @@ export class GooGirl extends Monster {
                 // Due to toughness or amor...
                 if (GooGirl.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        `, her attack slapping fruitlessly against your ${this.player.armorName}.`,
-                        false
+                        `, her attack slapping fruitlessly against your ${this.player.armorName}.`
                     );
                 else this.outx(", her attack splattering ineffectually against you.");
             }
@@ -120,10 +117,9 @@ export class GooGirl extends Monster {
                     this.player.createStatusAffect(StatusAffects.AcidSlap, 0, 0, 0, 0);
             } else
                 this.outx(
-                    `, painfully smacking her gooey limbs against your head.  You shake your ${this.player.hairDescript()}, clearing your head of the dazing slap.`,
-                    false
+                    `, painfully smacking her gooey limbs against your head.  You shake your ${this.player.hairDescript()}, clearing your head of the dazing slap.`
                 );
-            this.outx(` (${damage})`, false);
+            this.outx(` (${damage})`);
         }
         if (damage > 0) {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
@@ -158,8 +154,7 @@ export class GooGirl extends Monster {
     // Throw –
     private gooThrow(): void {
         this.outx(
-            `The girl reaches into her torso, pulls a large clump of goo out, and chucks it at you like a child throwing mud. The slime splatters on your chest and creeps under your ${this.player.armorName}, tickling your skin like fingers dancing across your body.`,
-            false
+            `The girl reaches into her torso, pulls a large clump of goo out, and chucks it at you like a child throwing mud. The slime splatters on your chest and creeps under your ${this.player.armorName}, tickling your skin like fingers dancing across your body.`
         );
         const damage = 1;
         this.player.takeDamage(damage);
@@ -170,8 +165,7 @@ export class GooGirl extends Monster {
     // Engulf –
     private gooEngulph(): void {
         this.outx(
-            `The goo-girl gleefully throws her entire body at you and, before you can get out of the way, she has engulfed you in her oozing form! Tendrils of ${this.skinTone} slime slide up your nostrils and through your lips, filling your lungs with the girl's muck. You begin suffocating!`,
-            false
+            `The goo-girl gleefully throws her entire body at you and, before you can get out of the way, she has engulfed you in her oozing form! Tendrils of ${this.skinTone} slime slide up your nostrils and through your lips, filling your lungs with the girl's muck. You begin suffocating!`
         );
         if (this.player.findStatusAffect(StatusAffects.GooBind) < 0)
             this.player.createStatusAffect(StatusAffects.GooBind, 0, 0, 0, 0);

@@ -123,8 +123,7 @@ export class FetishZealot extends Monster {
                 `The Zealot turns around and gives you a full view of his tight leather clad body.  He smacks his ass and says "<i>You like what you see, don't you ${this.player.mf(
                     "stud",
                     "slut"
-                )}?</i>"  You can't help but be incredibly aroused by the scene.`,
-                false
+                )}?</i>"  You can't help but be incredibly aroused by the scene.`
             );
         }
         // Well dressed and well groomed student in uniform;

@@ -185,8 +185,7 @@ export class FapArena extends BazaarAbstractContent {
         }
         // end of global condition about PC's corr, display the following
         this.outx(
-            `You firmly settle your ${this.player.legs()} on the ground, bracing yourself to the imminent handjob you're going to receive, and the one you're going to give.  Your old warrior reflexes start kicking in and you ease your grasp on the cock in your right hand and start calming yourself.  You feel ready when - `,
-            false
+            `You firmly settle your ${this.player.legs()} on the ground, bracing yourself to the imminent handjob you're going to receive, and the one you're going to give.  Your old warrior reflexes start kicking in and you ease your grasp on the cock in your right hand and start calming yourself.  You feel ready when - `
         );
         this.outx('"<i>GO!</i>"\n\n', false);
 
@@ -273,8 +272,7 @@ export class FapArena extends BazaarAbstractContent {
                     x
                 )} is about to release a flood of its own.  After a whole orgasm self-denying session, you feel like your bones are melting and your body is ascending to heaven as you reach your peak and your ${this.cockDescript(
                     x
-                )} starts shooting an `,
-                false
+                )} starts shooting an `
             );
             if (this.player.cumQ() > 1000) this.outx("unholy");
             else if (this.player.cumQ() >= 500) this.outx("enormous");
@@ -298,15 +296,13 @@ export class FapArena extends BazaarAbstractContent {
                     num - 1
                 } SCORING!</i>"  For a moment, lost in your pleasure, you pay little attention to the world outside of your ${this.cockDescript(
                     x
-                )}.  Then you remember the game and shout in a whorish, pleasure-filled voice: "<i>NUMBER ${num} CUMMING!</i>"`,
-                false
+                )}.  Then you remember the game and shout in a whorish, pleasure-filled voice: "<i>NUMBER ${num} CUMMING!</i>"`
             );
             if (this.player.hasVagina()) {
                 this.outx(
                     `  Your thighs tense a few seconds before your ${this.vaginaDescript(
                         0
-                    )} squirts too, forming a `,
-                    false
+                    )} squirts too, forming a `
                 );
                 if (this.player.wetness() >= 4) this.outx("large puddle");
                 else if (this.player.wetness() >= 2) this.outx("puddle");
@@ -316,8 +312,7 @@ export class FapArena extends BazaarAbstractContent {
             // [if player lactates]
             if (this.player.biggestLactation() > 1.5)
                 this.outx(
-                    `  Your ${this.allBreastsDescript()} also release a milky flood of their own, the soft feeling of cream teasing your nipple only prolonging your orgasm.`,
-                    false
+                    `  Your ${this.allBreastsDescript()} also release a milky flood of their own, the soft feeling of cream teasing your nipple only prolonging your orgasm.`
                 );
             this.outx("\n\n", false);
 
@@ -389,8 +384,7 @@ export class FapArena extends BazaarAbstractContent {
             this.outx(
                 `A vicious yank on your own ${this.cockDescript(
                     x
-                )} reminds you that you also need to comply to your own genitals' needs.  Unhindered by the fear of losing, you completely give up to your orgasm and sigh in utter satisfaction and relief as you release one of the most abundant cumshots you've ever had.  Lost in your orgasm, you carelessly `,
-                false
+                )} reminds you that you also need to comply to your own genitals' needs.  Unhindered by the fear of losing, you completely give up to your orgasm and sigh in utter satisfaction and relief as you release one of the most abundant cumshots you've ever had.  Lost in your orgasm, you carelessly `
             );
             if (this.player.cumQ() >= 1000) this.outx("soak");
             else if (this.player.cumQ() >= 500) this.outx("pollute");
@@ -400,15 +394,13 @@ export class FapArena extends BazaarAbstractContent {
                     num + 4
                 } CUMMING!</i>"; you're almost immediately followed by the scoring announcement from your left neighbor.  With a half-closed eye you notice the referee nodding in acknowledgement and you point your ${this.cockDescript(
                     x
-                )} at her, trying to soak her too.  She hardly dodges it and some lands on her arms, but she doesn't seem to notice.`,
-                false
+                )} at her, trying to soak her too.  She hardly dodges it and some lands on her arms, but she doesn't seem to notice.`
             );
             if (this.player.hasVagina()) {
                 this.outx(
                     `  Your thighs tense a few seconds before your ${this.vaginaDescript(
                         0
-                    )} squirts too, forming a `,
-                    false
+                    )} squirts too, forming a `
                 );
                 if (this.player.wetness() >= 4) this.outx("large puddle");
                 else if (this.player.wetness() >= 2) this.outx("puddle");
@@ -417,8 +409,7 @@ export class FapArena extends BazaarAbstractContent {
             }
             if (this.player.biggestLactation() > 1.5)
                 this.outx(
-                    `  Your ${this.allBreastsDescript()} also release a milky flood of their own, the soft feeling of cream teasing your nipple only prolonging your orgasm.`,
-                    false
+                    `  Your ${this.allBreastsDescript()} also release a milky flood of their own, the soft feeling of cream teasing your nipple only prolonging your orgasm.`
                 );
             this.outx("\n\n", false);
 
@@ -488,8 +479,7 @@ export class FapArena extends BazaarAbstractContent {
             this.outx(
                 `You mentally keep track of all the people still in play.  They are fewer and fewer.  You just have to hold on a little longer.  Four... three... two... that's it.  You made it.  Phew, you have won just in time, your ${this.cockDescript(
                     x
-                )} was starting to twitch on its own.  Unhindered by the fear of losing, you completely give up to your orgasm and sigh in utter satisfaction and relief as you release one of the most abundant cumshots you've ever had.  Lost in climax, you carelessly `,
-                false
+                )} was starting to twitch on its own.  Unhindered by the fear of losing, you completely give up to your orgasm and sigh in utter satisfaction and relief as you release one of the most abundant cumshots you've ever had.  Lost in climax, you carelessly `
             );
             if (this.player.cumQ() >= 1000) this.outx("soak");
             else if (this.player.cumQ() >= 500) this.outx("pollute");
@@ -497,15 +487,13 @@ export class FapArena extends BazaarAbstractContent {
             this.outx(
                 ` the floor with your sexual juices and yell in a whorish voice: "<i>NUMBER ${num} CUMMING!</i>"  With a half-closed eye you notice the referee nodding in acknowledgement and you point your ${this.cockDescript(
                     x
-                )} at her, trying to soak her too.  She hardly dodges it and some lands on her arms, but she doesn't seem to notice.`,
-                false
+                )} at her, trying to soak her too.  She hardly dodges it and some lands on her arms, but she doesn't seem to notice.`
             );
             if (this.player.hasVagina()) {
                 this.outx(
                     `  Your thighs tense a few seconds before your ${this.vaginaDescript(
                         0
-                    )} squirts too, forming a `,
-                    false
+                    )} squirts too, forming a `
                 );
                 if (this.player.wetness() >= 4) this.outx("large puddle");
                 else if (this.player.wetness() >= 2) this.outx("puddle");
@@ -522,13 +510,12 @@ export class FapArena extends BazaarAbstractContent {
         this.outx(
             `You pant and relax, exhausted.  Your right arm is cramped and your ${this.cockDescript(
                 x
-            )} is sore.  People around you look similarly tired and are slowly recovering from this rough collective dick-stroking session.  Someone gently taps your shoulder.  It is your left neighbor: "<i>Well played. I didn't expect you would be so... resistant.  Few players last that long with me, because their rods generally don't endure my handjobs.</i>"  He proceeds to shake hands; both you are smeared with pre-cum and various cock juices, but you don't care.  You smile and thank him for the good game and the orgasm.  It comes as something of a relief that everyone seems to show good sportsmanship.  Everyone is congratulating each other; various comments reach your ears about the game they just had and how well their opponents did.  Your right partner stands before you.  "<i>Whoa, you sure know how to give a handjob!  That was amazing, and you know what?  I don't care if I haven't won!</i>"  You tell him that you're glad that he enjoyed your efforts.  Everyone is now laughing and chatting casually, as if their still erect cocks weren't dripping semen and they weren't busy giving furious handjobs a few minutes ago.  `,
-            false
+            )} is sore.  People around you look similarly tired and are slowly recovering from this rough collective dick-stroking session.  Someone gently taps your shoulder.  It is your left neighbor: "<i>Well played. I didn't expect you would be so... resistant.  Few players last that long with me, because their rods generally don't endure my handjobs.</i>"  He proceeds to shake hands; both you are smeared with pre-cum and various cock juices, but you don't care.  You smile and thank him for the good game and the orgasm.  It comes as something of a relief that everyone seems to show good sportsmanship.  Everyone is congratulating each other; various comments reach your ears about the game they just had and how well their opponents did.  Your right partner stands before you.  "<i>Whoa, you sure know how to give a handjob!  That was amazing, and you know what?  I don't care if I haven't won!</i>"  You tell him that you're glad that he enjoyed your efforts.  Everyone is now laughing and chatting casually, as if their still erect cocks weren't dripping semen and they weren't busy giving furious handjobs a few minutes ago.  `
         );
 
         // [if first time]
         if (this.flags[kFLAGS.FAP_ARENA_RULES_EXPLAINED] == 1)
-            this.outx("You stand here, a little lost, wondering what will happen next.", false);
+            this.outx("You stand here, a little lost, wondering what will happen next.");
         else
             this.outx(
                 "You join them, congratulating some on the strength of their stroke, and commenting on the various aspects of the fapping game you've just had.\n\n",
@@ -554,8 +541,7 @@ export class FapArena extends BazaarAbstractContent {
         // [else, corr >50]
         else
             this.outx(
-                `Your body tenses and ${this.sMultiCockDesc()} hardens at the perspective of a collective anal orgy.  You yell in lust like a minotaur in rut, "<i>BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!</i>" along with the others.  `,
-                false
+                `Your body tenses and ${this.sMultiCockDesc()} hardens at the perspective of a collective anal orgy.  You yell in lust like a minotaur in rut, "<i>BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!  BUTT-FUCK!</i>" along with the others.  `
             );
         // end of global condition about PC's corr, display the following
         this.outx(
@@ -664,10 +650,7 @@ export class FapArena extends BazaarAbstractContent {
                     this.outx("their ");
                 else this.outx("its ");
                 this.outx(
-                    `own, unhindered by the tight colon holding your first ${this.cockDescript(
-                        x
-                    )}.`,
-                    false
+                    `own, unhindered by the tight colon holding your first ${this.cockDescript(x)}.`
                 );
             }
             // [if player has vagina]
@@ -716,8 +699,7 @@ export class FapArena extends BazaarAbstractContent {
                 );
 
             this.outx(
-                `You suddenly hear a muffled moan from behind.  Someone is probably being fucked at the back of the train.  You brace yourself for the imminent anal penetration... and here it comes.  The dong is projected at full force into your ${this.buttDescript()} then all the way inside your colon; you're protected only by the copious glaze of pre-cum its bearer had been applying.`,
-                false
+                `You suddenly hear a muffled moan from behind.  Someone is probably being fucked at the back of the train.  You brace yourself for the imminent anal penetration... and here it comes.  The dong is projected at full force into your ${this.buttDescript()} then all the way inside your colon; you're protected only by the copious glaze of pre-cum its bearer had been applying.`
             );
             this.player.buttChange(5 + FapArena.rand(15), true, true, false);
             this.outx(
@@ -728,8 +710,7 @@ export class FapArena extends BazaarAbstractContent {
             );
             this.tentacleFapSpecial(place);
             this.outx(
-                `A pressure builds at your crotch as a milky torrent of seed finds its way into your urethra, down your sodomite partner's colon.  Almost simultaneously, you feel an equally thick spray of spooge being released inside your own ${this.buttDescript()}. At the peak of your orgasm, you are unable to think of anything but the steady flow of jism coming in and out of you.`,
-                false
+                `A pressure builds at your crotch as a milky torrent of seed finds its way into your urethra, down your sodomite partner's colon.  Almost simultaneously, you feel an equally thick spray of spooge being released inside your own ${this.buttDescript()}. At the peak of your orgasm, you are unable to think of anything but the steady flow of jism coming in and out of you.`
             );
             tent = this.tentacleFapCum();
             // [if player has multicocks]
@@ -750,10 +731,7 @@ export class FapArena extends BazaarAbstractContent {
                     this.outx("their ");
                 else this.outx("its ");
                 this.outx(
-                    `own, unhindered by the tight colon holding your first ${this.cockDescript(
-                        x
-                    )}.`,
-                    false
+                    `own, unhindered by the tight colon holding your first ${this.cockDescript(x)}.`
                 );
             }
             // [if player has vagina]
@@ -783,8 +761,7 @@ export class FapArena extends BazaarAbstractContent {
             );
 
             this.outx(
-                `You suddenly hear a muffled moan from behind. Someone is probably being penetrated at the back of the train.  You brace yourself for the imminent anal-fucking... and here it comes.  The dong is projected at full force into your ${this.buttDescript()} then all the way inside your colon; you're protected only by the copious glaze of pre-cum its bearer had been applying.`,
-                false
+                `You suddenly hear a muffled moan from behind. Someone is probably being penetrated at the back of the train.  You brace yourself for the imminent anal-fucking... and here it comes.  The dong is projected at full force into your ${this.buttDescript()} then all the way inside your colon; you're protected only by the copious glaze of pre-cum its bearer had been applying.`
             );
             this.player.buttChange(5 + FapArena.rand(10), true, true, false);
             this.outx(
@@ -795,8 +772,7 @@ export class FapArena extends BazaarAbstractContent {
             );
             this.tentacleFapSpecial(place);
             this.outx(
-                `You feel that towering rod grinding against the rough insides of your colon, the friction providing a shamefully amazing sensation of violation.  The large hands are gripping, pinching and groping your ${this.buttDescript()} with ease and feverish lust, and your abused flesh feels every tingle, every prickle of it, bringing you to the edge every time.  You know you are being ferociously dominated by that cock, but the pleasure is too good for you to care.  The raw feelings eventually prove too much for your horny body, and you simply lay there in the dust, waiting for the incoming orgasm.  Eventually you feel an enormous spray of spooge being released in your insides.  Almost instantly, you start unloading thick ropes of jism at a steady rate.  Wallowing in a pool of dirt muddied with sexual juices like a worthless slut, you grind your ${this.buttDescript()} against the cock harder, in order to milk every drop of semen coming out of it.  But your colon soon reaches its limits and spooge starts dribbling out in small spurts.`,
-                false
+                `You feel that towering rod grinding against the rough insides of your colon, the friction providing a shamefully amazing sensation of violation.  The large hands are gripping, pinching and groping your ${this.buttDescript()} with ease and feverish lust, and your abused flesh feels every tingle, every prickle of it, bringing you to the edge every time.  You know you are being ferociously dominated by that cock, but the pleasure is too good for you to care.  The raw feelings eventually prove too much for your horny body, and you simply lay there in the dust, waiting for the incoming orgasm.  Eventually you feel an enormous spray of spooge being released in your insides.  Almost instantly, you start unloading thick ropes of jism at a steady rate.  Wallowing in a pool of dirt muddied with sexual juices like a worthless slut, you grind your ${this.buttDescript()} against the cock harder, in order to milk every drop of semen coming out of it.  But your colon soon reaches its limits and spooge starts dribbling out in small spurts.`
             );
             this.tentacleFapCum();
             // [if player has vagina]
@@ -822,8 +798,7 @@ export class FapArena extends BazaarAbstractContent {
         // [if you won]
         if (place <= 1) {
             this.outx(
-                `You quickly stand back up and start dressing yourself.  Before you go, the cute little referee hands you a small box, her coy smile and nude body somehow awakening ${this.sMultiCockDesc()} again. Ye Gods, it never ends.  "<i>Here's a little something for being the winner of this session.  Hope you enjoy your prize.  Come and play again!</i>"`,
-                false
+                `You quickly stand back up and start dressing yourself.  Before you go, the cute little referee hands you a small box, her coy smile and nude body somehow awakening ${this.sMultiCockDesc()} again. Ye Gods, it never ends.  "<i>Here's a little something for being the winner of this session.  Hope you enjoy your prize.  Come and play again!</i>"`
             );
             // You find [random item from the list: gro+, succubi's dream, large blue egg].
 
@@ -846,8 +821,7 @@ export class FapArena extends BazaarAbstractContent {
         // [if you didn't win]
         else if (place == 2) {
             this.outx(
-                `You awkwardly remove the dick from your ass and start dressing yourself.  Before you go, the cute little referee waves at you, her coy smile and nude body somehow awakening ${this.sMultiCockDesc()} again.  Ye Gods, it never ends.  "<i>I hope you enjoyed this session. Better luck next time...</i>"`,
-                false
+                `You awkwardly remove the dick from your ass and start dressing yourself.  Before you go, the cute little referee waves at you, her coy smile and nude body somehow awakening ${this.sMultiCockDesc()} again.  Ye Gods, it never ends.  "<i>I hope you enjoyed this session. Better luck next time...</i>"`
             );
             this.player.orgasm();
             this.doNext(this.camp.returnToCampUseOneHour);
@@ -857,8 +831,7 @@ export class FapArena extends BazaarAbstractContent {
             this.outx(
                 `You awkwardly remove the dick from your ass, start cleaning yourself from all the dirt and cum before leaving the tent.  Before you go, the nude referee approaches you and gently squeezes your ${this.cockDescript(
                     x
-                )}; you still wince from the pounding it took earlier.  "<i>Awww, looks like you had a rough time, didn't you?  Well, it happens sometimes.  Hopefully you will get better at this.  See you next game!</i>"`,
-                false
+                )}; you still wince from the pounding it took earlier.  "<i>Awww, looks like you had a rough time, didn't you?  Well, it happens sometimes.  Hopefully you will get better at this.  See you next game!</i>"`
             );
             this.player.orgasm();
             this.doNext(this.camp.returnToCampUseOneHour);
@@ -884,8 +857,7 @@ export class FapArena extends BazaarAbstractContent {
             this.outx(
                 `You suddenly remember your ${Appearance.cockNoun(
                     CockTypesEnum.TENTACLE
-                )} isn't getting love. The poor squirming thing is trembling in arousal and you decide it should also take part in the collective butt-fuck; you don't care whether it's cheating or not; after all, the butt-fuck has already begun.  Besides, the referee is too busy touching herself to notice anything.  Fortunately your tentacle dick is long and flexible enough to be guided toward some hole to fuck; you proceed to snake your tentacle dong around, looking for some vagina.  After a few seconds of unsuccessful searching, groping muscled butts with your nodules but finding no hole that's already filled by some ramming cock, your ropy member finally locates a gaping, fluid-dripping vagina.  You've found a herm!  Her slick fuck-hole is oozing due to the unholy embrace of flesh her pucker and her shaft are already getting, and you have no trouble sliding a few inches inside with expert guidance.  The brutal and unexpected secondary intrusion makes her moan instantly.  You welcome this new burst of pleasure and start jamming your tentacle pecker back and forth in the herm's vagina, all the while `,
-                false
+                )} isn't getting love. The poor squirming thing is trembling in arousal and you decide it should also take part in the collective butt-fuck; you don't care whether it's cheating or not; after all, the butt-fuck has already begun.  Besides, the referee is too busy touching herself to notice anything.  Fortunately your tentacle dick is long and flexible enough to be guided toward some hole to fuck; you proceed to snake your tentacle dong around, looking for some vagina.  After a few seconds of unsuccessful searching, groping muscled butts with your nodules but finding no hole that's already filled by some ramming cock, your ropy member finally locates a gaping, fluid-dripping vagina.  You've found a herm!  Her slick fuck-hole is oozing due to the unholy embrace of flesh her pucker and her shaft are already getting, and you have no trouble sliding a few inches inside with expert guidance.  The brutal and unexpected secondary intrusion makes her moan instantly.  You welcome this new burst of pleasure and start jamming your tentacle pecker back and forth in the herm's vagina, all the while `
             );
             if (place <= 2) this.outx("fucking your partner's anus");
             if (place == 2) this.outx(" and");
@@ -896,8 +868,7 @@ export class FapArena extends BazaarAbstractContent {
                 this.outx(
                     `Needless to say, this interference creates a general disruption in the whole butt-fuck wave.  The whole train of peckers and puckers starts moving irregularly, grinding against your ${this.cockDescript(
                         x
-                    )} at the most unexpected moments, and the pleasure you're getting from your extra tentacle cock doesn't help.  Everyone's butt and dick is affected to some extent; everyone's pleasure is increased because of your audacious initiative, and loud, reluctant moans are heard.`,
-                    false
+                    )} at the most unexpected moments, and the pleasure you're getting from your extra tentacle cock doesn't help.  Everyone's butt and dick is affected to some extent; everyone's pleasure is increased because of your audacious initiative, and loud, reluctant moans are heard.`
                 );
                 if (place == 1)
                     this.outx(

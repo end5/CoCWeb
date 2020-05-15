@@ -22,7 +22,7 @@ export class InfestedHellhoundScene extends BaseContent {
             `.  Peeking fearfully over your shoulder, you see the black-furred form of a hell-hound emerging from behind a rock.  Its eyes narrow as its gaze locks onto your ${this.player.assholeOrPussy()}, a pair of black, shiny dog-cocks emerge underneath him, dangling freely.  His balls look bloated and distended, the skin around them crawling and wriggling.  A few worms drip from its over-sized peckers, crawling on the ground under the infested beast.\n\n`,
             false
         );
-        this.outx("Somehow you know this thing isn't going to let you just walk away.", false);
+        this.outx("Somehow you know this thing isn't going to let you just walk away.");
         this.startCombat(new InfestedHellhound());
         this.spriteSelect(27);
     }
@@ -112,8 +112,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
                 this.outx(
-                    `each of your ${this.multiCockDescriptLight()}.  It feels good, better than it has any right to.  `,
-                    false
+                    `each of your ${this.multiCockDescriptLight()}.  It feels good, better than it has any right to.  `
                 );
                 this.outx(
                     `Every single one of your ${this.multiCockDescriptLight()} hardens under the stimulation, happy to be so well-treated.\n\n`,
@@ -133,8 +132,7 @@ export class InfestedHellhoundScene extends BaseContent {
                 this.outx("Your ");
                 if (this.player.balls > 0)
                     this.outx(
-                        `${this.ballsDescriptLight()} shiver as hot doggie-cum and wiggling worms are pumped directly into them.  `,
-                        false
+                        `${this.ballsDescriptLight()} shiver as hot doggie-cum and wiggling worms are pumped directly into them.  `
                     );
                 else
                     this.outx(
@@ -156,8 +154,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
                 this.outx(
-                    `your ${this.multiCockDescriptLight()}.  It feels good, better than it has any right to.  `,
-                    false
+                    `your ${this.multiCockDescriptLight()}.  It feels good, better than it has any right to.  `
                 );
                 this.outx(
                     `Your ${this.multiCockDescriptLight()} hardens under the stimulation, happy to be so well-treated.\n\n`,
@@ -177,8 +174,7 @@ export class InfestedHellhoundScene extends BaseContent {
                 this.outx("Your ");
                 if (this.player.balls > 0)
                     this.outx(
-                        `${this.ballsDescriptLight()} shiver as hot doggie-cum and wiggling worms are pumped directly into them.`,
-                        false
+                        `${this.ballsDescriptLight()} shiver as hot doggie-cum and wiggling worms are pumped directly into them.`
                     );
                 else
                     this.outx(
@@ -371,8 +367,7 @@ export class InfestedHellhoundScene extends BaseContent {
             );
 
             this.outx(
-                `Unable to support yourself any longer, you collapse, your hips held up by the demonic black dog-dick lodged in your orifice.  They keep cumming and cumming, until your body takes a slow slide off to the ground.  Your eyes drift closed, lulled to sleep by the squirming warmth plugging your ${this.assholeDescript()} and coating your back.`,
-                false
+                `Unable to support yourself any longer, you collapse, your hips held up by the demonic black dog-dick lodged in your orifice.  They keep cumming and cumming, until your body takes a slow slide off to the ground.  Your eyes drift closed, lulled to sleep by the squirming warmth plugging your ${this.assholeDescript()} and coating your back.`
             );
             this.outx("  ");
             this.player.buttChange(this.monster.cockArea(0), true);

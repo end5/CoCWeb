@@ -71,7 +71,7 @@ export class Tamani extends Goblin {
                 );
                 if (this.player.totalCocks() > 1) this.outx("Each of y");
                 else this.outx("Y");
-                this.outx(`our ${this.multiCockDescriptLight()}`, false);
+                this.outx(`our ${this.multiCockDescriptLight()}`);
                 if (this.player.lust > 80) this.outx(" drips pre-cum");
                 else if (this.player.lust > 40) this.outx(" grows harder");
                 else this.outx(" hardens");
@@ -87,7 +87,7 @@ export class Tamani extends Goblin {
                     false
                 );
                 if (this.player.totalCocks() > 1) this.outx("each of ");
-                this.outx(`your ${this.player.multiCockDescriptLight()}`, false);
+                this.outx(`your ${this.player.multiCockDescriptLight()}`);
                 if (this.player.lust <= 41) this.outx(" thicken perceptibly");
                 else if (this.player.lust <= 81) this.outx(" twitch eagerly");
                 else this.outx("drip pre-cum");
@@ -112,8 +112,7 @@ export class Tamani extends Goblin {
                 );
                 if (this.player.totalCocks() > 1) this.outx("each of ");
                 this.outx(
-                    `your ${this.player.multiCockDescriptLight()} aches with need.  You battle with the compulsion to kneel before your short, stacked mistress and perform your duties as her breeder husband.`,
-                    false
+                    `your ${this.player.multiCockDescriptLight()} aches with need.  You battle with the compulsion to kneel before your short, stacked mistress and perform your duties as her breeder husband.`
                 );
             } else {
                 this.outx(
@@ -123,8 +122,7 @@ export class Tamani extends Goblin {
                 if (this.player.totalCocks() > 1) this.outx("Each of y");
                 else this.outx("Y");
                 this.outx(
-                    `our ${this.player.multiCockDescriptLight()} pulses and dribbles pre-cum, aching to do its duty and fire load after load into Tamani's perfect pussy.`,
-                    false
+                    `our ${this.player.multiCockDescriptLight()} pulses and dribbles pre-cum, aching to do its duty and fire load after load into Tamani's perfect pussy.`
                 );
             }
         }

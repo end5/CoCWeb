@@ -609,8 +609,7 @@ export class FollowerInteractions extends NPCAwareContent {
         } else if (this.flags[kFLAGS.MARBLE_KIDS] > 0) {
             // Silent -> PC has had kid(s) with Marble and is not addicted (A3)
             this.outx(
-                `Marble suddenly bursts into tears herself and, between sobs, yells "<i>Why ${this.player.short}?  Did none of our kids mean anything to you?</i>"  In frustration she slams her hammer against the ground, causing a tremor that almost knocks you and Amily onto your asses.  However, at this point the two of them have broken down and collapsed on their knees sobbing.  You have no idea what you can say at this point, or what you should do.  After a few minutes pass, the two of them each give you a sad look in turn before collecting their things (and in Marble's case, her kids) and leaving the camp.  You doubt that you'll ever see either of them again.`,
-                false
+                `Marble suddenly bursts into tears herself and, between sobs, yells "<i>Why ${this.player.short}?  Did none of our kids mean anything to you?</i>"  In frustration she slams her hammer against the ground, causing a tremor that almost knocks you and Amily onto your asses.  However, at this point the two of them have broken down and collapsed on their knees sobbing.  You have no idea what you can say at this point, or what you should do.  After a few minutes pass, the two of them each give you a sad look in turn before collecting their things (and in Marble's case, her kids) and leaving the camp.  You doubt that you'll ever see either of them again.`
             );
             // end event, Amily and Marble leave the camp for good
             this.player.removeStatusAffect(StatusAffects.CampMarble);
@@ -620,8 +619,7 @@ export class FollowerInteractions extends NPCAwareContent {
         // Silent -> Otherwise (A4)
         else {
             this.outx(
-                `Turning to face you with her hammer raised, Marble says to you "<i>So I guess that I'm nothing but a fuck to you then, hun?!  After all I sacrificed to help you get over your addiction, just so that you could be with someone else?!</i>"  She swings her hammer at you and you barely dodge it in time and look back at the angry cowgirl.  "<i>${this.player.short}!</i>" Amily calls out to you while rushing to your side and wiping her tears.  "<i>Fine!</i>"  Marble yells at the two of you. "<i>You two can be together and have as many kids with each other as you want!  I'm leaving ${this.player.short}, don't come looking for me.</i>" she declares before collecting her things and leaving the camp.  You doubt you'll see her again.`,
-                false
+                `Turning to face you with her hammer raised, Marble says to you "<i>So I guess that I'm nothing but a fuck to you then, hun?!  After all I sacrificed to help you get over your addiction, just so that you could be with someone else?!</i>"  She swings her hammer at you and you barely dodge it in time and look back at the angry cowgirl.  "<i>${this.player.short}!</i>" Amily calls out to you while rushing to your side and wiping her tears.  "<i>Fine!</i>"  Marble yells at the two of you. "<i>You two can be together and have as many kids with each other as you want!  I'm leaving ${this.player.short}, don't come looking for me.</i>" she declares before collecting her things and leaving the camp.  You doubt you'll see her again.`
             );
             // end event, Marble leaves the camp for good
             this.player.removeStatusAffect(StatusAffects.CampMarble);
@@ -747,8 +745,7 @@ export class FollowerInteractions extends NPCAwareContent {
         if (this.player.inte > 50) {
             // Explain -> pass (C2)
             this.outx(
-                `Right away, you realize that this situation isn't really something that you can talk your way out of.  You start to tell the two of them why you like them and why you were with them.  You tell Marble about Amily's desire to repopulate her people, and you tell Amily about Marble's desire to find someone and the difficulties that her species brings with it.  At the end of your talk, the two of them are just looking at each other.  After a few moments Amily says, "<i>So, you're corrupt huh?  I guess you seem nice enough...</i>"  Marble responds, "<i>You're really cute yourself, little mousy, and you definitely needed someone for a good reason.  The real problem is that ${this.player.short} didn't get the two of us to talk to each other before now.</i>"  The two of them then turn back to you with dirty looks in their eyes.  It looks like things aren't going to be all that nice for you for a while, but at least they don't seem to hate each other.`,
-                false
+                `Right away, you realize that this situation isn't really something that you can talk your way out of.  You start to tell the two of them why you like them and why you were with them.  You tell Marble about Amily's desire to repopulate her people, and you tell Amily about Marble's desire to find someone and the difficulties that her species brings with it.  At the end of your talk, the two of them are just looking at each other.  After a few moments Amily says, "<i>So, you're corrupt huh?  I guess you seem nice enough...</i>"  Marble responds, "<i>You're really cute yourself, little mousy, and you definitely needed someone for a good reason.  The real problem is that ${this.player.short} didn't get the two of us to talk to each other before now.</i>"  The two of them then turn back to you with dirty looks in their eyes.  It looks like things aren't going to be all that nice for you for a while, but at least they don't seem to hate each other.`
             );
             // end event, set lust or other sex values to minimum to make it so that Marble and Amily "punish" the player a little for awhile.
             this.flags[kFLAGS.MARBLE_LUST] = -100;
@@ -883,10 +880,7 @@ export class FollowerInteractions extends NPCAwareContent {
                 false
             );
             if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
-                this.outx(
-                    ` her ${this.amilyScene.amilyCock()} half-erect and drooling pre and`,
-                    false
-                );
+                this.outx(` her ${this.amilyScene.amilyCock()} half-erect and drooling pre and`);
             this.outx(
                 " her stomach swollen from the fox-morph's prodigious cum output to the point she looks ",
                 false
@@ -1125,13 +1119,11 @@ export class FollowerInteractions extends NPCAwareContent {
         this.outx("\n\n", false);
 
         this.outx(
-            `With a gesture, the two of you set off.  As soon as you pass through the gates, you head towards the Wet Bitch.  Sure enough, Urta is at her usual table, and she smiles in delight to see you.  "<i>${this.player.short}, Amily, hello!</i>"  You take seats at the same table, as she `,
-            false
+            `With a gesture, the two of you set off.  As soon as you pass through the gates, you head towards the Wet Bitch.  Sure enough, Urta is at her usual table, and she smiles in delight to see you.  "<i>${this.player.short}, Amily, hello!</i>"  You take seats at the same table, as she `
         );
         if (!this.urtaLove())
             this.outx("blushes softly at the clunk of her erection against the table");
-        else
-            this.outx("turns sideways to let her dress tent without banging into the table", false);
+        else this.outx("turns sideways to let her dress tent without banging into the table");
         this.outx(".\n\n", false);
 
         this.outx(
@@ -1201,8 +1193,7 @@ export class FollowerInteractions extends NPCAwareContent {
         );
 
         this.outx(
-            `Urta groans, unable to resist groping Amily's ${this.amilyScene.amilyTits()}.  "<i>Let me sit down, first, squeaky; I've never been one for sex while standing up</i>".  She slowly lowers herself to the ground and then pulls Amily down into her lap, idly grinding her mare-cock against Amily's torso`,
-            false
+            `Urta groans, unable to resist groping Amily's ${this.amilyScene.amilyTits()}.  "<i>Let me sit down, first, squeaky; I've never been one for sex while standing up</i>".  She slowly lowers herself to the ground and then pulls Amily down into her lap, idly grinding her mare-cock against Amily's torso`
         );
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0) this.outx(", up the underside of her penis,");
         this.outx(` and between her ${this.amilyScene.amilyTits()}.\n\n`, false);

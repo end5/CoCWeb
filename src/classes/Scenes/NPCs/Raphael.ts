@@ -413,8 +413,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `All over your body where the gossamer isn't reinforced with jacket or corset, the density of the delicate velvet web varies. Although the silk hugs across your ${this.vaginaDescript(
                 0
-            )} and through the crack of your ass as a triple layer that guards against prying eyes, the surface of your hips and legs is clearly seen through the transparent motif of flowers swirling across the lace. The cheeks of your ${this.buttDescript()} feel equally exposed despite the presence of four sweeping rosebranches stitched across them, but at least the jacket trails past your lower back and partly covers your buttocks with its parted tailflaps.`,
-            false
+            )} and through the crack of your ass as a triple layer that guards against prying eyes, the surface of your hips and legs is clearly seen through the transparent motif of flowers swirling across the lace. The cheeks of your ${this.buttDescript()} feel equally exposed despite the presence of four sweeping rosebranches stitched across them, but at least the jacket trails past your lower back and partly covers your buttocks with its parted tailflaps.`
         );
         // ({If player has tail}
         if (this.player.tailType > TAIL_TYPE_NONE)

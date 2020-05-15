@@ -697,7 +697,7 @@ export class Camp extends NPCAwareContent {
             );
             if (this.flags[kFLAGS.MARBLE_KIDS] == 0) this.outx("future children");
             else {
-                this.outx(`${Camp.num2Text(this.flags[kFLAGS.MARBLE_KIDS])} child`, false);
+                this.outx(`${Camp.num2Text(this.flags[kFLAGS.MARBLE_KIDS])} child`);
                 if (this.flags[kFLAGS.MARBLE_KIDS] > 1) this.outx("ren");
             }
             this.outx(".");
@@ -1428,10 +1428,10 @@ export class Camp extends NPCAwareContent {
                     this.outx("Marble herself is resting on her bedroll right now.");
                 }
                 if (this.temp == 4) {
-                    this.outx("Marble herself is wandering around the camp right now.", false);
+                    this.outx("Marble herself is wandering around the camp right now.");
                 }
                 if (this.temp < 3)
-                    this.outx("  You're sure she'd be back in moments if you needed her.", false);
+                    this.outx("  You're sure she'd be back in moments if you needed her.");
                 marbleEvent = this.marbleScene.interactWithMarbleAtCamp;
             }
             // Out getting family
@@ -1449,7 +1449,7 @@ export class Camp extends NPCAwareContent {
             if (this.temp == 0) {
                 this.outx("dripping water and stark naked from a bath in the stream");
                 if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0)
-                    this.outx(".  Rathazul glances over and immediately gets a nosebleed", false);
+                    this.outx(".  Rathazul glances over and immediately gets a nosebleed");
             } else if (this.temp == 1)
                 this.outx(
                     "slouching in the shade of some particularly prominent rocks, whittling twigs to create darts for her blowpipe",
@@ -1889,11 +1889,7 @@ export class Camp extends NPCAwareContent {
                     );
                 }
                 // Normal sleep message
-                else
-                    this.outx(
-                        `You curl up, planning to sleep for ${Camp.num2Text(this.timeQ)} `,
-                        false
-                    );
+                else this.outx(`You curl up, planning to sleep for ${Camp.num2Text(this.timeQ)} `);
                 if (this.timeQ == 1) this.outx("hour.\n", false);
                 else this.outx("hours.\n", false);
             }

@@ -133,8 +133,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             this.outx(
                 `While roaming along, you find your path ahead blocked by ${TamainsDaughtersScene.num2Text(
                     Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 4)
-                )} goblins.  At the forefront of the mob is Tamani`,
-                false
+                )} goblins.  At the forefront of the mob is Tamani`
             );
             if (this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED] >= 10) this.outx(", your wife");
             this.outx(
@@ -161,8 +160,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.outx(
             `${TamainsDaughtersScene.num2Text(
                 Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 4)
-            )} goblins.  You `,
-            false
+            )} goblins.  You `
         );
         if (this.player.weaponName == "fists") this.outx("ready your fists ");
         else this.outx("draw your weapon ");
@@ -294,7 +292,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         const daughters: number = Math.floor(this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2);
 
         this.outx("", true);
-        this.outx(`You shrug out of your ${this.player.armorName} and grab hold of `, false);
+        this.outx(`You shrug out of your ${this.player.armorName} and grab hold of `);
         if (cocks == 1) this.outx("your ");
         else this.outx("one of your ");
         this.outx(
@@ -316,13 +314,11 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     primary
                 )}.  The others crowd around, jealous of your chosen cock-sleeve.   She looks up at you, blissful as she hugs against you and grinds her tight body down, raping her virginal hole on the firmness of your ${this.cockDescript(
                     primary
-                )}.   The others massage your ${this.player.legs()}, licking and nibbling your skin as they compete to tempt you into taking them next.`,
-                false
+                )}.   The others massage your ${this.player.legs()}, licking and nibbling your skin as they compete to tempt you into taking them next.`
             );
             if (TamainsDaughtersScene.tamaniPresent) {
                 this.outx("  Tamani pushes aside the smaller sluts and ");
-                if (this.player.balls > 0)
-                    this.outx(`cups your ${this.ballsDescriptLight()}.`, false);
+                if (this.player.balls > 0) this.outx(`cups your ${this.ballsDescriptLight()}.`);
                 else this.outx("licks your taint.");
             }
             this.outx("\n\n", false);
@@ -409,8 +405,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 this.outx(
                     `As your orgasm trails off, your green cock-sleeve is removed.  You sigh happily, glad the ordeal is over.  Your ${this.cockDescript(
                         0
-                    )} manages to continue to throb, and you wonder just how long you'll have to wait for the goblin drugs to wear off.  The answer comes sooner than you think, in the form of a large vial of sweet-tasting liquid.  Your nose is pinched shut by a teal hand and your throat is massaged until you swallow the entire thing.  The result is immediate.  Slight shakes work their way through your body as it reacts to the corrupted drugs.  `,
-                    false
+                    )} manages to continue to throb, and you wonder just how long you'll have to wait for the goblin drugs to wear off.  The answer comes sooner than you think, in the form of a large vial of sweet-tasting liquid.  Your nose is pinched shut by a teal hand and your throat is massaged until you swallow the entire thing.  The result is immediate.  Slight shakes work their way through your body as it reacts to the corrupted drugs.  `
                 );
                 if (this.player.balls > 0)
                     this.outx(
@@ -426,8 +421,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
 
                 if (TamainsDaughtersScene.tamaniPresent) {
                     this.outx(
-                        `Tamani pushes the slut on your face off and plants herself there, smearing your ${this.player.face()} with a mixture of cum and vaginal wetness.  `,
-                        false
+                        `Tamani pushes the slut on your face off and plants herself there, smearing your ${this.player.face()} with a mixture of cum and vaginal wetness.  `
                     );
                     if (kGAMECLASS.forest.tamaniScene.pregnancy.isPregnant) {
                         this.outx("She rubs her pregnancy swollen belly");
@@ -448,15 +442,14 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 this.outx(
                     `The perverse thoughts get to you, worming their way inside you until they reach your ${this.cockDescript(
                         primary
-                    )}.  It clenches and explodes, packing the slut's womb with cream.  She's lifted off by her sisters, and your next blast fires into the air, splattering over the assembled goblins with a wet plop.  Many gather it up, licking and slurping it, or shoveling it directly into their waiting cunts.  Another pussy is placed on you, and the sensation of new flesh taking you makes the contraction feel even longer.  She staggers off a few moments later, looking pregnant already.  The cycle repeats until`,
-                    false
+                    )}.  It clenches and explodes, packing the slut's womb with cream.  She's lifted off by her sisters, and your next blast fires into the air, splattering over the assembled goblins with a wet plop.  Many gather it up, licking and slurping it, or shoveling it directly into their waiting cunts.  Another pussy is placed on you, and the sensation of new flesh taking you makes the contraction feel even longer.  She staggers off a few moments later, looking pregnant already.  The cycle repeats until`
                 );
                 if (daughters < 20) this.outx(" the majority ");
                 else this.outx(" half ");
                 this.outx("of the girls have spooge-slicked cunts and big grins.\n\n", false);
 
                 this.outx("As your ");
-                if (this.player.balls > 0) this.outx(`${this.ballsDescriptLight()} empty`, false);
+                if (this.player.balls > 0) this.outx(`${this.ballsDescriptLight()} empty`);
                 else this.outx("prostate empties");
                 this.outx(
                     ', one of the girls wanders over and asks, "<i>How does it feel knowing your daughter is pregnant with even more children? Does it turn you on, <b>Daddy</b>?</i>"\n\n',
@@ -559,13 +552,11 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                         0
                     )} wilts, drooping downward as it drips the last of its seed.  Tamani seems oblivious to that fact though, and continues to violate you from behind.  You're about to reach around to dislodge the tiny anal rapist when another squirt of aphrodisiacs releases inside you, catching some of your prostate with the goop.  A torrent of blood rushes to your ${this.cockDescript(
                         0
-                    )} and you're suddenly achingly hard again.`,
-                    false
+                    )} and you're suddenly achingly hard again.`
                 );
                 if (this.player.balls > 0)
                     this.outx(
-                        `  Your ${this.ballsDescriptLight()} ache from the strain, but struggle to churn up more sperm.  `,
-                        false
+                        `  Your ${this.ballsDescriptLight()} ache from the strain, but struggle to churn up more sperm.  `
                     );
                 this.outx(
                     "A drop of pre-cum beads on the tip and you find yourself relaxing, letting Tamani slide her drug-slicked horse-cock the rest of the way into you.\n\n",
@@ -573,16 +564,12 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 );
             }
             this.outx(
-                `A third goblin suddenly attacks your taint, licking between your ${this.assholeDescript()} and `,
-                false
+                `A third goblin suddenly attacks your taint, licking between your ${this.assholeDescript()} and `
             );
             if (this.player.balls > 0) this.outx(this.ballsDescriptLight(), false);
             else if (this.player.hasVagina()) this.outx(this.vaginaDescript(0), false);
             else this.outx("shaft");
-            this.outx(
-                ` as she presses her hard nipples up against your ${this.player.legs()}. `,
-                false
-            );
+            this.outx(` as she presses her hard nipples up against your ${this.player.legs()}. `);
             // (No Tamani:
             if (!TamainsDaughtersScene.tamaniPresent)
                 this.outx(
@@ -719,19 +706,16 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 );
             else if (cocks > 2)
                 this.outx(
-                    `More and more hands latch onto the rest of your ${this.multiCockDescriptLight()}, guiding each of them into a tight cunt-hole.   If you could see around the tight body of the slut on your face, you're sure the scene on your crotch would push you over the edge.`,
-                    false
+                    `More and more hands latch onto the rest of your ${this.multiCockDescriptLight()}, guiding each of them into a tight cunt-hole.   If you could see around the tight body of the slut on your face, you're sure the scene on your crotch would push you over the edge.`
                 );
             else
                 this.outx(
-                    `You stiffen as a tongue suddenly presses against your ${this.assholeOrPussy()} sliding inside and intensifying the feelings radiating down your fuck-pole until you're unable to hold on.`,
-                    false
+                    `You stiffen as a tongue suddenly presses against your ${this.assholeOrPussy()} sliding inside and intensifying the feelings radiating down your fuck-pole until you're unable to hold on.`
                 );
             this.outx("\n\n", false);
 
             this.outx(
-                `A sudden flow of fluids soaks your ${this.player.face()} and dribbles from your chin.  The face-riding goblin bucks like a bronco, nearly breaking your nose before the strength drains from her body and she slides off into the dirt, panting weakly.   Confronted with the sight of `,
-                false
+                `A sudden flow of fluids soaks your ${this.player.face()} and dribbles from your chin.  The face-riding goblin bucks like a bronco, nearly breaking your nose before the strength drains from her body and she slides off into the dirt, panting weakly.   Confronted with the sight of `
             );
             if (cocks > 2) this.outx("so many girls impaled on your flesh");
             else if (cocks == 2) this.outx("your daughters' whorish expressions of pleasure");
@@ -739,8 +723,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 this.outx(
                     `the sultry gaze of Tamani's oldest daughter as she rides your ${this.cockDescript(
                         primary
-                    )}`,
-                    false
+                    )}`
                 );
             this.outx(", you can do nothing but cum.  ");
             if (cocks > 1)
@@ -759,7 +742,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     false
                 );
                 if (cocks == 1) this.outx("her belly until she looks a little pregnant");
-                else this.outx("each of their uteruses until they look a little pregnant", false);
+                else this.outx("each of their uteruses until they look a little pregnant");
                 this.outx(".");
             }
             if (cocks == 1)
@@ -894,8 +877,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     this.outx(
                         `Amazingly, you orgasm again.  An orgiastic squeal erupts from your ${this.cockDescript(
                             primary
-                        )}'s current owner, breaking off into pants and gasps `,
-                        false
+                        )}'s current owner, breaking off into pants and gasps `
                     );
                     if (this.player.cumQ() < 100)
                         this.outx(
@@ -915,8 +897,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     this.outx(
                         `  Disappointed moans rise up from the others as they realize they've lost the cum-lottery.   The winner, patting her belly happily, stands up, filling the air with a loud 'slurrrrrp' as her twat noisily releases your ${this.cockDescript(
                             primary
-                        )}.`,
-                        false
+                        )}.`
                     );
                     if (this.player.cumQ() >= 500)
                         this.outx(
@@ -946,8 +927,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     this.outx(
                         `Amazingly, you orgasm again.  An orgiastic squeal erupts from your ${this.cockDescript(
                             0
-                        )}'s current owner, breaking off into pants and gasps `,
-                        false
+                        )}'s current owner, breaking off into pants and gasps `
                     );
                     if (this.player.cumQ() < 100)
                         this.outx(
@@ -967,8 +947,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     this.outx(
                         `  Disappointed moans rise up from the others as they realize they've lost the cum-lottery.   The winner, patting her belly happily, stands up, filling the air with a loud 'slurrrrrp' as her twat noisily releases your ${this.cockDescript(
                             primary
-                        )}.`,
-                        false
+                        )}.`
                     );
                     if (this.player.cumQ() >= 500)
                         this.outx(
@@ -1016,8 +995,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                             "Locked in a ceaseless orgasm, you're raped by one goblin after another.  A parade of tight pink pussies and their green-skinned owners passes by you, and once each of them is dripping with white seed, they take the time for a second pass.  By the time it's over, you're raw and sore, and your ",
                             false
                         );
-                        if (this.player.balls > 0)
-                            this.outx(`${this.ballsDescriptLight()} hurt`, false);
+                        if (this.player.balls > 0) this.outx(`${this.ballsDescriptLight()} hurt`);
                         else this.outx("crotch hurts");
                         this.outx(
                             " from having to generate such a ridiculous quantity of spooge.  The crowd of milling goblins seems much less frantic now that they've gotten what they want.  You're kissed and licked and massaged by the thankful mass, and you lose yourself to unconsciousness, still dribbling semen.",
@@ -1058,8 +1036,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 this.outx(
                     `A sudden flow of fluids soaks your ${this.player.face()} and dribbles from your chin.  The face-riding goblin bucks like a bronco, nearly breaking your nose before the strength drains from her body and she slides off into the dirt, panting weakly.  Now freed from your juicy prison, you can see the oldest daughter as she's squeezing on your ${this.cockDescript(
                         0
-                    )}, sliding her gash and `,
-                    false
+                    )}, sliding her gash and `
                 );
                 if (daughters < 20) this.outx("pert ");
                 else if (daughters > 40) this.outx("heavy ");
@@ -1068,29 +1045,26 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     this.outx(
                         `  Another one of the petite sluts climbs aboard your ${this.cockDescript(
                             1
-                        )}, squealing happily to her sister as she joins her in riding you.`,
-                        false
+                        )}, squealing happily to her sister as she joins her in riding you.`
                     );
                 if (cocks > 2) {
                     this.outx(
                         "  A third, wearing slutty pink make-up with platinum blonde hair, lays out across your ",
                         false
                     );
-                    if (cocks > 3) this.outx(`remaining ${this.multiCockDescriptLight()}`, false);
+                    if (cocks > 3) this.outx(`remaining ${this.multiCockDescriptLight()}`);
                     else this.outx(this.cockDescript(2), false);
                     this.outx(".");
                 }
                 this.outx("\n\n", false);
 
                 this.outx(
-                    `She pivots around, placing her drooling, wet gash against your ${this.player.cockHead()} and begins vigorously jerking you off.   Her ass bounces hypnotically on your `,
-                    false
+                    `She pivots around, placing her drooling, wet gash against your ${this.player.cockHead()} and begins vigorously jerking you off.   Her ass bounces hypnotically on your `
                 );
                 if (this.player.biggestTitSize() < 1) this.outx("chest");
                 else this.outx(this.allBreastsDescript(), false);
                 this.outx(
-                    `, sending a fresh surge of arousal through your ${this.multiCockDescriptLight()}.   Another one of the girls leans down between your ${this.player.legs()} licking your `,
-                    false
+                    `, sending a fresh surge of arousal through your ${this.multiCockDescriptLight()}.   Another one of the girls leans down between your ${this.player.legs()} licking your `
                 );
                 if (this.player.balls > 0) this.outx("balls");
                 else if (this.player.hasVagina()) this.outx("pussy");
@@ -1122,8 +1096,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     );
 
                 this.outx(
-                    `Your body caves into their demands.  The girl between your ${this.player.legs()} licks hard as your muscles tense with orgasm.  `,
-                    false
+                    `Your body caves into their demands.  The girl between your ${this.player.legs()} licks hard as your muscles tense with orgasm.  `
                 );
                 // Single cock jizz scene
                 if (cocks == 1) {
@@ -1203,40 +1176,34 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 if (cocks == 1) this.outx("Y");
                 else this.outx("Each of y");
                 this.outx(
-                    `our ${this.multiCockDescriptLight()} is now rock solid and beading pre-cum at the tip.  `,
-                    false
+                    `our ${this.multiCockDescriptLight()} is now rock solid and beading pre-cum at the tip.  `
                 );
                 // (single)
                 if (cocks == 1)
                     this.outx(
                         `The purple-lipped cock-slut grabs your ${this.cockDescript(
                             0
-                        )} and makes a show of smearing the slippery fluid over your shaft, lubricating it as she jacks you off.  Her warm lips form a tight seal on your ${this.player.cockHead()} as the young goblin begins lapping at your pre-cum as she sucks it from your urethra.   It feels heavenly, and your ${this.hipDescript()} pump weakly into the air in an instinctive bid to enhance the sensation.`,
-                        false
+                        )} and makes a show of smearing the slippery fluid over your shaft, lubricating it as she jacks you off.  Her warm lips form a tight seal on your ${this.player.cockHead()} as the young goblin begins lapping at your pre-cum as she sucks it from your urethra.   It feels heavenly, and your ${this.hipDescript()} pump weakly into the air in an instinctive bid to enhance the sensation.`
                     );
                 // (multiple)
                 else {
                     this.outx(
                         `The purple-lipped cock-slut grabs hold of one of your ${this.multiCockDescriptLight()} and makes a show of smearing the slippering fluid over the shaft, lubricating it as she begins to jack you off.  Her sisters, taking the cue, step over the other sated sluts and grab hold of your ${this.cockDescript(
                             1
-                        )}, fondling it lovingly.  `,
-                        false
+                        )}, fondling it lovingly.  `
                     );
                     if (cocks > 2)
                         this.outx(
-                            `They spread out until every one of your ${this.multiCockDescriptLight()} has at least one goblin hanging off it, stroking and touching you.  `,
-                            false
+                            `They spread out until every one of your ${this.multiCockDescriptLight()} has at least one goblin hanging off it, stroking and touching you.  `
                         );
                     this.outx(
-                        `It feels heavenly, and your ${this.hipDescript()} pump weakly into the air in an instinctive bid to enhance the sensation.`,
-                        false
+                        `It feels heavenly, and your ${this.hipDescript()} pump weakly into the air in an instinctive bid to enhance the sensation.`
                     );
                 }
                 this.outx("\n\n", false);
 
                 this.outx(
-                    `The goblin who served between the legs crawls back into position, and you realize she must be the youngest, and therefore the lowest on the goblin totem-pole.  Her eager tongue is just as skilled as it was minutes ago, and between her attentions and the tongues on your ${this.multiCockDescriptLight()}, you're leaking streamers of liquid lust.  Hands run over your `,
-                    false
+                    `The goblin who served between the legs crawls back into position, and you realize she must be the youngest, and therefore the lowest on the goblin totem-pole.  Her eager tongue is just as skilled as it was minutes ago, and between her attentions and the tongues on your ${this.multiCockDescriptLight()}, you're leaking streamers of liquid lust.  Hands run over your `
                 );
                 if (this.player.biggestTitSize() < 1) this.outx("chest");
                 else this.outx(this.allBreastsDescript(), false);
@@ -1256,16 +1223,14 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                             0
                         )} blasts a wave of seed directly into your cock-obsessed daughter's mouth, flooding it until she falls off of it with jism dripping from her nostrils.  You squirt a massive spurt high into the air overhead, and more than a few goblins are running around with their tongues out, trying to catch it in their mouths.   Each wave of seed is larger than the last, erupting from your ${this.cockDescript(
                             0
-                        )} like a geyser.   Soon everyone is spattered in a layer of the stuff, and your gut-clenching orgasm tapers down to a more reasonable, but constant, slow flow of semen.  Each of your daughters comes up and takes turns angling your shaft into her waiting cunt, allowing the thick fluid to fill her to capacity before waddling off.  Then the next girl does the same, and the next, and the next...`,
-                        false
+                        )} like a geyser.   Soon everyone is spattered in a layer of the stuff, and your gut-clenching orgasm tapers down to a more reasonable, but constant, slow flow of semen.  Each of your daughters comes up and takes turns angling your shaft into her waiting cunt, allowing the thick fluid to fill her to capacity before waddling off.  Then the next girl does the same, and the next, and the next...`
                     );
                 // (Multi)
                 else
                     this.outx(
-                        `${this.multiCockDescriptLight()} blast waves of seed directly into your cock-obsessed daughters' mouths, flooding them until they fall off with jism dripping from their nostrils.   You spurt massive loads high into the air overhead, and more than a few goblins are running around with their tongues out, trying to catch the seed in their mouths.  Each wave is larger than the last, erupting from your ${this.multiCockDescriptLight()} like a geyser.  Soon everyone is covered in a thick coating of the stuff, and your gut-clenching orgasm tapers down to a more reasonable, but constant, slow flow of semen.  Each of your daughters comes up and guides a shaft into her waiting cunt, filling herself to capacity with the thick fluid before waddling off.   Then the next set of girls does the same, and the next, and the next....`,
-                        false
+                        `${this.multiCockDescriptLight()} blast waves of seed directly into your cock-obsessed daughters' mouths, flooding them until they fall off with jism dripping from their nostrils.   You spurt massive loads high into the air overhead, and more than a few goblins are running around with their tongues out, trying to catch the seed in their mouths.  Each wave is larger than the last, erupting from your ${this.multiCockDescriptLight()} like a geyser.  Soon everyone is covered in a thick coating of the stuff, and your gut-clenching orgasm tapers down to a more reasonable, but constant, slow flow of semen.  Each of your daughters comes up and guides a shaft into her waiting cunt, filling herself to capacity with the thick fluid before waddling off.   Then the next set of girls does the same, and the next, and the next....`
                     );
-                this.outx("You're done in by the effort, and quickly lose consciousness.", false);
+                this.outx("You're done in by the effort, and quickly lose consciousness.");
             }
             // [Tamani is There]
             else {
@@ -1273,8 +1238,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     `A scuffle in the crowd breaks out to your right, and though you can hear it, the jiggling ass and delicious pussy of the goblin slut on your face makes it impossible to see what's going on.  You do what any horny ${this.player.mf(
                         "male",
                         "herm"
-                    )} would do in your position – groan into the slippery box and ignore it, focusing on the feel of skilled hands fondling `,
-                    false
+                    )} would do in your position – groan into the slippery box and ignore it, focusing on the feel of skilled hands fondling `
                 );
                 if (cocks > 1) this.outx("each of ");
                 this.outx(`your ${this.multiCockDescriptLight()}.\n\n`, false);
@@ -1308,8 +1272,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 );
 
                 this.outx(
-                    `Tamani pulls out a ring gag, shoves it into your protesting mouth, and pulls the straps securely around the back of your neck.  She tousles your ${this.hairDescript()} as you squirm, but the crowd of goblins easily keeps you subdued, assisting their mother now that they know her plans.   You `,
-                    false
+                    `Tamani pulls out a ring gag, shoves it into your protesting mouth, and pulls the straps securely around the back of your neck.  She tousles your ${this.hairDescript()} as you squirm, but the crowd of goblins easily keeps you subdued, assisting their mother now that they know her plans.   You `
                 );
                 if (this.player.cor > 66)
                     this.outx("sigh, actually anticipating what's about to come");
@@ -1349,8 +1312,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     this.outx(
                         `Meanwhile your other ${Appearance.cockNoun(
                             CockTypesEnum.HUMAN
-                        )}s are wasting their spunk over your belly, so some of the waiting girls grab them and pull them aside, ramming their tips deep inside their seemingly bottomless fuck-holes.  They giggle and run their manicured nails over your `,
-                        false
+                        )}s are wasting their spunk over your belly, so some of the waiting girls grab them and pull them aside, ramming their tips deep inside their seemingly bottomless fuck-holes.  They giggle and run their manicured nails over your `
                     );
                     if (this.player.biggestTitSize() < 1) this.outx("chest");
                     else this.outx(this.allBreastsDescript(), false);
@@ -1373,8 +1335,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                     this.outx(
                         `Meanwhile your other ${Appearance.cockNoun(
                             CockTypesEnum.HUMAN
-                        )} is wasting its spunk over your belly, so one of the waiting girls grabs it and pulls it to the side, ramming its tip deep inside her seemingly bottomless fuck-hole.  She giggle and runs their manicured nails over your `,
-                        false
+                        )} is wasting its spunk over your belly, so one of the waiting girls grabs it and pulls it to the side, ramming its tip deep inside her seemingly bottomless fuck-hole.  She giggle and runs their manicured nails over your `
                     );
                     if (this.player.biggestTitSize() < 1) this.outx("chest");
                     else this.outx(this.allBreastsDescript(), false);
@@ -1585,8 +1546,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         // (regular lower body)
         if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR) {
             this.outx(
-                `The hands holding you slowly lower you into a comfortable feeling chair, securing your ${this.player.legs()} into tightly bound stirrups.  A moment later, your hands are strapped into equally firm cuffs.  By this point, your lust-dulled mind has begun to worry, and you start to struggle, but binding leather straps are passed over your chest, midsection, and upper thighs, then tightened against the chair to completely restrain you.  Perhaps the only `,
-                false
+                `The hands holding you slowly lower you into a comfortable feeling chair, securing your ${this.player.legs()} into tightly bound stirrups.  A moment later, your hands are strapped into equally firm cuffs.  By this point, your lust-dulled mind has begun to worry, and you start to struggle, but binding leather straps are passed over your chest, midsection, and upper thighs, then tightened against the chair to completely restrain you.  Perhaps the only `
             );
             if (cocks > 1)
                 this.outx(
@@ -1602,8 +1562,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         // (Shit taurs go!)
         else {
             this.outx(
-                `The hands holding you slowly lower you down onto your back, guiding you into a combination chair and harness designed to accommodate a centuar's size and shape.  Before you know it, straps secure your ${this.player.legs()} into tightly bound restraints.  A moment later your, hands are strapped into equally firm cuffs.  By this point, your lust-dulled mind has begun to worry, and you start to struggle, but binding leather straps are passed over your chest, midsection, and hindquarters, then tightened against the chair to completely restrain you.  Perhaps the only `,
-                false
+                `The hands holding you slowly lower you down onto your back, guiding you into a combination chair and harness designed to accommodate a centuar's size and shape.  Before you know it, straps secure your ${this.player.legs()} into tightly bound restraints.  A moment later your, hands are strapped into equally firm cuffs.  By this point, your lust-dulled mind has begun to worry, and you start to struggle, but binding leather straps are passed over your chest, midsection, and hindquarters, then tightened against the chair to completely restrain you.  Perhaps the only `
             );
             if (cocks > 1)
                 this.outx(
@@ -1662,8 +1621,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         );
         if (cocks > 1) this.outx("each of ");
         this.outx(
-            `your ${this.multiCockDescriptLight()} until it feels much harder and thicker than normal.  You stifle an involuntary groan, but fail to conceal your lust-filled pants from your audience.   A daring girl leaps onto your `,
-            false
+            `your ${this.multiCockDescriptLight()} until it feels much harder and thicker than normal.  You stifle an involuntary groan, but fail to conceal your lust-filled pants from your audience.   A daring girl leaps onto your `
         );
         if (this.player.biggestTitSize() < 1) this.outx("chest");
         else this.outx(this.allBreastsDescript(), false);
@@ -1719,8 +1677,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             );
         else
             this.outx(
-                `Your body feels tight and needy, your gut clenching as your body adjusts to the drugs it's absorbing so readily through your ${this.assholeDescript()}.`,
-                false
+                `Your body feels tight and needy, your gut clenching as your body adjusts to the drugs it's absorbing so readily through your ${this.assholeDescript()}.`
             );
         this.outx("  The suckling pleasure around ");
         if (cocks > 1) this.outx("each of ");
@@ -1747,8 +1704,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         );
         if (this.player.balls > 0)
             this.outx(
-                `Straining and shaking, your ${this.ballsDescriptLight()} clench against you, feeling tight as your body struggles to pump out the spooge they're producing.`,
-                false
+                `Straining and shaking, your ${this.ballsDescriptLight()} clench against you, feeling tight as your body struggles to pump out the spooge they're producing.`
             );
         else
             this.outx(
@@ -1873,8 +1829,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.spriteSelect(57);
         this.outx("", true);
         this.outx(
-            `"<i>Wonderful!</i>" cries the excited pregnant slut.   She gives you a quick peck on the cheek as she prances back over to the machine.  You brace yourself in anticipation, eager to lose yourself to an eternal orgasm.  A switch clicks, and a dial whirs as it's turned up to the maximum.  The fluids pumping into your backside and directly into your veins suddenly jump in pressure, stinging painfully for a moment before the pleasure returns.  Your eyes slowly roll back, your jaw goes slack, and your ${this.multiCockDescriptLight()} spew`,
-            false
+            `"<i>Wonderful!</i>" cries the excited pregnant slut.   She gives you a quick peck on the cheek as she prances back over to the machine.  You brace yourself in anticipation, eager to lose yourself to an eternal orgasm.  A switch clicks, and a dial whirs as it's turned up to the maximum.  The fluids pumping into your backside and directly into your veins suddenly jump in pressure, stinging painfully for a moment before the pleasure returns.  Your eyes slowly roll back, your jaw goes slack, and your ${this.multiCockDescriptLight()} spew`
         );
         if (this.player.totalCocks() == 1) this.outx("s");
         this.outx(" cum into the tubes.\n\n", false);
@@ -1928,14 +1883,12 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         this.outx("You agree to do just that, ");
         if (this.player.cockTotal() > 1) this.outx("each of ");
         this.outx(
-            `your ${this.multiCockDescriptLight()} rising to full hardness in anticipation.  Your daughter pats `,
-            false
+            `your ${this.multiCockDescriptLight()} rising to full hardness in anticipation.  Your daughter pats `
         );
         if (this.player.cockTotal() > 1) this.outx("one of them");
         else this.outx("it");
         this.outx(
-            ` as if it were a person and smiles as she pops the restraints from your chair.  She helps you as you stagger up to your ${this.player.feet()}, though the feeling of her hand stroking `,
-            false
+            ` as if it were a person and smiles as she pops the restraints from your chair.  She helps you as you stagger up to your ${this.player.feet()}, though the feeling of her hand stroking `
         );
         if (this.player.cockTotal() > 1) this.outx("a");
         else this.outx("your");
@@ -1981,11 +1934,10 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
                 false
             );
         else {
-            this.outx("Lying back in the dirt, you're too hard to fight back.  You stroke ", false);
+            this.outx("Lying back in the dirt, you're too hard to fight back.  You stroke ");
             if (this.player.totalCocks() > 1) this.outx("one of ");
             this.outx(
-                `your trembling ${this.multiCockDescriptLight()}, feeling it leak pre-cum in anticipation of getting to knock up some of these beautiful curvy women.`,
-                false
+                `your trembling ${this.multiCockDescriptLight()}, feeling it leak pre-cum in anticipation of getting to knock up some of these beautiful curvy women.`
             );
         }
         this.outx(
@@ -2015,11 +1967,10 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             false
         );
 
-        this.outx(`She reaches into your ${this.player.armorName} to rub `, false);
+        this.outx(`She reaches into your ${this.player.armorName} to rub `);
         if (this.player.totalCocks() > 1) this.outx("one of ");
         this.outx(
-            `your ${this.multiCockDescriptLight()}, casually stroking the hard member as she pivots around to explain, "<i>You get so hard for Mistress Tamani, don't you?  `,
-            false
+            `your ${this.multiCockDescriptLight()}, casually stroking the hard member as she pivots around to explain, "<i>You get so hard for Mistress Tamani, don't you?  `
         );
         if (this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED] > 10)
             this.outx(
@@ -2043,7 +1994,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             false
         );
         if (this.player.skinType == SKIN_TYPE_FUR)
-            this.outx(`, matting your ${this.player.hairColor} fur`, false);
+            this.outx(`, matting your ${this.player.hairColor} fur`);
         this.outx(" as she continues ");
         if (this.flags[kFLAGS.TAMANI_TIMES_HYPNOTISED] < 10)
             this.outx("filling your mind with truths");
@@ -2098,8 +2049,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
         );
         if (this.player.cockTotal() > 1) this.outx("each of ");
         this.outx(
-            `your ${this.multiCockDescriptLight()} grows back to full erectness and trembles with desire, ready to seed a womb.  The girls `,
-            false
+            `your ${this.multiCockDescriptLight()} grows back to full erectness and trembles with desire, ready to seed a womb.  The girls `
         );
         if (this.player.cockTotal() == 1)
             this.outx(
@@ -2161,8 +2111,7 @@ export class TamainsDaughtersScene extends BaseContent implements TimeAwareInter
             this.outx(
                 `Thankfully, the hungry goblin twat is able to devour your ${this.cockDescript(
                     0
-                )} with ease.  Those pliable, fluid-slicked cunt-walls clench ever-so-tightly around you`,
-                false
+                )} with ease.  Those pliable, fluid-slicked cunt-walls clench ever-so-tightly around you`
             );
             if (this.player.biggestCockArea() < 30)
                 this.outx(" in spite of the large sizes they usually handle.");

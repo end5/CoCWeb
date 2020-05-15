@@ -52,33 +52,26 @@ export class SpiderMorphMob extends Monster {
                     this.player.armorDef
                 )
                     this.outx(
-                        `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`,
-                        false
+                        `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`
                     );
                 else
                     this.outx(
-                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
-                        false
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`
                     );
             } else if (damage < 6)
-                this.outx(
-                    `You are struck a glancing blow by ${this.a}${this.short}! (${damage})`,
-                    false
-                );
+                this.outx(`You are struck a glancing blow by ${this.a}${this.short}! (${damage})`);
             else if (damage < 11)
-                this.outx(`${this.capitalA + this.short} wounds you! (${damage})`, false);
+                this.outx(`${this.capitalA + this.short} wounds you! (${damage})`);
             else if (damage < 21)
                 this.outx(
                     `${this.capitalA + this.short} staggers you with the force of ${
                         this.pronoun3
-                    } ${this.weaponVerb}! (${damage})`,
-                    false
+                    } ${this.weaponVerb}! (${damage})`
                 );
             else if (damage > 20) {
-                this.outx(`${this.capitalA + this.short} <b>mutilate`, false);
+                this.outx(`${this.capitalA + this.short} <b>mutilate`);
                 this.outx(
-                    `</b> you with ${this.pronoun3} powerful ${this.weaponVerb}! (${damage})`,
-                    false
+                    `</b> you with ${this.pronoun3} powerful ${this.weaponVerb}! (${damage})`
                 );
             }
             if (damage > 0) {

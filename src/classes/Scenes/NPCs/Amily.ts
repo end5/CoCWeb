@@ -102,19 +102,17 @@ export class Amily extends Monster {
             // Due to toughness or amor...
             if (Amily.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                 this.outx(
-                    `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`,
-                    false
+                    `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`
                 );
             else
                 this.outx(
-                    `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
-                    false
+                    `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`
                 );
         }
         // Got hit!
         else {
             damage = this.player.takeDamage(damage);
-            this.outx(`Amily dashes at you and swipes her knife, cutting you (${damage}).`, false);
+            this.outx(`Amily dashes at you and swipes her knife, cutting you (${damage}).`);
         }
         if (damage > 0) {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
@@ -200,7 +198,7 @@ export class Amily extends Monster {
                         "Amily dashes at you and slashes at you twice in the time it would take most to throw a single blow",
                         false
                     );
-                this.outx(` (${damage})!`, false);
+                this.outx(` (${damage})!`);
             }
         }
         // Dodge all!

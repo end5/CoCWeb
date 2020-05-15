@@ -134,20 +134,17 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                 // (HIT? + 15 lust)
                 this.game.dynStats("lus", 15);
                 this.outx(
-                    `Again, the drider ties your mouth up in her syrupy lip-lock, seeming to bind your mouth as effectively as her webs bind your body.  Her sweet venom bubbles and froths at the corners of the oral embrace, dripping over her many-breasted bosom and your ${this.player.chestDesc()}.`,
-                    false
+                    `Again, the drider ties your mouth up in her syrupy lip-lock, seeming to bind your mouth as effectively as her webs bind your body.  Her sweet venom bubbles and froths at the corners of the oral embrace, dripping over her many-breasted bosom and your ${this.player.chestDesc()}.`
                 );
                 if (this.player.hasCock())
                     this.outx(
                         `  ${this.SMultiCockDesc()} spews a rope of pre-cum into your ${
                             this.player.armorName
-                        }, desperate to get out and fuck.`,
-                        false
+                        }, desperate to get out and fuck.`
                     );
                 if (this.player.hasVagina())
                     this.outx(
-                        `  Fem-cum dribbles down your ${this.player.legs()} while your ${this.player.clitDescript()} gets so hard you think it'll explode.`,
-                        false
+                        `  Fem-cum dribbles down your ${this.player.legs()} while your ${this.player.clitDescript()} gets so hard you think it'll explode.`
                     );
                 this.outx(
                     '  This time, the drider is the one to break the kiss.  She asks, "<i>Are you ready, my horny little morsel?</i>"\n',
@@ -161,8 +158,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                 this.outx(
                     `This time you barely move.  Your body is too entranced by the idea of another venom-laced kiss to resist.  Glorious purple goo washes into your mouth as her lips meet yours, sealing tight but letting your tongue enter her mouth to swirl around and feel the venom drip from her fangs.  It's heavenly!  Your ${this.player.skin()} grows hot and tingly, and you ache to be touched so badly.  Your ${this.nippleDescript(
                         0
-                    )}s feel hard enough to cut glass, and a growing part of you admits that you'd love to feel the drider's chitinous fingers pulling on them.`,
-                    false
+                    )}s feel hard enough to cut glass, and a growing part of you admits that you'd love to feel the drider's chitinous fingers pulling on them.`
                 );
                 // (HIT? + 20 lust)
                 this.game.dynStats("lus", 20);
@@ -176,8 +172,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                         this.outx("large");
                     else this.outx("massive");
                     this.outx(
-                        ` wet stain that reeks of your sheer sexual ache has formed in your ${this.player.armorName}.`,
-                        false
+                        ` wet stain that reeks of your sheer sexual ache has formed in your ${this.player.armorName}.`
                     );
                     if (this.player.lust <= 99)
                         this.outx(

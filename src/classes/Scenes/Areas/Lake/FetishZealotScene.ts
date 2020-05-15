@@ -123,9 +123,9 @@ export class FetishZealotScene extends AbstractLakeContent {
         );
         // same as before
         if (broseph == "dude") {
-            this.outx("He starts to look up, but then his gazes fixes directly on your ", false);
+            this.outx("He starts to look up, but then his gazes fixes directly on your ");
             if (this.player.cockTotal() > 0) {
-                this.outx(`${this.multiCockDescriptLight()}.  You feel yourself grow hard `, false);
+                this.outx(`${this.multiCockDescriptLight()}.  You feel yourself grow hard `);
                 if (this.player.hasVagina()) {
                     this.outx("and wet ");
                 }
@@ -144,16 +144,16 @@ export class FetishZealotScene extends AbstractLakeContent {
                 false
             );
             if (this.player.hasVagina()) {
-                this.outx(`${this.vaginaDescript(0)} `, false);
+                this.outx(`${this.vaginaDescript(0)} `);
                 if (this.player.cockTotal() > 0) {
-                    this.outx(`and your ${this.multiCockDescriptLight()} `, false);
+                    this.outx(`and your ${this.multiCockDescriptLight()} `);
                 }
             } else {
                 this.outx("bare crotch ");
             }
             this.outx("from this angle.  You feel hot under his gaze ");
             if (this.player.cockTotal() > 0) {
-                this.outx(`, and your ${this.multiCockDescriptLight()} start`, false);
+                this.outx(`, and your ${this.multiCockDescriptLight()} start`);
                 if (this.player.cockTotal() == 1) {
                     this.outx("s");
                 }
@@ -179,8 +179,7 @@ export class FetishZealotScene extends AbstractLakeContent {
             `"<i>Ok,</i>"  you say nervously, "<i>I can give you a lesson on pleasing ${this.player.mf(
                 "men",
                 "women"
-            )}.</i>"  He jumps up excitedly and runs around to the other side of the desk saying "<i>Ok, what do I have to do?</i>"  Feeling a bit put on the spot, you stop for a moment to take in the situation.  `,
-            false
+            )}.</i>"  He jumps up excitedly and runs around to the other side of the desk saying "<i>Ok, what do I have to do?</i>"  Feeling a bit put on the spot, you stop for a moment to take in the situation.  `
         );
         // again, is that a guy?  Or just look like one?
         if (broseph == "dude") {
@@ -204,15 +203,13 @@ export class FetishZealotScene extends AbstractLakeContent {
                 this.outx(
                     `You stand up and indicate to him that it is now his turn, and while he is disappointed that the blowjob ended before he came, he still eagerly kneels down in front of your exposed ${this.multiCockDescriptLight()} and licks his lips eagerly.  He tries to imitate your performance on his manhood onto your ${this.cockDescript(
                         0
-                    )}, but he sometimes messes up the order, or does something too fast or slow.  Fortunately, he is a good student, and under your guidance he is soon sucking cock like a pro.  He tickles you with his tongue in just the right way, and gives just the right amount of attention to each part of your length.  `,
-                    false
+                    )}, but he sometimes messes up the order, or does something too fast or slow.  Fortunately, he is a good student, and under your guidance he is soon sucking cock like a pro.  He tickles you with his tongue in just the right way, and gives just the right amount of attention to each part of your length.  `
                 );
                 if (this.player.hasVagina())
                     this.outx(
                         `You slip one of your fingers inside your ${this.vaginaDescript(
                             0
-                        )}, wishing that it could get some attention, but this lesson is about pleasing <i>men</i>.  `,
-                        false
+                        )}, wishing that it could get some attention, but this lesson is about pleasing <i>men</i>.  `
                     );
                 this.outx(
                     'You feel yourself getting close to the edge and tell him to stop.  He looks up at you uncertain for a moment, and you tell him "<i>It\'s time for the main event.</i>"\n\n',
@@ -220,25 +217,22 @@ export class FetishZealotScene extends AbstractLakeContent {
                 );
                 // jerking off contest
                 this.outx(
-                    `He eagerly stands up and wraps his hands around his fine cock, you quickly try to do the same with your ${this.multiCockDescript()}.  "<i>I won't lose to you so easily, professor!</i>" he declares to you, "<i>Don't act so confidently on your first time.</i>" you reply.  Then the two of you are madly jerking yourselves off in a mad effort to get off before the other, your respective cocks already moist from the blowjobs they just received.  `,
-                    false
+                    `He eagerly stands up and wraps his hands around his fine cock, you quickly try to do the same with your ${this.multiCockDescript()}.  "<i>I won't lose to you so easily, professor!</i>" he declares to you, "<i>Don't act so confidently on your first time.</i>" you reply.  Then the two of you are madly jerking yourselves off in a mad effort to get off before the other, your respective cocks already moist from the blowjobs they just received.  `
                 );
                 // just one cock
                 if (this.player.totalCocks() == 1) {
-                    this.outx(`You piston your hands on your ${this.cockDescript(0)}, `, false);
+                    this.outx(`You piston your hands on your ${this.cockDescript(0)}, `);
                 }
                 // nope two
                 else if (this.player.totalCocks() == 2) {
                     this.outx(
-                        `With one hand on each of your ${this.multiCockDescriptLight()}, you piston them like mad, `,
-                        false
+                        `With one hand on each of your ${this.multiCockDescriptLight()}, you piston them like mad, `
                     );
                 }
                 // oh no, is more than that
                 else {
                     this.outx(
-                        `Rapidly moving your hands between each rod in your ${this.multiCockDescriptLight()}, you manage to piston each of them at an incredible rate, `,
-                        false
+                        `Rapidly moving your hands between each rod in your ${this.multiCockDescriptLight()}, you manage to piston each of them at an incredible rate, `
                     );
                 }
                 this.outx(
@@ -271,22 +265,19 @@ export class FetishZealotScene extends AbstractLakeContent {
                 this.outx(
                     `You stand up and indicate that it is now his turn, and while he is disappointed that the blowjob ended before he came, he still eagerly kneels down in front of your ${this.vaginaDescript(
                         0
-                    )}.  You gingerly lift up your skirt `,
-                    false
+                    )}.  You gingerly lift up your skirt `
                 );
                 if (this.player.balls > 0) {
-                    this.outx(`and move your ${this.ballsDescriptLight()} out of the way `, false);
+                    this.outx(`and move your ${this.ballsDescriptLight()} out of the way `);
                 }
                 this.outx(
                     `so he has access to your ${this.vaginaDescript(
                         0
-                    )}.  He sets to work, and you give him careful instructions on where to lick, how hard, and such.  He easily catches on, and soon he is probing all the right places, and giving the right amount of attention to every part of you.  `,
-                    false
+                    )}.  He sets to work, and you give him careful instructions on where to lick, how hard, and such.  He easily catches on, and soon he is probing all the right places, and giving the right amount of attention to every part of you.  `
                 );
                 if (this.player.cockTotal() > 0) {
                     this.outx(
-                        `You give your ${this.multiCockDescriptLight()} a few gentle strokes, wishing he would give that a little attention too, but this is a lesson on how to please a <i>woman</i>.  `,
-                        false
+                        `You give your ${this.multiCockDescriptLight()} a few gentle strokes, wishing he would give that a little attention too, but this is a lesson on how to please a <i>woman</i>.  `
                     );
                 }
                 this.outx(
@@ -299,13 +290,11 @@ export class FetishZealotScene extends AbstractLakeContent {
                         0
                     )}.  He pushes you onto your back and grabs ahold of your legs, starting to make strong thrusts deep inside you, his cock seeming to fit your ${this.vaginaDescript(
                         0
-                    )} perfectly.  Any pretense of professionalism is lost in the moment, as all you can care about is the feeling of his exquisite cock perfectly filling you, pushing in and out.  All too soon, you hear him gasp, and the wonderful feeling of sweet release fills you.  `,
-                    false
+                    )} perfectly.  Any pretense of professionalism is lost in the moment, as all you can care about is the feeling of his exquisite cock perfectly filling you, pushing in and out.  All too soon, you hear him gasp, and the wonderful feeling of sweet release fills you.  `
                 );
                 if (this.player.cockTotal() > 0) {
                     this.outx(
-                        `Your ${this.multiCockDescriptLight()} spasms and covers you with a liberal amount of your own fluids.  `,
-                        false
+                        `Your ${this.multiCockDescriptLight()} spasms and covers you with a liberal amount of your own fluids.  `
                     );
                 }
                 this.outx(
@@ -495,7 +484,7 @@ export class FetishZealotScene extends AbstractLakeContent {
                 )}, awaiting the pleasure you are sure it will bring you.  "<i>Look at me, so eager to be violated despite why it is happening to me, and yet she teases me and draws it out, making it so much more painful.</i>"\n\n`,
                 false
             );
-            this.outx("With a laugh, you impale yourself on his cock and despite how ", false);
+            this.outx("With a laugh, you impale yourself on his cock and despite how ");
             if (this.player.vaginas[0].vaginalLooseness < VAGINA_LOOSENESS_LOOSE)
                 this.outx("tight");
             else this.outx("loose");
@@ -506,8 +495,7 @@ export class FetishZealotScene extends AbstractLakeContent {
                 false
             );
             this.outx(
-                `Your lusts sated for now, you rise up off of him and put your ${this.player.armorName} back on.  You decide to leave him lying there, still coughing from the blow to his stomach.  `,
-                false
+                `Your lusts sated for now, you rise up off of him and put your ${this.player.armorName} back on.  You decide to leave him lying there, still coughing from the blow to his stomach.  `
             );
             this.player.cuntChange(this.monster.cockArea(0), true);
         }

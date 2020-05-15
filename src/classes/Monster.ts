@@ -676,44 +676,32 @@ export class Monster extends Creature {
             // Due to toughness or amor...
             if (Monster.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                 this.outx(
-                    `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`,
-                    false
+                    `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`
                 );
             else {
                 if (this.plural)
                     this.outx(
-                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throw at you.`,
-                        false
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throw at you.`
                     );
                 else
                     this.outx(
-                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
-                        false
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`
                     );
             }
         } else if (damage < 6)
-            this.outx(
-                `You are struck a glancing blow by ${this.a}${this.short}! (${damage})`,
-                false
-            );
+            this.outx(`You are struck a glancing blow by ${this.a}${this.short}! (${damage})`);
         else if (damage < 11) {
             this.outx(`${this.capitalA + this.short} wound`);
             if (!this.plural) this.outx("s");
-            this.outx(` you! (${damage})`, false);
+            this.outx(` you! (${damage})`);
         } else if (damage < 21) {
             this.outx(`${this.capitalA + this.short} stagger`);
             if (!this.plural) this.outx("s");
-            this.outx(
-                ` you with the force of ${this.pronoun3} ${this.weaponVerb}! (${damage})`,
-                false
-            );
+            this.outx(` you with the force of ${this.pronoun3} ${this.weaponVerb}! (${damage})`);
         } else if (damage > 20) {
-            this.outx(`${this.capitalA + this.short} <b>mutilate`, false);
+            this.outx(`${this.capitalA + this.short} <b>mutilate`);
             if (!this.plural) this.outx("s");
-            this.outx(
-                `</b> you with ${this.pronoun3} powerful ${this.weaponVerb}! (${damage})`,
-                false
-            );
+            this.outx(`</b> you with ${this.pronoun3} powerful ${this.weaponVerb}! (${damage})`);
         }
     }
 
@@ -793,8 +781,7 @@ export class Monster extends Creature {
         // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Monster.rand(100) < 6) {
             this.outx(
-                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
-                false
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`
             );
             if (this.plural) this.outx("' attacks.\n", false);
             else this.outx("'s attack.\n", false);
@@ -1112,7 +1099,7 @@ export class Monster extends Creature {
     protected applyTease(lustDelta: number): void {
         this.lust += lustDelta;
         lustDelta = Math.round(lustDelta * 10) / 10;
-        this.outx(` (${lustDelta})`, false);
+        this.outx(` (${lustDelta})`);
     }
 
     public generateDebugDescription(): string {

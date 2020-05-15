@@ -1119,15 +1119,13 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     this.outx(
                         ` crouch between your legs and impale herself on your ${this.cockDescript(
                             0
-                        )} with a wet sound caused by her well-lubricated vulva. Y`,
-                        false
+                        )} with a wet sound caused by her well-lubricated vulva. Y`
                     );
                 else
                     this.outx(
                         ` open her womb and quickly consume your ${this.cockDescript(
                             0
-                        )}. She embraces you, entrapping your head in her cleavage as y`,
-                        false
+                        )}. She embraces you, entrapping your head in her cleavage as y`
                     );
                 this.outx(
                     `ou quickly feel her superhuman vaginal muscles work and stroke your ${this.cockDescript(
@@ -1139,8 +1137,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     this.outx(
                         `Pushing on your forelegs, she engulfs even more of your ${this.cockDescript(
                             0
-                        )}`,
-                        false
+                        )}`
                     );
                 else
                     this.outx(
@@ -1155,8 +1152,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     this.outx(
                         `arches under your belly as you feel your ${this.cockDescript(
                             0
-                        )} bending pleasurably inside her, and`,
-                        false
+                        )} bending pleasurably inside her, and`
                     );
                 else
                     this.outx(
@@ -1202,8 +1198,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     this.outx(
                         `pushes on your forelegs, impaling herself even deeper on your ${this.cockDescript(
                             0
-                        )}`,
-                        false
+                        )}`
                     );
                 else this.outx("wraps her legs around your hips and bears down");
                 this.outx(
@@ -1219,8 +1214,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     this.outx(
                         `She moans inhumanly, and reflexively digs her claws into your forelegs. Searing with lust, the pain means little to you as you only feel the sensation of your body forcing your fluids out of your body and into hers. You press your ${this.cockDescript(
                             0
-                        )} into her`,
-                        false
+                        )} into her`
                     );
                 else
                     this.outx(

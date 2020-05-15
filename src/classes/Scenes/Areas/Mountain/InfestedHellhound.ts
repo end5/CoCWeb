@@ -38,13 +38,11 @@ export class InfestedHellhound extends HellHound {
                 this.player.totalCocks() > 0
             ) {
                 this.outx(
-                    `  The worms inside you begin moving and squirming. A few of your cum-soaked parasites crawl out from your shivering ${this.multiCockDescriptLight()} as if attempting to meet the new arrivals.  You desperately want to brush them away, but the pleasure in your crotch is too good to fight, and you find yourself staying your hand as each and every one of the new worms makes it way into your ${this.multiCockDescriptLight()}.`,
-                    false
+                    `  The worms inside you begin moving and squirming. A few of your cum-soaked parasites crawl out from your shivering ${this.multiCockDescriptLight()} as if attempting to meet the new arrivals.  You desperately want to brush them away, but the pleasure in your crotch is too good to fight, and you find yourself staying your hand as each and every one of the new worms makes it way into your ${this.multiCockDescriptLight()}.`
                 );
                 if (this.player.balls > 0)
                     this.outx(
-                        `  Your ${this.ballsDescriptLight()} grow weightier as the worms settle into their new home, arousing you beyond measure.`,
-                        false
+                        `  Your ${this.ballsDescriptLight()} grow weightier as the worms settle into their new home, arousing you beyond measure.`
                     );
                 else
                     this.outx(

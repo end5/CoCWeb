@@ -147,8 +147,7 @@ export class Oasis extends BaseContent {
             this.outx("You feel clawed hands grasp at ");
             if (this.player.cockTotal() > 1) this.outx("each of ");
             this.outx(
-                `your ${this.multiCockDescriptLight()} and begin to slide up and down before another demon pushes them out of the way and you `,
-                false
+                `your ${this.multiCockDescriptLight()} and begin to slide up and down before another demon pushes them out of the way and you `
             );
             if (this.player.cocks[0].cockLength > 25)
                 this.outx(
@@ -156,27 +155,22 @@ export class Oasis extends BaseContent {
                         0
                     )} slide into a hell-girl's sloppy cunt. The demoness moans and pants in pleasure as your ${this.cockDescript(
                         0
-                    )} bottoms out in her gaping pussy and she begins to ride you like the motionless whore you momentarily are, her gigantic breasts threatening to concuss you as she slides the huge distance up and down your cock in her thirst to fill her cavelike cunt.  `,
-                    false
+                    )} bottoms out in her gaping pussy and she begins to ride you like the motionless whore you momentarily are, her gigantic breasts threatening to concuss you as she slides the huge distance up and down your cock in her thirst to fill her cavelike cunt.  `
                 );
             else {
                 this.outx(
                     `see a smaller and younger demon lowering her very tight pussy onto your ${this.cockDescript(
                         0
-                    )}. It's a tight fit, but her almost-virginal pussy is dripping wet. She bottoms her pussy out `,
-                    false
+                    )}. It's a tight fit, but her almost-virginal pussy is dripping wet. She bottoms her pussy out `
                 );
                 if (this.player.cocks[0].cockLength > 17)
                     this.outx("with hardly any of you inside her ");
                 else if (this.player.cocks[0].cockLength > 12)
-                    this.outx(`about halfway down your ${this.cockDescript(0)} `, false);
+                    this.outx(`about halfway down your ${this.cockDescript(0)} `);
                 else if (this.player.cocks[0].cockLength > 6)
                     this.outx("with almost all of you inside of her ");
                 else if (this.player.cocks[0].cockLength <= 6)
-                    this.outx(
-                        `as her pussy lips touch the base of your ${this.cockDescript(0)} `,
-                        false
-                    );
+                    this.outx(`as her pussy lips touch the base of your ${this.cockDescript(0)} `);
                 this.outx(
                     "and begins to slide herself up and down your shaft in complete ecstasy, moaning like a cheap whore. She seems relatively uncorrupted for a denizen of this realm and is firm, tight and free of fur. Only a pair of horns betrays her taint. The thought that you are perhaps one of her first cocks sends tingles down your spine.  ",
                     false
@@ -185,16 +179,14 @@ export class Oasis extends BaseContent {
                     this.outx(
                         `The realisation that her pussy is slowly stretching over your ${this.cockDescript(
                             0
-                        )} gives you a thrill that can only be described as positively evil.  `,
-                        false
+                        )} gives you a thrill that can only be described as positively evil.  `
                     );
                     this.dynStats("cor", 1);
                 }
                 this.outx(
                     `Soon the slender cock-whore begins to cum and she starts on what is about to be the first of several shuddering orgasms. You smile evilly as she cums around your ${this.cockDescript(
                         0
-                    )} and when her eyes roll back to the front of her head you know that there is more to come.  `,
-                    false
+                    )} and when her eyes roll back to the front of her head you know that there is more to come.  `
                 );
             }
             // Orgasmzzzzzzz
@@ -205,7 +197,7 @@ export class Oasis extends BaseContent {
             // Multizz
             if (this.player.cocks.length > 1) {
                 this.outx("As you lie there under the needy demon your other ");
-                if (this.player.cocks.length == 2) this.outx(`${this.cockDescript(1)} is`, false);
+                if (this.player.cocks.length == 2) this.outx(`${this.cockDescript(1)} is`);
                 else this.outx("cocks are");
                 this.outx(
                     " taken by other hands and other eager pussies ranging from painfully, childishly tight to freakishly huge!",
@@ -228,8 +220,7 @@ export class Oasis extends BaseContent {
                 this.outx(
                     `The demons quickly find your ${this.vaginaDescript(
                         0
-                    )} and tussle eagerly for position at your entrance, first with hands and then with a wide range of demonic dicks.  `,
-                    false
+                    )} and tussle eagerly for position at your entrance, first with hands and then with a wide range of demonic dicks.  `
                 );
             // gaping cunners!
             if (this.player.vaginas[0].vaginalLooseness >= VAGINA_LOOSENESS_LEVEL_CLOWN_CAR)
@@ -238,8 +229,7 @@ export class Oasis extends BaseContent {
                         0
                     )}. You feel a curious pain that you've not felt in a long time and realize that your ${this.vaginaDescript(
                         0
-                    )} is stretching around his frankly frightening tool. As he withdraws the walls spring back with a curious elasticity, and it occurs to you that it may not actually be possible to stretch further with any permanence. Before long the huge demon begins to shudder and shake and he cums. His trio of heavy balls pump load after load into your waiting cunt until your belly bulges and spunk begins to spurt back out of your pussy from the sheer amount of cum being loaded into you.`,
-                    false
+                    )} is stretching around his frankly frightening tool. As he withdraws the walls spring back with a curious elasticity, and it occurs to you that it may not actually be possible to stretch further with any permanence. Before long the huge demon begins to shudder and shake and he cums. His trio of heavy balls pump load after load into your waiting cunt until your belly bulges and spunk begins to spurt back out of your pussy from the sheer amount of cum being loaded into you.`
                 );
             // Not gaping!
             else {
@@ -248,16 +238,14 @@ export class Oasis extends BaseContent {
                         0
                     )} with one swift thrust and begins to pump himself in and out of your cunt. However, the other demons will not be denied. You feel a pressure at your lips and without warning a second slightly smaller dick shoves itself into your already-stuffed ${this.vaginaDescript(
                         0
-                    )}.  `,
-                    false
+                    )}.  `
                 );
                 // vaginal streeeetch
                 this.player.cuntChange(40, true);
                 this.outx(
                     `The two cocks pump you hard until you feel one of them shooting your ${this.vaginaDescript(
                         0
-                    )} full of hot demon cum. Eventually both the dicks release inside you and slip out one after the other, but each time another takes their place so that your pussy is never empty.`,
-                    false
+                    )} full of hot demon cum. Eventually both the dicks release inside you and slip out one after the other, but each time another takes their place so that your pussy is never empty.`
                 );
             }
             // Orgasmzzzzz
@@ -280,8 +268,7 @@ export class Oasis extends BaseContent {
                 "However, the demons are interested in every part of you, not just your crotch.  "
             );
         this.outx(
-            `Soon you feel hands and dicks grabbing and jabbing at your ${this.buttDescript()}, edging inwards bit by bit and jostling for position as a slippery cock positions itself at the opening of your ${this.assholeDescript()}. It pauses for a second and then dives straight into your waiting asshole.  `,
-            false
+            `Soon you feel hands and dicks grabbing and jabbing at your ${this.buttDescript()}, edging inwards bit by bit and jostling for position as a slippery cock positions itself at the opening of your ${this.assholeDescript()}. It pauses for a second and then dives straight into your waiting asshole.  `
         );
         if (this.player.vaginas.length > 0)
             this.outx(
@@ -289,8 +276,7 @@ export class Oasis extends BaseContent {
                 false
             );
         this.outx(
-            `The cock fucks you hard and fast for a dozen strokes and then you feel it begin to pump its cum into your stuffed ass until it can't come any more. It slips out of your ${this.buttDescript()} and is quickly replaced by another which comes and then is itself replaced in what becomes a seemingly endless cycle.  `,
-            false
+            `The cock fucks you hard and fast for a dozen strokes and then you feel it begin to pump its cum into your stuffed ass until it can't come any more. It slips out of your ${this.buttDescript()} and is quickly replaced by another which comes and then is itself replaced in what becomes a seemingly endless cycle.  `
         );
         this.player.buttChange(this.monster.cockArea(0), true);
         // More fucking!
@@ -305,8 +291,7 @@ export class Oasis extends BaseContent {
                 this.outx(
                     `  Demonic hands grab and squeeze at your ${this.allBreastsDescript()} and lips fasten around your ${this.nippleDescript(
                         0
-                    )} and begin to lick and suck like there's no tomorrow.`,
-                    false
+                    )} and begin to lick and suck like there's no tomorrow.`
                 );
             }
         }

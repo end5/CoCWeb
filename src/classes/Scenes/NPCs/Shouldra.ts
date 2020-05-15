@@ -64,13 +64,11 @@ export class Shouldra extends Monster {
             // Due to toughness or amor...
             if (Shouldra.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                 this.outx(
-                    `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`,
-                    false
+                    `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`
                 );
             else
                 this.outx(
-                    `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
-                    false
+                    `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`
                 );
         }
         // everyone else
@@ -85,8 +83,7 @@ export class Shouldra extends Monster {
             // (regular attack 2)
             else if (choice == 1)
                 this.outx(
-                    `The girl feints a charge, leans back, and snaps a kick against your ${kGAMECLASS.hipDescript()}. You stagger, correct your posture, and plunge back into combat.`,
-                    false
+                    `The girl feints a charge, leans back, and snaps a kick against your ${kGAMECLASS.hipDescript()}. You stagger, correct your posture, and plunge back into combat.`
                 );
             // (regular attack 3)
             else if (choice == 2)
@@ -94,7 +91,7 @@ export class Shouldra extends Monster {
                     "You momentarily drop your guard as the girl appears to stumble. She rights herself as you step forward and lands a one-two combination against your torso.",
                     false
                 );
-            this.outx(` (${damage})`, false);
+            this.outx(` (${damage})`);
         }
         if (damage > 0) {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {

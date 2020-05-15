@@ -98,8 +98,7 @@ export class TelAdre extends BaseContent {
         this.outx("", true);
         if (this.player.findStatusAffect(StatusAffects.TelAdre) < 0) {
             this.outx(
-                `The merciless desert sands grind uncomfortably under your ${this.player.feet()} as you walk the dunes, searching the trackless sands to uncover their mysteries.  All of a sudden, you can see the outline of a small city in the distance, ringed in sandstone walls.  Strangely it wasn't there a few moments before.  It's probably just a mirage brought on by the heat.  Then again, you don't have any specific direction you're heading, what could it hurt to go that way?`,
-                false
+                `The merciless desert sands grind uncomfortably under your ${this.player.feet()} as you walk the dunes, searching the trackless sands to uncover their mysteries.  All of a sudden, you can see the outline of a small city in the distance, ringed in sandstone walls.  Strangely it wasn't there a few moments before.  It's probably just a mirage brought on by the heat.  Then again, you don't have any specific direction you're heading, what could it hurt to go that way?`
             );
             this.outx("\n\nDo you investigate the city in the distance?", false);
         } else {
@@ -440,8 +439,7 @@ export class TelAdre extends BaseContent {
             `She introduces herself, "<i>Hello there ${this.player.mf(
                 "sir",
                 "cutie"
-            )}, my name is Yara.  Would you like to get a piercing?</i>"`,
-            false
+            )}, my name is Yara.  Would you like to get a piercing?</i>"`
         );
         if (!this.flags[kFLAGS.LOW_STANDARDS_FOR_ALL])
             this.simpleChoices(
@@ -2141,9 +2139,9 @@ export class TelAdre extends BaseContent {
             `She disappears in the back for a few moments, then returns with ${itype.longName} that looks as if it were tailor-made for you.\n\n`,
             false
         );
-        this.outx(`"<i>${itype.value} gems and it can be yours,</i>" she says.  `, false);
+        this.outx(`"<i>${itype.value} gems and it can be yours,</i>" she says.  `);
         if (this.player.gems < itype.value) {
-            this.outx("You count out your gems and realize it's beyond your price range.", false);
+            this.outx("You count out your gems and realize it's beyond your price range.");
             // Goto shop main menu
             this.doNext(this.tailorShoppe);
             return;
@@ -2257,8 +2255,7 @@ export class TelAdre extends BaseContent {
         this.outx("", true);
         this.spriteSelect(80);
         this.outx(
-            `The gruff metal-working husky gives you a slight nod and slams the weapon down on the edge of his stand.  He grunts, "<i>That'll be ${itype.value} gems.</i>"`,
-            false
+            `The gruff metal-working husky gives you a slight nod and slams the weapon down on the edge of his stand.  He grunts, "<i>That'll be ${itype.value} gems.</i>"`
         );
         if (this.player.gems < itype.value) {
             this.outx(
@@ -2286,8 +2283,7 @@ export class TelAdre extends BaseContent {
             false
         );
         this.outx(
-            `She finishes and turns to you, smiling broadly, "<i>Now, that will be ${itype.value} gems, unless you want to change your mind?</i>"`,
-            false
+            `She finishes and turns to you, smiling broadly, "<i>Now, that will be ${itype.value} gems, unless you want to change your mind?</i>"`
         );
         if (this.player.gems < itype.value) {
             this.outx(
@@ -2414,7 +2410,7 @@ export class TelAdre extends BaseContent {
                 "10 gems an hour to use the facilities here, or 500 for a life-time membership.</i>\"  She has her hands on her hips, and it looks you'll have to pay ten gems to actually get to use any of this stuff.",
                 false
             );
-        else this.outx(`Oh, welcome back ${this.player.short}.  Have a nice workout!</i>"`, false);
+        else this.outx(`Oh, welcome back ${this.player.short}.  Have a nice workout!</i>"`);
 
         if (this.player.gems < 10 && this.flags[kFLAGS.LIFETIME_GYM_MEMBER] == 0) {
             this.outx(
@@ -2623,8 +2619,7 @@ export class TelAdre extends BaseContent {
         // (<60 tou)
         else if (this.player.tou < 60)
             this.outx(
-                `and you do quite well.  You jog around for nearly an hour, working up a healthy lather of sweat.  Even your ${this.player.legs()} tingle and burn with exhaustion.`,
-                false
+                `and you do quite well.  You jog around for nearly an hour, working up a healthy lather of sweat.  Even your ${this.player.legs()} tingle and burn with exhaustion.`
             );
         // (<80 tou)
         else if (this.player.tou < 80)
@@ -2800,8 +2795,7 @@ export class TelAdre extends BaseContent {
             this.outx(
                 ` as your ${this.cockDescript(
                     x
-                )} rises to attention, her eyes fixed upon the stiffened tool.  You resist the urge to grab her thin-yet-girlish hips and power into her right then and there, curious enough to allow her teasing.`,
-                false
+                )} rises to attention, her eyes fixed upon the stiffened tool.  You resist the urge to grab her thin-yet-girlish hips and power into her right then and there, curious enough to allow her teasing.`
             );
         else
             this.outx(
@@ -2827,8 +2821,7 @@ export class TelAdre extends BaseContent {
         );
         if (this.player.balls > 0)
             this.outx(
-                `  Her dexterous fingertips brush against your ${this.ballsDescriptLight()}, light and fluttery strokes that send shivers coursing through you.  The near-lack of contact is at least as titillating as the less-subtle Marethians you've come across.`,
-                false
+                `  Her dexterous fingertips brush against your ${this.ballsDescriptLight()}, light and fluttery strokes that send shivers coursing through you.  The near-lack of contact is at least as titillating as the less-subtle Marethians you've come across.`
             );
         this.outx(
             "  She scoots forward a bit, dragging her soaking cunt down your chest in an effort to reach your crotch.\n\n",
@@ -2908,8 +2901,7 @@ export class TelAdre extends BaseContent {
             );
 
             this.outx(
-                `Trying to parse out the scene at play here is a fool's errand.  Yara must have done this before as your two sprawled out bodies have stopped in just the right fashion to make both of your fleshy orifices in plain view of one another's faces.  Air escapes your pursed lips as the "<i>quality testing</i>" commences on your ${this.vaginaDescript()}, your kitty comrade going in tongue first towards your silken fringes.  `,
-                false
+                `Trying to parse out the scene at play here is a fool's errand.  Yara must have done this before as your two sprawled out bodies have stopped in just the right fashion to make both of your fleshy orifices in plain view of one another's faces.  Air escapes your pursed lips as the "<i>quality testing</i>" commences on your ${this.vaginaDescript()}, your kitty comrade going in tongue first towards your silken fringes.  `
             );
             if (this.player.wetness() >= 3)
                 this.outx(

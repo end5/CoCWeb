@@ -216,8 +216,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `"<i>Hey there, ${this.player.short},</i>" she says, quickly wrapping you in a tight hug.  You return it, and spend the next few minutes chatting amicably with your salamander lover.  After a while, though, Hel steps back from your embrace and, giving her ample endowments a little shake, asks, "<i>So, lover mine, care to blow off some steam?</i>"`,
-            false
+            `"<i>Hey there, ${this.player.short},</i>" she says, quickly wrapping you in a tight hug.  You return it, and spend the next few minutes chatting amicably with your salamander lover.  After a while, though, Hel steps back from your embrace and, giving her ample endowments a little shake, asks, "<i>So, lover mine, care to blow off some steam?</i>"`
         );
         if (this.player.lust < 40) {
             this.player.lust = 40;
@@ -287,11 +286,9 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         ) {
             x = this.player.cockThatFits(85);
             this.outx(
-                `The salamander pulls off your ${this.player.armorName} with practiced speed, `,
-                false
+                `The salamander pulls off your ${this.player.armorName} with practiced speed, `
             );
-            if (this.player.gender == 3)
-                this.outx(`revealing your ${this.vaginaDescript(0)} and `, false);
+            if (this.player.gender == 3) this.outx(`revealing your ${this.vaginaDescript(0)} and `);
             this.outx(
                 `letting your ${this.cockDescript(
                     x
@@ -334,12 +331,11 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             if (this.player.gender == 3)
-                this.outx(" and your vag begins to squirt girlcum onto her scaled thighs", false);
+                this.outx(" and your vag begins to squirt girlcum onto her scaled thighs");
             this.outx(
                 `.  She gasps at the sensation and grabs your hips as another shot goes off inside her.  Panting, she gives you one massive, final thrust and cums herself, squeezing your ${this.cockDescript(
                     x
-                )} hard inside her and screaming as brutal a scream as any warcry to the heavens.`,
-                false
+                )} hard inside her and screaming as brutal a scream as any warcry to the heavens.`
             );
 
             this.outx(
@@ -357,8 +353,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outx(
                     `"<i>Though not exactly a woman, are we?</i>" she laughs, giving your ${this.cockDescript(
                         x
-                    )} a quick stroke.  `,
-                    false
+                    )} a quick stroke.  `
                 );
             this.outx(
                 'She takes a step forward and kneels down atop your shoulders, pinning your arms to the ground and pushing her cunt toward your face.  "<i>And I love taking charge even more! Now lick, and I might let you get off, too.</i>"\n\n',
@@ -404,8 +399,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `Before your mind has settled, your new friend has collapsed on top of you, resting her cheek on your ${this.chestDesc()}.  Her breath is ragged, not unlike yours, and her eyelids seem suddenly heavy.  Smiling, she slowly withdraws her cum-soaked tail from your ${this.vaginaDescript(
                     0
-                )} and slips it under your head like a pillow, soft and warm, if not a little moist.  Seeing as she doesn't seem intent on going anywhere, you, too, close your eyes and drift off to a peaceful sleep.`,
-                false
+                )} and slips it under your head like a pillow, soft and warm, if not a little moist.  Seeing as she doesn't seem intent on going anywhere, you, too, close your eyes and drift off to a peaceful sleep.`
             );
         }
         // Player Loss – Rape – Genderless & Male >85 cockarea
@@ -450,8 +444,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                `Before your mind has settled, your new friend has collapsed on top of you, resting her cheek on your ${this.chestDesc()}.  Her breath is ragged, not unlike yours, and her eyelids seem suddenly heavy.  Smiling, she slowly withdraws her tail from your ${this.assholeDescript()} and slips it under your head like a pillow, soft and warm, if not a little moist.  Seeing as she doesn't seem intent on going anywhere, you, too, close your eyes and drift off to a peaceful sleep.`,
-                false
+                `Before your mind has settled, your new friend has collapsed on top of you, resting her cheek on your ${this.chestDesc()}.  Her breath is ragged, not unlike yours, and her eyelids seem suddenly heavy.  Smiling, she slowly withdraws her tail from your ${this.assholeDescript()} and slips it under your head like a pillow, soft and warm, if not a little moist.  Seeing as she doesn't seem intent on going anywhere, you, too, close your eyes and drift off to a peaceful sleep.`
             );
         }
         this.player.orgasm();
@@ -740,10 +733,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.hasVagina())
-            this.outx(
-                ` while releasing her breasts to finger your ${this.vaginaDescript(0)}`,
-                false
-            );
+            this.outx(` while releasing her breasts to finger your ${this.vaginaDescript(0)}`);
         this.outx(
             ".  You run your hands through her hair as you shoot strings of jism again and again into her mouth until her cheeks start to bulge.  When you're through, she makes a loud gulp and licks her lips, grinning at you wide enough that a tiny amount of your cum leaks from her cheeks.\n\n",
             false
@@ -814,7 +804,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        this.outx("She strokes your cheek as you drift off into a nice, peaceful sleep.", false);
+        this.outx("She strokes your cheek as you drift off into a nice, peaceful sleep.");
         // (reduce lust, increment Helgate flag by 1)
         this.player.orgasm();
         this.flags[kFLAGS.HEL_FUCK_COUNTER]++;
@@ -849,8 +839,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `She takes her tits in hand and starts to work them along the length of your shaft, pumping your ${this.cockDescript(
                 x
-            )} for all it's worth as her prehensile tail begins to slip into her vacant cunt, pleasuring herself as she titfucks you.  You take hold of her shoulders and, taken by wild urge, lean down and kiss the salamander.  She returns it, thrusting her tongue into your mouth and redoubling her titfuck.  You continue this for a few minutes, letting her roughly press you between her soft, pillowy breasts as she fucks herself with her tail.  Eventually, though, you feel the mounting pressure of a coming orgasm in your groin, and you thrust yourself into her mouth`,
-            false
+            )} for all it's worth as her prehensile tail begins to slip into her vacant cunt, pleasuring herself as she titfucks you.  You take hold of her shoulders and, taken by wild urge, lean down and kiss the salamander.  She returns it, thrusting her tongue into your mouth and redoubling her titfuck.  You continue this for a few minutes, letting her roughly press you between her soft, pillowy breasts as she fucks herself with her tail.  Eventually, though, you feel the mounting pressure of a coming orgasm in your groin, and you thrust yourself into her mouth`
         );
         if (this.player.cocks[x].cockLength >= 6) this.outx(", making her deepthroat you");
         this.outx(" as you cum and fill her mouth with ");
@@ -977,7 +966,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.hasCock()) {
-            this.outx(` while ${this.sMultiCockDesc()} shoots its load into her red hair`, false);
+            this.outx(` while ${this.sMultiCockDesc()} shoots its load into her red hair`);
             if (this.player.cumQ() >= 500) this.outx(", bathing her in streams of jism");
         }
         this.outx(
@@ -1087,8 +1076,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `Eventually, you can take no more, and feel your climax coming on.  The salamander, sensing this from the fashion you're wringing her tail, gives your ${this.buttDescript()} a hard slap and slams in as far as it can go.  You rocket over the edge, screaming and shuddering so hard that you collapse onto the dirt`,
-            false
+            `Eventually, you can take no more, and feel your climax coming on.  The salamander, sensing this from the fashion you're wringing her tail, gives your ${this.buttDescript()} a hard slap and slams in as far as it can go.  You rocket over the edge, screaming and shuddering so hard that you collapse onto the dirt`
         );
         if (this.player.gender > 0) {
             this.outx(", with your ");
@@ -1141,10 +1129,9 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `With your lover now completely at your mercy, you lean back and draw her close, lining her crotch up with your ${this.cockDescript(
                 x
-            )}`,
-            false
+            )}`
         );
-        if (y >= 0) this.outx(` and her ass up with your ${this.cockDescript(y)}`, false);
+        if (y >= 0) this.outx(` and her ass up with your ${this.cockDescript(y)}`);
         this.outx(".  As you start to lower her onto your shaft");
         if (y >= 0) this.outx("s");
         this.outx(
@@ -1184,8 +1171,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("Exhausted by the ");
         if (this.flags[kFLAGS.HEL_FUCKBUDDY] == 0) this.outx("battle and ");
         this.outx(
-            `massive orgasm, you collapse onto your back and release your salamander lover from your grasp.  She crawls up to you and nuzzles into your ${this.chestDesc()}, wrapping her own tail around you in return.  Soon, you drift off into a calm, peaceful sleep.`,
-            false
+            `massive orgasm, you collapse onto your back and release your salamander lover from your grasp.  She crawls up to you and nuzzles into your ${this.chestDesc()}, wrapping her own tail around you in return.  Soon, you drift off into a calm, peaceful sleep.`
         );
         // (reduce lust, increment Helgate flag by 1)
         this.player.orgasm();
@@ -1212,8 +1198,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `Once both your tails are sufficiently lubricated, the salamander crawls behind you, and presses her back tightly to yours.  In an odd show of kindness, she even takes your hands in hers as her tail slithers between the cheeks of your ${this.buttDescript()}.  You return the favor, soon pressing the tip of your tail to her tight but relaxed asshole as hers begins to slip into your ${this.assholeDescript()}.  You gasp with the sensation of the hot, writhing tail-cock pushing inside you, fighting every inch to wring sensation out of it even as you push yours deep inside her, hard enough to make her take a sharp breath and knock her knees.`,
-            false
+            `Once both your tails are sufficiently lubricated, the salamander crawls behind you, and presses her back tightly to yours.  In an odd show of kindness, she even takes your hands in hers as her tail slithers between the cheeks of your ${this.buttDescript()}.  You return the favor, soon pressing the tip of your tail to her tight but relaxed asshole as hers begins to slip into your ${this.assholeDescript()}.  You gasp with the sensation of the hot, writhing tail-cock pushing inside you, fighting every inch to wring sensation out of it even as you push yours deep inside her, hard enough to make her take a sharp breath and knock her knees.`
         );
         this.player.buttChange(40, true, true, false);
         this.outx("\n\n", false);
@@ -1234,8 +1219,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `When you come to your senses, you're lying on your back, panting and gasping for breath.  Slowly, you salamander lover drags herself to her feet, only to collapse on top of you a second later.  Seemingly content, she nuzzles into your ${this.chestDesc()} and strokes your cheek.  No less than exhausted yourself, you soon drift off into a peaceful sleep.`,
-            false
+            `When you come to your senses, you're lying on your back, panting and gasping for breath.  Slowly, you salamander lover drags herself to her feet, only to collapse on top of you a second later.  Seemingly content, she nuzzles into your ${this.chestDesc()} and strokes your cheek.  No less than exhausted yourself, you soon drift off into a peaceful sleep.`
         );
         // (reduce lust, increment Helgate flag by 1)
         this.player.orgasm();
@@ -1316,8 +1300,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `You fuck and rut and thrust until the salamander lets out a sharp cry, and her steaming inner muscles clamp down like a vice.  You grunt and impale her one last time before your ${this.cockDescript(
                 x
-            )} explodes within, filling her to the brim with your centaur spunk`,
-            false
+            )} explodes within, filling her to the brim with your centaur spunk`
         );
         if (this.player.cumQ() >= 500)
             this.outx(
@@ -1422,8 +1405,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.hasCock()) {
             this.outx(
-                `Now that you're calmer, the salamander takes the opportunity to grasp ${this.oMultiCockDesc()} with her free hand and guide it into her mouth.  Her forked, reptilian tongue flicks out, running across your girth as more and more of you slips past her thin lips and down her throat`,
-                false
+                `Now that you're calmer, the salamander takes the opportunity to grasp ${this.oMultiCockDesc()} with her free hand and guide it into her mouth.  Her forked, reptilian tongue flicks out, running across your girth as more and more of you slips past her thin lips and down her throat`
             );
             if (this.player.shortestCockLength() <= 24)
                 this.outx(" , until you're buried to the hilt");
@@ -1445,8 +1427,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `.  Getting a good grip on her hot, red tail, you start to fuck her hard, fast, and perhaps vengefully as she continues to assault your ${this.vaginaDescript(
                 0
-            )}`,
-            false
+            )}`
         );
         if (this.player.hasCock()) this.outx(" and swelling member");
         this.outx(".\n\n", false);
@@ -1454,8 +1435,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `It cannot go on forever.  You soon feel the tell-tale pressure of impending orgasm building behind your ${this.vaginaDescript(
                 0
-            )}`,
-            false
+            )}`
         );
         if (this.player.hasCock()) this.outx(" and shaft");
         this.outx(
@@ -1608,15 +1588,13 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `She's too exhausted, and you're too skilled, for the attack to land.  Instead, you grab her wide hips and lunge forward, ramming your ${this.cockDescript(
                 x
-            )} into her ass`,
-            false
+            )} into her ass`
         );
         if (y >= 0)
             this.outx(
                 `, and your ${this.cockDescript(
                     y
-                )} into her waiting vag, doubling the assault on the helpless berserker`,
-                false
+                )} into her waiting vag, doubling the assault on the helpless berserker`
             );
         this.outx(
             " while she's vulnerable.  She screams in surprise, arching her back and squirming in pain.\n\n",
@@ -1683,8 +1661,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `  Her tongue begins to zero in on your ${this.vaginaDescript(
                     0
-                )}, but you give her a quick penalty swat on the tits.  You've got other plans!`,
-                false
+                )}, but you give her a quick penalty swat on the tits.  You've got other plans!`
             );
         this.outx("\n\n", false);
 
@@ -1694,8 +1671,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `Firmly within your depths, she plants her smooth, scaled hands on your ${this.buttDescript()} and starts to flick her tongue as fast as she can, withdrawing and ramming it back into your ass.  You gasp and moan like a whore`,
-            false
+            `Firmly within your depths, she plants her smooth, scaled hands on your ${this.buttDescript()} and starts to flick her tongue as fast as she can, withdrawing and ramming it back into your ass.  You gasp and moan like a whore`
         );
         if (this.player.biggestTitSize() >= 1) this.outx(", groping your tits,");
         this.outx(
@@ -1891,13 +1867,11 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `With a mighty bellow, the 'taur slams his hips into hers and comes on demand, pumping her so full of bull-cum that jets of it begin shooting back at him, coating his furry chest with his own jism.  The sight of it's enough to drive you over the edge, and you thrust down on the bull's snout and cry aloud as your own orgasm comes, your ${this.assholeOrPussy()} clenching down on his tongue, trapping it inside you as your orgasm rocks your body`,
-            false
+            `With a mighty bellow, the 'taur slams his hips into hers and comes on demand, pumping her so full of bull-cum that jets of it begin shooting back at him, coating his furry chest with his own jism.  The sight of it's enough to drive you over the edge, and you thrust down on the bull's snout and cry aloud as your own orgasm comes, your ${this.assholeOrPussy()} clenching down on his tongue, trapping it inside you as your orgasm rocks your body`
         );
         if (this.player.hasCock())
             this.outx(
-                ` while ${this.sMultiCockDesc()} ejects its load into the mess on the 'taur's chest`,
-                false
+                ` while ${this.sMultiCockDesc()} ejects its load into the mess on the 'taur's chest`
             );
         this.outx(".\n\n", false);
 
@@ -2232,8 +2206,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                `"<i>${this.player.short}!?</i>" They both blurt at once, surprised by your intervention.`,
-                false
+                `"<i>${this.player.short}!?</i>" They both blurt at once, surprised by your intervention.`
             );
         }
         // (PC fails the Strength check)
@@ -2416,8 +2389,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `"<i>${this.player.short}!</i>" Isabella gasps, relieved to see you approach. "<i>`,
-            false
+            `"<i>${this.player.short}!</i>" Isabella gasps, relieved to see you approach. "<i>`
         );
         if (this.isabellaAccent())
             this.outx('Good, now ve can take ze fight to zis uncouth barbarian!</i>"\n\n', false);
@@ -2587,8 +2559,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `"<i>${this.player.short}... it is –moo– good to see youuuuu.</i>"  She trails off into a long, ecstatic moan as Hel continues to suckle from her massive teat, acknowledging your presence only with a little waggle of her tail and a wink.  `,
-            false
+            `"<i>${this.player.short}... it is –moo– good to see youuuuu.</i>"  She trails off into a long, ecstatic moan as Hel continues to suckle from her massive teat, acknowledging your presence only with a little waggle of her tail and a wink.  `
         );
         if (this.isabellaAccent())
             this.outx(
@@ -2642,8 +2613,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.hasCock())
             this.outx(
-                `, and your ${this.player.armorName} is tenting visibly, displaying your excitement as you take her soft, delightfully warm and full breast in hand`,
-                false
+                `, and your ${this.player.armorName} is tenting visibly, displaying your excitement as you take her soft, delightfully warm and full breast in hand`
             );
         else
             this.outx(
@@ -2770,29 +2740,25 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `That's all the invitation you need.  You drop to your knees behind the two redheads and thrust your ${this.cockDescript(
                 x
-            )} into Hel's snatch, eliciting a sharp moan from the salamander.  `,
-            false
+            )} into Hel's snatch, eliciting a sharp moan from the salamander.  `
         );
         // (IF MULTICOCK and second cock is under 9 inches:
         if (y >= 0)
             this.outx(
                 `Meanwhile, your ${this.cockDescript(
                     y
-                )} slides easily into Isabella's pussy, making the cow-girl gasp at the sudden and unexpected penetration.  `,
-                false
+                )} slides easily into Isabella's pussy, making the cow-girl gasp at the sudden and unexpected penetration.  `
             );
         this.outx(
             `You grab Hel's hips and push in, reveling in the incredible heat and tightness of her pussy as your ${this.cockDescript(
                 x
-            )} slides into her until you've bottomed out`,
-            false
+            )} slides into her until you've bottomed out`
         );
         if (y >= 0)
             this.outx(
                 ` with your ${this.cockDescript(
                     y
-                )} similarly coming to a rest inside Isabella's depths; you're able to feel the cow's rapid heartbeat hammering through her, causing her already tight cunt to contract rhythmically around your girth`,
-                false
+                )} similarly coming to a rest inside Isabella's depths; you're able to feel the cow's rapid heartbeat hammering through her, causing her already tight cunt to contract rhythmically around your girth`
             );
         this.outx(".\n\n", false);
 
@@ -2877,14 +2843,10 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `Now fucking both girls at once with your super-human twin endowments, you settle into a good solid rut.  The girls squeal and moan under your intense fucking, only stopping in their sweetly feminine vocalizations to kiss or suckle each other.  Just as you've hit your rhythm, though, you're suddenly pushed to the ground as both Isabella and Hel give you a playful kick with their hoofed-or-scaled feet.  They switch positions so that Isabella is fore-most and facing you atop your ${this.cockDescript(
                     x
-                )} while Hel sits behind her, impaled on your ${this.cockDescript(y)}`,
-                false
+                )} while Hel sits behind her, impaled on your ${this.cockDescript(y)}`
             );
             if (z > -1)
-                this.outx(
-                    ` with your ${this.cockDescript(z)} even now spearing her tight ass`,
-                    false
-                );
+                this.outx(` with your ${this.cockDescript(z)} even now spearing her tight ass`);
             this.outx(".\n\n", false);
 
             this.outx(
@@ -3039,16 +3001,14 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
 
         this.outx("The combination of the cow-girl's finger-and-tongue fuck");
         // (IF HERM:
-        if (this.player.hasCock())
-            this.outx(` and Hel jerking your ${this.cockDescript(0)} off`, false);
+        if (this.player.hasCock()) this.outx(` and Hel jerking your ${this.cockDescript(0)} off`);
         this.outx(
             " is driving you quickly toward your limit.  You start to tongue-fuck the salamander as hard and fast as you can, sliding as many fingers into her hungry cunt as possible, and even plugging your thumb into her tight little asshole, anything to bring her to orgasm at the same time you cum.\n\n",
             false
         );
 
         this.outx(
-            `It works like a charm: with a sharp cry, Hel clamps down on your invading fingers and tongue, her vaginal muscles spasming and contracting as the beginnings of orgasm hit her.  You can hear Isabella begin to moo ecstatically behind you, sending immensely-pleasurable vibrations up through your ${this.vaginaDescript()}.  You let yourself go, sinking into orgasmic bliss as the cow`,
-            false
+            `It works like a charm: with a sharp cry, Hel clamps down on your invading fingers and tongue, her vaginal muscles spasming and contracting as the beginnings of orgasm hit her.  You can hear Isabella begin to moo ecstatically behind you, sending immensely-pleasurable vibrations up through your ${this.vaginaDescript()}.  You let yourself go, sinking into orgasmic bliss as the cow`
         );
         if (this.player.hasCock()) this.outx(" and salamander double-team");
         this.outx(
@@ -3061,10 +3021,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.hasCock())
-            this.outx(
-                `, wrapping her warm tail around your ${this.cockDescript(0)} lovingly`,
-                false
-            );
+            this.outx(`, wrapping her warm tail around your ${this.cockDescript(0)} lovingly`);
         this.outx(".\n\n", false);
 
         this.outx(
@@ -3139,8 +3096,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                `Amused, Hel gives Miko's bountiful bosom a playful grope and says, "<i>My, my, ${this.player.short}, looking for a little foxy foursome?  Well, I think that can be arranged, what do you say, girls?</i>"`,
-                false
+                `Amused, Hel gives Miko's bountiful bosom a playful grope and says, "<i>My, my, ${this.player.short}, looking for a little foxy foursome?  Well, I think that can be arranged, what do you say, girls?</i>"`
             );
             // (NEXT button, to Foursome)
             this.doNext(this.heliasFoxyFourSomeFluffs);
@@ -3290,8 +3246,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `Grasping your ${this.hipDescript()}, Mai slides her doggy cock into you in one slow, languid motion, pushing in until her thick, swollen knot presses against your lips.  You moan as her shaft gently strokes your walls, dribbling enough pre to get you nice and lubricated as she goes.  With her knot against your lips, Mai gives a few quick, forceful strokes into you before withdrawing to the tip, leaving only half an inch of her red cock inside you before slamming home, ramming her knot into you in one mighty thrust.`,
-            false
+            `Grasping your ${this.hipDescript()}, Mai slides her doggy cock into you in one slow, languid motion, pushing in until her thick, swollen knot presses against your lips.  You moan as her shaft gently strokes your walls, dribbling enough pre to get you nice and lubricated as she goes.  With her knot against your lips, Mai gives a few quick, forceful strokes into you before withdrawing to the tip, leaving only half an inch of her red cock inside you before slamming home, ramming her knot into you in one mighty thrust.`
         );
         this.player.cuntChange(24, true, true, false);
         this.outx("\n\n");
@@ -3307,8 +3262,7 @@ export class HelScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `Suddenly, Miko lets out a sharp cry and slams her hips into Hel's.  You can only see the looks on both her face and Hel's as they cum in unison, white fox-spunk dribbling out of the slamander's hot snatch.  "<i>Gonna... Gonna cum...</i>" Mai whimpers, giving you only a moment to prepare before she grabs your arms and pulls you down onto her chest, burying your face between her heavy tits.  She jackhammers your now-exposed cunt.  ramming her knot in and out of you until you can't think straight.  You cum, your ${this.vaginaDescript()} clamping down on her doggy cock.  Waves of explosive pleasure shoot through you, making you spasm in the fox-herm's arms, only barely aware of her shooting her load deep inside you, coating your walls with thick, hot spunk.  You ride out the orgasm buried in Mai's chest, shuddering and gasping as she kisses you over and over, letting her thick knot deflate inside you until her own cum leaks out, staining her smooth thighs and legs.`,
-            false
+            `Suddenly, Miko lets out a sharp cry and slams her hips into Hel's.  You can only see the looks on both her face and Hel's as they cum in unison, white fox-spunk dribbling out of the slamander's hot snatch.  "<i>Gonna... Gonna cum...</i>" Mai whimpers, giving you only a moment to prepare before she grabs your arms and pulls you down onto her chest, burying your face between her heavy tits.  She jackhammers your now-exposed cunt.  ramming her knot in and out of you until you can't think straight.  You cum, your ${this.vaginaDescript()} clamping down on her doggy cock.  Waves of explosive pleasure shoot through you, making you spasm in the fox-herm's arms, only barely aware of her shooting her load deep inside you, coating your walls with thick, hot spunk.  You ride out the orgasm buried in Mai's chest, shuddering and gasping as she kisses you over and over, letting her thick knot deflate inside you until her own cum leaks out, staining her smooth thighs and legs.`
         );
         this.player.orgasm();
         this.dynStats("sen", -1);

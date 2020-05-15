@@ -724,7 +724,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     );
                     // [If breasts are flat, manly breasts]
                     if (this.player.biggestTitSize() < 1)
-                        this.outx("sniffs the air intensely, her whiskers quivering. ", false);
+                        this.outx("sniffs the air intensely, her whiskers quivering. ");
                     // [If breasts are A-cup or bigger]
                     else
                         this.outx(
@@ -1015,8 +1015,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 // [High Affection]
                 else {
                     this.outx(
-                        `She grins at you with open delight. "<i>Hey there, ${this.player.short}! It's great to see you again... `,
-                        false
+                        `She grins at you with open delight. "<i>Hey there, ${this.player.short}! It's great to see you again... `
                     );
                     if (this.player.hasCock()) {
                         this.outx("Have you come to knock me up?");
@@ -1239,7 +1238,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        this.outx("It seems you've made Amily happy by asking if this is what she wants.", false);
+        this.outx("It seems you've made Amily happy by asking if this is what she wants.");
         // Offer accepted
         this.flags[kFLAGS.AMILY_OFFER_ACCEPTED] = 1;
         // {+5 Affection}
@@ -2233,7 +2232,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // ([horsecock]
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0)
-            this.outx(" and fur has already begun to cover their formerly-naked bodies.", false);
+            this.outx(" and fur has already begun to cover their formerly-naked bodies.");
         else this.outx(" maturing dramatically as you watch.");
         this.outx(
             "  Their color patterns vary considerably; white, black and brown are most common, and you even see one or two with your hair color. Amily flops back onto her rump and then topples over onto her back, clearly too tired to stand up. Her offspring crowd around, cuddling up to her, and she gives them a tired but happy smile.\n\n",
@@ -2256,8 +2255,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         this.outx(
-            `"<i>Hghnn... ${this.player.short}? What are you doing?</i>" Amily asks, before groaning again as another contraction hits her. You reassure her that you're here to help as you kneel beside her, and reach out to touch her swollen middle, placing one hand on either side of its globular mass. Unsure of what else to do, you start to gently massage it, trying to relax and soothe the muscles after every time they clench and lower the pain when she goes through another contraction. She starts to thank you, then clenches her teeth,`,
-            false
+            `"<i>Hghnn... ${this.player.short}? What are you doing?</i>" Amily asks, before groaning again as another contraction hits her. You reassure her that you're here to help as you kneel beside her, and reach out to touch her swollen middle, placing one hand on either side of its globular mass. Unsure of what else to do, you start to gently massage it, trying to relax and soothe the muscles after every time they clench and lower the pain when she goes through another contraction. She starts to thank you, then clenches her teeth,`
         );
 
         // ([horsecock]
@@ -2469,8 +2467,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         this.outx(
-            `But as I got to know you, you became more to me. I love you, ${this.player.short}, and I don't want to leave you. You came to this world on a quest, didn't you? Well, you helped me with my quest, so it's only fair I help you with yours. The children have been taught well, they can make their own way from here and now... but I want to come back with you, to stay with you and help however I can. Will you let me?`,
-            false
+            `But as I got to know you, you became more to me. I love you, ${this.player.short}, and I don't want to leave you. You came to this world on a quest, didn't you? Well, you helped me with my quest, so it's only fair I help you with yours. The children have been taught well, they can make their own way from here and now... but I want to come back with you, to stay with you and help however I can. Will you let me?`
         );
         this.outx('</i>"\n\n', false);
 
@@ -4031,8 +4028,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `Once inside, the two of you get to work undoing each others clothes, tossing the garments across the room with little care for them. Amily bites her lower lip as she examines your naked form again, before practically jumping you. She wraps her small hands around your stiff ${Appearance.cockNoun(
                 this.player.cocks[x].cockType
-            )} in an almost painful fashion, rubbing and teasing it, and presses her mouth against yours, her tongue exploring every inch of your mouth that it can reach, and you quickly respond by doing the same favor for Amily.`,
-            false
+            )} in an almost painful fashion, rubbing and teasing it, and presses her mouth against yours, her tongue exploring every inch of your mouth that it can reach, and you quickly respond by doing the same favor for Amily.`
         );
         if (this.pregnancy.isPregnant)
             this.outx(
@@ -4088,8 +4084,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `As an apology you quickly push your ${this.cockDescript(
                 x
-            )} past her dampened nether-lips, and set to work thrusting in and out of your mousegirl lover.`,
-            false
+            )} past her dampened nether-lips, and set to work thrusting in and out of your mousegirl lover.`
         );
         if (this.pregnancy.isPregnant)
             this.outx(
@@ -4117,7 +4112,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // (if Amily is herm:
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
-            this.outx(" and cum spurts into the air between you, splattering on you both", false);
+            this.outx(" and cum spurts into the air between you, splattering on you both");
         this.outx(".\n\n", false);
 
         if (!this.pregnancy.isPregnant)
@@ -4608,8 +4603,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 `Amily asks, "<i>How would ${this.player.mf(
                     "master",
                     "mistress"
-                )} like to use ${this.player.mf("his", "her")} cum-bucket today?`,
-                false
+                )} like to use ${this.player.mf("his", "her")} cum-bucket today?`
             );
             if (this.player.hasCock()) anal = this.corruptAmilyBuckFutter;
             if (this.player.hasVagina() && this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
@@ -4738,8 +4732,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 );
             }
             this.outx(
-                `Amily has a little pink pussy in between her legs; ${stopSayingNetherlipsFuck}.`,
-                false
+                `Amily has a little pink pussy in between her legs; ${stopSayingNetherlipsFuck}.`
             );
         } else {
             // Start [horsecock]
@@ -4764,8 +4757,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                         this.flags[kFLAGS.AMILY_WANG_LENGTH]
                     }-inch penis growing from her crotch. It is surprisingly human looking, ${
                         this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "naked and hairless " : ""
-                    }and pink and throbbing`,
-                    false
+                    }and pink and throbbing`
                 );
                 if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] == 0)
                     this.outx(" - it even has a foreskin, not a sheath.\n\n", false);
@@ -4780,7 +4772,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     );
             }
             if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] > 0) {
-                this.outx(`She has ${this.amilyBalls()} dangling `, false);
+                this.outx(`She has ${this.amilyBalls()} dangling `);
                 if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0) this.outx("underneath her shaft");
                 else this.outx("from her groin");
                 this.outx(", churning with cum as you gaze at them.\n\n", false);
@@ -5056,12 +5048,11 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("\n\n", false);
 
         this.outx(
-            `Amily giggles, and then starts to wriggle out of her pants, shaking her ${this.amilyHips()} and giving you a chance to grab hold of her ${this.amilyButt()} as she does so. Soon, she's naked from the waist down, her little pink netherlips already winking at you`,
-            false
+            `Amily giggles, and then starts to wriggle out of her pants, shaking her ${this.amilyHips()} and giving you a chance to grab hold of her ${this.amilyButt()} as she does so. Soon, she's naked from the waist down, her little pink netherlips already winking at you`
         );
         // (if Amily is herm:
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
-            this.outx(` and her ${this.amilyCock()} standing erect`, false);
+            this.outx(` and her ${this.amilyCock()} standing erect`);
         this.outx("; she's clearly very excited about this.");
         this.outx("\n\n", false);
 
@@ -5087,8 +5078,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
             this.outx(
-                ` her ${this.amilyCock()} spasming and spraying futa-jism in between your bodies`,
-                false
+                ` her ${this.amilyCock()} spasming and spraying futa-jism in between your bodies`
             );
         this.outx(".\n\n", false);
 
@@ -5169,12 +5159,11 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("\n\n", false);
 
         this.outx(
-            `Amily giggles, and then starts to wriggle out of her pants, shaking her ${this.amilyHips()} and giving you a chance to grab hold of her ${this.amilyButt()} as she does so. Soon, she's naked from the waist down, her little pink netherlips already winking at you`,
-            false
+            `Amily giggles, and then starts to wriggle out of her pants, shaking her ${this.amilyHips()} and giving you a chance to grab hold of her ${this.amilyButt()} as she does so. Soon, she's naked from the waist down, her little pink netherlips already winking at you`
         );
         // (if Amily is herm:
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
-            this.outx(` and her ${this.amilyCock()} standing erect`, false);
+            this.outx(` and her ${this.amilyCock()} standing erect`);
         this.outx(".  She's clearly very excited about this.\n\n", false);
 
         this.outx(
@@ -5184,8 +5173,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         // (if herm:
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
             this.outx(
-                `, and her ${this.amilyCock()} is sticking up where her clitoris should be.  Y`,
-                false
+                `, and her ${this.amilyCock()} is sticking up where her clitoris should be.  Y`
             );
         else this.outx(", and y");
         this.outx(
@@ -5242,8 +5230,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     : ""
             }. Soon, you can feel that your ${this.cockDescript(
                 0
-            )} is bumping against her throat, and you try to back away a little to avoid choking her. To your surprise, though, she firmly pulls you back in, and the two of you make something of a game of it, you pulling out, and her pulling you back in.  All the while, she sucks and licks and delicately scrapes your shaft with her teeth - the stimulus is incredible. You groan and moan as the warmth fills you, the churning pleasure growing deep inside your `,
-            false
+            )} is bumping against her throat, and you try to back away a little to avoid choking her. To your surprise, though, she firmly pulls you back in, and the two of you make something of a game of it, you pulling out, and her pulling you back in.  All the while, she sucks and licks and delicately scrapes your shaft with her teeth - the stimulus is incredible. You groan and moan as the warmth fills you, the churning pleasure growing deep inside your `
         );
         if (this.player.balls > 0) this.outx(this.ballsDescriptLight(), false);
         else this.outx("body");
@@ -5258,8 +5245,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx("her cheeks bulge but she manages to swallow it all");
         else
             this.outx(
-                `her cheeks bulge hugely and, though she swallows valiantly (her stomach bulges from the amount she takes), a lot of it spurts back from between her lips, drizzling onto your crotch and her ${this.amilyTits()}`,
-                false
+                `her cheeks bulge hugely and, though she swallows valiantly (her stomach bulges from the amount she takes), a lot of it spurts back from between her lips, drizzling onto your crotch and her ${this.amilyTits()}`
             );
         this.outx(
             `.  Finally, you finish, and she releases your ${this.cockDescript(
@@ -5375,8 +5361,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.player.longestCock()
                 )}, eagerly cramming it between her ${this.amilyTits()}, mashing them together and running them up and down against your ${this.cockDescript(
                     this.player.longestCock()
-                )}, surrounding it with warm, soft, velvety flesh.`,
-                false
+                )}, surrounding it with warm, soft, velvety flesh.`
             );
             // (If player has "autofellatio" cock:
             if (this.player.longestCockLength() >= 22)
@@ -5394,15 +5379,11 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
         this.outx(
-            `You pound yourself eagerly into Amily, pelvis meeting pelvis in a lustful collision that sends pleasure surging through you. Amily squeaks and whines loudly at your exertions, which only spurs you to greater efforts. However, soon Amily can no longer resist and, with one particularly piercing squeak, she cums, a gout of mousey-cum flooding into your ${this.vaginaDescript()}; this is your signal, and soon you too cum`,
-            false
+            `You pound yourself eagerly into Amily, pelvis meeting pelvis in a lustful collision that sends pleasure surging through you. Amily squeaks and whines loudly at your exertions, which only spurs you to greater efforts. However, soon Amily can no longer resist and, with one particularly piercing squeak, she cums, a gout of mousey-cum flooding into your ${this.vaginaDescript()}; this is your signal, and soon you too cum`
         );
         // (if herm:
         if (this.player.hasCock()) this.outx(", spraying your own herm-cum onto Amily's face");
-        this.outx(
-            `, splattering mixed fluids below your ${this.player.legs()} and Amily's `,
-            false
-        );
+        this.outx(`, splattering mixed fluids below your ${this.player.legs()} and Amily's `);
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) this.outx("furry ");
         this.outx("thighs.\n\n", false);
 
@@ -5602,7 +5583,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx("She howls in unison with you at this final climax");
             // (if high cum amount:
             if (this.player.cumQ() > 500)
-                this.outx(", your torrents of spooge making her belly distend visibly", false);
+                this.outx(", your torrents of spooge making her belly distend visibly");
             this.outx(
                 ', and then collapses onto your front. You lie there together, arms unthinkingly winding around each other. Amily is the first of you to stir. "<i>Do you... Are you happy, that I\'m here?</i>" You assure her that you are. "<i>That\'s good...</i>" She yawns. "<i>Because I\'m so happy to be here with you.</i>"\n\n',
                 false
@@ -5643,8 +5624,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                `Amily's cock pops from your mouth as she flops over onto your chest, ${this.amilyTits()} heaving as she gasps for breath. "<i>Was... Was that...</i>" She swallows and tries again. "<i>Is that what it's like? `,
-                false
+                `Amily's cock pops from your mouth as she flops over onto your chest, ${this.amilyTits()} heaving as she gasps for breath. "<i>Was... Was that...</i>" She swallows and tries again. "<i>Is that what it's like? `
             );
             if (this.player.hasCock()) this.outx('When I do that for you?</i>"\n\n', false);
             else this.outx('For a guy?</i>"\n\n', false);
@@ -5675,16 +5655,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                `Amily situates herself between your legs and starts to stroke your ${this.vaginaDescript()}; needless to say, her skill and experience from her own efforts to masturbate herself soon have you bucking with pleasure, lubing up your passage with your own feminine fluids.`,
-                false
+                `Amily situates herself between your legs and starts to stroke your ${this.vaginaDescript()}; needless to say, her skill and experience from her own efforts to masturbate herself soon have you bucking with pleasure, lubing up your passage with your own feminine fluids.`
             );
             // (if player is herm:
             if (this.player.hasCock())
                 this.outx(
                     `  She strokes your ${this.cockDescript(
                         0
-                    )} a few times, but in a prefunctory manner; it's obvious that she's focusing on her own penis, this time.`,
-                    false
+                    )} a few times, but in a prefunctory manner; it's obvious that she's focusing on her own penis, this time.`
                 );
             this.outx("\n\n", false);
 
@@ -5713,8 +5691,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx("\n\n", false);
 
             this.outx(
-                `"<i>I can hardly believe I've got a cock stuck in another woman's pussy... but, I gotta admit, this is actually really good, even if it is really weird too.</i>" Amily murmurs, but then she starts doing what you consider really important and she begins thrusting into you. You wrap your ${this.player.legs()} around Amily's back and pull her tightly against you, eagerly meeting her every thrust with one of your own. She moans and gasps at your efforts, pounding your pussy with everything she has,`,
-                false
+                `"<i>I can hardly believe I've got a cock stuck in another woman's pussy... but, I gotta admit, this is actually really good, even if it is really weird too.</i>" Amily murmurs, but then she starts doing what you consider really important and she begins thrusting into you. You wrap your ${this.player.legs()} around Amily's back and pull her tightly against you, eagerly meeting her every thrust with one of your own. She moans and gasps at your efforts, pounding your pussy with everything she has,`
             );
             // (if player is a squirter:
             if (this.player.wetness() >= 5)
@@ -5728,14 +5705,12 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                `Together you thresh and thrust, hips pounding together furiously, until Amily grunts suddenly, loudly and deeply, as her hot futa essence wells up from deep inside of her and begins gushing into you. At that, you lose it yourself, your own fluids pouring forth to mingle with hers and run out of your ${this.vaginaDescript()}`,
-                false
+                `Together you thresh and thrust, hips pounding together furiously, until Amily grunts suddenly, loudly and deeply, as her hot futa essence wells up from deep inside of her and begins gushing into you. At that, you lose it yourself, your own fluids pouring forth to mingle with hers and run out of your ${this.vaginaDescript()}`
             );
             // if herm: your (cockdescript cocknumber)
             if (this.player.hasCock())
                 this.outx(
-                    `, ${this.sMultiCockDesc()} spraying jism to fall upon you both like sex-scented rain`,
-                    false
+                    `, ${this.sMultiCockDesc()} spraying jism to fall upon you both like sex-scented rain`
                 );
             this.outx(
                 ". Panting with your mutual release, Amily slides wetly from your sex and falls upon your belly, to rest there for a moment.\n\n",
@@ -6060,8 +6035,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             `You decide to leave her as she is. If you want her to have a bigger dick you can always give her more drafts. "<i>I want you to practice using your new tool, so you'll be ready whenever I need you,</i>" you order Amily. "<i>Yes, ${this.player.mf(
                 "master",
                 "mistress"
-            )},</i>" she answers. You leave her on the floor and go about your business.`,
-            false
+            )},</i>" she answers. You leave her on the floor and go about your business.`
         );
         this.doNext(this.amilyFollowerEncounter);
     }
@@ -6102,7 +6076,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         }
-        this.outx("You abandon her in a heap of fluids and go about your own business.", false);
+        this.outx("You abandon her in a heap of fluids and go about your own business.");
         if (this.flags[kFLAGS.HYPER_HAPPY]) {
             this.flags[kFLAGS.AMILY_WANG_LENGTH] = maxSizeHypr;
         } else {
@@ -6208,7 +6182,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     'She looks thoughtful for a moment, then shakes her head reluctantly. "<i>I\'m sorry darling, I really am, but I think I\'ve got big enough breasts as it is.</i>" She then smirks, and playfully jiggles her abundant cleavage. "<i>Don\'t you agree?</i>" she teases.\n\n',
                     false
                 );
-                this.outx("Swallowing hard, you have to agree, which makes Amily laugh.", false);
+                this.outx("Swallowing hard, you have to agree, which makes Amily laugh.");
                 this.dynStats("lus", 5);
             }
         }
@@ -6225,8 +6199,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 `You pick up a vial of Succubi's Milk and show it to Amily. "<i>Do you know what to do with this, slut?</i>" you ask her. "<i>You want me to drink it, ${this.player.mf(
                     "master",
                     "mistress"
-                )}?</i>" she asks you, licking her lips. You smile and reply, "<i>That's right.</i>" Then you push her on her back and lift her legs over her shoulders, exposing her wet pussy to you.  "<i>Only, you're going to drink with these lips,</i>" you add. Amily smiles in approval and excitement.`,
-                false
+                )}?</i>" she asks you, licking her lips. You smile and reply, "<i>That's right.</i>" Then you push her on her back and lift her legs over her shoulders, exposing her wet pussy to you.  "<i>Only, you're going to drink with these lips,</i>" you add. Amily smiles in approval and excitement.`
             );
             // [(If Amily has a dick)
             if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
@@ -6237,8 +6210,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 `You uncork the vial, spread Amily's pussy with a hand and pour the contents of the vial into Amily's hungry snatch. "<i>Ah ${this.player.mf(
                     "master",
                     "mistress"
-                )}! It feels so good! Just like cum,</i>" Amily moans in pleasure. The contents quickly disappear inside Amily's womb, triggering an orgasm within the whorish mouse-slave.`,
-                false
+                )}! It feels so good! Just like cum,</i>" Amily moans in pleasure. The contents quickly disappear inside Amily's womb, triggering an orgasm within the whorish mouse-slave.`
             );
             this.flags[kFLAGS.AMILY_VAGINAL_WETNESS]++;
             // [(if Amily reached/is a squirter)
@@ -6297,7 +6269,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 )}. Forgive your stupid mouse slut for questioning you.</i>"\n\n`,
                 false
             );
-            this.outx("She opens her legs so you can watch and downs the bottle in one go.", false);
+            this.outx("She opens her legs so you can watch and downs the bottle in one go.");
             if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
                 this.outx("Her cock grows hard, but nothing else seems to happen...");
             this.outx("\n\n", false);
@@ -6344,29 +6316,25 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0
                         ? "lumps begin forming"
                         : "fuzzy lumps begin forming"
-                }`,
-                false
+                }`
             );
             if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
                 this.outx(
                     `right under her cock. Her skin grows and covers the base of her cock, pulling it in; giving her what looks like a sheath. It continues to expand and is finally complimented by a couple of orbs falling into her ${
                         this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "fuzzy " : ""
-                    }sack, giving it the weight it needs to produce more cum. `,
-                    false
+                    }sack, giving it the weight it needs to produce more cum. `
                 );
             else
                 this.outx(
                     `between her legs. Her skin expands with the lumps, forming into a small sack. It continues to expand and is finally complimented by a couple of orbs falling into her ${
                         this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "fuzzy " : ""
-                    } nutsack, giving it the weight it needs to produce cum, though how it will ever expel it is a mystery to you. `,
-                    false
+                    } nutsack, giving it the weight it needs to produce cum, though how it will ever expel it is a mystery to you. `
                 );
             this.outx(
                 `"<i>Good. Now, I want you to practice walking with these. I can't have you hurting yourself as you walk about,</i>" you tell her. "<i>Yes, ${this.player.mf(
                     "master",
                     "mistress"
-                )}</i>," she replies, panting slightly; you leave her prone on the ground.`,
-                false
+                )}</i>," she replies, panting slightly; you leave her prone on the ground.`
             );
             this.player.orgasm();
             this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE]++;
@@ -6385,8 +6353,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 `You pick up a vial of Succubi's Delight and show it to Amily. "<i>Drink this; you need bigger balls,</i>" you order her, passing the bottle to her. Amily replies, "<i>Yes, ${this.player.mf(
                     "master",
                     "mistress"
-                )}</i>." Then she opens her legs and downs the bottle. She moans as her balls grow bigger and denser, churning with the extra cum her sack now holds.`,
-                false
+                )}</i>." Then she opens her legs and downs the bottle. She moans as her balls grow bigger and denser, churning with the extra cum her sack now holds.`
             );
             this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE]++;
         }
@@ -6441,8 +6408,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 `"<i>Well, is there something else this worthless cum-collector can do to please her ${this.player.mf(
                     "master",
                     "mistress"
-                )}?  Slut is so sorry she disappointed you,</i>" she squeaks sadly, still trying to entice you into sex.`,
-                false
+                )}?  Slut is so sorry she disappointed you,</i>" she squeaks sadly, still trying to entice you into sex.`
             );
         }
         if (this.player.hasItem(this.consumables.PINKEGG))
@@ -6624,8 +6590,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     `Amily scarfs down the egg and looks back expectantly, but it doesn't seem to make her already massive backside any larger.  She pouts and whimpers, "<i>Slut is sorry, but her ass is as big and round as it can get ${this.player.mf(
                         "master",
                         "mistress"
-                    )}!</i>"`,
-                    false
+                    )}!</i>"`
                 );
             }
         }
@@ -6708,8 +6673,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     `She chomps down on the proferred egg, but nothing happens. "<i>Slut's body is at its limits ${this.player.mf(
                         "master",
                         "mistress"
-                    )}.  Her huge breeding hips can't widen any further.  Would you like to fuck?</i>" she asks, rocking her considerable mass back and forth hypnotically.`,
-                    false
+                    )}.  Her huge breeding hips can't widen any further.  Would you like to fuck?</i>" she asks, rocking her considerable mass back and forth hypnotically.`
                 );
                 this.dynStats("lus", 4);
             }
@@ -7258,8 +7222,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `; getting some of your juices on her ${
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "muzzle" : "lips"
-                }`,
-                false
+                }`
             );
             if (this.player.balls > 0) this.outx(" and ");
         } else if (this.player.balls > 0) this.outx("; ");
@@ -7267,8 +7230,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `tickling your balls with her ${
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "fur" : "skin"
-                }`,
-                false
+                }`
             );
         this.outx(
             `.  She rubs her head all over your crotch, making sure to catch as much of your musk as possible; as well as exciting you further. Finally when she's done she begins saying, "<i>Thank you for allowing this worthless cunt to taste your wonderful essence, my ${this.player.mf(
@@ -7277,8 +7239,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             )}.</i>" Amily gives your shaft a small lick and then continues, "<i>Blessed be, oh great Marae, for granting this slutty cumdumpster mercy and allowing me to have and serve my ${this.player.mf(
                 "master",
                 "mistress"
-            )} so fully. Amen.</i>"  `,
-            false
+            )} so fully. Amen.</i>"  `
         );
         this.outx(
             "With that said, she grins widely and dives into her task, brutally shoving as much of your shaft into her mouth as she can.",
@@ -7313,8 +7274,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             ` ${this.cockDescript(
                 0
-            )} throb one last time before saying, "<i>Here's your reward, bitch.</i>" Then you explode deep into her throat, much to her pleasure.`,
-            false
+            )} throb one last time before saying, "<i>Here's your reward, bitch.</i>" Then you explode deep into her throat, much to her pleasure.`
         );
         // [(if PC has big cum amount)
         if (this.player.cumQ() >= 1000)
@@ -7328,8 +7288,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             )} free of Amily's hungry jaws; it is clean, without a single trace of cum and barely any spit on it. You look at Amily and she looks back, smiling happily and licking her lips. "<i>Thank you for the meal, ${this.player.mf(
                 "master",
                 "mistress"
-            )},</i>" she says before a small burp escapes her. You pat her on the head, get dressed, and leave Amily, satisfied with her good work.`,
-            false
+            )},</i>" she says before a small burp escapes her. You pat her on the head, get dressed, and leave Amily, satisfied with her good work.`
         );
         this.player.orgasm();
         this.dynStats("sen", 1, "cor", 1);
@@ -7341,14 +7300,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         // [Oral sex]
         // Herms pick if Amily gets to lick them or blow them.
         this.outx(
-            `"<i>It's time to eat,</i>" you declare and Amily instantly perks up after hearing it. You remove the lower half of your ${this.player.armorName} and thrust your crotch at Amily; displaying your quickly `,
-            false
+            `"<i>It's time to eat,</i>" you declare and Amily instantly perks up after hearing it. You remove the lower half of your ${this.player.armorName} and thrust your crotch at Amily; displaying your quickly `
         );
         if (this.player.hasCock())
-            this.outx(
-                `hardening ${Appearance.cockNoun(this.player.cocks[0].cockType)} and `,
-                false
-            );
+            this.outx(`hardening ${Appearance.cockNoun(this.player.cocks[0].cockType)} and `);
         this.outx(
             `moistening ${this.vaginaDescript()}. Amily watches as if mesmerized, drool escaping her mouth as she licks her lips in anticipation.\n\n`,
             false
@@ -7378,8 +7333,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.balls > 0) {
             if (!this.player.hasCock()) this.outx(", ");
             this.outx(
-                `your ${this.ballsDescriptLight()} gently resting atop her head, supported by her small horns`,
-                false
+                `your ${this.ballsDescriptLight()} gently resting atop her head, supported by her small horns`
             );
         }
         this.outx(
@@ -7390,20 +7344,15 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             }, savoring the taste of the juices, "<i>Wonderful, mistress, just wonderful,</i>" Amily grins; then she bows and says, "<i>Thank you for allowing this worthless cunt to taste your wonderful essence, my mistress.</i>"  She gives your clit a quick lick and continues, "<i>Blessed be, oh great Marae.  For granting this slutty cumdumpster mercy and allowing me to have serve my ${this.player.mf(
                 "master",
                 "mistress"
-            )} so fully.  Amen.</i>" With that said, she licks her lips, `,
-            false
+            )} so fully.  Amen.</i>" With that said, she licks her lips, `
         );
         // [(if PC has balls)
         if (this.player.balls > 0)
-            this.outx(
-                `lifts your ${this.ballsDescriptLight()} to set them gently atop her head, `,
-                false
-            );
+            this.outx(`lifts your ${this.ballsDescriptLight()} to set them gently atop her head, `);
         this.outx("then she dives into her task.\n\n", false);
 
         this.outx(
-            `Amily excitedly slathers your netherlips with her saliva, licking all around your ${this.vaginaDescript()}; every once in a while she'll stop her ministrations to give your `,
-            false
+            `Amily excitedly slathers your netherlips with her saliva, licking all around your ${this.vaginaDescript()}; every once in a while she'll stop her ministrations to give your `
         );
         if (this.player.balls > 0) this.outx("balls");
         else this.outx(this.clitDescript(), false);
@@ -7412,20 +7361,15 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.flags[kFLAGS.AMILY_NOT_FURRY] == 0
                     ? "; her fur tickles your labia pleasurably"
                     : ""
-            }`,
-            false
+            }`
         );
         // [(if PC has balls)
         if (this.player.balls > 0)
-            this.outx(
-                ` and her small horns gently massage your ${this.ballsDescriptLight()}`,
-                false
-            );
+            this.outx(` and her small horns gently massage your ${this.ballsDescriptLight()}`);
         // [(if PC has a cock)
         if (this.player.hasCock())
             this.outx(
-                `; ${this.sMultiCockDesc()} throbs and begins leaking pre; it forms small rivulets that run down onto Amily's head`,
-                false
+                `; ${this.sMultiCockDesc()} throbs and begins leaking pre; it forms small rivulets that run down onto Amily's head`
             );
         this.outx(
             `.  The ${
@@ -7463,8 +7407,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `${this.vaginaDescript()} , holding her ${
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "nose" : "mouth"
-                } closed; Amily's eyes bulge with surprise and you voice your pleasure with a long moan, "<i>I'm not letting you breathe until you make me come slut. </i>" With those words, you begin frigging yourself against Amily's `,
-                false
+                } closed; Amily's eyes bulge with surprise and you voice your pleasure with a long moan, "<i>I'm not letting you breathe until you make me come slut. </i>" With those words, you begin frigging yourself against Amily's `
             );
             this.outx(
                 `${
@@ -7485,15 +7428,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `You pull yourself off Amily's ${
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "muzzle" : "face"
-                } and moan deeply.`,
-                false
+                } and moan deeply.`
             );
         else
             this.outx(
                 `You let go of Amily's ${
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "muzzle" : "face"
-                } and moan deeply.`,
-                false
+                } and moan deeply.`
             );
         this.outx(
             `  Amily gasps for air, just in time to receive a faceful of your girlcum; she quickly latches her mouth onto your ${this.vaginaDescript()}, sealing it to avoid losing any more of your delicious juices; and you're more than happy to feed her as much as you can. Amily never stops drinking, though some droplets inevitably escape her and splatter against her wet face. Once you're done you rise and look down at your handywork.\n\n`,
@@ -7521,21 +7462,20 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // [(if Amily has a cock)
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
-            this.outx(` Amily's ${this.amilyCock()} throbs,`, false);
+            this.outx(` Amily's ${this.amilyCock()} throbs,`);
         this.outx(" and she smiles once she gets what you want to do.\n\n", false);
 
         this.outx("You examine Amily's crotch closely, ");
         // [(if Amily has a cock)
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0) {
-            this.outx(`idly stroking her ${this.amilyCock()}`, false);
+            this.outx(`idly stroking her ${this.amilyCock()}`);
             // (if Amily has balls)
             if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] > 0)
-                this.outx(` and ${this.amilyBalls()}, which you shift to reveal her `, false);
+                this.outx(` and ${this.amilyBalls()}, which you shift to reveal her `);
             else this.outx(" before dipping down to her ");
         } else this.outx("eyeing her ");
         this.outx(
-            `${this.vaginaDescript()}.  You lift a hand and stroke the slutty box with your fingers.  It doesn't take long before she is wet and ready, her little clit poking out as stiff as a cock`,
-            false
+            `${this.vaginaDescript()}.  You lift a hand and stroke the slutty box with your fingers.  It doesn't take long before she is wet and ready, her little clit poking out as stiff as a cock`
         );
         // [(if Amily has a cock)
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
@@ -7569,10 +7509,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("Amily moans");
         // [(if Amily's a squirter)
         if (this.flags[kFLAGS.AMILY_VAGINAL_WETNESS] >= 5)
-            this.outx(
-                ` and a jet of warm juices splashes against your ${this.vaginaDescript()}`,
-                false
-            );
+            this.outx(` and a jet of warm juices splashes against your ${this.vaginaDescript()}`);
         // [Horsecock]
         this.outx(
             `; her ${
@@ -7585,7 +7522,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             "Watching the slutty little succu-mouse buck and writhe under you is so fun, but you've got a needy pussy",
             false
         );
-        if (this.player.hasCock()) this.outx(` and an aching ${this.cockDescript(0)}`, false);
+        if (this.player.hasCock()) this.outx(` and an aching ${this.cockDescript(0)}`);
         this.outx(
             ' to sate, so it\'s time for things to get heavy. "<i>You need, slut? What about what I need, hmm? Will you let me do whatever I want to you if I help you get off, hmm?</i>" you tease her. Amily gasps in realization and says, "<i>Forgive your worthless fucktoy mistress. Of course your pleasure comes first. I-I\'ll pleasure however you like, without cumming if you will forgive me mistress.</i>"\n\n',
             false
@@ -7600,8 +7537,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `"<i>Thank you so much mistress! I love to fuck! I love to be fucked! I love to be used! I love being your sextoy! I love the way your pussy feels against mine! I love you, mistress!</i>" Amily screams as an orgasm rocks her. She presses against you with all her strength, legs wrapping themselves around you, ${
                 this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "claws" : "feet"
-            } curled in pleasure, eyes rolled back.`,
-            false
+            } curled in pleasure, eyes rolled back.`
         );
         // [(if Amily's a squirter)
         if (this.flags[kFLAGS.AMILY_VAGINAL_WETNESS] >= 5)
@@ -7616,30 +7552,24 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
         // [(if Amily has a cock)
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
-            this.outx(
-                ` Her ${this.amilyCock()} throbs and cum splashes on her breasts and face.`,
-                false
-            );
+            this.outx(` Her ${this.amilyCock()} throbs and cum splashes on her breasts and face.`);
         this.outx("\n\n", false);
 
         // [Horsecock]
         this.outx(
             `You grin wickedly; the former puritan ${
                 this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "mouse" : ""
-            }, now turned into another horny little beast, your horny little beast. The irony is so delicious... but not as delicious as the feelings she's eliciting inside you. You grind, hump, and thrust, brutally shoving your pelvises together, craving the friction and almost feeling upset with the copious amounts of femcum helping you slide back and forth. Amily's grinds against you even as you viciously attack her, riding out her orgasm as well as trying to pleasure you. Her tail pokes your ${this.hipDescript()} as it seeks entry between your tightly mashed pussies; eventually it manages to do so and it slowly snakes itself in and out, the tip flicking against your clit and providing the additional friction to bring you ever closer to the edge.`,
-            false
+            }, now turned into another horny little beast, your horny little beast. The irony is so delicious... but not as delicious as the feelings she's eliciting inside you. You grind, hump, and thrust, brutally shoving your pelvises together, craving the friction and almost feeling upset with the copious amounts of femcum helping you slide back and forth. Amily's grinds against you even as you viciously attack her, riding out her orgasm as well as trying to pleasure you. Her tail pokes your ${this.hipDescript()} as it seeks entry between your tightly mashed pussies; eventually it manages to do so and it slowly snakes itself in and out, the tip flicking against your clit and providing the additional friction to bring you ever closer to the edge.`
         );
         // [(if PC has a cock)
         if (this.player.hasCock())
             this.outx(
-                `  Amily's hands shoot out to grab ${this.sMultiCockDesc()} and begin masturbating you; the corrupt succu-mouse doing all she can to give you the release that you crave.`,
-                false
+                `  Amily's hands shoot out to grab ${this.sMultiCockDesc()} and begin masturbating you; the corrupt succu-mouse doing all she can to give you the release that you crave.`
             );
         this.outx("\n\n", false);
 
         this.outx(
-            `"<i>Yes! Good little toy - you are good at this!</i>" you tell her, unable to think clearly. You can feel your orgasm coming, but all that comes out of your mouth is a wordless howl of pleasure as the ecstasy thunders through your loins and out, riding the crescendo in a storm of femcum that spews from your ${this.vaginaDescript()}`,
-            false
+            `"<i>Yes! Good little toy - you are good at this!</i>" you tell her, unable to think clearly. You can feel your orgasm coming, but all that comes out of your mouth is a wordless howl of pleasure as the ecstasy thunders through your loins and out, riding the crescendo in a storm of femcum that spews from your ${this.vaginaDescript()}`
         );
         // [(if PC's a squirter)
         if (this.player.wetness() >= 5)
@@ -7660,8 +7590,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `Amily beams with happiness, "<i>Yes mistress!</i>" then proceeds to clean you up, licking every single drop she can out of your body.  To finish it all up, she licks your ${this.player.feet()} clean of whatever juices remained on them. Satisfied, you dismiss Amily with a wave, heading back to the camp, while Amily rubs the results of your coupling on her body.`,
-            false
+            `Amily beams with happiness, "<i>Yes mistress!</i>" then proceeds to clean you up, licking every single drop she can out of your body.  To finish it all up, she licks your ${this.player.feet()} clean of whatever juices remained on them. Satisfied, you dismiss Amily with a wave, heading back to the camp, while Amily rubs the results of your coupling on her body.`
         );
         this.player.orgasm();
         this.dynStats("sen", -1, "cor", 1);
@@ -7708,8 +7637,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.flags[kFLAGS.AMILY_NOT_FURRY] == 0
                     ? " Just watch the heels, and don't dare injure your master."
                     : ""
-            }`,
-            false
+            }`
         );
         // [(if PC has a vagina)
         if (this.player.hasVagina())
@@ -7726,8 +7654,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             )}! I want it more than anything else! I'm a cum-dumpster, a baby factory - I need cum in my hungry pussy, or I'll just fade away! Please, ${this.player.mf(
                 "master",
                 "mistress"
-            )}, pump me full of your hot, salty, gooey cum!`,
-            false
+            )}, pump me full of your hot, salty, gooey cum!`
         );
         // (If not pregnant:
         if (!this.pregnancy.isPregnant)
@@ -7735,8 +7662,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 `  I want you to fuck me full of cum, bloat me with seed until I'm a ball of skin over spooge with a head and limbs sticking out! I need to be full and round with the very stuff of life; fucking cum into me, ${this.player.mf(
                     "master",
                     "mistress"
-                )}!`,
-                false
+                )}!`
             );
         // (If pregnant:
         else
@@ -7744,8 +7670,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 `  The babies need their cum, ${this.player.mf(
                     "Master",
                     "Mistress"
-                )}. They won't grow strong and healthy and slutty if you don't flood their womb with your hot baby-making juice! Please, cum and fill me with cum, for their sake?`,
-                false
+                )}. They won't grow strong and healthy and slutty if you don't flood their womb with your hot baby-making juice! Please, cum and fill me with cum, for their sake?`
             );
         this.outx('</i>"\n\n', false);
 
@@ -7758,8 +7683,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `  Her balls do get in the way, but they form a nice cushion to rub your ${this.cockDescript(
                     0
-                )} on, further stimulating you.`,
-                false
+                )} on, further stimulating you.`
             );
         this.outx(
             `  Amily squeals in glee and wraps her legs around your ${this.hipDescript()}. She is too well-trained to use them to slam you into her crotch, but you can feel the muscles in them quivering with the urge to pull you into proper penetrative position. You smile wickedly; as much as you want to plow her depths and fuck her raw, you also want to see just how far you can go before she breaks... "<i>${this.player.mf(
@@ -7814,11 +7738,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `She quivers with tension; for a moment, you think she's going to kiss you in gratitude. But then, instead, she remembers her place and pushes backward, her tail awkwardly coiling around your ${this.cockDescript(
                     0
-                )} and pulling on it to clumsily maneuver it into place. You can feel the heat emanating from her juicy cunt as the tip brushes against its lips, seconds before, with a squeal of triumph, she brutally impales herself upon you. You can't help but moan in pleasure; despite all the teasing you really needed this. Her insides are warm and wet, just the way you like it.`,
-                false
+                )} and pulling on it to clumsily maneuver it into place. You can feel the heat emanating from her juicy cunt as the tip brushes against its lips, seconds before, with a squeal of triumph, she brutally impales herself upon you. You can't help but moan in pleasure; despite all the teasing you really needed this. Her insides are warm and wet, just the way you like it.`
             );
             if (this.flags[kFLAGS.AMILY_VAGINAL_WETNESS] >= 5)
-                this.outx("  Jets of fluid wash down whatever pre escapes your rigid tool.", false);
+                this.outx("  Jets of fluid wash down whatever pre escapes your rigid tool.");
             this.outx(
                 "  You have half a mind to brutalize the mousette then and there; yet for now you decide to let Amily have her way. She has earned this small reward for amusing you.",
                 false
@@ -7846,22 +7769,19 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             )} throbs and leaks copious quantities of pre. "<i>Oh, yes, yes, yes! Give it to me, ${this.player.mf(
                 "master",
                 "mistress"
-            )}! That's what your little slut deserves - fuck her hard and raw! Hurt me good, teach me what a bad girl I was!</i>" Amily squeals in lustful joy, rutting as hard with you as you are with her.`,
-            false
+            )}! That's what your little slut deserves - fuck her hard and raw! Hurt me good, teach me what a bad girl I was!</i>" Amily squeals in lustful joy, rutting as hard with you as you are with her.`
         );
         // (if Amily is herm:
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
             this.outx(
-                `  Her ${this.amilyCock()} slices through the air like a fleshy knife, that stiff with blood and pleasure.`,
-                false
+                `  Her ${this.amilyCock()} slices through the air like a fleshy knife, that stiff with blood and pleasure.`
             );
         // (If Amily is squirter:
         if (this.flags[kFLAGS.AMILY_VAGINAL_WETNESS] >= 5)
             this.outx(
                 `  Although she has yet to climax, her cunt is already bubbling and frothing madly around your ${this.cockDescript(
                     0
-                )}, causing you to squelch and slurp loudly with each thrust in and out of her wet depths. She's like a pot of sexual fluids on the boil, just waiting to geyser forth. All she needs is a little more encouragement.`,
-                false
+                )}, causing you to squelch and slurp loudly with each thrust in and out of her wet depths. She's like a pot of sexual fluids on the boil, just waiting to geyser forth. All she needs is a little more encouragement.`
             );
         this.outx("\n\n", false);
 
@@ -7915,15 +7835,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         // [(if PC has a pussy)
         if (this.player.hasVagina())
             this.outx(
-                `  Despite being neglected during the act, your ${this.vaginaDescript()} leaks fluids to join Amily's on the floor.`,
-                false
+                `  Despite being neglected during the act, your ${this.vaginaDescript()} leaks fluids to join Amily's on the floor.`
             );
         this.outx(
             `  Amily pants loudly and sighs in satisfaction. Hesitantly, one hand dares to reach out and stroke your ${this.player.face()}. "<i>Mmm... You are the light of my world, ${this.player.mf(
                 "master",
                 "mistress"
-            )}.`,
-            false
+            )}.`
         );
         // (if not pregnant:
         if (!this.pregnancy.isPregnant)
@@ -7953,8 +7871,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             )}. I loved this little play of ours... My favorite part was when I got used like a cocksleeve bitch in heat.</i>" she says adoringly. You rub her hair and tell her she still has a job to do. Amily gasps and says, "<i>Of course, forgive me ${this.player.mf(
                 "master",
                 "mistress"
-            )},</i>", and then she begins licking your ${this.cockDescript(0)} clean.`,
-            false
+            )},</i>", and then she begins licking your ${this.cockDescript(0)} clean.`
         );
         // [(if PC has a pussy)
         if (this.player.hasVagina())
@@ -7985,8 +7902,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             `"<i>Stay still, don't touch yourself and don't move.</i>" You order Amily, she responds with an eager, "<i>Yes ${this.player.mf(
                 "master",
                 "mistress"
-            )}!</i>" You continue looking at Amily's cock, carefully admiring your work.`,
-            false
+            )}!</i>" You continue looking at Amily's cock, carefully admiring your work.`
         );
         // [(if Amily has balls)
         if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] > 0)
@@ -8007,8 +7923,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             `"<i>If you even dare to disobey my orders, I'll have to punish you,</i>" you warn her, smiling as she squirms under your touch. "<i>I-I won't ${this.player.mf(
                 "master",
                 "mistress"
-            )}.</i>" Amily answers, with more worry than determination. You can tell it wouldn't take much stimulation to make the mousette break; still it would be fun seeing her try, so you decide to take this slowly. You gently run the tip of your finger along the underside of Amily's shaft; her hips lift a bit trying to get you to touch more of her shaft. Immediately you chastise her.  "<i>I told you not to move.</i>" Amily flinches and forces herself to stay still; her body begins to sweat and she trembles with each stroke of your finger; pre-cum flowing steadily; her breathing grows laboured`,
-            false
+            )}.</i>" Amily answers, with more worry than determination. You can tell it wouldn't take much stimulation to make the mousette break; still it would be fun seeing her try, so you decide to take this slowly. You gently run the tip of your finger along the underside of Amily's shaft; her hips lift a bit trying to get you to touch more of her shaft. Immediately you chastise her.  "<i>I told you not to move.</i>" Amily flinches and forces herself to stay still; her body begins to sweat and she trembles with each stroke of your finger; pre-cum flowing steadily; her breathing grows laboured`
         );
         if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] > 0)
             this.outx(", and her balls seeingly inflate");
@@ -8026,8 +7941,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `"<i>Poor little bitch... you really do live for nothing but sex, don't you?</i>" You taunt her, swiping up a stray drop of pre with your finger and slowly taking it inside your ${this.vaginaDescript()}. Amily watches every little detail as it goes in. Finally, with a groan and an almost bestial scream, Amily loses her composure and pounces you.  As you hit the ground hard, you begin forming the words to scold her, but one glimpse of her eyes is enough to realize she's no longer thinking - the only things running through her head right now are fuck and breed. Amily rants and gibbers atop you, eyes blazing with unsated lust and the need, dearer to her than life itself, to fuck and breed. Her cock is as hard as an iron bar, slapping hard against your belly as she, made clumsy with her desires, struggles to position herself right to aim. She stabs clumsily against your ${this.vaginaDescript()}'s lips, then, finally managing to hit the correct alignment, wastes no time in driving forward with a howl, impaling herself in you to her very hilt.`,
-            false
+            `"<i>Poor little bitch... you really do live for nothing but sex, don't you?</i>" You taunt her, swiping up a stray drop of pre with your finger and slowly taking it inside your ${this.vaginaDescript()}. Amily watches every little detail as it goes in. Finally, with a groan and an almost bestial scream, Amily loses her composure and pounces you.  As you hit the ground hard, you begin forming the words to scold her, but one glimpse of her eyes is enough to realize she's no longer thinking - the only things running through her head right now are fuck and breed. Amily rants and gibbers atop you, eyes blazing with unsated lust and the need, dearer to her than life itself, to fuck and breed. Her cock is as hard as an iron bar, slapping hard against your belly as she, made clumsy with her desires, struggles to position herself right to aim. She stabs clumsily against your ${this.vaginaDescript()}'s lips, then, finally managing to hit the correct alignment, wastes no time in driving forward with a howl, impaling herself in you to her very hilt.`
         );
         // (Play virginity lost message if appropriate.)
         this.player.cuntChange(
@@ -8048,8 +7962,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("\n\n", false);
 
         this.outx(
-            `Amily is overwhelmed by the feeling of your ${this.vaginaDescript()}, and immediately goes berserk with lust. She doesn't speak, she grunts and snarls, thrusting into you as hard and fast as she can. There is nothing between you but the friction of flesh on flesh`,
-            false
+            `Amily is overwhelmed by the feeling of your ${this.vaginaDescript()}, and immediately goes berserk with lust. She doesn't speak, she grunts and snarls, thrusting into you as hard and fast as she can. There is nothing between you but the friction of flesh on flesh`
         );
         // (squirter PC:
         if (this.player.wetness() >= 5)
@@ -8060,8 +7973,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         // (if Amily has balls:
         if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] > 0)
             this.outx(
-                ` and the meaty smack-smack-smack of her balls slapping against your ${this.assDescript()}`,
-                false
+                ` and the meaty smack-smack-smack of her balls slapping against your ${this.assDescript()}`
             );
         this.outx(".\n\n", false);
 
@@ -8076,7 +7988,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // [(if Amily has balls)
         if (this.flags[kFLAGS.AMILY_HAS_BALLS_AND_SIZE] > 0)
-            this.outx("The slapping of her balls on your ass reverberates around you.  ", false);
+            this.outx("The slapping of her balls on your ass reverberates around you.  ");
         this.outx(
             "The squelching noise of a wet pussy on cock grows audibly louder, heralding the coming of a final, explosive climax.  With a nearly screaming groan, Amily explodes inside you; thrusting as deep as she can, while her mouse-spunk pools inside your womb.\n\n",
             false
@@ -8108,13 +8020,9 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // [(if PC has proper feet)
         if (this.player.isBiped())
-            this.outx(
-                `  You begin stroking her limp dick with your ${this.player.foot()}, `,
-                false
-            );
+            this.outx(`  You begin stroking her limp dick with your ${this.player.foot()}, `);
         // (else)
-        else
-            this.outx("  You reach down and begin stroking her limp dick with your hands, ", false);
+        else this.outx("  You reach down and begin stroking her limp dick with your hands, ");
         this.outx(
             `slowly coaxing it into erection once again. Amily moans and you quickly command, "<i>Silence!</i>" The horny mouse-cunt clamps her mouth down and attempts to stifle her moans; yet she is unable to contain the grunts that escape her. Once her cock is erect and throbbing, you quickly loop the rope around it and tie it up, ensuring it'll remain erect for a while still. "<i>Slut, you are not allowed to touch your cock until it has gone limp on its own. If you disobey me this time I assure you a far worse punishment is in store,</i>" you say with a hint of anger. "<i>Yes, ${this.player.mf(
                 "master",
@@ -8153,13 +8061,11 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             `You order Amily to get on her hands and knees; you want to pound her ass. Amily's eyes light up in happiness and she replies excitedly, "<i>Yes, ${this.player.mf(
                 "master",
                 "mistress"
-            )}</i>!" She quickly turns around and gets in position; her full ass swaying invitingly, while her tail stands erect to give you access. Her excitement at the prospect of having her ass fucked by you is made evident by the trickles of moisture that run down her legs`,
-            false
+            )}</i>!" She quickly turns around and gets in position; her full ass swaying invitingly, while her tail stands erect to give you access. Her excitement at the prospect of having her ass fucked by you is made evident by the trickles of moisture that run down her legs`
         );
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
             this.outx(
-                `; her ${this.amilyCock()} stands erect, a tiny bead of pre forming on the tip as it throbs`,
-                false
+                `; her ${this.amilyCock()} stands erect, a tiny bead of pre forming on the tip as it throbs`
             );
         this.outx("\n\n", false);
 
@@ -8202,15 +8108,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "claws" : "hands"
                 } and pushing back herself. But no matter how much you try, you're unable to drive any more of your ${this.cockDescript(
                     0
-                )} inside.`,
-                false
+                )} inside.`
             );
         else {
             this.outx("You push until your hips meet her cushiony ass ");
             if (this.player.balls > 0)
                 this.outx(
-                    `and your ${this.ballsDescriptLight()} slap against her pussy, causing her juices to squirt all over them.`,
-                    false
+                    `and your ${this.ballsDescriptLight()} slap against her pussy, causing her juices to squirt all over them.`
                 );
             else
                 this.outx(
@@ -8233,8 +8137,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `You slap her ass roughly, causing it to jiggle, and yell, "<i>Tighter!</i>" Amily complies by constricting your ${this.cockDescript(
                 0
-            )} with her ass muscles as tight as she can. In response, you up the rhythm of your thrusting. Dirty sounds of slapping complete the erotic picture, and you feel your `,
-            false
+            )} with her ass muscles as tight as she can. In response, you up the rhythm of your thrusting. Dirty sounds of slapping complete the erotic picture, and you feel your `
         );
         // [(if PC has balls)
         if (this.player.balls > 0) this.outx("balls churn and your ");
@@ -8250,8 +8153,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `Her belly begins filling and inflating, not stopping even as she starts to look 6 months pregnant. Her ass clenches around you, trying to prevent the massive load you're still depositing from escaping, but inevitably, a few weak jets escape from around your ${this.cockDescript(
                     0
-                )}.  `,
-                false
+                )}.  `
             );
         this.outx(
             "You spill your last jets with a couple more hard thrusts and then pull out of Amily's ass.",
@@ -8282,8 +8184,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 0
             )}; some cum still leaking from it. She licks her lips and inches her way towards you, still holding her ass closed; she begins licking the remaining cum off of your ${this.cockDescript(
                 0
-            )}`,
-            false
+            )}`
         );
         // [(if PC has balls)
         if (this.player.balls > 0) this.outx(" and her spilled juices from your balls");
@@ -8573,8 +8474,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
         else
             this.outx(
-                `Amily grips your ${this.hipDescript()}, gathering her courage, and then plunges her penis into your depths. Cautiously at first, she begins to thrust herself back and forth, growing faster and harder as her resolve builds.`,
-                false
+                `Amily grips your ${this.hipDescript()}, gathering her courage, and then plunges her penis into your depths. Cautiously at first, she begins to thrust herself back and forth, growing faster and harder as her resolve builds.`
             );
         this.player.cuntChange(
             this.flags[kFLAGS.AMILY_WANG_LENGTH] * this.flags[kFLAGS.AMILY_WANG_GIRTH],
@@ -8662,8 +8562,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             this.outx(
-                `Any reply you may have been inclined to make to that is swallowed by another cry of pain as yet another contraction wrings its way through you. Amily takes your hand in hers and you cling to the lifeline of comfort it offers, thankful to not be alone for this. You can feel the first child moving out of your womb, through your cervix, down and into your ${this.vaginaDescript()}. Your lips part and, with a grunt, you expel the first child into Amily's waiting hand. She holds it up to you so that you can see your firstborn; it's a little mouselet`,
-                false
+                `Any reply you may have been inclined to make to that is swallowed by another cry of pain as yet another contraction wrings its way through you. Amily takes your hand in hers and you cling to the lifeline of comfort it offers, thankful to not be alone for this. You can feel the first child moving out of your womb, through your cervix, down and into your ${this.vaginaDescript()}. Your lips part and, with a grunt, you expel the first child into Amily's waiting hand. She holds it up to you so that you can see your firstborn; it's a little mouselet`
             );
             // (if player is female: 1 in 3 chance of it being boy, girl or herm, if player is herm, 100% chance of it being a herm)"
             this.outx(
@@ -8713,8 +8612,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `Any reply you may have been inclined to make to that is swallowed by another cry of pain as yet another contraction wrings its way through you. Amily takes your hand in hers and you cling to the lifeline of comfort it offers, thankful to not be alone for this. You can feel the first child moving out of your womb, through your cervix, down and into your ${this.vaginaDescript()}. Your lips part and, with a grunt, you expel the first child into Amily's waiting hand. She holds it up to you so that you can see your firstborn; it's a little mouselet`,
-            false
+            `Any reply you may have been inclined to make to that is swallowed by another cry of pain as yet another contraction wrings its way through you. Amily takes your hand in hers and you cling to the lifeline of comfort it offers, thankful to not be alone for this. You can feel the first child moving out of your womb, through your cervix, down and into your ${this.vaginaDescript()}. Your lips part and, with a grunt, you expel the first child into Amily's waiting hand. She holds it up to you so that you can see your firstborn; it's a little mouselet`
         );
         // (if player is female: 1 in 3 chance of it being boy, girl or herm, if player is herm, 100% chance of it being a herm)
         this.outx(
@@ -8997,8 +8895,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     // Medium Affection:
                     else if (this.flags[kFLAGS.AMILY_AFFECTION] < 40) {
                         this.outx(
-                            `"<i>I... don't take this the wrong way, ${this.player.short}, but... I'm not so sure we can be together any more while you have that. Be one thing or the other, not both.</i>" Amily states. "<i>But we can still talk, this time.</i>"`,
-                            false
+                            `"<i>I... don't take this the wrong way, ${this.player.short}, but... I'm not so sure we can be together any more while you have that. Be one thing or the other, not both.</i>" Amily states. "<i>But we can still talk, this time.</i>"`
                         );
                         // (Next encounter with Amily is the "Maybe Herms Aren't So Bad" scenes.)
                     }
@@ -9240,10 +9137,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
                 if (this.player.hasCock())
-                    this.outx(`bringing your ${this.cockDescript(0)} to erection`, false);
+                    this.outx(`bringing your ${this.cockDescript(0)} to erection`);
                 if (this.player.hasVagina() && this.player.hasCock()) this.outx(" and ");
                 if (this.player.hasVagina())
-                    this.outx(`earning a clench from your ${this.vaginaDescript(0)}`, false);
+                    this.outx(`earning a clench from your ${this.vaginaDescript(0)}`);
                 this.outx(
                     ".  \"<i>I'm so glad you've recovered a gender!</i>\"\n\nAmily turns and stalks off with a spring in her step.  Clearly she's happy, but she still needs some time to get used to it.",
                     false
@@ -9519,8 +9416,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `You nod your head and admit that you agree. Once you have regained your strength, you spend some time talking with your fully adult children and playing with your overdeveloped newborns. Then, with a final wave goodbye, the ${
                 this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "mouse-morphs" : "family of mice"
-            } disappear into the wilderness once more.`,
-            false
+            } disappear into the wilderness once more.`
         );
         // Add to brood size count
         this.flags[kFLAGS.PC_TIMES_BIRTHED_AMILYKIDS]++;
@@ -9578,8 +9474,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `You nod your head and admit that you agree. Once you have regained your strength, you spend some time talking with your fully adult children and playing with your overdeveloped newborns. Then, with a final wave goodbye, the ${
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "mouse-morphs" : "family of mice"
-                } disappear into the wilderness once more.`,
-                false
+                } disappear into the wilderness once more.`
             );
         }
         // CORRUPT!
@@ -9602,8 +9497,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 )} like ${this.player.mf(
                     "he",
                     "she"
-                )} deserves!</i>" Amily squeals in ecstasy, tail lashing at her surroundings like a whip and wings flapping madly. She is squatting in the clearing with her back to you, a mixture of feminine lubricant and amniotic fluid visibly pouring from her dilated cunt - she is quite evidently in labor, and loving every moment of it.`,
-                false
+                )} deserves!</i>" Amily squeals in ecstasy, tail lashing at her surroundings like a whip and wings flapping madly. She is squatting in the clearing with her back to you, a mixture of feminine lubricant and amniotic fluid visibly pouring from her dilated cunt - she is quite evidently in labor, and loving every moment of it.`
             );
             // (If Amily is herm:
             if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
@@ -9666,8 +9560,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     `You tell Amily that right now you can't feed her, so she'll have to make do with what she has. Amily pouts, but carries on. You chuckle and leave her with an order. "<i>Make sure to train them into proper sluts, Amily, then let them go so they can gain some field experience,</i>" You say, "<i>Yes, ${this.player.mf(
                         "master",
                         "mistress"
-                    )}.</i>" Amily says. You turn and leave them to their own devices.`,
-                    false
+                    )}.</i>" Amily says. You turn and leave them to their own devices.`
                 );
                 return;
             }
@@ -9677,13 +9570,12 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             // [=Cock=]
             if (this.player.hasCock() && (this.player.gender == 1 || AmilyScene.rand(2) == 0)) {
                 this.outx("You smile and undress, showing Amily ");
-                this.outx(`your erect ${this.cockDescript(0)}`, false);
-                if (this.player.hasVagina()) this.outx(` and ${this.vaginaDescript(0)}`, false);
+                this.outx(`your erect ${this.cockDescript(0)}`);
+                if (this.player.hasVagina()) this.outx(` and ${this.vaginaDescript(0)}`);
                 this.outx(
                     `; Amily licks her lips in anticipation. You kneel above her head and let her tongue stretch out to lick the tip of your ${this.cockDescript(
                         0
-                    )}, then pull it inside her maw. Even in her awkward position, she still manages to effectively blow you, working her delicious tongue in all the right places that she's become so familiar with. Amily's practiced suckles and slurps soon have you at the edge of orgasm, and in no time you cross that edge, shooting rope after rope of hot jism down Amily's eager and hungry throat.`,
-                    false
+                    )}, then pull it inside her maw. Even in her awkward position, she still manages to effectively blow you, working her delicious tongue in all the right places that she's become so familiar with. Amily's practiced suckles and slurps soon have you at the edge of orgasm, and in no time you cross that edge, shooting rope after rope of hot jism down Amily's eager and hungry throat.`
                 );
                 // [(if PC has large cum amount)
                 if (this.player.cumQ() >= 500)
@@ -9691,8 +9583,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                         `  Her belly distends, but she continues drinking and suckling as efficiently as ever; making sure not to spill even a single drop of her ${this.player.mf(
                             "master",
                             "mistress"
-                        )}' precious seed; the sight is enough to make you swell with pride at how seriously Amily takes her job; you decide to reward her with even more spunk.`,
-                        false
+                        )}' precious seed; the sight is enough to make you swell with pride at how seriously Amily takes her job; you decide to reward her with even more spunk.`
                     );
                 this.outx("\n\n", false);
             }
@@ -9700,14 +9591,13 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             else {
                 this.outx("You smile and undress, showing Amily ");
                 if (this.player.hasCock()) {
-                    this.outx(`your erect ${this.cockDescript(0)} and `, false);
+                    this.outx(`your erect ${this.cockDescript(0)} and `);
                 }
                 this.outx(this.vaginaDescript(), false);
                 this.outx(
                     `; Amily licks her lips in anticipation. You squat above Amily, hovering over her ${
                         this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "muzzle" : "face"
-                    }.`,
-                    false
+                    }.`
                 );
                 // [(if PC has balls)
                 if (this.player.balls > 0)
@@ -9716,8 +9606,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                         false
                     );
                 this.outx(
-                    `  Amily wastes no time and digs right into her task. Her tongue explores every cranny and nook of your ${this.vaginaDescript()}; it's as if she had a map of every little detail of your pleasure hole; no doubt a result of all the practice you've given her. Every once in a while her nose bumps against your ${this.clitDescript()}, sending shocks of pleasure running through your body and extracting a moan of pleasure from you, as you edge ever closer to orgasm.`,
-                    false
+                    `  Amily wastes no time and digs right into her task. Her tongue explores every cranny and nook of your ${this.vaginaDescript()}; it's as if she had a map of every little detail of your pleasure hole; no doubt a result of all the practice you've given her. Every once in a while her nose bumps against your ${this.clitDescript()}, sending shocks of pleasure running through your body and extracting a moan of pleasure from you, as you edge ever closer to orgasm.`
                 );
                 // [(if PC is a squirter)
                 if (this.player.wetness() >= 5)
@@ -9757,8 +9646,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 )} wants to knock me up again, just say so. Your mousey cunt-slut is always ready to receive and deliver even more sluts to worship you and join your harem, my ${this.player.mf(
                     "master",
                     "mistress"
-                )}.</i>" You pat her head and leave to attend to other affairs.`,
-                false
+                )}.</i>" You pat her head and leave to attend to other affairs.`
             );
             this.player.orgasm();
             this.dynStats("cor", 3);
@@ -9771,8 +9659,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("", true);
         if (this.flags[kFLAGS.AMILY_ALLOWS_FERTILITY] == 1) {
             this.outx(
-                `You ask Amily if she wouldn't mind going back on her herbs for now.  The mousegirl snickers and asks, "<i>Had enough babies huh?</i>" before she gives you a knowing wink.  Amily assures you, "<i>Don't worry ${this.player.short}, we've brought more than enough life into the world.  I don't mind a break from it.</i>"`,
-                false
+                `You ask Amily if she wouldn't mind going back on her herbs for now.  The mousegirl snickers and asks, "<i>Had enough babies huh?</i>" before she gives you a knowing wink.  Amily assures you, "<i>Don't worry ${this.player.short}, we've brought more than enough life into the world.  I don't mind a break from it.</i>"`
             );
             this.flags[kFLAGS.AMILY_ALLOWS_FERTILITY] = 0;
         } else {
@@ -9947,11 +9834,11 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
                 if (this.player.hasCock()) {
-                    this.outx(`${this.sMultiCockDesc()} jumps to attention `, false);
+                    this.outx(`${this.sMultiCockDesc()} jumps to attention `);
                     if (this.player.hasVagina()) this.outx("and ");
                 }
                 if (this.player.hasVagina())
-                    this.outx(`your ${this.vaginaDescript()} moistens itself `, false);
+                    this.outx(`your ${this.vaginaDescript()} moistens itself `);
                 this.outx("in preparation for the next step.\n\n", false);
 
                 // Herms will do male variant with something extra, then play the female variant.
@@ -9960,8 +9847,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outx(
                         `You begin to stroke your ${this.cockDescript(
                             0
-                        )} vigorously, milking drop after drop of pre. With each stroke you think of how fun it'll be to fuck that rodent. You imagine her becoming a slut who lives only to breed and fuck; begging you to fuck her again and again, belly swollen with your offspring, swarms of her half-grown daughters clustering around and just as eager to fuck as their worthless whore of a mother... The thoughts spur you on, and soon send you over the edge; jet after jet of hot jism splatters the ground around you, painting it white. Remembering what you were going to do, you struggle to hold back one last jet; you keep holding back for far longer than you thought yourself capable, building this last jet especially for Amily's delight; the orgasmic sensations of pleasure continue rippling through you, but somehow you manage to kneel and aim yourself at the bowl. Finally you let go and dump a huge load of white hot spunk into the bowl, splattering some of its contents onto the ground.`,
-                        false
+                        )} vigorously, milking drop after drop of pre. With each stroke you think of how fun it'll be to fuck that rodent. You imagine her becoming a slut who lives only to breed and fuck; begging you to fuck her again and again, belly swollen with your offspring, swarms of her half-grown daughters clustering around and just as eager to fuck as their worthless whore of a mother... The thoughts spur you on, and soon send you over the edge; jet after jet of hot jism splatters the ground around you, painting it white. Remembering what you were going to do, you struggle to hold back one last jet; you keep holding back for far longer than you thought yourself capable, building this last jet especially for Amily's delight; the orgasmic sensations of pleasure continue rippling through you, but somehow you manage to kneel and aim yourself at the bowl. Finally you let go and dump a huge load of white hot spunk into the bowl, splattering some of its contents onto the ground.`
                     );
                     // [(If PC is a herm.)
                     if (this.player.hasVagina())
@@ -10021,7 +9907,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             }
             // (else)
             else {
-                this.outx("You pick up a bowl and carefully pour the contents of the ", false);
+                this.outx("You pick up a bowl and carefully pour the contents of the ");
                 if (this.player.hasItem(this.consumables.L_DRAFT)) this.outx("Lust Draft ");
                 else this.outx("Fuck Draft ");
                 this.outx(
@@ -10029,10 +9915,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
                 if (this.player.hasCock())
-                    this.outx(`${this.cockDescript(0)} jumps up to attention`, false);
+                    this.outx(`${this.cockDescript(0)} jumps up to attention`);
                 if (this.player.hasCock() && this.player.hasVagina()) this.outx(", and your ");
                 if (this.player.hasVagina())
-                    this.outx(`${this.vaginaDescript()} nearly juices itself`, false);
+                    this.outx(`${this.vaginaDescript()} nearly juices itself`);
                 this.outx(
                     ".  You smile wickedly; no doubt this mixture is going to make that stupid cunt open her legs and beg for a good fucking; but you feel there's still something missing...\n\n",
                     false
@@ -10056,8 +9942,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outx(
                         `You begin to stroke your ${this.cockDescript(
                             0
-                        )} vigorously, milking drop after drop of pre. With each stroke you think of how fun it'll be to fuck that rodent. You imagine her becoming a slut who lives only to breed and fuck; begging you to fuck her again and again, belly swollen with your offspring, swarms of her half-grown daughters clustering around and just as eager to fuck as their worthless whore of a mother... The thoughts spur you on, and soon send you over the edge; jet after jet of hot jism splatters the ground around you, painting it white. Remembering what you were going to do, you struggle to hold back one last jet; you keep holding back for far longer than you thought yourself capable, building this last jet especially for Amily's delight; the orgasmic sensations of pleasure continue rippling through you, but somehow you manage to kneel and aim yourself at the bowl. Finally you let go and dump a huge load of white hot spunk into the bowl, splattering some of its contents onto the ground.`,
-                        false
+                        )} vigorously, milking drop after drop of pre. With each stroke you think of how fun it'll be to fuck that rodent. You imagine her becoming a slut who lives only to breed and fuck; begging you to fuck her again and again, belly swollen with your offspring, swarms of her half-grown daughters clustering around and just as eager to fuck as their worthless whore of a mother... The thoughts spur you on, and soon send you over the edge; jet after jet of hot jism splatters the ground around you, painting it white. Remembering what you were going to do, you struggle to hold back one last jet; you keep holding back for far longer than you thought yourself capable, building this last jet especially for Amily's delight; the orgasmic sensations of pleasure continue rippling through you, but somehow you manage to kneel and aim yourself at the bowl. Finally you let go and dump a huge load of white hot spunk into the bowl, splattering some of its contents onto the ground.`
                     );
                     // [(If PC is a herm.)
                     if (this.player.hasVagina())
@@ -10569,8 +10454,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     `"<i>${this.player.mf(
                         "Master",
                         "Mistress"
-                    )}, can you grow a bigger cock to fuck your loyal cumdumpster?</i>"`,
-                    false
+                    )}, can you grow a bigger cock to fuck your loyal cumdumpster?</i>"`
                 );
             // (else if PC has a dick >= 24 area)
             else if (this.player.hasCock())
@@ -10578,8 +10462,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     `"<i>${this.player.mf(
                         "Master",
                         "Mistress"
-                    )} I'm so horny, can you take your huge cock and jam it into your slutty mouse slave?</i>"`,
-                    false
+                    )} I'm so horny, can you take your huge cock and jam it into your slutty mouse slave?</i>"`
                 );
             // (else)
             else
@@ -10587,8 +10470,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     `"<i>${this.player.mf(
                         "Master",
                         "Mistress"
-                    )}, can you grow a huge dick to fuck your needy cumslut?</i>"`,
-                    false
+                    )}, can you grow a huge dick to fuck your needy cumslut?</i>"`
                 );
             this.outx(
                 " Amily asks, rubbing her thighs together while moisture leaks from her sex.\n\n",
@@ -10659,8 +10541,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 )}. I could birth you many mice to worship you like you deserve; and then we could all fuck. Oh, ${this.player.mf(
                     "master",
                     "mistress"
-                )}!`,
-                false
+                )}!`
             );
             // [(if Amily's pregnant)
             if (this.pregnancy.isPregnant)
@@ -11079,13 +10960,12 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.cockTotal() > 0) {
-            if (this.player.cockTotal() > 1)
-                this.outx(`${this.multiCockDescriptLight()} are`, false);
-            else this.outx(`${this.cockDescript(0)} is`, false);
+            if (this.player.cockTotal() > 1) this.outx(`${this.multiCockDescriptLight()} are`);
+            else this.outx(`${this.cockDescript(0)} is`);
             this.outx(" already hard");
             if (this.player.hasVagina()) this.outx(", and your ");
         }
-        if (this.player.hasVagina()) this.outx(`${this.vaginaDescript()} is already wet`, false);
+        if (this.player.hasVagina()) this.outx(`${this.vaginaDescript()} is already wet`);
         this.outx(
             ". Amily cries openly, giving up on her pleading. You straddle her chest and uncork the bottle, then say, \"<i>Open up, I got a special drink for you.</i>\" She keeps her mouth clamped shut, but you won't have it; you hold her nose shut, forcing her to open her mouth to breath; that's when you strike.\n\n",
             false
@@ -11132,8 +11012,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `You smile and say, "<i>Fine, but you're gonna have to work for it.</i>" Amily's answer is to open her mouth wide. The invitation clear, you scoot closer to her mouth, and her lips touch the tip of your ${this.cockDescript(
                 x
-            )}; Amily suddenly lifts her head and starts swallowing your dick`,
-            false
+            )}; Amily suddenly lifts her head and starts swallowing your dick`
         );
         // [(if PC is huge)
         if (this.player.cockThatFits(61) == -1)
@@ -11147,11 +11026,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `You smile as she licks the underside of your cock; bound as she is, there isn't much she can do; but you're happy that she seems so eager to blow you. Especially after she denied and even attacked you, claiming you're too corrupt for her; things would be so much better if she was a bit more open minded... Your musings are stopped by a particularly noisy slurp from Amily. She looks so nice with your cock buried in her mouth... It's surprisingly good too; she's paying attention to all the right spots and making sure to massage your shaft with her tongue. Amily sucks fiercely on your dick, and you feel yourself getting closer to orgasm. Amily notices your breathing getting ragged and your increased rhythm, and doubles her efforts. It wouldn't be bad if she was always this eager to suck you off like the slut she is... The thought of her, willingly kneeling between your legs and opening wide to accept your ${this.cockDescript(
                 x
-            )}... You feel your `,
-            false
+            )}... You feel your `
         );
-        if (this.player.balls > 0) this.outx(`${this.ballsDescriptLight()} churn`, false);
-        else this.outx(`${this.cockDescript(x)} throb`, false);
+        if (this.player.balls > 0) this.outx(`${this.ballsDescriptLight()} churn`);
+        else this.outx(`${this.cockDescript(x)} throb`);
         this.outx(
             "; the very idea of a mousy slut eager for cum distills into one massive load of cum, and you dump it all in her mouth.\n\nYou sigh, sated for now and leave her to clean herself up.",
             false
@@ -11253,7 +11131,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("", true);
         let x: number = this.player.cockThatFits(61);
         if (x < 0) x = 0;
-        this.outx(`You unceremoniously shove your ${this.cockDescript(x)} into her maw. `, false);
+        this.outx(`You unceremoniously shove your ${this.cockDescript(x)} into her maw. `);
         // [(if PC has a huge dick)
         if (this.player.cockThatFits(61) < 0)
             this.outx(
@@ -11293,8 +11171,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `  One of Amily's hands settles on your ${this.cockDescript(
                     x
-                )}, stroking whatever she doesn't manage to swallow.`,
-                false
+                )}, stroking whatever she doesn't manage to swallow.`
             );
         this.outx("\n\n", false);
 
@@ -11307,7 +11184,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.balls > 0) this.outx("Amily grabs your balls and begins kneading them.  ");
         // (else if PC has a pussy)
         else if (this.player.hasVagina())
-            this.outx(`Amily shoves her fingers into your ${this.vaginaDescript()}.  `, false);
+            this.outx(`Amily shoves her fingers into your ${this.vaginaDescript()}.  `);
         this.outx(
             "You moan and begin leaking pre, accelerating to keep up with Amily's noisy slurps. She shows no sign of shame in letting the world know she's giving you a blow job.\n\n",
             false
@@ -11350,16 +11227,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         this.outx("", true);
         this.outx(
-            `You roughly grab ahold of Amily's ears and shove her face on your ${this.vaginaDescript()}.`,
-            false
+            `You roughly grab ahold of Amily's ears and shove her face on your ${this.vaginaDescript()}.`
         );
         // [(if PC is a squirter)
         if (this.player.wetness() >= 5)
             this.outx(
                 `  Your juices rocket into her face, painting her ${
                     this.flags[kFLAGS.AMILY_NOT_FURRY] == 0 ? "muzzle" : "face"
-                } in your femcum as she giggles with happiness and pleasure.`,
-                false
+                } in your femcum as she giggles with happiness and pleasure.`
             );
         this.outx(
             `  Amily begins licking and slurping, her nose bumping into your clit every once in a while; she eats your ${this.vaginaDescript()} like her life depended on it. You can only moan in pleasure as the previously prudish mousette gorges herself on your tasty juices.\n\n`,
@@ -11450,8 +11325,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `You strip while Amily watches hungrily. Finally naked, you order the mouse to come closer and use her breasts to pleasure you. Amily quickly scoots closer on her knees and press her breasts around your ${this.cockDescript(
                 0
-            )}.`,
-            false
+            )}.`
         );
         // [(if PC is huge)
         if (this.player.cockArea(0) >= 61)
@@ -11497,8 +11371,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `Amily jumps up and rushes to nuzzle at your still erect ${this.cockDescript(
                 0
-            )}. "<i>Thank you! Thank you! Thank you!</i>" she says excitedly. Then with a lick of her lips, she opens wide to accept your meat.  `,
-            false
+            )}. "<i>Thank you! Thank you! Thank you!</i>" she says excitedly. Then with a lick of her lips, she opens wide to accept your meat.  `
         );
         // [(if PC is huge)
         if (this.player.cockArea(0) > 50)
@@ -11507,8 +11380,8 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             "Amily manages to fit all of you inside her in one go.  She gurgles in ecstasy and sends vibrations along your shaft, drawing a moan of pleasure from you. Her tongue darts out of her mouth to lick at ",
             false
         );
-        if (this.player.balls > 0) this.outx(`your ${this.ballsDescriptLight()}`, false);
-        else if (this.player.hasVagina()) this.outx(`your ${this.vaginaDescript()}`, false);
+        if (this.player.balls > 0) this.outx(`your ${this.ballsDescriptLight()}`);
+        else if (this.player.hasVagina()) this.outx(`your ${this.vaginaDescript()}`);
         else this.outx("the base of your shaft");
         this.outx(
             ".  It tickles you and causes a jet of pre to splatter her insides, drawing another moan from her.\n\n",
@@ -11529,8 +11402,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         // [(if PC has balls)
         if (this.player.balls > 0)
             this.outx(
-                `  Your ${this.ballsDescriptLight()} churn with cum, growing heavier with every nasty detail that goes through your mind.`,
-                false
+                `  Your ${this.ballsDescriptLight()} churn with cum, growing heavier with every nasty detail that goes through your mind.`
             );
         this.outx(
             "  The image of a demonized Amily servicing you distills into a massive load of spunk.  You're all too happy to dump it into Amily's eager throat. You grab her ears and forcibly pull her head, plunging into her throat as far as you can. Then you explode inside her.\n\n",
@@ -11557,8 +11429,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.amilySprite();
         this.outx("", true);
         this.outx(
-            `You strip while Amily watches hungrily.  Finally naked, you order the mouse to come closer and use her breasts to pleasure you. Amily scoots closer on her knees and presses her breasts against your ${this.vaginaDescript()}, one orb at a time. You smile and moan softly as her erect nipple stimulates your labia; `,
-            false
+            `You strip while Amily watches hungrily.  Finally naked, you order the mouse to come closer and use her breasts to pleasure you. Amily scoots closer on her knees and presses her breasts against your ${this.vaginaDescript()}, one orb at a time. You smile and moan softly as her erect nipple stimulates your labia; `
         );
         // [(if PC is a squirter)
         if (this.player.wetness() >= 5)
@@ -11615,8 +11486,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `Amily springs up and rushes to nuzzle your still leaking vagina. "<i>Thank you! Thank you! Thank you!</i>" she says excitedly. Then, with a lick of her lips, she opens wide and engulfs your whole ${this.vaginaDescript()}.`,
-            false
+            `Amily springs up and rushes to nuzzle your still leaking vagina. "<i>Thank you! Thank you! Thank you!</i>" she says excitedly. Then, with a lick of her lips, she opens wide and engulfs your whole ${this.vaginaDescript()}.`
         );
         // [(if PC is a squirter)
         if (this.player.wetness() >= 5)
@@ -11630,8 +11500,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `You flood her maw at an alarming rate. Someone not practiced in the art of juice guzzling would surely choke and drown on the amazing amount of femcum that you're dumping into Amily's maw; yet she not only manages to chug it all down, she even continues licking to draw out more. Even more surprising than that is the fact that her mouth seems to have formed a perfect seal around your ${this.vaginaDescript()}, ensuring not a single drop escapes her.`,
-            false
+            `You flood her maw at an alarming rate. Someone not practiced in the art of juice guzzling would surely choke and drown on the amazing amount of femcum that you're dumping into Amily's maw; yet she not only manages to chug it all down, she even continues licking to draw out more. Even more surprising than that is the fact that her mouth seems to have formed a perfect seal around your ${this.vaginaDescript()}, ensuring not a single drop escapes her.`
         );
         // [(if PC is a squirter)
         if (this.player.wetness() >= 5)
@@ -11751,11 +11620,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.player.armorName
             }, while Amily pants in anticipation. When you're done you present to her your erect ${this.cockDescript(
                 0
-            )}; she quickly nuzzles and kisses along your length, rubbing her breasts along your length`,
-            false
+            )}; she quickly nuzzles and kisses along your length, rubbing her breasts along your length`
         );
         // [(if pc has balls)
-        if (this.player.balls > 0) this.outx(` and ${this.ballsDescriptLight()}`, false);
+        if (this.player.balls > 0) this.outx(` and ${this.ballsDescriptLight()}`);
         this.outx(".\n\n", false);
 
         this.outx('"<i>Get to it,</i>" you order her.\n\n', false);
@@ -11763,16 +11631,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `She backs off and gives your tip a light kiss, which quickly turns into a slurp as you feel your ${this.cockDescript(
                 0
-            )} slip into her throat; there is barely any resistance, your cock glides down her throat, Amily doesn't gag at all.`,
-            false
+            )} slip into her throat; there is barely any resistance, your cock glides down her throat, Amily doesn't gag at all.`
         );
         // [(if PC is huge)
         if (this.player.cockArea(0) > 50)
             this.outx(
                 `  You smirk, pleased; with your size, you'd probably choke whomever tried to swallow your ${this.cockDescript(
                     0
-                )} to death. But Amily doesn't choke or gag, she's only capable of moaning in delight with each inch that she manages to fit inside her hungry maw.`,
-                false
+                )} to death. But Amily doesn't choke or gag, she's only capable of moaning in delight with each inch that she manages to fit inside her hungry maw.`
             );
         this.outx("\n\n", false);
 
@@ -11794,7 +11660,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // [(if PC has balls)
         if (this.player.balls > 0)
-            this.outx("  Sometimes you even feel her nipples brush your balls teasingly.", false);
+            this.outx("  Sometimes you even feel her nipples brush your balls teasingly.");
         this.outx(
             "  Each time her nose bumps against your crotch, she swallows, massaging your whole length; and each time she pulls back, she blows, sending pleasurable chills along your body.",
             false
@@ -11826,7 +11692,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
             // (else)
-            else this.outx("her belly filled with the huge load you just dumped in her.", false);
+            else this.outx("her belly filled with the huge load you just dumped in her.");
             this.outx("\n\n", false);
 
             this.outx(
@@ -11870,7 +11736,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.isNaga()) this.outx("coil your serpentine tail around her head.");
         else if (this.player.lowerBody == LOWER_BODY_TYPE_GOO)
             this.outx("engulf her maw in slime.");
-        else this.outx(`put a ${this.player.foot()} on her head.`, false);
+        else this.outx(`put a ${this.player.foot()} on her head.`);
         this.outx(
             ` She falls silent and you say. "<i>Very well. From now on I am your one and only ${this.player.mf(
                 "master",
@@ -11922,8 +11788,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `You slowly strip off your ${
                 this.player.armorName
-            }, while Amily pants in anticipation. When you're done you present to her your dripping ${this.vaginaDescript()}; she quickly nuzzles and kisses your clit.`,
-            false
+            }, while Amily pants in anticipation. When you're done you present to her your dripping ${this.vaginaDescript()}; she quickly nuzzles and kisses your clit.`
         );
         // [(if PC has balls)
         if (this.player.balls > 0)
@@ -11973,7 +11838,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         // (else)
-        else this.outx("  Amily drinks from you like a parched man drinks from a well.", false);
+        else this.outx("  Amily drinks from you like a parched man drinks from a well.");
         this.outx(
             "  Every drop offered is consumed, something you've come to expect from your elected cum-bucket. One final powerful gush of fluids signals the end of your orgasm.\n\n",
             false
@@ -12037,7 +11902,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.isNaga()) this.outx("coil your serpentine tail around her head.");
         else if (this.player.lowerBody == LOWER_BODY_TYPE_GOO)
             this.outx("engulf her maw in slime.");
-        else this.outx(`put a ${this.player.foot()} on her head.`, false);
+        else this.outx(`put a ${this.player.foot()} on her head.`);
         this.outx(
             '  She falls silent and you say, "<i>Very well. From now on I am your one and only mistress. You will address me as such, always. My word is law, and you shall do whatever I tell you to, whenever I tell you to. Rise, it\'s time to break you into your new role as my cum-dumpster.</i>"\n\n',
             false
@@ -12049,8 +11914,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
 
         this.outx(
-            `Amily wastes no time and gets to work.  She licks your ${this.vaginaDescript()} adoringly, like it was a holy relic for her to worship.`,
-            false
+            `Amily wastes no time and gets to work.  She licks your ${this.vaginaDescript()} adoringly, like it was a holy relic for her to worship.`
         );
         // [(if PC has balls)
         if (this.player.balls > 0)
@@ -12092,8 +11956,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.flags[kFLAGS.AMILY_NOT_FURRY] == 0
                     ? "fur turns to a lewd purple"
                     : "hair turns into a lewd purple, skin fading to a light lavender"
-            }; her small horns grow and become more defined; small bat-like wing sprout from her shoulders; the spade-like tip of her tail grows bigger and more defined; `,
-            false
+            }; her small horns grow and become more defined; small bat-like wing sprout from her shoulders; the spade-like tip of her tail grows bigger and more defined; `
         );
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0)
             this.outx(
@@ -12271,10 +12134,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             if (this.player.hasCock()) {
-                this.outx(`${this.cockDescript(0)} getting hard`, false);
+                this.outx(`${this.cockDescript(0)} getting hard`);
                 if (this.player.hasVagina()) this.outx(" and your ");
             }
-            if (this.player.hasVagina()) this.outx(`${this.vaginaDescript()} growing wet`, false);
+            if (this.player.hasVagina()) this.outx(`${this.vaginaDescript()} growing wet`);
             this.outx(".\n\n", false);
 
             this.outx(
@@ -12303,15 +12166,12 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 this.doNext(this.camp.returnToCampUseOneHour);
                 return;
             }
-            this.outx(
-                `You begin stripping off your ${this.player.armorName} and show her your `,
-                false
-            );
+            this.outx(`You begin stripping off your ${this.player.armorName} and show her your `);
             if (this.player.hasCock()) {
-                this.outx(`erect ${this.cockDescript(0)}`, false);
+                this.outx(`erect ${this.cockDescript(0)}`);
                 if (this.player.hasVagina()) this.outx(" and ");
             }
-            if (this.player.hasVagina()) this.outx(` dripping ${this.vaginaDescript()}`, false);
+            if (this.player.hasVagina()) this.outx(` dripping ${this.vaginaDescript()}`);
             this.outx('. "<i>Come and I\'ll let you drink more of me.</i>"\n\n', false);
 
             this.outx(
@@ -12379,10 +12239,10 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.hasCock()) {
-            this.outx(`driving your ${this.cockDescript(0)} into erection`, false);
+            this.outx(`driving your ${this.cockDescript(0)} into erection`);
             if (this.player.hasVagina()) this.outx(" and ");
         }
-        if (this.player.hasVagina()) this.outx(` moistening your ${this.vaginaDescript()}`, false);
+        if (this.player.hasVagina()) this.outx(` moistening your ${this.vaginaDescript()}`);
         this.outx(
             ".  Amily's nose twitches a little and she forcibly pulls your pants down, looking up at you with pleading eyes, as if asking for permission.\n\n",
             false
@@ -12647,14 +12507,14 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             // See, fen, this is why smart people use constants instead of just guessing what each fucking number means.
             switch (this.player.gender) {
                 case 1: // Male
-                    this.outx(`hardening ${this.multiCockDescriptLight()} `, false);
+                    this.outx(`hardening ${this.multiCockDescriptLight()} `);
                     break;
                 case 2: // Female
-                    this.outx(`moistening ${this.clitDescript()} `, false);
+                    this.outx(`moistening ${this.clitDescript()} `);
                     break;
                 default:
                     // Fallback
-                    this.outx(`hardening ${this.nippleDescript(0)}s `, false);
+                    this.outx(`hardening ${this.nippleDescript(0)}s `);
                     break;
             }
             this.outx(
@@ -12848,8 +12708,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.hasCock())
             this.outx(
-                `, already feeling a strong stirring in your ${this.multiCockDescriptLight()}`,
-                false
+                `, already feeling a strong stirring in your ${this.multiCockDescriptLight()}`
             );
         else if (this.player.hasVagina())
             this.outx(", already feeling a little moisture in your loins");
@@ -12879,8 +12738,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 0) this.outx("through the mouse's fur ");
         else this.outx("over the mouse's skin ");
         this.outx(
-            `and Amily wrapping her lithe little tail around Urta's massive endowment.  You strip off your ${this.player.armorName} and, looming over the girls, decide on how you want to go about this.`,
-            false
+            `and Amily wrapping her lithe little tail around Urta's massive endowment.  You strip off your ${this.player.armorName} and, looming over the girls, decide on how you want to go about this.`
         );
         // (Display Appropriate Options: [Use Cock] [Use Vag])
         if (this.player.gender == 1)
@@ -12989,8 +12847,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.cockArea(x) > 60)
             this.outx("filling her until she just can't take any more of you");
-        else
-            this.outx("burying yourself up to the hilt in her sweet, wonderfully tight bum", false);
+        else this.outx("burying yourself up to the hilt in her sweet, wonderfully tight bum");
         this.outx(
             `.  She lets out a startled squeak at the sudden double-penetration.  You grab Amily's ${this.amilyTits()} and start to pound her ass, burying your shaft in her at the apex of her grind atop Urta so that she's never without a nice cock deep inside her.\n\n`,
             false
@@ -12999,8 +12856,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `Urta is close to orgasm, and now under a twin-dick assault, Amily won't last much longer either.  Urta lets out a harsh growl and, grabbing Amily's hips, thrusts until her balls slap the bottom of your ${this.cockDescript(
                 x
-            )}.  You feel the force of her orgasm, the sudden heat inside Amily's fuckhole spreading right to your cock as Urta's foxy spunk starts spewing back out of Amily's twat.  You follow her example, plunging yourself as far into the mouse-girl as you can and cum, shooting your load straight up her ass until her tight, velvety walls are running white with your spooge.  Overwhelmed by the two jets shooting into her at once, Amily rolls her head back and screams, clamping down hard on the cocks inside her`,
-            false
+            )}.  You feel the force of her orgasm, the sudden heat inside Amily's fuckhole spreading right to your cock as Urta's foxy spunk starts spewing back out of Amily's twat.  You follow her example, plunging yourself as far into the mouse-girl as you can and cum, shooting your load straight up her ass until her tight, velvety walls are running white with your spooge.  Overwhelmed by the two jets shooting into her at once, Amily rolls her head back and screams, clamping down hard on the cocks inside her`
         );
 
         // if Futamily:
@@ -13160,8 +13016,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         // (Merge):
         this.outx(
-            `Working delicately, she carefully coats her shaft in a generous layer of the green ointment, until her cock glistens with an odd greenish sheen.  You take your position on the ground, lowering yourself down onto your knees and elbows, resting your chin on top of your hands and raising your ${this.buttDescript()} into the air`,
-            false
+            `Working delicately, she carefully coats her shaft in a generous layer of the green ointment, until her cock glistens with an odd greenish sheen.  You take your position on the ground, lowering yourself down onto your knees and elbows, resting your chin on top of your hands and raising your ${this.buttDescript()} into the air`
         );
         if (this.player.tailType > TAIL_TYPE_NONE) this.outx(", moving your tail out of the way");
         this.outx(".\n\n", false);
@@ -13179,8 +13034,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
 
         if (this.player.analCapacity() < 30)
             this.outx(
-                `Bracing yourself a bit, you grimace a little as you feel Amily start to push against your ${this.assholeDescript()}, just the tip sliding in with a bit of resistance.`,
-                false
+                `Bracing yourself a bit, you grimace a little as you feel Amily start to push against your ${this.assholeDescript()}, just the tip sliding in with a bit of resistance.`
             );
         else if (this.player.analCapacity() <= 60)
             this.outx(
@@ -13189,8 +13043,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
         else
             this.outx(
-                `Amily lets out a slightly surprised squeak as your ${this.assholeDescript()} offers her little resistance.`,
-                false
+                `Amily lets out a slightly surprised squeak as your ${this.assholeDescript()} offers her little resistance.`
             );
         this.outx(
             "  The ointment does its job admirably, allowing Amily to penetrate you fully with no pain whatsoever",
@@ -13199,8 +13052,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         if (this.player.analCapacity() > 60)
             this.outx(", though you are sure you could easily handle her without it");
         this.outx(
-            `.  Slowly, she begins to rock her hips back and forth, placing her hands on your ${this.hipDescript()} for support.`,
-            false
+            `.  Slowly, she begins to rock her hips back and forth, placing her hands on your ${this.hipDescript()} for support.`
         );
         this.player.buttChange(
             this.flags[kFLAGS.AMILY_WANG_LENGTH] * this.flags[kFLAGS.AMILY_WANG_GIRTH],
@@ -13217,20 +13069,17 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
         this.outx(
-            `You begin to push yourself back against her slow thrusts, and, encouraged by your actions, she starts to pump a little harder.  Sliding herself down along your back, she begins to nuzzle into your neck, stroking your sides sensually as her ${this.amilyHips()} rise and fall against you.`,
-            false
+            `You begin to push yourself back against her slow thrusts, and, encouraged by your actions, she starts to pump a little harder.  Sliding herself down along your back, she begins to nuzzle into your neck, stroking your sides sensually as her ${this.amilyHips()} rise and fall against you.`
         );
         if (this.player.hasCock()) {
             this.outx(
                 `  You can feel her hand slipping down underneath you, gripping your ${this.cockDescript(
                     x
-                )} gently and starting to stroke and tease it with her fingertips.`,
-                false
+                )} gently and starting to stroke and tease it with her fingertips.`
             );
             if (this.player.cockTotal() > 1)
                 this.outx(
-                    `She brushes along ${this.sMultiCockDesc()} one at a time, stroking for a moment or two before switching off.`,
-                    false
+                    `She brushes along ${this.sMultiCockDesc()} one at a time, stroking for a moment or two before switching off.`
                 );
         }
         this.outx("\n\n", false);
@@ -13249,7 +13098,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         }
         if (this.player.hasCock()) {
             if (!this.player.hasVagina()) this.outx("  P");
-            this.outx(`recum dribbles from your ${this.multiCockDescriptLight()}`, false);
+            this.outx(`recum dribbles from your ${this.multiCockDescriptLight()}`);
         }
         if (this.player.gender > 0)
             this.outx(
@@ -13257,13 +13106,11 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         this.outx(
-            `  With a tremendous shudder, you orgasm, your ${this.assholeDescript()} clenching around her member.  At the same time, Amily moans into your ear, warm ribbons of herm-jizz filling your innards.`,
-            false
+            `  With a tremendous shudder, you orgasm, your ${this.assholeDescript()} clenching around her member.  At the same time, Amily moans into your ear, warm ribbons of herm-jizz filling your innards.`
         );
         if (this.player.hasCock()) {
             this.outx(
-                `  ${this.SMultiCockDesc()} twitches with pleasure, soaking the ground beneath you with `,
-                false
+                `  ${this.SMultiCockDesc()} twitches with pleasure, soaking the ground beneath you with `
             );
             if (this.player.cumQ() < 250) this.outx("a few streams");
             else if (this.player.cumQ() < 500) this.outx("a small deluge");
@@ -13292,8 +13139,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         let x: number = this.player.cockThatFits(50);
         if (x < 0) x = 0;
         this.outx(
-            `You pause and flash her a coy smirk, then you gently place the tip of a finger on her nose, slowly running it down along her body, over her lip, between her breasts, across her stomach, finally stopping to firmly grip her ${this.amilyButt()}.`,
-            false
+            `You pause and flash her a coy smirk, then you gently place the tip of a finger on her nose, slowly running it down along her body, over her lip, between her breasts, across her stomach, finally stopping to firmly grip her ${this.amilyButt()}.`
         );
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
             this.outx(
@@ -13383,8 +13229,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `She wipes her hand off on a discreet corner of her ${
                 this.flags[kFLAGS.AMILY_CLOTHING]
-            } and begins to shimmy out of them.`,
-            false
+            } and begins to shimmy out of them.`
         );
         if (this.flags[kFLAGS.TIMES_FUCKED_AMILYBUTT] == 0)
             this.outx(
@@ -13449,8 +13294,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `your ${this.cockDescript(
                     x
-                )} twitching and throbbing as you paint her insides with a few strands of cum`,
-                false
+                )} twitching and throbbing as you paint her insides with a few strands of cum`
             );
         else if (this.player.cumQ() <= 500)
             this.outx(
@@ -13478,7 +13322,7 @@ export class AmilyScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.cumQ() > 500)
-            this.outx(" and gently stroking along the curves of her belly with a smile", false);
+            this.outx(" and gently stroking along the curves of her belly with a smile");
         this.outx(".");
         this.player.orgasm();
         this.dynStats("sen", -2);

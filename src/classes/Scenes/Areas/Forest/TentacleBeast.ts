@@ -36,7 +36,7 @@ export class TentacleBeast extends Monster {
         // Hit
         else {
             temp = this.player.takeDamage(temp);
-            this.outx(`The tentacles crash upon your body mercilessly for ${temp} damage.`, false);
+            this.outx(`The tentacles crash upon your body mercilessly for ${temp} damage.`);
         }
         this.combatRoundOver();
     }

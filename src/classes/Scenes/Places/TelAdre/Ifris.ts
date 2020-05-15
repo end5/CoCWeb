@@ -261,7 +261,7 @@ export class Ifris extends TelAdreAbstractContent {
                 false
             );
 
-            this.outx("Humiliated, you stand and leave, nursing your sore body and ego.", false);
+            this.outx("Humiliated, you stand and leave, nursing your sore body and ego.");
             // Reset 'shown off for ifris'
             this.flags[kFLAGS.IFRIS_SHOWED_OFF] = 0;
             this.player.takeDamage(10);
@@ -358,8 +358,7 @@ export class Ifris extends TelAdreAbstractContent {
                 );
 
                 this.outx(
-                    `Suddenly it seems she loses her patience for teasing, much to your delight, and the hard, long pull on your cock as she pulls back is like heaven, her cheeks caved inward. She descends quickly, all but face-fucking herself on your rod again and again, lewd, wet squelching rising up from her stuffed throat. It isn't long before you're groaning in ecstasy, wishing you had the strength to grip her head, make her slow down so you can draw it out and enjoy it, but all too soon the pleasure is rushing up to meet you, your ${this.ballsDescriptLight()} tightening, even as she cups `,
-                    false
+                    `Suddenly it seems she loses her patience for teasing, much to your delight, and the hard, long pull on your cock as she pulls back is like heaven, her cheeks caved inward. She descends quickly, all but face-fucking herself on your rod again and again, lewd, wet squelching rising up from her stuffed throat. It isn't long before you're groaning in ecstasy, wishing you had the strength to grip her head, make her slow down so you can draw it out and enjoy it, but all too soon the pleasure is rushing up to meet you, your ${this.ballsDescriptLight()} tightening, even as she cups `
                 );
                 if (this.player.balls > 0)
                     this.outx("them and gently squeezes the sack.\n\n", false);
@@ -386,7 +385,7 @@ export class Ifris extends TelAdreAbstractContent {
                     false
                 );
                 if (this.player.balls > 0)
-                    this.outx(`, her hand cupping your ${this.ballsDescriptLight()}`, false);
+                    this.outx(`, her hand cupping your ${this.ballsDescriptLight()}`);
                 this.outx(
                     `. Smiling, she watches you carefully, her tongue sliding out of her lips, laving up the underside of the shaft, urging it on its final steps to full hardness. She groans in desire as she takes your ${this.player.cockHead()} into her mouth once again, pulling a moan from you with her first, hard suckle upon your sensitive tip; it seems she doesn't want to tease anymore.\n\n`,
                     false
@@ -412,8 +411,7 @@ export class Ifris extends TelAdreAbstractContent {
                 this.outx(
                     `With that slow, almost painfully-hard suckle, she pops from the ${this.player.cockHead()} of your ${this.cockDescript(
                         0
-                    )} out and sucks in a deep breath, giggling and leaning down to kiss you.  She murmurs, "<i>You do better each time, darling. I'll see you again I hope.</i>"  With that, she's leaving you again, all but skipping out the door, that wetness trickling down her long, red legs...`,
-                    false
+                    )} out and sucks in a deep breath, giggling and leaning down to kiss you.  She murmurs, "<i>You do better each time, darling. I'll see you again I hope.</i>"  With that, she's leaving you again, all but skipping out the door, that wetness trickling down her long, red legs...`
                 );
             }
             this.flags[kFLAGS.TIMES_FUCKED_IFRIS_BLOWJOB]++;
@@ -473,8 +471,7 @@ export class Ifris extends TelAdreAbstractContent {
                 this.outx(
                     `She leans in before you've started, peppering your ${this.nippleDescript(
                         0
-                    )}s and `,
-                    false
+                    )}s and `
                 );
                 if (this.player.biggestTitSize() >= 1) this.outx("breasts");
                 else this.outx("chest");
@@ -622,8 +619,7 @@ export class Ifris extends TelAdreAbstractContent {
                 `At the same time, both tentacle-shafts curl and piston, winding around in other in the space between your bodies, curling and thrusting to rub every inch of your sensitive, prehensile shafts against Ifris' pussy-walls.  You shake and shudder, feeling more like a tentacle beast than a ${this.player.mf(
                     "man",
                     "woman"
-                )}.  `,
-                false
+                )}.  `
             );
         }
         // (Anemone - stinging funtimes)
@@ -680,7 +676,7 @@ export class Ifris extends TelAdreAbstractContent {
             false
         );
         if (this.player.cumQ() >= 1000)
-            this.outx("her body bloated with cum and sloshing audibly with every step", false);
+            this.outx("her body bloated with cum and sloshing audibly with every step");
         else if (this.player.cumQ() >= 500)
             this.outx("her belly bloated and gurgling with every step");
         else this.outx("her body double-stuffed with seed");

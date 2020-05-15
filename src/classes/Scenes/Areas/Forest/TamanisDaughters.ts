@@ -18,8 +18,7 @@ export class TamanisDaughters extends Goblin {
         const selector: number = TamanisDaughters.rand(4);
         if (selector == 0) {
             this.outx(
-                `A slender hand reaches inside your ${this.player.armorName} and gives your `,
-                false
+                `A slender hand reaches inside your ${this.player.armorName} and gives your `
             );
             if (this.player.balls > 0) {
                 if (TamanisDaughters.rand(2) == 0)

@@ -455,8 +455,7 @@ export class TentacleBeastScene extends BaseContent {
             );
             if (this.player.balls > 0)
                 this.outx(
-                    `, and you feel your ${this.ballsDescript()} rise and drop in unison to the muscular contractions pumping freshly made cum into position for release`,
-                    false
+                    `, and you feel your ${this.ballsDescript()} rise and drop in unison to the muscular contractions pumping freshly made cum into position for release`
                 );
             this.outx(".\n\n", false);
             this.outx(
@@ -522,13 +521,11 @@ export class TentacleBeastScene extends BaseContent {
             if (this.player.hasCock()) {
                 if (this.player.cockArea(this.player.smallestCockIndex()) <= 50) {
                     this.outx(
-                        `More aphrodisiac-toxin pours into you, causing ${this.sMultiCockDesc()} to expand.  `,
-                        false
+                        `More aphrodisiac-toxin pours into you, causing ${this.sMultiCockDesc()} to expand.  `
                     );
                     if (this.player.cockTotal() > 1)
                         this.outx(
-                            `  The creature seems surprised at first to discover such a large brace of cocks, testing their texture and wrapping around each individually.  Your ${this.multiCockDescriptLight()} responds by wriggling about and tempting the beast to continue its exploration, but the gesture is futile and they're abandoned, though not for long.`,
-                            false
+                            `  The creature seems surprised at first to discover such a large brace of cocks, testing their texture and wrapping around each individually.  Your ${this.multiCockDescriptLight()} responds by wriggling about and tempting the beast to continue its exploration, but the gesture is futile and they're abandoned, though not for long.`
                         );
                     this.outx("\n\n", false);
 
@@ -544,14 +541,12 @@ export class TentacleBeastScene extends BaseContent {
                     this.outx(
                         `More aphrodisiac-toxin pours into you, causing ${this.sMultiCockDesc()} to expand. Something bumps up against the tip but can't seem to fit around your ${this.cockDescript(
                             0
-                        )}.  It continues trying for a while, sending pangs of pleasure down the length.  The tentacle eventually gives up and latches onto the tip, positioned right at the opening to your urethra.  It sucks up your pre-cum as it drips from you, accompanied by a loud suckling noise.`,
-                        false
+                        )}.  It continues trying for a while, sending pangs of pleasure down the length.  The tentacle eventually gives up and latches onto the tip, positioned right at the opening to your urethra.  It sucks up your pre-cum as it drips from you, accompanied by a loud suckling noise.`
                     );
                     // [With testicles:
                     if (this.player.balls > 0)
                         this.outx(
-                            `The sucking reaches all the way to your ${this.ballsDescriptLight()}, a spectacularly strange sensation that nevertheless feels wonderful.`,
-                            false
+                            `The sucking reaches all the way to your ${this.ballsDescriptLight()}, a spectacularly strange sensation that nevertheless feels wonderful.`
                         );
                     this.outx("\n\n", false);
                 }
@@ -561,8 +556,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.outx(
                     `A squirming tentacle forces its way inside your ${this.vaginaDescript(
                         0
-                    )}, undulating and squirming as it works its way deeper and deeper.  Your body responds by pumping out more fluid, making the passage of the monstrous thing easier.`,
-                    false
+                    )}, undulating and squirming as it works its way deeper and deeper.  Your body responds by pumping out more fluid, making the passage of the monstrous thing easier.`
                 );
                 this.player.cuntChange(32, true, true, false);
                 if (this.player.hasCock()) {
@@ -582,8 +576,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.outx(
                     `Roving tentacles latch onto your ${this.allBreastsDescript()}; tiny spikes jabbing into each ${this.nippleDescript(
                         0
-                    )} and injecting some sort of hot fluid.`,
-                    false
+                    )} and injecting some sort of hot fluid.`
                 );
                 if (this.player.totalBreasts() == 2)
                     this.outx("  The anus-like tips affix to them.");
@@ -601,8 +594,7 @@ export class TentacleBeastScene extends BaseContent {
             // Anus == gaping:
             if (this.player.ass.analLooseness >= 4) {
                 this.outx(
-                    `Your ${this.assholeDescript()} makes an inviting target for the squirming mass and it's quick to capitalize.  A particularly bulbous appendage slides deep inside, roiling about in a way that not even your well-trained hole has been treated to.`,
-                    false
+                    `Your ${this.assholeDescript()} makes an inviting target for the squirming mass and it's quick to capitalize.  A particularly bulbous appendage slides deep inside, roiling about in a way that not even your well-trained hole has been treated to.`
                 );
                 if (this.player.hasCock())
                     this.outx(
@@ -637,7 +629,7 @@ export class TentacleBeastScene extends BaseContent {
                     false
                 );
                 if (this.player.hasCock()) {
-                    this.outx(`Your ${this.cockDescript(0)} explodes inside the creature, `, false);
+                    this.outx(`Your ${this.cockDescript(0)} explodes inside the creature, `);
                     if (this.player.cumQ() <= 500)
                         this.outx(
                             "pushing the creature to the edge of its fluid-containing abilities.",
@@ -669,14 +661,12 @@ export class TentacleBeastScene extends BaseContent {
                 this.outx(
                     `The creature's desires are soon fulfilled as your ${this.cockDescript(
                         0
-                    )} starts to swell.  `,
-                    false
+                    )} starts to swell.  `
                 );
                 // [has testicles:
                 if (this.player.balls > 0)
                     this.outx(
-                        `Your ${this.ballsDescriptLight()} tighten up against you in preparation for their inevitable release, ready to spray their boiling load into the beast.  `,
-                        false
+                        `Your ${this.ballsDescriptLight()} tighten up against you in preparation for their inevitable release, ready to spray their boiling load into the beast.  `
                     );
                 this.outx(
                     "You rear up as a surge of euphoria races through you; your equine strength manages to overpower the tentacles holding your forelegs down for the briefest of moments needed to release your spunk into the suction of the tentacle, and you feel it get whisked out and down toward the writhing mass.\n\n",
@@ -701,8 +691,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.player.ass.analLooseness < 4
             ) {
                 this.outx(
-                    `Just as you think it's over, another tentacle rams into your ${this.assholeDescript()} and begins roughly massaging your prostate as it swells massively, causing another surge of cum to leave you, and another, and another.`,
-                    false
+                    `Just as you think it's over, another tentacle rams into your ${this.assholeDescript()} and begins roughly massaging your prostate as it swells massively, causing another surge of cum to leave you, and another, and another.`
                 );
                 this.player.buttChange(40, true, true, false);
                 this.outx(
@@ -723,8 +712,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.player.ass.analLooseness >= 0
             ) {
                 this.outx(
-                    `Just as you think it's over, the tentacle inside your ${this.assholeDescript()} begins to swell massively, causing another surge of cum to leave you, and another, and another.  It continues to violate your ass until you black out from exhaustion, the number of loads you've released no longer countable.`,
-                    false
+                    `Just as you think it's over, the tentacle inside your ${this.assholeDescript()} begins to swell massively, causing another surge of cum to leave you, and another, and another.  It continues to violate your ass until you black out from exhaustion, the number of loads you've released no longer countable.`
                 );
                 // end (loss)
                 this.player.orgasm();
@@ -736,8 +724,7 @@ export class TentacleBeastScene extends BaseContent {
             // { has vagina, anus < gaping:
             if (this.player.hasVagina()) {
                 this.outx(
-                    `Just as you think it's over, a tentacle rams into your ${this.assholeDescript()} and begins to swell massively, causing another surge of girlcum to leave you, and another, and another.`,
-                    false
+                    `Just as you think it's over, a tentacle rams into your ${this.assholeDescript()} and begins to swell massively, causing another surge of girlcum to leave you, and another, and another.`
                 );
                 this.player.buttChange(40, true, true, false);
                 this.outx(
@@ -757,14 +744,14 @@ export class TentacleBeastScene extends BaseContent {
                     "You continue to pump more and more baby batter into the monster until, much to your surprise, it overwhelms the beast and comes surging back out to coat your ",
                     false
                 );
-                if (this.player.balls > 0) this.outx(`${this.sackDescript()} and `, false);
+                if (this.player.balls > 0) this.outx(`${this.sackDescript()} and `);
                 this.outx(
                     "hind legs.  When the creature tries to pull away you step forward awkwardly, forelegs still raised, and continue spraying your copious amount of seed directly into the main mass.  It writhes about beneath you, incapable of doing anything as its soggy, heavily-laden tentacles are now no match for your strength.\n\n",
                     false
                 );
 
                 this.outx("Eventually you");
-                if (this.player.balls > 0) this.outx(`r ${this.ballsDescriptLight()}`, false);
+                if (this.player.balls > 0) this.outx(`r ${this.ballsDescriptLight()}`);
                 this.outx(
                     " empty and you turn around to leave, giving the spunk covered mass a swift kick as a reminder of your superiority.",
                     false
@@ -807,10 +794,7 @@ export class TentacleBeastScene extends BaseContent {
             else {
                 // AND dick(s)
                 if (this.player.cockTotal() > 0) {
-                    this.outx(
-                        `${this.vaginaDescript(0)} and ${this.multiCockDescriptLight()}`,
-                        false
-                    );
+                    this.outx(`${this.vaginaDescript(0)} and ${this.multiCockDescriptLight()}`);
                     this.outx(" begin ");
                 }
                 // Nope just pussy
@@ -895,8 +879,7 @@ export class TentacleBeastScene extends BaseContent {
                 this.outx(
                     `Your ${this.allBreastsDescript()} ache, but you can tell immediately they are not depleted.  More milk dribbles as the tentacles try to retreat, and you grin, hardly satisfied with the beast's attack.  You reach between your thighs, seizing the nearest knobbly tentacle.  The beast is so sated it offers no resistance as you begin to pound your ${this.vaginaDescript(
                         0
-                    )} with the living dildo.  The idea of turning the tables on the raping beast spurs you on to new heights and you cum quickly around the knobbly shaft, your cunt spasming and milking the bumpy tentacle hard.  As you finish with the tentacle the beast gives a final gurgle and retreats into the forest.`,
-                    false
+                    )} with the living dildo.  The idea of turning the tables on the raping beast spurs you on to new heights and you cum quickly around the knobbly shaft, your cunt spasming and milking the bumpy tentacle hard.  As you finish with the tentacle the beast gives a final gurgle and retreats into the forest.`
                 );
             // [Male]
             else
@@ -909,8 +892,7 @@ export class TentacleBeastScene extends BaseContent {
                         0
                     )} into the tight, puckered orifice.  You moan in delight, grunting happily as you fuck the tight hole wildly.  The thought of turning the tables on the raping beast drives you closer to the edge; soon you bury all of your cock into the tight fuck tool and unload your massive torrent of cum into the tentacle.  Your hot cum gushes into the beast and you can feel the tentacle throb and squirm in protest as you fill the beast even more.  After your ${this.cockDescript(
                         0
-                    )} slips free the beast lets out a final gurgle of defeat and slithers away into the forest.`,
-                    false
+                    )} slips free the beast lets out a final gurgle of defeat and slithers away into the forest.`
                 );
             this.player.orgasm();
             this.dynStats("tou", 0.5, "spe", -0.5, "int", -0.5, "lib", 1, "sen", 1, "cor", 1);
@@ -933,7 +915,7 @@ export class TentacleBeastScene extends BaseContent {
                 false
             );
             if (this.player.cockTotal() > 1)
-                this.outx(`at the base of your ${this.multiCockDescriptLight()}.`, false);
+                this.outx(`at the base of your ${this.multiCockDescriptLight()}.`);
             this.outx(
                 "  You look down to see the end of a thorny tendril impaled in your pelvic region. Fiery pain courses through your veins as you feel the creature inject you with some sort of liquid. As the pain sears through you, ",
                 false
@@ -959,8 +941,7 @@ export class TentacleBeastScene extends BaseContent {
                 );
             else
                 this.outx(
-                    `In your daze you see ${this.player.cockTotal()} monstrous, hollow tentacles poised over your furious cocks.  You scream in shock and protest, but your cries fall upon deaf ears.  The tentacles descend upon your ${this.multiCockDescriptLight()}, all begging for release, and clamps down upon your pubic mound, fully encapsulating your dicks.`,
-                    false
+                    `In your daze you see ${this.player.cockTotal()} monstrous, hollow tentacles poised over your furious cocks.  You scream in shock and protest, but your cries fall upon deaf ears.  The tentacles descend upon your ${this.multiCockDescriptLight()}, all begging for release, and clamps down upon your pubic mound, fully encapsulating your dicks.`
                 );
         }
         if (this.player.gender == 2) {
@@ -1022,8 +1003,7 @@ export class TentacleBeastScene extends BaseContent {
             );
             if (this.player.cockTotal() > 1)
                 this.outx(
-                    `${this.multiCockDescriptLight()} immediately become fully erect and leak pre-cum liberally from their tips.  `,
-                    false
+                    `${this.multiCockDescriptLight()} immediately become fully erect and leak pre-cum liberally from their tips.  `
                 );
             else
                 this.outx(
@@ -1033,8 +1013,7 @@ export class TentacleBeastScene extends BaseContent {
             this.outx(
                 `  ${TentacleBeastScene.Num2Text(
                     this.player.totalNipples()
-                )} thorny tentacles pierce your nipples, and you feel as if someone shot acid into your tits, which immediately begin to swell.`,
-                false
+                )} thorny tentacles pierce your nipples, and you feel as if someone shot acid into your tits, which immediately begin to swell.`
             );
             this.player.growTits(1, this.player.breastRows.length, false, 2);
             this.outx(
@@ -1049,15 +1028,13 @@ export class TentacleBeastScene extends BaseContent {
             );
             if (this.player.cockTotal() > 1)
                 this.outx(
-                    `${this.multiCockDescriptLight()}, now begging for release, and clamps down around your pubic mound, fully encapsulating your members.  `,
-                    false
+                    `${this.multiCockDescriptLight()}, now begging for release, and clamps down around your pubic mound, fully encapsulating your members.  `
                 );
             else
                 this.outx(
                     `${this.cockDescript(
                         0
-                    )}, now begging for release, and clamps down upon your pubic mound, fully encapsulating your member.`,
-                    false
+                    )}, now begging for release, and clamps down upon your pubic mound, fully encapsulating your member.`
                 );
         }
         // Call page 2!
@@ -1075,13 +1052,11 @@ export class TentacleBeastScene extends BaseContent {
             );
             if (this.player.cockTotal() == 1)
                 this.outx(
-                    `using a sucking-stroking motion on your helpless ${this.multiCockDescriptLight()}. The swelling of the ass tentacle pressures your prostate in a paradoxically pleasurable and painful manner. You realize, much to your terror, that this beast is MILKING you of your semen!`,
-                    false
+                    `using a sucking-stroking motion on your helpless ${this.multiCockDescriptLight()}. The swelling of the ass tentacle pressures your prostate in a paradoxically pleasurable and painful manner. You realize, much to your terror, that this beast is MILKING you of your semen!`
                 );
             else
                 this.outx(
-                    `using a sucking-stroking motion on your ${this.multiCockDescriptLight()}.  The swelling of the ass tentacle pressures your prostate in a paradoxical pleasurable and painful manner.  You realize, much to your terror, that this beast is MILKING you of your semen!`,
-                    false
+                    `using a sucking-stroking motion on your ${this.multiCockDescriptLight()}.  The swelling of the ass tentacle pressures your prostate in a paradoxical pleasurable and painful manner.  You realize, much to your terror, that this beast is MILKING you of your semen!`
                 );
             this.player.buttChange(50, true);
             this.outx(
@@ -1090,13 +1065,11 @@ export class TentacleBeastScene extends BaseContent {
             );
             if (this.player.cockTotal() == 1)
                 this.outx(
-                    `${this.multiCockDescriptLight()} and ass and in a very short time, your phallus explodes, launching stream upon stream of hot, thick cum into the horror. Your hips and pelvis buck violently with each thrust as the creature masterfully strokes your ${this.multiCockDescriptLight()}  and milks your prostate of your fluids. You cry with each orgasm, prompting the thing to milk you harder. After an eternity of successive ejaculations, the creature withdraws its unholy arms and leaves you in a bruised, lacerated, overfucked heap on the ground, discarded like a person throws away a corn cob after a meal.`,
-                    false
+                    `${this.multiCockDescriptLight()} and ass and in a very short time, your phallus explodes, launching stream upon stream of hot, thick cum into the horror. Your hips and pelvis buck violently with each thrust as the creature masterfully strokes your ${this.multiCockDescriptLight()}  and milks your prostate of your fluids. You cry with each orgasm, prompting the thing to milk you harder. After an eternity of successive ejaculations, the creature withdraws its unholy arms and leaves you in a bruised, lacerated, overfucked heap on the ground, discarded like a person throws away a corn cob after a meal.`
                 );
             else
                 this.outx(
-                    `${this.multiCockDescriptLight()} and ass and in a very short time, your dicks explode, launching stream upon stream upon stream of hot, thick cum into the horror.  Your hips and pelvis buck violently with each thrust as the creature masterfully strokes your ${this.multiCockDescriptLight()} and milks your prostate of your fluids.  You cry with each orgasm, prompting the thing to milk you harder. After an eternity of successive ejaculations, the creature withdraws its unholy arms and leaves you in a bruised, lacerated, overfucked heap on the ground, discarded like a person throws away a corn cob after a meal.`,
-                    false
+                    `${this.multiCockDescriptLight()} and ass and in a very short time, your dicks explode, launching stream upon stream upon stream of hot, thick cum into the horror.  Your hips and pelvis buck violently with each thrust as the creature masterfully strokes your ${this.multiCockDescriptLight()} and milks your prostate of your fluids.  You cry with each orgasm, prompting the thing to milk you harder. After an eternity of successive ejaculations, the creature withdraws its unholy arms and leaves you in a bruised, lacerated, overfucked heap on the ground, discarded like a person throws away a corn cob after a meal.`
                 );
         } else if (this.player.gender == 2) {
             this.outx(
@@ -1113,8 +1086,7 @@ export class TentacleBeastScene extends BaseContent {
                         this.player.vaginas.length
                     } tongues shaped like large cocks while its tongues, like any other tentacles, seeks out your defenseless pussies.  It prods itself mockingly around your labias as you attempt to contract to keep them from violating you and depriving you of what dignity you have left.  The creature flexes its appendages and easily forces its way into your ${this.vaginaDescript(
                         0
-                    )}s`,
-                    false
+                    )}s`
                 );
             if (this.player.vaginas.length > 1) this.outx("s");
             this.outx(
@@ -1138,8 +1110,7 @@ export class TentacleBeastScene extends BaseContent {
             this.outx(
                 ` Your body betrays your resistance as pleasure hammers you from crotch to head. After some time, you begin bucking your hips in tandem to the creature's thrusts, drunk with pleasure. As you peak for your orgasm, you feel the creature bottom out inside your womb. Oceans of hot cum flood your ${this.vaginaDescript(
                     0
-                )}`,
-                false
+                )}`
             );
             if (this.player.vaginas.length > 1) this.outx("s");
             this.outx(

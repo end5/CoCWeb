@@ -44,8 +44,7 @@ export class GooGirlScene extends AbstractLakeContent {
         );
         this.startCombat(new GooGirl());
         this.outx(
-            `${this.gooColor()} slime body sculpting itself into a humanoid shape. The girl curiously tilts her head to one side, as if trying to figure out why you're backing away, before she happily surges forward!`,
-            false
+            `${this.gooColor()} slime body sculpting itself into a humanoid shape. The girl curiously tilts her head to one side, as if trying to figure out why you're backing away, before she happily surges forward!`
         );
         this.doNext(this.playerMenu);
     }
@@ -257,8 +256,7 @@ export class GooGirlScene extends AbstractLakeContent {
         );
 
         this.outx(
-            `You awaken with a sputtering hack, water and gooey ${this.gooColor()} cum spilling from your lungs. You've been returned to shore and other than a full-body soreness and a splitting headache, you seem none the worse for wear. Who knew cute little slimes could be so aggressive when they don't have sex organs to suck on?`,
-            false
+            `You awaken with a sputtering hack, water and gooey ${this.gooColor()} cum spilling from your lungs. You've been returned to shore and other than a full-body soreness and a splitting headache, you seem none the worse for wear. Who knew cute little slimes could be so aggressive when they don't have sex organs to suck on?`
         );
         this.player.slimeFeed();
         this.player.orgasm();
@@ -318,8 +316,7 @@ export class GooGirlScene extends AbstractLakeContent {
             );
 
         this.outx(
-            `Just in time, the thin tongue pistoning its way into your abdomen opens, the tube-like appendage mirroring the thirsty suckling of her ${this.gooColor5()} mouth. Your body feels like it melts just a bit as your potent seed is greedily slurped up her tongue and bursts into her mouth with enough force to kick against the back of her maw, nearly blowing clear out of her head! Pumping her slimy fist inside your rear, the goo-girl milks your prostate for every drop of cum in your body.  `,
-            false
+            `Just in time, the thin tongue pistoning its way into your abdomen opens, the tube-like appendage mirroring the thirsty suckling of her ${this.gooColor5()} mouth. Your body feels like it melts just a bit as your potent seed is greedily slurped up her tongue and bursts into her mouth with enough force to kick against the back of her maw, nearly blowing clear out of her head! Pumping her slimy fist inside your rear, the goo-girl milks your prostate for every drop of cum in your body.  `
         );
         // [small to medium cum amounts:
         if (this.player.cumQ() <= 500)
@@ -333,8 +330,7 @@ export class GooGirlScene extends AbstractLakeContent {
                     x
                 )}, but her arm is too deep in your ass and she finds herself stuck! You rest your hands on the ${this.gooColor4()} sludge of her goopy hair, fingers sinking into her slime as she tries to make room for your gushing, ivory torrent.  You clench your eyes in pleasure and surrender yourself to the feeling, your groin a font of creamy seed.  When you finally slow and open your eyes, you're a little surprised to find that the girl has become almost entirely white!  Her translucent skin retains a bit of the lake's ${
                     this.monster.skinTone
-                } hue, but top to bottom, the goo-girl's body swirls with your cum, leaving her with the fattened appearance of pale pregnancy.`,
-                false
+                } hue, but top to bottom, the goo-girl's body swirls with your cum, leaving her with the fattened appearance of pale pregnancy.`
             );
         this.outx(
             "  Her arm slides out of your rump and the goo-girl practically rolls into the lake, splashing into the depths lazily. It sure didn't feel like you lost that fight, you reflect while taking delicious swallows of cold air.",
@@ -361,8 +357,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.outx(
             `When you break the kiss, a trail of ${this.gooColor3()} goo still joining your lips to hers, you notice that she's slid her body entirely around yours, up to your neck! You struggle, but don't have the energy to fight against the slime's engulfing, gel-like form. Every inch of your bare flesh has the slight pressure of the girl's membrane against it, like too-tight clothes in a warm bathtub. You wriggle inside of her and she blinks in surprise, her mouth narrowing to a cooing pucker. Her eyes light up and she points a squishy hand at her mouth, her lips bulging a bit, filling with puffy goo. You shake your head, not understanding, until your body explains the meaning of her gesture. The supple suction of the girl's engulfing body gives way to the startling sensation of mouths, pressed against every sensitive inch of your flesh. The breath in your lungs catches in your throat as warm, wet, eager mouths wrap their yielding lips around your ${this.clitDescript()} and ${this.nippleDescript(
                 0
-            )}, semi-solid tongues teasing and flicking the tender organs. Sucking heat swallows ${this.sMultiCockDesc()}, stroking the shaft`,
-            false
+            )}, semi-solid tongues teasing and flicking the tender organs. Sucking heat swallows ${this.sMultiCockDesc()}, stroking the shaft`
         );
         if (this.player.cockTotal() > 1) this.outx("s");
         this.outx(
@@ -380,12 +375,10 @@ export class GooGirlScene extends AbstractLakeContent {
         );
         if (this.player.biggestLactation() >= 2)
             this.outx(
-                `  The mouths sucking at your ${this.player.allBreastsDescript()} ripple against your flesh until milk sprays from your mammaries, her body suckling the entirety of your lactate-heavy chest, cleavage to teat.`,
-                false
+                `  The mouths sucking at your ${this.player.allBreastsDescript()} ripple against your flesh until milk sprays from your mammaries, her body suckling the entirety of your lactate-heavy chest, cleavage to teat.`
             );
         this.outx(
-            `  Your spurting ecstasy floods the girl's jelly body, coloring her ${this.gooColor3()} body white as she drinks deeply, coaxing a few seconds of gasping spasms into long, seed-spewing minutes of climaxing euphoria.`,
-            false
+            `  Your spurting ecstasy floods the girl's jelly body, coloring her ${this.gooColor3()} body white as she drinks deeply, coaxing a few seconds of gasping spasms into long, seed-spewing minutes of climaxing euphoria.`
         );
 
         this.outx(
@@ -431,8 +424,7 @@ export class GooGirlScene extends AbstractLakeContent {
             this.outx(
                 `Tentatively, you take an experimental swallow, a thin trickle of ${this.gooColor7()} gel rolling warmly down your throat. The taste is vaguely familiar, but you can't quite place it. Taking another gulp, you roll the milky goo around in your mouth, trying to identify the flavor, but it continues to elude you. For some reason, it seems very important to determine the maddening fluid and you suck as hard as you can, steady streams of slimy cream filling your belly with a blossoming heat. When the goo-girl pulls you off, you're a little surprised to see that your breasts have grown! The liquid weight in your stomach seems to have expanded your chest. You tweak a ${this.nippleDescript(
                     0
-                )} and find that milk gushes out, even at the slightest stimulation. You are lactating! Seemingly satisfied that your body is now fit to birth a child, the goo-girl nods her head, beaming.`,
-                false
+                )} and find that milk gushes out, even at the slightest stimulation. You are lactating! Seemingly satisfied that your body is now fit to birth a child, the goo-girl nods her head, beaming.`
             );
             // [player breast size increase, lactation activated/ amount increases]
             this.player.breastRows[0].breastRating++;
@@ -448,8 +440,7 @@ export class GooGirlScene extends AbstractLakeContent {
             );
 
             this.outx(
-                `Thick trails of milk squirt into the slime's hands and down her arms, filling the girl's ${this.gooColor()} body with your creamy milk.`,
-                false
+                `Thick trails of milk squirt into the slime's hands and down her arms, filling the girl's ${this.gooColor()} body with your creamy milk.`
             );
             if (this.player.lactationQ() <= 1000)
                 this.outx(
@@ -464,8 +455,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 );
             else
                 this.outx(
-                    `  You bite your lip and let go, torrents of rich, pearl fluid rushing through her arms and inflating the surprised girl before your eyes. The milk gushing into her fills the goo from base to breast, giving the once-${this.gooColor5()} girl an opalescent shine, her over-filled body bloated as if she were carrying triplets.`,
-                    false
+                    `  You bite your lip and let go, torrents of rich, pearl fluid rushing through her arms and inflating the surprised girl before your eyes. The milk gushing into her fills the goo from base to breast, giving the once-${this.gooColor5()} girl an opalescent shine, her over-filled body bloated as if she were carrying triplets.`
                 );
             this.outx(
                 "  She gives you a fond bop on the chin and a loving stroke on your belly before sloshing back into the lake, her seething heat still clinging to your body like a lingering hug.",
@@ -489,8 +479,7 @@ export class GooGirlScene extends AbstractLakeContent {
             );
 
             this.outx(
-                `You try to stop the girl's progress, frantically, wagging your legs and clenching your inner walls together, but your strength has left you and her ${this.gooColor()} skin is much too slippery to gain ground against. A moment later, all thoughts of stopping the invading goo are lost to the waves of gushing heat pouring into your body as her neck feeds into your aching cunt, filling your uterus with the sentient slime. She braces her hands at the widening mouth of your sex before slipping those in as well, working her arms and shoulders into your now gaping body.  `,
-                false
+                `You try to stop the girl's progress, frantically, wagging your legs and clenching your inner walls together, but your strength has left you and her ${this.gooColor()} skin is much too slippery to gain ground against. A moment later, all thoughts of stopping the invading goo are lost to the waves of gushing heat pouring into your body as her neck feeds into your aching cunt, filling your uterus with the sentient slime. She braces her hands at the widening mouth of your sex before slipping those in as well, working her arms and shoulders into your now gaping body.  `
             );
             // [Small vaginal capacity:
             if (this.player.vaginalCapacity() <= 30)
@@ -550,8 +539,7 @@ export class GooGirlScene extends AbstractLakeContent {
         );
         this.monster = new GooGirl(); // because if we don't, the gooColor4() goes crazy.
         this.outx(
-            `The small ${this.gooColor4()} sludge quivers, but seems unable to take a human shape. Extending pseudopods, it experimentally prods at your skin, trying to gets its bearings. You shiver as the goo slides over your flesh, poking you wetly from time to time. When it finds your breasts, the goo works up your mounds and slurps at your teats, milk filling the blob with a creamy tint that makes it larger and gives its membrane a firmer texture. It takes about ten minutes to flop its way across your entire body before sliding off of you and wriggling at your feet. It shifts again, but this time, manages to form a featureless head. Slowly, gradually, it adds more, morphing shoulders, arms, a waist, and even hips. Her body ripples and the blank slime morphs into a perfect miniature copy of you! It stares up at its mother with a happy expression before lurching away, toward the lake. Even though you were just her incubator and template, you can't help but feel a little pride at your goo child entering the wild world with a fearless sense of exploration.`,
-            false
+            `The small ${this.gooColor4()} sludge quivers, but seems unable to take a human shape. Extending pseudopods, it experimentally prods at your skin, trying to gets its bearings. You shiver as the goo slides over your flesh, poking you wetly from time to time. When it finds your breasts, the goo works up your mounds and slurps at your teats, milk filling the blob with a creamy tint that makes it larger and gives its membrane a firmer texture. It takes about ten minutes to flop its way across your entire body before sliding off of you and wriggling at your feet. It shifts again, but this time, manages to form a featureless head. Slowly, gradually, it adds more, morphing shoulders, arms, a waist, and even hips. Her body ripples and the blank slime morphs into a perfect miniature copy of you! It stares up at its mother with a happy expression before lurching away, toward the lake. Even though you were just her incubator and template, you can't help but feel a little pride at your goo child entering the wild world with a fearless sense of exploration.`
         );
         this.dynStats("lus", 50);
     }
@@ -568,8 +556,7 @@ export class GooGirlScene extends AbstractLakeContent {
         // Victory – Neuter
         if (this.player.gender == 0 || this.player.lust < 33) {
             this.outx(
-                `The goo-girl, while an unusual creature, seems unable to communicate and clearly has nothing of value.  Of no particular use in your quest, you shoo the dripping blob back to the shore. She seems disappointed at first, but bounces back quickly enough, spotting movement in the lake.  She splashes in and takes off at top speed, ${this.gooColor9()} blur while you take your leave.`,
-                false
+                `The goo-girl, while an unusual creature, seems unable to communicate and clearly has nothing of value.  Of no particular use in your quest, you shoo the dripping blob back to the shore. She seems disappointed at first, but bounces back quickly enough, spotting movement in the lake.  She splashes in and takes off at top speed, ${this.gooColor9()} blur while you take your leave.`
             );
             this.cleanupAfterCombat();
         } else {
@@ -748,8 +735,7 @@ export class GooGirlScene extends AbstractLakeContent {
             );
 
             this.outx(
-                `You dump the rest of your load in the hollow girl and try to pull away, but she clings to you, desperately. Lacking a brain, all that's left of the girl appears to be her final impulse to fuck and suck endlessly. You indulge her again and again, but before long it's clear she's not stopping. Thankfully, after nearly an hour of her exhausting play, she finally looses consistency and collapses into a slimy puddle of muck, now more white than ${this.gooColor()}. She slides into the lake, returning to whatever liquid state she came from. You take a dip yourself, to clean the lingering ooze on your body and slake your dehydration.`,
-                false
+                `You dump the rest of your load in the hollow girl and try to pull away, but she clings to you, desperately. Lacking a brain, all that's left of the girl appears to be her final impulse to fuck and suck endlessly. You indulge her again and again, but before long it's clear she's not stopping. Thankfully, after nearly an hour of her exhausting play, she finally looses consistency and collapses into a slimy puddle of muck, now more white than ${this.gooColor()}. She slides into the lake, returning to whatever liquid state she came from. You take a dip yourself, to clean the lingering ooze on your body and slake your dehydration.`
             );
             // Corrupt victory ooze – (After specific sex scenes while the player has a 70+ corruption score)
             if (this.player.cor >= 85 && GooGirlScene.rand(2) == 0)
@@ -884,8 +870,7 @@ export class GooGirlScene extends AbstractLakeContent {
         );
 
         this.outx(
-            `Again and again, you fill her cheeks with your glistening warmth, and it's all she can do to swallow as quickly as possible, her throat bulging with the alabaster loads rolling into her over-full belly. Overwhelmed, the goo-girl's ruby heart rolls helplessly in the fattening slime's body, unable to digest the sheer volume of lactate you're pumping into her. Running out of places to store it, the girl's own breasts begin to inflate, her ${this.gooColor2()} nipples leaking in bubbling rivulets to mirror your own aching mounds. She cycles through cup-sizes faster than you can list them, the burgeoning promise of her curved bounty weighing her down until her chest bounces against the puddle of her feet with every jiggling gulp. The ${this.gooColor8()} hair sliding across your fingers begins to writhe and twist, gooey strands merging and rising to the sides of her head forming two little horns on either side of her head, her body morphing into a shape more appropriate for the sloshing udders her chest has become under the suckling you're forcing on the girl. You've fed her so much that she's become a milk cow, you realize with a shuddering pleasure that touches the addiction center of your brain so intensely that you feel yourself creaming in a sequence of full-body contractions, muscles clenching with shivering rapture. It's just so right, you muse, panting through the coiling suffocation of your orgasm, to awaken in others the NEED to be fed. How sweet to nurse and to be used! And how much sweeter to teach others the mind-erasing desire to be little more than a beast, addicted to the lust of being milked!  `,
-            false
+            `Again and again, you fill her cheeks with your glistening warmth, and it's all she can do to swallow as quickly as possible, her throat bulging with the alabaster loads rolling into her over-full belly. Overwhelmed, the goo-girl's ruby heart rolls helplessly in the fattening slime's body, unable to digest the sheer volume of lactate you're pumping into her. Running out of places to store it, the girl's own breasts begin to inflate, her ${this.gooColor2()} nipples leaking in bubbling rivulets to mirror your own aching mounds. She cycles through cup-sizes faster than you can list them, the burgeoning promise of her curved bounty weighing her down until her chest bounces against the puddle of her feet with every jiggling gulp. The ${this.gooColor8()} hair sliding across your fingers begins to writhe and twist, gooey strands merging and rising to the sides of her head forming two little horns on either side of her head, her body morphing into a shape more appropriate for the sloshing udders her chest has become under the suckling you're forcing on the girl. You've fed her so much that she's become a milk cow, you realize with a shuddering pleasure that touches the addiction center of your brain so intensely that you feel yourself creaming in a sequence of full-body contractions, muscles clenching with shivering rapture. It's just so right, you muse, panting through the coiling suffocation of your orgasm, to awaken in others the NEED to be fed. How sweet to nurse and to be used! And how much sweeter to teach others the mind-erasing desire to be little more than a beast, addicted to the lust of being milked!  `
         );
         if (this.player.hasVagina())
             this.outx(
@@ -905,8 +890,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 );
 
         this.outx(
-            `When you regain consciousness, your breasts finally feel empty, milked dry by your rough treatment of the goo-girl. Shaking your head, you look for a sign of the girl and spot something a short distance off in the lake. You almost don't recognize her at first, until you notice the tiny, jiggling horns poking out of the sides of her head. The cow-slime has apparently captured a shark girl and an anemone, her pale ${this.gooColor()} membrane wrapping around their bodies like giant fists. She's holding them to each giant breast, kneading their faces against her quivering membrane as her periwinkle nipples gush with your milk, soaking their heads and filling their senses with your addictive fragrance. In short order, they wrap their mouths around the ${this.gooColor5()} faucets and begin to drink deeply, the cow-goo's face a silent mirror of your previous climax. Two more girls being taught the joys of lactation, you murmur, touching yourself with a gleeful shudder. Forcing yourself to master the desire to keep watching, you clean yourself up and head out, pleased gurgles fading into the distance.`,
-            false
+            `When you regain consciousness, your breasts finally feel empty, milked dry by your rough treatment of the goo-girl. Shaking your head, you look for a sign of the girl and spot something a short distance off in the lake. You almost don't recognize her at first, until you notice the tiny, jiggling horns poking out of the sides of her head. The cow-slime has apparently captured a shark girl and an anemone, her pale ${this.gooColor()} membrane wrapping around their bodies like giant fists. She's holding them to each giant breast, kneading their faces against her quivering membrane as her periwinkle nipples gush with your milk, soaking their heads and filling their senses with your addictive fragrance. In short order, they wrap their mouths around the ${this.gooColor5()} faucets and begin to drink deeply, the cow-goo's face a silent mirror of your previous climax. Two more girls being taught the joys of lactation, you murmur, touching yourself with a gleeful shudder. Forcing yourself to master the desire to keep watching, you clean yourself up and head out, pleased gurgles fading into the distance.`
         );
         this.coreDropChance();
         this.player.orgasm();
@@ -950,8 +934,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.outx(
             `Your orgasms are as loud as you can make them, screaming, cursing, and praying in consecutive breaths until you're hoarse and your body is sore with exhaustion. The goo-girl looks just as drained from the performance, cradling you in her gooey body as much as resting against yours. The effect of your show has left your viewers wanting more, it seems, as they've partnered off. The anemone has entwined the shark girl and is giving her enough to keep the vicious female snarling in ecstatic throes as the two churn the water to thick foam. The stray minotaur has taken the man from behind and, despite its formidable size, has pulled his victim to the very hilt of its member, swollen balls slapping against his legs while the stuffed man jerks himself off again, lost in some private memory of your display. You give the goo-girl a kiss on her ${this.gooColor7()}-flavored face as thanks for the wonderful time and she musses your hair playfully. You give them a final show as you slowly put your ${
                 this.player.armorName
-            } back on, gradually covering up your oil-slick skin before leaving the monsters to their own sport.`,
-            false
+            } back on, gradually covering up your oil-slick skin before leaving the monsters to their own sport.`
         );
         this.coreDropChance();
         this.player.orgasm();
@@ -995,8 +978,7 @@ export class GooGirlScene extends AbstractLakeContent {
         this.outx(
             `You aren't sure how much time has passed when you finally regain your senses. The goo-girl nuzzles your cheek affectionately, perhaps thanking you for the unique experience. Slowly, regretfully, she flows off of you, suckling ooze lapping at your limbs with slurping kisses all over your body. When the two of you are finally separated, you notice that she's maintained your proportions exactly, a ${this.gooColor3()} mirror of your body, jiggling alluringly. You sigh as she flows back into the lapping waves of the lake, missing the heat of her embrace already. Admittedly, you don't know if trying to wear her for an extended length of time would've been a good idea- you'd never get anything done! Retracing your steps, you recover your ${
                 this.player.armorName
-            } and head back to camp.`,
-            false
+            } and head back to camp.`
         );
         this.coreDropChance();
         this.player.orgasm();
@@ -1023,7 +1005,7 @@ export class GooGirlScene extends AbstractLakeContent {
             false
         );
 
-        this.outx("You hurry away before the five oozes take an interest in you next.", false);
+        this.outx("You hurry away before the five oozes take an interest in you next.");
         this.dynStats("lus", 4 + this.player.cor / 10);
         this.doNext(this.camp.returnToCampUseOneHour);
     }

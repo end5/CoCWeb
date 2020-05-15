@@ -1285,18 +1285,15 @@ export class CoC {
         this.outx(
             `You are a ${Math.floor(this.player.tallness / 12)} foot ${
                 this.player.tallness % 12
-            } inch tall ${race}, with ${this.player.bodyType()}.`,
-            false
+            } inch tall ${race}, with ${this.player.bodyType()}.`
         );
         if (this.player.armorName == "comfortable clothes")
             this.outx(
-                `  <b>You are currently wearing ${this.player.armorName} and using your ${this.player.weaponName} as a weapon.</b>`,
-                false
+                `  <b>You are currently wearing ${this.player.armorName} and using your ${this.player.weaponName} as a weapon.</b>`
             );
         else
             this.outx(
-                `  <b>You are currently wearing your ${this.player.armorName} and using your ${this.player.weaponName} as a weapon.</b>`,
-                false
+                `  <b>You are currently wearing your ${this.player.armorName} and using your ${this.player.weaponName} as a weapon.</b>`
             );
         // Face
         if (
@@ -1311,21 +1308,18 @@ export class CoC {
                 this.player.skinType == CoC.SKIN_TYPE_GOO
             )
                 this.outx(
-                    `  Your face is human in shape and structure, with ${this.player.skin()}.`,
-                    false
+                    `  Your face is human in shape and structure, with ${this.player.skin()}.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_FUR)
                 this.outx(
                     `  Under your ${this.player.skinFurScales()} you have a human-shaped head with ${this.player.skin(
                         true,
                         false
-                    )}.`,
-                    false
+                    )}.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_SCALES)
                 this.outx(
-                    `  Your face is fairly human in shape, but is covered in ${this.player.skin()}.`,
-                    false
+                    `  Your face is fairly human in shape, but is covered in ${this.player.skin()}.`
                 );
             if (this.player.faceType == CoC.FACE_SHARK_TEETH)
                 this.outx(
@@ -1452,21 +1446,18 @@ export class CoC {
                 this.player.skinType == CoC.SKIN_TYPE_GOO
             )
                 this.outx(
-                    `  You have a fairly normal face, with ${this.player.skin()}.  The only oddity is your pair of dripping fangs which often hang over your lower lip.`,
-                    false
+                    `  You have a fairly normal face, with ${this.player.skin()}.  The only oddity is your pair of dripping fangs which often hang over your lower lip.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_FUR)
                 this.outx(
                     `  Under your ${this.player.skinFurScales()} you have a human-shaped head with ${this.player.skin(
                         true,
                         false
-                    )}.  In addition, a pair of fangs hang over your lower lip, dripping with venom.`,
-                    false
+                    )}.  In addition, a pair of fangs hang over your lower lip, dripping with venom.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_SCALES)
                 this.outx(
-                    `  Your face is fairly human in shape, but is covered in ${this.player.skinFurScales()}.  In addition, a pair of fangs hang over your lower lip, dripping with venom.`,
-                    false
+                    `  Your face is fairly human in shape, but is covered in ${this.player.skinFurScales()}.  In addition, a pair of fangs hang over your lower lip, dripping with venom.`
                 );
         }
         // horse-face
@@ -1476,21 +1467,18 @@ export class CoC {
                 this.player.skinType == CoC.SKIN_TYPE_GOO
             )
                 this.outx(
-                    `  Your face is equine in shape and structure.  The odd visage is hairless and covered with ${this.player.skinFurScales()}.`,
-                    false
+                    `  Your face is equine in shape and structure.  The odd visage is hairless and covered with ${this.player.skinFurScales()}.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_FUR)
                 this.outx(
                     `  Your face is almost entirely equine in appearance, even having ${this.player.skinFurScales()}.  Underneath the fur, you believe you have ${this.player.skin(
                         true,
                         false
-                    )}.`,
-                    false
+                    )}.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_SCALES)
                 this.outx(
-                    `  You have the face and head structure of a horse, overlaid with glittering ${this.player.skinFurScales()}.`,
-                    false
+                    `  You have the face and head structure of a horse, overlaid with glittering ${this.player.skinFurScales()}.`
                 );
         }
         // dog-face
@@ -1500,21 +1488,18 @@ export class CoC {
                 this.player.skinType == CoC.SKIN_TYPE_GOO
             )
                 this.outx(
-                    `  You have a dog-like face, complete with a wet nose.  The odd visage is hairless and covered with ${this.player.skinFurScales()}.`,
-                    false
+                    `  You have a dog-like face, complete with a wet nose.  The odd visage is hairless and covered with ${this.player.skinFurScales()}.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_FUR)
                 this.outx(
                     `  You have a dog's face, complete with wet nose and panting tongue.  You've got ${this.player.skinFurScales()}, hiding your ${this.player.skin(
                         true,
                         false
-                    )} underneath your furry visage.`,
-                    false
+                    )} underneath your furry visage.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_SCALES)
                 this.outx(
-                    `  You have the facial structure of a dog, wet nose and all, but overlaid with glittering ${this.player.skinFurScales()}.`,
-                    false
+                    `  You have the facial structure of a dog, wet nose and all, but overlaid with glittering ${this.player.skinFurScales()}.`
                 );
         }
         // cat-face
@@ -1524,8 +1509,7 @@ export class CoC {
                 this.player.skinType == CoC.SKIN_TYPE_GOO
             )
                 this.outx(
-                    `  You have a cat-like face, complete with a cute, moist nose and whiskers.  The ${this.player.skin()} that is revealed by your lack of fur looks quite unusual on so feline a face.`,
-                    false
+                    `  You have a cat-like face, complete with a cute, moist nose and whiskers.  The ${this.player.skin()} that is revealed by your lack of fur looks quite unusual on so feline a face.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_FUR)
                 this.outx(
@@ -1534,13 +1518,11 @@ export class CoC {
                     } is ${this.player.hairColor}, hiding your ${this.player.skin(
                         true,
                         false
-                    )} underneath.`,
-                    false
+                    )} underneath.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_SCALES)
                 this.outx(
-                    `  Your facial structure blends humanoid features with those of a cat.  A moist nose and whiskers are included, but overlaid with glittering ${this.player.skinFurScales()}.`,
-                    false
+                    `  Your facial structure blends humanoid features with those of a cat.  A moist nose and whiskers are included, but overlaid with glittering ${this.player.skinFurScales()}.`
                 );
             if (this.player.eyeType != CoC.EYES_BLACK_EYES_SAND_TRAP)
                 this.outx(
@@ -1554,13 +1536,11 @@ export class CoC {
                 this.player.skinType == CoC.SKIN_TYPE_GOO
             )
                 this.outx(
-                    `  You have a face resembling that of a minotaur, with cow-like features, particularly a squared off wet nose.  Despite your lack of fur elsewhere, your visage does have a short layer of ${this.player.hairColor} fuzz.`,
-                    false
+                    `  You have a face resembling that of a minotaur, with cow-like features, particularly a squared off wet nose.  Despite your lack of fur elsewhere, your visage does have a short layer of ${this.player.hairColor} fuzz.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_FUR)
                 this.outx(
-                    `  You have a face resembling that of a minotaur, with cow-like features, particularly a squared off wet nose.  Your ${this.player.skinFurScales()} thickens noticably on your head, looking shaggy and more than a little monstrous once laid over your visage.`,
-                    false
+                    `  You have a face resembling that of a minotaur, with cow-like features, particularly a squared off wet nose.  Your ${this.player.skinFurScales()} thickens noticably on your head, looking shaggy and more than a little monstrous once laid over your visage.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_SCALES)
                 this.outx(
@@ -1575,18 +1555,15 @@ export class CoC {
                 this.player.skinType == CoC.SKIN_TYPE_GOO
             )
                 this.outx(
-                    `  You have a face resembling that of a lizard, and with your toothy maw, you have quite a fearsome visage.  The reptilian visage does look a little odd with just ${this.player.skin()}.`,
-                    false
+                    `  You have a face resembling that of a lizard, and with your toothy maw, you have quite a fearsome visage.  The reptilian visage does look a little odd with just ${this.player.skin()}.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_FUR)
                 this.outx(
-                    `  You have a face resembling that of a lizard.  Between the toothy maw, pointed snout, and the layer of ${this.player.skinFurScales()} covering your face, you have quite the fearsome visage.`,
-                    false
+                    `  You have a face resembling that of a lizard.  Between the toothy maw, pointed snout, and the layer of ${this.player.skinFurScales()} covering your face, you have quite the fearsome visage.`
                 );
             if (this.player.skinType == CoC.SKIN_TYPE_SCALES)
                 this.outx(
-                    `  Your face is that of a lizard, complete with a toothy maw and pointed snout.  Reflective ${this.player.skinFurScales()} complete the look, making you look quite fearsome.`,
-                    false
+                    `  Your face is that of a lizard, complete with a toothy maw and pointed snout.  Reflective ${this.player.skinFurScales()} complete the look, making you look quite fearsome.`
                 );
         }
         if (this.player.faceType == CoC.FACE_DRAGON) {
@@ -1597,14 +1574,14 @@ export class CoC {
         if (this.player.faceType == CoC.FACE_KANGAROO) {
             this.outx("  Your face is ");
             if (this.player.skinType == CoC.SKIN_TYPE_PLAIN) this.outx("bald");
-            else this.outx(`covered with ${this.player.skinFurScales()}`, false);
+            else this.outx(`covered with ${this.player.skinFurScales()}`);
             this.outx(
                 " and shaped like that of a kangaroo, somewhat rabbit-like except for the extreme length of your odd visage.",
                 false
             );
         }
         // M/F stuff!
-        this.outx(`  It has ${this.player.faceDesc()}.`, false);
+        this.outx(`  It has ${this.player.faceDesc()}.`);
         // Eyes
         if (this.player.eyeType == CoC.EYES_FOUR_SPIDER_EYES)
             this.outx(
@@ -1624,13 +1601,12 @@ export class CoC {
                 );
             else
                 this.outx(
-                    `  You are totally bald, showing only shiny ${this.player.skinTone} ${this.player.skinDesc} where your hair should be.`,
-                    false
+                    `  You are totally bald, showing only shiny ${this.player.skinTone} ${this.player.skinDesc} where your hair should be.`
                 );
             if (this.player.earType == CoC.EARS_HORSE)
-                this.outx("  A pair of horse-like ears rise up from the top of your head.", false);
+                this.outx("  A pair of horse-like ears rise up from the top of your head.");
             else if (this.player.earType == CoC.EARS_FERRET)
-                this.outx("  A pair of small, rounded ferret ears sit on top of your head.", false);
+                this.outx("  A pair of small, rounded ferret ears sit on top of your head.");
             else if (this.player.earType == CoC.EARS_DOG)
                 this.outx(
                     "  A pair of dog ears protrude from your skull, flopping down adorably.",
@@ -1681,53 +1657,43 @@ export class CoC {
         else {
             if (this.player.earType == CoC.EARS_HUMAN)
                 this.outx(
-                    `  Your ${this.hairDescript()} looks good on you, accentuating your features well.`,
-                    false
+                    `  Your ${this.hairDescript()} looks good on you, accentuating your features well.`
                 );
             else if (this.player.earType == CoC.EARS_FERRET)
                 this.outx(
-                    `  A pair of small, rounded ferret ears burst through the top of your ${this.hairDescript()}.`,
-                    false
+                    `  A pair of small, rounded ferret ears burst through the top of your ${this.hairDescript()}.`
                 );
             else if (this.player.earType == CoC.EARS_HORSE)
                 this.outx(
-                    `  The ${this.hairDescript()} on your head parts around a pair of very horse-like ears that grow up from your head.`,
-                    false
+                    `  The ${this.hairDescript()} on your head parts around a pair of very horse-like ears that grow up from your head.`
                 );
             else if (this.player.earType == CoC.EARS_DOG)
                 this.outx(
-                    `  The ${this.hairDescript()} on your head is overlapped by a pair of pointed dog ears.`,
-                    false
+                    `  The ${this.hairDescript()} on your head is overlapped by a pair of pointed dog ears.`
                 );
             else if (this.player.earType == CoC.EARS_COW)
                 this.outx(
-                    `  The ${this.hairDescript()} on your head is parted by a pair of rounded cow ears that stick out sideways.`,
-                    false
+                    `  The ${this.hairDescript()} on your head is parted by a pair of rounded cow ears that stick out sideways.`
                 );
             else if (this.player.earType == CoC.EARS_ELFIN)
                 this.outx(
-                    `  The ${this.hairDescript()} on your head is parted by a pair of cute pointed ears, bigger than your old human ones.`,
-                    false
+                    `  The ${this.hairDescript()} on your head is parted by a pair of cute pointed ears, bigger than your old human ones.`
                 );
             else if (this.player.earType == CoC.EARS_CAT)
                 this.outx(
-                    `  The ${this.hairDescript()} on your head is parted by a pair of cute, fuzzy cat ears, sprouting from atop your head and pivoting towards any sudden noises.`,
-                    false
+                    `  The ${this.hairDescript()} on your head is parted by a pair of cute, fuzzy cat ears, sprouting from atop your head and pivoting towards any sudden noises.`
                 );
             else if (this.player.earType == CoC.EARS_LIZARD)
                 this.outx(
-                    `  The ${this.hairDescript()} atop your head makes it nigh-impossible to notice the two small rounded openings that are your ears.`,
-                    false
+                    `  The ${this.hairDescript()} atop your head makes it nigh-impossible to notice the two small rounded openings that are your ears.`
                 );
             else if (this.player.earType == CoC.EARS_BUNNY)
                 this.outx(
-                    `  A pair of floppy rabbit ears stick up out of your ${this.hairDescript()}, bouncing around as you walk.`,
-                    false
+                    `  A pair of floppy rabbit ears stick up out of your ${this.hairDescript()}, bouncing around as you walk.`
                 );
             else if (this.player.earType == CoC.EARS_KANGAROO)
                 this.outx(
-                    `  The ${this.hairDescript()} atop your head is parted by a pair of long, furred kangaroo ears that stick out at an angle.`,
-                    false
+                    `  The ${this.hairDescript()} atop your head is parted by a pair of long, furred kangaroo ears that stick out at an angle.`
                 );
             else if (this.player.earType == CoC.EARS_FOX)
                 this.outx(
@@ -1735,8 +1701,7 @@ export class CoC {
                 );
             else if (this.player.earType == CoC.EARS_DRAGON)
                 this.outx(
-                    `  The ${this.hairDescript()} atop your head is parted by a pair of rounded protrusions with small holes on the sides of your head serve as your ears.  Bony fins sprout behind them.`,
-                    false
+                    `  The ${this.hairDescript()} atop your head is parted by a pair of rounded protrusions with small holes on the sides of your head serve as your ears.  Bony fins sprout behind them.`
                 );
             else if (this.player.earType == CoC.EARS_RACCOON)
                 this.outx(
@@ -1780,18 +1745,15 @@ export class CoC {
         if (this.player.hornType == CoC.HORNS_DEMON) {
             if (this.player.horns == 2)
                 this.outx(
-                    `  A small pair of pointed horns has broken through the ${this.player.skinDesc} on your forehead, proclaiming some demonic taint to any who see them.`,
-                    false
+                    `  A small pair of pointed horns has broken through the ${this.player.skinDesc} on your forehead, proclaiming some demonic taint to any who see them.`
                 );
             if (this.player.horns == 4)
                 this.outx(
-                    `  A quartet of prominent horns has broken through your ${this.player.skinDesc}.  The back pair are longer, and curve back along your head.  The front pair protrude forward demonically.`,
-                    false
+                    `  A quartet of prominent horns has broken through your ${this.player.skinDesc}.  The back pair are longer, and curve back along your head.  The front pair protrude forward demonically.`
                 );
             if (this.player.horns == 6)
                 this.outx(
-                    `  Six horns have sprouted through your ${this.player.skinDesc}, the back two pairs curve backwards over your head and down towards your neck, while the front two horns stand almost eight inches long upwards and a little forward.`,
-                    false
+                    `  Six horns have sprouted through your ${this.player.skinDesc}, the back two pairs curve backwards over your head and down towards your neck, while the front two horns stand almost eight inches long upwards and a little forward.`
                 );
             if (this.player.horns >= 8)
                 this.outx(
@@ -1799,8 +1761,7 @@ export class CoC {
                         this.player.skinDesc
                     }, each pair sprouting behind the ones before.  The front jut forwards nearly ten inches while the rest curve back over your head, some of the points ending just below your ears.  You estimate you have a total of ${this.num2Text(
                         this.player.horns
-                    )} horns.`,
-                    false
+                    )} horns.`
                 );
         }
         // Minotaur horns
@@ -1836,8 +1797,7 @@ export class CoC {
             this.outx(
                 `  A pair of ${this.num2Text(
                     Math.floor(this.player.horns)
-                )} inch horns grow from the sides of your head, sweeping backwards and adding to your imposing visage.`,
-                false
+                )} inch horns grow from the sides of your head, sweeping backwards and adding to your imposing visage.`
             );
         }
         // Super lizard horns
@@ -1888,8 +1848,7 @@ export class CoC {
             );
         if (this.player.wingType == CoC.WING_TYPE_FEATHERED_LARGE)
             this.outx(
-                `  A pair of large, feathery wings sprout from your back.  Though you usually keep the ${this.player.hairColor}-colored wings folded close, they can unfurl to allow you to soar as gracefully as a harpy.`,
-                false
+                `  A pair of large, feathery wings sprout from your back.  Though you usually keep the ${this.player.hairColor}-colored wings folded close, they can unfurl to allow you to soar as gracefully as a harpy.`
             );
         if (this.player.wingType == CoC.WING_TYPE_DRACONIC_SMALL)
             this.outx(
@@ -1930,7 +1889,7 @@ export class CoC {
         // Hip info only displays if you aren't a centaur.
         if (!this.player.isTaur()) {
             if (this.player.thickness > 70) {
-                this.outx(`  You have ${this.hipDescript()}`, false);
+                this.outx(`  You have ${this.hipDescript()}`);
                 if (this.player.hipRating < 6) {
                     if (this.player.tone < 65)
                         this.outx(" buried under a noticeable muffin-top, and");
@@ -1946,12 +1905,12 @@ export class CoC {
                 if (this.player.hipRating >= 15 && this.player.hipRating < 20)
                     this.outx(" that sway and emphasize your thick, curvy shape, and");
                 if (this.player.hipRating >= 20)
-                    this.outx(" that sway hypnotically on your extra-curvy frame, and", false);
+                    this.outx(" that sway hypnotically on your extra-curvy frame, and");
             } else if (this.player.thickness < 30) {
-                this.outx(`  You have ${this.hipDescript()}`, false);
+                this.outx(`  You have ${this.hipDescript()}`);
                 if (this.player.hipRating < 6) this.outx(" that match your trim, lithe body, and");
                 if (this.player.hipRating >= 6 && this.player.hipRating < 10)
-                    this.outx(" that sway to and fro, emphasized by your trim body, and", false);
+                    this.outx(" that sway to and fro, emphasized by your trim body, and");
                 if (this.player.hipRating >= 10 && this.player.hipRating < 15)
                     this.outx(" that swell out under your trim waistline, and");
                 if (this.player.hipRating >= 15 && this.player.hipRating < 20)
@@ -1964,13 +1923,13 @@ export class CoC {
             }
             // STANDARD
             else {
-                this.outx(`  You have ${this.hipDescript()}`, false);
+                this.outx(`  You have ${this.hipDescript()}`);
                 if (this.player.hipRating < 6) this.outx(", and");
                 if (this.player.femininity > 50) {
                     if (this.player.hipRating >= 6 && this.player.hipRating < 10)
                         this.outx(" that draw the attention of those around you, and");
                     if (this.player.hipRating >= 10 && this.player.hipRating < 15)
-                        this.outx(" that make you walk with a sexy, swinging gait, and", false);
+                        this.outx(" that make you walk with a sexy, swinging gait, and");
                     if (this.player.hipRating >= 15 && this.player.hipRating < 20)
                         this.outx(
                             " that make it look like you've birthed many children, and",
@@ -1985,19 +1944,16 @@ export class CoC {
                     if (this.player.hipRating >= 6 && this.player.hipRating < 10)
                         this.outx(" that give you a graceful stride, and");
                     if (this.player.hipRating >= 10 && this.player.hipRating < 15)
-                        this.outx(" that add a little feminine swing to your gait, and", false);
+                        this.outx(" that add a little feminine swing to your gait, and");
                     if (this.player.hipRating >= 15 && this.player.hipRating < 20)
-                        this.outx(" that force you to sway and wiggle as you move, and", false);
+                        this.outx(" that force you to sway and wiggle as you move, and");
                     if (this.player.hipRating >= 20) {
                         this.outx(" that give your ");
                         if (this.player.balls > 0) this.outx("balls plenty of room to breathe");
                         else if (this.player.hasCock())
-                            this.outx(
-                                `${this.player.multiCockDescript()} plenty of room to swing`,
-                                false
-                            );
+                            this.outx(`${this.player.multiCockDescript()} plenty of room to swing`);
                         else if (this.player.hasVagina())
-                            this.outx(`${this.vaginaDescript()} a nice, wide berth`, false);
+                            this.outx(`${this.vaginaDescript()} a nice, wide berth`);
                         else this.outx("vacant groin plenty of room");
                         this.outx(", and");
                     }
@@ -2009,7 +1965,7 @@ export class CoC {
         if (this.player.isTaur()) {
             // FATBUTT
             if (this.player.tone < 65) {
-                this.outx(`  Your ${this.buttDescript()}`, false);
+                this.outx(`  Your ${this.buttDescript()}`);
                 if (this.player.buttRating < 4) this.outx(" is lean, from what you can see of it.");
                 if (this.player.buttRating >= 4 && this.player.buttRating < 6)
                     this.outx(" looks fairly average.");
@@ -2020,11 +1976,11 @@ export class CoC {
                 if (this.player.buttRating >= 15 && this.player.buttRating < 20)
                     this.outx(" jiggles and wobbles as you trot about.");
                 if (this.player.buttRating >= 20)
-                    this.outx(" is obscenely large, bordering freakish, even for a horse.", false);
+                    this.outx(" is obscenely large, bordering freakish, even for a horse.");
             }
             // GIRL LOOK AT DAT BOOTY
             else {
-                this.outx(`  Your ${this.buttDescript()}`, false);
+                this.outx(`  Your ${this.buttDescript()}`);
                 if (this.player.buttRating < 4)
                     this.outx(
                         " is barely noticable, showing off the muscles of your haunches.",
@@ -2042,14 +1998,14 @@ export class CoC {
                 if (this.player.buttRating >= 15 && this.player.buttRating < 20)
                     this.outx(" flexes its considerable mass as you move.");
                 if (this.player.buttRating >= 20)
-                    this.outx(" is stacked with layers of muscle, huge even for a horse.", false);
+                    this.outx(" is stacked with layers of muscle, huge even for a horse.");
             }
         }
         // Non-horse PCs
         else {
             // TUBBY ASS
             if (this.player.tone < 60) {
-                this.outx(` your ${this.buttDescript()}`, false);
+                this.outx(` your ${this.buttDescript()}`);
                 if (this.player.buttRating < 4) this.outx(" looks great under your gear.");
                 if (this.player.buttRating >= 4 && this.player.buttRating < 6)
                     this.outx(" has the barest amount of sexy jiggle.");
@@ -2067,7 +2023,7 @@ export class CoC {
             }
             // FITBUTT
             else {
-                this.outx(` your ${this.buttDescript()}`, false);
+                this.outx(` your ${this.buttDescript()}`);
                 if (this.player.buttRating < 4) this.outx(" molds closely against your form.");
                 if (this.player.buttRating >= 4 && this.player.buttRating < 6)
                     this.outx(
@@ -2084,7 +2040,7 @@ export class CoC {
                         false
                     );
                 if (this.player.buttRating >= 20)
-                    this.outx(" is marvelously large, but completely stacked with muscle.", false);
+                    this.outx(" is marvelously large, but completely stacked with muscle.");
             }
         }
         // TAILS
@@ -2092,25 +2048,21 @@ export class CoC {
             this.outx(
                 `  A long ${
                     this.player.hairColor
-                } horsetail hangs from your ${this.buttDescript()}, smooth and shiny.`,
-                false
+                } horsetail hangs from your ${this.buttDescript()}, smooth and shiny.`
             );
         if (this.player.tailType == CoC.TAIL_TYPE_FERRET)
             this.outx(
-                `  A long ferret tail sprouts from above your [butt].  It is thin, tapered, and covered in shaggy ${this.player.hairColor} fur.`,
-                false
+                `  A long ferret tail sprouts from above your [butt].  It is thin, tapered, and covered in shaggy ${this.player.hairColor} fur.`
             );
         if (this.player.tailType == CoC.TAIL_TYPE_DOG)
             this.outx(
                 `  A fuzzy ${
                     this.player.hairColor
-                } dogtail sprouts just above your ${this.buttDescript()}, wagging to and fro whenever you are happy.`,
-                false
+                } dogtail sprouts just above your ${this.buttDescript()}, wagging to and fro whenever you are happy.`
             );
         if (this.player.tailType == CoC.TAIL_TYPE_DEMONIC)
             this.outx(
-                `  A narrow tail ending in a spaded tip curls down from your ${this.buttDescript()}, wrapping around your ${this.player.leg()} sensually at every opportunity.`,
-                false
+                `  A narrow tail ending in a spaded tip curls down from your ${this.buttDescript()}, wrapping around your ${this.player.leg()} sensually at every opportunity.`
             );
         if (this.player.tailType == CoC.TAIL_TYPE_COW)
             this.outx(
@@ -2123,9 +2075,9 @@ export class CoC {
                 false
             );
             if (this.player.tailVenom > 50 && this.player.tailVenom < 80)
-                this.outx("  Your bulging arachnid posterior feels fairly full of webbing.", false);
+                this.outx("  Your bulging arachnid posterior feels fairly full of webbing.");
             if (this.player.tailVenom >= 80 && this.player.tailVenom < 100)
-                this.outx("  Your arachnid rear bulges and feels very full of webbing.", false);
+                this.outx("  Your arachnid rear bulges and feels very full of webbing.");
             if (this.player.tailVenom == 100)
                 this.outx(
                     "  Your swollen spider-butt is distended with the sheer amount of webbing it's holding.",
@@ -2138,7 +2090,7 @@ export class CoC {
                 false
             );
             if (this.player.tailVenom > 50 && this.player.tailVenom < 80)
-                this.outx("  A single drop of poison hangs from your exposed stinger.", false);
+                this.outx("  A single drop of poison hangs from your exposed stinger.");
             if (this.player.tailVenom >= 80 && this.player.tailVenom < 100)
                 this.outx("  Poisonous bee venom coats your stinger completely.");
             if (this.player.tailVenom == 100)
@@ -2154,34 +2106,29 @@ export class CoC {
             this.outx(
                 `  A soft ${
                     this.player.hairColor
-                } cat-tail sprouts just above your ${this.buttDescript()}, curling and twisting with every step to maintain perfect balance.`,
-                false
+                } cat-tail sprouts just above your ${this.buttDescript()}, curling and twisting with every step to maintain perfect balance.`
             );
         }
         if (this.player.tailType == CoC.TAIL_TYPE_LIZARD) {
             this.outx(
-                `  A tapered tail hangs down from just above your ${this.assDescript()}.  It sways back and forth, assisting you with keeping your balance.`,
-                false
+                `  A tapered tail hangs down from just above your ${this.assDescript()}.  It sways back and forth, assisting you with keeping your balance.`
             );
         }
         if (this.player.tailType == CoC.TAIL_TYPE_RABBIT)
             this.outx(
-                `  A short, soft bunny tail sprouts just above your ${this.assDescript()}, twitching constantly whenever you don't think about it.`,
-                false
+                `  A short, soft bunny tail sprouts just above your ${this.assDescript()}, twitching constantly whenever you don't think about it.`
             );
         else if (this.player.tailType == CoC.TAIL_TYPE_HARPY)
             this.outx(
-                `  A tail of feathers fans out from just above your ${this.assDescript()}, twitching instinctively to help guide you if you were to take flight.`,
-                false
+                `  A tail of feathers fans out from just above your ${this.assDescript()}, twitching instinctively to help guide you if you were to take flight.`
             );
         else if (this.player.tailType == CoC.TAIL_TYPE_KANGAROO) {
             this.outx("  A conical, ");
             if (this.player.skinType == CoC.SKIN_TYPE_GOO)
-                this.outx(`gooey, ${this.player.skinTone}`, false);
-            else this.outx(`furry, ${this.player.hairColor}`, false);
+                this.outx(`gooey, ${this.player.skinTone}`);
+            else this.outx(`furry, ${this.player.hairColor}`);
             this.outx(
-                `, tail extends from your ${this.assDescript()}, bouncing up and down as you move and helping to counterbalance you.`,
-                false
+                `, tail extends from your ${this.assDescript()}, bouncing up and down as you move and helping to counterbalance you.`
             );
         } else if (this.player.tailType == CoC.TAIL_TYPE_FOX) {
             if (this.player.tailVenom == 1)
@@ -2256,8 +2203,7 @@ export class CoC {
             );
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_GOO)
             this.outx(
-                `  In place of legs you have a shifting amorphous blob.  Thankfully it's quite easy to propel yourself around on.  The lowest portions of your ${this.player.armorName} float around inside you, bringing you no discomfort.`,
-                false
+                `  In place of legs you have a shifting amorphous blob.  Thankfully it's quite easy to propel yourself around on.  The lowest portions of your ${this.player.armorName} float around inside you, bringing you no discomfort.`
             );
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_CAT)
             this.outx(
@@ -2266,8 +2212,7 @@ export class CoC {
             );
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_LIZARD)
             this.outx(
-                `  Two digitigrade legs grow down from your ${this.hipDescript()}, ending in clawed feet.  There are three long toes on the front, and a small hind-claw on the back.`,
-                false
+                `  Two digitigrade legs grow down from your ${this.hipDescript()}, ending in clawed feet.  There are three long toes on the front, and a small hind-claw on the back.`
             );
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_BUNNY)
             this.outx(
@@ -2276,8 +2221,7 @@ export class CoC {
             );
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_HARPY)
             this.outx(
-                `  Your legs are covered with ${this.player.hairColor} plumage.  Thankfully the thick, powerful thighs are perfect for launching you into the air, and your feet remain mostly human, even if they are two-toed and tipped with talons.`,
-                false
+                `  Your legs are covered with ${this.player.hairColor} plumage.  Thankfully the thick, powerful thighs are perfect for launching you into the air, and your feet remain mostly human, even if they are two-toed and tipped with talons.`
             );
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_KANGAROO)
             this.outx(
@@ -2300,8 +2244,7 @@ export class CoC {
             );
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_DRAGON)
             this.outx(
-                `  Two human-like legs grow down from your ${this.hipDescript()}, sheathed in scales and ending in clawed feet.  There are three long toes on the front, and a small hind-claw on the back.`,
-                false
+                `  Two human-like legs grow down from your ${this.hipDescript()}, sheathed in scales and ending in clawed feet.  There are three long toes on the front, and a small hind-claw on the back.`
             );
         else if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_RACCOON)
             this.outx(
@@ -2309,8 +2252,7 @@ export class CoC {
             );
         if (this.player.findPerk(PerkLib.Incorporeality) >= 0)
             this.outx(
-                `  Of course, your ${this.player.legs()} are partially transparent due to their ghostly nature.`,
-                false
+                `  Of course, your ${this.player.legs()} are partially transparent due to their ghostly nature.`
             );
 
         this.outx("\n", false);
@@ -2355,7 +2297,7 @@ export class CoC {
                     this.player.buttPregnancyIncubation < 125 &&
                     this.player.buttPregnancyIncubation >= 75
                 ) {
-                    this.outx("<b>You've got the begginings of a small pot-belly.</b>", false);
+                    this.outx("<b>You've got the begginings of a small pot-belly.</b>");
                 } else if (this.player.buttPregnancyIncubation >= 50) {
                     this.outx(
                         "<b>The unmistakable bulge of pregnancy is visible in your tummy, yet it feels odd inside you - wrong somehow.</b>",
@@ -2557,32 +2499,28 @@ export class CoC {
             this.outx(
                 `You have ${this.num2Text(
                     this.player.breastRows[temp].breasts
-                )} ${this.breastDescript(temp)}, each supporting `,
-                false
+                )} ${this.breastDescript(temp)}, each supporting `
             );
             if (this.player.breastRows[0].nipplesPerBreast == 1)
                 this.outx(
                     `${this.num2Text(this.player.breastRows[temp].nipplesPerBreast)} ${
                         Math.floor(this.player.nippleLength * 10) / 10
-                    }-inch ${this.nippleDescript(temp)}.`,
-                    false
+                    }-inch ${this.nippleDescript(temp)}.`
                 );
             else
                 this.outx(
                     `${this.num2Text(this.player.breastRows[temp].nipplesPerBreast)} ${
                         Math.floor(this.player.nippleLength * 10) / 10
-                    }-inch ${this.nippleDescript(temp)}s.`,
-                    false
+                    }-inch ${this.nippleDescript(temp)}s.`
                 );
             if (this.player.breastRows[0].milkFullness > 75)
                 this.outx(
                     `  Your ${this.breastDescript(
                         temp
-                    )} are painful and sensitive from being so stuffed with milk.  You should release the pressure soon.`,
-                    false
+                    )} are painful and sensitive from being so stuffed with milk.  You should release the pressure soon.`
                 );
             if (this.player.breastRows[0].breastRating >= 1)
-                this.outx(`  You could easily fill a ${this.player.breastCup(temp)} bra.`, false);
+                this.outx(`  You could easily fill a ${this.player.breastCup(temp)} bra.`);
             // Done with tits.  Move on.
             this.outx("\n", false);
         }
@@ -2604,34 +2542,27 @@ export class CoC {
                 this.outx(
                     `${this.num2Text(this.player.breastRows[temp].breasts)} ${this.breastDescript(
                         temp
-                    )} with `,
-                    false
+                    )} with `
                 );
                 if (this.player.breastRows[temp].nipplesPerBreast == 1)
                     this.outx(
                         `${this.num2Text(this.player.breastRows[temp].nipplesPerBreast)} ${
                             Math.floor(this.player.nippleLength * 10) / 10
-                        }-inch ${this.nippleDescript(temp)} each.`,
-                        false
+                        }-inch ${this.nippleDescript(temp)} each.`
                     );
                 else
                     this.outx(
                         `${this.num2Text(this.player.breastRows[temp].nipplesPerBreast)} ${
                             Math.floor(this.player.nippleLength * 10) / 10
-                        }-inch ${this.nippleDescript(temp)}s each.`,
-                        false
+                        }-inch ${this.nippleDescript(temp)}s each.`
                     );
                 if (this.player.breastRows[temp].breastRating >= 1)
-                    this.outx(
-                        `  They could easily fill a ${this.player.breastCup(temp)} bra.`,
-                        false
-                    );
+                    this.outx(`  They could easily fill a ${this.player.breastCup(temp)} bra.`);
                 if (this.player.breastRows[temp].milkFullness > 75)
                     this.outx(
                         `  Your ${this.breastDescript(
                             temp
-                        )} are painful and sensitive from being so stuffed with milk.  You should release the pressure soon.`,
-                        false
+                        )} are painful and sensitive from being so stuffed with milk.  You should release the pressure soon.`
                     );
                 temp++;
             }
@@ -2665,24 +2596,19 @@ export class CoC {
             if (Math.round(10 * this.player.cocks[temp].cockThickness) / 10 < 2) {
                 if (Math.round(10 * this.player.cocks[temp].cockThickness) / 10 == 1)
                     this.outx(
-                        `${
-                            Math.floor(10 * this.player.cocks[temp].cockThickness) / 10
-                        } inch thick.`,
-                        false
+                        `${Math.floor(10 * this.player.cocks[temp].cockThickness) / 10} inch thick.`
                     );
                 else
                     this.outx(
                         `${
                             Math.round(10 * this.player.cocks[temp].cockThickness) / 10
-                        } inches thick.`,
-                        false
+                        } inches thick.`
                     );
             } else
                 this.outx(
                     `${this.num2Text(
                         Math.round(10 * this.player.cocks[temp].cockThickness) / 10
-                    )} inches wide.`,
-                    false
+                    )} inches wide.`
                 );
             // Horsecock flavor
             if (this.player.cocks[temp].cockType == CockTypesEnum.HORSE) {
@@ -2701,22 +2627,19 @@ export class CoC {
                     this.outx(
                         `  The obscenely swollen lump of flesh near the base of your ${this.player.cockDescript(
                             temp
-                        )} looks almost too big for your cock.`,
-                        false
+                        )} looks almost too big for your cock.`
                     );
                 else if (this.player.cocks[temp].knotMultiplier >= 1.4)
                     this.outx(
                         `  A large bulge of flesh nestles just above the bottom of your ${this.player.cockDescript(
                             temp
-                        )}, to ensure it stays where it belongs during mating.`,
-                        false
+                        )}, to ensure it stays where it belongs during mating.`
                     );
                 else if (this.player.cocks[temp].knotMultiplier > 1)
                     this.outx(
                         `  A small knot of thicker flesh is near the base of your ${this.player.cockDescript(
                             temp
-                        )}, ready to expand to help you lodge it inside a female.`,
-                        false
+                        )}, ready to expand to help you lodge it inside a female.`
                     );
                 // List thickness
                 this.outx(
@@ -2726,8 +2649,7 @@ export class CoC {
                                 this.player.cocks[temp].knotMultiplier *
                                 10
                         ) / 10
-                    } inches wide when at full size.`,
-                    false
+                    } inches wide when at full size.`
                 );
             }
             // Demon cock flavor
@@ -2788,8 +2710,7 @@ export class CoC {
                 this.outx(
                     `  Every now and again a slimy worm coated in spunk slips partway out of your ${this.player.cockDescript(
                         0
-                    )}, tasting the air like a snake's tongue.`,
-                    false
+                    )}, tasting the air like a snake's tongue.`
                 );
             if (this.player.cocks[temp].sock) this.sockDescript(temp);
             // DONE WITH COCKS, moving on!
@@ -2818,15 +2739,13 @@ export class CoC {
                     this.outx(
                         `${
                             Math.floor(10 * this.player.cocks[temp].cockLength) / 10
-                        } inches long and `,
-                        false
+                        } inches long and `
                     );
                     if (Math.floor(this.player.cocks[temp].cockThickness) >= 2)
                         this.outx(
                             `${this.num2Text(
                                 Math.round(this.player.cocks[temp].cockThickness * 10) / 10
-                            )} inches wide.`,
-                            false
+                            )} inches wide.`
                         );
                     else {
                         if (this.player.cocks[temp].cockThickness == 1) this.outx("one inch wide.");
@@ -2834,8 +2753,7 @@ export class CoC {
                             this.outx(
                                 `${
                                     Math.round(this.player.cocks[temp].cockThickness * 10) / 10
-                                } inches wide.`,
-                                false
+                                } inches wide.`
                             );
                     }
                 }
@@ -2844,15 +2762,13 @@ export class CoC {
                     this.outx(
                         `${this.player.cockDescript(temp)}s is ${
                             Math.round(10 * this.player.cocks[temp].cockLength) / 10
-                        } inches long and `,
-                        false
+                        } inches long and `
                     );
                     if (Math.floor(this.player.cocks[temp].cockThickness) >= 2)
                         this.outx(
                             `${this.num2Text(
                                 Math.round(this.player.cocks[temp].cockThickness * 10) / 10
-                            )} inches thick.`,
-                            false
+                            )} inches thick.`
                         );
                     else {
                         if (this.player.cocks[temp].cockThickness == 1)
@@ -2861,8 +2777,7 @@ export class CoC {
                             this.outx(
                                 `${
                                     Math.round(this.player.cocks[temp].cockThickness * 10) / 10
-                                } inches thick.`,
-                                false
+                                } inches thick.`
                             );
                     }
                 }
@@ -2872,15 +2787,13 @@ export class CoC {
                     this.outx(
                         `${this.player.cockDescript(temp)}s is ${
                             Math.round(10 * this.player.cocks[temp].cockLength) / 10
-                        } inches long and `,
-                        false
+                        } inches long and `
                     );
                     if (Math.floor(this.player.cocks[temp].cockThickness) >= 2)
                         this.outx(
                             `${this.num2Text(
                                 Math.round(this.player.cocks[temp].cockThickness * 10) / 10
-                            )} inches thick.`,
-                            false
+                            )} inches thick.`
                         );
                     else {
                         if (this.player.cocks[temp].cockThickness == 1)
@@ -2889,8 +2802,7 @@ export class CoC {
                             this.outx(
                                 `${
                                     Math.round(this.player.cocks[temp].cockThickness * 10) / 10
-                                } inches thick.`,
-                                false
+                                } inches thick.`
                             );
                     }
                 }
@@ -2900,15 +2812,13 @@ export class CoC {
                     this.outx(
                         `${this.player.cockDescript(temp)} is ${
                             Math.round(10 * this.player.cocks[temp].cockLength) / 10
-                        } inches long and `,
-                        false
+                        } inches long and `
                     );
                     if (Math.floor(this.player.cocks[temp].cockThickness) >= 2)
                         this.outx(
                             `${this.num2Text(
                                 Math.round(this.player.cocks[temp].cockThickness * 10) / 10
-                            )} inches in diameter.`,
-                            false
+                            )} inches in diameter.`
                         );
                     else {
                         if (Math.round(this.player.cocks[temp].cockThickness * 10) / 10 == 1)
@@ -2917,8 +2827,7 @@ export class CoC {
                             this.outx(
                                 `${
                                     Math.round(this.player.cocks[temp].cockThickness * 10) / 10
-                                } inches in diameter.`,
-                                false
+                                } inches in diameter.`
                             );
                     }
                 }
@@ -2927,8 +2836,7 @@ export class CoC {
                     this.outx(
                         `  It's mottled black and brown in a very animalistic pattern.  The 'head' of your ${this.player.cockDescript(
                             temp
-                        )} flares proudly, just like a horse's.`,
-                        false
+                        )} flares proudly, just like a horse's.`
                     );
                 }
                 // dog cock flavor
@@ -2947,15 +2855,13 @@ export class CoC {
                                 temp
                             )} looks almost comically mismatched for your ${this.player.cockDescript(
                                 temp
-                            )}.`,
-                            false
+                            )}.`
                         );
                     else if (this.player.cocks[temp].knotMultiplier >= 1.4)
                         this.outx(
                             `  A large bulge of flesh nestles just above the bottom of your ${this.player.cockDescript(
                                 temp
-                            )}, to ensure it stays where it belongs during mating.`,
-                            false
+                            )}, to ensure it stays where it belongs during mating.`
                         );
                     else if (this.player.cocks[temp].knotMultiplier > 1)
                         this.outx(
@@ -2963,8 +2869,7 @@ export class CoC {
                                 temp
                             )}, ready to expand to help you lodge your ${this.player.cockDescript(
                                 temp
-                            )} inside a female.`,
-                            false
+                            )} inside a female.`
                         );
                     // List knot thickness
                     this.outx(
@@ -2974,8 +2879,7 @@ export class CoC {
                                     this.player.cocks[temp].knotMultiplier *
                                     10
                             ) / 10
-                        } inches thick when at full size.`,
-                        false
+                        } inches thick when at full size.`
                     );
                 }
                 // Demon cock flavor
@@ -3065,51 +2969,42 @@ export class CoC {
             } else if (this.player.cockTotal() == 0) {
                 if (this.player.skinType == CoC.SKIN_TYPE_PLAIN)
                     this.outx(
-                        `A ${this.sackDescript()} with ${this.ballsDescript()} swings heavily under where a penis would normally grow.`,
-                        false
+                        `A ${this.sackDescript()} with ${this.ballsDescript()} swings heavily under where a penis would normally grow.`
                     );
                 if (this.player.skinType == CoC.SKIN_TYPE_FUR)
                     this.outx(
-                        `A fuzzy ${this.sackDescript()} filled with ${this.ballsDescript()} swings low under where a penis would normally grow.`,
-                        false
+                        `A fuzzy ${this.sackDescript()} filled with ${this.ballsDescript()} swings low under where a penis would normally grow.`
                     );
                 if (this.player.skinType == CoC.SKIN_TYPE_SCALES)
                     this.outx(
-                        `A scaley ${this.sackDescript()} hugs your ${this.ballsDescript()} tightly against your body.`,
-                        false
+                        `A scaley ${this.sackDescript()} hugs your ${this.ballsDescript()} tightly against your body.`
                     );
                 if (this.player.skinType == CoC.SKIN_TYPE_GOO)
                     this.outx(
-                        `An oozing, semi-solid sack with ${this.ballsDescript()} swings heavily under where a penis would normally grow.`,
-                        false
+                        `An oozing, semi-solid sack with ${this.ballsDescript()} swings heavily under where a penis would normally grow.`
                     );
             } else {
                 if (this.player.skinType == CoC.SKIN_TYPE_PLAIN)
                     this.outx(
-                        `A ${this.sackDescript()} with ${this.ballsDescript()} swings heavily beneath your ${this.player.multiCockDescriptLight()}.`,
-                        false
+                        `A ${this.sackDescript()} with ${this.ballsDescript()} swings heavily beneath your ${this.player.multiCockDescriptLight()}.`
                     );
                 if (this.player.skinType == CoC.SKIN_TYPE_FUR)
                     this.outx(
-                        `A fuzzy ${this.sackDescript()} filled with ${this.ballsDescript()} swings low under your ${this.player.multiCockDescriptLight()}.`,
-                        false
+                        `A fuzzy ${this.sackDescript()} filled with ${this.ballsDescript()} swings low under your ${this.player.multiCockDescriptLight()}.`
                     );
                 if (this.player.skinType == CoC.SKIN_TYPE_SCALES)
                     this.outx(
-                        `A scaley ${this.sackDescript()} hugs your ${this.ballsDescript()} tightly against your body.`,
-                        false
+                        `A scaley ${this.sackDescript()} hugs your ${this.ballsDescript()} tightly against your body.`
                     );
                 if (this.player.skinType == CoC.SKIN_TYPE_GOO)
                     this.outx(
-                        `An oozing, semi-solid sack with ${this.ballsDescript()} swings heavily beneath your ${this.player.multiCockDescriptLight()}.`,
-                        false
+                        `An oozing, semi-solid sack with ${this.ballsDescript()} swings heavily beneath your ${this.player.multiCockDescriptLight()}.`
                     );
             }
             this.outx(
                 `  You estimate each of them to be about ${this.num2Text(
                     Math.round(this.player.ballSize)
-                )} `,
-                false
+                )} `
             );
             if (Math.round(this.player.ballSize) == 1) this.outx("inch");
             else this.outx("inches");
@@ -3127,8 +3022,7 @@ export class CoC {
                 this.outx(
                     `You have a ${this.vaginaDescript(0)}, with a ${
                         Math.floor(this.player.clitLength * 10) / 10
-                    }-inch clit`,
-                    false
+                    }-inch clit`
                 );
             if (this.player.vaginas[0].virgin) this.outx(" and an intact hymen");
             this.outx(".  ");
@@ -3136,8 +3030,7 @@ export class CoC {
                 this.outx(
                     `You have ${this.player.vaginas.length} ${this.vaginaDescript(0)}s, with ${
                         Math.floor(this.player.clitLength * 10) / 10
-                    }-inch clits each.  `,
-                    false
+                    }-inch clits each.  `
                 );
             if (this.player.lib < 50 && this.player.lust < 50) {
                 // not particularly horny
@@ -3155,20 +3048,14 @@ export class CoC {
                 // Different description based on vag looseness
                 if (this.player.vaginas[0].vaginalWetness >= CoC.VAGINA_WETNESS_WET) {
                     if (this.player.vaginas[0].vaginalLooseness < CoC.VAGINA_LOOSENESS_LOOSE)
-                        this.outx(`your ${this.vaginaDescript(0)}. `, false);
+                        this.outx(`your ${this.vaginaDescript(0)}. `);
                     if (
                         this.player.vaginas[0].vaginalLooseness >= CoC.VAGINA_LOOSENESS_LOOSE &&
                         this.player.vaginas[0].vaginalLooseness < CoC.VAGINA_LOOSENESS_GAPING_WIDE
                     )
-                        this.outx(
-                            `your ${this.vaginaDescript(0)}, its lips slightly parted. `,
-                            false
-                        );
+                        this.outx(`your ${this.vaginaDescript(0)}, its lips slightly parted. `);
                     if (this.player.vaginas[0].vaginalLooseness >= CoC.VAGINA_LOOSENESS_GAPING_WIDE)
-                        this.outx(
-                            `the massive hole that is your ${this.vaginaDescript(0)}.  `,
-                            false
-                        );
+                        this.outx(`the massive hole that is your ${this.vaginaDescript(0)}.  `);
                 }
             }
             if (
@@ -3194,14 +3081,14 @@ export class CoC {
                 }
                 // Different description based on vag looseness
                 if (this.player.vaginas[0].vaginalLooseness < CoC.VAGINA_LOOSENESS_LOOSE)
-                    this.outx(`your ${this.vaginaDescript(0)}. `, false);
+                    this.outx(`your ${this.vaginaDescript(0)}. `);
                 if (
                     this.player.vaginas[0].vaginalLooseness >= CoC.VAGINA_LOOSENESS_LOOSE &&
                     this.player.vaginas[0].vaginalLooseness < CoC.VAGINA_LOOSENESS_GAPING_WIDE
                 )
-                    this.outx(`your ${this.vaginaDescript(0)}, its lips slightly parted. `, false);
+                    this.outx(`your ${this.vaginaDescript(0)}, its lips slightly parted. `);
                 if (this.player.vaginas[0].vaginalLooseness >= CoC.VAGINA_LOOSENESS_GAPING_WIDE)
-                    this.outx(`the massive hole that is your ${this.vaginaDescript(0)}.  `, false);
+                    this.outx(`the massive hole that is your ${this.vaginaDescript(0)}.  `);
             }
             if (this.player.lib > 80 || this.player.lust > 80) {
                 // WTF horny!
@@ -3224,12 +3111,12 @@ export class CoC {
                 }
                 // Different description based on vag looseness
                 if (this.player.vaginas[0].vaginalLooseness < CoC.VAGINA_LOOSENESS_LOOSE)
-                    this.outx(`your ${this.vaginaDescript(0)}. `, false);
+                    this.outx(`your ${this.vaginaDescript(0)}. `);
                 if (
                     this.player.vaginas[0].vaginalLooseness >= CoC.VAGINA_LOOSENESS_LOOSE &&
                     this.player.vaginas[0].vaginalLooseness < CoC.VAGINA_LOOSENESS_GAPING_WIDE
                 )
-                    this.outx(`your ${this.vaginaDescript(0)}, its lips slightly parted. `, false);
+                    this.outx(`your ${this.vaginaDescript(0)}, its lips slightly parted. `);
                 if (this.player.vaginas[0].vaginalLooseness >= CoC.VAGINA_LOOSENESS_GAPING_WIDE)
                     this.outx("the massive hole that is your cunt.  ");
             }
@@ -5016,7 +4903,7 @@ convert "
                     "You writhe uselessly, trapped inside the goo girl's warm, seething body. Darkness creeps at the edge of your vision as you are lulled into surrendering by the rippling vibrations of the girl's pulsing body around yours."
                 );
                 this.temp = this.takeDamage(0.15 * this.maxHP());
-                this.outx(` (${this.temp})`, false);
+                this.outx(` (${this.temp})`);
             }
             this.combatRoundOver();
         } else if (this.player.findStatusAffect(StatusAffects.HarpyBind) >= 0) {
@@ -5409,20 +5296,17 @@ convert "
         ) {
             if (this.monster.spe - this.player.spe < 8)
                 this.outx(
-                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`,
-                    false
+                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`
                 );
             if (this.monster.spe - this.player.spe >= 8 && this.monster.spe - this.player.spe < 20)
                 this.outx(
                     `${
                         this.monster.capitalA + this.monster.short
-                    } dodges your attack with superior quickness!`,
-                    false
+                    } dodges your attack with superior quickness!`
                 );
             if (this.monster.spe - this.player.spe >= 20)
                 this.outx(
-                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`,
-                    false
+                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`
                 );
             this.outx("\n\n", false);
             this.enemyAI();
@@ -5440,32 +5324,27 @@ convert "
         if (damage <= 0) {
             damage = 0;
             this.outx(
-                `Your bite is deflected or blocked by ${this.monster.a}${this.monster.short}.`,
-                false
+                `Your bite is deflected or blocked by ${this.monster.a}${this.monster.short}.`
             );
         }
         if (damage > 0 && damage < 10) {
             this.outx(
-                `You bite doesn't do much damage to ${this.monster.a}${this.monster.short}! (${damage})`,
-                false
+                `You bite doesn't do much damage to ${this.monster.a}${this.monster.short}! (${damage})`
             );
         }
         if (damage >= 10 && damage < 20) {
             this.outx(
-                `You seriously wound ${this.monster.a}${this.monster.short} with your bite! (${damage})`,
-                false
+                `You seriously wound ${this.monster.a}${this.monster.short} with your bite! (${damage})`
             );
         }
         if (damage >= 20 && damage < 30) {
             this.outx(
-                `Your bite staggers ${this.monster.a}${this.monster.short} with its force. (${damage})`,
-                false
+                `Your bite staggers ${this.monster.a}${this.monster.short} with its force. (${damage})`
             );
         }
         if (damage >= 30) {
             this.outx(
-                `Your powerful bite <b>mutilates</b> ${this.monster.a}${this.monster.short}! (${damage})`,
-                false
+                `Your powerful bite <b>mutilates</b> ${this.monster.a}${this.monster.short}! (${damage})`
             );
         }
         this.outx("\n\n", false);
@@ -5581,8 +5460,7 @@ convert "
             // Counter attack fails: (random chance if PC int > 50 spd > 60; PC takes small physical damage but no block or spd penalty)
             else {
                 this.outx(
-                    `Holding the basilisk in your peripheral vision, you charge forward to strike it.  Before the moment of impact, the reptile shifts its posture, dodging and flowing backward skillfully with your movements, trying to make eye contact with you. You twist unexpectedly, bringing your ${this.player.weaponName} up at an oblique angle; the basilisk doesn't anticipate this attack!  `,
-                    false
+                    `Holding the basilisk in your peripheral vision, you charge forward to strike it.  Before the moment of impact, the reptile shifts its posture, dodging and flowing backward skillfully with your movements, trying to make eye contact with you. You twist unexpectedly, bringing your ${this.player.weaponName} up at an oblique angle; the basilisk doesn't anticipate this attack!  `
                 );
             }
         }
@@ -5643,10 +5521,7 @@ convert "
             } else {
                 if (this.monster.spe - this.player.spe < 8)
                     this.outx(
-                        `${
-                            this.monster.capitalA + this.monster.short
-                        } narrowly avoids your attack!`,
-                        false
+                        `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`
                     );
                 if (
                     this.monster.spe - this.player.spe >= 8 &&
@@ -5655,15 +5530,13 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        } dodges your attack with superior quickness!`,
-                        false
+                        } dodges your attack with superior quickness!`
                     );
                 if (this.monster.spe - this.player.spe >= 20)
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        } deftly avoids your slow attack.`,
-                        false
+                        } deftly avoids your slow attack.`
                     );
                 this.outx("\n", false);
                 if (this.player.findStatusAffect(StatusAffects.FirstAttack) >= 0) {
@@ -5758,8 +5631,7 @@ convert "
             // special event, block (no more than 10-20% of turns, also fails if PC has >75 corruption):
             if (this.rand(10) <= 1) {
                 this.outx(
-                    `Seeing your ${this.player.weaponName} raised, the anemone looks down at the water, angles her eyes up at you, and puts out a trembling lip.  `,
-                    false
+                    `Seeing your ${this.player.weaponName} raised, the anemone looks down at the water, angles her eyes up at you, and puts out a trembling lip.  `
                 );
                 if (this.player.cor < 75) {
                     this.outx(
@@ -5808,11 +5680,10 @@ convert "
         if (damage <= 0) {
             damage = 0;
             this.outx(
-                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`,
-                false
+                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`
             );
         } else {
-            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`, false);
+            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`);
             if (crit) this.outx(" <b>*CRIT*</b>");
         }
         if (this.player.findPerk(PerkLib.BrutalBlows) >= 0 && this.player.str > 75) {
@@ -6870,8 +6741,8 @@ convert "
             else if (this.player.statusAffectv1(StatusAffects.DriderKiss) == 1) {
                 this.outx("You shudder and moan, nearly touching yourself as your ");
                 if (this.player.gender > 0)
-                    this.outx("loins tingle and leak, hungry for the drider's every touch.", false);
-                else this.outx("asshole tingles and twitches, aching to be penetrated.", false);
+                    this.outx("loins tingle and leak, hungry for the drider's every touch.");
+                else this.outx("asshole tingles and twitches, aching to be penetrated.");
                 this.outx(
                     "  Gods, her venom is getting you so hot.  You've got to end this quickly!\n\n",
                     false
@@ -6974,8 +6845,7 @@ convert "
             this.outx(
                 `Your ${this.vaginaDescript(
                     0
-                )} clenches with an instinctual desire to be touched and filled.  `,
-                false
+                )} clenches with an instinctual desire to be touched and filled.  `
             );
             this.outx("If you don't end this quickly you'll give in to your heat.\n\n", false);
         }
@@ -7038,21 +6908,18 @@ convert "
                     this.outx(
                         `Your ${this.vaginaDescript(
                             0
-                        )} clenches with an instinctual desire to be touched and filled.  `,
-                        false
+                        )} clenches with an instinctual desire to be touched and filled.  `
                     );
                 } else if (this.player.totalCocks() > 0) {
                     this.outx(
                         `Your ${this.player.cockDescript(
                             0
-                        )} pulses and twitches, overwhelmed with the desire to breed.  `,
-                        false
+                        )} pulses and twitches, overwhelmed with the desire to breed.  `
                     );
                 }
                 if (this.player.gender == 0) {
                     this.outx(
-                        `You feel a tingle in your ${this.assholeDescript()}, and the need to touch and fill it nearly overwhelms you.  `,
-                        false
+                        `You feel a tingle in your ${this.assholeDescript()}, and the need to touch and fill it nearly overwhelms you.  `
                     );
                 }
                 this.outx(
@@ -7252,33 +7119,23 @@ convert "
                 this.outx("\n");
             }
             if (this.monster.plural) {
-                if (math >= 1)
-                    this.outx(`You see ${this.monster.pronoun1} are in perfect health.`, false);
+                if (math >= 1) this.outx(`You see ${this.monster.pronoun1} are in perfect health.`);
                 else if (math > 0.75)
-                    this.outx(`You see ${this.monster.pronoun1} aren't very hurt.`, false);
+                    this.outx(`You see ${this.monster.pronoun1} aren't very hurt.`);
                 else if (math > 0.5)
-                    this.outx(`You see ${this.monster.pronoun1} are slightly wounded.`, false);
+                    this.outx(`You see ${this.monster.pronoun1} are slightly wounded.`);
                 else if (math > 0.25)
-                    this.outx(`You see ${this.monster.pronoun1} are seriously hurt.`, false);
-                else
-                    this.outx(
-                        `You see ${this.monster.pronoun1} are unsteady and close to death.`,
-                        false
-                    );
+                    this.outx(`You see ${this.monster.pronoun1} are seriously hurt.`);
+                else this.outx(`You see ${this.monster.pronoun1} are unsteady and close to death.`);
             } else {
-                if (math >= 1)
-                    this.outx(`You see ${this.monster.pronoun1} is in perfect health.`, false);
+                if (math >= 1) this.outx(`You see ${this.monster.pronoun1} is in perfect health.`);
                 else if (math > 0.75)
-                    this.outx(`You see ${this.monster.pronoun1} isn't very hurt.`, false);
+                    this.outx(`You see ${this.monster.pronoun1} isn't very hurt.`);
                 else if (math > 0.5)
-                    this.outx(`You see ${this.monster.pronoun1} is slightly wounded.`, false);
+                    this.outx(`You see ${this.monster.pronoun1} is slightly wounded.`);
                 else if (math > 0.25)
-                    this.outx(`You see ${this.monster.pronoun1} is seriously hurt.`, false);
-                else
-                    this.outx(
-                        `You see ${this.monster.pronoun1} is unsteady and close to death.`,
-                        false
-                    );
+                    this.outx(`You see ${this.monster.pronoun1} is seriously hurt.`);
+                else this.outx(`You see ${this.monster.pronoun1} is unsteady and close to death.`);
             }
             this.outx(`  ${percent}\n`, false);
             this.showMonsterLust();
@@ -7383,8 +7240,7 @@ convert "
             this.outx(
                 `${
                     this.monster.capitalA + this.monster.short
-                } is currently wrapped up in your tail-coils!  `,
-                false
+                } is currently wrapped up in your tail-coils!  `
             );
         }
         // Venom stuff!
@@ -7392,13 +7248,11 @@ convert "
             if (this.monster.plural) {
                 if (this.monster.statusAffectv1(StatusAffects.NagaVenom) <= 1) {
                     this.outx(
-                        `You notice ${this.monster.pronoun1} are beginning to show signs of weakening, but there still appears to be plenty of fight left in ${this.monster.pronoun2}.  `,
-                        false
+                        `You notice ${this.monster.pronoun1} are beginning to show signs of weakening, but there still appears to be plenty of fight left in ${this.monster.pronoun2}.  `
                     );
                 } else {
                     this.outx(
-                        `You notice ${this.monster.pronoun1} are obviously affected by your venom, ${this.monster.pronoun3} movements become unsure, and ${this.monster.pronoun3} balance begins to fade. Sweat begins to roll on ${this.monster.pronoun3} skin. You wager ${this.monster.pronoun1} are probably beginning to regret provoking you.  `,
-                        false
+                        `You notice ${this.monster.pronoun1} are obviously affected by your venom, ${this.monster.pronoun3} movements become unsure, and ${this.monster.pronoun3} balance begins to fade. Sweat begins to roll on ${this.monster.pronoun3} skin. You wager ${this.monster.pronoun1} are probably beginning to regret provoking you.  `
                     );
                 }
             }
@@ -7406,13 +7260,11 @@ convert "
             else {
                 if (this.monster.statusAffectv1(StatusAffects.NagaVenom) <= 1) {
                     this.outx(
-                        `You notice ${this.monster.pronoun1} is beginning to show signs of weakening, but there still appears to be plenty of fight left in ${this.monster.pronoun2}.  `,
-                        false
+                        `You notice ${this.monster.pronoun1} is beginning to show signs of weakening, but there still appears to be plenty of fight left in ${this.monster.pronoun2}.  `
                     );
                 } else {
                     this.outx(
-                        `You notice ${this.monster.pronoun1} is obviously affected by your venom, ${this.monster.pronoun3} movements become unsure, and ${this.monster.pronoun3} balance begins to fade. Sweat is beginning to roll on ${this.monster.pronoun3} skin. You wager ${this.monster.pronoun1} is probably beginning to regret provoking you.  `,
-                        false
+                        `You notice ${this.monster.pronoun1} is obviously affected by your venom, ${this.monster.pronoun3} movements become unsure, and ${this.monster.pronoun3} balance begins to fade. Sweat is beginning to roll on ${this.monster.pronoun3} skin. You wager ${this.monster.pronoun1} is probably beginning to regret provoking you.  `
                     );
                 }
             }
@@ -7623,8 +7475,7 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }' skin remains flushed with the beginnings of arousal.  `,
-                        false
+                        }' skin remains flushed with the beginnings of arousal.  `
                     );
                 if (this.monster.lust >= 60 && this.monster.lust < 70)
                     this.outx(
@@ -7632,8 +7483,7 @@ convert "
                             this.monster.capitalA + this.monster.short
                         }' eyes constantly dart over your most sexual parts, betraying ${
                             this.monster.pronoun3
-                        } lust.  `,
-                        false
+                        } lust.  `
                     );
                 if (this.monster.cocks.length > 0) {
                     if (this.monster.lust >= 70 && this.monster.lust < 85)
@@ -7642,8 +7492,7 @@ convert "
                                 this.monster.capitalA + this.monster.short
                             } are having trouble moving due to the rigid protrusion in ${
                                 this.monster.pronoun3
-                            } groins.  `,
-                            false
+                            } groins.  `
                         );
                     if (this.monster.lust >= 85)
                         this.outx(
@@ -7653,8 +7502,7 @@ convert "
                                 this.monster.pronoun3
                             } bulges more pronounced.  You don't think ${
                                 this.monster.pronoun1
-                            } can hold out much longer.  `,
-                            false
+                            } can hold out much longer.  `
                         );
                 }
                 if (this.monster.vaginas.length > 0) {
@@ -7664,15 +7512,13 @@ convert "
                                 this.monster.capitalA + this.monster.short
                             } are obviously turned on, you can smell ${
                                 this.monster.pronoun3
-                            } arousal in the air.  `,
-                            false
+                            } arousal in the air.  `
                         );
                     if (this.monster.lust >= 85)
                         this.outx(
                             `${
                                 this.monster.capitalA + this.monster.short
-                            }' ${this.monster.vaginaDescript()}s are practically soaked with their lustful secretions.  `,
-                            false
+                            }' ${this.monster.vaginaDescript()}s are practically soaked with their lustful secretions.  `
                         );
                 }
             } else {
@@ -7680,8 +7526,7 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }'s skin remains flushed with the beginnings of arousal.  `,
-                        false
+                        }'s skin remains flushed with the beginnings of arousal.  `
                     );
                 if (this.monster.lust >= 60 && this.monster.lust < 70)
                     this.outx(
@@ -7689,8 +7534,7 @@ convert "
                             this.monster.capitalA + this.monster.short
                         }'s eyes constantly dart over your most sexual parts, betraying ${
                             this.monster.pronoun3
-                        } lust.  `,
-                        false
+                        } lust.  `
                     );
                 if (this.monster.cocks.length > 0) {
                     if (this.monster.lust >= 70 && this.monster.lust < 85)
@@ -7699,8 +7543,7 @@ convert "
                                 this.monster.capitalA + this.monster.short
                             } is having trouble moving due to the rigid protrusion in ${
                                 this.monster.pronoun3
-                            } groin.  `,
-                            false
+                            } groin.  `
                         );
                     if (this.monster.lust >= 85)
                         this.outx(
@@ -7710,8 +7553,7 @@ convert "
                                 this.monster.pronoun3
                             } bulge more pronounced.  You don't think ${
                                 this.monster.pronoun1
-                            } can hold out much longer.  `,
-                            false
+                            } can hold out much longer.  `
                         );
                 }
                 if (this.monster.vaginas.length > 0) {
@@ -7721,15 +7563,13 @@ convert "
                                 this.monster.capitalA + this.monster.short
                             } is obviously turned on, you can smell ${
                                 this.monster.pronoun3
-                            } arousal in the air.  `,
-                            false
+                            } arousal in the air.  `
                         );
                     if (this.monster.lust >= 85)
                         this.outx(
                             `${
                                 this.monster.capitalA + this.monster.short
-                            }'s ${this.monster.vaginaDescript()} is practically soaked with her lustful secretions.  `,
-                            false
+                            }'s ${this.monster.vaginaDescript()} is practically soaked with her lustful secretions.  `
                         );
                 }
             }
@@ -8332,7 +8172,7 @@ convert "
             // 0 butt shake
             case 0:
                 // Display
-                this.outx(`You slap your ${this.buttDescript()}`, false);
+                this.outx(`You slap your ${this.buttDescript()}`);
                 if (this.player.buttRating >= 10 && this.player.tone < 60)
                     this.outx(", making it jiggle delightfully.");
                 else this.outx(".");
@@ -8347,15 +8187,13 @@ convert "
                     this.outx(
                         `Your lift your top, exposing your ${this.breastDescript(0)} to ${
                             this.monster.a
-                        }${this.monster.short}.  You shake them from side to side enticingly.`,
-                        false
+                        }${this.monster.short}.  You shake them from side to side enticingly.`
                     );
                     if (this.player.lust >= 50)
                         this.outx(
                             `  Your ${this.nippleDescript(0)}s seem to demand ${
                                 this.monster.pronoun3
-                            } attention.`,
-                            false
+                            } attention.`
                         );
                 }
                 // Multirow
@@ -8364,11 +8202,10 @@ convert "
                     this.outx(
                         `You lift your top, freeing your rows of ${this.breastDescript(
                             0
-                        )} to jiggle freely.  You shake them from side to side enticingly`,
-                        false
+                        )} to jiggle freely.  You shake them from side to side enticingly`
                     );
                     if (this.player.lust >= 50)
-                        this.outx(`, your ${this.nippleDescript(0)}s painfully visible.`, false);
+                        this.outx(`, your ${this.nippleDescript(0)}s painfully visible.`);
                     else this.outx(".");
                     chance++;
                 }
@@ -8378,13 +8215,12 @@ convert "
             case 2:
                 if (this.player.isTaur()) {
                     this.outx(
-                        `You gallop toward your unsuspecting enemy, dodging their defenses and knocking them to the ground.  Before they can recover, you slam your massive centaur ass down upon them, stopping just short of using crushing force to pin them underneath you.  In this position, your opponent's face is buried right in your girthy horsecunt.  You grind your cunt into ${this.monster.pronoun3} face for a moment before standing.  When you do, you're gratified to see your enemy covered in your lubricant and smelling powerfully of horsecunt.`,
-                        false
+                        `You gallop toward your unsuspecting enemy, dodging their defenses and knocking them to the ground.  Before they can recover, you slam your massive centaur ass down upon them, stopping just short of using crushing force to pin them underneath you.  In this position, your opponent's face is buried right in your girthy horsecunt.  You grind your cunt into ${this.monster.pronoun3} face for a moment before standing.  When you do, you're gratified to see your enemy covered in your lubricant and smelling powerfully of horsecunt.`
                     );
                     chance += 2;
                     damage += 4;
                 } else {
-                    this.outx(`You open your ${this.player.armorName}, revealing your `, false);
+                    this.outx(`You open your ${this.player.armorName}, revealing your `);
                     if (this.player.cocks.length > 0) {
                         chance++;
                         damage++;
@@ -8412,7 +8248,7 @@ convert "
                     );
                     if (this.player.findPerk(PerkLib.BulgeArmor) >= 0) damage += 5;
                 } else {
-                    this.outx(`You open your ${this.player.armorName}, revealing your `, false);
+                    this.outx(`You open your ${this.player.armorName}, revealing your `);
                     if (this.player.cocks.length == 1)
                         this.outx(this.player.cockDescript(0), false);
                     if (this.player.cocks.length > 1)
@@ -8435,16 +8271,14 @@ convert "
             // 4 butt shake
             case 4:
                 this.outx(
-                    `You turn away and bounce your ${this.buttDescript()} up and down hypnotically`,
-                    false
+                    `You turn away and bounce your ${this.buttDescript()} up and down hypnotically`
                 );
                 // Big butts = extra text + higher success
                 if (this.player.buttRating >= 10) {
                     this.outx(
                         `, making it jiggle delightfully.  ${this.monster.capitalA}${
                             this.monster.short
-                        } even gets a few glimpses of the ${this.assholeDescript()} between your cheeks.`,
-                        false
+                        } even gets a few glimpses of the ${this.assholeDescript()} between your cheeks.`
                     );
                     chance += 3;
                 }
@@ -8455,8 +8289,7 @@ convert "
                             this.monster.short
                         } get a good look at your ${this.assholeDescript()} and ${this.vaginaDescript(
                             0
-                        )}.`,
-                        false
+                        )}.`
                     );
                     chance += 1;
                     vagina = true;
@@ -8469,16 +8302,14 @@ convert "
                 this.outx(
                     `You lean forward, letting the well-rounded curves of your ${this.allBreastsDescript()} show to ${
                         this.monster.a
-                    }${this.monster.short}.`,
-                    false
+                    }${this.monster.short}.`
                 );
                 this.outx(
                     `  You cup them in your palms and lewdly bounce them, putting on a show and giggling the entire time.  An inch at a time, your ${
                         this.player.armorName
                     } starts to come down, dropping tantalizingly slowly until your ${this.nippleDescript(
                         0
-                    )}s pop free.`,
-                    false
+                    )}s pop free.`
                 );
                 if (this.player.lust >= 50) {
                     if (this.player.hasFuckableNipples()) {
@@ -8489,8 +8320,7 @@ convert "
                         );
                     } else
                         this.outx(
-                            `  Your hard nipples seem to demand ${this.monster.pronoun3} attention.`,
-                            false
+                            `  Your hard nipples seem to demand ${this.monster.pronoun3} attention.`
                         );
                     chance += 1;
                     damage += 2;
@@ -8505,13 +8335,11 @@ convert "
                     this.player.findPerk(PerkLib.FutaFaculties) >= 0
                 ) {
                     this.outx(
-                        `You coyly open your ${this.player.armorName} and giggle, "<i>Is this, like, what you wanted to see?</i>"  `,
-                        false
+                        `You coyly open your ${this.player.armorName} and giggle, "<i>Is this, like, what you wanted to see?</i>"  `
                     );
                 } else {
                     this.outx(
-                        `You coyly open your ${this.player.armorName} and purr, "<i>Does the thought of a hot, `,
-                        false
+                        `You coyly open your ${this.player.armorName} and purr, "<i>Does the thought of a hot, `
                     );
                     if (futa) this.outx("futanari ");
                     else if (this.player.findPerk(PerkLib.BimboBody) >= 0) this.outx("bimbo ");
@@ -8522,30 +8350,25 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }' gazes are riveted on your groin as you run your fingers up and down your folds seductively.`,
-                        false
+                        }' gazes are riveted on your groin as you run your fingers up and down your folds seductively.`
                     );
                 else
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }'s gaze is riveted on your groin as you run your fingers up and down your folds seductively.`,
-                        false
+                        }'s gaze is riveted on your groin as you run your fingers up and down your folds seductively.`
                     );
                 if (this.player.clitLength > 3)
                     this.outx(
-                        `  You smile as your ${this.clitDescript()} swells out from the folds and stands proudly, begging to be touched.`,
-                        false
+                        `  You smile as your ${this.clitDescript()} swells out from the folds and stands proudly, begging to be touched.`
                     );
                 else
                     this.outx(
-                        `  You smile and pull apart your lower-lips to expose your ${this.clitDescript()}, giving the perfect view.`,
-                        false
+                        `  You smile and pull apart your lower-lips to expose your ${this.clitDescript()}, giving the perfect view.`
                     );
                 if (this.player.cockTotal() > 0)
                     this.outx(
-                        `  Meanwhile, ${this.player.sMultiCockDesc()} bobs back and forth with your gyrating hips, adding to the display.`,
-                        false
+                        `  Meanwhile, ${this.player.sMultiCockDesc()} bobs back and forth with your gyrating hips, adding to the display.`
                     );
                 // BONUSES!
                 if (this.player.hasCock()) {
@@ -8569,8 +8392,7 @@ convert "
                     false
                 );
                 this.outx(
-                    `The clear, warm fluid of your happy excitement trickles down from your loins, polishing your ${this.player.skin()} to a glossy, inviting shine.  Retrieving the useless, though shiny, bauble, you hold your pose for just a moment longer, a sly little smile playing across your lips as you wiggle your cheeks one more time before straightening up and turning back around.`,
-                    false
+                    `The clear, warm fluid of your happy excitement trickles down from your loins, polishing your ${this.player.skin()} to a glossy, inviting shine.  Retrieving the useless, though shiny, bauble, you hold your pose for just a moment longer, a sly little smile playing across your lips as you wiggle your cheeks one more time before straightening up and turning back around.`
                 );
                 vagina = true;
                 chance++;
@@ -8584,16 +8406,12 @@ convert "
                     false
                 );
                 if (this.player.findPerk(PerkLib.BroBrains) >= 0)
-                    this.outx(
-                        `Damn, ${this.monster.a}${this.monster.short} has got to love this!`,
-                        false
-                    );
+                    this.outx(`Damn, ${this.monster.a}${this.monster.short} has got to love this!`);
                 else
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        } will probably enjoy the show, but you feel a bit silly doing this.`,
-                        false
+                        } will probably enjoy the show, but you feel a bit silly doing this.`
                     );
                 chance += (this.player.tone - 75) / 5;
                 damage += (this.player.tone - 70) / 5;
@@ -8609,8 +8427,7 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        } can't resist such a heroic pose!`,
-                        false
+                        } can't resist such a heroic pose!`
                     );
                 else
                     this.outx(
@@ -8628,14 +8445,10 @@ convert "
                         this.monster.short
                     } in an incredibly vulgar display.  The bulging, barely-contained outline of your ${this.player.cockDescript(
                         0
-                    )} presses hard into your gear.  `,
-                    false
+                    )} presses hard into your gear.  `
                 );
                 if (this.player.findPerk(PerkLib.BroBrains) >= 0)
-                    this.outx(
-                        `No way could ${this.monster.pronoun1} resist your huge cock!`,
-                        false
-                    );
+                    this.outx(`No way could ${this.monster.pronoun1} resist your huge cock!`);
                 else
                     this.outx(
                         "This is so crude, but at the same time, you know it'll likely be effective.",
@@ -8651,8 +8464,7 @@ convert "
             case 11:
                 if (this.silly() && this.rand(2) == 0)
                     this.outx(
-                        `You strike a herculean pose and flex, whispering, "<i>Do you even lift?</i>" to ${this.monster.a}${this.monster.short}.`,
-                        false
+                        `You strike a herculean pose and flex, whispering, "<i>Do you even lift?</i>" to ${this.monster.a}${this.monster.short}.`
                     );
                 else {
                     this.outx(
@@ -8660,12 +8472,11 @@ convert "
                             this.player.armorName
                         } just enough to let your ${this.player.cockDescript(
                             0
-                        )} and ${this.ballsDescriptLight()} dangle free.  A shiny rope of pre-cum dangles from your cock, showing that your reproductive system is every bit as fit as the rest of you.  `,
-                        false
+                        )} and ${this.ballsDescriptLight()} dangle free.  A shiny rope of pre-cum dangles from your cock, showing that your reproductive system is every bit as fit as the rest of you.  `
                     );
                     if (this.player.findPerk(PerkLib.BroBrains) >= 0)
                         this.outx("Bitches love a cum-leaking cock.");
-                    else this.outx("You've got to admit, you look pretty good down there.", false);
+                    else this.outx("You've got to admit, you look pretty good down there.");
                 }
                 if (this.player.findPerk(PerkLib.BulgeArmor) >= 0) damage += 5;
                 penis = true;
@@ -8681,8 +8492,7 @@ convert "
                         this.player.armorName
                     }.  The combination of the lack of discomfort on your face and the ease of which you're able to pose shows ${
                         this.monster.a
-                    }${this.monster.short} how good of a time they're in for with you.`,
-                    false
+                    }${this.monster.short} how good of a time they're in for with you.`
                 );
                 vagina = true;
                 if (this.player.thickness < 33) chance++;
@@ -8693,8 +8503,7 @@ convert "
             case 13:
                 // PREG
                 this.outx(
-                    `You lean back, feigning a swoon while pressing a hand on the small of your back.  The pose juts your huge, pregnant belly forward and makes the shiny spherical stomach look even bigger.  With a teasing groan, you rub the protruding tummy gently, biting your lip gently as you stare at ${this.monster.a}${this.monster.short} through heavily lidded eyes.  "<i>All of this estrogen is making me frisky,</i>" you moan, stroking hand gradually shifting to the southern hemisphere of your big baby-bump.`,
-                    false
+                    `You lean back, feigning a swoon while pressing a hand on the small of your back.  The pose juts your huge, pregnant belly forward and makes the shiny spherical stomach look even bigger.  With a teasing groan, you rub the protruding tummy gently, biting your lip gently as you stare at ${this.monster.a}${this.monster.short} through heavily lidded eyes.  "<i>All of this estrogen is making me frisky,</i>" you moan, stroking hand gradually shifting to the southern hemisphere of your big baby-bump.`
                 );
                 // if lactating]
                 if (this.player.biggestLactation() >= 1) {
@@ -8720,13 +8529,11 @@ convert "
             case 14:
                 if (this.rand(2) == 0)
                     this.outx(
-                        `You tear open your ${this.player.armorName} and slip a few fingers into your well-used birth canal, giving your opponent a good look at what they're missing.  "<i>C'mon stud,</i>" you say, voice dripping with lust and desire, "<i>Come to mama ${this.player.short} and fuck my pussy 'til your baby batter just POURS out.  I want your children inside of me, I want your spawn crawling out of this cunt and begging for my milk.  Come on, FUCK ME PREGNANT!</i>"`,
-                        false
+                        `You tear open your ${this.player.armorName} and slip a few fingers into your well-used birth canal, giving your opponent a good look at what they're missing.  "<i>C'mon stud,</i>" you say, voice dripping with lust and desire, "<i>Come to mama ${this.player.short} and fuck my pussy 'til your baby batter just POURS out.  I want your children inside of me, I want your spawn crawling out of this cunt and begging for my milk.  Come on, FUCK ME PREGNANT!</i>"`
                     );
                 else
                     this.outx(
-                        `You wiggle your ${this.hipDescript()} at your enemy, giving them a long, tantalizing look at the hips that have passed so very many offspring.  "<i>Oh, like what you see, bad boy?  Well why don't you just come on over and stuff that cock inside me?  Give me your seed, and I'll give you suuuuch beautiful offspring.  Oh?  Does that turn you on?  It does!  Come on, just let loose and fuck me full of your babies!</i>"`,
-                        false
+                        `You wiggle your ${this.hipDescript()} at your enemy, giving them a long, tantalizing look at the hips that have passed so very many offspring.  "<i>Oh, like what you see, bad boy?  Well why don't you just come on over and stuff that cock inside me?  Give me your seed, and I'll give you suuuuch beautiful offspring.  Oh?  Does that turn you on?  It does!  Come on, just let loose and fuck me full of your babies!</i>"`
                     );
                 chance += 2;
                 damage += 4;
@@ -8761,8 +8568,7 @@ convert "
                         false
                     );
                     this.outx(
-                        `Despite how quiet you were, it's clear that every lewd, desperate noise you made was heard by ${this.monster.a}${this.monster.short}.`,
-                        false
+                        `Despite how quiet you were, it's clear that every lewd, desperate noise you made was heard by ${this.monster.a}${this.monster.short}.`
                     );
                     chance += 2;
                     damage += 4;
@@ -8770,8 +8576,7 @@ convert "
                     this.outx(
                         `You yank off the top of your ${
                             this.player.armorName
-                        }, revealing your ${this.chestDesc()} and the gaping nipplecunts on each.  With a lusty smirk, you slip a pair of fingers into the nipples of your ${this.chestDesc()}, pulling the nipplecunt lips wide, revealing the lengthy, tight passage within.  You fingerfuck your nipplecunts, giving your enemy a good show before pulling your armor back on, leaving the tantalizing image of your gaping titpussies to linger in your foe's mind.`,
-                        false
+                        }, revealing your ${this.chestDesc()} and the gaping nipplecunts on each.  With a lusty smirk, you slip a pair of fingers into the nipples of your ${this.chestDesc()}, pulling the nipplecunt lips wide, revealing the lengthy, tight passage within.  You fingerfuck your nipplecunts, giving your enemy a good show before pulling your armor back on, leaving the tantalizing image of your gaping titpussies to linger in your foe's mind.`
                     );
                     chance += 1;
                     damage += 2;
@@ -8779,8 +8584,7 @@ convert "
                     this.outx(
                         `You remove the front of your ${
                             this.player.armorName
-                        } exposing your ${this.chestDesc()}.  Using both of your hands, you thrust two fingers into your nipple cunts, milky girl cum soaking your hands and fingers.  "<i>Wouldn't you like to try out these holes too?</i>"`,
-                        false
+                        } exposing your ${this.chestDesc()}.  Using both of your hands, you thrust two fingers into your nipple cunts, milky girl cum soaking your hands and fingers.  "<i>Wouldn't you like to try out these holes too?</i>"`
                     );
                 breasts = true;
                 break;
@@ -8789,8 +8593,7 @@ convert "
                 this.outx(
                     `You quickly strip out of your ${
                         this.player.armorName
-                    } and turn around, giving your ${this.buttDescript()} a hard slap and showing your enemy the real prize: your ${this.assholeDescript()}.  With a smirk, you easily plunge your hand inside, burying yourself up to the wrist inside your anus.  You give yourself a quick fisting, watching the enemy over your shoulder while you moan lustily, sure to give them a good show.  You withdraw your hand and give your ass another sexy spank before readying for combat again.`,
-                    false
+                    } and turn around, giving your ${this.buttDescript()} a hard slap and showing your enemy the real prize: your ${this.assholeDescript()}.  With a smirk, you easily plunge your hand inside, burying yourself up to the wrist inside your anus.  You give yourself a quick fisting, watching the enemy over your shoulder while you moan lustily, sure to give them a good show.  You withdraw your hand and give your ass another sexy spank before readying for combat again.`
                 );
                 anus = true;
                 ass = true;
@@ -8804,8 +8607,7 @@ convert "
                         this.monster.short
                     }.  Taking up your oversized bee abdomen in both hands, you heft the thing and wave it about teasingly.  Drops of venom drip to and fro, a few coming dangerously close to ${
                         this.monster.pronoun2
-                    }.  "<i>Maybe if you behave well enough, I'll even drop a few eggs into your belly,</i>" you say softly, dropping the abdomen back to dangle above your butt and redressing.`,
-                    false
+                    }.  "<i>Maybe if you behave well enough, I'll even drop a few eggs into your belly,</i>" you say softly, dropping the abdomen back to dangle above your butt and redressing.`
                 );
                 ass = true;
                 chance += 0.5;
@@ -8869,8 +8671,7 @@ convert "
                     } gaze to you to find you turned around, ${this.buttDescript()} bared and abdomen bouncing lazily.  "<i>I wonder what would happen if I webbed up your hole after I dropped some eggs inside?</i>" you hiss mischievously.  ${this.monster.mf(
                         "He",
                         "She"
-                    )} gulps.`,
-                    false
+                    )} gulps.`
                 );
                 ass = true;
                 break;
@@ -8883,8 +8684,7 @@ convert "
                     );
                 } else {
                     this.outx(
-                        `Panting with your unstoppable lust for the delicious, impregnable cunt before you, you yank off your ${this.player.armorName} with strength born of your inhuman rut, and quickly wave your fully erect cock at your enemy.  She flashes with lust, quickly feeling the heady effect of your man-musk.  You rush up, taking advantage of her aroused state and grab her shoulders.  `,
-                        false
+                        `Panting with your unstoppable lust for the delicious, impregnable cunt before you, you yank off your ${this.player.armorName} with strength born of your inhuman rut, and quickly wave your fully erect cock at your enemy.  She flashes with lust, quickly feeling the heady effect of your man-musk.  You rush up, taking advantage of her aroused state and grab her shoulders.  `
                     );
                     this.outx(
                         "Before she can react, you push her down until she's level with your cock, and start to spin it in a circle, slapping her right in the face with your musky man-meat.  Her eyes swim, trying to follow your meatspin as you swat her in the face with your cock!  Satisfied, you release her and prepare to fight!",
@@ -8900,8 +8700,7 @@ convert "
                         this.player.armorName
                     } and sliding the pole between your tits.  You drop down to a low crouch, only just covering your genitals with your hand as you shake your ${this.buttDescript()} playfully.  You give the enemy a little smirk as you slip your ${
                         this.player.armorName
-                    } back on and pick up your staff.`,
-                    false
+                    } back on and pick up your staff.`
                 );
                 ass = true;
                 breasts = true;
@@ -8929,8 +8728,7 @@ convert "
                         "She"
                     )} struggles for a moment.  You give ${
                         this.monster.pronoun2
-                    } a little kiss on the head and step back, ready for combat.`,
-                    false
+                    } a little kiss on the head and step back, ready for combat.`
                 );
                 breasts = true;
                 chance += 2;
@@ -8939,8 +8737,7 @@ convert "
             // Magic Tease
             case 26:
                 this.outx(
-                    `Seeing a lull in the battle, you plant your ${this.player.weaponName} on the ground and let your magic flow through you.  You summon a trickle of magic into a thick, slowly growing black ball of lust.  You wave the ball in front of you, making a little dance and striptease out of the affair as you slowly saturate the area with latent sexual magics.`,
-                    false
+                    `Seeing a lull in the battle, you plant your ${this.player.weaponName} on the ground and let your magic flow through you.  You summon a trickle of magic into a thick, slowly growing black ball of lust.  You wave the ball in front of you, making a little dance and striptease out of the affair as you slowly saturate the area with latent sexual magics.`
                 );
                 chance++;
                 damage += 2;
@@ -8948,8 +8745,7 @@ convert "
             // Feeder
             case 27:
                 this.outx(
-                    `You present your swollen breasts full of milk to ${this.monster.a}${this.monster.short} and say "<i>Wouldn't you just love to lie back in my arms and enjoy what I have to offer you?</i>"`,
-                    false
+                    `You present your swollen breasts full of milk to ${this.monster.a}${this.monster.short} and say "<i>Wouldn't you just love to lie back in my arms and enjoy what I have to offer you?</i>"`
                 );
                 breasts = true;
                 chance++;
@@ -8958,16 +8754,14 @@ convert "
             // 28 FEMALE TEACHER COSTUME TEASE
             case 28:
                 this.outx(
-                    `You turn to the side and give ${this.monster.a}${this.monster.short} a full view of your body.  You ask them if they're in need of a private lesson in lovemaking after class.`,
-                    false
+                    `You turn to the side and give ${this.monster.a}${this.monster.short} a full view of your body.  You ask them if they're in need of a private lesson in lovemaking after class.`
                 );
                 ass = true;
                 break;
             // 29 Male Teacher Outfit Tease
             case 29:
                 this.outx(
-                    `You play with the strings on your outfit a bit and ask ${this.monster.a}${this.monster.short} just how much do they want to see their teacher pull them off?`,
-                    false
+                    `You play with the strings on your outfit a bit and ask ${this.monster.a}${this.monster.short} just how much do they want to see their teacher pull them off?`
                 );
                 chance++;
                 damage += 3;
@@ -8975,8 +8769,7 @@ convert "
             // 30 Naga Fetish Clothes
             case 30:
                 this.outx(
-                    `You sway your body back and forth, and do an erotic dance for ${this.monster.a}${this.monster.short}.`,
-                    false
+                    `You sway your body back and forth, and do an erotic dance for ${this.monster.a}${this.monster.short}.`
                 );
                 chance += 2;
                 damage += 4;
@@ -8993,8 +8786,7 @@ convert "
             // 32 Genderless servant clothes
             case 32:
                 this.outx(
-                    `You turn your back to your foe, and flip up your butt flap for a moment.   Your ${this.buttDescript()} really is all you have to offer downstairs.`,
-                    false
+                    `You turn your back to your foe, and flip up your butt flap for a moment.   Your ${this.buttDescript()} really is all you have to offer downstairs.`
                 );
                 ass = true;
                 chance++;
@@ -9006,8 +8798,7 @@ convert "
                     `You do a series of poses to accentuate what you've got on display with your crotch revealing clothes, while asking if your ${this.player.mf(
                         "master",
                         "mistress"
-                    )} is looking to sample what is on display.`,
-                    false
+                    )} is looking to sample what is on display.`
                 );
                 chance += 2;
                 damage += 4;
@@ -9020,8 +8811,7 @@ convert "
                     } and ask them if your ${this.player.mf(
                         "master",
                         "mistress"
-                    )} is interested in other services today.`,
-                    false
+                    )} is interested in other services today.`
                 );
                 chance++;
                 damage += 2;
@@ -9035,8 +8825,7 @@ convert "
                     } if, ${this.player.mf(
                         "Master",
                         "Mistress"
-                    )} would like you to use your ${this.player.multiCockDescriptLight()} on them?`,
-                    false
+                    )} would like you to use your ${this.player.multiCockDescriptLight()} on them?`
                 );
                 penis = true;
                 chance++;
@@ -9763,23 +9552,20 @@ convert "
             this.outx(
                 `${this.monster.capitalA + this.monster.short} squirms as the magic affects ${
                     this.monster.pronoun2
-                }.  `,
-                false
+                }.  `
             );
         if (this.monster.lust >= 30 && this.monster.lust < 60) {
             if (this.monster.plural)
                 this.outx(
                     `${
                         this.monster.capitalA + this.monster.short
-                    } stagger, suddenly weak and having trouble focusing on staying upright.  `,
-                    false
+                    } stagger, suddenly weak and having trouble focusing on staying upright.  `
                 );
             else
                 this.outx(
                     `${
                         this.monster.capitalA + this.monster.short
-                    } staggers, suddenly weak and having trouble focusing on staying upright.  `,
-                    false
+                    } staggers, suddenly weak and having trouble focusing on staying upright.  `
                 );
         }
         if (this.monster.lust >= 60) {
@@ -9792,8 +9578,7 @@ convert "
                 this.outx(
                     `You see ${
                         this.monster.pronoun3
-                    } ${this.monster.multiCockDescriptLight()} dribble pre-cum.  `,
-                    false
+                    } ${this.monster.multiCockDescriptLight()} dribble pre-cum.  `
                 );
             if (this.monster.lust >= 30 && this.monster.lust < 60 && this.monster.cocks.length == 1)
                 this.outx(
@@ -9801,15 +9586,13 @@ convert "
                         this.monster.capitalA + this.monster.short
                     }'s ${this.monster.cockDescriptShort(0)} hardens, distracting ${
                         this.monster.pronoun2
-                    } further.  `,
-                    false
+                    } further.  `
                 );
             if (this.monster.lust >= 30 && this.monster.lust < 60 && this.monster.cocks.length > 1)
                 this.outx(
                     `You see ${
                         this.monster.pronoun3
-                    } ${this.monster.multiCockDescriptLight()} harden uncomfortably.  `,
-                    false
+                    } ${this.monster.multiCockDescriptLight()} harden uncomfortably.  `
                 );
         }
         if (this.monster.vaginas.length > 0) {
@@ -9821,8 +9604,7 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }'s ${this.monster.vaginaDescript()}s dampen perceptibly.  `,
-                        false
+                        }'s ${this.monster.vaginaDescript()}s dampen perceptibly.  `
                     );
                 if (
                     this.monster.lust >= 60 &&
@@ -9831,8 +9613,7 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }'s crotches become sticky with girl-lust.  `,
-                        false
+                        }'s crotches become sticky with girl-lust.  `
                     );
                 if (
                     this.monster.lust >= 60 &&
@@ -9841,16 +9622,14 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }'s ${this.monster.vaginaDescript()}s become sloppy and wet.  `,
-                        false
+                        }'s ${this.monster.vaginaDescript()}s become sloppy and wet.  `
                     );
                 if (
                     this.monster.lust >= 60 &&
                     this.monster.vaginas[0].vaginalWetness == CoC.VAGINA_WETNESS_DROOLING
                 )
                     this.outx(
-                        `Thick runners of girl-lube stream down the insides of ${this.monster.a}${this.monster.short}'s thighs.  `,
-                        false
+                        `Thick runners of girl-lube stream down the insides of ${this.monster.a}${this.monster.short}'s thighs.  `
                     );
                 if (
                     this.monster.lust >= 60 &&
@@ -9861,8 +9640,7 @@ convert "
                             this.monster.capitalA + this.monster.short
                         }'s ${this.monster.vaginaDescript()}s instantly soak ${
                             this.monster.pronoun2
-                        } groin.  `,
-                        false
+                        } groin.  `
                     );
             } else {
                 if (
@@ -9872,8 +9650,7 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }'s ${this.monster.vaginaDescript()} dampens perceptibly.  `,
-                        false
+                        }'s ${this.monster.vaginaDescript()} dampens perceptibly.  `
                     );
                 if (
                     this.monster.lust >= 60 &&
@@ -9882,8 +9659,7 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }'s crotch becomes sticky with girl-lust.  `,
-                        false
+                        }'s crotch becomes sticky with girl-lust.  `
                     );
                 if (
                     this.monster.lust >= 60 &&
@@ -9892,16 +9668,14 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }'s ${this.monster.vaginaDescript()} becomes sloppy and wet.  `,
-                        false
+                        }'s ${this.monster.vaginaDescript()} becomes sloppy and wet.  `
                     );
                 if (
                     this.monster.lust >= 60 &&
                     this.monster.vaginas[0].vaginalWetness == CoC.VAGINA_WETNESS_DROOLING
                 )
                     this.outx(
-                        `Thick runners of girl-lube stream down the insides of ${this.monster.a}${this.monster.short}'s thighs.  `,
-                        false
+                        `Thick runners of girl-lube stream down the insides of ${this.monster.a}${this.monster.short}'s thighs.  `
                     );
                 if (
                     this.monster.lust >= 60 &&
@@ -9910,8 +9684,7 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        }'s ${this.monster.vaginaDescript()} instantly soaks her groin.  `,
-                        false
+                        }'s ${this.monster.vaginaDescript()} instantly soaks her groin.  `
                     );
             }
         }
@@ -9947,36 +9720,31 @@ convert "
             );
             if (this.player.gender == 0)
                 this.outx(
-                    `${this.assholeDescript()} tingles with a desire to be filled as your libido spins out of control.`,
-                    false
+                    `${this.assholeDescript()} tingles with a desire to be filled as your libido spins out of control.`
                 );
             if (this.player.gender == 1) {
                 if (this.player.cockTotal() == 1)
                     this.outx(
                         `${this.player.cockDescript(
                             0
-                        )} twitches obscenely and drips with pre-cum as your libido spins out of control.`,
-                        false
+                        )} twitches obscenely and drips with pre-cum as your libido spins out of control.`
                     );
                 else
                     this.outx(
-                        `${this.player.multiCockDescriptLight()} twitch obscenely and drip with pre-cum as your libido spins out of control.`,
-                        false
+                        `${this.player.multiCockDescriptLight()} twitch obscenely and drip with pre-cum as your libido spins out of control.`
                     );
             }
             if (this.player.gender == 2)
                 this.outx(
                     `${this.vaginaDescript(
                         0
-                    )} becomes puffy, hot, and ready to be touched as the magic diverts into it.`,
-                    false
+                    )} becomes puffy, hot, and ready to be touched as the magic diverts into it.`
                 );
             if (this.player.gender == 3)
                 this.outx(
                     `${this.vaginaDescript(
                         0
-                    )} and ${this.player.multiCockDescriptLight()} overfill with blood, becoming puffy and incredibly sensitive as the magic focuses on them.`,
-                    false
+                    )} and ${this.player.multiCockDescriptLight()} overfill with blood, becoming puffy and incredibly sensitive as the magic focuses on them.`
                 );
             this.dynStats("lib", 0.25, "lus", 15);
         } else {
@@ -9984,10 +9752,7 @@ convert "
                 (this.player.inte / (2 + this.rand(3))) * this.spellMod() * (this.maxHP() / 150)
             );
             if (this.player.armorName == "skimpy nurse's outfit") this.temp *= 1.2;
-            this.outx(
-                `You flush with success as your wounds begin to knit (+${this.temp}).`,
-                false
-            );
+            this.outx(`You flush with success as your wounds begin to knit (+${this.temp}).`);
             this.HPChange(this.temp, false);
         }
         this.outx("\n\n", false);
@@ -10028,36 +9793,31 @@ convert "
             );
             if (this.player.gender == 0)
                 this.outx(
-                    `${this.assholeDescript()} tingles with a desire to be filled as your libido spins out of control.`,
-                    false
+                    `${this.assholeDescript()} tingles with a desire to be filled as your libido spins out of control.`
                 );
             if (this.player.gender == 1) {
                 if (this.player.cockTotal() == 1)
                     this.outx(
                         `${this.player.cockDescript(
                             0
-                        )} twitches obscenely and drips with pre-cum as your libido spins out of control.`,
-                        false
+                        )} twitches obscenely and drips with pre-cum as your libido spins out of control.`
                     );
                 else
                     this.outx(
-                        `${this.player.multiCockDescriptLight()} twitch obscenely and drip with pre-cum as your libido spins out of control.`,
-                        false
+                        `${this.player.multiCockDescriptLight()} twitch obscenely and drip with pre-cum as your libido spins out of control.`
                     );
             }
             if (this.player.gender == 2)
                 this.outx(
                     `${this.vaginaDescript(
                         0
-                    )} becomes puffy, hot, and ready to be touched as the magic diverts into it.`,
-                    false
+                    )} becomes puffy, hot, and ready to be touched as the magic diverts into it.`
                 );
             if (this.player.gender == 3)
                 this.outx(
                     `${this.vaginaDescript(
                         0
-                    )} and ${this.player.multiCockDescriptLight()} overfill with blood, becoming puffy and incredibly sensitive as the magic focuses on them.`,
-                    false
+                    )} and ${this.player.multiCockDescriptLight()} overfill with blood, becoming puffy and incredibly sensitive as the magic focuses on them.`
                 );
             this.dynStats("lib", 0.25, "lus", 15);
         } else {
@@ -10202,7 +9962,7 @@ convert "
         if (this.monster instanceof LivingStatue) {
             // noop
         } else if (this.rand(3) != 0) {
-            this.outx(` <b>${this.monster.capitalA}${this.monster.short} `, false);
+            this.outx(` <b>${this.monster.capitalA}${this.monster.short} `);
             if (this.monster.plural && this.monster.short != "imp horde")
                 this.outx("are blinded!</b>");
             else this.outx("is blinded!</b>");
@@ -10223,7 +9983,7 @@ convert "
                 );
                 this.monster.removeStatusAffect(StatusAffects.Blind);
             }
-        } else this.outx(`${this.monster.capitalA + this.monster.short} blinked!`, false);
+        } else this.outx(`${this.monster.capitalA + this.monster.short} blinked!`);
         this.outx("\n\n", false);
         this.flags[kFLAGS.SPELLS_CAST]++;
         this.spellPerkUnlock();
@@ -10280,15 +10040,11 @@ convert "
             );
             // High damage to goes.
             if (this.monster.short == "goo-girl") this.temp = Math.round(this.temp * 1.5);
-            this.outx(
-                `${this.monster.capitalA + this.monster.short} takes ${this.temp} damage.`,
-                false
-            );
+            this.outx(`${this.monster.capitalA + this.monster.short} takes ${this.temp} damage.`);
             // Using fire attacks on the goo]
             if (this.monster.short == "goo-girl") {
                 this.outx(
-                    `  Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer.`,
-                    false
+                    `  Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer.`
                 );
                 if (this.monster.findPerk(PerkLib.Acid) < 0)
                     this.monster.createPerk(PerkLib.Acid, 0, 0, 0, 0);
@@ -10681,7 +10437,7 @@ convert "
                     false
                 );
             else {
-                this.outx(`${this.monster.capitalA + this.monster.short} manage`, false);
+                this.outx(`${this.monster.capitalA + this.monster.short} manage`);
                 if (!this.monster.plural) this.outx("s");
                 this.outx(" to dodge your kick!");
                 this.outx("\n\n", false);
@@ -10720,9 +10476,8 @@ convert "
         // LAND A HIT!
         else {
             this.outx(this.monster.capitalA + this.monster.short, false);
-            if (!this.monster.plural)
-                this.outx(` reels from the damaging impact! (${damage})`, false);
-            else this.outx(` reel from the damaging impact! (${damage})`, false);
+            if (!this.monster.plural) this.outx(` reels from the damaging impact! (${damage})`);
+            else this.outx(` reel from the damaging impact! (${damage})`);
         }
         if (damage > 0) {
             // Lust raised by anemone contact!
@@ -10767,8 +10522,7 @@ convert "
             );
         } else
             this.outx(
-                `Turning and clenching muscles that no human should have, you expel a spray of sticky webs at ${this.monster.a}${this.monster.short}!  `,
-                false
+                `Turning and clenching muscles that no human should have, you expel a spray of sticky webs at ${this.monster.a}${this.monster.short}!  `
             );
         // Determine if dodged!
         if (
@@ -10776,7 +10530,7 @@ convert "
             (this.monster.spe - this.player.spe > 0 &&
                 int(Math.random() * ((this.monster.spe - this.player.spe) / 4 + 80)) > 80)
         ) {
-            this.outx(`You miss ${this.monster.a}${this.monster.short} completely - `, false);
+            this.outx(`You miss ${this.monster.a}${this.monster.short} completely - `);
             if (this.monster.plural) this.outx("they");
             else this.outx(`${this.monster.mf("he", "she")} moved out of the way!\n\n`, false);
             this.enemyAI();
@@ -10791,15 +10545,13 @@ convert "
                     } is completely covered in webbing, but you hose ${this.monster.mf(
                         "him",
                         "her"
-                    )} down again anyway.`,
-                    false
+                    )} down again anyway.`
                 );
             else
                 this.outx(
                     `${
                         this.monster.capitalA + this.monster.short
-                    } are completely covered in webbing, but you hose them down again anyway.`,
-                    false
+                    } are completely covered in webbing, but you hose them down again anyway.`
                 );
         }
         // LAND A HIT!
@@ -10808,15 +10560,13 @@ convert "
                 this.outx(
                     `The adhesive strands cover ${this.monster.a}${
                         this.monster.short
-                    } with restrictive webbing, greatly slowing ${this.monster.mf("him", "her")}.`,
-                    false
+                    } with restrictive webbing, greatly slowing ${this.monster.mf("him", "her")}.`
                 );
             else
                 this.outx(
                     `The adhesive strands cover ${this.monster.a}${
                         this.monster.short
-                    } with restrictive webbing, greatly slowing ${this.monster.mf("him", "her")}.`,
-                    false
+                    } with restrictive webbing, greatly slowing ${this.monster.mf("him", "her")}.`
                 );
             this.monster.spe -= 45;
             if (this.monster.spe < 0) this.monster.spe = 0;
@@ -10863,8 +10613,7 @@ convert "
             // (Otherwise)
             else
                 this.outx(
-                    `You lunge at the foe headfirst, fangs bared. You manage to catch ${this.monster.a}${this.monster.short} off guard, your needle-like fangs penetrating deep into ${this.monster.pronoun3} body. You quickly release your venom, and retreat before ${this.monster.pronoun1} manages to react.`,
-                    false
+                    `You lunge at the foe headfirst, fangs bared. You manage to catch ${this.monster.a}${this.monster.short} off guard, your needle-like fangs penetrating deep into ${this.monster.pronoun3} body. You quickly release your venom, and retreat before ${this.monster.pronoun1} manages to react.`
                 );
             // The following is how the enemy reacts over time to poison. It is displayed after the description paragraph,instead of lust
             this.monster.str -= 5 + this.rand(5);
@@ -10876,8 +10625,7 @@ convert "
             } else this.monster.createStatusAffect(StatusAffects.NagaVenom, 1, 0, 0, 0);
         } else {
             this.outx(
-                `You lunge headfirst, fangs bared. Your attempt fails horrendously, as ${this.monster.a}${this.monster.short} manages to counter your lunge, knocking your head away with enough force to make your ears ring.`,
-                false
+                `You lunge headfirst, fangs bared. Your attempt fails horrendously, as ${this.monster.a}${this.monster.short} manages to counter your lunge, knocking your head away with enough force to make your ears ring.`
             );
         }
         this.outx("\n\n", false);
@@ -10923,13 +10671,11 @@ convert "
             else {
                 if (!this.monster.plural)
                     this.outx(
-                        `You lunge at the foe headfirst, fangs bared. You manage to catch ${this.monster.a}${this.monster.short} off guard, your needle-like fangs penetrating deep into ${this.monster.pronoun3} body. You quickly release your venom, and retreat before ${this.monster.a}${this.monster.pronoun1} manages to react.`,
-                        false
+                        `You lunge at the foe headfirst, fangs bared. You manage to catch ${this.monster.a}${this.monster.short} off guard, your needle-like fangs penetrating deep into ${this.monster.pronoun3} body. You quickly release your venom, and retreat before ${this.monster.a}${this.monster.pronoun1} manages to react.`
                     );
                 else
                     this.outx(
-                        `You lunge at the foes headfirst, fangs bared. You manage to catch one of ${this.monster.a}${this.monster.short} off guard, your needle-like fangs penetrating deep into ${this.monster.pronoun3} body. You quickly release your venom, and retreat before ${this.monster.a}${this.monster.pronoun1} manage to react.`,
-                        false
+                        `You lunge at the foes headfirst, fangs bared. You manage to catch one of ${this.monster.a}${this.monster.short} off guard, your needle-like fangs penetrating deep into ${this.monster.pronoun3} body. You quickly release your venom, and retreat before ${this.monster.a}${this.monster.pronoun1} manage to react.`
                     );
             }
             // React
@@ -10945,16 +10691,14 @@ convert "
                         `  ${this.monster.mf("He", "She")} flushes hotly and ${this.monster.mf(
                             "touches his suddenly-stiff member, moaning lewdly for a moment.",
                             "touches a suddenly stiff nipple, moaning lewdly.  You can smell her arousal in the air."
-                        )}`,
-                        false
+                        )}`
                     );
                 this.monster.lust += 25 * this.monster.lustVuln;
                 if (this.rand(5) == 0) this.monster.lust += 25 * this.monster.lustVuln;
             }
         } else {
             this.outx(
-                `You lunge headfirst, fangs bared. Your attempt fails horrendously, as ${this.monster.a}${this.monster.short} manages to counter your lunge, pushing you back out of range.`,
-                false
+                `You lunge headfirst, fangs bared. Your attempt fails horrendously, as ${this.monster.a}${this.monster.short} manages to counter your lunge, pushing you back out of range.`
             );
         }
         this.outx("\n\n", false);
@@ -11151,15 +10895,14 @@ convert "
                 );
             } else {
                 damage = this.takeDamage(damage);
-                this.outx(`Your own fire smacks into your face! (${damage})`, false);
+                this.outx(`Your own fire smacks into your face! (${damage})`);
             }
             this.outx("\n\n", false);
         }
         // Goos burn
         else if (this.monster.short == "goo-girl") {
             this.outx(
-                ` Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer. `,
-                false
+                ` Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer. `
             );
             if (this.monster.findPerk(PerkLib.Acid) < 0)
                 this.monster.createPerk(PerkLib.Acid, 0, 0, 0, 0);
@@ -11321,7 +11064,7 @@ convert "
                     false
                 );
             } else {
-                this.outx(`Your own fire smacks into your face! (${damage})`, false);
+                this.outx(`Your own fire smacks into your face! (${damage})`);
                 this.takeDamage(damage);
             }
             this.outx("\n\n", false);
@@ -11329,8 +11072,7 @@ convert "
             // Using fire attacks on the goo]
             if (this.monster.short == "goo-girl") {
                 this.outx(
-                    ` Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer. `,
-                    false
+                    ` Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer. `
                 );
                 if (this.monster.findPerk(PerkLib.Acid) < 0)
                     this.monster.createPerk(PerkLib.Acid, 0, 0, 0, 0);
@@ -11369,8 +11111,7 @@ convert "
             case 1:
                 // Attack text 1:
                 this.outx(
-                    `You hop up to ${this.monster.a}${this.monster.short} and attempt to plant a kiss on ${this.monster.pronoun3}.`,
-                    false
+                    `You hop up to ${this.monster.a}${this.monster.short} and attempt to plant a kiss on ${this.monster.pronoun3}.`
                 );
                 break;
             // Attack text 2:
@@ -11383,29 +11124,25 @@ convert "
             // Attack text 3:
             case 3:
                 this.outx(
-                    `Swaying sensually, you wiggle up to ${this.monster.a}${this.monster.short} and attempt to plant a nice wet kiss on ${this.monster.pronoun2}.`,
-                    false
+                    `Swaying sensually, you wiggle up to ${this.monster.a}${this.monster.short} and attempt to plant a nice wet kiss on ${this.monster.pronoun2}.`
                 );
                 break;
             // Attack text 4:
             case 4:
                 this.outx(
-                    `Lunging forward, you fly through the air at ${this.monster.a}${this.monster.short} with your lips puckered and ready to smear drugs all over ${this.monster.pronoun2}.`,
-                    false
+                    `Lunging forward, you fly through the air at ${this.monster.a}${this.monster.short} with your lips puckered and ready to smear drugs all over ${this.monster.pronoun2}.`
                 );
                 break;
             // Attack text 5:
             case 5:
                 this.outx(
-                    `You lean over, your lips swollen with lust, wet with your wanting slobber as you close in on ${this.monster.a}${this.monster.short}.`,
-                    false
+                    `You lean over, your lips swollen with lust, wet with your wanting slobber as you close in on ${this.monster.a}${this.monster.short}.`
                 );
                 break;
             // Attack text 6:
             default:
                 this.outx(
-                    `Pursing your drug-laced lips, you close on ${this.monster.a}${this.monster.short} and try to plant a nice, wet kiss on ${this.monster.pronoun2}.`,
-                    false
+                    `Pursing your drug-laced lips, you close on ${this.monster.a}${this.monster.short} and try to plant a nice, wet kiss on ${this.monster.pronoun2}.`
                 );
                 break;
         }
@@ -11822,8 +11559,7 @@ convert "
                 // Run failed:
                 else {
                     this.outx(
-                        `You try to shake off the fog and run but the anemone slinks over to you and her tentacles wrap around your waist.  <i>"Stay?"</i> she asks, pressing her small breasts into you as a tentacle slides inside your ${this.player.armorName} and down to your nethers.  The combined stimulation of the rubbing and the tingling venom causes your knees to buckle, hampering your resolve and ending your escape attempt.`,
-                        false
+                        `You try to shake off the fog and run but the anemone slinks over to you and her tentacles wrap around your waist.  <i>"Stay?"</i> she asks, pressing her small breasts into you as a tentacle slides inside your ${this.player.armorName} and down to your nethers.  The combined stimulation of the rubbing and the tingling venom causes your knees to buckle, hampering your resolve and ending your escape attempt.`
                     );
                     // (gain lust, temp lose spd/str)
                     (this.monster as Anemone).applyVenom(4 + this.player.sens / 20);
@@ -11868,7 +11604,7 @@ convert "
         if (this.player.spe > this.rand(this.monster.spe + escapeMod)) {
             // Fliers flee!
             if (this.player.canFly())
-                this.outx(`${this.monster.capitalA + this.monster.short} can't catch you.`, false);
+                this.outx(`${this.monster.capitalA + this.monster.short} can't catch you.`);
             // sekrit benefit: if you have coon ears, coon tail, and Runner perk, change normal Runner escape to flight-type escape
             else if (
                 this.player.tailType == CoC.TAIL_TYPE_RACCOON &&
@@ -11884,8 +11620,7 @@ convert "
                 this.outx(
                     `${
                         this.monster.capitalA + this.monster.short
-                    } rapidly disappears into the shifting landscape behind you.`,
-                    false
+                    } rapidly disappears into the shifting landscape behind you.`
                 );
             if (this.monster.short == "Izma") {
                 this.outx(
@@ -11924,15 +11659,13 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        } manage to grab your ${this.player.legs()} and drag you back to the ground before you can fly away!`,
-                        false
+                        } manage to grab your ${this.player.legs()} and drag you back to the ground before you can fly away!`
                     );
                 else
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        } manages to grab your ${this.player.legs()} and drag you back to the ground before you can fly away!`,
-                        false
+                        } manages to grab your ${this.player.legs()} and drag you back to the ground before you can fly away!`
                     );
             }
             // fail
@@ -11950,13 +11683,11 @@ convert "
                 if (this.player.balls > 0 && this.player.ballSize >= 24) {
                     if (this.player.ballSize < 48)
                         this.outx(
-                            `With your ${this.ballsDescriptLight()} swinging ponderously beneath you, getting away is far harder than it should be.  `,
-                            false
+                            `With your ${this.ballsDescriptLight()} swinging ponderously beneath you, getting away is far harder than it should be.  `
                         );
                     else
                         this.outx(
-                            `With your ${this.ballsDescriptLight()} dragging along the ground, getting away is far harder than it should be.  `,
-                            false
+                            `With your ${this.ballsDescriptLight()} dragging along the ground, getting away is far harder than it should be.  `
                         );
                 }
                 // FATASS BODY MESSAGES
@@ -11971,43 +11702,37 @@ convert "
                             this.outx(
                                 `Your ${this.hipDescript()} forces your gait to lurch slightly side to side, which causes the fat of your ${
                                     this.player.skinTone
-                                } `,
-                                false
+                                } `
                             );
                             if (this.player.buttRating >= 20)
-                                this.outx(`${this.buttDescript()} and `, false);
+                                this.outx(`${this.buttDescript()} and `);
                             this.outx(
-                                `${this.chestDesc()} to wobble immensely, throwing you off balance and preventing you from moving quick enough to escape.`,
-                                false
+                                `${this.chestDesc()} to wobble immensely, throwing you off balance and preventing you from moving quick enough to escape.`
                             );
                         } else if (this.player.buttRating >= 20)
                             this.outx(
                                 `Your ${
                                     this.player.skinTone
-                                }${this.buttDescript()} and ${this.chestDesc()} wobble and bounce heavily, throwing you off balance and preventing you from moving quick enough to escape.`,
-                                false
+                                }${this.buttDescript()} and ${this.chestDesc()} wobble and bounce heavily, throwing you off balance and preventing you from moving quick enough to escape.`
                             );
                         else
                             this.outx(
                                 `Your ${this.chestDesc()} jiggle and wobble side to side like the ${
                                     this.player.skinTone
-                                } sacks of milky fat they are, with such force as to constantly throw you off balance, preventing you from moving quick enough to escape.`,
-                                false
+                                } sacks of milky fat they are, with such force as to constantly throw you off balance, preventing you from moving quick enough to escape.`
                             );
                     }
                     // FOR PLAYERS WITH MASSIVE BREASTS
                     else if (this.player.biggestTitSize() >= 66) {
                         if (this.player.hipRating >= 20) {
                             this.outx(
-                                `Your ${this.chestDesc()} nearly drag along the ground while your ${this.hipDescript()} swing side to side `,
-                                false
+                                `Your ${this.chestDesc()} nearly drag along the ground while your ${this.hipDescript()} swing side to side `
                             );
                             if (this.player.buttRating >= 20)
                                 this.outx(
                                     `causing the fat of your ${
                                         this.player.skinTone
-                                    }${this.buttDescript()} to wobble heavily, `,
-                                    false
+                                    }${this.buttDescript()} to wobble heavily, `
                                 );
                             this.outx(
                                 "forcing your body off balance and preventing you from moving quick enough to get escape.",
@@ -12017,27 +11742,21 @@ convert "
                             this.outx(
                                 `Your ${this.chestDesc()} nearly drag along the ground while the fat of your ${
                                     this.player.skinTone
-                                }${this.buttDescript()} wobbles heavily from side to side, forcing your body off balance and preventing you from moving quick enough to escape.`,
-                                false
+                                }${this.buttDescript()} wobbles heavily from side to side, forcing your body off balance and preventing you from moving quick enough to escape.`
                             );
                         else
                             this.outx(
-                                `Your ${this.chestDesc()} nearly drag along the ground, preventing you from moving quick enough to get escape.`,
-                                false
+                                `Your ${this.chestDesc()} nearly drag along the ground, preventing you from moving quick enough to get escape.`
                             );
                     }
                     // FOR PLAYERS WITH EITHER GIANT HIPS OR BUTT BUT NOT THE BREASTS
                     else if (this.player.hipRating >= 20) {
-                        this.outx(
-                            `Your ${this.hipDescript()} swing heavily from side to side `,
-                            false
-                        );
+                        this.outx(`Your ${this.hipDescript()} swing heavily from side to side `);
                         if (this.player.buttRating >= 20)
                             this.outx(
                                 `causing your ${
                                     this.player.skinTone
-                                }${this.buttDescript()} to wobble obscenely `,
-                                false
+                                }${this.buttDescript()} to wobble obscenely `
                             );
                         this.outx(
                             "and forcing your body into an awkward gait that slows you down, preventing you from escaping.",
@@ -12049,8 +11768,7 @@ convert "
                         this.outx(
                             `Your ${
                                 this.player.skinTone
-                            }${this.buttDescript()} wobbles so heavily that you're unable to move quick enough to escape.`,
-                            false
+                            }${this.buttDescript()} wobbles so heavily that you're unable to move quick enough to escape.`
                         );
                 }
                 // NORMAL RUN FAIL MESSAGES
@@ -12058,15 +11776,13 @@ convert "
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        } stay hot on your heels, denying you a chance at escape!`,
-                        false
+                        } stay hot on your heels, denying you a chance at escape!`
                     );
                 else
                     this.outx(
                         `${
                             this.monster.capitalA + this.monster.short
-                        } stays hot on your heels, denying you a chance at escape!`,
-                        false
+                        } stays hot on your heels, denying you a chance at escape!`
                     );
             }
         }
@@ -12089,31 +11805,26 @@ convert "
             // -miss a sting
             if (this.monster.plural)
                 this.outx(
-                    `You rush ${this.monster.a}${this.monster.short}, whipping your hair around to catch them with your tentacles, but ${this.monster.pronoun1} easily dodge.  Oy, you hope you didn't just give yourself whiplash.`,
-                    false
+                    `You rush ${this.monster.a}${this.monster.short}, whipping your hair around to catch them with your tentacles, but ${this.monster.pronoun1} easily dodge.  Oy, you hope you didn't just give yourself whiplash.`
                 );
             else
                 this.outx(
-                    `You rush ${this.monster.a}${this.monster.short}, whipping your hair around to catch it with your tentacles, but ${this.monster.pronoun1} easily dodges.  Oy, you hope you didn't just give yourself whiplash.`,
-                    false
+                    `You rush ${this.monster.a}${this.monster.short}, whipping your hair around to catch it with your tentacles, but ${this.monster.pronoun1} easily dodges.  Oy, you hope you didn't just give yourself whiplash.`
                 );
         }
         // Success!
         else {
             this.outx(
-                `You rush ${this.monster.a}${this.monster.short}, whipping your hair around like a genie`,
-                false
+                `You rush ${this.monster.a}${this.monster.short}, whipping your hair around like a genie`
             );
             this.outx(", and manage to land a few swipes with your tentacles.  ");
             if (this.monster.plural)
                 this.outx(
-                    `As the venom infiltrates ${this.monster.pronoun3} bodies, ${this.monster.pronoun1} twitch and begin to move more slowly, hampered half by paralysis and half by arousal.`,
-                    false
+                    `As the venom infiltrates ${this.monster.pronoun3} bodies, ${this.monster.pronoun1} twitch and begin to move more slowly, hampered half by paralysis and half by arousal.`
                 );
             else
                 this.outx(
-                    `As the venom infiltrates ${this.monster.pronoun3} body, ${this.monster.pronoun1} twitches and begins to move more slowly, hampered half by paralysis and half by arousal.`,
-                    false
+                    `As the venom infiltrates ${this.monster.pronoun3} body, ${this.monster.pronoun1} twitches and begins to move more slowly, hampered half by paralysis and half by arousal.`
                 );
             // (decrease speed/str, increase lust)
             // -venom capacity determined by hair length, 2-3 stings per level of length
@@ -12133,7 +11844,7 @@ convert "
             this.monster.lust += damage;
             // Clean up down to 1 decimal point
             damage = Math.round(damage * 10) / 10;
-            this.outx(` (${damage})`, false);
+            this.outx(` (${damage})`);
         }
         // New lines and moving on!
         this.outx("\n\n", false);
@@ -12329,8 +12040,7 @@ convert "
         // Using fire attacks on the goo]
         if (this.monster.short == "goo-girl") {
             this.outx(
-                `  Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer.`,
-                false
+                `  Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer.`
             );
             if (this.monster.findPerk(PerkLib.Acid) < 0)
                 this.monster.createPerk(PerkLib.Acid, 0, 0, 0, 0);
@@ -12387,8 +12097,7 @@ convert "
         // Using fire attacks on the goo]
         if (this.monster.short == "goo-girl") {
             this.outx(
-                `  Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer.`,
-                false
+                `  Your flames lick the girl's body and she opens her mouth in pained protest as you evaporate much of her moisture. When the fire passes, she seems a bit smaller and her slimy ${this.monster.skinTone} skin has lost some of its shimmer.`
             );
             if (this.monster.findPerk(PerkLib.Acid) < 0)
                 this.monster.createPerk(PerkLib.Acid, 0, 0, 0, 0);
@@ -16156,29 +15865,23 @@ We can also do * italic * and ** bold ** text!
                         this.outx(
                             `<b>Your ${this.vaginaDescript(
                                 0
-                            )} is stretched even further, capable of taking even the largest of demons and beasts.</b>  `,
-                            false
+                            )} is stretched even further, capable of taking even the largest of demons and beasts.</b>  `
                         );
                     if (this.player.vaginas[vIndex].vaginalLooseness == CoC.VAGINA_LOOSENESS_GAPING)
                         this.outx(
                             `<b>Your ${this.vaginaDescript(
                                 0
-                            )} painfully stretches, gaping wide-open.</b>  `,
-                            false
+                            )} painfully stretches, gaping wide-open.</b>  `
                         );
                     if (this.player.vaginas[vIndex].vaginalLooseness == CoC.VAGINA_LOOSENESS_LOOSE)
-                        this.outx(
-                            `<b>Your ${this.vaginaDescript(0)} is now very loose.</b>  `,
-                            false
-                        );
+                        this.outx(`<b>Your ${this.vaginaDescript(0)} is now very loose.</b>  `);
                     if (this.player.vaginas[vIndex].vaginalLooseness == CoC.VAGINA_LOOSENESS_NORMAL)
-                        this.outx(`<b>Your ${this.vaginaDescript(0)} is now loose.</b>  `, false);
+                        this.outx(`<b>Your ${this.vaginaDescript(0)} is now loose.</b>  `);
                     if (this.player.vaginas[vIndex].vaginalLooseness == CoC.VAGINA_LOOSENESS_TIGHT)
                         this.outx(
                             `<b>Your ${this.vaginaDescript(
                                 0
-                            )} loses its virgin-like tightness.</b>  `,
-                            false
+                            )} loses its virgin-like tightness.</b>  `
                         );
                 }
                 this.player.vaginas[vIndex].vaginalLooseness++;
@@ -16196,29 +15899,23 @@ We can also do * italic * and ** bold ** text!
                         this.outx(
                             `<b>Your ${this.vaginaDescript(
                                 0
-                            )} is stretched even further, capable of taking even the largest of demons and beasts.</b>  `,
-                            false
+                            )} is stretched even further, capable of taking even the largest of demons and beasts.</b>  `
                         );
                     if (this.player.vaginas[vIndex].vaginalLooseness == CoC.VAGINA_LOOSENESS_GAPING)
                         this.outx(
                             `<b>Your ${this.vaginaDescript(
                                 0
-                            )} painfully stretches, gaping wide-open.</b>  `,
-                            false
+                            )} painfully stretches, gaping wide-open.</b>  `
                         );
                     if (this.player.vaginas[vIndex].vaginalLooseness == CoC.VAGINA_LOOSENESS_LOOSE)
-                        this.outx(
-                            `<b>Your ${this.vaginaDescript(0)} is now very loose.</b>  `,
-                            false
-                        );
+                        this.outx(`<b>Your ${this.vaginaDescript(0)} is now very loose.</b>  `);
                     if (this.player.vaginas[vIndex].vaginalLooseness == CoC.VAGINA_LOOSENESS_NORMAL)
-                        this.outx(`<b>Your ${this.vaginaDescript(0)} is now loose.</b>  `, false);
+                        this.outx(`<b>Your ${this.vaginaDescript(0)} is now loose.</b>  `);
                     if (this.player.vaginas[vIndex].vaginalLooseness == CoC.VAGINA_LOOSENESS_TIGHT)
                         this.outx(
                             `<b>Your ${this.vaginaDescript(
                                 0
-                            )} loses its virgin-like tightness.</b>  `,
-                            false
+                            )} loses its virgin-like tightness.</b>  `
                         );
                 }
                 this.player.vaginas[vIndex].vaginalLooseness++;
@@ -16947,15 +16644,13 @@ We can also do * italic * and ** bold ** text!
                     this.outx(
                         `having full and lactating breasts, searching for the right person to give your milk to.  You come across a pretty human girl and invite her to your breast.  She eagerly jumps into your arms and starts to suckle from your ample bosom.  You then guide your erect ${this.player.cockDescript(
                             0
-                        )} into her waiting lower lips.  The two of you stand there in eternal bliss as she suckles on your chest and you thrust into her womanhood, until you wake from the dream.  `,
-                        false
+                        )} into her waiting lower lips.  The two of you stand there in eternal bliss as she suckles on your chest and you thrust into her womanhood, until you wake from the dream.  `
                     );
                 } else if (this.player.gender >= 2) {
                     this.outx(
                         `wandering through the forest, cradling your full and lactating breasts, searching for the right person to give your milk to.  You come across a cute human boy and invite him to your breast.  He eagerly jumps into your arms and starts to suckle from your ample bosom.  You then guide his erect cock into your ${this.vaginaDescript(
                             0
-                        )} and engulf him.  The two of you stand there in eternal bliss as he suckles on your chest and thrusts into your womanhood, until you wake from the dream.  `,
-                        false
+                        )} and engulf him.  The two of you stand there in eternal bliss as he suckles on your chest and thrusts into your womanhood, until you wake from the dream.  `
                     );
                 } else if (this.player.gender == 0) {
                     this.outx(
@@ -17064,8 +16759,7 @@ We can also do * italic * and ** bold ** text!
                 );
 
                 this.outx(
-                    `You awake with a start.  Your ${this.breastDescript(0)} jiggles grumpily.`,
-                    false
+                    `You awake with a start.  Your ${this.breastDescript(0)} jiggles grumpily.`
                 );
             }
             // Exgartucock
@@ -17675,8 +17369,7 @@ We can also do * italic * and ** bold ** text!
             // Determine if cat'ed
             else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && this.rand(100) < 6) {
                 this.outx(
-                    `With your incredible flexibility, you squeeze out of the way of ${this.monster.a}${this.monster.short}`,
-                    false
+                    `With your incredible flexibility, you squeeze out of the way of ${this.monster.a}${this.monster.short}`
                 );
                 if (this.monster.plural) this.outx("' attacks.\n", false);
                 else this.outx("'s attack.\n", false);
@@ -17687,7 +17380,7 @@ We can also do * italic * and ** bold ** text!
                 if (hits == 5) this.outx("One bites your ankle!");
                 if (hits == 4) this.outx("An imp rakes his claws down your back.");
                 if (hits == 3)
-                    this.outx("One of the little bastards manages to scratch up your legs!", false);
+                    this.outx("One of the little bastards manages to scratch up your legs!");
                 if (hits == 2) this.outx("Another imp punches you in the gut, hard!");
                 if (hits == 1) this.outx("Your arm is mauled by the clawing!");
                 damage = 20 - this.rand(this.player.tou / 10);
@@ -17867,13 +17560,12 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `The imps in the back finish their spell-casting, and point at you in unison.  A wave of pure arousal hits you with the force of a freight train.   Your equipment rubs across your suddenly violently sensitive ${this.nippleDescript(
                     0
-                )}`,
-                false
+                )}`
             );
             if (this.player.biggestLactation() > 1) this.outx(" as they begin to drip milk");
             this.outx(".  The lower portions of your coverings ");
             if (this.player.cockTotal() > 0) {
-                this.outx(`are pulled tight by your ${this.player.multiCockDescript()}, `, false);
+                this.outx(`are pulled tight by your ${this.player.multiCockDescript()}, `);
                 if (this.player.totalCocks() > 1) this.outx("each ");
                 this.outx("beading a drop of pre-cum at the tip");
                 if (this.player.hasVagina())
@@ -17927,15 +17619,13 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `A sudden weight drops onto your chest as one of the demons straddles your belly, allowing his thick, tainted fuck-stick to plop down between your ${this.allBreastsDescript()}.  The hot fluid leaking from his nodule-ringed crown  swiftly lubricates your cleavage.  In seconds the little devil is squeezing your ${this.breastDescript(
                     0
-                )} around himself as he starts pounding his member into your tits.  The purplish tip peeks out between your jiggling flesh mounds, dripping with tainted moisture.`,
-                false
+                )} around himself as he starts pounding his member into your tits.  The purplish tip peeks out between your jiggling flesh mounds, dripping with tainted moisture.`
             );
             if (this.player.biggestLactation() > 1)
                 this.outx(
                     `  Milk starts to squirt from the pressure being applied to your ${this.breastDescript(
                         0
-                    )}, which only encourages the imp to squeeze even harder.`,
-                    false
+                    )}, which only encourages the imp to squeeze even harder.`
                 );
             this.outx("\n\n", false);
         }
@@ -17944,11 +17634,10 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `A rough tweak on one of your nipples startles you, but your grunt of protest is turned into a muffled moan when one of the imp's tiny fingers plunges inside your ${this.nippleDescript(
                     0
-                )}.  He pulls his hand out, marveling at the sticky mess, and wastes no time grabbing the top of your tit with both hands and plunging himself in.`,
-                false
+                )}.  He pulls his hand out, marveling at the sticky mess, and wastes no time grabbing the top of your tit with both hands and plunging himself in.`
             );
             if (this.player.biggestTitSize() < 7)
-                this.outx("  He can only get partway in, but it doesn't seem to deter him.", false);
+                this.outx("  He can only get partway in, but it doesn't seem to deter him.");
             else
                 this.outx(
                     "  Thanks to your massive bust, he is able to fit his entire throbbing prick inside you.",
@@ -17959,7 +17648,7 @@ We can also do * italic * and ** bold ** text!
                 false
             );
             if (this.player.totalNipples() > 2) this.outx("each of ");
-            this.outx(`your other ${this.nippleDescript(0)}`, false);
+            this.outx(`your other ${this.nippleDescript(0)}`);
             if (this.player.totalNipples() > 2) this.outx("s");
             this.outx(", fighting over the opening");
             if (this.player.totalNipples() > 2) this.outx("s");
@@ -17974,8 +17663,7 @@ We can also do * italic * and ** bold ** text!
         // (SINGLE PEN)
         if (!this.player.hasVagina()) {
             this.outx(
-                `Most of the crowd centers itself around your lower body, taking a good long look at your ${this.assholeDescript()}.  An intrepid imp steps forwards and pushes his member into the unfilled orifice.  You're stretched wide by the massive and unexpectedly forceful intrusion.  The tiny corrupted nodules stroke every inch of your interior, eliciting uncontrollable spasms from your inner muscles.  The unintentional dick massage gives your rapist a wide smile, and he reaches down to smack your ass over and over again throughout the ordeal.`,
-                false
+                `Most of the crowd centers itself around your lower body, taking a good long look at your ${this.assholeDescript()}.  An intrepid imp steps forwards and pushes his member into the unfilled orifice.  You're stretched wide by the massive and unexpectedly forceful intrusion.  The tiny corrupted nodules stroke every inch of your interior, eliciting uncontrollable spasms from your inner muscles.  The unintentional dick massage gives your rapist a wide smile, and he reaches down to smack your ass over and over again throughout the ordeal.`
             );
             this.player.buttChange(12, true, true, false);
             this.outx("\n\n", false);
@@ -18022,8 +17710,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     ` of cocks buried in your ${this.nippleDescript(
                         0
-                    )} pull free before they cum, dumping the spooge into the gaping holes they've left behind.  It tingles hotly, making you quiver with pleasure.`,
-                    false
+                    )} pull free before they cum, dumping the spooge into the gaping holes they've left behind.  It tingles hotly, making you quiver with pleasure.`
                 );
             }
         }
@@ -18032,8 +17719,7 @@ We can also do * italic * and ** bold ** text!
             this.outx("and you clench tightly around the uncomfortable intrusion.");
         else {
             this.outx(
-                `and ${this.player.sMultiCockDesc()} unloads, splattering the many demons with a bit of your own seed.  You'd smile if your mouth wasn't so full of cock.  At least you got to make a mess of them!`,
-                false
+                `and ${this.player.sMultiCockDesc()} unloads, splattering the many demons with a bit of your own seed.  You'd smile if your mouth wasn't so full of cock.  At least you got to make a mess of them!`
             );
         }
         if (this.player.hasVagina()) {
@@ -18049,7 +17735,7 @@ We can also do * italic * and ** bold ** text!
             false
         );
         if (!this.player.hasVagina())
-            this.outx(" and forced to start drinking bottle after bottle of succubi milk", false);
+            this.outx(" and forced to start drinking bottle after bottle of succubi milk");
         this.outx(
             ".  You pass out just as round two is getting started, but the demons don't seem to mind....",
             false
@@ -18195,8 +17881,7 @@ We can also do * italic * and ** bold ** text!
         this.outx(
             `The girly imp to your left, seeing how occupied your ${this.cockDescript(
                 0
-            )} is, shifts his attention down to your `,
-            false
+            )} is, shifts his attention down to your `
         );
         if (this.player.balls > 0) this.outx(this.ballsDescriptLight(), false);
         else if (this.player.hasVagina()) this.outx(this.vaginaDescript(0), false);
@@ -18236,8 +17921,7 @@ We can also do * italic * and ** bold ** text!
     public impGangGetsRapedByFemale(): void {
         this.outx("", true);
         this.outx(
-            `You walk around to one of the demons and push him onto his back.  Your ${this.player.armorName} falls to the ground around you as you disrobe, looking over your tiny conquest.  A quick ripping motion disposes of his tiny loincloth, leaving his thick demon-tool totally unprotected. You grab and squat down towards it, rubbing the corrupted tool between your legs `,
-            false
+            `You walk around to one of the demons and push him onto his back.  Your ${this.player.armorName} falls to the ground around you as you disrobe, looking over your tiny conquest.  A quick ripping motion disposes of his tiny loincloth, leaving his thick demon-tool totally unprotected. You grab and squat down towards it, rubbing the corrupted tool between your legs `
         );
         if (this.player.vaginas[0].vaginalWetness >= CoC.VAGINA_WETNESS_SLICK)
             this.outx("and coating it with feminine drool ");
@@ -18249,8 +17933,7 @@ We can also do * italic * and ** bold ** text!
         this.outx("\n\n", false);
 
         this.outx(
-            `At last you feel it bottom out, bumping against your cervix with the tiniest amount of pressure.  Grinning like a cat with the cream, you swivel your hips, grinding your ${this.clitDescript()} against him in triumph.  `,
-            false
+            `At last you feel it bottom out, bumping against your cervix with the tiniest amount of pressure.  Grinning like a cat with the cream, you swivel your hips, grinding your ${this.clitDescript()} against him in triumph.  `
         );
         if (this.player.clitLength > 3)
             this.outx(
@@ -18312,10 +17995,9 @@ We can also do * italic * and ** bold ** text!
         );
         if (this.player.spe < 50)
             this.outx(
-                `fall flat on your ${this.assDescript()}, slipping on the slick, shifting surface.`,
-                false
+                `fall flat on your ${this.assDescript()}, slipping on the slick, shifting surface.`
             );
-        else this.outx("stumble and nearly fall, slipping on the shifting, slick surface.", false);
+        else this.outx("stumble and nearly fall, slipping on the shifting, slick surface.");
         // [ADD 'CONTINUE' ON]
         this.getTrappedContinuation();
     }
@@ -18343,8 +18025,7 @@ We can also do * italic * and ** bold ** text!
         );
 
         this.outx(
-            `Meanwhile, a number of tentacles have sprung up from below, and are crawling up your ${this.player.legs()}.  It's becoming fairly clear how the skeleton wound up in this cave...  You've got to escape!`,
-            false
+            `Meanwhile, a number of tentacles have sprung up from below, and are crawling up your ${this.player.legs()}.  It's becoming fairly clear how the skeleton wound up in this cave...  You've got to escape!`
         );
 
         // [FIGHT]
@@ -18355,14 +18036,13 @@ We can also do * italic * and ** bold ** text!
         // [Round 1 Action]
         if (this.monster.findStatusAffect(StatusAffects.Round) < 0) {
             this.outx(
-                `You shiver from the feeling of warm wetness crawling up your ${this.player.legs()}.   Tentacles brush against your `,
-                false
+                `You shiver from the feeling of warm wetness crawling up your ${this.player.legs()}.   Tentacles brush against your `
             );
             if (this.player.balls > 0) {
-                this.outx(`${this.ballsDescriptLight()} `, false);
+                this.outx(`${this.ballsDescriptLight()} `);
                 if (this.player.hasVagina()) this.outx("and ");
             }
-            if (this.player.hasVagina()) this.outx(`${this.vaginaDescript(0)} `, false);
+            if (this.player.hasVagina()) this.outx(`${this.vaginaDescript(0)} `);
             else if (this.player.balls == 0) this.outx("taint ");
             this.outx(
                 "as they climb ever-further up your body.  In spite of yourself, you feel the touch of arousal licking at your thoughts.\n",
@@ -18377,21 +18057,18 @@ We can also do * italic * and ** bold ** text!
         // [Round 2 Action]
         else if (this.monster.statusAffectv1(StatusAffects.Round) == 2) {
             this.outx(
-                `The tentacles under your ${this.player.armorName} squirm against you, seeking out openings to penetrate and genitalia to caress.  `,
-                false
+                `The tentacles under your ${this.player.armorName} squirm against you, seeking out openings to penetrate and genitalia to caress.  `
             );
             if (this.player.balls > 0)
                 this.outx(
-                    `One of them wraps itself around the top of your ${this.sackDescript()} while its tip slithers over your ${this.ballsDescriptLight()}.  Another `,
-                    false
+                    `One of them wraps itself around the top of your ${this.sackDescript()} while its tip slithers over your ${this.ballsDescriptLight()}.  Another `
                 );
             else this.outx("One ");
             if (this.player.cockTotal() > 0) {
                 this.outx(
                     `prods your ${this.cockDescript(
                         0
-                    )} for a second before it begins slithering around it, snake-like.  Once it has you encircled from ${this.player.cockHead()} to `,
-                    false
+                    )} for a second before it begins slithering around it, snake-like.  Once it has you encircled from ${this.player.cockHead()} to `
                 );
                 if (!this.player.hasSheath()) this.outx("base");
                 else this.outx("sheath");
@@ -18401,18 +18078,15 @@ We can also do * italic * and ** bold ** text!
                     this.outx(
                         `prods at your groin, circling around your ${this.vaginaDescript(
                             0
-                        )} deliberately, as if seeking other toys to play with.  `,
-                        false
+                        )} deliberately, as if seeking other toys to play with.  `
                     );
                     if (this.player.clitLength > 4)
                         this.outx(
-                            `It brushes your ${this.clitDescript()} then curls around it, squeezing and gently caressing it with a slow, pleasing rhythm.  `,
-                            false
+                            `It brushes your ${this.clitDescript()} then curls around it, squeezing and gently caressing it with a slow, pleasing rhythm.  `
                         );
                 } else {
                     this.outx(
-                        `prods your groin before curling around to circle your ${this.assholeDescript()} playfully.  The entire tendril pulses in a pleasant, relaxing way.  `,
-                        false
+                        `prods your groin before curling around to circle your ${this.assholeDescript()} playfully.  The entire tendril pulses in a pleasant, relaxing way.  `
                     );
                 }
             }
@@ -18422,13 +18096,11 @@ We can also do * italic * and ** bold ** text!
                     this.outx(
                         `${this.cockDescript(
                             1
-                        )} gets the same treatment, and soon both of your ${this.player.multiCockDescriptLight()} are quite happy to be here.  `,
-                        false
+                        )} gets the same treatment, and soon both of your ${this.player.multiCockDescriptLight()} are quite happy to be here.  `
                     );
                 else
                     this.outx(
-                        `${this.player.multiCockDescriptLight()} get the same treatment and soon feel quite happy to be here.  `,
-                        false
+                        `${this.player.multiCockDescriptLight()} get the same treatment and soon feel quite happy to be here.  `
                     );
             }
             if (this.player.hasVagina()) {
@@ -18437,8 +18109,7 @@ We can also do * italic * and ** bold ** text!
                         0
                     )} is swift and painless.  The fungus' slippery lubricants make it quite easy for it to slip inside, and you find your ${this.vaginaDescript(
                         0
-                    )} engorging with pleasure in spite of your need to escape.  The tentacle folds up so that it can rub its stalk over your ${this.clitDescript()}, `,
-                    false
+                    )} engorging with pleasure in spite of your need to escape.  The tentacle folds up so that it can rub its stalk over your ${this.clitDescript()}, `
                 );
                 if (this.player.clitLength > 3)
                     this.outx(
@@ -18464,7 +18135,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx("pregnant ");
             this.outx("belly as they get closer and closer to ");
             if (this.player.biggestTitSize() < 1) this.outx("your chest");
-            else this.outx(`the underside of your ${this.allBreastsDescript()}`, false);
+            else this.outx(`the underside of your ${this.allBreastsDescript()}`);
             this.outx(
                 ".  Gods above, this is turning you on!  Your lower body is being violated in every conceivable way and it's only arousing you more.  Between the mind-numbing smell and the sexual assault you're having a hard time focusing.\n",
                 false
@@ -18484,15 +18155,13 @@ We can also do * italic * and ** bold ** text!
                     0
                 )}s.  You swoon from the sensation and lean back against the wall while they stroke and caress you, teasing your sensitive ${this.nippleDescript(
                     0
-                )}.`,
-                false
+                )}.`
             );
             if (this.player.hasFuckableNipples())
                 this.outx(
                     `  Proof of your arousal leaks from each ${this.nippleDescript(
                         0
-                    )} as their entrances part for the probing tentacles.  They happily dive inside to begin fucking your breasts, doubling your pleasure.`,
-                    false
+                    )} as their entrances part for the probing tentacles.  They happily dive inside to begin fucking your breasts, doubling your pleasure.`
                 );
             this.outx(
                 "  Moans escape your mouth as your hips begin to rock in time with the tentacles and the pulsing luminance of your fungus-pod.  It would be easy to lose yourself here.  You groan loudly enough to startle yourself back to attention.  You've got to get out!\n\n",
@@ -18522,8 +18191,7 @@ We can also do * italic * and ** bold ** text!
             );
             if (this.player.totalCocks() > 0) {
                 this.outx(
-                    `, and ${this.player.sMultiCockDesc()} bloats with blood, getting larger than ever`,
-                    false
+                    `, and ${this.player.sMultiCockDesc()} bloats with blood, getting larger than ever`
                 );
             }
             this.outx(
@@ -18542,8 +18210,7 @@ We can also do * italic * and ** bold ** text!
             );
 
             this.outx(
-                `The wave of need starts out inside your crotch, begging to be let out, but you can't even be bothered to move your ${this.hipDescript()} anymore.  Without your help, release stays just out of reach, but the tentacles working your body seem intent on spurring it on.  The one inside your ${this.assholeDescript()} begins to pump more quickly, and with the added pressure, you cum quickly.  `,
-                false
+                `The wave of need starts out inside your crotch, begging to be let out, but you can't even be bothered to move your ${this.hipDescript()} anymore.  Without your help, release stays just out of reach, but the tentacles working your body seem intent on spurring it on.  The one inside your ${this.assholeDescript()} begins to pump more quickly, and with the added pressure, you cum quickly.  `
             );
             if (!this.player.hasVagina()) {
                 this.outx(
@@ -18559,16 +18226,14 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `  Your ${this.nippleDescript(
                         0
-                    )}s squirt around their phallic partners, leaking sexual lubricant `,
-                    false
+                    )}s squirt around their phallic partners, leaking sexual lubricant `
                 );
                 if (this.player.biggestLactation() > 1) this.outx("and milk ");
                 this.outx("while the fucking continues.");
             }
             if (this.player.cockTotal() > 0) {
                 this.outx(
-                    `  The tentacles around ${this.player.sMultiCockDesc()} squeeze and rotate, screwing you silly through your orgasm while cum dribbles in a steady stream from your loins.  Normally it would be squirting out in thick ropes, but the muscle-relaxing drugs in your system make the spurts a steady, weak flow.`,
-                    false
+                    `  The tentacles around ${this.player.sMultiCockDesc()} squeeze and rotate, screwing you silly through your orgasm while cum dribbles in a steady stream from your loins.  Normally it would be squirting out in thick ropes, but the muscle-relaxing drugs in your system make the spurts a steady, weak flow.`
                 );
                 if (this.player.cumQ() > 800)
                     this.outx(
@@ -18579,7 +18244,7 @@ We can also do * italic * and ** bold ** text!
             if (this.player.biggestLactation() > 1) {
                 this.outx("Milk leaks out too, ");
                 if (this.player.biggestLactation() < 2)
-                    this.outx("though the slight dribble is barely noticeable to you.", false);
+                    this.outx("though the slight dribble is barely noticeable to you.");
                 else if (this.player.biggestLactation() < 3)
                     this.outx("coloring things a little more white.");
                 else this.outx("thickening your fluid-filled prison with nutrients.");
@@ -18608,8 +18273,7 @@ We can also do * italic * and ** bold ** text!
             );
 
             this.outx(
-                `Over the next minute your head clears and your strength returns.  You push yourself up on something hard, then glance down and realize you washed up next to the skeleton!  The bleached bone leers up at you knowingly, and everything you can see is covered in a thick layer of your spooge.  ${this.player.SMultiCockDesc()} is still dripping more spunk.  Clearly your ruined orgasm didn't pump it ALL out.  You look down at the rapier and pick it up out of your mess, examining it.  The blade shines keenly, and the sword is balanced to perfection.  Though you succumbed to the same fate as its owner, your warped body saved you from sharing his fate.  Thankfully potential pods that carpet the floor don't even twitch at you.  Perhaps your orgasm was enough to sate them all?  Or maybe they've learned their lesson.`,
-                false
+                `Over the next minute your head clears and your strength returns.  You push yourself up on something hard, then glance down and realize you washed up next to the skeleton!  The bleached bone leers up at you knowingly, and everything you can see is covered in a thick layer of your spooge.  ${this.player.SMultiCockDesc()} is still dripping more spunk.  Clearly your ruined orgasm didn't pump it ALL out.  You look down at the rapier and pick it up out of your mess, examining it.  The blade shines keenly, and the sword is balanced to perfection.  Though you succumbed to the same fate as its owner, your warped body saved you from sharing his fate.  Thankfully potential pods that carpet the floor don't even twitch at you.  Perhaps your orgasm was enough to sate them all?  Or maybe they've learned their lesson.`
             );
             // (switch from loss to victory, sword loot)
             this.monster.lust = 100;
@@ -18630,8 +18294,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `Over the next minute your head clears and your strength returns.  You push yourself up on something hard, then glance down and realize you washed up next to the skeleton!  The bleached bone leers up at you knowingly, and everything you can see is covered in a thick layer of slime and milk.  Your ${this.breastDescript(
                     0
-                )} are still pouring out milk.  Clearly you weren't even close to done with your pleasure-induced lactation.  You look down at the rapier and pick it up out of your mess, examining it.  The blade shines keenly, and the sword is balanced to perfection.  Though you succumbed to the same fate as its owner, your warped body saved you from sharing his fate.  Thankfully potential pods that carpet the floor don't even twitch at you.  Perhaps your milk was enough to sate them all?  Or maybe they've learned their lesson.`,
-                false
+                )} are still pouring out milk.  Clearly you weren't even close to done with your pleasure-induced lactation.  You look down at the rapier and pick it up out of your mess, examining it.  The blade shines keenly, and the sword is balanced to perfection.  Though you succumbed to the same fate as its owner, your warped body saved you from sharing his fate.  Thankfully potential pods that carpet the floor don't even twitch at you.  Perhaps your milk was enough to sate them all?  Or maybe they've learned their lesson.`
             );
             // (switch from loss to victory, sword loot)
             this.monster.lust = 100;
@@ -18667,8 +18330,7 @@ We can also do * italic * and ** bold ** text!
         // (MALE)
         if (this.player.gender == 1 || (this.player.gender == 3 && this.rand(2) == 0)) {
             this.outx(
-                `The orgasm squirts and drips from ${this.player.sMultiCockDesc()} for what seems like forever.  It feels so right, so perfect, that you actually whine in disappointment when it finally does end.  You can't even be bothered to reach down and stroke yourself.  The softening in your loins is nothing compared to your flaccid, listless muscles.  You couldn't make your arms reach down to touch yourself even if you could work up the motivation to try.  Thankfully the slippery tentacles curl back around your `,
-                false
+                `The orgasm squirts and drips from ${this.player.sMultiCockDesc()} for what seems like forever.  It feels so right, so perfect, that you actually whine in disappointment when it finally does end.  You can't even be bothered to reach down and stroke yourself.  The softening in your loins is nothing compared to your flaccid, listless muscles.  You couldn't make your arms reach down to touch yourself even if you could work up the motivation to try.  Thankfully the slippery tentacles curl back around your `
             );
             if (!this.player.hasSheath()) this.outx("base");
             else this.outx("sheath");
@@ -18680,8 +18342,7 @@ We can also do * italic * and ** bold ** text!
             );
 
             this.outx(
-                `The vine-like stalks currently hugging ${this.player.sMultiCockDesc()} constrict the base and begin to swirl around it in a circular motion.  Warm fungi-flesh and viscous, drugged ooze work together to send hot spikes of pleasure up your spinal-cord.  Despite your recent orgasm, you aren't being given any chance to recover or refill your `,
-                false
+                `The vine-like stalks currently hugging ${this.player.sMultiCockDesc()} constrict the base and begin to swirl around it in a circular motion.  Warm fungi-flesh and viscous, drugged ooze work together to send hot spikes of pleasure up your spinal-cord.  Despite your recent orgasm, you aren't being given any chance to recover or refill your `
             );
             if (this.player.balls > 0) this.outx("balls");
             else this.outx("prostate");
@@ -18760,8 +18421,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `You step away from the mind-fucked fairy and examine the potions on the alchemy table. Sifting through the vile concoctions, you find what you were looking for- minotaur blood. Snatching the whole bottle, you step back up to the waiting fairy and wrap a fist in her pink-tinged violet hair, jerking her head backwards. She gasps in ecstatic pleasure, the pain bringing her back in a flash. Her eyes lock onto yours and hot desire curls her face into a wanton, panting grimace. You grab her face and put pressure on her cheeks, forcing her jaw open. The crimson fluid trickles down her throat and her tongue licks her lips with satisfaction, savoring your rough treatment. You cast the empty bottle aside and thrust your cock back into her slit as the walls tighten around you. You begin to rock back and forth, enjoying the feeling of the velvet vice, even groaning as her gash becomes tight enough to begin hurting your ${this.cockDescript(
                     0
-                )}.`,
-                false
+                )}.`
             );
         }
         // (Female)
@@ -18860,8 +18520,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `She squeals in delight and her knees wobble, the force of your thrust almost knocking her head into the wall she's shackled next to. You work the frightful dildo further past the girl's gaping spincter until a mere 9 inches remains protruding from her bright pink hole. You smear more of the girl's lubrication along the exposed shaft and turn your back to the fairy. Bending down, you slowly rub your ${this.buttDescript()} against the smaller, rounded base of the minotaur cock. Though your end is veiny and sheathed, it lacks the broad flare of the cock head, so you press your ${this.vaginaDescript(
                     0
-                )} against it and brace your hands on your `,
-                false
+                )} against it and brace your hands on your `
             );
             if (this.player.lowerBody == CoC.LOWER_BODY_TYPE_NAGA) this.outx("tail");
             else this.outx("knees");
@@ -18888,8 +18547,7 @@ We can also do * italic * and ** bold ** text!
                     0
                 )} penetrating her spongy, well-used cervix, her womb sucking you inside it. You release the knotted tension, spraying your spunk deep inside her. You slap your ${this.buttDescript()} against hers with each pulsing load, your pussy clenching at the dildo stuffing it even as your empty your seed into the chained slave.  You try to go limp, but the double penetrated girl keeps you from pulling out, both holes clenching you against her until every last drop of your sperm has filled her greedy womb. Fairy cum drips down your length, while the flared tip deep inside her large intestine keeps your pussy twitching against her posterior. You jill your ${this.clitDescript()} for a few minutes afterward, just enjoying the afterglow as your strength returns and the fairy's body unclenches, releasing you from your breeder's embrace, the minotaur dildo still halfway up her ass. You remind yourself to clean your ${
                     this.player.armorName
-                } after this is over, sliding into them with wet, squishing noises. Giving your drooling fairy girl's rump a slap on the way out, you head back into the dungeon- you've got demons to stomp.`,
-                false
+                } after this is over, sliding into them with wet, squishing noises. Giving your drooling fairy girl's rump a slap on the way out, you head back into the dungeon- you've got demons to stomp.`
             );
         }
         this.flags[kFLAGS.TIMES_FUCKED_VALA_IN_DUNGEON]++;
@@ -19065,8 +18723,7 @@ We can also do * italic * and ** bold ** text!
                         x
                     )} as a fucking post. You spot the wooden rack to one side of the room and the variety of carved dildos worked into the pegging ladder. A wicked thought crosses your mind, but lacking any other options, you guess you could at least give it a try. Pulling the fairy over to the lacquered bench, you choose one that seems like a likely fit and position your ${this.player.assholeOrPussy()} over the carved cock. When the fairy drops herself onto you next, she forces you down with her, penetrating you on the peg. It proves to be a bit thicker than you realized, however, and you gasp at the weight that settles into your gut. You try to get up and select a smaller peg, but the fairy's jack-hammering flight keeps you rooted on the post. Your ${this.cockDescript(
                         x
-                    )} swells from the stimulation your `,
-                    false
+                    )} swells from the stimulation your `
                 );
                 if (this.player.hasVagina()) this.outx("cunt");
                 else this.outx("prostate");
@@ -19092,8 +18749,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `Vala slides onto your ${this.cockDescript(
                         0
-                    )} with gleeful squeals as you part her rose-petal labia and slide into her well-worn depths. If the marks on her back are any indication, her ability to accommodate your girth is a result of endless sessions with the captors, probably two or more to a hole. However she ended up so stretched, it works for you because her slavering cunt sucks up your titanic dick into her well-lubricated uterus. Her abdomen distorts at your insertion, but instead of pain or fear, her expression is utter bliss, her pink eyes fluttering as she wordlessly mutters sweet nothings into your `,
-                    false
+                    )} with gleeful squeals as you part her rose-petal labia and slide into her well-worn depths. If the marks on her back are any indication, her ability to accommodate your girth is a result of endless sessions with the captors, probably two or more to a hole. However she ended up so stretched, it works for you because her slavering cunt sucks up your titanic dick into her well-lubricated uterus. Her abdomen distorts at your insertion, but instead of pain or fear, her expression is utter bliss, her pink eyes fluttering as she wordlessly mutters sweet nothings into your `
                 );
                 if (this.player.biggestTitSize() < 1) this.outx("chest");
                 else this.outx("breasts");
@@ -19127,8 +18783,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     ` and you thrust more forcefully than she was braced for, finally lifting the fey cocksleeve off your root. Without wasting a moment, you pull the locking bar out of the shackle and finally allow your orgasm to spew into her waiting womb. You slip in the fairy's cum puddle and fall on your ${this.buttDescript()} as your ${this.cockDescript(
                         0
-                    )} dumps its long-delayed loads inside the distended girl. The feeling of cum filling her pussy drives her to a fourth orgasm, her toes curling and wings flapping wildly. She's so tightly clenched around you that there's nowhere for your cum to run out, so her womb bloats to a well-feasted fatness and she loses the strength to keep writhing in your lap, simply collapsing into your `,
-                    false
+                    )} dumps its long-delayed loads inside the distended girl. The feeling of cum filling her pussy drives her to a fourth orgasm, her toes curling and wings flapping wildly. She's so tightly clenched around you that there's nowhere for your cum to run out, so her womb bloats to a well-feasted fatness and she loses the strength to keep writhing in your lap, simply collapsing into your `
                 );
                 if (this.player.biggestTitSize() < 1) this.outx("chest");
                 else this.outx("breasts");
@@ -19210,8 +18865,7 @@ We can also do * italic * and ** bold ** text!
         if (this.player.gender == 0) {
             this.outx("", true);
             this.outx(
-                `Vala forces a bottle into your throat before your defeated form has a chance to react, and you grunt with pleasure as a new gash opens between your ${this.player.legs()}!`,
-                false
+                `Vala forces a bottle into your throat before your defeated form has a chance to react, and you grunt with pleasure as a new gash opens between your ${this.player.legs()}!`
             );
             this.player.createVagina();
             this.player.gender = 2;
@@ -19313,8 +18967,7 @@ We can also do * italic * and ** bold ** text!
         // (tight ass)
         //  if(player.ass.analLooseness <= 1) {
         this.outx(
-            `"<i>It will never please them like that,</i>" she scolds. "<i>You must be made more to their liking or they will never grant you endless joy.</i>" She grinds her button-stiff clit against your abdomen as she lowers you toward the smallest peg on the rail, an uncarved, lacquered wooden nub an inch wide and three inches long, barely larger than a finger. You try to attack the fairy before she can plug you in, but she simply drops you the rest of the way, and what should've been a relatively painless insertion becomes agonizing as you hit the peg and three inches of hardened wood fill your ${this.assholeDescript()}. You gasp and try to get off the device, but the fairy has already grabbed you again and pulls you back into the air. You clench your muscles as you look at the far end of the ladder in horrified fascination at a wooden carving that would shame a minotaur. The fairy moves up a couple of notches.`,
-            false
+            `"<i>It will never please them like that,</i>" she scolds. "<i>You must be made more to their liking or they will never grant you endless joy.</i>" She grinds her button-stiff clit against your abdomen as she lowers you toward the smallest peg on the rail, an uncarved, lacquered wooden nub an inch wide and three inches long, barely larger than a finger. You try to attack the fairy before she can plug you in, but she simply drops you the rest of the way, and what should've been a relatively painless insertion becomes agonizing as you hit the peg and three inches of hardened wood fill your ${this.assholeDescript()}. You gasp and try to get off the device, but the fairy has already grabbed you again and pulls you back into the air. You clench your muscles as you look at the far end of the ladder in horrified fascination at a wooden carving that would shame a minotaur. The fairy moves up a couple of notches.`
         );
         // [Player gets looser ass, and move to next level]
         this.player.ass.analLooseness = 2;
@@ -19329,8 +18982,7 @@ We can also do * italic * and ** bold ** text!
         this.outx(
             `"<i>Sluts are trained well,</i>" she sighs, happily. "<i>This one knows only the pleasures of the masters, now.</i>" The peg under you would be above average on a normal human- easily 7 inches long and two inches wide. Your ${this.assholeDescript()} clenches and you writhe in the fairy's arms, but she lets gravity do her dirty work, lowering you onto the human-sized wooden cock, the varnished surface pulling apart your ${this.buttDescript()} and sliding into your nethers with an uncomfortable tight sensation. Despite the humiliation of the rape, the pressure on your prostate begins pumping blood into your ${this.cockDescript(
                 0
-            )}, turning your body into a traitor. You don't dare try to pull off, for fear of the damage it might do to your anus, and you are forced to sit in shame on the wooden erection. The girl flutters down and laps at your stiffening cock, trying as hard as she can not to mount you then and there. Her hungry tongue takes some of the building pain from you. Finally, she decides you've had enough and lifts you into the air, but to your dismay, she takes you another few notches down the line.`,
-            false
+            )}, turning your body into a traitor. You don't dare try to pull off, for fear of the damage it might do to your anus, and you are forced to sit in shame on the wooden erection. The girl flutters down and laps at your stiffening cock, trying as hard as she can not to mount you then and there. Her hungry tongue takes some of the building pain from you. Finally, she decides you've had enough and lifts you into the air, but to your dismay, she takes you another few notches down the line.`
         );
         // [Player's ass widens and go to next]
         this.player.ass.analLooseness++;
@@ -19366,8 +19018,7 @@ We can also do * italic * and ** bold ** text!
         this.outx(
             `Turning you around in her arms, the fairy lets you see the full depths of mindless depravity in her empty gaze. She strokes your ${this.cockDescript(
                 0
-            )}, bringing it just shy of climax before mounting you, her sopping cunny softer and warmer than anything you can remember. "<i>Silly toy,</i>" she whispers to you. "<i>It has nothing to give. The masters possess everything already.</i>" She gives you a peck on the cheek and stops flapping her dragon-fly wings, letting the two of you plummet toward the monstrosity. Your world explodes into pain and your cock erupts with a mind-breaking orgasm inside the girl before your vision fails and the merciful oblivion of unconsciousness rushes over you.`,
-            false
+            )}, bringing it just shy of climax before mounting you, her sopping cunny softer and warmer than anything you can remember. "<i>Silly toy,</i>" she whispers to you. "<i>It has nothing to give. The masters possess everything already.</i>" She gives you a peck on the cheek and stops flapping her dragon-fly wings, letting the two of you plummet toward the monstrosity. Your world explodes into pain and your cock erupts with a mind-breaking orgasm inside the girl before your vision fails and the merciful oblivion of unconsciousness rushes over you.`
         );
         // [Go to Bad End 2]
         this.doNext(this.badEndValaNumber2);
@@ -19408,8 +19059,7 @@ We can also do * italic * and ** bold ** text!
         this.outx(
             `You shiver uncontrollably and hug yourself like a wounded animal. Your ${this.nippleDescript(
                 0
-            )} and ${this.clitDescript()} burn under the pale goop, rock hard and pulsing with demands for stimulation. The fairy bitch happily places a new bucket next to you, this one fuller than the first. "<i>It wants a meal?</i>" she inquires doubtfully, perhaps hoping to keep it for herself. You reluctantly reach for the bucket, nearly lunging when it looks like the fairy is about to pull the lever again. You look into the bucket and shiver as the stench of the spooge assails your nostrils, even more potent than the jizz bath rolling down your bare skin in cream bulbs. You reluctantly take a glob between your fingers and thumb and with a timid motion, you raise your fistful of the odious syrup and spread it over your lips like a soapy lather. Rubbing the vile goo so close to your nose makes you nearly convulse at the reek and you hug at your slime-soaked body, trying to curl up, away from the reeking bucket. Your lower torso becomes a sloppy mess of pale, nearly clear fluid rolling off of your curves in blobby clumps.`,
-            false
+            )} and ${this.clitDescript()} burn under the pale goop, rock hard and pulsing with demands for stimulation. The fairy bitch happily places a new bucket next to you, this one fuller than the first. "<i>It wants a meal?</i>" she inquires doubtfully, perhaps hoping to keep it for herself. You reluctantly reach for the bucket, nearly lunging when it looks like the fairy is about to pull the lever again. You look into the bucket and shiver as the stench of the spooge assails your nostrils, even more potent than the jizz bath rolling down your bare skin in cream bulbs. You reluctantly take a glob between your fingers and thumb and with a timid motion, you raise your fistful of the odious syrup and spread it over your lips like a soapy lather. Rubbing the vile goo so close to your nose makes you nearly convulse at the reek and you hug at your slime-soaked body, trying to curl up, away from the reeking bucket. Your lower torso becomes a sloppy mess of pale, nearly clear fluid rolling off of your curves in blobby clumps.`
         );
 
         this.outx(
@@ -19422,8 +19072,7 @@ We can also do * italic * and ** bold ** text!
         );
 
         this.outx(
-            `You lift the bucket, ready to slurp up the whole pail when the fairy makes an off-handed comment. "<i>The masters mix their love with minotaur beasts, to make it seep into your mind,</i>" she sighs, wistfully, looking terribly envious of your position. The girl seems to regret giving you the addictive cum, her words dulled by your jizz-drunk senses. Dimly, some part of your mind wonders if the minotaurs' drug-like seed is already working, but it hardly matters anymore. You're too far gone by now. You put the bucket in your lap and bend down, into it. Placing the tip of your nose against its lurid surface, you breathe deeply, drinking in the odor as much as savoring the moment. Then, with relish, you submerge your ${this.player.face()} into the inky abyss of the spunk bucket, inhaling the sweet honey with an open mouth, air escaping your throat and bubbling up as you suck down gulp after gulp from your full-facial meal. The imp juice shower set your skin on fire, but drinking their salty discharge fills your organs with a raging inferno that drives away your memories, one by one. You gulp mouthfuls down, without even pausing to breathe. Every swallow blanks a part of your mind, first your crusade against the demons of the cave, then the friends you've met in this world, and then even your home. The liquid passion fills your mind, burying all else. Every part of your personality is replaced by the need for ejaculate and your vision turns white as, finally, you can't seem to recall your name.`,
-            false
+            `You lift the bucket, ready to slurp up the whole pail when the fairy makes an off-handed comment. "<i>The masters mix their love with minotaur beasts, to make it seep into your mind,</i>" she sighs, wistfully, looking terribly envious of your position. The girl seems to regret giving you the addictive cum, her words dulled by your jizz-drunk senses. Dimly, some part of your mind wonders if the minotaurs' drug-like seed is already working, but it hardly matters anymore. You're too far gone by now. You put the bucket in your lap and bend down, into it. Placing the tip of your nose against its lurid surface, you breathe deeply, drinking in the odor as much as savoring the moment. Then, with relish, you submerge your ${this.player.face()} into the inky abyss of the spunk bucket, inhaling the sweet honey with an open mouth, air escaping your throat and bubbling up as you suck down gulp after gulp from your full-facial meal. The imp juice shower set your skin on fire, but drinking their salty discharge fills your organs with a raging inferno that drives away your memories, one by one. You gulp mouthfuls down, without even pausing to breathe. Every swallow blanks a part of your mind, first your crusade against the demons of the cave, then the friends you've met in this world, and then even your home. The liquid passion fills your mind, burying all else. Every part of your personality is replaced by the need for ejaculate and your vision turns white as, finally, you can't seem to recall your name.`
         );
 
         // [Go to Bad End 2]
@@ -19448,8 +19097,7 @@ We can also do * italic * and ** bold ** text!
         this.outx(
             `Dimly, in some corner of your mind, you seem to recall having this conversation before, perhaps several times. And didn't your Mistress use to be the one who had difficulty thinking straight? Back before you were simply Pet, didn't people call you something else? A name floats just out of reach, but you shake it away as your Mistress produces a dizzying array of bottles. She feeds you a thick, green beer that fills your tummy with pleasant warmth and makes your head swim. You can feel your body changing, as your ${this.vaginaDescript(
                 0
-            )} grows deeper and wider and you giggle, flicking your fingers in and out of your pussy, playing with the hot passage. Your Mistress takes a gulp of her own and coos as the thick white fluid rolls down her throat. She raises her voice in a spritely gasp of pleasant surprise and you can see her tiny joy buzzer of a clit growing longer and thicker before your eyes. It swells to six inches, then eight, before finally settling at 10". Gradually, it gains definition and its tip broadens into a head, a small slit opening at the top, a bead of pearly cum rolling out and down the bright pink shaft. She strokes the newly grown dick with slim fingers and trembles in excitement, eyeing your body hungrily.`,
-            false
+            )} grows deeper and wider and you giggle, flicking your fingers in and out of your pussy, playing with the hot passage. Your Mistress takes a gulp of her own and coos as the thick white fluid rolls down her throat. She raises her voice in a spritely gasp of pleasant surprise and you can see her tiny joy buzzer of a clit growing longer and thicker before your eyes. It swells to six inches, then eight, before finally settling at 10". Gradually, it gains definition and its tip broadens into a head, a small slit opening at the top, a bead of pearly cum rolling out and down the bright pink shaft. She strokes the newly grown dick with slim fingers and trembles in excitement, eyeing your body hungrily.`
         );
 
         this.outx(
@@ -19529,8 +19177,7 @@ We can also do * italic * and ** bold ** text!
             `The fairy girl collapses, well-drilled obedience robbing her limbs of their fight. She squirms to a crouching bow, fully accepting you as her new ${this.player.mf(
                 "Master",
                 "Mistress"
-            )}. The warped fae's empty eyes look up at you, her face a mask of rapture as she anxiously awaits her punishment, wagging her butt in the air as lubrication gushes down her thighs. It seems being defeated has excited the broken creature to a breeding frenzy. Her endurance must be incredible to be this frisky after your battle.`,
-            false
+            )}. The warped fae's empty eyes look up at you, her face a mask of rapture as she anxiously awaits her punishment, wagging her butt in the air as lubrication gushes down her thighs. It seems being defeated has excited the broken creature to a breeding frenzy. Her endurance must be incredible to be this frisky after your battle.`
         );
         this.flags[kFLAGS.TIMES_PC_DEFEATED_VALA]++;
         // [Fuck] [Leave]
@@ -19565,14 +19212,12 @@ We can also do * italic * and ** bold ** text!
             );
 
             this.outx(
-                `She needs no additional urging, and wraps her whip-thin arms around your ${this.buttDescript()} with a grip like steel. Her corruption-strengthened dragonfly wings flutter uselessly for a moment, but as your excitement begins to drip warm fluid onto her tongue, she flaps like she means it.  `,
-                false
+                `She needs no additional urging, and wraps her whip-thin arms around your ${this.buttDescript()} with a grip like steel. Her corruption-strengthened dragonfly wings flutter uselessly for a moment, but as your excitement begins to drip warm fluid onto her tongue, she flaps like she means it.  `
             );
             // (PC Has Wings:
             if (this.player.wingType > CoC.WING_TYPE_NONE)
                 this.outx(
-                    `You decide to give her a hand, and flap your ${this.player.wingDesc} as hard as you can, the added thrust giving her the start she needs.  `,
-                    false
+                    `You decide to give her a hand, and flap your ${this.player.wingDesc} as hard as you can, the added thrust giving her the start she needs.  `
                 );
 
             this.outx(
@@ -19585,8 +19230,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `Still, she was such a willful creature, attacking you like that. Pets can't be allowed to bite their masters without punishment. Spare the rod, spoil the fairy. Lacking a rod, you use the next best thing. Keeping one arm firmly pinning the girl's thighs around your head, you reach up with the other and begin to feed fingers into her imp-loose cunt. The first three fingers slide in with practically no resistance, and your pinkie pushes in with only a bit of effort. When you reach your thumb, the girl has begun rocking her hips against your hand, rubbing her clit on your arm like a tiny tongue, smearing her sticky grease along your wrist. You push down and manage to fit your whole hand inside the girl, fingers cupped to a point, thumb tucked in your palm. She gurgles and jams her mouth against your ${this.vaginaDescript(
                     0
-                )}, doing her best to please her Mistress. You savor the wet velvet feel of her depths, sliding in and out for a moment before you decide to begin the punishment.`,
-                false
+                )}, doing her best to please her Mistress. You savor the wet velvet feel of her depths, sliding in and out for a moment before you decide to begin the punishment.`
             );
         }
         // (Male)
@@ -19601,14 +19245,12 @@ We can also do * italic * and ** bold ** text!
             );
 
             this.outx(
-                `She needs no additional urging, and wraps her whip-thin legs around your ${this.hipDescript()} with a grip like steel. Her corruption-strengthened dragonfly wings flutter uselessly for a moment, but as your excitement begins to leak globs of pre-cum into her sucking box, she flaps like she means it. `,
-                false
+                `She needs no additional urging, and wraps her whip-thin legs around your ${this.hipDescript()} with a grip like steel. Her corruption-strengthened dragonfly wings flutter uselessly for a moment, but as your excitement begins to leak globs of pre-cum into her sucking box, she flaps like she means it. `
             );
             // (PC Has Wings:
             if (this.player.wingType > CoC.WING_TYPE_NONE)
                 this.outx(
-                    `You decide to give her a hand, and flap your ${this.player.wingDesc} as hard as you can, the added thrust giving her the start she needs.  `,
-                    false
+                    `You decide to give her a hand, and flap your ${this.player.wingDesc} as hard as you can, the added thrust giving her the start she needs.  `
                 );
             this.outx(
                 "Like a hummingbird on coffee, the fairy's wings blur as she pulls the two of you into the air and a thrill of glee sends shivers down your spine as the two of you slowly circle the room, you mounting her doggy-style, hands gripping her ribs as you lean over her. The tight clenching of her overburdened flight turns her loose pussy into a tight, clenching sphincter that practically milks your shaft with every heartbeat.\n\n",
@@ -19642,8 +19284,7 @@ We can also do * italic * and ** bold ** text!
                     0
                 )}, and under your ${this.cockDescript(
                     0
-                )}. You bring the shaft to her gaping cunt and rub along her oozing labia, the puffy flesh inflamed with her desire. Slowly, you begin to slide your own cock in first, letting her walls adjust to your girth, before feeding the dildo-nozzle into her twitching hole. The pressure of your cock and the strangely warm metal drives the fairy crazy, and her steady guzzle from the bowl becomes frantic gulps, her belly beginning to show a paunch from her meal. You let the girl's crystal cum soak the chimera-cock before driving more of it into her slavering pussy, inches at a time. The girl's hips have been fucked so wide that you manage to penetrate her recesses with both cocks, though her abdomen stretches violently as the two cocks work their way deeper into her.`,
-                false
+                )}. You bring the shaft to her gaping cunt and rub along her oozing labia, the puffy flesh inflamed with her desire. Slowly, you begin to slide your own cock in first, letting her walls adjust to your girth, before feeding the dildo-nozzle into her twitching hole. The pressure of your cock and the strangely warm metal drives the fairy crazy, and her steady guzzle from the bowl becomes frantic gulps, her belly beginning to show a paunch from her meal. You let the girl's crystal cum soak the chimera-cock before driving more of it into her slavering pussy, inches at a time. The girl's hips have been fucked so wide that you manage to penetrate her recesses with both cocks, though her abdomen stretches violently as the two cocks work their way deeper into her.`
             );
         }
         this.dynStats("lus", 99, "cor", 1);
@@ -19687,8 +19328,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `Her orgasm comes a moment later, and her wings lose their wild pace, sending the two of you tumbling out of the air, toward the ground. You jerk her head back, painfully, but the girl is lost in the depths of her creaming, muscles clenching and unclenching uselessly as her seed-stuffed sex sprays the girl's clear cum into the air, crystal bubbles spilling around your falling bodies. She giggles and mumbles something about cushions before giving one last, hard flap, sending your bodies spiraling. The fairy pet's wings twists you around so that when the two bodies land, she is under you, her sex-inflated chest cushioning her fall like liquid body pillows. The sudden shock sends her into another wild orgasm, crushing you inside her impossibly tight pussy, her womb bloating from the trapped sperm your panic-fuelled body churns out. You gasp at the descent, just letting the bitch's lower lips milk your ${this.cockDescript(
                     0
-                )}, until you gather yourself. Despite your weight, she seems uninjured, her eyes rolling aimlessly in their sockets, a brainless smile plastered across her face. You rise, unsteadily, and leave the fairy lying there, ass in the air, gushing cunt stuffed with your cum all the way to her clit, your exhausting creampie finally satisfying the fey whore. You'd have to be crazy to try that again, you pant, trying to slow your heartbeat. Next to that wild ride, the demons should be no problem, you sigh, fatigued.`,
-                false
+                )}, until you gather yourself. Despite your weight, she seems uninjured, her eyes rolling aimlessly in their sockets, a brainless smile plastered across her face. You rise, unsteadily, and leave the fairy lying there, ass in the air, gushing cunt stuffed with your cum all the way to her clit, your exhausting creampie finally satisfying the fey whore. You'd have to be crazy to try that again, you pant, trying to slow your heartbeat. Next to that wild ride, the demons should be no problem, you sigh, fatigued.`
             );
         }
         // herm2
@@ -19714,8 +19354,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `The steel against your cock and inside your cunny gurgle with their restrained payloads and you resist the urge to twist both nozzles until they break, instead beginning a slow bucking ride of the fairy. Sliding the imp cock into your gash on each back-thrust, and stuffing more of the monstrous dildo into her quivering body with every bucking motion, you work your arms as much as your ${this.hipDescript()}. The bulge of your tools inside her nubile body gets deeper with every push, rushing to meet the swell of her cum-stuffed stomach. The girl has already slurped up nearly two of the three gallons you poured for her. As you're rocking back, building up to a truly delicious orgasm, the slick girl cum from your ${this.vaginaDescript(
                     0
-                )} drips between your fingers and you lose your grip momentarily. Trying to regain it, your hand accidentally strokes the nozzle at the base and your eyes go wide as the imp cock unleashes a torrent of seething spunk into your body. Panicking, you try to twist it shut again, but only manage to open the spigot all the way, your abdomen nearly bursting as the firehose blasts your cervix with a gushing pillar of cum.`,
-                false
+                )} drips between your fingers and you lose your grip momentarily. Trying to regain it, your hand accidentally strokes the nozzle at the base and your eyes go wide as the imp cock unleashes a torrent of seething spunk into your body. Panicking, you try to twist it shut again, but only manage to open the spigot all the way, your abdomen nearly bursting as the firehose blasts your cervix with a gushing pillar of cum.`
             );
 
             this.outx(
@@ -19727,8 +19366,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `Your ${this.cockDescript(
                         0
-                    )} inside the fairy girl's ass erupts first, pumping your seed into her bowls, her hips distorting with the bursting flow of your cum, sphincter's clenching powerless to stop your alabaster flood.  `,
-                    false
+                    )} inside the fairy girl's ass erupts first, pumping your seed into her bowls, her hips distorting with the bursting flow of your cum, sphincter's clenching powerless to stop your alabaster flood.  `
                 );
             this.outx(
                 `Inside the fairy's drooling pussy, your ${this.cockDescript(
@@ -19742,8 +19380,7 @@ We can also do * italic * and ** bold ** text!
                     0
                 )} and pull it out, tenderly. Your abdomen has been filled enough to leave a paunch of infernal cream below your belly. You press down on it, demonic ichor spilling out of your swollen vagina and splashing between your thighs. You sigh and hope the seed doesn't take hold. Speaking of taking hold, you switch off the gushing monster pump and carefully pull your ${this.cockDescript(
                     0
-                )} out of the fairy, making sure the metal dildo remains fixed in place to hold the cum inside. You slide out from between her legs and rise unsteadily to look at your handiwork. The fairy has been filled, top to bottom, all three gallons you sprayed in her bowl gone down her thirsty gullet. The jizz you packed into her womb bloats her even further, her belly nearly four times larger than it was when you found her. She wriggles on the ground, lost to the cummy heaven her mindless body has been plunged into. That should keep her occupied while you root out the imps.`,
-                false
+                )} out of the fairy, making sure the metal dildo remains fixed in place to hold the cum inside. You slide out from between her legs and rise unsteadily to look at your handiwork. The fairy has been filled, top to bottom, all three gallons you sprayed in her bowl gone down her thirsty gullet. The jizz you packed into her womb bloats her even further, her belly nearly four times larger than it was when you found her. She wriggles on the ground, lost to the cummy heaven her mindless body has been plunged into. That should keep her occupied while you root out the imps.`
             );
         }
         this.player.orgasm();
@@ -19950,8 +19587,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `Finally spent, you step back and toss the girl off of your ${this.cockDescript(
                     0
-                )}, letting her fall back into a slump against the wall, dangling from her manacles. A wicked thought crosses your mind and you step back to the alchemy table. Grabbing armfuls of hexagonal bottles, you flip the girl around, exposing her drooling, empty face and her sore, gushing breasts. You plug a bottle up to her lips and she begins sucking at it automatically, perhaps believing it's a dick in some corner of her ravaged mind. Vala quaffs the Ovi Elixir gratefully, then a second, then a third. By the time you've finished pouring the stuff down her throat, her body has already begun changing. The elixir has pounced on your seed and forced her ovulation, rapidly accelerating the speed of conception. Her tummy pouts, then bloats as your sperm impregnates the fairy in seconds. Her abdomen swells violently, and you suspect that force-feeding her so much so quickly may have resulted in twins or triplets. She moans in blissful pregnancy, her already disproportioned tits gurgling with even greater milky weight. If there was any doubt as to if she could stand under her own power before, it's gone now- even your strength wouldn't be able to move the breeding cow that you've turned her into. Knowing your luck, however, she'll have given birth by the time you check in next.`,
-                false
+                )}, letting her fall back into a slump against the wall, dangling from her manacles. A wicked thought crosses your mind and you step back to the alchemy table. Grabbing armfuls of hexagonal bottles, you flip the girl around, exposing her drooling, empty face and her sore, gushing breasts. You plug a bottle up to her lips and she begins sucking at it automatically, perhaps believing it's a dick in some corner of her ravaged mind. Vala quaffs the Ovi Elixir gratefully, then a second, then a third. By the time you've finished pouring the stuff down her throat, her body has already begun changing. The elixir has pounced on your seed and forced her ovulation, rapidly accelerating the speed of conception. Her tummy pouts, then bloats as your sperm impregnates the fairy in seconds. Her abdomen swells violently, and you suspect that force-feeding her so much so quickly may have resulted in twins or triplets. She moans in blissful pregnancy, her already disproportioned tits gurgling with even greater milky weight. If there was any doubt as to if she could stand under her own power before, it's gone now- even your strength wouldn't be able to move the breeding cow that you've turned her into. Knowing your luck, however, she'll have given birth by the time you check in next.`
             );
         }
         // f2
@@ -19959,8 +19595,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `She squeals in delight and her knees wobble, the force of your thrust almost knocking her head into the wall she's shackled next to. You work the huge dildo further into the girl's drooling snatch until a mere 9 inches remains protruding from her bright pink cunny. You smear more of the girl's lubrication along the exposed shaft and turn your back to the fairy. Bending down, you slowly rub your ${this.buttDescript()} against the smaller, rounded base of the minotaur cock. Though your end is veiny and sheathed, it lacks the broad flare of the cock head, so you press your ${this.vaginaDescript(
                     0
-                )} against it and brace your hands on your knees. Rolling your ass up and down, you let your own excitement-thick lube smear the rounded end before you take a step backwards, toward the fairy. The bulb slides past your ${this.assholeDescript()} and presses against your vaginal entrance, its girth exciting and frightening. You take a deep breath, but before you're ready, Vala bucks backward and drives the dildo into your unprepared cunt, provoking a cry of surprise.`,
-                false
+                )} against it and brace your hands on your knees. Rolling your ass up and down, you let your own excitement-thick lube smear the rounded end before you take a step backwards, toward the fairy. The bulb slides past your ${this.assholeDescript()} and presses against your vaginal entrance, its girth exciting and frightening. You take a deep breath, but before you're ready, Vala bucks backward and drives the dildo into your unprepared cunt, provoking a cry of surprise.`
             );
 
             this.outx(
@@ -19973,8 +19608,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `You clutch your ${this.allBreastsDescript()} and squeeze your ${this.nippleDescript(
                     0
-                )} until it hurts, the agony giving you strength to drive the dildo back into the fairy, but it's a losing battle. Vala cums before you do, her pulsing walls locking down and driving the dildo out, inch by painful inch, deeper into your body until the base is so far against your gut that it is pushed into your womb with a toe-curling pop. You silently scream in ecstasy and agony, unable to believe that the frail fairy managed to fuck your womb with your own toy. Your strength falters and you slump down, sliding off the shaft with soothing regret, your cervix clenching wildly, still spasming from its penetration. You roll onto your back, fairy cum all around you, even now dripping down the lube-slick cock still sticking out of the girl's pussy, flared tip keeping it locked inside of her. You jill your ${this.clitDescript()} for a few minutes afterward, just enjoying the afterglow, lapping at the dripping sprite cum that dribbles onto your face from the fairy's shivering, dick-stuffed cunt. Gradually, your strength returns and you rise, skin slick with the cum pool you've been basking in. You give Vala's ass a slap on your way out- a reward for your favorite brainless fairy.`,
-                false
+                )} until it hurts, the agony giving you strength to drive the dildo back into the fairy, but it's a losing battle. Vala cums before you do, her pulsing walls locking down and driving the dildo out, inch by painful inch, deeper into your body until the base is so far against your gut that it is pushed into your womb with a toe-curling pop. You silently scream in ecstasy and agony, unable to believe that the frail fairy managed to fuck your womb with your own toy. Your strength falters and you slump down, sliding off the shaft with soothing regret, your cervix clenching wildly, still spasming from its penetration. You roll onto your back, fairy cum all around you, even now dripping down the lube-slick cock still sticking out of the girl's pussy, flared tip keeping it locked inside of her. You jill your ${this.clitDescript()} for a few minutes afterward, just enjoying the afterglow, lapping at the dripping sprite cum that dribbles onto your face from the fairy's shivering, dick-stuffed cunt. Gradually, your strength returns and you rise, skin slick with the cum pool you've been basking in. You give Vala's ass a slap on your way out- a reward for your favorite brainless fairy.`
             );
         }
         // h2
@@ -20042,8 +19676,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `Vala slides onto your cockhead with gleeful squeals as you part her rose-petal labia and slide into her well-worn depths. Her body's recovered some of its tightness, and hugs your ${this.cockDescript(
                     0
-                )} comfortably, walls clenching as her slavering cunt sucks your dick into her well-lubricated passage. Her abdomen distorts at your insertion, but instead of pain or fear, her expression is utter bliss, her pink eyes fluttering as she wordlessly mutters sweet nothings into your chest. She's tight and getting tighter as you pump slowly, working your long inches into the fairy's needy hole. Her body is hot around you and her milky tits drool with each thrust, their milk fragrant like rose water. At this rate, the condom-tight girl is going to make you blow your load before you get a chance to give her an orgasm of her own.`,
-                false
+                )} comfortably, walls clenching as her slavering cunt sucks your dick into her well-lubricated passage. Her abdomen distorts at your insertion, but instead of pain or fear, her expression is utter bliss, her pink eyes fluttering as she wordlessly mutters sweet nothings into your chest. She's tight and getting tighter as you pump slowly, working your long inches into the fairy's needy hole. Her body is hot around you and her milky tits drool with each thrust, their milk fragrant like rose water. At this rate, the condom-tight girl is going to make you blow your load before you get a chance to give her an orgasm of her own.`
             );
         }
         // (Female)
@@ -20085,8 +19718,7 @@ We can also do * italic * and ** bold ** text!
                     0
                 )}, and under your ${this.player.multiCockDescriptLight()}. You bring your shaft to her gaping cunt and rub along her oozing labia, the puffy flesh inflamed with her desire. Slowly, you begin to slide your ${this.cockDescript(
                     0
-                )} in first, letting her walls adjust to your girth, before pressing the dildo-nozzle into her twitching hole. The pressure of the strangely warm metal drives the fairy crazy, and her steady guzzle from the bowl becomes frantic gulps, her belly beginning to show a paunch from her meal. You let the girl's crystal cum soak the chimera-cock before feeding it into her slavering pussy, inches at a time. The girl's brood mother hips are so wide that you manage to penetrate her recesses with both cocks, though her abdomen stretches violently as the two cocks work their way deeper into her.`,
-                false
+                )} in first, letting her walls adjust to your girth, before pressing the dildo-nozzle into her twitching hole. The pressure of the strangely warm metal drives the fairy crazy, and her steady guzzle from the bowl becomes frantic gulps, her belly beginning to show a paunch from her meal. You let the girl's crystal cum soak the chimera-cock before feeding it into her slavering pussy, inches at a time. The girl's brood mother hips are so wide that you manage to penetrate her recesses with both cocks, though her abdomen stretches violently as the two cocks work their way deeper into her.`
             );
         }
         this.dynStats("lus", 999);
@@ -20190,8 +19822,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `The ${this.cockDescript(
                         1
-                    )} inside the fairy girl's ass erupts first, pumping your seed into her bowels, her hips distorting with the bursting flow of your cum, her sphincters clenching powerless to stop your alabaster flood.  `,
-                    false
+                    )} inside the fairy girl's ass erupts first, pumping your seed into her bowels, her hips distorting with the bursting flow of your cum, her sphincters clenching powerless to stop your alabaster flood.  `
                 );
             this.outx(
                 `Inside Vala's drooling pussy, your ${this.cockDescript(
@@ -20203,8 +19834,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `When your orgasm subsides, you finally manage to switch off the imp pump in your ${this.vaginaDescript(
                     0
-                )} and pull it out, tenderly. Your abdomen has been filled enough to leave a paunch of infernal cream below your belly. You press down on it, demonic ichor spilling out of your swollen vagina and splashing between your ${this.hipDescript()}. You sigh and hope the seed doesn't take hold. Speaking of taking hold, you switch off the gushing monster pump and carefully pull your ${this.player.multiCockDescriptLight()} out of the fairy, making sure the metal dildo remains fixed in place to hold the cum inside. You slide out from between her legs and rise unsteadily to look at your handiwork. The fairy has been filled, top to bottom, all three gallons you sprayed in her bowl gone down her thirsty gullet. The jizz you packed into her womb bloats her even further, the girl's belly nearly four times larger than it was when you found her. She wriggles on the ground, lost to the cummy heaven her mindless body has been plunged into. You're not sure what kind of fucked up child that little exchange would give her, but if anybody had the vagina to pass a monster, it'd be Vala. You probably won't get to find out, though. Who knows what kind of incubation period the chimera-kid will have?`,
-                false
+                )} and pull it out, tenderly. Your abdomen has been filled enough to leave a paunch of infernal cream below your belly. You press down on it, demonic ichor spilling out of your swollen vagina and splashing between your ${this.hipDescript()}. You sigh and hope the seed doesn't take hold. Speaking of taking hold, you switch off the gushing monster pump and carefully pull your ${this.player.multiCockDescriptLight()} out of the fairy, making sure the metal dildo remains fixed in place to hold the cum inside. You slide out from between her legs and rise unsteadily to look at your handiwork. The fairy has been filled, top to bottom, all three gallons you sprayed in her bowl gone down her thirsty gullet. The jizz you packed into her womb bloats her even further, the girl's belly nearly four times larger than it was when you found her. She wriggles on the ground, lost to the cummy heaven her mindless body has been plunged into. You're not sure what kind of fucked up child that little exchange would give her, but if anybody had the vagina to pass a monster, it'd be Vala. You probably won't get to find out, though. Who knows what kind of incubation period the chimera-kid will have?`
             );
         }
         // [End Encounter]
@@ -20391,24 +20021,21 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `Feeling your straining body, hard against hers, she runs a hand through her purple hair, spilling it across half of her face. "<i>I want you to enjoy this as much as I will.</i>" Vala reaches a hand between her legs and slides against your abdomen, guiding your ${this.cockDescript(
                     0
-                )} into her pussy. The fae's labia practically breathes the heat of her uterus across your twitching shaft and you slide through her well-lubricated depths with a moist sigh, her inhuman snatch tight with her passionate yearning. She rocks back and forth barely an inch at a time, but it's enough to ignite a manic need in your loins. `,
-                false
+                )} into her pussy. The fae's labia practically breathes the heat of her uterus across your twitching shaft and you slide through her well-lubricated depths with a moist sigh, her inhuman snatch tight with her passionate yearning. She rocks back and forth barely an inch at a time, but it's enough to ignite a manic need in your loins. `
             );
             // [2 dicks-
             if (this.player.totalCocks() > 1)
                 this.outx(
                     `"<i>Fairies don't exactly crap rainbows, but we're not quite like normal humans either,</i>" she grins, taking your ${this.cockDescript(
                         1
-                    )} and pressing it against her pudgy butt, her pink sphincter loosening just enough to slip your cockhead inside the fairy's body before it clenches down. It almost feels like she's got a hand inside of her ass; the walls ripple with expert coordination, rings of muscle clenching and loosening with a dexterity that takes the breath from you. Your tip, sealed just inside her posterior, is milked with a tight grace that has your body twitching before you realize it.  `,
-                    false
+                    )} and pressing it against her pudgy butt, her pink sphincter loosening just enough to slip your cockhead inside the fairy's body before it clenches down. It almost feels like she's got a hand inside of her ass; the walls ripple with expert coordination, rings of muscle clenching and loosening with a dexterity that takes the breath from you. Your tip, sealed just inside her posterior, is milked with a tight grace that has your body twitching before you realize it.  `
                 );
             // 3+ dicks-
             if (this.player.cockTotal() >= 3)
                 this.outx(
                     `Vala takes a deep breath, letting the feeling of your meat inside her gut stoke the fires of lust growing in her belly. "<i>I think there's a little room left, if you're game,</i>" she whispers, moving to your ${this.cockDescript(
                         2
-                    )}. She bites her lower lip and forces herself down on it, squeezing your two shafts together in her well-lubed love tunnel. The feeling of your straining lengths inside her triple-stuffed body is an ecstatic agony that robs you of words and your body thrusts helplessly, Vala's breeder hips grinding in fleshy ripples, her lower torso swollen with cock.  `,
-                    false
+                    )}. She bites her lower lip and forces herself down on it, squeezing your two shafts together in her well-lubed love tunnel. The feeling of your straining lengths inside her triple-stuffed body is an ecstatic agony that robs you of words and your body thrusts helplessly, Vala's breeder hips grinding in fleshy ripples, her lower torso swollen with cock.  `
                 );
             this.outx(
                 "You try to hold back the orgasm, but it's too late and your cock explodes inside the fairy's unearthly womanhood.\n\n",
@@ -20442,8 +20069,7 @@ We can also do * italic * and ** bold ** text!
             );
 
             this.outx(
-                `Still in your lap, she swings her legs around yours and braces herself with one hand around your neck and the other on your knees. Sliding back and forth, she strokes her pussy against yours, the slick folds of her labia rubbing against your ${this.clitDescript()} with wet squishing sounds, sending electric shivers up your spine. You begin to rock back, in time with her motions, your stiff clit stroking hers in tight circles that leave the fairy panting, her legs clenching and unclenching around your ${this.buttDescript()}. The two of you jill against the other's joy buzzers until your bodies tremble with orgasm, the fairy sliding her hand from your neck to one of your heaving breasts, squeezing a nipple between her second knuckles hard enough to make you squeak with pain.`,
-                false
+                `Still in your lap, she swings her legs around yours and braces herself with one hand around your neck and the other on your knees. Sliding back and forth, she strokes her pussy against yours, the slick folds of her labia rubbing against your ${this.clitDescript()} with wet squishing sounds, sending electric shivers up your spine. You begin to rock back, in time with her motions, your stiff clit stroking hers in tight circles that leave the fairy panting, her legs clenching and unclenching around your ${this.buttDescript()}. The two of you jill against the other's joy buzzers until your bodies tremble with orgasm, the fairy sliding her hand from your neck to one of your heaving breasts, squeezing a nipple between her second knuckles hard enough to make you squeak with pain.`
             );
             // [Lactating-
             if (this.player.biggestLactation() >= 1)
@@ -20471,8 +20097,7 @@ We can also do * italic * and ** bold ** text!
                         0
                     )}, lapping up your girl cum, exploring every bumpy recess of your twitching pussy. You are practically inundated by the girl's slippery slit, her sweet nectar gushing around your lips and into your nose as she slowly rolls the two of you through the air in an elegant dance, bodies entwined in passionate feasting, losing yourself to a symphony of glistening, pink flesh. After who knows how many climaxes the girl licks out of your sensitive snatch, she gently lands the two of you on the floor, still nuzzling in your coupled embrace. You'd lost track of how much of her earthy lubrication you've swallowed, but feeling the solid ground beneath you makes you aware that your belly jiggles with a surprising heaviness, like you've spent the night drinking gallons of honey wine. Vala slides her legs down your body, rubbing her still juicy cunny across your ${
                         this.player.skinDesc
-                    } until she has righted herself to give you a big, wet kiss, your clear cream still moist on her lips. "<i>I wish we could do that every night,</i>" she sighs, happily.`,
-                    false
+                    } until she has righted herself to give you a big, wet kiss, your clear cream still moist on her lips. "<i>I wish we could do that every night,</i>" she sighs, happily.`
                 );
             }
             // [Medium characters- 5'- 6'2"]
@@ -20515,8 +20140,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `Vala's lips, perhaps trained to please imp cocks, are tighter on your ${this.nippleDescript(
                         0
-                    )} than you would've believed possible, suckling milk from your depths. With a breathtaking mixture of pressure and softness, she nurses your breast more efficiently than any machine, your warm milk filling her hungry maw in short order. She nurses at each breast in turn, bringing each one to frothy lactation faster than the last until your chest is heaving, your breasts jiggling, and your body clenching down in a shivering climax. Your orgasm leaves you unprepared for the fairy girl's and when her body starts quivering, her breasts flood your mouth with more milk than you can handle. Even swallowing as quickly as you can, it runs through your lips and even up your nose in two twin jets of pale alabaster that leave your nostrils wet with the lingering scent of honey wine. Sweating and still leaking milk, she rights herself and lands, cupping her breasts with one hand and stroking the paunch of her tiny stomach with the other. "<i>Ooo... so full. I hope I was as good for you as you were for me,</i>" she coos.`,
-                    false
+                    )} than you would've believed possible, suckling milk from your depths. With a breathtaking mixture of pressure and softness, she nurses your breast more efficiently than any machine, your warm milk filling her hungry maw in short order. She nurses at each breast in turn, bringing each one to frothy lactation faster than the last until your chest is heaving, your breasts jiggling, and your body clenching down in a shivering climax. Your orgasm leaves you unprepared for the fairy girl's and when her body starts quivering, her breasts flood your mouth with more milk than you can handle. Even swallowing as quickly as you can, it runs through your lips and even up your nose in two twin jets of pale alabaster that leave your nostrils wet with the lingering scent of honey wine. Sweating and still leaking milk, she rights herself and lands, cupping her breasts with one hand and stroking the paunch of her tiny stomach with the other. "<i>Ooo... so full. I hope I was as good for you as you were for me,</i>" she coos.`
                 );
             }
         }
@@ -20586,8 +20210,7 @@ We can also do * italic * and ** bold ** text!
             }
             // [All characters]
             this.outx(
-                `Vala's irrepressible energy is restored in short order, and she re-dresses swiftly, barely noticing the tiny milk spots staining her green dress or the thin trail of cum leaking between her legs as she flutters a foot off the ground. She gives you a kiss on the cheek and winks affectionately. "<i>Visit me any time, okay ${this.player.short}? For a free drink or... anything else,</i>" she winks. She bundles her hair back up into a sensible bun and flies out of the stockroom, ignoring the curious glances that follow her as she retrieves her plain apron. You sigh appreciatively and retrieve your own clothes only to find that you've grown! Whatever growth drug the imps gave to Vala must not be entirely out of her system, because her milk seems to have added an extra inch to your frame.`,
-                false
+                `Vala's irrepressible energy is restored in short order, and she re-dresses swiftly, barely noticing the tiny milk spots staining her green dress or the thin trail of cum leaking between her legs as she flutters a foot off the ground. She gives you a kiss on the cheek and winks affectionately. "<i>Visit me any time, okay ${this.player.short}? For a free drink or... anything else,</i>" she winks. She bundles her hair back up into a sensible bun and flies out of the stockroom, ignoring the curious glances that follow her as she retrieves her plain apron. You sigh appreciatively and retrieve your own clothes only to find that you've grown! Whatever growth drug the imps gave to Vala must not be entirely out of her system, because her milk seems to have added an extra inch to your frame.`
             );
             if (this.player.tallness >= 120) {
                 this.outx(
@@ -20604,8 +20227,7 @@ We can also do * italic * and ** bold ** text!
         else if (this.player.hasVagina()) {
             // [All characters]
             this.outx(
-                `Vala's irrepressible energy is restored in short order, and she redresses swiftly barely noticing the tiny milk spots staining her green dress or the thin trail of lubrication leaking between her legs as she flutters a foot off the ground. She gives you a kiss on the cheek and winks affectionately. "<i>Visit me anytime, okay ${this.player.short}? For a free drink or... anything else,</i>" she winks. She bundles her hair back up into a sensible bun and flies out of the stockroom, ignoring the curious glances that follow her as she retrieves her plain apron. You sigh appreciatively and retrieve your own clothes only to find that you've grown! Whatever growth drug the imps gave to Vala must not be entirely out of her system, because her milk seems to have added an extra inch to your frame.`,
-                false
+                `Vala's irrepressible energy is restored in short order, and she redresses swiftly barely noticing the tiny milk spots staining her green dress or the thin trail of lubrication leaking between her legs as she flutters a foot off the ground. She gives you a kiss on the cheek and winks affectionately. "<i>Visit me anytime, okay ${this.player.short}? For a free drink or... anything else,</i>" she winks. She bundles her hair back up into a sensible bun and flies out of the stockroom, ignoring the curious glances that follow her as she retrieves her plain apron. You sigh appreciatively and retrieve your own clothes only to find that you've grown! Whatever growth drug the imps gave to Vala must not be entirely out of her system, because her milk seems to have added an extra inch to your frame.`
             );
             if (this.player.tallness >= 120) {
                 this.outx(
@@ -20628,8 +20250,7 @@ We can also do * italic * and ** bold ** text!
         this.spriteSelect(60);
         this.outx("", true);
         this.outx(
-            `She flashes a beautiful smile and tells the bartender that she'll be taking her break early. Grabbing you by the hand, she rushes to the stockroom and sheds her dress without any trace of her former shame about her tattooed back. When you're too slow taking off your ${this.player.armorName}, she helps, deft hands made all the quicker by eagerness. When the two of you are naked, she pushes you onto the well-worn stool and sits in your lap, staring into your eyes with a small smile.`,
-            false
+            `She flashes a beautiful smile and tells the bartender that she'll be taking her break early. Grabbing you by the hand, she rushes to the stockroom and sheds her dress without any trace of her former shame about her tattooed back. When you're too slow taking off your ${this.player.armorName}, she helps, deft hands made all the quicker by eagerness. When the two of you are naked, she pushes you onto the well-worn stool and sits in your lap, staring into your eyes with a small smile.`
         );
         // [Next] (go to Growth scene)
         this.doNext(this.cleansedValaFuckHerBrainsOut);
@@ -20710,20 +20331,17 @@ We can also do * italic * and ** bold ** text!
         this.outx(
             `The pixie girl gives your shaft a little kiss and places her lips on your cockhead. She puffs her cheeks and whispers a string of strange words into your ${this.cockDescript(
                 0
-            )}. All at once, the soft petals around you meld into one warm, hard case, perfectly mirroring your cock like an organic condom. Your mind explodes as your carefully coaxed orgasm is finally released in one body-shaking crescendo. Every muscle in your body clenches, your cock geysering its torrential gouts of seed into the flower petal condom. Rather than bursting apart, the enchanted device merely swells, drinking your seed and slowly lifting off of your shaft. `,
-            false
+            )}. All at once, the soft petals around you meld into one warm, hard case, perfectly mirroring your cock like an organic condom. Your mind explodes as your carefully coaxed orgasm is finally released in one body-shaking crescendo. Every muscle in your body clenches, your cock geysering its torrential gouts of seed into the flower petal condom. Rather than bursting apart, the enchanted device merely swells, drinking your seed and slowly lifting off of your shaft. `
         );
         // [Balls-
         if (this.player.balls > 0)
             this.outx(
-                `Vala's tongue caresses your ${this.ballsDescriptLight()}, slurping hungrily, eager to get every drop out of your overburdened sac.  `,
-                false
+                `Vala's tongue caresses your ${this.ballsDescriptLight()}, slurping hungrily, eager to get every drop out of your overburdened sac.  `
             );
         this.outx(
             `You nearly forget to breathe as jizz pours from your body until the dick-shaped shell is entirely forced from your body. Deftly, Vala catches the device before it can spill its load and she pastes her own, much larger, petal on the base, sealing your spunk inside. The verdant shaft, now that it's off your cock, seems to be a dildo perfectly molded to resemble your ${this.cockDescript(
                 0
-            )}. It's a soft pink color, like engorged genitals, and even gently pulses with your every heartbeat.`,
-            false
+            )}. It's a soft pink color, like engorged genitals, and even gently pulses with your every heartbeat.`
         );
         // (Extremely high cum production:
         if (this.player.cumQ() > 2000)
@@ -20893,8 +20511,7 @@ We can also do * italic * and ** bold ** text!
             );
             if (this.monster.statusAffectv1(StatusAffects.Constricted) <= 0) {
                 this.outx(
-                    `  ${this.monster.capitalA}${this.monster.short} proves to be too much for your tail to handle, breaking free of your tightly bound coils.`,
-                    false
+                    `  ${this.monster.capitalA}${this.monster.short} proves to be too much for your tail to handle, breaking free of your tightly bound coils.`
                 );
                 this.monster.removeStatusAffect(StatusAffects.Constricted);
             }
@@ -20935,8 +20552,7 @@ We can also do * italic * and ** bold ** text!
                     );
                 } else {
                     this.outx(
-                        `You try to avoid it, but the fragile glass shatters against you, coating you in sticky red liquid.  It seeps into your ${this.player.skinDesc} and leaves a pleasant, residual tingle in its wake.  Oh no...`,
-                        false
+                        `You try to avoid it, but the fragile glass shatters against you, coating you in sticky red liquid.  It seeps into your ${this.player.skinDesc} and leaves a pleasant, residual tingle in its wake.  Oh no...`
                     );
                     // [Applies: "Temporary Heat" status]
                     if (this.player.findStatusAffect(StatusAffects.TemporaryHeat) < 0)
@@ -20955,9 +20571,9 @@ We can also do * italic * and ** bold ** text!
                 else {
                     let dmg: number = 1 + this.rand(6);
                     dmg = this.takeDamage(dmg);
-                    this.outx(`wounding you slightly (${dmg})`, false);
+                    this.outx(`wounding you slightly (${dmg})`);
                 }
-                this.outx(" while the dust gets into your eyes, temporarily blinding you!", false);
+                this.outx(" while the dust gets into your eyes, temporarily blinding you!");
                 this.player.createStatusAffect(StatusAffects.Blind, 1, 0, 0, 0);
             }
             // Gigarouse – A stronger version of normal imp's
@@ -20994,13 +20610,11 @@ We can also do * italic * and ** bold ** text!
         if (this.player.cocks.length > 0) {
             if (this.player.lust >= 60 && this.player.cocks.length > 0)
                 this.outx(
-                    `You feel ${this.player.sMultiCockDesc()} dribble pre-cum, bouncing with each beat of your heart and aching to be touched.  `,
-                    false
+                    `You feel ${this.player.sMultiCockDesc()} dribble pre-cum, bouncing with each beat of your heart and aching to be touched.  `
                 );
             if (this.player.lust >= 30 && this.player.lust < 60 && this.player.cocks.length == 1)
                 this.outx(
-                    `${this.player.SMultiCockDesc()} hardens and twitches, distracting you further.  `,
-                    false
+                    `${this.player.SMultiCockDesc()} hardens and twitches, distracting you further.  `
                 );
         }
         if (this.player.vaginas.length > 0) {
@@ -21010,8 +20624,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.vaginas.length == 1
             )
                 this.outx(
-                    `Your ${this.allVaginaDescript()} dampens perceptibly, feeling very empty.  `,
-                    false
+                    `Your ${this.allVaginaDescript()} dampens perceptibly, feeling very empty.  `
                 );
             if (
                 this.player.lust >= 60 &&
@@ -21019,8 +20632,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.vaginas.length > 0
             )
                 this.outx(
-                    `Your crotch becomes sticky with girl-lust, making it clear to ${this.monster.a}${this.monster.short} just how welcome your body finds the spell.  `,
-                    false
+                    `Your crotch becomes sticky with girl-lust, making it clear to ${this.monster.a}${this.monster.short} just how welcome your body finds the spell.  `
                 );
             if (
                 this.player.lust >= 60 &&
@@ -21028,8 +20640,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.vaginas.length == 1
             )
                 this.outx(
-                    `Your ${this.allVaginaDescript()} becomes sloppy and wet, dribbling with desire to be mounted and fucked.  `,
-                    false
+                    `Your ${this.allVaginaDescript()} becomes sloppy and wet, dribbling with desire to be mounted and fucked.  `
                 );
             if (
                 this.player.lust >= 60 &&
@@ -21037,8 +20648,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.vaginas.length > 0
             )
                 this.outx(
-                    `Thick runners of girl-lube stream down the insides of your thighs as your crotch gives into the demonic magics.  You wonder what ${this.monster.a}${this.monster.short}'s cock would feel like inside you?  `,
-                    false
+                    `Thick runners of girl-lube stream down the insides of your thighs as your crotch gives into the demonic magics.  You wonder what ${this.monster.a}${this.monster.short}'s cock would feel like inside you?  `
                 );
             if (
                 this.player.lust >= 60 &&
@@ -21048,8 +20658,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `Your ${this.allVaginaDescript()} instantly soaks your groin with the heady proof of your need.  You wonder just how slippery you could ${
                         this.monster.a
-                    }${this.monster.short}'s dick when it's rammed inside you?  `,
-                    false
+                    }${this.monster.short}'s dick when it's rammed inside you?  `
                 );
         }
         if (this.player.lust >= 100) this.doNext(this.endLustLoss);
@@ -21443,8 +21052,7 @@ We can also do * italic * and ** bold ** text!
         );
 
         this.outx(
-            `Your lips start to tingle, and you run your tongue over them reflexively.  A shiver of pleasure worms through your body, and you instinctively press your ${this.player.legs()} against the straps in an effort to spread them further.  Worse yet, your lips feel much plumper and fuller than a few moments ago.  `,
-            false
+            `Your lips start to tingle, and you run your tongue over them reflexively.  A shiver of pleasure worms through your body, and you instinctively press your ${this.player.legs()} against the straps in an effort to spread them further.  Worse yet, your lips feel much plumper and fuller than a few moments ago.  `
         );
         if (this.flags[kFLAGS.NUMBER_OF_TIMES_MET_SCYLLA] > 0)
             this.outx(
@@ -21464,8 +21072,7 @@ We can also do * italic * and ** bold ** text!
         this.outx(
             `This must be what Zetaz was waiting for, and the imp carefully injects the next chemical cocktail into the other side of your neck while you're distracted by orally masturbating your new mouth.  Your ${this.vaginaDescript(
                 0
-            )} `,
-            false
+            )} `
         );
         if (this.player.vaginas[0].vaginalWetness >= CoC.VAGINA_WETNESS_DROOLING)
             this.outx("gushes fresh fluids into a puddle on the table");
@@ -21525,14 +21132,9 @@ We can also do * italic * and ** bold ** text!
         );
         if (this.player.biggestTitSize() < 1)
             this.outx(
-                `tweak your ${this.nippleDescript(0)}s roughly, pulling and yanking on them as`,
-                false
+                `tweak your ${this.nippleDescript(0)}s roughly, pulling and yanking on them as`
             );
-        else
-            this.outx(
-                `maul at your ${this.allBreastsDescript()}, slapping and squeezing them as`,
-                false
-            );
+        else this.outx(`maul at your ${this.allBreastsDescript()}, slapping and squeezing them as`);
         this.outx(
             ` he begins to repeatedly thrust against your ${this.vaginaDescript(
                 0
@@ -21688,7 +21290,7 @@ We can also do * italic * and ** bold ** text!
         else this.outx("soaked");
         this.outx(" from the thoughts.  ");
         if (this.player.cor < 33)
-            this.outx("Are you really being turned on by such lewd, debased thoughts?", false);
+            this.outx("Are you really being turned on by such lewd, debased thoughts?");
         else if (this.player.cor < 66)
             this.outx(
                 "Are you this much of a pervert?  Yes, it'll feel good, but you're a little ashamed of your body's immediate and lewd reaction.",
@@ -21721,30 +21323,26 @@ We can also do * italic * and ** bold ** text!
         );
 
         this.outx(
-            `You swallow in loud, greedy gulps as your body is slowly warped by the fluids you're consuming.  Though your ${this.allBreastsDescript()} and ${this.player.multiCockDescriptLight()} sometimes shrink, they grow far more often, and after a few minutes of force-feeding, you're pleading for more each time they stop to let you breath.  You're a mess of sexual fluids, your tits are squirting milk, and your pussy squirts from every touch.  Demon horns are swelling from your brow, curling back over your ears`,
-            false
+            `You swallow in loud, greedy gulps as your body is slowly warped by the fluids you're consuming.  Though your ${this.allBreastsDescript()} and ${this.player.multiCockDescriptLight()} sometimes shrink, they grow far more often, and after a few minutes of force-feeding, you're pleading for more each time they stop to let you breath.  You're a mess of sexual fluids, your tits are squirting milk, and your pussy squirts from every touch.  Demon horns are swelling from your brow, curling back over your ears`
         );
         if (this.player.horns > 0) this.outx(" and adding to your existing pair");
         else this.outx(" and giving you an exotic, tainted appearance");
         this.outx(".  ");
         if (this.player.lowerBody != CoC.LOWER_BODY_TYPE_DEMONIC_HIGH_HEELS)
             this.outx(
-                `Your ${this.player.feet()} have been changing throughout the ordeal, but you didn't notice your ${this.player.legs()} becoming such lissom, lengthy legs, or your heels growing long, high-heel-like spikes.  `,
-                false
+                `Your ${this.player.feet()} have been changing throughout the ordeal, but you didn't notice your ${this.player.legs()} becoming such lissom, lengthy legs, or your heels growing long, high-heel-like spikes.  `
             );
         if (this.player.tailType != CoC.TAIL_TYPE_DEMONIC)
             this.outx(
                 `A tail snakes around your leg and begins to caress your ${this.vaginaDescript(
                     0
-                )}, then plunges in to fuck the squirting orifice while you drink.  `,
-                false
+                )}, then plunges in to fuck the squirting orifice while you drink.  `
             );
         else
             this.outx(
                 `Your tail snakes around your leg and begins to caress your ${this.vaginaDescript(
                     0
-                )}, then plunges in to fuck the squirting orifice while you drink.  `,
-                false
+                )}, then plunges in to fuck the squirting orifice while you drink.  `
             );
         this.outx(
             "The imps start hooting and cat-calling, laughing and prodding your body with their twisted demonic members as your mind starts to come apart in the seething oven of unnatural lust.\n\n",
@@ -21759,8 +21357,7 @@ We can also do * italic * and ** bold ** text!
         this.hideUpDown();
         this.outx("", true);
         this.outx(
-            `You awaken midway through a loud moan and nearly jump out of your ${this.player.skinDesc} in surprise, but the fire of your unnaturally stoked libido immediately reasserts yourself.  You twitch your hips to and fro, thrusting against a `,
-            false
+            `You awaken midway through a loud moan and nearly jump out of your ${this.player.skinDesc} in surprise, but the fire of your unnaturally stoked libido immediately reasserts yourself.  You twitch your hips to and fro, thrusting against a `
         );
         if (this.player.cockTotal() > 1) this.outx("number of ");
         this.outx("mechanical milking device");
@@ -21792,7 +21389,7 @@ We can also do * italic * and ** bold ** text!
 
         this.outx('"<i>Shhhh, shhh,</i>" responds Zetaz, "<i>just relax my pet.</i>"  He ', false);
         if (this.player.balls > 0)
-            this.outx(`gently shifts your ${this.ballsDescript()} out of the way and `, false);
+            this.outx(`gently shifts your ${this.ballsDescript()} out of the way and `);
         this.outx(
             "lines up with your drooling fuck-hole, and with a long smooth stroke, he's inside you.  You cum immediately and hard, barely noticing the chanting that has started up on the adjacent platforms.  Each squirt of cum is accompanied by a thrust from Zetaz, sliding over your lube-leaking walls with ease.  The orgasm lasts nearly twice as long as your last one.  It never seems to end, but when it slowly trails off, you find yourself wondering how soon you can cum again.\n\n",
             false
@@ -21816,8 +21413,7 @@ We can also do * italic * and ** bold ** text!
         );
 
         this.outx(
-            `Your master finishes squirting inside you and withdraws, pawing at your milk-leaking teats for a moment as you continue to shudder and cum like a good bitch.  Wow, you really are a good bitch aren't you?  Pride wells in your breast as the imp's chanting reaches a crescendo and a relaxed smile forms on your ${this.player.face()}.  Yes, you're a good, breeding bitch.   Master is smiling up at you and you know you've made him feel very happy.  Hopefully he'll come back soon and fuck you some more.  Your pussy feels so empty without him.`,
-            false
+            `Your master finishes squirting inside you and withdraws, pawing at your milk-leaking teats for a moment as you continue to shudder and cum like a good bitch.  Wow, you really are a good bitch aren't you?  Pride wells in your breast as the imp's chanting reaches a crescendo and a relaxed smile forms on your ${this.player.face()}.  Yes, you're a good, breeding bitch.   Master is smiling up at you and you know you've made him feel very happy.  Hopefully he'll come back soon and fuck you some more.  Your pussy feels so empty without him.`
         );
         this.player.orgasm();
         this.dynStats("cor", 50);
@@ -21903,8 +21499,7 @@ We can also do * italic * and ** bold ** text!
         );
 
         this.outx(
-            `While you observe the room, you realize that the waves of pleasure sliding up your spinal cord haven't stopped, and that your entire body is being shaken rhythmically.  You look down with a look of incredible, still-drugged confusion and behold the last thing you expected to see.  Somehow ${this.player.sMultiCockDesc()} has been shrunk to less than half of its previous size`,
-            false
+            `While you observe the room, you realize that the waves of pleasure sliding up your spinal cord haven't stopped, and that your entire body is being shaken rhythmically.  You look down with a look of incredible, still-drugged confusion and behold the last thing you expected to see.  Somehow ${this.player.sMultiCockDesc()} has been shrunk to less than half of its previous size`
         );
         if (this.player.balls > 0) this.outx(", and your balls have completely vanished");
         this.outx(
@@ -21932,8 +21527,7 @@ We can also do * italic * and ** bold ** text!
         );
 
         this.outx(
-            `With hot, tainted jism filling your womb, your body starts to spasm and squirt, actually making your increasingly tiny dick shake around from the force of ejaculation.  It splatters off the imp's horns and forehead, but he doesn't seem to mind much as he slumps down, dragging his still-rigid member from your cock-hungry fem-sex.  You moan wantonly, still spurting as the imp 'medic' applies another layer of Reducto to ${this.player.sMultiCockDesc()}, rapidly shortening `,
-            false
+            `With hot, tainted jism filling your womb, your body starts to spasm and squirt, actually making your increasingly tiny dick shake around from the force of ejaculation.  It splatters off the imp's horns and forehead, but he doesn't seem to mind much as he slumps down, dragging his still-rigid member from your cock-hungry fem-sex.  You moan wantonly, still spurting as the imp 'medic' applies another layer of Reducto to ${this.player.sMultiCockDesc()}, rapidly shortening `
         );
         if (this.player.cockTotal() == 1) this.outx("it until it's");
         else this.outx("them until they're");
@@ -23098,7 +22692,7 @@ We can also do * italic * and ** bold ** text!
                         this.outx("give you the blowjob of a lifetime");
                     else if (this.player.hasVagina())
                         this.outx("lick your honeypot 'til you soak my face");
-                    else this.outx("give you a new addition and show you how to use it", false);
+                    else this.outx("give you a new addition and show you how to use it");
                     this.outx(
                         '.</i>"\n\nThe succubus turns away from you and makes a show of tweaking her make-up, ignoring you for the moment.',
                         false
@@ -24594,7 +24188,7 @@ We can also do * italic * and ** bold ** text!
             false
         );
         if (this.player.cocks.length == 0 || this.player.biggestTitSize() <= 1) {
-            this.outx("A small inner voice pipes up to remind you that you don't have ", false);
+            this.outx("A small inner voice pipes up to remind you that you don't have ");
             if (this.player.cocks.length == 0) {
                 this.outx("anything in your groin to suck on");
                 if (this.player.biggestTitSize() <= 1) this.outx(" or ");
@@ -24967,16 +24561,14 @@ We can also do * italic * and ** bold ** text!
                 // [[balls]]
                 if (this.player.ballSize < 6)
                     this.outx(
-                        `Your sultry captor leans low over you, her luscious tits wobbling enticingly as she reaches down and caresses your ${this.ballsDescriptLight()} with soft touches.  Almost immediately you feel them clench with boiling heat, growing heavy and churning with a load big enough to satisfy a thirsty succubus.`,
-                        false
+                        `Your sultry captor leans low over you, her luscious tits wobbling enticingly as she reaches down and caresses your ${this.ballsDescriptLight()} with soft touches.  Almost immediately you feel them clench with boiling heat, growing heavy and churning with a load big enough to satisfy a thirsty succubus.`
                     );
                 // [[huge balls]]
                 else
                     this.outx(
                         `Your sultry captor leans low, marveling at the size of your ${this.ballsDescriptLight()} as she reaches down to caress them.  Her tits swing lewdly above you, bouncing in hypnotic motions. Her hands work gently, taking each one of your ${this.ballsDescriptLight()} and hefting it gently.  Almost immediately you feel them fill with an unnatural heat that spreads everywhere her slender fingers touch.  They begin to feel full and heavy, practically sloshing as the pent up need inside you is channeled into liquid form.  "So ripe... and full," she whispers to herself as she caresses them, her silken foot still sliding all over your ${this.cockDescript(
                             0
-                        )}, pumping stroke after stroke of pleasure into your lust-weakened form.`,
-                        false
+                        )}, pumping stroke after stroke of pleasure into your lust-weakened form.`
                     );
             } else {
                 // [[no balls no pussy]]
@@ -24984,14 +24576,12 @@ We can also do * italic * and ** bold ** text!
                     this.outx(
                         `Your sultry captor leans low over you, her luscious tits wobbling enticingly as she reaches down and caresses the skin between your ${this.cockDescript(
                             0
-                        )} and ${this.assholeDescript()} with a slender finger.  Almost immediately you feel your groin clench with the boiling heat of a growing orgasm, thick cum churning out from your prostate as your body readies a load large enough to satisfy a thirsty succubus.`,
-                        false
+                        )} and ${this.assholeDescript()} with a slender finger.  Almost immediately you feel your groin clench with the boiling heat of a growing orgasm, thick cum churning out from your prostate as your body readies a load large enough to satisfy a thirsty succubus.`
                     );
                 // [[no balls + pussy]]
                 else
                     this.outx(
-                        `Your sultry captor leans low over you, her luscious tits wobbling enticingly as she reaches down and caresses the slick skin of your slit with a single digit.  Other fingers circle your ${this.clitDescript()}, teasing it from between the folds as it grows hard, peeking out from the hood and turning cherry-red.  Almost immediately you feel your groin clench with the boiling heat of a growing orgasm, thick cum churning in your prostate as your body readies a load large enough to satisfy a thirsty succubus.`,
-                        false
+                        `Your sultry captor leans low over you, her luscious tits wobbling enticingly as she reaches down and caresses the slick skin of your slit with a single digit.  Other fingers circle your ${this.clitDescript()}, teasing it from between the folds as it grows hard, peeking out from the hood and turning cherry-red.  Almost immediately you feel your groin clench with the boiling heat of a growing orgasm, thick cum churning in your prostate as your body readies a load large enough to satisfy a thirsty succubus.`
                     );
             }
             this.outx("\n\n", false);
@@ -25010,32 +24600,28 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 ` as she releases your ${this.cockDescript(
                     0
-                )}, shouting, "<i>CUM!  Feed me!</i>"  You are all too happy to oblige.  `,
-                false
+                )}, shouting, "<i>CUM!  Feed me!</i>"  You are all too happy to oblige.  `
             );
             // [[normal volume]]
             if (this.player.cumQ() < 50)
                 this.outx(
                     `Freed at last, your body clenches tightly as it squirts the first jet of cum from your ${this.cockDescript(
                         0
-                    )}.  She smears her foot over the head, catching the cum and using it to lubricate her silken foot as it massages your member with merciless strokes, alternatively catching your spooge and milking more from your obedient maleness.  Your orgasm lasts many times longer than normal as your dual loads feed her demonic hunger.`,
-                    false
+                    )}.  She smears her foot over the head, catching the cum and using it to lubricate her silken foot as it massages your member with merciless strokes, alternatively catching your spooge and milking more from your obedient maleness.  Your orgasm lasts many times longer than normal as your dual loads feed her demonic hunger.`
                 );
             // [[big volume]]
             if (this.player.cumQ() >= 50 && this.player.cumQ() < 400)
                 this.outx(
                     `Freed at last, your body clenches tightly as it spurts a big glob of cum onto her waiting sole, soaking the bottom of her foot with slippery male-milk.  She smears her cum-covered foot over every inch of your ${this.cockDescript(
                         0
-                    )}, making each successive spurt bigger and messier than the last. Somehow she manages to catch more and more of your jizm over her foot, bathing you in cummy silkiness.  You groan helplessly as she milks more and more of from you till her foot is dripping steadily, your own groin and belly soaked with the stuff.  You give a few final exhausted squirts as she languidly rubs it into you.`,
-                    false
+                    )}, making each successive spurt bigger and messier than the last. Somehow she manages to catch more and more of your jizm over her foot, bathing you in cummy silkiness.  You groan helplessly as she milks more and more of from you till her foot is dripping steadily, your own groin and belly soaked with the stuff.  You give a few final exhausted squirts as she languidly rubs it into you.`
                 );
             // [[huge volume]]
             if (this.player.cumQ() > 400)
                 this.outx(
                     `Freed at last, your body clenches powerfully as a massive eruption of cum launches from your ${this.cockDescript(
                         0
-                    )} onto her waiting foot.  The succubus looks on incredulously as her entire foot is soaked with your sticky whiteness, forgetting to move as the second wave of cum drenches her to the ankle and rains down over your stomach.  She giggles and moves it back to your cock, massaging your slick spooge into your cock with her foot, wringing an even bigger explosion of cum from your tortured body.  Flopping back, she gets her other foot in on the action, milking you between her feet as you soak yourself completely with bigger and bigger eruptions until at last your orgasm begins to wane.  She slides forwards, rubbing against you and smearing the mess over herself with a blissful expression.`,
-                    false
+                    )} onto her waiting foot.  The succubus looks on incredulously as her entire foot is soaked with your sticky whiteness, forgetting to move as the second wave of cum drenches her to the ankle and rains down over your stomach.  She giggles and moves it back to your cock, massaging your slick spooge into your cock with her foot, wringing an even bigger explosion of cum from your tortured body.  Flopping back, she gets her other foot in on the action, milking you between her feet as you soak yourself completely with bigger and bigger eruptions until at last your orgasm begins to wane.  She slides forwards, rubbing against you and smearing the mess over herself with a blissful expression.`
                 );
             this.outx(
                 '\n\n"<i>Good boy,</i>" she croons, mopping the cum up as it seems to wick into her stockings, "<i>You\'ll do well once we get you on the line.</i>"  You don\'t have time to ponder the significance of that as you lose consciousness.',
@@ -25049,8 +24635,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `Driven half mad with lust, you shake yourself free from the trappings of your ${
                         this.player.armorName
-                    }, first revealing your ${this.allBreastsDescript()}, then ${this.hipDescript()} and finally your `,
-                    false
+                    }, first revealing your ${this.allBreastsDescript()}, then ${this.hipDescript()} and finally your `
                 );
                 if (this.player.vaginas.length > 0)
                     this.outx(`${this.vaginaDescript(0)} as the last pieces fall away.\n\n`, false);
@@ -25076,8 +24661,8 @@ We can also do * italic * and ** bold ** text!
                 false
             );
             if (this.player.vaginas.length > 0)
-                this.outx(`your ${this.clitDescript()} parts your folds, growing harder.`, false);
-            else this.outx("a fleshy growth erupts from your pale flesh, growing harder.", false);
+                this.outx(`your ${this.clitDescript()} parts your folds, growing harder.`);
+            else this.outx("a fleshy growth erupts from your pale flesh, growing harder.");
             this.outx(
                 "  In seconds you're playing with it, tugging the sensitive button as it fills up with more and more blood, growing bigger and harder than ever before.  Your legs give out as you begin stroking it with feverish intensity, barely registering as it grows to nearly eighteen inches in length, not noticing the increasingly veiny surface or different texture at the tip.  You force yourself to stop as a sudden truth asserts itself upon your consciousness - you need to shove your clit-like cock into a pussy.  You need to cum inside that hungry slut's blue spunk-receptacle.\n\n",
                 false
@@ -25162,13 +24747,11 @@ We can also do * italic * and ** bold ** text!
                     this.outx(
                         `A steady stream of pre begins to escape your cock-slit, drooling over your double's face and tits as you pound away at her bouncing ring of titflesh.  Every new bump and nodule seems as sensitive as your entire maleness used to be.  Every thrust into the dark wet prison only makes your pre-cum drool faster and your ${this.cockDescript(
                             0
-                        )}'s new adornments grow fuller and even more tender.  In a flash, the fire of orgasm overwhelms your body's new taint-saturated cock.  Like a kinky 'wave', each nodule from the base to the pointy ring at your crown grows larger as your muscles clench.  `,
-                        false
+                        )}'s new adornments grow fuller and even more tender.  In a flash, the fire of orgasm overwhelms your body's new taint-saturated cock.  Like a kinky 'wave', each nodule from the base to the pointy ring at your crown grows larger as your muscles clench.  `
                     );
                     if (this.player.balls > 0)
                         this.outx(
-                            `Your ${this.ballsDescriptLight()} practically glow with relief as they begin contracting.  Their entire surface is covered with black veins that radiate from your demonic prick, sharing the corruption with your sperm factories.  `,
-                            false
+                            `Your ${this.ballsDescriptLight()} practically glow with relief as they begin contracting.  Their entire surface is covered with black veins that radiate from your demonic prick, sharing the corruption with your sperm factories.  `
                         );
                     this.outx(
                         "You throw back your head as the first wave of release pours from your tip, splattering your female clone with inky black cum!  The color startles you for a moment before the next blast moves down your shaft, visibly distending your urethra until it bursts free to coat her hair.  Your hips keep moving of their own accord, massaging the crown-ring with tits during each thrust forwards and accompanying cumshot.  By the fourth load, your double is opening her soaked lips wide and guzzling it down.  By the sixth she's sputtering and coughing as the black sex juice sloughs off her.  By the ninth she's managed to clamp her lips over your cock-tip, and her throat bulges ludicrously with the effort of taking each load.  Thankfully, your orgasm finally winds down.  As the last few globs of inky jism escape from you, you realize your hips are still moving, plunging your massive possessed tool into its new favorite place.  Sighing, you hang onto your endowment and try to stay conscious in spite of your exhaustion and the overwhelming feelings coming from your groin.\n\n",
@@ -25184,13 +24767,11 @@ We can also do * italic * and ** bold ** text!
                             0
                         )} overwhelms any sense of control you may have had as your arousal-soaked groin takes over completely.  You begin pounding the tit-pussy as if your life depended on it, jack-hammering  your ${this.cockDescript(
                             0
-                        )} forward and back hard enough to make the mountains of breast ripple and shake like jello during an earthquake.  The ring of pointed nodules around your crown continues to swell and grow with every pass through the inky passage, soaking up more and more of the corruption until they are each nearly two inches long.  Overwhelmed by the pleasure, your eyes roll back and a mighty orgasm comes to boil in your groin.  `,
-                        false
+                        )} forward and back hard enough to make the mountains of breast ripple and shake like jello during an earthquake.  The ring of pointed nodules around your crown continues to swell and grow with every pass through the inky passage, soaking up more and more of the corruption until they are each nearly two inches long.  Overwhelmed by the pleasure, your eyes roll back and a mighty orgasm comes to boil in your groin.  `
                     );
                     if (this.player.balls > 0)
                         this.outx(
-                            `Your ${this.ballsDescript()} twitch and shake, the veiny surface of your sack darkening as the corruption begins to fill them.  `,
-                            false
+                            `Your ${this.ballsDescript()} twitch and shake, the veiny surface of your sack darkening as the corruption begins to fill them.  `
                         );
                     this.outx(
                         `\n\nLike a perverted version of the wave, the nodules along your length fill with blood, doubling in size along your length as a massive bulge of cum rushes out your urethra.  Black cream drizzles from the tiny growths as the first blast of cum passes into your dick's crown moments before erupting like a volcano.  One second the sexy female version of you is moaning like a whore and licking her lips. The next she is sputtering and gasping as a half-gallon of inky black cum soaks her from head to tits.  Heedless of her discomfort, your legs keep sawing your ${this.cockDescript(
@@ -25241,14 +24822,12 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `Each of the new bumps and rounded spines of your ${this.cockDescript(
                         0
-                    )} flood with blood, doubling in size as orgasm overtakes you.  `,
-                    false
+                    )} flood with blood, doubling in size as orgasm overtakes you.  `
                 );
                 this.outx(
                     `Your hips bury your entire length inside her, acting on their own as your ${this.cockDescript(
                         0
-                    )} clenches, pouring more and more spunk inside her`,
-                    false
+                    )} clenches, pouring more and more spunk inside her`
                 );
                 if (this.player.balls > 0) this.outx(" as your balls empty their load queue");
                 this.outx(".  ");
@@ -25331,16 +24910,14 @@ We can also do * italic * and ** bold ** text!
         );
         if (this.player.clitLength >= 3)
             this.outx(
-                `You groan with wanton desire as your ${this.clitDescript()} continues to grow and grow until reaching full size and slipping inside the defeated slut's sloppy pleasure-hole.  `,
-                false
+                `You groan with wanton desire as your ${this.clitDescript()} continues to grow and grow until reaching full size and slipping inside the defeated slut's sloppy pleasure-hole.  `
             );
         this.outx(
             `It takes only a few seconds to get the succubus' juices really flowing, the sounds of your grinding hips dissolving into a cacophony of liquid squelches.  The gooey corrupt fem-cum tingles, spreading warmth through every patch of skin it touches.  Your locked hips writhe and twist with her's, eliciting pants and squeals from the both of you.  In no time flat, you find yourself cumming and feel your ${this.vaginaDescript(
                 0
             )}'s muscles clench hungrily with an unquenchable desire to be filled.  The succubus shivers in pleasure, probably feeding off your orgasm.  You back off, fingering your ${this.vaginaDescript(
                 0
-            )} languidly and denying her a full meal.  Pouting, the succubus dips her fingers back in, determined to cum.`,
-            false
+            )} languidly and denying her a full meal.  Pouting, the succubus dips her fingers back in, determined to cum.`
         );
         this.outx(
             "\n\nYou turn away with a bemused sigh.  When you glance back, she has vanished!",
@@ -25355,8 +24932,7 @@ We can also do * italic * and ** bold ** text!
         this.spriteSelect(55);
         this.clearOutput();
         this.outx(
-            `You chuckle as you decide to release some of the pent up pressure in your ${this.allBreastsDescript()}.  Laying down over your conquest, you grasp her wrists and pin them to the floor as you shove your tits in her face`,
-            false
+            `You chuckle as you decide to release some of the pent up pressure in your ${this.allBreastsDescript()}.  Laying down over your conquest, you grasp her wrists and pin them to the floor as you shove your tits in her face`
         );
         if (this.player.biggestTitSize() > 6)
             this.outx(", nearly smothering the succubus with the swell of tit-flesh");
@@ -25392,8 +24968,7 @@ We can also do * italic * and ** bold ** text!
         }
         if (this.player.biggestLactation() >= 3 && this.player.biggestLactation() < 4) {
             this.outx(
-                `Her flexible tongue wraps around a milk-swollen nipple, immediately squeezing out a jet of thick breast-milk.  The tongue squeezes and tugs while the succubus ramps up the suction between her thick bee-stung lips.  Your body rewards her with fountains of milk, forcing her to visibly gulp and struggle to keep up with the heavy flow.  Milk runs freely down the ${this.player.skinDesc} on your chest, pooling around the succubus' groin and your own as the unattended nipple`,
-                false
+                `Her flexible tongue wraps around a milk-swollen nipple, immediately squeezing out a jet of thick breast-milk.  The tongue squeezes and tugs while the succubus ramps up the suction between her thick bee-stung lips.  Your body rewards her with fountains of milk, forcing her to visibly gulp and struggle to keep up with the heavy flow.  Milk runs freely down the ${this.player.skinDesc} on your chest, pooling around the succubus' groin and your own as the unattended nipple`
             );
             if (this.player.totalBreasts() > 2) this.outx("s");
             this.outx(" can't help but dribble in sympathy.\n\n", false);
@@ -25411,8 +24986,7 @@ We can also do * italic * and ** bold ** text!
         }
         if (this.player.totalNipples() == 2)
             this.outx(
-                `As your first nipple drains, you move her to your other breast, being sure to motivate her cunt by grinding it with your ${this.player.foot()}.  She squeals and sucks harder, emptying the last of your milk with a cute burp.  `,
-                false
+                `As your first nipple drains, you move her to your other breast, being sure to motivate her cunt by grinding it with your ${this.player.foot()}.  She squeals and sucks harder, emptying the last of your milk with a cute burp.  `
             );
         if (this.player.totalNipples() > 2 && this.player.totalNipples() < 6)
             this.outx(
@@ -25422,8 +24996,7 @@ We can also do * italic * and ** bold ** text!
                     0
                 )}.  After she drains each of your ${this.num2Text(
                     this.player.totalNipples()
-                )}, you smile happily at your now emptied breasts.  `,
-                false
+                )}, you smile happily at your now emptied breasts.  `
             );
         if (this.player.totalNipples() >= 6)
             this.outx(
@@ -25431,8 +25004,7 @@ We can also do * italic * and ** bold ** text!
                     0
                 )} drains, you force her over to the next, unleashing even more milk for her to feast upon.  In time, that ${this.nippleDescript(
                     0
-                )} also empties and you rotate her on to the next.  The cycle repeats seemingly endlessly as you work her from nipple to nipple, relieving the insistent pressure of your breasts and slowly filling her with your milk.  `,
-                false
+                )} also empties and you rotate her on to the next.  The cycle repeats seemingly endlessly as you work her from nipple to nipple, relieving the insistent pressure of your breasts and slowly filling her with your milk.  `
             );
         if (this.player.averageLactation() * this.player.totalBreasts() < 6)
             this.outx(
@@ -25447,20 +25019,15 @@ We can also do * italic * and ** bold ** text!
         this.outx(
             `Despite the relief your ${this.allBreastsDescript()} now feel, your ${this.vaginaDescript(
                 0
-            )}`,
-            false
+            )}`
         );
         if (this.player.cocks.length > 0)
-            this.outx(
-                ` and ${this.player.multiCockDescriptLight()} feel hungrier than ever.  `,
-                false
-            );
+            this.outx(` and ${this.player.multiCockDescriptLight()} feel hungrier than ever.  `);
         else this.outx(" feels hungrier than ever.  ");
         this.outx(
             `You shove your crotch into your milk-dazed foe's white-stained visage, grinding your ${this.vaginaDescript(
                 0
-            )} into her mouth until you cum all over her`,
-            false
+            )} into her mouth until you cum all over her`
         );
         if (this.player.cocks.length == 0) {
             this.temp = this.rand(3);
@@ -25639,8 +25206,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `A pleading moan escapes your lips and your captor obliges you, the cocks wriggling forward under their own power and sliding into your slippery ${this.nippleDescript(
                     0
-                )}s with ease.  Each member is perfectly sized to stimulate you without over-stretching your tender breast-flesh.  You barely stifle a giggle, drunk on enough pleasure to shatter a lesser mind.  Your giggling is rudely interrupted by something hard and slick forcing itself between your lips.  You smile and slurp on it like a pacifier, swallowing droplets of pre-cum as his tentacle-like pricks fuck your breasts hard and fast, `,
-                false
+                )}s with ease.  Each member is perfectly sized to stimulate you without over-stretching your tender breast-flesh.  You barely stifle a giggle, drunk on enough pleasure to shatter a lesser mind.  Your giggling is rudely interrupted by something hard and slick forcing itself between your lips.  You smile and slurp on it like a pacifier, swallowing droplets of pre-cum as his tentacle-like pricks fuck your breasts hard and fast, `
             );
             if (this.player.biggestLactation() > 1)
                 this.outx("splattering milk and pre everywhere.\n\n", false);
@@ -25660,8 +25226,7 @@ We can also do * italic * and ** bold ** text!
         else {
             if (this.player.lust > 99)
                 this.outx(
-                    `Molten arousal pumps through your veins, burning away your reason with an unquenchable desire to mate. You drop your top, exposing your ${this.allBreastsDescript()} to your foe in a submissive display, `,
-                    false
+                    `Molten arousal pumps through your veins, burning away your reason with an unquenchable desire to mate. You drop your top, exposing your ${this.allBreastsDescript()} to your foe in a submissive display, `
                 );
             else
                 this.outx(
@@ -25688,19 +25253,16 @@ We can also do * italic * and ** bold ** text!
                     false
                 );
             this.outx(
-                `In a flash, each fat tentacle-cock whips out and surrounds your body in slick demon-flesh.  The tentacles constrict, working in pairs to take off every piece of your ${this.player.armorName}.  `,
-                false
+                `In a flash, each fat tentacle-cock whips out and surrounds your body in slick demon-flesh.  The tentacles constrict, working in pairs to take off every piece of your ${this.player.armorName}.  `
             );
             if (this.player.biggestTitSize() >= 2)
                 this.outx(
                     `They make sure to rub each of your breasts, spending a few seconds smearing slick pre-cum into your ${this.nippleDescript(
                         0
-                    )}.  `,
-                    false
+                    )}.  `
                 );
             this.outx(
-                `A pair of them slides into your undergarments, pressing against your needy crotch and teasing your ${this.assholeDescript()} with more slick demonic cum.  `,
-                false
+                `A pair of them slides into your undergarments, pressing against your needy crotch and teasing your ${this.assholeDescript()} with more slick demonic cum.  `
             );
             if (this.player.cor < 80) this.outx("You wriggle and whine,");
             else
@@ -25710,26 +25272,22 @@ We can also do * italic * and ** bold ** text!
                 );
             if (this.player.vaginas.length > 0)
                 this.outx(
-                    `squeezing your legs around them and grinding your ${this.clitDescript()} against the oddly textured demon-cock.`,
-                    false
+                    `squeezing your legs around them and grinding your ${this.clitDescript()} against the oddly textured demon-cock.`
                 );
             else {
                 if (this.player.balls > 0)
                     this.outx(
-                        `grinding down against the ribbed and textured demonic cock as it slides between your ${this.ballsDescriptLight()}.`,
-                        false
+                        `grinding down against the ribbed and textured demonic cock as it slides between your ${this.ballsDescriptLight()}.`
                     );
                 else if (this.player.cocks.length > 0)
                     this.outx(
                         `squeezing your legs around the thick demonic flesh as a steady dribble of pre-cum drips from your ${this.cockDescript(
                             0
-                        )}.`,
-                        false
+                        )}.`
                     );
                 if (this.player.gender == 0)
                     this.outx(
-                        `grinding suggestively on your captor's rods, barely noticing as the last of your ${this.player.armorName} falls away.`,
-                        false
+                        `grinding suggestively on your captor's rods, barely noticing as the last of your ${this.player.armorName} falls away.`
                     );
             }
             this.outx("\n\n", false);
@@ -25742,21 +25300,18 @@ We can also do * italic * and ** bold ** text!
                 );
                 if (this.player.cor < 80)
                     this.outx(
-                        `You feel your ${this.player.legs()} lifted and pulled tight as countless demonic cocks encircle your body, binding and constraining you further.  You whimper as a demonic tentacle probes your back door while a thicker one lines itself up just below your ${this.clitDescript()}.  `,
-                        false
+                        `You feel your ${this.player.legs()} lifted and pulled tight as countless demonic cocks encircle your body, binding and constraining you further.  You whimper as a demonic tentacle probes your back door while a thicker one lines itself up just below your ${this.clitDescript()}.  `
                     );
                 else
                     this.outx(
                         `As he lifts you, you spread your legs, showing him your cunt which is dripping wet from anticipation, and grabbing your ass to give him a perfect view of your ${this.assholeDescript()}.  You then beg him, between lecherous moans, to use his three biggest tentacles, as you want to have the most sensations.  With a sadistic smile, he lines up two tentacle cocks about as big as your arm over your ${this.vaginaDescript(
                             0
-                        )} and your ${this.assholeDescript()}.  `,
-                        false
+                        )} and your ${this.assholeDescript()}.  `
                     );
                 this.outx(
                     `You then giggle and try to wiggle your ${this.hipDescript()} forward, begging for him to take you and quench the fire burning in your ${this.vaginaDescript(
                         0
-                    )}.  The incubus obliges, pressing forth with both drooling members and simultaneously plugging your front and back doors.  `,
-                    false
+                    )}.  The incubus obliges, pressing forth with both drooling members and simultaneously plugging your front and back doors.  `
                 );
                 if (this.player.cor < 80) this.outx("You gasp from pleasure and surprise, ");
                 else
@@ -25782,13 +25337,11 @@ We can also do * italic * and ** bold ** text!
                 // FemCum
                 if (this.player.clitLength > 3)
                     this.outx(
-                        `You nearly cum on the spot when the cock fucking your pussy loops its length around your ${this.clitDescript()}, the cum-slickened coils driving you mad with pleasure as they coil, slide, and jerk around your clit as if it was a cock.  `,
-                        false
+                        `You nearly cum on the spot when the cock fucking your pussy loops its length around your ${this.clitDescript()}, the cum-slickened coils driving you mad with pleasure as they coil, slide, and jerk around your clit as if it was a cock.  `
                     );
                 else
                     this.outx(
-                        `You nearly cum on the spot when the cock fucking your pussy curves up to rub its textured nodules against your ${this.clitDescript()}.  `,
-                        false
+                        `You nearly cum on the spot when the cock fucking your pussy curves up to rub its textured nodules against your ${this.clitDescript()}.  `
                     );
                 this.player.cuntChange(this.player.vaginalCapacity() * 0.8, true);
                 if (this.player.cor >= 80)
@@ -25801,8 +25354,7 @@ We can also do * italic * and ** bold ** text!
                         0
                     )} react in similar fashion, stretching you wide as they begin pumping your body full of vast quantities of spunk.  A few free tentacles begin spurting gobs of the white stuff onto your ${
                         this.player.skinDesc
-                    }, soaking you in the stuff as you black out from a combination of oxygen deprivation and pleasure.`,
-                    false
+                    }, soaking you in the stuff as you black out from a combination of oxygen deprivation and pleasure.`
                 );
                 this.player.orgasm();
                 this.dynStats("cor", 25);
@@ -25815,34 +25367,29 @@ We can also do * italic * and ** bold ** text!
             // Male/Genderless
             else {
                 this.outx(
-                    `The incubus at last decides to tend to your over-aroused body and pulls you off the ground with his tentacles, suspending you in mid-air.  You feel your ${this.player.legs()} lifted and pulled tight as countless demonic cocks encircle your body, binding and constraining you further.  You whimper as a demonic tentacle probes your back door, slathering your ${this.assholeDescript()} with a nubby cock-head as it slowly presses forward and fills you with incredible tainted warmth.  Each nub and ridge that grinds past your sphincter bumps against the organs in your backdoor and fills you with pleasure that only increases as more of the demonic pre-cum is wicked into your body.  The gasp you started fades into a soft croon of pleasure before being muffled entirely by another thick prick.  The shaft belonging to the dick in your mouth curls around your neck like the collar a pet or submissive slut would wear.`,
-                    false
+                    `The incubus at last decides to tend to your over-aroused body and pulls you off the ground with his tentacles, suspending you in mid-air.  You feel your ${this.player.legs()} lifted and pulled tight as countless demonic cocks encircle your body, binding and constraining you further.  You whimper as a demonic tentacle probes your back door, slathering your ${this.assholeDescript()} with a nubby cock-head as it slowly presses forward and fills you with incredible tainted warmth.  Each nub and ridge that grinds past your sphincter bumps against the organs in your backdoor and fills you with pleasure that only increases as more of the demonic pre-cum is wicked into your body.  The gasp you started fades into a soft croon of pleasure before being muffled entirely by another thick prick.  The shaft belonging to the dick in your mouth curls around your neck like the collar a pet or submissive slut would wear.`
                 );
                 if (this.player.cocks.length > 0)
                     this.outx(
                         `  As your body's orifices fill with more and more dripping demonic dick-flesh, your ${this.cockDescript(
                             0
-                        )} becomes painfully hard.  Another tentacle wastes no time in wrapping itself tightly around the base like a cock-ring.  The rest of the demon's prehensile tool slides along your shaft, curling around to squeeze and jerk you off.`,
-                        false
+                        )} becomes painfully hard.  Another tentacle wastes no time in wrapping itself tightly around the base like a cock-ring.  The rest of the demon's prehensile tool slides along your shaft, curling around to squeeze and jerk you off.`
                     );
                 if (this.player.balls > 0)
                     this.outx(
-                        `  You groan around the dick plugging your throat as another tentacle-like appendage wraps around your ${this.sackDescript()}, pulling your ${this.ballsDescriptLight()} down and gently squeezing them.`,
-                        false
+                        `  You groan around the dick plugging your throat as another tentacle-like appendage wraps around your ${this.sackDescript()}, pulling your ${this.ballsDescriptLight()} down and gently squeezing them.`
                     );
                 this.outx("\n\n", false);
                 // Genderless Orgasm
                 if (this.player.gender == 0)
                     this.outx(
-                        `The tainted cum mixed with the sensation of fullness provide you with pleasures beyond what your genderless body could accomplish on its own.  You writhe as the demon face-fucks you with one tendril while another continues to bury itself ever-deeper into your abused ${this.assholeDescript()}.  `,
-                        false
+                        `The tainted cum mixed with the sensation of fullness provide you with pleasures beyond what your genderless body could accomplish on its own.  You writhe as the demon face-fucks you with one tendril while another continues to bury itself ever-deeper into your abused ${this.assholeDescript()}.  `
                     );
                 if (this.player.cocks.length > 0)
                     this.outx(
                         `The cock-tentacle around your ${this.cockDescript(
                             0
-                        )}  increases the pace of its stimulation as it begins to spurt hot wet cum over you, giving it lubrication as it jacks you off while staying tight around your base to prevent you from an orgasming.  `,
-                        false
+                        )}  increases the pace of its stimulation as it begins to spurt hot wet cum over you, giving it lubrication as it jacks you off while staying tight around your base to prevent you from an orgasming.  `
                     );
                 this.outx(
                     "You feel cum pulse through the tentacles encircling you as the incubus loses control of his tentacles.  Cum pumps into your belly, suffusing you with drug-like warmth as the tentacle around your neck pulls tight enough to squeeze the cock inside your throat.  You squirm and gasp for oxygen as spooge begins unloading into and around your body to the point where you aren't sure where your body begins and the demonic-spunk ends.  You twitch in what you assume is orgasm as you fight to breathe; all the while more cum is squeezed into your stuffed belly and ruined anus. The tentacle in your ass backs out slowly, having filled every inch of your intestines with cum, until it pops free with a splatter.",
@@ -25869,16 +25416,14 @@ We can also do * italic * and ** bold ** text!
                     // Big cum
                     if (this.player.cumQ() >= 50 && this.player.cumQ() < 400)
                         this.outx(
-                            `Your orgasm goes off like a shotgun blast, splattering the incubus with a huge wad of cum.  It's but the first of many, and though each load of jizz is of comparable size, the force behind them diminishes until the last few blasts drip down your body and soak your ${this.player.legs()} and ${this.player.feet()}.  `,
-                            false
+                            `Your orgasm goes off like a shotgun blast, splattering the incubus with a huge wad of cum.  It's but the first of many, and though each load of jizz is of comparable size, the force behind them diminishes until the last few blasts drip down your body and soak your ${this.player.legs()} and ${this.player.feet()}.  `
                         );
                     // Huge cum
                     if (this.player.cumQ() >= 400)
                         this.outx(
                             `Your orgasm goes off like a volcano, visibly distending your ${this.cockDescript(
                                 0
-                            )} as a huge wave of cum erupts from your groin, painting the incubus and floor with your spoo.  You cry from the sheer pleasure as the next wave builds and erupts, nearly as large as the last.  The demon-cock controlling your prick aims this blast up, forcing you to soak your ${this.hairDescript()} and face with slick goo. The orgasming drags on and on while you slowly turn blue from oxygen deprivation. Before long, both you and the incubus are buried under a wave of white.  `,
-                            false
+                            )} as a huge wave of cum erupts from your groin, painting the incubus and floor with your spoo.  You cry from the sheer pleasure as the next wave builds and erupts, nearly as large as the last.  The demon-cock controlling your prick aims this blast up, forcing you to soak your ${this.hairDescript()} and face with slick goo. The orgasming drags on and on while you slowly turn blue from oxygen deprivation. Before long, both you and the incubus are buried under a wave of white.  `
                         );
                 }
                 this.outx(
@@ -25905,8 +25450,7 @@ We can also do * italic * and ** bold ** text!
             true
         );
         this.outx(
-            `The fight over, your eyes begin to wander. You find you cannot resist staring at the huge swinging cock exposed by the incubus' crotchless overalls. The sight ignites desire that has been building within you ever since you arrived in this corrupted land. With an unnatural hunger, you knock the defeated incubus onto his back. He closes his eyes and groans, lost in his own world of lust and pain and unable to resist as you wantonly straddle him. His tool is hot in your hand as you tease it and his cock begins to grow slick with pre-cum. You lick your lips at the sight of his now glistening member, but not for hunger of food or drink. It is another kind of hunger that longs for satisfaction, a hole that needs to be filled. Eagerly, you position his swollen glans against your ${this.assholeDescript()} and begin to ease yourself down over the massive tool. You start slowly, but the pleasure it's giving feels so good you ram the rest of the incubus' cock deep into your ${this.assholeDescript()}.  `,
-            false
+            `The fight over, your eyes begin to wander. You find you cannot resist staring at the huge swinging cock exposed by the incubus' crotchless overalls. The sight ignites desire that has been building within you ever since you arrived in this corrupted land. With an unnatural hunger, you knock the defeated incubus onto his back. He closes his eyes and groans, lost in his own world of lust and pain and unable to resist as you wantonly straddle him. His tool is hot in your hand as you tease it and his cock begins to grow slick with pre-cum. You lick your lips at the sight of his now glistening member, but not for hunger of food or drink. It is another kind of hunger that longs for satisfaction, a hole that needs to be filled. Eagerly, you position his swollen glans against your ${this.assholeDescript()} and begin to ease yourself down over the massive tool. You start slowly, but the pleasure it's giving feels so good you ram the rest of the incubus' cock deep into your ${this.assholeDescript()}.  `
         );
         this.outx(
             `His eyes flash open as if you'd just sent a jolt of electricity through him and he regains his senses, becoming hyper-aware of what you're doing. The incubus instinctively moves to control your ${this.hipDescript()} and ${this.buttDescript()} as they grind against him, guiding his cock towards pleasurable areas up your ${this.assholeDescript()} that you would never have guessed were there a short while ago.\n\n`,
@@ -25917,8 +25461,7 @@ We can also do * italic * and ** bold ** text!
             false
         );
         this.outx(
-            `You awaken moments later beside a sleeping, limp, and drained incubus. You have definitely come out on top from the encounter. Though you feel stretched, sticky and a little sore, for the moment at least the burning desire to fill your ${this.assholeDescript()} is satisfied.`,
-            false
+            `You awaken moments later beside a sleeping, limp, and drained incubus. You have definitely come out on top from the encounter. Though you feel stretched, sticky and a little sore, for the moment at least the burning desire to fill your ${this.assholeDescript()} is satisfied.`
         );
         this.player.buttChange(this.monster.cockArea(0), true);
         this.player.slimeFeed();
@@ -25933,27 +25476,23 @@ We can also do * italic * and ** bold ** text!
         // (BUTTRAPE - Requires Penis)
         if (this.player.cocks.length > 0) {
             this.outx(
-                `With a few deft motions, you shift your ${this.player.armorName} to expose your `,
-                false
+                `With a few deft motions, you shift your ${this.player.armorName} to expose your `
             );
             if (this.player.gender == 3) {
                 if (this.player.balls > 0)
                     this.outx(
                         `${this.player.multiCockDescriptLight()}, ${this.ballsDescriptLight()}, and ${this.vaginaDescript(
                             0
-                        )}`,
-                        false
+                        )}`
                     );
                 else
                     this.outx(
-                        `${this.player.multiCockDescriptLight()} and ${this.vaginaDescript(0)}`,
-                        false
+                        `${this.player.multiCockDescriptLight()} and ${this.vaginaDescript(0)}`
                     );
             } else {
                 if (this.player.balls > 0)
                     this.outx(
-                        `${this.player.multiCockDescriptLight()} and ${this.ballsDescriptLight()}`,
-                        false
+                        `${this.player.multiCockDescriptLight()} and ${this.ballsDescriptLight()}`
                     );
                 else this.outx(this.player.multiCockDescriptLight(), false);
             }
@@ -25962,8 +25501,7 @@ We can also do * italic * and ** bold ** text!
                 false
             );
             this.outx(
-                `You don't waste any time, gripping your ${this.cockDescript(0)} in one hand and `,
-                false
+                `You don't waste any time, gripping your ${this.cockDescript(0)} in one hand and `
             );
             if (this.player.cocks[0].cockType == CockTypesEnum.HORSE)
                 this.outx("pressing your thick flare ");
@@ -25981,26 +25519,22 @@ We can also do * italic * and ** bold ** text!
             if (this.player.cocks[0].cockLength > 10) this.outx("deep inside ");
             else this.outx("inside ");
             this.outx(
-                `.  The demon underneath you grunts in an attempt to sound displeased, but it's plain to see the pre-cum he's dripping all over the floor.  What a slut!  You slap his ass and begin roughly butt-fucking him, panting with each plunge into the depths of his ridged passage, gradually increasing your tempo until your ${this.hipDescript()} fill the room with loud slapping noises.`,
-                false
+                `.  The demon underneath you grunts in an attempt to sound displeased, but it's plain to see the pre-cum he's dripping all over the floor.  What a slut!  You slap his ass and begin roughly butt-fucking him, panting with each plunge into the depths of his ridged passage, gradually increasing your tempo until your ${this.hipDescript()} fill the room with loud slapping noises.`
             );
             if (this.player.balls > 0)
                 this.outx(
-                    `  Your ${this.ballsDescriptLight()} swing freely, smacking into the demon's own and making both of you squeal and dribble more pre-cum.`,
-                    false
+                    `  Your ${this.ballsDescriptLight()} swing freely, smacking into the demon's own and making both of you squeal and dribble more pre-cum.`
                 );
             this.outx("\n\n", false);
             // (CUM)
             if (this.player.balls > 0)
                 this.outx(
-                    `You feel your ${this.ballsDescriptLight()} draw up tight against your body.  `,
-                    false
+                    `You feel your ${this.ballsDescriptLight()} draw up tight against your body.  `
                 );
             this.outx(
                 `Warm heat begins to build inside your groin, pooling under the base of your ${this.cockDescript(
                     0
-                )}.  You realize you're about to paint this demon's gut with white, the thought only turning you on more.  `,
-                false
+                )}.  You realize you're about to paint this demon's gut with white, the thought only turning you on more.  `
             );
             if (this.player.cumQ() > 200)
                 this.outx(
@@ -26038,8 +25572,7 @@ We can also do * italic * and ** bold ** text!
         else {
             this.player.slimeFeed();
             this.outx(
-                `With a few deft motions, you shift your ${this.player.armorName} to expose your `,
-                false
+                `With a few deft motions, you shift your ${this.player.armorName} to expose your `
             );
             // Herm
             if (this.player.gender == 3) {
@@ -26047,13 +25580,11 @@ We can also do * italic * and ** bold ** text!
                     this.outx(
                         `${this.player.multiCockDescriptLight()}, ${this.ballsDescriptLight()}, and ${this.vaginaDescript(
                             0
-                        )}`,
-                        false
+                        )}`
                     );
                 else if (this.player.balls > 0)
                     this.outx(
-                        `${this.player.multiCockDescriptLight()} and ${this.vaginaDescript(0)}`,
-                        false
+                        `${this.player.multiCockDescriptLight()} and ${this.vaginaDescript(0)}`
                     );
             } else {
                 this.outx(this.vaginaDescript(0), false);
@@ -26067,14 +25598,12 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `He looks up at you with a practiced eye, adjusting his demon-tool's size to better fill your ${this.vaginaDescript(
                     0
-                )}.  `,
-                false
+                )}.  `
             );
             // (set cocksize = to 80% vaginalCapacity).
 
             this.outx(
-                `Thankful for the gesture, you sink down onto him, letting the nubs of his crown stimulate your lips and the underside of your ${this.clitDescript()}.  `,
-                false
+                `Thankful for the gesture, you sink down onto him, letting the nubs of his crown stimulate your lips and the underside of your ${this.clitDescript()}.  `
             );
             if (this.player.vaginas[0].vaginalWetness >= CoC.VAGINA_WETNESS_SLICK)
                 this.outx(
@@ -26105,8 +25634,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `Unable to contain your body's desires due to either the demon's aura or his wonderful penis, you slam your ${this.vaginaDescript(
                     0
-                )} onto his member with impunity, twitching and squeezing involuntarily.  His tainted pre-cum begins seeping deep inside your uterus and you cry out with orgasmic intensity.  Your entire body clenches down, even the hand clamped on the incubus' windpipe. You feel his demon-cock swell up inside you in response to his stress, stretching your cunt taut.  His skin darkens from the lack of oxygen as he begins cumming HARD inside you.  Your womb immediately fills with his demon-seed, leaving ribbons of spunk to drip from your tightly-stretched cunt.  You sigh in delight as your muscles slowly stop quivering.  With a pleasured gasp, you rise off the distended demon-prick, and realize that you've choked your foe into unconsciousness. Still, you did let him cum, so maybe he won't mind too much when he wakes.  Feeling sensual and sated, you redress and prepare to explore the rest of the factory. `,
-                false
+                )} onto his member with impunity, twitching and squeezing involuntarily.  His tainted pre-cum begins seeping deep inside your uterus and you cry out with orgasmic intensity.  Your entire body clenches down, even the hand clamped on the incubus' windpipe. You feel his demon-cock swell up inside you in response to his stress, stretching your cunt taut.  His skin darkens from the lack of oxygen as he begins cumming HARD inside you.  Your womb immediately fills with his demon-seed, leaving ribbons of spunk to drip from your tightly-stretched cunt.  You sigh in delight as your muscles slowly stop quivering.  With a pleasured gasp, you rise off the distended demon-prick, and realize that you've choked your foe into unconsciousness. Still, you did let him cum, so maybe he won't mind too much when he wakes.  Feeling sensual and sated, you redress and prepare to explore the rest of the factory. `
             );
             this.player.cuntChange(this.player.vaginalCapacity() * 0.8, true);
             this.player.orgasm();
@@ -26126,7 +25654,7 @@ We can also do * italic * and ** bold ** text!
         );
         this.outx("You lean forwards, opening your mouth ");
         if (this.player.hairLength > 10)
-            this.outx(`and brushing a strand of ${this.player.hairColor} out of the way `, false);
+            this.outx(`and brushing a strand of ${this.player.hairColor} out of the way `);
         this.outx(
             "as his shiny purplish monster-cock fills your view. You kiss the tip, swirling your tongue around the nubbly ridge that surrounds the crown.  After a few moments of your tongue's focused attention, you are rewarded with a dollop of slightly sweet pre-cum.  You pause momentarily to smile at your victim before you wrap your hand around as much of him as you can hold and start to jack him off, slowly cramming more and more of his length inside your mouth.  Your free hand continues to fondle his balls, occasionally sliding a finger along the inside of his thigh.\n\n",
             false
@@ -26249,8 +25777,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `Your third group of ${this.breastDescript(
                         2
-                    )} seem to follow their sister's example, tingling briefly before settling at a size just below the breasts above.  `,
-                    false
+                    )} seem to follow their sister's example, tingling briefly before settling at a size just below the breasts above.  `
                 );
                 this.player.breastRows[2].breastRating = this.player.breastRows[1].breastRating - 1;
             }
@@ -26637,8 +26164,7 @@ We can also do * italic * and ** bold ** text!
             );
         else
             this.outx(
-                `Forgetting about the fight, you lean on the desk and slide your free hand under your ${this.player.armorName}, seeking any pleasure you can get.  `,
-                false
+                `Forgetting about the fight, you lean on the desk and slide your free hand under your ${this.player.armorName}, seeking any pleasure you can get.  `
             );
         this.outx(
             `Sensing victory, the demoness sidles up next to you and pushes you into a chair.  Incapable of resisting, all you can do is watch as she opens your ${this.player.armorName} for easier access.  She steps back and admires her handiwork as she gives you a thorough looking over.\n\n`,
@@ -26676,22 +26202,19 @@ We can also do * italic * and ** bold ** text!
                 false
             );
             this.outx(
-                `You make a desperate attempt to escape her chair, but your body fails to do much more than squirm in place.  She drops the creature squarely into your crotch and hops up onto her desk to watch.  Thousands of tiny wet nodules immediately begin massaging your ${this.player.multiCockDescriptLight()}`,
-                false
+                `You make a desperate attempt to escape her chair, but your body fails to do much more than squirm in place.  She drops the creature squarely into your crotch and hops up onto her desk to watch.  Thousands of tiny wet nodules immediately begin massaging your ${this.player.multiCockDescriptLight()}`
             );
-            if (this.player.balls > 0) this.outx(` and ${this.ballsDescript()}`, false);
+            if (this.player.balls > 0) this.outx(` and ${this.ballsDescript()}`);
             this.outx(
                 ".  You groan as the pleasure washes over you like a wave.  Your squirming stops as your hips begin twitching into the air, as if begging for even more stimulation.  It's not fair how good this feels... you can't help it, it's just too hard to fight.\n\n",
                 false
             );
             this.outx(
-                `You watch with detached fascination as each of your ${this.player.multiCockDescript()} is wrapped tightly in shiny green material.  The shape of each penis is still clearly defined under the pulsating green stuff, though you can see it shifting and rippling over your lengths as it pleasures you.  It almost looks like some kind of kinky bondage-toy.  Aware of your attentions, the green stuff squeezes you tightly and begins flashing beautiful bioluminescent color patterns across its surface that scatter your thoughts as you watch.  You blink a few times as the green mass rolls more of itself out, curling over your `,
-                false
+                `You watch with detached fascination as each of your ${this.player.multiCockDescript()} is wrapped tightly in shiny green material.  The shape of each penis is still clearly defined under the pulsating green stuff, though you can see it shifting and rippling over your lengths as it pleasures you.  It almost looks like some kind of kinky bondage-toy.  Aware of your attentions, the green stuff squeezes you tightly and begins flashing beautiful bioluminescent color patterns across its surface that scatter your thoughts as you watch.  You blink a few times as the green mass rolls more of itself out, curling over your `
             );
             if (this.player.balls > 0) {
                 this.outx("balls");
-                if (this.player.vaginas.length > 0)
-                    this.outx(` and ${this.vaginaDescript(0)}`, false);
+                if (this.player.vaginas.length > 0) this.outx(` and ${this.vaginaDescript(0)}`);
             } else if (this.player.vaginas.length > 0) this.outx(this.vaginaDescript(0), false);
             else this.outx("taint");
             this.outx(
@@ -26707,8 +26230,7 @@ We can also do * italic * and ** bold ** text!
                 false
             );
             this.outx(
-                `Overloaded with pleasure, you feel your ${this.player.multiCockDescriptLight()} pulse and cum, creating translucent green cum balloons the size of `,
-                false
+                `Overloaded with pleasure, you feel your ${this.player.multiCockDescriptLight()} pulse and cum, creating translucent green cum balloons the size of `
             );
             if (this.player.cumQ() < 50) this.outx("apples ");
             if (this.player.cumQ() >= 50 && this.player.cumQ() < 300) this.outx("cantaloupes ");
@@ -26831,19 +26353,16 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `With one swift motion, the beast engulfs your ${this.cockDescript(
                         0
-                    )} in its slimy maw.  `,
-                    false
+                    )} in its slimy maw.  `
                 );
             else
                 this.outx(
                     `Distending obscenely, the beast starts engulfing your ${this.cockDescript(
                         0
-                    )} in its slimy maw, progressing along its entire length until you can no longer see your pleasure tool.  `,
-                    false
+                    )} in its slimy maw, progressing along its entire length until you can no longer see your pleasure tool.  `
                 );
             this.outx(
-                `The slimy tentacles waste no time, massaging you with mechanical precision.  You groan in helpless pleasure, growing to painful hardness within the squirming confines of the creature.  Three protrusions sprout from the creature's core, dripping with slime of their own, and covered on the inside with the same wriggling protrusions that now massage your trapped member.  Two curl around your ${this.hipDescript()}, while the last one`,
-                false
+                `The slimy tentacles waste no time, massaging you with mechanical precision.  You groan in helpless pleasure, growing to painful hardness within the squirming confines of the creature.  Three protrusions sprout from the creature's core, dripping with slime of their own, and covered on the inside with the same wriggling protrusions that now massage your trapped member.  Two curl around your ${this.hipDescript()}, while the last one`
             );
             if (this.player.balls > 0)
                 this.outx(
@@ -26914,7 +26433,7 @@ We can also do * italic * and ** bold ** text!
                 'Your mistress pats your obscene purple panties tenderly and whispers in your ear, "<i>Be a good toy and cum for mistress.</i>"  You smile broadly as your hips piston in the air, as if fucking an imaginary twat.  Cum boils out from your ',
                 false
             );
-            if (this.player.balls > 0) this.outx(`${this.ballsDescriptLight()} and `, false);
+            if (this.player.balls > 0) this.outx(`${this.ballsDescriptLight()} and `);
             this.outx(
                 " over-sized prostate, filling the chamber around your cock with thick blasts of seed.  You smile happily as the tentacle-chamber distorts to hold your load, bulging out into a more spherical appearance.  You slump down as your orgasm finishes and you begin to feel even more 'reward' fill your now greedy-hole.\n\n",
                 false
@@ -27020,8 +26539,7 @@ We can also do * italic * and ** bold ** text!
                 false
             );
             this.outx(
-                `She giggles and reaches down.  Too aroused to care, you just keep fucking her and moaning in delight.  Her hands come up and begin to massage and rub your ${this.allBreastsDescript()} taking special care to tweak and tug on your nipples.  They become as hard as `,
-                false
+                `She giggles and reaches down.  Too aroused to care, you just keep fucking her and moaning in delight.  Her hands come up and begin to massage and rub your ${this.allBreastsDescript()} taking special care to tweak and tug on your nipples.  They become as hard as `
             );
             if (this.player.nippleLength < 0.5) this.outx("erasers ");
             else if (this.player.nippleLength < 3) this.outx("bullets ");
@@ -27032,15 +26550,12 @@ We can also do * italic * and ** bold ** text!
                 ".  You sigh with disappointment when her hands drop away.  You were so close to orgasm.  She reaches back up and places something wet and warm on ",
                 false
             );
-            if (this.player.breastRows.length <= 1)
-                this.outx(`your ${this.nippleDescript(0)}`, false);
-            if (this.player.breastRows.length > 1)
-                this.outx(`your top ${this.nippleDescript(0)}`, false);
+            if (this.player.breastRows.length <= 1) this.outx(`your ${this.nippleDescript(0)}`);
+            if (this.player.breastRows.length > 1) this.outx(`your top ${this.nippleDescript(0)}`);
             this.outx(
                 `.  You look down and see two star-shaped creatures made of glistening pink (just like your panties!) attached to your ${this.nippleDescript(
                     0
-                )}s.  They pulse and ripple as they constantly massage and suck.  `,
-                false
+                )}s.  They pulse and ripple as they constantly massage and suck.  `
             );
             if (this.player.biggestLactation() > 1)
                 this.outx(
@@ -27082,8 +26597,7 @@ We can also do * italic * and ** bold ** text!
     public demonBadEnd(): void {
         this.outx("", true);
         this.outx(
-            `Advancing slowly, the succubus gives you a hungry look.  She extends a hand, allowing her fingers to lengthen into razor-sharp claws.  With a single expert slash, she cuts away everything holding together your ${this.player.armorName}.  They fall into a discarded pile, already forgotten as your `,
-            false
+            `Advancing slowly, the succubus gives you a hungry look.  She extends a hand, allowing her fingers to lengthen into razor-sharp claws.  With a single expert slash, she cuts away everything holding together your ${this.player.armorName}.  They fall into a discarded pile, already forgotten as your `
         );
         // [genderless]
         if (this.player.gender == 0) {
@@ -27133,11 +26647,9 @@ We can also do * italic * and ** bold ** text!
                     false
                 );
                 this.outx(
-                    `You glance down, seeing just how hard her words have made you.  You squirm your ${this.hipDescript()}s pathetically, trying to hump her hand and increase the stimulation.  The succubus immediately releases you and draws back, shedding her secretary's clothes like a snake sheds its skin.  Now clad only in a tight leather corset and thigh-high stockings with garters, the succubus tosses you onto a table, surprising you with her raw strength.  Seemingly from nowhere, she produces a whip, winding it tightly around `,
-                    false
+                    `You glance down, seeing just how hard her words have made you.  You squirm your ${this.hipDescript()}s pathetically, trying to hump her hand and increase the stimulation.  The succubus immediately releases you and draws back, shedding her secretary's clothes like a snake sheds its skin.  Now clad only in a tight leather corset and thigh-high stockings with garters, the succubus tosses you onto a table, surprising you with her raw strength.  Seemingly from nowhere, she produces a whip, winding it tightly around `
                 );
-                if (this.player.balls > 0)
-                    this.outx(`your ${this.ballsDescriptLight()} and `, false);
+                if (this.player.balls > 0) this.outx(`your ${this.ballsDescriptLight()} and `);
                 this.outx(`the bases of your ${this.player.multiCockDescriptLight()}.\n\n`, false);
                 this.outx(
                     "\"<i>There, that'll make sure you feel every squeeze and caress of my velvet walls, and keep you from getting off until you're ready,</i>\" says the succubus as she climbs the table and straddles your eager form.\n\n",
@@ -27211,11 +26723,9 @@ We can also do * italic * and ** bold ** text!
                     false
                 );
                 this.outx(
-                    `You glance down, seeing just how hard her words have made you.  You squirm your ${this.hipDescript()}s pathetically, trying to hump her hand and increase the stimulation.  The succubus immediately releases you and draws back, shedding her secretary's clothes like a snake sheds its skin.  Now clad only in a tight leather corset and thigh-high stockings with garters, the succubus tosses you onto a table, surprising you with her raw strength.  Seemingly from nowhere, she produces a whip, winding it tightly around `,
-                    false
+                    `You glance down, seeing just how hard her words have made you.  You squirm your ${this.hipDescript()}s pathetically, trying to hump her hand and increase the stimulation.  The succubus immediately releases you and draws back, shedding her secretary's clothes like a snake sheds its skin.  Now clad only in a tight leather corset and thigh-high stockings with garters, the succubus tosses you onto a table, surprising you with her raw strength.  Seemingly from nowhere, she produces a whip, winding it tightly around `
                 );
-                if (this.player.balls > 0)
-                    this.outx(`your ${this.ballsDescriptLight()} and `, false);
+                if (this.player.balls > 0) this.outx(`your ${this.ballsDescriptLight()} and `);
                 this.outx(`the base of your ${this.cockDescript(0)}.\n\n`, false);
                 this.outx(
                     "\"<i>There, that'll make sure you feel every squeeze and caress of my velvet walls, and keep you from getting off until you're ready,</i>\" says the succubus as she climbs the table and straddles your eager form.\n\n",
@@ -27297,8 +26807,7 @@ We can also do * italic * and ** bold ** text!
             );
             if (this.player.clitLength >= 2)
                 this.outx(
-                    `Your ${this.clitDescript()} pushes free, nuzzling against her hairless cunt and slipping inside, as if drawn in by its desire.  She openly moans, and begins rocking on top of you.  You gasp in delight as she rides your ${this.clitDescript()}, fucking and grinding against it.  `,
-                    false
+                    `Your ${this.clitDescript()} pushes free, nuzzling against her hairless cunt and slipping inside, as if drawn in by its desire.  She openly moans, and begins rocking on top of you.  You gasp in delight as she rides your ${this.clitDescript()}, fucking and grinding against it.  `
                 );
             else
                 this.outx(
@@ -27332,8 +26841,7 @@ We can also do * italic * and ** bold ** text!
                     0
                 )} and ${this.clitDescript()}, pushing you beyond anything you've ever felt before.  She leans down over you, licking her lips to reveal an inhumanly long tongue.  It snakes down, curving around you ${this.allBreastsDescript()} before it arches up to flick a ${this.nippleDescript(
                     0
-                )}.  `,
-                false
+                )}.  `
             );
             if (this.player.hasFuckableNipples() && this.player.biggestTitSize() > 2)
                 this.outx(
@@ -27386,13 +26894,11 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `She effortlessly swings her lissomelegs onto the table as she pulls herself up, mounting you in a single swift motion.  You can feel waves of heat rolling off her sex, bathing your ${this.cockDescript(
                     0
-                )} in her warmth.  `,
-                false
+                )} in her warmth.  `
             );
             if (this.player.clitLength >= 2)
                 this.outx(
-                    `Your ${this.clitDescript()} pushes free, nuzzling against her tight asshole and slipping inside, as if drawn in by its desire.  She openly moans, and begins rocking on top of you.  You gasp in delight as she rides your ${this.clitDescript()}, fucking her ass and grinding against it.`,
-                    false
+                    `Your ${this.clitDescript()} pushes free, nuzzling against her tight asshole and slipping inside, as if drawn in by its desire.  She openly moans, and begins rocking on top of you.  You gasp in delight as she rides your ${this.clitDescript()}, fucking her ass and grinding against it.`
                 );
             else
                 this.outx(
@@ -37976,7 +37482,7 @@ We can also do * italic * and ** bold ** text!
                     this.outx("\n<b>Your belly is painfully distended, ", false);
                     if (this.player.cor < 40) this.outx("making it difficult to function.</b>");
                     if (this.player.cor >= 40 && this.player.cor < 75)
-                        this.outx("and you wonder how much longer you have to wait.</b>", false);
+                        this.outx("and you wonder how much longer you have to wait.</b>");
                     if (this.player.cor >= 75)
                         this.outx(
                             "and you're eager to give birth, so you can get impregnated again by corrupted or monstrous cum filling out your eager womb.</b>",
@@ -38070,7 +37576,7 @@ We can also do * italic * and ** bold ** text!
                     );
                     if (this.player.cor < 40) this.outx("making it difficult to function.</b>");
                     if (this.player.cor >= 40 && this.player.cor < 75)
-                        this.outx("and you wonder how much longer you have to wait.</b>", false);
+                        this.outx("and you wonder how much longer you have to wait.</b>");
                     if (this.player.cor >= 75)
                         this.outx(
                             "and you're eager to give birth, so you can get impregnated again by monstrous cocks unloading their corrupted seed directly into your eager womb.</b>",
@@ -38373,7 +37879,7 @@ We can also do * italic * and ** bold ** text!
                     this.outx("\n<b>Your belly is painfully distended, ", false);
                     if (this.player.cor < 40) this.outx("making it difficult to function.</b>");
                     if (this.player.cor >= 40 && this.player.cor < 75)
-                        this.outx("and you wonder how much longer you have to wait.</b>", false);
+                        this.outx("and you wonder how much longer you have to wait.</b>");
                     if (this.player.cor >= 75)
                         this.outx(
                             "and you're eager to give birth so you'll be able to get pregnant again.</b>",
@@ -38467,7 +37973,7 @@ We can also do * italic * and ** bold ** text!
                     );
                     if (this.player.cor < 40) this.outx("making it difficult to function.</b>");
                     if (this.player.cor >= 40 && this.player.cor < 75)
-                        this.outx("and you wonder how much longer you have to wait.</b>", false);
+                        this.outx("and you wonder how much longer you have to wait.</b>");
                     if (this.player.cor >= 75)
                         this.outx(
                             "and you're eager to give birth, so you can get fill your womb with a new charge.</b>",
@@ -38654,7 +38160,7 @@ We can also do * italic * and ** bold ** text!
                     );
                     if (this.player.cor < 40) this.outx("making it difficult to function.</b>");
                     if (this.player.cor >= 40 && this.player.cor < 75)
-                        this.outx("and you wonder how much longer you have to wait.</b>", false);
+                        this.outx("and you wonder how much longer you have to wait.</b>");
                     if (this.player.cor >= 75)
                         this.outx(
                             "and you're eager to give birth, so you can get impregnated again by monstrous cocks unloading their corrupted seed directly into your eager womb.</b>",
@@ -39714,8 +39220,7 @@ We can also do * italic * and ** bold ** text!
                         this.outx(
                             ` and keeps your ${this.vaginaDescript(
                                 0
-                            )} aroused from the constant tingling in your womb`,
-                            false
+                            )} aroused from the constant tingling in your womb`
                         );
                     this.outx(".</b>\n", false);
                     this.dynStats("lus", 10 + this.player.lib / 20);
@@ -39729,7 +39234,7 @@ We can also do * italic * and ** bold ** text!
                             false
                         );
                     if (this.player.cor >= 40 && this.player.cor < 75)
-                        this.outx("and you wonder how much longer you have to wait.</b>", false);
+                        this.outx("and you wonder how much longer you have to wait.</b>");
                     if (this.player.cor >= 75)
                         this.outx(
                             "and you're eager to give birth, so you can get impregnated again by corrupted or monstrous cum filling out your eager womb.</b>",
@@ -39835,7 +39340,7 @@ We can also do * italic * and ** bold ** text!
                     );
                     if (this.player.cor < 40) this.outx("making it difficult to function.</b>");
                     if (this.player.cor >= 40 && this.player.cor < 75)
-                        this.outx("and you wonder how much longer you have to wait.</b>", false);
+                        this.outx("and you wonder how much longer you have to wait.</b>");
                     if (this.player.cor >= 75)
                         this.outx(
                             "and you're eager to give birth, so you can get impregnated again by monstrous cocks unloading their corrupted seed directly into your eager womb.</b>",
@@ -40083,22 +39588,19 @@ We can also do * italic * and ** bold ** text!
                             this.outx(
                                 `, each inhalation making it bigger, harder, and firmer.  You suck in huge lungfuls of air, until your ${this.cockDescript(
                                     0
-                                )} is twitching and dripping, the flare swollen and purple.  `,
-                                false
+                                )} is twitching and dripping, the flare swollen and purple.  `
                             );
                         if (this.player.dogCocks() == 1)
                             this.outx(
                                 `, each inhalation making it thicker, harder, and firmer.  You suck in huge lungfuls of air, desperate for more, until your ${this.cockDescript(
                                     0
-                                )} is twitching and dripping, its knot swollen to the max.  `,
-                                false
+                                )} is twitching and dripping, its knot swollen to the max.  `
                             );
                         if (this.player.normalCocks() == 1)
                             this.outx(
                                 `, each inhalation making it bigger, harder, and firmer.  You suck in huge lungfuls of air, until your ${this.cockDescript(
                                     0
-                                )} is twitching and dripping, the head swollen and purple.  `,
-                                false
+                                )} is twitching and dripping, the head swollen and purple.  `
                             );
                         // FAILSAFE FOR NEW COCKS
                         if (
@@ -40109,14 +39611,12 @@ We can also do * italic * and ** bold ** text!
                             this.outx(
                                 `, each inhalation making it bigger, harder, and firmer.  You suck in huge lungfuls of air until your ${this.cockDescript(
                                     0
-                                )} is twitching and dripping.  `,
-                                false
+                                )} is twitching and dripping.  `
                             );
                     }
                     if (this.player.cockTotal() > 1)
                         this.outx(
-                            `groin.  Your ${this.player.multiCockDescriptLight()} fill and grow with every lungful of the stuff you breathe in.  You suck in great lungfuls of the tainted air, desperate for more, your cocks twitching and dripping with need.  `,
-                            false
+                            `groin.  Your ${this.player.multiCockDescriptLight()} fill and grow with every lungful of the stuff you breathe in.  You suck in great lungfuls of the tainted air, desperate for more, your cocks twitching and dripping with need.  `
                         );
                     this.outx(
                         "You smile knowing you couldn't stop from masturbating if you wanted to.\n",
@@ -40265,10 +39765,7 @@ We can also do * italic * and ** bold ** text!
                     false
                 );
             if (this.player.vaginas.length > 0)
-                this.outx(
-                    `Your ${this.vaginaDescript(0)} becomes engorged and sensitive.  `,
-                    false
-                );
+                this.outx(`Your ${this.vaginaDescript(0)} becomes engorged and sensitive.  `);
             this.outx(
                 "Your hand darts down to the amber, scooping up a handful of the sticky stuff.  You wonder what your hand is doing as it brings it up to your mouth, which instinctively opens.  You shudder in revulsion as you swallow the sweet-tasting stuff, your mind briefly wondering why it would do that.  The stuff seems to radiate warmth, quickly pushing those nagging thoughts away as you scoop up more.\n\n",
                 false
@@ -40281,8 +39778,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `Seeking even greater sensation, your hands gather the honey and massage it into your ${this.breastDescript(
                         0
-                    )}, slowly working up to your nipples.  Milk immediately begins pouring out from the attention, flooding your chest with warmth.  `,
-                    false
+                    )}, slowly working up to your nipples.  Milk immediately begins pouring out from the attention, flooding your chest with warmth.  `
                 );
             this.outx(
                 "Each egg seems to come out closer on the heels of the one before, and each time your conscious mind loses more of its ability to do anything but masturbate and wallow in honey.\n\n",
@@ -40473,8 +39969,7 @@ We can also do * italic * and ** bold ** text!
             );
             if (this.player.vaginalCapacity() < 60)
                 this.outx("It hurts a little as your cervix starts to stretch wide");
-            else
-                this.outx("It actually feels kind of nice as your cervix is stretched wide", false);
+            else this.outx("It actually feels kind of nice as your cervix is stretched wide");
             this.outx(
                 `, but somehow your body accommodates the forced dilation without too much discomfort.  It's soon forgotten as you feel your ${this.vaginaDescript(
                     0
@@ -40483,8 +39978,7 @@ We can also do * italic * and ** bold ** text!
             );
 
             this.outx(
-                `The whole process starts over again – there's another one!  By now your well-stretched pussy is oozing both the birthing fluids and your own lubricants, and the second bunny-child slides down to bump into its sibling with ease.  You shake and shudder, groaning and spasming as you nearly cum from the stimulation, but in the end you're left panting and horny.  The two bunnies look like miniature people except for their ears, tails, and fuzzy legs.  Your children lick themselves clean before hopping up onto your ${this.chestDesc()} and suckling your nipples for a while`,
-                false
+                `The whole process starts over again – there's another one!  By now your well-stretched pussy is oozing both the birthing fluids and your own lubricants, and the second bunny-child slides down to bump into its sibling with ease.  You shake and shudder, groaning and spasming as you nearly cum from the stimulation, but in the end you're left panting and horny.  The two bunnies look like miniature people except for their ears, tails, and fuzzy legs.  Your children lick themselves clean before hopping up onto your ${this.chestDesc()} and suckling your nipples for a while`
             );
             if (this.player.lactationQ() > 500) this.outx(", growing fat from all the milk");
             this.outx(
@@ -40495,8 +39989,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `You sink into restful unconsciousness, marveling at how stretchy and sensitive your ${this.vaginaDescript(
                     0
-                )} feels now.`,
-                false
+                )} feels now.`
             );
             this.player.cuntChange(60, true, true, false);
             this.player.boostLactation(0.01);
@@ -40576,8 +40069,7 @@ We can also do * italic * and ** bold ** text!
             // [(if pc has 0-9 existing cocks)
             else if (this.player.cockTotal() < 10) {
                 this.outx(
-                    `As you take in the sight, small nodules around the tip begin to form and lengthen, until the little anemone is capped by a mop of wriggling blue-green tentacles.  Horrified, you grasp it at the base and give it a sharp pull.  The pain makes you lock up and nearly takes away your consciousness as its sticky surface releases its grip on your labia and ${this.clitDescript()}!  The small anemone and you both lay there twitching, but it recovers its bearings first; through your haze of pain you watch it flexing its body, wedging the head under itself, and elevating the base.`,
-                    false
+                    `As you take in the sight, small nodules around the tip begin to form and lengthen, until the little anemone is capped by a mop of wriggling blue-green tentacles.  Horrified, you grasp it at the base and give it a sharp pull.  The pain makes you lock up and nearly takes away your consciousness as its sticky surface releases its grip on your labia and ${this.clitDescript()}!  The small anemone and you both lay there twitching, but it recovers its bearings first; through your haze of pain you watch it flexing its body, wedging the head under itself, and elevating the base.`
                 );
                 this.player.cuntChange(20, true, true, false);
 
@@ -40587,7 +40079,7 @@ We can also do * italic * and ** bold ** text!
                 );
                 // [(if cocks)
                 if (this.player.cockTotal() > 0)
-                    this.outx(` below your ${this.player.multiCockDescriptLight()}`, false);
+                    this.outx(` below your ${this.player.multiCockDescriptLight()}`);
                 this.outx(
                     ". A sharp pinch lances through the nerves in your groin and sends your hands to it reflexively.  This smaller pain, coupled with the adrenaline and dopamine that have finally chased the fog from your head, is enough to pull your thoughts into focus for another attempt to remove your strange, parasitic offspring.  You shift your grip and pull a few more times, but the thing doesn't budge.  The handling of it only serves to make the stalk thicken and become stiff; gradually you notice that you're feeling the sensation of your own pulling not from the skin at the point of attachment but from the stalk itself, and this realization is accompanied by the ring of tentacles opening and pulling back to reveal the crown of a penis!  <b>You have a new anemone-penis!</b>",
                     false
@@ -40595,8 +40087,7 @@ We can also do * italic * and ** bold ** text!
                 // [(dick slot 1 exists)
                 if (this.player.cockTotal() > 0)
                     this.outx(
-                        `  The tentacles writhe around, rubbing against your ${this.player.multiCockDescriptLight()}`,
-                        false
+                        `  The tentacles writhe around, rubbing against your ${this.player.multiCockDescriptLight()}`
                     );
                 // (doesn't exist)
                 else
@@ -40607,8 +40098,7 @@ We can also do * italic * and ** bold ** text!
                 this.player.createCock(4 + this.rand(3), 1.2);
                 this.player.cocks[this.player.cockTotal() - 1].cockType = CockTypesEnum.ANEMONE;
                 this.outx(
-                    ` and you quickly become fully erect from the aphrodisiac they inject.  Over and over the tentacles caress ${this.player.sMultiCockDesc()} sensually, leaving behind a tingling trail of vibrant pleasure`,
-                    false
+                    ` and you quickly become fully erect from the aphrodisiac they inject.  Over and over the tentacles caress ${this.player.sMultiCockDesc()} sensually, leaving behind a tingling trail of vibrant pleasure`
                 );
                 // [(if no dick1 and no balls)
                 if (this.player.totalCocks() == 1 && this.player.balls == 0)
@@ -40626,18 +40116,14 @@ We can also do * italic * and ** bold ** text!
                 this.outx(" of semen shoots from your new penis and lands on your ");
                 // [(if boobs)
                 if (this.player.biggestTitSize() >= 1)
-                    this.outx(`${this.allBreastsDescript()} and `, false);
+                    this.outx(`${this.allBreastsDescript()} and `);
                 this.outx("stomach");
                 // [(dick1 exists)
                 if (this.player.cockTotal() > 1)
                     this.outx(
-                        `, followed in short order by white squirts from ${this.player.sMultiCockDesc()} remaining`,
-                        false
+                        `, followed in short order by white squirts from ${this.player.sMultiCockDesc()} remaining`
                     );
-                this.outx(
-                    `.  Your ${this.vaginaDescript(0)} quivers and pulses as well, adding `,
-                    false
-                );
+                this.outx(`.  Your ${this.vaginaDescript(0)} quivers and pulses as well, adding `);
                 if (this.player.vaginas[0].vaginalWetness < CoC.VAGINA_WETNESS_SLICK)
                     this.outx("a trickle");
                 else if (this.player.vaginas[0].vaginalWetness < CoC.VAGINA_WETNESS_SLAVERING)
@@ -40807,8 +40293,7 @@ We can also do * italic * and ** bold ** text!
                 this.outx(
                     `You push and heave with all your might, little else going through your mind. You somehow register when the head comes out, and soon the shoulders along with the rest of the body follow.  You lean back and pant for a while before feeling a pair of hands grab a hold of you. They slowly and clumsily feel up your body before finding your ${this.player.chestDesc()} and a mouth quickly closes down on a ${this.nippleDescript(
                         0
-                    )}.  You sigh softly, and drift off to sleep.`,
-                    false
+                    )}.  You sigh softly, and drift off to sleep.`
                 );
                 this.player.cuntChange(20, true, true, false);
 
@@ -40859,8 +40344,7 @@ We can also do * italic * and ** bold ** text!
                         this.outx(
                             `After the birth your ${
                                 this.player.armorName
-                            } fits a bit more snugly about your ${this.hipDescript()}.`,
-                            false
+                            } fits a bit more snugly about your ${this.hipDescript()}.`
                         );
                     }
                     if (this.flags[kFLAGS.MARBLE_BOYS] == 0) {
@@ -40893,8 +40377,7 @@ We can also do * italic * and ** bold ** text!
                         this.outx(
                             `As the child contentedly drinks from your ${this.nippleDescript(
                                 0
-                            )}, Marble tells you, "<i>Sweetie, somehow I know that our kids won't have to worry about the addictive milk.  It will only make them healthy and strong.</i>"  You nod at her and put the child into the nursery.  `,
-                            false
+                            )}, Marble tells you, "<i>Sweetie, somehow I know that our kids won't have to worry about the addictive milk.  It will only make them healthy and strong.</i>"  You nod at her and put the child into the nursery.  `
                         );
                     } else {
                         this.outx(
@@ -41148,8 +40631,7 @@ We can also do * italic * and ** bold ** text!
             this.player.knockUpForce(); // Clear Pregnancy
             if (this.player.averageLactation() > 0 && this.player.averageLactation() < 5) {
                 this.outx(
-                    `  Your ${this.allBreastsDescript()} won't seem to stop dribbling milk, lactating more heavily than before.`,
-                    false
+                    `  Your ${this.allBreastsDescript()} won't seem to stop dribbling milk, lactating more heavily than before.`
                 );
                 this.player.boostLactation(0.5);
             }
@@ -41294,8 +40776,7 @@ We can also do * italic * and ** bold ** text!
                                 this.player.armorName
                             } and drop to your hands and knees.   You manage to roll over and prop yourself up against a smooth rock, looking down over your pregnant-looking belly as green fluids leak from you, soaking into the ground.   A powerful contraction rips through you and your legs spread instinctively, opening your ${this.vaginaDescript(
                                 0
-                            )} to better deposit your precious cargo.   You see the rounded surface of an egg peek through your lips, mottled with strange colors.   You push hard and it drops free with an abrupt violent motion.  The friction and slimy fluids begin to arouse you, flooding your groin with heat as you feel the second egg pushing down.  It slips free with greater ease than the first, arousing you further as you bleat out a moan from the unexpected pleasure.  Before it stops rolling on the ground, you feel the next egg sliding down your slime-slicked passage, rubbing you perfectly as it slides free.  You lose count of the eggs and begin to masturbate, `,
-                            false
+                            )} to better deposit your precious cargo.   You see the rounded surface of an egg peek through your lips, mottled with strange colors.   You push hard and it drops free with an abrupt violent motion.  The friction and slimy fluids begin to arouse you, flooding your groin with heat as you feel the second egg pushing down.  It slips free with greater ease than the first, arousing you further as you bleat out a moan from the unexpected pleasure.  Before it stops rolling on the ground, you feel the next egg sliding down your slime-slicked passage, rubbing you perfectly as it slides free.  You lose count of the eggs and begin to masturbate, `
                         );
                         if (this.player.clitLength > 5)
                             this.outx(
@@ -41313,8 +40794,7 @@ We can also do * italic * and ** bold ** text!
                                 false
                             );
                         this.outx(
-                            `you quiver in orgasm, popping out the last of your eggs as your body twitches nervelessly on the ground.   In total you lay ${this.eggDescript()}.`,
-                            false
+                            `you quiver in orgasm, popping out the last of your eggs as your body twitches nervelessly on the ground.   In total you lay ${this.eggDescript()}.`
                         );
                         this.player.orgasm();
                         this.dynStats("resisted", false);
@@ -41323,8 +40803,7 @@ We can also do * italic * and ** bold ** text!
                 // Large egg scene
                 else {
                     this.outx(
-                        `A sudden shift in the weight of your pregnant belly staggers you, dropping you to your knees.  You realize something is about to be birthed, and you shed your ${this.player.armorName} before it can be ruined by what's coming.  A contraction pushes violently through your midsection, `,
-                        false
+                        `A sudden shift in the weight of your pregnant belly staggers you, dropping you to your knees.  You realize something is about to be birthed, and you shed your ${this.player.armorName} before it can be ruined by what's coming.  A contraction pushes violently through your midsection, `
                     );
                     if (this.player.vaginas[0].vaginalLooseness < CoC.VAGINA_LOOSENESS_LOOSE)
                         this.outx(
@@ -41356,8 +40835,7 @@ We can also do * italic * and ** bold ** text!
                         this.outx(
                             `your ${this.vaginaDescript(
                                 0
-                            )} by pulling your folds wide and playing with your clit.  Another egg pops free from your diminishing belly, accompanied by an audible burst of relief.  You make wet 'schlick'ing sounds as you spread the slime around, vigorously frigging yourself.  `,
-                            false
+                            )} by pulling your folds wide and playing with your clit.  Another egg pops free from your diminishing belly, accompanied by an audible burst of relief.  You make wet 'schlick'ing sounds as you spread the slime around, vigorously frigging yourself.  `
                         );
                     this.outx(
                         "You cum hard, the big eggs each making your cunt gape wide just before popping free.  You slump down, exhausted and barely conscious from the force of the orgasm.  ",
@@ -41367,8 +40845,7 @@ We can also do * italic * and ** bold ** text!
                         this.outx(
                             `Your swollen belly doesn't seem to be done with you, as yet another egg pushes its way to freedom.   The stimulation so soon after orgasm pushes you into a pleasure-stupor.  If anyone or anything discovered you now, they would see you collapsed next to a pile of eggs, your fingers tracing the outline of your ${this.vaginaDescript(
                                 0
-                            )} as more and more eggs pop free.  In time your wits return, leaving you with the realization that you are no longer pregnant.  `,
-                            false
+                            )} as more and more eggs pop free.  In time your wits return, leaving you with the realization that you are no longer pregnant.  `
                         );
                     this.outx(
                         `\n\nYou gaze down at the mess, counting ${this.eggDescript()}.`,
@@ -41706,7 +41183,7 @@ We can also do * italic * and ** bold ** text!
             false
         );
         if (this.player.weaponName != "fists")
-            this.outx(`put away your ${this.player.weaponName} and `, false);
+            this.outx(`put away your ${this.player.weaponName} and `);
         this.outx(
             "draw out a glistening pink dildo from your pouches, as if it were a weapon.   She looks up at you, at once knowing your intent.  ",
             false
@@ -41723,7 +41200,7 @@ We can also do * italic * and ** bold ** text!
             );
         this.outx("\n\n", false);
 
-        this.outx("'<i>What a wonderful toy</i>,' you muse as you kneel between your ", false);
+        this.outx("'<i>What a wonderful toy</i>,' you muse as you kneel between your ");
         if (this.player.cor > 50) this.outx("latest ");
         this.outx(
             "victim's legs, inhaling her scent.  It smells surprisingly salty, reminding you of the sea.   Sand-papery skin brushes against your ankle.  You don't even have to look down to recognize the feeling of her tail curling around your leg and thigh.  Before she can use it to her advantage, you gently part her outer folds with one hand and insert the artificial member with the other.  The shark-girl's tail immediately drops away as her body shivers and relaxes, barely managing a few twitches.\n\n",
@@ -41838,7 +41315,7 @@ We can also do * italic * and ** bold ** text!
         );
         this.outx("Good.  You pick up the toy ");
         if (this.player.cor > 75)
-            this.outx("giving it a long lick to taste the succubi's delicious flavor ", false);
+            this.outx("giving it a long lick to taste the succubi's delicious flavor ");
         this.outx(
             "and put it away.  When you glance back towards the Succubus, she's gone, leaving you alone and horny...",
             false
@@ -44836,8 +44313,7 @@ We can also do * italic * and ** bold ** text!
             );
             if (this.player.cumQ() >= 250)
                 this.outx(
-                    `  The spunk quickly fills her womb and flows back out her entrance, frothing and bubbling as it drips over your ${this.hipDescript()}.  `,
-                    false
+                    `  The spunk quickly fills her womb and flows back out her entrance, frothing and bubbling as it drips over your ${this.hipDescript()}.  `
                 );
             if (this.player.cumQ() >= 1000)
                 this.outx(
@@ -44906,8 +44382,7 @@ We can also do * italic * and ** bold ** text!
             );
 
             this.outx(
-                `She wraps her arms around it and begins licking it, squatting down and standing up, jerking you off with her whole body.  Each time her cute bottom bumps your ${this.allBreastsDescript()} `,
-                false
+                `She wraps her arms around it and begins licking it, squatting down and standing up, jerking you off with her whole body.  Each time her cute bottom bumps your ${this.allBreastsDescript()} `
             );
             if (this.player.biggestTitSize() >= 2) this.outx("making them jiggle");
             else this.outx("making her tight butt give a tiny jiggle");
@@ -44922,8 +44397,7 @@ We can also do * italic * and ** bold ** text!
             );
 
             this.outx(
-                `Before you can puzzle out her meaning, she takes a big gulp of air, grabs your ${this.player.cockHead()} with both hands, and presses her lips into your urethra.  She blows into it with a look of intense concentration.  You can feel your urethra filling, expanding with something, but it feels more like liquid than air, tingling as it slides deep into your shaft towards your `,
-                false
+                `Before you can puzzle out her meaning, she takes a big gulp of air, grabs your ${this.player.cockHead()} with both hands, and presses her lips into your urethra.  She blows into it with a look of intense concentration.  You can feel your urethra filling, expanding with something, but it feels more like liquid than air, tingling as it slides deep into your shaft towards your `
             );
             if (this.player.balls > 0) this.outx("balls");
             else if (this.player.hasSheath()) this.outx("sheath");
@@ -44937,7 +44411,7 @@ We can also do * italic * and ** bold ** text!
                 "The magic-using elf pulls back with a knowing grin and resumes stroking you, ignoring a dribble of pink fluid that squirts from your tip.   The warmth inside builds higher and you start sweating, even in the cool night air. The uncomfortable heat churns inside you",
                 false
             );
-            if (this.player.balls > 0) this.outx(`r ${this.ballsDescriptLight()}`, false);
+            if (this.player.balls > 0) this.outx(`r ${this.ballsDescriptLight()}`);
             this.outx(
                 `, a gentle pressure that builds higher and higher until you feel about to explode.  You need to cum, and you squirm in the elf's grasp, trembling and shuddering as one of her hands slips over a particularly sensitive spot. A bead of pre-cum rolls out of your ${this.player.cockHead()} and starts sliding down the shaft, followed by another, and another, and another.\n\n`,
                 false
@@ -44965,8 +44439,7 @@ We can also do * italic * and ** bold ** text!
             this.outx(
                 `Thick ropes of your orgasmic goop splatter into her hair, and each successive blast comes out with less and less force, until you're leaking a steady stream of cum that rolls down your ${this.cockDescript(
                     0
-                )} and soaks the pointy-eared woman completely.   As you release your prodigious load the scent of cinnamon fills the air, and you dumbly wonder if it's some side effect of the magic she used on you.  Regardless, cum keeps leaking out over the elf and onto you, and you eventually lose consciousness from perpetual orgasm.`,
-                false
+                )} and soaks the pointy-eared woman completely.   As you release your prodigious load the scent of cinnamon fills the air, and you dumbly wonder if it's some side effect of the magic she used on you.  Regardless, cum keeps leaking out over the elf and onto you, and you eventually lose consciousness from perpetual orgasm.`
             );
         }
         // (Go to followup for fucking scene)

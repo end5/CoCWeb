@@ -27,15 +27,13 @@ export class Goblin extends Monster {
         if (color != "blue") {
             if (this.short == "Tamani's daughters")
                 this.outx(
-                    `Tamani uncorks a glass bottle full of ${color} fluid and swings her arm, flinging a wave of fluid at you.`,
-                    false
+                    `Tamani uncorks a glass bottle full of ${color} fluid and swings her arm, flinging a wave of fluid at you.`
                 );
             else
                 this.outx(
                     `${
                         this.capitalA + this.short
-                    } uncorks a glass bottle full of ${color} fluid and swings her arm, flinging a wave of fluid at you.`,
-                    false
+                    } uncorks a glass bottle full of ${color} fluid and swings her arm, flinging a wave of fluid at you.`
                 );
         }
         // Drink blue pots
@@ -57,8 +55,7 @@ export class Goblin extends Monster {
                 this.outx(
                     `${
                         this.capitalA + this.short
-                    } pulls out a blue vial and uncaps it, swiftly downing its contents.`,
-                    false
+                    } pulls out a blue vial and uncaps it, swiftly downing its contents.`
                 );
                 if (this.HPRatio() < 1) {
                     this.outx("  She looks to have recovered from some of her wounds!\n", false);
@@ -119,22 +116,19 @@ export class Goblin extends Monster {
             this.outx(
                 `${
                     this.capitalA + this.short
-                } runs her hands along her leather-clad body and blows you a kiss. "<i>Why not walk on the wild side?</i>" she asks.`,
-                false
+                } runs her hands along her leather-clad body and blows you a kiss. "<i>Why not walk on the wild side?</i>" she asks.`
             );
         if (det == 1)
             this.outx(
                 `${
                     this.capitalA + this.short
-                } grabs her heel and lifts it to her head in an amazing display of flexibility.  She caresses her snatch and gives you a come hither look.`,
-                false
+                } grabs her heel and lifts it to her head in an amazing display of flexibility.  She caresses her snatch and gives you a come hither look.`
             );
         if (det == 2)
             this.outx(
                 `${
                     this.capitalA + this.short
-                } bends over, putting on a show and jiggling her heart-shaped ass at you.  She looks over her shoulder and sucks on her finger, batting her eyelashes.`,
-                false
+                } bends over, putting on a show and jiggling her heart-shaped ass at you.  She looks over her shoulder and sucks on her finger, batting her eyelashes.`
             );
         this.game.dynStats("lus", Goblin.rand(this.player.lib / 10) + 8);
         this.outx(

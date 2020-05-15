@@ -61,10 +61,7 @@ export class Ember extends Monster {
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Ember.rand(2) == 0) {
-            this.outx(
-                `${this.capitalA + this.short} completely misses you with a blind attack!`,
-                false
-            );
+            this.outx(`${this.capitalA + this.short} completely misses you with a blind attack!`);
         }
         // Miss/dodge
         else if (
@@ -143,8 +140,7 @@ export class Ember extends Monster {
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0) {
             this.outx(
-                `${this.capitalA + this.short} completely misses you with a blind tail-slap!`,
-                false
+                `${this.capitalA + this.short} completely misses you with a blind tail-slap!`
             );
             this.combatRoundOver();
             return;

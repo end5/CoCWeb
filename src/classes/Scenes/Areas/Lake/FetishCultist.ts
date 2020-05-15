@@ -141,19 +141,16 @@ export class FetishCultist extends Monster {
             );
             if (this.player.vaginas.length > 0) {
                 this.outx(
-                    `  You feel your ${this.vaginaDescript(0)} soaking itself in a sudden burst`,
-                    false
+                    `  You feel your ${this.vaginaDescript(0)} soaking itself in a sudden burst`
                 );
                 if (this.player.cockTotal() > 0)
                     this.outx(
-                        `, while a sudden influx of pre-cum blurts out and streams down your ${this.player.multiCockDescriptLight()}, painfully hardened by a vast amount of blood rushing to your groin`,
-                        false
+                        `, while a sudden influx of pre-cum blurts out and streams down your ${this.player.multiCockDescriptLight()}, painfully hardened by a vast amount of blood rushing to your groin`
                     );
                 this.outx(".");
             } else if (this.player.cockTotal() > 0)
                 this.outx(
-                    `  A sudden influx of pre-cum blurts out and streams down your ${this.player.multiCockDescriptLight()}, painfully hardened by a vast amount of blood rushing to your groin.`,
-                    false
+                    `  A sudden influx of pre-cum blurts out and streams down your ${this.player.multiCockDescriptLight()}, painfully hardened by a vast amount of blood rushing to your groin.`
                 );
             if (this.player.gender == 0)
                 this.outx(

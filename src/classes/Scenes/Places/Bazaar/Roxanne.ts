@@ -297,7 +297,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             ' the demonic-looking deer-taur working the tap and gives him a weighty gem-pouch, covering the cost of the contest and her mates\' drinking in advance.  She lets the keg-keep top off the mug and throws it back, easily draining it with a few practiced swallows.  Her tail slaps the table in front of you as she teases, "<i>Are you going to check me out all day or get smashed?  Come on!</i>"\n\n',
             false
         );
-        this.outx("You take the mug and hand it to the tainted 'taur working the tap.  ", false);
+        this.outx("You take the mug and hand it to the tainted 'taur working the tap.  ");
         if (
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00222] +
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00223] <=
@@ -416,8 +416,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             // Gain big bonus
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00227] += 10;
             this.outx(
-                `Giggling and nearly tripping up on your own ${this.player.feet()}, you stumble up to the corrupted deer-taur.  He looks at your wobbling stance, nearly-vacant eyes, and dopey grin before he shakes his head from side to side and says, "<i>No.</i>"  `,
-                false
+                `Giggling and nearly tripping up on your own ${this.player.feet()}, you stumble up to the corrupted deer-taur.  He looks at your wobbling stance, nearly-vacant eyes, and dopey grin before he shakes his head from side to side and says, "<i>No.</i>"  `
             );
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00226] == 0)
                 this.outx("Nooooo! You're cut off! That means Roxanne won...");
@@ -427,8 +426,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                     false
                 );
             this.outx(
-                `  A scaled hand slaps your ${this.buttDescript()} spinning you around to fall drunkenly into the pirate's soft, cushy chest.  "<i>Don't worry, I'll be gentle,</i>" she whispers, hooking an arm around your sagging frame.`,
-                false
+                `  A scaled hand slaps your ${this.buttDescript()} spinning you around to fall drunkenly into the pirate's soft, cushy chest.  "<i>Don't worry, I'll be gentle,</i>" she whispers, hooking an arm around your sagging frame.`
             );
             // CHOOSE SEX SCENE
             // Chance of big booty butt loss!
@@ -490,8 +488,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.outx(
             `You open the lower portion of your ${
                 this.player.armorName
-            } and, pulling it back, hang out your ${this.multiCockDescriptLight()}; `,
-            false
+            } and, pulling it back, hang out your ${this.multiCockDescriptLight()}; `
         );
         if (this.player.lust < 70) this.outx("it stiffens to a full, erect state.");
         else this.outx("the already-hard cock-flesh stands proud and erect.");
@@ -509,13 +506,11 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
                 x
             )}.  She titters, letting a few inches of tongue slip through her lips to envelop your sensitive ${this.player.cockHead(
                 x
-            )}, circling the engorged cock-flesh with drunken slobbers.  `,
-            false
+            )}, circling the engorged cock-flesh with drunken slobbers.  `
         );
         if (this.player.balls > 0)
             this.outx(
-                `A set of warm, long-nailed fingers squeeze your ${this.ballsDescriptLight()}, dragging sharp nail-tips along the underside of your sack to tease the poor, cum-packed orbs.  `,
-                false
+                `A set of warm, long-nailed fingers squeeze your ${this.ballsDescriptLight()}, dragging sharp nail-tips along the underside of your sack to tease the poor, cum-packed orbs.  `
             );
         this.outx(
             "The lizan glances back up at you, inebriated; her half-vacant eyes make love to you while her pink tongue worships your beer- and spit-covered member.\n\n",
@@ -525,17 +520,15 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.outx(
             `You slump back in your chair, sprawling out your ${this.player.legs()} around you, completely relaxed by the alcohol flowing through your veins and the exquisite oral service.  Roxanne returns her focus to your ${this.cockDescript(
                 x
-            )}, more tongue spilling from her gaping maw to curl around your lust-engorged shaft.  The drunken lizard's oral organ devours `,
-            false
+            )}, more tongue spilling from her gaping maw to curl around your lust-engorged shaft.  The drunken lizard's oral organ devours `
         );
         if (this.player.cockArea(x) < 60)
-            this.outx(`the entire length of your ${this.cockDescript(x)}`, false);
+            this.outx(`the entire length of your ${this.cockDescript(x)}`);
         else this.outx("as much of your over-sized member as she can encompass");
         this.outx(
             `, constricting, snake-like, to hold you in a slippery, warm embrace.  Suddenly, a pointed nail drags over your taint, pressing just hard enough to hold you still while the shemale pirate works your ${this.cockDescript(
                 x
-            )} with her tongue`,
-            false
+            )} with her tongue`
         );
         if (this.player.hasVagina()) this.outx(", stopping just short of your female entrance");
         this.outx(".\n\n", false);
@@ -568,7 +561,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             false
         );
         if (this.player.cumQ() >= 1500)
-            this.outx("huge torrent utterly drenches her face, horns, neck, and tight top", false);
+            this.outx("huge torrent utterly drenches her face, horns, neck, and tight top");
         else if (this.player.cumQ() >= 500) this.outx("a huge spurt soaks her face and horns");
         else this.outx("big spurt splatters her face");
         this.outx(
@@ -586,8 +579,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.outx(
             `.  "<i>Jeeze, pent up much?</i>" she laughs, struggling to stand while giggling at her own supposed cleverness.  Happy with how the contest worked out, you slip ${this.sMultiCockDesc()} into your ${
                 this.player.armorName
-            } and wobble off back to camp.`,
-            false
+            } and wobble off back to camp.`
         );
         // (-100 lust, -1 int)
         this.player.orgasm();
@@ -621,8 +613,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         );
 
         this.outx(
-            `The drunken lizan puts her soft, lightly scaled fingers around you to squeeze at your ${this.buttDescript()} and leans in to give your ${this.clitDescript()} a tender kiss.  Her massive tongue `,
-            false
+            `The drunken lizan puts her soft, lightly scaled fingers around you to squeeze at your ${this.buttDescript()} and leans in to give your ${this.clitDescript()} a tender kiss.  Her massive tongue `
         );
         if (this.player.clitLength < 16) this.outx("dwarfs");
         else this.outx("envelops");
@@ -636,13 +627,11 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         );
         if (this.player.clitLength >= 3)
             this.outx(
-                `before she curls tightly around the female member, enveloping it with flexible, gooey tongue.  You catch your breath just in time to exhale the noisy sounds of your pleasure, and groan out loud.  Roxanne takes the auditory encouragement to heart and begins pumping her tongue while she places her lower lips against your ${this.vaginaDescript()} and hums.  As if that wasn't enough, she begins twisting the curled tongue up and down your ${this.clitDescript()} rotating it as she pumps you.`,
-                false
+                `before she curls tightly around the female member, enveloping it with flexible, gooey tongue.  You catch your breath just in time to exhale the noisy sounds of your pleasure, and groan out loud.  Roxanne takes the auditory encouragement to heart and begins pumping her tongue while she places her lower lips against your ${this.vaginaDescript()} and hums.  As if that wasn't enough, she begins twisting the curled tongue up and down your ${this.clitDescript()} rotating it as she pumps you.`
             );
         else
             this.outx(
-                `before she lets her spit-sloppy tongue push through the saliva-soaked entrance of your mound.  You catch your breath just in time to exhale noisy sounds of pleasure, groaning out loud while you're speared with flexible, gooey tongue. Roxanne takes the auditory encouragement to heart and begins to pump her tongue deep inside you, at least two feet of constantly-thickening appendage coiling over your entrance before sliding inside to kiss your cervix.  As if that wasn't enough, a moment later she starts to hum, nuzzling at your ${this.clitDescript()} while she tongue-fucks you.`,
-                false
+                `before she lets her spit-sloppy tongue push through the saliva-soaked entrance of your mound.  You catch your breath just in time to exhale noisy sounds of pleasure, groaning out loud while you're speared with flexible, gooey tongue. Roxanne takes the auditory encouragement to heart and begins to pump her tongue deep inside you, at least two feet of constantly-thickening appendage coiling over your entrance before sliding inside to kiss your cervix.  As if that wasn't enough, a moment later she starts to hum, nuzzling at your ${this.clitDescript()} while she tongue-fucks you.`
             );
         this.outx("\n\n", false);
 
@@ -655,8 +644,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             this.outx(
                 `Roxanne pulls her hands off your ass and reaches up, swaying unsteadily until she catches your ${this.nippleDescript(
                     0
-                )}s.  A second later she slips her digits inside the welcoming tit-pussies, finger-fucking your breasts as `,
-                false
+                )}s.  A second later she slips her digits inside the welcoming tit-pussies, finger-fucking your breasts as `
             );
             if (this.player.biggestLactation() < 1.5) this.outx("expertly as the one below");
             else this.outx("they begin to squirt milk around her");
@@ -673,8 +661,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         );
         if (this.player.hasCock())
             this.outx(
-                `${this.SMultiCockDesc()} bounces on her head, between her horns, spilling a trail of sticky seed down her back.  `,
-                false
+                `${this.SMultiCockDesc()} bounces on her head, between her horns, spilling a trail of sticky seed down her back.  `
             );
         this.outx(
             "You slouch down, pleasure-drunk and giggling while Roxanne disentangles herself.\n\n",
@@ -700,8 +687,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         this.spriteSelect(78);
         this.outx("", true);
         this.outx(
-            `You shimmy out of your ${this.player.armorName} and smirk, turning around to lean onto the table`,
-            false
+            `You shimmy out of your ${this.player.armorName} and smirk, turning around to lean onto the table`
         );
         if (this.player.biggestTitSize() >= 2)
             this.outx(", your breasts cushioning you from the hard wood below");
@@ -711,11 +697,10 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         );
 
         this.outx(
-            `Roxanne groans and gives your ${this.buttDescript()} a raunchy squeeze, making love to your cheeks as her tongue worships your asshole.  She murmers, "<i>Thish would be sho much better if it was jussht foreplay.  Why don't you lose next time, okay babe?</i>"  You moan out loud when her tongue returns to its task, arching your back and whimpering from the intense, anal pleasure.  `,
-            false
+            `Roxanne groans and gives your ${this.buttDescript()} a raunchy squeeze, making love to your cheeks as her tongue worships your asshole.  She murmers, "<i>Thish would be sho much better if it was jussht foreplay.  Why don't you lose next time, okay babe?</i>"  You moan out loud when her tongue returns to its task, arching your back and whimpering from the intense, anal pleasure.  `
         );
         if (this.player.hasCock()) {
-            this.outx(`${this.SMultiCockDesc()} `, false);
+            this.outx(`${this.SMultiCockDesc()} `);
             if (this.player.lust < 70) this.outx("hardens");
             else this.outx("pulses with need");
             this.outx(", a bead of pre-cum already hanging from the tip.  ");
@@ -733,8 +718,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         // (Optional cock milking)
         if (this.player.hasCock()) {
             this.outx(
-                `Surprisingly, one of the pirate's hands comes off your ${this.buttDescript()} to tug on `,
-                false
+                `Surprisingly, one of the pirate's hands comes off your ${this.buttDescript()} to tug on `
             );
             if (this.player.totalCocks() > 1) this.outx("one of ");
             this.outx("your member");
@@ -757,8 +741,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         );
 
         this.outx(
-            `Orgasm hits you powerfully, your ${this.assholeDescript()} doing its best to choke the massive, pink tongue inside it.  You throw back your head and howl with pleasure, bumping your ${this.buttDescript()} into your lizan lover's nose unconsciously.  She gives you a knowing squeeze while her tongue keeps up the attack, forcing waves of unfiltered, raw pleasure into your cerebellum.`,
-            false
+            `Orgasm hits you powerfully, your ${this.assholeDescript()} doing its best to choke the massive, pink tongue inside it.  You throw back your head and howl with pleasure, bumping your ${this.buttDescript()} into your lizan lover's nose unconsciously.  She gives you a knowing squeeze while her tongue keeps up the attack, forcing waves of unfiltered, raw pleasure into your cerebellum.`
         );
         if (this.player.hasCock()) {
             this.outx(
@@ -767,7 +750,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             );
             if (this.player.cumQ() < 500) {
             } else if (this.player.cumQ() < 1000)
-                this.outx("  It forms a nicely-sized pool before the ground wicks it up.", false);
+                this.outx("  It forms a nicely-sized pool before the ground wicks it up.");
             else if (this.player.cumQ() < 1500)
                 this.outx("  It forms a large pool before the ground soaks it up.");
             else this.outx("  It forms a massive pool before the ground soaks it up.");
@@ -776,8 +759,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             if (this.player.wetness() >= 4) this.outx("soaking them with your gushing orgasms ");
             else this.outx("sliming them with copious girl-cum ");
             this.outx(
-                `while she teases your ${this.clitDescript()} with those terribly-slow touches.`,
-                false
+                `while she teases your ${this.clitDescript()} with those terribly-slow touches.`
             );
         }
         this.outx("\n\n", false);
@@ -826,13 +808,11 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             this.outx(
                 `against your own, the ${Roxanne.num2Text(
                     this.player.balls + 2
-                )} orbs rolling around each other in their sweaty sacks`,
-                false
+                )} orbs rolling around each other in their sweaty sacks`
             );
         else if (this.player.hasVagina())
             this.outx(
-                `against your ${this.vaginaDescript()}, the sweaty orbs growing slick with the moisture of your growing need`,
-                false
+                `against your ${this.vaginaDescript()}, the sweaty orbs growing slick with the moisture of your growing need`
             );
         else
             this.outx(
@@ -860,16 +840,14 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         );
 
         this.outx(
-            `You shake your head no, and are rewarded for your disobedience with a violent, butt-jiggling tail-whip.  Gasping from the pain, your ${this.assholeDescript()} contracts involuntarily, milking Roxanne's member for a few more drops of pre.  The aggressive lizard really gets into it, her massive, DD-cup tits pinning you to the table while she smacks your cheeks with her flexible lizan tail.   Pounding and slapping you, she abuses you for every dick-milking squeeze you'll give her, `,
-            false
+            `You shake your head no, and are rewarded for your disobedience with a violent, butt-jiggling tail-whip.  Gasping from the pain, your ${this.assholeDescript()} contracts involuntarily, milking Roxanne's member for a few more drops of pre.  The aggressive lizard really gets into it, her massive, DD-cup tits pinning you to the table while she smacks your cheeks with her flexible lizan tail.   Pounding and slapping you, she abuses you for every dick-milking squeeze you'll give her, `
         );
         if (this.player.findPerk(PerkLib.Masochist) < 0)
             this.outx(
                 "until you're voluntarily working your abdominal muscles to avoid the pain.",
                 false
             );
-        else
-            this.outx("until you're moaning with delight from every butt-reddening strike.", false);
+        else this.outx("until you're moaning with delight from every butt-reddening strike.");
         this.outx(
             '  Breaking under the onslaught, you mewl drunkenly, "<i>Fuck my assh... plug me with your cum,</i>" and wonder if you actually meant it.\n\n',
             false
@@ -878,8 +856,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         // (DICKS:
         if (this.player.hasCock()) {
             this.outx(
-                `The constant pressure of her thrusts seems to flow straight to ${this.sMultiCockDesc()} as if each of Roxanne's prostate-pounding bumps is injecting you with her lust.  `,
-                false
+                `The constant pressure of her thrusts seems to flow straight to ${this.sMultiCockDesc()} as if each of Roxanne's prostate-pounding bumps is injecting you with her lust.  `
             );
             if (this.player.cockTotal() == 1)
                 this.outx(
@@ -905,8 +882,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         // (JUST CUNTS:
         else if (this.player.hasVagina()) {
             this.outx(
-                `The constant pressure of her thrusts seems to flow straight to your ${this.vaginaDescript()}, inflaming your moistening labia.  You can feel her mass compressing your feminine organs, rubbing your inner walls against each other.  The sublime internal friction releases your natural lubricants, `,
-                false
+                `The constant pressure of her thrusts seems to flow straight to your ${this.vaginaDescript()}, inflaming your moistening labia.  You can feel her mass compressing your feminine organs, rubbing your inner walls against each other.  The sublime internal friction releases your natural lubricants, `
             );
             if (this.player.wetness() < 2) this.outx("sliming your ready vulva.");
             else if (this.player.wetness() <= 3) this.outx("soaking your ready vulva.");
@@ -948,24 +924,21 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             this.outx("  ");
             if (this.player.cumQ() >= 1500) {
                 this.outx(
-                    `A torrential outpouring of spunk pours from ${this.sMultiCockDesc()}, leaking in a steady, submissive flow to grow a `,
-                    false
+                    `A torrential outpouring of spunk pours from ${this.sMultiCockDesc()}, leaking in a steady, submissive flow to grow a `
                 );
                 if (this.player.cumQ() <= 2500) this.outx("puddle");
                 else this.outx("lake");
                 this.outx("below the table.");
             } else
                 this.outx(
-                    `An outpouring of spunk drools from ${this.sMultiCockDesc()}, spurting submissively under the table.`,
-                    false
+                    `An outpouring of spunk drools from ${this.sMultiCockDesc()}, spurting submissively under the table.`
                 );
         }
         if (this.player.biggestLactation() >= 2)
             this.outx(
                 `  Bursts of milk erupt from your pinned ${this.nippleDescript(
                     0
-                )}s, blasting out while you cum to stain the table white.`,
-                false
+                )}s, blasting out while you cum to stain the table white.`
             );
         this.outx(
             "  As it winds down, you fall into slumber, snoring happily after your violation.\n\n",
@@ -974,8 +947,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
 
         this.outx("<b>LATER...</b>\n", false);
         this.outx(
-            `You wake in the lizan's bed<b> with a nasty hangover</b>, her arm curled around your gurgling belly.  From how sore your rear feels, she kept 'winning' at least two or three more times.  Your head is pounding, your ${this.player.legs()} are weak, and you dribble cum with every movement.  It takes some doing to extricate yourself from Roxanne's slumbering form, but you find your equipment and leave, hanging your head in shame under the leering eyes of the caravan-goers.`,
-            false
+            `You wake in the lizan's bed<b> with a nasty hangover</b>, her arm curled around your gurgling belly.  From how sore your rear feels, she kept 'winning' at least two or three more times.  Your head is pounding, your ${this.player.legs()} are weak, and you dribble cum with every movement.  It takes some doing to extricate yourself from Roxanne's slumbering form, but you find your equipment and leave, hanging your head in shame under the leering eyes of the caravan-goers.`
         );
         // (-100 lust, -1 int, hangover effect)
         this.player.orgasm();
@@ -1018,22 +990,19 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         );
 
         this.outx(
-            `Oh gods, Roxanne's right.  She finished getting you naked while she was talking, and you're completely exposed.  Her hands grab your arm and pull, rolling you onto your front and letting your ${this.player.legs()} hang off the side of her bed toward the floor.  It's such a silly pose that you nearly forget how perfect a target it makes your ${this.buttDescript()}!  The now-confident lizan gives your butt-cheek a slap, giggling when you start in surprise.  `,
-            false
+            `Oh gods, Roxanne's right.  She finished getting you naked while she was talking, and you're completely exposed.  Her hands grab your arm and pull, rolling you onto your front and letting your ${this.player.legs()} hang off the side of her bed toward the floor.  It's such a silly pose that you nearly forget how perfect a target it makes your ${this.buttDescript()}!  The now-confident lizan gives your butt-cheek a slap, giggling when you start in surprise.  `
         );
         if (this.player.tailType > TAIL_TYPE_NONE) this.outx("She lifts your tail ");
         else this.outx("She spreads your cheeks ");
         this.outx(
-            `to examine your ${this.assholeDescript()}, licking the ring before she prods it with a gentle finger-tip.  The excited pirate exclaims, "<i>`,
-            false
+            `to examine your ${this.assholeDescript()}, licking the ring before she prods it with a gentle finger-tip.  The excited pirate exclaims, "<i>`
         );
         if (this.player.analCapacity() < 150)
             this.outx(
                 `Oh, poor ${this.player.mf(
                     "boy",
                     "girl"
-                )}!  I don't think you can handle me like this.  Let me get the ointment... after all, I want you to come back for more.`,
-                false
+                )}!  I don't think you can handle me like this.  Let me get the ointment... after all, I want you to come back for more.`
             );
         else
             this.outx(
@@ -1078,8 +1047,7 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
         if (this.player.analCapacity() >= 150) this.outx("spit");
         else this.outx("ointment");
         this.outx(
-            `-slicked ass to accept ever-greater quantities of cock.  Sharp fingernails drag over your ${this.hipDescript()}`,
-            false
+            `-slicked ass to accept ever-greater quantities of cock.  Sharp fingernails drag over your ${this.hipDescript()}`
         );
         if (this.player.skinType == SKIN_TYPE_PLAIN)
             this.outx(", leaving red lines in your unblemished skin");
@@ -1134,14 +1102,14 @@ export class Roxanne extends BazaarAbstractContent implements TimeAwareInterface
             false
         );
         if (this.player.hasCock() && this.player.cumQ() >= 1000)
-            this.outx(", drooling spit into the huge puddle of cum you made on her bed", false);
+            this.outx(", drooling spit into the huge puddle of cum you made on her bed");
         else if (this.player.hasVagina() && this.player.wetness() >= 4)
             this.outx(
                 ", drooling spit into the sloppy puddy of fem-cum you splattered on the mattress",
                 false
             );
         this.outx(".");
-        this.outx("  <b>You'll wake and head back to camp with a massive hangover.</b>", false);
+        this.outx("  <b>You'll wake and head back to camp with a massive hangover.</b>");
         // (-100 lust, -1 int, hangover effect)
         this.player.orgasm();
         this.dynStats("int", -1);

@@ -246,8 +246,7 @@ STATUSES:
             false
         );
         this.outx(
-            `You remove your top first, slowly revealing your ${this.allBreastsDescript()}.  Kelt is pacing around you, eyes locked on your chest hungrily.  As you let your top fall to the ground, he laughs mockingly, though, `,
-            false
+            `You remove your top first, slowly revealing your ${this.allBreastsDescript()}.  Kelt is pacing around you, eyes locked on your chest hungrily.  As you let your top fall to the ground, he laughs mockingly, though, `
         );
         if (this.player.gender == 1 && this.player.biggestTitSize() < 1)
             this.outx(
@@ -318,8 +317,7 @@ STATUSES:
             this.outx(
                 `and almost inevitably, his eyes drop down to your ${this.cockDescript(
                     0
-                )}.  He snorts, `,
-                false
+                )}.  He snorts, `
             );
             // (Human Cock:
             if (this.player.cocks[0].cockType == CockTypesEnum.HUMAN)
@@ -390,8 +388,7 @@ STATUSES:
             false
         );
         this.outx(
-            `You remove your top first, slowly revealing your ${this.allBreastsDescript()}.  Kelt is pacing around you, eyes locked on your chest hungrily.  As you let your top fall to the ground, he laughs mockingly, `,
-            false
+            `You remove your top first, slowly revealing your ${this.allBreastsDescript()}.  Kelt is pacing around you, eyes locked on your chest hungrily.  As you let your top fall to the ground, he laughs mockingly, `
         );
         if (this.player.gender == 1 && this.player.biggestTitSize() < 1)
             this.outx(
@@ -448,8 +445,7 @@ STATUSES:
                 false
             );
         this.outx(
-            `He slaps your ${this.buttDescript()} with his open palm, getting in a good grope while he's at it.  His animalistic musk is in your nostrils, making you feel dizzy and somehow even a little aroused.  The centaur's obvious enjoyment of your body is a little flattering, even if his words are cruel.  He paces around to your front, a shameless grin on his face while he taunts you, `,
-            false
+            `He slaps your ${this.buttDescript()} with his open palm, getting in a good grope while he's at it.  His animalistic musk is in your nostrils, making you feel dizzy and somehow even a little aroused.  The centaur's obvious enjoyment of your body is a little flattering, even if his words are cruel.  He paces around to your front, a shameless grin on his face while he taunts you, `
         );
         // (No Cock:
         if (this.player.totalCocks() == 0)
@@ -462,8 +458,7 @@ STATUSES:
             this.outx(
                 `and almost inevitably, his eyes drop down to your ${this.cockDescript(
                     0
-                )}.  He snorts, `,
-                false
+                )}.  He snorts, `
             );
             // (Human Cock:
             if (this.player.cocks[0].cockType == CockTypesEnum.HUMAN)
@@ -1385,16 +1380,14 @@ STATUSES:
                     this.outx(
                         `  Your ${this.cockDescript(
                             0
-                        )} is rock hard, but he ignores it almost contemptuously.  You almost feel ashamed of it, compared to the slowly-growing manhood between his legs.`,
-                        false
+                        )} is rock hard, but he ignores it almost contemptuously.  You almost feel ashamed of it, compared to the slowly-growing manhood between his legs.`
                     );
                 // (Vagina:
                 if (this.player.hasVagina())
                     this.outx(
                         `  For a moment, his fingers trace the line of your exposed ${this.vaginaDescript(
                             0
-                        )}, giving you the slightest of warnings before he crudely jams two fingers deep inside, as though scouting out your depths.  You whimper urgently at the treatment, and more so as Kelt removes his fingers, licking with obvious pleasure.`,
-                        false
+                        )}, giving you the slightest of warnings before he crudely jams two fingers deep inside, as though scouting out your depths.  You whimper urgently at the treatment, and more so as Kelt removes his fingers, licking with obvious pleasure.`
                     );
                 this.outx(
                     "\r\r\"<i>Oh?  Like that, do you?  Well, we're not here for what you like.  You're here to satisfy me, slut.  And I know what I'm after.</i>\"\r\r",
@@ -1420,8 +1413,7 @@ STATUSES:
                     this.outx(
                         `  Beneath you, pressed firmly into the harsh wood of the mounting board, your ${this.cockDescript(
                             0
-                        )} erupts, splattering your stomach with your own cum.  As the thick semen slides down towards your face, you begin slipping on your own warm seed, rocking back and forth with each harsh pounding Kelt delivers to your backside.`,
-                        false
+                        )} erupts, splattering your stomach with your own cum.  As the thick semen slides down towards your face, you begin slipping on your own warm seed, rocking back and forth with each harsh pounding Kelt delivers to your backside.`
                     );
                 // (Vagina:
                 if (this.player.hasVagina())
@@ -1977,8 +1969,7 @@ STATUSES:
                 if (this.player.cocks[0].cockLength <= 10) {
                     if (this.player.balls > 0)
                         this.outx(
-                            `Your ${this.ballsDescriptLight()} bump into his chin as your cock finds the back of his throat. `,
-                            false
+                            `Your ${this.ballsDescriptLight()} bump into his chin as your cock finds the back of his throat. `
                         );
                     else
                         this.outx(
@@ -2051,8 +2042,7 @@ STATUSES:
                     this.outx(
                         `You punctuate these last words with three final thrusts and then, spent, slowly withdraw your ${this.cockDescript(
                             0
-                        )} from his mouth, spit and cum trailing on your captive's lips.  Smirking, you loosen your bonds just a little by withdrawing your tail from his ass.  Kelt doesn't even orgasm; he raggedly moans as cum simply drools out of his abused dick by the bucket load.`,
-                        false
+                        )} from his mouth, spit and cum trailing on your captive's lips.  Smirking, you loosen your bonds just a little by withdrawing your tail from his ass.  Kelt doesn't even orgasm; he raggedly moans as cum simply drools out of his abused dick by the bucket load.`
                     );
                 }
             }
@@ -2140,8 +2130,7 @@ STATUSES:
             }
             // All go to:
             this.outx(
-                `You take your time unknotting yourself from the centaur, continuing to enjoy the feeling of your scales brushing against his thoroughbred form.  Kelt is in no shape to retaliate against you; your poison and treatment of him has left him semi-comatose.  His eyes are wide open and vague, as if he can't quite believe what just happened.  You leisurely put on your ${this.player.armorName} and then, with a smile, give him an affectionate slap on the spot you bit him and slither off.  You wonder if he will ever be able to face you again.`,
-                false
+                `You take your time unknotting yourself from the centaur, continuing to enjoy the feeling of your scales brushing against his thoroughbred form.  Kelt is in no shape to retaliate against you; your poison and treatment of him has left him semi-comatose.  His eyes are wide open and vague, as if he can't quite believe what just happened.  You leisurely put on your ${this.player.armorName} and then, with a smile, give him an affectionate slap on the spot you bit him and slither off.  You wonder if he will ever be able to face you again.`
             );
         }
         // Standard anti-kelt scene
@@ -2197,12 +2186,11 @@ STATUSES:
                 this.outx(
                     `You spread your ${this.player.legs()} and expose your ${this.vaginaDescript(
                         0
-                    )}.  "<i>Lick it, bitch,</i>" you command.  When he doesn't, you give the rope a pull, and his hooves paw at the dirt in pain.  "<i>I said LICK!</i>" you scream, and this time he does.  His tongue slips between your puffy folds `,
-                    false
+                    )}.  "<i>Lick it, bitch,</i>" you command.  When he doesn't, you give the rope a pull, and his hooves paw at the dirt in pain.  "<i>I said LICK!</i>" you scream, and this time he does.  His tongue slips between your puffy folds `
                 );
                 if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_SLICK)
                     this.outx("tasting them experimentally.  ");
-                else this.outx("immediately becoming slick with your fuck-me-juices.  ", false);
+                else this.outx("immediately becoming slick with your fuck-me-juices.  ");
                 this.outx(
                     '"<i>Deeper,</i>" you sigh, and he complies, no longer capable of resistance.  You make him tonguefuck you until you come to a shuddering, cunt-clenching orgasm.',
                     false
@@ -2211,19 +2199,17 @@ STATUSES:
                     this.outx(
                         `Your ${this.cockDescript(
                             0
-                        )} splatters cock-cream into his hair, further humiliating him.`,
-                        false
+                        )} splatters cock-cream into his hair, further humiliating him.`
                     );
                 this.outx("\r\r", false);
             } else {
                 this.outx(
                     `You spread your ${this.player.legs()} and expose your ${this.cockDescript(
                         0
-                    )}.  "<i>Lick it, bitch,</i>" you command.   When he doesn't, you give the rope a pull, and his hooves paw at the dirt in pain.  "<i>I said LICK!</i>" you scream, and this time he does.  His slightly rough tongue slides up and down your length, gingerly tasting your prick-skin.  "<i>Take it deep,</i>" you sigh, and he complies, no longer capable of any form of resistance.  He opens wide and buries his face into your crotch `,
-                    false
+                    )}.  "<i>Lick it, bitch,</i>" you command.   When he doesn't, you give the rope a pull, and his hooves paw at the dirt in pain.  "<i>I said LICK!</i>" you scream, and this time he does.  His slightly rough tongue slides up and down your length, gingerly tasting your prick-skin.  "<i>Take it deep,</i>" you sigh, and he complies, no longer capable of any form of resistance.  He opens wide and buries his face into your crotch `
                 );
                 if (this.player.cocks[0].cockLength < 10)
-                    this.outx("taking the entire thing easily as his tongue licks you to ", false);
+                    this.outx("taking the entire thing easily as his tongue licks you to ");
                 else if (this.player.cocks[0].cockLength < 25)
                     this.outx(
                         "taking the entire thing deep into his throat.  Apparently centaurs lack a gag-reflex, and you can see his throat stretched around you as you're brought to ",

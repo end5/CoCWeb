@@ -150,8 +150,7 @@ export class Faerie extends BaseContent {
                 this.outx(
                     `The tiny fae begins jerking your clit like a cock, squeezing her arms tightly around you and sliding in and out of your ${this.vaginaDescript(
                         0
-                    )}. Her motions are frenetic and unpredictable, but incredibly pleasurable.  She starts licking at your ${this.clitDescript()} as your femcum runs down it, which only serves to make her more excited. She gets so excited that her legs start kicking wildly as she screams "<i>Swim! Swim! Swim! Swim!</i>" over and over again.  `,
-                    false
+                    )}. Her motions are frenetic and unpredictable, but incredibly pleasurable.  She starts licking at your ${this.clitDescript()} as your femcum runs down it, which only serves to make her more excited. She gets so excited that her legs start kicking wildly as she screams "<i>Swim! Swim! Swim! Swim!</i>" over and over again.  `
                 );
                 // [Small amount of cum:
                 if (this.player.vaginas[0].vaginalWetness <= VAGINA_WETNESS_WET)
@@ -181,8 +180,7 @@ export class Faerie extends BaseContent {
             // [All other clits:
             else {
                 this.outx(
-                    `The tiny fae rubs her hands around your ${this.clitDescript()} as if entranced by it. Your body responds by pumping out more femcum, which she laps up happily.  She starts laughing maniacally and banging on your clit like a drum, periodically yelling out "<i>CONGA!</i>" for some reason. The strange ministrations feel incredible though, and you feel your love canal squeezing down on the faerie's tiny body.  `,
-                    false
+                    `The tiny fae rubs her hands around your ${this.clitDescript()} as if entranced by it. Your body responds by pumping out more femcum, which she laps up happily.  She starts laughing maniacally and banging on your clit like a drum, periodically yelling out "<i>CONGA!</i>" for some reason. The strange ministrations feel incredible though, and you feel your love canal squeezing down on the faerie's tiny body.  `
                 );
                 // [Small amount of cum:
                 if (this.player.vaginas[0].vaginalWetness <= VAGINA_WETNESS_WET)
@@ -371,13 +369,12 @@ export class Faerie extends BaseContent {
                     "A squirt of milk shoots inside her, making the faerie moan. She looks up at you with lusty, slitted eyes, squeezing her legs together to draw more from you.\n\n",
                     false
                 );
-            this.outx("Eventually you both find a rhythm and soon she's moaning loudly.  ", false);
+            this.outx("Eventually you both find a rhythm and soon she's moaning loudly.  ");
             if (this.player.hasVagina())
                 this.outx(
                     `With your other hand you start diddling your ${this.vaginaDescript(
                         0
-                    )}, adding your own soft moans to hers.  `,
-                    false
+                    )}, adding your own soft moans to hers.  `
                 );
             this.outx(
                 "A few blissful moments later, she shudders and you feel her uncontrolled spasms around your nipple.  ",
@@ -482,9 +479,9 @@ export class Faerie extends BaseContent {
         );
         // Taurs get a special scene!
         if (this.player.isTaur()) {
-            this.outx(`The tiny Faerie climbs on top of your ${this.cockDescript(0)}`, false);
+            this.outx(`The tiny Faerie climbs on top of your ${this.cockDescript(0)}`);
             if (this.player.cockTotal() > 0)
-                this.outx(`largest ${Appearance.cockNoun(CockTypesEnum.HUMAN)}`, false);
+                this.outx(`largest ${Appearance.cockNoun(CockTypesEnum.HUMAN)}`);
             this.outx(
                 " and crawls about on it for a while, getting used to its shape and taking in deep lungfuls of its musky odor. She wraps herself around you and begins rubbing herself up and down your hard length. As she moves around her tiny slit leaks cum in long streaks, teasing you with a cunt you can't penetrate. Pre begins to leak steadily from your tip as the faerie continues to work her way around, moaning quietly and betraying her inner desire.\n\n",
                 false
@@ -563,22 +560,19 @@ export class Faerie extends BaseContent {
                 this.outx(
                     `climbs atop your ${this.cockDescript(
                         0
-                    )}, hanging onto your ring of prepuce and wrapping her legs as far around your horse-like maleness as she can.  `,
-                    false
+                    )}, hanging onto your ring of prepuce and wrapping her legs as far around your horse-like maleness as she can.  `
                 );
             else if (this.player.cocks[0].cockType == CockTypesEnum.DEMON)
                 this.outx(
                     `climbs atop your ${this.cockDescript(
                         0
-                    )}, hanging on to the corrupted nubs and nodules as she threads her legs between them, squeezing you tightly as she hangs on.  You can feel her wet gash sitting atop a particularly sensitive bump, teasing you with a tiny cunt you'll never be able to penetrate.  `,
-                    false
+                    )}, hanging on to the corrupted nubs and nodules as she threads her legs between them, squeezing you tightly as she hangs on.  You can feel her wet gash sitting atop a particularly sensitive bump, teasing you with a tiny cunt you'll never be able to penetrate.  `
                 );
             else if (this.player.cocks[0].cockType == CockTypesEnum.TENTACLE)
                 this.outx(
                     `climbs onto your squirming ${this.cockDescript(
                         0
-                    )}, wrapping her legs tightly around it as it wiggles and writhes with excitement.  Unbidden, it curls around and rubs its reddish-purple head against her face like an animal.  She gives it a gentle squeeze and licks it.  `,
-                    false
+                    )}, wrapping her legs tightly around it as it wiggles and writhes with excitement.  Unbidden, it curls around and rubs its reddish-purple head against her face like an animal.  She gives it a gentle squeeze and licks it.  `
                 );
             else
                 this.outx(
@@ -590,13 +584,11 @@ export class Faerie extends BaseContent {
                 false
             );
             this.outx(
-                `Though she can only stimulate a few inches of you at a time, it feels really good – better than it should, and a budding warmth on the edge of release builds inside you.  Too late you realize you should have gotten at least partially undressed.  You cum before you can do anything about it, splattering your ${this.player.armorName} with seed and leaving a wet patch on the crotch.  You can feel it dripping back onto you and the faerie as more spunk squirts out, soaking the tiny girl in spooge as the wet spot grows.  `,
-                false
+                `Though she can only stimulate a few inches of you at a time, it feels really good – better than it should, and a budding warmth on the edge of release builds inside you.  Too late you realize you should have gotten at least partially undressed.  You cum before you can do anything about it, splattering your ${this.player.armorName} with seed and leaving a wet patch on the crotch.  You can feel it dripping back onto you and the faerie as more spunk squirts out, soaking the tiny girl in spooge as the wet spot grows.  `
             );
             if (this.player.cumQ() > 250) {
                 this.outx(
-                    `You cum uncontrollably, regretting your fertility as your body paints the inside of your ${this.player.armorName} with goopy whiteness.  `,
-                    false
+                    `You cum uncontrollably, regretting your fertility as your body paints the inside of your ${this.player.armorName} with goopy whiteness.  `
                 );
                 if (this.player.cumQ() > 500)
                     this.outx(

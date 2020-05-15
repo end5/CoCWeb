@@ -351,8 +351,7 @@ export class Heckel extends TelAdreAbstractContent {
             );
 
             this.outx(
-                `"<i>By Marae, ${this.player.short}, you've got quite the mouth. I'm impressed, and that doesn't happen often.</i>" She brings a paw to her chin as if thinking, before finally reaching it out and ruffling your hair. "<i>You know, you aren't half bad to be around, and not just for the sex. Don't be a stranger around here, alright?</i>" With that she stands and heads back into the showers, giving you time to clean up and head back to camp.`,
-                false
+                `"<i>By Marae, ${this.player.short}, you've got quite the mouth. I'm impressed, and that doesn't happen often.</i>" She brings a paw to her chin as if thinking, before finally reaching it out and ruffling your hair. "<i>You know, you aren't half bad to be around, and not just for the sex. Don't be a stranger around here, alright?</i>" With that she stands and heads back into the showers, giving you time to clean up and head back to camp.`
             );
             this.player.orgasm();
             this.dynStats("sen", 4);
@@ -408,21 +407,16 @@ export class Heckel extends TelAdreAbstractContent {
         );
 
         this.outx(
-            `You half expect her to just shove herself in right there, but she thankfully holds off. Instead, you feel her rough paws grab and knead either side of your ${this.buttDescript()} as she lets out a low growl.`,
-            false
+            `You half expect her to just shove herself in right there, but she thankfully holds off. Instead, you feel her rough paws grab and knead either side of your ${this.buttDescript()} as she lets out a low growl.`
         );
         // [<IF TONE OVER 80>
         if (this.player.tone >= 80)
             this.outx(
-                `  "<i>Damn ${this.player.short}, you've got one hell of an ass. I bet it's gonna feel even better than it looks.</i>"`,
-                false
+                `  "<i>Damn ${this.player.short}, you've got one hell of an ass. I bet it's gonna feel even better than it looks.</i>"`
             );
         // [<IF TONE BETWEEN 60-79>
         else if (this.player.tone >= 60)
-            this.outx(
-                `  "<i>Mmm, not bad ${this.player.short}, not perfect, but not bad.</i>"`,
-                false
-            );
+            this.outx(`  "<i>Mmm, not bad ${this.player.short}, not perfect, but not bad.</i>"`);
         this.outx("\n\n", false);
 
         this.outx(

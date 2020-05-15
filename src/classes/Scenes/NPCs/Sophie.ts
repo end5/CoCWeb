@@ -77,8 +77,7 @@ export class Sophie extends Harpy {
         // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Sophie.rand(100) < 6) {
             this.outx(
-                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
-                false
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`
             );
             this.outx("'s attack.\n", false);
             return;
@@ -92,8 +91,7 @@ export class Sophie extends Harpy {
         // Already affected by it
         if (this.player.findStatusAffect(StatusAffects.Luststick) >= 0) {
             this.outx(
-                `  Blood rushes to ${this.player.sMultiCockDesc()} as you grow so hard so fast that it hurts.  `,
-                false
+                `  Blood rushes to ${this.player.sMultiCockDesc()} as you grow so hard so fast that it hurts.  `
             );
             this.game.sophieScene.luststickApplication(2);
             this.game.dynStats("lus", 12 + this.player.lib / 10);
@@ -165,8 +163,7 @@ export class Sophie extends Harpy {
         this.outx(
             `${
                 this.capitalA + this.short
-            } flaps her wings and launches herself forwards with her talons up.  `,
-            false
+            } flaps her wings and launches herself forwards with her talons up.  `
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Sophie.rand(3) < 2) {
@@ -213,8 +210,7 @@ export class Sophie extends Harpy {
         // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Sophie.rand(100) < 40) {
             this.outx(
-                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
-                false
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`
             );
             this.outx("'s attack.\n", false);
             return;
@@ -254,8 +250,7 @@ export class Sophie extends Harpy {
             this.outx(
                 `You moan out loud as your arms move of their own volition.  They reach inside your ${
                     this.player.armorName
-                } and stroke ${this.player.sMultiCockDesc()}, caress the tip, and continue to fondle you a few moments.`,
-                false
+                } and stroke ${this.player.sMultiCockDesc()}, caress the tip, and continue to fondle you a few moments.`
             );
             this.outx(
                 "Even after regaining control of your limbs, you're left far more turned on by the ordeal.",
@@ -277,7 +272,7 @@ export class Sophie extends Harpy {
     // High damage attack easily avoided by evade/flexibility.
     private talonsSophie(): void {
         this.game.sophieBimbo.sophieSprite();
-        this.outx("Sophie pulls her leg up, cocking her thigh dangerously.  Look out!  ", false);
+        this.outx("Sophie pulls her leg up, cocking her thigh dangerously.  Look out!  ");
         let damage = 0;
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && Sophie.rand(3) < 2) {
@@ -324,15 +319,13 @@ export class Sophie extends Harpy {
         // Determine if cat'ed
         if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Sophie.rand(100) < 40) {
             this.outx(
-                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
-                false
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`
             );
             this.outx("'s attack.\n", false);
             return;
         }
         this.outx(
-            `Her leg lashes forwards, lightning-quick, and tears bloody gashes into your ${this.player.skinDesc} with her razor-sharp talons! `,
-            false
+            `Her leg lashes forwards, lightning-quick, and tears bloody gashes into your ${this.player.skinDesc} with her razor-sharp talons! `
         );
         // Determine damage - str modified by enemy toughness!
         damage = Math.floor(

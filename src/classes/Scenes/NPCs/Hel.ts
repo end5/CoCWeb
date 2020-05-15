@@ -55,8 +55,7 @@ export class Hel extends Monster {
         // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Hel.rand(100) < 6) {
             this.outx(
-                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
-                false
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`
             );
         }
         // Determine damage - str modified by enemy toughness!
@@ -74,20 +73,17 @@ export class Hel extends Monster {
                 // Due to toughness or amor...
                 if (Hel.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`,
-                        false
+                        `You absorb and deflect every ${this.weaponVerb} with your ${this.player.armorName}.`
                     );
                 else
                     this.outx(
-                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
-                        false
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`
                     );
             }
             // Take Damage
             else
                 this.outx(
-                    `The salamander lunges at you, sword swinging in a high, savage arc.  You attempt to duck her attack, but she suddenly spins about mid-swing, bringing the sword around on a completely different path.  It bites deep into your flesh, sending you stumbling back. (${damage})`,
-                    false
+                    `The salamander lunges at you, sword swinging in a high, savage arc.  You attempt to duck her attack, but she suddenly spins about mid-swing, bringing the sword around on a completely different path.  It bites deep into your flesh, sending you stumbling back. (${damage})`
                 );
             if (damage > 0) {
                 if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
@@ -166,7 +162,7 @@ export class Hel extends Monster {
             damage = 0;
             // Due to toughness or amor...
             if (Hel.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
-                this.outx("The salamander's tail-swipe harmlessly deflects off your armor!", false);
+                this.outx("The salamander's tail-swipe harmlessly deflects off your armor!");
             else
                 this.outx(
                     "The salamander's tail-swipe hits you but fails to move or damage you.",
@@ -176,8 +172,7 @@ export class Hel extends Monster {
         // Take Damage
         else
             this.outx(
-                `The salamander rushes at you, knocking aside your defensive feint and sliding in past your guard.  She lashes out at your feet with her tail, and you can feel the heated wake of the fiery appendage on your ensuing fall toward the now-smouldering grass. (${damage})`,
-                false
+                `The salamander rushes at you, knocking aside your defensive feint and sliding in past your guard.  She lashes out at your feet with her tail, and you can feel the heated wake of the fiery appendage on your ensuing fall toward the now-smouldering grass. (${damage})`
             );
         if (damage > 0) {
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {

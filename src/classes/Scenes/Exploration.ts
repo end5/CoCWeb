@@ -276,23 +276,20 @@ export class Exploration extends BaseContent {
         this.outx(
             `Walking along the sandy dunes of the desert you find yourself increasingly impeded by the bulk of your ${this.cockDescript(
                 x
-            )} dragging along the sandscape behind you.  The incredibly hot surface of the desert causes your loins to sweat heavily and fills them with relentless heat.`,
-            false
+            )} dragging along the sandscape behind you.  The incredibly hot surface of the desert causes your loins to sweat heavily and fills them with relentless heat.`
         );
 
         if (this.player.cocks.length == 1)
             this.outx(
                 `  As it drags along the dunes, the sensation forces you to imagine the rough textured tongue of a monstrous animal sliding along the head of your ${Appearance.cockNoun(
                     this.player.cocks[x].cockType
-                )}.`,
-                false
+                )}.`
             );
         else if (this.player.cocks.length >= 2)
             this.outx(
                 `  With all of your ${this.multiCockDescriptLight()} dragging through the sands they begin feeling as if the rough textured tongues of ${Exploration.num2Text(
                     this.player.cockTotal()
-                )} different monstrous animals were slobbering over each one.`,
-                false
+                )} different monstrous animals were slobbering over each one.`
             );
         this.outx("\n\n", false);
 
@@ -301,8 +298,7 @@ export class Exploration extends BaseContent {
         // FOR NON-CENTAURS]
         if (!this.player.isTaur()) {
             this.outx(
-                `The impending erection can't seem to be stopped.  Your sexual frustration forces stiffness into your ${this.multiCockDescriptLight()}, which forces your torso to the ground.  Normally your erection would merely raise itself skyward but your genitals have grown too large and heavy for your ${this.hipDescript()} to hold them aloft.  Instead you feel your body forcibly pivoting at the hips until your torso is compelled to rest face down on top of your obscene ${this.multiCockDescriptLight()}.`,
-                false
+                `The impending erection can't seem to be stopped.  Your sexual frustration forces stiffness into your ${this.multiCockDescriptLight()}, which forces your torso to the ground.  Normally your erection would merely raise itself skyward but your genitals have grown too large and heavy for your ${this.hipDescript()} to hold them aloft.  Instead you feel your body forcibly pivoting at the hips until your torso is compelled to rest face down on top of your obscene ${this.multiCockDescriptLight()}.`
             );
 
             // IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
@@ -310,22 +306,19 @@ export class Exploration extends BaseContent {
                 this.outx(
                     `  Your ${kGAMECLASS.allBreastsDescript()} hang lewdly off your torso to rest on the desert sands, seeming to bury the dunes on either side of you.  Their immense weight anchors your body, further preventing your torso from lifting itself up.  The burning heat of the desert teases your ${this.nippleDescript(
                         0
-                    )}s mercilessly as they grind in the sand.`,
-                    false
+                    )}s mercilessly as they grind in the sand.`
                 );
             // IF CHARACTER HAS A BALLS ADD SENTENCE
             if (this.player.balls > 0)
                 this.outx(
                     `  Your ${
                         this.player.skinTone
-                    }${this.sackDescript()} rests beneath your raised ${this.buttDescript()}.  The fiery warmth of the desert caresses it, causing your ${this.ballsDescriptLight()} to pulse with the need to release their sperm through your ${this.multiCockDescriptLight()}.`,
-                    false
+                    }${this.sackDescript()} rests beneath your raised ${this.buttDescript()}.  The fiery warmth of the desert caresses it, causing your ${this.ballsDescriptLight()} to pulse with the need to release their sperm through your ${this.multiCockDescriptLight()}.`
                 );
             // IF CHARACTER HAS A VAGINA ADD SENTENCE
             if (this.player.vaginas.length >= 1) {
                 this.outx(
-                    `  Your ${this.vaginaDescript()} and ${this.clitDescript()} are thoroughly squashed between the bulky flesh where your male genitals protrude from between your hips and the ${this.buttDescript()} above.`,
-                    false
+                    `  Your ${this.vaginaDescript()} and ${this.clitDescript()} are thoroughly squashed between the bulky flesh where your male genitals protrude from between your hips and the ${this.buttDescript()} above.`
                 );
                 // IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
                 if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_DROOLING)
@@ -338,30 +331,26 @@ export class Exploration extends BaseContent {
         // FOR CENTAURS
         else {
             this.outx(
-                `The impending erection can't seem to be stopped.  Your sexual frustration forces stiffness into your ${this.multiCockDescriptLight()}, which forces the barrel of your horse-like torso to the ground.  Normally your erection would merely hover above the ground in between your centaurian legs, but your genitals have grown too large and heavy for your ${this.hipDescript()} to hold them aloft.  Instead, you feel your body being forcibly pulled down at your hindquarters until you rest atop your ${this.multiCockDescriptLight()}.`,
-                false
+                `The impending erection can't seem to be stopped.  Your sexual frustration forces stiffness into your ${this.multiCockDescriptLight()}, which forces the barrel of your horse-like torso to the ground.  Normally your erection would merely hover above the ground in between your centaurian legs, but your genitals have grown too large and heavy for your ${this.hipDescript()} to hold them aloft.  Instead, you feel your body being forcibly pulled down at your hindquarters until you rest atop your ${this.multiCockDescriptLight()}.`
             );
             // IF CHARACTER HAS GIANT BREASTS ADD SENTENCE
             if (this.player.biggestTitSize() >= 35)
                 this.outx(
                     `  Your ${kGAMECLASS.allBreastsDescript()} pull your human torso forward until it also is forced to rest facedown, just like your horse half.  Your tits rest, pinned on the desert sand to either side of you.  Their immense weight anchors you, further preventing any part of your equine body from lifting itself up.  The burning heat of the desert teases your ${this.nippleDescript(
                         0
-                    )}s incessantly.`,
-                    false
+                    )}s incessantly.`
                 );
             // IF CHARACTER HAS A BALLS ADD SENTENCE
             if (this.player.balls > 0)
                 this.outx(
                     `  Your ${
                         this.player.skinTone
-                    }${this.sackDescript()} rests beneath your raised ${this.buttDescript()}.  The airy warmth of the desert teases it, causing your ${this.ballsDescriptLight()} pulse with the need to release their sperm through your ${this.multiCockDescriptLight()}.`,
-                    false
+                    }${this.sackDescript()} rests beneath your raised ${this.buttDescript()}.  The airy warmth of the desert teases it, causing your ${this.ballsDescriptLight()} pulse with the need to release their sperm through your ${this.multiCockDescriptLight()}.`
                 );
             // IF CHARACTER HAS A VAGINA ADD SENTENCE
             if (this.player.vaginas.length >= 1) {
                 this.outx(
-                    `  Your ${this.vaginaDescript()} and ${this.clitDescript()} are thoroughly squashed between the bulky flesh where your male genitals protrude from between your hips and the ${this.buttDescript()} above.`,
-                    false
+                    `  Your ${this.vaginaDescript()} and ${this.clitDescript()} are thoroughly squashed between the bulky flesh where your male genitals protrude from between your hips and the ${this.buttDescript()} above.`
                 );
                 // IF CHARACTER HAS A DROOLING PUSSY ADD SENTENCE
                 if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_DROOLING)
@@ -400,14 +389,12 @@ export class Exploration extends BaseContent {
         // SCENE END IF CHARACTER HAS CENTAUR BODY
         else if (this.player.isTaur())
             this.outx(
-                `  You struggle and work your equine legs against the surface of the dune you are trapped on.  Your ${this.player.feet()} have consistent trouble finding footing, the soft sand failing to provide enough leverage to lift your bulk.  You breath in deeply and lean from side to side, trying to find some easier vertical leverage.  Eventually, with a crude crawl, your legs manage to push the bulk of your body onto more solid ground.  With great difficulty, you spend the next hour shuffling your genitals across the sandscape and back to camp.`,
-                false
+                `  You struggle and work your equine legs against the surface of the dune you are trapped on.  Your ${this.player.feet()} have consistent trouble finding footing, the soft sand failing to provide enough leverage to lift your bulk.  You breath in deeply and lean from side to side, trying to find some easier vertical leverage.  Eventually, with a crude crawl, your legs manage to push the bulk of your body onto more solid ground.  With great difficulty, you spend the next hour shuffling your genitals across the sandscape and back to camp.`
             );
         // SCENE END = FOR ALL OTHER CHARACTERS
         else
             this.outx(
-                `  You struggle and push with your ${this.player.legs()} as hard as you can, but it's no use.  You do the only thing you can and begin stroking your ${this.multiCockDescriptLight()} with as much vigor as you can muster.  Eventually your body tenses and a light load of jizz erupts from your body, but the orgasm is truly mild compared to what you need.  You're simply too weary from struggling to give yourself the masturbation you truly need, but you continue to try.  Nearly an hour later ${this.sMultiCockDesc()} softens enough to allow you to stand again, and you make your way back to camp, still dragging your genitals across the warm sand.`,
-                false
+                `  You struggle and push with your ${this.player.legs()} as hard as you can, but it's no use.  You do the only thing you can and begin stroking your ${this.multiCockDescriptLight()} with as much vigor as you can muster.  Eventually your body tenses and a light load of jizz erupts from your body, but the orgasm is truly mild compared to what you need.  You're simply too weary from struggling to give yourself the masturbation you truly need, but you continue to try.  Nearly an hour later ${this.sMultiCockDesc()} softens enough to allow you to stand again, and you make your way back to camp, still dragging your genitals across the warm sand.`
             );
         this.dynStats("lus", 25 + Exploration.rand(this.player.cor / 5), "resisted", false);
         this.fatigue(5);

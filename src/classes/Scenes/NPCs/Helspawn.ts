@@ -205,7 +205,7 @@ export class Helspawn extends Monster {
             // lustDown.visible = false;
             // lustUp.visible = true;
             lustDelta = Math.round(lustDelta * 10) / 10;
-            this.outx(` (${lustDelta})`, false);
+            this.outx(` (${lustDelta})`);
         }
     }
 

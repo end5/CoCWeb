@@ -21,8 +21,7 @@ export class HellHound extends Monster {
             this.outx(
                 `${
                     this.capitalA + this.short
-                } completely misses you with a wave of dark fire! Thank the gods it's blind!`,
-                false
+                } completely misses you with a wave of dark fire! Thank the gods it's blind!`
             );
             this.combatRoundOver();
             return;
@@ -66,8 +65,7 @@ export class HellHound extends Monster {
             let temp: number = 15 + HellHound.rand(10);
             temp = this.player.takeDamage(temp);
             this.outx(
-                `Both the hellhound's heads breathe in deeply before blasting a wave of dark fire at you. While the flames don't burn much, the unnatural heat fills your body with arousal. (${temp} damage)`,
-                false
+                `Both the hellhound's heads breathe in deeply before blasting a wave of dark fire at you. While the flames don't burn much, the unnatural heat fills your body with arousal. (${temp} damage)`
             );
             this.game.dynStats("lus", 20 - this.player.sens / 10);
             this.statScreenRefresh();

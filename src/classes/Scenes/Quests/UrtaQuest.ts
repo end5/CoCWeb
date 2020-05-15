@@ -2734,20 +2734,17 @@ export class UrtaQuest extends NPCAwareContent {
         ) {
             if (this.monster.spe - this.player.spe < 8)
                 this.outx(
-                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`,
-                    false
+                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`
                 );
             if (this.monster.spe - this.player.spe >= 8 && this.monster.spe - this.player.spe < 20)
                 this.outx(
                     `${
                         this.monster.capitalA + this.monster.short
-                    } dodges your attack with superior quickness!`,
-                    false
+                    } dodges your attack with superior quickness!`
                 );
             if (this.monster.spe - this.player.spe >= 20)
                 this.outx(
-                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`,
-                    false
+                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`
                 );
             this.outx("\n", false);
             if (this.player.findStatusAffect(StatusAffects.Attacks) >= 0) {
@@ -2817,11 +2814,10 @@ export class UrtaQuest extends NPCAwareContent {
         if (damage <= 0) {
             damage = 0;
             this.outx(
-                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`,
-                false
+                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`
             );
         } else {
-            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`, false);
+            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`);
             if (crit) this.outx(" <b>*CRIT*</b>");
         }
         if (this.player.findPerk(PerkLib.BrutalBlows) >= 0 && this.player.str > 75) {
@@ -2922,20 +2918,17 @@ export class UrtaQuest extends NPCAwareContent {
         ) {
             if (this.monster.spe - this.player.spe < 8)
                 this.outx(
-                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`,
-                    false
+                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`
                 );
             if (this.monster.spe - this.player.spe >= 8 && this.monster.spe - this.player.spe < 20)
                 this.outx(
                     `${
                         this.monster.capitalA + this.monster.short
-                    } dodges your attack with superior quickness!`,
-                    false
+                    } dodges your attack with superior quickness!`
                 );
             if (this.monster.spe - this.player.spe >= 20)
                 this.outx(
-                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`,
-                    false
+                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`
                 );
             this.outx("\n\n", false);
             kGAMECLASS.enemyAI();
@@ -3001,11 +2994,10 @@ export class UrtaQuest extends NPCAwareContent {
         if (damage <= 0) {
             damage = 0;
             this.outx(
-                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`,
-                false
+                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`
             );
         } else {
-            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`, false);
+            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`);
             if (crit) this.outx(" <b>*CRIT*</b>");
         }
         if (this.player.findPerk(PerkLib.BrutalBlows) >= 0 && this.player.str > 75) {
@@ -3089,20 +3081,17 @@ export class UrtaQuest extends NPCAwareContent {
         ) {
             if (this.monster.spe - this.player.spe < 8)
                 this.outx(
-                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`,
-                    false
+                    `${this.monster.capitalA + this.monster.short} narrowly avoids your attack!`
                 );
             if (this.monster.spe - this.player.spe >= 8 && this.monster.spe - this.player.spe < 20)
                 this.outx(
                     `${
                         this.monster.capitalA + this.monster.short
-                    } dodges your attack with superior quickness!`,
-                    false
+                    } dodges your attack with superior quickness!`
                 );
             if (this.monster.spe - this.player.spe >= 20)
                 this.outx(
-                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`,
-                    false
+                    `${this.monster.capitalA + this.monster.short} deftly avoids your slow attack.`
                 );
             this.outx("\n", false);
             if (this.player.findStatusAffect(StatusAffects.FirstAttack) >= 0) {
@@ -3173,11 +3162,10 @@ export class UrtaQuest extends NPCAwareContent {
         if (damage <= 0) {
             damage = 0;
             this.outx(
-                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`,
-                false
+                `Your attacks are deflected or blocked by ${this.monster.a}${this.monster.short}.`
             );
         } else {
-            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`, false);
+            this.outx(`You hit ${this.monster.a}${this.monster.short}! (${damage})`);
             if (crit) this.outx(" <b>*CRIT*</b>");
         }
         if (this.player.findPerk(PerkLib.BrutalBlows) >= 0 && this.player.str > 75) {

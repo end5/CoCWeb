@@ -26,8 +26,7 @@ export class GoblinAssassin extends Monster {
             this.outx(
                 `${
                     this.capitalA + this.short
-                } uncorks a glass bottle full of ${color} fluid and swings her arm, flinging a wave of fluid at you.`,
-                false
+                } uncorks a glass bottle full of ${color} fluid and swings her arm, flinging a wave of fluid at you.`
             );
         }
         // Drink blue pots
@@ -35,8 +34,7 @@ export class GoblinAssassin extends Monster {
             this.outx(
                 `${
                     this.capitalA + this.short
-                } pulls out a blue vial and uncaps it, swiftly downing its contents.`,
-                false
+                } pulls out a blue vial and uncaps it, swiftly downing its contents.`
             );
             if (this.HPRatio() < 1) {
                 this.outx("  She looks to have recovered from some of her wounds!\n", false);

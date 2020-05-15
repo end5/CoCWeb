@@ -68,8 +68,7 @@ export class Basilisk extends Monster {
         );
         damage = this.player.takeDamage(damage);
         this.outx(
-            `The basilisk suddenly whips its tail at you, swiping your ${this.player.feet()} from under you!  You quickly stagger upright, being sure to hold the creature's feet in your vision. (${damage})`,
-            false
+            `The basilisk suddenly whips its tail at you, swiping your ${this.player.feet()} from under you!  You quickly stagger upright, being sure to hold the creature's feet in your vision. (${damage})`
         );
         if (damage == 0) this.outx("  The fall didn't harm you at all.");
         this.game.combatRoundOver();

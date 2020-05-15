@@ -411,8 +411,7 @@ export class BakeryScene extends TelAdreAbstractContent {
                     this.flags[kFLAGS.TEMP_STORAGE_PASTRY_PRICE]
                 )} gems and get your ${
                     this.flags[kFLAGS.TEMP_STORAGE_PASTRY_NAME]
-                }.  A moment later you're at a table, licking the sugary residue from your fingertips and wondering just how they make the food so damned good.`,
-                false
+                }.  A moment later you're at a table, licking the sugary residue from your fingertips and wondering just how they make the food so damned good.`
             );
             if (this.flags[kFLAGS.TEMP_STORAGE_PASTRY_NAME] == "doughnuts") {
                 this.outx(this.player.modTone(0, 2), false);

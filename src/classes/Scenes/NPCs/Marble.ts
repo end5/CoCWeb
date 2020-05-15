@@ -33,7 +33,7 @@ export class Marble extends Monster {
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 60
         ) {
-            this.outx("You manage to roll out of the way of a massive overhand swing.", false);
+            this.outx("You manage to roll out of the way of a massive overhand swing.");
             this.combatRoundOver();
             return;
         }
@@ -64,8 +64,7 @@ export class Marble extends Monster {
         }
         if (damage > 0) damage = this.player.takeDamage(damage);
         this.outx(
-            `You are struck by a two-handed overhead swing from the enraged cow-girl.  (${damage} damage).`,
-            false
+            `You are struck by a two-handed overhead swing from the enraged cow-girl.  (${damage} damage).`
         );
         this.statScreenRefresh();
         this.combatRoundOver();
@@ -101,11 +100,10 @@ export class Marble extends Monster {
         if (damage <= 0) {
             damage = 0;
             // Due to toughness or amor...
-            this.outx("You easily deflect and block the damage from Marble's wide swing.", false);
+            this.outx("You easily deflect and block the damage from Marble's wide swing.");
         }
         this.outx(
-            `Marble easily hits you with a wide, difficult to avoid swing.  (${damage} damage).`,
-            false
+            `Marble easily hits you with a wide, difficult to avoid swing.  (${damage} damage).`
         );
         if (damage > 0) this.player.takeDamage(damage);
         this.statScreenRefresh();

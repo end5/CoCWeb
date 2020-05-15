@@ -15,8 +15,7 @@ export class AbstractSuccubus extends Monster {
                 this.outx(
                     `${
                         this.capitalA + this.short
-                    } swings her whip at you wildly, totally missing due to her blindness!!`,
-                    false
+                    } swings her whip at you wildly, totally missing due to her blindness!!`
                 );
                 this.combatRoundOver();
                 return;
@@ -35,7 +34,7 @@ export class AbstractSuccubus extends Monster {
             // Whip yo tits!
             if (temp == 1) {
                 if (this.player.breastRows.length > 0 && this.player.biggestTitSize() > 0)
-                    this.outx(`${this.player.allBreastsDescript()} (9)`, false);
+                    this.outx(`${this.player.allBreastsDescript()} (9)`);
                 else this.outx("chest (9)");
                 this.player.takeDamage(9);
                 this.game.dynStats("lus", 4 + Math.floor(this.player.sens / 15));
@@ -50,17 +49,13 @@ export class AbstractSuccubus extends Monster {
                     this.outx(
                         `groin, dealing painful damage to your ${this.player.multiCockDescriptLight()}, doubling you over in agony (${Math.floor(
                             (this.player.tou * 2 + 50) / 4
-                        )})`,
-                        false
+                        )})`
                     );
                     this.game.dynStats("lus", -15);
                     this.player.takeDamage(Math.floor(this.player.maxHP() / 4));
                 }
                 if (this.player.gender == 2) {
-                    this.outx(
-                        `groin, making your ${this.vaginaDescript(0)} sting with pain (-10)`,
-                        false
-                    );
+                    this.outx(`groin, making your ${this.vaginaDescript(0)} sting with pain (-10)`);
                     this.player.takeDamage(10);
                     this.game.dynStats("lus", -8);
                 }
@@ -70,8 +65,7 @@ export class AbstractSuccubus extends Monster {
                             0
                         )}, doubling you over in agony (${Math.floor(
                             (this.player.tou * 2 + 50) / 3
-                        )})`,
-                        false
+                        )})`
                     );
                     this.game.dynStats("lus", -20);
                     this.player.takeDamage(Math.floor(this.player.maxHP() / 3));
@@ -148,8 +142,7 @@ export class AbstractSuccubus extends Monster {
         // Butt slap!
         if (temp == 0) {
             this.outx(
-                `${this.capitalA + this.short} slaps her ${Appearance.buttDescriptionShort(this)}`,
-                false
+                `${this.capitalA + this.short} slaps her ${Appearance.buttDescriptionShort(this)}`
             );
             if (this.buttRating >= 10) {
                 this.outx(", making it jiggle delightfully.");
@@ -176,14 +169,10 @@ export class AbstractSuccubus extends Monster {
                 this.outx(
                     `${
                         this.capitalA + this.short
-                    } caresses some of her ample chest-flesh before shaking it from side to side enticingly.`,
-                    false
+                    } caresses some of her ample chest-flesh before shaking it from side to side enticingly.`
                 );
                 if (this.lust >= 50)
-                    this.outx(
-                        `  ${this.pronoun2} hard nipples seem to demand your attention.`,
-                        false
-                    );
+                    this.outx(`  ${this.pronoun2} hard nipples seem to demand your attention.`);
                 if (AbstractSuccubus.rand(100) <= 65 + this.biggestTitSize()) {
                     this.game.dynStats(
                         "lus",
@@ -199,11 +188,10 @@ export class AbstractSuccubus extends Monster {
                 this.outx(
                     `${this.capitalA + this.short} caresses ${
                         this.pronoun2
-                    } some of her rows of ample chest-flesh before shaking it all from side to side enticingly.`,
-                    false
+                    } some of her rows of ample chest-flesh before shaking it all from side to side enticingly.`
                 );
                 if (this.lust >= 50)
-                    this.outx(`, your ${this.nippleDescript(0)}s painfully visible.`, false);
+                    this.outx(`, your ${this.nippleDescript(0)}s painfully visible.`);
                 else this.outx(".");
                 if (
                     AbstractSuccubus.rand(100) <=
@@ -224,8 +212,7 @@ export class AbstractSuccubus extends Monster {
             this.outx(
                 `${
                     this.capitalA + this.short
-                } reaches down and strokes her moist lips.  She sighs and licks her fingers clean, giving you a smoldering gaze.`,
-                false
+                } reaches down and strokes her moist lips.  She sighs and licks her fingers clean, giving you a smoldering gaze.`
             );
             // Success = 50% + 10% times each cock/vagina
             // rand(vaginas*2 + cocks*2) + wetness and/or length/6

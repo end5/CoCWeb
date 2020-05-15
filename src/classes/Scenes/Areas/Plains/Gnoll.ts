@@ -74,8 +74,7 @@ export class Gnoll extends Monster {
         // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Gnoll.rand(100) < 6) {
             this.outx(
-                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
-                false
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`
             );
             if (this.plural) this.outx("' attacks.\n", false);
             else this.outx("'s attack.\n", false);
@@ -98,13 +97,11 @@ export class Gnoll extends Monster {
                 // Due to toughness or amor...
                 else if (Gnoll.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`,
-                        false
+                        `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`
                     );
                 else
                     this.outx(
-                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
-                        false
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`
                     );
             }
             // everyone else
@@ -273,8 +270,7 @@ export class Gnoll extends Monster {
         // Determine if cat'ed
         else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Gnoll.rand(100) < 6) {
             this.outx(
-                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
-                false
+                `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`
             );
             if (this.plural) this.outx("' attacks.\n", false);
             else this.outx("'s attack.\n", false);
@@ -297,13 +293,11 @@ export class Gnoll extends Monster {
                 // Due to toughness or amor...
                 else if (Gnoll.rand(this.player.armorDef + this.player.tou) < this.player.armorDef)
                     this.outx(
-                        `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`,
-                        false
+                        `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`
                     );
                 else
                     this.outx(
-                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
-                        false
+                        `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`
                     );
             }
             // everyone else
@@ -365,7 +359,7 @@ export class Gnoll extends Monster {
     protected performCombatAction(): void {
         if (this.findStatusAffect(StatusAffects.Stunned) >= 0) {
             if (this.plural)
-                this.outx("Your foes are too dazed from your last hit to strike back!", false);
+                this.outx("Your foes are too dazed from your last hit to strike back!");
             else this.outx("Your foe is too dazed from your last hit to strike back!");
             this.removeStatusAffect(StatusAffects.Stunned);
             this.combatRoundOver();
@@ -389,13 +383,11 @@ export class Gnoll extends Monster {
                 this.addStatusValue(StatusAffects.Fear, 1, -1);
                 if (this.plural)
                     this.outx(
-                        `${this.capitalA + this.short} are too busy shivering with fear to fight.`,
-                        false
+                        `${this.capitalA + this.short} are too busy shivering with fear to fight.`
                     );
                 else
                     this.outx(
-                        `${this.capitalA + this.short} is too busy shivering with fear to fight.`,
-                        false
+                        `${this.capitalA + this.short} is too busy shivering with fear to fight.`
                     );
             }
             this.combatRoundOver();
@@ -419,8 +411,7 @@ export class Gnoll extends Monster {
             );
             if (this.statusAffectv1(StatusAffects.Constricted) <= 0) {
                 this.outx(
-                    `  ${this.capitalA}${this.short} proves to be too much for your tail to handle, breaking free of your tightly bound coils.`,
-                    false
+                    `  ${this.capitalA}${this.short} proves to be too much for your tail to handle, breaking free of your tightly bound coils.`
                 );
                 this.removeStatusAffect(StatusAffects.Constricted);
             }
@@ -501,8 +492,7 @@ export class Gnoll extends Monster {
             // Determine if cat'ed
             else if (this.player.findPerk(PerkLib.Flexibility) >= 0 && Gnoll.rand(100) < 6) {
                 this.outx(
-                    `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`,
-                    false
+                    `With your incredible flexibility, you squeeze out of the way of ${this.a}${this.short}`
                 );
                 if (this.plural) this.outx("' attacks.\n", false);
                 else this.outx("'s attack.\n", false);
@@ -527,13 +517,11 @@ export class Gnoll extends Monster {
                         Gnoll.rand(this.player.armorDef + this.player.tou) < this.player.armorDef
                     )
                         this.outx(
-                            `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`,
-                            false
+                            `Your ${this.player.armorName} absorb and deflect every ${this.weaponVerb} from ${this.a}${this.short}.`
                         );
                     else
                         this.outx(
-                            `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`,
-                            false
+                            `You deflect and block every ${this.weaponVerb} ${this.a}${this.short} throws at you.`
                         );
                 }
                 // everyone else

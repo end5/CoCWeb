@@ -582,8 +582,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx(
             `You drop it, letting it smack into the floor with a wet-sound 'SPLAT' that creates a puddle of pre-cum on the ground.  With your hands free, it is easy to quickly remove your ${
                 this.player.armorName
-            } and toss it back towards your tent.  By the time you turn back around, his snake-like member is curling up your thigh, towards your ${this.assholeOrPussy()}.  `,
-            false
+            } and toss it back towards your tent.  By the time you turn back around, his snake-like member is curling up your thigh, towards your ${this.assholeOrPussy()}.  `
         );
         if (this.player.hasVagina())
             this.outx(
@@ -599,10 +598,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         this.outx(
-            `Looking very much like a starving man looking at a steak, Jojo smiles serenely and lashes out with his shoulder-tentacles, grabbing your arms and pinning them to your waist.  They wrap about your middle and lift you off the ground with ease.  Suspended in front of him, you're effortlessly rotated in place until your ${this.assholeDescript()} is in the air and your legs splayed apart, with the mutant-mouse's primary tentacle getting ever closer to your ${this.assholeDescript()}`,
-            false
+            `Looking very much like a starving man looking at a steak, Jojo smiles serenely and lashes out with his shoulder-tentacles, grabbing your arms and pinning them to your waist.  They wrap about your middle and lift you off the ground with ease.  Suspended in front of him, you're effortlessly rotated in place until your ${this.assholeDescript()} is in the air and your legs splayed apart, with the mutant-mouse's primary tentacle getting ever closer to your ${this.assholeDescript()}`
         );
-        if (this.player.hasVagina()) this.outx(` and ${this.vaginaDescript(0)}`, false);
+        if (this.player.hasVagina()) this.outx(` and ${this.vaginaDescript(0)}`);
         this.outx(".\n\n", false);
         // REAL SECKS STARTS HERE
         if (this.player.totalCocks() > 0) {
@@ -620,8 +618,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outx(
                         ` your ${this.cockDescript(
                             0
-                        )} in a tight vise of pleasure.  The other two tentacles slide under, each taking a ${this.ballDescript()} partially inside their 'mouths' and massaging them softly.`,
-                        false
+                        )} in a tight vise of pleasure.  The other two tentacles slide under, each taking a ${this.ballDescript()} partially inside their 'mouths' and massaging them softly.`
                     );
                     this.outx("\n\n", false);
                 }
@@ -634,8 +631,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     this.outx(
                         ` your ${this.cockDescript(
                             0
-                        )} in a tight vise of pleasure.  The other two tentacles slide under, `,
-                        false
+                        )} in a tight vise of pleasure.  The other two tentacles slide under, `
                     );
                     if (!this.player.hasVagina())
                         this.outx(
@@ -644,8 +640,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         );
                     else {
                         this.outx(
-                            `rubbing against your thighs and smearing them with lubricant while one of them easily sucks your ${this.clitDescript()} inside.`,
-                            false
+                            `rubbing against your thighs and smearing them with lubricant while one of them easily sucks your ${this.clitDescript()} inside.`
                         );
                         // (If big clit –
                         if (this.player.clitLength >= 4)
@@ -677,11 +672,10 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     else if (this.player.cockArea(0) >= 20) this.outx("engulfing");
                     else this.outx("easily swallowing");
                     this.outx(
-                        ` your ${this.multiCockDescriptLight()} in tight vises of pleasure.  The remaining tentacle slides underneath, seeking `,
-                        false
+                        ` your ${this.multiCockDescriptLight()} in tight vises of pleasure.  The remaining tentacle slides underneath, seeking `
                     );
                     if (this.player.hasVagina()) {
-                        this.outx(`out your ${this.clitDescript()} and sucking it inside.`, false);
+                        this.outx(`out your ${this.clitDescript()} and sucking it inside.`);
                         // (If big clit –
                         if (this.player.clitLength >= 4)
                             this.outx(
@@ -703,16 +697,14 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 else if (this.player.cockArea(0) >= 20) this.outx("engulfing");
                 else this.outx("easily swallowing");
                 this.outx(
-                    ` your ${this.multiCockDescriptLight()} in tight vises of pleasure.  The sensation is overwhelmingly pleasurable, like having three cocks being licked and sucked by a thousand tongues.`,
-                    false
+                    ` your ${this.multiCockDescriptLight()} in tight vises of pleasure.  The sensation is overwhelmingly pleasurable, like having three cocks being licked and sucked by a thousand tongues.`
                 );
                 // (if extra:
                 if (this.player.cockTotal() > 3)
                     this.outx(
                         `  The remaining ${Appearance.cockNoun(
                             CockTypesEnum.HUMAN
-                        )}'s pulse and throb with jealous desire, until one of the tentacles slips off and captures it.  They take turns, slipping off and capturing each of your offerings until you wish they'd just keep sucking forever.`,
-                        false
+                        )}'s pulse and throb with jealous desire, until one of the tentacles slips off and captures it.  They take turns, slipping off and capturing each of your offerings until you wish they'd just keep sucking forever.`
                     );
                 this.outx("\n\n", false);
             }
@@ -720,8 +712,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         // (0 dicks but clit)
         if (this.player.totalCocks() == 0 && this.player.hasVagina()) {
             this.outx(
-                `One of Jojo's tail-tentacles slides underneath his body, shooting forwards to seek out your ${this.clitDescript()}.  It pauses an inch or two away and opens up a horrific orifice full of wriggling tentacles and slick fluids.  The next moment it lunges forwards and sucks it inside.`,
-                false
+                `One of Jojo's tail-tentacles slides underneath his body, shooting forwards to seek out your ${this.clitDescript()}.  It pauses an inch or two away and opens up a horrific orifice full of wriggling tentacles and slick fluids.  The next moment it lunges forwards and sucks it inside.`
             );
             // (If big clit –
             if (this.player.clitLength >= 4)
@@ -755,7 +746,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             // With cunt
             if (this.player.hasVagina()) {
                 if (this.player.vaginas[0].vaginalLooseness >= VAGINA_LOOSENESS_GAPING_WIDE)
-                    this.outx(" practically falling into your oversized cum-receptacles", false);
+                    this.outx(" practically falling into your oversized cum-receptacles");
                 else {
                     if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_SLICK)
                         this.outx(
@@ -766,27 +757,26 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                         this.outx(
                             `forcing their way inside your ${this.vaginaDescript(
                                 0
-                            )} and ${this.assholeDescript()}`,
-                            false
+                            )} and ${this.assholeDescript()}`
                         );
                 }
             }
             // Just butt
             else {
                 if (this.player.ass.analLooseness >= 4)
-                    this.outx(" practically falling into your oversized cum-receptacle", false);
+                    this.outx(" practically falling into your oversized cum-receptacle");
                 else {
                     if (this.player.ass.analWetness >= 3)
                         this.outx(
                             " sliding inside easily thanks to your copious lubrication",
                             false
                         );
-                    else this.outx(`forcing its way inside your ${this.assholeDescript()}`, false);
+                    else this.outx(`forcing its way inside your ${this.assholeDescript()}`);
                 }
             }
         }
         // ON WITH THE PENETRATION
-        this.outx(`.  Your ${this.mouthMuzzle()} opens with a wordless cry of surprise `, false);
+        this.outx(`.  Your ${this.mouthMuzzle()} opens with a wordless cry of surprise `);
         if (this.player.hasVagina()) this.outx("and pleasure ");
         this.outx("as Jojo's tentacle");
         if (this.player.hasVagina()) this.outx("s begin");
@@ -799,21 +789,18 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
             if (this.player.cockTotal() == 1)
                 this.outx(
-                    `  The tentacle on your ${this.multiCockDescriptLight()} seems appreciative, and begins sucking to swallow down all your pre.`,
-                    false
+                    `  The tentacle on your ${this.multiCockDescriptLight()} seems appreciative, and begins sucking to swallow down all your pre.`
                 );
             if (this.player.cockTotal() > 1)
                 this.outx(
-                    `  The tentacles on your ${this.multiCockDescriptLight()} seem appreciative, and begin sucking to swallow down all your pre.`,
-                    false
+                    `  The tentacles on your ${this.multiCockDescriptLight()} seem appreciative, and begin sucking to swallow down all your pre.`
                 );
         }
         if (this.player.hasVagina())
             this.outx(
                 `  Your ${this.vaginaDescript(
                     0
-                )} spasms around the invader, clenching uncontrollably as it's plowed by the thick vine-prick.`,
-                false
+                )} spasms around the invader, clenching uncontrollably as it's plowed by the thick vine-prick.`
             );
         this.outx("\n\n", false);
         this.outx(
@@ -848,8 +835,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `.  Jojo's dick-mouths latch on and suck hard, pulling your ${this.nippleDescript(
                     0
-                )}s deep into their internal reservoir and stimulating your breasts to release a torrent of milk.  `,
-                false
+                )}s deep into their internal reservoir and stimulating your breasts to release a torrent of milk.  `
             );
             if (this.player.cowScore() >= 5)
                 this.outx(
@@ -877,8 +863,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `The heads split apart, dividing into quarters and revealing a wet pink opening with a writhing tongue in the center.  They latch on and suck hard, each pulling your entire ${this.nippleDescript(
                     0
-                )} into their interior.  Gasping at the sensations, you can only moan as the tentacular tongue twists itself around your nipple.  `,
-                false
+                )} into their interior.  Gasping at the sensations, you can only moan as the tentacular tongue twists itself around your nipple.  `
             );
             if (this.player.biggestLactation() >= 1)
                 this.outx(
@@ -906,12 +891,11 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.outx("Jojo unleashes a howl of bestial pleasure, and you feel the ");
         if (this.player.hasVagina()) {
             this.outx(
-                `tentacles in your ${this.assholeOrDP()} thicken perceptibly.  Bulges of cum work their way down the tentacles, spreading your ${this.assholeOrDP()} wide before stuffing you full of mouse cream.  You can feel your bowels and uterus filling, expanding you until you look `,
-                false
+                `tentacles in your ${this.assholeOrDP()} thicken perceptibly.  Bulges of cum work their way down the tentacles, spreading your ${this.assholeOrDP()} wide before stuffing you full of mouse cream.  You can feel your bowels and uterus filling, expanding you until you look `
             );
             if (this.player.pregnancyIncubation == 0) this.outx("mildly pregnant");
             else this.outx("even more pregnant");
-            this.outx(".  Your body spasms around them, locked in the throes of orgasm", false);
+            this.outx(".  Your body spasms around them, locked in the throes of orgasm");
             if (this.player.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLAVERING)
                 this.outx(", and soaks him with a wave of puss juice.  ");
             else if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_SLICK)
@@ -920,8 +904,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             // (If big clit being sucked –
             if (this.player.cockTotal() <= 2 && this.player.balls == 0) {
                 this.outx(
-                    `The tentacle locked around your ${this.clitDescript()} bulges out a bit as your clit throbs from the orgasm, before it sucks harder, making your clitty even larger.  You squeal from the raw sensation until the tentacle pops off, satisfied, leaving your clit looking like an angry red cock.  `,
-                    false
+                    `The tentacle locked around your ${this.clitDescript()} bulges out a bit as your clit throbs from the orgasm, before it sucks harder, making your clitty even larger.  You squeal from the raw sensation until the tentacle pops off, satisfied, leaving your clit looking like an angry red cock.  `
                 );
                 this.player.clitLength += 0.25;
             }
@@ -931,16 +914,14 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
         } else {
             this.outx(
-                `tentacle in your ${this.assholeDescript()} thickens perceptibly.  Bulges of cum work their way down the main tentacle, spreading your ${this.assholeDescript()} wide before stuffing you full of mouse cream.  You can feel your bowels filling, expanding you until you look mildly pregnant.  Your body spasms around them, locked in the throes of orgasm.  The tentacle pulls out, still dripping whiteness that puddles in your well-used hole.`,
-                false
+                `tentacle in your ${this.assholeDescript()} thickens perceptibly.  Bulges of cum work their way down the main tentacle, spreading your ${this.assholeDescript()} wide before stuffing you full of mouse cream.  You can feel your bowels filling, expanding you until you look mildly pregnant.  Your body spasms around them, locked in the throes of orgasm.  The tentacle pulls out, still dripping whiteness that puddles in your well-used hole.`
             );
         }
         // Dick milkings ahoy!
         if (this.player.cockTotal() > 0) {
             if (this.player.cockTotal() == 1) {
                 this.outx(
-                    `The tentacle working over your ${this.multiCockDescript()} clamps down and wriggles deliciously around you.  You can't help but cum from the assault, feeding the tentacle your hot spoogy load.  It drinks it down eagerly`,
-                    false
+                    `The tentacle working over your ${this.multiCockDescript()} clamps down and wriggles deliciously around you.  You can't help but cum from the assault, feeding the tentacle your hot spoogy load.  It drinks it down eagerly`
                 );
                 if (this.player.cumQ() >= 100) {
                     this.outx(
@@ -970,8 +951,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             }
             if (this.player.cockTotal() > 1) {
                 this.outx(
-                    `The tentacles working over your ${this.multiCockDescript()} clamp down and wriggle deliciously around you.  You can't help but cum from the assault, feeding the tentacles your hot spoogy load.  They drink it down eagerly`,
-                    false
+                    `The tentacles working over your ${this.multiCockDescript()} clamp down and wriggle deliciously around you.  You can't help but cum from the assault, feeding the tentacles your hot spoogy load.  They drink it down eagerly`
                 );
                 if (this.player.cumQ() >= 100) {
                     this.outx(
@@ -1007,8 +987,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     0
                 )} squirt milk even harder, pushing the tentacles clear off you with the force of your lactation.  Your ${this.nippleDescript(
                     0
-                )}s look like `,
-                false
+                )}s look like `
             );
             if (this.player.nippleLength >= 2) this.outx("even larger");
             else this.outx("obscene");
@@ -1036,8 +1015,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         // Titfucking breastgasm
         if (titFucking) {
             this.outx(
-                `The titfucking tentacles squeeze tighter against your ${this.allBreastsDescript()} before they cum again, much harder than before.  Each time it pops free of your flesh, a wave of spunk flows out with it, rolling off your chest to drip into your already soaked face and mouth.  `,
-                false
+                `The titfucking tentacles squeeze tighter against your ${this.allBreastsDescript()} before they cum again, much harder than before.  Each time it pops free of your flesh, a wave of spunk flows out with it, rolling off your chest to drip into your already soaked face and mouth.  `
             );
             if (this.player.cor >= 80 && this.player.lib >= 70)
                 this.outx(
@@ -1045,10 +1023,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
             if (this.player.hairLength > 0)
-                this.outx(
-                    `He keeps unloading it until you feel it in your ${this.hairDescript()}`,
-                    false
-                );
+                this.outx(`He keeps unloading it until you feel it in your ${this.hairDescript()}`);
             else this.outx("He keeps unloading it until you feel it on your head");
             this.outx(", then both tentacles abruptly release, going flaccid.\n\n", false);
         }
@@ -1117,7 +1092,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         cumQ -= JojoScene.rand(cumQ / 10);
         cumQ = Math.round(cumQ);
 
-        this.outx(`${cumQ / 1000} Ls.  `, false);
+        this.outx(`${cumQ / 1000} Ls.  `);
 
         // Calculate payout
         if (cumQ > 100) {
@@ -1145,15 +1120,13 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outx(
                     `${JojoScene.Num2Text(
                         payout
-                    )} gem rolls out into a collection plate.  Whitney really put a lot of work into this!  You pocket the gem and g`,
-                    false
+                    )} gem rolls out into a collection plate.  Whitney really put a lot of work into this!  You pocket the gem and g`
                 );
             else
                 this.outx(
                     `${JojoScene.Num2Text(
                         payout
-                    )} gems roll out into a collection plate.  Whitney really put a lot of work into this!  You pocket the gems and g`,
-                    false
+                    )} gems roll out into a collection plate.  Whitney really put a lot of work into this!  You pocket the gems and g`
                 );
         } else this.outx("You g");
     }
@@ -1172,7 +1145,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         this.jojoSprite();
         let x: number = this.player.cockThatFits(40);
         this.outx("", true);
-        this.outx("A wicked idea comes to mind, and you call for your favorite mousey ", false);
+        this.outx("A wicked idea comes to mind, and you call for your favorite mousey ");
         if (this.tentacleJojo()) this.outx("tentacle");
         else this.outx("boy");
         this.outx(
@@ -1255,8 +1228,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outx(
                     `, and you're getting quite turned on from the show.  You shuck your ${
                         this.player.armorName
-                    } and pull out ${this.oMultiCockDesc()}, feeling `,
-                    false
+                    } and pull out ${this.oMultiCockDesc()}, feeling `
                 );
                 if (this.player.lust < 50) this.outx("it stiffen in your hand");
                 else this.outx("it's rigidity with your hand");
@@ -1282,8 +1254,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
                 this.outx(
                     `, and you're getting quite turned on from the show.  You shuck your ${
                         this.player.armorName
-                    } and pull out ${this.oMultiCockDesc()}, feeling `,
-                    false
+                    } and pull out ${this.oMultiCockDesc()}, feeling `
                 );
                 if (this.player.lust < 50) this.outx("it stiffen in your hand");
                 else this.outx("it's rigidity with your hand");
@@ -1311,13 +1282,11 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             this.outx(
                 `, and you're getting quite turned on from the show.  You shuck your ${
                     this.player.armorName
-                } and reveal your ${this.vaginaDescript()}, feeling your ${this.clitDescript()} grow firm and hard.  For his part, Jojo doesn't even notice.  He just moans, squirms, and twitches any time he's brought particularly close to orgasm.  Seating yourself down below him, you let your fingers play across your now-wet folds, caressing your labia before you slide a few digits inside.  You brush your thumb against your clitoral hood and shudder from pleasure, enjoying watching your pet get milked as much as he's enjoying the milking.  `,
-                false
+                } and reveal your ${this.vaginaDescript()}, feeling your ${this.clitDescript()} grow firm and hard.  For his part, Jojo doesn't even notice.  He just moans, squirms, and twitches any time he's brought particularly close to orgasm.  Seating yourself down below him, you let your fingers play across your now-wet folds, caressing your labia before you slide a few digits inside.  You brush your thumb against your clitoral hood and shudder from pleasure, enjoying watching your pet get milked as much as he's enjoying the milking.  `
             );
             if (this.player.clitLength > 3)
                 this.outx(
-                    `Your other hand grabs your penis-sized 'button' and begins to jack it, the action sending tremors of sensation through your ${this.hipDescript()}.  `,
-                    false
+                    `Your other hand grabs your penis-sized 'button' and begins to jack it, the action sending tremors of sensation through your ${this.hipDescript()}.  `
                 );
             this.outx(
                 "Feeling naughty, you sit up straight and lick at Jojo's twitching balls, observing his shame as he squirms on your nose.\n\n",
@@ -1350,8 +1319,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
         );
         if (this.player.hasCock())
             this.outx(
-                `, squeezing your ${this.cockDescript(x)} with agonizingly pleasurable pressure`,
-                false
+                `, squeezing your ${this.cockDescript(x)} with agonizingly pleasurable pressure`
             );
         this.outx(
             ".  His back arches in ecstasy.  Most noticeably, the tube slurping on his cock is suddenly distorting as thick, round globules of mousey seed are sucked towards the wall.  The bulges are quickly smoothed out into one long, hose-dilating river of rodent-spooge.",
@@ -1427,9 +1395,9 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
 
             if (this.jojoCumQ() < 1000)
-                this.outx("has already dripped everywhere, making a mess of the floor.", false);
+                this.outx("has already dripped everywhere, making a mess of the floor.");
             else if (this.jojoCumQ() < 4000)
-                this.outx("is drizzling a steady flow of man-slime, puddling on the floor.", false);
+                this.outx("is drizzling a steady flow of man-slime, puddling on the floor.");
             else
                 this.outx(
                     "is already pouring out a river of pre-cum, turning the floor into a slippery morass.",
@@ -1461,8 +1429,7 @@ export class JojoScene extends NPCAwareContent implements TimeAwareInterface {
             );
             if (!this.player.hasCock() && !this.player.hasVagina())
                 this.outx(
-                    `, even though to do so you're forced to stimulate your ${this.assholeDescript()}`,
-                    false
+                    `, even though to do so you're forced to stimulate your ${this.assholeDescript()}`
                 );
             this.outx(
                 ".  His twitching rodent-nose sniffs at the air wildly as he pants, inhaling your scent between long, forlorn sounding moans.\n\n",

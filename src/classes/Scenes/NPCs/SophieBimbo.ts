@@ -197,8 +197,7 @@ export class SophieBimbo extends NPCAwareContent {
                 Math.floor(this.pregnancy.incubation * 1.75)
             );
         this.outx(
-            `You nod, and Sophie springs forward on her powerful legs, the strength undiminished by the effects of her bimbo transformation.  She tackles you in a bear-hug, kissing your ${this.chestDesc()} over and over as her momentum carries you both off the side of the mountain.  You tumble in the air, screaming as you fall`,
-            false
+            `You nod, and Sophie springs forward on her powerful legs, the strength undiminished by the effects of her bimbo transformation.  She tackles you in a bear-hug, kissing your ${this.chestDesc()} over and over as her momentum carries you both off the side of the mountain.  You tumble in the air, screaming as you fall`
         );
         if (this.player.canFly())
             this.outx(
@@ -248,7 +247,7 @@ export class SophieBimbo extends NPCAwareContent {
                 false
             );
             if (this.flags[kFLAGS.AMILY_FOLLOWER] == 1)
-                this.outx("flushes hotly and denies the bimbo's request with a terse 'no'.", false);
+                this.outx("flushes hotly and denies the bimbo's request with a terse 'no'.");
             else
                 this.outx(
                     "flushes hotly and wiggles her hips Sophie's way.  The slutty, corrupted mouse and Sophie will clearly be helping to sate each other's needs in your absence.",
@@ -398,7 +397,7 @@ export class SophieBimbo extends NPCAwareContent {
                                 ", fuckable pussy-pillows crushing against your quim.",
                                 false
                             );
-                        else this.outx(", fuckable pillows locking you in their embrace.", false);
+                        else this.outx(", fuckable pillows locking you in their embrace.");
                         if (this.player.cor < 33)
                             this.outx(
                                 "  You find yourself nodding and blushing heavily as you drink in the bimbo's body.",
@@ -802,8 +801,7 @@ export class SophieBimbo extends NPCAwareContent {
                 this.dynStats("lus", 1);
             } else {
                 this.outx(
-                    `You shiver, ${this.sMultiCockDesc()} growing hard and ready to submit to the feathery blond's love.  Perhaps you'll take care of that soon...`,
-                    false
+                    `You shiver, ${this.sMultiCockDesc()} growing hard and ready to submit to the feathery blond's love.  Perhaps you'll take care of that soon...`
                 );
                 this.dynStats("lus", 15);
             }
@@ -811,16 +809,14 @@ export class SophieBimbo extends NPCAwareContent {
         } else if (select == 1) {
             this.sophieSprite();
             this.outx(
-                `During an idle moment, you feel heavy breasts squeezing against your back.  Sophie caresses your ${this.chestDesc()} and nibbles at your ear.  She asks, "<i>Can we like, fuck soon, babe?  I've been so wet here all by myself, just stroking my pussy and dreaming of you.</i>"  You can't help but turn and smile at her, but as soon as you do, she plants a kiss full on your lips.  `,
-                false
+                `During an idle moment, you feel heavy breasts squeezing against your back.  Sophie caresses your ${this.chestDesc()} and nibbles at your ear.  She asks, "<i>Can we like, fuck soon, babe?  I've been so wet here all by myself, just stroking my pussy and dreaming of you.</i>"  You can't help but turn and smile at her, but as soon as you do, she plants a kiss full on your lips.  `
             );
             if (!this.player.hasCock()) {
-                this.outx("Pushing her back, you give her ass a slap and mouth, 'Soon'.", false);
+                this.outx("Pushing her back, you give her ass a slap and mouth, 'Soon'.");
                 this.dynStats("lus", 1);
             } else {
                 this.outx(
-                    `Pushing her back, you try not to make contact against her with ${this.oMultiCockDesc()}.  Your lips tingle dangerously, and you know you'll be lusting after harpies for at least a few hours.`,
-                    false
+                    `Pushing her back, you try not to make contact against her with ${this.oMultiCockDesc()}.  Your lips tingle dangerously, and you know you'll be lusting after harpies for at least a few hours.`
                 );
                 this.dynStats("lus", 15);
             }
@@ -831,8 +827,7 @@ export class SophieBimbo extends NPCAwareContent {
                 this.outx(
                     `While standing there, drinking a sip of water, strong hands pull down your ${
                         this.player.armorName
-                    }.  Plump lips wrap around ${this.oMultiCockDesc()} and smother it in plush, warm slipperiness.  You look down at your bimbo harpy and sigh while ${this.oMultiCockDesc()} grows harder in her lips.  She pops off and asks, "<i>Like, wanna fuck?</i>"  You sigh and try to resist the images of yourself mounting the harpy that flood your mind.  It might be time to fuck her soon...`,
-                    false
+                    }.  Plump lips wrap around ${this.oMultiCockDesc()} and smother it in plush, warm slipperiness.  You look down at your bimbo harpy and sigh while ${this.oMultiCockDesc()} grows harder in her lips.  She pops off and asks, "<i>Like, wanna fuck?</i>"  You sigh and try to resist the images of yourself mounting the harpy that flood your mind.  It might be time to fuck her soon...`
                 );
                 this.dynStats("lus", 15);
             } else {
@@ -863,8 +858,7 @@ export class SophieBimbo extends NPCAwareContent {
                 this.outx(
                     `${this.SMultiCockDesc()} seems to wiggle inside your ${
                         this.player.armorName
-                    }.  Damn, she feels really good on you!  Maybe you should screw the slutty bimbo soon?  `,
-                    false
+                    }.  Damn, she feels really good on you!  Maybe you should screw the slutty bimbo soon?  `
                 );
             }
             this.outx(
@@ -931,7 +925,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.sophieSprite();
         this.outx("", true);
         // *Summary - lean back on a rock and spread your legs.  She licks you off with chance of compelling you to sixtynine her.
-        this.outx(`You sit back on a nearby rock and spread your ${this.player.legs()}`, false);
+        this.outx(`You sit back on a nearby rock and spread your ${this.player.legs()}`);
         if (this.player.balls > 0) this.outx(", lifting your heavy sack out of the way");
         this.outx(
             ` to give Sophie a perfect view of your ${this.vaginaDescript()}.  Sophie's dull, somewhat glazed eyes brighten at the sight of your box, and she leans forward intently, dipping a digit into herself as she asks, "<i>Ooh, can I, like, lick it for you?  It looks soooo yummy!</i>"\n\n`,
@@ -950,8 +944,7 @@ export class SophieBimbo extends NPCAwareContent {
             );
         else
             this.outx(
-                `You confidently smile and scoot your ${this.hipDescript()} forward, anticipating the feeling of your bimbo-bitch's fat, pussy-licking lips on your slit.`,
-                false
+                `You confidently smile and scoot your ${this.hipDescript()} forward, anticipating the feeling of your bimbo-bitch's fat, pussy-licking lips on your slit.`
             );
         this.outx(
             "  Sophie just looks at you, her wide-eyed gaze never leaving your engorged labia.  After what feels like a full minute of her watching you, she finally remembers that a nod means 'yes', and she bounces up and down in excitement, clapping and cheering while her tits jiggle ludicrously.  She leans in close, nearly brushing her nose into your ",
@@ -1029,14 +1022,12 @@ export class SophieBimbo extends NPCAwareContent {
         );
 
         this.outx(
-            `You both fall back, winded, gasping, and a little delirious from the encounter.  The entirely of your groin is covered in a gold coating, shining with the harpy's lipstick and your own feminine moisture.  In a way, the sight is oddly entrancing.  Your ${this.vaginaDescript()} glitters in the light while the harpy's overly-thick lipstick sinks into your skin, filling your body with drugs designed to stimulate males.  `,
-            false
+            `You both fall back, winded, gasping, and a little delirious from the encounter.  The entirely of your groin is covered in a gold coating, shining with the harpy's lipstick and your own feminine moisture.  In a way, the sight is oddly entrancing.  Your ${this.vaginaDescript()} glitters in the light while the harpy's overly-thick lipstick sinks into your skin, filling your body with drugs designed to stimulate males.  `
         );
         if (!this.player.hasCock()) this.outx("  It's a good thing you don't have a penis!");
         else
             this.outx(
-                `You groan as your groin burns with desire, filling your ${this.multiCockDescriptLight()} with blood.  Images of yourself relentlessly fucking your bimbo bride pregnant over and over again fill your mind.  You shudder and blush, trying to resist the artificial needs pounding through your body, but you realize your body is ready.`,
-                false
+                `You groan as your groin burns with desire, filling your ${this.multiCockDescriptLight()} with blood.  Images of yourself relentlessly fucking your bimbo bride pregnant over and over again fill your mind.  You shudder and blush, trying to resist the artificial needs pounding through your body, but you realize your body is ready.`
             );
         this.outx("\n\n", false);
 
@@ -1118,8 +1109,7 @@ export class SophieBimbo extends NPCAwareContent {
             );
 
             this.outx(
-                `Sophie drops down onto her elbows, her ass-length blond plumage tickling at your ${this.player.legs()} as she examines your groin.  The slutty harpy leans over your gold-smeared crotch and gives your ${this.clitDescript()} a kiss, her plush lips smothering the `,
-                false
+                `Sophie drops down onto her elbows, her ass-length blond plumage tickling at your ${this.player.legs()} as she examines your groin.  The slutty harpy leans over your gold-smeared crotch and gives your ${this.clitDescript()} a kiss, her plush lips smothering the `
             );
             if (this.player.clitLength < 1) this.outx("tiny ");
             this.outx(
@@ -1229,15 +1219,13 @@ export class SophieBimbo extends NPCAwareContent {
                     x
                 )} swelling in her mouth, the ${this.player.cockHead(
                     x
-                )} thickening against her hungry tongue.  She shakes on top of you and releases another wave of syrupy fluids.  You swallow a mouthful, compulsively drinking her prodigious pussy's copious lady-spunk.  Your back arches, your ${this.player.legs()} clench, and you erupt inside your bimbo's puckered, sucking mouth-hole, giving her tonsils a bath of your creamy semen.  Rivulets of semen run over her juicy lips as you cum too fast for her to keep up with.`,
-                false
+                )} thickening against her hungry tongue.  She shakes on top of you and releases another wave of syrupy fluids.  You swallow a mouthful, compulsively drinking her prodigious pussy's copious lady-spunk.  Your back arches, your ${this.player.legs()} clench, and you erupt inside your bimbo's puckered, sucking mouth-hole, giving her tonsils a bath of your creamy semen.  Rivulets of semen run over her juicy lips as you cum too fast for her to keep up with.`
             );
             if (this.player.cumQ() >= 500) {
                 this.outx(
                     `  She gulps and swallows as fast as possible, but cum starts oozing from her nose, dripping from the corners of her mouth, and spurting back out around your ${this.cockDescript(
                         x
-                    )} to spatter your groin.`,
-                    false
+                    )} to spatter your groin.`
                 );
                 if (this.player.cumQ() >= 1000)
                     this.outx(
@@ -1262,8 +1250,7 @@ export class SophieBimbo extends NPCAwareContent {
             );
 
             this.outx(
-                `Sophie leans down to kiss you on the lips, smearing more of her lust-enhancing lipstick over your mouth.  ${this.SMultiCockDesc()} stays hard as a rock, but the need to service her pussy with your tongue slowly fades.  You feel oddly sated in spite of your erection, yet you know that a peek at your vapid harpy mistress will likely throw you into a rutting frenzy all over again thanks to the properties of her lipstick.`,
-                false
+                `Sophie leans down to kiss you on the lips, smearing more of her lust-enhancing lipstick over your mouth.  ${this.SMultiCockDesc()} stays hard as a rock, but the need to service her pussy with your tongue slowly fades.  You feel oddly sated in spite of your erection, yet you know that a peek at your vapid harpy mistress will likely throw you into a rutting frenzy all over again thanks to the properties of her lipstick.`
             );
             this.player.orgasm();
             this.dynStats("lib", 1, "sen", -1);
@@ -1310,8 +1297,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.outx(
             `You squeeze her shuddering rump hard enough to feel her flesh bulging out around your fingers, the soft cheeks nearly subsuming your hands, and then you pull her hard, dragging your ${this.cockDescript(
                 x
-            )} the rest of the way inside her, all the way to the `,
-            false
+            )} the rest of the way inside her, all the way to the `
         );
         if (!this.player.hasSheath()) this.outx("hilt");
         else this.outx("sheath");
@@ -1326,7 +1312,7 @@ export class SophieBimbo extends NPCAwareContent {
             "  The bimbo moans harder every time it happens and sounds more whorish and lurid with each passing second - a true anal slut.  She looks back at you with lust in her eyes and a gleeful grin on her face.  Suddenly, one of the ditz's fingernails is dragging ",
             false
         );
-        if (this.player.balls > 0) this.outx(`over your ${this.ballsDescriptLight()}`, false);
+        if (this.player.balls > 0) this.outx(`over your ${this.ballsDescriptLight()}`);
         else this.outx("across your taint");
         this.outx(
             ".  It works its way down, crosses the joining of your bodies, and reaches its owner's pussy, circling the puffy lips until a long strand of girl-goo is dangling down towards the ground.\n\n",
@@ -1375,8 +1361,7 @@ export class SophieBimbo extends NPCAwareContent {
         this.outx(
             `  Seed spews from your ${this.cockDescript(
                 x
-            )} into your bimbo's blubbery bottom with an audible gurgle that brings a blush to her cheek.  You pull her hair harder and bounce your ${this.hipDescript()} off her bottom a few times, injecting the rest of your cum inside her while you rut at her now-sloppy anus.`,
-            false
+            )} into your bimbo's blubbery bottom with an audible gurgle that brings a blush to her cheek.  You pull her hair harder and bounce your ${this.hipDescript()} off her bottom a few times, injecting the rest of your cum inside her while you rut at her now-sloppy anus.`
         );
         if (this.player.cumQ() >= 500) {
             this.outx(
@@ -1430,8 +1415,7 @@ export class SophieBimbo extends NPCAwareContent {
                 "Her swollen tummy pushes against your [legs] as she assumes the position, the weighty egg-distorted lump pressing against you.  "
             );
         this.outx(
-            `She wobbles forward and her massive mounds easily slide to either side of ${this.oMultiCockDesc()}, completely engulfing it.  Still holding on to her nipples, you pull them together and `,
-            false
+            `She wobbles forward and her massive mounds easily slide to either side of ${this.oMultiCockDesc()}, completely engulfing it.  Still holding on to her nipples, you pull them together and `
         );
         if (this.player.cocks[x].cockThickness < 8) this.outx("completely surround yourself");
         else this.outx("surround as much of yourself as possible");
@@ -1482,13 +1466,11 @@ export class SophieBimbo extends NPCAwareContent {
         this.outx(
             `One of the dumb blonde's hands circles under her bouncing, jiggling chest to stroke your ${this.cockDescript(
                 x
-            )}, jacking you off with the spit, sweat, and drugged gloss as lubricants.  She jerks you hard and fast, smearing it `,
-            false
+            )}, jacking you off with the spit, sweat, and drugged gloss as lubricants.  She jerks you hard and fast, smearing it `
         );
         if (this.player.balls > 0)
             this.outx(
-                `all over your balls whenever she needs a break, and you feel your ${this.ballsDescriptLight()} growing heavier by the moment.`,
-                false
+                `all over your balls whenever she needs a break, and you feel your ${this.ballsDescriptLight()} growing heavier by the moment.`
             );
         else
             this.outx(
@@ -1585,8 +1567,7 @@ export class SophieBimbo extends NPCAwareContent {
                 x
             )} as you lie on your back. Using her feet, she guides your twitching member toward her rosy slit and you note with amusement that she's taken to painting her talons pink, as if they were toenails. As your tip slides past her lips, she sighs in ecstatic relief, as if you were quenching a fire within her body. Unable to restrain herself, she plunges down, impaling herself on your straining phallus and slapping her tremendous ass against your inner thighs. She holds there for a moment, savoring the wonderful lewdness of her egg-filled womb and cock-filled uterus before you give the empty-headed woman a savage thrust, reminding her there's somebody attached to the ${this.cockDescript(
                 x
-            )} `,
-            false
+            )} `
         );
         if (this.player.balls > 0) this.outx("balls-");
         this.outx(

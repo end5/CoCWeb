@@ -385,8 +385,7 @@ export class Dominika extends TelAdreAbstractContent {
             this.outx(
                 `They briefly run down to the top of your ${this.breastDescript(
                     0
-                )} before returning to your collar.  `,
-                false
+                )} before returning to your collar.  `
             );
         // First time
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00150] == 2)
@@ -714,8 +713,7 @@ export class Dominika extends TelAdreAbstractContent {
                         0
                     )} as though trying to break them down. You can practically feel your juices splattering across your cunt and then slurped up by her in the frenzy she approaches you with. Your world becomes consumed by raw sensation as effortlessly as your own ${this.vaginaDescript(
                         0
-                    )} is consumed by her ravenous maw, losing yourself in the pleasure granted you by those plump fuckable puckers. `,
-                    false
+                    )} is consumed by her ravenous maw, losing yourself in the pleasure granted you by those plump fuckable puckers. `
                 );
                 if (this.player.totalCocks() == 0)
                     this.outx(

@@ -339,8 +339,7 @@ export class KihaFollower extends NPCAwareContent {
         );
 
         this.outx(
-            `"<i>Why, ${this.player.short}?</i>" she asks, her voice barely more than a whisper.  "<i>Why... why did you help me?  I tried to hurt you, and you just... turned around and saved me.  I don't get it.</i>"[pg]`,
-            false
+            `"<i>Why, ${this.player.short}?</i>" she asks, her voice barely more than a whisper.  "<i>Why... why did you help me?  I tried to hurt you, and you just... turned around and saved me.  I don't get it.</i>"[pg]`
         );
 
         this.outx(
@@ -366,8 +365,7 @@ export class KihaFollower extends NPCAwareContent {
         );
 
         this.outx(
-            `[pg]"<i>H-hey, ${this.player.short}!</i>"  Kiha suddenly shouts, causing you to turn at the shore.  "<i>D-don't forget... um, I mean... remember where this place is, all right?  Friends, uh, visit each other sometimes, I guess.</i>"`,
-            false
+            `[pg]"<i>H-hey, ${this.player.short}!</i>"  Kiha suddenly shouts, causing you to turn at the shore.  "<i>D-don't forget... um, I mean... remember where this place is, all right?  Friends, uh, visit each other sometimes, I guess.</i>"`
         );
 
         this.outx(
@@ -463,16 +461,14 @@ export class KihaFollower extends NPCAwareContent {
                 false
             );
             this.outx(
-                `[pg]"<i>Bah!  You just watch, ${this.player.short}.  The queen bitch isn't just sitting on her ass; she won't rest until the whole world's ruined!  The demons already ruined the seasons, caused an endless drought.  Who's to say they can't shoot a giant dick into the sky, or make it rain corrupted cum forever, until we're all slavering monsters?  What's to stop them, huh?</i>"`,
-                false
+                `[pg]"<i>Bah!  You just watch, ${this.player.short}.  The queen bitch isn't just sitting on her ass; she won't rest until the whole world's ruined!  The demons already ruined the seasons, caused an endless drought.  Who's to say they can't shoot a giant dick into the sky, or make it rain corrupted cum forever, until we're all slavering monsters?  What's to stop them, huh?</i>"`
             );
             this.outx(
                 "[pg]You are.  She is.  All of you - anyone who hasn't given in to corruption.  Anyone with the will and the strength to fight back.  You tell her of everyone you've met in your travels, the few stalwart souls that still resist Lethice's hordes.",
                 false
             );
             this.outx(
-                `[pg]"<i>Then why... why haven't we done something, ${this.player.short}?  Why couldn't we just have gone... together?</i>"`,
-                false
+                `[pg]"<i>Then why... why haven't we done something, ${this.player.short}?  Why couldn't we just have gone... together?</i>"`
             );
             this.outx(
                 "[pg]Because you aren't ready yet.  Neither is she.  But some day - soon - you will be.",
@@ -499,7 +495,7 @@ export class KihaFollower extends NPCAwareContent {
                 );
                 this.flags[kFLAGS.KIHA_NEED_SPIDER_TEXT] = 0;
             }
-            this.outx("You walk over to the ring of trees and call out for the dragoness.", false);
+            this.outx("You walk over to the ring of trees and call out for the dragoness.");
 
             this.outx(
                 "[pg]A moment later and she explodes from the treetops, landing in front of you with enough force to shake the ground.  She stands, fiery greataxe held at the ready, but when she recognizes you, however, she visibly relaxes.",
@@ -507,8 +503,7 @@ export class KihaFollower extends NPCAwareContent {
             );
 
             this.outx(
-                `[pg]"<i>Oh, uh, hey, ${this.player.short},</i>" she says leaning on her greataxe.  "<i>It's... good to see you again, I guess.  Did you, uh, want something?</i>"`,
-                false
+                `[pg]"<i>Oh, uh, hey, ${this.player.short},</i>" she says leaning on her greataxe.  "<i>It's... good to see you again, I guess.  Did you, uh, want something?</i>"`
             );
         }
         let talk;
@@ -553,8 +548,7 @@ export class KihaFollower extends NPCAwareContent {
                 false
             );
             this.outx(
-                `[pg]Even though it was just a mock match, you can clearly see the dragoness took the loss as a personal failure.  She flops back down, unable to rise again, and curses at herself.  "<i>If... if I can't defeat you, ${this.player.short}, how the hell am I supposed to beat Lethice?</i>"`,
-                false
+                `[pg]Even though it was just a mock match, you can clearly see the dragoness took the loss as a personal failure.  She flops back down, unable to rise again, and curses at herself.  "<i>If... if I can't defeat you, ${this.player.short}, how the hell am I supposed to beat Lethice?</i>"`
             );
             this.outx(
                 "[pg]While you can't answer her question, you can give her a hand up.  She's surprisingly light for her size and build, though - when you pull her up, she tumbles forward into your arms.",
@@ -572,8 +566,7 @@ export class KihaFollower extends NPCAwareContent {
                 false
             );
             this.outx(
-                `[pg]Even though it was just a mock match, you can clearly see the dragoness took the loss as a personal failure.  She flops back down, unable to rise again, and curses at herself.  "<i>If... if I can't defeat you, ${this.player.short}, how the hell am I supposed to beat Lethice?</i>"`,
-                false
+                `[pg]Even though it was just a mock match, you can clearly see the dragoness took the loss as a personal failure.  She flops back down, unable to rise again, and curses at herself.  "<i>If... if I can't defeat you, ${this.player.short}, how the hell am I supposed to beat Lethice?</i>"`
             );
             this.outx(
                 "[pg]While you can't answer her question, you can give her a hand up.  She's surprisingly light for her size and build, though - when you pull her up, she tumbles forward into your arms.",
@@ -598,8 +591,7 @@ export class KihaFollower extends NPCAwareContent {
                 false
             );
             this.outx(
-                `[pg]"<i>Bam. You're dead!</i>" she laughs, giving you a little pop on the chin before slinging it back over her shoulder.  "<i>Come on, ${this.player.short}!</i>"  she jeers, "<i>How the hell do you think you're going to beat the Demon Queen if you can't even beat me, huh?</i>"`,
-                false
+                `[pg]"<i>Bam. You're dead!</i>" she laughs, giving you a little pop on the chin before slinging it back over her shoulder.  "<i>Come on, ${this.player.short}!</i>"  she jeers, "<i>How the hell do you think you're going to beat the Demon Queen if you can't even beat me, huh?</i>"`
             );
             this.outx(
                 '[pg]Her words cut deeper than you expected, and you remain silent.  After a moment, Kiha huffs and looks away.  "<i>Look. If you really wanna get stronger, I guess we could... keep doing this.  Not that I\'m doing it for you!</i>"  she adds, crossing her arms.  "<i>You\'re good target practice.  That\'s all.</i>"',
@@ -616,8 +608,7 @@ export class KihaFollower extends NPCAwareContent {
                 false
             );
             this.outx(
-                `[pg]"<i>Bam. You're dead!</i>" she laughs, giving you a little pop on the chin before slinging it back over her shoulder.  "<i>Come on, ${this.player.short}!</i>"  she jeers, "<i>How the hell do you think you're going to beat the Demon Queen if you can't even beat me, huh?</i>"`,
-                false
+                `[pg]"<i>Bam. You're dead!</i>" she laughs, giving you a little pop on the chin before slinging it back over her shoulder.  "<i>Come on, ${this.player.short}!</i>"  she jeers, "<i>How the hell do you think you're going to beat the Demon Queen if you can't even beat me, huh?</i>"`
             );
             this.outx(
                 '[pg]Her words cut deeper than you expected, and you remain silent.  After a moment, Kiha huffs and looks away.  "<i>Look. If you really wanna get stronger, just keep trying.  That\'s how you won my heart, wasn\'t it?</i>"  she adds, crossing her arms and blushing.  "<i>C-come on, let\'s get you healed up.</i>"',
@@ -720,8 +711,7 @@ export class KihaFollower extends NPCAwareContent {
                 false
             );
             this.outx(
-                `[pg]"<i>Dammit, ${this.player.short}!</i>"  she hisses, waving away the smoke.  "<i>I'm fucking done talking!  Why the hell do you keep this shit up, huh?  All this talk and talk and talk!  You keep coming here, talking your precious morals and acting like you ACTUALLY give a shit about me.  Well, fucking stop!</i>"`,
-                false
+                `[pg]"<i>Dammit, ${this.player.short}!</i>"  she hisses, waving away the smoke.  "<i>I'm fucking done talking!  Why the hell do you keep this shit up, huh?  All this talk and talk and talk!  You keep coming here, talking your precious morals and acting like you ACTUALLY give a shit about me.  Well, fucking stop!</i>"`
             );
             this.outx(
                 "[pg]She waves a clawed hand your way, making you stumble back or else lose your face.  \"<i>You keep saying you're some high and mighty champion out to stop the demons!  Well where's the fucking proof, huh?  It's all talk with you!  Why the hell aren't we out there FIGHTING!?  We should be kicking in Lethice's front door, not pussy-footing around here TALKING about our fucking FEELINGS or some shit!  Come on, if you're so strong you can knock me on my ass, you and I together ought to be able to do SOMETHING about this fucking bitch!  Right?</i>\"",
@@ -773,12 +763,10 @@ export class KihaFollower extends NPCAwareContent {
             false
         );
         this.outx(
-            `[pg]She rises to her feet, leaning heavily on her greataxe.  "<i>Well, well,</i>"  she sneers, a thin grin on her lips.  "<i>Coming to visit me, ${this.player.short}?  How thoughtful.</i>"`,
-            false
+            `[pg]She rises to her feet, leaning heavily on her greataxe.  "<i>Well, well,</i>"  she sneers, a thin grin on her lips.  "<i>Coming to visit me, ${this.player.short}?  How thoughtful.</i>"`
         );
         this.outx(
-            `[pg]You attempt to explain that you were just exploring, but before you can finish half a sentence, Kiha swings her axe up into a fighting pose.  "<i>Fuck that,</i>"  the dragoness growls.  "<i>I'm in the mood for a fight, so come on, ${this.player.short}!  Put 'em up!</i>"`,
-            false
+            `[pg]You attempt to explain that you were just exploring, but before you can finish half a sentence, Kiha swings her axe up into a fighting pose.  "<i>Fuck that,</i>"  the dragoness growls.  "<i>I'm in the mood for a fight, so come on, ${this.player.short}!  Put 'em up!</i>"`
         );
         this.outx(
             "[pg]You quickly prepare for combat, readying your [weaponName] against the inevitable assault, and have only just done so when Kiha launches herself at you, swinging wildly with her greataxe.  You narrowly parry one blow, then another, forced back by the dragoness's relentless assault.",
@@ -841,8 +829,7 @@ export class KihaFollower extends NPCAwareContent {
             false
         );
         this.outx(
-            `[pg]"<i>OH HELL NO, you scaly bitch,</i>"  Hel growls, leering down at Kiha as the dragoness leaps to her feet, axe raised.  "<i>You do NOT fucking touch my ${this.player.short} and get away with it.  You hear me?</i>"`,
-            false
+            `[pg]"<i>OH HELL NO, you scaly bitch,</i>"  Hel growls, leering down at Kiha as the dragoness leaps to her feet, axe raised.  "<i>You do NOT fucking touch my ${this.player.short} and get away with it.  You hear me?</i>"`
         );
         this.outx(
             '[pg]"<i>You BITCH!</i>"  Kiha screams, flicking mud off her nude body.  "<i>How dare you?  How DARE YOU throw ME in the MUD!?  I\'ll fucking teach you!</i>"',
@@ -867,10 +854,7 @@ export class KihaFollower extends NPCAwareContent {
         if (!this.player.isGoo()) this.outx("meatsack");
         else this.outx("goosack");
         this.outx(' behind you belongs to ME, you got it?</i>"', false);
-        this.outx(
-            `[pg]"<i>Oh, ${this.player.mf("he", "she")} belongs to you, is that it?</i>"`,
-            false
-        );
+        this.outx(`[pg]"<i>Oh, ${this.player.mf("he", "she")} belongs to you, is that it?</i>"`);
         this.outx(
             '[pg]"<i>That\'s right, you bitch.  So get your fat scaly ass out of the way!</i>"',
             false
@@ -889,8 +873,7 @@ export class KihaFollower extends NPCAwareContent {
         );
         this.outx('[pg]"<i>SHITTER MUSCLE!?!</i>"', false);
         this.outx(
-            `[pg]"<i>Shitter muscle,</i>" Hel says with a sneer.  "<i>And to top it all off... You've got small tits.  Why the hell would ${this.player.short} want those little things over THESE,</i>" she laughs, cupping her big E-cups for emphasis.`,
-            false
+            `[pg]"<i>Shitter muscle,</i>" Hel says with a sneer.  "<i>And to top it all off... You've got small tits.  Why the hell would ${this.player.short} want those little things over THESE,</i>" she laughs, cupping her big E-cups for emphasis.`
         );
         this.outx(
             `[pg]"<i>Oh, like ${
@@ -898,8 +881,7 @@ export class KihaFollower extends NPCAwareContent {
             } would even look twice at those floppy things!</i>" Kiha growls, grabbing her own D-cups defensively.  "<i>${this.player.mf(
                 "He",
                 "She"
-            )} OBVIOUSLY prefers smaller, perkier boobs.  Don't you, ${this.player.short}?</i>"`,
-            false
+            )} OBVIOUSLY prefers smaller, perkier boobs.  Don't you, ${this.player.short}?</i>"`
         );
         this.outx(
             `[pg]You start to stammer an answer, but before you know it, Hel's put a foot on your chest, pushing you just a little deeper into the still-hot mud.  "<i>How the hell would YOU know what ${
@@ -907,16 +889,14 @@ export class KihaFollower extends NPCAwareContent {
             } likes, huh?  <i>I</i> know exactly what makes ${this.player.mf(
                 "him",
                 "her"
-            )} tick!</i>"`,
-            false
+            )} tick!</i>"`
         );
         this.outx(
             "[pg]Before you can say a word in your own defense, Hel uses her clawed foot to rip off the bottom of your [armorName].  Grinning at you, she puts the heel of her foot on the bottom of [cock one].  She gives it a short, forceful rub, pushing your stiffening cock into your belly as she runs her heel across it.  She gives your cock a few playful strokes, but the tell-tale hardening of your cock soon turns it into a full-blown footjob, with Hel hooking her heel's claw around one side of your shaft and wrapping the rest of her foot around the other side.  She shamelessly jerks you off, pumping your stiffy as Kiha stares, wide-eyed.",
             false
         );
         this.outx(
-            `[pg]Kiha yells in feral outrage.  "<i>HOW THE FUCK DARE YOU!?</i>"  she screams, storming over.  "<i>Get your filthy feet off ${this.player.short}!</i>"`,
-            false
+            `[pg]Kiha yells in feral outrage.  "<i>HOW THE FUCK DARE YOU!?</i>"  she screams, storming over.  "<i>Get your filthy feet off ${this.player.short}!</i>"`
         );
         this.outx(
             '[pg]Kiha gives Hel a forceful shove, causing her to stumble back as the dragoness looms over you.  "<i>Why the hell would you like a whore like her, huh?</i>" she asks, "<i>The kind of girl who, on a damn whim, just starts handing out favors.  What, do you LIKE sluts?  Huh?  Is that it?</i>"',
@@ -934,8 +914,7 @@ export class KihaFollower extends NPCAwareContent {
             `[pg]Suddenly, Hel rises from the dirt beside you, her tail flaming dangerously.  "<i>Oh, FUCK YOU!</i>"  Hel cries, stamping back to stand beside Kiha.  "<i>How the FUCK would you know ANYTHING about what ${this.player.mf(
                 "he",
                 "she"
-            )} likes?  You think you know?  I'll fucking SHOW YOU!</i>"`,
-            false
+            )} likes?  You think you know?  I'll fucking SHOW YOU!</i>"`
         );
         this.outx(
             "[pg]As Kiha's foot comes to rest along the base of your cock, Hel rubs her foot along your cockhead, making you gasp and shudder with ecstasy as she begins to foot-fuck you.  Kiha growls and makes a quick jab up your shaft, using the hook of her claw like half a hand to jerk you off as Hel slides the flat of her foot along your shaft.",
@@ -957,8 +936,7 @@ export class KihaFollower extends NPCAwareContent {
             )} cum RIGHT next to my vag.  ${this.player.mf(
                 "He",
                 "She"
-            )} probably wants to knock me up even, don't you, ${this.player.short}?</i>"`,
-            false
+            )} probably wants to knock me up even, don't you, ${this.player.short}?</i>"`
         );
         this.outx(
             `[pg]"<i>Oh, is that right?</i>"  Hel laughs, giving her ample hips a shake forceful enough to dislodge your spooge, hitting Kiha full on the face.  "<i>${
@@ -966,8 +944,7 @@ export class KihaFollower extends NPCAwareContent {
             } put a load right in my asscheeks - ${this.player.mf(
                 "he",
                 "she"
-            )} gave me the last AND the dirtiest load.  What do you get? Oh, that's right, a vag shot.  How unique!</i>"`,
-            false
+            )} gave me the last AND the dirtiest load.  What do you get? Oh, that's right, a vag shot.  How unique!</i>"`
         );
         this.outx(
             '[pg]"<i>What would you even know about it, slut?</i>"  Kiha roars, breathing fire right in Hel\'s face.  The salamander just waves it off indignantly.',
@@ -994,8 +971,7 @@ export class KihaFollower extends NPCAwareContent {
             false
         );
         this.outx(
-            `[pg]"<i>Like her better!  Ha!  Come on, ${this.player.short}, you and I both know you like ME better.  AND that I give the best footsies.</i>"`,
-            false
+            `[pg]"<i>Like her better!  Ha!  Come on, ${this.player.short}, you and I both know you like ME better.  AND that I give the best footsies.</i>"`
         );
         this.outx(
             "[pg]Well, shit. This isn't good.  You can't tell the girls apart, and now they're asking who you like better.  You sigh heavily, and as evenly as possible, try to explain that you like BOTH of them.",
@@ -1019,8 +995,7 @@ export class KihaFollower extends NPCAwareContent {
             false
         );
         this.outx(
-            `[pg]"<i>Fine,</i>"  Kiha says, putting up a cocky grin.  "<i>If ${this.player.short} can tolerate you, then I guess... you're welcome in my swamp, I guess.</i>"`,
-            false
+            `[pg]"<i>Fine,</i>"  Kiha says, putting up a cocky grin.  "<i>If ${this.player.short} can tolerate you, then I guess... you're welcome in my swamp, I guess.</i>"`
         );
         this.outx('[pg]"<i>And hey... if you ever go to the plains...</i>"', false);
         this.outx(
@@ -1066,8 +1041,7 @@ export class KihaFollower extends NPCAwareContent {
             ' and plant a [foot] on her chest, pinning her to the ground.  "<i>Hey, what the fuck!  Get off me!</i>"'
         );
         this.outx(
-            `[pg]After what she just tried to pull, you tell her to sit down and shut up.  Behind you, Hel squirms around until you grab her arm and drag her over to sit by Kiha.  "<i>${this.player.short}!  I was trying to help you!</i>"  You just scowl and grab both scaly girls by the hair, dragging them up to kneel in front of you.  They squirm and struggle in your grasp, until you give the both of them a hand slap.  That shuts them up for the moment.`,
-            false
+            `[pg]After what she just tried to pull, you tell her to sit down and shut up.  Behind you, Hel squirms around until you grab her arm and drag her over to sit by Kiha.  "<i>${this.player.short}!  I was trying to help you!</i>"  You just scowl and grab both scaly girls by the hair, dragging them up to kneel in front of you.  They squirm and struggle in your grasp, until you give the both of them a hand slap.  That shuts them up for the moment.`
         );
         this.outx(
             "[pg]Now that the girls are relatively docile in your grasp, you reach into your dirty [armorName] and pull out [eachCock].  A bit of mud seems to have soaked through your clothes, and a few nice big patches are on your hardening cock's shaft.  Grinning wickedly at the scaly girls, you tell them that since it's their fault your dick's dirty, it's their duty to clean you up.",
@@ -1256,12 +1230,10 @@ export class KihaFollower extends NPCAwareContent {
         else if (this.player.tallness <= 60) this.outx("tilting it up");
         else this.outx("tilting it slightly");
         this.outx(
-            ` to plant a kiss on her dusky, parted lips.  She melts into you, the heat of her body making you sweat, but this once, you don't mind at all.  Kiha's tail wags happily, splashing through water as the eager dragoness leans against you, pushing the two of you back towards one of the nearby trees.  She hooks a leg around your thigh, pulling you so tightly into her that you can't help but be aware of her supple breasts crushing against you, the hard points of her nipples digging into you and your ${this.player.armorName}.`,
-            false
+            ` to plant a kiss on her dusky, parted lips.  She melts into you, the heat of her body making you sweat, but this once, you don't mind at all.  Kiha's tail wags happily, splashing through water as the eager dragoness leans against you, pushing the two of you back towards one of the nearby trees.  She hooks a leg around your thigh, pulling you so tightly into her that you can't help but be aware of her supple breasts crushing against you, the hard points of her nipples digging into you and your ${this.player.armorName}.`
         );
         this.outx(
-            `[pg]The warrioress's axe stands a few feet back, like a silent sentinel.  It's been forgotten in the heat of moment.  Kiha's prodigious, normally suppressed libido reveals itself when she forces a long tongue into your mouth, tying up your own oral organ while her mischievous, clawed fingers gently remove your ${this.player.armorName}, one piece at a time.`,
-            false
+            `[pg]The warrioress's axe stands a few feet back, like a silent sentinel.  It's been forgotten in the heat of moment.  Kiha's prodigious, normally suppressed libido reveals itself when she forces a long tongue into your mouth, tying up your own oral organ while her mischievous, clawed fingers gently remove your ${this.player.armorName}, one piece at a time.`
         );
         if (this.player.hasCock())
             this.outx(
@@ -1346,8 +1318,7 @@ export class KihaFollower extends NPCAwareContent {
                 "How can you enjoy sex with something that small?  I don't know if I'll even feel it."
             );
         this.outx(
-            `</i>"  She goes right on to squeeze ${this.oMultiCockDesc()} in her hand, letting you feel the strength of her grip for the barest moment before stroking you slowly and sensually.  You moan, so pent up from all the foreplay that you happily hump away at Kiha's fingers.  Her handjob feels divine after being so close with so little stimulation for oh so very long.  Pre-cum quickly coats the dragoness's hand, making the air fill with lewd wet 'schlicks' from each stroke.`,
-            false
+            `</i>"  She goes right on to squeeze ${this.oMultiCockDesc()} in her hand, letting you feel the strength of her grip for the barest moment before stroking you slowly and sensually.  You moan, so pent up from all the foreplay that you happily hump away at Kiha's fingers.  Her handjob feels divine after being so close with so little stimulation for oh so very long.  Pre-cum quickly coats the dragoness's hand, making the air fill with lewd wet 'schlicks' from each stroke.`
         );
         this.outx(
             '[pg]"<i>You\'re so pathetic,</i>" Kiha taunts as she begins to pump you faster, edging you closer to an irresistible orgasm.  "<i>You used to be so tough, Champion.  What happened?  A few tugs on your ',
@@ -1357,8 +1328,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outx(
             `tool and you're putty in my hands.</i>"  Tiring of her tirade, you summon up your strength and pull her down next to you, climbing atop her torso to rest your ${this.cockDescript(
                 x
-            )} squarely between her tits.  You grab her nipples and roughly pull them inward, drawing a gasp of mixed pain and pleasure from your lover.  The gasp turns into a lurid moan once you begin sliding your dribbling dick through the brown-hued valley that is her cleavage`,
-            false
+            )} squarely between her tits.  You grab her nipples and roughly pull them inward, drawing a gasp of mixed pain and pleasure from your lover.  The gasp turns into a lurid moan once you begin sliding your dribbling dick through the brown-hued valley that is her cleavage`
         );
         if (this.player.cocks[this.player.biggestCockIndex()].cockLength >= 36)
             this.outx(", even though you bump her repeatedly in the nose with your moist tip");
@@ -1373,7 +1343,7 @@ export class KihaFollower extends NPCAwareContent {
         )
             this.outx("Growling");
         else this.outx("Grunting");
-        this.outx(", you clench for a moment as climax works through your body, expelling ", false);
+        this.outx(", you clench for a moment as climax works through your body, expelling ");
         if (this.player.cumQ() > 400) this.outx("thick ");
         this.outx("jets of cum over Kiha's face, neck, ");
         if (this.player.cumQ() >= 400) {
@@ -1388,8 +1358,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outx(
             `[pg]You pointedly remind her that she already did.  She gets even redder, her tail lashing back and forth behind her from embarrassment. Kiha scowls and retorts, "<i>Well, I'm not satisfied yet, so you better keep it up.</i>"  She gives your ${this.cockDescript(
                 x
-            )} a far gentler slap than you'd expect from her expression.  The dragoness's scowl melts into a sultry 'come-hither' expression as she slowly spreads her well-defined thighs, exposing the dark, hairless entrance to her nethers.  Moisture drips from it, staining her bed with lady-spunk, but Kiha just diddles her clit and purrs at you, beckoning you to come fuck her with every motion of her body.`,
-            false
+            )} a far gentler slap than you'd expect from her expression.  The dragoness's scowl melts into a sultry 'come-hither' expression as she slowly spreads her well-defined thighs, exposing the dark, hairless entrance to her nethers.  Moisture drips from it, staining her bed with lady-spunk, but Kiha just diddles her clit and purrs at you, beckoning you to come fuck her with every motion of her body.`
         );
         this.outx(
             '[pg]The sight stirs your loins back to a full, throbbing hardness, even though [eachCock] is still leaking strings of ejaculate from its cum-slit.  You look into her eyes and plant a long, slow kiss on her lips before sliding into her velvety-soft depths.  Kiha moans into your mouth, wrapping her arms and legs around as she yields to your manhood, her hips already rocking in needy, aching pleasure.  A single string of saliva hangs between your lips as you break the kiss and gaze into her oddly-slit, fiery red eyes.  She murmurs, "<i>I... I think I lo-oooh right there...</i>"',
@@ -1398,8 +1367,7 @@ export class KihaFollower extends NPCAwareContent {
         this.outx(
             `[pg]You slowly thrust your ${this.cockDescript(
                 x
-            )} inside her and little half-kisses, half-bites at the nape of her neck`,
-            false
+            )} inside her and little half-kisses, half-bites at the nape of her neck`
         );
         if (this.player.cockTotal() > 1) {
             this.outx(", letting ");
@@ -1673,8 +1641,7 @@ export class KihaFollower extends NPCAwareContent {
         // Hang Out 2
         else if (select == 1) {
             this.outx(
-                `You fish around in your mind for something you and Kiha can do together, but the dragoness herself surprises you by saying, "<i>So, uh, ${this.player.short}. I was just about to eat... I-I've got enough for two, if you want.</i>"  You smile and tell her that would be lovely, thank you.  Awkwardly, she returns your grin, obviously unused to eating with others.`,
-                false
+                `You fish around in your mind for something you and Kiha can do together, but the dragoness herself surprises you by saying, "<i>So, uh, ${this.player.short}. I was just about to eat... I-I've got enough for two, if you want.</i>"  You smile and tell her that would be lovely, thank you.  Awkwardly, she returns your grin, obviously unused to eating with others.`
             );
             if (!this.player.canFly())
                 this.outx(
@@ -1725,7 +1692,7 @@ export class KihaFollower extends NPCAwareContent {
                     this.outx(
                         "particularly cloudy day above you, with great pink and purple clouds drifting across the demonically-tainted horizon"
                     );
-                else this.outx("stars are out, a thousand little pin-pricks in the heavens", false);
+                else this.outx("stars are out, a thousand little pin-pricks in the heavens");
                 this.outx(".");
             } else {
                 this.outx("Looking up from your dragoness lover, you note the particularly clear ");
@@ -1968,7 +1935,7 @@ export class KihaFollower extends NPCAwareContent {
             y = x + 1;
         }
 
-        this.outx("You remove your [armor] as you close in with Kiha, happy to let the ", false);
+        this.outx("You remove your [armor] as you close in with Kiha, happy to let the ");
         if (this.player.minLust() < 50) this.outx("half-turgid");
         else this.outx("always semi-hard");
         this.outx(" length of your ");
@@ -2734,7 +2701,7 @@ export class KihaFollower extends NPCAwareContent {
             "[pg]She stops, though, suspending your prick in the air between the two of you.  She reaches up, tweaking your [nipples] playfully"
         );
         if (this.player.biggestTitSize() >= 3)
-            this.outx(` as she palms your ${this.biggestBreastSizeDescript()}`, false);
+            this.outx(` as she palms your ${this.biggestBreastSizeDescript()}`);
         this.outx(
             ".  She leans forward, pressing her chest to yours, as she wraps her arms around your shoulders.  She pulls you tight, holding you close as she resumes her descent upon your cock, her previously domineering attitude vanishing in a second as you stretch the walls of her anus.  Your well-lubricated cock has little trouble sliding into her, but the insertion is nonetheless nearly overwhelming.  Kiha's innards are hot and tight, squeezing down on your shaft like a warm, wet vice."
         );

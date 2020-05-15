@@ -44,7 +44,7 @@ export class Boat extends AbstractLakeContent {
             true
         );
         if (this.player.findStatusAffect(StatusAffects.FactoryOverload) >= 0) {
-            this.outx("The water appears somewhat muddy and has a faint pungent odor.  ", false);
+            this.outx("The water appears somewhat muddy and has a faint pungent odor.  ");
             if (this.player.inte > 40) this.outx("You realize what it smells like – sex.  ");
         }
         // 3% chance of finding lost daughters

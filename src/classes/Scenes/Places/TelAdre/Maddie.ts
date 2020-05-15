@@ -308,8 +308,7 @@ export class Maddie extends TelAdreAbstractContent {
             this.outx(
                 `"<i>Dad said my name is Madeleine, but that's no fun.  Just call me Maddie.  You've got lots of icing like Dad, right?  I-I... need more icing.  It's in my recipe,</i>" says Maddie.  The baked broad strips your ${
                     this.player.armorName
-                } to expose your ${this.multiCockDescriptLight()}.  Cooing with excitement, she examines your `,
-                false
+                } to expose your ${this.multiCockDescriptLight()}.  Cooing with excitement, she examines your `
             );
             if (this.player.lust >= 75) this.outx("rock-hard");
             else this.outx("hardening");
@@ -331,8 +330,8 @@ export class Maddie extends TelAdreAbstractContent {
                     false
                 );
             else if (this.player.cor < 66)
-                this.outx("You offhandedly mention that you don't actually make icing.", false);
-            else this.outx("You smirk and mention that what you squirt isn't quite icing.", false);
+                this.outx("You offhandedly mention that you don't actually make icing.");
+            else this.outx("You smirk and mention that what you squirt isn't quite icing.");
             this.outx(
                 `  "<i>Liar!  If that wasn't icing, then why would Daddy have put his in all those eclairs and me?</i>" retorts the busty cupcake, continuing on to say, "<i>I know, I can suck it out!</i>"  She purses her jelly-like lips and plunges forward, slurping all ${Maddie.num2Text(
                     Math.floor(this.player.cocks[x].cockLength)
@@ -364,8 +363,7 @@ export class Maddie extends TelAdreAbstractContent {
             );
 
             this.outx(
-                `Maddie pushes further forward, her bosom crushing you against the wall to hold your hips immobile while she sucks harder and harder.  Your cock balloons from the suction, thickening inside her neck and beginning to twitch from the irresistible fellative pleasure. An orgasm grows in your ${this.ballsDescriptLight()}`,
-                false
+                `Maddie pushes further forward, her bosom crushing you against the wall to hold your hips immobile while she sucks harder and harder.  Your cock balloons from the suction, thickening inside her neck and beginning to twitch from the irresistible fellative pleasure. An orgasm grows in your ${this.ballsDescriptLight()}`
             );
             if (this.player.balls > 0)
                 this.outx(
@@ -382,8 +380,7 @@ export class Maddie extends TelAdreAbstractContent {
                 this.outx(
                     `, your ${this.cockDescript(
                         x
-                    )} emptying every drop of jizz into the baked cum-tank.`,
-                    false
+                    )} emptying every drop of jizz into the baked cum-tank.`
                 );
             else {
                 this.outx(
@@ -450,8 +447,7 @@ export class Maddie extends TelAdreAbstractContent {
                 `"<i>Shhh, shhh... that's a good ${this.player.mf(
                     "boy",
                     "girl"
-                )}.  Isn't my icing the absolute best?</i>" she verbally gushes, just like the nipple between your teeth.  "<i>Drink up`,
-                false
+                )}.  Isn't my icing the absolute best?</i>" she verbally gushes, just like the nipple between your teeth.  "<i>Drink up`
             );
             if (this.player.thickness < 60) this.outx(", you're looking awful thin");
             else if (this.player.tone >= 70)

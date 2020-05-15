@@ -35,15 +35,11 @@ export class AbstractSpiderMorph extends Monster {
             `Turning to the side, ${this.a}${this.short} raises ${this.mf(
                 "his",
                 "her"
-            )} abdomen and unleashes a spray of webbing in your direction!  `,
-            false
+            )} abdomen and unleashes a spray of webbing in your direction!  `
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
-            this.outx(
-                `${this.capitalA + this.short} misses completely due to their blindness.`,
-                false
-            );
+            this.outx(`${this.capitalA + this.short} misses completely due to their blindness.`);
         }
         // Determine if dodged!
         else if (
@@ -126,23 +122,20 @@ export class AbstractSpiderMorph extends Monster {
                 )} arms around your back in a tender hug.  ${this.mf(
                     "His",
                     "Her"
-                )} fangs slide into your neck with agonizing slowness, immediately setting off a burning heat inside you that makes you dizzy and weak.  `,
-                false
+                )} fangs slide into your neck with agonizing slowness, immediately setting off a burning heat inside you that makes you dizzy and weak.  `
             );
             if (this.player.hasCock()) {
                 this.outx(
                     `${this.player.SMultiCockDesc()} turns rock hard and squirts weakly, suddenly so aroused that it starts soaking your ${
                         this.player.armorName
-                    }`,
-                    false
+                    }`
                 );
                 if (this.player.hasVagina())
-                    this.outx(` along with your ${this.player.vaginaDescript()}`, false);
+                    this.outx(` along with your ${this.player.vaginaDescript()}`);
                 this.outx(".  ");
             } else if (this.player.hasVagina())
                 this.outx(
-                    `Your ${this.player.vaginaDescript()} grows wet as hell and so sensitive that every step and movement reminds you of the powerful need for something between your sopping nether-lips.  `,
-                    false
+                    `Your ${this.player.vaginaDescript()} grows wet as hell and so sensitive that every step and movement reminds you of the powerful need for something between your sopping nether-lips.  `
                 );
             this.outx(
                 `While ${this.mf("his", "her")} venom pours into you, the spider-${this.mf(
@@ -168,8 +161,8 @@ export class AbstractSpiderMorph extends Monster {
                 );
             this.game.dynStats("lus", 60);
             if (this.player.lust > 99)
-                this.outx("wobble, utterly defeated and about to cave in to your lust.", false);
-            else this.outx("struggle not to fall down and start masturbating on the spot.", false);
+                this.outx("wobble, utterly defeated and about to cave in to your lust.");
+            else this.outx("struggle not to fall down and start masturbating on the spot.");
             this.outx("\n", false);
             this.combatRoundOver();
             return;
@@ -178,22 +171,18 @@ export class AbstractSpiderMorph extends Monster {
             `The spider-${this.mf("boy", "girl")} lunges forward with ${this.mf(
                 "his",
                 "her"
-            )} mouth open, ${this.mf("his", "her")} two needle-like fangs closing rapidly.  `,
-            false
+            )} mouth open, ${this.mf("his", "her")} two needle-like fangs closing rapidly.  `
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
-            this.outx(
-                `${this.capitalA + this.short} misses completely due to their blindness.`,
-                false
-            );
+            this.outx(`${this.capitalA + this.short} misses completely due to their blindness.`);
         }
         // Determine if dodged!
         else if (
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
-            this.outx(`You dodge away, avoiding ${this.mf("his", "her")} bite!`, false);
+            this.outx(`You dodge away, avoiding ${this.mf("his", "her")} bite!`);
         }
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && AbstractSpiderMorph.rand(100) < 10) {
@@ -231,8 +220,7 @@ export class AbstractSpiderMorph extends Monster {
                     )}'s bitten deep into you, pumping large squirts of venom deep into your body.  Unnatural heat rolls through you, pooling in your groin until you're lewdly bucking your hips against the spider-morph's thigh.  ${this.mf(
                         "He",
                         "She"
-                    )} pulls out and steps back, `,
-                    false
+                    )} pulls out and steps back, `
                 );
                 if (this.hasVagina())
                     this.outx(
@@ -273,8 +261,7 @@ export class AbstractSpiderMorph extends Monster {
                 this.capitalA + this.short
             } shifts and sprays webbing, aiming a tight strand of it at your ${
                 this.player.weaponName
-            }.  `,
-            false
+            }.  `
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
@@ -303,7 +290,7 @@ export class AbstractSpiderMorph extends Monster {
             AbstractSpiderMorph.rand(100) < 10 &&
             this.player.armorName == "red, high-society bodysuit"
         ) {
-            this.outx("Your misleading movements allow you to easily sidestep the webbing!", false);
+            this.outx("Your misleading movements allow you to easily sidestep the webbing!");
         }
         // Determine if cat'ed
         else if (
@@ -334,8 +321,7 @@ export class AbstractSpiderMorph extends Monster {
                 );
         } else {
             this.outx(
-                `You don't react fast enough and the sticky webbing pulls your ${this.player.weaponName} out of your grip, gluing it to a nearby tree.  There's no way to get it back right now, you'll have to fight bare-handed!`,
-                false
+                `You don't react fast enough and the sticky webbing pulls your ${this.player.weaponName} out of your grip, gluing it to a nearby tree.  There's no way to get it back right now, you'll have to fight bare-handed!`
             );
             this.flags[kFLAGS.PLAYER_DISARMED_WEAPON_ID] = this.player.weapon.id;
             this.player.setWeapon(WeaponLib.FISTS);
@@ -356,8 +342,7 @@ export class AbstractSpiderMorph extends Monster {
             `${this.capitalA + this.short} squirts a concentrated spray of ${this.mf(
                 "his",
                 "her"
-            )} webs directly at your face!  `,
-            false
+            )} webs directly at your face!  `
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
@@ -386,7 +371,7 @@ export class AbstractSpiderMorph extends Monster {
             AbstractSpiderMorph.rand(100) < 10 &&
             this.player.armorName == "red, high-society bodysuit"
         ) {
-            this.outx("Your misleading movements allow you to easily sidestep the webbing!", false);
+            this.outx("Your misleading movements allow you to easily sidestep the webbing!");
         }
         // Determine if cat'ed
         else if (
