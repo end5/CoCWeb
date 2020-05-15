@@ -243,7 +243,7 @@ export class MinotaurKing extends Monster {
                 false
             );
             if (this.player.lust > 75) {
-                this.outputText("swallowing it into your mouth without thinking.  ", false);
+                this.outputText("swallowing it into your mouth without thinking.  ");
                 this.game.dynStats("lus", 15 + this.player.lib / 10);
             } else {
                 this.outputText(
@@ -252,7 +252,7 @@ export class MinotaurKing extends Monster {
                 );
                 this.game.dynStats("lus", 7.5 + this.player.lib / 20);
             }
-        } else this.outputText("right past your head.  ", false);
+        } else this.outputText("right past your head.  ");
         this.outputText(
             "The animalistic scent of it seems to get inside you, the musky aroma burning a path of liquid heat to your groin.",
             false

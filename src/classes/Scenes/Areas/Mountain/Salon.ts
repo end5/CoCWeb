@@ -476,8 +476,8 @@ export class Salon extends BaseContent implements TimeAwareInterface {
             true
         );
         if (this.player.cocks[0].cockThickness >= 4)
-            this.outputText("around as much of you as she can", false);
-        else this.outputText("around your first few inches", false);
+            this.outputText("around as much of you as she can");
+        else this.outputText("around your first few inches");
         this.outputText(
             ".  She slips her tongue down your urethra, and arches her back, popping the straps on her dress and letting her oversized tits engulf your shaft.  Milk sputters and dribbles from the lactating goblin, lubricating her breasts and hands as she pleasures every inch of you.\n\n",
             false
@@ -650,16 +650,16 @@ export class Salon extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.hasVagina() || this.player.hasCock()) {
-            this.outputText("  A trail of ", false);
+            this.outputText("  A trail of ");
             if (this.player.hasVagina()) {
-                this.outputText("female slime ", false);
-                if (this.player.hasCock()) this.outputText("and ", false);
+                this.outputText("female slime ");
+                if (this.player.hasCock()) this.outputText("and ");
             }
             if (this.player.hasCock()) {
-                if (this.player.cumQ() < 100) this.outputText("pre-cum ", false);
+                if (this.player.cumQ() < 100) this.outputText("pre-cum ");
                 else if (this.player.cumQ() < 500)
-                    this.outputText("pre-cum a few inches wide ", false);
-                else this.outputText("pre-cum over a foot wide ", false);
+                    this.outputText("pre-cum a few inches wide ");
+                else this.outputText("pre-cum over a foot wide ");
             }
             this.outputText(
                 "winds over the rough-hewn floor behind you, clearly marking your passage to the overpowering musk.",
@@ -743,8 +743,8 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 " to enhance the ",
             false
         );
-        if (this.player.biggestTitSize() >= 2) this.outputText("tit-fucking ", false);
-        else this.outputText("full-body handjob ", false);
+        if (this.player.biggestTitSize() >= 2) this.outputText("tit-fucking ");
+        else this.outputText("full-body handjob ");
         this.outputText(
             "you're giving out.  In such a position, you're given the perfect view to watch as your strokes draw forth large bubbles of pre, and before you can lose your high, you latch onto the minotaur's vulnerable urethra and suck, tonguing in wide circles around it since you can't open wide enough to accommodate his flare.  Of course, all the attention just makes him flare wider, not just at the tip, but through the whole shaft.  ",
             false
@@ -796,7 +796,7 @@ export class Salon extends BaseContent implements TimeAwareInterface {
                 false
             );
         } else if (this.player.analCapacity() < 140)
-            this.outputText("delighting in the feeling of perfect fullness.", false);
+            this.outputText("delighting in the feeling of perfect fullness.");
         else
             this.outputText(
                 "delighting in realizing that you could take far larger than even this virile specimen!",

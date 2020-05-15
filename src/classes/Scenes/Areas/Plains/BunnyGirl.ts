@@ -26,8 +26,8 @@ export class BunnyGirl extends BaseContent {
         this.outputText("", true);
         this.spriteSelect(13);
         if (this.flags[kFLAGS.MET_BUNBUN] == 0) {
-            this.outputText("A ", false);
-            if (this.player.tallness > 64) this.outputText("short ", false);
+            this.outputText("A ");
+            if (this.player.tallness > 64) this.outputText("short ");
             this.outputText(
                 "bunny-girl appears from behind some bushes, hopping about and clutching a basket full of multicolored eggs tightly in front of her muscular, fur-covered thighs.  She hops around a few times, peering closely at the ground as if searching for something.  Her slow, deliberate hopping comes to an end as she looks up and spots you.  The bunny's eyes widen into shocked dinner-plates, like she's utterly amazed someone saw her.  She freezes completely still, watching you, and you're given the chance to give her a good looking over.\n\n",
                 false
@@ -44,7 +44,7 @@ export class BunnyGirl extends BaseContent {
                     false
                 );
             else if (this.player.cor < 40)
-                this.outputText("and you find yourself thankful for her modesty.", false);
+                this.outputText("and you find yourself thankful for her modesty.");
             else
                 this.outputText(
                     "and you find yourself considering tearing away the basket so you can see what she's hiding down there.",
@@ -106,18 +106,18 @@ export class BunnyGirl extends BaseContent {
             let eggs;
             if (this.player.cockThatFits(40) >= 0) {
                 Vagina = this.bunbunGetsFucked;
-                this.outputText("  Fuck her vagina?", false);
+                this.outputText("  Fuck her vagina?");
             } else if (this.player.cockTotal() > 0)
-                this.outputText("  <b>You're too to big fit inside her...</b>", false);
+                this.outputText("  <b>You're too to big fit inside her...</b>");
 
             // Dick requires one 40 area or smaller.
             if (this.player.hasVagina()) {
                 DickInV = this.bunbunFucksYourVag;
-                this.outputText("  Her dick in your vagina?", false);
+                this.outputText("  Her dick in your vagina?");
             }
             if (this.player.gender > 0) {
                 sixtyNine = this.bunbun69;
-                this.outputText("  Sixty-nine her?", false);
+                this.outputText("  Sixty-nine her?");
             }
 
             if (this.player.canOviposit() && this.player.lust >= 33) {
@@ -126,7 +126,7 @@ export class BunnyGirl extends BaseContent {
                 else eggs = this.layEggsInBunbuns;
             }
 
-            this.outputText("  Her dick in your ass?)", false);
+            this.outputText("  Her dick in your ass?)");
             // var Ass: number = 0;
             // Dick In V] [Dick in A] [Vagina] [Ass] [Leave]
             this.choices(
@@ -198,18 +198,18 @@ export class BunnyGirl extends BaseContent {
         // Dick requires one 40 area or smaller.
         if (this.player.hasVagina()) {
             DickInV = this.bunbunFucksYourVag;
-            this.outputText("  Her dick in your vagina?", false);
+            this.outputText("  Her dick in your vagina?");
         }
         if (this.player.cockThatFits(40) >= 0) {
             Vagina = this.bunbunGetsFucked;
-            this.outputText("  Fuck her vagina?", false);
+            this.outputText("  Fuck her vagina?");
         } else if (this.player.cockTotal() > 0)
-            this.outputText("  <b>You're too big to fit inside her...</b>", false);
+            this.outputText("  <b>You're too big to fit inside her...</b>");
         if (this.player.gender > 0) {
             sixtyNine = this.bunbun69;
-            this.outputText("  Sixty-nine her?", false);
+            this.outputText("  Sixty-nine her?");
         }
-        this.outputText("  Her dick in your ass?)", false);
+        this.outputText("  Her dick in your ass?)");
         // var Ass: number = 0;
         // Dick In V] [Dick in A] [Vagina] [Ass] [Leave]
         this.simpleChoices(
@@ -271,18 +271,18 @@ export class BunnyGirl extends BaseContent {
             // Dick requires one 40 area or smaller.
             if (this.player.hasVagina()) {
                 DickInV = this.bunbunFucksYourVag;
-                this.outputText("  Her dick in your vagina?", false);
+                this.outputText("  Her dick in your vagina?");
             }
             if (this.player.cockThatFits(40) >= 0) {
                 Vagina = this.bunbunGetsFucked;
-                this.outputText("  Fuck her vagina?", false);
+                this.outputText("  Fuck her vagina?");
             } else if (this.player.cockTotal() > 0)
-                this.outputText("  <b>You're too big to fit inside her...</b>", false);
+                this.outputText("  <b>You're too big to fit inside her...</b>");
             if (this.player.gender > 0) {
                 sixtyNine = this.bunbun69;
-                this.outputText("  Sixty-nine her?", false);
+                this.outputText("  Sixty-nine her?");
             }
-            this.outputText("  Her dick in your ass?)", false);
+            this.outputText("  Her dick in your ass?)");
             // var Ass: number = 0;
             // Dick In V] [Dick in A] [Vagina] [Ass] [Leave]
             this.simpleChoices(
@@ -332,7 +332,7 @@ export class BunnyGirl extends BaseContent {
             false
         );
         if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_SLICK)
-            this.outputText(", not that you needed it", false);
+            this.outputText(", not that you needed it");
         this.outputText(
             ".  You don't need any more encouragement.  The long, slow slide down her thick bunny-dick is heavenly, as the veins on its surface scratch your 'itch' in just the right way.  ",
             false
@@ -369,7 +369,7 @@ export class BunnyGirl extends BaseContent {
                 false
             );
             if (this.player.cor < 33)
-                this.outputText("You'll have to try to slow your descent next time!  ", false);
+                this.outputText("You'll have to try to slow your descent next time!  ");
             else
                 this.outputText(
                     "If she's going to fuck you like this, she can handle your weight!  ",
@@ -449,12 +449,12 @@ export class BunnyGirl extends BaseContent {
         if (this.player.cockTotal() > 0) {
             this.outputText("  " + this.SMultiCockDesc() + " twitches and drools ", false);
             if (this.player.cocks[0].cockLength < 10)
-                this.outputText("on the bunny's belly", false);
+                this.outputText("on the bunny's belly");
             else if (this.player.cocks[0].cockLength < 18)
-                this.outputText("between the bunny's tiny tits", false);
+                this.outputText("between the bunny's tiny tits");
             else if (this.player.cocks[0].cockLength < 28)
-                this.outputText("on the bunny's face", false);
-            else this.outputText("past the bunny's head", false);
+                this.outputText("on the bunny's face");
+            else this.outputText("past the bunny's head");
             this.outputText(", and your free hand wastes no time in tending to your male ");
             if (this.player.cockTotal() == 1)
                 this.outputText(
@@ -493,8 +493,8 @@ export class BunnyGirl extends BaseContent {
                     false
                 );
             if (this.player.cumQ() > 2000)
-                this.outputText(" and the excess is running down the hill in a small river", false);
-            if (this.player.cumQ() > 500) this.outputText(".", false);
+                this.outputText(" and the excess is running down the hill in a small river");
+            if (this.player.cumQ() > 500) this.outputText(".");
         }
         this.outputText("\n\n", false);
 
@@ -582,8 +582,8 @@ export class BunnyGirl extends BaseContent {
                     ".  You clench and squeeze your muscles around it as you sit on the bunny-",
                 false
             );
-            if (this.player.cor < 50) this.outputText("girl", false);
-            else this.outputText("bitch", false);
+            if (this.player.cor < 50) this.outputText("girl");
+            else this.outputText("bitch");
             this.outputText(
                 "'s lap, giggling as you feel it twitch happily inside you, but you're just getting started.",
                 false
@@ -627,14 +627,14 @@ export class BunnyGirl extends BaseContent {
             false
         );
         if (!this.player.hasFuckableNipples()) {
-            this.outputText("pulling and tugging on them", false);
+            this.outputText("pulling and tugging on them");
             if (this.player.biggestLactation() >= 1) {
-                this.outputText(", spurting out ", false);
-                if (this.player.biggestLactation() >= 4) this.outputText("sprays", false);
-                else this.outputText("drops", false);
-                this.outputText(" of milk", false);
+                this.outputText(", spurting out ");
+                if (this.player.biggestLactation() >= 4) this.outputText("sprays");
+                else this.outputText("drops");
+                this.outputText(" of milk");
             }
-            this.outputText(".", false);
+            this.outputText(".");
         } else
             this.outputText(
                 "sliding inside them, fucking their cunt-like interiors as you start to lose yourself to the pleasure.",
@@ -665,12 +665,12 @@ export class BunnyGirl extends BaseContent {
                     " clenching and dripping on the verge of orgasm",
                 false
             );
-        this.outputText(".", false);
+        this.outputText(".");
         if (this.player.biggestLactation() >= 1) {
-            this.outputText("  Milk ", false);
-            if (this.player.biggestLactation() < 2) this.outputText("leaks", false);
-            else if (this.player.biggestLactation() < 4) this.outputText("drips", false);
-            else this.outputText("pours", false);
+            this.outputText("  Milk ");
+            if (this.player.biggestLactation() < 2) this.outputText("leaks");
+            else if (this.player.biggestLactation() < 4) this.outputText("drips");
+            else this.outputText("pours");
             this.outputText(
                 " from your " +
                     this.nippleDescript(0) +
@@ -700,7 +700,7 @@ export class BunnyGirl extends BaseContent {
                     " spurts thick cum on the ground, though you don't QUITE orgasm.",
                 false
             );
-        } else this.outputText("and your arousal returns in force.", false);
+        } else this.outputText("and your arousal returns in force.");
         // (BUTT CHANGE HERE)
         this.player.buttChange(70, true);
         this.outputText("\n\n", false);
@@ -728,7 +728,7 @@ export class BunnyGirl extends BaseContent {
                     ", but you just keep going until you create a lazily winding river of cum that flows its way through the grasses",
                     false
                 );
-            if (this.player.cumQ() > 500) this.outputText(".", false);
+            if (this.player.cumQ() > 500) this.outputText(".");
         }
         if (this.player.hasVagina())
             this.outputText(
@@ -809,11 +809,11 @@ export class BunnyGirl extends BaseContent {
                 "She squeaks at the pressure on her tender asshole, but doesn't object as your pre-cum smears over it.  ",
                 false
             );
-        this.outputText("At once, her greedy breeding hole relaxes ", false);
-        if (y != -1) this.outputText("along with her anus ", false);
+        this.outputText("At once, her greedy breeding hole relaxes ");
+        if (y != -1) this.outputText("along with her anus ");
         this.outputText("and your " + this.cockDescript(x), false);
         if (y != -1) this.outputText(" and " + this.cockDescript(y) + " sink", false);
-        else this.outputText(" sinks", false);
+        else this.outputText(" sinks");
         this.outputText(
             " into her slippery, warm depths.  She pants and groans with happiness, going so far as to vocalize her pleasure, \"<i>Oooh yes, I don't know why but it feels just as good as breeding season!  If you keep this up, " +
                 this.player.mf("stud", "sexy") +
@@ -847,9 +847,9 @@ export class BunnyGirl extends BaseContent {
                 false
             );
         else {
-            this.outputText("So much lubricant splatters from her cunt that your thighs", false);
-            if (this.player.balls > 0) this.outputText(", belly, and balls", false);
-            else this.outputText(" and belly", false);
+            this.outputText("So much lubricant splatters from her cunt that your thighs");
+            if (this.player.balls > 0) this.outputText(", belly, and balls");
+            else this.outputText(" and belly");
             this.outputText(
                 " are soon sticky with the stuff, but it only spurs you on to fuck her harder.",
                 false
@@ -878,11 +878,11 @@ export class BunnyGirl extends BaseContent {
             false
         );
 
-        this.outputText("You bottom out with brutal force", false);
-        if (this.player.balls > 0) this.outputText(", slapping your balls against her ass", false);
-        this.outputText(", as your ", false);
-        if (this.player.hasSheath()) this.outputText("sheath", false);
-        else this.outputText("base", false);
+        this.outputText("You bottom out with brutal force");
+        if (this.player.balls > 0) this.outputText(", slapping your balls against her ass");
+        this.outputText(", as your ");
+        if (this.player.hasSheath()) this.outputText("sheath");
+        else this.outputText("base");
         this.outputText(
             " rubs her passion-inflamed pussy-lips.  " +
                 this.SMultiCockDesc() +
@@ -890,19 +890,19 @@ export class BunnyGirl extends BaseContent {
             false
         );
         if ((this.player.cockTotal() == 2 && y == -1) || this.player.cockTotal() > 2)
-            this.outputText("and onto ", false);
+            this.outputText("and onto ");
         this.outputText(
             "the insensate bunny-breeder.  Her silken pussy milks and squeezes as you cum, seeming to draw your seed from your cock itself and pull it deeper inside, leaving none to waste.",
             false
         );
         if (y != -1) {
-            this.outputText("  Her ass gurgles from your deposit", false);
+            this.outputText("  Her ass gurgles from your deposit");
             if (this.player.cumQ() > 500)
                 this.outputText(
                     ", and her stomach gains a bit of pudge from the copious jism deluge you pump into her",
                     false
                 );
-            this.outputText(".", false);
+            this.outputText(".");
         }
         if (this.player.cumQ() > 500)
             this.outputText(
@@ -936,7 +936,7 @@ export class BunnyGirl extends BaseContent {
                 false
             );
         if (this.player.cumQ() > 250)
-            this.outputText("  One more follows, giving her quads", false);
+            this.outputText("  One more follows, giving her quads");
         let z: number = 8 + BunnyGirl.rand(this.player.cumQ() / 100);
         if (z > 50) z = 50;
         if (this.player.cumQ() > 700)
@@ -946,7 +946,7 @@ export class BunnyGirl extends BaseContent {
                     " in there and will have trouble walking.",
                 false
             );
-        else this.outputText(".", false);
+        else this.outputText(".");
         this.outputText(
             "  She moans contentedly and closes her eyes, sighing blissfully.\n\n",
             false
@@ -1082,16 +1082,16 @@ export class BunnyGirl extends BaseContent {
                     "Still possessed by the delirious breeding hysteria, the bunny grunts and jams her cock back down your throat, pushing the egg along with it. Your skin mushrooms as the bunny's egg-ball slides down your cum-lubricated neck and tumbles into your belly with an audible, vulgar plop. A feeling of incredible fullness fills you, as if you've just finished eating a small mountain of candy treats. A surge of heat stuffs your belly like a confectionary oven and the bunny's egg between to bloat, soaking up her cum and your body heat, growing like a baking cake inside you. You become dizzy from the bunny's stuffing and when her sac deflates as the second egg slides into her dick, you shake your head weakly, as if to say you don't want seconds. The girl is too far gone in her wanton ardor to take your motion as anything but encouragement, however, and she nuzzles her nose into your ",
                     false
                 );
-                if (this.player.balls > 0) this.outputText("balls", false);
-                else this.outputText("clit", false);
+                if (this.player.balls > 0) this.outputText("balls");
+                else this.outputText("clit");
                 this.outputText(
                     ", whiskers vibrating with a happy little hum, her buck teeth massaging your root enthusiastically, impatient for her Champion-cream filling. Her hands slide from the back of your head, along your neck, down your back, and to your ass, fingers wrapping around to find your " +
                         this.player.assholeOrPussy() +
                         ". Slipping both middle fingers in, she strokes your ",
                     false
                 );
-                if (!this.player.hasVagina()) this.outputText("prostate", false);
-                else this.outputText("inner walls", false);
+                if (!this.player.hasVagina()) this.outputText("prostate");
+                else this.outputText("inner walls");
                 this.outputText(
                     " until your orgasm overpowers your saccharine-fat daze and you peak, egg-bloated body spurting in creaming jets of pale seed to paint the brown bunny's insides white.\n\n",
                     false
@@ -1116,7 +1116,7 @@ export class BunnyGirl extends BaseContent {
                         );
                 }
                 if (this.player.earType != EARS_BUNNY) {
-                    this.outputText("  The top of your head is next, it seems.", false);
+                    this.outputText("  The top of your head is next, it seems.");
                     // [No antennae:
                     this.outputText(
                         "  Your eyebrows feel like they're being drawn upwards, your eyes getting larger and larger until you're almost painfully aware of every color and sound around you. You shake your head and <b>large, floppy bunny ears bounce in front of your eyes</b>. You slap the sides of your head and, sure enough, your old ears are gone.",
@@ -1129,9 +1129,9 @@ export class BunnyGirl extends BaseContent {
                     "With a happy sigh, the girl slides off of your cock and lets it flop against your leg, not a single drop of cum wasted. Her belly has ",
                     false
                 );
-                if (this.player.cumQ() < 250) this.outputText("a slight swell", false);
-                else if (this.player.cumQ() < 1000) this.outputText("a noticeable girth", false);
-                else this.outputText("bloated obscenely", false);
+                if (this.player.cumQ() < 250) this.outputText("a slight swell");
+                else if (this.player.cumQ() < 1000) this.outputText("a noticeable girth");
+                else this.outputText("bloated obscenely");
                 this.outputText(
                     ", your spunk calming the egg-laying passion that had her bouncing like whipped caramel. She pulls her shrinking phallus from your mouth with a wet slurp, the taste of her rich cum sweet on your lips. She rises to a crouch and gives your new ears a playful tweak between her thumb and forefinger. \"<i>Sorry about that, I don't know what came over me! I certainly didn't expect this, though! Kind of makes me want to stick around and see if you and I could pop out more bunnies,</i>\" she winks. \"<i>But unfortunately, I've got to get going! Hope you had a happy, tasty day! Maybe I'll try to find you again, some time down the line.</i>\" She gives you a moist little kiss and hops away, still energetic after all that. You groan, still feeling fat and bloated from the 'meal.'\n\n",
                     false
@@ -1193,17 +1193,17 @@ export class BunnyGirl extends BaseContent {
                     "Still possessed by the delirious egg-laying hysteria, the bunny grunts and jams her cock back down your throat, pushing the egg along with it. Your skin mushrooms as the bunny's load slides down your cum-lubricated neck and tumbles into your belly with an audible, vulgar plop. A feeling of incredible fullness fills you, as if you've been swallowing spunk and eggs for hours. You become dizzy from the bunny's numbing jizz and when her sac deflates as the second egg slides into her dick, you shake your head weakly, as if to say 'no more.' The girl is too far gone in her wanton ardor to take your motion as anything but encouragement, however, and she nuzzles her nose into your ",
                     false
                 );
-                if (this.player.balls > 0) this.outputText("balls", false);
-                else if (this.player.hasVagina()) this.outputText("clit", false);
-                else this.outputText("groin", false);
+                if (this.player.balls > 0) this.outputText("balls");
+                else if (this.player.hasVagina()) this.outputText("clit");
+                else this.outputText("groin");
                 this.outputText(
                     ", whiskers vibrating with a happy little hum, her buck teeth massaging your root enthusiastically, impatient for her own creamy meal. Her hands slide from the back of your head, along your neck, down your back, and to your ass, fingers wrapping around to find your " +
                         this.player.assholeOrPussy() +
                         ". Slipping both middle fingers in, she strokes your ",
                     false
                 );
-                if (!this.player.hasVagina()) this.outputText("prostate", false);
-                else this.outputText("inner walls", false);
+                if (!this.player.hasVagina()) this.outputText("prostate");
+                else this.outputText("inner walls");
                 this.outputText(
                     " until your orgasm overpowers your bunny-fucked daze and you peak, your egg-bloated body spurting in gushing jets of pale seed to paint the olive girl's insides white.\n\n",
                     false
@@ -1229,7 +1229,7 @@ export class BunnyGirl extends BaseContent {
                         );
                 }
                 if (this.player.earType != EARS_BUNNY) {
-                    this.outputText("  The top of your head is next, it seems.", false);
+                    this.outputText("  The top of your head is next, it seems.");
                     // [No antennae:
                     this.outputText(
                         "  Your eyebrows feel like they're being drawn upwards, your eyes getting larger and larger until you're almost painfully aware of every color and sound around you. You shake your head and large, floppy bunny ears bounce in front of your eyes.",
@@ -1242,14 +1242,14 @@ export class BunnyGirl extends BaseContent {
                     "With a happy sigh, the girl slides off of your cock and lets it flop against your leg, not a single drop of cum wasted. Her belly has ",
                     false
                 );
-                if (this.player.cumQ() < 250) this.outputText("a slight swell", false);
-                else if (this.player.cumQ() < 1000) this.outputText("a noticeable girth", false);
-                else this.outputText("bloated obscenely", false);
+                if (this.player.cumQ() < 250) this.outputText("a slight swell");
+                else if (this.player.cumQ() < 1000) this.outputText("a noticeable girth");
+                else this.outputText("bloated obscenely");
                 this.outputText(
                     ", your spunk calming the egg-laying passion. She pulls her shrinking phallus from your mouth with a wet slurp, the taste of her strange cum sweet on your lips. She rises to a crouch and gives your ",
                     false
                 );
-                if (this.player.earType != EARS_BUNNY) this.outputText("new ", false);
+                if (this.player.earType != EARS_BUNNY) this.outputText("new ");
                 this.outputText(
                     "ears a playful tweak between her thumb and forefinger. \"<i>Sorry about that, I don't know what came over me! I certainly didn't expect this, though! Kind of makes me want to stick around and see if you and I could pop out more bunnies,</i>\" she winks. \"<i>But unfortunately, I've got to get going! Maybe I'll try to find you again, some time down the line.</i>\" She gives you a moist little kiss and hops away, still energetic after all that. You groan, still recovering from the eggs.",
                     false
@@ -1320,7 +1320,7 @@ export class BunnyGirl extends BaseContent {
                     );
             }
             if (this.player.earType != EARS_BUNNY) {
-                this.outputText("  The top of your head is next, it seems.", false);
+                this.outputText("  The top of your head is next, it seems.");
                 // [No antennae:
                 this.outputText(
                     "  Your eyebrows feel like they're being drawn upwards, your eyes getting larger and larger until you're almost painfully aware of every color and sound around you. You shake your head and large, floppy bunny ears bounce in front of your eyes.",
@@ -1333,7 +1333,7 @@ export class BunnyGirl extends BaseContent {
                 "With a happy sigh, the girl rubs your slick honey off of her face and gives your clit a final, pleased lick. She pulls her shrinking phallus from your mouth with a wet slurp, the taste of her cum sweetly icy on your lips. She rises to a crouch and gives your ",
                 false
             );
-            if (this.player.earType != EARS_BUNNY) this.outputText("new ", false);
+            if (this.player.earType != EARS_BUNNY) this.outputText("new ");
             this.outputText(
                 "ears a playful tweak between her thumb and forefinger. \"<i>Sorry about that, I don't know what came over me! I certainly didn't expect this, though! Kind of makes me want to stick around and see if you and I could pop out more bunnies,</i>\" she winks. \"<i>But unfortunately, I've got to get going! Maybe I'll try to find you again, some time down the line.</i>\" She gives you a moist little kiss and hops away, still energetic after all that. You groan, still recovering from the eggs.",
                 false

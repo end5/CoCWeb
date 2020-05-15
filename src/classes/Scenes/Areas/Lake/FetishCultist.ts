@@ -128,9 +128,9 @@ export class FetishCultist extends Monster {
     }
     private cultistLustTransfer(): void {
         if (this.lust <= 30 || FetishCultist.rand(2) == 0) {
-            this.outputText("Her eyes glaze over, ", false);
-            if (this.player.cor < 40) this.outputText("and you're almost afraid to know ", false);
-            else this.outputText("and you wish you knew ", false);
+            this.outputText("Her eyes glaze over, ");
+            if (this.player.cor < 40) this.outputText("and you're almost afraid to know ");
+            else this.outputText("and you wish you knew ");
             this.outputText(
                 "what she is thinking of since you can almost feel her own lust building.",
                 false
@@ -155,7 +155,7 @@ export class FetishCultist extends Monster {
                             ", painfully hardened by a vast amount of blood rushing to your groin",
                         false
                     );
-                this.outputText(".", false);
+                this.outputText(".");
             } else if (this.player.cockTotal() > 0)
                 this.outputText(
                     "  A sudden influx of pre-cum blurts out and streams down your " +

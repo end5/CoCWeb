@@ -28,7 +28,7 @@ export class AbstractSuccubus extends Monster {
             const temp: number = AbstractSuccubus.rand(6);
             // Whip yo ass!
             if (temp == 0) {
-                this.outputText("ass (4)", false);
+                this.outputText("ass (4)");
                 this.player.takeDamage(4);
                 this.game.dynStats("lus", 6 + Math.floor(this.player.sens / 20));
             }
@@ -36,14 +36,14 @@ export class AbstractSuccubus extends Monster {
             if (temp == 1) {
                 if (this.player.breastRows.length > 0 && this.player.biggestTitSize() > 0)
                     this.outputText(this.player.allBreastsDescript() + " (9)", false);
-                else this.outputText("chest (9)", false);
+                else this.outputText("chest (9)");
                 this.player.takeDamage(9);
                 this.game.dynStats("lus", 4 + Math.floor(this.player.sens / 15));
             }
             // Whip yo groin
             if (temp == 2) {
                 if (this.player.gender == 0) {
-                    this.outputText("groin (5)", false);
+                    this.outputText("groin (5)");
                     this.player.takeDamage(5);
                 }
                 if (this.player.gender == 1) {
@@ -83,20 +83,20 @@ export class AbstractSuccubus extends Monster {
             }
             // Whip yo legs
             if (temp == 3) {
-                this.outputText("legs (7)", false);
+                this.outputText("legs (7)");
                 this.player.takeDamage(7);
             }
             // Whip yo arms
             if (temp == 4) {
-                this.outputText("arms (8)", false);
+                this.outputText("arms (8)");
                 this.player.takeDamage(8);
             }
             // Whip yo neck
             if (temp == 5) {
-                this.outputText("neck (24)", false);
+                this.outputText("neck (24)");
                 this.player.takeDamage(24);
             }
-            this.outputText("!", false);
+            this.outputText("!");
         } else {
             this.outputText(
                 "The succubus flicks her wrist, allowing a whip-like cord to slither out from the palm of her clawed hand.  She cracks the whip experimentally, cackling with glee.",
@@ -156,14 +156,14 @@ export class AbstractSuccubus extends Monster {
                 false
             );
             if (this.buttRating >= 10) {
-                this.outputText(", making it jiggle delightfully.", false);
+                this.outputText(", making it jiggle delightfully.");
                 // 85% success rate for the jiggly girls
                 if (AbstractSuccubus.rand(100) <= 95) {
                     this.game.dynStats("lus", AbstractSuccubus.rand(this.buttRating) + 10);
                     this.outputText("\nThe display is quite arousing.", false);
                 } else this.outputText("\nYou're unimpressed.\n\n", false);
             } else {
-                this.outputText(".", false);
+                this.outputText(".");
                 // 50%ish chance of success for the tight butted.
                 if (AbstractSuccubus.rand(100) <= 70 + this.buttRating * 2) {
                     this.game.dynStats("lus", AbstractSuccubus.rand(this.buttRating) + 9);
@@ -213,7 +213,7 @@ export class AbstractSuccubus extends Monster {
                         ", your " + this.nippleDescript(0) + "s painfully visible.",
                         false
                     );
-                else this.outputText(".", false);
+                else this.outputText(".");
                 if (
                     AbstractSuccubus.rand(100) <=
                     54 + (this.breastRows.length - 1) * 15 + this.breastRows[0].breastRating

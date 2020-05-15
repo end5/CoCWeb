@@ -229,9 +229,9 @@ export class MinotaurScene extends BaseContent {
                 false
             );
         else {
-            this.outputText("The minotaur drops his arm", false);
+            this.outputText("The minotaur drops his arm");
             if (this.monster.weaponName == "axe")
-                this.outputText(", letting his axe clatter to the floor", false);
+                this.outputText(", letting his axe clatter to the floor");
             this.outputText(
                 ". Transfixed by your " +
                     this.multiCockDescript() +
@@ -763,8 +763,8 @@ export class MinotaurScene extends BaseContent {
                 false
             );
             // NIPPULAR ENJOYMENT
-            if (this.player.totalNipples() > 1) this.outputText(" and nipples", false);
-            this.outputText(".", false);
+            if (this.player.totalNipples() > 1) this.outputText(" and nipples");
+            this.outputText(".");
             // Vagina or not flavor texts
             if (this.player.vaginas.length > 0)
                 this.outputText(
@@ -793,12 +793,12 @@ export class MinotaurScene extends BaseContent {
         // Regular or multi...
         if (this.player.cockTotal() == 1) this.outputText(this.cockDescript(x), false);
         else this.outputText(this.multiCockDescriptLight(), false);
-        this.outputText(" across his upraised backside, ", false);
+        this.outputText(" across his upraised backside, ");
         // pre-cum descriptions
         if (this.player.cumQ() < 25)
-            this.outputText("dribbling a bit of slick pre-cum into his fur.  ", false);
+            this.outputText("dribbling a bit of slick pre-cum into his fur.  ");
         if (this.player.cumQ() >= 25 && this.player.cumQ() < 250)
-            this.outputText("leaking thin ropes of pre-cum over his muscular ass.  ", false);
+            this.outputText("leaking thin ropes of pre-cum over his muscular ass.  ");
         if (this.player.cumQ() >= 250 && this.player.cumQ() < 500) {
             this.outputText(
                 "drizzling his ass with thick ropes of pre-cum.  You make sure to coat his tailhole liberally, ensuring plenty of lubrication.  ",
@@ -1081,7 +1081,7 @@ export class MinotaurScene extends BaseContent {
                 false
             );
             if (this.player.lust > 75) {
-                this.outputText("swallowing it into your mouth without thinking.  ", false);
+                this.outputText("swallowing it into your mouth without thinking.  ");
                 this.dynStats("lus", 10 + this.player.lib / 10);
             } else {
                 this.outputText(
@@ -1090,7 +1090,7 @@ export class MinotaurScene extends BaseContent {
                 );
                 this.dynStats("lus", 5 + this.player.lib / 20);
             }
-        } else this.outputText("right past your head.  ", false);
+        } else this.outputText("right past your head.  ");
         this.outputText(
             "The animalistic scent of it seems to get inside you, the musky aroma burning a path of liquid heat to your groin.",
             false
@@ -1163,9 +1163,9 @@ export class MinotaurScene extends BaseContent {
             );
 
             if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR) {
-                this.outputText("against your buttocks", false);
+                this.outputText("against your buttocks");
             } else {
-                this.outputText("into the small of your back", false);
+                this.outputText("into the small of your back");
             }
 
             this.outputText(
@@ -1319,11 +1319,11 @@ export class MinotaurScene extends BaseContent {
             );
         }
         if (this.player.cockTotal() > 0 && this.player.sens + MinotaurScene.rand(40) > 50) {
-            this.outputText("You orgasm, ", false);
+            this.outputText("You orgasm, ");
             if (this.player.cumQ() < 25)
-                this.outputText("spurting your seed helplessly from the brutal rape.  ", false);
+                this.outputText("spurting your seed helplessly from the brutal rape.  ");
             if (this.player.cumQ() >= 25 && this.player.cumQ() < 250)
-                this.outputText("squirting thick ropes of cum over the cave.  ", false);
+                this.outputText("squirting thick ropes of cum over the cave.  ");
             if (this.player.cumQ() >= 250 && this.player.cumQ() < 500)
                 this.outputText(
                     "erupting potent ropes of seed in thick bursts, splattering the cave walls and floors.  ",
@@ -1343,8 +1343,8 @@ export class MinotaurScene extends BaseContent {
             "The bull-man relaxes for a moment, then shoves you off of him and to the cold ground. You pass out as a strange sense of euphoria washes over you while copious quantities of monstrous cum escape your distended ",
             false
         );
-        if (this.player.hasVagina()) this.outputText("pussy.", false);
-        else this.outputText("asshole.", false);
+        if (this.player.hasVagina()) this.outputText("pussy.");
+        else this.outputText("asshole.");
         if (this.getGame().inCombat) this.cleanupAfterCombat();
         else this.doNext(this.camp.returnToCampUseFourHours);
     }
@@ -1377,7 +1377,7 @@ export class MinotaurScene extends BaseContent {
             );
         if (this.player.cockTotal() >= 1) {
             this.outputText("  Your " + this.multiCockDescriptLight() + " slap", false);
-            if (this.player.cockTotal() == 1) this.outputText("s", false);
+            if (this.player.cockTotal() == 1) this.outputText("s");
             this.outputText(
                 " painfully against your belly as the minotaur drags you along the wall.",
                 false
@@ -1466,9 +1466,9 @@ export class MinotaurScene extends BaseContent {
         }
         // (Rape – titfuck) Requires F+ cup breasts or DD+ breasts on top two rows.
         this.outputText("", true);
-        this.outputText("The helpless minotaur lays in the dirt, ", false);
-        if (this.monster.HP < 1) this.outputText("defeated.  ", false);
-        else this.outputText("masturbating uncontrollably.  ", false);
+        this.outputText("The helpless minotaur lays in the dirt, ");
+        if (this.monster.HP < 1) this.outputText("defeated.  ");
+        else this.outputText("masturbating uncontrollably.  ");
         this.outputText(
             "He's yours for the moment, and for right now, you want to see if that throbbing horse-cock will splatter its heavenly spunk all over your " +
                 this.player.allBreastsDescript() +
@@ -1477,8 +1477,8 @@ export class MinotaurScene extends BaseContent {
                 ".  You really could use a fix, just enough to fuzz over all the worry and stress you've had to deal with.\n\n",
             false
         );
-        if (this.monster.lust > 99) this.outputText("You push his hands away and y", false);
-        else this.outputText("Y", false);
+        if (this.monster.lust > 99) this.outputText("You push his hands away and y");
+        else this.outputText("Y");
         this.outputText(
             "ou lean over him, feeling your generous breast-flesh jiggle, your " +
                 this.nippleDescript(0) +
@@ -1492,7 +1492,7 @@ export class MinotaurScene extends BaseContent {
                     " grows harder and more aroused than ever before while your ",
                 false
             );
-        else this.outputText("  Your body aches with arousal while your ", false);
+        else this.outputText("  Your body aches with arousal while your ");
         if (this.player.hasVagina())
             this.outputText(
                 this.vaginaDescript(0) + " grows hotter and hotter, begging to be taken.",
@@ -1509,8 +1509,8 @@ export class MinotaurScene extends BaseContent {
             "He moos out pitifully, clearly understanding what you're up to and frustrated he won't get to sate his desire in a tight mortal ",
             false
         );
-        if (this.player.hasVagina()) this.outputText("cunt.  ", false);
-        else this.outputText("ass.  ", false);
+        if (this.player.hasVagina()) this.outputText("cunt.  ");
+        else this.outputText("ass.  ");
         this.outputText(
             "Out to prove him wrong by letting him release all over your face, you wrap your " +
                 this.player.allBreastsDescript() +
@@ -1587,7 +1587,7 @@ export class MinotaurScene extends BaseContent {
                 false
             );
         }
-        if (!this.player.buttChange(this.monster.cockArea(0), true)) this.outputText("  ", false);
+        if (!this.player.buttChange(this.monster.cockArea(0), true)) this.outputText("  ");
         this.outputText(
             "The minotaur's eyes open wide as he lets out a lustful '<i>Moooooo</i>'.  He doesn't struggle or even move – you're giving him exactly what he wants, after all.\n\n",
             false
@@ -1599,7 +1599,7 @@ export class MinotaurScene extends BaseContent {
                 "s and begin gently twisting them, taking surprising care for all their strength.  Spurred on by the feelings radiating from your ",
             false
         );
-        if (this.player.biggestTitSize() < 1) this.outputText("chest", false);
+        if (this.player.biggestTitSize() < 1) this.outputText("chest");
         else this.outputText(this.breastDescript(0), false);
         this.outputText(
             " and hungry for even more bliss, you begin bouncing atop the defeated beast, repeatedly squeezing and relaxing yourself around him, trying to wring out the maximum possible amount of fluid.\n\n",
@@ -1832,12 +1832,12 @@ export class MinotaurScene extends BaseContent {
             false
         );
         if (this.player.hasVagina()) {
-            this.outputText("wet ", false);
+            this.outputText("wet ");
             if (this.player.cockTotal() > 0) {
-                this.outputText("and hard ", false);
+                this.outputText("and hard ");
             }
-        } else if (this.player.cockTotal() > 0) this.outputText("hard ", false);
-        else this.outputText("shiver ", false);
+        } else if (this.player.cockTotal() > 0) this.outputText("hard ");
+        else this.outputText("shiver ");
         this.outputText(
             "with anticipation.  Though you don't notice, your pupils have dilated and your eyes are glassy from the smell alone.  Scrabbling up the rocks, you're oblivious to the cuts and scrapes that form on your hands and arms from the frantic climb.   You pull yourself up onto a ledge and heave yourself over it, lying down to pant and drool from exhaustion.  Only after you've recovered do you realize that you've found them!\n\n",
             false
@@ -1935,7 +1935,7 @@ export class MinotaurScene extends BaseContent {
         this.spriteSelect(44);
         this.outputText("", true);
         const x: number = this.player.cockThatFits(80);
-        this.outputText("You step towards the minotaur, ", false);
+        this.outputText("You step towards the minotaur, ");
         if (!this.player.isTaur())
             this.outputText("peeling away your " + this.player.armorName + " and ", false);
         this.outputText(
@@ -1944,8 +1944,8 @@ export class MinotaurScene extends BaseContent {
                 " to the defeated bull.  The beast looks to you in both arousal and shock, mouth parting slightly at the idea of another creature taking charge.  Within the musky stench of its dripping shaft you nearly lose yourself, and ",
             false
         );
-        if (!this.player.isTaur()) this.outputText("taking the bull by the horns", false);
-        else this.outputText("pinning his horns in the crook of your forelegs", false);
+        if (!this.player.isTaur()) this.outputText("taking the bull by the horns");
+        else this.outputText("pinning his horns in the crook of your forelegs");
         this.outputText(
             ', you guide its mouth closer to your member as if on autopilot.  "<i>Let\'s see just how good you are at milking,</i>" you blurt; the minotaur moos in defiance but is soon silenced when the head of your ' +
                 Appearance.cockNoun(this.player.cocks[x].cockType) +
@@ -1957,10 +1957,10 @@ export class MinotaurScene extends BaseContent {
             "You grimace at the awkward feeling of the beast's snout against you, but soon regain confidence in your choice as the monster begins to take your prick into his mouth.  His eyes grow wide as his lips wrap around you, with ",
             false
         );
-        if (this.monster.lust > 99) this.outputText("his own burning lusts", false);
+        if (this.monster.lust > 99) this.outputText("his own burning lusts");
         else if (this.player.findPerk(PerkLib.ArousingAura) >= 0)
-            this.outputText("the power of your corruption", false);
-        else this.outputText("the salty taste of your pre-cum", false);
+            this.outputText("the power of your corruption");
+        else this.outputText("the salty taste of your pre-cum");
         this.outputText(" leaving him hungry for more.\n\n", false);
 
         this.outputText(
@@ -1981,8 +1981,8 @@ export class MinotaurScene extends BaseContent {
             "You soon oblige the bull; your effort to fuck his face and the rapid bobbing of his head along your member quickly pass what little restraint you care to exercise on the monster's behalf.  Slamming the muzzle into your groin and leaning over his back, you begin layering the minotaur's tongue and tonsils with bursts of your seed.  Reaching down with ",
             false
         );
-        if (!this.player.isTaur()) this.outputText("your hand", false);
-        else this.outputText("a forehoof", false);
+        if (!this.player.isTaur()) this.outputText("your hand");
+        else this.outputText("a forehoof");
         this.outputText(
             ", you quickly put a stop to his unimportant attempts to pleasure himself by knocking his hand from his meaty cock.  The bull moos over your prick in response, leaving you to shudder while he swallows every last drop of your cum.  You are unable to tell if the beast is blushing from arousal or being reminded of his submission, but it does not matter.\n\n",
             false

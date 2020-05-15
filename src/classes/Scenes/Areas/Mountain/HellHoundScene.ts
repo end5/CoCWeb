@@ -52,8 +52,8 @@ export class HellHoundScene extends BaseContent {
             false
         );
         if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR)
-            this.outputText("hocks and knees", false);
-        else this.outputText("hands and knees", false);
+            this.outputText("hocks and knees");
+        else this.outputText("hands and knees");
         this.outputText(
             " and positions himself behind you. He grips you with his clawed hands on your shoulders and easily holds you in place. The powerful creature is easily able to get past your " +
                 this.player.armorName +
@@ -100,7 +100,7 @@ export class HellHoundScene extends BaseContent {
                     false
                 );
             if (this.player.vaginas[0].virgin)
-                this.outputText("<b>You are no longer a virgin!  </b>", false);
+                this.outputText("<b>You are no longer a virgin!  </b>");
             if (this.player.cuntChange(this.monster.cockArea(0), false))
                 this.outputText(
                     "The beast howls as your " +
@@ -108,7 +108,7 @@ export class HellHoundScene extends BaseContent {
                         " is stretched to accommodate the large shaft.  ",
                     false
                 );
-            this.outputText("The hellhound pants for a few seconds before continuing.  ", false);
+            this.outputText("The hellhound pants for a few seconds before continuing.  ");
             if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_WET)
                 this.outputText(
                     "The pause gives your " +

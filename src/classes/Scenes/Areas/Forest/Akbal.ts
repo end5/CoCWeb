@@ -89,13 +89,13 @@ export class Akbal extends Monster {
                     this.player.armorDef
             );
             if (damage <= 0) {
-                this.outputText("Akbal lunges forwards but with your toughness", false);
+                this.outputText("Akbal lunges forwards but with your toughness");
                 if (this.player.armorDef > 0)
                     this.outputText(
                         " and " + this.player.armorName + ", he fails to deal any damage.",
                         false
                     );
-                else this.outputText(" he fails to deal any damage.", false);
+                else this.outputText(" he fails to deal any damage.");
             } else {
                 this.outputText(
                     "Akbal rushes at you, his claws like lightning as they leave four red-hot lines of pain across your stomach.",
@@ -114,7 +114,7 @@ export class Akbal extends Monster {
                     this.player.armorDef
             );
             if (damage == 0) {
-                this.outputText("Akbal lunges forwards but between your toughness ", false);
+                this.outputText("Akbal lunges forwards but between your toughness ");
                 if (this.player.armorDef > 0)
                     this.outputText(
                         "and " + this.player.armorName + ", he fails to deal any damage.",
@@ -242,7 +242,7 @@ export class Akbal extends Monster {
     // *Support ability -
     public akbalHeal(): void {
         if (this.HPRatio() >= 1)
-            this.outputText("Akbal licks himself, ignoring you for now.", false);
+            this.outputText("Akbal licks himself, ignoring you for now.");
         else
             this.outputText(
                 "Akbal licks one of his wounds, and you scowl as the injury quickly heals itself.",

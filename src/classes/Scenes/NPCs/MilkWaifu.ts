@@ -48,7 +48,7 @@ export class MilkWaifu extends NPCAwareContent {
         // else if (this.mainView.nameBox.text == "" || typeof this.mainView.nameBox.text == 'number')
         if (input.value == "") {
             this.clearOutput();
-            this.outputText("<b>You must give her a name.</b>", false);
+            this.outputText("<b>You must give her a name.</b>");
             this.menu();
             this.addButton(0, "Next", () => this.nameZeMilkBath(input));
 

@@ -193,7 +193,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                     false
                 );
             // (If PC height is under 6'4</i>\":
-            else this.outputText("She is truly tall, and you have to look up to her.", false);
+            else this.outputText("She is truly tall, and you have to look up to her.");
             this.outputText(
                 "  She's garbed in a white and pink form-fitting tank top along with a pair of black skintight pants that come down to about her mid-shin.  The pants do absolutely nothing to hide the enormous bulge in her crotch, if anything they only enhance it.  Her dark brown skin seems smooth and hairless, unlike most equines you've met, and her red mane of hair falls just past her shoulders, though it's currently pulled back into an efficient ponytail.\n\n",
                 false
@@ -335,7 +335,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 "You approach Cotton, who gives you an exuberant grin. \"<i>I've read through the book and I'm pretty confident I can coach you now. What do you say we give it a go? I've arranged for some proper yoga clothes for you. Well, really just the top, but that's what matters for you, isn't it?</i>\"\n\n",
                 false
             );
-            this.outputText("Do you want to engage in Yoga with her?", false);
+            this.outputText("Do you want to engage in Yoga with her?");
             this.flags[kFLAGS.COTTON_UNUSUAL_YOGA_BOOK_TRACKER]++;
             this.cottonMenu();
         } else this.cottonGreetingCommonEnd();
@@ -362,7 +362,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         let option3;
         // var option4 = undefined;
         if (this.player.fatigue > 80) {
-            this.outputText("You're way too tired to do any yoga right now.", false);
+            this.outputText("You're way too tired to do any yoga right now.");
             this.doNext(this.telAdre.telAdreMenu);
             return;
         }
@@ -1011,7 +1011,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
         outputText("After several minutes, the hot shower, hot woman and hot sex are just too much for you, and give one last thrust, pushing your bodies forward to slam against the wall. It's clearly too much for Cotton as well, as she groans out in orgasmic ecstasy. Her cock, sandwiched between you, tenses and explodes just as yours does, covering Cotton in cum inside and out.\n\n", false);
 
-        outputText("After a moment you pull out, share a deep kiss, and wash each other up before redressing and leaving the gym.", false);
+        outputText("After a moment you pull out, share a deep kiss, and wash each other up before redressing and leaving the gym.");
         */
         // (Repeat Fuck Her, for centaurs)
         if (this.player.isTaur()) {
@@ -1204,14 +1204,14 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 false
             );
             if (this.player.cumQ() < 200)
-                this.outputText("cum begins to seep from her folds", false);
+                this.outputText("cum begins to seep from her folds");
             else if (this.player.cumQ() < 700)
-                this.outputText("a gush of cum escapes from Cotton's folds", false);
+                this.outputText("a gush of cum escapes from Cotton's folds");
             else if (this.player.cumQ() < 1200)
-                this.outputText("a small torrent of cum escapes from Cotton's folds", false);
+                this.outputText("a small torrent of cum escapes from Cotton's folds");
             else if (this.player.cumQ() < 2000)
-                this.outputText("cum surges from her abused hole", false);
-            else this.outputText("a massive flood of cum escapes from her cunt", false);
+                this.outputText("cum surges from her abused hole");
+            else this.outputText("a massive flood of cum escapes from her cunt");
             this.outputText(", immediately getting washed towards the drain.\n\n", false);
 
             this.outputText(
@@ -1413,14 +1413,14 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 false
             );
             if (this.player.cumQ() < 200)
-                this.outputText("cum begins to seep from her folds", false);
+                this.outputText("cum begins to seep from her folds");
             else if (this.player.cumQ() < 700)
-                this.outputText("a gush of cum escapes from Cotton's folds", false);
+                this.outputText("a gush of cum escapes from Cotton's folds");
             else if (this.player.cumQ() < 1200)
-                this.outputText("a small torrent of cum escapes from Cotton's folds", false);
+                this.outputText("a small torrent of cum escapes from Cotton's folds");
             else if (this.player.cumQ() < 2000)
-                this.outputText("cum surges from her abused hole", false);
-            else this.outputText("a massive flood of cum escapes from her cunt", false);
+                this.outputText("cum surges from her abused hole");
+            else this.outputText("a massive flood of cum escapes from her cunt");
             this.outputText(", immediately getting washed towards the drain.\n\n", false);
 
             this.outputText(
@@ -1439,7 +1439,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 this.outputText(
                     "pulling you gently towards her bulging belly, which you can't help but put your hands against as you kiss her. The bulge is firm and solid, almost a drum of solid muscle, and you caress it as you and the mare-morph make out, eliciting soft murmurs of appreciation for your efforts."
                 );
-            else this.outputText("pulling you closer.", false);
+            else this.outputText("pulling you closer.");
 
             if (this.player.cockArea(x) >= 100) {
                 // (If PC has one cock)
@@ -1624,14 +1624,14 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
                 false
             );
             if (this.player.cumQ() < 200)
-                this.outputText("cum begins to seep from her folds", false);
+                this.outputText("cum begins to seep from her folds");
             else if (this.player.cumQ() < 700)
-                this.outputText("a gush of cum escapes from Cotton's folds", false);
+                this.outputText("a gush of cum escapes from Cotton's folds");
             else if (this.player.cumQ() < 1200)
-                this.outputText("a small torrent of cum escapes from Cotton's folds", false);
+                this.outputText("a small torrent of cum escapes from Cotton's folds");
             else if (this.player.cumQ() < 2000)
-                this.outputText("cum surges from her abused hole", false);
-            else this.outputText("a massive flood of cum escapes from her cunt", false);
+                this.outputText("cum surges from her abused hole");
+            else this.outputText("a massive flood of cum escapes from her cunt");
             this.outputText(", immediately getting washed towards the drain.\n\n", false);
 
             this.outputText(
@@ -1658,7 +1658,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
             outputText("Finally breaking the kiss, Cotton reaches down and hooks her arms under both your legs. You quickly wrap your arms around her neck as she lifts you off the ground. You carefully grip her with your legs as she uses one arm to position her dick at your waiting entrance. You give her a kiss just as she presses into you, and moan into her mouth. She gives a couple careful thrusts before her free hand returns to holding you.\n\n", false);
 
-            outputText("At this angle she can't quite get her entire girth into you, but that doesn't matter, as it feels absolutely exquisite.", false);
+            outputText("At this angle she can't quite get her entire girth into you, but that doesn't matter, as it feels absolutely exquisite.");
             player.buttChange(72,true,true,false);
             outputText("  You take turns kissing each other's necks and nibbling each other's ears while she thrusts in and out. And after several minutes neither of you can take much more. She gives one last thrust, pulling you down further onto her cock as it explodes within you. Your whole body shudders with orgasmic energy and you bury your head into her neck, stifling a scream.\n\n", false);
 
@@ -1670,13 +1670,13 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
         else {
             outputText("You decide to take her up on her offer, and she pulls you towards the showers, quickly disrobing the both of you. She turns only one shower-head on and pulls you into an embrace underneath the rapidly heating stream. Cotton's cock stirs between you, and your " + vaginaDescript() + " burns with anticipation.\n\n", false);
 
-            outputText("Finally breaking the kiss, Cotton reaches down and hooks her arms under both your legs. You quickly wrap your arms around her neck as she lifts you off the ground. You carefully grip her with your legs as she uses one arm to position her dick at your waiting entrance. You give her a kiss just as she presses into you, and moan into her mouth. She gives a couple careful thrusts before her free hand returns to holding you.", false);
+            outputText("Finally breaking the kiss, Cotton reaches down and hooks her arms under both your legs. You quickly wrap your arms around her neck as she lifts you off the ground. You carefully grip her with your legs as she uses one arm to position her dick at your waiting entrance. You give her a kiss just as she presses into you, and moan into her mouth. She gives a couple careful thrusts before her free hand returns to holding you.");
             player.cuntChange(72,true,true,false);
             outputText("\n\n", false);
 
             outputText("At this angle she can't quite get her entire girth into you, but that doesn't matter, as it feels absolutely exquisite. You take turns kissing each other's necks and nibbling each other's ears while she thrusts in and out. And after several minutes neither of you can take much more. She gives one last thrust, pulling you down further onto her cock as it explodes within you. Your whole body shudders with orgasmic energy and you bury your head into her neck, stifling a scream.\n\n", false);
 
-            outputText("After a moment, Cotton pulls you up, letting her shrinking member flop to the floor, and sets you down. You share a deep kiss again and wash each other up before redressing and leaving the gym.", false);
+            outputText("After a moment, Cotton pulls you up, letting her shrinking member flop to the floor, and sets you down. You share a deep kiss again and wash each other up before redressing and leaving the gym.");
             player.orgasm();
             dynStats("sen", -1);
         }*/
@@ -2044,7 +2044,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
 
         outputText("She leads you to a private room in the gym and sets up a larger mat. She disrobes and you do the same. She sits on the mat and you sit opposite her. You spend a couple minutes just breathing, exploring your partner's body with your eyes only. Then Cotton slips her legs outwards, and leans backwards, letting her enormous member to waggle freely in the air. She curls a finger at you, and gives you your instructions.\n\n", false);
 
-        outputText("You stand and straddle her hips, facing her, carefully lowering yourself down onto her length. You take your time, matching your breathing with hers, until you're completely impaled. Then you stretch your legs out behind your partner and also lean back. You both gyrate your hips as your bodies glisten with a light sheen of sweat.", false);
+        outputText("You stand and straddle her hips, facing her, carefully lowering yourself down onto her length. You take your time, matching your breathing with hers, until you're completely impaled. Then you stretch your legs out behind your partner and also lean back. You both gyrate your hips as your bodies glisten with a light sheen of sweat.");
         player.buttChange(72,true,true,false);
         outputText("\n\n", false);
 
@@ -2086,8 +2086,8 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
             "Gulping slightly, you stand and approach her. Cotton runs a hand along her member, causing you to shiver with the",
             false
         );
-        if (this.player.hasCock()) this.outputText(" familiar", false);
-        else this.outputText(" alien", false);
+        if (this.player.hasCock()) this.outputText(" familiar");
+        else this.outputText(" alien");
         this.outputText(
             " sensations on an unfamiliar part of your body... well, her body. You stand over her hips and slowly lower yourself down, impaling your " +
                 this.player.assholeOrPussy() +
@@ -2256,7 +2256,7 @@ export class Cotton extends TelAdreAbstractContent implements TimeAwareInterface
     private leaveCotton(): void {
         this.spriteSelect(12);
         this.outputText("", true);
-        this.outputText("You thank Cotton for her time, shower and head back to camp.", false);
+        this.outputText("You thank Cotton for her time, shower and head back to camp.");
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 

@@ -334,7 +334,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             false
         );
         if (this.player.gender == 0)
-            this.outputText(" where it pauses in momentary confusion", false);
+            this.outputText(" where it pauses in momentary confusion");
         this.outputText(
             ".  She giggles and presses your face into her one of her verdant nipples.  You open your mouth to accept the purplish-green bud, licking and suckling it, encouraging her sweet sap to flow into your hungry mouth.  She gushes fluids and pulls you tightly against her tits, crushing you with soft flesh.\n\n",
             false
@@ -449,8 +449,8 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
             this.outputText('"<i>Awwww, what a nasty deceitful little ', false);
-            if (this.player.gender <= 1) this.outputText("boy ", false);
-            else this.outputText("girl ", false);
+            if (this.player.gender <= 1) this.outputText("boy ");
+            else this.outputText("girl ");
             this.outputText(
                 'you are.  You turn me into a steaming hot sex-pot, then have the nerve to come here and try to walk off with my lethicite, all WITHOUT fucking me?  Tsk tsk tsk,</i>" she scolds, "<i>I appreciate your ambition, but I can\'t just let a mortal walk all over me like that.  I\'ll be taking that,</i>" she says as she grabs the crystal, and lugs it to the tree underneath you.  She strokes the wood surface lovingly, and a knot dilates until it forms a hole large enough to contain the lethicite.  Marae shoves it inside, and strokes the wood like a pet creature, humming while the bark flows closed, totally concealing the crystal.\n\n',
                 false
@@ -473,7 +473,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     "She extends a hand expectantly, watching with detached concentration while a tentacle lowers from the tree into her palm.   Hips swaying sexually, she advances, peeling back the tentacle's outer layer.  It opens up to reveal a wet, gummy mouth.  She giggles and bumps the opening against your ",
                     false
                 );
-                if (this.player.cocks.length > 1) this.outputText("largest ", false);
+                if (this.player.cocks.length > 1) this.outputText("largest ");
                 this.outputText(this.cockDescript(0), false);
                 this.outputText(
                     "'s tip.  Immediately a powerful suction draws your " +
@@ -489,7 +489,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 else {
                     if (this.player.vaginas.length > 0)
                         this.outputText(this.vaginaDescript(0), false);
-                    else this.outputText("crotch", false);
+                    else this.outputText("crotch");
                 }
                 this.outputText(
                     ', "<i>You\'ll be my prized breeder.</i>"  The sharp point of a fingernail presses against your taint, scratching the skin.  "<i>Just one tiny change to make,</i>" exhales the goddess.  Pain explodes at the base of your crotch as it feels like her fingernail impales you, penetrating inches into your flesh.  You thrash in agony as it reaches something sensitive inside you.  You black out from pain and the shock of watching your blood flow down her arm.\n\n',
@@ -563,20 +563,20 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
         this.flags[kFLAGS.CORRUPT_MARAE_FOLLOWUP_ENCOUNTER_STATE] = 1;
         this.outputText("", true);
         this.outputText(this.images.showImage("marae-second-encounter"));
-        this.outputText("While rowing about the lake", false);
-        if (this.player.str > 70) this.outputText(" with ease", false);
+        this.outputText("While rowing about the lake");
+        if (this.player.str > 70) this.outputText(" with ease");
         this.outputText(
             ", a familiar island resolves itself in the center of the lake.  There's a familiar tree perched atop it, though the wriggling tentacles' silhouette against the sky are a cruel reminder that this island will no longer be the peaceful haven it once was.  ",
             false
         );
         if (this.player.cor < 33)
-            this.outputText("Knowing all too well what kinds of horrors await", false);
+            this.outputText("Knowing all too well what kinds of horrors await");
         else if (this.player.cor < 66)
             this.outputText(
                 "Knowing all too well what kinds of sexual escapades lurk ahead",
                 false
             );
-        else this.outputText("Worried about enjoying the pleasures of the island overmuch", false);
+        else this.outputText("Worried about enjoying the pleasures of the island overmuch");
         this.outputText(
             ', you dip your oars into the water and yank the boat around.  Something "thunk"s off the bottom of the boat, making the wood shiver and spurring you to row with renewed vigor.  You churn the water with your frenzied rowing, but the island never seems to get any further away.   Frustrated by the definitive lack of progress, you fearfully peer over the edge of the old boat\'s hull.  "<i>Well, that explains it,</i>" you muse.\n\n',
             false
@@ -586,7 +586,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             "Squirming roots are crawling over the boat's underside.  They dig into every crease and crevice, binding the vessel tightly in place.  Just as you start to ponder swimming for the shore, the boat shifts, ",
             false
         );
-        if (this.player.spe < 50) this.outputText("dropping you flat on your ass", false);
+        if (this.player.spe < 50) this.outputText("dropping you flat on your ass");
         else
             this.outputText(
                 "nearly dropping you flat on your ass before you catch yourself and sit down",
@@ -647,13 +647,13 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0 ||
             this.player.findPerk(PerkLib.MaraesGiftStud) >= 0
         )
-            this.outputText("second ", false);
+            this.outputText("second ");
         this.outputText("dose of Marae's tender affections.</i>\"\n\n", false);
         // Incase something breaks
         this.doNext(this.playerMenu);
         // Cant fly?  Stuck for sex!
         if (!this.player.canFly()) {
-            this.outputText("You don't see any escape!", false);
+            this.outputText("You don't see any escape!");
             this.doNext(this.MaraeIIStageII);
         }
         // Can fly?  Choice to run
@@ -690,16 +690,16 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("Paralyzed by ", false);
-            if (this.player.lust > 80) this.outputText("lust", false);
-            else if (this.player.cor > 50) this.outputText("indecision", false);
-            else this.outputText("worry", false);
+            this.outputText("Paralyzed by ");
+            if (this.player.lust > 80) this.outputText("lust");
+            else if (this.player.cor > 50) this.outputText("indecision");
+            else this.outputText("worry");
             this.outputText(
                 ", you don't manage a single backwards step before the warm bulge is rubbing ",
                 false
             );
-            if (this.player.tallness > 48) this.outputText("at your crotch", false);
-            else this.outputText("against your belly", false);
+            if (this.player.tallness > 48) this.outputText("at your crotch");
+            else this.outputText("against your belly");
             this.outputText(
                 ", and her sap-drooling teats are crushed into you.  Unbidden, your own " +
                     this.nippleDescript(0) +
@@ -754,16 +754,16 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("Marae grunts and pulls on ", false);
-            if (this.player.horns > 0) this.outputText("your horns", false);
+            this.outputText("Marae grunts and pulls on ");
+            if (this.player.horns > 0) this.outputText("your horns");
             else this.outputText("your " + this.hairDescript(), false);
             this.outputText(
                 ", shoving her thick clit-cock deep inside your throat.  You reflexively swallow down the bulging fuck-meat and ",
                 false
             );
-            if (this.player.cor < 33) this.outputText("struggle to ", false);
-            else if (this.player.cor < 66) this.outputText("work to ", false);
-            else this.outputText("easily ", false);
+            if (this.player.cor < 33) this.outputText("struggle to ");
+            else if (this.player.cor < 66) this.outputText("work to ");
+            else this.outputText("easily ");
             this.outputText(
                 "suppress your gag reflex as her cock grows thick in your mouth and begins to dump its cream down your wanton gullet.  The slippery tentacle goes into overdrive while Marae cums, pumping away at your " +
                     this.vaginaDescript(0) +
@@ -782,10 +782,10 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("You watch, standing stock-still and paralyzed with ", false);
-            if (this.player.lust > 80) this.outputText("lust", false);
-            else if (this.player.cor > 50) this.outputText("indecision", false);
-            else this.outputText("worry", false);
+            this.outputText("You watch, standing stock-still and paralyzed with ");
+            if (this.player.lust > 80) this.outputText("lust");
+            else if (this.player.cor > 50) this.outputText("indecision");
+            else this.outputText("worry");
             this.outputText(
                 ".  Marae's advance seems like an inexorable march to your eyes, and before you have a chance to react, she's crushed against you in a full-body hug.  Her tongue digs into your mouth, rooting out your tongue and melting your resistance in an overwhelming, lust-powered assault.  You vision swims for a moment when she releases you and pulls back.  It's hard to focus with the busty, nude image of fertility beckoning you.  It makes " +
                     this.sMultiCockDesc() +
@@ -802,9 +802,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
             if (this.player.cockTotal() == 2)
-                this.outputText(" while your other dangles against her thigh", false);
+                this.outputText(" while your other dangles against her thigh");
             else if (this.player.cockTotal() > 2)
-                this.outputText(" while your others dangle against her thighs", false);
+                this.outputText(" while your others dangle against her thighs");
             this.outputText(
                 '.  The goddess gives you a cruel smile, as if she knows something you don\'t, and she commands, "<i>Worship me with your cum, champion.  Submit to your goddess and spend your fertile seed for her.</i>"\n\n',
                 false
@@ -853,23 +853,23 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 "You grunt and pump your hips, shameless as you give in to the squeezing, textured tentacle",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
-            this.outputText(".  Cum boils out from your ", false);
-            if (this.player.balls == 0) this.outputText("body", false);
-            else this.outputText("balls", false);
+            if (this.player.cockTotal() > 1) this.outputText("s");
+            this.outputText(".  Cum boils out from your ");
+            if (this.player.balls == 0) this.outputText("body");
+            else this.outputText("balls");
             this.outputText(
                 ", but it's quickly devoured by Marae's tree-based tentacle-beast without a sound.  ",
                 false
             );
             if (this.player.cumQ() > 500) {
-                this.outputText("The thick bulges of spooge actually distort the vines", false);
-                if (this.player.cockTotal() > 1) this.outputText("s", false);
+                this.outputText("The thick bulges of spooge actually distort the vines");
+                if (this.player.cockTotal() > 1) this.outputText("s");
                 this.outputText(
                     ", letting you get the barest glimpse of white through the over-stretched tentacle-tube",
                     false
                 );
-                if (this.player.cockTotal() > 1) this.outputText("s", false);
-                this.outputText(".  ", false);
+                if (this.player.cockTotal() > 1) this.outputText("s");
+                this.outputText(".  ");
             }
             this.outputText(
                 "A hot, slippery pressure touches something inside your " +
@@ -913,7 +913,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                         ".",
                     false
                 );
-            else this.outputText(".", false);
+            else this.outputText(".");
             this.outputText(
                 "  Hammering in your chest, your heart beats fast enough to flush your whole body when your " +
                     this.cockDescript(0) +
@@ -921,9 +921,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
             if (this.player.cockTotal() == 2)
-                this.outputText(" while your other cock rubs over her surface", false);
+                this.outputText(" while your other cock rubs over her surface");
             else if (this.player.cockTotal() > 2)
-                this.outputText(" while your other cocks rubs over her surface", false);
+                this.outputText(" while your other cocks rubs over her surface");
             this.outputText(".\n\n", false);
 
             this.outputText(
@@ -950,8 +950,8 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     false
                 );
             if (this.player.cockTotal() > 1) {
-                if (this.player.cockTotal() > 2) this.outputText("  Another ", false);
-                else this.outputText("Your other ", false);
+                if (this.player.cockTotal() > 2) this.outputText("  Another ");
+                else this.outputText("Your other ");
                 this.outputText(
                     Appearance.cockNoun(CockTypesEnum.HUMAN) +
                         " prods at her tight pucker, and with a slight adjustment, you're able to line it up.  It's wet!  Inch after inch slides in with incredible ease, violating her slippery butthole until you've completely double-penetrated her.",
@@ -961,9 +961,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             this.outputText("\n\n", false);
 
             if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_WET)
-                this.outputText("Sticky wetness glistens between your thighs", false);
+                this.outputText("Sticky wetness glistens between your thighs");
             else if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_DROOLING)
-                this.outputText("Drops of feminine arousal run down your thighs", false);
+                this.outputText("Drops of feminine arousal run down your thighs");
             else
                 this.outputText(
                     "Trails of viscous feminine fluid leak from your " + this.vaginaDescript(0),
@@ -1010,9 +1010,9 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("Cum boils out of your ", false);
-            if (this.player.balls > 0) this.outputText("rapidly contracting balls", false);
-            else this.outputText("tentacle-squeezed prostate", false);
+            this.outputText("Cum boils out of your ");
+            if (this.player.balls > 0) this.outputText("rapidly contracting balls");
+            else this.outputText("tentacle-squeezed prostate");
             this.outputText(
                 " and erupts into Marae's womb.  Your hips rock forward, grazing her cervix with your " +
                     this.player.cockHead() +
@@ -1027,13 +1027,13 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     false
                 );
             if (this.player.cockTotal() > 2) {
-                this.outputText("Neglected but orgasming, ", false);
-                if (this.player.cockTotal() > 3) this.outputText("the remainder of ", false);
-                this.outputText("your ", false);
+                this.outputText("Neglected but orgasming, ");
+                if (this.player.cockTotal() > 3) this.outputText("the remainder of ");
+                this.outputText("your ");
                 if (this.player.cockTotal() > 3)
                     this.outputText(this.multiCockDescriptLight(), false);
                 else this.outputText(this.cockDescript(2), false);
-                this.outputText(" does its best to coat Marae's thighs with whiteness.  ", false);
+                this.outputText(" does its best to coat Marae's thighs with whiteness.  ");
             }
             this.outputText(
                 "The goop from inside you never seems to end, and you pump Marae's belly up with it until she looks a little pregnant.  ",
@@ -1101,10 +1101,10 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                 false
             );
             if (this.player.findPerk(PerkLib.MaraesGiftStud) >= 0) {
-                this.outputText("<b>(New Perk Gained: Marae's Gift – Profractory)</b>", false);
+                this.outputText("<b>(New Perk Gained: Marae's Gift – Profractory)</b>");
                 this.player.createPerk(PerkLib.MaraesGiftProfractory, 0, 0, 0, 0);
             } else {
-                this.outputText("<b>(New Perk Gained: Marae's Gift - Stud)</b>", false);
+                this.outputText("<b>(New Perk Gained: Marae's Gift - Stud)</b>");
                 this.player.createPerk(PerkLib.MaraesGiftStud, 0, 0, 0, 0);
             }
         }
@@ -1151,11 +1151,11 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
             );
 
             if (this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0) {
-                this.outputText("<b>(New Perk Gained: Marae's Gift – Buttslut)</b>", false);
+                this.outputText("<b>(New Perk Gained: Marae's Gift – Buttslut)</b>");
                 this.player.createPerk(PerkLib.MaraesGiftButtslut, 0, 0, 0, 0);
                 this.player.ass.analWetness = 2;
             } else {
-                this.outputText("<b>(New Perk Gained: Marae's Gift – Fertility)</b>", false);
+                this.outputText("<b>(New Perk Gained: Marae's Gift – Fertility)</b>");
                 this.player.createPerk(PerkLib.MaraesGiftFertility, 0, 0, 0, 0);
             }
         }
@@ -1201,8 +1201,8 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     false
                 );
                 if (this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0)
-                    this.outputText("<b>(New Perk Gained: Marae's Gift - Fertility)</b>", false);
-                else this.outputText("<b>New Perk Gained: Marae's Gift - Stud)</b>", false);
+                    this.outputText("<b>(New Perk Gained: Marae's Gift - Fertility)</b>");
+                else this.outputText("<b>New Perk Gained: Marae's Gift - Stud)</b>");
             }
             // (HAZ BREEDER)
             else if (this.player.findPerk(PerkLib.MaraesGiftFertility) >= 0) {
@@ -1223,7 +1223,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     false
                 );
                 this.player.createPerk(PerkLib.MaraesGiftStud, 0, 0, 0, 0);
-                this.outputText("<b>(New Perk Gained: Marae's Gift - Stud)</b>", false);
+                this.outputText("<b>(New Perk Gained: Marae's Gift - Stud)</b>");
             }
             // (HAZ STUD)
             else {
@@ -1244,7 +1244,7 @@ export class Marae extends AbstractBoatContent implements TimeAwareInterface {
                     false
                 );
                 this.player.createPerk(PerkLib.MaraesGiftFertility, 0, 0, 0, 0);
-                this.outputText("<b>(New Perk Gained: Marae's Gift - Fertility)</b>", false);
+                this.outputText("<b>(New Perk Gained: Marae's Gift - Fertility)</b>");
             }
         }
         this.doNext(this.camp.returnToCampUseTwoHours);

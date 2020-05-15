@@ -408,9 +408,9 @@ export class Ifris extends TelAdreAbstractContent {
                     false
                 );
 
-                this.outputText("The sexy little dark-haired devil takes your dick to the ", false);
-                if (this.player.hasSheath()) this.outputText("sheath", false);
-                else this.outputText("base", false);
+                this.outputText("The sexy little dark-haired devil takes your dick to the ");
+                if (this.player.hasSheath()) this.outputText("sheath");
+                else this.outputText("base");
                 this.outputText(
                     " in her throat once again, holding there until you push the weight up, sliding up the length with your movement, and then back down as you lower, encouraging your exercise with the pleasure of her sweet mouth. Knowing you can't keep it up forever though, she merely urges you to do better before giving in, her hand gripping the base of your " +
                         this.cockDescript(0) +
@@ -469,13 +469,13 @@ export class Ifris extends TelAdreAbstractContent {
                     false
                 );
 
-                this.outputText("Your back arches, ", false);
+                this.outputText("Your back arches, ");
                 if (this.player.isNaga())
                     this.outputText(
                         "your powerful tail flexing to and fro while your belly clenches",
                         false
                     );
-                else this.outputText("toes curling while your belly clenches", false);
+                else this.outputText("toes curling while your belly clenches");
                 this.outputText(
                     ", and your muscles contract as your orgasm hits. A muffled moan leaves Ifris, invading your cunt as you clutch her head to you, riding her pretty face, lost in your tide of ecstasy. When you finally come down, she pulls free of your pussy with a cute little gasp, followed by a giggle. Looking down through your hazy eyes, you see her lovely face glistening with your own juices, and she gives your thigh a little kiss. Standing up, she turns and leaves you laying there panting, a spring in her step, and a trail of clear wetness leaking down her inner thighs...",
                     false
@@ -496,8 +496,8 @@ export class Ifris extends TelAdreAbstractContent {
                         "s and ",
                     false
                 );
-                if (this.player.biggestTitSize() >= 1) this.outputText("breasts", false);
-                else this.outputText("chest", false);
+                if (this.player.biggestTitSize() >= 1) this.outputText("breasts");
+                else this.outputText("chest");
                 this.outputText(
                     " with soft kisses, teasing the nubs to hardness with flicks of her tongue. You eagerly lift your " +
                         this.player.legs() +
@@ -690,7 +690,7 @@ export class Ifris extends TelAdreAbstractContent {
                 false
             );
             if (this.player.cockTotal() > 2) {
-                this.outputText("The ", false);
+                this.outputText("The ");
                 if (this.player.cockTotal() == 1)
                     this.outputText(
                         "one unbound prick remaining paints the muscular woman's lower back with goo, but she doesn't seem to mind.",
@@ -701,7 +701,7 @@ export class Ifris extends TelAdreAbstractContent {
                         "other, unbound pricks paint the muscular woman's lower back in goo, but she doesn't seem to mind.",
                         false
                     );
-                this.outputText("  ", false);
+                this.outputText("  ");
             }
         }
         // (ALL GO HERE - NOT NEW PG)
@@ -714,8 +714,8 @@ export class Ifris extends TelAdreAbstractContent {
             "The last few contractions work through you, emptying the last of your load inside Ifris and allowing you to feel utterly, completely at peace.  Sliding up, she lets your slowly-deflating cocks ",
             false
         );
-        if (this.player.dogCocks() >= 2) this.outputText("noisily pop free", false);
-        else this.outputText("slide", false);
+        if (this.player.dogCocks() >= 2) this.outputText("noisily pop free");
+        else this.outputText("slide");
         this.outputText(
             " from her sperm-glazed snatch and anus.  Her body's warmth vanishes as she stands, and with a wink, she reattaches her bikini bottom, the tight garment moulding to her soaked camel-toe and holding in all of your leavings.  She walks away without another word, ",
             false
@@ -726,14 +726,14 @@ export class Ifris extends TelAdreAbstractContent {
                 false
             );
         else if (this.player.cumQ() >= 500)
-            this.outputText("her belly bloated and gurgling with every step", false);
-        else this.outputText("her body double-stuffed with seed", false);
+            this.outputText("her belly bloated and gurgling with every step");
+        else this.outputText("her body double-stuffed with seed");
         this.outputText(
             ".  You slump back and breathe heavy, feeling like you've just run a marathon.\n\n",
             false
         );
 
-        this.outputText("It is some time until you gain the energy to rise.", false);
+        this.outputText("It is some time until you gain the energy to rise.");
         this.fatigue(10);
         // Stat changes HERE!
         if (this.player.str < 90) this.dynStats("str", 0.75);

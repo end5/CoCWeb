@@ -115,8 +115,8 @@ export class Wanderer extends BaseContent {
             true
         );
         this.outputText('Marcus shakes his head sadly, "<i>', false);
-        if (this.player.gender <= 1) this.outputText("He", false);
-        else this.outputText("She", false);
+        if (this.player.gender <= 1) this.outputText("He");
+        else this.outputText("She");
         this.outputText(
             " is right, my soul is immortal and not to be sacrificed so lightly.  Why don't we stick to our original agreement another decade and mull it over then?</i>\"\n\n",
             false
@@ -216,7 +216,7 @@ export class Wanderer extends BaseContent {
                     true
                 );
                 if (this.player.cor < 33)
-                    this.outputText("You duck back behind a dune, blushing furiously.", false);
+                    this.outputText("You duck back behind a dune, blushing furiously.");
                 else if (this.player.cor < 66)
                     this.outputText(
                         "You blush crimson as you swear you see Lucia look right at you and wink.",

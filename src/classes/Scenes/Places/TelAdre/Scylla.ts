@@ -232,7 +232,7 @@ export class Scylla extends TelAdreAbstractContent {
             "She swallows more inches and you can feel the tip of your penis against the back of her throat. If she had a gag-reflex, the demon-draught must've eliminated it because you can feel the flexing ripples of her throat engulf your head. Scylla makes a moan that can only be called a yummy noise",
             false
         );
-        if (this.player.balls > 0) this.outputText(" and you feel your balls tightening", false);
+        if (this.player.balls > 0) this.outputText(" and you feel your balls tightening");
         this.outputText(
             ". When she feels the twitching running down your body, Scylla tilts her head and swallows, hard, pulling your dick deeper into her throat. Seemingly determined to swallow your length, she hardens her expression and swallows again, her mouth closing around you like a vacuum. You can see her neck bulge as your dick is drawn deeper into her hungry maw and you briefly wonder how she's breathing.\n\n",
             false
@@ -581,13 +581,13 @@ export class Scylla extends TelAdreAbstractContent {
                 ", letting the stiffening length",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
+        if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(
             " slap down on her belly. You climb onto the bed and straddle her chest, sliding ",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("a ", false);
-        else this.outputText("your ", false);
+        if (this.player.cockTotal() > 1) this.outputText("a ");
+        else this.outputText("your ");
         this.outputText(
             "dick between her sweat-slick mounds. She gasps and the intake of breath squeezes your dick between her flesh. You can feel her heart race in her chest, the pulse matching the blood filling your penis as it grows atop her body. Unable to stop herself, Scylla wraps her arms around her chest, muscles sealing her cleavage around your dick. The milky drool leaking from her tits dribbles out of her small lips and pools over your cock, igniting your nerves and robbing your body of control. Your hips buck, violently fucking her tits. As they quiver, bouncing with each thrust, their nipples widen and contract, sucking at the air desperately.\n\n",
             false
@@ -668,8 +668,8 @@ export class Scylla extends TelAdreAbstractContent {
                 "As you nurse from her tits, Scylla's arms wrap around your head, holding you close to her heart. Your dicks begin to stiffen as you swallow her cream and you decide you haven't had enough just yet. With a sucking pop, you pull back from her breast and grin wickedly as you straddle her again. Stroking your dicks with your hands, you spit some of her cream onto your cockheads and rub the lubricant into them. Rising, you place ",
                 false
             );
-            if (this.player.cockTotal() > 2) this.outputText("two ", false);
-            else this.outputText("both ", false);
+            if (this.player.cockTotal() > 2) this.outputText("two ");
+            else this.outputText("both ");
             this.outputText(
                 "of your dicks against her nipple lips and savagely thrust down, penetrating both tits. Scylla gasps and moans as her lips wrap around your shafts and the milky depths of her tits clench your heads. You try to wrap your hands around each tit and fail miserably, so you content yourself with digging your fingers deep into the silky flesh. You thrust again, burying yourself inside her chest even as her lips suckle on your cocks.\n\n",
                 false
@@ -1504,7 +1504,7 @@ export class Scylla extends TelAdreAbstractContent {
         this.flags[kFLAGS.SCYLLA_TIMES_SHARED_IN_ADDICT_GROUP]++;
         // Increment overall meetings
         this.flags[kFLAGS.TIMES_MET_SCYLLA_IN_ADDICTION_GROUP]++;
-        this.outputText("What addiction would you like to discuss?", false);
+        this.outputText("What addiction would you like to discuss?");
         // Set choices
         let milk;
         if (

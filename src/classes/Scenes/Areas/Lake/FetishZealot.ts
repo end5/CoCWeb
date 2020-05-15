@@ -165,8 +165,8 @@ export class FetishZealot extends Monster {
                 false
             );
             if (this.player.inte > 50)
-                this.outputText(", was there some kind of aphrodisiac on the knife?", false);
-            else this.outputText(".", false);
+                this.outputText(", was there some kind of aphrodisiac on the knife?");
+            else this.outputText(".");
             this.game.dynStats("lus", this.player.lib / 20 + 5);
         }
         super.postAttack(damage);

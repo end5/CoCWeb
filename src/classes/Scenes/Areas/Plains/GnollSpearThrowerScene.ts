@@ -38,9 +38,9 @@ export class GnollSpearThrowerScene extends BaseContent {
                 false
             );
             // <If height is below 6'5\">
-            if (this.player.tallness < 77) this.outputText("towers over you, ", false);
+            if (this.player.tallness < 77) this.outputText("towers over you, ");
             // <If height is equal to or above 6'5\">
-            else this.outputText("stands proudly before you, ", false);
+            else this.outputText("stands proudly before you, ");
             this.outputText(
                 "the tan of her spotted pelt gleaming golden in the sun.  Your roaming eyes register that the softer tan of her belly covers her large breasts and slides down below her loincloth.\n\n",
                 false
@@ -63,9 +63,9 @@ export class GnollSpearThrowerScene extends BaseContent {
                 false
             );
             // <If player height is below 6'5\">
-            if (this.player.tallness < 77) this.outputText("towers over you, ", false);
+            if (this.player.tallness < 77) this.outputText("towers over you, ");
             // <If player height is equal to or above 6'5\">
-            else this.outputText("stands proudly before you, ", false);
+            else this.outputText("stands proudly before you, ");
             this.outputText(
                 "the tan of her spotted pelt gleaming golden in the sun.  Your roaming eyes register that the softer tan of her belly covers her large breasts and slides down below her loincloth.\n\n",
                 false
@@ -301,9 +301,9 @@ export class GnollSpearThrowerScene extends BaseContent {
         );
         // <All non neuters>
         if (this.player.gender > 0)
-            this.outputText("letting you fall hard into the mess you made on the grass.", false);
+            this.outputText("letting you fall hard into the mess you made on the grass.");
         // <neuters>
-        else this.outputText("letting you fall hard into the grass.", false);
+        else this.outputText("letting you fall hard into the grass.");
         this.outputText(
             "  As you slowly fade into unconsciousness from the orgasm, you see the hyena draw a finger along the tip of her cunt until the spotted fingers glisten with moisture.  Those fingers roughly rub the thick, potent fluid against your face, coating it with her scent and the knowledge of her victory.",
             false
@@ -410,7 +410,7 @@ export class GnollSpearThrowerScene extends BaseContent {
             false
         );
         if (this.player.cocks[x].cockLength > 7)
-            this.outputText("in the back of her mouth ", false);
+            this.outputText("in the back of her mouth ");
         this.outputText("as it starts to be pulled from your encased member.\n\n", false);
 
         // <One Cock>
@@ -445,8 +445,8 @@ export class GnollSpearThrowerScene extends BaseContent {
                     ".  Soon, her second hand slides along ",
                 false
             );
-            if (this.player.cockTotal() == 3) this.outputText("your other ", false);
-            else this.outputText("another ", false);
+            if (this.player.cockTotal() == 3) this.outputText("your other ");
+            else this.outputText("another ");
             this.outputText(
                 "free member.  Her powerful grips feel like a vice on the twin members as she begins to slide her paws along two of your shafts.  Moving in time to the rippling of her throat, the hands try hard to match the flood of sensations radiating from her muzzle.  Her own 'member' throbs, untouched, as she loses herself in trying to pleasure you.\n\n",
                 false

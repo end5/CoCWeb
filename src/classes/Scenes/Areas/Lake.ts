@@ -280,14 +280,14 @@ export class Lake extends BaseContent {
                 true
             );
             if (this.player.cor > 30 || this.player.lust > 60 || this.player.lib > 40)
-                this.outputText("Your imaginings increasingly seem to turn ", false);
+                this.outputText("Your imaginings increasingly seem to turn ");
             else this.dynStats("int", 1);
             if (
                 (this.player.cor > 30 && this.player.cor < 60) ||
                 (this.player.lust > 60 && this.player.lust < 90) ||
                 (this.player.lib > 40 && this.player.lib < 75)
             ) {
-                this.outputText("to thoughts of sex.", false);
+                this.outputText("to thoughts of sex.");
                 this.dynStats("lus", 5 + this.player.lib / 10);
                 displayed = true;
             }

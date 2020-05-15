@@ -69,8 +69,8 @@ export class CorruptedDriderScene extends BaseContent {
                 "Spinning again, you lose your patience and loudly demand your ambusher present itself.  A soft tug on your ",
                 false
             );
-            if (this.player.tailType > TAIL_TYPE_NONE) this.outputText("tail ", false);
-            else this.outputText("hair ", false);
+            if (this.player.tailType > TAIL_TYPE_NONE) this.outputText("tail ");
+            else this.outputText("hair ");
             this.outputText(
                 "pulls you back halfway, but as you open your mouth to yell, the ground gives a quiet thump.  Just barely in your periphery, you see a white apparition with a yawning mouth stretching out to bite, and your reflexes take over, dropping your weight and rolling you away from it.\n\n",
                 false
@@ -110,7 +110,7 @@ export class CorruptedDriderScene extends BaseContent {
                 "to masturbate her swollen pussy-lips and the thick, juicy demon-cock that's sprouted in place of her clit.  She's so focused on getting off that she utterly gives up on the idea of fighting back, let alone dominating you as she seemed to plan originally.",
                 false
             );
-        this.outputText("  The spider-herm lies in a miserable, defeated heap.", false);
+        this.outputText("  The spider-herm lies in a miserable, defeated heap.");
 
         let buttFuckBUTTFUCKBUTTTFUCKBUTTFUCK;
         if (this.player.cockThatFits(this.monster.analCapacity()) >= 0)
@@ -234,8 +234,8 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
         if (this.monster.lust > 99) {
-            this.outputText("she looks ", false);
-            if (this.player.tallness > 72) this.outputText("up ", false);
+            this.outputText("she looks ");
+            if (this.player.tallness > 72) this.outputText("up ");
             this.outputText(
                 "at you with her " +
                     this.monster.skinTone +
@@ -243,8 +243,8 @@ export class CorruptedDriderScene extends BaseContent {
                 false
             );
         } else {
-            this.outputText("she looks ", false);
-            if (this.player.tallness > 72) this.outputText("up ", false);
+            this.outputText("she looks ");
+            if (this.player.tallness > 72) this.outputText("up ");
             this.outputText(
                 "at you with a look of disgust in her " +
                     this.monster.skinTone +
@@ -252,7 +252,7 @@ export class CorruptedDriderScene extends BaseContent {
                 false
             );
             if (this.monster.nipplesPierced > 0)
-                this.outputText(", the chains jingling loudly as she does so", false);
+                this.outputText(", the chains jingling loudly as she does so");
             this.outputText(
                 ".  In spite of keeping a stiff upper lip about it, her lower ones visibly quiver while you strip.",
                 false
@@ -267,15 +267,15 @@ export class CorruptedDriderScene extends BaseContent {
             "The corrupted monster-girl sighs and shudders at your touches, as if she can somehow feel your finger-tips through the rock-hard exoskeleton.  From the way she's trying to hold in her exhalations, you can only guess that it must feel wonderful, so you keep it up, circling and touching every part of her exotic anatomy.  By the time you've circled around her entire body, she's ",
             false
         );
-        if (this.monster.HP < 1) this.outputText("giving up little, lewd moans", false);
-        else this.outputText("breathing out lurid moans", false);
-        this.outputText(" of pleasure and her ", false);
-        if (this.monster.nipplesPierced > 0) this.outputText("chain-pierced-", false);
+        if (this.monster.HP < 1) this.outputText("giving up little, lewd moans");
+        else this.outputText("breathing out lurid moans");
+        this.outputText(" of pleasure and her ");
+        if (this.monster.nipplesPierced > 0) this.outputText("chain-pierced-");
         this.outputText(
             "nipples and clit look as hard as her natural body-armor.  You boldly grope one of her ",
             false
         );
-        if (this.monster.nipplesPierced > 0) this.outputText("pierced ", false);
+        if (this.monster.nipplesPierced > 0) this.outputText("pierced ");
         this.outputText(
             "breasts, feeling the supple, soft flesh shift while you roughly palm it and rub your thumb down a dark nipple.  You let the sensitive bud go and watch it spring back up, enjoying the drider's gasp of surprised pleasure for the brief moment before she muffles herself.\n\n",
             false
@@ -321,7 +321,7 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText("Your extra penis", false);
+            this.outputText("Your extra penis");
             if (this.player.cockTotal() > 2)
                 this.outputText(
                     "es fan out to the side, forgotten while you give yourself over to the silken caresses of her glorious vagina.",
@@ -357,8 +357,8 @@ export class CorruptedDriderScene extends BaseContent {
             "Heaving mightily, you use the submissive spider's ass-cheeks as hand-holds for a fast, hard fuck.  Her four ",
             false
         );
-        if (this.monster.nipplesPierced > 0) this.outputText("pierced", false);
-        else this.outputText("white-skinned", false);
+        if (this.monster.nipplesPierced > 0) this.outputText("pierced");
+        else this.outputText("white-skinned");
         this.outputText(
             " breasts mash against your " +
                 this.allChestDesc() +
@@ -539,8 +539,8 @@ export class CorruptedDriderScene extends BaseContent {
         );
 
         if (this.player.cor > 80 && this.player.lib > 50)
-            this.outputText("Gods it was a bad idea not to bind her lips... ", false);
-        else this.outputText("Gods this was a bad idea... ", false);
+            this.outputText("Gods it was a bad idea not to bind her lips... ");
+        else this.outputText("Gods this was a bad idea... ");
         this.outputText(
             "still, at least she's controlling your rebellious dick, teaching the little prick a lesson while letting you feel so good.\n\n",
             false
@@ -570,7 +570,7 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
         if (this.player.cumQ() > 1000)
-            this.outputText(", even though you've packed it full once already", false);
+            this.outputText(", even though you've packed it full once already");
         this.outputText(
             ".  Her legs skitter and tremble, her pussy convulses, and your dick gets the squeezing, sucking orgasm of a lifetime.  It feels like you're pumping out two or three orgasms worth of spooge, each dick-stretching explosion of cream dilating your slit almost painfully wide.",
             false
@@ -603,8 +603,8 @@ export class CorruptedDriderScene extends BaseContent {
                 " tresses ",
             false
         );
-        if (this.player.cumQ() <= 1000) this.outputText("splayed across the ground", false);
-        else this.outputText("soaking in the white puddle of spooge", false);
+        if (this.player.cumQ() <= 1000) this.outputText("splayed across the ground");
+        else this.outputText("soaking in the white puddle of spooge");
         this.outputText(
             ".  Even unconscious, her vagina continues its rhythmic contractions around your cock, working you towards another burst of orgasmic pleasure while you wait for your strength to come back...\n\n",
             false
@@ -706,22 +706,22 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
 
-        this.outputText("A moan escapes your lips as her nine-inch pleasure-rod ", false);
+        this.outputText("A moan escapes your lips as her nine-inch pleasure-rod ");
         if (this.player.vaginalCapacity() < this.monster.cockArea(0))
-            this.outputText("bottoms out", false);
+            this.outputText("bottoms out");
         else if (this.player.vaginalCapacity() < this.monster.cockArea(0) * 2)
-            this.outputText("fits tightly", false);
-        else this.outputText("barely reaches halfway", false);
-        this.outputText(" inside of you.", false);
+            this.outputText("fits tightly");
+        else this.outputText("barely reaches halfway");
+        this.outputText(" inside of you.");
         this.player.cuntChange(this.monster.cockArea(0), true, true, false);
         this.outputText(
             "  You lean down, straddling her sides and reaching over to plant a kiss on one of the spider-woman's ",
             false
         );
         if (this.monster.nipplesPierced > 0)
-            this.outputText("pierced nipples, circling the metallic stud", false);
-        else this.outputText("nipples, circling the moist bud", false);
-        this.outputText(" with your tongue", false);
+            this.outputText("pierced nipples, circling the metallic stud");
+        else this.outputText("nipples, circling the moist bud");
+        this.outputText(" with your tongue");
         if (this.player.tongueType > TONUGE_HUMAN)
             this.outputText(
                 " as the rest of its demonic length lashes out and wraps around her pillowy bosom",
@@ -767,8 +767,8 @@ export class CorruptedDriderScene extends BaseContent {
                 " while the drider watches with ",
             false
         );
-        if (this.monster.HP < 1) this.outputText("hate", false);
-        else this.outputText("lust", false);
+        if (this.monster.HP < 1) this.outputText("hate");
+        else this.outputText("lust");
         this.outputText(
             " pouring from all four of her eyes.  Now nude, you saunter over with a gleam in your eyes and a telltale tingling in your loins.  You move around some of the eight, sprawled-out legs and close in on her side.  With a mighty heave, you help to lift her up onto her shaking legs, then keep pushing, tipping her dangerously to the side.  She cries out in surprise as she flips over, rolling onto her back while her spindly, chitinous legs flail uselessly at the muggy air.\n\n",
             false
@@ -781,7 +781,7 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
 
-        this.outputText("The spider's look of ", false);
+        this.outputText("The spider's look of ");
         if (this.monster.HP < 1) {
             this.outputText(
                 "hate fades slightly when she sees you eyeing her ovipositor, and with a sigh of annoyance, allows the segmented organ to slowly slide out from her body.  It grows to just over two feet in length, swaying sinuously in the air, though you can tell it isn't completely engorged yet.  Still, your " +
@@ -790,7 +790,7 @@ export class CorruptedDriderScene extends BaseContent {
             );
             if (this.player.hasCock())
                 this.outputText(" and " + this.sMultiCockDesc() + " twitch", false);
-            else this.outputText(" twitches", false);
+            else this.outputText(" twitches");
             this.outputText(
                 " at the thought of trying to pack all of that meaty, alien pole inside you.\n\n",
                 false
@@ -803,7 +803,7 @@ export class CorruptedDriderScene extends BaseContent {
             );
             if (this.player.hasCock())
                 this.outputText(" and  " + this.sMultiCockDesc() + " twitch", false);
-            else this.outputText(" twitches", false);
+            else this.outputText(" twitches");
             this.outputText(
                 " in anticipation - you can't wait to feel that thing going inside you!\n\n",
                 false
@@ -821,7 +821,7 @@ export class CorruptedDriderScene extends BaseContent {
                 " against the wiggling tip.  The drider sighs and warm green goop gushes inside you eagerly, spreading your canal wide and making you gasp with pleasure.  Subtly, you begin sliding your hips, seeking to soak in more sensation for your slit.  Cooing in delight, the drider grabs at her four ",
             false
         );
-        if (this.monster.nipplesPierced > 0) this.outputText("pierced ", false);
+        if (this.monster.nipplesPierced > 0) this.outputText("pierced ");
         this.outputText(
             "tits and begins to grope herself, squeezing hard on her breasts and tugging viciously at her pert, black nipples.  The segmented ovipositor wiggles excitably and plunges forward to bury the first few inches inside your sloppy snatch, the tube dilating and contracting inside you with alien rhythms.",
             false
@@ -868,10 +868,10 @@ export class CorruptedDriderScene extends BaseContent {
         );
         if (this.player.hasCock()) {
             this.outputText("  Your own " + this.multiCockDescriptLight() + " retaliate", false);
-            if (this.player.cockTotal() == 1) this.outputText("s", false);
-            this.outputText(" automatically, dumping ", false);
-            if (this.player.cumQ() < 500) this.outputText("scores of", false);
-            else this.outputText("unending", false);
+            if (this.player.cockTotal() == 1) this.outputText("s");
+            this.outputText(" automatically, dumping ");
+            if (this.player.cumQ() < 500) this.outputText("scores of");
+            else this.outputText("unending");
             this.outputText(
                 " jizz-ropes on your groin and the base of the drider's slimy stalk.",
                 false
@@ -922,8 +922,8 @@ export class CorruptedDriderScene extends BaseContent {
                 " while the drider watches with ",
             false
         );
-        if (this.monster.HP < 1) this.outputText("hate", false);
-        else this.outputText("lust", false);
+        if (this.monster.HP < 1) this.outputText("hate");
+        else this.outputText("lust");
         this.outputText(
             " pouring from all four of her eyes.  Now nude, you saunter over with a gleam in your eyes and a telltale tingling in your loins.  You move around some of the eight, sprawled-out legs and close in on her side.  With a mighty heave, you help to lift her up onto her shaking legs, then keep pushing, tipping her dangerously to the side.  She cries out in surprise as she flips over, rolling onto her back while her spindly, chitinous legs flail uselessly at the muggy air.\n\n",
             false
@@ -936,7 +936,7 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
 
-        this.outputText("The spider's look of ", false);
+        this.outputText("The spider's look of ");
         if (this.monster.HP < 1) {
             this.outputText(
                 "hate fades slightly when she sees you eyeing her ovipositor, and with a sigh of annoyance, allows the segmented organ to slowly slide out from her body.  It grows to just over two feet in length, swaying sinuously in the air, though you can tell it isn't completely engorged yet.  Still, your " +
@@ -945,7 +945,7 @@ export class CorruptedDriderScene extends BaseContent {
             );
             if (this.player.hasCock())
                 this.outputText(" and " + this.sMultiCockDesc() + " twitch", false);
-            else this.outputText(" twitches", false);
+            else this.outputText(" twitches");
             this.outputText(
                 " at the thought of trying to pack all of that meaty, alien pole inside you.\n\n",
                 false
@@ -958,7 +958,7 @@ export class CorruptedDriderScene extends BaseContent {
             );
             if (this.player.hasCock())
                 this.outputText(" and  " + this.sMultiCockDesc() + " twitch", false);
-            else this.outputText(" twitches", false);
+            else this.outputText(" twitches");
             this.outputText(
                 " in anticipation - you can't wait to feel that thing going inside you!\n\n",
                 false
@@ -1002,13 +1002,13 @@ export class CorruptedDriderScene extends BaseContent {
                     " dribble a ",
                 false
             );
-            if (this.player.cumQ() < 500) this.outputText("drop", false);
-            else this.outputText("stream", false);
-            this.outputText(" of pre-cum down its length.", false);
+            if (this.player.cumQ() < 500) this.outputText("drop");
+            else this.outputText("stream");
+            this.outputText(" of pre-cum down its length.");
         }
         if (this.player.hasVagina()) {
             this.outputText("  Your " + this.vaginaDescript(0) + " quivers", false);
-            if (this.player.wetness() >= 3) this.outputText(" and drips", false);
+            if (this.player.wetness() >= 3) this.outputText(" and drips");
             this.outputText(
                 " sympathetically with the sensation, and your " +
                     this.clitDescript() +
@@ -1022,14 +1022,14 @@ export class CorruptedDriderScene extends BaseContent {
                 " out from under you, and you collapse atop your partner, squeezing oozing dick",
             false
         );
-        if (this.player.hasCock()) this.outputText("s", false);
-        this.outputText(" between you", false);
+        if (this.player.hasCock()) this.outputText("s");
+        this.outputText(" between you");
         if (this.player.clitLength >= 4 && this.player.hasVagina())
             this.outputText(
                 ", and pressing your monster chick-stick into it; the gooey heat sends a tingle of shock up your spine and your pussy convulses",
                 false
             );
-        this.outputText(".", false);
+        this.outputText(".");
         this.player.buttChange(50, true, true, false);
         this.outputText("\n\n", false);
 
@@ -1051,10 +1051,10 @@ export class CorruptedDriderScene extends BaseContent {
             );
         this.outputText("\n\n", false);
 
-        this.outputText("With a final hard shove, the last few segments pop inside you", false);
+        this.outputText("With a final hard shove, the last few segments pop inside you");
         if (this.player.hasCock())
-            this.outputText(", nearly crushing your prostate from the tight squeeze", false);
-        this.outputText(".  ", false);
+            this.outputText(", nearly crushing your prostate from the tight squeeze");
+        this.outputText(".  ");
         if (!this.player.hasCock() && this.player.hasVagina())
             this.outputText(
                 "You gasp and dribble a few strands of girl-goo, the contractions of your achingly empty pussy intensifying.  ",
@@ -1065,7 +1065,7 @@ export class CorruptedDriderScene extends BaseContent {
                 "You gasp and squirt a few weak ropes of cum, having a miniature orgasm on the spot.  ",
                 false
             );
-        this.outputText("Writhing happily, you sigh ", false);
+        this.outputText("Writhing happily, you sigh ");
         if (this.player.hasCock())
             this.outputText(
                 "while your " +
@@ -1102,13 +1102,13 @@ export class CorruptedDriderScene extends BaseContent {
             "The large, round egg pushes its way up your butt, squeezes past your ring",
             false
         );
-        if (this.player.hasCock()) this.outputText(" and your prostate", false);
+        if (this.player.hasCock()) this.outputText(" and your prostate");
         this.outputText(
             ", and travels deep inside you, bulging your belly the slightest bit once it's deposited.  With a groan of deep satisfaction, you start humping the fluid-slicked chitin beneath you, barely registering the long, seemingly unending series of eggs that infiltrate your ass",
             false
         );
         if (this.player.hasCock())
-            this.outputText(" and milk your prostate as they push past", false);
+            this.outputText(" and milk your prostate as they push past");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -1116,13 +1116,13 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
         if (this.player.gender > 0) {
-            this.outputText(", simultaneously, ", false);
+            this.outputText(", simultaneously, ");
             if (this.player.hasCock()) {
-                this.outputText("a storm of semen-squirting spurts from your shaft", false);
-                if (this.player.cockTotal() > 1) this.outputText("s", false);
+                this.outputText("a storm of semen-squirting spurts from your shaft");
+                if (this.player.cockTotal() > 1) this.outputText("s");
             } else if (this.player.hasVagina())
-                this.outputText("a siege of spray-scattering spasms from your snatch", false);
-            this.outputText(" and", false);
+                this.outputText("a siege of spray-scattering spasms from your snatch");
+            this.outputText(" and");
         }
         this.outputText(
             " squirts of slippery spooge from her shuddering spunk-stick.  While you shriek, squirm and shiver shamelessly, you see the spider-slut suspended in the same, similarly a slave to the sensation of shoving and slamming her stalk into your straining sacrum and stuffing you with her strange spawn.\n\n",
@@ -1164,10 +1164,10 @@ export class CorruptedDriderScene extends BaseContent {
                 ", you eye up the incapacitated drider, wondering how best to take advantage of your successes.  A remarkably nasty thought strikes you, and your lips nearly curl into a devious grin then and there.  You stride toward your trophy, taking pleasure in the simmering hatred in her eyes as she glares up at you.  A sudden bout of mocking laughter stops your progress; the drider seems to have noticed ",
             false
         );
-        if (this.player.cockTotal() == 1) this.outputText("your", false);
-        else this.outputText("one of your", false);
-        this.outputText(" sub-par (by Marethian standards at least) cock", false);
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
+        if (this.player.cockTotal() == 1) this.outputText("your");
+        else this.outputText("one of your");
+        this.outputText(" sub-par (by Marethian standards at least) cock");
+        if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(
             '.  "<i>What the hell is that?</i>" she taunts. "<i>I wasn\'t aware I was beaten by a baby imp.</i>"  She snaps her fingers three times: up, across the body, and then out again on the first side.\n\n',
             false
@@ -1192,10 +1192,10 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
 
-        this.outputText("Annoyed by her rebelliousness, you reach back, ", false);
+        this.outputText("Annoyed by her rebelliousness, you reach back, ");
         if (this.monster.nipplesPierced > 0)
-            this.outputText("grasp the intersection of her nipple-chains, ", false);
-        else this.outputText("grasp her nipples, ", false);
+            this.outputText("grasp the intersection of her nipple-chains, ");
+        else this.outputText("grasp her nipples, ");
         this.outputText(
             "and tug them about roughly.  You're delighted when she reacts with an excited gasp, neatly interrupting her chant.  You feel her body tensing up under you, and you prepare yourself for her second orgasm.  Taking pleasure in her squirms, you make one more powerful thrust.  Once again, you slowly pull back until you're nearly out, and you hear her sigh of relief at the thought of removing the obstruction.  At the last moment, you thrust as hard as you can back inside, bottling the still-unsticky webbing inside the spinneret as she attempts to ejaculate.  Her silk-making organ bulges obscenely with the load, and her groan quickly escalates to a shriek at her inability to clear the way.  Meanwhile, her penis is wantonly spraying its seed all over her shivering form, coloring her pale complexion even whiter.\n\n",
             false
@@ -1244,7 +1244,7 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
         if (this.player.cumQ() < 50)
-            this.outputText("  She easily keeps in rhythm with your spurts.", false);
+            this.outputText("  She easily keeps in rhythm with your spurts.");
         else if (this.player.cumQ() < 350)
             this.outputText(
                 "  She sputters a bit from the amount of semen, but she catches up well enough.",
@@ -1261,9 +1261,9 @@ export class CorruptedDriderScene extends BaseContent {
                 false
             );
         if (this.player.cockTotal() > 1) {
-            this.outputText("  Your other ", false);
-            if (this.player.cockTotal() > 2) this.outputText("cocks give ", false);
-            else this.outputText("cock gives ", false);
+            this.outputText("  Your other ");
+            if (this.player.cockTotal() > 2) this.outputText("cocks give ");
+            else this.outputText("cock gives ");
             this.outputText(
                 "you a picture-in-picture view of what's happening inside, launching identical strokes all over her face.  She's in for a stinging surprise if she opens her eyes quickly when she wakes.",
                 false
@@ -1300,7 +1300,7 @@ export class CorruptedDriderScene extends BaseContent {
             "You grunt, too exhausted to move any further.  She chuckles at your disinterest, bending down to rest her thick member in between your cheeks and slowly grind along the cleft of your ass.  You feel the tiny nubs of her demonic cock rub along your eager asshole, pre-cum lubricating your hot entrance as she moans in unrequited pleasure.  Gritting your teeth, you force yourself to ",
             false
         );
-        if (this.player.HP < 1) this.outputText("relax in order to reduce the discomfort", false);
+        if (this.player.HP < 1) this.outputText("relax in order to reduce the discomfort");
         else
             this.outputText(
                 "calm your racing thoughts and resist showing how eager you are",
@@ -1325,7 +1325,7 @@ export class CorruptedDriderScene extends BaseContent {
         );
         if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
         else if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
-        else this.outputText("taint", false);
+        else this.outputText("taint");
         this.outputText(
             " slapping against her slavering cunt.  She grabs on to your " +
                 this.hipDescript() +
@@ -1362,17 +1362,17 @@ export class CorruptedDriderScene extends BaseContent {
 
         this.outputText('"<i>A-ah, here they come!</i>"\n\n', false);
 
-        this.outputText("One by one, the round protrusions of the ovipositor enter your ", false);
-        if (this.player.HP < 1) this.outputText("abused", false);
-        else this.outputText("hungry", false);
+        this.outputText("One by one, the round protrusions of the ovipositor enter your ");
+        if (this.player.HP < 1) this.outputText("abused");
+        else this.outputText("hungry");
         this.outputText(
             " asshole, her eggs squeezing along and filling you up inside.  You yelp as the seemingly endless onslaught of spherical objects force their way inside, the drider effortlessly pumping in and out of you to help the process along.  The arachnid-woman pants and curses while she jerks off her nubbed member, using both of her hands to double the pleasure of being inside of you.  You're pushed and shoved against the ground while your attacker slams against your " +
                 this.assDescript() +
                 " with wild abandon, and with one final push she's sent over the edge, shuddering in orgasmic delight as ropes of cum fly out of her thick length and land ",
             false
         );
-        if (this.player.tallness < 66) this.outputText("in front of you", false);
-        else this.outputText("on your face", false);
+        if (this.player.tallness < 66) this.outputText("in front of you");
+        else this.outputText("on your face");
         this.outputText(
             ", her pussy juices squirting alongside them.  As she calms down, the herm-drider's spunk lessens in force, instead drooling out of her softening cock and landing onto your ",
             false
@@ -1423,22 +1423,22 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
         if (this.player.isBiped() || this.player.isGoo())
-            this.outputText("down onto your back", false);
-        else this.outputText("over, onto your side and then to your back", false);
+            this.outputText("down onto your back");
+        else this.outputText("over, onto your side and then to your back");
         this.outputText(
             ".  It seems that, regardless of their slenderness, she can still put an impressive amount of weight behind her legs.  They ",
             false
         );
         if (!this.player.isNaga())
             this.outputText("pull your own " + this.player.feet() + " apart", false);
-        else this.outputText("scrape inquisitively at your scales", false);
+        else this.outputText("scrape inquisitively at your scales");
         this.outputText(
             ", her body climbing atop you.  Before you can realize her plans her spinneret is at work, ",
             false
         );
         if (!this.player.isNaga()) {
-            this.outputText("coating your ", false);
-            if (this.player.isTaur()) this.outputText("rear ", false);
+            this.outputText("coating your ");
+            if (this.player.isTaur()) this.outputText("rear ");
             this.outputText(
                 this.player.legs() + " and pinning you in that prone, separated position",
                 false
@@ -1452,8 +1452,8 @@ export class CorruptedDriderScene extends BaseContent {
             ".  She turns with the eerie speed of the arachnids of Mareth, quickly performing the same acts to your ",
             false
         );
-        if (!this.player.isTaur()) this.outputText("wrists", false);
-        else this.outputText("forelegs", false);
+        if (!this.player.isTaur()) this.outputText("wrists");
+        else this.outputText("forelegs");
         this.outputText(
             ' and leaving you pinned and spread-eagled on the ground.  "<i>That should stem that.</i>"\n\n',
             false
@@ -1577,7 +1577,7 @@ export class CorruptedDriderScene extends BaseContent {
             false
         );
 
-        this.outputText("The drider presses you to her crotch", false);
+        this.outputText("The drider presses you to her crotch");
         if (!this.player.isTaur())
             this.outputText(
                 ", cutting your head loose from the imposed bondage with sharp, hard fingertips",
@@ -1611,8 +1611,8 @@ export class CorruptedDriderScene extends BaseContent {
             "You take another deep gasp of breath as you lay against the ground.  You hadn't noticed that she had stolen so much of your air again.  Perhaps you passed out.  The deprivation and the venom have already slowed your mind enough that you can't be certain, but she picks your head back up, and back on her prick you go.  Each time you feel a little weaker, a little more exhausted.  Your jaw is slacker than it was before, the energy to squeeze and suck bleeding out of you and splattered across your face every time she dredges up the depths of your throat.  She just lets your head drop now, whenever she thinks you're near passing out.  It hurts to ",
             false
         );
-        if (!this.player.isTaur()) this.outputText("land against the ground", false);
-        else this.outputText("strain your neck suddenly with the dead weight of it", false);
+        if (!this.player.isTaur()) this.outputText("land against the ground");
+        else this.outputText("strain your neck suddenly with the dead weight of it");
         this.outputText(
             ", and you nearly spit up, but the drider's abuse remains welcome.\n\n",
             false
@@ -1674,10 +1674,10 @@ export class CorruptedDriderScene extends BaseContent {
                     ", exposing your ",
                 false
             );
-            if (this.player.lust < 50) this.outputText("soft", false);
-            else this.outputText("hard", false);
-            this.outputText("member", false);
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
+            if (this.player.lust < 50) this.outputText("soft");
+            else this.outputText("hard");
+            this.outputText("member");
+            if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(
                 " to the air.  She squeezes " +
                     this.oMultiCockDesc() +
@@ -1772,7 +1772,7 @@ export class CorruptedDriderScene extends BaseContent {
                 " begins to cum wildly, squirting and leaking a torrent of jizz.  The first few ropes blast out with incredible force, hosing down her cunt",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText(" and belly", false);
+        if (this.player.cockTotal() > 1) this.outputText(" and belly");
         this.outputText(
             ".  Then, the constant application and release of pressure on your prostate utterly destroys the orgasmic timing of your muscles' contractions, making " +
                 this.sMultiCockDesc() +
@@ -1837,11 +1837,11 @@ export class CorruptedDriderScene extends BaseContent {
                 false
             );
         if (this.player.hasVagina()) {
-            this.outputText("Your pussy clenches and ", false);
-            if (this.player.wetness() < 3) this.outputText("drips", false);
-            else if (this.player.wetness() < 4) this.outputText("dribbles", false);
-            else if (this.player.wetness() < 5) this.outputText("gives a tiny squirt", false);
-            else this.outputText("gushes a river of lady-spunk", false);
+            this.outputText("Your pussy clenches and ");
+            if (this.player.wetness() < 3) this.outputText("drips");
+            else if (this.player.wetness() < 4) this.outputText("dribbles");
+            else if (this.player.wetness() < 5) this.outputText("gives a tiny squirt");
+            else this.outputText("gushes a river of lady-spunk");
             this.outputText(
                 " into the dirt, getting off along with your " + this.assholeDescript() + ".  ",
                 false
@@ -1949,7 +1949,7 @@ export class CorruptedDriderScene extends BaseContent {
             "You lie back and your exhaustion finally begins to get the better of you when combined with the contentment from seeing your babies enjoying themselves.  Your eyelids begin to droop, and before you know it, you've slipped into unconsciousness.  You awaken later on, a sticky feeling between your legs to go with your wet pussy",
             false
         );
-        if (this.player.hasCock()) this.outputText(" and raging hard on", false);
+        if (this.player.hasCock()) this.outputText(" and raging hard on");
         this.outputText(
             ".  After remembering where you are, the next thing you notice is the absence of your drider children.  Only a pile of empty, broken egg shells and some messy webbing in the trees remain.  As you stand up and prepare to move on, the sun reflecting off something in the corner of your eye catches your attention.\n\n",
             false
@@ -2001,14 +2001,14 @@ export class CorruptedDriderScene extends BaseContent {
         );
         // (if Vagina:
         if (this.player.hasVagina()) {
-            this.outputText(" while your unused cunt spurts girlcum across her carapace", false);
-            if (this.player.cockTotal() > 1) this.outputText(" and", false);
-        } else if (this.player.cockTotal() > 1) this.outputText(" as", false);
+            this.outputText(" while your unused cunt spurts girlcum across her carapace");
+            if (this.player.cockTotal() > 1) this.outputText(" and");
+        } else if (this.player.cockTotal() > 1) this.outputText(" as");
         if (this.player.cockTotal() > 1) {
-            this.outputText(" your spare cock", false);
-            if (this.player.cockTotal() == 2) this.outputText(" coats", false);
-            else this.outputText("s coat", false);
-            this.outputText(" her human back with a thick white layer of spooge", false);
+            this.outputText(" your spare cock");
+            if (this.player.cockTotal() == 2) this.outputText(" coats");
+            else this.outputText("s coat");
+            this.outputText(" her human back with a thick white layer of spooge");
         }
         this.outputText(".\n\n", false);
 

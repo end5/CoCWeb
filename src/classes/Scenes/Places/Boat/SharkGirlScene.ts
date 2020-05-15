@@ -74,7 +74,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             "It's a woman – a peculiarly corrupted woman, with shiny grey skin, silver hair, and a fin positioned between her shoulder blades. She's wearing some rather revealing black swimwear. The girl looks up at you and grins widely, showing rows of knife-like teeth. \"<i>Wanna play? Heads up though, I play 'rough'!</i>\"\n\n",
             false
         );
-        this.outputText("You're fighting a shark girl!", false);
+        this.outputText("You're fighting a shark girl!");
         this.startCombat(new SharkGirl());
         this.spriteSelect(70);
     }
@@ -95,7 +95,7 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             this.dynStats("lus", 15);
         }
         if (this.player.lust >= 33 && this.player.gender > 0) {
-            this.outputText("  Do you have your way with her or leave?", false);
+            this.outputText("  Do you have your way with her or leave?");
             const dildo =
                 this.player.hasKeyItem("Deluxe Dildo") >= 0
                     ? this.getGame().sharkGirlGetsDildoed
@@ -454,9 +454,9 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         this.spriteSelect(70);
         // Genderless:
         if (this.player.gender == 0) {
-            this.outputText("You slump down in defeat, too ", false);
-            if (this.player.HP < 1) this.outputText("hurt ", false);
-            else this.outputText("horny ", false);
+            this.outputText("You slump down in defeat, too ");
+            if (this.player.HP < 1) this.outputText("hurt ");
+            else this.outputText("horny ");
             this.outputText("to fight on.\n\n", false);
             this.outputText(
                 "The shark girl does a little victory dance, swaying her hips to and fro before moving over to you. She quickly removes your " +
@@ -473,10 +473,10 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
             this.player.hasVagina() &&
             (this.player.totalCocks() == 0 || SharkGirlScene.rand(2) == 0)
         ) {
-            this.outputText("You slump down in defeat, too ", false);
+            this.outputText("You slump down in defeat, too ");
             // [defeat via HP]
-            if (this.player.HP < 1) this.outputText("hurt ", false);
-            else this.outputText("horny ", false);
+            if (this.player.HP < 1) this.outputText("hurt ");
+            else this.outputText("horny ");
             this.outputText("to fight on.\n\n", false);
 
             this.outputText(
@@ -526,10 +526,10 @@ Sex Life: The shark girls treat sex like a game or a sport, constantly battling 
         }
         // Male:
         else {
-            this.outputText("You slump down in defeat, too ", false);
+            this.outputText("You slump down in defeat, too ");
             // [defeat via HP]
-            if (this.player.HP < 1) this.outputText("hurt ", false);
-            else this.outputText("horny ", false);
+            if (this.player.HP < 1) this.outputText("hurt ");
+            else this.outputText("horny ");
             this.outputText("to fight on.\n\n", false);
 
             this.outputText(

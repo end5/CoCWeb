@@ -209,7 +209,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        this.outputText("What do you do?", false);
+        this.outputText("What do you do?");
         // [Talk] [Slap] [Swoon]
         this.simpleChoices(
             "Talk",
@@ -305,7 +305,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        this.outputText("You hold the hand he touched close to your chest.", false);
+        this.outputText("You hold the hand he touched close to your chest.");
 
         this.dynStats("str", -1, "tou", -1, "spe", 3, "sen", 1, "lus", 25);
         this.doNext(this.playerMenu);
@@ -420,7 +420,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
         );
         // ({If player has tail}
         if (this.player.tailType > TAIL_TYPE_NONE)
-            this.outputText("  Your tail peeks out through the cut.", false);
+            this.outputText("  Your tail peeks out through the cut.");
         this.outputText(
             "  You still can't help but feel that anyone standing behind you is given a generous glimpse of your ornate ass, however. The same goes for your " +
                 this.breastDescript(0) +
@@ -497,7 +497,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("What do you do?", false);
+            this.outputText("What do you do?");
             this.flags[kFLAGS.RAPHAEL_DISGUSTED_BY_PC_APPEARANCE] = 0;
             // [Reject] [Frisk] [Date]
             this.simpleChoices(
@@ -595,7 +595,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("You clench your jaw as he vanishes, more than a bit offended.", false);
+            this.outputText("You clench your jaw as he vanishes, more than a bit offended.");
 
             // {Game removal untill the PC complies with the requirements again.})
             this.doNext(this.playerMenu);
@@ -750,7 +750,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("How do you respond?", false);
+            this.outputText("How do you respond?");
             // Reject] [Accept]
             this.simpleChoices(
                 "Reject",
@@ -782,7 +782,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("What do you do?", false);
+            this.outputText("What do you do?");
             // [Squeeze] [Fondle]
             this.simpleChoices(
                 "Squeeze",
@@ -1039,7 +1039,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("You recollect yourself and head back to camp.", false);
+            this.outputText("You recollect yourself and head back to camp.");
         }
         this.doNext(this.playerMenu);
     }
@@ -1370,7 +1370,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("What do you do?", false);
+            this.outputText("What do you do?");
             this.flags[kFLAGS.RAPHAEL_RAPIER_TRANING] = 4;
             // [Fence] [Discuss]
             this.simpleChoices(
@@ -1518,7 +1518,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("Do you let him?", false);
+            this.outputText("Do you let him?");
             // [Yes] [No])
             // yes to sex
             // [No] leads up to the universal rejection scene
@@ -1927,7 +1927,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("What do you do?", false);
+            this.outputText("What do you do?");
             this.flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] = 4;
             // [Fencing] [Flirt]
             // [Fencing] {Leads to Fencing Variables}
@@ -2039,7 +2039,7 @@ export class Raphael extends NPCAwareContent implements TimeAwareInterface {
             '<i>"Some games are meant to be lost."</i>  He nuzzles you, putting his snout to your ear.  <i>"It will be... exquisite.  Lose yourself, in my capable hands."</i>\n\n',
             false
         );
-        this.outputText("Do you?", false);
+        this.outputText("Do you?");
         this.dynStats("lus", 25);
         // Choose:
         // [Yes] [No]

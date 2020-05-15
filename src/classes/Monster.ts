@@ -735,7 +735,7 @@ export class Monster extends Creature {
             );
         } else if (damage > 20) {
             this.outputText(this.capitalA + this.short + " <b>mutilate", false);
-            if (!this.plural) this.outputText("s", false);
+            if (!this.plural) this.outputText("s");
             this.outputText(
                 "</b> you with " +
                     this.pronoun3 +
@@ -892,7 +892,7 @@ export class Monster extends Creature {
          mainClassPtr.doNext(3);
          return;
          }
-         mainClassPtr.outputText("Lust Placeholder!!", false);
+         mainClassPtr.outputText("Lust Placeholder!!");
          mainClassPtr.doNext(3);
          return;*/
         //
@@ -969,7 +969,7 @@ export class Monster extends Creature {
                 false
             );
         else
-            this.game.outputText("Your foe is too dazed from your last hit to strike back!", false);
+            this.game.outputText("Your foe is too dazed from your last hit to strike back!");
         if (this.statusAffectv1(StatusAffects.Stunned) <= 0)
             this.removeStatusAffect(StatusAffects.Stunned);
         else this.addStatusValue(StatusAffects.Stunned, 1, -1);

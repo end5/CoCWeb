@@ -984,7 +984,7 @@ export class Player extends Character {
         const devirgined: boolean = wasVirgin && !this.vaginas[0].virgin;
         if (devirgined) {
             if (spacingsF) this.outputText("  ");
-            this.outputText("<b>Your hymen is torn, robbing you of your virginity.</b>", false);
+            this.outputText("<b>Your hymen is torn, robbing you of your virginity.</b>");
             if (spacingsB) this.outputText("  ");
         }
         // STRETCH SUCCESSFUL - begin flavor text if outputting it!
@@ -1075,7 +1075,7 @@ export class Player extends Character {
                 "<b>Your " + Appearance.assholeDescript(this) + " is now a little loose.</b>"
             );
         if (this.ass.analLooseness == 1)
-            this.outputText("<b>You have lost your anal virginity.</b>", false);
+            this.outputText("<b>You have lost your anal virginity.</b>");
     }
 
     public slimeFeed(): void {
@@ -1199,8 +1199,8 @@ export class Player extends Character {
                         this.breastRows[temp3].breastRating = 0;
                     temp2++;
                     this.outputText("\n", false);
-                    if (temp3 < this.breastRows.length - 1) this.outputText("...and y", false);
-                    else this.outputText("Y", false);
+                    if (temp3 < this.breastRows.length - 1) this.outputText("...and y");
+                    else this.outputText("Y");
                     this.outputText(
                         "our " +
                             this.breastDescript(temp3) +

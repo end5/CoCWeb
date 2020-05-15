@@ -154,12 +154,12 @@ export class FollowerInteractions extends NPCAwareContent {
             false
         );
 
-        this.outputText("You nod and leave, ", false);
-        if (this.player.cor > 66) this.outputText("already regretting your choice", false);
+        this.outputText("You nod and leave, ");
+        if (this.player.cor > 66) this.outputText("already regretting your choice");
         else if (this.player.cor > 33)
-            this.outputText("a little confused by the whole situation", false);
-        else this.outputText("glad the damage you did to Jojo wasn't permanent", false);
-        this.outputText(".", false);
+            this.outputText("a little confused by the whole situation");
+        else this.outputText("glad the damage you did to Jojo wasn't permanent");
+        this.outputText(".");
         // (Jojo leaves, never encountered again.)
         this.flags[kFLAGS.JOJO_DEAD_OR_GONE] = 1;
         // (-5 corruption)
@@ -221,7 +221,7 @@ export class FollowerInteractions extends NPCAwareContent {
                 false
             );
             if (this.player.inte >= 45)
-                this.outputText("  Goblin ale and lust drafts might do the trick.", false);
+                this.outputText("  Goblin ale and lust drafts might do the trick.");
 
             // Follower off
             this.flags[kFLAGS.AMILY_FOLLOWER] = 0;
@@ -369,7 +369,7 @@ export class FollowerInteractions extends NPCAwareContent {
             false
         );
 
-        this.outputText("Amily takes off, leaving you alone with the alchemist.", false);
+        this.outputText("Amily takes off, leaving you alone with the alchemist.");
 
         // (+5 lust!)/
         this.dynStats("lus", 5);
@@ -378,11 +378,11 @@ export class FollowerInteractions extends NPCAwareContent {
     // [Amily delivers ingredients to Rathazul – happens at Rathazul]
     public amilyIngredientDelivery(): void {
         this.outputText("", true);
-        this.outputText("As you make your way to Rathazul's lab, a ", false);
+        this.outputText("As you make your way to Rathazul's lab, a ");
 
         if (this.flags[kFLAGS.AMILY_NOT_FURRY] == 1)
-            this.outputText("big-eared blur whizzes past you", false);
-        else this.outputText("blur of fur whizzes past you", false);
+            this.outputText("big-eared blur whizzes past you");
+        else this.outputText("blur of fur whizzes past you");
 
         this.outputText(
             '.  Amily sprints into the rat\'s lab with an armful of flowers, plants, and other ingredients.  Rathazul says, "<i>Thank you, child - these will be a huge help.  It is fortunate you knew where to find some of these.  Purchasing them is difficult and expensive.</i>"\n\n',
@@ -518,7 +518,7 @@ export class FollowerInteractions extends NPCAwareContent {
             false
         );
 
-        this.outputText("Jojo turns to you, gives a quick bow, and departs.", false);
+        this.outputText("Jojo turns to you, gives a quick bow, and departs.");
         // [To rathazul]
         this.doNext(kGAMECLASS.rathazul.returnToRathazulMenu);
     }
@@ -724,7 +724,7 @@ export class FollowerInteractions extends NPCAwareContent {
             false
         );
         if (this.player.inte >= 45)
-            this.outputText("  Goblin ale and lust drafts might do the trick.", false);
+            this.outputText("  Goblin ale and lust drafts might do the trick.");
         // Follower off
         this.flags[kFLAGS.AMILY_FOLLOWER] = 0;
         this.flags[kFLAGS.AMILY_CORRUPT_FLIPOUT] = 1;
@@ -812,8 +812,8 @@ export class FollowerInteractions extends NPCAwareContent {
             "You turn to Marble and point blankly tell her that it's her fault that you weren't faithful to Amily.  You start to rant about how Marble's milk has affected you, and how you lost your willpower to the addiction.  You go on about how she uses it to get what she wants, and how she didn't warn you about what would happen if you drank it.  At this Amily runs to your side and looks into your eyes for a moment before turning back to Marble and saying, \"<i>Is this the truth?</i>\"  Marble looks at you for a moment like she is going to explode before saying, \"<i>Is that really what you think of me?  How could you lie to me like this up until now?!</i>\" she then turns around and almost mechanically gathers her things ",
             false
         );
-        if (this.flags[kFLAGS.MARBLE_KIDS] == 1) this.outputText("and child", false);
-        else if (this.flags[kFLAGS.MARBLE_KIDS] > 1) this.outputText("and her children", false);
+        if (this.flags[kFLAGS.MARBLE_KIDS] == 1) this.outputText("and child");
+        else if (this.flags[kFLAGS.MARBLE_KIDS] > 1) this.outputText("and her children");
         this.outputText(
             " before slowly walking away from the camp without looking back.  \"<i>I'm going back to the farm, I guess I'll see you around.</i>\"\n\n",
             false
@@ -915,7 +915,7 @@ export class FollowerInteractions extends NPCAwareContent {
                 " her stomach swollen from the fox-morph's prodigious cum output to the point she looks ",
                 false
             );
-            if (this.amilyScene.pregnancy.event >= 3) this.outputText("almost twice as ", false);
+            if (this.amilyScene.pregnancy.event >= 3) this.outputText("almost twice as ");
             this.outputText(
                 "pregnant.  The mouse is holding a half-full bottle of what you think is Barkardi 151, waving it enthusiastically through the air even as she thumps up and down in Urta's lap, trying to coax one last orgasm from the visibly-drained hermaphrodite.  She giggles with delight and takes a messy swig from her bottle, spilling some of the booze onto her " +
                     this.amilyScene.amilyTits() +
@@ -1043,7 +1043,7 @@ export class FollowerInteractions extends NPCAwareContent {
             this.flags[kFLAGS.URTA_COMFORTABLE_WITH_OWN_BODY] = -1;
         }
         this.flags[kFLAGS.AMILY_VISITING_URTA] = 3;
-        this.outputText("You shrug.  Well, that puts an end to that.", false);
+        this.outputText("You shrug.  Well, that puts an end to that.");
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -1134,7 +1134,7 @@ export class FollowerInteractions extends NPCAwareContent {
             false
         );
 
-        this.outputText("You nod and leave her to sleep.", false);
+        this.outputText("You nod and leave her to sleep.");
 
         // "Urta" is now unlocked in Amily's options between 0600 and 1400
         this.outputText("\n\n(<b>Urta is now unlocked from Amily's sex menu.</b>)", false);
@@ -1165,7 +1165,7 @@ export class FollowerInteractions extends NPCAwareContent {
             false
         );
         if (!this.urtaLove())
-            this.outputText("blushes softly at the clunk of her erection against the table", false);
+            this.outputText("blushes softly at the clunk of her erection against the table");
         else
             this.outputText(
                 "turns sideways to let her dress tent without banging into the table",
@@ -1246,7 +1246,7 @@ export class FollowerInteractions extends NPCAwareContent {
             false
         );
         if (this.flags[kFLAGS.AMILY_WANG_LENGTH] > 0)
-            this.outputText(", up the underside of her penis,", false);
+            this.outputText(", up the underside of her penis,");
         this.outputText(" and between her " + this.amilyScene.amilyTits() + ".\n\n", false);
 
         this.outputText(

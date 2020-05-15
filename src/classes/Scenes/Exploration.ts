@@ -125,13 +125,13 @@ export class Exploration extends BaseContent {
                     true
                 );
                 if (this.player.lowerBody == LOWER_BODY_TYPE_HUMAN)
-                    this.outputText("inside your footwear, between your toes", false);
+                    this.outputText("inside your footwear, between your toes");
                 if (this.player.lowerBody == LOWER_BODY_TYPE_HOOFED)
-                    this.outputText("in your hooves", false);
+                    this.outputText("in your hooves");
                 if (this.player.lowerBody == LOWER_BODY_TYPE_DOG)
-                    this.outputText("in your paws", false);
+                    this.outputText("in your paws");
                 if (this.player.lowerBody == LOWER_BODY_TYPE_NAGA)
-                    this.outputText("in your scales", false);
+                    this.outputText("in your scales");
                 this.outputText(".\n\n<b>You've discovered the Desert!</b>", false);
                 this.player.exploredDesert = 1;
                 this.player.explored++;
@@ -183,7 +183,7 @@ export class Exploration extends BaseContent {
                     "Before long, you start to detect traces of change in the environment.  The most immediate difference is the increasingly sweltering heat.  A few minutes pass, then the will-o'-the-wisps plunge into the boundaries of a dark, murky, stagnant swamp; after a steadying breath you follow them into the bog.  Once within, however, the gaseous balls float off in different directions, causing you to lose track of them.  You sigh resignedly and retrace your steps, satisfied with your discovery.  Further exploration can wait.  For now, your camp is waiting.\n\n",
                     false
                 );
-                this.outputText("<b>You've discovered the swamp!</b>", false);
+                this.outputText("<b>You've discovered the swamp!</b>");
                 this.doNext(this.camp.returnToCampUseTwoHours);
                 return;
             }
@@ -418,7 +418,7 @@ export class Exploration extends BaseContent {
         }
         this.outputText("\n\n", false);
         // PARAGRAPH 3
-        this.outputText("You realize you are effectively trapped here by your own body.", false);
+        this.outputText("You realize you are effectively trapped here by your own body.");
         // CORRUPTION BASED CHARACTER'S VIEW OF SITUATION
         if (this.player.cor < 33)
             this.outputText(

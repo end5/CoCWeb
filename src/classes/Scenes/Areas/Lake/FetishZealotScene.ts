@@ -133,17 +133,17 @@ export class FetishZealotScene extends AbstractLakeContent {
                     false
                 );
                 if (this.player.hasVagina()) {
-                    this.outputText("and wet ", false);
+                    this.outputText("and wet ");
                 }
-                this.outputText("under his gaze, ", false);
-            } else this.outputText("bare crotch, ", false);
+                this.outputText("under his gaze, ");
+            } else this.outputText("bare crotch, ");
             this.outputText(
                 "and you silently wish that the dress code allowed for a small flap for covering your ",
                 false
             );
             if (this.player.gender == 0) {
-                this.outputText("lack of ", false);
-            } else this.outputText("genitals.  ", false);
+                this.outputText("lack of ");
+            } else this.outputText("genitals.  ");
         } else {
             this.outputText(
                 "He starts to look up, but his gazes fixes on your skirt, just barely covering your ",
@@ -155,17 +155,17 @@ export class FetishZealotScene extends AbstractLakeContent {
                     this.outputText("and your " + this.multiCockDescriptLight() + " ", false);
                 }
             } else {
-                this.outputText("bare crotch ", false);
+                this.outputText("bare crotch ");
             }
-            this.outputText("from this angle.  You feel hot under his gaze ", false);
+            this.outputText("from this angle.  You feel hot under his gaze ");
             if (this.player.cockTotal() > 0) {
                 this.outputText(", and your " + this.multiCockDescriptLight() + " start", false);
                 if (this.player.cockTotal() == 1) {
-                    this.outputText("s", false);
+                    this.outputText("s");
                 }
-                this.outputText(" to get hard, as your ", false);
+                this.outputText(" to get hard, as your ");
             }
-            this.outputText("cleft starts to moisten.  ", false);
+            this.outputText("cleft starts to moisten.  ");
         }
         this.outputText(
             "You clear your throat nervously and he starts, finally raising his eyes to your face.\n\n",
@@ -528,8 +528,8 @@ export class FetishZealotScene extends AbstractLakeContent {
                 false
             );
             if (this.player.vaginas[0].vaginalLooseness < VAGINA_LOOSENESS_LOOSE)
-                this.outputText("tight", false);
-            else this.outputText("loose", false);
+                this.outputText("tight");
+            else this.outputText("loose");
             this.outputText(
                 ' you are, he still seems to fit you like a glove.  With no need to adjust to his presence inside you, you immediately start to roughly fuck him.  To make sure he doesn\'t enjoy himself too much, you start to twist and pull at his nipples.  Between his gasps of pleasure and pain, he continues his prayer: "<i>Gah, oh woe is me, ah-gha, my punishment is my pleas- agh!  My eternal torment will be –ugha, never being able to –hah, enjoy this forever.  Ugha!</i>"  Finally tired of his antics, you punch him in the stomach, as his amazing rod pumping within your ' +
                     this.vaginaDescript(0) +

@@ -372,7 +372,7 @@ export class Bazaar extends BaseContent {
     private joeyAndrogyny(): void {
         this.outputText("", true);
         if (this.player.gems < 500) {
-            this.outputText("You haven't got enough gems for that treatment!", false);
+            this.outputText("You haven't got enough gems for that treatment!");
             this.doNext(this.theSlipperySqueeze);
             return;
         }
@@ -382,9 +382,9 @@ export class Bazaar extends BaseContent {
             'Joey takes your hand in his and insistently pulls towards the back rooms.  "<i>Once we have this all done ',
             false
         );
-        if (this.player.gender == 1) this.outputText("you'll be able to be as cute as me!", false);
+        if (this.player.gender == 1) this.outputText("you'll be able to be as cute as me!");
         else if (this.player.gender == 2)
-            this.outputText("you'll be able to be as masculine as you want!", false);
+            this.outputText("you'll be able to be as masculine as you want!");
         else
             this.outputText(
                 "you'll be able to be as cute as me or as masculine as you want!",
@@ -459,7 +459,7 @@ export class Bazaar extends BaseContent {
                 " a rough squeeze as he prances towards a nearby table with a large number of bottles.  You hear him drop a cork on the floor and watch it roll by your face.  The masseuse noisily gulps down whatever concoction he's just opened up, sighing contentedly and giving a cute, girlish burp once he's finished.  He leans down and breathes huskily into your ear, his hand roaming your body while he explains, \"<i>I just drank one of our house specials.  It's a nice little concoction that'll kick my prostate and balls into overdrive.  In a minute I'll start leaking my favorite lotion, and I won't stop for at least twenty minutes.  Just enough time to finish your massage.",
             false
         );
-        if (this.player.hasCock()) this.outputText("  Would you like one?", false);
+        if (this.player.hasCock()) this.outputText("  Would you like one?");
         this.outputText('</i>"', false);
         if (this.player.hasCock()) {
             this.outputText("\n\nDo you accept Joey's potion?", false);
@@ -509,9 +509,9 @@ export class Bazaar extends BaseContent {
                 "s, bidding you to play with it.  You do enthusiastically, even while Joey's same hand gathers more of the salty white lotion to smear over the front of your shoulders and arms, working it into your pores as effectively as he works the tension from you.  Unable to deny your growing need, you lift your head to watch with perverse fascination.  Joey is blushing hard, but he holds himself immobile while the whitish goop continually pours from him.  While his dick would've been considered average back home, here, in this place, he's tiny.  He really does remind you of a lotion dispenser, pumping out globs of sticky whiteness to be rubbed into one's skin.\n\n",
             false
         );
-        this.outputText("You catch a view of your hand as it ", false);
-        if (!this.player.hasFuckableNipples()) this.outputText("tweaks and teases", false);
-        else this.outputText("sinks a finger deep inside", false);
+        this.outputText("You catch a view of your hand as it ");
+        if (!this.player.hasFuckableNipples()) this.outputText("tweaks and teases");
+        else this.outputText("sinks a finger deep inside");
         this.outputText(
             " your " +
                 this.nippleDescript(0) +
@@ -544,7 +544,7 @@ export class Bazaar extends BaseContent {
                     false
                 );
                 if (this.player.totalCocks() > 2) {
-                    this.outputText("  The process is repeated", false);
+                    this.outputText("  The process is repeated");
                     if (this.player.totalCocks() > 3)
                         this.outputText(
                             " as necessary until " +
@@ -561,7 +561,7 @@ export class Bazaar extends BaseContent {
                         );
                 }
             }
-            this.outputText("  A moment later, ", false);
+            this.outputText("  A moment later, ");
             if (this.player.balls > 0)
                 this.outputText(
                     "his hand firmly rubs your " + this.sackDescript() + ", and ",
@@ -613,8 +613,8 @@ export class Bazaar extends BaseContent {
                     false
                 );
                 if (this.player.clitLength >= 4)
-                    this.outputText("like a practiced whore fellating a john.", false);
-                else this.outputText("like a professional pussy-licker.", false);
+                    this.outputText("like a practiced whore fellating a john.");
+                else this.outputText("like a professional pussy-licker.");
                 this.outputText(
                     "  You give your " +
                         this.nippleDescript(0) +
@@ -652,9 +652,9 @@ export class Bazaar extends BaseContent {
                     false
                 );
                 if (this.player.cumQ() >= 2000)
-                    this.outputText("massive, jiggling belly you've given him.", false);
-                else this.outputText("little paunch on his belly jiggle.", false);
-                this.outputText("  He won't be hungry for some time.", false);
+                    this.outputText("massive, jiggling belly you've given him.");
+                else this.outputText("little paunch on his belly jiggle.");
+                this.outputText("  He won't be hungry for some time.");
             }
             this.outputText(
                 '  Joey turns and prances away, saying, "<i>There\'s a shower if you need to clean up, and be sure and visit me the next time you need help to squeeze out all that tension!</i>"  You barely hear his words, so focused are you on his cum-darkened, distended thong.  You can see it bulging between his legs, and while his pert butt sways out the door, you can see that his cum-filled thong is designed to redirect all that fluid over his taint and into his backdoor. Kinky.',
@@ -677,10 +677,10 @@ export class Bazaar extends BaseContent {
             "The rabbit-eared fem-boy pulls the cork on another bottle and helps you to roll to your side to drink it.  He holds the lip of the bottle to your lips and raises the bottom slowly, giving you just enough time to guzzle it without drowning.  It's sweet and syrupy, though there's an undertone of spicy strangeness that you can't quite place.  Whatever the secret ingredients are, you'll never figure them out from taste alone.  You feel warmth once you've finished, and a tightness settles ",
             false
         );
-        if (this.player.balls == 0) this.outputText("inside you", false);
+        if (this.player.balls == 0) this.outputText("inside you");
         else this.outputText("in your " + this.ballsDescriptLight(), false);
-        this.outputText(" that reminds you of the sensation just before orgasm.", false);
-        if (this.player.balls > 0) this.outputText("  They even feel a little bigger.", false);
+        this.outputText(" that reminds you of the sensation just before orgasm.");
+        if (this.player.balls > 0) this.outputText("  They even feel a little bigger.");
         this.outputText("\n\n", false);
 
         this.outputText(
@@ -689,8 +689,8 @@ export class Bazaar extends BaseContent {
                 " with soft caresses.  He plays your manhood",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s like fiddles", false);
-        else this.outputText(" like a fiddle", false);
+        if (this.player.cockTotal() > 1) this.outputText("s like fiddles");
+        else this.outputText(" like a fiddle");
         this.outputText(
             ", expertly running his fingertip around the sensitive " +
                 this.player.cockHead() +
@@ -757,7 +757,7 @@ export class Bazaar extends BaseContent {
         );
         if (this.player.skinType != SKIN_TYPE_FUR)
             this.outputText("over your " + this.player.skinDesc, false);
-        else this.outputText("through your fur", false);
+        else this.outputText("through your fur");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -767,8 +767,8 @@ export class Bazaar extends BaseContent {
             false
         );
         if (!this.player.hasFuckableNipples())
-            this.outputText("squeezing and tugging on them", false);
-        else this.outputText("sliding cum-coated fingers into their slippery depths", false);
+            this.outputText("squeezing and tugging on them");
+        else this.outputText("sliding cum-coated fingers into their slippery depths");
         this.outputText(
             " while he grinds and cums on your " +
                 this.cockDescript(0) +
@@ -827,7 +827,7 @@ export class Bazaar extends BaseContent {
                 false
             );
             if (this.player.cor > 60)
-                this.outputText(", with no more than a bit of wishful thinking,", false);
+                this.outputText(", with no more than a bit of wishful thinking,");
             this.outputText(
                 " that if someone were to apply suction to his member, it might help to vent the thick-flowing jism fast enough to help out Joey.  There doesn't seem to be anyone else around, so it would have to be you, but with how the parlor's potions work, you might be sucking for a long time...  Then again, if you made have him masturbate, it would probably stimulate his muscles to force all that fluid out.  Of course, if you tell him that, he'll probably run into a back room to try it and leave you be",
                 false
@@ -837,7 +837,7 @@ export class Bazaar extends BaseContent {
                     "; you won't get to watch him fountaining all that pearly spunk like a perverted statue",
                     false
                 );
-            this.outputText(".  What do you decide?", false);
+            this.outputText(".  What do you decide?");
             // [SuckCumOut] [MasturbateOut]
             this.simpleChoices(
                 "SuckCumOut",
@@ -946,11 +946,11 @@ export class Bazaar extends BaseContent {
                 ".  It's so messy, so decadent, but it's ",
             false
         );
-        if (this.player.cor < 33) this.outputText("all for a good cause, right?", false);
+        if (this.player.cor < 33) this.outputText("all for a good cause, right?");
         else if (this.player.cor < 66)
-            this.outputText("also kind of fun, in a naughty way.", false);
+            this.outputText("also kind of fun, in a naughty way.");
         else
-            this.outputText("exactly the kind of nasty stuff that gets your blood pumping.", false);
+            this.outputText("exactly the kind of nasty stuff that gets your blood pumping.");
         this.outputText(
             " Still, his balls feel even heavier in your hands by the time you return to your post on his post.  You work him dutifully while your mind races, trying to think up a solution.\n\n",
             false
@@ -988,7 +988,7 @@ export class Bazaar extends BaseContent {
             '"<i>I cleaned out your balls; you can clean up the floor,</i>" you joke as you leave, kissing him one last time on the mouth before you go.\n\n',
             false
         );
-        this.outputText("Joey blushes again and begins looking for a mop.", false);
+        this.outputText("Joey blushes again and begins looking for a mop.");
         this.dynStats("lus", 70);
         this.doNext(this.camp.returnToCampUseOneHour);
     }

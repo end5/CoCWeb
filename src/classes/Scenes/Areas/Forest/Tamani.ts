@@ -69,28 +69,28 @@ export class Tamani extends Goblin {
                     "With effort you manage to wrench your eyes away from the inviting folds of Tamani's vagina.  ",
                     false
                 );
-                if (this.player.totalCocks() > 1) this.outputText("Each of y", false);
-                else this.outputText("Y", false);
+                if (this.player.totalCocks() > 1) this.outputText("Each of y");
+                else this.outputText("Y");
                 this.outputText("our " + this.multiCockDescriptLight(), false);
-                if (this.player.lust > 80) this.outputText(" drips pre-cum", false);
-                else if (this.player.lust > 40) this.outputText(" grows harder", false);
-                else this.outputText(" hardens", false);
+                if (this.player.lust > 80) this.outputText(" drips pre-cum");
+                else if (this.player.lust > 40) this.outputText(" grows harder");
+                else this.outputText(" hardens");
                 this.outputText(
                     " from the sexual sight, and you feel a compulsion to rush to your wife and take her on the spot.  Obviously she's not really your wife, but after so many fuckings it kind of makes sense to think of her that way.",
                     false
                 );
                 if (this.player.lust < 70)
-                    this.outputText("  Still, you don't want to fuck her right now!", false);
+                    this.outputText("  Still, you don't want to fuck her right now!");
             } else {
                 this.outputText(
                     "Struggling, you pull your eyes back into your head and away from Tamani's gorgeous slit.  You shudder, feeling ",
                     false
                 );
-                if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+                if (this.player.totalCocks() > 1) this.outputText("each of ");
                 this.outputText("your " + this.player.multiCockDescriptLight(), false);
-                if (this.player.lust <= 41) this.outputText(" thicken perceptibly", false);
-                else if (this.player.lust <= 81) this.outputText(" twitch eagerly", false);
-                else this.outputText("drip pre-cum", false);
+                if (this.player.lust <= 41) this.outputText(" thicken perceptibly");
+                else if (this.player.lust <= 81) this.outputText(" twitch eagerly");
+                else this.outputText("drip pre-cum");
                 this.outputText(
                     ", responding to the overly sensual goblin's body.  You start to approach her, but stop yourself, realizing you were about to pick up your wife and fuck her on the spot.  You know she's not really your wife, but you have a hard time thinking of her as anything else, save for maybe your mistress.",
                     false
@@ -110,7 +110,7 @@ export class Tamani extends Goblin {
                     "You barely manage to step yourself from lunging forward to bury your mouth between your mistress's legs.  Hard and trembling between your legs, ",
                     false
                 );
-                if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+                if (this.player.totalCocks() > 1) this.outputText("each of ");
                 this.outputText(
                     "your " +
                         this.player.multiCockDescriptLight() +
@@ -122,8 +122,8 @@ export class Tamani extends Goblin {
                     "You wrench your gaze from the juicy mound before you with great difficulty.  The desire to submit to your wife and fuck her on the spot rages through your body, melting your resistance into liquid lust and pooling it in your groin.  ",
                     false
                 );
-                if (this.player.totalCocks() > 1) this.outputText("Each of y", false);
-                else this.outputText("Y", false);
+                if (this.player.totalCocks() > 1) this.outputText("Each of y");
+                else this.outputText("Y");
                 this.outputText(
                     "our " +
                         this.player.multiCockDescriptLight() +

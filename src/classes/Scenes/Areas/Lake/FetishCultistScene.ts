@@ -169,8 +169,8 @@ export class FetishCultistScene extends AbstractLakeContent {
                 );
 
                 // is that centaur worthy of being called mighty, or is he/she a mini?
-                if (this.player.tallness > 72) this.outputText("mighty", false);
-                else if (this.player.tallness < 60) this.outputText("mini", false);
+                if (this.player.tallness > 72) this.outputText("mighty");
+                else if (this.player.tallness < 60) this.outputText("mini");
                 this.outputText(
                     " centaur, it's time to see if you're ready to pleasure our guests today.  Bend down and put that tongue of yours where it belongs.</i>\" while indicating her bare pussy.\n\n",
                     false
@@ -280,15 +280,15 @@ export class FetishCultistScene extends AbstractLakeContent {
                 }
                 // boy's surprise
                 else if (this.player.gender == 1) {
-                    this.outputText("and to your shame, you feel ", false);
-                    if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+                    this.outputText("and to your shame, you feel ");
+                    if (this.player.totalCocks() > 1) this.outputText("each of ");
                     this.outputText(
                         "your " +
                             this.multiCockDescriptLight() +
                             " poke out of your pelvic slit, growing to full erectness.  You strain against your bonds, desperate to bring release to ",
                         false
                     );
-                    if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+                    if (this.player.totalCocks() > 1) this.outputText("each of ");
                     this.outputText(
                         "your " +
                             this.multiCockDescriptLight() +
@@ -313,7 +313,7 @@ export class FetishCultistScene extends AbstractLakeContent {
                             " is exposed and ",
                         false
                     );
-                    if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+                    if (this.player.totalCocks() > 1) this.outputText("each of ");
                     this.outputText(
                         "your " +
                             this.multiCockDescriptLight() +
@@ -395,8 +395,8 @@ export class FetishCultistScene extends AbstractLakeContent {
             this.outputText("\n\n", false);
             if (this.player.armorValue == 0) this.player.modArmorName = "bondage patient clothes";
             this.outputText('"<i>Um, ', false);
-            if (this.player.gender <= 1) this.outputText("sir", false);
-            else this.outputText("madam", false);
+            if (this.player.gender <= 1) this.outputText("sir");
+            else this.outputText("madam");
             // GET STRAPPED DAOOOOWN
             this.outputText(
                 " you aren't supposed to be out of bed yet,</i>\" she says to you.  You're almost certain that you are in a hospital room, and the nurse is looking in from the doorway with a cart next to her.  You look over at the bed and a wave of panic washes over you as you see a collection of straps, clearly designed to keep someone restrained there, and you even notice a ball gag on the pillow.  Unable to comprehend anything but what you see in this room, you try to flee, only to be stopped by the nurse.  She pushes you back into the room and tells you that you have to calm down.  Her words have the opposite effect on you and you only feel more panicked.  You start to wrestle with her to get out, but your strength quickly ebbs away, leaving you almost completely helpless before the nurse.  She manages to get you over to the hospital bed, where she pushes you down onto your back and begins strapping you in place, using both the restraints on the bed and some of the ones on your own outfit.  She even gags you with the ball gag before checking every strap to be certain they are secure.  Once the nurse finishes, she straightens up and says to you with a smile, \"<i>It's okay, you're safe now.  Nothing bad will happen to you while I'm here.</i>\" For some reason, her words seem to make the restraints feel safe and comfortable, and you are finally able to calm down.\n\n",
@@ -419,12 +419,12 @@ export class FetishCultistScene extends AbstractLakeContent {
                 );
                 // [if breasts are not lactating]
                 if (this.player.biggestLactation() < 1) {
-                    this.outputText("they have even started to lactate.  ", false);
+                    this.outputText("they have even started to lactate.  ");
                     this.player.boostLactation(1.5);
                 }
                 // [if breasts are already lactating]
                 else {
-                    this.outputText("they are producing more milk than before.  ", false);
+                    this.outputText("they are producing more milk than before.  ");
                     this.player.boostLactation(0.6);
                 }
                 this.outputText(
@@ -496,9 +496,9 @@ export class FetishCultistScene extends AbstractLakeContent {
                 );
                 // [if breasts are already lactating]
                 if (this.player.biggestLactation() >= 1)
-                    this.outputText(" start lactating even more.  ", false);
+                    this.outputText(" start lactating even more.  ");
                 // [if breasts are not lactating]
-                else this.outputText(" start lactating.  ", false);
+                else this.outputText(" start lactating.  ");
                 this.outputText(
                     "Nodding approvingly, the nurse says  \"<i>Good, for now I've got to go take care of another patient. Don't you do anymore running about until I get back, ok?</i>\" as she turns away and goes out the door.",
                     false
@@ -964,7 +964,7 @@ export class FetishCultistScene extends AbstractLakeContent {
                     'She meekly leans back onto the ground and parts her legs with her hands, giving you a clear view of her needy hole through the large opening in her clothing.  "<i>My lord, please fill me!</i>" she begs you.  You stand and stride over to her.  "<i>Yes little girl, accept my divine rod',
                     false
                 );
-                if (this.player.cocks.length > 1) this.outputText("s", false);
+                if (this.player.cocks.length > 1) this.outputText("s");
                 this.outputText(' in your pussy,</i>" you reply.  ', false);
                 if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR)
                     this.outputText(
@@ -976,8 +976,8 @@ export class FetishCultistScene extends AbstractLakeContent {
                         "You grab hold of and lift her legs, then kneel down and push ",
                         false
                     );
-                if (this.player.cocks.length > 1) this.outputText("the first of ", false);
-                this.outputText("your ", false);
+                if (this.player.cocks.length > 1) this.outputText("the first of ");
+                this.outputText("your ");
                 this.outputText(
                     this.multiCockDescriptLight() + " into her waiting love hole.  ",
                     false
@@ -990,19 +990,19 @@ export class FetishCultistScene extends AbstractLakeContent {
                         false
                     );
                     if (this.player.cocks.length > 2) {
-                        this.outputText(" and decide to push the ", false);
-                        if (this.player.cocks.length == 3) this.outputText("last", false);
-                        if (this.player.cocks.length > 3) this.outputText("rest", false);
-                        this.outputText(" in the same way.  ", false);
-                    } else this.outputText(".  ", false);
+                        this.outputText(" and decide to push the ");
+                        if (this.player.cocks.length == 3) this.outputText("last");
+                        if (this.player.cocks.length > 3) this.outputText("rest");
+                        this.outputText(" in the same way.  ");
+                    } else this.outputText(".  ");
                 }
                 this.outputText(
                     "Fully inside her, you begin to fuck her in earnest, and her eager moans soon fill the air.  Within moments the cultist climaxes unexpectedly quickly, and the feeling soon rushes through you as well, culminating in an incredibly huge orgasm that shakes your whole body. You ejaculate deep into her welcoming cunt, filling it up completely",
                     false
                 );
-                if (this.player.cumQ() < 50) this.outputText(".", false);
+                if (this.player.cumQ() < 50) this.outputText(".");
                 if (this.player.cumQ() >= 50 && this.player.cumQ() < 200)
-                    this.outputText(" before streams of cum begin to run down her thighs.", false);
+                    this.outputText(" before streams of cum begin to run down her thighs.");
                 if (this.player.cumQ() >= 200)
                     this.outputText(
                         " before torrents of cum begin to run down her legs and onto the ground.",
@@ -1040,7 +1040,7 @@ export class FetishCultistScene extends AbstractLakeContent {
                 "You get dressed and notice that the cultist is still lying on the ground in the perverted nun outfit, with a look of utter bliss on her face.  ",
                 false
             );
-            this.outputText("Satisfied, you continue on your way.", false);
+            this.outputText("Satisfied, you continue on your way.");
             this.player.orgasm();
         } else if (this.monster.armorName == "swimsuit") {
             // (scene requires that the PC not be genderless)
@@ -1144,7 +1144,7 @@ export class FetishCultistScene extends AbstractLakeContent {
                     "You stop, thinking that maybe you should let her go, but she grabs your hand and gives you a look of desperation.  Deciding to finish the job, you push her to her knees and the look of fear returns to her face.  ",
                     false
                 );
-            else this.outputText("With a wicked smile, you push her to her knees.  ", false);
+            else this.outputText("With a wicked smile, you push her to her knees.  ");
             // (if player has a dick)
             if (
                 this.player.cocks.length > 0 &&
@@ -1224,7 +1224,7 @@ export class FetishCultistScene extends AbstractLakeContent {
                 "You decline the vibrators; you'd much rather take her incredibly wet pussy.  ",
                 false
             );
-        else this.outputText("You tell her you're gonna fuck her.  ", false);
+        else this.outputText("You tell her you're gonna fuck her.  ");
         this.outputText(
             "She nods at you and turns around shivering even harder.  You step forward and put your hands on her shoulders, then start to run them over her body, while your " +
                 this.multiCockDescriptLight() +
@@ -1241,7 +1241,7 @@ export class FetishCultistScene extends AbstractLakeContent {
             false
         );
         if (this.player.cockArea(x) < 50)
-            this.outputText("push further and further until you're all the way inside her.", false);
+            this.outputText("push further and further until you're all the way inside her.");
         else if (this.player.cockArea(x) < 200)
             this.outputText(
                 "push further and further, until to your great delight, she manages to take all of your massive member without any trouble!",
@@ -1264,15 +1264,15 @@ export class FetishCultistScene extends AbstractLakeContent {
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText("  Your remaining cock", false);
-            if (this.player.cockTotal() == 2) this.outputText(" lets loose its load", false);
-            else this.outputText("s let loose their loads", false);
-            this.outputText(" onto her back and legs, ", false);
-            if (this.player.cumQ() < 50) this.outputText("adding a little white decoration", false);
+            this.outputText("  Your remaining cock");
+            if (this.player.cockTotal() == 2) this.outputText(" lets loose its load");
+            else this.outputText("s let loose their loads");
+            this.outputText(" onto her back and legs, ");
+            if (this.player.cumQ() < 50) this.outputText("adding a little white decoration");
             else if (this.player.cumQ() < 200)
-                this.outputText("adding a liberal coating of white to her body", false);
-            else this.outputText("drenching her in your cum", false);
-            this.outputText(".", false);
+                this.outputText("adding a liberal coating of white to her body");
+            else this.outputText("drenching her in your cum");
+            this.outputText(".");
         }
         this.outputText("\n\n", false);
 
@@ -1358,7 +1358,7 @@ export class FetishCultistScene extends AbstractLakeContent {
                     "It takes some effort to get it inside you, but is well worth the effort.",
                     false
                 );
-            else this.outputText("It easily slips inside your well-stretched hole.", false);
+            else this.outputText("It easily slips inside your well-stretched hole.");
             this.outputText(
                 "  The cultist giggles at you and then starts to moan in an exaggerated manner from the feeling of being filled.  You can't help but let out your own (albeit less exaggerated) moan of pleasure when the arm comes into contact with your " +
                     this.clitDescript() +
@@ -1381,9 +1381,9 @@ export class FetishCultistScene extends AbstractLakeContent {
                     " and the vibrator spills out of you along with ",
                 false
             );
-            if (this.player.wetness() < 3) this.outputText("a trickle", false);
-            else if (this.player.wetness() <= 4) this.outputText("a wave", false);
-            else this.outputText("a torrent", false);
+            if (this.player.wetness() < 3) this.outputText("a trickle");
+            else if (this.player.wetness() <= 4) this.outputText("a wave");
+            else this.outputText("a torrent");
             this.outputText(
                 " of your lady juices.  You shudder for a moment and look down at it on the ground.  It seems to have, deflated a bit?  There is a clear fluid flowing out of the top of the toy.  A thump sound brings the cultist back to your attention, but only briefly as you see she is writhing on the ground in pleasure from the toy still inside her.  You shake your head and get dressed again.",
                 false
@@ -1411,7 +1411,7 @@ export class FetishCultistScene extends AbstractLakeContent {
             "On a hill sits a large cathedral overlooking a river that feeds into a massive lake.  It is a surprisingly grand structure in a land almost devoid of any signs of civilization in any direction.  The design is quite clear; its entrance lined with statues of lewd naked figures and its windows are made of stain glass depicting acts of sexuality.  Even without hearing the sounds of ecstasy that usually emanate from inside, it is quite clear this is a place of debauchery.\n\n",
             true
         );
-        this.outputText("Within, a ", false);
+        this.outputText("Within, a ");
         if (this.player.gender == 1) genderTag = "man";
         if (this.player.gender == 2 || this.player.gender == 3) genderTag = "woman";
         if (this.player.gender == 0) {
@@ -1493,8 +1493,8 @@ export class FetishCultistScene extends AbstractLakeContent {
 
         // [Cock](this goes for herms too)
         if (this.player.hasCock()) {
-            if (this.player.cockTotal() > 1) this.outputText("Each of y", false);
-            else this.outputText("Y", false);
+            if (this.player.cockTotal() > 1) this.outputText("Each of y");
+            else this.outputText("Y");
             this.outputText(
                 "our " +
                     this.multiCockDescriptLight() +
@@ -1537,7 +1537,7 @@ export class FetishCultistScene extends AbstractLakeContent {
             );
         }
         // [High Int]
-        else this.outputText("and everything goes back to normal.  ", false);
+        else this.outputText("and everything goes back to normal.  ");
 
         this.outputText(
             "You see the cultist is sleeping on the ground, still in the fantasy she created.",

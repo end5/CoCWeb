@@ -59,9 +59,9 @@ export class NagaScene extends BaseContent {
                 false
             );
             // [If player has fangs]
-            if (this.player.faceType == FACE_SNAKE_FANGS) this.outputText("your own.", false);
+            if (this.player.faceType == FACE_SNAKE_FANGS) this.outputText("your own.");
             // [player has no fangs]
-            else this.outputText("the inside of your mouth.", false);
+            else this.outputText("the inside of your mouth.");
             this.outputText("\n\n", false);
             // dude secks
             if (this.player.gender == 1 || (this.player.gender == 3 && NagaScene.rand(2) == 0)) {
@@ -126,8 +126,8 @@ export class NagaScene extends BaseContent {
                             " as ",
                         false
                     );
-                    if (this.player.cockTotal() == 1) this.outputText("it starts ", false);
-                    else this.outputText("they start ", false);
+                    if (this.player.cockTotal() == 1) this.outputText("it starts ");
+                    else this.outputText("they start ");
                     this.outputText(
                         "to grow hard against the naga's soft belly. Feeling this, the naga gently pulls away, slowly letting your tongue out of her mouth as she does so. Her hands make their way over your shoulders, down your abs, and stop at your " +
                             this.multiCockDescriptLight() +
@@ -221,7 +221,7 @@ export class NagaScene extends BaseContent {
                         "carefully nibbling at it so as to not break the skin.  ",
                         false
                     );
-                else this.outputText("nibbling gently at it.  ", false);
+                else this.outputText("nibbling gently at it.  ");
                 this.outputText(
                     "Traveling down, you pause at her collarbone, letting go of her hips to bring your hands up to her perfectly rounded breasts. A moan escapes the naga's lips as you massage her erect nipples. Your mouth continues its trek down the naga's supple body and you make sure to pause on each breast, circling inward and stopping on each nipple to suck gently on them.\n\n",
                     false
@@ -369,8 +369,8 @@ export class NagaScene extends BaseContent {
             "You look over at the prone form of the naga lying in the sand, her ",
             false
         );
-        if (this.monster.HP < 0) this.outputText("weak ", false);
-        else this.outputText("flushed ", false);
+        if (this.monster.HP < 0) this.outputText("weak ");
+        else this.outputText("flushed ");
         this.outputText(
             "form only serving to arouse you further. You slide over to her, your gooey lower half leaving a wet trail behind you. As you stand over the defeated form of the snake woman, an idea pops into your head, ",
             false
@@ -385,17 +385,17 @@ export class NagaScene extends BaseContent {
             }
             // (if corrupt female)
             else if (this.player.gender == 2) {
-                this.outputText("your cunt grows moist at the thought.", false);
+                this.outputText("your cunt grows moist at the thought.");
             } else if (this.player.gender == 3) {
                 this.outputText(
                     "your cock twitches and your pussy becomes moist from the thought.",
                     false
                 );
-            } else this.outputText("you feel a tingle at your groin from the thought.", false);
+            } else this.outputText("you feel a tingle at your groin from the thought.");
         }
         // (if not corrupt)
         else {
-            this.outputText("the thought is almost too horrible to consider, but still...", false);
+            this.outputText("the thought is almost too horrible to consider, but still...");
         }
         this.outputText(
             "  You slide your gooey form over her body, resting at her crotch. She tries to push you off, but you easily resist her.\n\n",
@@ -475,12 +475,12 @@ export class NagaScene extends BaseContent {
         );
         // (if male)
         if (this.player.gender == 1) {
-            this.outputText("You let out a yell as ", false);
+            this.outputText("You let out a yell as ");
             // (normal)
             if (this.player.cumQ() < 250)
-                this.outputText("you come all over the naga's stomach.", false);
+                this.outputText("you come all over the naga's stomach.");
             else if (this.player.cumQ() < 1000)
-                this.outputText("you come all over the naga's face and stomach.", false);
+                this.outputText("you come all over the naga's face and stomach.");
             // (if THE LEVEYS HAVE BROKE RUN FOR THE HILLS)
             else
                 this.outputText(
@@ -500,22 +500,22 @@ export class NagaScene extends BaseContent {
                     ", your girlcum gushing out and pooling on the stomach of the naga",
                     false
                 );
-            this.outputText(".", false);
+            this.outputText(".");
         }
         // (if herm)
         if (this.player.gender == 3) {
-            this.outputText("You scream in ecstasy as you hit your peak, your girlcum ", false);
+            this.outputText("You scream in ecstasy as you hit your peak, your girlcum ");
             if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_SLAVERING)
-                this.outputText("leaking out", false);
-            else this.outputText("gushing out to form a pool on the naga's stomach", false);
+                this.outputText("leaking out");
+            else this.outputText("gushing out to form a pool on the naga's stomach");
             this.outputText(" and your " + this.multiCockDescriptLight(), false);
             // (normal)
             if (this.player.cumQ() < 250)
-                this.outputText(" spurting onto her stomach as well.", false);
+                this.outputText(" spurting onto her stomach as well.");
             // (lots of jizz)
             else if (this.player.cumQ() < 1000)
-                this.outputText(" spurting onto her stomach and face.", false);
-            else this.outputText(" completely covering the naga in a layer of your spooge.", false);
+                this.outputText(" spurting onto her stomach and face.");
+            else this.outputText(" completely covering the naga in a layer of your spooge.");
         }
         // (if genderless)
         if (this.player.gender == 0) {
@@ -552,10 +552,10 @@ export class NagaScene extends BaseContent {
                     false
                 );
                 // [normal cum load]
-                if (this.player.cumQ() < 250) this.outputText("you cum inside of her, ", false);
+                if (this.player.cumQ() < 250) this.outputText("you cum inside of her, ");
                 // [extra cum]
                 else if (this.player.cumQ() < 1000)
-                    this.outputText("you fill her insides with huge spurts of cum, ", false);
+                    this.outputText("you fill her insides with huge spurts of cum, ");
                 // [SUPER CUM]
                 else
                     this.outputText(
@@ -645,7 +645,7 @@ export class NagaScene extends BaseContent {
                     );
                     // [normal cum load]
                     if (this.player.cumQ() < 250)
-                        this.outputText("filling her mouth with your warm seed.", false);
+                        this.outputText("filling her mouth with your warm seed.");
                     // [lots of cum]
                     else if (this.player.cumQ() < 500)
                         this.outputText(
@@ -674,7 +674,7 @@ export class NagaScene extends BaseContent {
                     );
                     // [normal cum load]
                     if (this.player.cumQ() < 250)
-                        this.outputText(" gulping down the warm sperm in her mouth.", false);
+                        this.outputText(" gulping down the warm sperm in her mouth.");
                     // [lots of cum OR more]
                     else
                         this.outputText(
@@ -731,10 +731,10 @@ export class NagaScene extends BaseContent {
                     false
                 );
                 // [lots of jizz]
-                if (this.player.cumQ() > 250) this.outputText(" with traces of semen in it", false);
+                if (this.player.cumQ() > 250) this.outputText(" with traces of semen in it");
                 // [if OMGWTFBBQGALLONSOFCUM]
                 else if (this.player.cumQ() > 2000)
-                    this.outputText(" that's filled with your thick seed", false);
+                    this.outputText(" that's filled with your thick seed");
                 this.outputText(".\n\n", false);
                 this.outputText(
                     "As you retrieve your clothes, you notice red marks around your chest and arms. It seems that while the naga did have the opportunity to kill you while you were unconscious, she preferred to keep you alive.\n\n",
@@ -1161,9 +1161,9 @@ export class NagaScene extends BaseContent {
             );
             // (if centaur)
             if (this.player.lowerBody == LOWER_BODY_TYPE_CENTAUR) {
-                this.outputText(" and clamping your legs to your stomach", false);
+                this.outputText(" and clamping your legs to your stomach");
             }
-            this.outputText(". You struggle weakly against her grip, but ", false);
+            this.outputText(". You struggle weakly against her grip, but ");
             // (if defeated by lust)
             if (this.player.lust > 99)
                 this.outputText(
@@ -1173,7 +1173,7 @@ export class NagaScene extends BaseContent {
                     false
                 );
             // if defeated by KO)
-            else this.outputText("you are too weak to do anything to stop her squeezing.", false);
+            else this.outputText("you are too weak to do anything to stop her squeezing.");
             this.outputText(
                 "  She leans towards you, gripping your shoulders as she brings her face to your ear. You can feel her serpentine tongue flicking over your ear as she hisses coldly into it.\n\n",
                 false
@@ -1234,21 +1234,21 @@ export class NagaScene extends BaseContent {
                     false
                 );
                 // Cum variants
-                if (this.player.cumQ() < 250) this.outputText("pours", false);
-                else if (this.player.cumQ() < 1000) this.outputText("spurts", false);
-                else this.outputText("erupts", false);
-                this.outputText(" into her body. She ", false);
+                if (this.player.cumQ() < 250) this.outputText("pours");
+                else if (this.player.cumQ() < 1000) this.outputText("spurts");
+                else this.outputText("erupts");
+                this.outputText(" into her body. She ");
                 // (Normal)
-                if (this.player.cumQ() < 250) this.outputText("moans and pants", false);
+                if (this.player.cumQ() < 250) this.outputText("moans and pants");
                 // (Lots of cum)
-                else if (this.player.cumQ() < 1000) this.outputText("squeals with joy", false);
+                else if (this.player.cumQ() < 1000) this.outputText("squeals with joy");
                 // (It's gonna take weeks to clean this up!)
-                else this.outputText("screams in delight", false);
-                this.outputText(" as your hot, gooey sperm ", false);
+                else this.outputText("screams in delight");
+                this.outputText(" as your hot, gooey sperm ");
                 // (Normal)
-                if (this.player.cumQ() < 250) this.outputText("coats her womb.", false);
+                if (this.player.cumQ() < 250) this.outputText("coats her womb.");
                 // (Lots of cum)
-                else if (this.player.cumQ() < 1000) this.outputText("completely fills her.", false);
+                else if (this.player.cumQ() < 1000) this.outputText("completely fills her.");
                 // (Indonesia called, they're flooded again)
                 else
                     this.outputText(
@@ -1360,7 +1360,7 @@ export class NagaScene extends BaseContent {
             );
             // (if corrupted)
             if (this.player.cor > 50) {
-                this.outputText("and the sheer thought of it is making you wet already.  ", false);
+                this.outputText("and the sheer thought of it is making you wet already.  ");
             }
             // (if uncorrupted)
             else
@@ -1537,9 +1537,9 @@ export class NagaScene extends BaseContent {
             );
             // (If lactating)
             if (this.player.biggestLactation() > 1) {
-                this.outputText(", sharing with you some of your delicious milk", false);
+                this.outputText(", sharing with you some of your delicious milk");
             }
-            this.outputText(".", false);
+            this.outputText(".");
             // (If pregnant)
             if (this.player.pregnancyIncubation > 0) {
                 this.outputText(
@@ -1580,7 +1580,7 @@ export class NagaScene extends BaseContent {
                     false
                 );
             }
-            this.outputText("  ", false);
+            this.outputText("  ");
             this.player.cuntChange(40, true);
         }
         // d) genderless
@@ -1614,7 +1614,7 @@ export class NagaScene extends BaseContent {
                     false
                 );
             // if player is corrupted)
-            else this.outputText("You eagerly bring your mouth to her glistening pussy. ", false);
+            else this.outputText("You eagerly bring your mouth to her glistening pussy. ");
             this.outputText(
                 "You start to work your tongue around her awaiting clit, the naga moaning at the pleasure. You continue your assault on her pleasure button as her pussy begins to glisten with moisture. You move your tongue to her soft netherlips, licking softly at the moisture that coats them, enjoying the moans of pleasure that erupt from the naga. The naga's hips start to twitch as you bring your tongue up the length of her glistening slit, stopping at the top to suck gently at her clit.\n\n",
                 false

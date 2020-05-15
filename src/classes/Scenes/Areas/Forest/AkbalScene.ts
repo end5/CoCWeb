@@ -841,8 +841,8 @@ export class AkbalScene extends BaseContent {
             );
             // ({If strength >60}
             if (this.player.str > 60)
-                this.outputText("hauling him towards a tree like a newborn kitten", false);
-            else this.outputText("dragging him towards the nearest tree", false);
+                this.outputText("hauling him towards a tree like a newborn kitten");
+            else this.outputText("dragging him towards the nearest tree");
             this.outputText(" and forcing him to lean back against it.\n\n", false);
 
             this.outputText(
@@ -882,18 +882,18 @@ export class AkbalScene extends BaseContent {
                 'You grin as you flip him over onto his back, staring down at his breeding tool between his legs, firmly erect as it rests on his rather full set of balls. Quite clearly, this "<i>God</i>" hasn\'t had much action for quite some time, hence his aggressive nature towards you. You finger yourself slightly as you examine his feline shaft, coated with layers of barbs that look as though they would be quite painful. Leaning down, you run your fingers over them, smirking as they bend slightly. They may not be enough to harm you, but sex would definitely be unpleasant... unless you happened to have a source of suitable lube nearby.\n\n',
                 false
             );
-            this.outputText("Remembering the cats back home", false);
+            this.outputText("Remembering the cats back home");
             // ({If player has the flexibility Perk}
             if (this.player.findPerk(PerkLib.Flexibility) >= 0)
-                this.outputText(" and your own experience with such matters", false);
+                this.outputText(" and your own experience with such matters");
             this.outputText(
                 ", you figure you have a pretty good idea where a reliable source of lube could be. You grin as you grab the demon cat by the scruff of his neck, ",
                 false
             );
             // ({If strength >60}
             if (this.player.str > 60)
-                this.outputText("hauling him towards a tree like a newborn kitten", false);
-            else this.outputText("dragging him towards the nearest tree", false);
+                this.outputText("hauling him towards a tree like a newborn kitten");
+            else this.outputText("dragging him towards the nearest tree");
             this.outputText(" and forcing him to lean back against it.\n\n", false);
 
             this.outputText(
@@ -999,10 +999,10 @@ export class AkbalScene extends BaseContent {
                 false
             );
             if (this.player.balls > 0) {
-                this.outputText(", your own swaying back to meet him", false);
+                this.outputText(", your own swaying back to meet him");
                 // ({If >=Grapefruit}
                 if (this.player.ballSize >= 12)
-                    this.outputText(" dwarfing him despite his pent up lusts", false);
+                    this.outputText(" dwarfing him despite his pent up lusts");
             }
             this.outputText(
                 ", coaxing moans and groans of sheer pleasure to mingle with his snarls and purrs of enjoyment.\n\n",
@@ -1199,7 +1199,7 @@ export class AkbalScene extends BaseContent {
                     false
                 );
             // ({If female}
-            else this.outputText("stroke and tickle your ass and lower back", false);
+            else this.outputText("stroke and tickle your ass and lower back");
             this.outputText(".\n\n", false);
 
             this.outputText(
@@ -1527,7 +1527,7 @@ export class AkbalScene extends BaseContent {
             "As you walk through the forest, you hear a purring coming from behind you.  Turning around reveals that Akbal has come to find you.  He uses his head to push you in the direction of his territory, obviously wanting to dominate you again.\n\n",
             false
         );
-        this.outputText("What do you do?", false);
+        this.outputText("What do you do?");
         // Submit / Deny / Fight
         this.simpleChoices(
             "Submit",
@@ -1938,7 +1938,7 @@ export class AkbalScene extends BaseContent {
                 "After his last massive eruption you feel the jaguar demon pull out, releasing even more of his copious load from your happy hole in an oddly satisfying cascade of thick white cream that rushes like a waterfall down your legs",
                 false
             );
-            if (this.player.totalCocks() > 0) this.outputText(" to join your own", false);
+            if (this.player.totalCocks() > 0) this.outputText(" to join your own");
             this.outputText(".\n\n", false);
 
             this.outputText(
@@ -2092,8 +2092,8 @@ export class AkbalScene extends BaseContent {
             false
         );
         if (this.player.hasVagina() || this.player.totalCocks() > 0)
-            this.outputText("in a pool of your own love juices", false);
-        else this.outputText("in sexual bliss", false);
+            this.outputText("in a pool of your own love juices");
+        else this.outputText("in sexual bliss");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -2178,7 +2178,7 @@ export class AkbalScene extends BaseContent {
                     "You can feel Akbal's demonic presence inside your lungs, slowly building up until it finally explodes out of your open mouth in a titanic roar, accompanied with a jet of emerald flame.\n\n",
                     false
                 );
-                this.outputText("(You are now capable of breathing Akbal's fire.)", false);
+                this.outputText("(You are now capable of breathing Akbal's fire.)");
                 // ['LOTF' or 'Terrestrial Fire Lord' appears as perk]
                 // [Gain 'Terrestrial Fire' in Specials]
                 this.player.createPerk(PerkLib.FireLord, 0, 0, 0, 0);
@@ -2191,7 +2191,7 @@ export class AkbalScene extends BaseContent {
                 false
             );
             if (this.player.findPerk(PerkLib.Whispered) < 0) {
-                this.outputText("(You are now Whispered.)", false);
+                this.outputText("(You are now Whispered.)");
                 this.player.createPerk(PerkLib.Whispered, 0, 0, 0, 0);
                 // ['Whispered' appears as perk]
                 // [Gain 'Whisper' in Specials]

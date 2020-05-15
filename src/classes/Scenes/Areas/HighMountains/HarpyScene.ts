@@ -60,7 +60,7 @@ export class HarpyScene extends BaseContent {
 
         // Rape options
         if (this.player.lust >= 33) {
-            this.outputText("  What do you do to her?", false);
+            this.outputText("  What do you do to her?");
 
             this.choices(
                 "Anal",
@@ -177,7 +177,7 @@ export class HarpyScene extends BaseContent {
             false
         );
         // if long hair
-        if (this.player.hairLength > 12) this.outputText(" and moves it out of your face", false);
+        if (this.player.hairLength > 12) this.outputText(" and moves it out of your face");
         this.outputText(".  When she smirks, you know you're in for quite a ride.\n\n", false);
 
         // {If Player has only a pussy} Fan of feathers:
@@ -207,7 +207,7 @@ export class HarpyScene extends BaseContent {
                 false
             );
             if (this.player.skinType == SKIN_TYPE_PLAIN)
-                this.outputText(", always followed by a soothing brush of their feathers", false);
+                this.outputText(", always followed by a soothing brush of their feathers");
             this.outputText(
                 ". They line the curve of your " +
                     this.breastDescript(0) +
@@ -226,7 +226,7 @@ export class HarpyScene extends BaseContent {
                 false
             );
             if (this.player.skinType == SKIN_TYPE_PLAIN)
-                this.outputText(" across your reddening skin", false);
+                this.outputText(" across your reddening skin");
             this.outputText(
                 ". Her little black tongue feels divine as it bumps up against your " +
                     this.clitDescript() +
@@ -347,7 +347,7 @@ export class HarpyScene extends BaseContent {
                 "As her crazed, brutal hands clutch at every part of your body, grasping every ounce of flesh they can reach, your hazed, weary mind seemed to be receiving more signals than you thought, more hands clawing at you, more crazed avian cries. Your vision swims from the pain and, as you look down, conscious for just a few seconds, ",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("each of ", false);
+            if (this.player.cockTotal() > 1) this.outputText("each of ");
             this.outputText(
                 "your " +
                     this.multiCockDescriptLight() +
@@ -511,7 +511,7 @@ export class HarpyScene extends BaseContent {
                             " wetly.",
                         false
                     );
-                else this.outputText(".", false);
+                else this.outputText(".");
             } else if (this.player.biggestTitSize() >= 2)
                 this.outputText(
                     " while your " +
@@ -519,7 +519,7 @@ export class HarpyScene extends BaseContent {
                         " are shaking and jiggling around helplessly.",
                     false
                 );
-            else this.outputText(".", false);
+            else this.outputText(".");
             this.outputText(
                 "  It's anyone's guess how long you'll be able to maintain consciousness while being ridden to exhaustion.\n\n",
                 false
@@ -636,7 +636,7 @@ export class HarpyScene extends BaseContent {
                 "After countless hours of remorseless, relentless poundings from three heavy bird-butts, even the effects of their drug-laced kisses aren't enough to stave off unconsciousness.  You struggle for breath beneath a pair of crushing, feathery thighs as ",
                 false
             );
-            if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+            if (this.player.totalCocks() > 1) this.outputText("each of ");
             this.outputText(
                 "your " +
                     this.multiCockDescriptLight() +
@@ -712,7 +712,7 @@ export class HarpyScene extends BaseContent {
                 " into her hot, clutching depths, inch by inch, seeming to take an eternity as all the sensations of her rough, ribbed pussy ",
             false
         );
-        if (this.player.totalCocks() > 1) this.outputText("and viciously-clenching ass ", false);
+        if (this.player.totalCocks() > 1) this.outputText("and viciously-clenching ass ");
         this.outputText(
             "pulse through you. She throws her head back and moans out in sheer, slutty enjoyment as you plumb her luxurious depths, different from anything you've experienced before in its firmness and the powerful, brutal sensations it is giving to you.\n\n",
             false
@@ -746,10 +746,10 @@ export class HarpyScene extends BaseContent {
                         ", feeling her rough walls and clutching, gasping convulsions massage your manhood",
                     false
                 );
-                if (this.player.totalCocks() > 1) this.outputText("s", false);
-                this.outputText(" along ", false);
-                if (this.player.totalCocks() > 1) this.outputText("their", false);
-                else this.outputText("the", false);
+                if (this.player.totalCocks() > 1) this.outputText("s");
+                this.outputText(" along ");
+                if (this.player.totalCocks() > 1) this.outputText("their");
+                else this.outputText("the");
                 this.outputText(
                     " whole length, already bringing you close to the edge of a bone-shaking orgasm.\n\n",
                     false
@@ -757,9 +757,9 @@ export class HarpyScene extends BaseContent {
             }
             // [(Male w/ breasts)
             else {
-                this.outputText("You laugh in glee as the bird's groping, clutching hole", false);
-                if (this.player.totalCocks() > 1) this.outputText("s massage", false);
-                else this.outputText(" massages", false);
+                this.outputText("You laugh in glee as the bird's groping, clutching hole");
+                if (this.player.totalCocks() > 1) this.outputText("s massage");
+                else this.outputText(" massages");
                 this.outputText(" your " + this.cockDescript(x), false);
                 if (this.player.totalCocks() > 1)
                     this.outputText(" and " + this.cockDescript(y), false);
@@ -804,9 +804,9 @@ export class HarpyScene extends BaseContent {
             false
         );
         if (this.player.totalCocks() > 1) this.outputText(" and " + this.cockDescript(y), false);
-        this.outputText(" into her grinding, overwhelming hole", false);
-        if (this.player.totalCocks() > 1) this.outputText("s", false);
-        this.outputText(".  ", false);
+        this.outputText(" into her grinding, overwhelming hole");
+        if (this.player.totalCocks() > 1) this.outputText("s");
+        this.outputText(".  ");
         // {(If balls)
         if (this.player.balls > 0)
             this.outputText(
@@ -959,7 +959,7 @@ export class HarpyScene extends BaseContent {
         );
         // (if breasts)
         if (this.player.biggestTitSize() >= 2)
-            this.outputText("her chest mashing against yours as she becomes still, ", false);
+            this.outputText("her chest mashing against yours as she becomes still, ");
         this.outputText(
             "submitting to your will. Growling, you start to fuck her in earnest and grab a handful of her squishy rear in each hand, pounding her up and down on your " +
                 this.cockDescript(x) +
@@ -1013,9 +1013,9 @@ export class HarpyScene extends BaseContent {
         }
         // (if cock)
         if (this.player.hasCock()) {
-            this.outputText(", ", false);
-            if (this.player.hasVagina()) this.outputText("and ", false);
-            if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+            this.outputText(", ");
+            if (this.player.hasVagina()) this.outputText("and ");
+            if (this.player.totalCocks() > 1) this.outputText("each of ");
             this.outputText(
                 "your " +
                     this.multiCockDescriptLight() +
@@ -1097,7 +1097,7 @@ export class HarpyScene extends BaseContent {
                         "  Milk dribbles out gently onto the areola, trickling sensually between your cleavage.",
                         false
                     );
-            } else this.outputText(".", false);
+            } else this.outputText(".");
             this.outputText(
                 "  Surging down your body, an alien sensation focuses on your crotch, the pinpricks conglomerating on your " +
                     this.multiCockDescriptLight() +

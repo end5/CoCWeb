@@ -512,7 +512,7 @@ export class Forest extends BaseContent {
                         false
                     );
                 if (kGAMECLASS.monk == 3)
-                    this.outputText("unsteady on his feet, but looking for a fight!", false);
+                    this.outputText("unsteady on his feet, but looking for a fight!");
                 if (kGAMECLASS.monk == 4)
                     this.outputText(
                         "visibly tenting his robes, but intent on fighting you.",
@@ -569,7 +569,7 @@ export class Forest extends BaseContent {
                     );
                     this.dynStats("tou", 0.5, "int", 1);
                 } else {
-                    this.outputText("As you wander in the forest, you keep ", false);
+                    this.outputText("As you wander in the forest, you keep ");
                     if (this.player.gender == 1)
                         this.outputText(
                             "stroking your half-erect " +
@@ -598,7 +598,7 @@ export class Forest extends BaseContent {
                             "daydreaming about sex-demons with huge sexual attributes, and how you could please them.",
                             false
                         );
-                    this.outputText("", false);
+                    this.outputText("");
                     this.dynStats("tou", 0.5, "lib", 0.25, "lus", this.player.lib / 5);
                 }
                 this.doNext(this.camp.returnToCampUseOneHour);
@@ -644,17 +644,17 @@ export class Forest extends BaseContent {
         const x: number = this.player.longestCock();
 
         // PARAGRAPH 1
-        this.outputText("Walking along the ", false);
-        if (lake) this.outputText("grassy and muddy shores of the lake", false);
-        else this.outputText("various paths of the forest", false);
+        this.outputText("Walking along the ");
+        if (lake) this.outputText("grassy and muddy shores of the lake");
+        else this.outputText("various paths of the forest");
         this.outputText(
             ", you find yourself increasingly impeded by the bulk of your " +
                 this.cockDescript(x) +
                 " dragging along the ",
             false
         );
-        if (lake) this.outputText("wet ground behind you.", false);
-        else this.outputText("earth behind you.", false);
+        if (lake) this.outputText("wet ground behind you.");
+        else this.outputText("earth behind you.");
         if (this.player.cocks.length == 1) {
             if (lake)
                 this.outputText(
@@ -742,8 +742,8 @@ export class Forest extends BaseContent {
                         " and ",
                     false
                 );
-                if (lake) this.outputText("into the waters of the nearby lake.", false);
-                else this.outputText("onto the fertile soil of the forest.", false);
+                if (lake) this.outputText("into the waters of the nearby lake.");
+                else this.outputText("onto the fertile soil of the forest.");
             }
             // IF CHARACTER HAS A VAGINA ADD SENTENCE
             if (this.player.vaginas.length >= 1) {
@@ -824,8 +824,8 @@ export class Forest extends BaseContent {
                         " and ",
                     false
                 );
-                if (lake) this.outputText("into the waters of the nearby lake.", false);
-                else this.outputText("onto the fertile soil of the forest floor.", false);
+                if (lake) this.outputText("into the waters of the nearby lake.");
+                else this.outputText("onto the fertile soil of the forest floor.");
             }
             // IF CHARACTER HAS A VAGINA ADD SENTENCE
             if (this.player.vaginas.length >= 1) {
@@ -856,7 +856,7 @@ export class Forest extends BaseContent {
         }
         this.outputText("\n\n", false);
         // PARAGRAPH 3
-        this.outputText("You realize you are effectively trapped here by your own body.", false);
+        this.outputText("You realize you are effectively trapped here by your own body.");
         // CORRUPTION BASED CHARACTER'S VIEW OF SITUATION
         if (this.player.cor < 33)
             this.outputText(
@@ -984,14 +984,14 @@ export class Forest extends BaseContent {
     private ignoreSatyr(): void {
         this.outputText("", true);
         this.spriteSelect(99);
-        this.outputText("You shake your head, ", false);
+        this.outputText("You shake your head, ");
         if (this.player.cor < 50)
             this.outputText(
                 "disgusted by the strange thoughts this place seems to put into your mind",
                 false
             );
-        else this.outputText("not feeling inclined to rape some satyr butt right now", false);
-        this.outputText(", and silently leave him to his pleasures.", false);
+        else this.outputText("not feeling inclined to rape some satyr butt right now");
+        this.outputText(", and silently leave him to his pleasures.");
         this.dynStats("lus", 5 + this.player.lib / 20);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -1021,8 +1021,8 @@ export class Forest extends BaseContent {
             );
 
         this.outputText("  You silently strip your " + this.player.armorName + " and ", false);
-        if (this.player.isNaga()) this.outputText("slither", false);
-        else this.outputText("sneak", false);
+        if (this.player.isNaga()) this.outputText("slither");
+        else this.outputText("sneak");
 
         this.outputText(
             " towards the distracted satyr; stopping a few feet away, you stroke your " +
@@ -1066,15 +1066,15 @@ export class Forest extends BaseContent {
                 "stretching it to fit your " + this.cockDescript(x) + " like a condom.",
                 false
             );
-        this.outputText("  Your groin throbs, ", false);
-        if (this.player.balls > 0) this.outputText("your balls churn, ", false);
+        this.outputText("  Your groin throbs, ");
+        if (this.player.balls > 0) this.outputText("your balls churn, ");
         this.outputText(
             "and you grunt as you feel the first shots of cum flowing along " +
                 this.sMultiCockDesc() +
                 ", only to pour out into",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText(" and onto", false);
+        if (this.player.cockTotal() > 1) this.outputText(" and onto");
         this.outputText(
             " the satyr's abused ass; you continue pounding him even as you climax, causing rivulets of cum to run down his cheeks and legs.\n\n",
             false

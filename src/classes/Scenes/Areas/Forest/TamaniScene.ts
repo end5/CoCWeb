@@ -175,7 +175,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             'The goblin leaves you with a warning, "<i>Be careful, it likes to leak aphrodisiacs like crazy.  Believe me, those are FUN to get addicted to.  Oh, and remember – Tamani owns all the cocks around here, so if you ever grow one, come pay your dues!</i>"\n\n',
             false
         );
-        this.outputText("(<b>Deluxe Dildo acquired!</b>)", false);
+        this.outputText("(<b>Deluxe Dildo acquired!</b>)");
         this.player.createKeyItem("Deluxe Dildo", 0, 0, 0, 0);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -191,9 +191,9 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             "She flounces off, clearly planning on fucking everything capable of producing sperm on her way home.  ",
             false
         );
-        if (this.player.cor < 33) this.outputText("What a slut.", false);
-        else if (this.player.cor < 66) this.outputText("How odd.", false);
-        else this.outputText("You hope she misses a few.", false);
+        if (this.player.cor < 33) this.outputText("What a slut.");
+        else if (this.player.cor < 66) this.outputText("How odd.");
+        else this.outputText("You hope she misses a few.");
         this.doNext(this.camp.returnToCampUseOneHour);
     }
     // [Encounter Tamani – HAZ COCK]
@@ -242,7 +242,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.biggestTitSize() > 1) this.outputText(this.allBreastsDescript(), false);
-        else this.outputText("chest", false);
+        else this.outputText("chest");
         this.outputText(
             ".  She wraps her tiny arms around your neck and kisses you passionately, letting her tongue slither through your lips.   The two of you french kiss hard, virtually tongue-fucking each other.\n\n",
             false
@@ -297,7 +297,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (this.player.cockArea(0) > 30)
-                this.outputText(" and watching her belly bulge from your size", false);
+                this.outputText(" and watching her belly bulge from your size");
             this.outputText(
                 ".  She twists violently, practically thrashing in your arms as spunk begins pouring into her womb, making her belly start to bloat.  The goblin babbles incoherently with each blast of cum, stretching tighter and tighter around you as her pussy works to hold in every drop of spunk.  Her belly bloats a bit more, until the pressure is too much to bear and jism begins spurting around her opening, splattering into a puddle on the ground.\n\n",
                 false
@@ -336,10 +336,10 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (this.player.hasSheath()) {
-                this.outputText("licks the edges of your sheath", false);
-                if (this.player.balls > 0) this.outputText(" and balls", false);
+                this.outputText("licks the edges of your sheath");
+                if (this.player.balls > 0) this.outputText(" and balls");
             } else {
-                if (this.player.balls > 0) this.outputText("licks all over your balls", false);
+                if (this.player.balls > 0) this.outputText("licks all over your balls");
                 else if (this.player.hasVagina())
                     this.outputText(
                         "sneaks between your folds to tease your now-hardening clit",
@@ -441,7 +441,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             'The goblin pouts, anger clouding her cute little features.  She turns and storms off, clearly pissed at you, "<i>Think about it.  Next time that dick better ache for me, or I\'ll MAKE you want it.</i>"\n\n',
             false
         );
-        this.outputText("...What?", false);
+        this.outputText("...What?");
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 
@@ -541,8 +541,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                         ", and despite your efforts to control your body, ",
                     false
                 );
-                if (this.player.cockTotal() == 1) this.outputText("an erection emerges", false);
-                else this.outputText("erections sprout up like weeds", false);
+                if (this.player.cockTotal() == 1) this.outputText("an erection emerges");
+                else this.outputText("erections sprout up like weeds");
                 this.outputText(
                     '.  She strips you down, giving you a smirk as she says, "<i>Just lie there and I\'ll take what I need, babe.</i>"\n\n',
                     false
@@ -570,7 +570,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                         this.outputText(this.cockDescript(0), false);
                         break;
                     case 1:
-                        this.outputText("bellybutton", false);
+                        this.outputText("bellybutton");
                         break;
                     case 2:
                         this.outputText(this.nippleDescript(0), false);
@@ -726,7 +726,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                                 " ache and you feel very thirsty indeed.",
                             false
                         );
-                    else this.outputText("You feel very thirsty indeed.", false);
+                    else this.outputText("You feel very thirsty indeed.");
                     this.outputText(
                         " It's only when you manage to drag your mind away from your own privations that you suddenly wonder where Tamani went. She isn't still attached to you, is she? It is then that a small lump in the center of the vast puddle in front of you stands up and begins to happily wipe herself down, taking care to stuff as much of the seed plastering her into herself as she can.\n\n",
                         false
@@ -789,9 +789,9 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     "Moaning like a whore, she easily slips the rest of the way down, bottoming out her sopping-wet fuck-tunnel.\n\n",
                     false
                 );
-                this.outputText("You gasp in pain and surprise as Tamani pinches and tugs ", false);
-                if (this.player.totalNipples() == 2) this.outputText("both", false);
-                else this.outputText("all", false);
+                this.outputText("You gasp in pain and surprise as Tamani pinches and tugs ");
+                if (this.player.totalNipples() == 2) this.outputText("both");
+                else this.outputText("all");
                 this.outputText(
                     " of your " +
                         this.nippleDescript(0) +
@@ -816,7 +816,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     'Tamani plays your body like a fiddle, keeping you near the edge as she noisily orgasms over your shaft again and again.  You can tell she\'s starting to tire, so she gives you a kind look and begins to pick up the tempo.   She whispers softly, "<i>Go ahead, cream my honeypot until I can barely walk.</i>"\n\n',
                     false
                 );
-                this.outputText("That's all the encouragement you need.  ", false);
+                this.outputText("That's all the encouragement you need.  ");
                 if (this.player.balls > 0)
                     this.outputText(
                         "Your " +
@@ -860,7 +860,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                         false
                     );
                 else {
-                    this.outputText(".  You make sure and let your ", false);
+                    this.outputText(".  You make sure and let your ");
                     if (this.player.balls > 0)
                         this.outputText(
                             this.ballsDescriptLight() + " fill back up with cum, ok?",
@@ -875,7 +875,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 this.outputText('</i>"\n\n', false);
                 // Combat end:
                 if (this.getGame().inCombat) {
-                    this.outputText("You black out, exhausted from the ordeal.", false);
+                    this.outputText("You black out, exhausted from the ordeal.");
                     this.cleanupAfterCombat();
                     this.player.orgasm();
                 }
@@ -908,10 +908,10 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     '"<i>Oooh, you\'re too big for little ol\' me,</i>" moans the goblin, easing back a bit, "<i>but I have something that might make you cum just as hard.   I\'ll just make sure to catch all your cum with my cunny!</i>"    She pulls out a hot-pink dildo and gives it a lick.  You watch in horror as a drop of thick fluid leaks from the tip.  No doubt Tamani intends for you to take take the entire thing in one way or another.\n\n',
                     false
                 );
-                this.outputText("You pout, protesting meekly as she ", false);
+                this.outputText("You pout, protesting meekly as she ");
                 if (this.player.balls > 0)
                     this.outputText("lifts up your " + this.ballsDescriptLight(), false);
-                else this.outputText("leans forwards, looking between your legs", false);
+                else this.outputText("leans forwards, looking between your legs");
                 this.outputText(
                     ", and places the dildo's leaking tip against your " +
                         this.assholeOrPussy() +
@@ -919,7 +919,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     false
                 );
                 if (this.player.hasVagina()) {
-                    this.outputText("  ", false);
+                    this.outputText("  ");
                     this.player.cuntChange(this.player.vaginalCapacity() * 0.95, true);
                     this.outputText(
                         "Your walls squeeze tightly around it in an unconscious milking motion as your body reacts to it as if it were a real dick.",
@@ -954,14 +954,14 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                         " upwards to squeeze your ",
                     false
                 );
-                if (this.player.hasVagina()) this.outputText("cock's base ", false);
-                else this.outputText("prostate ", false);
+                if (this.player.hasVagina()) this.outputText("cock's base ");
+                else this.outputText("prostate ");
                 this.outputText(
                     ' with delicious intensity.  You quiver underneath her, panting and moaning, totally subservient to the tiny girl giving your body the sexual workout of a life-time.  She slides back, her cunt squishing back and forth against your prick-head, driving you wild.  She coos, "<i>Go ahead and cum stud,</i>" while squeezing your ',
                     false
                 );
-                if (this.player.balls > 0) this.outputText("balls", false);
-                else this.outputText("crotch", false);
+                if (this.player.balls > 0) this.outputText("balls");
+                else this.outputText("crotch");
                 this.outputText(
                     ', "<i>let out all that hot sticky spunk for Mistress Tamani.</i>"\n\n',
                     false
@@ -982,7 +982,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                             " as you keep cumming, splattering her tits and face, soaking the little goblin slut",
                             false
                         );
-                    this.outputText(".  ", false);
+                    this.outputText(".  ");
                 }
                 this.outputText(
                     "The dildo slips out of your abused " +
@@ -997,7 +997,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
 
                 // Combat end:
                 if (this.getGame().inCombat) {
-                    this.outputText("You black out, exhausted from the ordeal.", false);
+                    this.outputText("You black out, exhausted from the ordeal.");
                     this.cleanupAfterCombat();
                     this.player.orgasm();
                 }
@@ -1020,8 +1020,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
         this.spriteSelect(56);
         this.tamaniKnockUp();
         this.outputText("", true);
-        this.outputText("Tamani gives you a knowing smile as you ", false);
-        if (this.player.HP < 1) this.outputText("lie there, unable to fight back.  ", false);
+        this.outputText("Tamani gives you a knowing smile as you ");
+        if (this.player.HP < 1) this.outputText("lie there, unable to fight back.  ");
         else
             this.outputText(
                 "touch yourself, giving in to the tiny goblin's desire to breed.  ",
@@ -1087,10 +1087,10 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 " tremble from supporting yourself at such an awkward angle, struggling not to relax at the sudden influx of pleasure.  The feelings bring you to the edge, and you feel your body's internal muscles clenching, but the tight vibrating ring blocks your cum and your orgasm, leaving you backed up and desperate.\n\n",
             false
         );
-        this.outputText("Your goblin mistress ", false);
+        this.outputText("Your goblin mistress ");
         if (this.player.balls > 0)
             this.outputText("cups your " + this.ballsDescriptLight() + " tightly", false);
-        else this.outputText("caresses you around the ring", false);
+        else this.outputText("caresses you around the ring");
         this.outputText(
             ' and asks, "<i>So are you sorry for making me wait for my cream ' +
                 this.player.mf("stud", "slut") +
@@ -1102,8 +1102,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.balls > 0)
-            this.outputText("Your balls are getting VERY swollen and tender.", false);
-        else this.outputText("Your body aches inside, feeling bloated and ready to pop.", false);
+            this.outputText("Your balls are getting VERY swollen and tender.");
+        else this.outputText("Your body aches inside, feeling bloated and ready to pop.");
         if (this.player.cor < 50)
             this.outputText(
                 "  You have no choice, you'll say what she wants you to say.\n\n",
@@ -1178,19 +1178,19 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     " to flop free.  You're already hard from the enticing display, and in a moment you're pressing against her lust-slicked pussy",
                 false
             );
-            if (this.player.totalCocks() > 1) this.outputText(" and tight asshole", false);
+            if (this.player.totalCocks() > 1) this.outputText(" and tight asshole");
             this.outputText(
                 ".  You don't allow her any say in the matter, pushing forward as you feel the small girl's flesh yield around ",
                 false
             );
-            if (this.player.totalCocks() > 1) this.outputText("each of ", false);
-            this.outputText("your girth", false);
-            if (this.player.totalCocks() > 1) this.outputText("s", false);
+            if (this.player.totalCocks() > 1) this.outputText("each of ");
+            this.outputText("your girth");
+            if (this.player.totalCocks() > 1) this.outputText("s");
             this.outputText(
                 ".  She squeals happily, clearly getting what she desires.  For a moment you feel disappointed in yourself, but the sensations of her tight hole",
                 false
             );
-            if (this.player.totalCocks() > 1) this.outputText("s", false);
+            if (this.player.totalCocks() > 1) this.outputText("s");
             this.outputText(
                 " clenching and squeezing around you quickly washes it away.\n\n",
                 false
@@ -1200,8 +1200,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 "You rock back and forth methodically, treating Tamani like a tight cock-sleeve.  The goblin slut's hands rub her belly, not even attempting to pull her face out of the mud as she moans and giggles like a whore.  You keep working her cunt like a ",
                 false
             );
-            if (this.player.gender == 1) this.outputText("man", false);
-            else this.outputText("herm", false);
+            if (this.player.gender == 1) this.outputText("man");
+            else this.outputText("herm");
             this.outputText(
                 " possessed, sawing in and out with brutal efficiency, the wet squelches of the slut's juices driving you to piston back and forth with even greater force.  She gurgles happily, her ",
                 false
@@ -1251,8 +1251,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     " dominates her.  Do you think your ",
                 false
             );
-            if (this.player.balls > 0) this.outputText("sexy balls have ", false);
-            else this.outputText("sweet cock has ", false);
+            if (this.player.balls > 0) this.outputText("sexy balls have ");
+            else this.outputText("sweet cock has ");
             this.outputText('any more cream to give to me?</i>"\n\n', false);
             this.outputText(
                 "She doesn't give you a chance to answer as she wobbles off, jiggling pleasantly in all the right places, \"<i>Of course you do.  I'll be back for the rest later!</i>\"\n\n",
@@ -1268,8 +1268,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 "You throw Tamani on her back, too drunk on desire to care how it feels for the tiny slut.  There's no way she could ever take ",
                 false
             );
-            if (this.player.totalCocks() > 1) this.outputText("any of your massive members", false);
-            else this.outputText("your massive member", false);
+            if (this.player.totalCocks() > 1) this.outputText("any of your massive members");
+            else this.outputText("your massive member");
             this.outputText(
                 ", so you grab her by the ankles and wrap her soft-soled feet about yourself.   You start jerking yourself off, using Tamani as a cute but expendable masturbation aid.  She chews a fingernail and massages her " +
                     this.tamaniChest() +
@@ -1312,8 +1312,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     ".  Do you think your ",
                 false
             );
-            if (this.player.balls > 0) this.outputText("sexy balls have ", false);
-            else this.outputText("sweet cock has", false);
+            if (this.player.balls > 0) this.outputText("sexy balls have ");
+            else this.outputText("sweet cock has");
             this.outputText('has any more cream to give to me?</i>"\n\n', false);
 
             this.outputText(
@@ -1380,7 +1380,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.biggestTitSize() >= 2) this.outputText(this.allBreastsDescript(), false);
-        else this.outputText("chest", false);
+        else this.outputText("chest");
         this.outputText(".\n\n", false);
         this.outputText(
             "You grab her under the arms and lift her up, examining her milk-laden nipples.  They shine with moisture, practically begging to be sucked.  You nuzzle them, gently sucking one into your mouth and drinking down the nutritious beverage.  Tamani grinds her hips against one of your " +
@@ -1425,7 +1425,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-            else this.outputText("genitals", false);
+            else this.outputText("genitals");
             this.outputText(
                 " ache from the explosive discharge, leaving you sore and exhausted.\n\n",
                 false
@@ -1453,7 +1453,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     ", you're just too big and <b>hard</b> for me.   Don't worry, I'll help you unload everything straight into my sweet cunt,</i>\" she apologizes, ",
                 false
             );
-            if (this.player.balls > 0) this.outputText("massaging your balls with her feet", false);
+            if (this.player.balls > 0) this.outputText("massaging your balls with her feet");
             else
                 this.outputText(
                     "jacking the base of your " + this.cockDescript(0) + " with her feet",
@@ -1499,7 +1499,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] > 0)
-            this.outputText("with her daughters, ", false); // She always has at least two daughters if she has any
+            this.outputText("with her daughters, "); // She always has at least two daughters if she has any
         this.outputText(
             "laying against a scrubby tree with her legs spread wide and surrounded by a small puddle.  Her " +
                 this.tamaniChest() +
@@ -1507,14 +1507,14 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.flags[kFLAGS.TAMANI_PREGNANCY_COUNT] > 2) {
-            this.outputText("  Moments later a third appears", false);
+            this.outputText("  Moments later a third appears");
             if (this.flags[kFLAGS.TAMANI_PREGNANCY_COUNT] > 3) {
-                this.outputText(", a fourth", false);
+                this.outputText(", a fourth");
                 if (this.flags[kFLAGS.TAMANI_PREGNANCY_COUNT] == 5) {
-                    this.outputText(", and a fifth", false);
-                } else this.outputText(", and more than you can count", false);
+                    this.outputText(", and a fifth");
+                } else this.outputText(", and more than you can count");
             }
-            this.outputText(".", false);
+            this.outputText(".");
         }
         this.outputText("\n\n", false);
 
@@ -1622,7 +1622,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 "Tamani is completely right.  You grab her ass, feeling your fingers sink in to her supple flesh as you pull her back towards your ",
                 false
             );
-            if (cocks > 0) this.outputText("main ", false);
+            if (cocks > 0) this.outputText("main ");
             this.outputText(
                 this.cockDescript(0) +
                     ".  Her warmth spreads over your " +
@@ -1632,8 +1632,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     " with her hands, giving you a massage as you bottom out against her, feeling her juices stain your ",
                 false
             );
-            if (this.player.hasSheath()) this.outputText("sheath", false);
-            else this.outputText("crotch", false);
+            if (this.player.hasSheath()) this.outputText("sheath");
+            else this.outputText("crotch");
             this.outputText("\n\n", false);
 
             this.outputText(
@@ -1666,7 +1666,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (cocks > 0) this.outputText(" around your " + this.cockDescript(secondary), false);
-            this.outputText(". Her tiny form jiggles, ", false);
+            this.outputText(". Her tiny form jiggles, ");
             if (this.player.tallness > 55)
                 this.outputText(
                     "lifting off the ground as you get into it, giving yourself over to her sex.",
@@ -1688,8 +1688,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 "Taking that as an opportunity, you pick up the pace, plunging yourself in and out of her with a renewed, almost vicious vigor.  The wet slaps of your juice-",
                 false
             );
-            if (this.player.skinType == SKIN_TYPE_FUR) this.outputText("matted", false);
-            else this.outputText("slicked", false);
+            if (this.player.skinType == SKIN_TYPE_FUR) this.outputText("matted");
+            else this.outputText("slicked");
             this.outputText(
                 " " +
                     this.player.skinDesc +
@@ -1722,7 +1722,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (this.player.hasKnot(primary))
-                this.outputText("Your knot balloons inside her, locking her in place", false);
+                this.outputText("Your knot balloons inside her, locking her in place");
             else if (this.player.cocks[primary].cockType == CockTypesEnum.HORSE)
                 this.outputText(
                     "Your flare widens, actually holding itself inside Tamani's womb",
@@ -1800,7 +1800,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                             "  A few seconds later she pulls back coughing, and the perky goblin takes the rest of your load in her face.",
                             false
                         );
-                } else this.outputText(".", false);
+                } else this.outputText(".");
             }
             this.outputText("\n\n", false);
 
@@ -1809,7 +1809,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (this.player.tallness > 55)
-                this.outputText(" in spite of the height differential", false);
+                this.outputText(" in spite of the height differential");
             this.outputText(
                 ".  Tamani regains her senses and pushes you back, waddling slightly after the intense fuck.   White jism and clear feminine fluids drool down her thighs, and your mistress couldn't be happier.  She pets your still-dripping " +
                     this.cockDescript(primary) +
@@ -1831,7 +1831,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 "Tamani is completely right.  You grab her ass, feeling your fingers sink in to her supple flesh as you pull her back towards your ",
                 false
             );
-            if (cocks > 1) this.outputText("main ", false);
+            if (cocks > 1) this.outputText("main ");
             this.outputText(
                 this.cockDescript(0) +
                     ".  Her warmth spreads over the " +
@@ -1841,7 +1841,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     ", but will go no further.  You tug harder on her bouncing backside, but you're simply too large to fit inside your wife's beautiful pussy.  She turns around and places a small hand ",
                 false
             );
-            if (this.player.biggestTitSize() < 1) this.outputText("on your chest ", false);
+            if (this.player.biggestTitSize() < 1) this.outputText("on your chest ");
             else this.outputText("between your " + this.breastDescript(0) + " ", false);
             this.outputText(
                 ' and commands, "<i>Stop, you\'re just too big of a man for Tamani to do it the old fashioned way.</i>"\n\n',
@@ -1855,8 +1855,8 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("Her small, dextrous fingers wrap the upper half of your ", false);
-            if (cocks > 1) this.outputText("primary ", false);
+            this.outputText("Her small, dextrous fingers wrap the upper half of your ");
+            if (cocks > 1) this.outputText("primary ");
             this.outputText(
                 this.cockDescript(0) +
                     " inside the sheath, constricting it inside the tight, transparent material.  You sigh while you endure the treatment, disappointed you won't get to feel her clenching about you as you pour sperm into her fertile womb. She finishes up, slowly pushing the tube up her gorgeous, feminine hole until you're certain it'll be depositing your precious cargo into her deepest recesses. Tamani claps her hands together excitedly, \"<i>I haven't had a man big enough to use this with until you.  Oh husband, you're going to love this, just lie back for Tamani, okay?</i>\"\n\n",
@@ -1876,7 +1876,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                     " and sliding along it, your petite wife begins giving you the foot-job of a lifetime.  The awkward position and intense desire make the both of you break out in a sweat, and before long her slippery feet are lubricated enough for her to pick up the tempo.  You rock against her soles, gazing lovingly into her eyes as she fondles her clit and gives you a perverted wink.  Tamani exclaims, \"<i>Oooh, I can feel you twitching under my toes!  Does Tamani's little feet feel good on her ",
                 false
             );
-            if (this.player.tallness > 60) this.outputText("big ", false);
+            if (this.player.tallness > 60) this.outputText("big ");
             this.outputText(
                 this.player.mf("strong man's", "sexy lover's") +
                     " " +
@@ -1889,9 +1889,9 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                 "You assure her that they do like what she is doing – very much so – and ",
                 false
             );
-            if (this.player.cor < 33) this.outputText("beg", false);
-            else if (this.player.cor < 66) this.outputText("ask", false);
-            else this.outputText("command", false);
+            if (this.player.cor < 33) this.outputText("beg");
+            else if (this.player.cor < 66) this.outputText("ask");
+            else this.outputText("command");
             this.outputText(
                 ' her not to stop.  Tamani starts to giggle, but bursts into a moan as her fingers slide along her easily visible clit. She pants, "<i>Hurry up and come for Tamani baby, I wanna feel you pumping your cum inside me!</i>"\n\n',
                 false
@@ -1921,7 +1921,7 @@ export class TamaniScene extends BaseContent implements TimeAwareInterface {
                         ", and by the time you finish, both of you are in a thick puddle of spunk",
                         false
                     );
-                this.outputText(".", false);
+                this.outputText(".");
             }
             if (cocks > 1) {
                 if (cocks == 2) this.outputText("  Your other" + this.cockDescript(1), false);

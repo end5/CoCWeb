@@ -376,7 +376,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             return true;
         }
         if (totalOffers > 0) {
-            this.outputText("Will you take him up on an offer or leave?", false);
+            this.outputText("Will you take him up on an offer or leave?");
             // In camp has no time passage if left.
             this.menu();
             if (showArmorMenu) this.addButton(0, "Armor", this.rathazulArmorMenu);
@@ -601,7 +601,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.gems < 500) {
-            this.outputText("  <b>Wait... you don't even have 500 gems.  Damn.</b>", false);
+            this.outputText("  <b>Wait... you don't even have 500 gems.  Damn.</b>");
             this.doNext(this.returnToRathazulMenu);
             return;
         }
@@ -648,8 +648,8 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
         this.spriteSelect(49);
         this.outputText("", true);
         this.outputText('Rathazul beams and ejaculates, "<i>Good news everyone!  Your ', false);
-        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00275] == 1) this.outputText("armor", false);
-        else this.outputText("robe", false);
+        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00275] == 1) this.outputText("armor");
+        else this.outputText("robe");
         this.outputText(' is finished!</i>"\n\n', false);
         // Robe
         let itype: ItemType;
@@ -795,7 +795,7 @@ export class Rathazul extends NPCAwareContent implements TimeAwareInterface {
             "The plates shine and shimmer like black steel.  He has used the yellow chitin to add accents and embroidery to the plates with a level of detail and craftsmanship rarely seen back home. A yellow fur neck lining has been fashioned from hairs found on the pieces.  The armor includes a breastplate, shoulder guards, full arm guards, and knee high boots.  You notice there are no pants.  As you turn to ask him where the pants are, you see him scratching his head and hastily rustling in drawers.  He mutters under his breath, \"<i>I'm sorry, I'm sorry, I got so focused on working on the pauldrons that I forgot to make any leg coverings!  Here, this should look good with it, and it won't restrict your movements.</i>\"  He hands you a silken loincloth",
             false
         );
-        if (this.player.gender >= 2) this.outputText(" with stockings and garters", false);
+        if (this.player.gender >= 2) this.outputText(" with stockings and garters");
         this.outputText(
             '.  He still manages to look somewhat pleased with himself in spite of the blunder, even bragging a little bit, "<i>Let me show you the different lengths of string I used.</i>"\n\n',
             false

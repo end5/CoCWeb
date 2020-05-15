@@ -182,7 +182,7 @@ STATUSES:
             "\"<i>Didn't know you were a coward, too.  That's fine... go fuck off, then.  You can't handle it, then go back to your camp and braid your hair, or something.  If you wait long enough, I'm sure a nice minotaur will come along to make you his bitch.  'Bout all you're good for, right?</i>\"\r\r",
             false
         );
-        this.outputText("Do you obey his demand?", false);
+        this.outputText("Do you obey his demand?");
         if (
             this.player.cor > 70 &&
             this.player.inte > 40 &&
@@ -219,7 +219,7 @@ STATUSES:
             );
         // (Corruption higher than 60 automatically chooses eagerly)
         if (this.player.cor + this.player.lib + this.player.lust >= 180) {
-            this.outputText(" Of course you do.  You love putting on a show.", false);
+            this.outputText(" Of course you do.  You love putting on a show.");
             // go eagerly.
             this.doNext(this.keltEagerlyGetNaked);
         }
@@ -584,7 +584,7 @@ STATUSES:
         this.outputText("\r\rDo you submit?", false);
         // (Corruption higher than 80 automatically chooses Eagerly)
         if (this.player.cor + this.player.lib + this.player.lust >= 200 && this.player.inte < 60) {
-            this.outputText("  Of course you do, slut that you are.", false);
+            this.outputText("  Of course you do, slut that you are.");
             this.doNext(this.keltBlowjobRequirementEagerly);
             return;
         }
@@ -841,7 +841,7 @@ STATUSES:
                 false
             );
         // (Submissive 70-100:
-        else this.outputText("You nod enthusiastically, almost begging him to teach you.  ", false);
+        else this.outputText("You nod enthusiastically, almost begging him to teach you.  ");
 
         // (Before Naked Requirement)
         if (this.player.statusAffectv3(StatusAffects.Kelt) <= 3) {
@@ -1168,7 +1168,7 @@ STATUSES:
                 );
                 this.player.slimeFeed();
                 this.player.orgasm();
-                this.outputText("He leaves you without another word.", false);
+                this.outputText("He leaves you without another word.");
                 // (+5 Submissive)
                 this.player.addStatusValue(StatusAffects.Kelt, 2, 5);
                 // (Pregnancy Chance)
@@ -1418,7 +1418,7 @@ STATUSES:
                     "Kelt doesn't hesitate.  With an almost primal snarl, he rams his cock forward, anxious to sink himself deep into your ass.  With no lube and no foreplay, you let out a cry as the massive cock splits you open.  Fortunately, it drools precum eagerly into your backside, making the next thrust easier, though no less forceful.  Kelt shows no mercy, trying to fit himself inside your "
                 );
                 if (this.player.tallness < 112) this.outputText("smaller ");
-                this.outputText("body with no concern for your well being.", false);
+                this.outputText("body with no concern for your well being.");
                 this.player.buttChange(70, true, true, false);
                 this.outputText("\r\r", false);
                 this.outputText(
@@ -1905,8 +1905,8 @@ STATUSES:
         this.spriteSelect(35);
         this.outputText("You close your eyes, ", true);
         if (this.player.faceType == FACE_HORSE || this.player.faceType == FACE_DOG)
-            this.outputText("a low growl building in the back of your throat", false);
-        else this.outputText("fighting anger-fueled muscle-spasms", false);
+            this.outputText("a low growl building in the back of your throat");
+        else this.outputText("fighting anger-fueled muscle-spasms");
         this.outputText(
             " as Kelt's insults go too far.  You've had just about enough of his disingenuous assertions!\r\r",
             false
@@ -2022,7 +2022,7 @@ STATUSES:
                         false
                     );
                     if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-                    else this.outputText("crotch", false);
+                    else this.outputText("crotch");
                     this.outputText(
                         " as you begin to roughly push and pull him against your dick using his hair, feeding your tail into his ass by increments.  You feel your tip touch something which pulses, and you gently probe it as you roughly fuck his mouth, beginning to reach your peak.  Kelt only manages a few muffled screams as you milk his prostate while continuing to deny his cock release, before you silence him with a torrent of cum, which you pour directly down his throat.\r\r",
                         false
@@ -2249,7 +2249,7 @@ STATUSES:
                     false
                 );
                 if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_SLICK)
-                    this.outputText("tasting them experimentally.  ", false);
+                    this.outputText("tasting them experimentally.  ");
                 else
                     this.outputText(
                         "immediately becoming slick with your fuck-me-juices.  ",

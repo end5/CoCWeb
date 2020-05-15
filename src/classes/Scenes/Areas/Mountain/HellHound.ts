@@ -114,13 +114,13 @@ export class HellHound extends Monster {
                 return;
             }
             else {
-                outputText("The hellhound sniffs your scent again, seemingly gaining more and more energy as he circles faster around you.", false);
+                outputText("The hellhound sniffs your scent again, seemingly gaining more and more energy as he circles faster around you.");
                 spe = 100;
             }
         }
         else {
             spe += 40;
-            outputText("The hellhound keeps his four eyes on you as he sniffs the ground where you were moments ago. He raises his heads back up and gives you a firey grin - He seems to have aquired you scent!  Running away will now be much more difficult...", false);
+            outputText("The hellhound keeps his four eyes on you as he sniffs the ground where you were moments ago. He raises his heads back up and gives you a firey grin - He seems to have aquired you scent!  Running away will now be much more difficult...");
         }
         if(player.HP <= 0) {
             doNext(endHpLoss);
@@ -173,10 +173,10 @@ export class HellHound extends Monster {
                 );
                 // Rape if not naga, turned on, and girl that can fit!
                 if (this.player.hasVagina() && this.player.lust >= 33 && !this.player.isNaga()) {
-                    this.outputText(" or make it fuck you", false);
+                    this.outputText(" or make it fuck you");
                     temp2 = this.game.mountain.hellHoundScene.hellHoundPropahRape;
                 }
-                this.outputText(".  What do you do?", false);
+                this.outputText(".  What do you do?");
                 this.game.simpleChoices(
                     "Lick",
                     this.game.mountain.hellHoundScene.hellHoundGetsRaped,

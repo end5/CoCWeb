@@ -13,7 +13,7 @@ export class Lumi extends BaseContent {
                 "You spot an anomaly in the barren wastes; a door that seems to be standing out in the middle of nowhere. Somehow, you figure that it must lead to some other part of the world, and the only reason it's here is because you can't get to where the door should be right now.\n\n",
                 false
             );
-            this.outputText("Do you open it?", false);
+            this.outputText("Do you open it?");
             this.doYesNo(this.lumiLabChoices, this.camp.returnToCampUseOneHour);
         } else {
             // placeholder text for outside the cathedral
@@ -112,7 +112,7 @@ export class Lumi extends BaseContent {
             'You point at the bottle filled with bubble-gum pink fluid.\n\n"<i>De lust dwaft? Always a favowite, with it you nevar have to worwy about not bein weady for sexy time; one of my fiwst creations. 15 gems each.</i>"\n\n',
             false
         );
-        this.outputText("Will you buy the lust draft?", false);
+        this.outputText("Will you buy the lust draft?");
         this.doYesNo(Lumi.curry(this.lumiPurchase, this.consumables.L_DRAFT), this.lumiShop);
     }
     // Goblin Ale
@@ -123,7 +123,7 @@ export class Lumi extends BaseContent {
             "You point at the flagon. \"<i>Oh? Oh thats Lumi's... actually no, dat tispsy stuff for 20 gems. You'll like if you want to be like Lumi. Do you like it?</i>\"\n\n",
             false
         );
-        this.outputText("Will you buy the goblin ale?", false);
+        this.outputText("Will you buy the goblin ale?");
         this.doYesNo(Lumi.curry(this.lumiPurchase, this.consumables.GOB_ALE), this.lumiShop);
     }
     // Ovi Elixir
@@ -134,7 +134,7 @@ export class Lumi extends BaseContent {
             'You point at the curious hexagonal bottle. "<i>De Oviposar Elixir? Made baithsed on da giant bee\'s special stuff dey give deir queen. It will help make de burfing go faster, an if you dwink it while you awen pweggy, iw will give you some eggs to burf later. More dwinks, eqwals more and biggar eggs. Lumi charges 45 gems for each dose.</i>"\n\n',
             false
         );
-        this.outputText("Will you buy the Ovi Elixir?", false);
+        this.outputText("Will you buy the Ovi Elixir?");
         this.doYesNo(Lumi.curry(this.lumiPurchase, this.consumables.OVIELIX), this.lumiShop);
     }
 

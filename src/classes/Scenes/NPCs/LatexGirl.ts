@@ -298,7 +298,7 @@ export class LatexGirl extends NPCAwareContent {
         // else if (this.mainView.nameBox.text == "") {
         if (input.value == "") {
             this.clearOutput();
-            this.outputText("<b>You must select a name.</b>", false);
+            this.outputText("<b>You must select a name.</b>");
             this.menu();
             this.addButton(0, "Next", this.nameZeLatexGoo);
             this.mainView.mainText.appendChild(input);
@@ -654,7 +654,7 @@ export class LatexGirl extends NPCAwareContent {
     private nameZeLatexGooNice(input: HTMLInputElement): void {
         if (input.value == "") {
             this.clearOutput();
-            this.outputText("<b>You must select a name.</b>", false);
+            this.outputText("<b>You must select a name.</b>");
             this.menu();
             this.addButton(0, "Next", () => this.nameZeLatexGoo(input));
             this.mainView.mainText.appendChild(input);

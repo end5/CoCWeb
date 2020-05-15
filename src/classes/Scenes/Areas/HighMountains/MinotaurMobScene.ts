@@ -94,7 +94,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
                 if (this.player.cor < 33)
-                    this.outputText("enjoyed their affections more than you ought to", false);
+                    this.outputText("enjoyed their affections more than you ought to");
                 else if (this.player.cor < 66)
                     this.outputText(
                         "indulged yourself in their glorious cum more than a few times",
@@ -120,9 +120,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
 
-                this.outputText("Now that you think about it, the fur patterns of ", false);
+                this.outputText("Now that you think about it, the fur patterns of ");
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] > 3)
-                    this.outputText("some of ", false);
+                    this.outputText("some of ");
                 this.outputText(
                     "the minotaurs you've birthed match these minotaurs' coats perfectly – these bull-men must be your progeny, all grown up.  The small one haltingly asks, \"<i>S-since she looks brain dead... will you guys let me use her cunt this time?  I never get to have any pussy!</i>\"\n\n",
                     false
@@ -187,7 +187,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] > 3)
-                    this.outputText("some of ", false);
+                    this.outputText("some of ");
                 this.outputText(
                     "those of your offspring perfectly... these minotaurs must be your progeny, all grown up.  The small one asks, \"<i>S-since she's already so cum-crazy, can I use her cunt this time?  She's probably all worn out from birthing us, so I bet it's her worst hole.  You guys don't mind, right?</i>\"\n\n",
                     false
@@ -301,7 +301,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         this.player.pregnancyIncubation == 0 ||
                         this.player.pregnancyIncubation > 216
                     )
-                        this.outputText("soon-to-be ", false);
+                        this.outputText("soon-to-be ");
                     this.outputText('knocked up puss,</i>" taunts another minotaur.\n\n', false);
 
                     this.outputText(
@@ -309,7 +309,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         false
                     );
 
-                    this.outputText("What do you do?", false);
+                    this.outputText("What do you do?");
                 }
                 // [Addicted Repeat]
                 else {
@@ -432,9 +432,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         this.player.pregnancyIncubation == 0 ||
                         this.player.pregnancyIncubation > 216
                     )
-                        this.outputText("Come back to add to the tribe?", false);
+                        this.outputText("Come back to add to the tribe?");
                     else if (this.player.pregnancyType == PregnancyStore.PREGNANCY_MINOTAUR)
-                        this.outputText("Come back to show off the lil' bro yer growin'?", false);
+                        this.outputText("Come back to show off the lil' bro yer growin'?");
                     else
                         this.outputText(
                             "Come back to see some real studs after letting a weakling knock you up?",
@@ -454,7 +454,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         false
                     );
 
-                    this.outputText("Gods, you're getting wet.  ", false);
+                    this.outputText("Gods, you're getting wet.  ");
                     if (this.player.wetness() >= 5)
                         this.outputText(
                             "You can feel your juices running unimpeded from under your " +
@@ -481,7 +481,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         false
                     );
 
-                    this.outputText("No! ", false);
+                    this.outputText("No! ");
                     if (this.player.cor < 33)
                         this.outputText(
                             "You can't think that way! Sure, you've birthed minotaurs enough to create this huge tribe of horny monsters, but you're a champion!",
@@ -497,7 +497,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                             "You shouldn't think that way! There's a whole bevy of other creatures out there waiting to be fucked over, and if your boys want a piece of you, they're the ones who should be kneeling down and getting ready to be fucked!",
                             false
                         );
-                    this.outputText("  What do you do?", false);
+                    this.outputText("  What do you do?");
                 }
                 // [Repeat Tribe-Size Addict]
                 else {
@@ -541,7 +541,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                         false
                     );
 
-                    this.outputText("Gods, you're getting wet.  ", false);
+                    this.outputText("Gods, you're getting wet.  ");
                     if (this.player.wetness() >= 5)
                         this.outputText(
                             "You can feel your juices running unimpeded from under your " +
@@ -622,7 +622,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
 
-        this.outputText("Looks like they're only interested in one thing.", false);
+        this.outputText("Looks like they're only interested in one thing.");
         // [Fight] [Submit] [Run]
         this.simpleChoices(
             "Fight",
@@ -642,11 +642,11 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
     private runFromMinotaurs(): void {
         this.outputText("", true);
         this.spriteSelect(94);
-        this.outputText("You turn tail and try to run, ", false);
+        this.outputText("You turn tail and try to run, ");
         if (this.player.canFly())
-            this.outputText("leaping from the small cliffs to take flight", false);
-        else this.outputText("fleeing down the mountainside", false);
-        this.outputText(".  ", false);
+            this.outputText("leaping from the small cliffs to take flight");
+        else this.outputText("fleeing down the mountainside");
+        this.outputText(".  ");
         // ESCAPE!
         if (
             (this.player.canFly() && this.player.spe > MinotaurMobScene.rand(40)) ||
@@ -714,9 +714,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     " and toss it aside; it would just get in the way.  Ass in the air, you wiggle it back and forth enticingly as your need ",
                 false
             );
-            if (this.player.wetness() <= 2) this.outputText("begins to drip from your ", false);
-            else if (this.player.wetness() <= 4) this.outputText("leaks from your ", false);
-            else this.outputText("rolls out in a wave from your ", false);
+            if (this.player.wetness() <= 2) this.outputText("begins to drip from your ");
+            else if (this.player.wetness() <= 4) this.outputText("leaks from your ");
+            else this.outputText("rolls out in a wave from your ");
             this.outputText(this.vaginaDescript(0) + ".", false);
             if (this.player.hasCock())
                 this.outputText(
@@ -751,9 +751,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 "A sudden, forceful push rolls your equine body onto its flank, and a larger member is pressed against your clutching ",
                 false
             );
-            if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("asshole", false);
-            else this.outputText("tailhole", false);
-            this.outputText(".  ", false);
+            if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("asshole");
+            else this.outputText("tailhole");
+            this.outputText(".  ");
         } else if (this.player.isNaga())
             this.outputText(
                 "A sudden, forceful yank stretches out your tail, and a larger member presses between your " +
@@ -766,17 +766,17 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 "A sudden, forceful push rolls you to your side, and you feel shaggy fur rubbing through your gooey folds while a larger member is pressed against your clutching ",
                 false
             );
-            if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("asshole", false);
-            else this.outputText("tailhole", false);
-            this.outputText(".  ", false);
+            if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("asshole");
+            else this.outputText("tailhole");
+            this.outputText(".  ");
         } else {
             this.outputText(
                 "A sudden, powerful yank lifts one of your legs high into the air, and you feel a larger member pressing against your clutching ",
                 false
             );
-            if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("asshole", false);
-            else this.outputText("tailhole", false);
-            this.outputText(".  ", false);
+            if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("asshole");
+            else this.outputText("tailhole");
+            this.outputText(".  ");
         }
         this.outputText(
             "The cruel, flared tip of the horse-like cock batters at the unyielding entrance for a moment, slowly stretching your rectal orifice wider and wider with each painful push.  Gasping in pain, you cry out in anguish before transitioning into a low moan.  The dripping member before you plunges into your open orifice, pre-cum lubricating its passage as the flare is pushed to the back of your throat.  Ordinarily your body might try to reject such an intrusion, but all you feel is a numb sort of acceptance as you relax your throat to let the pre-cum roll into your belly.",
@@ -839,9 +839,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
 
-        this.outputText("The minotaur occupying your mouth grabs hold of your ", false);
-        if (this.player.horns > 0) this.outputText("horns ", false);
-        else this.outputText("head ", false);
+        this.outputText("The minotaur occupying your mouth grabs hold of your ");
+        if (this.player.horns > 0) this.outputText("horns ");
+        else this.outputText("head ");
         this.outputText(
             "and roughly buries his cock in your mouth, all the way to the hilt.  His pre-cum stops, and the balls on your chin begin to bounce as the beast's animalistic, three-ribbed member starts to widen inside you.  Your jaw stretches slightly, and you feel a huge wad of cum distend the urethra along the bottom of his shaft.  Working towards your belly, the mass bursts from his tip explosively, making your gut gurgle audibly as it receives its first injection of minotaur spunk.\n\n",
             false
@@ -851,7 +851,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "Expanding in the moment of penultimate pleasure, the minotaur's tip flares wide, effectively sealing your esophagus shut.  The furry sack bobs on your chin, the heavy balls inside slowly shrinking as they empty their lust-inducing, thought-removing cargo into your deepest recesses",
             false
         );
-        if (this.player.cor >= 66) this.outputText(".  You couldn't be happier about it", false);
+        if (this.player.cor >= 66) this.outputText(".  You couldn't be happier about it");
         this.outputText(
             ".   The bulges of cum squeezing past your thrashing, excited tongue slowly grow smaller and smaller as the spoogey goodness is inexorably emptied from the poor, pumped-up testes on your chin.  They give a tiny shudder and stop, and the minotaur pulls back at last, slowly softening to ease his passage from your abused throat hole.\n\n",
             false
@@ -868,8 +868,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             '"<i>Not today, runt.</i>" snorts the minotaur behind you.  He lifts you up in his sweat-slicked arms and spins you about, placing your so-far-unspoiled womanhood atop his flaring, ready-to-explode cock-tip.  He smirks and presses your face into ',
             false
         );
-        if (this.player.tallness <= 70) this.outputText("his chest", false);
-        else this.outputText("his shoulder", false);
+        if (this.player.tallness <= 70) this.outputText("his chest");
+        else this.outputText("his shoulder");
         this.outputText(
             " as he laughs, \"<i>You can have Mom's backdoor.  I went ahead and opened it for you.</i>\"  A crestfallen look spreads over the minitaur's face, but it doesn't stop him for walking up behind you to line his smaller shaft up with your gaping, sloppy asshole.\n\n",
             false
@@ -887,9 +887,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
 
         this.outputText('"<i>Fuck, Mom, your pussy is great!  ', false);
         if (this.player.pregnancyIncubation == 0 || this.player.pregnancyIncubation > 216)
-            this.outputText("I hope you don't mind me making another brother.", false);
+            this.outputText("I hope you don't mind me making another brother.");
         else if (this.player.pregnancyType == PregnancyStore.PREGNANCY_MINOTAUR)
-            this.outputText("I hope you don't mind me saying hi to my little brother.", false);
+            this.outputText("I hope you don't mind me saying hi to my little brother.");
         else
             this.outputText(
                 "I hope you come back after you pop out this vermin so we can give you a real baby!",
@@ -919,11 +919,11 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
             if (this.player.cumQ() < 25)
-                this.outputText("a few spots of cum into his sweat-matted fur.", false);
+                this.outputText("a few spots of cum into his sweat-matted fur.");
             else if (this.player.cumQ() < 50)
-                this.outputText("a steady trickle of cum into his fur.", false);
+                this.outputText("a steady trickle of cum into his fur.");
             else if (this.player.cumQ() < 100)
-                this.outputText("a steady stream of cum into his matted fur.", false);
+                this.outputText("a steady stream of cum into his matted fur.");
             else
                 this.outputText(
                     "a constant flow of cum that utterly soaks the minotaur's fur and balls with your wasted, inferior seed.",
@@ -1008,17 +1008,17 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 "She doesn't know how to keep her hungry twat closed.  You can see the vermin squirming in her belly.  Disgusting.",
                 false
             );
-        else this.outputText("I can feel our little brother.  It won't be long now.", false);
+        else this.outputText("I can feel our little brother.  It won't be long now.");
         this.outputText(
             "  Since your womb is full you'll have to take care of us with your other holes.  ...Don't look at me like that Mom - it's not my fault you're such a slut.</i>\"\n\n",
             false
         );
 
-        this.outputText("You frown in ", false);
+        this.outputText("You frown in ");
         if (this.player.cor < 33)
-            this.outputText("irritation at being addressed so insultingly", false);
-        else if (this.player.cor < 66) this.outputText("annoyance at their familiarity", false);
-        else this.outputText("irritation at losing control of the situation", false);
+            this.outputText("irritation at being addressed so insultingly");
+        else if (this.player.cor < 66) this.outputText("annoyance at their familiarity");
+        else this.outputText("irritation at losing control of the situation");
         this.outputText(
             ".  Of course, the building anticipation heating your loins makes it easy to forget.  Accepting the situation, you open your mouth and look up at your aroused offspring.  You've lost, and there's nothing to do but offer up your spit-hole and present your rump to the mob of lusty beast-man.  They snicker at your slack-jawed appearance while playing with their engorged monster-cocks.\n\n",
             false
@@ -1029,8 +1029,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.player.pregnancyType != PregnancyStore.PREGNANCY_MINOTAUR)
-            this.outputText("isn't", false);
-        else this.outputText("may not be", false);
+            this.outputText("isn't");
+        else this.outputText("may not be");
         this.outputText(
             " the father of the child in your womb.  You shiver at the smell, the heavenly fluid drying on your " +
                 this.player.skinFurScales() +
@@ -1133,8 +1133,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             'You hum, "<i>good,</i>" though it comes out as more of a, "<i>mpppphhhhhh.</i>"  Your drug-addled vision is all bubbles and synaesthetic rainbows at this point.  He chuckles malevolently when another minotaur resumes slapping your ass.  The minotaur in the driver\'s seat grabs your ',
             false
         );
-        if (this.player.horns > 0) this.outputText("horns", false);
-        else this.outputText("hair", false);
+        if (this.player.horns > 0) this.outputText("horns");
+        else this.outputText("hair");
         this.outputText(
             " and pulls you back, your tongue dragging over the underside of his shaft.  Then, with an abrupt shift, he plunges back in.  Once he bottoms out, he once more reverses direction - never stopping, never slowing.  He face-fucks you hard and fast while your ass is repeatedly smacked.",
             false
@@ -1226,8 +1226,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
             if (this.player.pregnancyType == PregnancyStore.PREGNANCY_MINOTAUR)
-                this.outputText("we wouldn't want the next member of our tribe injured.", false);
-            else this.outputText("we wouldn't want to ruin our favorite toy would we?", false);
+                this.outputText("we wouldn't want the next member of our tribe injured.");
+            else this.outputText("we wouldn't want to ruin our favorite toy would we?");
             this.outputText(
                 "  Look at her, she's smiling with a dick in her mouth while she passes out.  Mom's the best.</i>\"",
                 false
@@ -1260,7 +1260,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 ", you're soon expressing drops of milk into his squeezing mitts.",
                 false
             );
-        else this.outputText(", you're soon moaning and squirming from his crude caresses.", false);
+        else this.outputText(", you're soon moaning and squirming from his crude caresses.");
         this.outputText(
             "  Soon, the turgid length of his horse-like cock is prodding your pregnant tummy, lubing it with narcotic spooge that you find yourself wishing was in your mouth or pussy.\n\n",
             false
@@ -1271,15 +1271,15 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 20)
-            this.outputText("to make the tribe even bigger", false);
-        else this.outputText("more brothers", false);
+            this.outputText("to make the tribe even bigger");
+        else this.outputText("more brothers");
         this.outputText(
             ", don't you?</i>\"  The relatively tiny minitaur flinches as he finishes, expecting a backhand from one of his elder siblings.  Surprisingly, no blow comes.  The biggest one exhales, the deep voice sounding more like a landslide than a breath.  He admits, \"<i>I should ream your ass for interrupting me, but you're right.  Mom's puss is off limits boys, we won't damage ",
             false
         );
         if (this.player.pregnancyType == PregnancyStore.PREGNANCY_MINOTAUR)
-            this.outputText("our little brother", false);
-        else this.outputText("her baby-maker", false);
+            this.outputText("our little brother");
+        else this.outputText("her baby-maker");
         this.outputText('.</i>"\n\n', false);
 
         this.outputText(
@@ -1303,7 +1303,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 "We've got to get mom so high on us that she'll float back to her camp and come crawling back to us tomorrow.",
                 false
             );
-        else this.outputText("We've gotta get mom her fix.", false);
+        else this.outputText("We've gotta get mom her fix.");
         this.outputText(
             "  Then, we can try and hunt a succubus to make into our blowjob bitch.",
             false
@@ -1316,7 +1316,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 " raise your ",
             false
         );
-        if (this.player.isTaur()) this.outputText("haunches", false);
+        if (this.player.isTaur()) this.outputText("haunches");
         else this.outputText(this.assDescript(), false);
         this.outputText(
             " skyward, your back bowing from the sudden strain.  A wide, drippy tip butts up against your back-door, and though you had heard them talk about fucking your ass through your lusty daze, nothing could prepare you for the feeling of a hot, male member pushing at your pucker.  You relax your " +
@@ -1362,11 +1362,11 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 " ",
             false
         );
-        if (this.player.wetness() >= 5) this.outputText("squirt", false);
-        else if (this.player.wetness() >= 4) this.outputText("slime", false);
-        else if (this.player.wetness() >= 3) this.outputText("leak", false);
-        else if (this.player.wetness() >= 2) this.outputText("trail dribbles of", false);
-        else this.outputText("drip", false);
+        if (this.player.wetness() >= 5) this.outputText("squirt");
+        else if (this.player.wetness() >= 4) this.outputText("slime");
+        else if (this.player.wetness() >= 3) this.outputText("leak");
+        else if (this.player.wetness() >= 2) this.outputText("trail dribbles of");
+        else this.outputText("drip");
         this.outputText(" girl-juice everywhere.\n\n", false);
 
         // (nipcunts)
@@ -1417,8 +1417,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     " and gently suck at it, drawing a small trickle of milk from your leaky tit.  ",
                 false
             );
-            if (this.player.totalBreasts() == 2) this.outputText("Your ", false);
-            else this.outputText("An", false);
+            if (this.player.totalBreasts() == 2) this.outputText("Your ");
+            else this.outputText("An");
             this.outputText(
                 "other lonely breast is grabbed by a softer, more feminine hand, and it's then that you realize you're being suckled by the runt of the litter, your minitaur son.  He caresses your milk-filled globes while he drinks from them, draining each as his big brothers start sawing their hips back and forth.  They use you like one of the strange two-person saws the lumberjacks back home had for cutting trees, and you love it.  The hungry, miniature minotaur drains one tit and moves onto the other, suckling intensely yet tenderly, cautious of hurting you even though his bigger kin seem intent on destroying their chosen orifices.\n\n",
                 false
@@ -1432,8 +1432,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     " and gently suck at it, making it hard and puffy inside the warm, questing mouth.  ",
                 false
             );
-            if (this.player.totalBreasts() == 2) this.outputText("Your ", false);
-            else this.outputText("An", false);
+            if (this.player.totalBreasts() == 2) this.outputText("Your ");
+            else this.outputText("An");
             this.outputText(
                 "other lonely breast is grabbed by a softer, more feminine hand, and it's then that you realize your nipples are being pleasured by the runt of your litter, the minitaur.  He caresses your " +
                     this.chestDesc() +
@@ -1443,7 +1443,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
         }
-        this.outputText("You're bounced to and fro, utterly and completely fucked", false);
+        this.outputText("You're bounced to and fro, utterly and completely fucked");
         if (this.player.biggestTitSize() >= 3 && this.player.biggestLactation() >= 1)
             this.outputText(
                 ", your pregnant, milky tits swaying underneath you while they're suckled",
@@ -1463,7 +1463,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.player.wetness() <= 3)
-            this.outputText(", even though you're not usually that wet", false);
+            this.outputText(", even though you're not usually that wet");
         this.outputText(
             ".  It feels so good that you start to shake and spasm, cumming and clenching from the spunky injection.\n\n",
             false
@@ -1480,13 +1480,13 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
 
-        this.outputText("Both poles slide out of you", false);
+        this.outputText("Both poles slide out of you");
         if (!this.player.hasFuckableNipples() && this.player.biggestLactation() >= 1)
             this.outputText(
                 ", and the minitaur's lips disentangle from your " + this.nippleDescript(0),
                 false
             );
-        this.outputText(".  Hands gently lower you to the ground", false);
+        this.outputText(".  Hands gently lower you to the ground");
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 5)
             this.outputText(
                 ", but you're positioned with your ass in the air.  A voice calls out, \"<i>Okay, Mom's pretty out of it.  One at a time and don't damage her, okay?</i>\"\n\nGiggling dreamily, you're fucked repeatedly, spunk squirting from your anus with every thrust.  You pass out like that, feeling quite satisfied.",
@@ -1583,12 +1583,12 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
 
-        this.outputText("You lower yourself down ", false);
-        if (this.player.isBiped()) this.outputText("to your knees", false);
-        else if (this.player.isTaur()) this.outputText("on your forelegs", false);
-        else if (this.player.isGoo()) this.outputText("into your gooey undercarriage", false);
-        else if (this.player.isNaga()) this.outputText("into the coils of your tail", false);
-        else this.outputText("INTO YOUR ERROR: UNCLASSIFIED LOWER BODY", false);
+        this.outputText("You lower yourself down ");
+        if (this.player.isBiped()) this.outputText("to your knees");
+        else if (this.player.isTaur()) this.outputText("on your forelegs");
+        else if (this.player.isGoo()) this.outputText("into your gooey undercarriage");
+        else if (this.player.isNaga()) this.outputText("into the coils of your tail");
+        else this.outputText("INTO YOUR ERROR: UNCLASSIFIED LOWER BODY");
         this.outputText(
             " and open up your " +
                 this.player.armorName +
@@ -1667,7 +1667,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 this.player.findPerk(PerkLib.BimboBrains) >= 0 ||
                 this.player.findPerk(PerkLib.FutaFaculties) >= 0
             )
-                this.outputText("like, ", false);
+                this.outputText("like, ");
             this.outputText(
                 'getting sooo wasted on it,</i>" you command.  Bouncing your breasts up and down, you keep the soaked flesh in constant motion around the swollen, slowly flaring shafts.  A sudden gout of wetness splashes your cheek, and as you turn to investigate, a leaking prick is pressed through your confusion-pursed lips.  Salty-sweet pre-cum tingles on your tongue, and you begin to lap at it eagerly, running your tongue over the hot, flaring tongue.  It tastes absolutely divine.  You focus on it completely, trying to block out the voice of its owner.\n\n',
                 false
@@ -1677,8 +1677,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 "The runt of your litter, the minitaur, is whining, \"<i>I-I'm sorry Mom but I just couldn't hold b-back anymore.  Ung... your mouth is so hot.  I can't control it!</i>\"  He grabs your ",
                 false
             );
-            if (this.player.horns > 0) this.outputText("horns", false);
-            else this.outputText("hair", false);
+            if (this.player.horns > 0) this.outputText("horns");
+            else this.outputText("hair");
             this.outputText(
                 " and pulls you down, ramming the fat flare of his dick into your throat a split second before he cums.  The salty deluge fills your throat to the brim before it rolls down into your stomach, adding the already full load inside you.  You hum in happiness as you're stuffed with spunk.  The added throat vibration keeps your femmy son spurting nice and long for you.\n\n",
                 false
@@ -1693,7 +1693,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     "I'd hate to see you go mad with need around a lesser beast.",
                     false
                 );
-            else this.outputText("This will be so much better once you learn to need it.", false);
+            else this.outputText("This will be so much better once you learn to need it.");
             this.outputText('</i>"\n\n', false);
 
             this.outputText(
@@ -1712,9 +1712,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
         }
         // (SMALL)
         else {
-            this.outputText("There's only ", false);
+            this.outputText("There's only ");
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] == 3)
-                this.outputText("one minotaur", false);
+                this.outputText("one minotaur");
             else
                 this.outputText(
                     MinotaurMobScene.num2Text(this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 2) +
@@ -1731,10 +1731,10 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
             else {
-                this.outputText("You grab the minitaur and ", false);
+                this.outputText("You grab the minitaur and ");
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] == 4)
-                    this.outputText("the remaining brother", false);
-                else this.outputText("one of the remaining brothers", false);
+                    this.outputText("the remaining brother");
+                else this.outputText("one of the remaining brothers");
                 this.outputText(
                     ", pulling them hard towards your cum-slicked tits.  You waste no time burying their twin members in the cum-slicked crevasse that is their mommy's mammaries, right where they belong.",
                     false
@@ -1745,7 +1745,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 this.player.findPerk(PerkLib.BimboBrains) >= 0 ||
                 this.player.findPerk(PerkLib.FutaFaculties) >= 0
             )
-                this.outputText("like, ", false);
+                this.outputText("like, ");
             this.outputText('getting sooo wasted on it,</i>" you command.\n\n', false);
 
             this.outputText(
@@ -1788,12 +1788,12 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] > 5) {
-                    this.outputText(" and his brother", false);
+                    this.outputText(" and his brother");
                     if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 6)
-                        this.outputText("s", false);
+                        this.outputText("s");
                 }
-                this.outputText(".  The act passes in a blur, but you", false);
-                if (!this.player.isGoo()) this.outputText(" look like a white goo-girl", false);
+                this.outputText(".  The act passes in a blur, but you");
+                if (!this.player.isGoo()) this.outputText(" look like a white goo-girl");
                 else
                     this.outputText(
                         "r gelatinous body is filled with long slashes of white",
@@ -1934,13 +1934,13 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.player.hasFuckableNipples() && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 4)
-            this.outputText("  There's still more you could be doing.", false);
+            this.outputText("  There's still more you could be doing.");
         this.outputText("\n\n", false);
 
         // (Nipplefuck PG:)
         if (this.player.hasFuckableNipples() && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] > 4) {
-            if (this.player.biggestLactation() >= 1) this.outputText("Milky lube", false);
-            else this.outputText("Lubricant", false);
+            if (this.player.biggestLactation() >= 1) this.outputText("Milky lube");
+            else this.outputText("Lubricant");
             this.outputText(
                 " drips from your " +
                     this.nippleDescript(0) +
@@ -1948,12 +1948,12 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] == 4)
-                this.outputText("One stud assembles next to ", false);
+                this.outputText("One stud assembles next to ");
             else if (
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 5 &&
                 this.player.totalBreasts() == 2
             )
-                this.outputText("Two studs assemble around ", false);
+                this.outputText("Two studs assemble around ");
             else {
                 let dicks: number = this.player.totalBreasts();
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3 < dicks)
@@ -1963,10 +1963,10 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
             }
-            this.outputText("you, watching your tits sway with the motion of your body.  ", false);
+            this.outputText("you, watching your tits sway with the motion of your body.  ");
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] == 4)
-                this.outputText("He excitedly fingers", false);
-            else this.outputText("They excitedly finger", false);
+                this.outputText("He excitedly fingers");
+            else this.outputText("They excitedly finger");
             this.outputText(
                 " your tits, slipping a few digits in to explore the depths of your chest-pussies.  ",
                 false
@@ -2011,7 +2011,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.player.hasFuckableNipples() && this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] > 4)
-            this.outputText("your nipples squirt, ", false);
+            this.outputText("your nipples squirt, ");
         this.outputText(
             "and your ass squeezes down on the minotaur penis inside it all at once.  Overwhelmed by their slutty mother's thrashing form and constricting holes, ",
             false
@@ -2064,8 +2064,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "All of them pull out at once, leaving you to rub your distended belly and moan.  The ",
             false
         );
-        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] < 20) this.outputText("gang", false);
-        else this.outputText("tribe", false);
+        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] < 20) this.outputText("gang");
+        else this.outputText("tribe");
         this.outputText(" smirks at you as you struggle to right yourself.\n\n", false);
 
         this.outputText(
@@ -2104,9 +2104,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.player.hasCock()) this.outputText(" and " + this.multiCockDescriptLight(), false);
-        this.outputText(" to the air.  The defeated ", false);
-        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] < 20) this.outputText("mob", false);
-        else this.outputText("tribe", false);
+        this.outputText(" to the air.  The defeated ");
+        if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] < 20) this.outputText("mob");
+        else this.outputText("tribe");
         this.outputText(
             " of minotaurs perk up at the sight, but you laugh at their hopeful expressions.  \"<i>I hope you don't expect to be getting any of this.  Get the fuck out of here, and don't let me catch you trying to ambush me again!</i>\"  Wearied, they drag themselves to their feet, giving your womanhood long, leering looks as they go.  You pin the minitaur's tail under your " +
                 this.player.foot() +
@@ -2131,14 +2131,14 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
             if (this.player.isTaur()) {
-                this.outputText("turn ", false);
+                this.outputText("turn ");
                 if (this.player.tailType > TAIL_TYPE_NONE)
-                    this.outputText("and lift your tail ", false);
-                this.outputText("to expose the glistening pinkness of your womanhood.", false);
+                    this.outputText("and lift your tail ");
+                this.outputText("to expose the glistening pinkness of your womanhood.");
             }
             // ELSE
             else {
-                if (this.player.balls > 0) this.outputText("lift your balls and ", false);
+                if (this.player.balls > 0) this.outputText("lift your balls and ");
                 this.outputText(
                     "spread your " +
                         this.vaginaDescript() +
@@ -2151,18 +2151,18 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
             if (this.player.clitLength >= 8)
-                this.outputText(", until the huge size of it is revealed.", false);
+                this.outputText(", until the huge size of it is revealed.");
             else if (this.player.clitLength >= 3)
                 this.outputText(
                     ", until the cock-like length of your feminine organ is revealed.",
                     false
                 );
             else if (this.player.clitLength >= 1)
-                this.outputText(", until the large, womanly organ is revealed.", false);
-            else this.outputText(", revealing its cute button self.", false);
+                this.outputText(", until the large, womanly organ is revealed.");
+            else this.outputText(", revealing its cute button self.");
             this.outputText("\n\n", false);
 
-            this.outputText("The girly 'monster' crawls forward, ", false);
+            this.outputText("The girly 'monster' crawls forward, ");
             if (this.player.isTaur())
                 this.outputText(
                     "disappearing under your hind-legs as he attends to his newly commanded duty.",
@@ -2270,14 +2270,14 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
             this.outputText("  " + this.SMultiCockDesc() + " ", false);
-            if (this.player.lust < 50) this.outputText("grows hard", false);
-            else this.outputText("gets even harder", false);
+            if (this.player.lust < 50) this.outputText("grows hard");
+            else this.outputText("gets even harder");
             this.outputText(
                 " before his eyes, and the minotaur licks his lips reflexively, clearly enjoying the thought of fellating you.\n\n",
                 false
             );
 
-            this.outputText("The girly 'monster' crawls forward, ", false);
+            this.outputText("The girly 'monster' crawls forward, ");
             if (this.player.isTaur())
                 this.outputText(
                     "disappearing under your hind-legs as he attends to his newly commanded duty.",
@@ -2297,22 +2297,22 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
 
-            this.outputText("The serpent-like tongue snakes ", false);
+            this.outputText("The serpent-like tongue snakes ");
             if (this.player.balls > 0)
                 this.outputText("around your " + this.sackDescript() + " before curling ", false);
             this.outputText(
                 "around the base of your " + this.multiCockDescriptLight() + ".  It circles up ",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("a", false);
-            else this.outputText("the", false);
+            if (this.player.cockTotal() > 1) this.outputText("a");
+            else this.outputText("the");
             this.outputText(
                 " shaft before stopping at the frenulum.  The wet heat of his tongue seems to seep into your dick-flesh until you feels as if you could melt, but the minitaur is just getting started.  He opens wide and takes your " +
                     this.player.cockHead() +
                     " into his mouth; it rubs sensually over the remainder of flat tongue still inside, and he sucks expertly at it until you're drooling pre-cum on his tongue.  He shivers at that, but it doesn't make him ",
                 false
             );
-            if (!this.player.isTaur()) this.outputText("break eye-contact or ", false);
+            if (!this.player.isTaur()) this.outputText("break eye-contact or ");
             this.outputText("slow down in the slightest.\n\n", false);
 
             if (this.player.hasVagina())
@@ -2327,12 +2327,12 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 false
             );
             if (this.player.cockTotal() > 1) {
-                this.outputText(" while he strokes ", false);
+                this.outputText(" while he strokes ");
                 if (this.player.cockTotal() > 2)
-                    this.outputText("one of your ignored penises", false);
-                else this.outputText("on your ignored penis", false);
+                    this.outputText("one of your ignored penises");
+                else this.outputText("on your ignored penis");
             }
-            this.outputText(".", false);
+            this.outputText(".");
             if (this.player.hasVagina())
                 this.outputText(
                     "  You begin to cum into your son's mouth, your pussy hugging his finger tightly inside its depths.",
@@ -2340,7 +2340,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 );
             this.outputText("\n\n", false);
 
-            this.outputText("Your jism ", false);
+            this.outputText("Your jism ");
             if (this.player.cumQ() < 100)
                 this.outputText(
                     "squirts into his mouth repeatedly, puddling on his tongue before he noisily swallows it.",
@@ -2362,7 +2362,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                     false
                 );
                 if (this.player.cumQ() >= 2000)
-                    this.outputText("  Spunk runs from his nostrils as he utterly fails.", false);
+                    this.outputText("  Spunk runs from his nostrils as he utterly fails.");
             }
             this.outputText(
                 "  He pulls back before you finish and lets the last few waves of semen of take him in the face.",
@@ -2411,8 +2411,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 ' back and forth.  "<i>Would two of you strapping young lads like to play with your Mom\'s nipples?</i>" you tease.  The minotaurs stir from their defeated poses with lust burning in their eyes as they rise and advance.  Giggling, you circle your areolae with your fingertip and moan lewdly, teasing the poor beasts until you tire of the stimulation and work a fingertip into ',
             false
         );
-        if (this.player.totalNipples() == 2) this.outputText("each", false);
-        else this.outputText("two", false);
+        if (this.player.totalNipples() == 2) this.outputText("each");
+        else this.outputText("two");
         this.outputText(" of the leaky nipple-cunts.\n\n", false);
 
         this.outputText(
@@ -2430,16 +2430,16 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] == 3)
-            this.outputText("the minitaur, much to the smaller monster's chagrin.", false);
-        else this.outputText("the rest of his kin, much to their chagrin.", false);
+            this.outputText("the minitaur, much to the smaller monster's chagrin.");
+        else this.outputText("the rest of his kin, much to their chagrin.");
         this.outputText(
             "  The pair look at you with ravenous eyes as you continue to toy with the nipple openings, slowly stretching them as they get wetter and wetter.\n\n",
             false
         );
 
-        this.outputText("You smile and ", false);
-        if (this.player.tallness >= 72) this.outputText("drop down", false);
-        else this.outputText("shift position", false);
+        this.outputText("You smile and ");
+        if (this.player.tallness >= 72) this.outputText("drop down");
+        else this.outputText("shift position");
         this.outputText(
             " to get your " +
                 this.nippleDescript(0) +
@@ -2453,12 +2453,12 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "The sensation of those hot minotaur pricks stuffing your nipples as wide as a well-fucked pussy is heavenly.  You rock in place from the sloppy, pre-spurting penetration, watching ",
             false
         );
-        if (this.player.biggestTitSize() <= 2) this.outputText("a few inches", false);
-        else if (this.player.biggestTitSize() <= 4) this.outputText("inches", false);
-        else if (this.player.biggestTitSize() <= 8) this.outputText("most of a foot", false);
-        else if (this.player.biggestTitSize() <= 14) this.outputText("over a foot", false);
-        else if (this.player.biggestTitSize() <= 30) this.outputText("nearly two feet", false);
-        else this.outputText("the whole length", false);
+        if (this.player.biggestTitSize() <= 2) this.outputText("a few inches");
+        else if (this.player.biggestTitSize() <= 4) this.outputText("inches");
+        else if (this.player.biggestTitSize() <= 8) this.outputText("most of a foot");
+        else if (this.player.biggestTitSize() <= 14) this.outputText("over a foot");
+        else if (this.player.biggestTitSize() <= 30) this.outputText("nearly two feet");
+        else this.outputText("the whole length");
         this.outputText(
             " of the nearly-equine cocks disappear inside you with rapt fascination.  The thick, hot members pulsate inside the bottom of your tits and nearly knock you to the ground from the pleasure.  You grab your boys' balls in that moment, squeezing them softly to egg them on.  In response, the minotaurs both pull their cocks back, dragging their flares back out of your jugs before they penetrate you all over again.\n\n",
             false
@@ -2469,7 +2469,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] >= 7)
-            this.outputText(", chased by jeers from the remainder of your brood", false);
+            this.outputText(", chased by jeers from the remainder of your brood");
         this.outputText(
             ".  He shyly scratches at his head as he daintily lifts his loincloth, stiffing up until his erection is bobbing before your " +
                 this.player.face() +
@@ -2485,7 +2485,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             this.outputText("  " + this.SMultiCockDesc(), false);
             if (this.player.hasVagina())
                 this.outputText(" and " + this.vaginaDescript() + " drool", false);
-            else this.outputText(" drools", false);
+            else this.outputText(" drools");
             this.outputText(
                 " lamely inside your clothing, nearly forgotten in the sensory overload coming from your upper body.",
                 false
@@ -2498,9 +2498,9 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.player.biggestLactation() >= 3)
-            this.outputText(" while you hose sprays of milk around the twin rods", false);
+            this.outputText(" while you hose sprays of milk around the twin rods");
         else if (this.player.biggestLactation() >= 1.5)
-            this.outputText(" while you dribble milk around the twin rods", false);
+            this.outputText(" while you dribble milk around the twin rods");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -2509,8 +2509,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 ", shoulders, and face, just in time for the cock plugging your mouth to explode in orgasm with the force of a bursting dam.  You're utterly soaked in seed, both inside and out - an incestuous whore through and through.  The two largest minotaurs finally exhaust their reserves and step back, high-fiving as they go.  Your smaller, girlish boy takes longer to finish, but by the time he does you feel positively stuffed.  It will be quite some time before you're hungry for a",
             false
         );
-        if (!this.player.minotaurAddicted()) this.outputText(" 'meal'", false);
-        else this.outputText("nother fix", false);
+        if (!this.player.minotaurAddicted()) this.outputText(" 'meal'");
+        else this.outputText("nother fix");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -2518,7 +2518,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             false
         );
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] < 5)
-            this.outputText("relax and fan themselves while giving you lusty looks", false);
+            this.outputText("relax and fan themselves while giving you lusty looks");
         else
             this.outputText(
                 "stare gloomily at the lucky three before turning to regard your form again with unrepentant lust",
@@ -2604,8 +2604,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "You give the tiny beast-man's heavy balls a loving squeeze and jerk back, letting the swollen dick pop out of your oral prison and hang there, wet with saliva.  Shaking with a need of your own, you rise and bend ",
             false
         );
-        if (!this.player.isNaga()) this.outputText("over", false);
-        else this.outputText("back, snake-like", false);
+        if (!this.player.isNaga()) this.outputText("over");
+        else this.outputText("back, snake-like");
         this.outputText(
             " to present your " +
                 this.vaginaDescript() +
@@ -2641,7 +2641,7 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
                 "tug and pull at your drippy nipples, releasing thick flows of creamy milk.",
                 false
             );
-        else this.outputText("tug at your achy nipples.", false);
+        else this.outputText("tug at your achy nipples.");
         this.outputText(
             "  Moaning like a whore, you gasp and pant under your bovine lover, lost to the world and nearly screaming in delight each time your " +
                 this.vaginaDescript(0) +
@@ -2653,8 +2653,8 @@ export class MinotaurMobScene extends BaseContent implements TimeAwareInterface 
             "The rhythmic contractions around his rod set off the minitaur.  His heavy balls bounce against your body as they churn and jiggle, pumping an obscene amount of cum through the thick cock lodged in your twat.  You can feel his flare straining at your cervix, the urethra pumping a torrent of spooge ",
             false
         );
-        if (this.player.pregnancyIncubation == 0) this.outputText("inside your empty womb", false);
-        else this.outputText("against the plugged entrance of your pregnant womb", false);
+        if (this.player.pregnancyIncubation == 0) this.outputText("inside your empty womb");
+        else this.outputText("against the plugged entrance of your pregnant womb");
         this.outputText(
             ", releasing so much that a squirt of it escapes to run down your " +
                 this.player.leg() +

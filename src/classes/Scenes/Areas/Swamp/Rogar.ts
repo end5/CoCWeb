@@ -63,8 +63,8 @@ export class Rogar extends BaseContent {
                     false
                 );
                 if (this.player.isNaga() || this.player.tailType > TAIL_TYPE_NONE)
-                    this.outputText("  Your tail flicks about happily.", false);
-                this.outputText("  Should you really wait for him?", false);
+                    this.outputText("  Your tail flicks about happily.");
+                this.outputText("  Should you really wait for him?");
             }
             this.doYesNo(this.waitForChunkyOrcLoe, this.dontWaitForRogar);
         }
@@ -117,8 +117,8 @@ export class Rogar extends BaseContent {
                 );
 
                 // [(lib > 50)
-                if (this.player.lib >= 50) this.outputText("  Your loins burn", false);
-                else this.outputText("  Your nose crinkles", false);
+                if (this.player.lib >= 50) this.outputText("  Your loins burn");
+                else this.outputText("  Your nose crinkles");
                 this.outputText(
                     " at the remains of Ro'gar's pleasure, and you make a mental note that the orc must be lonely.  You figure someone spends many nights entertaining himself here, alone.\n\n",
                     false
@@ -139,7 +139,7 @@ export class Rogar extends BaseContent {
 
             // ((high femininity or breasts >=B-cup, libido 50 or more))
             if (this.player.biggestTitSize() >= 2 && this.player.lib >= 50) {
-                this.outputText("As you drink more your mind wanders.  ", false);
+                this.outputText("As you drink more your mind wanders.  ");
                 // (Int<30)
                 if (this.player.inte <= 30) {
                     this.outputText(
@@ -186,7 +186,7 @@ export class Rogar extends BaseContent {
             }
             // ((high femininity or breasts >=B-cup, libido less than 50))
             else if (this.player.biggestTitSize() >= 2) {
-                this.outputText("You grin as you chat with Ro'gar mindlessly.  ", false);
+                this.outputText("You grin as you chat with Ro'gar mindlessly.  ");
                 // [(int <30)
                 if (this.player.inte < 30)
                     this.outputText(
@@ -194,7 +194,7 @@ export class Rogar extends BaseContent {
                         false
                     );
                 // (int>=30)
-                else this.outputText("Ro'gar apologizes for how messy his hut is.", false);
+                else this.outputText("Ro'gar apologizes for how messy his hut is.");
                 this.outputText(
                     "  You just grin and shake your head at his politeness.  \"<i>It's been too long since I got ta talk with any decent folk.</i>\" Ro'gar says, grinning.  Soon you both have empty mugs.  You can't help but sway where you sit from the alcohol, stronger than anything you've had before.  Ro'gar gives a hearty laugh at you, clearly enjoying your inebriated state.  \"<i>You don't look the heavy drinkin' type.</i>\" Ro'gar smirks, as you sway.  Frowning, you assure him that you can handle it, all the while punctuating your sentences with small hiccups which cause the both of you to break out in laughter.  \"<i>Ya know, I've been in this swamp here for so long.  I'm getting' the itch ta go out inta the world and find greener grass, if'n ya know what I'm sayin'.  Listenin' to yer stories about yer travels ain't helpin' none, either.</i>\"  His tone of voice is distant, almost sounding disappointed with himself.  He gets to his feet with a grunt as he rises.  \"<i>Yer lookin' like yer needin' some shut eye.</i>\"  He helps you to your feet; you manage to get your balance somehow and walk to the door.  \"<i>Y'alright?</i>\" he asks, looking you over.  Through a dumb grin you manage to assure him that you're fine.  \"<i>Well allll-right.</i>\"  Ro'gar nods at you as you turn to leave.  \"<i>Ya take care now.</i>\"  He watches you walk off with concern in his eyes, but you make it back to camp just fine.\n\n",
                     false
@@ -206,14 +206,14 @@ export class Rogar extends BaseContent {
             }
             // ((androgynous or masculine and breasts <= A-cup, libido less than 50))
             else if (this.player.lib < 50) {
-                this.outputText("You grin as you chat with Ro'gar mindlessly.  ", false);
+                this.outputText("You grin as you chat with Ro'gar mindlessly.  ");
                 // [(int<30)
                 if (this.player.inte < 30)
                     this.outputText(
                         "Ro'gar apologizes for wrestling for his territory in your sight.",
                         false
                     );
-                else this.outputText("Ro'gar apologizes for how messy his hut is.", false);
+                else this.outputText("Ro'gar apologizes for how messy his hut is.");
                 this.outputText(
                     "  You just grin and shake your head at his politeness.  \"<i>It's been too long since I got ta talk with any decent folk.</i>\"  Ro'gar says, grinning.  Soon you both have empty mugs.  You can't help but sway where you sit from the alcohol, stronger than anything you've had before.  Ro'gar gives a hearty laugh at you, clearly enjoying your inebriated state.  \"<i>You don't look the heavy drinkin' type.</i>\" Ro'gar smirks, as you sway.  Frowning, you assure him that you can handle it, all the while punctuating your sentences with small hiccups which cause the both of you to break out in laughter.  \"<i>Ya know, I've been in this swamp here for so long.  I'm getting' the itch ta go out inta the world and find greener grass, if'n ya know what I'm sayin'.  Listenin' to yer stories about yer travels ain't helpin' none, either.</i>\" Ro'gar leans back on the bed, lounging as he relaxes.\n\n",
                     false
@@ -228,7 +228,7 @@ export class Rogar extends BaseContent {
                         "leftovers from that fight in the swamp still linger on his body.",
                         false
                     );
-                else this.outputText("it makes you wonder what Ro'gar was up to.", false);
+                else this.outputText("it makes you wonder what Ro'gar was up to.");
                 this.outputText(
                     '  Ro\'gar follows your gaze, then his eyes glint oddly as he snickers.  "<i>Care ta... return the favor?</i>"  He slyly winks at you, eyes flicking from you to the bucket and back again.',
                     false
@@ -237,7 +237,7 @@ export class Rogar extends BaseContent {
             }
             // ((androgynous or masculine and breasts <= A-cup, libido >= 50))
             else {
-                this.outputText("As you drink more your mind wanders.  ", false);
+                this.outputText("As you drink more your mind wanders.  ");
                 // (int <30)
                 if (this.player.inte < 30) {
                     this.outputText(
@@ -306,9 +306,9 @@ export class Rogar extends BaseContent {
                     false
                 );
                 if (this.player.lib > 50) {
-                    this.outputText(" over your musk-fueled, growing ", false);
-                    if (this.player.hasCock()) this.outputText("bulge", false);
-                    else this.outputText("nipples", false);
+                    this.outputText(" over your musk-fueled, growing ");
+                    if (this.player.hasCock()) this.outputText("bulge");
+                    else this.outputText("nipples");
                 }
                 this.outputText(
                     ".  \"<i>I been meanin' ta speak with ya,</i>\" Ro'gar starts, from across the table.  He rests his arms on it and turns his head to face you before he continues.  \"<i>I've been plannin' to git away from this here place for some time now, an' I reckon if'n you didn't come along I'd have just taken off without a clue.</i>\"  He lets out a sigh before continuing. \"<i>I've just been lookin' fer a place to settle in an' be around people that'd be acceptin' of a feller like me.  Y'ever find a place like that?</i>\"  Ro'gar turns his whole body to face you, an expectant look in his eyes.\n\n",
@@ -419,7 +419,7 @@ export class Rogar extends BaseContent {
             false
         );
 
-        this.outputText("Instead, you find only more mud.  You return to camp.", false);
+        this.outputText("Instead, you find only more mud.  You return to camp.");
         // <set Crying Game = 1>
         this.flags[kFLAGS.ROGAR_DISABLED] = 1;
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -598,11 +598,11 @@ export class Rogar extends BaseContent {
             "  You smile warmly and plant a kiss wet with cum on Ro'gar's forehead, deciding to let him rest while you collect your things and head back to camp.  Your needy ",
             false
         );
-        if (this.player.hasCock()) this.outputText("erection", false);
-        else if (this.player.hasVagina()) this.outputText("pussy", false);
-        else this.outputText("ass", false);
-        this.outputText(" aches, each step of the way rubbing the sensitive", false);
-        if (this.player.gender > 0) this.outputText(", drooling", false);
+        if (this.player.hasCock()) this.outputText("erection");
+        else if (this.player.hasVagina()) this.outputText("pussy");
+        else this.outputText("ass");
+        this.outputText(" aches, each step of the way rubbing the sensitive");
+        if (this.player.gender > 0) this.outputText(", drooling");
         this.outputText(" parts against the fabric of your clothes.\n\n", false);
         // <Lust increased, slimefeed,
         this.player.slimeFeed();
@@ -752,7 +752,7 @@ export class Rogar extends BaseContent {
                             ",</i>\" he grunts.  \"<i>Ah hope ah'll be seein' more of ya.</i>\"  Ro'gar breaks the contact and tips back the remains of his drink while you ",
                         false
                     );
-                    if (this.player.cor < 50) this.outputText("blush", false);
+                    if (this.player.cor < 50) this.outputText("blush");
                     else
                         this.outputText(
                             "fantasize about those strong hands touching every part of you",
@@ -910,8 +910,8 @@ export class Rogar extends BaseContent {
                 "You nod eagerly, and the orc rewards you with another caress.  \"<i>Well then... let's head on out,</i>\" he says.  The two of you walk down the desert city's streets until you reach a discrete, out-of-the-way building labeled 'Steel Hogan Apartments'.  \"<i>This here's where I'm stayin',</i>\" Ro'gar says, handing you through the doorway.  He leads you down a hallway to his own lodgings, then pushes open the door for you; you step ",
                 false
             );
-            if (this.player.cor < 33) this.outputText("shyly ", false);
-            else if (this.player.cor > 66) this.outputText("eagerly ", false);
+            if (this.player.cor < 33) this.outputText("shyly ");
+            else if (this.player.cor > 66) this.outputText("eagerly ");
             this.outputText(
                 "over the threshold, and then look around the apartment.  He points out the small kitchen area and then, rather sheepishly, the bedroom.  You're examining it when something catches your eye...\n\n",
                 false
@@ -1015,7 +1015,7 @@ export class Rogar extends BaseContent {
                 false
             );
             if (this.player.hasLongTail() || this.player.isNaga())
-                this.outputText("  Your tail, still gripping Ro'gar's arm, squeezes tight.", false);
+                this.outputText("  Your tail, still gripping Ro'gar's arm, squeezes tight.");
             // (If player has balls)
             if (this.player.balls > 0)
                 this.outputText(
@@ -1131,7 +1131,7 @@ export class Rogar extends BaseContent {
                             " clench tight as you feel your limit reached",
                         false
                     );
-                this.outputText(".", false);
+                this.outputText(".");
                 // [(if player has toes)
                 this.outputText(
                     "  You curl your fingers and " +
@@ -1499,7 +1499,7 @@ export class Rogar extends BaseContent {
             false
         );
 
-        this.outputText("Leaving Ro'gar's apartment you wander out into the streets.", false);
+        this.outputText("Leaving Ro'gar's apartment you wander out into the streets.");
         if (this.player.findPerk(PerkLib.BroBody) < 0) {
             if (this.player.balls == 0) {
                 this.player.balls = 2;
@@ -1563,14 +1563,14 @@ export class Rogar extends BaseContent {
         }
         // [(if player received a change from brew)
         if (changed) {
-            this.outputText("  You realize you look much stronger, bigger, and sexier", false);
+            this.outputText("  You realize you look much stronger, bigger, and sexier");
             // (if dick grew)
             if (cocked)
                 this.outputText(
                     ", and you smile to yourself as your now-larger endowment rubs against garments not suited to it",
                     false
                 );
-            this.outputText(".  Who needs book smarts anyway?  Nerds.", false);
+            this.outputText(".  Who needs book smarts anyway?  Nerds.");
             // lose lust, gain bro traits, slimefeed
             this.player.createPerk(PerkLib.BroBrains, 0, 0, 0, 0);
             this.player.createPerk(PerkLib.BroBody, 0, 0, 0, 0);
@@ -1657,8 +1657,8 @@ export class Rogar extends BaseContent {
             "You nod eagerly, and the orc rewards you with another caress.  \"<i>Well then... let's head on out,</i>\" he says.  The two of you walk down the desert city's streets until you reach a discrete, out-of-the-way building labeled 'Steel Hogan Apartments'.  \"<i>This here's where I'm stayin',</i>\" Ro'gar says, handing you through the doorway.  He leads you down a hallway to his own lodgings, then pushes open the door for you; you step ",
             false
         );
-        if (this.player.cor < 33) this.outputText("shyly ", false);
-        else if (this.player.cor > 66) this.outputText("eagerly ", false);
+        if (this.player.cor < 33) this.outputText("shyly ");
+        else if (this.player.cor > 66) this.outputText("eagerly ");
         this.outputText(
             "over the threshold, and then look around the apartment.  He points out the small kitchen area and then, rather sheepishly, the bedroom.  You're examining it when something catches your eye...\n\n",
             false
@@ -1671,8 +1671,8 @@ export class Rogar extends BaseContent {
             "He yanks your wrists behind your back, ignoring your faint gasps.  With a rustle of cloth, your wrists are bound together behind your back tightly; your fingers feel over the bonds but you struggle against them in vain.  Looking over your shoulder in ",
             false
         );
-        if (this.player.lib < 33) this.outputText("feigned confusion ", false);
-        else if (this.player.lib > 66) this.outputText("clear lust ", false);
+        if (this.player.lib < 33) this.outputText("feigned confusion ");
+        else if (this.player.lib > 66) this.outputText("clear lust ");
         this.outputText(
             "at Ro'gar, you only see his lust-ridden face dipping down to kiss at your lips.  His tusks press against your cheeks with a demanding snarl and his tongue into your mouth; your " +
                 this.buttDescript() +
@@ -1793,7 +1793,7 @@ export class Rogar extends BaseContent {
             false
         );
         if (this.player.hasLongTail() || this.player.isNaga())
-            this.outputText("  Your tail, still gripping Ro'gar's arm, squeezes tight.", false);
+            this.outputText("  Your tail, still gripping Ro'gar's arm, squeezes tight.");
         // (If player has balls)
         if (this.player.balls > 0)
             this.outputText(

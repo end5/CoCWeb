@@ -145,10 +145,10 @@ export class CeraphScene extends NPCAwareContent {
                 false
             );
             if (this.flags[kFLAGS.PC_FETISH] >= 1) {
-                this.outputText("getting an exhibitionist thrill ", false);
+                this.outputText("getting an exhibitionist thrill ");
             }
-            this.outputText("and begin stroking ", false);
-            if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+            this.outputText("and begin stroking ");
+            if (this.player.totalCocks() > 1) this.outputText("each of ");
             this.outputText(
                 "your stiff " + this.multiCockDescriptLight() + ", preparing to penetrate her.\n\n",
                 false
@@ -280,10 +280,10 @@ export class CeraphScene extends NPCAwareContent {
                 false
             );
             if (this.flags[kFLAGS.PC_FETISH] >= 1) {
-                this.outputText("getting an exhibitionist thrill ", false);
+                this.outputText("getting an exhibitionist thrill ");
             }
-            this.outputText("and begin stroking ", false);
-            if (this.player.cockTotal() > 1) this.outputText("each of ", false);
+            this.outputText("and begin stroking ");
+            if (this.player.cockTotal() > 1) this.outputText("each of ");
             this.outputText(
                 "your stiff " + this.multiCockDescriptLight() + ", preparing to penetrate her.\n\n",
                 false
@@ -297,7 +297,7 @@ export class CeraphScene extends NPCAwareContent {
                     " squishes flat against her twat, too big for her prodigious demon-cunt to swallow.  Spurred by frustrated desires, you lift her legs and wrap her girlcum-slicked thighs about your ",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("primary ", false);
+            if (this.player.cockTotal() > 1) this.outputText("primary ");
             this.outputText(
                 this.cockDescript(0) +
                     ". Ceraph's smooth skin and soft thigh-flesh form a comfortably tight masturbation tube.  Starting slowly, you begin rocking back and forth, sawing your prodigious cock-flesh over her body.  The demoness swivels her hips underneath your " +
@@ -353,9 +353,9 @@ export class CeraphScene extends NPCAwareContent {
                     " as it strains and squirts, dumping your thick load into the demon's ",
                 false
             );
-            if (this.player.cocks[0].cockLength < 18) this.outputText("tits", false);
-            else if (this.player.cocks[0].cockLength < 24) this.outputText("face", false);
-            else this.outputText("long hair", false);
+            if (this.player.cocks[0].cockLength < 18) this.outputText("tits");
+            else if (this.player.cocks[0].cockLength < 24) this.outputText("face");
+            else this.outputText("long hair");
             this.outputText(
                 ".  The orgasming demonette continues to squirt underneath you, drenching and smearing herself with even more cum and her entire mid-section looks glazed in thick whitish goo.",
                 false
@@ -449,7 +449,7 @@ export class CeraphScene extends NPCAwareContent {
         );
 
         if (this.flags[kFLAGS.PC_FETISH] >= 1)
-            this.outputText("getting an exhibitionist thrill ", false);
+            this.outputText("getting an exhibitionist thrill ");
         this.outputText(
             "and begin touching your " +
                 this.vaginaDescript(0) +
@@ -484,14 +484,14 @@ export class CeraphScene extends NPCAwareContent {
                 " have is used to keep bouncing and grinding on top of her, filling the air with wet squelches and slippery squishes.  You fall forwards, barely catching yourself before you slam into the sultry demoness.  Your ",
             false
         );
-        if (this.player.biggestTitSize() < 1) this.outputText("chest ", false);
-        else this.outputText("tits ", false);
+        if (this.player.biggestTitSize() < 1) this.outputText("chest ");
+        else this.outputText("tits ");
         this.outputText(
             "squish against hers, squeezing a gout of milk from her nipples.  Both pairs of ",
             false
         );
-        if (this.player.biggestTitSize() < 1) this.outputText("nipples", false);
-        else this.outputText("jiggling mounds", false);
+        if (this.player.biggestTitSize() < 1) this.outputText("nipples");
+        else this.outputText("jiggling mounds");
         this.outputText(
             " feel wonderful as they're pressed between you, sliding back and forth in time with your body's urgent grinding.\n\n",
             false
@@ -549,9 +549,9 @@ export class CeraphScene extends NPCAwareContent {
     private loseToCeraphAndGetPiercingsInEarsOrSomethingSomehow(): void {
         this.outputText("", true);
         this.spriteSelect(7);
-        this.outputText("Ceraph advances on your ", false);
-        if (this.player.HP < 1) this.outputText("prone ", false);
-        else this.outputText("lust-consumed ", false);
+        this.outputText("Ceraph advances on your ");
+        if (this.player.HP < 1) this.outputText("prone ");
+        else this.outputText("lust-consumed ");
         this.outputText(
             "form, whispering calmly as she pulls a pair of gleaming, green piercings from a pouch, \"<i>Oh, don't worry baby, you're going to love this so much.  These piercings are special, and they'll help you learn to enjoy the things I'm going to teach you.</i>\"\n\n",
             false
@@ -570,11 +570,11 @@ export class CeraphScene extends NPCAwareContent {
             false
         );
 
-        this.outputText("Ceraph watches your ", false);
+        this.outputText("Ceraph watches your ");
         if (this.player.cockTotal() > 0)
-            this.outputText("cock bounce in time with your fluttering heartbeats", false);
-        else if (this.player.hasVagina()) this.outputText("vagina get wetter and wetter", false);
-        else this.outputText("parted lips and confused expression", false);
+            this.outputText("cock bounce in time with your fluttering heartbeats");
+        else if (this.player.hasVagina()) this.outputText("vagina get wetter and wetter");
+        else this.outputText("parted lips and confused expression");
         this.outputText(
             " as the new thoughts and desires settle themselves inside you.  She gives you a gentle pat and explains, \"<i>It's ok baby, you're an exhibitionist now.  The moment I put those cursed earrings in your cute little ears, they slid their magic deep inside you, teaching you how to be a good " +
                 this.player.mf("boy", "girl") +
@@ -602,9 +602,9 @@ export class CeraphScene extends NPCAwareContent {
             "Ceraph giggles as she closes in on you once again.  Unable to fight back, you lie there as she once again massages your temples, using her magic to paralyze your body.  She's all too happy to build up the suspense as she pulls out a pair of shining black studs, \"<i>Oh, did you want to know what these are going to teach you?  Well, how about I slide them into your ",
             false
         );
-        if (this.player.hasFuckableNipples()) this.outputText("slut", false);
-        else if (this.player.nippleLength < 1) this.outputText("cute", false);
-        else this.outputText("tight", false);
+        if (this.player.hasFuckableNipples()) this.outputText("slut");
+        else if (this.player.nippleLength < 1) this.outputText("cute");
+        else this.outputText("tight");
         this.outputText(
             '-nipples and you tell me all about your fetishes and which one makes you the hottest.  OK?</i>"\n\n',
             false
@@ -650,10 +650,10 @@ export class CeraphScene extends NPCAwareContent {
             false
         );
 
-        this.outputText("The idea turns you on immensely, and you pant and gasp as ", false);
+        this.outputText("The idea turns you on immensely, and you pant and gasp as ");
         if (this.player.totalCocks() > 0) {
-            this.outputText("pre-cum oozes from ", false);
-            if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+            this.outputText("pre-cum oozes from ");
+            if (this.player.totalCocks() > 1) this.outputText("each of ");
             this.outputText("your " + this.multiCockDescriptLight() + ".", false);
         } else if (this.player.hasVagina())
             this.outputText(
@@ -662,8 +662,8 @@ export class CeraphScene extends NPCAwareContent {
                     " turns into a hard button.",
                 false
             );
-        else this.outputText("your body aches for release.", false);
-        this.outputText("  With an amused grin, Ceraph yanks down your gear and ", false);
+        else this.outputText("your body aches for release.");
+        this.outputText("  With an amused grin, Ceraph yanks down your gear and ");
         // [dicks]
         if (this.player.totalCocks() > 0) {
             this.outputText("grabs your " + this.cockDescript(0), false);
@@ -682,7 +682,7 @@ export class CeraphScene extends NPCAwareContent {
         }
         // [cunts]
         else if (this.player.hasVagina()) {
-            this.outputText("spreads your lips", false);
+            this.outputText("spreads your lips");
             if (this.player.vaginas[0].clitPierced > 0)
                 this.outputText(
                     ", the old piercing clattering to the ground as it slides out of your flesh, ",
@@ -700,9 +700,9 @@ export class CeraphScene extends NPCAwareContent {
         }
         // [else]
         else {
-            this.outputText("snaps the diamond stud into your eye-brow, piercing it", false);
+            this.outputText("snaps the diamond stud into your eye-brow, piercing it");
             if (this.player.eyebrowPierced > 0)
-                this.outputText(" and discarding your old jewelry like a piece of garbage", false);
+                this.outputText(" and discarding your old jewelry like a piece of garbage");
             this.outputText(
                 ".  It hurts more than it ought to, fuzzing your vision red.\n\n",
                 false
@@ -780,8 +780,8 @@ export class CeraphScene extends NPCAwareContent {
     private finalCeraphEncounterStartFight(): void {
         this.outputText("", true);
         this.spriteSelect(7);
-        this.outputText("You tell Ceraph no, and let her know ", false);
-        if (this.player.cor <= 50) this.outputText("you'll stop her devilish scheme", false);
+        this.outputText("You tell Ceraph no, and let her know ");
+        if (this.player.cor <= 50) this.outputText("you'll stop her devilish scheme");
         else this.outputText("you'll be HER " + this.player.mf("master", "mistress"), false);
         this.outputText(
             ".  She snarls and drops the harness, preparing to defend herself.  It looks like you've got a fight!",
@@ -862,7 +862,7 @@ export class CeraphScene extends NPCAwareContent {
         );
         // if pierced there
         if (this.player.lipPierced > 0)
-            this.outputText("The previous piercing has vanished!  ", false);
+            this.outputText("The previous piercing has vanished!  ");
         this.outputText(
             "Mistress is so kind to give you such a pretty piercing!  The ease you find yourself calling her mistress shocks you, but that's what she is, isn't she?  She's your mistress and owner, and you are her pet.  You catch her looking at you expectantly and you realize she's waiting for something.\n\n",
             false
@@ -886,8 +886,8 @@ export class CeraphScene extends NPCAwareContent {
                 ' belongs to,</i>" says Mistress as she pulls a thick black collar off a hook on the wall.  Compliant, you allow her to fasten it around your neck, waggling your ',
             false
         );
-        if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("backside", false);
-        else this.outputText("tail", false);
+        if (this.player.tailType == TAIL_TYPE_NONE) this.outputText("backside");
+        else this.outputText("tail");
         this.outputText(
             " back and forth to show Mistress how happy you are.  Obedience slowly crowds your mind, rolling over your other thoughts and concerns inexorably.  Your worries, cares, and troubles slide away, replaced with an all-consuming need to please.",
             false
@@ -905,7 +905,7 @@ export class CeraphScene extends NPCAwareContent {
                 " nipples pinched or being paddled.  Ceraph enjoyed that for a while, but she did eventually tire, and pet was given a fetish for orgasm denial",
             false
         );
-        if (this.player.cockTotal() > 0) this.outputText(" along with a magical cock-ring", false);
+        if (this.player.cockTotal() > 0) this.outputText(" along with a magical cock-ring");
         this.outputText(
             ".  Two weeks of drug and bondage induced edging nearly broke pet's mind, but Mistress was nice and let " +
                 this.player.mf("him", "her") +
@@ -937,7 +937,7 @@ export class CeraphScene extends NPCAwareContent {
             "The goblin's ears are covered in a dazzling array of piercings of all varieties.  She isn't dressed nearly as slutty as most of the goblins you've seen.\n\n",
             false
         );
-        this.outputText("Do you let her put the earrings in your ears?", false);
+        this.outputText("Do you let her put the earrings in your ears?");
         this.flags[kFLAGS.PC_MET_CERAPH] = 1;
         this.doYesNo(this.ceraphFirstTimeVolunteer, this.ceraphFirstTimeDecline);
     }
@@ -975,7 +975,7 @@ export class CeraphScene extends NPCAwareContent {
             false
         );
         if (this.player.earsPierced > 0)
-            this.outputText("Miraculously, your old earrings just fall out.  ", false);
+            this.outputText("Miraculously, your old earrings just fall out.  ");
         this.outputText(
             "The earrings snap into place with a painful and definitive *click*, and dizziness hits you so hard that you nearly fall.  The goblin catches you, steadying you as you blink a few times and adjust to the sensation.\n\n",
             false
@@ -1038,7 +1038,7 @@ export class CeraphScene extends NPCAwareContent {
             'Ceraph once again appears to you, licking her lips and repeatedly swatting a riding crop against her thigh.  She asks, "<i>Have you come to love the exposure, the helplessness, of being nude and restrained?  Does your body ache for me to turn you into a bound love-pet yet?  We could keep going down this road my pet-to-be, just one more piercing and then you\'ll be ready.</i>"\n\n',
             false
         );
-        this.outputText("Do you let her pierce you?", false);
+        this.outputText("Do you let her pierce you?");
         // [Yes] [No]
         this.doYesNo(this.yesOHGODYESPIERCELEVEL3, this.level3CeraphOfferNo);
     }
@@ -1055,7 +1055,7 @@ export class CeraphScene extends NPCAwareContent {
             '"<i>Mortals always want to do things the hard way,</i>" she sighs.\n\n',
             false
         );
-        this.outputText("<b>You've got a fight on your hands!</b>", false);
+        this.outputText("<b>You've got a fight on your hands!</b>");
         this.startCombat(new Ceraph());
     }
 
@@ -1067,10 +1067,10 @@ export class CeraphScene extends NPCAwareContent {
             "You nod, biting your lip anxiously and undoing your armor to give her better access to your body.  The demoness pulls out a diamond-studded piercing and closes in on you, her cock hard, her pussy moist, and her hips swaying seductively as she advances.  Ceraph gives you a serious look and warns you, \"<i>You know how close you are to being my pet, don't you?  You just need this piercing and a little time to get used to it.  Then if you're good I'll strip you naked, tie you down, and let you lick me out.  We can even let the imps watch!</i>\"\n\n",
             false
         );
-        this.outputText("The idea turns you on immensely, and you pant and gasp as ", false);
+        this.outputText("The idea turns you on immensely, and you pant and gasp as ");
         if (this.player.totalCocks() > 0) {
-            this.outputText("pre-cum oozes from ", false);
-            if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+            this.outputText("pre-cum oozes from ");
+            if (this.player.totalCocks() > 1) this.outputText("each of ");
             this.outputText("your " + this.multiCockDescriptLight() + ".", false);
         } else if (this.player.hasVagina()) {
             this.outputText(
@@ -1079,7 +1079,7 @@ export class CeraphScene extends NPCAwareContent {
                     " turns into a hard button.",
                 false
             );
-        } else this.outputText("your body aches for release.", false);
+        } else this.outputText("your body aches for release.");
 
         this.outputText("\n\nWith an amused grin, Ceraph yanks down your gear and ", false);
         // [dicks]
@@ -1100,7 +1100,7 @@ export class CeraphScene extends NPCAwareContent {
         }
         // [cunts]
         else if (this.player.hasVagina()) {
-            this.outputText("spreads your lips", false);
+            this.outputText("spreads your lips");
             if (this.player.vaginas[0].clitPierced > 0)
                 this.outputText(
                     ", the old piercing clattering to the ground as it slides out of your flesh,",
@@ -1121,9 +1121,9 @@ export class CeraphScene extends NPCAwareContent {
                 false
             );
             if (this.player.eyebrowPierced > 0) {
-                this.outputText("She discards your old jewelry like a piece of garbage.  ", false);
+                this.outputText("She discards your old jewelry like a piece of garbage.  ");
             }
-            this.outputText("It hurts more than it ought to, fuzzing your vision red.", false);
+            this.outputText("It hurts more than it ought to, fuzzing your vision red.");
             this.player.eyebrowPierced = 1;
             this.player.eyebrowPShort = "seamless, diamond eyebrow-stud";
             this.player.eyebrowPLong = "seamless, diamond eyebrow-stud";
@@ -1200,8 +1200,8 @@ export class CeraphScene extends NPCAwareContent {
         this.spriteSelect(7);
         this.outputText("", true);
         if (this.monster.HP < 1)
-            this.outputText("Ceraph collapses in a beaten, bloody heap.", false);
-        else this.outputText("Ceraph masturbates futilely, too driven by desire to fight.", false);
+            this.outputText("Ceraph collapses in a beaten, bloody heap.");
+        else this.outputText("Ceraph masturbates futilely, too driven by desire to fight.");
         if (this.player.lust >= 33 && this.player.gender > 0) {
             this.outputText(
                 "  Do you have your way with her? (And if so, which of your body parts do you do it with?)",
@@ -1281,15 +1281,15 @@ export class CeraphScene extends NPCAwareContent {
                 "The demoness touches your forehead, and suddenly your mind is awash with fetishes!  Judging by the playful look she has, it's temporary, and you play along.  ",
                 false
             );
-        this.outputText("Ceraph throws her head back and laughs as you ", false);
-        if (this.player.HP < 1) this.outputText("slump down, defeated", false);
-        else this.outputText("give up and start masturbating", false);
+        this.outputText("Ceraph throws her head back and laughs as you ");
+        if (this.player.HP < 1) this.outputText("slump down, defeated");
+        else this.outputText("give up and start masturbating");
         this.outputText(
             ', "<i>Really?  Is that it?  After being under my magic for so long, you try to make a stand and fail, like this?!  Pathetic.</i>"\n\n',
             false
         );
 
-        this.outputText("The demonic hermaphrodite steps one foot onto your chest", false);
+        this.outputText("The demonic hermaphrodite steps one foot onto your chest");
         if (this.player.biggestTitSize() > 1)
             this.outputText(", right between your " + this.player.allBreastsDescript(), false);
         this.outputText(
@@ -1341,8 +1341,8 @@ export class CeraphScene extends NPCAwareContent {
         );
 
         if (this.player.totalCocks() > 0) {
-            if (this.player.totalCocks() > 1) this.outputText("Each of y", false);
-            else this.outputText("Y", false);
+            if (this.player.totalCocks() > 1) this.outputText("Each of y");
+            else this.outputText("Y");
             this.outputText(
                 "our " +
                     this.multiCockDescript() +
@@ -1380,9 +1380,9 @@ export class CeraphScene extends NPCAwareContent {
         this.spriteSelect(7);
         const x: number = this.player.biggestCockIndex();
 
-        this.outputText("You laugh at Ceraph's ", false);
-        if (this.monster.HP < 1) this.outputText("beaten, prone", false);
-        else this.outputText("prone, masturbating", false);
+        this.outputText("You laugh at Ceraph's ");
+        if (this.monster.HP < 1) this.outputText("beaten, prone");
+        else this.outputText("prone, masturbating");
         this.outputText(
             ' form, "<i>You fucking demons are all the same.  That smug superiority complex makes you forget that being a demon doesn\'t come with an invincibility clause.</i>"\n\n',
             false
@@ -1399,7 +1399,7 @@ export class CeraphScene extends NPCAwareContent {
                 " on the ground and stroke your ",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("largest ", false);
+        if (this.player.cockTotal() > 1) this.outputText("largest ");
         this.outputText(
             this.cockDescript(x) +
                 ", feeling the blood pump into it.  The thick, penile flesh inflates to the ludicrous size it adopts every time you get hard.  Ceraph's eyes widen into dinner plate-sized saucers of shock as she beholds the behemoth that sprouts from your loins.  She actually tries to scrabble away in the dirt, but she fails miserably.  ",
@@ -1410,7 +1410,7 @@ export class CeraphScene extends NPCAwareContent {
                 "Her hands are too busy starting to pump away at her nodule-covered demon-dick to help her crawl away.",
                 false
             );
-        else this.outputText("Both her hands are too busy at her groin to help her escape.", false);
+        else this.outputText("Both her hands are too busy at her groin to help her escape.");
         this.outputText("\n\n", false);
 
         this.outputText(
@@ -1420,7 +1420,7 @@ export class CeraphScene extends NPCAwareContent {
             false
         );
 
-        this.outputText("Please?  She said the magic words.  ", false);
+        this.outputText("Please?  She said the magic words.  ");
         if (this.player.statusAffectv1(StatusAffects.Exgartuan) == 1)
             this.outputText(
                 "You pat your " +
@@ -1470,23 +1470,23 @@ export class CeraphScene extends NPCAwareContent {
             );
         this.outputText("\n\n", false);
 
-        this.outputText("As you're squeezed and massaged by ", false);
+        this.outputText("As you're squeezed and massaged by ");
         if (this.player.cocks[x].cockLength < 68)
             this.outputText(
                 CeraphScene.num2Text(Math.floor(this.player.cocks[x].cockLength / 12)),
                 false
             );
-        else this.outputText("six", false);
-        this.outputText(" feet of love-tunnel, you struggle not to blow your load.  ", false);
+        else this.outputText("six");
+        this.outputText(" feet of love-tunnel, you struggle not to blow your load.  ");
         if (this.player.cocks[x].cockLength > 84)
             this.outputText(
                 "You've still got a lot more dick to get wet, and you start pushing the rest through her, using her like a plus-sized, organic onahole.  ",
                 false
             );
         else {
-            this.outputText("You sigh happily, rubbing your ", false);
-            if (!this.player.hasSheath()) this.outputText("groin", false);
-            else this.outputText("sheath", false);
+            this.outputText("You sigh happily, rubbing your ");
+            if (!this.player.hasSheath()) this.outputText("groin");
+            else this.outputText("sheath");
             this.outputText(
                 " against her slippery, split slit, before you pull back and start fucking her like a plus-sized, organic onahole.  ",
                 false
@@ -1515,7 +1515,7 @@ export class CeraphScene extends NPCAwareContent {
 
         this.outputText("You push the used fuck-toy off your " + this.cockDescript(0), false);
         if (this.player.cockTotal() == 2)
-            this.outputText(" and marvel at the cum your other cock dumped into the puddle", false);
+            this.outputText(" and marvel at the cum your other cock dumped into the puddle");
         else if (this.player.cockTotal() > 2)
             this.outputText(
                 " and marvel at the cum your other cocks dumped into the puddle",
@@ -1539,7 +1539,7 @@ export class CeraphScene extends NPCAwareContent {
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
         }
-        this.outputText("  That's rarer than you know, so I'm feeling a little generous.  ", false);
+        this.outputText("  That's rarer than you know, so I'm feeling a little generous.  ");
         if (this.flags[kFLAGS.PC_FETISH] > 0)
             this.outputText(
                 "I'll remove some of my magic from you if you want, and I'll even let you keep the piercing.  Would you like that?",
@@ -1559,7 +1559,7 @@ export class CeraphScene extends NPCAwareContent {
             // Put Exgartuan to bed.  Awww he's so cute!
             this.player.addStatusValue(StatusAffects.Exgartuan, 2, 5);
         }
-        this.outputText("(Do you accept Ceraph's Offer?)", false);
+        this.outputText("(Do you accept Ceraph's Offer?)");
         // Y/N – remove 1 fetish level or +10 gems
         this.doYesNo(this.ceraphsNiceOffer, this.cleanupAfterCombat);
         this.player.orgasm();
@@ -1575,10 +1575,10 @@ export class CeraphScene extends NPCAwareContent {
                 false
             );
             if (this.flags[kFLAGS.PC_FETISH] == 1)
-                this.outputText("your exhibitionism is gone!", false);
+                this.outputText("your exhibitionism is gone!");
             else if (this.flags[kFLAGS.PC_FETISH] == 2)
-                this.outputText("your bondage fetish is gone!", false);
-            else this.outputText("your pacifism is gone!", false);
+                this.outputText("your bondage fetish is gone!");
+            else this.outputText("your pacifism is gone!");
             this.flags[kFLAGS.PC_FETISH]--;
         } else {
             this.outputText(
@@ -1630,9 +1630,9 @@ export class CeraphScene extends NPCAwareContent {
                 "and you stifle a laugh at the ridiculous thought, ignoring your fingers while they scratch at the itch under your gear.",
                 false
             );
-        this.outputText("  Your ", false);
-        if (this.player.skinType <= SKIN_TYPE_FUR) this.outputText("skin burns", false);
-        else if (this.player.skinType == SKIN_TYPE_SCALES) this.outputText("scales burn", false);
+        this.outputText("  Your ");
+        if (this.player.skinType <= SKIN_TYPE_FUR) this.outputText("skin burns");
+        else if (this.player.skinType == SKIN_TYPE_SCALES) this.outputText("scales burn");
         else this.outputText(this.player.skinDesc + " burns", false);
         this.outputText(
             " hot, raging from fetish-enhanced lust and daydreams, but you shake your head in time to see a pair of inky black orbs rising from behind a nearby boulder.\n\n",
@@ -1706,8 +1706,8 @@ export class CeraphScene extends NPCAwareContent {
     private runFromCeraphsNiceDeal(): void {
         this.outputText("", true);
         this.spriteSelect(7);
-        this.outputText("You ", false);
-        if (this.player.cor > 66) this.outputText("grab your equipment and ", false);
+        this.outputText("You ");
+        if (this.player.cor > 66) this.outputText("grab your equipment and ");
         this.outputText(
             "beat a hasty retreat from the trickster of fetishes.  Her masturbatory moans chase you down the mountainside back towards your camp, spiking the already-burning furnace of your lust.",
             false
@@ -1734,8 +1734,8 @@ export class CeraphScene extends NPCAwareContent {
                 "She finishes and smiles widely.  \"<i>Is that bimbo liqueur?  That stuff is so hard to find, even for a demon like me.  I tell you what, I'll release you from ",
                 false
             );
-            if (this.flags[kFLAGS.PC_FETISH] > 1) this.outputText("all the fetishes", false);
-            else this.outputText("the fetish", false);
+            if (this.flags[kFLAGS.PC_FETISH] > 1) this.outputText("all the fetishes");
+            else this.outputText("the fetish");
             this.outputText(
                 " I've placed upon you if you'll trade me that stuff.  There's a naughty boy in my harem whose quick wit I've begun to tire of.",
                 false
@@ -1840,7 +1840,7 @@ export class CeraphScene extends NPCAwareContent {
                     ' to make you flee with all due haste.  He taunts, "<i>Rip off your own little dick, why doncha!  You\'d look better with just a pussy anyhow ya dried out old sow!</i>"\n\n',
                 false
             );
-            this.outputText("Ceraph seems perturbed but doesn't bother to pursue you.", false);
+            this.outputText("Ceraph seems perturbed but doesn't bother to pursue you.");
             this.dynStats("lus", -20);
             this.doNext(this.camp.returnToCampUseOneHour);
             return;
@@ -1876,7 +1876,7 @@ export class CeraphScene extends NPCAwareContent {
         // Pick a winner!
         choice = choices[CeraphScene.rand(choices.length)];
 
-        if (choice == 0) this.outputText("FUCK AN ERROR HAPPENED GET FENOXO ON THE HORN!", false);
+        if (choice == 0) this.outputText("FUCK AN ERROR HAPPENED GET FENOXO ON THE HORN!");
         // (DICKS)
         else if (choice == 1) {
             temp2 = CeraphScene.rand(this.player.cockTotal());
@@ -1926,10 +1926,10 @@ export class CeraphScene extends NPCAwareContent {
                     "  Of course that's not the only prick you're packing, hrmmm?  Maybe I should take ",
                     false
                 );
-                if (this.player.cockTotal() == 2) this.outputText("the other one", false);
-                else this.outputText("one of the others", false);
+                if (this.player.cockTotal() == 2) this.outputText("the other one");
+                else this.outputText("one of the others");
             }
-            this.outputText(".", false);
+            this.outputText(".");
             this.outputText('</i>"\n\n', false);
         }
         // (Cunts)
@@ -1992,17 +1992,17 @@ export class CeraphScene extends NPCAwareContent {
             false
         );
         if (choice == 1) {
-            this.outputText("manhood", false);
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
-            this.outputText(" ", false);
-        } else if (choice == 2) this.outputText("vagina ", false);
-        else this.outputText("breasts ", false);
+            this.outputText("manhood");
+            if (this.player.cockTotal() > 1) this.outputText("s");
+            this.outputText(" ");
+        } else if (choice == 2) this.outputText("vagina ");
+        else this.outputText("breasts ");
         this.outputText("and declares, \"<i>I think I'll have ", false);
-        if (choice <= 2) this.outputText("one ", false);
-        else this.outputText("two ", false);
+        if (choice <= 2) this.outputText("one ");
+        else this.outputText("two ");
         this.outputText('of those.  Now just hold still.</i>"\n\n', false);
 
-        this.outputText("Do you let her take it?", false);
+        this.outputText("Do you let her take it?");
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00217] = choice;
         this.doYesNo(
             this.giveUpYourBallsOrWhateverForLessFetishes,
@@ -2041,14 +2041,14 @@ export class CeraphScene extends NPCAwareContent {
                 false
             );
             if (this.player.cocks[x].cockThickness >= 4)
-                this.outputText(", compressing your massive girth into the rigid shaft", false);
+                this.outputText(", compressing your massive girth into the rigid shaft");
             this.outputText(
                 ", slowly closing.  It should hurt but it doesn't, it just feels warmer and warmer, and then with a sudden 'PYOING!', Ceraph is holding your " +
                     this.cockDescript(x),
                 false
             );
             if (this.player.balls > 0 && this.player.cockTotal() == 1) {
-                this.outputText(" and balls", false);
+                this.outputText(" and balls");
                 // Gotcher balls!
                 this.player.balls = 0;
                 this.player.ballSize = 1;
@@ -2175,12 +2175,12 @@ export class CeraphScene extends NPCAwareContent {
                 );
             this.outputText("\n\n", false);
 
-            this.outputText("You gasp when Ceraph ", false);
+            this.outputText("You gasp when Ceraph ");
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00217] == 3)
-                this.outputText("rolls the nipples in her hands", false);
+                this.outputText("rolls the nipples in her hands");
             else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00217] == 4)
-                this.outputText("pushes her fingertips inside the leaky nipple-cunts", false);
-            else this.outputText("squeezes out a squirt of milk", false);
+                this.outputText("pushes her fingertips inside the leaky nipple-cunts");
+            else this.outputText("squeezes out a squirt of milk");
             this.outputText(
                 ", going a little weak in the knees.  Ceraph laughs and lowers the bouncy orbs down between her legs, and you can feel every little bump and nodule of her corrupted cock as she tit-fucks herself on your disembodied breasts.\n\n",
                 false
@@ -2251,8 +2251,8 @@ export class CeraphScene extends NPCAwareContent {
                     false
                 );
                 if (!this.player.hasVagina())
-                    this.outputText("You don't have a vagina any more, do you?", false);
-                else this.outputText("No, that doesn't feel right – it isn't your vagina.", false);
+                    this.outputText("You don't have a vagina any more, do you?");
+                else this.outputText("No, that doesn't feel right – it isn't your vagina.");
                 this.outputText(
                     "  It must be the sex that Ceraph stole from you!  You feel tight... enclosed somehow, but the ever present trickle of bodily fluids into your imprisoned nethers slowly brings about your own arousal.\n\n",
                     false
@@ -2328,8 +2328,8 @@ export class CeraphScene extends NPCAwareContent {
                     false
                 );
                 if (!this.player.hasVagina())
-                    this.outputText("Wait... you don't have a pussy anymore.  ", false);
-                else this.outputText("Wait... your pussy doesn't feel like that!  ", false);
+                    this.outputText("Wait... you don't have a pussy anymore.  ");
+                else this.outputText("Wait... your pussy doesn't feel like that!  ");
                 this.outputText(
                     "You must be picking up on feelings from the cunt Ceraph took away from you!  Warm demonic cum bubbles at your entrance, slicking the engorging vulva with demonic taint.  You swoon from the heat of it, and the demoness wastes no time, quickly inserting her entire length.\n\n",
                     false
@@ -2622,8 +2622,8 @@ export class CeraphScene extends NPCAwareContent {
                 false
             );
         this.outputText("\n\nYou reach down and slap her ass hard, ", false);
-        if (this.player.str < 75) this.outputText("making her whole body jiggle", false);
-        else this.outputText("making her jiggle and slide a few inches in the dirt", false);
+        if (this.player.str < 75) this.outputText("making her whole body jiggle");
+        else this.outputText("making her jiggle and slide a few inches in the dirt");
         this.outputText(
             " and shutting her up while you tear off your " + this.player.armorName + ".\n\n",
             false
@@ -2633,8 +2633,8 @@ export class CeraphScene extends NPCAwareContent {
             "Now naked, you waste no time in grabbing her by her toned thighs and lifting her up, rubbing her face in the dirt while you get a nice look at her tightly-clenched asshole and ",
             false
         );
-        if (this.monster.HP < 1) this.outputText("wet ", false);
-        else this.outputText("achingly wet ", false);
+        if (this.monster.HP < 1) this.outputText("wet ");
+        else this.outputText("achingly wet ");
         this.outputText(
             "demon-twat.  Her vulva flares out, massively engorging and unfolding like a flower, practically begging you to plunge into the dripping tunnel.\n\n",
             false
@@ -2709,8 +2709,8 @@ export class CeraphScene extends NPCAwareContent {
             "Like hell!  You pull harder, splitting her asscheeks until they're squished into your body, her cock-gaped asshole ",
             false
         );
-        if (!this.player.hasSheath()) this.outputText("barely touching your groin", false);
-        else this.outputText("rubbing your sheath", false);
+        if (!this.player.hasSheath()) this.outputText("barely touching your groin");
+        else this.outputText("rubbing your sheath");
         this.outputText(
             ".  The demon's ass is warm enough to make you feel you could melt like an icicle in an oven, the blissful sensations spurring you to play with her supple ass-cheeks while you enjoy the complete penetration of a demon's backdoor.  You give those cheeks a hard slap and pull back, enjoying the feel of her gloriously tight ring as it slides over the pussy-slicked length of your " +
                 this.cockDescript(x) +
@@ -2742,12 +2742,12 @@ export class CeraphScene extends NPCAwareContent {
                 "Her belly burbles and swells, bulging out to look positively pregnant, though you know she's packed from the other end.  ",
                 false
             );
-        this.outputText("You pull out, and Ceraph's ", false);
-        if (this.player.cocks[x].cockThickness < 3) this.outputText("slightly-gaped", false);
-        else if (this.player.cocks[x].cockThickness < 5) this.outputText("gaped", false);
-        else this.outputText("gaping-wide", false);
-        this.outputText(" asshole leaks spunk everywhere. Disgusted with her", false);
-        if (this.player.cor < 33) this.outputText(" and a little bit by yourself", false);
+        this.outputText("You pull out, and Ceraph's ");
+        if (this.player.cocks[x].cockThickness < 3) this.outputText("slightly-gaped");
+        else if (this.player.cocks[x].cockThickness < 5) this.outputText("gaped");
+        else this.outputText("gaping-wide");
+        this.outputText(" asshole leaks spunk everywhere. Disgusted with her");
+        if (this.player.cor < 33) this.outputText(" and a little bit by yourself");
         this.outputText(
             ", you drop her like a discarded rag.  She moans and begins masturbating, half-insensate from the rough treatment.  You ignore her, get dressed, and get out of there before the mountain's beasts show up.  Ceraph is in for a wild night!",
             false

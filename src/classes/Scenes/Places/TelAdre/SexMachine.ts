@@ -33,7 +33,7 @@ export class SexMachine extends TelAdreAbstractContent {
                 false
             );
 
-            this.outputText("Do you use it or not?", false);
+            this.outputText("Do you use it or not?");
             this.doYesNo(this.useTheSexMachine, this.leaveShowers);
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00182] = 1;
         }
@@ -73,7 +73,7 @@ export class SexMachine extends TelAdreAbstractContent {
                         " to the cool air. Almost instantly a firm, phallic-shaped metallic object is pressed against your anus, but it goes no further.  Another device slips around your ",
                     false
                 );
-                if (this.player.cockTotal() > 1) this.outputText("primary ", false);
+                if (this.player.cockTotal() > 1) this.outputText("primary ");
                 this.outputText(
                     "cock, tightening around your member while beginning to hum softly.\n\n",
                     false
@@ -114,7 +114,7 @@ export class SexMachine extends TelAdreAbstractContent {
                         "your " + this.ballsDescriptLight() + " pulling up tightly ",
                         false
                     );
-                else this.outputText("prostate pulsing madly ", false);
+                else this.outputText("prostate pulsing madly ");
                 this.outputText(
                     "as you pump your thick seed into the machine's waiting tube.\n\n",
                     false
@@ -245,7 +245,7 @@ export class SexMachine extends TelAdreAbstractContent {
                     false
                 );
                 if (this.player.biggestTitSize() >= 2)
-                    this.outputText("your breasts covered in cum and ", false);
+                    this.outputText("your breasts covered in cum and ");
                 this.outputText(
                     'jizz leaking from every hole on your body. You groan, sore and stiff from the brutal workout but happy with afterglow. The screen before you appears to be saving data on your measurements, as well as physical stress levels. The final number flies past too fast for you to read, but the label sends a chill up your spine: "Pregnancy percentage chance".\n\n',
                     false
@@ -292,7 +292,7 @@ export class SexMachine extends TelAdreAbstractContent {
                 );
                 this.player.cuntChange(30, true, true, false);
                 this.player.buttChange(30, true, true, false);
-                this.outputText("  They begin to stroke slowly", false);
+                this.outputText("  They begin to stroke slowly");
                 if (this.player.biggestTitSize() >= 2)
                     this.outputText(
                         ", and it doesn't take long for the machine to slip a cock between your breasts as well, starting to tit fuck you as it rotates you in your restraints to optimize your position",
@@ -434,7 +434,7 @@ export class SexMachine extends TelAdreAbstractContent {
                     "You moan gently, feeling a slight dampness beginning to form between your legs as your ",
                     false
                 );
-                if (this.player.cockTotal() > 1) this.outputText("primary cock", false);
+                if (this.player.cockTotal() > 1) this.outputText("primary cock");
                 else this.outputText(this.cockDescript(0), false);
                 this.outputText(
                     " is gently stroked by the sheathe-like device now slipping over it. It rubs the flaccid member gently, stroking it up and down as it begins to swell with blood, growing harder by the second. You shudder with pleasure, wondering what could come next, only to be forced to gasp by a firm press on your " +
@@ -480,7 +480,7 @@ export class SexMachine extends TelAdreAbstractContent {
                             ", as y",
                         false
                     );
-                else this.outputText("  Y", false);
+                else this.outputText("  Y");
                 this.outputText(
                     "our cock is milked of all its cum by the tube that was gently slipped into the tip of it when you were too lost in your own lusts to notice. You pant as the device gently sets you down onto the padded bench, the screen seeming to save some varied information about you.\n\n",
                     false

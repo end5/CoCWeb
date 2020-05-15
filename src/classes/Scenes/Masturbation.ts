@@ -1517,13 +1517,13 @@ export class Masturbation extends BaseContent {
         if(player.breastRows.length > 1) outputText("one of the ",false);
         if(player.breastRows.length == 1) outputText("one of your ",false);
         // More than 1 nip per boob?
-        if(player.averageNipplesPerBreast() > 1) outputText("many ", false);
+        if(player.averageNipplesPerBreast() > 1) outputText("many ");
         // Different based on looseness (again)
-        if(player.averageVaginalLooseness() < 2) outputText("painfully stretched nipples", false);
-        if(player.averageVaginalLooseness() >= 2 && player.averageVaginalLooseness() < 4) outputText("freakishly swollen nipples", false);
-        if(player.averageVaginalLooseness() >= 4) outputText("huge, bloated cunt-nipples", false);
+        if(player.averageVaginalLooseness() < 2) outputText("painfully stretched nipples");
+        if(player.averageVaginalLooseness() >= 2 && player.averageVaginalLooseness() < 4) outputText("freakishly swollen nipples");
+        if(player.averageVaginalLooseness() >= 4) outputText("huge, bloated cunt-nipples");
         if(player.breastRows.length > 1) outputText(" on one of your lower breasts",false);
-        outputText(". ", false);*/
+        outputText(". ");*/
 
         // different based on player.libido
         if (this.player.lib < 45)

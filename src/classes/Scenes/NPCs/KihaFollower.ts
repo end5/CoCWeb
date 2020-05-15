@@ -93,7 +93,7 @@ export class KihaFollower extends NPCAwareContent {
             false
         );
 
-        this.outputText("What the fuck?  ", false);
+        this.outputText("What the fuck?  ");
         if (this.player.cor < 66)
             this.outputText(
                 "You try to calm the dragoness down, explaining that you aren't one of Lethice's minions, that what you told her the first time around was true - that you're here to end the demon threat.  Kiha doesn't seem to be buying it, though...\n\n",
@@ -117,7 +117,7 @@ export class KihaFollower extends NPCAwareContent {
             false
         );
 
-        this.outputText("You're fighting Kiha!", false);
+        this.outputText("You're fighting Kiha!");
         this.startCombat(new Kiha());
         // Flag this status to differentiate what happens on defeat or loss!
         this.monster.createStatusAffect(StatusAffects.spiderfight, 0, 0, 0, 0);
@@ -303,8 +303,8 @@ export class KihaFollower extends NPCAwareContent {
             '"<i>W-what!?</i>" she asks, utterly dumbfounded by your insistence.  Lacking the time to ',
             false
         );
-        if (this.player.cor >= 66) this.outputText("beat", false);
-        else this.outputText("talk", false);
+        if (this.player.cor >= 66) this.outputText("beat");
+        else this.outputText("talk");
         this.outputText(
             " any logic into her obtuse head, you simply haul Kiha to her feet and toss her the axe before turning to the onrushing foes.\n\n",
             false
@@ -359,16 +359,16 @@ export class KihaFollower extends NPCAwareContent {
         );
 
         this.outputText('"<i>', false);
-        if (this.silly()) this.outputText("B-baka", false);
-        else this.outputText("Dumbass", false);
+        if (this.silly()) this.outputText("B-baka");
+        else this.outputText("Dumbass");
         this.outputText(
             ',</i>" she finally says as you finish talking.  "<i>You could have gotten yourself raped, or beaten, or killed!  But still... I...</i>" she suddenly flushes bright red, just like her scales.  "<i>Thanks, I guess.</i>"',
             false
         );
 
-        this.outputText("[pg]You ", false);
-        if (this.player.cor < 50) this.outputText("squeeze her shoulder and ", false);
-        this.outputText("tell her that maybe now, the two of you can be friends.", false);
+        this.outputText("[pg]You ");
+        if (this.player.cor < 50) this.outputText("squeeze her shoulder and ");
+        this.outputText("tell her that maybe now, the two of you can be friends.");
 
         this.outputText(
             '[pg]"<i>Friends... yeah, maybe that wouldn\'t be terrible,</i>" Kiha says, giving you an arrogant smile.  "<i>Go on, get out of here.</i>"  You return her smile and start walking toward the water\'s edge.',
@@ -456,8 +456,8 @@ export class KihaFollower extends NPCAwareContent {
                 "[pg]A part of you wants to slap her, to shake her violently and tell her that no, she's wrong.  Instead, you squeeze her tight against you and look up to the heavens.  The dragoness's islet has a clear line of sight to the open air, a perfect place for the airborne predator to take off and land.  But from here, you can clearly see the ",
                 false
             );
-            if (this.model.time.hours < 20) this.outputText("clouds", false);
-            else this.outputText("stars", false);
+            if (this.model.time.hours < 20) this.outputText("clouds");
+            else this.outputText("stars");
             this.outputText(
                 " in the sky.  You point to them, telling Kiha to look.  The dragoness does as you ask, following your pointing finger up to the sky.  After a moment, though, she harrumphs and scowls at you.",
                 false
@@ -466,10 +466,10 @@ export class KihaFollower extends NPCAwareContent {
                 '[pg]"<i>What the hell am I supposed to be looking at?  It\'s just the sky.  So what?</i>"',
                 false
             );
-            this.outputText("[pg]God dammit Kiha.", false);
-            this.outputText("[pg]You shake your head and try to explain why the ", false);
-            if (this.model.time.hours < 20) this.outputText("clouds", false);
-            else this.outputText("stars", false);
+            this.outputText("[pg]God dammit Kiha.");
+            this.outputText("[pg]You shake your head and try to explain why the ");
+            if (this.model.time.hours < 20) this.outputText("clouds");
+            else this.outputText("stars");
             this.outputText(
                 " are beautiful.  You spend a few minutes pointing to a few shapes and patterns in the sky, a warrior with a shield here, a proud centaur there - you even spot a dragon.  Kiha listens with disinterest, rolling her eyes as you try to show her one of the last, immutable things of beauty left in the world.  Even the demons, you say, cannot destroy the heavens.",
                 false
@@ -557,7 +557,7 @@ export class KihaFollower extends NPCAwareContent {
             false
         );
 
-        this.outputText("[pg]You return her smug grin and ready your [weaponName].", false);
+        this.outputText("[pg]You return her smug grin and ready your [weaponName].");
 
         // (Use the normal Kiha combat scenario, with the following changes upon Win/Lose, and no \"<i>Run</i>\" option available)
         this.startCombat(new Kiha());
@@ -587,7 +587,7 @@ export class KihaFollower extends NPCAwareContent {
                 '[pg]"<i>W-what are you doing!?</i>"  she starts, pushing away.  "<i>You - you dumbass!</i>"  Face as red as her scales, she launches into the air and flies off.',
                 false
             );
-            this.outputText("[pg]You sigh and head back to camp.", false);
+            this.outputText("[pg]You sigh and head back to camp.");
             this.kihaAffection(20);
         } else {
             this.outputText(
@@ -608,7 +608,7 @@ export class KihaFollower extends NPCAwareContent {
                 '[pg]"<i>W-what are you doing!?</i>"  she starts, pushing away.  "<i>You - you dumbass!</i>"  Face as red as her scales, she storms off to the other side of camp.',
                 false
             );
-            this.outputText("[pg]You sigh and head back towards your stuff.", false);
+            this.outputText("[pg]You sigh and head back towards your stuff.");
             this.kihaAffection(20);
         }
         this.cleanupAfterCombat();
@@ -632,7 +632,7 @@ export class KihaFollower extends NPCAwareContent {
                 '[pg]Her words cut deeper than you expected, and you remain silent.  After a moment, Kiha huffs and looks away.  "<i>Look. If you really wanna get stronger, I guess we could... keep doing this.  Not that I\'m doing it for you!</i>"  she adds, crossing her arms.  "<i>You\'re good target practice.  That\'s all.</i>"',
                 false
             );
-            this.outputText("[pg]Oh, Kiha.", false);
+            this.outputText("[pg]Oh, Kiha.");
             this.outputText(
                 "[pg]You dust yourself off and head back to camp under the watchful gaze of the dragoness.  You'll have to spend some time recovering.",
                 false
@@ -652,7 +652,7 @@ export class KihaFollower extends NPCAwareContent {
                 '[pg]Her words cut deeper than you expected, and you remain silent.  After a moment, Kiha huffs and looks away.  "<i>Look. If you really wanna get stronger, just keep trying.  That\'s how you won my heart, wasn\'t it?</i>"  she adds, crossing her arms and blushing.  "<i>C-come on, let\'s get you healed up.</i>"',
                 false
             );
-            this.outputText("[pg]Oh, Kiha.", false);
+            this.outputText("[pg]Oh, Kiha.");
             this.outputText(
                 "[pg]You dust yourself off and head back to the center of camp under the dragoness's watchful gaze.",
                 false
@@ -665,7 +665,7 @@ export class KihaFollower extends NPCAwareContent {
     private hugFriendWarmKiha(): void {
         this.clearOutput();
         this.spriteSelect(72);
-        this.outputText("With a little grin, you grab Kiha in a tight surprise hug!", false);
+        this.outputText("With a little grin, you grab Kiha in a tight surprise hug!");
         this.outputText(
             '[pg]"<i>What... what\'re you...</i>" she stammers, but soon goes quiet with a final mutter of "<i>Idiot.</i>"',
             false
@@ -678,7 +678,7 @@ export class KihaFollower extends NPCAwareContent {
             '[pg]The peaceful, companionable embrace only lasts for a few seconds before Kiha suddenly and violently pushes you away.  "<i>What do you think you\'re doing, idiot!</i>"  she shouts, and launches off into the air before you can respond.',
             false
         );
-        this.outputText("[pg]You shake your head and head on back to camp.", false);
+        this.outputText("[pg]You shake your head and head on back to camp.");
         this.kihaAffection(5);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -713,7 +713,7 @@ export class KihaFollower extends NPCAwareContent {
                 "[pg]You venture to ask her if she has anything to say, but she turns her nose up at the idea.  \"<i>You think we're the same, don't you?  That we both had it SO tough?  Well, you're wrong!  Just because you helped me out ONCE doesn't mean we're all buddy-buddy, and it sure as hell doesn't mean we're the same.  So... so just fuck off, alright!?</i>\"  she screams before thrusting into the air and flying off.",
                 false
             );
-            this.outputText("[pg]God dammit, Kiha.", false);
+            this.outputText("[pg]God dammit, Kiha.");
         } else if (this.flags[kFLAGS.KIHA_TALK_STAGE] == 4) {
             // Talk to Friendly Kiha - Second Time (Z)
             this.outputText(
@@ -740,7 +740,7 @@ export class KihaFollower extends NPCAwareContent {
                 "[pg]Before you can answer her claim, the dragoness inclines her head to you and leaps into the air, disappearing into the dense foliage.",
                 false
             );
-            this.outputText("[pg]Maybe... just maybe... this is progress?", false);
+            this.outputText("[pg]Maybe... just maybe... this is progress?");
         }
         // Talk to Friendly Kiha - Third Time (Z)
         else if (this.flags[kFLAGS.KIHA_TALK_STAGE] == 5) {
@@ -901,8 +901,8 @@ export class KihaFollower extends NPCAwareContent {
             "[pg]Kiha stands dumbfounded for a moment, surprised her potent fire-breath didn't simply melt the flesh from Hel's bones.  She recovers quickly, though, and yells, \"<i>Get out of here!  This is MY swamp, and that ",
             false
         );
-        if (!this.player.isGoo()) this.outputText("meatsack", false);
-        else this.outputText("goosack", false);
+        if (!this.player.isGoo()) this.outputText("meatsack");
+        else this.outputText("goosack");
         this.outputText(' behind you belongs to ME, you got it?</i>"', false);
         this.outputText(
             '[pg]"<i>Oh, ' + this.player.mf("he", "she") + ' belongs to you, is that it?</i>"',
@@ -1048,7 +1048,7 @@ export class KihaFollower extends NPCAwareContent {
             '[pg]"<i>WHAT!?</i>"  they cry in unison, then turn and glare angrily at each other.  "<i>You-you can\'t like HER TOO!</i>"  they say, again in perfect concert.',
             false
         );
-        this.outputText("[pg]Yes, you damn well can!", false);
+        this.outputText("[pg]Yes, you damn well can!");
         this.outputText(
             '[pg]Happily, Kiha finally wipes the mud off her dark face, glaring at Hel, who quickly does the same.  The dragoness huffs indignantly.  "<i>I guess if ' +
                 this.player.short +
@@ -1131,8 +1131,8 @@ export class KihaFollower extends NPCAwareContent {
         );
         if (this.player.cocks[0].cockLength >= 8) this.outputText("bends down her throat");
         else if (this.player.cocks[0].cockLength > 6)
-            this.outputText("hits the back of her throat", false);
-        else this.outputText("rests right on the tip of her tongue", false);
+            this.outputText("hits the back of her throat");
+        else this.outputText("rests right on the tip of her tongue");
         this.outputText(
             ".  She struggles, gagging; you give her a light slap and tell her to clean your dick off.",
             false
@@ -1164,13 +1164,13 @@ export class KihaFollower extends NPCAwareContent {
             "[pg]Tiring of the scaly girls' oral ministrations, you pull them back off your cock",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
+        if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(
             ", grinning as thick ropes of saliva and pre still connect their gaping, well-used mouths to you.  Roughly, you throw the girls on their backs, side by side as you loom over them.  Grinning, you say that since they've been such good girls and got your dick",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
-        this.outputText(" nice and spotless, you'll be kind enough to get them off.", false);
+        if (this.player.cockTotal() > 1) this.outputText("s");
+        this.outputText(" nice and spotless, you'll be kind enough to get them off.");
 
         this.outputText(
             "[pg]Hel smiles slightly, relieved she's finally getting some action; Kiha, on the other hand, squirms and tries to crawl away from you.  Before she can, you roll Hel over onto her, pinning Kiha down with Hel's much greater weight.  You kneel down between their legs and, pulling them by the feet a bit closer to you, leaving their slavering cunts just at the tip of your [cock].  You heft Hel's wide hips up, leaving her ass in the air.  With one hand, you stroke your [cock] as you line up with her slick, wet cunny; with the other, you grab Kiha's long, thick tail and press the tip of it up against Hel's tight little pucker.",
@@ -1197,7 +1197,7 @@ export class KihaFollower extends NPCAwareContent {
             "[pg]Grinning, you shift around until your cockhead's lined up with the tight, dark ring of the dragoness's asshole.  The pressure of your tip brushing against her sphincter is enough to break Kiha out of her reverie, but it's too late to help her.  She can only throw her head back and scream as you thrust in, burying yourself ",
             false
         );
-        if (this.player.cockArea(0) < 36) this.outputText("up to the hilt", false);
+        if (this.player.cockArea(0) < 36) this.outputText("up to the hilt");
         else
             this.outputText(
                 "until she simply can't take any more of you, her anus already stretched beyond its capacity",
@@ -1292,7 +1292,7 @@ export class KihaFollower extends NPCAwareContent {
             'You close in with Kiha before she can react and wrap your arms around her, squeezing her tightly while you admit, "<i>I came here because I like you.</i>"',
             false
         );
-        this.outputText("[pg]Kiha looks ", false);
+        this.outputText("[pg]Kiha looks ");
         if (this.player.tallness >= 95) this.outputText("up ");
         else if (this.player.tallness <= 60) this.outputText("down ");
         this.outputText(
@@ -1307,9 +1307,9 @@ export class KihaFollower extends NPCAwareContent {
             "[pg]It takes a few moments for Kiha to sense your discomfort, and when she does, she twists out of the hug, nervously fidgeting.  You grab her and pull her back over, this time taking her chin in your hand and ",
             false
         );
-        if (this.player.tallness >= 95) this.outputText("pulling it down", false);
-        else if (this.player.tallness <= 60) this.outputText("tilting it up", false);
-        else this.outputText("tilting it slightly", false);
+        if (this.player.tallness >= 95) this.outputText("pulling it down");
+        else if (this.player.tallness <= 60) this.outputText("tilting it up");
+        else this.outputText("tilting it slightly");
         this.outputText(
             " to plant a kiss on her dusky, parted lips.  She melts into you, the heat of her body making you sweat, but this once, you don't mind at all.  Kiha's tail wags happily, splashing through water as the eager dragoness leans against you, pushing the two of you back towards one of the nearby trees.  She hooks a leg around your thigh, pulling you so tightly into her that you can't help but be aware of her supple breasts crushing against you, the hard points of her nipples digging into you and your " +
                 this.player.armorName +
@@ -1414,7 +1414,7 @@ export class KihaFollower extends NPCAwareContent {
             '[pg]"<i>You\'re so pathetic,</i>" Kiha taunts as she begins to pump you faster, edging you closer to an irresistible orgasm.  "<i>You used to be so tough, Champion.  What happened?  A few tugs on your ',
             false
         );
-        if (this.player.biggestCockArea() <= 9) this.outputText("little ", false);
+        if (this.player.biggestCockArea() <= 9) this.outputText("little ");
         this.outputText(
             "tool and you're putty in my hands.</i>\"  Tiring of her tirade, you summon up your strength and pull her down next to you, climbing atop her torso to rest your " +
                 this.cockDescript(x) +
@@ -1468,7 +1468,7 @@ export class KihaFollower extends NPCAwareContent {
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText(", letting ", false);
+            this.outputText(", letting ");
             if (this.player.cockTotal() == 2) this.outputText("your other");
             else this.outputText("the rest of your");
             this.outputText(" maleness drip on her belly");

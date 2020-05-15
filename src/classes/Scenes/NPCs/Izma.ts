@@ -134,7 +134,7 @@ export class Izma extends Monster {
             );
             this.player.createStatusAffect(StatusAffects.IzmaBleed, 3, 0, 0, 0);
         } else
-            this.outputText("laugh as her blades scape uselessly at your armor-clad back", false);
+            this.outputText("laugh as her blades scape uselessly at your armor-clad back");
         this.outputText(" before breaking her embrace and leaping away. (" + damage + ")", false);
     }
     private IzmaSpecials3(): void {

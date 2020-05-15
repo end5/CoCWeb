@@ -431,7 +431,7 @@ export class Gnoll extends Monster {
                     "Your foes are too dazed from your last hit to strike back!",
                     false
                 );
-            else this.outputText("Your foe is too dazed from your last hit to strike back!", false);
+            else this.outputText("Your foe is too dazed from your last hit to strike back!");
             this.removeStatusAffect(StatusAffects.Stunned);
             this.combatRoundOver();
         }
@@ -510,7 +510,7 @@ export class Gnoll extends Monster {
 //  if(lust < 50) eGrappleRetreat();
                             doNext(3);
                         }
-                        outputText("Lust Placeholder!!", false);
+                        outputText("Lust Placeholder!!");
                         doNext(3);
                     }
         */

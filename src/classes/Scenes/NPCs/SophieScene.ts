@@ -350,8 +350,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "While hauling yourself up onto a particularly narrow ledge, you come face to face with a harpy's alien visage.  She must have heard you climbing and come to investigate.  Now she's scant inches away from you, looking ",
             false
         );
-        if (this.player.tallness <= 48) this.outputText("down ", false);
-        else if (this.player.tallness >= 72) this.outputText("up ", false);
+        if (this.player.tallness <= 48) this.outputText("down ");
+        else if (this.player.tallness >= 72) this.outputText("up ");
         this.outputText(
             'at you with her curious, amber eyes.  A faint sweet scent wafts from her, and she licks her yellow-glossed lips with a long, pointed tongue.  You step to the side in an attempt to get away from the sharp drop-off behind you, but the harpy grabs your shoulders with both her hands and with a remarkably reassuring tone, says, "<i>Relax cutey, I won\'t drop you.</i>"\n\n',
             false
@@ -369,9 +369,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        if (this.player.cor < 33) this.outputText("In the interest of politeness, ", false);
-        else if (this.player.cor < 66) this.outputText("Barely remembering your manners, ", false);
-        else this.outputText("Desiring to spread your name throughout all of this land, ", false);
+        if (this.player.cor < 33) this.outputText("In the interest of politeness, ");
+        else if (this.player.cor < 66) this.outputText("Barely remembering your manners, ");
+        else this.outputText("Desiring to spread your name throughout all of this land, ");
         this.outputText(
             "you wrench your gaze away from her breasts and introduce yourself.  It's hard to stay focused on introduction while she's wrapping her wing-like arms around her tits and squeezing them together, amplifying her cleavage.  The matronly harpy is looking at you expectantly, and it occurs to you that she's still waiting on an answer to her question.  Why did you come here?\n\n",
             false
@@ -560,7 +560,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     'Your climb manages to take you back into the harpy nests again.  Sophie flutters down next to you and licks her lips hungrily.  She asks, "<i>Would you mind coming up to my nest and sharing some of your milk?  I\'ve worked up quite a craving for cute girl-milk.</i>"\n\n',
                     false
                 );
-                this.outputText("Do you agree to breastfeed the hungry harpy?", false);
+                this.outputText("Do you agree to breastfeed the hungry harpy?");
                 this.simpleChoices(
                     "Yes",
                     this.cramANippleInIt,
@@ -642,8 +642,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             return;
         }
         this.outputText('"<i>Mmmm, have you gotten bored of the talk, ', false);
-        if (this.player.tallness <= 48) this.outputText("little ", false);
-        else if (this.player.tallness >= 72) this.outputText("big ", false);
+        if (this.player.tallness <= 48) this.outputText("little ");
+        else if (this.player.tallness >= 72) this.outputText("big ");
         this.outputText(
             this.player.mf("boy", "girl") +
                 '?  You seem to see something you want,</i>" observes the curvaceous bird-woman. "<i>Come into my nest, ' +
@@ -679,7 +679,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.outputText("", true);
         // (FEMALE\Unsexed)(Genderless –  forces Leave.)
         if (this.player.totalCocks() == 0) {
-            this.outputText("Sophie looks you up and down", false);
+            this.outputText("Sophie looks you up and down");
             if (this.player.hasVagina())
                 this.outputText(
                     ' and insists, "<i>Well, keep looking; if I wanted a girl I\'d be busy with one of my nieces right now.</i>"',
@@ -690,7 +690,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (this.player.hasVagina()) {
-                this.outputText("  What do you do?", false);
+                this.outputText("  What do you do?");
                 // [Stay&Sex] [Leave]
                 this.simpleChoices(
                     "Force Sex",
@@ -738,7 +738,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "Sophie's large eyes widen in surprise at your statement, and her wings unfold as she counters, \"<i>Then you'll have to hope you can handle me.</i>\"  Her foot comes up warningly.\n\n",
             false
         );
-        this.outputText("It's going to be a fight!", false);
+        this.outputText("It's going to be a fight!");
         this.startCombat(new Sophie());
     }
 
@@ -841,7 +841,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "You make yourself comfortable in the soft, padded nest and pull Sophie down on top of you.  Her glossy amber lips pucker and probe at your chest as she tries to find a nipple.   The harpy doesn't resist at all when you place a hand on the back of her head and guide her towards your ",
             false
         );
-        if (this.player.breastRows.length > 1) this.outputText("top-", false);
+        if (this.player.breastRows.length > 1) this.outputText("top-");
         this.outputText(
             "left-most " +
                 this.nippleDescript(0) +
@@ -857,23 +857,23 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     " into her mouth.  Sophie's arms close around your back, allowing her to lock herself onto you as she giddily sucks down your liquid nutrients.  The expression on her ",
                 false
             );
-            if (this.monster.HP < 1) this.outputText("battered ", false);
-            else this.outputText("lusty ", false);
+            if (this.monster.HP < 1) this.outputText("battered ");
+            else this.outputText("lusty ");
             this.outputText(
                 "visage is one of pure satisfaction, and you wonder at her strange love of milk.  The harpy empties the first nipple and moves on to the ",
                 false
             );
-            if (this.player.totalNipples() > 2) this.outputText("next", false);
-            else this.outputText("other", false);
-            this.outputText(", closing her eyes and relaxing in your embrace.", false);
+            if (this.player.totalNipples() > 2) this.outputText("next");
+            else this.outputText("other");
+            this.outputText(", closing her eyes and relaxing in your embrace.");
             if (this.player.totalNipples() > 2) {
                 this.outputText(
                     "  This nipple doesn't last long either, and she's forced to move on to the next, ",
                     false
                 );
                 if (this.player.totalNipples() < 5)
-                    this.outputText("before finishing the last one.", false);
-                else this.outputText("and the next, continuing until you're quite empty.", false);
+                    this.outputText("before finishing the last one.");
+                else this.outputText("and the next, continuing until you're quite empty.");
             }
             this.outputText("\n\n", false);
         }
@@ -885,8 +885,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     ".  The milk eventually runs dry, and she has to move on to your ",
                 false
             );
-            if (this.player.totalNipples() == 2) this.outputText("other ", false);
-            else this.outputText("next ", false);
+            if (this.player.totalNipples() == 2) this.outputText("other ");
+            else this.outputText("next ");
             this.outputText(
                 this.nippleDescript(0) +
                     ".  The suckling goes on nearly as long as it did with the first, until she finishes.",
@@ -920,9 +920,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     ".  The suckling goes on and on, until your milk slows to a reasonable trickle.  Content to have drained one milk-spout, Sophie moves on to the ",
                 false
             );
-            if (this.player.totalNipples()) this.outputText("other ", false);
-            else this.outputText("next ", false);
-            this.outputText("one and begins the cycle anew.", false);
+            if (this.player.totalNipples()) this.outputText("other ");
+            else this.outputText("next ");
+            this.outputText("one and begins the cycle anew.");
             if (this.player.totalNipples() >= 4)
                 this.outputText(
                     "  With all your nipples, this goes on for quite some time.",
@@ -931,11 +931,11 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             this.outputText("\n\n", false);
         }
 
-        this.outputText("Sophie pulls back with ", false);
+        this.outputText("Sophie pulls back with ");
         if (this.player.biggestLactation() >= 3.5)
-            this.outputText("an incredibly loud burp and blushes red.", false);
-        else if (this.player.biggestLactation() >= 2) this.outputText("a satisfied burp.", false);
-        else this.outputText("a satisfied 'ahhh'.", false);
+            this.outputText("an incredibly loud burp and blushes red.");
+        else if (this.player.biggestLactation() >= 2) this.outputText("a satisfied burp.");
+        else this.outputText("a satisfied 'ahhh'.");
         this.outputText('  She wipes a bit of milk from her lips and says, "<i>', false);
         if (this.getGame().inCombat) {
             // (Fought HP won:
@@ -1037,7 +1037,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 " and jump into her nest with her, hardening delightfully from your close proximity to the well-endowed woman.  Sophie places a hand ",
             false
         );
-        if (this.player.biggestTitSize() < 1) this.outputText("on your chest", false);
+        if (this.player.biggestTitSize() < 1) this.outputText("on your chest");
         else this.outputText("between your " + this.allBreastsDescript(), false);
         this.outputText(
             ", tracing up and down your " +
@@ -1053,14 +1053,14 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.biggestTitSize() >= 1)
-            this.outputText("her breasts rubbing against your own", false);
+            this.outputText("her breasts rubbing against your own");
         else {
             if (this.player.tallness <= 48)
-                this.outputText("her breasts pressed into your face", false);
-            else this.outputText("her breasts pressing against your stomach", false);
+                this.outputText("her breasts pressed into your face");
+            else this.outputText("her breasts pressing against your stomach");
         }
-        this.outputText(", ", false);
-        if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+        this.outputText(", ");
+        if (this.player.totalCocks() > 1) this.outputText("each of ");
         this.outputText(
             "your " +
                 this.multiCockDescriptLight() +
@@ -1095,7 +1095,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
         this.outputText("\n\n", false);
 
-        this.outputText("Her teases and taunts sting far more than they should, ", false);
+        this.outputText("Her teases and taunts sting far more than they should, ");
         if (this.player.cor < 75)
             this.outputText(
                 "making you feel terrible and shamed.  Your entire body flushes with embarrassment",
@@ -1110,8 +1110,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             " until the soft skin of her hand presses against your cheek and her voice soothes, \"<i>Don't worry, sweetheart.  It's what inside of you that made me want you.  To be precise, it's what's inside your ",
             false
         );
-        if (this.player.balls > 0) this.outputText("balls", false);
-        else this.outputText("cock", false);
+        if (this.player.balls > 0) this.outputText("balls");
+        else this.outputText("cock");
         this.outputText(
             ".  I've been milking cute " +
                 this.player.mf("studs", "herms") +
@@ -1176,14 +1176,14 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "  The harpy pants with pleasure and grabs your head with her hands, stroking behind your ears with her long-nailed, dextrous fingertips.  She pulls you ",
             false
         );
-        if (this.player.tallness < 72) this.outputText("up", false);
-        else this.outputText("down", false);
+        if (this.player.tallness < 72) this.outputText("up");
+        else this.outputText("down");
         this.outputText(
             " and kisses you, regaining control and giving you a sweet taste of her mouth.  Her lips leave behind a pleasant tingle that seems to reach down into your groin and give your ",
             false
         );
-        if (this.player.balls == 0) this.outputText("prostate", false);
-        else this.outputText("balls", false);
+        if (this.player.balls == 0) this.outputText("prostate");
+        else this.outputText("balls");
         this.outputText(" a squeeze.\n\n", false);
 
         this.outputText(
@@ -1191,7 +1191,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.tallness <= 48)
-            this.outputText("head back down between her breasts", false);
+            this.outputText("head back down between her breasts");
         else
             this.outputText(
                 "body tightly against her, crushing her breasts in between the two of you",
@@ -1254,9 +1254,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         else if (this.flags[kFLAGS.FUCKED_SOPHIE_COUNTER] <= 10) {
-            this.outputText("Do you have a fetish for ", false);
-            if (SophieScene.rand(2) == 0) this.outputText("older women", false);
-            else this.outputText("harpies", false);
+            this.outputText("Do you have a fetish for ");
+            if (SophieScene.rand(2) == 0) this.outputText("older women");
+            else this.outputText("harpies");
             this.outputText(
                 ", or are you just falling in love with me?  It's been some time since I've had an admirer like you.  We had a word for " +
                     this.player.mf("boys", "sluts") +
@@ -1271,13 +1271,13 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
         this.outputText('</i>"\n\n', false);
 
-        this.outputText("Her legs slowly unwind and release you, letting you fall back ", false);
-        if (this.player.cumQ() < 1000) this.outputText("into the soft surface of her nest", false);
+        this.outputText("Her legs slowly unwind and release you, letting you fall back ");
+        if (this.player.cumQ() < 1000) this.outputText("into the soft surface of her nest");
         else if (this.player.cumQ() < 4000)
-            this.outputText("into the soft, cum-slicked surface of her nest", false);
-        else this.outputText("into the massive cum-puddle you've turned her nest into", false);
-        this.outputText(".  You struggle up to your feet and marvel at how rigid ", false);
-        if (this.player.cockTotal() > 1) this.outputText("each of ", false);
+            this.outputText("into the soft, cum-slicked surface of her nest");
+        else this.outputText("into the massive cum-puddle you've turned her nest into");
+        this.outputText(".  You struggle up to your feet and marvel at how rigid ");
+        if (this.player.cockTotal() > 1) this.outputText("each of ");
         this.outputText(
             " your " + this.multiCockDescriptLight() + ' remains.  Sophie giggles, "<i>',
             false
@@ -1287,8 +1287,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 "Sorry cutey, the lip gloss is going to keep you nice and hard.  It's meant to help your ",
                 false
             );
-            if (this.player.balls > 0) this.outputText("balls", false);
-            else this.outputText("body", false);
+            if (this.player.balls > 0) this.outputText("balls");
+            else this.outputText("body");
             this.outputText(
                 " fill back up with cum.  If you want, we could cuddle until it passes.",
                 false
@@ -1304,7 +1304,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.player.orgasm();
         // Sophiepreg
         this.sophieFucked();
-        this.outputText("Do you take her up on her offer?", false);
+        this.outputText("Do you take her up on her offer?");
         // [Yes/No]
         this.doYesNo(this.postSophieSexSnuggle, this.postSexSophieSnuggleTurnedDown);
     }
@@ -1317,7 +1317,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "You sprawl out in Sophie's nest and allow her to wrap her wings about you protectively.  Her hands stay busy the entire time, alternatively masturbating ",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("each of ", false);
+        if (this.player.cockTotal() > 1) this.outputText("each of ");
         this.outputText(
             "your " +
                 this.multiCockDescriptLight() +
@@ -1325,18 +1325,18 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        this.outputText("Her feathers tickle ", false);
-        if (this.player.cockTotal() > 1) this.outputText("all of ", false);
+        this.outputText("Her feathers tickle ");
+        if (this.player.cockTotal() > 1) this.outputText("all of ");
         this.outputText("your " + this.multiCockDescriptLight(), false);
-        if (this.player.balls > 0) this.outputText(" and balls", false);
+        if (this.player.balls > 0) this.outputText(" and balls");
         this.outputText(
             " while her hands stroke and squeeze, and in no time you're coming for the confident harpy again.  Ropes of white jism ",
             false
         );
-        if (this.player.cumQ() < 50) this.outputText("squirt over your body", false);
-        else if (this.player.cumQ() < 500) this.outputText("splatter your body", false);
+        if (this.player.cumQ() < 50) this.outputText("squirt over your body");
+        else if (this.player.cumQ() < 500) this.outputText("splatter your body");
         else if (this.player.cumQ() < 1000)
-            this.outputText("drench your body in thick waves of cum", false);
+            this.outputText("drench your body in thick waves of cum");
         else
             this.outputText(
                 "erupt over your body and send a thick river flowing down the mountain",
@@ -1347,7 +1347,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        this.outputText("You thank her and ", false);
+        this.outputText("You thank her and ");
         if (this.player.cor > 50)
             this.outputText(
                 'nearly give her a good-bye kiss, but catch yourself at the last moment.  She quips, "<i>Too bad, it was nice.</i>"\n\n',
@@ -1392,7 +1392,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 " and jump into her nest with her, hardening delightfully from your close proximity to the well-endowed woman.  Sophie places a hand ",
             false
         );
-        if (this.player.biggestTitSize() < 1) this.outputText("on your chest", false);
+        if (this.player.biggestTitSize() < 1) this.outputText("on your chest");
         else this.outputText("between your " + this.allBreastsDescript(), false);
         this.outputText(
             ", tracing up and down your " +
@@ -1408,12 +1408,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.tallness <= 48)
-            this.outputText("her breasts pressed into your face", false);
+            this.outputText("her breasts pressed into your face");
         else if (this.player.tallness < 72) {
-            this.outputText("her breasts rubbing against your ", false);
-            if (this.player.biggestTitSize() >= 1) this.outputText("own", false);
-            else this.outputText("chest", false);
-        } else this.outputText("her breasts pressing against your stomach", false);
+            this.outputText("her breasts rubbing against your ");
+            if (this.player.biggestTitSize() >= 1) this.outputText("own");
+            else this.outputText("chest");
+        } else this.outputText("her breasts pressing against your stomach");
         this.outputText(
             ", your " +
                 this.cockDescript(x) +
@@ -1455,10 +1455,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 ", milking out a ",
             false
         );
-        if (this.player.cumQ() < 50) this.outputText("small dollop", false);
-        else if (this.player.cumQ() < 250) this.outputText("dollop", false);
-        else if (this.player.cumQ() < 1000) this.outputText("large squirt", false);
-        else this.outputText("torrential gush", false);
+        if (this.player.cumQ() < 50) this.outputText("small dollop");
+        else if (this.player.cumQ() < 250) this.outputText("dollop");
+        else if (this.player.cumQ() < 1000) this.outputText("large squirt");
+        else this.outputText("torrential gush");
         this.outputText(
             ' of pre-cum.  Sophie coos, "<i>Such a fertile ' +
                 this.player.mf("boy", "girl") +
@@ -1470,7 +1470,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 "your " + this.ballsDescriptLight() + ", careful not to snag them with her talons",
                 false
             );
-        else this.outputText("your thighs, careful not to snag you with her talons", false);
+        else this.outputText("your thighs, careful not to snag you with her talons");
         this.outputText(
             ".  The muscled flesh of her thighs contracts in a vice-like grip, acting like a cock-ring and forcing even more blood into your already over-aroused " +
                 this.cockDescript(x) +
@@ -1517,9 +1517,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "The harpy giggles and gives you a long, wet kiss that makes your dick twitch",
             false
         );
-        if (this.player.balls > 0) this.outputText(" and your balls churn", false);
-        this.outputText(".  She flops on her back", false);
-        if (this.player.cumQ() >= 2000) this.outputText(" in the semen-soaked nest", false);
+        if (this.player.balls > 0) this.outputText(" and your balls churn");
+        this.outputText(".  She flops on her back");
+        if (this.player.cumQ() >= 2000) this.outputText(" in the semen-soaked nest");
         this.outputText(
             ' and runs her hands over her abdomen, clearly enjoying the idea of laying another egg.  Sophie groans, "<i>Mmm, such potent seed for one so young.  ',
             false
@@ -1535,9 +1535,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
         else if (this.flags[kFLAGS.FUCKED_SOPHIE_COUNTER] <= 10) {
-            this.outputText("Do you have a fetish for ", false);
-            if (SophieScene.rand(2) == 0) this.outputText("older women", false);
-            else this.outputText("harpies", false);
+            this.outputText("Do you have a fetish for ");
+            if (SophieScene.rand(2) == 0) this.outputText("older women");
+            else this.outputText("harpies");
             this.outputText(
                 ", or are you just falling in love with me?  It's been some time since I've had an admirer like you.  We had a word for " +
                     this.player.mf("boys", "sluts") +
@@ -1552,8 +1552,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         }
         this.outputText('</i>"\n\n', false);
 
-        this.outputText("You struggle up to your feet and marvel at how rigid ", false);
-        if (this.player.cockTotal() > 1) this.outputText("each of ", false);
+        this.outputText("You struggle up to your feet and marvel at how rigid ");
+        if (this.player.cockTotal() > 1) this.outputText("each of ");
         this.outputText(
             "your " + this.multiCockDescriptLight() + ' remains.  Sophie giggles, "<i>',
             false
@@ -1563,8 +1563,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 "Sorry cutey, the lip gloss is going to keep you nice and hard.  It's meant to help your ",
                 false
             );
-            if (this.player.balls > 0) this.outputText("balls", false);
-            else this.outputText("body", false);
+            if (this.player.balls > 0) this.outputText("balls");
+            else this.outputText("body");
             this.outputText(
                 " fill back up with cum.  If you want, we could cuddle until it passes.",
                 false
@@ -1580,7 +1580,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.player.orgasm();
         // Sophiepreg
         this.sophieFucked();
-        this.outputText("Do you take her up on her offer?", false);
+        this.outputText("Do you take her up on her offer?");
         // [Yes/No]
         this.doYesNo(this.postSophieSexSnuggle, this.postSexSophieSnuggleTurnedDown);
         // Go to same yes or no as 'fits' options.
@@ -1677,7 +1677,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             clitFuck != undefined ||
             bimbo != undefined
         ) {
-            this.outputText("  What do you do to her?", false);
+            this.outputText("  What do you do to her?");
             this.simpleChoices(
                 "Use Dick",
                 dickRape,
@@ -1709,7 +1709,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         this.sophieBimbo.sophieSprite();
         const x: number = this.player.cockThatFits(232);
         this.outputText("", true);
-        this.outputText("Sophie is ", false);
+        this.outputText("Sophie is ");
         if (this.monster.HP < 1)
             this.outputText(
                 "too beaten to resist, and lies on the ground in a semi-conscious heap.",
@@ -1724,9 +1724,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "  Not satisfied with a simple victory, you undress and expose your ",
             false
         );
-        if (this.player.lust > 90) this.outputText("dripping ", false);
-        else if (this.player.lust > 50) this.outputText("hard ", false);
-        else this.outputText("hardening ", false);
+        if (this.player.lust > 90) this.outputText("dripping ");
+        else if (this.player.lust > 50) this.outputText("hard ");
+        else this.outputText("hardening ");
         this.outputText(
             "member.  The harpy doesn't even notice your nudity until you're grasping her legs just above the talons.  She struggles weakly, but you force her feet up over her head, pinning her to the ground.  The view of her thick thighs and large, slippery slit is the perfect enticement.\n\n",
             false
@@ -1758,7 +1758,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.cumQ() < 50)
-            this.outputText("Spooge spurts inside her until you're satisfied.", false);
+            this.outputText("Spooge spurts inside her until you're satisfied.");
         else if (this.player.cumQ() < 300)
             this.outputText(
                 "Spooge spurts inside her until you're satisfied and her belly has a small cum-bloated bump in it.",
@@ -1793,10 +1793,10 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         const x: number = this.player.biggestCockIndex();
         this.outputText("", true);
 
-        this.outputText("Not satisfied with a simple victory, you undress and expose your ", false);
-        if (this.player.lust > 90) this.outputText("dripping ", false);
-        else if (this.player.lust > 50) this.outputText("hard ", false);
-        else this.outputText("hardening ", false);
+        this.outputText("Not satisfied with a simple victory, you undress and expose your ");
+        if (this.player.lust > 90) this.outputText("dripping ");
+        else if (this.player.lust > 50) this.outputText("hard ");
+        else this.outputText("hardening ");
         this.outputText(
             "member.  The harpy doesn't even notice your nudity until you're grasping her legs just above the talons.  She struggles weakly, but you force her feet up over her head, pinning her to the ground.  The view of her thick thighs and large, slippery slit is the perfect enticement.\n\n",
             false
@@ -1833,8 +1833,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
 
         if (this.player.cocks[x].cockLength < 36)
-            this.outputText(" each time it pushes into them.", false);
-        else this.outputText(" as it pushes past them to her lips.", false);
+            this.outputText(" each time it pushes into them.");
+        else this.outputText(" as it pushes past them to her lips.");
         if (this.player.cocks[x].cockLength >= 40) {
             this.outputText(
                 "  She sucks the " +
@@ -1843,8 +1843,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (this.player.cocks[x].cockLength < 50)
-                this.outputText("before you pull back.", false);
-            else this.outputText("before she lets it back out before another push onward.", false);
+                this.outputText("before you pull back.");
+            else this.outputText("before she lets it back out before another push onward.");
         }
         if (this.player.cocks[x].cockLength >= 50)
             this.outputText(
@@ -1860,11 +1860,11 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "Her body convulses underneath you in orgasm, and the rippling, clenching thigh-muscles squeeze you to climax.  Ropes of cum splatter her ",
             false
         );
-        if (this.player.cocks[x].cockLength < 36) this.outputText("tits", false);
-        else if (this.player.cocks[x].cockLength < 50) this.outputText("face", false);
-        else if (this.player.cocks[x].cockLength < 100) this.outputText("nest", false);
-        else this.outputText("and the mountain-side", false);
-        this.outputText(".", false);
+        if (this.player.cocks[x].cockLength < 36) this.outputText("tits");
+        else if (this.player.cocks[x].cockLength < 50) this.outputText("face");
+        else if (this.player.cocks[x].cockLength < 100) this.outputText("nest");
+        else this.outputText("and the mountain-side");
+        this.outputText(".");
         if (this.player.cumQ() >= 500) {
             this.outputText(
                 "  Clenched tightly, you revel in the feeling of thick jizz-globules distorting your " +
@@ -1872,15 +1872,15 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                     " as they blast out.  It splatters wetly, making a total mess of your curvy victim",
                 false
             );
-            if (this.player.cocks[x].cockLength >= 50) this.outputText("'s nest", false);
-            this.outputText(".", false);
+            if (this.player.cocks[x].cockLength >= 50) this.outputText("'s nest");
+            this.outputText(".");
             if (this.player.cumQ() >= 2000)
                 this.outputText(
                     "  You manage to completely flood her nest, soak her body, and send a torrent of semen down the mountainside by the time you finish.",
                     false
                 );
         }
-        this.outputText("  Sophie ", false);
+        this.outputText("  Sophie ");
         if (this.player.cocks[x].cockLength < 50)
             this.outputText(
                 "covered the underside of your " +
@@ -1918,7 +1918,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     private sophieVictoryPussyGrind(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
-        this.outputText("Sophie is ", false);
+        this.outputText("Sophie is ");
         if (this.monster.HP < 1)
             this.outputText(
                 "too beaten to resist, and lies on the ground in a semi-conscious heap.",
@@ -1953,7 +1953,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 "slip your snake-like tail between her legs and slide it up next to her body.",
                 false
             );
-        else this.outputText("hook your leg under hers and slide it up next to her body.", false);
+        else this.outputText("hook your leg under hers and slide it up next to her body.");
         this.outputText(
             "  You shift closer until you can feel the heat of her sex wafting against your own.  With erotic precision, you lower your " +
                 this.vaginaDescript(0) +
@@ -1999,7 +1999,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.biggestTitSize() >= 1)
             this.outputText("You pinch a " + this.nippleDescript(0), false);
-        else this.outputText("You arch your back", false);
+        else this.outputText("You arch your back");
         this.outputText(
             " and throatily question, \"<i>How could masturbation feel better than this?  Can't you feel how wet we've gotten each other?  My pussy's practically burning with need, and I can feel how hot this it making you.   Admit it, my snatch feels great.</i>\"\n\n",
             false
@@ -2045,12 +2045,12 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_SLAVERING)
-            this.outputText("Juices squirt from the joined pussies", false);
+            this.outputText("Juices squirt from the joined pussies");
         else if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_SLICK)
-            this.outputText("Juices soak the nesting material", false);
+            this.outputText("Juices soak the nesting material");
         else if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_WET)
-            this.outputText("Juice trickles from the paired pussies", false);
-        else this.outputText("Sophie's pussy soaks your own with her juices", false);
+            this.outputText("Juice trickles from the paired pussies");
+        else this.outputText("Sophie's pussy soaks your own with her juices");
         this.outputText(
             ' until you fall away from each other, spent and rubbing your tender cunts.  The older bird-woman reluctantly admits, "<i>',
             false
@@ -2089,7 +2089,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     private fuckDatClit(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
-        this.outputText("Sophie is ", false);
+        this.outputText("Sophie is ");
         if (this.monster.HP < 1)
             this.outputText(
                 "too beaten to resist, and lies on the ground in a semi-conscious heap.",
@@ -2126,8 +2126,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
         if (SophieScene.rand(2) == 0)
-            this.outputText("to see if it gets thicker when you cum.", false);
-        else this.outputText("to feel you cumming just from being squeezed.", false);
+            this.outputText("to see if it gets thicker when you cum.");
+        else this.outputText("to feel you cumming just from being squeezed.");
         this.outputText(
             '</i>"  Her inner walls start to work you harder, squeezing and massaging the clit from the base to the tip, robbing you of the rest of your strength.  You fall down on top of her, and despite your best effort to continue fucking her, the constant tightening of her tunnel makes it impossible to coordinate any muscle movements below your chest.  Her breasts are swaying underneath you, and, determined as you are to enjoy yourself, you reach around to cup the over-sized harpy-tits.  Her nipples are firm and erect in your fingers, and just by touching them you get her pussy to compress even more tightly.\n\n',
             false
@@ -2210,9 +2210,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
     private tinyDickSupremeSophieLoss(): void {
         this.sophieBimbo.sophieSprite();
         this.outputText("", true);
-        this.outputText("Sophie looks down at your ", false);
-        if (this.player.HP < 1) this.outputText("defeated", false);
-        else this.outputText("masturbating", false);
+        this.outputText("Sophie looks down at your ");
+        if (this.player.HP < 1) this.outputText("defeated");
+        else this.outputText("masturbating");
         this.outputText(
             ' form and chirps, "<i>Hmmm, that was easy.  Are you sure you didn\'t want this?</i>"  Her talons hook into your ' +
                 this.player.armorName +
@@ -2238,8 +2238,8 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "You're so embarrassed that even with the sultry naked matron straddling you, you can't get it up.  Your entire body is blushing beet-red and the desire to prove her wrong wars with your desire to run from the constant teases, but your ",
             false
         );
-        if (this.player.HP < 1) this.outputText("wounds", false);
-        else this.outputText("lust", false);
+        if (this.player.HP < 1) this.outputText("wounds");
+        else this.outputText("lust");
         this.outputText(
             " keep you immobilized for the domineering harpy.  Sophie snickers and poises her talons over your " +
                 this.cockDescript(0) +
@@ -2277,7 +2277,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 "You imagine Amily's voice nattering away about how terrible the corruption is, but it doesn't help!  Y",
                 false
             );
-        else this.outputText("It doesn't help; y", false);
+        else this.outputText("It doesn't help; y");
         this.outputText(
             "our eyes are fixated on the pink-lipped folds of Sophie's sex as it creeps closer.\n\n",
             false
@@ -2312,7 +2312,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             "The older harpy climbs up off of you and pats her belly.  Her foot slams into your chest, pushing you into the ",
             false
         );
-        if (this.player.cumQ() >= 400) this.outputText("spooge-soaked ", false);
+        if (this.player.cumQ() >= 400) this.outputText("spooge-soaked ");
         this.outputText(
             "surface of her nest while she instructs you, \"<i>Get rid of that pathetic excuse for a dick or turn it into a man's.  If you want my advice, you'd be a cuter girl than a boy.</i>\" Finished with her taunting, she leans down and gives you a long, wet kiss.   Your " +
                 this.cockDescript(0) +
@@ -2364,9 +2364,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        this.outputText("The harpy leans over, brushing her swollen breasts over your ", false);
+        this.outputText("The harpy leans over, brushing her swollen breasts over your ");
         if (this.player.biggestTitSize() >= 1) this.outputText(this.allBreastsDescript(), false);
-        else this.outputText("chest", false);
+        else this.outputText("chest");
         this.outputText(
             '.  You squirm at the sudden extra pressure, but Sophie leans further to whisper in your ear, "<i>You\'ve gotten so horny for momma Sophie.</i>"  Her hand slips inside your ' +
                 this.player.armorName +
@@ -2416,9 +2416,9 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 ". The older harpy's breath washes over your ",
             false
         );
-        if (this.player.tallness >= 72) this.outputText("neck", false);
+        if (this.player.tallness >= 72) this.outputText("neck");
         else if (this.player.tallness > 48) this.outputText(this.player.face(), false);
-        else this.outputText("head", false);
+        else this.outputText("head");
         this.outputText(
             " as she really starts to get into it.  Her gold-painted mouth glimmers in the light as she presses her supple lips against your own.  The sweet taste of her makes your head swim while she roughly tongue-fucks your mouth.  It's brutal, savage, and so hot that your " +
                 this.cockDescript(x) +
@@ -2448,7 +2448,7 @@ export class SophieScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (this.player.cumQ() >= 1500)
-                this.outputText(", and some of it even pours back out to flood the nest", false);
+                this.outputText(", and some of it even pours back out to flood the nest");
             this.outputText(
                 ".  It's difficult to stay conscious, but you manage to hang on with a dopey grin plastered onto your face.",
                 false

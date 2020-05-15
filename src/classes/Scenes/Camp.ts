@@ -695,12 +695,12 @@ export class Camp extends NPCAwareContent {
                 "  Marble has built a fairly secure nursery amongst the rocks to house your ",
                 false
             );
-            if (this.flags[kFLAGS.MARBLE_KIDS] == 0) this.outputText("future children", false);
+            if (this.flags[kFLAGS.MARBLE_KIDS] == 0) this.outputText("future children");
             else {
                 this.outputText(Camp.num2Text(this.flags[kFLAGS.MARBLE_KIDS]) + " child", false);
-                if (this.flags[kFLAGS.MARBLE_KIDS] > 1) this.outputText("ren", false);
+                if (this.flags[kFLAGS.MARBLE_KIDS] > 1) this.outputText("ren");
             }
-            this.outputText(".", false);
+            this.outputText(".");
         }
         // HARPY ROOKERY
         if (this.flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 0) {
@@ -891,9 +891,9 @@ export class Camp extends NPCAwareContent {
                     false
                 );
             else if (this.temp == 3) {
-                this.outputText("Marble herself is resting on her bedroll right now.", false);
+                this.outputText("Marble herself is resting on her bedroll right now.");
             } else if (this.temp == 4) {
-                this.outputText("Marble herself is wandering around the camp right now.", false);
+                this.outputText("Marble herself is wandering around the camp right now.");
             }
             this.outputText("\n\n", false);
         }
@@ -1247,7 +1247,7 @@ export class Camp extends NPCAwareContent {
         if (this.isabellaFollower() && this.flags[kFLAGS.FOLLOWER_AT_FARM_ISABELLA] == 0) {
             isabellaButt = this.isabellaFollowerScene.callForFollowerIsabella;
             if (this.model.time.hours >= 21 || this.model.time.hours <= 5)
-                this.outputText("Isabella is sound asleep in her bunk and quietly snoring.", false);
+                this.outputText("Isabella is sound asleep in her bunk and quietly snoring.");
             else if (this.model.time.hours == 6)
                 this.outputText(
                     "Isabella is busy eating some kind of grain-based snack for breakfast.  The curly-haired cow-girl gives you a smile when she sees you look her way.",
@@ -1284,7 +1284,7 @@ export class Camp extends NPCAwareContent {
                     false
                 );
             else if (this.model.time.hours == 13) {
-                this.outputText("Isabella ", false);
+                this.outputText("Isabella ");
                 const izzyCreeps: any[] = [];
                 // Build array of choices for izzy to talk to
                 if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0)
@@ -1339,7 +1339,7 @@ export class Camp extends NPCAwareContent {
                         "is sitting down with Izma and recounting some stories, somewhat nervously.  Izma keeps flashing her teeth in a predatory smile.",
                         false
                     );
-                else this.outputText("is sitting down and thumbing through a book.", false);
+                else this.outputText("is sitting down and thumbing through a book.");
             } else if (this.model.time.hours == 14)
                 this.outputText(
                     "Isabella is working a grindstone and sharpening her tools.  She even hones the bottom edge of her shield into a razor-sharp cutting edge.  The cow-girl is sweating heavily, but it only makes the diaphanous silk of her top cling more alluringly to her weighty chest.",
@@ -1382,7 +1382,7 @@ export class Camp extends NPCAwareContent {
                     "Your favorite chocolate-colored cowgirl, Isabella, is moving about, gathering all of her scattered belongings and replacing them in her personal chest.  She yawns more than once, indicating her readiness to hit the hay, but her occasional glance your way lets you know she wouldn't mind some company before bed.",
                     false
                 );
-            else this.outputText("Isabella looks incredibly bored right now.", false);
+            else this.outputText("Isabella looks incredibly bored right now.");
             this.outputText("\n\n", false);
         }
         // Izma
@@ -1425,7 +1425,7 @@ export class Camp extends NPCAwareContent {
                         false
                     );
                 if (this.temp == 3) {
-                    this.outputText("Marble herself is resting on her bedroll right now.", false);
+                    this.outputText("Marble herself is resting on her bedroll right now.");
                 }
                 if (this.temp == 4) {
                     this.outputText(
@@ -1453,10 +1453,10 @@ export class Camp extends NPCAwareContent {
             this.flags[kFLAGS.AMILY_FOLLOWER] == 1 &&
             this.flags[kFLAGS.AMILY_BLOCK_COUNTDOWN_BECAUSE_CORRUPTED_JOJO] == 0
         ) {
-            this.outputText("Amily is currently strolling around your camp, ", false);
+            this.outputText("Amily is currently strolling around your camp, ");
             this.temp = Camp.rand(6);
             if (this.temp == 0) {
-                this.outputText("dripping water and stark naked from a bath in the stream", false);
+                this.outputText("dripping water and stark naked from a bath in the stream");
                 if (this.player.findStatusAffect(StatusAffects.CampRathazul) >= 0)
                     this.outputText(
                         ".  Rathazul glances over and immediately gets a nosebleed",
@@ -1472,9 +1472,9 @@ export class Camp extends NPCAwareContent {
                     "dipping freshly-made darts into a jar of something that looks poisonous",
                     false
                 );
-            else if (this.temp == 3) this.outputText("eating some of your supplies", false);
+            else if (this.temp == 3) this.outputText("eating some of your supplies");
             else if (this.temp == 4)
-                this.outputText("and she flops down on her nest to have a rest", false);
+                this.outputText("and she flops down on her nest to have a rest");
             else
                 this.outputText(
                     "peeling the last strips of flesh off of an imp's skull and putting it on a particularly flat, sun-lit rock to bleach as a trophy",

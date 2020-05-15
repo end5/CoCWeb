@@ -314,7 +314,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             'You come closer and discover a placard.  It reads, "Fountain of Endowment".  Well, clearly it\'s supposed to enhance something, but at what cost?\n\n',
             false
         );
-        this.outputText("Do you drink from the fountain?", false);
+        this.outputText("Do you drink from the fountain?");
         // [Yes] [No]
         this.doYesNo(this.drinkFountainEndowment, this.camp.returnToCampUseOneHour);
     }
@@ -407,9 +407,9 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             this.player.clitLength += 2;
-            if (this.player.clitLength < 6) this.outputText("gets as big as a cock", false);
-            else this.outputText("gets bigger than most cocks", false);
-            this.outputText(" now!", false);
+            if (this.player.clitLength < 6) this.outputText("gets as big as a cock");
+            else this.outputText("gets bigger than most cocks");
+            this.outputText(" now!");
             changed = true;
         }
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -599,7 +599,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
                 if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-                else this.outputText("loins", false);
+                else this.outputText("loins");
                 this.outputText(
                     ', just aching to squirt out.  Relax and enjoy the feelings.  The more you accept it, the better it will feel.  Just give in and cum, I want to watch it splatter your face,</i>" taunts your demon-dick.\n\n',
                     false
@@ -781,12 +781,12 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 this.player.skinType == SKIN_TYPE_PLAIN ||
                 this.player.skinType >= SKIN_TYPE_UNDEFINED
             )
-                this.outputText("flesh", false);
+                this.outputText("flesh");
             else if (this.player.skinType == SKIN_TYPE_FUR)
-                this.outputText("furry-covered flesh", false);
+                this.outputText("furry-covered flesh");
             else if (this.player.skinType == SKIN_TYPE_SCALES)
-                this.outputText("soft scaley flesh", false);
-            else this.outputText("gooey surface", false);
+                this.outputText("soft scaley flesh");
+            else this.outputText("gooey surface");
             this.outputText(
                 ", pausing to gently squeeze and caress any particularly sensitive spots.  Soft sighs escape your lips from the self-imposed pleasure-assault.  Your body relaxes totally, slouching down against a rock while you continue to happily play with your " +
                     this.allBreastsDescript() +
@@ -806,18 +806,18 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             if (this.player.hasVagina()) {
-                this.outputText("Juice", false);
-                if (this.player.totalCocks() > 0) this.outputText(" and pre-cum", false);
-                this.outputText(" soaks your groin", false);
+                this.outputText("Juice");
+                if (this.player.totalCocks() > 0) this.outputText(" and pre-cum");
+                this.outputText(" soaks your groin");
             } else if (this.player.totalCocks() > 0)
-                this.outputText("pre-cum soaks your groin", false);
-            else this.outputText("Warmth radiates through your body", false);
+                this.outputText("pre-cum soaks your groin");
+            else this.outputText("Warmth radiates through your body");
             this.outputText(
                 " as you're more and more turned on by the feelings coming from your chest.  Fingertips ",
                 false
             );
             if (this.player.nippleLength < 2)
-                this.outputText("pinch together and pull, and it's too much for you.", false);
+                this.outputText("pinch together and pull, and it's too much for you.");
             else
                 this.outputText(
                     "stroke your enlongated nipples, occasionally pinching them gently as you jerk them off.  It's far too much sensation for you.",
@@ -858,7 +858,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                     "A muffled voice pipes up, \"<i>Hey!  You forgetting about me?  Fucking champions think they're so good, but you're ignoring your best body part!  Can't you feel all that cum boiling ",
                     false
                 );
-                if (this.player.balls == 0) this.outputText("inside?", false);
+                if (this.player.balls == 0) this.outputText("inside?");
                 else this.outputText("in your " + this.ballsDescriptLight() + "?", false);
                 this.outputText(
                     "  Well you'd better relieve me soon or I'll make sure your body finds someone who does!</i>\"",
@@ -898,11 +898,11 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
             else if (select == 6) {
-                this.outputText("It's getting harder to concentrate... Exgartuan is ", false);
-                if (this.player.balls > 0) this.outputText("teasing your ballsack", false);
+                this.outputText("It's getting harder to concentrate... Exgartuan is ");
+                if (this.player.balls > 0) this.outputText("teasing your ballsack");
                 // [if vagina, no balls]
-                else if (this.player.hasVagina()) this.outputText("poking your labia", false);
-                else this.outputText("stroking your perineum", false);
+                else if (this.player.hasVagina()) this.outputText("poking your labia");
+                else this.outputText("stroking your perineum");
                 this.outputText(
                     ', "<i>Come on, champion. You know you can\'t go on ignoring me much longer.</i>"',
                     false
@@ -921,7 +921,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 );
                 if (this.player.balls > 0)
                     this.outputText("boiling in your " + this.ballsDescriptLight() + ".", false);
-                else this.outputText("cooking deep within you.", false);
+                else this.outputText("cooking deep within you.");
                 this.outputText(
                     "  Find me somewhere to deliver it or I'll be shoving it down your throat, champion!</i>\"",
                     false
@@ -1570,9 +1570,9 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
 
     // (FORCE OUT ANY WORM INFECTION)
     public exgartuanWormCure(): void {
-        this.outputText("Your ", false);
+        this.outputText("Your ");
         if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-        else this.outputText("groin", false);
+        else this.outputText("groin");
         this.outputText(
             " begins to grow warm... no, hot.  You feel it moving and squirming with discomfort as the worms inside you wriggle about, agitated by something.  The heat intensifies and you watch in a mixture of shock and horror as they start crawling out your urethra, sliding down to the ground on a river of thick seminal fluid.  You double over in pain as something stretches you wide, and you feel the main worm pushing itself through your " +
                 this.cockDescript(0) +
@@ -1831,9 +1831,9 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                     false
                 );
                 if (this.player.biggestTitSize() > 1)
-                    this.outputText("wrap your tits around me and squeeze", false);
-                else this.outputText("wrap your arms around me and stroke", false);
-                this.outputText(".  We're so horny aren't we, my needy little champion?", false);
+                    this.outputText("wrap your tits around me and squeeze");
+                else this.outputText("wrap your arms around me and stroke");
+                this.outputText(".  We're so horny aren't we, my needy little champion?");
             }
             this.outputText('</i>"\n\n', false);
 
@@ -1843,8 +1843,8 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                     "You grab hold of the perverse prick with both hands, not to stroke it, but to try and pry the invader from your oral cavity by force.  The surface is slick with sweat and pre-cum, and your hands slide inexorably towards the ",
                     false
                 );
-                if (!this.player.hasSheath()) this.outputText("base", false);
-                else this.outputText("sheath", false);
+                if (!this.player.hasSheath()) this.outputText("base");
+                else this.outputText("sheath");
                 this.outputText(
                     " instead of pulling it free.  Your eyes cross from the feelings coming off your traitorous, possessed flesh after the accidental caress.  Both hands start to pump away, autonomously jacking the swollen demon-shaft into your mouth",
                     false
@@ -1904,11 +1904,11 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                             false
                         );
                         if (this.player.hasFuckableNipples() && this.player.biggestLactation() > 1)
-                            this.outputText("  Milk and lubricants ", false);
+                            this.outputText("  Milk and lubricants ");
                         else if (this.player.hasFuckableNipples())
-                            this.outputText("  Lubricants ", false);
+                            this.outputText("  Lubricants ");
                         else if (this.player.biggestLactation() > 1)
-                            this.outputText("  Milk ", false);
+                            this.outputText("  Milk ");
                         if (this.player.hasFuckableNipples() || this.player.hasFuckableNipples()) {
                             this.outputText(
                                 " from your " +
@@ -1925,18 +1925,18 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.gender == 3) {
                 // (no balls)
                 if (this.player.balls == 0) {
-                    this.outputText("The ", false);
+                    this.outputText("The ");
                     if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_WET)
-                        this.outputText("puffy", false);
+                        this.outputText("puffy");
                     else if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_DROOLING)
-                        this.outputText("glistening", false);
-                    else this.outputText("dripping", false);
+                        this.outputText("glistening");
+                    else this.outputText("dripping");
                     this.outputText(
                         " skin of your outer lips is engorged and ready, but there's no pleasure to be had for your greedy gash.  Cool night air washes over the exposed ",
                         false
                     );
-                    if (this.player.skinType == SKIN_TYPE_SCALES) this.outputText("scales", false);
-                    else this.outputText("skin", false);
+                    if (this.player.skinType == SKIN_TYPE_SCALES) this.outputText("scales");
+                    else this.outputText("skin");
                     this.outputText(
                         " surrounding your sex, teasing you with the barest hint of sensation while your ignorant hands maul your " +
                             this.cockDescript(0) +
@@ -1946,17 +1946,17 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                     );
                     if (this.player.clitLength > 3)
                         this.outputText(" or stroke your " + this.clitDescript(), false);
-                    this.outputText(" to fully satisfy ALL of yourself.", false);
+                    this.outputText(" to fully satisfy ALL of yourself.");
                     this.outputText("\n\n", false);
                 }
                 // (Herms + Balls)
                 else {
-                    this.outputText("The ", false);
+                    this.outputText("The ");
                     if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_WET)
-                        this.outputText("puffy", false);
+                        this.outputText("puffy");
                     else if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_DROOLING)
-                        this.outputText("glistening", false);
-                    else this.outputText("dripping", false);
+                        this.outputText("glistening");
+                    else this.outputText("dripping");
                     this.outputText(
                         " skin of your outer lips is engorged and ready, but with your hands so focused on your " +
                             this.cockDescript(0) +
@@ -1997,7 +1997,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-            this.outputText("If someone were watching", false);
+            this.outputText("If someone were watching");
             if (
                 this.monk >= 5 &&
                 this.player.findStatusAffect(StatusAffects.NoJojo) < 0 &&
@@ -2012,17 +2012,17 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             this.temp = this.player.cumQ();
-            if (this.temp < 50) this.outputText("surprisingly light", false);
-            else if (this.temp < 150) this.outputText("sticky", false);
-            else if (this.temp < 300) this.outputText("large, thick", false);
-            else if (this.temp < 800) this.outputText("long, thick blast of your", false);
-            else this.outputText("immensely voluminous", false);
+            if (this.temp < 50) this.outputText("surprisingly light");
+            else if (this.temp < 150) this.outputText("sticky");
+            else if (this.temp < 300) this.outputText("large, thick");
+            else if (this.temp < 800) this.outputText("long, thick blast of your");
+            else this.outputText("immensely voluminous");
             this.outputText(
                 " deposit.  Quiet, barely audible squishes hang in the air around you as your gut is ",
                 false
             );
-            if (this.temp < 500) this.outputText("pumped into", false);
-            else this.outputText("pumped full", false);
+            if (this.temp < 500) this.outputText("pumped into");
+            else this.outputText("pumped full");
             this.outputText(
                 " with obscene, liquid sloshing.  Your " +
                     this.hipDescript() +
@@ -2038,16 +2038,16 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                         " pull tight against your groin from the effort",
                     false
                 );
-            this.outputText(".", false);
+            this.outputText(".");
             this.temp = this.player.cumQ();
             if (this.temp > 500) {
-                this.outputText("  A gradual curve quickly rises on your belly", false);
+                this.outputText("  A gradual curve quickly rises on your belly");
                 if (this.temp > 1500)
                     this.outputText(
                         ", but it doesn't stop there.  It keeps growing until you look full and pregnant.",
                         false
                     );
-                else this.outputText(".", false);
+                else this.outputText(".");
                 if (this.temp > 2500)
                     this.outputText(
                         "  Back-pressure blasts your " +
@@ -2072,8 +2072,8 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 "Your eyes slowly roll back down while Exgartuan deflates, leaving a trail of pleased, white submission ",
                 false
             );
-            if (this.player.biggestTitSize() < 1) this.outputText("over your chest", false);
-            else this.outputText("between your tits", false);
+            if (this.player.biggestTitSize() < 1) this.outputText("over your chest");
+            else this.outputText("between your tits");
             this.outputText(
                 " and across your belly as he retreats.  The thrill of orgasm is still fresh in your mind, but exhaustion quickly replaces it.  You resolve to clean up the mess in the morning as your eyelids flutter closed.  The smell of sex hangs off your dozing form like a cloud, keeping your dreams from straying too far from your cock...",
                 false
@@ -2098,7 +2098,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             false
         );
 
-        this.outputText("You again reach for ", false);
+        this.outputText("You again reach for ");
         if (
             this.player.armorName != "crotch-hugging slutty swimwear" &&
             this.player.armorName != "crotch-hugging revealing chainmail bikini"
@@ -2147,7 +2147,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.balls > 0 || this.player.hasVagina())
-            this.outputText(" along with anything else unlucky enough to reside within", false);
+            this.outputText(" along with anything else unlucky enough to reside within");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -2388,25 +2388,25 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             );
         this.outputText("\n\n", false);
 
-        this.outputText("Your breath ceases as your ", false);
+        this.outputText("Your breath ceases as your ");
         // [if cumQ()<50]
-        if (this.player.cumQ() < 50) this.outputText("modest", false);
+        if (this.player.cumQ() < 50) this.outputText("modest");
         // [if cumQ()<150]
-        else if (this.player.cumQ() < 150) this.outputText("sizably sticky", false);
+        else if (this.player.cumQ() < 150) this.outputText("sizably sticky");
         // [if cumQ()<300]
-        else if (this.player.cumQ() < 300) this.outputText("mighty thick", false);
+        else if (this.player.cumQ() < 300) this.outputText("mighty thick");
         // [if cumQ()<800]
-        else if (this.player.cumQ() < 800) this.outputText("immensely voluminous", false);
+        else if (this.player.cumQ() < 800) this.outputText("immensely voluminous");
         // [else]
-        else this.outputText("monumental", false);
+        else this.outputText("monumental");
         this.outputText(
             " load works its way up the demon.  However, moments before your eruption, Exgartuan pulls free from your clutches, spreading his urethra wide as he again faces you.  Before you can even put on a puzzled expression, ",
             false
         );
         // [cumQ()<500]
-        if (this.player.cumQ() < 500) this.outputText("a blast of thick demonic jizz", false);
+        if (this.player.cumQ() < 500) this.outputText("a blast of thick demonic jizz");
         // [else]
-        else this.outputText("a colossal wave of heavy demonic jizz", false);
+        else this.outputText("a colossal wave of heavy demonic jizz");
         this.outputText(
             " hits you square in the face.  The surprising force of the blow sends you reeling, your hands clearing from the mighty demon as he points skyward, showering everything around you in black, warm ejaculate.  You care little, however, being too busy convulsing and indulging on every ounce of pleasure radiating through it.  It doesn't take long for you to black out, drawing an end to your excruciating experience.\n\n",
             false
@@ -2454,7 +2454,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 " comfortably resting away in your outfit.\n\n",
             false
         );
-        this.outputText("Damn demons.", false);
+        this.outputText("Damn demons.");
         this.player.changeStatusValue(StatusAffects.Exgartuan, 2, 25);
         this.doNext(this.playerMenu);
     }
@@ -2487,7 +2487,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             this.outputText('"<i>', false);
-            if (this.player.cor < 33) this.outputText("Not long enough, Nemus, I'm afraid!", false);
+            if (this.player.cor < 33) this.outputText("Not long enough, Nemus, I'm afraid!");
             else if (this.player.cor < 66)
                 this.outputText(
                     "Too long, honestly.  You've grown slow over the years, Nemus,",
@@ -2548,13 +2548,13 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             if (this.player.cor < 33)
-                this.outputText("I always wondered where you kept this.", false);
+                this.outputText("I always wondered where you kept this.");
             else if (this.player.cor < 66)
                 this.outputText(
                     "This is one delivery that you'll just have to return to sender, I'm afraid.",
                     false
                 );
-            else this.outputText("You scheme about as well as you fuck, Nemus.", false);
+            else this.outputText("You scheme about as well as you fuck, Nemus.");
             this.outputText(
                 '</i>" you tease, bending down to scoop up the second idol and place it firmly in your leather pouch.  You quickly gesture goodbye to Nemus before bolting for the door.\n\n',
                 false
@@ -2652,11 +2652,11 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             // [if corruption <30]
-            if (this.player.cor < 33) this.outputText("wave goodbye to Nemus", false);
+            if (this.player.cor < 33) this.outputText("wave goodbye to Nemus");
             // [if corruption ≥30 & <70]
-            else if (this.player.cor < 66) this.outputText("blow a kiss to Nemus", false);
+            else if (this.player.cor < 66) this.outputText("blow a kiss to Nemus");
             // [if corruption ≥70]
-            else this.outputText("flip Nemus a mighty bird", false);
+            else this.outputText("flip Nemus a mighty bird");
             this.outputText(
                 ", making out his silhouette in the distance through the storm, hopping around angrily.  With your work done, you bound off of the wall, set to clear the tiny moat that circles around the fort.  Time seems to slow as you soar in the air away from the imp fortress.\n\n",
                 false
@@ -2729,7 +2729,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
             // [if occurrence ≥2]
-            if (this.flags[kFLAGS.BOOBGARTUAN_SURPRISE_COUNT] >= 2) this.outputText("s", false);
+            if (this.flags[kFLAGS.BOOBGARTUAN_SURPRISE_COUNT] >= 2) this.outputText("s");
             this.outputText(
                 ' would have sunk in, but I guess you need to retake the course.</i>" Before you can formulate a response, your massive mammaries force your face to the ground yet again.  "<i>The school of hard knocks is in session.</i>"',
                 false
@@ -2758,7 +2758,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.cor < 50)
-            this.outputText("  Exgartuan's tormenting has gone on long enough tonight.", false);
+            this.outputText("  Exgartuan's tormenting has gone on long enough tonight.");
         else
             this.outputText(
                 "  You love foreplay just as much as any other creature, but this is getting ridiculous.",
@@ -2875,13 +2875,13 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             );
             // [if cock >0]
             if (this.player.hasCock() && !this.player.hasVagina())
-                this.outputText("pre-cum", false);
+                this.outputText("pre-cum");
             // [if vagina >0]
-            if (this.player.hasVagina() && !this.player.hasCock()) this.outputText("juice", false);
+            if (this.player.hasVagina() && !this.player.hasCock()) this.outputText("juice");
             // [if cock >0, vagina >0]
             if (this.player.hasCock() && this.player.hasVagina())
-                this.outputText("an aromatic cocktail of pre and juice", false);
-            this.outputText(" as your tit massage begins to excite your nether regions.", false);
+                this.outputText("an aromatic cocktail of pre and juice");
+            this.outputText(" as your tit massage begins to excite your nether regions.");
         }
         this.outputText(
             "  The demoness continues her work, though never touching your nipples; the closest she draws your hands is around your areolas.  The circling is no less irritating as when you haven't neglected her, your back arching in need yet again.\n\n",
@@ -2896,9 +2896,9 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         );
         // [if corruption <50]
         if (this.player.cor < 50)
-            this.outputText("  At this point you are too far gone to resist.", false);
+            this.outputText("  At this point you are too far gone to resist.");
         // [else]
-        else this.outputText("  You wiggle your fingers in anxious anticipation.", false);
+        else this.outputText("  You wiggle your fingers in anxious anticipation.");
         this.outputText(
             "  You finally bear down and grasp onto... nothing?  <b>Your nipples are nowhere to be found!</b>  The passion is beginning to flatline as you confusedly grope around your " +
                 this.chestDesc() +
@@ -2985,7 +2985,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                     ", each swollen to at least four inches in length and around 3 inches in diameter!",
                     false
                 );
-            } else this.outputText(".", false);
+            } else this.outputText(".");
         }
         // [if nipplesPerBreast <1 AND nippleLength <4]
         else {
@@ -3006,16 +3006,16 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         );
         // [if cock or vagina present]
         if (this.player.gender > 0) {
-            this.outputText(", mixing in with the ", false);
+            this.outputText(", mixing in with the ");
             // [if cock >0]
-            if (this.player.gender == 1) this.outputText("pre", false);
+            if (this.player.gender == 1) this.outputText("pre");
             // [if vagina >0]
-            else if (this.player.gender == 2) this.outputText("fem-spunk", false);
-            else this.outputText("liquids", false);
+            else if (this.player.gender == 2) this.outputText("fem-spunk");
+            else this.outputText("liquids");
             this.outputText(" already coating your " + this.hipDescript() + ".", false);
         }
         // else
-        else this.outputText(".", false);
+        else this.outputText(".");
         this.outputText("  This champion wants to tug these melons dry.\n\n", false);
 
         this.outputText(
@@ -3059,7 +3059,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
 
-        this.outputText("Irritating... ", false);
+        this.outputText("Irritating... ");
         // [if corruption ≥15 & <30]
         if (this.player.cor <= 25)
             this.outputText(
@@ -3098,11 +3098,11 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             );
             // [if cocks == 2]
             if (this.player.cockTotal() == 2)
-                this.outputText(", your remaining tool hiding away inside you, uninvited.", false);
+                this.outputText(", your remaining tool hiding away inside you, uninvited.");
             // [if cocks ≥ 3]
             else if (this.player.cockTotal() >= 3)
-                this.outputText(", your remaining poles hiding away inside you, uninvited.", false);
-            else this.outputText(".", false);
+                this.outputText(", your remaining poles hiding away inside you, uninvited.");
+            else this.outputText(".");
             this.outputText(
                 '  Just how the hell does Exgartuan manage to-"<i>No time for your feeble mind to try and comprehend my power, champion," your rod interrupts, "I wouldn\'t want you to hurt yourself BEFORE I get the chance to."  Now you REALLY want to get this over with and move on.  With a dejected sigh and a preparatory stretch of your shoulders, you reach down to do the dirty deed.\n\n',
                 false
@@ -3115,7 +3115,7 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
         }
         // [if corruption ≥33 & <66]
         if (this.player.cor > 33 && this.player.cor < 66) {
-            this.outputText("  You shouldn't be looking forward to this, should you?", false);
+            this.outputText("  You shouldn't be looking forward to this, should you?");
             this.outputText(
                 "  You haven't even quite figured out just how much of the pleasure one of these sessions garners is actually genuine.  But that doesn't make it any less savory.  \"What's wrong, " +
                     this.player.short +
@@ -3263,15 +3263,15 @@ export class Exgartuan extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         // [if cumQ()<50]
-        if (this.player.cumQ() < 50) this.outputText("modest", false);
+        if (this.player.cumQ() < 50) this.outputText("modest");
         // [if cumQ()<150]
-        else if (this.player.cumQ() < 150) this.outputText("sizably sticky", false);
+        else if (this.player.cumQ() < 150) this.outputText("sizably sticky");
         // [if cumQ()<300]
-        else if (this.player.cumQ() < 300) this.outputText("mighty thick", false);
+        else if (this.player.cumQ() < 300) this.outputText("mighty thick");
         // [if cumQ()<800]
-        else if (this.player.cumQ() < 800) this.outputText("immensely voluminous", false);
+        else if (this.player.cumQ() < 800) this.outputText("immensely voluminous");
         // [else]
-        else this.outputText("monumental", false);
+        else this.outputText("monumental");
         this.outputText(
             " load working its way up your " +
                 this.cockDescript(0) +

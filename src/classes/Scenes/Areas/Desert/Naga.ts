@@ -73,7 +73,7 @@ export class Naga extends Monster {
     // 2c) Abiliy - Tail Whip - minus ??? HP
     // (base it on toughness?)
     protected nagaTailWhip(): void {
-        this.outputText("The naga tenses and twists herself forcefully.  ", false);
+        this.outputText("The naga tenses and twists herself forcefully.  ");
         // [if evaded]
         if (this.player.findPerk(PerkLib.Evade) && Naga.rand(6) == 0) {
             this.outputText(

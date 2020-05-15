@@ -66,8 +66,8 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                     ' pulsates darkly, growing rigid in seconds as the demon within you takes over.  It barks, "<i>Fuck, how about I cast my spell on you baby?</i>"\n\n'
             );
             this.outputText("The sandwitch ");
-            if (this.player.cor < 50) this.outputText("and you both turn crimson", false);
-            else this.outputText("turns crimson", false);
+            if (this.player.cor < 50) this.outputText("and you both turn crimson");
+            else this.outputText("turns crimson");
             this.outputText(
                 " as you yank your " +
                     this.player.armorName +
@@ -86,7 +86,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             if (this.player.breastRows.length == 0 || this.player.biggestTitSize() == 0) {
-                this.outputText("You grow a perfectly rounded pair of C-cup breasts!  ", false);
+                this.outputText("You grow a perfectly rounded pair of C-cup breasts!  ");
                 if (this.player.breastRows.length == 0) this.player.createBreastRow();
                 this.player.breastRows[0].breasts = 2;
                 this.player.breastRows[0].breastRating = 3;
@@ -228,7 +228,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                     false
                 );
                 if (this.player.breastRows.length == 0 || this.player.biggestTitSize() == 0) {
-                    this.outputText("You grow a perfectly rounded pair of C-cup breasts!  ", false);
+                    this.outputText("You grow a perfectly rounded pair of C-cup breasts!  ");
                     if (this.player.breastRows.length == 0) this.player.createBreastRow();
                     this.player.breastRows[0].breasts = 2;
                     this.player.breastRows[0].breastRating = 3;
@@ -600,7 +600,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         );
         if (this.player.cockTotal() > 1)
             this.outputText(SandWitchScene.num2Text(this.player.cockTotal()), false);
-        else this.outputText("two", false);
+        else this.outputText("two");
         this.outputText(
             " of them!  The sand witch appears frightened, but as you gently tease her lips with your fingers, she slowly starts to breathe faster, starting to moan as her legs spread themselves against her better judgment. Grinning in satisfaction, you bring your rigid " +
                 this.cockDescript(0) +
@@ -629,7 +629,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             "You finally get serious and ease yourself into fucking the sand witch, slowly gaining speed and depth as your groins slap together with such ferocity that a normal person would be bruised upon their next waking. You pound the sand witch, making her scream in ecstasy, her already tight depths turning vice-like as you grunt your lust, cumming and filling her depths. Your ",
             false
         );
-        if (this.player.balls >= 2) this.outputText("balls ache and your ", false);
+        if (this.player.balls >= 2) this.outputText("balls ache and your ");
         this.outputText(
             this.cockDescript(0) +
                 " throbs with need, even as you empty your lust into the defeated sand witch.",
@@ -658,9 +658,9 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
     private sandwitchCentaurBoning(): void {
         this.spriteSelect(50);
         this.player.orgasm();
-        this.outputText("The Sand Witch is panting before you, her clothes in disarray ", false);
+        this.outputText("The Sand Witch is panting before you, her clothes in disarray ");
         // [win via HP]
-        if (this.monster.HP < 1) this.outputText("and torn in many places. ", false);
+        if (this.monster.HP < 1) this.outputText("and torn in many places. ");
         // [win via lust]
         else
             this.outputText(
@@ -677,9 +677,9 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             );
             // [win via HP]
             if (this.monster.HP < 1)
-                this.outputText("is unable to stop herself from slowly licking her lips. ", false);
+                this.outputText("is unable to stop herself from slowly licking her lips. ");
             // [win via lust]
-            else this.outputText("sensually licks her parted lips. ", false);
+            else this.outputText("sensually licks her parted lips. ");
         }
         // [lactating]
         if (this.player.biggestLactation() > 1) {
@@ -693,7 +693,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
         this.outputText("\n\n", false);
         // [Corruption < 70]
         if (this.player.cor < 70) {
-            this.outputText("You smile as you approach", false);
+            this.outputText("You smile as you approach");
             // [has breasts]
             if (this.player.biggestTitSize() > 0)
                 this.outputText("; your " + this.nippleDescript(0) + "s  become stiff", false);
@@ -716,7 +716,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                         " begins to drip with moisture.",
                     false
                 );
-            if (this.player.gender == 0) this.outputText(" her.", false);
+            if (this.player.gender == 0) this.outputText(" her.");
             this.outputText(
                 " She seems hesitant at first, but soon approaches and begins to run her hands along your stomach and your " +
                     this.hipDescript(),
@@ -729,7 +729,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             // [GoTo: SW_3 and return]
             if (this.SWCentaurMore(3)) return;
             this.outputText("\n\n", false);
-            this.outputText("Delicate hands reach around to ", false);
+            this.outputText("Delicate hands reach around to ");
             // [has breasts]
             if (this.player.biggestTitSize() > 0)
                 this.outputText("fondle your " + this.player.allBreastsDescript() + " and ", false);
@@ -760,10 +760,10 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                     );
                     // [light-med lactation]
                     if (this.player.biggestLactation() < 3)
-                        this.outputText("small streams running out ", false);
+                        this.outputText("small streams running out ");
                     // [heavy lactation]
-                    else this.outputText("torrents gushing out ", false);
-                    this.outputText("under her expert hands. ", false);
+                    else this.outputText("torrents gushing out ");
+                    this.outputText("under her expert hands. ");
                 }
             }
             this.outputText(
@@ -780,9 +780,9 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                 false
             );
             // [STR > 50]
-            if (this.player.str >= 50) this.outputText("easily tear them off of her. ", false);
+            if (this.player.str >= 50) this.outputText("easily tear them off of her. ");
             // [STR < 50]
-            else this.outputText("drag her a bit until they come off. ", false);
+            else this.outputText("drag her a bit until they come off. ");
             this.outputText(
                 "Underneath the robes is a beautiful body with a quartet of breasts, even now leaking milk down her chest and stomach.  The streams run over her abs and split as they pour down the cracks of her twin set of pussies.  Realizing she cannot outrun you, she finally turns and stands her ground, staring at you with a mixture of fear and anger that only serves to increase your lust.\n\n",
                 false
@@ -964,7 +964,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                     this.player.cocks[0].cockLength >= 12 ||
                     this.player.cocks[0].cockThickness >= 3
                 ) {
-                    this.outputText("; her cries have long since died down to whimpers. ", false);
+                    this.outputText("; her cries have long since died down to whimpers. ");
                 }
                 // [largest cock is not wide and/or long]
                 else
@@ -978,17 +978,17 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                         " explode",
                     false
                 );
-                if (this.player.cockTotal() == 1) this.outputText("s", false);
-                this.outputText(", ", false);
+                if (this.player.cockTotal() == 1) this.outputText("s");
+                this.outputText(", ");
                 // [large cum production]
                 if (this.player.cumQ() >= 250)
-                    this.outputText("gushing massive amounts of your cum ", false);
+                    this.outputText("gushing massive amounts of your cum ");
                 // [regular cum production]
-                else this.outputText("pushing your sperm ", false);
-                this.outputText("deep into her ", false);
+                else this.outputText("pushing your sperm ");
+                this.outputText("deep into her ");
                 // [1 cock, tentacle]
                 if (this.player.cockTotal() == 1 && this.player.tentacleCocks() == 1)
-                    this.outputText("anus", false);
+                    this.outputText("anus");
                 else {
                     // [largest cock is not wide and/or long]
                     if (
@@ -996,14 +996,14 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                         this.player.cocks[0].cockThickness >= 3
                     ) {
                         // [1 cock]
-                        if (this.player.cockTotal() == 1) this.outputText("cunt", false);
+                        if (this.player.cockTotal() == 1) this.outputText("cunt");
                         // [2+ cocks]
-                        if (this.player.cockTotal() >= 2) this.outputText("cunts", false);
+                        if (this.player.cockTotal() >= 2) this.outputText("cunts");
                     }
                     // [largest cock is wide and/or long]
                     else {
-                        this.outputText("womb", false);
-                        if (this.player.cockTotal() >= 3) this.outputText(" and bowels", false);
+                        this.outputText("womb");
+                        if (this.player.cockTotal() >= 3) this.outputText(" and bowels");
                     }
                 }
                 this.outputText(
@@ -1015,7 +1015,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             }
             // [% no cocks]
             else {
-                this.outputText("Finished with your games ", false);
+                this.outputText("Finished with your games ");
                 // [has cunt]
                 if (this.player.hasVagina())
                     this.outputText(
@@ -1037,12 +1037,12 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                     );
                     // [cunt size is small]
                     if (this.player.vaginalCapacity() < 10)
-                        this.outputText("one of her fingers ", false);
+                        this.outputText("one of her fingers ");
                     // [cunt size is normal]
                     else if (this.player.vaginalCapacity() < 20)
-                        this.outputText("several of her fingers ", false);
+                        this.outputText("several of her fingers ");
                     // [cunt size is large]
-                    else this.outputText("a fist ", false);
+                    else this.outputText("a fist ");
                     this.outputText(
                         "pushing deep into your " +
                             this.vaginaDescript(0) +
@@ -1050,14 +1050,14 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
                         false
                     );
                     // [anus size is small]
-                    if (this.player.analCapacity() < 10) this.outputText("her tongue ", false);
+                    if (this.player.analCapacity() < 10) this.outputText("her tongue ");
                     // [anus size is normal]
                     else if (this.player.analCapacity() < 20)
-                        this.outputText("two of her fingers ", false);
+                        this.outputText("two of her fingers ");
                     // [anus size is large]
-                    else this.outputText("a fist ", false);
+                    else this.outputText("a fist ");
                     this.outputText("penetrates your " + this.assholeDescript(), false);
-                    this.outputText(".", false);
+                    this.outputText(".");
                 }
                 // [does not has cunt]
                 else {
@@ -1108,9 +1108,9 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             );
             // [STR > 50]
             if (this.player.str > 50)
-                this.outputText("pick her up and toss her onto your back. ", false);
+                this.outputText("pick her up and toss her onto your back. ");
             // [STR < 50]
-            else this.outputText("offer her your hand and help her onto your back. ", false);
+            else this.outputText("offer her your hand and help her onto your back. ");
             this.outputText(
                 "Your strong hooves carry you across the clear desert at a light trot.  Without her robes to protect her, you can feel the witch's bare pussies grinding against your back as she presses her quad of breasts against your shoulders.  Her moans intensify more and more as you pick up the pace.",
                 false
@@ -1460,7 +1460,7 @@ export class SandWitchScene extends BaseContent implements TimeAwareInterface {
             false
         );
 
-        this.outputText("It is like fucking christmas up in here.", false);
+        this.outputText("It is like fucking christmas up in here.");
         // {Player gains about as many gems experience points as they would from a Sand Witch encounter, and the Champion is returned to camp.}
         this.doNext(this.camp.returnToCampUseOneHour);
     }

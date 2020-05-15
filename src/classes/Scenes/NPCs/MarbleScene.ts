@@ -1201,8 +1201,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         if (this.player.earType > EARS_HUMAN)
-            this.outputText("gently scratches behind your ears.  ", false);
-        else this.outputText("lightly caresses your head.  ", false);
+            this.outputText("gently scratches behind your ears.  ");
+        else this.outputText("lightly caresses your head.  ");
         this.outputText(
             '"<i>Thanks for your gentle mouth, sweetie,</i>"  she says, "<i>Do you think you could tell me your name?  I\'m Marble.</i>"  You let out a soft sigh and tell her who you are and why you came to visit.  She giggles, "<i>Don\'t worry sweetie, I feel much better now thanks to you.  I\'m really glad I got to meet you in such a pleasant way.</i>"  You decide that it is probably time to leave now and say your farewells to this cow-girl.  "<i>Come back to visit me anytime; I\'ll look forward to seeing you again soon!</i>" she says beaming at you.  With that, you leave the farm, feeling a strange sense of euphoria passing over you.',
             false
@@ -1329,8 +1329,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // [player has animal ears]
         if (this.player.earType > EARS_HUMAN)
-            this.outputText(" and occasionally scratching behind your ears", false);
-        this.outputText(".  ", false);
+            this.outputText(" and occasionally scratching behind your ears");
+        this.outputText(".  ");
         this.outputText(
             "Once you've had your fill, you pull back and the two of you smile at each other.  \"<i>It's really nice for you isn't it sweetie?  Nice for me too to have someone like you that can give a good suck on my itching nipples.</i>\"\n\n",
             false
@@ -1387,7 +1387,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     public encounterMarbleExploring2(): void {
         this.spriteSelect(41);
         this.outputText("", true);
-        this.outputText("You decide to pay Marble a visit at her room.  ", false);
+        this.outputText("You decide to pay Marble a visit at her room.  ");
         // [player height <5]
         if (this.player.tallness < 60)
             this.outputText(
@@ -1727,7 +1727,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 );
                 // - inte check to avoid immediately drinking, if succeeded:
                 if (this.player.inte >= 40) {
-                    this.outputText("Will you drink her milk?", false);
+                    this.outputText("Will you drink her milk?");
                     // - player chooses yes/no
                     this.doYesNo(this.playerDrinksMarbleMilk, this.playerDeclinesToDrinkMarbleMilk);
                 } else {
@@ -2124,8 +2124,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             "You look at Marble and refuse to do as she says.  She looks at you in surprise and asks why. You tell her you can't bear to talk about her like that, and that if you have to make her feel bad to get over this need, it's not worth it.  After a moment to let your words sink in, she rushes over to you and ",
             false
         );
-        if (this.player.tallness < 60) this.outputText("hugs you to her chest, ", false);
-        else this.outputText("gives you a big hug, ", false);
+        if (this.player.tallness < 60) this.outputText("hugs you to her chest, ");
+        else this.outputText("gives you a big hug, ");
         this.outputText(
             "all the while saying how wonderful you are.  The bottle ends up getting dumped on the ground during the embrace anyway, but neither of you care to notice until afterwards. But then, it doesn't matter anyway; you'll be fine for at least a little while. Right now, you just want to enjoy Marble's warm form wrapped around you.",
             false
@@ -2165,7 +2165,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // [affection >= 30]
         if (this.player.statusAffectv1(StatusAffects.Marble) >= 30)
-            this.outputText("worriedly ", false);
+            this.outputText("worriedly ");
         this.outputText("for a moment before it dawns on her that you aren't shaking.\n\n", false);
         // [affection >= 30]
         if (this.player.statusAffectv1(StatusAffects.Marble) >= 30)
@@ -2213,7 +2213,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     public postAddictionFarmExplorings(): void {
         this.spriteSelect(41);
         this.outputText("", true);
-        this.outputText("You decide to pay Marble a visit at her room.  ", false);
+        this.outputText("You decide to pay Marble a visit at her room.  ");
         // [player height <5]
         if (this.player.tallness < 60)
             this.outputText(
@@ -2234,8 +2234,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("\n\nThe whole time, you are ", false);
         // [player is no longer addicted]
         if (this.player.findPerk(PerkLib.MarbleResistant) >= 0)
-            this.outputText("uncomfortably ", false);
-        this.outputText("aware of the smell of Marble's milk.", false);
+            this.outputText("uncomfortably ");
+        this.outputText("aware of the smell of Marble's milk.");
         this.dynStats("int", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -2596,7 +2596,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 if (this.player.totalCocks() > 0) {
                     this.outputText(this.multiCockDescriptLight(), false);
                     // player has at least one dick and a vagina]
-                    if (this.player.vaginas.length > 0) this.outputText(" and your ", false);
+                    if (this.player.vaginas.length > 0) this.outputText(" and your ");
                 }
                 // [player has a vagina]
                 if (this.player.vaginas.length > 0) this.outputText(this.vaginaDescript(0), false);
@@ -2634,7 +2634,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 if (this.player.totalCocks() > 0) {
                     this.outputText(this.multiCockDescriptLight(), false);
                     // player has at least one dick and a vagina]
-                    if (this.player.vaginas.length > 0) this.outputText(" and your ", false);
+                    if (this.player.vaginas.length > 0) this.outputText(" and your ");
                 }
                 // [player has a vagina]
                 if (this.player.vaginas.length > 0) this.outputText(this.vaginaDescript(0), false);
@@ -2689,19 +2689,19 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     "She is unable to take all of you, but you're hardly discouraged as you begin your hungry thrusts.  ",
                     false
                 );
-            this.outputText("She gasps slightly and her arms clamp down on you, ", false);
+            this.outputText("She gasps slightly and her arms clamp down on you, ");
             // [player is between 4 and 5 feet in height]
             if (this.player.tallness < 60 && this.player.tallness >= 48)
-                this.outputText("keeping your head tightly locked between her breasts.  ", false);
+                this.outputText("keeping your head tightly locked between her breasts.  ");
             // [player is not between 4 and 5 feet in height]
-            else this.outputText("keeping your body tightly locked against her.  ", false);
+            else this.outputText("keeping your body tightly locked against her.  ");
             this.outputText(
                 "Her tight grip does nothing to slow your thrusts, only helping to bring the both of you closer and closer to sweet release.  Finally, you push into her as far as you can",
                 false
             );
             // [player has a knot and is not more than 8 inches long]
             if (this.player.cocks[0].cockLength < 8 && this.player.hasKnot(0))
-                this.outputText(", and with a pop, your knot slips inside of her", false);
+                this.outputText(", and with a pop, your knot slips inside of her");
             this.outputText(
                 ".  Deep within her, your " +
                     this.cockDescript(0) +
@@ -2721,9 +2721,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
             // [player is between 4 and 5 feet in height]
             if (this.player.tallness < 60 && this.player.tallness >= 48)
-                this.outputText("squeezes your head into her breasts.  ", false);
+                this.outputText("squeezes your head into her breasts.  ");
             // [player is not between 4 and 5 feet in height]
-            else this.outputText("pulls you securely against her.  ", false);
+            else this.outputText("pulls you securely against her.  ");
             this.outputText(
                 "Marble shudders with pleasure and redoubles her efforts at moving the dildo, quickly pushing you over the edge as well",
                 false
@@ -2786,7 +2786,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             this.player.armorName == "maid's clothes" ||
             this.player.armorName == "servant's clothes"
         ) {
-            this.outputText("She moves first to get a good view of your equipment.  ", false);
+            this.outputText("She moves first to get a good view of your equipment.  ");
         }
         // [player is not wearing fetish gear]
         else {
@@ -2815,7 +2815,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             }
             // [player has at least one of a different kind of dick]
             else {
-                this.outputText("Marble gives a long hard look before pointing at your ", false);
+                this.outputText("Marble gives a long hard look before pointing at your ");
                 this.temp = this.player.cocks.length;
                 while (this.temp > 0) {
                     this.temp--;
@@ -2898,12 +2898,12 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                         " a lick and rub down, which she extends to the ",
                     false
                 );
-                if (this.player.totalNipples() > 2) this.outputText("other", false);
-                else this.outputText("rest", false);
+                if (this.player.totalNipples() > 2) this.outputText("other");
+                else this.outputText("rest");
                 this.outputText(".\n\n", false);
             }
             // [after either]
-            this.outputText("After finishing up", false);
+            this.outputText("After finishing up");
             // [if player has more than two breasts]
             if (this.player.totalBreasts() > 2)
                 this.outputText(" with each of your " + this.allBreastsDescript(), false);
@@ -2952,8 +2952,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     ' and tells you, "<i>Sweetie, I know how annoying it is to only have one of your nipples serviced, so I will be sure to finish the job.</i>"  She dives right into your ',
                 false
             );
-            if (this.player.totalNipples() > 2) this.outputText("next", false);
-            else this.outputText("other", false);
+            if (this.player.totalNipples() > 2) this.outputText("next");
+            else this.outputText("other");
             this.outputText(
                 " " +
                     this.nippleDescript(0) +
@@ -3008,7 +3008,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
             // [player height is between 4 feet and 5 feet]
             if (this.player.tallness >= 48 && this.player.tallness <= 60)
-                this.outputText(", the breasts your head is clamped between,", false);
+                this.outputText(", the breasts your head is clamped between,");
             this.outputText(
                 " and the warm folds where your " +
                     this.cockDescript(0) +
@@ -3026,7 +3026,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
             // [player height is between 4 feet and 5 feet]
             if (this.player.tallness >= 48 && this.player.tallness <= 60)
-                this.outputText(" and the breasts your head is clamped between", false);
+                this.outputText(" and the breasts your head is clamped between");
             this.outputText(
                 '.  You can\'t help but think about how wonderful a person Marble is, and you bet that Marble feels the same way about you.  "<i>I love you sweetie.</i>" Marble says to you gently.  You assure her that you feel the same, and at the moment, nothing else matters.',
                 false
@@ -3041,7 +3041,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             false
         );
         // [player height is under 5.5 feet]
-        if (this.player.tallness < 66) this.outputText("sets you down and ", false);
+        if (this.player.tallness < 66) this.outputText("sets you down and ");
         this.outputText(
             'pushes you to arms length and asks you, "<i>If it\'s all right with you, could we live together?</i>"  You hesitate, before explaining that you don\'t think that\'s such a good idea. You explain that you aren\'t from this world, why you came here, and what you\'ve found since doing so.  Marble looks at you for a moment before letting go of you and going over to her bed. Effortlessly, she lifts it up off the ground and turns to you.  "<i>I can pull my weight, so don\'t you dare think I can\'t help you do something so important, champion.</i>"  She says, setting the bed back down.  She barely is able to keep a straight face as she says "<i>champion</i>".  You smile and wonder how could you possibly turn down someone so wonderful?  "<i>Well I guess that settles it, then,</i>" she says happily, "<i>I\'ll move right in.</i>"',
             false
@@ -4851,7 +4851,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         );
         // does he find a human?
         if (morph == "human") {
-            this.outputText("His eyes light up as he spots a very attractive ", false);
+            this.outputText("His eyes light up as he spots a very attractive ");
             // does that person have a noteworthy stature?
             if (approxHeight != "average height") this.outputText(approxHeight + " ", false);
             this.outputText(
@@ -4906,7 +4906,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                 false
             );
         } else if (approxHeight == "tall" || approxHeight == "very tall") {
-            this.outputText("You've gotten bigger since I saw you last.  ", false);
+            this.outputText("You've gotten bigger since I saw you last.  ");
         }
         this.outputText(
             'Could you join me at my camp?  </i>" the younger champion asks, "<i>Your experience would help me out a great deal, and I\'d be glad to have another fighter on my side.</i>"  The older champion shakes ' +
@@ -5084,34 +5084,34 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
                     this.temp = MarbleScene.rand(10);
                     switch (this.temp) {
                         case 0:
-                            this.outputText("Aura", false);
+                            this.outputText("Aura");
                             break;
                         case 1:
-                            this.outputText("Miran", false);
+                            this.outputText("Miran");
                             break;
                         case 2:
-                            this.outputText("Lin", false);
+                            this.outputText("Lin");
                             break;
                         case 3:
-                            this.outputText("Mary", false);
+                            this.outputText("Mary");
                             break;
                         case 4:
-                            this.outputText("Bess", false);
+                            this.outputText("Bess");
                             break;
                         case 5:
-                            this.outputText("Tina", false);
+                            this.outputText("Tina");
                             break;
                         case 6:
-                            this.outputText("Rill", false);
+                            this.outputText("Rill");
                             break;
                         case 7:
-                            this.outputText("Wendy", false);
+                            this.outputText("Wendy");
                             break;
                         case 8:
-                            this.outputText("Rainy", false);
+                            this.outputText("Rainy");
                             break;
                         case 9:
-                            this.outputText("Nicky", false);
+                            this.outputText("Nicky");
                             break;
                     }
                     this.outputText(", yes, that's a good name for her.</i>\"", false);
@@ -5391,7 +5391,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
     }
 
     private marbleCuddlin(): void {
-        this.outputText("  Before too long, Marble reaches over and ", false);
+        this.outputText("  Before too long, Marble reaches over and ");
         // Neither PC or Marble are preggers with the other's child
         if (!this.pcPregWithMarblesKids() && !this.marblePregWithPCKids()) {
             // if (PC is 6.5 feet or less tall)
@@ -5491,7 +5491,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.cockTotal() > 0) {
                 this.outputText(this.multiCockDescriptLight(), false);
                 // If (PC both dick and vag)
-                if (this.player.hasVagina()) this.outputText(" and your ", false);
+                if (this.player.hasVagina()) this.outputText(" and your ");
             }
             // If (PC has vag)
             if (this.player.hasVagina()) this.outputText(this.vaginaDescript(), false);
@@ -5512,11 +5512,11 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             if (this.player.cockTotal() > 0) {
                 this.outputText(this.multiCockDescriptLight(), false);
                 // If (PC both dick and vag)
-                if (this.player.hasVagina()) this.outputText(" and your ", false);
+                if (this.player.hasVagina()) this.outputText(" and your ");
             }
             // If (PC has vag)
             if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
-            this.outputText(" while you slip your own hand into her clothes and ", false);
+            this.outputText(" while you slip your own hand into her clothes and ");
             // If (Marble is a herm) {
             if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0) {
                 this.outputText(
@@ -5699,13 +5699,13 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         }
         // Now, does the PC have more than one cock?  Cum comes out of those too.
         if (this.player.totalCocks() > 1) {
-            this.outputText("Of course, ", false);
+            this.outputText("Of course, ");
             if (this.player.totalCocks() > 2) {
                 this.outputText("the rest of your " + this.multiCockDescriptLight(), false);
             } else {
-                this.outputText("your other tool", false);
+                this.outputText("your other tool");
             }
-            this.outputText(" unleashes its own load, liberally covering both of you.  ", false);
+            this.outputText(" unleashes its own load, liberally covering both of you.  ");
         }
         // does Marble spray her cock?
         if (this.flags[kFLAGS.MARBLE_DICK_TYPE] > 0) {
@@ -5953,8 +5953,8 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             );
             // Does this PC have a cock too?
             if (this.player.totalCocks() > 0) {
-                this.outputText("At the same time, ", false);
-                if (this.player.totalCocks() > 1) this.outputText("each of ", false);
+                this.outputText("At the same time, ");
+                if (this.player.totalCocks() > 1) this.outputText("each of ");
                 this.outputText(
                     "your " +
                         this.multiCockDescriptLight() +
@@ -6134,7 +6134,7 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
         this.outputText("", true);
         this.player.consumeItem(this.consumables.P_DRAFT);
         // gives Marble a 7 inch long, 2 inch thick dick by default, no other effect.  Can only be given while she does not have a dick.
-        this.outputText("You hand Marble the bottle.  She looks at it for a moment before ", false);
+        this.outputText("You hand Marble the bottle.  She looks at it for a moment before ");
         if (this.player.statusAffectv4(StatusAffects.Marble) > 60) {
             this.outputText(
                 "giving you a smile and saying, \"<i>So you want me to partake in corruption, and to have a nice cock to stick my sweet with?</i>\"  You tell her that the bottle has been purified, so it won't give corruption, but otherwise, you're hoping it gives her the <i>additional</i> effect.  She grins at you and downs the bottle.\n\n",
@@ -6150,9 +6150,9 @@ export class MarbleScene extends NPCAwareContent implements TimeAwareInterface {
             'Marble drops the potion and grabs at her crotch.  Turning away from you, she gives an excited cry that is a mix between a moo and a moan as her body convulses slightly.  After a moment, she turns back to you and shows her new 7" long and 2" wide human cock.  She gives you a ',
             false
         );
-        if (this.player.statusAffectv4(StatusAffects.Marble) > 50) this.outputText("big ", false);
-        else this.outputText("nervous ", false);
-        this.outputText("smile.  <b>Marble is now a hermaphrodite.</b>  ", false);
+        if (this.player.statusAffectv4(StatusAffects.Marble) > 50) this.outputText("big ");
+        else this.outputText("nervous ");
+        this.outputText("smile.  <b>Marble is now a hermaphrodite.</b>  ");
         this.doNext(this.camp.returnToCampUseOneHour);
         this.flags[kFLAGS.MARBLE_DICK_TYPE] = 1;
         this.flags[kFLAGS.MARBLE_DICK_LENGTH] = 7;

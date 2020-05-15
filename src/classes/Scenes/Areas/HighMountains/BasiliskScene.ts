@@ -804,7 +804,7 @@ export class BasiliskScene extends BaseContent {
             false
         );
 
-        this.outputText("You have no voice, and you must scream.", false);
+        this.outputText("You have no voice, and you must scream.");
         this.getGame().gameOver();
     }
     // Defeated, Taken Advantage of: nobody
@@ -905,7 +905,7 @@ export class BasiliskScene extends BaseContent {
                 "The bang on the head you took, the harpy lipsticks trilling in your bloodstream and the involuntary tide of erotic memories which ebbs and flows over you mean the next couple of hours goes by for you in a haze of forceful sex.  You can't control your cock",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
+            if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(
                 ", your sex drive or what you are thinking about; you are a prisoner of lust and you quickly subside under the sexual concussion, hoping eventually the harpies and your own body will stop fucking you.  It does sink in around your second involuntary orgasm, your aching " +
                     this.cockDescript(0) +

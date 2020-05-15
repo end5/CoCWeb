@@ -33,11 +33,11 @@ export class GnollScene extends BaseContent {
         );
         if (this.player.hasCock()) {
             this.outputText(this.multiCockDescriptLight(), false);
-            if (this.player.hasVagina()) this.outputText(" and ", false);
+            if (this.player.hasVagina()) this.outputText(" and ");
         }
         if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
-        if (this.player.gender > 0) this.outputText(".  ", false);
-        else this.outputText("flat, featureless groin.  ", false);
+        if (this.player.gender > 0) this.outputText(".  ");
+        else this.outputText("flat, featureless groin.  ");
         //  (if cockTotal=0 AND vaginas=1)
         if (!this.player.hasCock()) {
             if (this.player.hasVagina()) {
@@ -122,8 +122,8 @@ export class GnollScene extends BaseContent {
                     "You scream in pain as she forces her bizarre pseudo-penis down the length of your dick.  In horror, you watch as the bulge of her anatomy's invasion of yours slowly descends towards your ",
                     false
                 );
-                if (this.player.balls > 0) this.outputText("balls", false);
-                else this.outputText("groin", false);
+                if (this.player.balls > 0) this.outputText("balls");
+                else this.outputText("groin");
                 this.outputText(
                     ".  All she can do is laugh as she plunges it deeper and deeper into you.\n\n",
                     false
@@ -153,7 +153,7 @@ export class GnollScene extends BaseContent {
                 false
             );
             if (this.player.balls > 0) this.outputText(this.sackDescript(), false);
-            else this.outputText("body", false);
+            else this.outputText("body");
             this.outputText(
                 " seizes tighter and you can feel your cum churning inside you.\n\n",
                 false
@@ -205,7 +205,7 @@ export class GnollScene extends BaseContent {
             if (this.player.gender == 1) {
                 if (this.player.cockThatFits(this.monster.vaginalCapacity()) != -1)
                     dickDownClit = this.dickDownGnollClit;
-                this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
+                this.outputText("  The gnoll is at your mercy.  What will you do with her?");
                 // [DickDownClit] [DickInAss] [SuckHerClit] [Leave]
                 this.simpleChoices(
                     "DickDownClit",
@@ -224,7 +224,7 @@ export class GnollScene extends BaseContent {
             else if (this.player.gender == 3) {
                 if (this.player.cockThatFits(this.monster.vaginalCapacity()) != -1)
                     dickDownClit = this.dickDownGnollClit;
-                this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
+                this.outputText("  The gnoll is at your mercy.  What will you do with her?");
                 // [DickDownClit] [DickInAss] [SuckHerClit] [TakeHerClit] [Leave]
                 this.simpleChoices(
                     "DickDownClit",
@@ -241,7 +241,7 @@ export class GnollScene extends BaseContent {
             }
             // (if cockTotal=0 AND vaginas=1)
             else if (this.player.gender == 2) {
-                this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
+                this.outputText("  The gnoll is at your mercy.  What will you do with her?");
                 // [SuckHerClit] [TakeHerClit] [Leave]
                 this.simpleChoices(
                     "SuckHerClit",
@@ -258,7 +258,7 @@ export class GnollScene extends BaseContent {
             }
             // (if cockTotal=0 AND vaginas=0)
             else {
-                this.outputText("  The gnoll is at your mercy.  What will you do with her?", false);
+                this.outputText("  The gnoll is at your mercy.  What will you do with her?");
                 // [SuckHerClit] [Leave]
                 this.simpleChoices(
                     "SuckHerClit",
@@ -408,7 +408,7 @@ export class GnollScene extends BaseContent {
                         this.player.cockArea(3) <
                         this.monster.analCapacity()
                 )
-                    this.outputText("  And then the next.", false);
+                    this.outputText("  And then the next.");
                 // (if cockTotal>5)
                 if (
                     this.player.cockTotal() > 5 &&
@@ -419,7 +419,7 @@ export class GnollScene extends BaseContent {
                         this.player.cockArea(5) <
                         this.monster.analCapacity()
                 )
-                    this.outputText("  And the next.", false);
+                    this.outputText("  And the next.");
                 // (if cockTotal>6)
                 if (
                     this.player.cockTotal() > 6 &&
@@ -501,10 +501,10 @@ export class GnollScene extends BaseContent {
                     false
                 );
                 if (this.player.cockTotal() > 1) {
-                    this.outputText(" while your other endowment", false);
-                    if (this.player.cockTotal() > 2) this.outputText("s soak", false);
-                    else this.outputText(" soaks", false);
-                    this.outputText(" her back and rear with a few sticky streams", false);
+                    this.outputText(" while your other endowment");
+                    if (this.player.cockTotal() > 2) this.outputText("s soak");
+                    else this.outputText(" soaks");
+                    this.outputText(" her back and rear with a few sticky streams");
                 }
                 this.outputText(
                     ".  You pull out with an audible *schlick!*, and the gnoll slumps forward to the ground, panting a bit as she begins to shamelessly play with herself.\n\n",
@@ -681,7 +681,7 @@ export class GnollScene extends BaseContent {
             false
         );
         if (this.player.balls > 0) this.outputText("your own " + this.ballsDescriptLight(), false);
-        else this.outputText("your sweat-slick thighs", false);
+        else this.outputText("your sweat-slick thighs");
         this.outputText(
             ".  The amazon wastes no time, guiding her monstrous clit to your " +
                 this.assholeDescript() +

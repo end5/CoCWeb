@@ -723,9 +723,9 @@ export class Mountain extends BaseContent {
             false
         );
         // [low corruption]
-        if (this.player.cor < 33) this.outputText("in disgust.", false);
-        else if (this.player.cor < 66) this.outputText("in confusion.", false);
-        else this.outputText("reluctantly.", false);
+        if (this.player.cor < 33) this.outputText("in disgust.");
+        else if (this.player.cor < 66) this.outputText("in confusion.");
+        else this.outputText("reluctantly.");
         this.outputText(
             "\n\nOnly now do you notice other faces peeking over ledges and ridges. You count at least two goblins and one imp who quickly pull back. From the sounds, they were busy getting themselves off.",
             false

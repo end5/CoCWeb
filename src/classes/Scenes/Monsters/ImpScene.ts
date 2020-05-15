@@ -120,7 +120,7 @@ export class ImpScene extends BaseContent {
                             ", bringing it to a full, throbbing erection.",
                         false
                     );
-                else this.outputText("stroking it to full hardness languidly.", false);
+                else this.outputText("stroking it to full hardness languidly.");
             }
             this.outputText(
                 "\n\nWith no foreplay, you press your " +
@@ -383,8 +383,8 @@ export class ImpScene extends BaseContent {
             "Much to your surprise, the imp flutters upward on his small leathery wings and rushes toward you.  ",
             false
         );
-        if (this.player.hairLength > 0) this.outputText("His claws dig into your hair ", false);
-        else this.outputText("His claws dig into your wrists ", false);
+        if (this.player.hairLength > 0) this.outputText("His claws dig into your hair ");
+        else this.outputText("His claws dig into your wrists ");
         this.outputText(
             "and you find yourself dragged upward with him, soaring over the tops of the trees.  The cool rush of air does nothing to abate your arousal.  If anything, the cold shock only makes your body more aware of its own need.  After just a few seconds that feel like an eternity to your lust-filled being, the imp hurls you down into a tree.  You flail as you fall, barely catching yourself on the upper branches.  Your hands and " +
                 this.player.legs() +
@@ -457,17 +457,17 @@ export class ImpScene extends BaseContent {
             );
         // New PG
         this.outputText("\n\n", false);
-        this.outputText("He grips your cock tightly as he fucks you, treating you like a ", false);
+        this.outputText("He grips your cock tightly as he fucks you, treating you like a ");
         // Differing cocksleeve texts
-        if (this.player.skinDesc == "fur") this.outputText("furry cock-sleeve", false);
+        if (this.player.skinDesc == "fur") this.outputText("furry cock-sleeve");
         else {
             if (
                 this.player.skinTone == "purple" ||
                 this.player.skinTone == "blue" ||
                 this.player.skinTone == "shiny black"
             )
-                this.outputText("demonic cock-sleeve", false);
-            else this.outputText("human cock-sleeve", false);
+                this.outputText("demonic cock-sleeve");
+            else this.outputText("human cock-sleeve");
         }
         // Bonus boob shake or period if no boobs.
         if (this.player.breastRows.length > 0 && this.player.biggestTitSize() > 2)
@@ -477,7 +477,7 @@ export class ImpScene extends BaseContent {
                     " bounce with each thrust.  ",
                 false
             );
-        else this.outputText(".  ", false);
+        else this.outputText(".  ");
         this.outputText(
             "It briefly crosses your mind that this should be painful, but something about either his lubrication or yours makes it comfortable enough to have you writhing in pleasure.  ",
             false
@@ -487,7 +487,7 @@ export class ImpScene extends BaseContent {
             false
         );
         if (this.player.cocks.length == 2)
-            this.outputText("your other cock finding pleasure in rubbing against his body ", false);
+            this.outputText("your other cock finding pleasure in rubbing against his body ");
         if (this.player.cocks.length > 2)
             this.outputText(
                 "your other cocks finding pleasure in rubbing against his body ",
@@ -688,9 +688,9 @@ export class ImpScene extends BaseContent {
     private centaurOnImpStart(): void {
         this.outputText("", true);
         // Event: Centaur-Imp: Player Raping
-        this.outputText("As the imp collapses in front of you, ", false);
-        if (this.monster.HP == 0) this.outputText("panting in exhaustion", false);
-        else this.outputText("masturbating furiously", false);
+        this.outputText("As the imp collapses in front of you, ");
+        if (this.monster.HP == 0) this.outputText("panting in exhaustion");
+        else this.outputText("masturbating furiously");
         this.outputText(
             ", you advance toward the poor creature.  The demon's eyes run over your powerful equine muscles as you tower above it.  It is difficult to hide your smile as you look at the tiny creature's engorged cock and the perpetual lust filling its beady eyes.",
             false
@@ -714,7 +714,7 @@ export class ImpScene extends BaseContent {
         if (x >= 0 && !this.player.hasVagina()) this.centaurOnImpMale();
         else if (this.player.hasVagina() && x < 0) this.centaurOnImpFemale();
         else {
-            this.outputText("Do you focus on your maleness or girl-parts?", false);
+            this.outputText("Do you focus on your maleness or girl-parts?");
             this.simpleChoices(
                 "Male",
                 this.createCallBackFunction(this.centaurOnImpMale, true),
@@ -800,8 +800,8 @@ export class ImpScene extends BaseContent {
                         false
                     );
                     if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-                    else this.outputText("prostate", false);
-                    this.outputText(" as you feel the foreign invader wiggling inside.  ", false);
+                    else this.outputText("prostate");
+                    this.outputText(" as you feel the foreign invader wiggling inside.  ");
                     // <</Thick>>
                 }
                 this.outputText(
@@ -1001,7 +1001,7 @@ export class ImpScene extends BaseContent {
                             " and fingering your " + this.nippleDescript(0) + "s",
                             false
                         );
-                    this.outputText(" as you drool slightly in absolute pleasure.  ", false);
+                    this.outputText(" as you drool slightly in absolute pleasure.  ");
                 }
                 this.outputText(
                     "When the creature's noises lessen and all you can hear is the sloppy sounds of its ass being fucked you push yourself in a single mighty heave, grinding the creature into the rock and eliciting one last scream that pushes you over.\n\n",
@@ -1158,7 +1158,7 @@ export class ImpScene extends BaseContent {
                         " and shoving your fingers into your " + this.nippleDescript(0) + ".  ",
                         false
                     );
-                else this.outputText(".  ", false);
+                else this.outputText(".  ");
                 // <</Breasts>>
             }
             this.outputText(
@@ -1177,7 +1177,7 @@ export class ImpScene extends BaseContent {
                 );
                 // <<Assole <gaping, Cor <80>>
                 if (this.player.ass.analLooseness < 4 && this.player.cor < 80)
-                    this.outputText("Your howl of pain leaves your throat raw.  ", false);
+                    this.outputText("Your howl of pain leaves your throat raw.  ");
                 else
                     this.outputText(
                         "Your howl of perverse pleasure leaves your throat raw.  ",
@@ -1189,7 +1189,7 @@ export class ImpScene extends BaseContent {
                 false
             );
             if (this.player.cor < 80)
-                this.outputText("promise to yourself that you will not do that again.", false);
+                this.outputText("promise to yourself that you will not do that again.");
             else
                 this.outputText(
                     "find your cunt juices already dripping down your legs in anticipation of doing this again.",
@@ -1448,7 +1448,7 @@ export class ImpScene extends BaseContent {
                     );
                     // (If the player has a weapon)
                     if (this.player.weaponName != "fists")
-                        this.outputText(" while another kicks your weapon out of reach", false);
+                        this.outputText(" while another kicks your weapon out of reach");
                     this.outputText(
                         ".  The " +
                             this.monster.short +
@@ -1611,7 +1611,7 @@ export class ImpScene extends BaseContent {
                 );
                 // (Low corruption)
                 if (this.player.cor < 50)
-                    this.outputText("You yelp and twist your head to escape the heat.  ", false);
+                    this.outputText("You yelp and twist your head to escape the heat.  ");
                 // (End low corruption)
                 this.outputText(
                     "He slowly rubs his shaft over your cheeks and along your lips, each ridge of his demonically-hot " +
@@ -1671,9 +1671,9 @@ export class ImpScene extends BaseContent {
                     false
                 );
                 // (Low corruption)
-                if (this.player.cor < 50) this.outputText("You scream for help", false);
+                if (this.player.cor < 50) this.outputText("You scream for help");
                 // (High corruption)
-                else this.outputText("You moan with lust", false);
+                else this.outputText("You moan with lust");
                 this.outputText(
                     " as the inhumanly hot cock-head stretches your pussy lips, your cries vanishing into the dark skies above. Your rider grabs your hair to pull your head back, and you cry out as his master pushes his corrupted cock into you.  ",
                     false
@@ -1708,7 +1708,7 @@ export class ImpScene extends BaseContent {
                             " pushes your flesh aside to make room for itself",
                         false
                     );
-                this.outputText(". ", false);
+                this.outputText(". ");
                 // (This is a good place for the virginity-loss message, if needed)
                 this.player.cuntChange(this.monster.cockArea(1), true);
                 this.outputText(
@@ -1747,7 +1747,7 @@ export class ImpScene extends BaseContent {
                         false
                     );
                 // (If the character doesn't have breasts)
-                else this.outputText("your eyes roll back as you squirm", false);
+                else this.outputText("your eyes roll back as you squirm");
                 this.outputText(".\n\n", false);
 
                 this.outputText(
@@ -1824,7 +1824,7 @@ export class ImpScene extends BaseContent {
                         "over your " + this.multiCockDescriptLight() + " where it ",
                         false
                     );
-                this.outputText("drips onto the ground. ", false);
+                this.outputText("drips onto the ground. ");
                 // (Low corruption)
                 if (this.player.cor < 50)
                     this.outputText(
@@ -2041,7 +2041,7 @@ export class ImpScene extends BaseContent {
                             false
                         );
                 }
-                this.outputText("The imp mob tackles you, grabbing at your arms as you ", false);
+                this.outputText("The imp mob tackles you, grabbing at your arms as you ");
                 // (Low Corruption)
                 if (this.player.cor < 50)
                     this.outputText(
@@ -2196,7 +2196,7 @@ export class ImpScene extends BaseContent {
                         false
                     );
                 // (If the player doesn't have breasts)
-                else this.outputText("your tail and yanks, brutally pulling on it", false);
+                else this.outputText("your tail and yanks, brutally pulling on it");
                 this.outputText(
                     " until you shriek. The imp riding your shoulders plunges his " +
                         this.monster.cockDescriptShort(0) +
@@ -2216,7 +2216,7 @@ export class ImpScene extends BaseContent {
                 if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
                 // (If the player doesn't have a vagina)
                 else this.outputText(this.assholeDescript(), false);
-                this.outputText(".  ", false);
+                this.outputText(".  ");
                 // (If the player has a cock)
                 if (this.player.cockTotal() > 0)
                     this.outputText(
@@ -2235,7 +2235,7 @@ export class ImpScene extends BaseContent {
                 if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
                 // (If the player doesn't have a vagina)
                 else this.outputText(this.assholeDescript(), false);
-                this.outputText(". ", false);
+                this.outputText(". ");
                 // (Low Corruption)
                 if (this.player.cor < 50)
                     this.outputText(
@@ -2272,7 +2272,7 @@ export class ImpScene extends BaseContent {
                 if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
                 // (If the player doesn't have a vagina)
                 else this.outputText(this.assholeDescript(), false);
-                this.outputText(".", false);
+                this.outputText(".");
                 // (If the player has breasts)
                 if (this.player.biggestTitSize() > 2)
                     this.outputText(
@@ -2292,10 +2292,10 @@ export class ImpScene extends BaseContent {
                     false
                 );
                 // (If the player has a vagina)
-                if (this.player.hasVagina()) this.outputText("the entrance of your womb", false);
+                if (this.player.hasVagina()) this.outputText("the entrance of your womb");
                 // (If the player doesn't have a vagina)
-                else this.outputText("depths of your bowels", false);
-                this.outputText(" as the knot slams against your ", false);
+                else this.outputText("depths of your bowels");
+                this.outputText(" as the knot slams against your ");
                 // (If the player has a vagina)
                 if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
                 // (If the player doesn't have a vagina)
@@ -2420,9 +2420,9 @@ export class ImpScene extends BaseContent {
                     false
                 );
                 // (If the player has a vagina)
-                if (this.player.hasVagina()) this.outputText("womb", false);
+                if (this.player.hasVagina()) this.outputText("womb");
                 // (If the player doesn't have a vagina)
-                else this.outputText("guts", false);
+                else this.outputText("guts");
                 this.outputText(
                     " and he pumps more jism into you than his balls could possibly hold. Your belly stretches with every blast of cum and you shriek around yet another cock in your throat.\n\n",
                     false
@@ -2535,7 +2535,7 @@ export class ImpScene extends BaseContent {
                     false
                 );
                 if (this.player.weaponName != "fists")
-                    this.outputText(" while another kicks your weapon out of reach", false);
+                    this.outputText(" while another kicks your weapon out of reach");
                 this.outputText(
                     ". The " +
                         this.monster.short +
@@ -2642,7 +2642,7 @@ export class ImpScene extends BaseContent {
                 );
                 // (Low corruption)
                 if (this.player.cor < 33)
-                    this.outputText("You yelp and buck your hips to escape the heat.  ", false);
+                    this.outputText("You yelp and buck your hips to escape the heat.  ");
                 this.outputText(
                     "He grabs your hips and slowly drags his shaft down your pussy, each ridge of his demonically-hot " +
                         Appearance.cockNoun(CockTypesEnum.HORSE) +
@@ -2654,9 +2654,9 @@ export class ImpScene extends BaseContent {
                     false
                 );
                 // (Low corruption)
-                if (this.player.cor < 50) this.outputText("You scream for help", false);
+                if (this.player.cor < 50) this.outputText("You scream for help");
                 // (High corruption)
-                if (this.player.cor >= 50) this.outputText("You moan with lust", false);
+                if (this.player.cor >= 50) this.outputText("You moan with lust");
                 this.outputText(
                     " as the inhumanly hot cock-head stretches your pussy lips, your cries vanishing into the dark skies above. Two imps grab your hair and pull your head up, forcing you to watch as their master pushes his corrupted cock into you. Other imps spread your [legs] even wider, leaving you helpless as the big imp slides his swollen meat into your " +
                         this.vaginaDescript(0) +
@@ -2681,7 +2681,7 @@ export class ImpScene extends BaseContent {
                             " pushes your flesh aside to make room for itself",
                         false
                     );
-                this.outputText(". ", false);
+                this.outputText(". ");
                 // (This is a good place for the virginity-loss message, if needed)
                 this.player.cuntChange(this.monster.cockArea(1), true);
                 this.outputText("\n\n", false);
@@ -2720,8 +2720,8 @@ export class ImpScene extends BaseContent {
                         false
                     );
                 // (If the character doesn't have breasts)
-                else this.outputText("your eyes roll back as you squirm", false);
-                this.outputText(".  ", false);
+                else this.outputText("your eyes roll back as you squirm");
+                this.outputText(".  ");
                 // (If the character has a cock)
                 if (this.player.cockTotal() > 0)
                     this.outputText(
@@ -3115,7 +3115,7 @@ export class ImpScene extends BaseContent {
                     this.outputText(this.multiCockDescriptLight(), false);
                 // (If the player doesn't have a cock)
                 else this.outputText(this.vaginaDescript(0), false);
-                this.outputText(".  ", false);
+                this.outputText(".  ");
                 this.outputText(
                     "The heat stings your flesh. The imps licking your groin lap up the hot fluid, cooling you with their saliva. The big imp sneers as you whimper, and drags the head of his " +
                         Appearance.cockNoun(CockTypesEnum.DOG) +
@@ -3136,7 +3136,7 @@ export class ImpScene extends BaseContent {
                 if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
                 // (If the player doesn't have a vagina)" +
                 else this.outputText(this.assholeDescript(), false);
-                this.outputText(". ", false);
+                this.outputText(". ");
                 // (Low Corruption)
                 if (this.player.cor < 50)
                     this.outputText(
@@ -3153,7 +3153,7 @@ export class ImpScene extends BaseContent {
                             " stretches your hole wider than it ever should be, and you moan in perverse ecstasy.  ",
                         false
                     );
-                this.outputText("His huge dick-knot bumps against the entrance of your ", false);
+                this.outputText("His huge dick-knot bumps against the entrance of your ");
                 // (If the player has a vagina)
                 if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
                 // (If the player doesn't have a vagina)
@@ -3180,7 +3180,7 @@ export class ImpScene extends BaseContent {
                 if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
                 // (If the player doesn't have a vagina)
                 else this.outputText(this.assholeDescript(), false);
-                this.outputText(". ", false);
+                this.outputText(". ");
                 // (If the character has breasts)
                 if (this.player.biggestTitSize() > 1)
                     this.outputText(
@@ -3344,9 +3344,9 @@ export class ImpScene extends BaseContent {
                     false
                 );
                 // (If the player has a vagina)
-                if (this.player.hasVagina()) this.outputText("womb", false);
+                if (this.player.hasVagina()) this.outputText("womb");
                 // (If the player doesn't have a vagina)
-                else this.outputText("guts", false);
+                else this.outputText("guts");
                 this.outputText(
                     " and he pumps more jism into you than his balls could possibly hold. Your belly stretches with every blast of cum and you shriek around yet another cock in your throat.\n\n",
                     false
@@ -3408,7 +3408,7 @@ export class ImpScene extends BaseContent {
                     false
                 );
                 // (If the player has breasts)
-                if (this.player.biggestTitSize() > 3) this.outputText("and massive tits ", false);
+                if (this.player.biggestTitSize() > 3) this.outputText("and massive tits ");
                 this.outputText(
                     "is drum-tight and shiny, and your belly-button has popped out into an outie. As you slip back into unconsciousness, one last thought flits across your mind. ",
                     false
@@ -3680,7 +3680,7 @@ export class ImpScene extends BaseContent {
                         false
                     );
                     if (this.player.lowerBody != LOWER_BODY_TYPE_CENTAUR)
-                        this.outputText("as you are disrobed", false);
+                        this.outputText("as you are disrobed");
                     this.outputText(
                         ".  As the imp presses a large bulk against your backside, you realize he has a massive penis!\n\nThe imp pushes his " +
                             this.monster.cockDescriptShort(0) +
@@ -3737,33 +3737,33 @@ export class ImpScene extends BaseContent {
             false
         );
         if (this.player.hasCock()) this.outputText(this.cockDescript(0), false);
-        if (this.player.hasCock() && this.player.hasVagina()) this.outputText(" and ", false);
+        if (this.player.hasCock() && this.player.hasVagina()) this.outputText(" and ");
         if (this.player.hasVagina()) this.outputText(this.vaginaDescript(0), false);
         else if (this.player.gender == 0) this.outputText(this.assholeDescript(), false);
         this.outputText(".\n\n", false);
 
-        this.outputText("You gently insert a single digit into one of your nipple-cunts, ", false);
+        this.outputText("You gently insert a single digit into one of your nipple-cunts, ");
         if (this.player.lactationQ() >= 1000)
-            this.outputText("unleashing a torrent of thick, creamy milk and ", false);
+            this.outputText("unleashing a torrent of thick, creamy milk and ");
         // (if regular milky;
         else if (this.player.lactationQ() >= 50 && this.player.biggestLactation() >= 1)
-            this.outputText("releasing a steady trickle of warm milk and ", false);
+            this.outputText("releasing a steady trickle of warm milk and ");
         this.outputText(
             "lust-induced sex juice onto the imp's lap; your other hand instinctively moves down to stroke your ",
             false
         );
         // ((if male/herm;
         if (this.player.hasCock()) {
-            this.outputText("rock-hard cock", false);
-            if (this.player.hasVagina()) this.outputText(" and ", false);
+            this.outputText("rock-hard cock");
+            if (this.player.hasVagina()) this.outputText(" and ");
         }
-        if (this.player.hasVagina()) this.outputText("dripping wet pussy", false);
+        if (this.player.hasVagina()) this.outputText("dripping wet pussy");
         if (this.player.gender == 0) this.outputText(this.assholeDescript(), false);
         this.outputText(
             ", teasing him with a lewd moan as your head rolls back in sexual ecstasy.",
             false
         );
-        if (this.silly()) this.outputText("  The imp is sickened, but curious.", false);
+        if (this.silly()) this.outputText("  The imp is sickened, but curious.");
         this.outputText("\n\n", false);
 
         this.outputText(
@@ -3780,9 +3780,9 @@ export class ImpScene extends BaseContent {
                 false
             );
             // (if normal)
-            if (this.player.biggestLactation() < 1) this.outputText("wet", false);
+            if (this.player.biggestLactation() < 1) this.outputText("wet");
             // (if lactating)
-            else this.outputText("milky", false);
+            else this.outputText("milky");
             this.outputText(", bucking his hips upwards in desperation.\n\n", false);
         }
         this.outputText(
@@ -3792,7 +3792,7 @@ export class ImpScene extends BaseContent {
             false
         );
         if (this.player.biggestTitSize() <= 4)
-            this.outputText("bottoming out halfway on his immense dick.", false);
+            this.outputText("bottoming out halfway on his immense dick.");
         else
             this.outputText(
                 "only stopping when the flesh of your immense mammary bumps into his quaking ballsack.",
@@ -3824,8 +3824,8 @@ export class ImpScene extends BaseContent {
         if (this.player.hasCock()) this.outputText(" pumping your " + this.cockDescript(0), false);
         // (if female)
         else if (this.player.hasVagina())
-            this.outputText(" fingering your hungry baby tunnel", false);
-        else this.outputText(" fingering your tingling anus", false);
+            this.outputText(" fingering your hungry baby tunnel");
+        else this.outputText(" fingering your tingling anus");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -3836,20 +3836,20 @@ export class ImpScene extends BaseContent {
         );
         // (if dick)
         if (this.player.hasCock()) {
-            this.outputText("a ", false);
+            this.outputText("a ");
             // [(cum production < 500ml)
-            if (this.player.cumQ() < 500) this.outputText("jet ", false);
+            if (this.player.cumQ() < 500) this.outputText("jet ");
             // (cum production 500-1000ml)
-            else if (this.player.cumQ() < 1000) this.outputText("geyser ", false);
+            else if (this.player.cumQ() < 1000) this.outputText("geyser ");
             // (cum production > 1000ml)
-            else this.outputText("volcano ", false);
+            else this.outputText("volcano ");
             this.outputText(
                 "of cum sprays from your " +
                     this.cockDescript(0) +
                     " and splatters over both you and the hapless imp",
                 false
             );
-            if (this.player.hasVagina()) this.outputText(", while ", false);
+            if (this.player.hasVagina()) this.outputText(", while ");
         }
         if (this.player.hasVagina()) {
             this.outputText(
@@ -3860,7 +3860,7 @@ export class ImpScene extends BaseContent {
             );
         }
         if (this.player.gender == 0)
-            this.outputText("your asshole clenches tight on your finger", false);
+            this.outputText("your asshole clenches tight on your finger");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -3869,7 +3869,7 @@ export class ImpScene extends BaseContent {
         );
         // (if lactating)
         if (this.player.biggestLactation() >= 1 && this.player.lactationQ() < 40)
-            this.outputText("milk, ", false);
+            this.outputText("milk, ");
         this.outputText(
             "fem-spunk and hot demon cum leaks out from your gaping nipple-cunt.\n\n",
             false

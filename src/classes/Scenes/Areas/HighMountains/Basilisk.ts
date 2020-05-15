@@ -75,7 +75,7 @@ export class Basilisk extends Monster {
                 ")",
             false
         );
-        if (damage == 0) this.outputText("  The fall didn't harm you at all.", false);
+        if (damage == 0) this.outputText("  The fall didn't harm you at all.");
         this.game.combatRoundOver();
     }
 

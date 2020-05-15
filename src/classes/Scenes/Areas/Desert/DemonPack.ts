@@ -85,13 +85,13 @@ export class DemonPack extends Monster {
                 );
             }
             if (this.player.cocks.length > 0) {
-                if (this.player.cockTotal() > 1) this.outputText("Each of y", false);
-                else this.outputText("Y", false);
+                if (this.player.cockTotal() > 1) this.outputText("Each of y");
+                else this.outputText("Y");
                 this.outputText("our " + this.player.multiCockDescriptLight() + " throbs ", false);
-                if (this.player.hasVagina()) this.outputText(" and your ", false);
+                if (this.player.hasVagina()) this.outputText(" and your ");
             }
             if (this.player.vaginas.length > 0) {
-                if (!this.player.hasCock()) this.outputText("Your ", false);
+                if (!this.player.hasCock()) this.outputText("Your ");
                 this.outputText(this.game.vaginaDescript(0) + " burns ", false);
             }
             this.outputText(

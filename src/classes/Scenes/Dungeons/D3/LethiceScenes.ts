@@ -750,7 +750,7 @@ export class LethiceScenes extends BaseContent {
     private redemptionIIIGoName(input: HTMLInputElement): void {
         if (input.value == "") {
             this.clearOutput();
-            this.outputText("<b>You must select a name.</b>", false);
+            this.outputText("<b>You must select a name.</b>");
 
             this.menu();
             this.addButton(0, "Next", this.redemptionIII);

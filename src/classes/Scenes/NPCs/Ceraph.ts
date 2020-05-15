@@ -51,7 +51,7 @@ export class Ceraph extends Monster {
                         "The demonette makes obscene motions with her hands, as if masturbating an imaginary cock or vagina while her hands are wreathed in pink flames.",
                         false
                     );
-                this.outputText("  <b>She's about to unleash something huge!</b>", false);
+                this.outputText("  <b>She's about to unleash something huge!</b>");
                 if (this.player.inte > 50)
                     this.outputText(
                         "  You should probably wait so you'll have a chance to avoid whatever's coming.",
@@ -95,7 +95,7 @@ export class Ceraph extends Monster {
             );
             // If player has l2 piercing
             if (this.flags[kFLAGS.PC_FETISH] >= 2) {
-                this.outputText("  Gods this turns you on!", false);
+                this.outputText("  Gods this turns you on!");
                 this.game.dynStats("lus", 5);
             }
             this.player.createStatusAffect(StatusAffects.Bound, 2 + Ceraph.rand(5), 0, 0, 0);
@@ -120,7 +120,7 @@ export class Ceraph extends Monster {
                     false
                 );
                 if (this.player.lust < 33)
-                    this.outputText("It makes you feel warm and flushed.", false);
+                    this.outputText("It makes you feel warm and flushed.");
                 else if (this.player.lust < 60)
                     this.outputText(
                         "It gets inside you and turns you on, stoking the flames of your desire.",
@@ -145,16 +145,16 @@ export class Ceraph extends Monster {
     // (Struggle)
     public ceraphBindingStruggle(): void {
         this.outputText("", true);
-        this.outputText("You wriggle in the tight binding, trying your best to escape.  ", false);
+        this.outputText("You wriggle in the tight binding, trying your best to escape.  ");
         if (this.player.statusAffectv1(StatusAffects.Bound) - 1 <= 0) {
             this.outputText(
                 "With a mighty twist and stretch, the whip gives and uncurls from you all at once.  You've regained your freedom",
                 false
             );
             if (this.flags[kFLAGS.PC_FETISH] >= 2) {
-                this.outputText(", though you miss the tight leathery embrace", false);
+                this.outputText(", though you miss the tight leathery embrace");
             }
-            this.outputText("!", false);
+            this.outputText("!");
             this.player.removeStatusAffect(StatusAffects.Bound);
             this.combatRoundOver();
             return;

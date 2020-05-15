@@ -95,14 +95,14 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-            this.outputText("You ", false);
+            this.outputText("You ");
             if (this.player.cor < 33)
                 this.outputText(
                     "smile, and admit that you do enjoy the time you spend with her.",
                     false
                 );
             else if (this.player.cor < 66)
-                this.outputText("grin and joke that she probably missed you more.", false);
+                this.outputText("grin and joke that she probably missed you more.");
             else
                 this.outputText(
                     "smirk and wonder if you missed her or her magnificent body.",
@@ -136,7 +136,7 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-            this.outputText("Do you invite her to camp?", false);
+            this.outputText("Do you invite her to camp?");
             this.doYesNo(this.moveTheBitchIn, this.turnDownIsabellaFollower);
         }
         // Repeat Offer
@@ -241,7 +241,7 @@ Optional Morning Oral for small-membered males*/
                 '?  Do you like to watch mein butt while I work?  If zat is ze case zen ve vill never get anything done once I move in!</i>"  You hesitantly look up at her face, and she laughs with a voice that tinkles like ringing bells.  "<i>You can vatch me like zat if you want, but I vould rather you help me move all zis,</i>" the cow-girl mentions.  You smile ruefully and help your ',
             false
         );
-        if (this.camp.hasCompanions()) this.outputText("newest ", false);
+        if (this.camp.hasCompanions()) this.outputText("newest ");
         this.outputText(
             "camp follower gather and move her possessions to your camp.  It takes the better part of an hour, but the entire decor is coming with you, so it may just be worth it.\n\n",
             false
@@ -268,7 +268,7 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-            this.outputText("Isabella ", false);
+            this.outputText("Isabella ");
             if (this.player.tallness < 72)
                 this.outputText(
                     "picks you up in her arms and embraces you with a crushing hug, nearly burying you in her boobflesh before she lets you go.",
@@ -455,7 +455,7 @@ Optional Morning Oral for small-membered males*/
             false
         );
         if (this.player.lust < 33)
-            this.outputText("  <b>You aren't aroused enough to initiate sex.</b>", false);
+            this.outputText("  <b>You aren't aroused enough to initiate sex.</b>");
         if (this.player.hasCock() && this.player.lust >= 33)
             hotdog = this.repeatGermanBratwurstInCamp;
         let fuckHer;
@@ -546,8 +546,8 @@ Optional Morning Oral for small-membered males*/
                         false
                     );
                 else if (this.player.hasVagina())
-                    this.outputText(", and you leave the lesson with wet panties.", false);
-                else this.outputText(".", false);
+                    this.outputText(", and you leave the lesson with wet panties.");
+                else this.outputText(".");
                 // (+big lust)
                 this.dynStats("lus", 25);
             }
@@ -671,7 +671,7 @@ Optional Morning Oral for small-membered males*/
             false
         );
         if (this.flags[kFLAGS.ISABELLA_MORNING_FELLATIO_COUNT] == 1)
-            this.outputText("Isabella is fellating you!?", false);
+            this.outputText("Isabella is fellating you!?");
         else
             this.outputText(
                 "Isabella is giving you one of her traditional good-morning blowjobs.",
@@ -715,9 +715,9 @@ Optional Morning Oral for small-membered males*/
                     " the whole way into her mouth, the slippery, hot cow-girl's lips sealing tightly around your ",
                 false
             );
-            if (this.player.hasSheath()) this.outputText("sheath", false);
-            else this.outputText("base", false);
-            this.outputText(".", false);
+            if (this.player.hasSheath()) this.outputText("sheath");
+            else this.outputText("base");
+            this.outputText(".");
         }
         this.outputText(
             "  Isabella brushes her hair back to watch your reaction; her shining eyes never leave your face as she kicks her efforts into overdrive, pumping and stroking your " +
@@ -731,25 +731,25 @@ Optional Morning Oral for small-membered males*/
             false
         );
         if (this.player.balls > 0)
-            this.outputText("  Your balls clench tightly as they release your seed", false);
-        else this.outputText("  You clench tightly and release your seed", false);
+            this.outputText("  Your balls clench tightly as they release your seed");
+        else this.outputText("  You clench tightly and release your seed");
         this.outputText(
             " to the cow-girl's vacuum-tight lips, ejaculating a nice, thick load of spooge to fill her hungry mouth.",
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText("  At the same time, you cum from ", false);
+            this.outputText("  At the same time, you cum from ");
             if (this.player.cockTotal() > 2)
                 this.outputText("the rest of your " + this.multiCockDescriptLight(), false);
-            else this.outputText("the one penis she's left untouched", false);
+            else this.outputText("the one penis she's left untouched");
             this.outputText(
                 ", spraying across your belly and " +
                     this.chestDesc() +
                     ".  Isabella, ever attentive, grabs the twitching cock",
                 false
             );
-            if (this.player.cockTotal() > 2) this.outputText("s", false);
-            this.outputText(" and pumps to help ease the lusty tension from your body.", false);
+            if (this.player.cockTotal() > 2) this.outputText("s");
+            this.outputText(" and pumps to help ease the lusty tension from your body.");
         }
         if (this.player.cumQ() < 250)
             this.outputText(
@@ -782,7 +782,7 @@ Optional Morning Oral for small-membered males*/
             "The orally-fixated red-head shudders and quietly moans as she rises, her pleasure evident on her stained fingers as they withdraw from under her rumpled skirt.  Isabella's silky white top is utterly soaked with sweet-smelling cream, an aroma echoed by the ",
             false
         );
-        if (this.player.cumQ() >= 2000) this.outputText("spunk-tainted ", false);
+        if (this.player.cumQ() >= 2000) this.outputText("spunk-tainted ");
         this.outputText(
             "milk-puddle around your " + this.player.legs() + '.  She sighs and says, "<i>',
             false
@@ -815,8 +815,8 @@ Optional Morning Oral for small-membered males*/
                 );
         } else {
             if (this.isabellaAccent())
-                this.outputText("I hope you did not mind me getting zat snack...", false);
-            else this.outputText("I hope you didn't mind me getting that snack...", false);
+                this.outputText("I hope you did not mind me getting zat snack...");
+            else this.outputText("I hope you didn't mind me getting that snack...");
         }
         this.outputText('</i>"\n\n', false);
 
@@ -843,9 +843,9 @@ Optional Morning Oral for small-membered males*/
                 this.outputText('Just let me know if you change your mind, all right?</i>"', false);
             this.flags[kFLAGS.ISABELLA_BLOWJOBS_DISABLED] = 1;
         } else {
-            this.outputText("You ", false);
-            if (this.player.cor < 33) this.outputText("blush and ", false);
-            else if (this.player.cor >= 66) this.outputText("smirk and ", false);
+            this.outputText("You ");
+            if (this.player.cor < 33) this.outputText("blush and ");
+            else if (this.player.cor >= 66) this.outputText("smirk and ");
             this.outputText(
                 "let Isabella know that if she's still interested, you'd like her to suck you off in the mornings again.  Her face colors, but you see her eight nipple-tips poking hard at her silk shirt as she answers, \"<i>",
                 false
@@ -940,9 +940,9 @@ Optional Morning Oral for small-membered males*/
         this.outputText('</i>"\n\n', false);
 
         if (this.player.cor < 33)
-            this.outputText("Coloring red, you sheepishly answer in the affirmative.", false);
+            this.outputText("Coloring red, you sheepishly answer in the affirmative.");
         else if (this.player.cor < 66)
-            this.outputText("Not seeing a reason to hide it, you admit as much.", false);
+            this.outputText("Not seeing a reason to hide it, you admit as much.");
         else
             this.outputText(
                 "With a knowing twinkle in your eye, you agree with the busty woman's intuition, rocking your hips enticingly.  Her eyes glue to your manhood for a moment, before she remembers herself and meets your gaze.",
@@ -955,9 +955,9 @@ Optional Morning Oral for small-membered males*/
             false
         );
         if (this.player.cor < 33)
-            this.outputText("feel the weight of shame settling over you", false);
-        else if (this.player.cor < 66) this.outputText("feel mildly ashamed", false);
-        else this.outputText("color at getting caught staring", false);
+            this.outputText("feel the weight of shame settling over you");
+        else if (this.player.cor < 66) this.outputText("feel mildly ashamed");
+        else this.outputText("color at getting caught staring");
         this.outputText(
             ", but Isabella doesn't dwell on it.  She pivots her lush hips around to present her backside, lifts her skirt to reveal her bare bottom, and begins to flex her muscles, causing the creamy dark flesh to shake and jiggle.\n\n",
             false
@@ -982,7 +982,7 @@ Optional Morning Oral for small-membered males*/
                 'Isabella crooks a finger at you and commands, "<i>Come, sit down, but lean back so I have plenty of room to work at milking this naughty ',
                 false
             );
-        if (this.player.cockArea(x) <= 38) this.outputText("little ", false);
+        if (this.player.cockArea(x) <= 38) this.outputText("little ");
         this.outputText('snake...</i>"\n\n', false);
 
         this.outputText(
@@ -1000,7 +1000,7 @@ Optional Morning Oral for small-membered males*/
         );
         if (this.isabellaAccent()) this.outputText('"<i>So wet,</i>" ', false);
         else this.outputText('"<i>So vet,</i>" ', false);
-        this.outputText("she moans before resuming her shaking, ", false);
+        this.outputText("she moans before resuming her shaking, ");
         if (this.isabellaAccent())
             this.outputText(
                 '"<i>So hot... Am I making you hot, ' +
@@ -1091,7 +1091,7 @@ Optional Morning Oral for small-membered males*/
                 ", though with your dick completely devoured by her big butt-cheeks, you may as well be.",
                 false
             );
-        else this.outputText(", as the mast rising from the top of her crack indicates.", false);
+        else this.outputText(", as the mast rising from the top of her crack indicates.");
         this.outputText(
             "  Yet, you know without a doubt that there would be no shame in cumming right now and turning the red-head's tight ass-crack into a cum-filled canyon.\n\n",
             false
@@ -1205,7 +1205,7 @@ Optional Morning Oral for small-membered males*/
                     false
                 );
                 if (this.player.cumQ() >= 2000)
-                    this.outputText(", eventually growing to a pregnant-looking curve", false);
+                    this.outputText(", eventually growing to a pregnant-looking curve");
                 this.outputText(
                     '.  She whimpers slightly and murmurs, "<i>Such a fertile ' +
                         this.player.mf("boy", "girl") +
@@ -1260,11 +1260,11 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-            this.outputText("Isabella reaches between her legs to ", false);
-            if (this.player.balls > 0) this.outputText("squeeze your balls", false);
+            this.outputText("Isabella reaches between her legs to ");
+            if (this.player.balls > 0) this.outputText("squeeze your balls");
             else if (this.player.hasVagina())
                 this.outputText("rub your soaked vulva and " + this.clitDescript(), false);
-            else this.outputText("caress your taint", false);
+            else this.outputText("caress your taint");
             if (this.isabellaAccent())
                 this.outputText(
                     '.  She teases you with a slight undercurrent of disdain in her melodious voice, "<i>Cumming already?  Very vell, go on zen.  Let your disgusting, obscene cock control you.  I can feel it trickling and dribbling on mein bum.  Do vat your fat, over-sized dick commands and cum all over Momma Isabella\'s butt.  Big, thick pricks always seem to cum vay too fast.</i>"\n\n',
@@ -1572,7 +1572,7 @@ Optional Morning Oral for small-membered males*/
             false
         );
         if (this.player.canFly() && this.player.str >= 90)
-            this.outputText("wings and your ", false);
+            this.outputText("wings and your ");
         this.outputText(
             this.multiCockDescriptLight() +
                 " did all the work; your groin feels sore from the sheer effort deployed in order to engage in a maximally effective penetration.  As you keep pumping, grinding and teasing her with your wriggling rods, you feel a pressure growing in your crotch and all the way up your urethras; you accelerate the thrusting pace even as ",
@@ -1592,30 +1592,30 @@ Optional Morning Oral for small-membered males*/
             false
         );
         if (t4 >= 0) {
-            this.outputText(", ", false);
-            if (t5 < 0) this.outputText("and ", false);
-            this.outputText("her colon", false);
+            this.outputText(", ");
+            if (t5 < 0) this.outputText("and ");
+            this.outputText("her colon");
         }
         if (t5 >= 0) {
-            this.outputText(", ", false);
-            if (t7 < 0 || t10 < 0) this.outputText("and ", false);
-            this.outputText("her pussy", false);
+            this.outputText(", ");
+            if (t7 < 0 || t10 < 0) this.outputText("and ");
+            this.outputText("her pussy");
             if (this.player.cumQ() >= 1500)
-                this.outputText(" until she looks 8 months pregnant", false);
+                this.outputText(" until she looks 8 months pregnant");
         }
-        if (t7 >= 0) this.outputText("; drowning her nipples with your spunk", false);
+        if (t7 >= 0) this.outputText("; drowning her nipples with your spunk");
         // [if 10th cock]
-        if (t10 >= 0) this.outputText(", and cuming on her face as you stare at her", false);
-        this.outputText(".  Her luscious eyes are ", false);
-        if (t10 < 0) this.outputText("eventually", false);
-        else this.outputText("immediately", false);
+        if (t10 >= 0) this.outputText(", and cuming on her face as you stare at her");
+        this.outputText(".  Her luscious eyes are ");
+        if (t10 < 0) this.outputText("eventually");
+        else this.outputText("immediately");
         this.outputText(
             " masked in fluid as you unload your baby-batter on her.  There isn't a single spot of flesh that isn't being smeared with your sap; there isn't a single hole that isn't being loaded to full capacity with thick seed.",
             false
         );
         if (t4 >= 0) {
-            this.outputText("  Her own rectal ", false);
-            if (t5 >= 0) this.outputText("and vaginal ", false);
+            this.outputText("  Her own rectal ");
+            if (t5 >= 0) this.outputText("and vaginal ");
             this.outputText(
                 "squirts look ridiculous as her body is literally drenched in torrents of semen.",
                 false
@@ -1625,9 +1625,9 @@ Optional Morning Oral for small-membered males*/
             "  You keep soaking her with your lust-fueled fountain of spooge until your ",
             false
         );
-        if (this.player.balls > 0) this.outputText("sack ", false);
-        else this.outputText("groin ", false);
-        this.outputText("feels empty, devoid of any fluid left to spray on her.  ", false);
+        if (this.player.balls > 0) this.outputText("sack ");
+        else this.outputText("groin ");
+        this.outputText("feels empty, devoid of any fluid left to spray on her.  ");
 
         this.outputText(
             "You keep holding her with " +
@@ -1671,8 +1671,8 @@ Optional Morning Oral for small-membered males*/
     private izzyMilkingMeinMilkersMya(): void {
         this.spriteSelect(31);
         this.outputText("", true);
-        if (this.player.cor < 50) this.outputText("Concerned", false);
-        else this.outputText("Idly", false);
+        if (this.player.cor < 50) this.outputText("Concerned");
+        else this.outputText("Idly");
         this.outputText(
             ', you walk over to see what the matter is.  She looks up at you, misery clouding her usually cheerful, smiling face.  "<i>',
             false
@@ -1712,13 +1712,13 @@ Optional Morning Oral for small-membered males*/
             'As much as your mouth waters at the idea of drinking her frothy, creamy milk, you completely doubt your ability to handle that much of it without going into sugar shock, and tell her so.  Crestfallen, she begins to sob, and peals, "<i>',
             false
         );
-        if (this.isabellaAccent()) this.outputText("Zen -sniff- vat", false);
-        else this.outputText("Then -sniff- what", false);
+        if (this.isabellaAccent()) this.outputText("Zen -sniff- vat");
+        else this.outputText("Then -sniff- what");
         this.outputText(' am I to do with all of my milk?  Boo hoo hoo!</i>"\n\n', false);
 
-        this.outputText("The sight of the proud warrioress so emotionally distraught is ", false);
-        if (this.player.cor < 33) this.outputText("unbearable, but you quickly", false);
-        else this.outputText("kind of arousing, actually, but at length you", false);
+        this.outputText("The sight of the proud warrioress so emotionally distraught is ");
+        if (this.player.cor < 33) this.outputText("unbearable, but you quickly");
+        else this.outputText("kind of arousing, actually, but at length you");
         this.outputText(
             " decide on a solution to her problem; a trip to Whitney's farm and a few hours spent in your milker stall to bleed off all that pressure.  You quickly announce her salvation - resisting the temptation to strike a heroic pose - and Isabella jumps from her seat and tackles you with a hug, flinching when her sore nipples bump your " +
                 this.chestDesc() +
@@ -1840,7 +1840,7 @@ Optional Morning Oral for small-membered males*/
                 false
             );
 
-        this.outputText("You ", false);
+        this.outputText("You ");
         if (this.player.cor > 50)
             this.outputText(
                 "briefly consider forbidding her outright in order to see that exquisite look of pained pleasure on her face again, but you don't think she'd comply.",
@@ -1851,7 +1851,7 @@ Optional Morning Oral for small-membered males*/
                 "don't really see a problem with it as long as she has some left to slake your thirst, but that's the question, isn't it?",
                 false
             );
-        this.outputText("  What do you say?", false);
+        this.outputText("  What do you say?");
 
         // [I'll Allow It][Mine Mine MINE!]
         this.simpleChoices(
@@ -1876,8 +1876,8 @@ Optional Morning Oral for small-membered males*/
             "With a smile, you tell Isabella she's free to come here whenever she's feeling pent-up, as long as there's enough left for you to have some fun together when you want to.  Isabella hugs you again, tits and nipples pressing into your ",
             false
         );
-        if (this.player.tallness < 72) this.outputText("face", false);
-        else this.outputText("chest", false);
+        if (this.player.tallness < 72) this.outputText("face");
+        else this.outputText("chest");
         this.outputText(
             ", as she assures you you'll always come first while she's with you.\n\n",
             false
@@ -1899,10 +1899,10 @@ Optional Morning Oral for small-membered males*/
             "You grin at Isabella and pull her over to you.  Wrapping one arm around her waist, you tell her that this was only a stopgap; you'll be the one to take care of all her needs from now on.  To emphasize your point, you ",
             false
         );
-        if (this.player.cor > 50) this.outputText("roughly grab", false);
-        else this.outputText("gently caress", false);
-        this.outputText(" the sensitive nipples on her left breast; she moans in ", false);
-        if (this.player.cor > 50) this.outputText("painful ", false);
+        if (this.player.cor > 50) this.outputText("roughly grab");
+        else this.outputText("gently caress");
+        this.outputText(" the sensitive nipples on her left breast; she moans in ");
+        if (this.player.cor > 50) this.outputText("painful ");
         this.outputText(
             "arousal at your touch, blushing at putting on such a show in front of Whitney.  The farmer shrugs.  \"<i>Y'all please yourselves.  Milker'll be here if you need it.</i>\"\n\n",
             false
@@ -1918,10 +1918,10 @@ Optional Morning Oral for small-membered males*/
     private getMilk(): void {
         this.spriteSelect(31);
         this.outputText("", true);
-        this.outputText("You tell Isabella that you want a bottle of her milk.  ", false);
+        this.outputText("You tell Isabella that you want a bottle of her milk.  ");
         // Izzy overmilked
         if (this.flags[kFLAGS.ISABELLA_MILK_COOLDOWN] > 0) {
-            this.outputText("Isabella shakes her head and tells you she", false);
+            this.outputText("Isabella shakes her head and tells you she");
             if (this.flags[kFLAGS.ISABELLA_MILKED_YET] == -1)
                 this.outputText(
                     "'s out of bottled milk right now, and that you should check back later.",
@@ -1972,8 +1972,8 @@ Optional Morning Oral for small-membered males*/
                 '\n\nThe stimulation quickly sets off several creamy flows, one into the bottle and two more into your stomach, the rest dripping to the ground as Isabella leans into you.  Before long both your containers are full, and you release her nipples.  "<i>',
                 false
             );
-            if (this.isabellaAccent()) this.outputText("Zat", false);
-            else this.outputText("That", false);
+            if (this.isabellaAccent()) this.outputText("Zat");
+            else this.outputText("That");
             this.outputText(
                 ' felt gooood... thank you!</i>" Isabella says, breathily; the telltale wet spot is back on the front of her skirt.  You manage not to get caught staring at it, but the aroma of her arousal combined with her quivering, grateful breastflesh makes you consider sticking around for more fun...\n\n',
                 false
@@ -2028,7 +2028,7 @@ Optional Morning Oral for small-membered males*/
                 false
             );
             this.flags[kFLAGS.ISABELLA_SPARRING_INTRO] = 1;
-        } else this.outputText("You suggest a sparring session.  ", false);
+        } else this.outputText("You suggest a sparring session.  ");
         if (this.isabellaAccent())
             this.outputText(
                 'Isabella asks, "<i>Vhat stakes should ve use?  Vould you rather we spar light or fight like ze creatures of zis world?</i>"',
@@ -2107,8 +2107,8 @@ Optional Morning Oral for small-membered males*/
                 " Isabella asks innocently, inspecting the bottle of cloudy fluid you're offering her.  You reveal the contents to be Pro Bova, basically a supercharged version of what she took to become as she is now.  Her eyes cloud a bit as she absentmindedly presses her oversized bosom together, the most obvious indication of her changes.  \"<i>And you ",
                 false
             );
-            if (this.isabellaAccent()) this.outputText("v", false);
-            else this.outputText("w", false);
+            if (this.isabellaAccent()) this.outputText("v");
+            else this.outputText("w");
             this.outputText(
                 'ould like me to drink more?</i>" she asks, only a hint of trepidation in her rich voice.  ',
                 false
@@ -2126,8 +2126,8 @@ Optional Morning Oral for small-membered males*/
                 "At your assurance that she won't change beyond the obvious extra cow-girl aspects, she visibly calms, beaming at you and reaching for the potion.  \"<i>",
                 false
             );
-            if (this.isabellaAccent()) this.outputText("Bottoms up, in zat case!", false);
-            else this.outputText("Bottoms up, in that case!", false);
+            if (this.isabellaAccent()) this.outputText("Bottoms up, in zat case!");
+            else this.outputText("Bottoms up, in that case!");
             this.outputText(
                 '</i>" she exclaims, uncorking the Pro Bova and gulping the whole thing down.  "<i>Not too bad,</i>" she comments, smacking her lips in satisfaction a couple times. "<i>Now, whe-...</i>"\n\n',
                 false
@@ -2215,8 +2215,8 @@ Optional Morning Oral for small-membered males*/
                 false
             );
             if (this.isabellaAccent())
-                this.outputText("Vat did you give me?  Zat was zimply embarrassing!", false);
-            else this.outputText("What did you give me? That was simply embarrassing!", false);
+                this.outputText("Vat did you give me?  Zat was zimply embarrassing!");
+            else this.outputText("What did you give me? That was simply embarrassing!");
             this.outputText(
                 "</i>\" she complains, lip drooped in an upset pout.  You can't help but agree, but you do point out that nothing bad happened, after all.\n\n",
                 false
@@ -2275,8 +2275,8 @@ Optional Morning Oral for small-membered males*/
                 'You completely ignore the warning, immediately moving to help your cow-girl companion with her upset stomach problems. She casts a disbelieving look at you, vocally stumbling over a dozen different protests. Determined as you are, however, you dutifully rub her belly, intent on alleviating her pains.  "<i>You... you.... dummkopf! ',
                 false
             );
-            if (this.isabellaAccent()) this.outputText("V", false);
-            else this.outputText("W", false);
+            if (this.isabellaAccent()) this.outputText("V");
+            else this.outputText("W");
             this.outputText(
                 "hat-</i>\" she sputters, the last syllable mysteriously cut off. Curious about the interruption, you look up from your massaging to her face. Isabella's cheeks are seriously inflated, as if she was attempting to hold back... oh.  Ooooooh.  Almost theatrical in its timing, her first echoing belch strikes you the same time as realization dawns upon you, the surprisingly sweet-smelling gust blasting your " +
                     this.hairDescript() +
@@ -2426,8 +2426,8 @@ Optional Morning Oral for small-membered males*/
                     '  "<i>Goodness, look at you!</i>" Isabella exclaims, waving away the remnant wisps of the gassy mist.  "<i>Surely, you\'re giving me a run for ',
                     false
                 );
-                if (this.isabellaAccent()) this.outputText("mein money now, ja?", false);
-                else this.outputText("my money now, darling!", false);
+                if (this.isabellaAccent()) this.outputText("mein money now, ja?");
+                else this.outputText("my money now, darling!");
                 this.outputText(
                     '</i>"  Considering your current condition, you can\'t really disagree.  She happily approaches and sweeps you up into a big hug, squishing your tits into hers and wiggling about happily, transferring waves of jiggle-inducing energy into your tits.  "<i>',
                     false
@@ -2439,7 +2439,7 @@ Optional Morning Oral for small-membered males*/
                             false
                         );
                     else if (this.player.tallness < 95)
-                        this.outputText("Und look at zat, you're as grown up as me!", false);
+                        this.outputText("Und look at zat, you're as grown up as me!");
                     else
                         this.outputText(
                             "Zough, of course, you do have me beat in ze height department!",
@@ -2452,7 +2452,7 @@ Optional Morning Oral for small-membered males*/
                             false
                         );
                     else if (this.player.tallness < 95)
-                        this.outputText("And look at that, you're as grown up as me!", false);
+                        this.outputText("And look at that, you're as grown up as me!");
                     else
                         this.outputText(
                             "Though, of course, you do have me beat in the height department!",
@@ -2465,8 +2465,8 @@ Optional Morning Oral for small-membered males*/
             else if (changed && this.player.hasCock() && this.player.race() != "cow-morph") {
                 this.outputText('  "<i>', false);
                 if (this.isabellaAccent())
-                    this.outputText("Nein nein nein nein, zis von't do at all!", false);
-                else this.outputText("No, no! This is awful!", false);
+                    this.outputText("Nein nein nein nein, zis von't do at all!");
+                else this.outputText("No, no! This is awful!");
                 this.outputText(
                     '</i>" she cries as she approaches, eyes locked on your oversized genitalia.',
                     false

@@ -1083,7 +1083,7 @@ export class HelSpawnScene extends NPCAwareContent {
             input.value == "Mini-doofus"
         ) {
             this.clearOutput();
-            if (input.value == "") this.outputText("<b>You must select a name.</b>", false);
+            if (input.value == "") this.outputText("<b>You must select a name.</b>");
             else if (input.value == "Hellgirl")
                 this.outputText('"<i>Hey, that\'s copyright infringement.  Probably.</i>"');
             else if (input.value == "Kid") this.outputText('"<i>Wow, what are you, five?</i>"');

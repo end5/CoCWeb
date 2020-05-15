@@ -27,7 +27,7 @@ export class GooGirl extends Monster {
         // return to combat menu when finished
         this.doNext(this.game.playerMenu);
         if (this.findPerk(PerkLib.Acid) >= 0)
-            this.outputText("Her body quivering from your flames, the goo-girl ", false);
+            this.outputText("Her body quivering from your flames, the goo-girl ");
         else
             this.outputText(
                 "The slime holds its hands up and they morph into a replica of your " +
@@ -41,8 +41,8 @@ export class GooGirl extends Monster {
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
             if (this.findPerk(PerkLib.Acid) >= 0)
-                this.outputText("tries to slap you, but you dodge her attack.", false);
-            else this.outputText(", missing as you dodge aside.", false);
+                this.outputText("tries to slap you, but you dodge her attack.");
+            else this.outputText(", missing as you dodge aside.");
             return;
         }
         // Determine if evaded
@@ -52,8 +52,8 @@ export class GooGirl extends Monster {
             GooGirl.rand(100) < 10
         ) {
             if (this.findPerk(PerkLib.Acid) >= 0)
-                this.outputText("tries to slap you, but you evade her attack.", false);
-            else this.outputText(", but you evade the clumsy attack.", false);
+                this.outputText("tries to slap you, but you evade her attack.");
+            else this.outputText(", but you evade the clumsy attack.");
             return;
         }
         // ("Misdirection"
@@ -63,8 +63,8 @@ export class GooGirl extends Monster {
             this.player.armorName == "red, high-society bodysuit"
         ) {
             if (this.findPerk(PerkLib.Acid) >= 0)
-                this.outputText("tries to slap you.  You misdirect her, avoiding the hit.", false);
-            else this.outputText(", missing as you misdirect her attentions.", false);
+                this.outputText("tries to slap you.  You misdirect her, avoiding the hit.");
+            else this.outputText(", missing as you misdirect her attentions.");
             return;
         }
         // Determine if cat'ed
@@ -74,7 +74,7 @@ export class GooGirl extends Monster {
                     "tries to slap you, but misses due to your cat-like evasion.",
                     false
                 );
-            else this.outputText(", missing due to your cat-like evasion.", false);
+            else this.outputText(", missing due to your cat-like evasion.");
             return;
         }
         // Determine damage - str modified by enemy toughness!
@@ -115,7 +115,7 @@ export class GooGirl extends Monster {
                             ".",
                         false
                     );
-                else this.outputText(", her attack splattering ineffectually against you.", false);
+                else this.outputText(", her attack splattering ineffectually against you.");
             }
         }
         // everyone else

@@ -38,7 +38,7 @@ export class Lottie extends TelAdreAbstractContent {
                             "\n\nYou find Lottie crying in the sauna. She often comes here alone, wondering what went wrong with her weight loss. Every time you catch her, she begs for you not to leave her like everyone else. You tell her you won't, as long as she keeps doing as you instruct. She thanks you over and over again, crawling over to your legs and sobbing, squishing her luscious tits against you. You watch as she slowly lumbers her way to the cafe, waiting expectantly for you."
                         );
                         if (this.silly())
-                            this.outputText("  What can you say? You love making bacon.", false);
+                            this.outputText("  What can you say? You love making bacon.");
                     }
                     // [Encouragement 0 – 30]
                     else if (
@@ -61,10 +61,10 @@ export class Lottie extends TelAdreAbstractContent {
                             false
                         );
                         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 33)
-                            this.outputText("voluptuous", false);
+                            this.outputText("voluptuous");
                         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 66)
-                            this.outputText("plump", false);
-                        else this.outputText("curvy", false);
+                            this.outputText("plump");
+                        else this.outputText("curvy");
                         this.outputText(
                             " pig girl jogs on the spot to wake herself up - unintentionally jiggling her " +
                                 this.lottieCup() +
@@ -72,11 +72,11 @@ export class Lottie extends TelAdreAbstractContent {
                             false
                         );
                         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 33)
-                            this.outputText("bountiful", false);
+                            this.outputText("bountiful");
                         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 66)
-                            this.outputText("chubby", false);
-                        else this.outputText("cute", false);
-                        this.outputText(" rump.", false);
+                            this.outputText("chubby");
+                        else this.outputText("cute");
+                        this.outputText(" rump.");
                     } else {
                         this.outputText(
                             "\n\nYou see Lottie walking out of the weight room, glistening with sweat from her recent workout. It seems to have taken a lot out of her, her movements more stiff than usual. The perky pink girl takes a few short stretches to loosen up - unintentionally jiggling her " +
@@ -85,11 +85,11 @@ export class Lottie extends TelAdreAbstractContent {
                             false
                         );
                         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 33)
-                            this.outputText("voluminous", false);
+                            this.outputText("voluminous");
                         else if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 66)
-                            this.outputText("chubby", false);
-                        else this.outputText("cute", false);
-                        this.outputText(" rump.", false);
+                            this.outputText("chubby");
+                        else this.outputText("cute");
+                        this.outputText(" rump.");
                     }
                 }
                 return this.encounterLottieCharge;
@@ -208,27 +208,27 @@ export class Lottie extends TelAdreAbstractContent {
         // 298 - times porked lottie
         // [REPEAT ENCOUNTER]
         else {
-            this.outputText("You approach the pig girl ", false);
+            this.outputText("You approach the pig girl ");
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] >= 50)
-                this.outputText("relaxing", false);
-            else this.outputText("sitting timidly", false);
+                this.outputText("relaxing");
+            else this.outputText("sitting timidly");
             this.outputText(
                 " at a table, wearing her low-cut top and booty shorts that accentuate her ",
                 false
             );
-            if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 50) this.outputText("plump", false);
-            else this.outputText("curvy", false);
-            this.outputText(" figure.  ", false);
+            if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00279] <= 50) this.outputText("plump");
+            else this.outputText("curvy");
+            this.outputText(" figure.  ");
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00297] == 0)
-                this.outputText("Lightly sipping", false);
-            else this.outputText("Slurping down", false);
-            this.outputText(" what appears to be ", false);
+                this.outputText("Lightly sipping");
+            else this.outputText("Slurping down");
+            this.outputText(" what appears to be ");
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00297] == 0)
-                this.outputText("some juice", false);
-            else this.outputText("a milkshake", false);
-            this.outputText(", her eyes wander over the room when she spots you and waves", false);
+                this.outputText("some juice");
+            else this.outputText("a milkshake");
+            this.outputText(", her eyes wander over the room when she spots you and waves");
             if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00280] >= 70)
-                this.outputText(" excitedly", false);
+                this.outputText(" excitedly");
             this.outputText(
                 ".  You walk over to her and sit down, listening to Lottie update you on her progress.\n\n",
                 false
@@ -270,7 +270,7 @@ export class Lottie extends TelAdreAbstractContent {
                         '!</i>" She squeals as you flex at her, giggling at your blatant attempts at showing off. You never really took her as one to appreciate muscles, but you figure her obsession towards the perfect body might extend to other people as well. You take one stern look at the chubby porcine in front of you and grin, asking if she wants you to be her personal trainer. She seems shocked at your proposal. </i>"Are... are you serious?</i>"\n\n',
                     false
                 );
-                this.outputText("Well, are you?", false);
+                this.outputText("Well, are you?");
                 // [Yes][No][God No]
                 if (this.silly() && this.player.cor >= 80)
                     comedy1 = this.gotInShapeComedyDeclineLottie;
@@ -448,7 +448,7 @@ export class Lottie extends TelAdreAbstractContent {
                             '!</i>" She squeals at the top of her lungs, jumping up in excitement before immediately clapping her hands over her mouth at the realisation that she\'s caught the attention of the entire cafe. You silently walk over to her, placing her hands back down before pulling her into a warm embrace. "<i>I... I...</i>" Looking down, you brush the hair out of her eyes and place a small kiss on her forehead, calming her down considerably. "<i>Do you like me too?</i>" She asks. You smile, and hug her tighter than before, the scent of black cherries and roses lingering in the air. Her voice rings through your head while you embrace the girl.  Do you like me too?\n\n',
                         false
                     );
-                    this.outputText("You don't know the answer.", false);
+                    this.outputText("You don't know the answer.");
                 }
                 // [Encouragement moved from 79 to 80, regular]
                 else {
@@ -697,10 +697,10 @@ export class Lottie extends TelAdreAbstractContent {
             "You take this opportunity to get a good look at Lottie. She stands at around 4'8</i>\", considerably shorter than average, ",
             false
         );
-        if (this.player.tallness > 60) this.outputText("and shorter than you", false);
+        if (this.player.tallness > 60) this.outputText("and shorter than you");
         else if (this.player.tallness > 53)
-            this.outputText("but you can't judge, being roughly the same height", false);
-        else this.outputText("taller than you", false);
+            this.outputText("but you can't judge, being roughly the same height");
+        else this.outputText("taller than you");
         this.outputText(
             ". Physique-wise, Lottie is definitely a bit chubbier than most girls, though you couldn't call her fat - of the few pig people you have seen around Tel'Adre, she's definitely the 'thinnest'. The majority of her weight is focused in her cushiony breasts, ample thighs and large ass, though her stomach is rounded nicely. Her heart-shaped face is complimented by her button nose and soft lips, framed by her pink-gray hair, which ends in small curls. A small, coiled tail rests above her rump, unknowingly lifting the towel high enough to leave her pale thighs in full view. She turns around to catch you staring at her butt. \"<i>A-anyway, before we start anything I gotta go hit the showers, okay? I'll see you in a bit!</i>\" She turns around to head for the bathrooms, your eyes hypnotized by her jiggling bottom.\n\n",
             false
@@ -773,10 +773,10 @@ export class Lottie extends TelAdreAbstractContent {
             "You take this opportunity to get a good look at Lottie. She stands at around 4'8</i>\", considerably short on average, ",
             false
         );
-        if (this.player.tallness > 60) this.outputText("and shorter than you", false);
+        if (this.player.tallness > 60) this.outputText("and shorter than you");
         else if (this.player.tallness > 53)
-            this.outputText("but you can't judge, being roughly the same height", false);
-        else this.outputText("taller than you", false);
+            this.outputText("but you can't judge, being roughly the same height");
+        else this.outputText("taller than you");
         this.outputText(
             ". Physique-wise, Lottie is definitely a bit chubbier than most girls, though you couldn't call her fat - of the few pig people you have seen around Tel'Adre, she's definitely the 'thinnest'. The majority of her weight is focused in her cushiony breasts, ample thighs and large ass, though her stomach is rounded nicely to support the weight of her upper body. Her heart-shaped face is complimented by her button nose and soft lips, framed by her pink-gray hair, which ends in small curls. A small, coiled tail rests above her rump, unknowingly lifting the towel high enough to leave her pale thighs in full view. She turns around to catch you staring at her butt. \"<i>A-anyway, before we start anything I gotta go hit the showers, okay? I'll see you in a bit!</i>\" She turns around to head for the bathrooms, your eyes hypnotized by her jiggling bottom.\n\n",
             false
@@ -822,7 +822,7 @@ export class Lottie extends TelAdreAbstractContent {
                 "You've never had any experience with the yoga classes first hand, but you tell ",
                 false
             );
-        else this.outputText("You've had experience with the yoga classes, so you tell ", false);
+        else this.outputText("You've had experience with the yoga classes, so you tell ");
         this.outputText("Lottie it's a great way to meet new people.\n\n", false);
 
         this.outputText(
@@ -852,7 +852,7 @@ export class Lottie extends TelAdreAbstractContent {
         );
         // [if balls]
         if (this.player.balls > 0)
-            this.outputText(" while her fingers nervously trace around your balls", false);
+            this.outputText(" while her fingers nervously trace around your balls");
         this.outputText(
             ". You stop her for now, though not before softly squeezing her hand as it caresses your girth. You know where you two can go 'work out', you tell her. She nods, her eyes glued to your erection.\n\n",
             false
@@ -908,7 +908,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.player.totalCocks() == 2)
-            this.outputText(", managing to squeeze in your other cock along with it", false);
+            this.outputText(", managing to squeeze in your other cock along with it");
         else if (this.player.totalCocks() > 2)
             this.outputText(
                 ", the rest of your dicks poking and prodding against her soft flesh",
@@ -935,50 +935,50 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.player.balls > 0)
-            this.outputText(", her soaked pussy rubbing against your balls", false);
+            this.outputText(", her soaked pussy rubbing against your balls");
         this.outputText(".\n\n", false);
 
         // [If Multi]
         if (this.player.cockTotal() > 1) {
-            this.outputText("Deciding you aren't done with her bouncy rear, you take ", false);
-            if (this.player.cockTotal() == 2) this.outputText("your other cock", false);
-            else this.outputText("one of your cocks", false);
+            this.outputText("Deciding you aren't done with her bouncy rear, you take ");
+            if (this.player.cockTotal() == 2) this.outputText("your other cock");
+            else this.outputText("one of your cocks");
             this.outputText(
                 ' and push it against her puckered hole. "<i>H-hey, wait a mome- OHH!</i>" You ease yourself back into her, with ',
                 false
             );
-            if (this.player.cockTotal() == 2) this.outputText("your two ", false);
-            else this.outputText("two of your ", false);
+            if (this.player.cockTotal() == 2) this.outputText("your two ");
+            else this.outputText("two of your ");
             this.outputText(
                 " throbbing cocks buried deep in her rectum. The pressure against your hot rods is immense, though you continue to slowly push and pull her sweaty ass against you, enjoying the feeling of her meaty fuckpillows as they massage your cock",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
+            if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(".\n\n", false);
         }
         if (this.player.balls > 0)
             this.outputText("Your " + this.sackDescript() + " begins to swell", false);
-        else this.outputText("You feel yourself about to explode", false);
+        else this.outputText("You feel yourself about to explode");
         this.outputText(
             " with the large amount of cum you've prepared to paint her inner walls with.  Your unrelenting fucking picks up the pace as you feel yourself coming to a climax.  Lottie's soft flesh starts to quiver, signaling her second orgasm.  You lift Lottie's plump body up straight and against yours as you groan loudly and thrust hard, the noisy broad ",
             false
         );
-        if (this.player.cumQ() >= 1000) this.outputText("overflowing", false);
-        else if (this.player.cumQ() >= 500) this.outputText("dripping", false);
-        else this.outputText("filled", false);
+        if (this.player.cumQ() >= 1000) this.outputText("overflowing");
+        else if (this.player.cumQ() >= 500) this.outputText("dripping");
+        else this.outputText("filled");
         this.outputText(
             " with your hot, thick spunk. She squeals again as you bring her to orgasm, ramming herself into you to collect as much of your cum as possible. You continue to pound her bouncy buttocks as you release the rest of your seed inside of her",
             false
         );
         // [If large cum production]
         if (this.player.cumQ() >= 500)
-            this.outputText(", a heavy amount leaking from her ass", false);
+            this.outputText(", a heavy amount leaking from her ass");
         this.outputText(
             '.  Pulling yourself free, you wipe yourself against her plush butt and give it one final slap before walking out of the sauna.  "<i>I-I\'ll see you again, hey?</i>" Lottie asks, collapsed onto the floor in a mess of sweat and drool. You give her a thumbs up before turning around and heading out of the gym, making sure to grab a ',
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake on the way out.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake on the way out.");
         // LOTTIE FIGURE +1, MUSCLE TONE +1, DRAINS PC'S LUST.
         this.lottieTone(1);
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00307] == 0)
@@ -1017,10 +1017,10 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
             if (this.player.cockTotal() > 1) {
-                this.outputText(" while your other cock", false);
-                if (this.player.cockTotal() == 2) this.outputText(" pokes", false);
-                else this.outputText("s poke", false);
-                this.outputText(" against her chin", false);
+                this.outputText(" while your other cock");
+                if (this.player.cockTotal() == 2) this.outputText(" pokes");
+                else this.outputText("s poke");
+                this.outputText(" against her chin");
             }
             this.outputText(".\n\n", false);
         }
@@ -1032,8 +1032,8 @@ export class Lottie extends TelAdreAbstractContent {
                     " with hunger in her eyes. A small amount of drool escapes her luscious lips as she moves forward, kissing your ",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText(" biggest head lightly", false);
-            else this.outputText(" head lightly", false);
+            if (this.player.cockTotal() > 1) this.outputText(" biggest head lightly");
+            else this.outputText(" head lightly");
             this.outputText(
                 ".  Her saliva leaks onto your " +
                     this.cockDescript(x) +
@@ -1062,8 +1062,8 @@ export class Lottie extends TelAdreAbstractContent {
                     '!</i>" You grin before poking her pudgy cheek with the tip of your ',
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("biggest erection", false);
-            else this.outputText("erection", false);
+            if (this.player.cockTotal() > 1) this.outputText("biggest erection");
+            else this.outputText("erection");
             this.outputText(
                 ".  A small amount of drool escapes her luscious lips as she moves forward, kissing your head lightly. Her saliva leaks onto your " +
                     this.cockDescript(x) +
@@ -1089,7 +1089,7 @@ export class Lottie extends TelAdreAbstractContent {
                 this.cockDescript(x),
             false
         );
-        if (this.player.balls > 0) this.outputText(", your sack slapping against her chin ", false);
+        if (this.player.balls > 0) this.outputText(", your sack slapping against her chin ");
         else if (this.player.biggestTitSize() > 2)
             this.outputText(" while you play with your " + this.biggestBreastSizeDescript(), false);
         this.outputText(
@@ -1142,9 +1142,9 @@ export class Lottie extends TelAdreAbstractContent {
         );
         // [If the player has a cock equal to or over 13']
         if (this.player.cocks[x].cockLength > 12)
-            this.outputText("your sensitive tip brushing against her eager mouth", false);
+            this.outputText("your sensitive tip brushing against her eager mouth");
         // Otherwise]
-        else this.outputText("resting comfortably in between her cushiony fuckpillows", false);
+        else this.outputText("resting comfortably in between her cushiony fuckpillows");
         this.outputText(
             ". Lottie wraps her tits around your length and begins working at pleasuring your every inch.\n\n",
             false
@@ -1161,9 +1161,9 @@ export class Lottie extends TelAdreAbstractContent {
 
         // [If Multi]
         if (this.player.cockTotal() > 1) {
-            this.outputText("You decide to make use of ", false);
-            if (this.player.cockTotal() == 2) this.outputText("your", false);
-            else this.outputText("an", false);
+            this.outputText("You decide to make use of ");
+            if (this.player.cockTotal() == 2) this.outputText("your");
+            else this.outputText("an");
             this.outputText(
                 " extra cock as you push it between her pouty lips, her face brushing against it while she tries to titfuck your main member. Looking up at you, Lottie descends on you and begins fellating your " +
                     this.cockDescript(this.player.biggestCockIndex2()) +
@@ -1180,7 +1180,7 @@ export class Lottie extends TelAdreAbstractContent {
                 ', p-please cum on me, god- I need this!</i>" she moans, her saliva lubing her chest while she pumps your dick in between her melons',
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText(" and chokes on your meat", false);
+        if (this.player.cockTotal() > 1) this.outputText(" and chokes on your meat");
         this.outputText(
             ".  You throb against her hot flesh, feeling your spunk bubbling up inside you.  Throwing your head back, you give one final thrust before pulling back and exploding all over your squishy slut, ",
             false
@@ -1199,15 +1199,15 @@ export class Lottie extends TelAdreAbstractContent {
             ".  She continues to move up and down against the thick shaft between her breasts, determined to drain you of your seed. She pulls you out of her bosom and plunges your member back into her mouth, suckling on it for any stray milk left. After a while, you groan as she pops you back out, collecting the ",
             false
         );
-        if (this.player.cumQ() > 500) this.outputText("incredible amounts of ", false);
+        if (this.player.cumQ() > 500) this.outputText("incredible amounts of ");
         this.outputText(
             "cum you've painted on her flesh and gulping it all down. \"<i>Thanks for the load, " +
                 this.player.mf("big guy", "babe") +
                 ',</i>" she remarks, sucking gently on her fingers. "<i>I\'ll... I\'ll see you again, hey!</i>" You pat her on the head and begin to make your way out of the gym, making sure to grab a ',
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake on the way out.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake on the way out.");
         // LOTTIE FIGURE -1, MUSCLE TONE +1, DRAINS PC'S LUST.
         this.lottieTone(-1);
         if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00306] == 0)
@@ -1227,10 +1227,10 @@ export class Lottie extends TelAdreAbstractContent {
                 "She stands at around 4'8</i>\", considerably short on average, ",
                 false
             );
-            if (this.player.tallness > 60) this.outputText("and shorter than you", false);
+            if (this.player.tallness > 60) this.outputText("and shorter than you");
             else if (this.player.tallness > 53)
-                this.outputText("but you can't judge, being roughly the same height", false);
-            else this.outputText("taller than you", false);
+                this.outputText("but you can't judge, being roughly the same height");
+            else this.outputText("taller than you");
             this.outputText(
                 ". Physique-wise, Lottie is very chubby, and at first glance, most people would consider her fat, or at least quite portly. Your hard work has definitely paid off. Of the few pig people you have seen around Tel'Adre, she would definitely fit in. The majority of her weight is focused on her voluptuous g-cups, child-bearing hips and vast butt, and her game-breaking pot-belly is also quite round to support the weight of her upper body. Her heart-shaped face is complimented by her button nose and soft lips, framed by her pink-gray hair, which ends in small curls. A small, coiled tail rests above her rump.",
                 false
@@ -1242,10 +1242,10 @@ export class Lottie extends TelAdreAbstractContent {
                 "She stands at around 4'8</i>\", considerably short on average, ",
                 false
             );
-            if (this.player.tallness > 60) this.outputText("and shorter than you", false);
+            if (this.player.tallness > 60) this.outputText("and shorter than you");
             else if (this.player.tallness > 53)
-                this.outputText("but you can't judge, being roughly the same height", false);
-            else this.outputText("taller than you", false);
+                this.outputText("but you can't judge, being roughly the same height");
+            else this.outputText("taller than you");
             this.outputText(
                 ". Physique-wise, Lottie is definitely chubby, though you wouldn't call her fat. Your work is definitely yielding results. Of the few pig people you have seen around Tel'Adre, she's definitely thinner than most. The majority of her weight is focused on her pillowy f-cups, voluminous thighs and tubby ass, though her stomach is rounded nicely to support the weight of her upper body. Her heart-shaped face is complimented by her button nose and soft lips, framed by her shoulder-length pink-gray hair, which ends in small curls. A small, coiled tail rests above her rump.",
                 false
@@ -1254,10 +1254,10 @@ export class Lottie extends TelAdreAbstractContent {
         // [If Figure between 40 - 60]
         else if (this.lottieTone() <= 60) {
             this.outputText("She stands at around 4'8</i>\", short on average, ", false);
-            if (this.player.tallness > 60) this.outputText("and shorter than you", false);
+            if (this.player.tallness > 60) this.outputText("and shorter than you");
             else if (this.player.tallness > 53)
-                this.outputText("but you can't judge, being roughly the same height", false);
-            else this.outputText("taller than you", false);
+                this.outputText("but you can't judge, being roughly the same height");
+            else this.outputText("taller than you");
             this.outputText(
                 ". Physique-wise, Lottie is definitely a bit chubbier than most girls, though you couldn't call her fat - of the few pig people you have seen around Tel'Adre, she's definitely the 'thinnest'. The majority of her weight is focused in her cushiony breasts, ample thighs and large ass, though her stomach is rounded nicely to support the weight of her upper body. Her heart-shaped face is complimented by her button nose and soft lips, framed by her pink-gray hair, which ends in small curls. A small, coiled tail rests above her rump.",
                 false
@@ -1269,10 +1269,10 @@ export class Lottie extends TelAdreAbstractContent {
                 "She stands at around 4'8</i>\", considerably short on average, ",
                 false
             );
-            if (this.player.tallness > 60) this.outputText("and shorter than you", false);
+            if (this.player.tallness > 60) this.outputText("and shorter than you");
             else if (this.player.tallness > 53)
-                this.outputText("but you can't judge, being roughly the same height", false);
-            else this.outputText("taller than you", false);
+                this.outputText("but you can't judge, being roughly the same height");
+            else this.outputText("taller than you");
             this.outputText(
                 ". Physique-wise, Lottie has a bit of chub around her, but otherwise she's in pretty good shape. Her hard work is definitely yielding results. You couldn't call her fat - of the few pig people you have seen around Tel'Adre, she's definitely the thinnest. The majority of her weight is focused in her cushiony breasts, thick thighs and shapely ass, though her stomach is rounded nicely to support the weight of her upper body. Her heart-shaped face is complimented by her button nose and soft lips, framed by her pink-gray hair, which ends in small curls. A small, coiled tail rests above her rump.",
                 false
@@ -1284,10 +1284,10 @@ export class Lottie extends TelAdreAbstractContent {
                 "She stands at around 4'8</i>\", considerably short on average, ",
                 false
             );
-            if (this.player.tallness > 60) this.outputText("and shorter than you", false);
+            if (this.player.tallness > 60) this.outputText("and shorter than you");
             else if (this.player.tallness > 53)
-                this.outputText("but you can't judge, being roughly the same height", false);
-            else this.outputText("taller than you", false);
+                this.outputText("but you can't judge, being roughly the same height");
+            else this.outputText("taller than you");
             this.outputText(
                 ". Physique-wise, Lottie is in excellent shape, her curvy figure drawing the eyes of many males in the vicinity. Her hard work has definitely paid off. Of the few pig people you have seen around Tel'Adre, she is definitely the most conventionally attractive by far. What fat she does have is focused on her perky d-cups, girly thighs and cute ass, her flat stomach showcasing her shapely abdominal muscles that are more than capable of supporting the weight of her upper body. Her heart-shaped face is complimented by her button nose and soft lips, framed by her pink-gray hair, which ends in small curls. A small, coiled tail rests above her rump.",
                 false
@@ -1642,7 +1642,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
 
-            this.outputText("You might as well embrace the new member of your group.", false);
+            this.outputText("You might as well embrace the new member of your group.");
             // [Threesome][Elle][Oh I Get It]
             comedy1 = undefined;
             if (this.silly()) comedy1 = this.charlottesWebComedyBullshit;
@@ -1722,7 +1722,7 @@ export class Lottie extends TelAdreAbstractContent {
             );
             this.doNext(this.camp.returnToCampUseOneHour);
         } else {
-            this.outputText("<b>SHIT BUGGED OUT SON.</b>", false);
+            this.outputText("<b>SHIT BUGGED OUT SON.</b>");
             this.doNext(this.camp.returnToCampUseOneHour);
         }
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00308] = this.lottieTone();
@@ -2102,9 +2102,9 @@ export class Lottie extends TelAdreAbstractContent {
             "When you finally give in to exhaustion, you leave Lottie on the floor, your seed leaking out of her while she lays drooling and inattentive to her surroundings. You pat her on the butt and begin to make your way out of the gym, making sure to grab a ",
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake on the way out.", false);
-        if (this.silly()) this.outputText("  You fucking love bacon shakes.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake on the way out.");
+        if (this.silly()) this.outputText("  You fucking love bacon shakes.");
         this.outputText("\n\n(<i>Doggy-style unlocked from Lottie's sex menu.</i>)", false);
         this.player.orgasm();
         this.dynStats("sen", -3, "cor", 3);
@@ -2136,7 +2136,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.silly())
-            this.outputText("BACON BACON BACON BACON BACON BACON! GOTTA HAVE BACON!", false);
+            this.outputText("BACON BACON BACON BACON BACON BACON! GOTTA HAVE BACON!");
         else
             this.outputText(
                 "Heyyy *hic* buddy, is she like your *hic* shex-slave or sumthin?",
@@ -2155,13 +2155,13 @@ export class Lottie extends TelAdreAbstractContent {
             "You decide to leave Lottie there while Urta jerks off for another round at her mouth, heading back to the gym to grab a ",
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
+        if (this.silly()) this.outputText("bacon ");
         this.outputText(
             "shake. You sure do love spit roasting a pig, but nothing can beat a ",
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake.");
         // [Unlocks Walkies]
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00311] = 1;
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
@@ -2235,10 +2235,10 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText("  Your other cock", false);
-            if (this.player.cockTotal() == 2) this.outputText(" does", false);
-            else this.outputText("s do", false);
-            this.outputText(" not disappoint, spurting your essence all over the pig-girl.", false);
+            this.outputText("  Your other cock");
+            if (this.player.cockTotal() == 2) this.outputText(" does");
+            else this.outputText("s do");
+            this.outputText(" not disappoint, spurting your essence all over the pig-girl.");
         }
         this.outputText(
             "  You both lay on the mat, panting in ecstasy while your " +
@@ -2256,7 +2256,7 @@ export class Lottie extends TelAdreAbstractContent {
         else this.outputText("\n\n");
 
         // [Unlocks Cowgirl]
-        this.outputText("(<i>'Cowgirl' unlocked from Lottie's sex menu.</i>)", false);
+        this.outputText("(<i>'Cowgirl' unlocked from Lottie's sex menu.</i>)");
         this.player.orgasm();
         this.dynStats("sen", -3, "cor", -1);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00313] = 1;
@@ -2298,10 +2298,10 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText("Your other cock", false);
-            if (this.player.cockTotal() == 2) this.outputText(" twitches ", false);
-            else this.outputText("s twitch ", false);
-            this.outputText("in ecstasy, releasing all over her plump butt.", false);
+            this.outputText("Your other cock");
+            if (this.player.cockTotal() == 2) this.outputText(" twitches ");
+            else this.outputText("s twitch ");
+            this.outputText("in ecstasy, releasing all over her plump butt.");
         }
         this.outputText("\n\n", false);
 
@@ -2309,12 +2309,12 @@ export class Lottie extends TelAdreAbstractContent {
             "Sweaty and panting, Lottie lies on the floor, exhausted and full of your spunk. You slap her jiggling ass before walking out of the pool area, making sure to grab a ",
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake on the way out.", false);
-        if (this.silly()) this.outputText("  They're fucking delicious.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake on the way out.");
+        if (this.silly()) this.outputText("  They're fucking delicious.");
         this.outputText("\n\n", false);
         // [Unlocks Quickie]
-        this.outputText("(<i>'Quickie' has been unlocked from Lottie's sex menu.</i>)", false);
+        this.outputText("(<i>'Quickie' has been unlocked from Lottie's sex menu.</i>)");
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00314] = 1;
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
         this.player.orgasm();
@@ -2340,7 +2340,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
 
-        this.outputText("You really need glasses.", false);
+        this.outputText("You really need glasses.");
         // [Note: Lottie will no longer be encountered at the gym.]
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00278] = 1;
         this.player.orgasm();
@@ -2362,7 +2362,7 @@ export class Lottie extends TelAdreAbstractContent {
                 " and popping the tip ",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("of one ", false);
+        if (this.player.cockTotal() > 1) this.outputText("of one ");
         this.outputText(
             " into her full lips, circling around it with her eager tongue. The spider-girl grows more enthusiastic, hopping back to lie next to Lottie, placing her hot mouth at the base of your shaft and licking softly. She runs her tongue along your length while Lottie sucks hungrily on your head, slurping beads of pre-cum and stopping every so often to plant her lips on her spider-friend, swapping saliva along with the taste of your cock. As you let the girls work on your slick member, the spider-slut removes herself before straddling your face, her wet pussy inches from your hungry maw. Lottie begins to work around your length while Elle leans forward and plunges it into her mouth, sucking hard and fast. She releases your tip with a wet pop, moaning as you dig your tongue inside her hot cunt, tasting her juices and sucking gently on her hard clit. Lottie moves herself above your length, lowering herself slowly until you buck upwards, slamming your " +
                 this.cockDescript(x) +
@@ -2371,9 +2371,9 @@ export class Lottie extends TelAdreAbstractContent {
                 ' inside and squirting your hot spunk. Lottie positions herself on top of the girl, placing their pussies against each other and grinding in pleasure. Once you finish filling your spider-slut, you drive into the pig-girl, ropes of your cum splattering her inner walls. You continue thrusting in and out of the both of them for several minutes, before finishing up by letting each girl suckle at your cock. "<i>Satisfactory.</i>" You mumble, putting your clothes back on and heading out the door, making sure to grab a ',
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake on the way out.", false);
-        if (this.silly()) this.outputText("  You only need one of those to satisfy you.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake on the way out.");
+        if (this.silly()) this.outputText("  You only need one of those to satisfy you.");
         this.player.orgasm();
         this.dynStats("sen", -2);
         // [Unlocks Threesome]
@@ -2400,9 +2400,9 @@ export class Lottie extends TelAdreAbstractContent {
                     " with two of her hands, while the other sets to work on ",
                 false
             );
-            if (this.player.balls > 0) this.outputText("massaging your balls", false);
-            else if (this.player.hasVagina()) this.outputText("massaging your pussy", false);
-            else this.outputText("massaging your ass", false);
+            if (this.player.balls > 0) this.outputText("massaging your balls");
+            else if (this.player.hasVagina()) this.outputText("massaging your pussy");
+            else this.outputText("massaging your ass");
         } else
             this.outputText(
                 "uses all four of her hands to handle your " +
@@ -2417,7 +2417,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText("  Your extra cock", false);
+            this.outputText("  Your extra cock");
             if (this.player.cockTotal() == 2)
                 this.outputText(
                     " throbs, spilling out its essence along the floor and onto Lottie.",
@@ -2438,7 +2438,7 @@ export class Lottie extends TelAdreAbstractContent {
             this.outputText(
                 ", making sure to grab a bacon shake on the way out. You only need one of those to satisfy you"
             );
-        this.outputText(".", false);
+        this.outputText(".");
         // [Unlocks Netorare]
         this.outputText("\n\n(<i>'Elle' unlocked in Lottie's sex menu.</i>)", false);
         this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00317] = 1;
@@ -2498,12 +2498,12 @@ export class Lottie extends TelAdreAbstractContent {
                     " twitching as ropes of cum coat her insides. Lottie yelps, collapsing on the floor and full of your hot seed. You wipe your cock along her ass cleavage, leaving her as a sweaty, cum-filled mess on the floor. Walking out, you make sure to grab a ",
                 false
             );
-            if (this.silly()) this.outputText("bacon ", false);
+            if (this.silly()) this.outputText("bacon ");
             this.outputText("shake from the cafe. They're fantastic.\n\n", false);
             // [Unlocks Reverse Cowgirl]
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00320] = 1;
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
-            this.outputText("(<i>'Reverse Cowgirl'</i> unlocked in Lottie's sex menu</i>)", false);
+            this.outputText("(<i>'Reverse Cowgirl'</i> unlocked in Lottie's sex menu</i>)");
         }
         // [Otherwise]
         else {
@@ -2515,8 +2515,8 @@ export class Lottie extends TelAdreAbstractContent {
                 "You wake up dazed, your forehead throbbing – you're also completely naked, but unharmed otherwise. When you try to move, however, you find yourself unable to shift from your position – you seem to be tied to a chair, your hands behind your back while your legs are bound to those of the seat. You observe your surroundings, noticing the recognizable brick walls and stocked shelves of the gym's equipment shed. The familiarity of the location leaves you somewhat relieved – at least you know where you are. A quick slap to the face brings your attention to the lean pig-girl in front of you. Her figure is somewhat obscured by the lack of sunlight inside the room, though you can tell she's mostly nude other than a small black g-string obscuring her nether regions. She also appears to be sporting black thigh-high boots, along with similarly colored gloves that reach her armpits. Her expression is one of immense desire, smiling wryly as she examines your form. \"<i>You've gotten bigger.</i>\" She smiles, leaning on top of you and letting her heavy breasts smother your face. You take a lick at one of her nipples before she jerks back and hits you again. \"<i>Hahaha, not today, pig. All this extra weight is because you can't keep your mouth closed.</i>\" She spits, grabbing at the soft flesh of your ",
                 false
             );
-            if (this.player.biggestTitSize() >= 2) this.outputText("tits", false);
-            else this.outputText("belly", false);
+            if (this.player.biggestTitSize() >= 2) this.outputText("tits");
+            else this.outputText("belly");
             this.outputText(
                 " and squeezing, as if she was playing with putty. \"<i>I've reached my goal, but it seems you need a bit of help reaching yours. If you don't mind, I think I'll be your personal trainer for today.</i>\" The horny pig-slut grabs a hold of your " +
                     this.cockDescript(x) +
@@ -2552,13 +2552,13 @@ export class Lottie extends TelAdreAbstractContent {
                         '.</i>" she looks up at you and smiles, before untying your binds and setting you free. "<i>But you have to admit, this was pretty fun, right?</i>" You give her a thumbs up before walking out the door, leaving her to clean your thick mess. On the way out, a milkshake vendor waves over to you – it\'s the guy from the cafe. You buy a ',
                     false
                 );
-            if (this.silly()) this.outputText("bacon ", false);
-            this.outputText("shake before deciding to head home.", false);
-            if (this.silly()) this.outputText("  You fucking love bacon shakes.", false);
+            if (this.silly()) this.outputText("bacon ");
+            this.outputText("shake before deciding to head home.");
+            if (this.silly()) this.outputText("  You fucking love bacon shakes.");
             // [Unlocks FemDom]
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00319] = 1;
             this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00298]++;
-            this.outputText("(<i>'FemDom'</i> unlocked in Lottie's sex menu</i>)", false);
+            this.outputText("(<i>'FemDom'</i> unlocked in Lottie's sex menu</i>)");
         }
         this.player.orgasm();
         this.dynStats("sen", -2);
@@ -2584,10 +2584,10 @@ export class Lottie extends TelAdreAbstractContent {
     private lottieExercise(): void {
         this.spriteSelect(36);
         this.outputText("", true);
-        this.outputText("You tell Lottie it's time to hit the gym, and she responds ", false);
-        if (this.lottieMorale() >= 66) this.outputText("with an enthusiastic nod", false);
-        else if (this.lottieMorale() >= 33) this.outputText("with a nod in agreement", false);
-        else this.outputText("by slowly looking up at you and nodding her head", false);
+        this.outputText("You tell Lottie it's time to hit the gym, and she responds ");
+        if (this.lottieMorale() >= 66) this.outputText("with an enthusiastic nod");
+        else if (this.lottieMorale() >= 33) this.outputText("with a nod in agreement");
+        else this.outputText("by slowly looking up at you and nodding her head");
         this.outputText(
             '. "<i>Where do you wanna go today, ' +
                 this.player.mf("guy", "ma'am") +
@@ -2673,8 +2673,8 @@ export class Lottie extends TelAdreAbstractContent {
             "You laugh as you pick up one of the larger ones and pump mercilessly, looking at her expectantly as if she had been failing out of laziness. She tries harder to pull the heavy object over her head, but eventually she begins to shake and drops it, landing in the sand with a ",
             false
         );
-        if (this.silly()) this.outputText("large *pomf =3*", false);
-        else this.outputText("loud clonk", false);
+        if (this.silly()) this.outputText("large *pomf =3*");
+        else this.outputText("loud clonk");
         this.outputText(
             ". She looks up at you and sniffles, but you just grunt in response, disappointed with her efforts. She sighs and tries her best to do it again.\n\n",
             false
@@ -2907,7 +2907,7 @@ export class Lottie extends TelAdreAbstractContent {
             "Taking your mat, you walk over towards the smiling pig-girl, sitting down next to her and beginning your stretches. Lottie lies flat on her soft belly, pulling up her legs from behind her and stretching her back, jutting out her heavy breasts as they squish underneath her sweaty clothing. Her eyes clearly affixed onto the instructor in the middle of the class, you take the opportunity to gaze at her flushed body, running your eyes along her defined back to her lush ass and her rosy thighs. Realising you've been sitting awkwardly the entire time, you stretch your arms and lay on your back, replicating the pose of the yoga trainer along with the rest of the class. It isn't until you look over to Lottie that you awkwardly discover her staring at your crotch – your discreet staring has earned you a pent-up orgasm waiting to happen. You laugh nervously as Lottie continues ogling your strained boner",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
+        if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(
             ', while you secretly relish in the fact that you\'re at the back of the class. "<i>Was... was that because of me?</i>" Lottie whispers, tactlessly pointing directly at your ' +
                 this.multiCockDescriptLight() +
@@ -2961,7 +2961,7 @@ export class Lottie extends TelAdreAbstractContent {
             "You can't risk it, so you decide to take a plunge into the water – it's freezing at first, but you quickly warm up. Lottie takes your avoidance to heart and looks visibly discouraged, though you wonder what her reaction would've been if your cockrocket",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
+        if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(
             " decided to say hello. Needless to say, you decide it'd be better if you swam alone – nothing's wrong with the occasional chubby-assed slut wandering now and then, but it's a pain to not be distracted. Lottie wades at the other end of the pool, doing the occasional stretch before breaking into laps. You take a page from her book and begin to work back and forth from either end, making sure not to stare at Lottie's massive chest as it bounces into the air every so often after a stroke. After a considerable amount of time, you both finish considerably more exhausted than before. She seems to have lightened up since your initial reaction to her body, so you shrug it off and head home.",
             false
@@ -2984,9 +2984,9 @@ export class Lottie extends TelAdreAbstractContent {
                 " fly, so you decide to leave it be, even leaning back so as to accentuate the hardening length. It doesn't take long for Lottie to notice, letting out a little gasp as she observes your ",
             false
         );
-        if (this.player.biggestCockArea() >= 15) this.outputText("pride and joy", false);
-        else if (this.player.biggestCockArea() < 5) this.outputText("secret shame", false);
-        else this.outputText("painfully average prick", false);
+        if (this.player.biggestCockArea() >= 15) this.outputText("pride and joy");
+        else if (this.player.biggestCockArea() < 5) this.outputText("secret shame");
+        else this.outputText("painfully average prick");
         this.outputText(
             ". You almost experience a tinge of regret from the now incredibly awkward silence, but it's thrown out the window as soon as you feel a soft hand grab your throbbing member. Looking up, Lottie's face has reddened considerably, but her curiosity overrides her shame as she begins to slowly massage you to full mast. \"<i>I... I did this?</i>\" she asks, facing you with large, wondering eyes. You grin and nod, taking her hand and helping her stroke it further, only to be met with a slap on your wrist as she removes her grip. You look up, frowning as Lottie laughs at the situation. \"<i>I'm – it's nice to know that someone likes me.</i>\" She stutters, smiling timidly. \"<i>But, um, we're here to exercise, " +
                 this.player.mf("big guy", "babe") +
@@ -3079,7 +3079,7 @@ export class Lottie extends TelAdreAbstractContent {
             "You decide that you're better off finding something at the cafe to feed the girl, though you know Lottie won't be too keen on eating something she'll know will make her bigger. Regardless, you tell her that you've skipped on breakfast, and you've been starving all day. Concerned, Lottie suggests you buy something to eat, but you tell her you wouldn't feel right doing so if Lottie had to stay and watch. She doesn't mind, but you push it further. Eventually, she gives in and tells you that she'll buy something to eat if you do. Smiling, you wander to the cafe, asking the clerk if they have anything available in stock from the bakery. He smiles before handing you some kind of puff pastry, while you pay the appropriate gems for the item as well as a random sandwich from the glass display. Sitting back down, you hand Lottie the treat while you eagerly munch down on your own meal. \"<i>Is... is this okay to eat?</i>\" she asks, examining the chocolate covered delicacy you've bought for her. Without waiting for your answer, Lottie bites into the chocolate and squeals as the fluffy cream insides squirt out. \"<i>Th-this is delicious! Ohmigosh!</i>\" In no time at all the chocolaty confection is erotically devoured by the greedy pig-girl, before she looks up at you in guilt. \"<i>I hope that wasn't bad for me or anything...</i>\" she sighs. You shrug, telling her that it probably won't affect her weight in the slightest.\n\n",
             false
         );
-        this.outputText("You secretly know it will.", false);
+        this.outputText("You secretly know it will.");
         this.lottieTone(-5);
 
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -3197,7 +3197,7 @@ export class Lottie extends TelAdreAbstractContent {
                 false
             );
 
-            this.outputText("You reach for a high five that never comes.", false);
+            this.outputText("You reach for a high five that never comes.");
         }
         // [If Ham Sandwich, Repeat Encounter, High Corruption]
         else if (this.player.cor >= 75) {
@@ -3209,7 +3209,7 @@ export class Lottie extends TelAdreAbstractContent {
                     ", jamming it straight into the sandwich and fucking it relentlessly. In moments you cum between the velvety slices of ham, leaving a large puddle inside and leaving the rest of your spunk leaking out the back and pooling onto the floor. You dress yourself before walking back to the table and handing Lottie the incredibly moist meal, explaining that you saw the ham sandwich the other day, figuring she might enjoy it – and that you've taken care into adding your own 'special mayonnaise'. Lottie throws it on the floor. \"<i>Don't cum inside ham sandwiches, asshole!</i>\"\n\n",
                 false
             );
-            this.outputText("You reach for a high five that never comes.", false);
+            this.outputText("You reach for a high five that never comes.");
             this.player.orgasm();
         }
         // [If Ham Sandwich, Repeat Encounter]
@@ -3218,7 +3218,7 @@ export class Lottie extends TelAdreAbstractContent {
                 'You walk over to the cafe, Lottie watching as you order a sandwich from their menu. In a matter of seconds the collie-like clerk pulls one up from the glass display and hands it over to you, mumbling something about giving a pig-girl a ham sandwich being a stupid fucking idea. You exchange a smile before walking back to the table and handing Lottie the moist meal, explaining that you saw the ham sandwich the other day, figuring she might enjoy it. Lottie throws it on the floor. "<i>Stop giving me ham sandwiches, asshole!</i>"\n\n',
                 false
             );
-            this.outputText("You reach for a high five that never comes.", false);
+            this.outputText("You reach for a high five that never comes.");
         }
         this.dynStats("cor", 1);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -3306,12 +3306,12 @@ export class Lottie extends TelAdreAbstractContent {
                     '?</i>" she asks. You sigh and stand up, revealing your hardening member',
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
+            if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(
                 ". \"<i>I... oh.</i>\" Taking Lottie's hand, you quickly lead her out of the cafe and into the pool area, looking for an empty sauna to sneak into. Considering that the gym's pool is only used by a few semi-aquatic humanoids and the odd ",
                 false
             );
-            if (this.silly()) this.outputText("street ", false);
+            if (this.silly()) this.outputText("street ");
             this.outputText(
                 "shark, your search isn't that difficult. Hopping into the toasty room, you quickly undress, Lottie still standing by the doorway. \"<i>H-hey, y'know, I didn't actually agree on this or a-anything...</i>\" she stutters, nervously fiddling with her top. Without missing a beat, you walk towards her and plant a kiss on her full lips, tasting her sweetness as you probe her mouth with your eager tongue. The girl melts underneath your touch, passionately returning your erotic display while you take the chance to slip Lottie out of her top, reaching into her shorts to feel between her creamy hips. She moans as you slowly push two fingers inside her moist wetness, simultaneously pulling out your " +
                     this.cockDescript(x) +
@@ -3349,7 +3349,7 @@ export class Lottie extends TelAdreAbstractContent {
                     '?</i>" she begins, only to be cut off by a small peck to the lips. Lottie reddens, giggling slightly and gazing around for any onlookers. "<i>What\'s brought this on, babe?</i>" She beams, twirling and caressing your fingers among her own. You tell her that you thought she just needed a little more \'special exercise\' to help get the blood flowing – making sure to emphasise "<i>special exercise</i>" with exaggerated air quotes. She playfully pushes away your idiotic gesture and takes you out of your seat, leading the way into the pool area and into one of the empty saunas. Locking the door behind you, she turns around to face you and your hardening crotch. "<i>I think you\'re getting a little over excited, babe,</i>" she purrs, her confidence getting the better of you as she takes a step closer, but you\'re the one in charge. Grabbing Lottie by the hips, you twirl her around to face the wall, grinding your hardening length',
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
+            if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(
                 ' against her plump asscheeks. "<i>W-woah! I... well, okay...</i>" she moans, reaching back to stroke your ' +
                     this.cockDescript(x) +
@@ -3451,9 +3451,9 @@ export class Lottie extends TelAdreAbstractContent {
             "When you finally give in to exhaustion, you leave Lottie on the floor, your seed leaking out of her while she lays drooling and inattentive to her surroundings. You pat her on the butt and begin to make your way out of the gym, making sure to grab a ",
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake on the way out.", false);
-        if (this.silly()) this.outputText("  You fucking love bacon shakes.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake on the way out.");
+        if (this.silly()) this.outputText("  You fucking love bacon shakes.");
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -3483,7 +3483,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (!this.silly())
-            this.outputText("Heyyy, is she like *hic* your shex slave er shumthin?", false);
+            this.outputText("Heyyy, is she like *hic* your shex slave er shumthin?");
         else
             this.outputText(
                 "Heyyy, do I shmell bacon?  I fucking love bacon!  BACON BACON BACON!",
@@ -3502,8 +3502,8 @@ export class Lottie extends TelAdreAbstractContent {
             "You decide to leave Lottie there while Urta jerks off for another round at her mouth, heading back to the gym to grab a ",
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake.");
         if (this.silly())
             this.outputText(
                 "  You sure do love spit roasting a pig, but nothing can beat a bacon shake.",
@@ -3549,10 +3549,10 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText("  Your other cock", false);
-            if (this.player.cockTotal() == 2) this.outputText(" does", false);
-            else this.outputText("s do", false);
-            this.outputText(" not disappoint, spurting your essence all over the pig-girl.", false);
+            this.outputText("  Your other cock");
+            if (this.player.cockTotal() == 2) this.outputText(" does");
+            else this.outputText("s do");
+            this.outputText(" not disappoint, spurting your essence all over the pig-girl.");
         }
         this.outputText(
             "  You both lay on the mat, panting in ecstasy while your " +
@@ -3565,9 +3565,9 @@ export class Lottie extends TelAdreAbstractContent {
             "A while later, you've both said your goodbyes for the night. Before you leave, you make sure to head out to the cafe to buy yourself a ",
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake.", false);
-        if (this.silly()) this.outputText("  You love bacon shakes.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake.");
+        if (this.silly()) this.outputText("  You love bacon shakes.");
         this.player.orgasm();
         this.dynStats("sen", -2);
 
@@ -3600,10 +3600,10 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText("  Your other cock", false);
-            if (this.player.cockTotal() == 2) this.outputText(" twitches ", false);
-            else this.outputText("s twitch ", false);
-            this.outputText("in ecstasy, releasing all over her plump butt.", false);
+            this.outputText("  Your other cock");
+            if (this.player.cockTotal() == 2) this.outputText(" twitches ");
+            else this.outputText("s twitch ");
+            this.outputText("in ecstasy, releasing all over her plump butt.");
         }
         this.outputText("\n\n", false);
 
@@ -3611,9 +3611,9 @@ export class Lottie extends TelAdreAbstractContent {
             "Sweaty and panting, Lottie lies on the floor, exhausted and full of your spunk. You slap her jiggling ass before walking out of the pool area, making sure to grab a ",
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake on the way out.", false);
-        if (this.silly()) this.outputText("  They're fucking delicious.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake on the way out.");
+        if (this.silly()) this.outputText("  They're fucking delicious.");
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -3636,9 +3636,9 @@ export class Lottie extends TelAdreAbstractContent {
                 ' inside and squirting your hot spunk. Lottie positions herself on top of the girl, placing their pussies against each other and grinding in lust. Once you finish filling your spider-slut, you drive into the pig-girl, ropes of your cum splattering her inner walls. You continue thrusting in and out of the both of them for several minutes, before finishing up by letting each girl suckle at your cock. "<i>Satisfactory,</i>" you mumble, redressing and heading out the door, making sure to grab a ',
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake on the way out.", false);
-        if (this.silly()) this.outputText("  You only need one of those to satisfy you.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake on the way out.");
+        if (this.silly()) this.outputText("  You only need one of those to satisfy you.");
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -3661,9 +3661,9 @@ export class Lottie extends TelAdreAbstractContent {
                     " with two of her hands, while the other sets to work on massaging your ",
                 false
             );
-            if (this.player.balls > 0) this.outputText("balls", false);
-            else if (this.player.hasVagina()) this.outputText("pussy", false);
-            else this.outputText("ass", false);
+            if (this.player.balls > 0) this.outputText("balls");
+            else if (this.player.hasVagina()) this.outputText("pussy");
+            else this.outputText("ass");
         } else
             this.outputText(
                 "uses all four of her hands to handle " +
@@ -3678,7 +3678,7 @@ export class Lottie extends TelAdreAbstractContent {
             false
         );
         if (this.player.cockTotal() > 1) {
-            this.outputText("  Your extra cock", false);
+            this.outputText("  Your extra cock");
             if (this.player.cockTotal() == 2)
                 this.outputText(
                     " throbs, spilling out its essence along the floor and onto Lottie.",
@@ -3696,9 +3696,9 @@ export class Lottie extends TelAdreAbstractContent {
                 ' inside of her and letting one final spurt of your seed fill her up. "<i>Satisfactory.</i>" You mumble, redressing and heading out the door, making sure to grab a ',
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake on the way out.", false);
-        if (this.silly()) this.outputText("  You only need one of those to satisfy you.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake on the way out.");
+        if (this.silly()) this.outputText("  You only need one of those to satisfy you.");
         this.player.orgasm();
         this.dynStats("sen", -2, "cor", 2);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -3725,8 +3725,8 @@ export class Lottie extends TelAdreAbstractContent {
                 " twitching as ropes of cum coat her insides. Lottie yelps, collapsing on the floor and full of your hot seed. You wipe your cock along her ass cleavage, leaving her as a sweaty, cum-filled mess on the floor. Walking out, you make sure to grab a ",
             false
         );
-        if (this.silly()) this.outputText("bacon ", false);
-        this.outputText("shake from the cafe. They're fantastic.", false);
+        if (this.silly()) this.outputText("bacon ");
+        this.outputText("shake from the cafe. They're fantastic.");
         this.player.orgasm();
         this.dynStats("sen", -2);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -3747,8 +3747,8 @@ export class Lottie extends TelAdreAbstractContent {
             "You wake up dazed, your forehead throbbing – you're also completely naked, but unharmed otherwise. When you try to move, however, you find yourself unable to shift from your position – you seem to be tied to a chair, your hands behind your back while your legs are bound to those of the seat. You observe your surroundings, noticing the recognizable brick walls and stocked shelves of the gym's equipment shed. The familiarity of the location leaves you somewhat relieved – at least you know where you are. A quick slap to the face brings your attention to the lean pig-girl in front of you. Her figure is somewhat obscured by the lack of sunlight inside the room, though you can tell she's mostly nude, other than a small black g-string obscuring her nether regions. She also appears to be sporting black thigh-high boots, along with similarly colored gloves that reach her arm pits. Her expression is one of immense desire, smiling wryly as she examines your form. \"<i>You've gotten bigger.</i>\" She smiles, leaning on top of you and letting her heavy breasts smother your face. You take a lick at one of her nipples before she jerks back and hits you again. \"<i>Hahaha, not today, pig. All this extra weight is because you can't keep your mouth closed.</i>\" She spits, grabbing at the soft flesh of your ",
             false
         );
-        if (this.player.biggestTitSize() >= 2) this.outputText("tits", false);
-        else this.outputText("belly", false);
+        if (this.player.biggestTitSize() >= 2) this.outputText("tits");
+        else this.outputText("belly");
         this.outputText(
             " and squeezing, as if she was playing with putty. \"<i>I've reached my goal, but it seems you need a bit of help reaching yours. If you don't mind, I think I'll be your personal trainer for today.</i>\" The horny pig-slut grabs a hold of your " +
                 this.cockDescript(x) +
@@ -3768,9 +3768,9 @@ export class Lottie extends TelAdreAbstractContent {
                     ' dripping out and leaving a puddle underneath you. "<i>H-hah, y-you\'re such a pig!</i>" she stutters, obviously flustered from the sex but still attempting to keep up a dominant facade. You easily untie yourself from the binds and walk over to her, planting a kiss on her cheek before leaving through the shed door. "<i>You... you could\'ve escaped the whole time?</i>" she squeaks, your only response a thumbs up as you walk away. On your way out, a milkshake vendor waves over to you – it\'s the guy from the cafe. You buy a ',
                 false
             );
-            if (this.silly()) this.outputText("bacon ", false);
-            this.outputText("shake before deciding to head home.", false);
-            if (this.silly()) this.outputText("  You fucking love bacon shakes.", false);
+            if (this.silly()) this.outputText("bacon ");
+            this.outputText("shake before deciding to head home.");
+            if (this.silly()) this.outputText("  You fucking love bacon shakes.");
         }
         // [If Cum Production High]
         else {
@@ -3782,9 +3782,9 @@ export class Lottie extends TelAdreAbstractContent {
                     '.</i>" she looks up at you and smiles, before untying your binds and setting you free. "<i>But you have to admit, this was pretty fun, right?</i>" You give her a thumbs up before walking out the door, leaving her to clean your thick mess. On the way out, a milkshake vendor waves over to you – it\'s the guy from the cafe. You buy a ',
                 false
             );
-            if (this.silly()) this.outputText("bacon ", false);
-            this.outputText("shake before deciding to head home.", false);
-            if (this.silly()) this.outputText("  You fucking love bacon shakes.", false);
+            if (this.silly()) this.outputText("bacon ");
+            this.outputText("shake before deciding to head home.");
+            if (this.silly()) this.outputText("  You fucking love bacon shakes.");
         }
         this.player.orgasm();
         this.dynStats("sen", -2);
@@ -3879,7 +3879,7 @@ export class Lottie extends TelAdreAbstractContent {
                 "  She gives you a gloomy stare, before turning her head back down and plunging it into the mattress, already accepting her defeat",
                 false
             );
-        else this.outputText("  She raises an eyebrow, though doesn't probe any further", false);
+        else this.outputText("  She raises an eyebrow, though doesn't probe any further");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -3892,8 +3892,8 @@ export class Lottie extends TelAdreAbstractContent {
         );
 
         // [if a single, lonely tentapenis]
-        this.outputText("You firmly squeeze your ", false);
-        if (this.player.tentacleCocks() > 1) this.outputText("first ", false);
+        this.outputText("You firmly squeeze your ");
+        if (this.player.tentacleCocks() > 1) this.outputText("first ");
         this.outputText(
             "writhing member as it stretches out, snaking towards Lottie's genitals and probing her moistened lips.  The tip of your vine-like length wriggles vertically along her eager hole, vibrating against her hardening clit and causing the sweating pig-whore to oink in pleasure.  She struggles to move her arms towards her aching need, desperate to relieve herself from the thick, stretching snake pushing against her slick cunt.  Without a word of warning, the hardened tentacle presses the side of its slick length firmly against her entrance, before whipping itself backwards and plunging into her heated hole.\n\n",
             false
@@ -3931,7 +3931,7 @@ export class Lottie extends TelAdreAbstractContent {
                     false
                 );
                 if (this.lottieMorale() < 40)
-                    this.outputText("  This pig slut really loves to be used like that!", false);
+                    this.outputText("  This pig slut really loves to be used like that!");
                 else
                     this.outputText(
                         "  Your pig lover really loves what you're doing to her!",
@@ -4146,7 +4146,7 @@ export class Lottie extends TelAdreAbstractContent {
             "  You let out a deranged chuckle at the sight of Ifris being thrown about",
             false
         );
-        if (this.player.balls > 0) this.outputText(", sweaty gonads colliding into her", false);
+        if (this.player.balls > 0) this.outputText(", sweaty gonads colliding into her");
         this.outputText(
             ".  Lottie is crying out in ecstasy next to you.  She pleads with you to let her have the next turn as your fuck-toy.  The pressure building up in your sack has finally reached its peak.  You abandon all delusions of control, giving in to the primal desire that has arisen.\n\n",
             false
@@ -4197,9 +4197,9 @@ export class Lottie extends TelAdreAbstractContent {
             );
         this.outputText('</i>"\n\n', false);
 
-        this.outputText("Satisfied, you get dressed and strut off towards camp.", false);
+        this.outputText("Satisfied, you get dressed and strut off towards camp.");
         if (this.silly())
-            this.outputText("  You'll make damn sure to buy Urta a bacon shake tomorrow.", false);
+            this.outputText("  You'll make damn sure to buy Urta a bacon shake tomorrow.");
         this.doNext(this.camp.returnToCampUseOneHour);
     }
 

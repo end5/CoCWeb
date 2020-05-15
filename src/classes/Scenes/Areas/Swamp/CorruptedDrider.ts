@@ -125,9 +125,9 @@ export class CorruptedDrider extends AbstractSpiderMorph {
         } else if (this.player.findStatusAffect(StatusAffects.DriderKiss) < 0) {
             // (HIT? + 10 lust)
             this.game.dynStats("lus", 10);
-            this.outputText("Before you can move, she's right on top of you, leaning ", false);
-            if (this.player.tallness < 72) this.outputText("down", false);
-            else this.outputText("over", false);
+            this.outputText("Before you can move, she's right on top of you, leaning ");
+            if (this.player.tallness < 72) this.outputText("down");
+            else this.outputText("over");
             this.outputText(
                 " to plant a sloppy, wet kiss upon your lips.  Her glossy lip-venom oozes everywhere, dribbling down your collective chins and sliding into your mouth.  You shudder, trying to resist, but your tongue betrays you.  It slides between her moist, puffy entrance, lapping at her venom and making love to her tongue.",
                 false
@@ -194,10 +194,10 @@ export class CorruptedDrider extends AbstractSpiderMorph {
                         false
                     );
                     if (this.player.wetness() < 3 && this.player.cumQ() < 200)
-                        this.outputText("small", false);
+                        this.outputText("small");
                     else if (this.player.wetness() < 5 && this.player.cumQ() < 500)
-                        this.outputText("large", false);
-                    else this.outputText("massive", false);
+                        this.outputText("large");
+                    else this.outputText("massive");
                     this.outputText(
                         " wet stain that reeks of your sheer sexual ache has formed in your " +
                             this.player.armorName +
@@ -227,7 +227,7 @@ export class CorruptedDrider extends AbstractSpiderMorph {
             "As soon as she finishes, her large clit puffs up, balloon-like.  A second later, it slides forward, revealing nine inches of glossy, girl-spunk-soaked shaft.  Nodules ring the corrupted penis' surface, while the tiny cum-slit perched atop the tip dribbles heavy flows of pre-cum.  She pumps at the fleshy organ while her other hand paws at her jiggling breasts, tugging on the hard ",
             false
         );
-        if (this.nipplesPierced > 0) this.outputText("pierced ", false);
+        if (this.nipplesPierced > 0) this.outputText("pierced ");
         this.outputText(
             "nipple-flesh.  Arching her back in a lurid pose, she cries out in high-pitched bliss, her cock pulsing in her hand and erupting out a stream of seed that lands in front of her.\n\n",
             false

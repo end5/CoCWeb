@@ -780,12 +780,12 @@ export class GoblinAssassinScene extends BaseContent {
                 false
             );
             if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_WET)
-                this.outputText("grows puffy and moist", false);
+                this.outputText("grows puffy and moist");
             else if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_DROOLING)
-                this.outputText("drips with feminine moisture", false);
+                this.outputText("drips with feminine moisture");
             else if (this.player.vaginas[0].vaginalWetness < VAGINA_WETNESS_SLAVERING)
-                this.outputText("slowly begins to soak your thighs", false);
-            else this.outputText("drools with need, puddling under you", false);
+                this.outputText("slowly begins to soak your thighs");
+            else this.outputText("drools with need, puddling under you");
             this.outputText(
                 ".  Your arousal can wait.  This slut needs to be punished.\n\n",
                 false
@@ -808,15 +808,15 @@ export class GoblinAssassinScene extends BaseContent {
                     ".  She thrashes against you, too lost to her own pleasure to realize what's going on.   Forcefully you put her plump little lips on your box and grind, letting her tongue slip into your folds.  Her eyes are little white slits, her pupils rolled up out of view, but there's enough of something in there that her tongue recognizes the taste and starts licking.  You tremble; it feels WAY better than it should.  Perhaps some of her potions have left a residue on her lips and tongue, but you don't care.\n\n",
                 false
             );
-            this.outputText("You cum on the drugged green bitch, ", false);
+            this.outputText("You cum on the drugged green bitch, ");
             if (this.player.vaginas[0].vaginalWetness > VAGINA_WETNESS_DROOLING)
-                this.outputText("splattering her with your fluids", false);
+                this.outputText("splattering her with your fluids");
             else if (this.player.vaginas[0].vaginalWetness > VAGINA_WETNESS_SLICK)
-                this.outputText("coating her face with the proof of your pleasure", false);
+                this.outputText("coating her face with the proof of your pleasure");
             else if (this.player.vaginas[0].vaginalWetness > VAGINA_WETNESS_WET)
-                this.outputText("leaving her sticky with your nether-juices", false);
-            else this.outputText("leaving the taste of pussy on her tongue", false);
-            this.outputText(".  ", false);
+                this.outputText("leaving her sticky with your nether-juices");
+            else this.outputText("leaving the taste of pussy on her tongue");
+            this.outputText(".  ");
             if (this.player.biggestLactation() >= 3.5)
                 this.outputText(
                     "Milk explodes from your nipples, soaking the petite slut.  ",
@@ -840,11 +840,11 @@ export class GoblinAssassinScene extends BaseContent {
                 "You casually dress, ignoring the pants and moans from the blissed-out goblin, and prepare to leave.   Taking one last look over your shoulder, you realize her fluids have made a puddle bigger than her.  She'll probably have a hell of a hangover when she wakes up.  You ",
                 false
             );
-            if (this.player.cor > 50) this.outputText("smirk", false);
-            else this.outputText("sigh", false);
-            this.outputText(" and saunter off, feeling ", false);
-            if (this.player.cor < 50) this.outputText("a bit guilty about overdoing it.", false);
-            else this.outputText("thoroughly satisfied with your revenge.", false);
+            if (this.player.cor > 50) this.outputText("smirk");
+            else this.outputText("sigh");
+            this.outputText(" and saunter off, feeling ");
+            if (this.player.cor < 50) this.outputText("a bit guilty about overdoing it.");
+            else this.outputText("thoroughly satisfied with your revenge.");
             this.cleanupAfterCombat();
             this.player.orgasm();
         }
@@ -863,8 +863,8 @@ export class GoblinAssassinScene extends BaseContent {
                 this.multiCockDescriptLight(),
             false
         );
-        if (this.player.cockTotal() == 1) this.outputText(" is", false);
-        else this.outputText(" are all", false);
+        if (this.player.cockTotal() == 1) this.outputText(" is");
+        else this.outputText(" are all");
         this.outputText(
             " far more aware of the situation than she is as you stoop down and strip her of every scrap of her admittedly sparse clothing. While you look her over, ",
             false
@@ -884,8 +884,8 @@ export class GoblinAssassinScene extends BaseContent {
                 false
             );
         if (this.player.cocks[0].cockLength < 20)
-            this.outputText("about as long as her entire torso", false);
-        else this.outputText("bigger than she is", false);
+            this.outputText("about as long as her entire torso");
+        else this.outputText("bigger than she is");
         this.outputText(" gives you a wicked idea.\n\n", false);
 
         this.outputText(
@@ -946,7 +946,7 @@ export class GoblinAssassinScene extends BaseContent {
             false
         );
         if (this.player.cocks[0].cockLength < 20)
-            this.outputText("can feel the massive bulge in her midsection", false);
+            this.outputText("can feel the massive bulge in her midsection");
         else
             this.outputText(
                 "stretch her so much that you can see the bulge even from this angle",
@@ -963,14 +963,14 @@ export class GoblinAssassinScene extends BaseContent {
             if (this.player.biggestLactation() >= 1) {
                 this.outputText(" as your " + this.nippleDescript(0) + " ", false);
                 if (this.player.biggestLactation() < 2)
-                    this.outputText("occasionally drip milky tears onto her face", false);
+                    this.outputText("occasionally drip milky tears onto her face");
                 if (this.player.biggestLactation() < 3)
-                    this.outputText("weep streams of milk onto her features", false);
-                else this.outputText("plaster her with gouts of fluid", false);
+                    this.outputText("weep streams of milk onto her features");
+                else this.outputText("plaster her with gouts of fluid");
             }
         }
-        this.outputText(". Her hair is matted with", false);
-        if (this.player.biggestLactation() >= 1) this.outputText(" milk and", false);
+        this.outputText(". Her hair is matted with");
+        if (this.player.biggestLactation() >= 1) this.outputText(" milk and");
         this.outputText(
             " the sweat of the both of you, and the only sound she makes is an occasional gurgle of ecstasy every few orgasms.\n\n",
             false
@@ -982,10 +982,10 @@ export class GoblinAssassinScene extends BaseContent {
         if (this.player.hasVagina()) {
             this.outputText("while your " + this.vaginaDescript(0) + " ", false);
             if (this.player.vaginas[0].vaginalWetness <= VAGINA_WETNESS_SLICK)
-                this.outputText("juices ", false);
+                this.outputText("juices ");
             else if (this.player.vaginas[0].vaginalWetness <= VAGINA_WETNESS_DROOLING)
-                this.outputText("floods ", false);
-            else this.outputText("explodes ", false);
+                this.outputText("floods ");
+            else this.outputText("explodes ");
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     "and the rest of your " + this.multiCockDescriptLight() + " drench her, ",
@@ -993,13 +993,13 @@ export class GoblinAssassinScene extends BaseContent {
                 );
         } else if (this.player.cockTotal() > 1) {
             this.outputText("while your other " + Appearance.cockNoun(CockTypesEnum.HUMAN), false);
-            if (this.player.cockTotal() > 2) this.outputText(" drench her, ", false);
-            else this.outputText(" drenches her, ", false);
+            if (this.player.cockTotal() > 2) this.outputText(" drench her, ");
+            else this.outputText(" drenches her, ");
         }
-        this.outputText("the bitch is too tight! Like a natural cock-ring! ", false);
+        this.outputText("the bitch is too tight! Like a natural cock-ring! ");
         if (this.player.balls >= 2)
             this.outputText("Your " + this.ballsDescriptLight() + " are trying but, h", false);
-        else this.outputText("H", false);
+        else this.outputText("H");
         this.outputText(
             "er spasming " +
                 this.monster.vaginaDescript() +
@@ -1068,27 +1068,27 @@ export class GoblinAssassinScene extends BaseContent {
         this.outputText(this.images.showImage("goblin-win-male-corruptedbj"));
         const x: number = this.player.biggestCockIndex();
         this.spriteSelect(24);
-        this.outputText("You whip out your stiffening maleness, revealing its ", false);
-        if (this.player.cockArea(x) < 80) this.outputText("nearly ", false);
+        this.outputText("You whip out your stiffening maleness, revealing its ");
+        if (this.player.cockArea(x) < 80) this.outputText("nearly ");
         this.outputText(
             " absurd size to your victim.  The goblin-girl's eyes grow to the size of dinner plates in shock as she takes in the view.   Knowing you'll try regardless of the size-mismatch, she spreads her legs and settles herself more comfortably on the ground.\n\n",
             false
         );
-        this.outputText("You ", false);
+        this.outputText("You ");
         if (this.player.cor < 50)
-            this.outputText("shrug and guess you may as well try since she's ready", false);
-        else this.outputText("grin, happy to try and stretch her around yourself", false);
-        this.outputText(".  The ", false);
-        if (this.player.cocks[0].cockType == CockTypesEnum.HORSE) this.outputText("flare", false);
-        else this.outputText("head", false);
+            this.outputText("shrug and guess you may as well try since she's ready");
+        else this.outputText("grin, happy to try and stretch her around yourself");
+        this.outputText(".  The ");
+        if (this.player.cocks[0].cockType == CockTypesEnum.HORSE) this.outputText("flare");
+        else this.outputText("head");
         this.outputText(
             " of your " +
                 this.cockDescript(x) +
                 " visibly pulses in excitement as you brush it against her already-slick folds.  She squirms under you, clearly enjoying the feeling of you pushing against her opening.  With painful slowness, you begin pushing forward, feeling her body stretch around your ",
             false
         );
-        if (this.player.cocks[0].cockType == CockTypesEnum.HORSE) this.outputText("flare", false);
-        else this.outputText("crown", false);
+        if (this.player.cocks[0].cockType == CockTypesEnum.HORSE) this.outputText("flare");
+        else this.outputText("crown");
         this.outputText(
             ", but after a moment or two of progress the tiny passage will stretch no more, and you're sure you can't force any more in without hurting her.\n\n",
             false
@@ -1100,14 +1100,14 @@ export class GoblinAssassinScene extends BaseContent {
             false
         );
         if (this.player.hasKnot(0))
-            this.outputText(" hooking the heels of her feet just behind your knot", false);
+            this.outputText(" hooking the heels of her feet just behind your knot");
         this.outputText(".\n\n", false);
         this.outputText(
             '"<i>She\'s good at this,</i>" you muse as she begins grinding underneath you, using her legs to piston her entire body up and down your length, her arms and hands rubbing and caressing you with surprising passion.  The feeling is intense – these goblins know how to please a ',
             false
         );
-        if (this.player.gender == 3) this.outputText("herm", false);
-        else this.outputText("man", false);
+        if (this.player.gender == 3) this.outputText("herm");
+        else this.outputText("man");
         this.outputText(
             ", that's for sure!  You start dripping with excitement, soaking the goblin's face with an errant drop.  Her smile only broadens when she blinks it away.   A trail of warm wetness licks its way up your tip as the goblin greedily begins to devour your pre, going so far as to lick it from your urethra.  Your " +
                 this.hipDescript() +
@@ -1121,10 +1121,10 @@ export class GoblinAssassinScene extends BaseContent {
             false
         );
         if (this.player.cumQ() < 75)
-            this.outputText("splattering her a few more times with potent seed.  ", false);
+            this.outputText("splattering her a few more times with potent seed.  ");
         else if (this.player.cumQ() < 250)
-            this.outputText("painting her with a thick layer of seed.  ", false);
-        else this.outputText("soaking her and leaving her in a thick puddle of seed. ", false);
+            this.outputText("painting her with a thick layer of seed.  ");
+        else this.outputText("soaking her and leaving her in a thick puddle of seed. ");
         this.outputText(
             'The green slut seems to handle it pretty well, even going so far as to scoop up your spunk and rub it into her cunt as she masturbates.  She licks her lips as she watches you redress, a sultry smile on her cum-painted face, "<i>You tasted as good as I thought stud!  Maybe shrink that bad-boy down and come visit me for a better visit next time ok?  Hopefully by then all this baby batter I\'m cramming into my box will give me a nice belly for you to rub!</i>"\n\n',
             false
@@ -1161,21 +1161,21 @@ export class GoblinAssassinScene extends BaseContent {
                 false
             );
             if (this.player.cocks[0].cockType == CockTypesEnum.DEMON)
-                this.outputText("rubbing painfully against your demonic nubs", false);
+                this.outputText("rubbing painfully against your demonic nubs");
             else if (this.player.hasKnot(0))
-                this.outputText("stretching painfully around your knot", false);
+                this.outputText("stretching painfully around your knot");
             else if (
                 this.player.cocks[0].cockType == CockTypesEnum.HORSE ||
                 this.player.cocks[0].cockType.Index > 3
             )
-                this.outputText("feeling painfully tight around you", false);
+                this.outputText("feeling painfully tight around you");
             this.outputText(
                 ". With each and every step she slides down further, stretching her to capacity, until she sits almost completely impaled on you, grabbing your ",
                 false
             );
             if (this.player.biggestTitSize() >= 1)
                 this.outputText(this.player.allBreastsDescript(), false);
-            else this.outputText("torso", false);
+            else this.outputText("torso");
             this.outputText(
                 " to help support herself.  A steady pulse of motion massages you in time with the green girl's breathing.  You realize just how much of her body must be devoted to accommodating monstrous members, no wonder goblins are so fragile in a fight!\n\n",
                 false
@@ -1190,8 +1190,8 @@ export class GoblinAssassinScene extends BaseContent {
                     ", drawing out a cacophony of cries ranging from happy wails and moans to slight yelps of pain. Her tiny fists dig into your ",
                 false
             );
-            if (this.player.biggestTitSize() >= 1) this.outputText("tits", false);
-            else this.outputText("skin", false);
+            if (this.player.biggestTitSize() >= 1) this.outputText("tits");
+            else this.outputText("skin");
             this.outputText(
                 " as she hangs on, clenching and smashing her ample tits against you. You run hard, feeling her bounce and wriggle as her cunt and rapid breathing squeezing and milking you like you never before. You're sure if you could feel like this every time you took a jog, you'd be in great shape.\n\n",
                 false
@@ -1243,15 +1243,15 @@ export class GoblinAssassinScene extends BaseContent {
                 "You pant and stop, pulling the stuffed goblin off you and setting her on the ground, smiling in satisfaction as your cum ",
                 false
             );
-            if (this.player.cumQ() >= 250) this.outputText("pours out in a river", false);
-            else this.outputText("leaks", false);
+            if (this.player.cumQ() >= 250) this.outputText("pours out in a river");
+            else this.outputText("leaks");
             this.outputText(
                 ' from her now-gaping twat. She rubs her belly and blows you a kiss, still trying to catch her breath. You smirk and begin redressing. Once finished, you start walking away, but she calls out one last time to you, "<i>MMMmm I hope you don\'t mind if I find you again. I need more of your baby batter so I can give you lots of beautiful sluts to fuck!</i>"\n\n',
                 false
             );
-            if (this.player.cor > 50) this.outputText("Chuckling", false);
-            else this.outputText("Shuddering", false);
-            this.outputText(", you make your way back to camp, satisfied.", false);
+            if (this.player.cor > 50) this.outputText("Chuckling");
+            else this.outputText("Shuddering");
+            this.outputText(", you make your way back to camp, satisfied.");
         }
         // (FITS – Get ridden)
         else {
@@ -1268,21 +1268,21 @@ export class GoblinAssassinScene extends BaseContent {
                 false
             );
             if (this.player.cocks[0].cockType == CockTypesEnum.DEMON)
-                this.outputText("rubbing perfectly against your demonic nubs", false);
+                this.outputText("rubbing perfectly against your demonic nubs");
             else if (this.player.hasKnot(0))
-                this.outputText("stretching tightly around your knot", false);
+                this.outputText("stretching tightly around your knot");
             else if (
                 this.player.cocks[0].cockType == CockTypesEnum.HORSE ||
                 this.player.cocks[0].cockType.Index > 3
             )
-                this.outputText("feeling absolutely perfect around you", false);
+                this.outputText("feeling absolutely perfect around you");
             this.outputText(
                 ".  With each and every step you take, she slides down further, until she sits fully impaled on you, grabbing your ",
                 false
             );
             if (this.player.biggestTitSize() >= 1)
                 this.outputText(this.player.allBreastsDescript(), false);
-            else this.outputText("torso", false);
+            else this.outputText("torso");
             this.outputText(
                 " to help support herself.   A steady pulse of motion massages you in time with the green girl's breathing, making you realize just how much of her body must be devoted to accommodating monstrous members.\n\n",
                 false
@@ -1297,8 +1297,8 @@ export class GoblinAssassinScene extends BaseContent {
                     ", drawing out a cacophony of happy wails and moans.  Her tiny fists dig into your ",
                 false
             );
-            if (this.player.biggestTitSize() >= 1) this.outputText("tits", false);
-            else this.outputText("skin", false);
+            if (this.player.biggestTitSize() >= 1) this.outputText("tits");
+            else this.outputText("skin");
             this.outputText(
                 " as she hangs on, clenching and smashing her ample tits against you.  You run hard, feeling her bounce and wriggle as her cunt and rapid breathing begin squeezing and milking you like never before.  You're sure if you could feel like this every time you took a jog, you'd be in great shape.\n\n",
                 false
@@ -1330,8 +1330,8 @@ export class GoblinAssassinScene extends BaseContent {
                     false
                 );
                 if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-                else this.outputText("legs", false);
-                this.outputText(".", false);
+                else this.outputText("legs");
+                this.outputText(".");
             }
             if (this.player.cumQ() >= 500)
                 this.outputText(
@@ -1345,15 +1345,15 @@ export class GoblinAssassinScene extends BaseContent {
                 "You pant and stop, pulling the stuffed goblin off you and setting her on the ground, smiling in satisfaction as your cum ",
                 false
             );
-            if (this.player.cumQ() >= 250) this.outputText("pours out in a river", false);
-            else this.outputText("leaks", false);
+            if (this.player.cumQ() >= 250) this.outputText("pours out in a river");
+            else this.outputText("leaks");
             this.outputText(
                 ' from her now-gaping twat.  She rubs her belly and blows you a kiss, still trying to catch her breath.  You smirk and begin redressing.  Once finished, you start walking away, but she calls out one last time to you, "<i>Ummm I hope you don\'t mind if I find you again.  I need more of your baby batter so I can give you lots of beautiful sluts to fuck!</i>"\n\n',
                 false
             );
-            if (this.player.cor > 50) this.outputText("Chuckling", false);
-            else this.outputText("Shuddering", false);
-            this.outputText(", you make your way back to camp, satisfied.", false);
+            if (this.player.cor > 50) this.outputText("Chuckling");
+            else this.outputText("Shuddering");
+            this.outputText(", you make your way back to camp, satisfied.");
         }
         this.cleanupAfterCombat();
         this.player.orgasm();
@@ -1382,8 +1382,8 @@ export class GoblinAssassinScene extends BaseContent {
                 ", the balls of her jade skin pressing against ",
             false
         );
-        if (this.player.balls > 0) this.outputText("your throbbing sack", false);
-        else this.outputText("the base of your shaft", false);
+        if (this.player.balls > 0) this.outputText("your throbbing sack");
+        else this.outputText("the base of your shaft");
         this.outputText(
             " while her digits curl around your member like thick fingers . Stroking you slowly at first, the lime-hued girl picks up her tempo and alternates to the soft embrace of the silken skin between her instep and her calf, using the firmness of her ankles to massage your dick to full-mast. Quivering between her feet, blobs of pre-cum begin to leak from your tip, nearly transparent globules rolling down your glans. The goblin uses her big toes to gather up the warm fluid reverently, letting it flow between each digit gleefully before spreading it back onto your shaft with firm caresses, kneading the seedless ejaculate into your flesh like oil, her feet glistening like sea-green beryl with your fluid.\n\n",
             false
@@ -1443,23 +1443,23 @@ export class GoblinAssassinScene extends BaseContent {
 
         this.outputText("Luckily for her, you have every intention of changing that.\n\n", false);
 
-        this.outputText("You begin to fondle your cock", false);
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
+        this.outputText("You begin to fondle your cock");
+        if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(
             " as you walk towards the unsuspecting goblin girl, taking in the sight of her perfectly round cheeks as they jiggle against her hurried movements, her soft thighs clenched against the eager hand between them.  Bending down, you quickly grab the goblin's ample hips, causing the girl to squeak in surprise as she turns around to catch the sight of your erect length",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
+        if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(".\n\n", false);
 
         this.outputText(
             '"<i>W-woah!  Hey stud, whaddya think you\'re doing back there?</i>" she yelps, more surprised than scared at your sudden appearance.  Instead of answering, you decide to grab your cock',
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
-        this.outputText(" and slap ", false);
-        if (this.player.cockTotal() == 1) this.outputText("it", false);
-        else this.outputText("them", false);
+        if (this.player.cockTotal() > 1) this.outputText("s");
+        this.outputText(" and slap ");
+        if (this.player.cockTotal() == 1) this.outputText("it");
+        else this.outputText("them");
         this.outputText(
             " against the bare flesh of her ass, whilst your victim anxiously awaits your next move.  You take your time massaging the goblin's slutty ass with your bare hands before sliding your " +
                 this.cockDescript(x) +
@@ -1481,8 +1481,8 @@ export class GoblinAssassinScene extends BaseContent {
                 "two of your dicks inside of the panting whore, pushing her forwards violently as you enter her tight snatch and asshole - your other cock",
                 false
             );
-            if (this.player.cockTotal() >= 4) this.outputText("s", false);
-            this.outputText(" remaining sandwiched in between her asscheeks", false);
+            if (this.player.cockTotal() >= 4) this.outputText("s");
+            this.outputText(" remaining sandwiched in between her asscheeks");
         }
         this.outputText(".\n\n", false);
 
@@ -1497,7 +1497,7 @@ export class GoblinAssassinScene extends BaseContent {
                 ", her eyes rolled upwards and her tongue drooling out of her mouth while her slutty face rubs against the ground you're currently pounding her on.  With a final thrust, your hips lurch forward as you paint her insides with your thick spunk, relishing in the feeling of your ejaculate filling her up to the brim and plugging her entrance",
             false
         );
-        if (this.player.cockTotal() == 2) this.outputText("s", false);
+        if (this.player.cockTotal() == 2) this.outputText("s");
         this.outputText(
             ".  You slowly release yourself from her tight body, finishing off by covering her curved back and pert rump with the rest of your seed.\n\n",
             false

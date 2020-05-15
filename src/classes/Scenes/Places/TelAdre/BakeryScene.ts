@@ -380,7 +380,7 @@ export class BakeryScene extends TelAdreAbstractContent {
         this.flags[kFLAGS.TEMP_STORAGE_PASTRY_PRICE] = price;
         this.outputText("", true);
         if (this.player.gems < this.flags[kFLAGS.TEMP_STORAGE_PASTRY_PRICE]) {
-            this.outputText("You don't have enough gems to order that!", false);
+            this.outputText("You don't have enough gems to order that!");
             // doNext(bakeryuuuuuu);
             this.menu();
             this.addButton(0, "Next", this.checkBakeryMenu);
@@ -393,16 +393,16 @@ export class BakeryScene extends TelAdreAbstractContent {
                 "You hand over 10 gems and ask for the 'special eclair'.  The centaur working the counter smirks ",
                 false
             );
-            if (this.player.tallness <= 52) this.outputText("down ", false);
-            else if (this.player.tallness >= 84) this.outputText("up ", false);
+            if (this.player.tallness <= 52) this.outputText("down ");
+            else if (this.player.tallness >= 84) this.outputText("up ");
             this.outputText(
                 "at you gives pulls a cream-filled pastry from a box concealed behind the counter.  It's warm... so very warm, and you try to steady your hands as you walk off to towards a table, sniffing in deep lungfuls of its 'special' scent.  The first bite is heaven, sating a craving you didn't even know you had.  You can't stop yourself from moaning with delight as you drain every drop and finish off the sweet doughnut shell.  The minotaur goo is all over your fingers, but you don't mind licking them all clean.  With the lust now you now feel burning inside you, you even try to make a show of it.  Though you make a few ",
                 false
             );
-            if (this.player.femininity >= 75) this.outputText("males fill their pants", false);
-            else if (this.player.femininity <= 25) this.outputText("females squirm", false);
-            else this.outputText("other patrons squirm and fill out their pants", false);
-            this.outputText(", none of them tries to make a move.  Pity.", false);
+            if (this.player.femininity >= 75) this.outputText("males fill their pants");
+            else if (this.player.femininity <= 25) this.outputText("females squirm");
+            else this.outputText("other patrons squirm and fill out their pants");
+            this.outputText(", none of them tries to make a move.  Pity.");
             this.dynStats("lus", 20 + this.player.lib / 10);
             this.player.minoCumAddiction(10);
         } else {
@@ -502,7 +502,7 @@ export class BakeryScene extends TelAdreAbstractContent {
     public buySlutCake(): void {
         this.outputText("", true);
         if (this.player.gems < 500) {
-            this.outputText("You don't have enough gems for one of those!", false);
+            this.outputText("You don't have enough gems for one of those!");
             // doNext(bakeryuuuuuu);
             this.menu();
             this.addButton(0, "Next", this.checkBakeryMenu);

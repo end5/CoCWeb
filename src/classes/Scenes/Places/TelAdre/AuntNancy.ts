@@ -19,16 +19,16 @@ export class AuntNancy extends TelAdreAbstractContent {
                 );
                 // [If MetNancy = 0]
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00263] == 0)
-                    this.outputText("  She", false);
-                else this.outputText("  Aunt Nancy", false);
-                this.outputText(" glances up at you and smiles as you enter", false);
+                    this.outputText("  She");
+                else this.outputText("  Aunt Nancy");
+                this.outputText(" glances up at you and smiles as you enter");
                 // [(if unmet)
                 if (this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00263] == 0)
                     this.outputText(
                         ", and you see that she has additional red eyes spread across her forehead",
                         false
                     );
-                this.outputText(".", false);
+                this.outputText(".");
             }
             return true;
         } else return false;
@@ -266,8 +266,8 @@ export class AuntNancy extends TelAdreAbstractContent {
                 false
             );
             // [If PC is human:]
-            if (this.player.humanScore() >= 4) this.outputText("like you,", false);
-            else this.outputText("like poor little Yara at the earring shop,", false);
+            if (this.player.humanScore() >= 4) this.outputText("like you,");
+            else this.outputText("like poor little Yara at the earring shop,");
             this.outputText(
                 ' and, well, one thing led to another, and I ended up chasing him out into the wider world.</i>"\n\n',
                 false
@@ -398,7 +398,7 @@ export class AuntNancy extends TelAdreAbstractContent {
                 false
             );
         else
-            this.outputText("question whether or not the spider-lady's kiss is responsible", false);
+            this.outputText("question whether or not the spider-lady's kiss is responsible");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -419,7 +419,7 @@ export class AuntNancy extends TelAdreAbstractContent {
             false
         );
         if (this.player.tailType > TAIL_TYPE_NONE)
-            this.outputText(" to the top of your tail", false);
+            this.outputText(" to the top of your tail");
         this.outputText(".\n\n", false);
 
         // [If a naga]
@@ -444,14 +444,14 @@ export class AuntNancy extends TelAdreAbstractContent {
             // [If BallSize allows]
             if (this.player.ballSize < 15) {
                 if (this.player.ballSize > 5 && this.player.ballSize < 15)
-                    this.outputText("taking one", false);
-                else this.outputText("both of them", false);
+                    this.outputText("taking one");
+                else this.outputText("both of them");
                 this.outputText(
                     " into her mouth to soak in her saliva as she wraps and caresses ",
                     false
                 );
-                if (this.player.ballSize <= 5) this.outputText("them", false);
-                else this.outputText("it", false);
+                if (this.player.ballSize <= 5) this.outputText("them");
+                else this.outputText("it");
                 this.outputText(" with her long, dextrous tongue.\n\n", false);
             } else
                 this.outputText(
@@ -462,7 +462,7 @@ export class AuntNancy extends TelAdreAbstractContent {
 
         // [If you have a vagina:]
         if (this.player.hasVagina()) {
-            this.outputText("The spider lady ", false);
+            this.outputText("The spider lady ");
             if (this.player.balls > 0 && this.player.hasCock())
                 this.outputText('lifts away your other "<i>equipment</i>" and ', false);
             this.outputText(
@@ -535,10 +535,10 @@ export class AuntNancy extends TelAdreAbstractContent {
                         "As Aunt Nancy rides you enthusiastically, the spider-lady lifts ",
                         false
                     );
-                    if (this.player.totalCocks() > 2) this.outputText("another one of ", false);
-                    this.outputText("your ", false);
-                    if (this.player.cockTotal() == 2) this.outputText("other cock ", false);
-                    else this.outputText("cocks ", false);
+                    if (this.player.totalCocks() > 2) this.outputText("another one of ");
+                    this.outputText("your ");
+                    if (this.player.cockTotal() == 2) this.outputText("other cock ");
+                    else this.outputText("cocks ");
                     this.outputText(
                         'up to her heaving bosom, and slips it between her soft, lovely breasts.  "<i>Want something else nice?</i>" asks the spider-lady, eyes twinkling.\n\n',
                         false
@@ -569,7 +569,7 @@ export class AuntNancy extends TelAdreAbstractContent {
                         false
                     );
                     // [If CockDescript (Longest Cock) is long enough for auto-fellatio]
-                    if (this.player.cocks[y].cockLength >= 30) this.outputText(" and mouth", false);
+                    if (this.player.cocks[y].cockLength >= 30) this.outputText(" and mouth");
                     this.outputText(
                         ", is incredible.  Aunt Nancy coos happily, clearly enjoying the taste.\n\n",
                         false
@@ -587,12 +587,12 @@ export class AuntNancy extends TelAdreAbstractContent {
                             "Her other hands wrap themselves around more of your cocks",
                             false
                         );
-                    this.outputText(", milking and stroking the ", false);
-                    this.outputText("pulsating prick", false);
-                    if (this.player.cockTotal() > 3) this.outputText("s", false);
-                    this.outputText(" for all ", false);
-                    if (this.player.cockTotal() == 3) this.outputText("it's", false);
-                    else this.outputText("they're", false);
+                    this.outputText(", milking and stroking the ");
+                    this.outputText("pulsating prick");
+                    if (this.player.cockTotal() > 3) this.outputText("s");
+                    this.outputText(" for all ");
+                    if (this.player.cockTotal() == 3) this.outputText("it's");
+                    else this.outputText("they're");
                     this.outputText(" worth.\n\n", false);
                 }
             }
@@ -663,7 +663,7 @@ export class AuntNancy extends TelAdreAbstractContent {
                 false
             );
             if (this.player.tailType > TAIL_TYPE_NONE)
-                this.outputText("tail before rising to your ", false);
+                this.outputText("tail before rising to your ");
             this.outputText(
                 this.vaginaDescript(0) +
                     " and " +
@@ -804,7 +804,7 @@ export class AuntNancy extends TelAdreAbstractContent {
                     false
                 );
             // Else:]
-            else this.outputText("body tensing in preparation for letting out your seed.", false);
+            else this.outputText("body tensing in preparation for letting out your seed.");
             this.outputText("\n\n", false);
 
             this.outputText(
@@ -883,7 +883,7 @@ export class AuntNancy extends TelAdreAbstractContent {
                         "squeezing the fingers on Aunt Nancy's hand still tickling your insides",
                         false
                     );
-                else this.outputText("making you long for something inside of it", false);
+                else this.outputText("making you long for something inside of it");
                 this.outputText(", as " + this.sMultiCockDesc() + " spasms in ecstacy.\n\n", false);
             }
             // [All w/ penis:]
@@ -915,7 +915,7 @@ export class AuntNancy extends TelAdreAbstractContent {
                 false
             );
             if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-            else this.outputText("body", false);
+            else this.outputText("body");
             this.outputText(
                 ", and throws back her head to let it slide into her mouth.\n\n",
                 false
@@ -948,7 +948,7 @@ export class AuntNancy extends TelAdreAbstractContent {
                     "  Her hands are soon drenched in your body's wonderful secretions, just as your",
                     false
                 );
-            else this.outputText("  Your", false);
+            else this.outputText("  Your");
             this.outputText(
                 " fingers are soon soaked in the lovely, sweet-smelling juices of her pussy.\n\n",
                 false
@@ -1013,8 +1013,8 @@ export class AuntNancy extends TelAdreAbstractContent {
                 'You awaken on Aunt Nancy\'s "<i>bed,</i>" an unbelievably comfortable pile of discarded, non-sticky webbing, your head still resting on her comfortable, pillowy bosom.  Slowly, you manage to sit up, tenderly massaging your aching body, especially your ',
                 false
             );
-            if (this.player.gender > 0) this.outputText("genitals", false);
-            else this.outputText("jaw", false);
+            if (this.player.gender > 0) this.outputText("genitals");
+            else this.outputText("jaw");
             this.outputText(
                 ".  The last hour or so is just a blur to you at the moment, a haze of sex and passion and stickiness.  You can still taste Aunt Nancy's scent in your mouth and smell it in the air.  The widow had been insatiable, always coming back for more no matter how often you got her off... and skilled enough to make sure you could too.  Privately, you wonder exactly what killed her husband.\n\n",
                 false

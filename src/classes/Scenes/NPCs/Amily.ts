@@ -79,20 +79,20 @@ export class Amily extends Monster {
             // Add tags for miss/evade/flexibility/etc.
             switch (dodged) {
                 case 1:
-                    this.outputText(" [Dodge]", false);
+                    this.outputText(" [Dodge]");
                     break;
                 case 2:
-                    this.outputText(" [Evade]", false);
+                    this.outputText(" [Evade]");
                     break;
                 case 3:
-                    this.outputText(" [Misdirect]", false);
+                    this.outputText(" [Misdirect]");
                     break;
                 case 4:
-                    this.outputText(" [Flexibility]", false);
+                    this.outputText(" [Flexibility]");
                     break;
                 default:
                     CocSettings.error();
-                    this.outputText(" <b>[ERROR]</b>", false);
+                    this.outputText(" <b>[ERROR]</b>");
                     break;
             }
         }
@@ -280,20 +280,20 @@ export class Amily extends Monster {
             // Add tags for miss/evade/flexibility/etc.
             switch (dodged) {
                 case 1:
-                    this.outputText(" [Dodge]", false);
+                    this.outputText(" [Dodge]");
                     break;
                 case 2:
-                    this.outputText(" [Evade]", false);
+                    this.outputText(" [Evade]");
                     break;
                 case 3:
-                    this.outputText(" [Misdirect]", false);
+                    this.outputText(" [Misdirect]");
                     break;
                 case 4:
-                    this.outputText(" [Flexibility]", false);
+                    this.outputText(" [Flexibility]");
                     break;
                 default:
                     CocSettings.error("");
-                    this.outputText(" <b>[ERROR]</b>", false);
+                    this.outputText(" <b>[ERROR]</b>");
                     break;
             }
         }

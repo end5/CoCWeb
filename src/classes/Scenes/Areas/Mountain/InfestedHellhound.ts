@@ -88,9 +88,9 @@ export class InfestedHellhound extends HellHound {
                     );
                     if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
                     else this.outputText(this.multiCockDescriptLight(), false);
-                    this.outputText(" wriggle", false);
+                    this.outputText(" wriggle");
                     if (this.player.balls == 0 && this.player.cockTotal() == 1)
-                        this.outputText("s", false);
+                        this.outputText("s");
                     this.outputText(
                         " hotly, expelling a few of your own worms in response along with a dribble of thick pre-cum.   You wonder what it would feel like to let his worms crawl inside you...",
                         false

@@ -78,8 +78,8 @@ export class Jasun extends TelAdreAbstractContent {
                 "As your eyes survey the room, you see a very thick figure step out from one of the changing stalls.  He is at least six feet tall from your guesstimate and has a massive barreled chest, the kind that could no doubt bench press anything the creature's own weight.  His shoulder span must be at least ",
                 false
             );
-            if (this.silly()) this.outputText("six", false);
-            else this.outputText("three", false);
+            if (this.silly()) this.outputText("six");
+            else this.outputText("three");
             this.outputText(
                 " feet given the thickness of his muscles and how they flex passively with every tiny movement of his toned and highly desirable body.  Now that you've used the word creature to describe him, though, you find yourself drawn to the oddities that you find on this man's figure.  He has gray skin that has a sheen over it much like you'd imagine an underwater creature would have to facilitate aquatic travel.  His short and coarse silver hair is pulled back into a tiny ponytail, presumably to keep it out of the way.  A finned tail with a hook on the top fin extends from the back of his pelvis and swishes around, knocking back and forth the towel that covers his butt.  From behind, you find the swish and teasing of his chiseled ass hypnotizing... intoxicating, even...\n\n",
                 false
@@ -129,7 +129,7 @@ export class Jasun extends TelAdreAbstractContent {
                     );
                     // (+15 Lust, back to gym entrance)
                     this.dynStats("lus", 10 + this.player.lib / 10);
-                    this.outputText("You book it out of there.  What a waste.", false);
+                    this.outputText("You book it out of there.  What a waste.");
                     this.doNext(this.camp.returnToCampUseOneHour);
                     return;
                 }
@@ -147,7 +147,7 @@ export class Jasun extends TelAdreAbstractContent {
                     );
                     // (+15 Lust, back to gym entrance)
                     this.dynStats("lus", 10 + this.player.lib / 10);
-                    this.outputText("You book it out of there.  What a waste.", false);
+                    this.outputText("You book it out of there.  What a waste.");
                     this.doNext(this.camp.returnToCampUseOneHour);
                     return;
                 }
@@ -203,10 +203,10 @@ export class Jasun extends TelAdreAbstractContent {
                         ", you know, I still don't think you're quite ready to swim with me. That's fine, and it's entirely up to you, but I think today I should probably swim alone. You can come and visit me anytime, of course, maybe when you're ",
                     false
                 );
-                if (this.player.tone < 75) this.outputText("fit enough", false);
+                if (this.player.tone < 75) this.outputText("fit enough");
                 else if (this.player.armorName != "slutty swimwear")
-                    this.outputText("properly attired", false);
-                else this.outputText("a little more compatible with me", false);
+                    this.outputText("properly attired");
+                else this.outputText("a little more compatible with me");
                 this.outputText(
                     ", we can go swim.</i>\" He hesitates for a moment at the mirror, and then walks past you quickly without making eye contact. Feeling dejected and suddenly very alone, you ignore the sensation caused by his skin brushing against yours and walk back to the gym's entrance. Maybe you can work yourself back into Jasun's graces with time.\n\n",
                     false
@@ -321,7 +321,7 @@ export class Jasun extends TelAdreAbstractContent {
             false
         );
         // (Back to gym entrance)
-        this.outputText("You book it out of there.  What a waste.", false);
+        this.outputText("You book it out of there.  What a waste.");
         this.doNext(this.camp.returnToCampUseOneHour);
         return;
     }

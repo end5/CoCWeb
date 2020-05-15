@@ -14,10 +14,10 @@ export class InfestedHellhoundScene extends BaseContent {
     // turned on and over level 2]
     public infestedHellhoundEncounter(): void {
         this.outputText("", true);
-        this.outputText("A low snarl vibrates through your body, ", false);
+        this.outputText("A low snarl vibrates through your body, ");
         if (this.player.lowerBody == LOWER_BODY_TYPE_GOO)
-            this.outputText("making your jello-like body jiggle", false);
-        else this.outputText("rattling your teeth", false);
+            this.outputText("making your jello-like body jiggle");
+        else this.outputText("rattling your teeth");
         this.outputText(
             ".  Peeking fearfully over your shoulder, you see the black-furred form of a hell-hound emerging from behind a rock.  Its eyes narrow as its gaze locks onto your " +
                 this.player.assholeOrPussy() +
@@ -45,10 +45,10 @@ export class InfestedHellhoundScene extends BaseContent {
                     "No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ",
                     false
                 );
-                if (this.player.cor < 33) this.outputText("In spite of your revulsion ", false);
+                if (this.player.cor < 33) this.outputText("In spite of your revulsion ");
                 else if (this.player.cor < 66)
-                    this.outputText("In spite of your better sense ", false);
-                else this.outputText("With a perverse sense of anticipation ", false);
+                    this.outputText("In spite of your better sense ");
+                else this.outputText("With a perverse sense of anticipation ");
                 this.outputText(
                     "you remove your " +
                         this.player.armorName +
@@ -103,10 +103,10 @@ export class InfestedHellhoundScene extends BaseContent {
                     "No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ",
                     false
                 );
-                if (this.player.cor < 33) this.outputText("In spite of your revulsion ", false);
+                if (this.player.cor < 33) this.outputText("In spite of your revulsion ");
                 else if (this.player.cor < 66)
-                    this.outputText("In spite of your better sense ", false);
-                else this.outputText("With a perverse sense of anticipation ", false);
+                    this.outputText("In spite of your better sense ");
+                else this.outputText("With a perverse sense of anticipation ");
                 this.outputText(
                     "you remove your " +
                         this.player.armorName +
@@ -161,7 +161,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
 
-                this.outputText("Your ", false);
+                this.outputText("Your ");
                 if (this.player.balls > 0)
                     this.outputText(
                         this.ballsDescriptLight() +
@@ -214,7 +214,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     false
                 );
 
-                this.outputText("Your ", false);
+                this.outputText("Your ");
                 if (this.player.balls > 0)
                     this.outputText(
                         this.ballsDescriptLight() +
@@ -259,10 +259,10 @@ export class InfestedHellhoundScene extends BaseContent {
                     "No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ",
                     false
                 );
-                if (this.player.cor < 33) this.outputText("In spite of your revulsion ", false);
+                if (this.player.cor < 33) this.outputText("In spite of your revulsion ");
                 else if (this.player.cor < 66)
-                    this.outputText("In spite of your better sense ", false);
-                else this.outputText("With a perverse sense of anticipation ", false);
+                    this.outputText("In spite of your better sense ");
+                else this.outputText("With a perverse sense of anticipation ");
                 this.outputText(
                     "you remove your " +
                         this.player.armorName +
@@ -331,7 +331,7 @@ export class InfestedHellhoundScene extends BaseContent {
                 false
             );
             this.player.cuntChange(this.monster.cockArea(0), true);
-            this.outputText("  ", false);
+            this.outputText("  ");
             this.player.buttChange(this.monster.cockArea(0), true);
             // (Status applied – worm plugged) –
             // random chance of big lust boost as worms evacuate
@@ -367,10 +367,10 @@ export class InfestedHellhoundScene extends BaseContent {
                     "No amount of shame from the act of submitting to such a beast can overpower the furnace of lust raging in your loins.  ",
                     false
                 );
-                if (this.player.cor < 33) this.outputText("In spite of your revulsion ", false);
+                if (this.player.cor < 33) this.outputText("In spite of your revulsion ");
                 else if (this.player.cor < 66)
-                    this.outputText("In spite of your better sense ", false);
-                else this.outputText("With a perverse sense of anticipation ", false);
+                    this.outputText("In spite of your better sense ");
+                else this.outputText("With a perverse sense of anticipation ");
                 this.outputText(
                     "you remove your " +
                         this.player.armorName +
@@ -439,7 +439,7 @@ export class InfestedHellhoundScene extends BaseContent {
                     " and coating your back.",
                 false
             );
-            this.outputText("  ", false);
+            this.outputText("  ");
             this.player.buttChange(this.monster.cockArea(0), true);
             this.player.orgasm();
             this.dynStats("lib", 1, "cor", 1);

@@ -227,8 +227,8 @@ export class TelAdre extends BaseContent {
             'The two of you find yourselves in the center of a busy intersection.  Urta explains that this is the main square of the city, and that, although the city is large, a goodly portion of it remains empty.  Much of the population left to assist other settlements in resisting the demons and was lost.  She brushes a lock of stray hair from her eye and guides you down the road, making sure to point out her favorite pub - "The Wet Bitch".  You ',
             false
         );
-        if (this.player.cor < 25) this.outputText("blush", false);
-        else this.outputText("chuckle", false);
+        if (this.player.cor < 25) this.outputText("blush");
+        else this.outputText("chuckle");
         this.outputText(
             " at the rather suggestive name as Urta turns around and says, \"<i>With how things are, we've all gotten a lot more comfortable with our sexuality.  I hope it doesn't bother you.</i>\"\n\n",
             false
@@ -487,8 +487,8 @@ export class TelAdre extends BaseContent {
         this.spriteSelect(63);
         this.player.createStatusAffect(StatusAffects.Yara, 0, 0, 0, 0);
         this.outputText("You introduce yourself and ask Yara about her past, noting that ", true);
-        if (this.player.humanScore() <= 2) this.outputText("you were once a human too.", false);
-        else this.outputText("you haven't seen many other humans about.", false);
+        if (this.player.humanScore() <= 2) this.outputText("you were once a human too.");
+        else this.outputText("you haven't seen many other humans about.");
         this.outputText(
             "\n\nShe blushes a little when she answers, her tail curling about her protectively, \"<i>My home city was built around a portal, and the Baron that ruled it insisted that we send a sacrifice through every year.  We were raised believing that if we didn't sacrifice SOMEONE, the gods would become angry and bring our city to ruin.  Of course the whole thing was a sham, but the families of those sacrificed get compensation.  My father tried to whore me out first, but when that didn't work, the bastard had me drugged and sacrificed.  I woke up next to a lake, ate some weird fruit when I got hungry, and I... well, I changed.  Thankfully I found my way here before I ran into any demons, or who knows what would have happened to me!  Tel'Adre has been good to me, and I'm sure it'll be good to you.  Now, how about getting a piercing?</i>\"",
             false
@@ -1908,9 +1908,9 @@ export class TelAdre extends BaseContent {
             loppe.loppeFirstMeeting();
             return;
         }
-        outputText("The interior of The Wet Bitch is far different than the mental picture its name implied.  It looks like a normal tavern, complete with a large central hearth, numerous tables and chairs, and a polished dark wood bar.  The patrons all seem to be dressed and interacting like normal people, that is if normal people were mostly centaurs and dog-morphs of various sub-species.  The atmosphere is warm and friendly, and ", false);
-        if(player.humanScore() <= 3) outputText("despite your altered appearance, ", false);
-        outputText("you hardly get any odd stares.  There are a number of rooms towards the back, as well as a stairway leading up to an upper level.", false);
+        outputText("The interior of The Wet Bitch is far different than the mental picture its name implied.  It looks like a normal tavern, complete with a large central hearth, numerous tables and chairs, and a polished dark wood bar.  The patrons all seem to be dressed and interacting like normal people, that is if normal people were mostly centaurs and dog-morphs of various sub-species.  The atmosphere is warm and friendly, and ");
+        if(player.humanScore() <= 3) outputText("despite your altered appearance, ");
+        outputText("you hardly get any odd stares.  There are a number of rooms towards the back, as well as a stairway leading up to an upper level.");
         // Hours of operation decrease after birth
         if(!kGAMECLASS.urtaQuest.urtaBusy()) {
             if(edryn.edrynBar()) {
@@ -2089,13 +2089,13 @@ export class TelAdre extends BaseContent {
             false
         );
         if (this.player.findStatusAffect(StatusAffects.Victoria) < 0) {
-            this.outputText("You turn around, ", false);
+            this.outputText("You turn around, ");
             if (this.player.tallness > 60)
                 this.outputText(
                     "looking for the source, eventually looking down and at a short but busty Corgi dog-girl.  ",
                     false
                 );
-            else this.outputText("coming face to face with a busty Corgi dog-girl.  ", false);
+            else this.outputText("coming face to face with a busty Corgi dog-girl.  ");
             this.outputText(
                 "She's clearly the tailor judging by her stylish, low-cut clothing and poofy hat.  A monocle perches on her nose, giving her a rather distinguished appearance.  The fashionable wench arches her back, showing off what she's got as she introduces herself, \"<i>Ello love, welcome to my shop.  My name's Victoria, though if you like, you can call me Vicky.  You'll find my clothing to be a cut above the rubbish sold elsewhere.</i>\"",
                 false
@@ -2103,8 +2103,8 @@ export class TelAdre extends BaseContent {
             // Flag as meeting her
             this.player.createStatusAffect(StatusAffects.Victoria, 0, 0, 0, 0);
         } else {
-            this.outputText("You turn around to look ", false);
-            if (this.player.tallness > 60) this.outputText("down ", false);
+            this.outputText("You turn around to look ");
+            if (this.player.tallness > 60) this.outputText("down ");
             this.outputText(
                 "at Victoria the Corgi Tailor.  As usual, she's dressed in a stylish low-cut dress and sporting her feathery hat.",
                 false
@@ -2143,9 +2143,9 @@ export class TelAdre extends BaseContent {
             false
         );
         if (this.player.biggestCockArea() > 30 || this.player.totalCocks() > 1)
-            this.outputText("fondle your bulging package", false);
-        else if (this.player.hasVagina()) this.outputText("rub against your outer lips", false);
-        else this.outputText("slip a finger along your crotch", false);
+            this.outputText("fondle your bulging package");
+        else if (this.player.hasVagina()) this.outputText("rub against your outer lips");
+        else this.outputText("slip a finger along your crotch");
         this.outputText(
             ' more than a few times.  You could swear you catch her licking her lips when she stands up, but she quickly turns away, saying, "<i>I\'ve got one in the back that should fit perfectly!  Be right with you!</i>"\n\n',
             false
@@ -2375,9 +2375,9 @@ export class TelAdre extends BaseContent {
             false
         );
         if (this.player.findStatusAffect(StatusAffects.Infested) >= 0)
-            this.outputText("aroused", false);
-        else if (this.player.cor < 50) this.outputText("horrified", false);
-        else this.outputText("confused", false);
+            this.outputText("aroused");
+        else if (this.player.cor < 50) this.outputText("horrified");
+        else this.outputText("confused");
         this.outputText(
             " by what you see.  A pair of thick, demonic horns curve back over the beast's head, piercing through the bottoms of its wolf-like ears.  Its entire body is covered in rippling muscle, leaving you in no doubt of its strength.  Even with a broken knee, the wolf-man is clearly aroused: protruding from a bloated sheath, his massive dog-dick is fully erect, solid black in color, with an engorged knot.  Small white worms crawl over the surface of his penis, wriggling out of the tip and crawling down the length, leaving trails of slime behind them.\n\n",
             false
@@ -2416,9 +2416,9 @@ export class TelAdre extends BaseContent {
             "Even though Ingnam, your hometown, was a large, prosperous village, you never saw a gym before coming to Tel'Adre.  The structure itself has numerous architectural differences from the surrounding buildings: short, waist-high walls, an arched ceiling supported by simple columns, and a sand-covered floor.  Perhaps the only 'normal' rooms inside are the changing stands and bathrooms, which ",
             false
         );
-        if (this.player.cor < 35) this.outputText("thankfully ", false);
+        if (this.player.cor < 35) this.outputText("thankfully ");
         else if (this.flags[kFLAGS.PC_FETISH] > 0 || this.player.cor > 80)
-            this.outputText("unfortunately ", false);
+            this.outputText("unfortunately ");
         this.outputText(
             "have full sized walls to protect their users' privacy.  A breeze blows by, revealing that the open-air design provides great ventilation.  You note a wall of weights of different sizes and shapes, perfect for building muscle and bulking up.  There are also jogging tracks and even a full-sized, grass-covered track out back for centaurs to run on.  Though some of the equipment seems a bit esoteric in nature, you're sure you can make use of most of this stuff.\n\n",
             false
@@ -2561,7 +2561,7 @@ export class TelAdre extends BaseContent {
         // [Lift Weights] +25 fatigue!
         this.fatigue(25);
         // TEXTS!
-        this.outputText("You walk up to the weights and begin your workout.  ", false);
+        this.outputText("You walk up to the weights and begin your workout.  ");
         // (< 25 str)
         if (this.player.str < 25)
             this.outputText(
@@ -2637,7 +2637,7 @@ export class TelAdre extends BaseContent {
         // [Jogging] +30 fatigue!
         this.fatigue(30);
         // Text!
-        this.outputText("You hit the jogging track, ", false);
+        this.outputText("You hit the jogging track, ");
         // (<25 tou)
         if (this.player.tou < 25)
             this.outputText(
@@ -2770,7 +2770,7 @@ export class TelAdre extends BaseContent {
             "Yara makes you comfortable and has you look away while she uses her piercing tools.  It hurts, but she's skilled. Before you know it, your piercing is done!  You move to rise, retaining a bit of modesty",
             false
         );
-        if (this.flags[kFLAGS.PC_FETISH] > 0) this.outputText(" despite the guilty thrill", false);
+        if (this.flags[kFLAGS.PC_FETISH] > 0) this.outputText(" despite the guilty thrill");
         this.outputText(
             '.  "<i>Hold it,</i>" Yara commands softly, pressing her hand against your ' +
                 this.chestDesc() +
@@ -2832,9 +2832,9 @@ export class TelAdre extends BaseContent {
                 return;
             }
         }
-        this.outputText("Her eyes widen as you begin to ", false);
-        if (this.player.lust < 50) this.outputText("protest", false);
-        else this.outputText("speak", false);
+        this.outputText("Her eyes widen as you begin to ");
+        if (this.player.lust < 50) this.outputText("protest");
+        else this.outputText("speak");
         this.outputText(
             ', neatly silencing you with the lust-filled fires simmering in her eyes.  "<i>Call it quality testing,</i>" she purrs.  Her free hand runs up and down your inner thigh, the ticklish teasing nearly making your head spin.  Licking her lips in anticipation, Yara wiggles out of her clothes and clambers onto the chair, kneeling on the armrests.  Due to her awkward posture, you find your gaze drifting to her wide-spread legs.  Nestled there, twinkling with a radiant luster, is a golden ring, looped through her already-throbbing clit.  A blush darkens her cheeks as she notices your stare, but she seems almost empowered by it.\n\n',
             false
@@ -2862,8 +2862,8 @@ export class TelAdre extends BaseContent {
             "She leans forward, planting you with a wet and lingering kiss.  She moves lower, kissing ",
             false
         );
-        if (this.player.biggestTitSize() < 1) this.outputText("your chest", false);
-        else this.outputText("your nipples, one at a time", false);
+        if (this.player.biggestTitSize() < 1) this.outputText("your chest");
+        else this.outputText("your nipples, one at a time");
         this.outputText(
             ' and smooching your belly.  Even with her racially characteristic flexibility, however, she\'s not able to get any lower from that angle.  "<i>Hold this, dear,</i>" she says somewhat snarkily, pivoting around and resting her ass against your ' +
                 this.chestDesc() +
@@ -2977,7 +2977,7 @@ export class TelAdre extends BaseContent {
                     "She may as well be licking a melting popsicle with how wet your snatch is.",
                     false
                 );
-            else this.outputText("Your relatively dry perimeter makes for an easy target.", false);
+            else this.outputText("Your relatively dry perimeter makes for an easy target.");
             this.outputText(
                 "  Not to be outdone, your ambitious tongue moves in as if it has everything to prove, mirroring your partner's efforts. Both of your lapping endeavors are periodically interrupted by moaning or slight gasps, your grasps on one another only growing more tense.\n\n",
                 false

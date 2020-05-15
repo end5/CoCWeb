@@ -32,7 +32,7 @@ export class Hel extends Monster {
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
-            this.outputText("You nimbly dodge the salamander's massive sword thrust!", false);
+            this.outputText("You nimbly dodge the salamander's massive sword thrust!");
         }
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && Hel.rand(100) < 10) {

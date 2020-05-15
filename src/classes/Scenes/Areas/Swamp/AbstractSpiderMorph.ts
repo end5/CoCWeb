@@ -52,11 +52,11 @@ export class AbstractSpiderMorph extends Monster {
             this.player.spe - this.spe > 0 &&
             Math.floor(Math.random() * ((this.player.spe - this.spe) / 4 + 80)) > 80
         ) {
-            this.outputText("You dodge away, avoiding the sticky strands!", false);
+            this.outputText("You dodge away, avoiding the sticky strands!");
         }
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && AbstractSpiderMorph.rand(100) < 10) {
-            this.outputText("You evade, avoiding the sticky strands!", false);
+            this.outputText("You evade, avoiding the sticky strands!");
         }
         // ("Misdirection"
         else if (
@@ -137,7 +137,7 @@ export class AbstractSpiderMorph extends Monster {
                 );
                 if (this.player.hasVagina())
                     this.outputText(" along with your " + this.player.vaginaDescript(), false);
-                this.outputText(".  ", false);
+                this.outputText(".  ");
             } else if (this.player.hasVagina())
                 this.outputText(
                     "Your " +
@@ -208,7 +208,7 @@ export class AbstractSpiderMorph extends Monster {
         }
         // Determine if evaded
         else if (this.player.findPerk(PerkLib.Evade) >= 0 && AbstractSpiderMorph.rand(100) < 10) {
-            this.outputText("You evade, avoiding the bite!", false);
+            this.outputText("You evade, avoiding the bite!");
         }
         // ("Misdirection"
         else if (
@@ -283,7 +283,7 @@ export class AbstractSpiderMorph extends Monster {
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
-            this.outputText("The blind web-shot goes horribly wide, missing you entirely.", false);
+            this.outputText("The blind web-shot goes horribly wide, missing you entirely.");
         }
         // Determine if dodged!
         else if (
@@ -328,7 +328,7 @@ export class AbstractSpiderMorph extends Monster {
             this.player.weaponName == "spiked gauntlet" ||
             this.player.weaponName == "hooked gauntlets"
         ) {
-            this.outputText("The webbing hits your ", false);
+            this.outputText("The webbing hits your ");
             if (this.player.weaponName == "spiked gauntlet")
                 this.outputText(
                     "gauntlet, but it's so effectively fastened to your hands that the attack fails to disarm you.\n",
@@ -371,7 +371,7 @@ export class AbstractSpiderMorph extends Monster {
         );
         // Blind dodge change
         if (this.findStatusAffect(StatusAffects.Blind) >= 0 && AbstractSpiderMorph.rand(3) < 2) {
-            this.outputText("The blind web-shot goes horribly wide, missing you entirely.", false);
+            this.outputText("The blind web-shot goes horribly wide, missing you entirely.");
         }
         // Determine if dodged!
         else if (

@@ -94,7 +94,7 @@ export class KihaScene extends NPCAwareContent {
                 false
             );
 
-            this.outputText("What do you do?", false);
+            this.outputText("What do you do?");
             // [Fight] [Ask Why][Buy Passage][Leave]
             this.simpleChoices(
                 "Fight",
@@ -132,7 +132,7 @@ export class KihaScene extends NPCAwareContent {
             );
             temp = this.payKihaTribute;
             if (this.player.gems < 200) {
-                this.outputText("You can't afford to pay her!", false);
+                this.outputText("You can't afford to pay her!");
                 temp = undefined;
             }
             // [Pay] [This was my idea] [Leave] [Fight] - Leave uses standard leave text
@@ -209,7 +209,7 @@ export class KihaScene extends NPCAwareContent {
                     this.leaveWhenMeetingAgressiveKiha
                 );
             } else {
-                this.outputText("It's a fight!", false);
+                this.outputText("It's a fight!");
                 this.startCombat(new Kiha());
             }
         }
@@ -317,7 +317,7 @@ export class KihaScene extends NPCAwareContent {
         else if (event < 8) itype = this.consumables.GROPLUS;
         else if (event < 9) itype = this.consumables.COAL___;
         else if (event < 10) itype = this.useables.T_SSILK;
-        this.outputText("While exploring, you find an item on the ground!  ", false);
+        this.outputText("While exploring, you find an item on the ground!  ");
         this.inventory.takeItem(itype!, this.camp.returnToCampUseOneHour);
     }
 
@@ -346,13 +346,13 @@ export class KihaScene extends NPCAwareContent {
             "Kiha sways back and forth for a moment, then drops her axe with numb hands.  As soon as she does, the hot glow of the weapon's cutting edge fades to silver, and the weapon lands with a heavy 'thunk' ",
             false
         );
-        if (this.silly()) this.outputText("(like Urta's cock!) ", false);
+        if (this.silly()) this.outputText("(like Urta's cock!) ");
         this.outputText(
             "in the dirt.  The dragoness drops to her knees and slumps back against a tree, her limbs trembling ",
             false
         );
-        if (this.monster.lust > 99) this.outputText("with lust", false);
-        else this.outputText("weakly", false);
+        if (this.monster.lust > 99) this.outputText("with lust");
+        else this.outputText("weakly");
         this.outputText(" as she tries to rise.\n\n", false);
 
         // (Lust)
@@ -395,8 +395,8 @@ export class KihaScene extends NPCAwareContent {
                     this.player.cockThatFits2(this.monster.vaginalCapacity()) != -1 &&
                     this.player.cockTotal() > 1
                 )
-                    this.outputText(" and ass", false);
-                this.outputText(".", false);
+                    this.outputText(" and ass");
+                this.outputText(".");
                 fuckHer = this.victoryDickKiha;
             }
         }
@@ -470,7 +470,7 @@ export class KihaScene extends NPCAwareContent {
                 false
             );
             if (this.player.hasCock()) this.outputText(this.multiCockDescriptLight(), false);
-            if (this.player.hasCock() && this.player.hasVagina()) this.outputText(" and ", false);
+            if (this.player.hasCock() && this.player.hasVagina()) this.outputText(" and ");
             if (this.player.hasVagina()) this.outputText(this.vaginaDescript(), false);
             this.outputText(".\n\n", false);
             // TO THE RAPES!
@@ -504,7 +504,7 @@ export class KihaScene extends NPCAwareContent {
                 "You slide to the ground, too turned on to fight and openly touching yourself.",
                 false
             );
-        else this.outputText("You slide to the ground, too defeated to continue to fight.", false);
+        else this.outputText("You slide to the ground, too defeated to continue to fight.");
         this.outputText(
             "  Kiha snorts, expelling a tiny burst of flame and smoke from a nostril as she towers over your prone body.\n\n",
             false
@@ -529,10 +529,10 @@ export class KihaScene extends NPCAwareContent {
             false
         );
         if (this.player.hasCock())
-            this.outputText("not noticing the stiffening in your loins", false);
+            this.outputText("not noticing the stiffening in your loins");
         else if (this.player.hasVagina())
-            this.outputText("not noticing the scent of your growing need", false);
-        else this.outputText("not noticing the flush of your skin", false);
+            this.outputText("not noticing the scent of your growing need");
+        else this.outputText("not noticing the flush of your skin");
         this.outputText(
             " as she callowly milks your breasts.  She isn't even blushing; if anything, her expression reminds you of a child playing with a new toy.  Kiha isn't aroused by this at all!\n\n",
             false
@@ -574,13 +574,13 @@ export class KihaScene extends NPCAwareContent {
             "You trudge back to camp, replaying the erotic torture over and over in your over-sexed mind.  You just can't shake it, and once you get safe, you wind up spending hours masturbating, mooing over and over while you play with your body and further abuse your milky tits.  ",
             false
         );
-        if (this.player.cor < 33) this.outputText("How far you've fallen.", false);
+        if (this.player.cor < 33) this.outputText("How far you've fallen.");
         else if (this.player.cor < 66)
             this.outputText(
                 "How confusing this all is.  Why can't things be simple like they were back home?",
                 false
             );
-        else this.outputText("Damn, that was hot.", false);
+        else this.outputText("Damn, that was hot.");
         this.player.orgasm();
         this.dynStats("tou", -1, "sen", 5);
         this.cleanupAfterCombat();
@@ -764,9 +764,9 @@ export class KihaScene extends NPCAwareContent {
         );
         // NAGA OR SLIME:
         if (this.player.isNaga() || this.player.isGoo())
-            this.outputText("Sliding backward slightly", false);
+            this.outputText("Sliding backward slightly");
         // LEGS:
-        else this.outputText("Hooking a leg under one of yours", false);
+        else this.outputText("Hooking a leg under one of yours");
         this.outputText(
             ", Kiha repositions herself so that her ashen-hued vulva presses moistly against your " +
                 this.vaginaDescript(0) +
@@ -834,14 +834,14 @@ export class KihaScene extends NPCAwareContent {
                 " as you observe her firm, ",
             false
         );
-        if (this.player.lust > 99) this.outputText("wanton", false);
-        else this.outputText("but dispirited", false);
+        if (this.player.lust > 99) this.outputText("wanton");
+        else this.outputText("but dispirited");
         this.outputText(
             " figure slumping against the weathered bark behind her.  She eyes you carefully, trying to comprehend the situation before catching note of your ",
             false
         );
-        if (this.player.gender > 0) this.outputText("aroused genitals", false);
-        else this.outputText("distinct lack of genitals", false);
+        if (this.player.gender > 0) this.outputText("aroused genitals");
+        else this.outputText("distinct lack of genitals");
         this.outputText(".\n\n", false);
 
         // If Multi/Herm
@@ -869,7 +869,7 @@ export class KihaScene extends NPCAwareContent {
                 false
             );
 
-        this.outputText("  Today, however, you don't have any plans to fuck her directly", false);
+        this.outputText("  Today, however, you don't have any plans to fuck her directly");
         if (this.player.gender == 0)
             this.outputText(
                 ", and seeing as you don't have anything to fuck her with, it's not like you could",
@@ -880,8 +880,8 @@ export class KihaScene extends NPCAwareContent {
             false
         );
         if (this.player.tallness < 72)
-            this.outputText("- though you're hidden behind her tallness", false);
-        else this.outputText("- though you're much taller than her", false);
+            this.outputText("- though you're hidden behind her tallness");
+        else this.outputText("- though you're much taller than her");
         this.outputText(
             ".  The dragoness attempts to struggle against you, but she's far too enervated to move.  \"<i>What are you doing?  I don't fucking understand you!  What are yo-</i>\" before she can continue to berate you, you cut her off by moving her head towards your own and kissing her firmly on the lips.  Her eyes widen in surprise, but soon lower as she begins to reciprocate the notion.  You lock lips for what seems like ages, long enough that when you part, a single rope of saliva remains, connecting the two of you together.\n\n",
             false
@@ -951,9 +951,9 @@ export class KihaScene extends NPCAwareContent {
     private kihaVictoryPomfTail(): void {
         this.outputText("", true);
         this.spriteSelect(72);
-        this.outputText("You approach the ", false);
-        if (this.monster.lust > 99) this.outputText("lusty ", false);
-        else this.outputText("wounded ", false);
+        this.outputText("You approach the ");
+        if (this.monster.lust > 99) this.outputText("lusty ");
+        else this.outputText("wounded ");
         this.outputText(
             "dragoness full of wicked ideas.  For her part, she looks up at you with a defiant gaze, as if it would somehow dissuade you from the sexual thoughts now guiding your body.  You circle to the side and reach down, grabbing her wriggling tail with both hands.  Kiha tries to pull it out of your hands, but in her weakened state, all it does is weakly flop like a caught fish.  Laughing, you smack her in the face with her own scaly hind-bits before you drop it.  You know just how you'll put that rudder to use, but first you've got to shuck your " +
                 this.player.armorName +
@@ -961,9 +961,9 @@ export class KihaScene extends NPCAwareContent {
             false
         );
 
-        this.outputText("The gear lands behind you in a bed of moss", false);
-        if (this.silly()) this.outputText(" with a pomf =3", false);
-        else this.outputText(".", false);
+        this.outputText("The gear lands behind you in a bed of moss");
+        if (this.silly()) this.outputText(" with a pomf =3");
+        else this.outputText(".");
         this.outputText(
             "  Now nude, you sway your " +
                 this.hipDescript() +
@@ -994,7 +994,7 @@ export class KihaScene extends NPCAwareContent {
             "Kiha's eyes well up with tears while her eyebrows stay locked in a perpetually angry glare.  At the same time, you begin to hear fluids dripping down to the ground.  You surreptitiously glance below and confirm that your initial thought was correct - she's gotten much wetter after having to suck on your pussy-",
             false
         );
-        if (this.player.hasCock()) this.outputText(", cum-,", false);
+        if (this.player.hasCock()) this.outputText(", cum-,");
         this.outputText(
             " and sweat-soaked underwear.  The black, crimson-embedded slits of her eyes narrow in barely suppressed rage, but as she is now, she's no threat to you.\n\n",
             false
@@ -1004,9 +1004,9 @@ export class KihaScene extends NPCAwareContent {
             "You reach back down and once again take hold of the rebellious dragon's tail.  \"<i>I'm going to get myself off.  Perhaps if you had been more agreeable I might have considered helping you out too.  Now, if you don't mind, I think this nice, ribbed tail-dildo should work just fine.</i>\"  You twist her squirming appendage about and rub the thicker bottom scales over your lower lips, your body shivering from the pleasure.  As you slide the hot, scaled pretend-penis along your femininity, it ",
             false
         );
-        if (this.player.wetness() <= 3) this.outputText("grows wet", false);
-        else if (this.player.wetness() <= 4) this.outputText("quickly grows slimy", false);
-        else this.outputText("immediately becomes soaked from your constant drippings", false);
+        if (this.player.wetness() <= 3) this.outputText("grows wet");
+        else if (this.player.wetness() <= 4) this.outputText("quickly grows slimy");
+        else this.outputText("immediately becomes soaked from your constant drippings");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -1041,10 +1041,10 @@ export class KihaScene extends NPCAwareContent {
                 " push back against the welcome intrusion, stuffing another inch or two inside yourself as you move closer and closer to the release you oh-so-desperately crave.  It feels so good!  You scream out in bliss and undulate your entire body, pumping, thrusting, and squirming yourself to the absolute highest peak of pleasure, the summit of sensation.  ",
             false
         );
-        if (this.player.wetness() < 3) this.outputText("Dripping", false);
-        else if (this.player.wetness() < 4) this.outputText("Leaking", false);
-        else if (this.player.wetness() < 5) this.outputText("Gushing", false);
-        else this.outputText("Spraying", false);
+        if (this.player.wetness() < 3) this.outputText("Dripping");
+        else if (this.player.wetness() < 4) this.outputText("Leaking");
+        else if (this.player.wetness() < 5) this.outputText("Gushing");
+        else this.outputText("Spraying");
         this.outputText(
             " girl-cum, your " +
                 this.vaginaDescript() +
@@ -1084,7 +1084,7 @@ export class KihaScene extends NPCAwareContent {
                 "Just because you've aroused my body doesn't mean I'll enjoy this!",
                 false
             );
-        else this.outputText("Don't think I'll enjoy this!", false);
+        else this.outputText("Don't think I'll enjoy this!");
         this.outputText('</i>"\n\n', false);
 
         this.outputText(
@@ -1139,8 +1139,8 @@ export class KihaScene extends NPCAwareContent {
                     ", but your other penis",
                 false
             );
-            if (this.player.cockTotal() == 2) this.outputText(" is", false);
-            else this.outputText("es are", false);
+            if (this.player.cockTotal() == 2) this.outputText(" is");
+            else this.outputText("es are");
             this.outputText(
                 " aching so much that you may as well try to double your pleasure and fun.  Without hesitation, you slide two cocks inside your unsuspecting partner.  The top one smoothly sheaths itself inside Kiha's velvety tunnel.  Her tightly-clenched pucker proves more resistant to your " +
                     this.cockDescript(y) +
@@ -1188,9 +1188,9 @@ export class KihaScene extends NPCAwareContent {
                 }
             }
             if (this.player.isNaga() || this.player.tailType == TAIL_TYPE_LIZARD || z >= 0) {
-                this.outputText("Spitefully, your ", false);
-                if (z == -1) this.outputText("tail", false);
-                else this.outputText("idle tentacle", false);
+                this.outputText("Spitefully, your ");
+                if (z == -1) this.outputText("tail");
+                else this.outputText("idle tentacle");
                 this.outputText(
                     " responds in kind, bending up to squeeze Kiha's own neck and even inserting the tip into her mouth when next she opens it to let out an aroused gasp, forcing itself down her gullet.  A cross look flashes across her visage for only a second as she realizes she's become subject to your own draconic retribution, but the next few desperate thrusts into her wanton holes do much to dissipate it.  For every thrust she squeezes your windpipe a bit tighter, and you respond in kind",
                     false
@@ -1212,8 +1212,8 @@ export class KihaScene extends NPCAwareContent {
                 false
             );
             if (this.player.isNaga() || this.player.tailType == TAIL_TYPE_LIZARD || z >= 0)
-                this.outputText(" gasping mouth,", false);
-            this.outputText(" and tight anus with waves of white.", false);
+                this.outputText(" gasping mouth,");
+            this.outputText(" and tight anus with waves of white.");
             if (this.player.cumQ() >= 500)
                 this.outputText(
                     "  Her belly distends before long, stuffed by the heavy loads of cream you push out.",
@@ -1224,8 +1224,8 @@ export class KihaScene extends NPCAwareContent {
                     "  You even coat her belly and tits with seed thanks to your extra penis",
                     false
                 );
-                if (this.player.cockTotal() > 3) this.outputText("es", false);
-                this.outputText(".", false);
+                if (this.player.cockTotal() > 3) this.outputText("es");
+                this.outputText(".");
             }
             this.outputText("\n\n", false);
 
@@ -1257,8 +1257,8 @@ export class KihaScene extends NPCAwareContent {
                 false
             );
             if (this.monster.lust > 99)
-                this.outputText("more aroused despite her feigned indifference", false);
-            else this.outputText("very aroused in spite of her desire to fight you", false);
+                this.outputText("more aroused despite her feigned indifference");
+            else this.outputText("very aroused in spite of her desire to fight you");
             this.outputText(
                 ".  For your part, you pick up the pace, pushing yourself faster and faster towards an eventual climax.  Kiha places her scaled fingers on her chest to stop it from jiggling in response, but you push them away, wanting her breasts to bounce freely for your amusement.\n\n",
                 false
@@ -1285,7 +1285,7 @@ export class KihaScene extends NPCAwareContent {
                     "Even after that, thick gouts of the stuff spray out through her cock-stuffed lips, forming a puddle beneath your foe.  ",
                     false
                 );
-            this.outputText("You pull out", false);
+            this.outputText("You pull out");
             if (this.player.cor < 33)
                 this.outputText(
                     ", clean up, and get dressed, leaving Kiha behind to consider the effects of her arrogance.",
@@ -1376,7 +1376,7 @@ export class KihaScene extends NPCAwareContent {
             false
         );
 
-        this.outputText("By the time you come to, Kiha is long gone.", false);
+        this.outputText("By the time you come to, Kiha is long gone.");
         this.player.orgasm();
         this.dynStats("sen", 2);
         this.cleanupAfterCombat();
@@ -1433,7 +1433,7 @@ export class KihaScene extends NPCAwareContent {
                 this.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00281] > 0 &&
                 this.telAdre.lottie.lottieMorale() <= 33
             )
-                this.outputText("  Is that what it feels like to be Lottie?", false);
+                this.outputText("  Is that what it feels like to be Lottie?");
         }
         // Conversation Level 3 (40- Corruption! PUREBABIES ONLY!) (Zed)
         else if (this.flags[kFLAGS.KIHA_TALK_STAGE] == 2) {
@@ -1617,9 +1617,9 @@ export class KihaScene extends NPCAwareContent {
 
         // [if multi-cocks and one is within cock area of 20]
         if (y >= 0) {
-            this.outputText("A perverted idea forms in your mind. You reach down, grab", false);
-            if (this.player.cockTotal() == 2) this.outputText(" your other dick", false);
-            else this.outputText(" another of your dicks", false);
+            this.outputText("A perverted idea forms in your mind. You reach down, grab");
+            if (this.player.cockTotal() == 2) this.outputText(" your other dick");
+            else this.outputText(" another of your dicks");
             this.outputText(
                 ", and line it up to the entrance of her now-stretched hole, ramming them both in on your next thrust, expanding her tight passage far beyond its normal limits.  The dragon breaks her silence with a shriek as your two cocks ravage her bunghole, her walls nearly crushing your members as she clenches her muscles in shock.  The extreme tightness and the unbelievable heat enveloping your dicks becomes too much, and you feel the point of no return approaching quickly.\n\n",
                 false

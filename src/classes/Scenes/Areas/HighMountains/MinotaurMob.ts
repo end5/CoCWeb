@@ -91,7 +91,7 @@ export class MinotaurMob extends Monster {
                 false
             );
             if (this.player.lust > 99)
-                this.outputText("  Still, you're too horny to fight any longer.", false);
+                this.outputText("  Still, you're too horny to fight any longer.");
         }
         // (Medium damage taken)
         else if (damage <= 14) {
@@ -102,7 +102,7 @@ export class MinotaurMob extends Monster {
                 false
             );
             if (this.player.lust > 70)
-                this.outputText(", though you didn't think such a thing was possible", false);
+                this.outputText(", though you didn't think such a thing was possible");
             else
                 this.outputText(
                     ", feeling like two bullets scraping along the inside of your " +
@@ -114,19 +114,19 @@ export class MinotaurMob extends Monster {
                 false
             );
             if (this.player.lust > 99)
-                this.outputText("  Fuck it, they smell so good.  You want, no, NEED more.", false);
-            else this.outputText("  A growing part of you wants to experience that.", false);
+                this.outputText("  Fuck it, they smell so good.  You want, no, NEED more.");
+            else this.outputText("  A growing part of you wants to experience that.");
         }
         // (high damage taken)
         else {
-            this.outputText("All that potent pre-ejaculate makes your cunny ", false);
-            if (this.player.wetness() <= 1) this.outputText("moisten", false);
-            else if (this.player.wetness() <= 2) this.outputText("drip", false);
-            else if (this.player.wetness() <= 3) this.outputText("drool", false);
-            else this.outputText("juice itself", false);
-            this.outputText(" in need.", false);
+            this.outputText("All that potent pre-ejaculate makes your cunny ");
+            if (this.player.wetness() <= 1) this.outputText("moisten");
+            else if (this.player.wetness() <= 2) this.outputText("drip");
+            else if (this.player.wetness() <= 3) this.outputText("drool");
+            else this.outputText("juice itself");
+            this.outputText(" in need.");
             if (this.player.minotaurNeed()) {
-                this.outputText("  You need a fix so bad!", false);
+                this.outputText("  You need a fix so bad!");
                 this.game.dynStats("lus", 5);
             } else {
                 this.outputText(
@@ -171,8 +171,8 @@ export class MinotaurMob extends Monster {
             false
         );
         if (this.player.lust >= 80)
-            this.outputText(", and your pussy is absolutely soaking wet", false);
-        this.outputText(".", false);
+            this.outputText(", and your pussy is absolutely soaking wet");
+        this.outputText(".");
         this.game.dynStats("lus", 5 + this.player.sens / 10);
         this.combatRoundOver();
     }

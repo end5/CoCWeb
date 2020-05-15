@@ -37,8 +37,8 @@ export class GooGirlScene extends AbstractLakeContent {
             false
         );
         if (this.player.findStatusAffect(StatusAffects.FactoryOverload) < 0)
-            this.outputText("sapphire ", false);
-        else this.outputText("murky ", false);
+            this.outputText("sapphire ");
+        else this.outputText("murky ");
         this.outputText(
             "waters. You pause, trying to figure out what the shape might be. Just under the surface of the water, there appears to be a fist-sized heart shedding a crimson glow. Leaning closer, you gaze down into your reflection only to find your face rising up with pursed lips, trying to kiss you! You jerk backwards and the pseudo-head quivers, resolving its face into a gooey-looking girl, her ",
             false
@@ -430,7 +430,7 @@ export class GooGirlScene extends AbstractLakeContent {
                 ", stroking the shaft",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
+        if (this.player.cockTotal() > 1) this.outputText("s");
         this.outputText(
             " in rippling walls of needy slime. Coils of hot and cold run up and down your " +
                 this.cockDescript(x) +

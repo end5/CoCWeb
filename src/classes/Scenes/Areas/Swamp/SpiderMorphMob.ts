@@ -164,7 +164,7 @@ export class SpiderMorphMob extends Monster {
     }
 
     private kihaSPOIDAHAI(): void {
-        this.outputText("[pg]", false);
+        this.outputText("[pg]");
         this.game.spriteSelect(72);
         this.outputText(
             "While they're tangled up with you, however, Kiha takes the opportunity to get in a few shallow swings with her axe, to the accompaniment of crunching chitin.",

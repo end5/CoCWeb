@@ -64,8 +64,8 @@ export class Faerie extends BaseContent {
                     "\n\nYou groan miserably with frustration. Desperate for stimulation, you sink to your knees and start jacking off, the faerie's visage still fresh in your mind. You catch a fleeting glimpse of yourself tightly gripping the faerie's legs in each of your fists, dragging her toward ",
                     false
                 );
-                if (this.player.cockTotal() == 1) this.outputText("your dick", false);
-                else this.outputText("one of your dicks", false);
+                if (this.player.cockTotal() == 1) this.outputText("your dick");
+                else this.outputText("one of your dicks");
                 this.outputText(
                     ", too large for her tiny frame... the depraved image overwhelms your mind's eye and you find yourself shooting all over the ground furiously.",
                     false
@@ -83,7 +83,7 @@ export class Faerie extends BaseContent {
             "The faerie slows the beating of her wings and hovers towards you. You dismiss your fearful notions, certain a small faerie is quite harmless to you.\n\n",
             false
         );
-        this.outputText("How do you react?", false);
+        this.outputText("How do you react?");
         // Shoo Away, Nothing, RAEP
         if (this.player.hasVagina())
             this.simpleChoices(
@@ -249,12 +249,12 @@ export class Faerie extends BaseContent {
                 false
             );
             if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_SLAVERING)
-                this.outputText("releasing a tiny squirt", false);
+                this.outputText("releasing a tiny squirt");
             else if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_DROOLING)
-                this.outputText("dribbling juices", false);
+                this.outputText("dribbling juices");
             else if (this.player.vaginas[0].vaginalWetness >= VAGINA_WETNESS_WET)
-                this.outputText("growing so slippery the faerie nearly loses her footing", false);
-            else this.outputText("feeling yourself moistening with need", false);
+                this.outputText("growing so slippery the faerie nearly loses her footing");
+            else this.outputText("feeling yourself moistening with need");
             this.outputText(" from the tiny touches.\n\n", false);
 
             // (small) <= .50\"
@@ -363,7 +363,7 @@ export class Faerie extends BaseContent {
                 "Lying in the forest loam as you recover, you watch as the faerie stumbles out of your groin, holding her head and giggling nonstop.  She tries to put on a serious face but it's instantly overpowered by another fit of laughter, \"<i>Hehe, did you know I'd get stoned off your girlcum?  Omigod I've never been this -heheheheheh- high before!  Like I can see EVERYTHING.  Puuhleeeease don't make me do this again...</i>\"\n\n",
                 false
             );
-            this.outputText("She flies off, hungry and looking for a flower to munch on.", false);
+            this.outputText("She flies off, hungry and looking for a flower to munch on.");
         }
         // [REPEAT LOW]
         else if (this.player.statusAffectv1(StatusAffects.FaerieFemFuck) <= 5) {
@@ -436,7 +436,7 @@ export class Faerie extends BaseContent {
                 "A few blissful moments later, she shudders and you feel her uncontrolled spasms around your nipple.  ",
                 false
             );
-            if (this.player.hasVagina()) this.outputText("You join her shortly after.  ", false);
+            if (this.player.hasVagina()) this.outputText("You join her shortly after.  ");
             this.outputText(
                 "The faerie goes limp and spirals to the ground, crashing gently and still twitching in the afterglow. Stepping back carefully, you leave her.",
                 false
@@ -492,7 +492,7 @@ export class Faerie extends BaseContent {
         );
         this.player.nippleLength += 0.25;
         if (this.player.nippleLength > 3 || this.player.biggestTitSize() <= 2) {
-            this.outputText("  Thankfully it appears to be temporary.", false);
+            this.outputText("  Thankfully it appears to be temporary.");
             this.player.nippleLength -= 0.25;
         }
         this.dynStats("sen", 1, "lus", 5);
@@ -616,7 +616,7 @@ export class Faerie extends BaseContent {
         }
         // Non-taurs
         else {
-            this.outputText("The faerie reaches your swollen member and ", false);
+            this.outputText("The faerie reaches your swollen member and ");
             if (this.player.hasKnot(0))
                 this.outputText(
                     "climbs atop your knot, wrapping her legs around the narrower shaft to hold on.  You can feel her cheeks resting atop the 'bulb' of your canine anatomy, teasing you with feminine features you're far too large to penetrate.  ",
@@ -672,8 +672,8 @@ export class Faerie extends BaseContent {
                         "The proof of your release forms a puddle around you as your legs give out and y",
                         false
                     );
-                else this.outputText("Falling backwards as your legs give out, y", false);
-            } else this.outputText("Y", false);
+                else this.outputText("Falling backwards as your legs give out, y");
+            } else this.outputText("Y");
             this.outputText(
                 "ou watch your wet groin squirm as the faerie finishes releasing your built-up tension and crawls out.  She's covered from head to toe in sloppy white jism, and is noisily slurping it up.\n\n",
                 false
@@ -682,8 +682,8 @@ export class Faerie extends BaseContent {
                 "She rolls off of you, staggers, and plops down on her cute little ass next to you",
                 false
             );
-            if (this.player.cumQ() > 500) this.outputText(" in the cum", false);
-            this.outputText(", giggling drunkenly.  ", false);
+            if (this.player.cumQ() > 500) this.outputText(" in the cum");
+            this.outputText(", giggling drunkenly.  ");
             if (this.player.statusAffectv1(StatusAffects.FaerieFucked) < 10)
                 this.outputText(
                     'The faerie burps and giggles again before glaring up at you, accusing you with a mildly unfocused glare and asking, "<i>Did you know we get drunk on cum?  Caushe I TRY SO HARRD not to get meshed up like this.</i>"\n\n',

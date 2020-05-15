@@ -84,7 +84,7 @@ export class Oasis extends BaseContent {
             "At this your repertoire of desert conversation topics is exhausted and it occurs to you that it may be easier to break the ice somewhere it is possible for ice to form. At the edge of slipping over into awkward silence the leader speaks. 'It is quite the strike of fortune that you would come to us just as we were to rest and feast. Perhaps you wish to partake with us?' A flash of panic runs over your mind, and you turn over the phrase a few times in your head. After a few seconds you conclude that 'partake with us' really cannot mean 'be a delicious entree' and entertain the thought of staying to feast.  As if sensing your hesitation the leader speaks again. \"<i>We have not feasted in a long time, and we do hunger for it so.  This one promises to be a feast of grand proportions, and it should be a shame for you to miss such an opportunity.</i>\"\n\n",
             false
         );
-        this.outputText("<b>Do you stay or try to leave?</b>", false);
+        this.outputText("<b>Do you stay or try to leave?</b>");
         this.simpleChoices(
             "Stay",
             this.oasisTalkAccept,
@@ -125,7 +125,7 @@ export class Oasis extends BaseContent {
                 "your rear legs losing their balance and sending you crashing on your flank.  ",
                 false
             );
-        else this.outputText("legs falling open in the process.  ", false);
+        else this.outputText("legs falling open in the process.  ");
         this.outputText(
             "Suddenly the silence is broken by a shrill screeching laugh, then a howl and the movement of the demons begins to accelerate. The deep bass laugh of the demon leader breaks over you like a crashing wave and the demons shriek with frenzied lust as they take you on the sand of the oasis.",
             false
@@ -146,8 +146,8 @@ export class Oasis extends BaseContent {
         this.outputText("", true);
         // For manpartz
         if (this.player.cocks.length > 0) {
-            this.outputText("You feel clawed hands grasp at ", false);
-            if (this.player.cockTotal() > 1) this.outputText("each of ", false);
+            this.outputText("You feel clawed hands grasp at ");
+            if (this.player.cockTotal() > 1) this.outputText("each of ");
             this.outputText(
                 "your " +
                     this.multiCockDescriptLight() +
@@ -171,11 +171,11 @@ export class Oasis extends BaseContent {
                     false
                 );
                 if (this.player.cocks[0].cockLength > 17)
-                    this.outputText("with hardly any of you inside her ", false);
+                    this.outputText("with hardly any of you inside her ");
                 else if (this.player.cocks[0].cockLength > 12)
                     this.outputText("about halfway down your " + this.cockDescript(0) + " ", false);
                 else if (this.player.cocks[0].cockLength > 6)
-                    this.outputText("with almost all of you inside of her ", false);
+                    this.outputText("with almost all of you inside of her ");
                 else if (this.player.cocks[0].cockLength <= 6)
                     this.outputText(
                         "as her pussy lips touch the base of your " + this.cockDescript(0) + " ",
@@ -208,10 +208,10 @@ export class Oasis extends BaseContent {
             );
             // Multizz
             if (this.player.cocks.length > 1) {
-                this.outputText("As you lie there under the needy demon your other ", false);
+                this.outputText("As you lie there under the needy demon your other ");
                 if (this.player.cocks.length == 2)
                     this.outputText(this.cockDescript(1) + " is", false);
-                else this.outputText("cocks are", false);
+                else this.outputText("cocks are");
                 this.outputText(
                     " taken by other hands and other eager pussies ranging from painfully, childishly tight to freakishly huge!",
                     false
@@ -483,7 +483,7 @@ export class Oasis extends BaseContent {
         this.spriteSelect(46);
         this.outputText("After one year", true);
         if (this.player.gender <= 1)
-            this.outputText(" and a few doses of fermented succubi milk", false);
+            this.outputText(" and a few doses of fermented succubi milk");
         this.outputText("...\n\n", false);
         this.outputText(
             "A year has gone by since the day you became a slave. You find yourself sitting at the feet of your master wearing nothing but a black collar around your neck. Your belly extends out in front of you, filled to the brim with your master's baby. You smile, happy to be here to please your master and carry his young as memories of your past and your mission fade deep into the depths of your mind. Your only mission in life now is to service your master and the other members of the tribe in whatever they ask, without question or hesitation. As the tribe prepares for the next 'Feast', a commotion at the other side of the encampment catches your attention. The guards bring forth a human captive they found wandering in the oasis, and you smile dimly as you watch master invite the stranger to join them all in the Feast...",

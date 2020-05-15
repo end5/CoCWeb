@@ -445,9 +445,9 @@ export class Farm extends BaseContent {
                         ".\n\n",
                     false
                 );
-                if (this.player.cor < 33) this.outputText("You blush with shame", false);
+                if (this.player.cor < 33) this.outputText("You blush with shame");
                 else if (this.player.cor <= 66)
-                    this.outputText("You flush with a touch of exhibitionism", false);
+                    this.outputText("You flush with a touch of exhibitionism");
                 else
                     this.outputText(
                         "You flush hotly and arch your back, openly displaying your milk to the dog-girl",
@@ -501,7 +501,7 @@ export class Farm extends BaseContent {
                 '"<i>Well of course, it needs hooked into a pump system, collection reservoir, and a power source.  It just happens I\'ve got all that equipment set up for my cows in the barn, and I reckon it\'d be easier to plug into than a girl sniffing minotaur musk.</i>" Whitney explains, "<i>If you like I could get it all set up for ya, hell, if you manage to gather large enough quantities with it, I might be able to find a way to inseminate my cattle with it and pay ya for it.  Don\'t you worry none, I know ways to make this kind of thing work.</i>"\n\n',
                 false
             );
-            this.outputText("Do you give the cock milker to Whitney for her to hook up?", false);
+            this.outputText("Do you give the cock milker to Whitney for her to hook up?");
             this.doYesNo(
                 this.createCallBackFunction(this.whitneyMilkerHookup, false),
                 this.whitneyMilkerRefusal
@@ -509,15 +509,15 @@ export class Farm extends BaseContent {
             return;
         }
         // [GENERIC TALK]
-        this.outputText("You tell her of your recent trials and tribulations ", false);
+        this.outputText("You tell her of your recent trials and tribulations ");
         if (this.player.cor > 50)
-            this.outputText("or at least the parts you think she would want to hear ", false);
+            this.outputText("or at least the parts you think she would want to hear ");
         this.outputText(
             "and she listens attentively, chiming in with witty quips and comfort when appropriate.  When you finish she tells you ",
             false
         );
         if (this.player.findStatusAffect(StatusAffects.FactoryOverload) < 0)
-            this.outputText("how well the farm has been going", false);
+            this.outputText("how well the farm has been going");
         else
             this.outputText(
                 "how poorly the farm has been going since the lake became tainted.  She has to work three times as hard to keep her livestock and crops from succumbing to the taint, and the demons and monsters of the forest are many times more bold",
@@ -646,9 +646,9 @@ export class Farm extends BaseContent {
                 'Opening the door to one of the empty stalls, Whitney says, "<i>I don\'t get to them as often as I should. Anything you can do would help.</i>"\n\n',
                 false
             );
-            this.outputText("You steel yourself, ignore your ", false);
-            if (this.player.faceType == FACE_DOG) this.outputText("sensitive ", false);
-            this.outputText("nose, and set to work.", false);
+            this.outputText("You steel yourself, ignore your ");
+            if (this.player.faceType == FACE_DOG) this.outputText("sensitive ");
+            this.outputText("nose, and set to work.");
             // [Lust increase based on libido, degree of cow/mino features]
             this.dynStats("lus", this.player.cowScore() + this.player.minoScore());
             this.outputText(
@@ -858,11 +858,11 @@ export class Farm extends BaseContent {
                     false
                 );
                 // [if high corruption]
-                if (this.player.cor > 60) this.outputText("It makes you smile.", false);
-                if (this.player.cor < 30) this.outputText("It disgusts you.", false);
+                if (this.player.cor > 60) this.outputText("It makes you smile.");
+                if (this.player.cor < 30) this.outputText("It disgusts you.");
                 // [else/mid-corruption]
                 else if (this.player.cor <= 60)
-                    this.outputText("You aren't sure how you feel about that.", false);
+                    this.outputText("You aren't sure how you feel about that.");
                 // [continue paragraph condition]
                 this.outputText(
                     "  It for certain would get Whitney chasing you off with a pitchfork.\n\n",
@@ -918,11 +918,11 @@ export class Farm extends BaseContent {
         // ELSE milk overload
         this.outputText("", true);
         // First time barn entrance
-        this.outputText("The barn looms tall ahead of you as you step into its shadow.  ", false);
+        this.outputText("The barn looms tall ahead of you as you step into its shadow.  ");
         if (this.player.findStatusAffect(StatusAffects.BreastsMilked) < 0) {
             if (this.player.cor < 50)
-                this.outputText("You shiver nervously when you step inside.", false);
-            else this.outputText("You smile eagerly as you walk inside.", false);
+                this.outputText("You shiver nervously when you step inside.");
+            else this.outputText("You smile eagerly as you walk inside.");
             this.outputText(
                 "  The barn is filled with the earthy smells of earth, wood, and grease.  It's clean for the most part, though the floor is just packed dirt and the stalls look old and well-used.  A bank of machinery along the wall thrums and pulses as if it's a living creature.  Hoses and cables run from it in a dozen places, disappearing into the walls.   There is even a set of stout wooden doorways along the west wall.  That must be where the farm's intelligent denizens stay.  You notice each of the stalls have name-plates on them, and there is even one that says " +
                     this.player.short +
@@ -950,10 +950,10 @@ export class Farm extends BaseContent {
             // If cocks
             else if (this.player.totalCocks() > 0) {
                 this.outputText("Your " + this.multiCockDescriptLight() + " erect", false);
-                if (this.player.totalCocks() > 1) this.outputText("s", false);
-                this.outputText(" and throb", false);
-                if (this.player.totalCocks() == 1) this.outputText("s", false);
-                this.outputText(" with desire.", false);
+                if (this.player.totalCocks() > 1) this.outputText("s");
+                this.outputText(" and throb");
+                if (this.player.totalCocks() == 1) this.outputText("s");
+                this.outputText(" with desire.");
             }
             // If both
             if (
@@ -968,9 +968,9 @@ export class Farm extends BaseContent {
                         " grow",
                     false
                 );
-                this.outputText(" hard and ready of ", false);
-                this.outputText("their", false);
-                this.outputText(" own volition.", false);
+                this.outputText(" hard and ready of ");
+                this.outputText("their");
+                this.outputText(" own volition.");
             }
             this.outputText(
                 "  The doors part easily, and you breeze into your stall in a rush.\n\n",
@@ -1081,9 +1081,9 @@ export class Farm extends BaseContent {
                         "s, growing larger as they roll down to the edge of the tube.  It feels as if a ",
                     false
                 );
-                if (this.player.totalBreasts() == 2) this.outputText("pair", false);
-                else if (this.player.totalBreasts() == 4) this.outputText("quartet", false);
-                else this.outputText("group", false);
+                if (this.player.totalBreasts() == 2) this.outputText("pair");
+                else if (this.player.totalBreasts() == 4) this.outputText("quartet");
+                else this.outputText("group");
                 this.outputText(
                     " of internal floodgates are opening, and thin streams of milk erupt, spraying to the noisy suckling tubes.   The milk is sucked away before it can build up, leaving you to wonder just how much you're managing to produce.   The milking goes on for the better part of an hour, though you stop producing long before it's over.  By the time the milker shuts off and the harness releases you, your breasts ache terribly.\n\n",
                     false
@@ -1146,11 +1146,11 @@ export class Farm extends BaseContent {
                     false
                 );
                 if (this.player.totalCocks() == 0) {
-                    if (this.player.hasVagina()) this.outputText("wet", false);
-                    else this.outputText("horny", false);
+                    if (this.player.hasVagina()) this.outputText("wet");
+                    else this.outputText("horny");
                 } else {
-                    if (this.player.hasVagina()) this.outputText("wet and ", false);
-                    this.outputText("hard", false);
+                    if (this.player.hasVagina()) this.outputText("wet and ");
+                    this.outputText("hard");
                 }
                 this.outputText(
                     " from the sensation.  Over the next hour you're drained totally dry, until the only answer to the machine's effort is a tiny trickle of whiteness.  The harness gently lowers you to the ground and releases you, leaving you feeling sore.\n\n",
@@ -1176,11 +1176,11 @@ export class Farm extends BaseContent {
                     false
                 );
                 if (this.player.totalCocks() == 0) {
-                    if (this.player.hasVagina()) this.outputText("wet", false);
-                    else this.outputText("horny", false);
+                    if (this.player.hasVagina()) this.outputText("wet");
+                    else this.outputText("horny");
                 } else {
-                    if (this.player.hasVagina()) this.outputText("wet and ", false);
-                    this.outputText("hard", false);
+                    if (this.player.hasVagina()) this.outputText("wet and ");
+                    this.outputText("hard");
                 }
                 this.outputText(
                     " with excitement.  The milking drags on for an hour, but your output only slows slightly, forcing the machinery to work at maximum capacity the entire time.  At last it ends, and the harnesses lower you to the ground.  The milk cups pop off, leaving your leaky tits to make a puddle on the floor.\n\n",
@@ -1208,9 +1208,9 @@ export class Farm extends BaseContent {
                         ", pumping wave after wave of milk through the tubes, unaided by the machinery.  You practically ",
                     false
                 );
-                if (this.player.hasVagina()) this.outputText("cream yourself", false);
-                else if (this.player.cockTotal()) this.outputText("jizz yourself", false);
-                else this.outputText("orgasm", false);
+                if (this.player.hasVagina()) this.outputText("cream yourself");
+                else if (this.player.cockTotal()) this.outputText("jizz yourself");
+                else this.outputText("orgasm");
                 this.outputText(
                     " from the attentions of your mysterious helper as the milking continues, so hot and horny that you try and wriggle in your harness to press against them.   After an hour of non-stop squeezing and spurting, your milking is over, and the hands release you.  The cups fall to the ground, and the harness lowers you to the ground.  By the time you can crane your head around, your helper has left.\n\n",
                     false
@@ -1269,7 +1269,7 @@ export class Farm extends BaseContent {
                     false
                 );
             this.player.gems += payout;
-        } else this.outputText(".", false);
+        } else this.outputText(".");
         // High production = stupid cow.
         if (liters > 2) {
             this.outputText(
@@ -1351,8 +1351,8 @@ export class Farm extends BaseContent {
                 false
             );
             if (this.player.cor < 50)
-                this.outputText("You shiver nervously when you step inside.  ", false);
-            else this.outputText("You smile eagerly as you walk inside.  ", false);
+                this.outputText("You shiver nervously when you step inside.  ");
+            else this.outputText("You smile eagerly as you walk inside.  ");
             this.outputText(
                 "The barn is filled with the earthy smells of earth, wood, and grease.  It's clean for the most part, though the floor is just packed dirt and the stalls look old and well-used.  A bank of machinery along the wall thrums and pulses as if it's a living creature.  Hoses and cables run from it in a dozen places, disappearing into the walls.   There is even a set of stout wooden doorways along the west wall.  That must be where the farm's intelligent denizens stay.  You notice each of the stalls have name-plates on them, and there is even one that says " +
                     this.player.short +
@@ -1367,14 +1367,14 @@ export class Farm extends BaseContent {
                 false
             );
             this.outputText("Your " + this.multiCockDescriptLight() + " erect", false);
-            if (this.player.cockTotal() == 1) this.outputText("s", false);
-            this.outputText(" and throb", false);
-            if (this.player.cockTotal() == 1) this.outputText("s", false);
-            this.outputText(" with building desire.  It's as if ", false);
-            if (this.player.cockTotal() == 1) this.outputText("it", false);
-            else this.outputText("they", false);
-            this.outputText(" know", false);
-            if (this.player.cockTotal() == 1) this.outputText("s", false);
+            if (this.player.cockTotal() == 1) this.outputText("s");
+            this.outputText(" and throb");
+            if (this.player.cockTotal() == 1) this.outputText("s");
+            this.outputText(" with building desire.  It's as if ");
+            if (this.player.cockTotal() == 1) this.outputText("it");
+            else this.outputText("they");
+            this.outputText(" know");
+            if (this.player.cockTotal() == 1) this.outputText("s");
             this.outputText(
                 " all too well what's to come.  The doors part easily, and you breeze into your stall in a rush.\n\n",
                 false
@@ -1479,8 +1479,8 @@ export class Farm extends BaseContent {
                             ", it slowly flows upward, engulfing you with slick pleasure.  It sucks hard, sliding up ",
                         false
                     );
-                    if (this.player.hasKnot(0)) this.outputText("past your knot", false);
-                    else this.outputText("to your base", false);
+                    if (this.player.hasKnot(0)) this.outputText("past your knot");
+                    else this.outputText("to your base");
                     this.outputText(
                         " and massaging you with hundreds of lubricated internal protrusions.\n\n",
                         false
@@ -1494,7 +1494,7 @@ export class Farm extends BaseContent {
                             "s, they slowly flow upward, engulfing you with slick pleasure.  They suck hard, sliding up ",
                         false
                     );
-                    this.outputText("to your base", false);
+                    this.outputText("to your base");
                     this.outputText(
                         " and massage you with hundreds of lubricated internal protrusions.\n\n",
                         false
@@ -1639,19 +1639,19 @@ export class Farm extends BaseContent {
                     "The orgasm rolls over you, shutting down your thoughts as your body spasms in its straps, boiling out ",
                     false
                 );
-                if (cumQ > 500) this.outputText("thick ", false);
+                if (cumQ > 500) this.outputText("thick ");
                 this.outputText(
                     "spurts of spunk.  Wriggling cilia convulse around you, licking your head as it flares wide, filling with blood and pouring out cum.  You moan and scream with delight, babbling happily as you watch your cum wick up the clear tube and into the machinery in the wall.  All too soon the pleasure comes to an end; the harness lowers you to the ground and releases you, but the squishy walls of your demon machine lover don't cease their ministrations on your tender " +
                         Appearance.cockNoun(CockTypesEnum.HUMAN),
                     false
                 );
-                if (this.player.cockTotal() > 1) this.outputText("s", false);
+                if (this.player.cockTotal() > 1) this.outputText("s");
                 this.outputText(".\n\n", false);
 
-                this.outputText("A loud 'ding' sounds ", false);
+                this.outputText("A loud 'ding' sounds ");
                 // [(if enough for payout)
                 if (cumQ > 100)
-                    this.outputText("and a clatter of gems drop into the plate ", false);
+                    this.outputText("and a clatter of gems drop into the plate ");
                 this.outputText(
                     "as the machine measures your contribution, but it barely registers in the back of your mind as your " +
                         this.multiCockDescriptLight() +
@@ -1662,11 +1662,11 @@ export class Farm extends BaseContent {
                 );
                 // [(big dix)
                 if (this.player.biggestCockArea() > 70) {
-                    this.outputText("the end", false);
-                    if (this.player.cockTotal() > 1) this.outputText("s", false);
-                    this.outputText(" wrapped so snugly around your huge member", false);
-                    this.outputText("s", false);
-                    this.outputText(" and ", false);
+                    this.outputText("the end");
+                    if (this.player.cockTotal() > 1) this.outputText("s");
+                    this.outputText(" wrapped so snugly around your huge member");
+                    this.outputText("s");
+                    this.outputText(" and ");
                 }
                 this.outputText(
                     "how tired you are, you can't break the suction.  Every time you get a good grip and start to pull, the suction shoots a shiver of pleasure down " +
@@ -1694,7 +1694,7 @@ export class Farm extends BaseContent {
                         ", coating the outside of the ejected suction tubes to match the inside.  Eventually you spend your reserve and the cum flow reduces to a trickle.  Stupid with pleasure, you don't notice the suction tube",
                     false
                 );
-                if (this.player.cockTotal() > 1) this.outputText("s", false);
+                if (this.player.cockTotal() > 1) this.outputText("s");
                 this.outputText(
                     " wriggling back into place on your " +
                         this.multiCockDescriptLight() +
@@ -1708,7 +1708,7 @@ export class Farm extends BaseContent {
                         " hardens again from the unending, expertly-given stimulation of the animate tube",
                     false
                 );
-                if (this.player.cockTotal() > 1) this.outputText("s", false);
+                if (this.player.cockTotal() > 1) this.outputText("s");
                 this.outputText(
                     ".  You try to pull the milker off your " +
                         this.multiCockDescriptLight() +
@@ -1717,10 +1717,10 @@ export class Farm extends BaseContent {
                 );
                 // [(big dix)
                 if (this.player.biggestCockArea() > 70) {
-                    this.outputText(", and the end", false);
-                    if (this.player.cockTotal() > 1) this.outputText("s", false);
-                    this.outputText(" wrap too snugly around your swollen member", false);
-                    if (this.player.cockTotal() > 1) this.outputText("s", false);
+                    this.outputText(", and the end");
+                    if (this.player.cockTotal() > 1) this.outputText("s");
+                    this.outputText(" wrap too snugly around your swollen member");
+                    if (this.player.cockTotal() > 1) this.outputText("s");
                 }
                 this.outputText(
                     ".  Every time you get a good grip and start to pull, a shiver of pleasure shoots down " +
@@ -1783,9 +1783,9 @@ export class Farm extends BaseContent {
                 if (this.player.balls > 0)
                     this.outputText("bloated " + this.ballsDescriptLight() + " are", false);
                 else this.outputText("sensitive " + this.cockDescript(0) + " is", false);
-                this.outputText(" finally relieved of ", false);
-                if (this.player.balls > 0) this.outputText("their ", false);
-                else this.outputText("its ", false);
+                this.outputText(" finally relieved of ");
+                if (this.player.balls > 0) this.outputText("their ");
+                else this.outputText("its ");
                 this.outputText(
                     "pent up seed.  The machine suckles noisily, visibly turning some of the tubes in the wall solid white as the machinery works hard to keep up with your impressive output.  Eventually it does come to an end.  Your jets of jism taper off and your dick starts going soft inside the squirming machinery.  In response you feel it slip off you, retracting into the wall as the harness gently drops you back to the ground.\n\n",
                     false
@@ -1856,9 +1856,9 @@ export class Farm extends BaseContent {
             this.fatigue(40);
         }
         // EPILOGUE
-        this.outputText("There's a ", false);
-        if (this.player.cumQ() < 20) this.outputText("barely noticeable ", false);
-        else this.outputText("thick ", false);
+        this.outputText("There's a ");
+        if (this.player.cumQ() < 20) this.outputText("barely noticeable ");
+        else this.outputText("thick ");
         this.outputText(
             "trail of your cum along the floor where the hose dragged itself back into the wall, though the machinery has closed back up and is now chugging noisily, clearly doing something.  A loud 'ding' chimes and a panel displays ",
             false
@@ -1885,7 +1885,7 @@ export class Farm extends BaseContent {
         // If over cap!
         if (this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] >= cap) {
             payout = 0;
-            this.outputText("It also shows a warning: <b>FUNDS EXHAUSTED.</b>  ", false);
+            this.outputText("It also shows a warning: <b>FUNDS EXHAUSTED.</b>  ");
         }
         // Reduce payout if it would push past
         else if (this.flags[kFLAGS.WHITNEY_GEMS_PAID_THIS_WEEK] + payout >= cap) {
@@ -1931,7 +1931,7 @@ export class Farm extends BaseContent {
         } else {
             this.outputText("\n\nYou go", false);
         }
-        this.outputText(" on your way, whistling happily and feeling like taking a nap.", false);
+        this.outputText(" on your way, whistling happily and feeling like taking a nap.");
         this.player.orgasm();
         this.doNext(this.camp.returnToCampUseOneHour);
     }
@@ -1993,17 +1993,17 @@ export class Farm extends BaseContent {
                 " intensifies.  Your hips take over as you buck against the machine and push out another ",
             false
         );
-        if (cumQ < 100) this.outputText("trickle", false);
-        else if (cumQ < 600) this.outputText("stream", false);
-        else this.outputText("torrent", false);
-        this.outputText(" of jism.", false);
+        if (cumQ < 100) this.outputText("trickle");
+        else if (cumQ < 600) this.outputText("stream");
+        else this.outputText("torrent");
+        this.outputText(" of jism.");
         // [(big skeet)
         if (cumQ > 1000) {
             this.outputText(
                 "  Unlike before, a fleshy valve flap pops open in the rear of the suction cup",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
+            if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(
                 ", and the pressure of your ejaculation forces squirts of cum out of the valve with every spasm, dribbling sticky whiteness back onto your crotch.",
                 false
@@ -2014,9 +2014,9 @@ export class Farm extends BaseContent {
             false
         );
 
-        this.outputText("Another 'ding'", false);
+        this.outputText("Another 'ding'");
         // [(payment-worthy skeet)
-        if (cumQ > 100) this.outputText(" and another clatter of gems", false);
+        if (cumQ > 100) this.outputText(" and another clatter of gems");
         this.outputText(
             " reaches your ears as your second deposit is massed, but your attention is drawn to the new tube",
             false
@@ -2028,15 +2028,15 @@ export class Farm extends BaseContent {
             this.player.hasFuckableNipples() ||
             this.player.biggestLactation() > 1
         ) {
-            this.outputText("s", false);
+            this.outputText("s");
             tubes = true;
         }
         this.outputText(
             " snaking out of the wall toward you.  Spent as you are, you can only manage a token resistance as ",
             false
         );
-        if (!tubes) this.outputText("it", false);
-        else this.outputText("one of them", false);
+        if (!tubes) this.outputText("it");
+        else this.outputText("one of them");
         this.outputText(
             " inserts a rod-like end into your mouth and begins trickling salty fluids down your throat.",
             false
@@ -2106,18 +2106,18 @@ export class Farm extends BaseContent {
             ".  Another orgasm passes, this time unhindered as the machine does not slow its efforts in the slightest.  More than twice the previous quantity of semen shoots out of your cock",
             false
         );
-        if (this.player.cockTotal() > 1) this.outputText("s", false);
-        this.outputText(", thanks assuredly to the drug", false);
+        if (this.player.cockTotal() > 1) this.outputText("s");
+        this.outputText(", thanks assuredly to the drug");
         // [(balls)
         if (this.player.balls > 0)
-            this.outputText(" and the new volume of your monstrous testicles", false);
+            this.outputText(" and the new volume of your monstrous testicles");
         // [(big skeet)
         if (cumQ > 1000)
             this.outputText(
                 ", spraying out of the overflow valve and coating your entire lower body",
                 false
             );
-        this.outputText(".", false);
+        this.outputText(".");
         // [(if vag)
         if (this.player.hasVagina()) {
             this.outputText(
@@ -2130,7 +2130,7 @@ export class Farm extends BaseContent {
                     ", and your clitoris twitches under the cup, threatening to black you out from the pleasure",
                     false
                 );
-            this.outputText(".", false);
+            this.outputText(".");
         }
         // [(lactation)
         if (this.player.biggestTitSize() > 1) {
@@ -2144,7 +2144,7 @@ export class Farm extends BaseContent {
                     " and rings raise from the bases of the shafts inside your nipples, forming a seal,",
                     false
                 );
-            this.outputText(" as suction begins to whisk it away.", false);
+            this.outputText(" as suction begins to whisk it away.");
         }
         this.outputText(
             "  A minute after your release, the flow in the other direction intensifies, pouring more fluid into you than before",
@@ -2152,7 +2152,7 @@ export class Farm extends BaseContent {
         );
         // [(lactation)
         if (this.player.biggestLactation() > 1)
-            this.outputText(", the drug now tasting of the milk mixed in", false);
+            this.outputText(", the drug now tasting of the milk mixed in");
         this.outputText(
             ". Another chorus sounds from the counter and you hear some gems tinkling as they roll off the plate and onto the ground.\n\n",
             false
@@ -2179,14 +2179,14 @@ export class Farm extends BaseContent {
                     " as you fruitlessly grind into the tubes, wishing more than anything to climax; the green light on the wall steadfastedly refuses to light up, mocking your attempts.  From the new pressure an odd strength flows through the rest of your body, increasing your sexual fervor and giving you a second wind, and you finally manage to get a good grip on the tubes, nearly slamming them back and forth on your shaft",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
+            if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(
                 ".  This damn demon machine can't stop you from getting off anymore; with a violent shove you bury " +
                     this.sMultiCockDesc() +
                     " into the mouth",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
+            if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(
                 " as your orgasm lets fly!  A truly miraculous amount of semen erupts from your " +
                     this.multiCockDescriptLight() +
@@ -2206,7 +2206,7 @@ export class Farm extends BaseContent {
                 "  You barely take notice of her as another explosive orgasm goes off, your enormously swollen penis",
                 false
             );
-            if (this.player.cockTotal() > 1) this.outputText("es", false);
+            if (this.player.cockTotal() > 1) this.outputText("es");
             this.outputText(
                 ' pushing massive loads of semen down the tubes and out of the release valves in a firework pattern. Whitney shrinks back as some of the spooge squirts across the barn and comes to a stop less than a foot from her. The canine woman screams volubly enough to wake the entire farm. "<i>Dammit, ' +
                     this.player.short +
@@ -2239,9 +2239,9 @@ export class Farm extends BaseContent {
                     ".  Get on out of here now and never come back or I'll make sure you never go anywhere again.</i>\"  Scowling, you break off your advance and head toward the door.  Though you definitely want to fuck her, giving yourself a chance to adjust to your magnificent new body might not be a bad idea either.  After all, no matter what she says you can always come back... meanwhile you vow to find something or someone to rape or turn into your personal cock-milker.  With an amazing ",
                 false
             );
-            if (this.player.totalCocks() == 1) this.outputText("dick", false);
-            else this.outputText("set of dicks", false);
-            this.outputText(" like yours, why worry about anything else for the moment?", false);
+            if (this.player.totalCocks() == 1) this.outputText("dick");
+            else this.outputText("set of dicks");
+            this.outputText(" like yours, why worry about anything else for the moment?");
             this.dynStats("lib", 20, "sen", 10, "lus", 80, "cor", 100);
         }
         this.getGame().gameOver();
@@ -2264,7 +2264,7 @@ export class Farm extends BaseContent {
             false
         );
         if (this.player.cor < 50)
-            this.outputText("You shift awkwardly and ask her what's wrong.", false);
+            this.outputText("You shift awkwardly and ask her what's wrong.");
         else
             this.outputText(
                 "You strut a bit, showing yourself off in a subtly lewd manner.  When you're finished, you ask the dog-girl if she likes what she saw.",
@@ -2291,7 +2291,7 @@ export class Farm extends BaseContent {
             false
         );
 
-        this.outputText("(<b>Key Items Gained: Fake Mare and Centaur Pole</b>)", false);
+        this.outputText("(<b>Key Items Gained: Fake Mare and Centaur Pole</b>)");
         this.player.createKeyItem("Fake Mare", 0, 0, 0, 0);
         this.player.createKeyItem("Centaur Pole", 0, 0, 0, 0);
         this.doNext(this.camp.returnToCampUseOneHour);

@@ -93,8 +93,8 @@ export class Cinnabar extends BazaarAbstractContent {
                 );
                 // Multicocks if the PC has 2 big enough
                 if (this.player.cockTotal() > 1 && this.player.biggestCockArea2() >= 75)
-                    this.outputText("those things", false);
-                else this.outputText("that thing", false);
+                    this.outputText("those things");
+                else this.outputText("that thing");
                 this.outputText(
                     " inside me... the name's Cinnabar, but I'd rather you plug me and call me whatever you want.</i>\"  Her voice trails off into a husky, barely heard vibration as she awaits your response.",
                     false
@@ -180,8 +180,8 @@ export class Cinnabar extends BazaarAbstractContent {
                 );
                 // Multicocks if the PC has 2 big enough && at least 3 total
                 if (this.player.cockTotal() > 2 && this.player.biggestCockArea2() >= 75)
-                    this.outputText("those things", false);
-                else this.outputText("that thing", false);
+                    this.outputText("those things");
+                else this.outputText("that thing");
                 this.outputText(
                     " inside me... We could sit here and talk, but I'd rather you plug me and call me your slut.</i>\"  Her voice trails off into a husky, barely heard vibration as she awaits your response.",
                     false
@@ -324,9 +324,9 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
 
-        this.outputText("Satisfied with your display of power, her fingers ", false);
-        if (this.player.hasVagina()) this.outputText("release their squeeze", false);
-        else this.outputText("release the butt-stretching pressure", false);
+        this.outputText("Satisfied with your display of power, her fingers ");
+        if (this.player.hasVagina()) this.outputText("release their squeeze");
+        else this.outputText("release the butt-stretching pressure");
         this.outputText(
             " and settle to the business of sliding back and forth, caressing you from the inside out.",
             false
@@ -352,8 +352,8 @@ export class Cinnabar extends BazaarAbstractContent {
                 " against the wall and moaning with need.  She's quite skilled, and ",
             false
         );
-        if (this.player.hasVagina()) this.outputText("caresses your passage in ways that ", false);
-        else this.outputText("works your body in ways that ", false);
+        if (this.player.hasVagina()) this.outputText("caresses your passage in ways that ");
+        else this.outputText("works your body in ways that ");
         this.outputText(
             'leave you panting like a bitch in heat.  She urges you on, practically begging, "<i>Yes!  Stuff my hole!  Fist me, ' +
                 this.player.mf("master", "mistress") +
@@ -367,14 +367,14 @@ export class Cinnabar extends BazaarAbstractContent {
             "You shrug and pull yourself up by the fist in her cunt, eliciting an agonized moan from your whore while you plunge your other hand into her clenching, squeezing asshole.  Her knees dig deep into the cushions, now supporting her own weight as well as yours, but the quickening pace of Cinnabar's ",
             false
         );
-        if (this.player.vaginalCapacity() < 30) this.outputText("fingers", false);
-        else this.outputText("fingers - no, fist", false);
-        this.outputText(" tells you just how much she likes it.  ", false);
+        if (this.player.vaginalCapacity() < 30) this.outputText("fingers");
+        else this.outputText("fingers - no, fist");
+        this.outputText(" tells you just how much she likes it.  ");
         // CUNTZ
         if (this.player.hasVagina()) {
-            this.outputText("She even works ", false);
-            if (this.player.analCapacity() < 30) this.outputText("her fingers", false);
-            else this.outputText("her fist", false);
+            this.outputText("She even works ");
+            if (this.player.analCapacity() < 30) this.outputText("her fingers");
+            else this.outputText("her fist");
             this.outputText(
                 " into your asshole, leaning on you in the same way and locking your bodies together through the portals.  ",
                 false
@@ -402,16 +402,16 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
 
-        this.outputText("The rat's ", false);
+        this.outputText("The rat's ");
         if (this.player.hasVagina()) {
             if (this.player.vaginalCapacity() < 30 && this.player.analCapacity() < 30)
-                this.outputText("fingers", false);
+                this.outputText("fingers");
             else if (this.player.vaginalCapacity() >= 30 && this.player.analCapacity() >= 30)
-                this.outputText("fists", false);
-            else this.outputText("fingers and fist", false);
+                this.outputText("fists");
+            else this.outputText("fingers and fist");
         } else {
-            if (this.player.analCapacity() < 30) this.outputText("fingers", false);
-            else this.outputText("tightly-clenched fingers", false);
+            if (this.player.analCapacity() < 30) this.outputText("fingers");
+            else this.outputText("tightly-clenched fingers");
         }
         this.outputText(
             " plunge further inside you, violating you far more gently, but still hard enough to get you off.",
@@ -429,8 +429,8 @@ export class Cinnabar extends BazaarAbstractContent {
                     "  Not content with that, your body keeps going, thickening the stream into a torrent that soaks the sheets",
                     false
                 );
-                if (this.player.cumQ() >= 1000) this.outputText(" and puddles on the floor", false);
-                this.outputText(".", false);
+                if (this.player.cumQ() >= 1000) this.outputText(" and puddles on the floor");
+                this.outputText(".");
             }
         }
         if (this.player.hasVagina()) {
@@ -444,9 +444,9 @@ export class Cinnabar extends BazaarAbstractContent {
                     " clamps and puckers with it, wringing the rat's ",
                 false
             );
-            if (this.player.vaginalCapacity() < 30) this.outputText("fingers", false);
-            else this.outputText("hand", false);
-            this.outputText(" in its hungry embrace.", false);
+            if (this.player.vaginalCapacity() < 30) this.outputText("fingers");
+            else this.outputText("hand");
+            this.outputText(" in its hungry embrace.");
         }
         // (No dick/cunt:
         if (this.player.gender == 0)
@@ -462,7 +462,7 @@ export class Cinnabar extends BazaarAbstractContent {
         );
         if (this.player.wetness() < 3) {
         } else if (this.player.wetness() < 5)
-            this.outputText("  Her arm seems quite soaked with your leavings.", false);
+            this.outputText("  Her arm seems quite soaked with your leavings.");
         else
             this.outputText(
                 "  Her arm and chest are left splattered from your explosive, squirting orgasm.",
@@ -474,7 +474,7 @@ export class Cinnabar extends BazaarAbstractContent {
             "Cinnabar rolls over to give you a kiss on the cheek once she's recovered.  Her voice is still rough from the volume of her pleasure-squeaks, but she manages to whisper, \"<i>That was nice for someone who didn't have a cock worth fucking.  Feel free to catch your breath, but I'm a working girl so don't take too long.  I've got to get the sheets cleaned",
             false
         );
-        if (this.player.cumQ() >= 1000) this.outputText(" and the floor mopped", false);
+        if (this.player.cumQ() >= 1000) this.outputText(" and the floor mopped");
         this.outputText(' before I can get my next customer.</i>"\n\n', false);
 
         this.player.orgasm();
@@ -527,8 +527,8 @@ export class Cinnabar extends BazaarAbstractContent {
             "The eager rodent spins, pulling her nipples from your fingers and planting a heavy, wet kiss on your lips hard enough to rock you back ",
             false
         );
-        if (this.player.str >= 60 || this.player.tallness >= 72) this.outputText("a little", false);
-        else this.outputText("on your heels", false);
+        if (this.player.str >= 60 || this.player.tallness >= 72) this.outputText("a little");
+        else this.outputText("on your heels");
         this.outputText(
             ".  You sway, woozy from the passionate lip-lock, and then you're being dragged through the crowd up to a brightly-painted wagon.  The thick door is clearly locked, but the ingenuous rat's tail lifts in front of your nose, wiggling like a snake-charmer's viper.  It brushes your cheek before plunging into the vacant keyhole with the enthusiasm of a mating stallion.  An audible *click* reveals just how fine Cinnabar's tail-control is, but as you ponder that, you're dragged through the door by soft, insistent tugs.\n\n",
             false
@@ -570,8 +570,8 @@ export class Cinnabar extends BazaarAbstractContent {
             "\"<i>It's been a while since this horny slut has had a dick too big for her snatch, but we're going to make that fucker fit in me.  You're going to split me hard enough to make a ",
             false
         );
-        if (this.player.cockArea(x) < 200) this.outputText("centaur mare wince", false);
-        else this.outputText("a dragoness cry", false);
+        if (this.player.cockArea(x) < 200) this.outputText("centaur mare wince");
+        else this.outputText("a dragoness cry");
         this.outputText('!  Look at the mirrors; go on, look,</i>" she instructs.\n\n', false);
 
         this.outputText(
@@ -583,11 +583,11 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
 
-        this.outputText("You smile and ball your hand into a fist, ", false);
-        if (this.player.cor > 66) this.outputText("enjoying the raunchiness of the act", false);
+        this.outputText("You smile and ball your hand into a fist, ");
+        if (this.player.cor > 66) this.outputText("enjoying the raunchiness of the act");
         else if (this.player.cor > 33)
-            this.outputText("a little worried by how much you're enjoying this", false);
-        else this.outputText("a little amazed that you would ever do such a thing", false);
+            this.outputText("a little worried by how much you're enjoying this");
+        else this.outputText("a little amazed that you would ever do such a thing");
         this.outputText(
             ", then push it forwards, battering through the silky slit and into her canal.  Her juices let you slide right in, squirting and dribbling over her vulva like a fresh fruit you've just bitten into.  You lean over to lick at clear, slimy droplets, feeling your arm sink deeper inside the velvet vice with each taste you get.  It's gone in up to the elbow, and Cinnabar is squeaking happily, without a hint of discomfort.\n\n",
             false
@@ -689,8 +689,8 @@ export class Cinnabar extends BazaarAbstractContent {
             "The rat – no, cum-sleeve – gets even tighter, and as you watch, her breasts bulge and jiggle, shifted from the rock-hard post that's pushing through her body.  They look almost tiny in compared to the cylindrical, veiny bulge, like cum-filled bubbles hanging from a moaning furry condom.  Impatient, you snag her ankles and give a hard tug, adding your strength to gravity's inexorable pull.  Warm, pulsating cunt-flesh hugs your ",
             false
         );
-        if (!this.player.hasSheath()) this.outputText("crotch", false);
-        else this.outputText("sheath", false);
+        if (!this.player.hasSheath()) this.outputText("crotch");
+        else this.outputText("sheath");
         this.outputText(
             ", squirting juices from the callous, cunt-piercing thrust.  The " +
                 this.player.cockHead(x) +
@@ -757,11 +757,11 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
         if (this.player.cumQ() < 250)
-            this.outputText("makes your body churn well after you're empty.", false);
+            this.outputText("makes your body churn well after you're empty.");
         else if (this.player.cumQ() < 500)
-            this.outputText("causes her hugely-stretched lips to glaze white.", false);
+            this.outputText("causes her hugely-stretched lips to glaze white.");
         else if (this.player.cumQ() < 1000)
-            this.outputText("causes her lips to glaze and her belly to bloat.", false);
+            this.outputText("causes her lips to glaze and her belly to bloat.");
         else if (this.player.cumQ() < 1500)
             this.outputText(
                 "makes her look pregnant and vents a puddle of syrupy-spooge on top of you.",
@@ -805,8 +805,8 @@ export class Cinnabar extends BazaarAbstractContent {
                 " and you realize the nude rat doesn't show any signs of your tryst",
             false
         );
-        if (this.player.cumQ() >= 500) this.outputText(", save for her pregnant belly and ", false);
-        else this.outputText(", save for her ", false);
+        if (this.player.cumQ() >= 500) this.outputText(", save for her pregnant belly and ");
+        else this.outputText(", save for her ");
         this.outputText(
             "huge, slightly parted pussy-lips.  Chances are she'll have those back to normal before long anyway.  You get dressed and turn to leave, but before you do a tail taps your shoulder, the length curling to squeeze your neck.  It stops you cold while the hooker's voice whispers, \"<i>Don't wait too long to come back.</i>\"\n\n",
             false
@@ -852,7 +852,7 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
         if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-        else this.outputText("base", false);
+        else this.outputText("base");
         this.outputText(
             " to prod at your " +
                 this.assholeDescript() +
@@ -871,7 +871,7 @@ export class Cinnabar extends BazaarAbstractContent {
                 Cinnabar.num2Text(Math.round(this.player.cocks[x].cockLength / 12)) + " feet",
                 false
             );
-        this.outputText(" all over again.", false);
+        this.outputText(" all over again.");
         if (this.player.cocks[x].cockLength >= 60)
             this.outputText(
                 "  There's no way this should be possible, but it's happening and you couldn't be happier.",
@@ -887,7 +887,7 @@ export class Cinnabar extends BazaarAbstractContent {
                 " pack",
             false
         );
-        if (this.player.balls == 0) this.outputText("s", false);
+        if (this.player.balls == 0) this.outputText("s");
         this.outputText(
             ' her with goo, claiming her ruined body.  Cinnabar pants and screams in between pleasure-squeaks, "<i>F-fuck... fuck your fuck-toy!  Stuff her cunt... YES!  S-slut is so fucked... Cum, ' +
                 this.player.mf("master", "mistress") +
@@ -904,17 +904,17 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
         if (this.player.cumQ() >= 500) {
-            this.outputText("The rat-girl has gained a nice ", false);
+            this.outputText("The rat-girl has gained a nice ");
             if (this.player.cumQ() < 1000)
-                this.outputText("spooge-paunch from all the cum.", false);
+                this.outputText("spooge-paunch from all the cum.");
             else if (this.player.cumQ() < 1500)
-                this.outputText("spooge-packed belly from all the cum.", false);
+                this.outputText("spooge-packed belly from all the cum.");
             else
                 this.outputText(
                     "spooge-pregnancy from all the cum.  It swings underneath her, making her look ready to birth.",
                     false
                 );
-            this.outputText("  ", false);
+            this.outputText("  ");
         }
         this.outputText(
             "Cinnabar goes limp, but speared as she is, her near-unconscious body just hangs on you like a sock for your cock.  You shift position, and gently slide her off, shivering from how tightly her interior grips you as she's peeled off.\n\n",
@@ -954,8 +954,8 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
         if (this.player.cumQ() >= 1000)
-            this.outputText(", the sloshing in her belly still quite audible", false);
-        this.outputText(".", false);
+            this.outputText(", the sloshing in her belly still quite audible");
+        this.outputText(".");
         this.player.orgasm();
         this.dynStats("sen", -4);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -977,8 +977,8 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
         if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-        else if (this.player.hasSheath()) this.outputText("sheath", false);
-        else this.outputText("base", false);
+        else if (this.player.hasSheath()) this.outputText("sheath");
+        else this.outputText("base");
         this.outputText(".\n\n", false);
 
         this.outputText(
@@ -993,8 +993,8 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
         if (this.player.balls > 0) this.outputText(this.ballsDescriptLight(), false);
-        else if (this.player.hasSheath()) this.outputText("sheath", false);
-        else this.outputText("shaft", false);
+        else if (this.player.hasSheath()) this.outputText("sheath");
+        else this.outputText("shaft");
         this.outputText(
             " to prod at your " +
                 this.assholeDescript() +
@@ -1002,18 +1002,18 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
 
-        this.outputText("Her juices fall like rain, soaking the sheets, ", false);
-        if (this.player.balls > 0) this.outputText("your balls, ", false);
+        this.outputText("Her juices fall like rain, soaking the sheets, ");
+        if (this.player.balls > 0) this.outputText("your balls, ");
         this.outputText("your " + this.player.legs() + ", and ", false);
-        if (!this.player.hasSheath()) this.outputText("the base of your twitching cock", false);
-        else this.outputText("your twitching cock-sheath", false);
+        if (!this.player.hasSheath()) this.outputText("the base of your twitching cock");
+        else this.outputText("your twitching cock-sheath");
         this.outputText(
             ".  You rub your hand over her belly, feeling your " +
                 this.player.cockHead(x) +
                 " through her distended, dick-dominated fur.  Each fiery, pumping load of cum boils underneath the rat's fur, bubbling between your fingers as it sloshes into her womb.  Cinnabar is thrashing, squeaking and crying, though it's quite clear her tears are tears of joy.  She gasps, \"<i>So big",
             false
         );
-        if (this.player.cumQ() >= 1000) this.outputText(" and so much", false);
+        if (this.player.cumQ() >= 1000) this.outputText(" and so much");
         this.outputText(
             "... YES!  CLAIM ME!  I'm yours... your cock-addicted, stretched-out fucktoy!  More... more!</i>\"\n\n",
             false
@@ -1023,18 +1023,18 @@ export class Cinnabar extends BazaarAbstractContent {
             "You don't hold back, and you fuck her raw, jerking yourself off through her stretched hide until your ",
             false
         );
-        if (this.player.balls == 0) this.outputText("prostate has been squeezed dry.", false);
+        if (this.player.balls == 0) this.outputText("prostate has been squeezed dry.");
         else
             this.outputText(
                 this.ballsDescriptLight() + " feel sore and empty, completely drained.",
                 false
             );
         if (this.player.cumQ() > 500) {
-            this.outputText("  The rat-girl has gained a nice, ", false);
+            this.outputText("  The rat-girl has gained a nice, ");
             if (this.player.cumQ() < 1000)
-                this.outputText("jiggling spooge-paunch from all the cum.", false);
+                this.outputText("jiggling spooge-paunch from all the cum.");
             else if (this.player.cumQ() < 1500)
-                this.outputText("spooge-packed belly from all the cum.", false);
+                this.outputText("spooge-packed belly from all the cum.");
             else
                 this.outputText(
                     "spooge-pregnancy from all the cum.  It swings underneath her, making her look ready to birth.",
@@ -1060,8 +1060,8 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
         if (this.player.cumQ() > 500)
-            this.outputText(", the sloshing in her belly still quite audible", false);
-        this.outputText(".", false);
+            this.outputText(", the sloshing in her belly still quite audible");
+        this.outputText(".");
         this.player.orgasm();
         this.dynStats("sen", -3);
         this.doNext(this.camp.returnToCampUseOneHour);
@@ -1108,8 +1108,8 @@ export class Cinnabar extends BazaarAbstractContent {
                 ", making it hard to stand.  Cinnabar slides ",
             false
         );
-        if (this.player.tallness >= 72) this.outputText("under your arm", false);
-        else this.outputText("up against you", false);
+        if (this.player.tallness >= 72) this.outputText("under your arm");
+        else this.outputText("up against you");
         this.outputText(
             ', supporting you while she asks, "<i>Do we need to get inside and get these taken care of, big ' +
                 this.player.mf("boy", "girl") +
@@ -1121,8 +1121,8 @@ export class Cinnabar extends BazaarAbstractContent {
             "Red, mirthful eyes watch your reaction, the cruel, toothy smile growing broader as she teases you.   You grunt and push back, pulling yourself up straight and inadvertently displaying the huge, many-pronged bulge",
             false
         );
-        if (this.player.lust >= 70) this.outputText(" you have", false);
-        else this.outputText(" she's given you", false);
+        if (this.player.lust >= 70) this.outputText(" you have");
+        else this.outputText(" she's given you");
         this.outputText(
             ".  She's teasing you, but it's clear she's no dominatrix.  No, she wants you to take charge, and if you're going to get off, you'll need to.  You hook your hand in between her cleavage, feeling the tight, silky embrace of her fur and the gentle, pounding beat of her heart.  It beats faster as soon as you start tugging her, dragging her towards the wagons.  ",
             false
@@ -1244,7 +1244,7 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
         if (this.player.cockTotal() >= 4)
-            this.outputText(" while you tit-fuck her swollen breasts", false);
+            this.outputText(" while you tit-fuck her swollen breasts");
         this.outputText(
             ".  Slippery-soft warmth wreathes your " +
                 this.cockDescript(x) +
@@ -1256,9 +1256,9 @@ export class Cinnabar extends BazaarAbstractContent {
                 "  Meanwhile, the soft, downy fur on the rat's chest is starting to mat against her skin, coated with the slick leavings from your ",
                 false
             );
-            if (this.player.cockTotal() == 4) this.outputText("extra dick", false);
-            else this.outputText("remaining dicks", false);
-            this.outputText(".", false);
+            if (this.player.cockTotal() == 4) this.outputText("extra dick");
+            else this.outputText("remaining dicks");
+            this.outputText(".");
         }
         this.outputText(
             "  The " +
@@ -1338,7 +1338,7 @@ export class Cinnabar extends BazaarAbstractContent {
             false
         );
         if (this.player.cumQ() >= 1000)
-            this.outputText(" while her huge, cum-filled belly bulges out to the sides", false);
+            this.outputText(" while her huge, cum-filled belly bulges out to the sides");
         this.outputText(
             ".  Her long, pink tongue is lashing over her swollen, black cunt-lips, hungrily cleaning the dirty twat and even licking at her asshole.  It's almost enough to get you hard again, but she eventually breaks from her auto-cunnilingus long enough to glance your way.\n\n",
             false

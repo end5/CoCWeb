@@ -174,7 +174,7 @@ export class Gargoyle extends BaseContent {
             // Name flag is used to track access into Gargoyles content. Default is "0" so somewhere the "0" string is coalescing to integer 0.
             // Solution? Fuck you for naming your Gargoyle "0".
             this.clearOutput();
-            this.outputText("<b>You must name her.</b>", false);
+            this.outputText("<b>You must name her.</b>");
 
             this.menu();
 

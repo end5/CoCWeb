@@ -101,8 +101,8 @@ export class GreenSlimeScene extends AbstractLakeContent {
             );
             // Non virgin's are sluts!
             if (!this.player.vaginas[0].virgin)
-                this.outputText("for that familiar full feeling ", false);
-            this.outputText("and paranoid about allowing this creature inside of you.", false);
+                this.outputText("for that familiar full feeling ");
+            this.outputText("and paranoid about allowing this creature inside of you.");
             // If you be hella tight
             if (this.player.vaginalCapacity() <= 18)
                 this.outputText(
@@ -289,12 +289,12 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     );
                     // Tig ol' bitties
                     if (this.player.biggestTitSize() > 8)
-                        this.outputText("barely contains them.", false);
+                        this.outputText("barely contains them.");
                     // Middling Boobiliciousness
                     else if (this.player.biggestTitSize() > 3)
-                        this.outputText("gently covers them.", false);
+                        this.outputText("gently covers them.");
                     // Tiny ta-tas.
-                    else this.outputText("easily smothers them.", false);
+                    else this.outputText("easily smothers them.");
                     // Get nips played with and nearly cum
                     this.outputText(
                         "  You feel the thing tweak your nipples and you moan a little as the ooze begins a gentle, rhythmic massage, teasing your " +
@@ -428,7 +428,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             false
                         );
                     // Cocks are different so it's a 'human' penis
-                    else this.outputText("a distinctly human penis.  ", false);
+                    else this.outputText("a distinctly human penis.  ");
                 }
                 // vaginal arousal & cum text for herms
                 if (this.player.vaginas.length > 0) {
@@ -525,9 +525,9 @@ export class GreenSlimeScene extends AbstractLakeContent {
                             false
                         );
                         // multi!
-                        if (this.player.cockTotal() > 1) this.outputText("penii ", false);
+                        if (this.player.cockTotal() > 1) this.outputText("penii ");
                         // Single
-                        else this.outputText("penis ", false);
+                        else this.outputText("penis ");
                         // SURPRIZES!
                         this.outputText(
                             "as it does.  What comes next is an utter surprise, making you unconsciously wring the head of the slime's cock.  ",
@@ -633,20 +633,20 @@ export class GreenSlimeScene extends AbstractLakeContent {
             // !! PENISTYPE
             switch (this.player.cocks[0].cockType) {
                 case 0: // human cock
-                    this.outputText("tip", false);
+                    this.outputText("tip");
                     break;
                 case 1: // horse cock
-                    this.outputText("flared tip", false);
+                    this.outputText("flared tip");
                     break;
                 case 2: // dog cock
-                    this.outputText("pointed tip", false);
+                    this.outputText("pointed tip");
                     break;
                 case 4: // tentacle cock
-                    this.outputText("rounded tip", false);
+                    this.outputText("rounded tip");
                     break;
                 default:
                     // error text
-                    this.outputText("tip", false);
+                    this.outputText("tip");
                     CocSettings.error("");
                     trace("ERROR: Penis type not supported, defaulting to tip.");
                     break;
@@ -658,10 +658,10 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 false
             );
             // This series deliberately not else-if statements.
-            if (this.player.cocks[0].cockLength >= 12) this.outputText(", down its throat,", false);
-            if (this.player.cocks[0].cockLength >= 24) this.outputText(" into its torso,", false);
+            if (this.player.cocks[0].cockLength >= 12) this.outputText(", down its throat,");
+            if (this.player.cocks[0].cockLength >= 24) this.outputText(" into its torso,");
             if (this.player.cocks[0].cockLength >= 48)
-                this.outputText(" and all the way through to its hips,", false);
+                this.outputText(" and all the way through to its hips,");
             this.outputText(
                 " and grunt approvingly.  You begin to slowly pull yourself out and then thrust yourself back in, feeling a moistness as some fluid surrounds your cock.  ",
                 false
@@ -734,8 +734,8 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     "You shrug at the lack of obvious orifices and decide to go for the most common one, choosing the ",
                     false
                 );
-                if (this.player.cockTotal() == 2) this.outputText("larger", false);
-                else this.outputText("largest", false);
+                if (this.player.cockTotal() == 2) this.outputText("larger");
+                else this.outputText("largest");
                 this.outputText(
                     " of your" +
                         this.multiCockDescriptLight() +
@@ -840,7 +840,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 false
             );
         } else {
-            this.outputText(" growing wet as you imagine it inside of you.  ", false);
+            this.outputText(" growing wet as you imagine it inside of you.  ");
         }
         // !!NOTE
         // breasts check here. if you want to allow/encourage entirely flat chested loli / cuntboy type stuff, change the bottom else-if to >= 0.
@@ -962,11 +962,11 @@ export class GreenSlimeScene extends AbstractLakeContent {
                 );
             }
         }
-        this.outputText("You feel a rush of liquid flood your insides, ", false);
+        this.outputText("You feel a rush of liquid flood your insides, ");
         // !! NOTE
         // since this line is centered around previous sexual knowledge, change virginity status at the end of the event rather than beginning so this can fire properly.
         if (!this.player.vaginas[0].virgin) {
-            this.outputText("not as thick as semen, ", false);
+            this.outputText("not as thick as semen, ");
         }
         this.outputText(
             "filling you past full and flowing out along the creature's cock, leaving you with a slight bulge at your belly and a pool of green fluids on the ground beneath you.  You gasp and hold your breath as you lay on the creature, its grip slowly loosening.  Its cock slides out of you and a flood of liquid pours out of your " +
@@ -997,7 +997,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
             // No balls, no pussy, just butt
             else this.outputText(this.assholeDescript(), false);
         }
-        this.outputText(" before settling over your rear entrance.  ", false);
+        this.outputText(" before settling over your rear entrance.  ");
         // virgins just assume it wont fit
         if (this.player.analCapacity() < 18 || this.player.ass.analLooseness == 0) {
             // ...but this wont necessarily be a turnoff.  id put in some sort of formula that determines the corruption rating needed for this
@@ -1118,7 +1118,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
             false
         );
         // Low corrupppppption blush!
-        if (this.player.cor < 20) this.outputText("you blush as ", false);
+        if (this.player.cor < 20) this.outputText("you blush as ");
         this.outputText(
             "a large erection shaped like a human's dick forms at the bottom of its torso.  The creature thrusts its hips forward, pushing this new appendage against your face and making its intent very clear.\n",
             false
@@ -1151,7 +1151,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
             }
             if (this.player.vaginas.length > 0) {
                 this.outputText("Your " + this.vaginaDescript(0) + " ", false);
-                if (this.player.cockTotal() > 0) this.outputText("also ", false);
+                if (this.player.cockTotal() > 0) this.outputText("also ");
                 this.outputText(
                     "grows wet as you work the creature, a surge of arousal flowing through your body.  You rub your thighs together and moan into the creatures cock, desperate to be touched by something.",
                     false
@@ -1402,7 +1402,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                     false
                 );
                 // SLUT!
-                if (this.player.vaginalCapacity() >= 30) this.outputText(" at least partly", false);
+                if (this.player.vaginalCapacity() >= 30) this.outputText(" at least partly");
                 this.outputText(
                     ".  A deep, throaty moan escapes your lips as the cock slides into your " +
                         this.vaginaDescript(0) +
@@ -1517,7 +1517,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
                         " as well. ",
                     false
                 );
-            } else this.outputText(". ", false);
+            } else this.outputText(". ");
         }
         // [if female-
         else if (this.player.gender == 2) {
@@ -1589,7 +1589,7 @@ export class GreenSlimeScene extends AbstractLakeContent {
         if (this.player.gender == 1) {
             this.outputText(this.multiCockDescriptLight(), false);
             if (this.player.balls > 0) this.outputText(" and " + this.ballsDescript(), false);
-            this.outputText(" and ", false);
+            this.outputText(" and ");
         }
         // [if female-
         else if (this.player.gender == 2) this.outputText(this.clitDescript() + " and ", false);

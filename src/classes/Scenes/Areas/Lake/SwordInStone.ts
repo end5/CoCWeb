@@ -18,7 +18,7 @@ export class SwordInStone extends AbstractLakeContent {
                 false
             );
 
-            this.outputText("You suppose you could try to pull it free, do you?", false);
+            this.outputText("You suppose you could try to pull it free, do you?");
 
             this.doYesNo(this.tryToTakeSwordInStone, this.camp.returnToCampUseOneHour);
         } else {
@@ -37,7 +37,7 @@ export class SwordInStone extends AbstractLakeContent {
         this.outputText("", true);
         // if corrupted...
         if (this.player.cor >= 25) {
-            this.outputText("You grip the handle with both hands and ", false);
+            this.outputText("You grip the handle with both hands and ");
 
             if (this.player.str > 70)
                 this.outputText(
@@ -45,8 +45,8 @@ export class SwordInStone extends AbstractLakeContent {
                     false
                 );
             if (this.player.str <= 70 && this.player.str >= 40)
-                this.outputText("pull hard, feeling your muscles tighten from the strain, ", false);
-            if (this.player.str < 40) this.outputText("pull as hard as you can, ", false);
+                this.outputText("pull hard, feeling your muscles tighten from the strain, ");
+            if (this.player.str < 40) this.outputText("pull as hard as you can, ");
 
             this.outputText(
                 "but the sword remains stubbornly lodged in its arboreal home.  Frustrated, you give up and resolve to try later.",
@@ -57,7 +57,7 @@ export class SwordInStone extends AbstractLakeContent {
         }
         // If not corrupted...
         else {
-            this.outputText("You grip the handle with both hands and ", false);
+            this.outputText("You grip the handle with both hands and ");
 
             if (this.player.str > 70)
                 this.outputText(

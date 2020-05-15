@@ -16,9 +16,9 @@ export class Maddie extends TelAdreAbstractContent {
                 'You enter the bakery, savoring the sweet smells of sugar and baked goods.  A burly, hairy figure steps up beside you and places a strong hand on your shoulder.   The gravelly voice of the stranger says, "<i>You ain\'t from around here.  Come.  I need your help.  Show you something.</i>"  You turn to look, and are quite surprised when you see the horned visage of a minotaur ',
                 false
             );
-            if (this.player.tallness < 72) this.outputText("looking down at", false);
-            else if (this.player.tallness < 100) this.outputText("staring levelly at", false);
-            else this.outputText("glaring up at", false);
+            if (this.player.tallness < 72) this.outputText("looking down at");
+            else if (this.player.tallness < 100) this.outputText("staring levelly at");
+            else this.outputText("glaring up at");
             this.outputText(
                 " you. It releases your shoulder and starts walking towards an 'employees only' door.  Do you follow?\n\n",
                 false
@@ -136,10 +136,10 @@ export class Maddie extends TelAdreAbstractContent {
             false
         );
 
-        this.outputText("Well, no point in ", false);
-        if (this.player.cor > 50) this.outputText("starting a fight inside Tel'Adre", false);
-        else this.outputText("overstaying your welcome", false);
-        this.outputText(" – you depart.", false);
+        this.outputText("Well, no point in ");
+        if (this.player.cor > 50) this.outputText("starting a fight inside Tel'Adre");
+        else this.outputText("overstaying your welcome");
+        this.outputText(" – you depart.");
         this.doNext(this.telAdre.bakeryScene.bakeryuuuuuu);
     }
     // [Yes – baking]
@@ -168,8 +168,8 @@ export class Maddie extends TelAdreAbstractContent {
             false
         );
         if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0)
-            this.outputText("  Your mouth salivates at the thought.", false);
-        else this.outputText("You aren't sure you want to.", false);
+            this.outputText("  Your mouth salivates at the thought.");
+        else this.outputText("You aren't sure you want to.");
         this.outputText("\n\n", false);
         if (this.player.findPerk(PerkLib.MinotaurCumAddict) >= 0) this.doNext(this.waitForSlutCake);
         // [Wait] [Sneak Out]
@@ -203,14 +203,14 @@ export class Maddie extends TelAdreAbstractContent {
     private waitForSlutCake(): void {
         this.spriteSelect(39);
         this.outputText("", true);
-        this.outputText("You walk back into the bakery proper, feeling more than a little ", false);
-        if (this.player.cor < 33) this.outputText("antsy", false);
-        else if (this.player.cor < 66) this.outputText("nervous about this whole thing", false);
-        else this.outputText("intrigued by this whole thing", false);
-        this.outputText(".  One of the waitresses brings you a glass of milk, and ", false);
+        this.outputText("You walk back into the bakery proper, feeling more than a little ");
+        if (this.player.cor < 33) this.outputText("antsy");
+        else if (this.player.cor < 66) this.outputText("nervous about this whole thing");
+        else this.outputText("intrigued by this whole thing");
+        this.outputText(".  One of the waitresses brings you a glass of milk, and ");
         if (this.player.cor < 50)
-            this.outputText("it smells normal enough, so you go ahead and sip on it", false);
-        else this.outputText("you sip on it while you wait", false);
+            this.outputText("it smells normal enough, so you go ahead and sip on it");
+        else this.outputText("you sip on it while you wait");
         this.outputText(
             ".  After what feels like an eternity, you get sick of waiting and push through the door into the bakery's backrooms to see what the hold-up is.  The minotaur isn't at his usual workstation, and doesn't look to have been there in quite some time.\n\n",
             false
@@ -315,10 +315,10 @@ export class Maddie extends TelAdreAbstractContent {
                     ".  Cooing with excitement, she examines your ",
                 false
             );
-            if (this.player.lust >= 75) this.outputText("rock-hard", false);
-            else this.outputText("hardening", false);
-            this.outputText(" shaft", false);
-            if (this.player.cockTotal() > 1) this.outputText("s", false);
+            if (this.player.lust >= 75) this.outputText("rock-hard");
+            else this.outputText("hardening");
+            this.outputText(" shaft");
+            if (this.player.cockTotal() > 1) this.outputText("s");
             this.outputText(
                 ", running a sponge-soft hand over the love-muscle.  You rock your hips, trying to squirm away.  Maddie laughs, breathily chortling while her well-rounded breasts slide to either side of you and pin you to the wall.\n\n",
                 false
@@ -353,9 +353,9 @@ export class Maddie extends TelAdreAbstractContent {
                 false
             );
 
-            this.outputText("A half-melted tongue ", false);
-            if (!this.player.hasSheath()) this.outputText("encircles the base", false);
-            else this.outputText("pokes and prods into your sheath", false);
+            this.outputText("A half-melted tongue ");
+            if (!this.player.hasSheath()) this.outputText("encircles the base");
+            else this.outputText("pokes and prods into your sheath");
             this.outputText(
                 ", leaving a syrupy residue trailing over your " +
                     this.cockDescript(x) +
@@ -391,7 +391,7 @@ export class Maddie extends TelAdreAbstractContent {
                 false
             );
 
-            this.outputText("Maddie milks you for what seems like ages", false);
+            this.outputText("Maddie milks you for what seems like ages");
             if (this.player.cockTotal() == 1)
                 this.outputText(
                     ", your " +
@@ -404,8 +404,8 @@ export class Maddie extends TelAdreAbstractContent {
                     " while her skin absorbs the generous donation of your other member",
                     false
                 );
-                if (this.player.cockTotal() > 2) this.outputText("s", false);
-                this.outputText(".", false);
+                if (this.player.cockTotal() > 2) this.outputText("s");
+                this.outputText(".");
             }
             this.outputText(
                 "  When the jizz-guzzling pastry-girl pulls back at last to free your empty member, it's coated from top to bottom in gooey blue jelly, though it's tinged white in places.  The milked-out member slowly softens",
@@ -413,8 +413,8 @@ export class Maddie extends TelAdreAbstractContent {
             );
             if (this.player.cockTotal() > 1) {
                 if (this.player.cockTotal() == 2)
-                    this.outputText(" along with your other penis", false);
-                else this.outputText(" along with your other dicks", false);
+                    this.outputText(" along with your other penis");
+                else this.outputText(" along with your other dicks");
             }
             this.outputText(
                 ".  Satisfied, your body goes limp and sags against the wall while your face leans on the cupcake-girl's departing breast.\n\n",
@@ -468,7 +468,7 @@ export class Maddie extends TelAdreAbstractContent {
                     '.  Isn\'t my icing the absolute best?</i>" she verbally gushes, just like the nipple between your teeth.  "<i>Drink up',
                 false
             );
-            if (this.player.thickness < 60) this.outputText(", you're looking awful thin", false);
+            if (this.player.thickness < 60) this.outputText(", you're looking awful thin");
             else if (this.player.tone >= 70)
                 this.outputText(
                     ", you look like you're carved from stone.  A little softness would do you good",
@@ -509,8 +509,8 @@ export class Maddie extends TelAdreAbstractContent {
                 false
             );
             if (this.player.thickness < 60 || this.player.tone >= 50)
-                this.outputText("forward", false);
-            else this.outputText("more forward than normal", false);
+                this.outputText("forward");
+            else this.outputText("more forward than normal");
             this.outputText(
                 ".  After a time it overwhelms you and you fall into a fitful slumber.\n\n",
                 false

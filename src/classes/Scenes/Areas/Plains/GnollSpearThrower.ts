@@ -166,8 +166,8 @@ export class GnollSpearThrower extends Monster {
                     false
                 );
                 if (this.player.inte > 50)
-                    this.outputText(", was there some kind of aphrodisiac on the knife?", false);
-                else this.outputText(".", false);
+                    this.outputText(", was there some kind of aphrodisiac on the knife?");
+                else this.outputText(".");
                 this.game.dynStats("lus", this.player.lib / 20 + GnollSpearThrower.rand(4) + 1);
             }
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {
@@ -385,7 +385,7 @@ export class GnollSpearThrower extends Monster {
                     false
                 );
                 if (this.player.biggestTitSize() >= 1)
-                    this.outputText(", sending a wave of pain through the sensitive flesh", false);
+                    this.outputText(", sending a wave of pain through the sensitive flesh");
                 this.outputText(
                     ".  A small, traitorous part of you can't help but notice a flash of long, dark flesh beneath her loincloth even as you stagger back from the impact. (" +
                         damage +
@@ -569,8 +569,8 @@ export class GnollSpearThrower extends Monster {
                     false
                 );
                 if (this.player.inte > 50)
-                    this.outputText(", was there some kind of aphrodisiac on the knife?", false);
-                else this.outputText(".", false);
+                    this.outputText(", was there some kind of aphrodisiac on the knife?");
+                else this.outputText(".");
                 this.game.dynStats("lus", this.player.lib / 20 + GnollSpearThrower.rand(4) + 1);
             }
             if (this.lustVuln > 0 && this.player.armorName == "barely-decent bondage straps") {

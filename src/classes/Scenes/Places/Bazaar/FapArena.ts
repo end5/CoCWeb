@@ -45,8 +45,8 @@ export class FapArena extends BazaarAbstractContent {
                 "\"<i>I'm afraid you aren't well-endowed enough to take part in our sessions.  Please come back when ",
                 false
             );
-            if (!this.player.hasCock()) this.outputText("you have a cock.", false);
-            else this.outputText("your cock is sufficiently long.", false);
+            if (!this.player.hasCock()) this.outputText("you have a cock.");
+            else this.outputText("your cock is sufficiently long.");
             this.outputText('</i>"', false);
             // THE FOLLOWING IS CUT - I AINT SELLING GRO+ HERE! NOAP
             // , or consider buying products in our local shop.</i>\"\n\n", false);
@@ -121,9 +121,9 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
             // [if Corr >40]
-            if (this.player.cor > 66) this.outputText("Sounds fun!", false);
+            if (this.player.cor > 66) this.outputText("Sounds fun!");
             // [else]
-            else this.outputText("By gods, what are you doing here?", false);
+            else this.outputText("By gods, what are you doing here?");
             // end of condition about PC's corr
             this.outputText("\n\nDo you stay?", false);
             this.doYesNo(this.fapArenaPageII, this.bazaar.enterTheBazaar);
@@ -154,7 +154,7 @@ export class FapArena extends BazaarAbstractContent {
             );
             // [if Corr >40]
             if (this.player.cor > 66)
-                this.outputText("  You look forward to this new masturbating session.", false);
+                this.outputText("  You look forward to this new masturbating session.");
             this.doNext(this.fapArenaPageII);
         }
         // end of condition about PC's first time, display the following
@@ -222,7 +222,7 @@ export class FapArena extends BazaarAbstractContent {
             "The pace accelerates more and more; in fear of losing, everyone's handjobs become rougher and rougher, each player hoping that they will make their right partner climax before thy themselves succumb.  Everyone looks deeply concentrated, trying to betray as little as possible of their current tension, raging inside when a muffled moan finds its way through their lips.  How long have you been here, handling a stranger's cock?  You don't know, but the session seems to be coming to an end: almost everyone's dong is now flowing with pre-cum, and the faint jerking sounds are gradually replaced with squelching and slicking noises.  There are ",
             false
         );
-        if (this.player.hasVagina()) this.outputText("other ", false);
+        if (this.player.hasVagina()) this.outputText("other ");
         this.outputText(
             "dick-girls in that room: cute face, jiggling breasts, curvy body, squeezable hips; they would almost look like normal females if it weren't for that huge pre-cum-spilling, protruding cock.  They seem as deep in concentration as the others, the only difference being their feminine fluids spilling freely from their wet cunts and the occasional girlish moans that escape their lips.  The warm, musky smell of male genitalia starts impregnating the whole room as the temperature rises higher and higher and you find yourself all the more aroused.  You close your eyes in order to stop torturing yourself with the sight of hot, horny, naked bodies. You don't know if you will be able to hold on much longer.\n\n",
             false
@@ -288,11 +288,11 @@ export class FapArena extends BazaarAbstractContent {
                     " starts shooting an ",
                 false
             );
-            if (this.player.cumQ() > 1000) this.outputText("unholy", false);
-            else if (this.player.cumQ() >= 500) this.outputText("enormous", false);
-            else this.outputText("appreciable", false);
+            if (this.player.cumQ() > 1000) this.outputText("unholy");
+            else if (this.player.cumQ() >= 500) this.outputText("enormous");
+            else this.outputText("appreciable");
             // (depending on cum production)
-            this.outputText(" rope of the creamiest, whitest liquid you've ever produced.", false);
+            this.outputText(" rope of the creamiest, whitest liquid you've ever produced.");
             if (this.player.cockTotal() > 1)
                 this.outputText(
                     "  Several more gouts follow suit from the unstimulated dickflesh dangling from your groin.",
@@ -322,10 +322,10 @@ export class FapArena extends BazaarAbstractContent {
                         " squirts too, forming a ",
                     false
                 );
-                if (this.player.wetness() >= 4) this.outputText("large puddle", false);
-                else if (this.player.wetness() >= 2) this.outputText("puddle", false);
-                else this.outputText("smear", false);
-                this.outputText(" of girl-jizz on the floor.", false);
+                if (this.player.wetness() >= 4) this.outputText("large puddle");
+                else if (this.player.wetness() >= 2) this.outputText("puddle");
+                else this.outputText("smear");
+                this.outputText(" of girl-jizz on the floor.");
             }
             // [if player lactates]
             if (this.player.biggestLactation() > 1.5)
@@ -416,9 +416,9 @@ export class FapArena extends BazaarAbstractContent {
                     " reminds you that you also need to comply to your own genitals' needs.  Unhindered by the fear of losing, you completely give up to your orgasm and sigh in utter satisfaction and relief as you release one of the most abundant cumshots you've ever had.  Lost in your orgasm, you carelessly ",
                 false
             );
-            if (this.player.cumQ() >= 1000) this.outputText("soak", false);
-            else if (this.player.cumQ() >= 500) this.outputText("pollute", false);
-            else this.outputText("wet", false);
+            if (this.player.cumQ() >= 1000) this.outputText("soak");
+            else if (this.player.cumQ() >= 500) this.outputText("pollute");
+            else this.outputText("wet");
             this.outputText(
                 ' the floor with your sexual juices and yell in a whorish voice, "<i>NUMBER ' +
                     (num + 4) +
@@ -434,10 +434,10 @@ export class FapArena extends BazaarAbstractContent {
                         " squirts too, forming a ",
                     false
                 );
-                if (this.player.wetness() >= 4) this.outputText("large puddle", false);
-                else if (this.player.wetness() >= 2) this.outputText("puddle", false);
-                else this.outputText("smear", false);
-                this.outputText(" of girl-jizz on the floor.", false);
+                if (this.player.wetness() >= 4) this.outputText("large puddle");
+                else if (this.player.wetness() >= 2) this.outputText("puddle");
+                else this.outputText("smear");
+                this.outputText(" of girl-jizz on the floor.");
             }
             if (this.player.biggestLactation() > 1.5)
                 this.outputText(
@@ -519,9 +519,9 @@ export class FapArena extends BazaarAbstractContent {
                     " was starting to twitch on its own.  Unhindered by the fear of losing, you completely give up to your orgasm and sigh in utter satisfaction and relief as you release one of the most abundant cumshots you've ever had.  Lost in climax, you carelessly ",
                 false
             );
-            if (this.player.cumQ() >= 1000) this.outputText("soak", false);
-            else if (this.player.cumQ() >= 500) this.outputText("pollute", false);
-            else this.outputText("wet", false);
+            if (this.player.cumQ() >= 1000) this.outputText("soak");
+            else if (this.player.cumQ() >= 500) this.outputText("pollute");
+            else this.outputText("wet");
             this.outputText(
                 ' the floor with your sexual juices and yell in a whorish voice: "<i>NUMBER ' +
                     num +
@@ -537,10 +537,10 @@ export class FapArena extends BazaarAbstractContent {
                         " squirts too, forming a ",
                     false
                 );
-                if (this.player.wetness() >= 4) this.outputText("large puddle", false);
-                else if (this.player.wetness() >= 2) this.outputText("puddle", false);
-                else this.outputText("smear", false);
-                this.outputText(" of girl-jizz on the floor.", false);
+                if (this.player.wetness() >= 4) this.outputText("large puddle");
+                else if (this.player.wetness() >= 2) this.outputText("puddle");
+                else this.outputText("smear");
+                this.outputText(" of girl-jizz on the floor.");
             }
             if (this.player.biggestLactation() > 1.5)
                 this.outputText(
@@ -619,8 +619,8 @@ export class FapArena extends BazaarAbstractContent {
                 false
             );
             // ([if corr < 50]
-            if (this.player.cor < 50) this.outputText("a whorish smile", false);
-            else this.outputText("apprehension", false);
+            if (this.player.cor < 50) this.outputText("a whorish smile");
+            else this.outputText("apprehension");
             this.outputText(
                 ", you place yourself in front of the creature with the large cock.  It grinds against your back in impatience.  ",
                 false
@@ -663,8 +663,8 @@ export class FapArena extends BazaarAbstractContent {
                 "It lodges here comfortably for a few seconds, and then you remember you're the one initiating the butt-fucking train; so you quickly get down to business and give your dong an almighty thrust.  As soon as you start pushing, your sodomite partner grips ",
                 false
             );
-            if (this.temp == 1) this.outputText("his", false);
-            else this.outputText("her", false);
+            if (this.temp == 1) this.outputText("his");
+            else this.outputText("her");
             this.outputText(
                 " own partner's butt and thrusts too under the pressure, who does the same to the one following, etc..  The last one is actually pushed face down onto the floor, but her butt bumps against the cum-tube fucking her, making the cock's owner bump in response, and it all propagates back to your own dick; you gasp in pleasure as the ass holding your " +
                     this.cockDescript(x) +
@@ -688,20 +688,20 @@ export class FapArena extends BazaarAbstractContent {
             // [if player has multicocks]
             if (this.player.cockTotal() > 2 || (!tent && this.player.cockTotal() > 1)) {
                 if (this.player.cockTotal() > 3 || (!tent && this.player.cockTotal() > 2))
-                    this.outputText("  Your other cocks also spill ", false);
+                    this.outputText("  Your other cocks also spill ");
                 if (
                     (tent && this.player.cockTotal() == 3) ||
                     (this.player.cockTotal() == 2 && !tent)
                 )
-                    this.outputText("  Your other cock also spills ", false);
-                this.outputText("a ", false);
-                if (this.player.cumQ() > 1000) this.outputText("mighty", false);
-                else if (this.player.cumQ() > 500) this.outputText("large", false);
-                else this.outputText("good", false);
-                this.outputText(" spray of ", false);
+                    this.outputText("  Your other cock also spills ");
+                this.outputText("a ");
+                if (this.player.cumQ() > 1000) this.outputText("mighty");
+                else if (this.player.cumQ() > 500) this.outputText("large");
+                else this.outputText("good");
+                this.outputText(" spray of ");
                 if (this.player.cockTotal() > 3 || (!tent && this.player.cockTotal() > 2))
-                    this.outputText("their ", false);
-                else this.outputText("its ", false);
+                    this.outputText("their ");
+                else this.outputText("its ");
                 this.outputText(
                     "own, unhindered by the tight colon holding your first " +
                         this.cockDescript(x) +
@@ -711,10 +711,10 @@ export class FapArena extends BazaarAbstractContent {
             }
             // [if player has vagina]
             if (this.player.hasVagina()) {
-                this.outputText("  Your feminine part squirts a ", false);
-                if (this.player.wetness() >= 5) this.outputText("titanic", false);
-                else if (this.player.wetness() >= 3) this.outputText("massive", false);
-                else this.outputText("nice", false);
+                this.outputText("  Your feminine part squirts a ");
+                if (this.player.wetness() >= 5) this.outputText("titanic");
+                else if (this.player.wetness() >= 3) this.outputText("massive");
+                else this.outputText("nice");
                 this.outputText(
                     " load of girl-cum too, as if to compete with its male counterpart.",
                     false
@@ -782,20 +782,20 @@ export class FapArena extends BazaarAbstractContent {
             // [if player has multicocks]
             if (this.player.cockTotal() > 2 || (!tent && this.player.cockTotal() > 1)) {
                 if (this.player.cockTotal() > 3 || (!tent && this.player.cockTotal() > 2))
-                    this.outputText("  Your other cocks also spill ", false);
+                    this.outputText("  Your other cocks also spill ");
                 if (
                     (tent && this.player.cockTotal() == 3) ||
                     (this.player.cockTotal() == 2 && !tent)
                 )
-                    this.outputText("  Your other cock also spills ", false);
-                this.outputText("a ", false);
-                if (this.player.cumQ() > 1000) this.outputText("mighty", false);
-                else if (this.player.cumQ() > 500) this.outputText("large", false);
-                else this.outputText("good", false);
-                this.outputText(" spray of ", false);
+                    this.outputText("  Your other cock also spills ");
+                this.outputText("a ");
+                if (this.player.cumQ() > 1000) this.outputText("mighty");
+                else if (this.player.cumQ() > 500) this.outputText("large");
+                else this.outputText("good");
+                this.outputText(" spray of ");
                 if (this.player.cockTotal() > 3 || (!tent && this.player.cockTotal() > 2))
-                    this.outputText("their ", false);
-                else this.outputText("its ", false);
+                    this.outputText("their ");
+                else this.outputText("its ");
                 this.outputText(
                     "own, unhindered by the tight colon holding your first " +
                         this.cockDescript(x) +
@@ -805,10 +805,10 @@ export class FapArena extends BazaarAbstractContent {
             }
             // [if player has vagina]
             if (this.player.hasVagina()) {
-                this.outputText("  Your feminine part squirts a ", false);
-                if (this.player.wetness() >= 5) this.outputText("titanic", false);
-                else if (this.player.wetness() >= 3) this.outputText("massive", false);
-                else this.outputText("nice", false);
+                this.outputText("  Your feminine part squirts a ");
+                if (this.player.wetness() >= 5) this.outputText("titanic");
+                else if (this.player.wetness() >= 3) this.outputText("massive");
+                else this.outputText("nice");
                 this.outputText(
                     " load of girl-cum too, as if to compete with its male counterpart.",
                     false
@@ -862,10 +862,10 @@ export class FapArena extends BazaarAbstractContent {
             this.tentacleFapCum();
             // [if player has vagina]
             if (this.player.hasVagina()) {
-                this.outputText("  Your feminine part squirts a ", false);
-                if (this.player.wetness() >= 5) this.outputText("titanic", false);
-                else if (this.player.wetness() >= 3) this.outputText("massive", false);
-                else this.outputText("nice", false);
+                this.outputText("  Your feminine part squirts a ");
+                if (this.player.wetness() >= 5) this.outputText("titanic");
+                else if (this.player.wetness() >= 3) this.outputText("massive");
+                else this.outputText("nice");
                 this.outputText(
                     " load of girl-cum too, as if to compete with its male counterpart.",
                     false
@@ -955,9 +955,9 @@ export class FapArena extends BazaarAbstractContent {
                     " isn't getting love. The poor squirming thing is trembling in arousal and you decide it should also take part in the collective butt-fuck; you don't care whether it's cheating or not; after all, the butt-fuck has already begun.  Besides, the referee is too busy touching herself to notice anything.  Fortunately your tentacle dick is long and flexible enough to be guided toward some hole to fuck; you proceed to snake your tentacle dong around, looking for some vagina.  After a few seconds of unsuccessful searching, groping muscled butts with your nodules but finding no hole that's already filled by some ramming cock, your ropy member finally locates a gaping, fluid-dripping vagina.  You've found a herm!  Her slick fuck-hole is oozing due to the unholy embrace of flesh her pucker and her shaft are already getting, and you have no trouble sliding a few inches inside with expert guidance.  The brutal and unexpected secondary intrusion makes her moan instantly.  You welcome this new burst of pleasure and start jamming your tentacle pecker back and forth in the herm's vagina, all the while ",
                 false
             );
-            if (place <= 2) this.outputText("fucking your partner's anus", false);
-            if (place == 2) this.outputText(" and", false);
-            if (place >= 2) this.outputText(" being fucked from behind", false);
+            if (place <= 2) this.outputText("fucking your partner's anus");
+            if (place == 2) this.outputText(" and");
+            if (place >= 2) this.outputText(" being fucked from behind");
             this.outputText(".\n\n", false);
             // [if you didn't lose or if you won]
             if (place <= 2) {

@@ -812,7 +812,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
         }
         // Can afford
         else {
-            this.outputText("Do you purchase his cure?", false);
+            this.outputText("Do you purchase his cure?");
             // Remove/No
             this.doYesNo(this.wormRemoval, this.giacomoEncounter);
         }
@@ -1173,7 +1173,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     'As you are passing out, you feel a deep kiss upon your lips from the succubus. "You taste better each time we join. Call upon me soon, lest I take what I want from you anyway,", says the lustful creature.\n\n',
                     false
                 );
-                this.outputText("Fatigue takes you and you collapse into a deep sleep.  ", false);
+                this.outputText("Fatigue takes you and you collapse into a deep sleep.  ");
             } else {
                 this.outputText(
                     "\nKnowing the succubus will come, you do not even bother trying to sleep. Instead, you prepare a little surprise for her. You briefly jerk off and start edging yourself, preparing a massive batch to unload inside her. Hopefully, she will be the one to get more than she bargained for.\n\n",
@@ -1187,9 +1187,9 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                     '"<i>I thought I was the hungry one.</i>", she chuckles. "I am all yours, little man. FEED ME!"\n\n',
                     false
                 );
-                this.outputText("You begin bucking your ", false);
-                if (this.player.isTaur()) this.outputText("flanks", false);
-                else this.outputText("hips", false);
+                this.outputText("You begin bucking your ");
+                if (this.player.isTaur()) this.outputText("flanks");
+                else this.outputText("hips");
                 this.outputText(
                     " in the all-too-familiar rhythm, hammering away at the succubus' cunt. Impressed with your initiative, she chooses to remain submissive as you work up an impressive load of spunk. Trying with all of your might, you continue to hold off your orgasm, painfully, as you continue stimulating your inhuman lover.\n\n",
                     false
@@ -1204,7 +1204,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                             this.cockDescript(0),
                         false
                     );
-                else this.outputText("wraps her legs around your hips and bears down", false);
+                else this.outputText("wraps her legs around your hips and bears down");
                 this.outputText(
                     ". You feel the head of your prick push past the dilated opening in her cervix, which immediately contracts around your head. Your penis is literally trapped and caught in her womb!\n\n",
                     false
@@ -1249,7 +1249,7 @@ export class Giacomo extends BaseContent implements TimeAwareInterface {
                 );
                 // [ (Herm-Dickgirl variant only)
                 if (this.player.balls > 0)
-                    this.outputText("  Even your nuts are unbearably sore.", false);
+                    this.outputText("  Even your nuts are unbearably sore.");
                 this.outputText(
                     "  As the milk begins to dry out of the Succubus' tit, you release it from your control and launch an impossible load of cum into the succubus. The demoness releases her hold of your cock and hops off your crotch and jumps to place her mouth over your erupting penis. Reflexively grabbing her head, you push your cock as deep as you can in her mouth and for minutes, pump stream after stream of hot lust into her gullet. After the last load leaves your dong, you pass out.\n\n",
                     false

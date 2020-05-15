@@ -116,7 +116,7 @@ export class Lilium extends BazaarAbstractContent {
                 false
             );
 
-            this.outputText("Bummer.", false);
+            this.outputText("Bummer.");
             this.doNext(this.bazaar.enterTheBazaar);
             return;
         }
@@ -139,7 +139,7 @@ export class Lilium extends BazaarAbstractContent {
                     false
                 );
 
-            this.outputText("What will you do with her?", false);
+            this.outputText("What will you do with her?");
         } else {
             this.outputText(
                 "You toss the gems to the hooker and while she counts them, you wonder just what you want her to do this time.",
@@ -550,22 +550,22 @@ export class Lilium extends BazaarAbstractContent {
             "Giving up trying to steady herself, Lilium brings her hands to her own cock and begins to stroke and massage it in time with you.  The wet shlicks and pops of you fucking Lilium's dripping nipple",
             false
         );
-        if (doubleNipFuck) this.outputText("s", false);
+        if (doubleNipFuck) this.outputText("s");
         this.outputText(
             " and the soft sound of her stroking her dick combine with your grunts and her moans to form a sexual chorus in this isolated part of the Bazaar.  Soon you feel the familiar pressure building in your loins and you speed up your thrusts; with one great, final effort you drive as far into Lilium's tit",
             false
         );
-        if (doubleNipFuck) this.outputText("s", false);
+        if (doubleNipFuck) this.outputText("s");
         this.outputText(
             " as you can.  A wave of ecstasy washes over you from your head to ",
             false
         );
-        if (this.player.tailType > TAIL_TYPE_NONE) this.outputText("your tail", false);
+        if (this.player.tailType > TAIL_TYPE_NONE) this.outputText("your tail");
         else this.outputText("your " + this.player.feet(), false);
-        this.outputText(" as you cum", false);
+        this.outputText(" as you cum");
         if (this.player.cockTotal() > 2)
-            this.outputText(", your unused cocks drenching her with seed", false);
-        this.outputText(".  The tightness of her ", false);
+            this.outputText(", your unused cocks drenching her with seed");
+        this.outputText(".  The tightness of her ");
         if (doubleNipFuck)
             this.outputText(
                 "nipple-cunts around your twin cocks causes some of your cum to squirt back out of her nipples",
@@ -587,13 +587,13 @@ export class Lilium extends BazaarAbstractContent {
             );
         this.outputText("\n\n", false);
 
-        this.outputText("The sensation of you pulling out of her fuck-able nipple", false);
-        if (doubleNipFuck) this.outputText("s", false);
+        this.outputText("The sensation of you pulling out of her fuck-able nipple");
+        if (doubleNipFuck) this.outputText("s");
         this.outputText(
             " drives Lilium herself over the edge, causing jets of her own cum to explode out of her cock.  The outline of the spurt is visible in the end of the lacy sock for a moment; it bulges and drips obscenely as she fills it up, squeezing her cock and letting out a loud cry in pleasure.  As she kneels before you panting, cum dripping from her gaping nipple",
             false
         );
-        if (doubleNipFuck) this.outputText("s", false);
+        if (doubleNipFuck) this.outputText("s");
         this.outputText(
             " and soaked sock, you brush a wayward strand of hair from her face.  Her eyes make their way up to meet yours and you give her a wink as you both smile lasciviously.\n\n",
             false
