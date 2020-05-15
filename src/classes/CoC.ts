@@ -3915,9 +3915,7 @@ Open - source contributions by:
     aimozg, Amygdala, Cmacleod42, Enterprise2001, Fake - Name, Gedan, Yoffy, et al
 
 <b>Ported by <a href='https://github.com/end5/CoCWeb'>end5</a></b>
-<b>Maintained by loxaxs</b>
-Source Code: <u><a href='https://github.com/loxaxs/CoCWeb'>https://github.com/loxaxs/CoCWeb</a></u>
-Bug Tracker: <u><a href='https://github.com/loxaxs/CoCWeb/issues'>https://github.com/loxaxs/CoCWeb/issues</a></u>
+<b>Maintained by loxaxs <u><a href='https://github.com/loxaxs/CoCWeb'>(Source Code)</a></u>, <u><a href='https://github.com/loxaxs/CoCWeb/issues'>(Bug Tracker)</a></u></b>
 
 <b><u>DISCLAIMER</u></b>
     <b>- There are many strange and odd fetishes contained in this flash. Peruse at your own risk.</b>
