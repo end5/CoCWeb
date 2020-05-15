@@ -285,3 +285,10 @@ body {
     background-image: url("asset/ui/button8.jpg");
 }
 
+
+/* Loading */
+.loading #topRowButtons,
+.loading #statsPanel,
+.loading #bottomRowButtons {
+    opacity: 1%
+}
