@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Shrewsbury-Titling-Bold";
-    src: url("./asset/fonts/Shrewsbury-Titling-Bold.ttf") format('truetype');
+    src: url("./asset/fonts/Shrewsbury-Titling-Bold.ttf") format("truetype");
 }
 
 h2 {
@@ -17,7 +17,7 @@ body {
 }
 
 #mainBackground {
-    background-image: url('asset/ui/background.jpg');
+    background-image: url("asset/ui/background.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-color: #262626;
@@ -28,11 +28,11 @@ body {
 }
 
 .tan {
-    background-color: #EBD5A6;
+    background-color: #ebd5a6;
 }
 
 .white {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 .buttonRow0 {
@@ -112,7 +112,7 @@ body {
 }
 
 #statsPanel {
-    background-image: url('asset/ui/sidebar.png');
+    background-image: url("asset/ui/sidebar.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: absolute;
@@ -182,7 +182,7 @@ body {
     position: relative;
 }
 
-.buttonContainer>.button {
+.buttonContainer > .button {
     position: relative;
 }
 
@@ -206,83 +206,82 @@ body {
     display: none;
 }
 
-.controlButton>.button {
+.controlButton > .button {
     background-image: url("asset/ui/button1.jpg");
     position: inherit;
 }
 
-#button3>.tooltip,
-#button8>.tooltip {
+#button3 > .tooltip,
+#button8 > .tooltip {
     left: -10%;
 }
 
-#button4>.tooltip,
-#button9>.tooltip {
+#button4 > .tooltip,
+#button9 > .tooltip {
     left: -110%;
 }
 
-#buttontop0>.button {
+#buttontop0 > .button {
     background-image: url("asset/ui/button9.jpg");
 }
 
-#buttontop1>.button {
+#buttontop1 > .button {
     background-image: url("asset/ui/button8.jpg");
 }
 
-#buttontop2>.button {
+#buttontop2 > .button {
     background-image: url("asset/ui/button4.jpg");
 }
 
-#buttontop3>.button {
+#buttontop3 > .button {
     background-image: url("asset/ui/button6.jpg");
 }
 
-#buttontop4>.button {
+#buttontop4 > .button {
     background-image: url("asset/ui/button3.jpg");
 }
 
-#buttontop5>.button {
+#buttontop5 > .button {
     background-image: url("asset/ui/button5.jpg");
 }
 
-
-#button0>.button {
+#button0 > .button {
     background-image: url("asset/ui/button3.jpg");
 }
 
-#button1>.button {
+#button1 > .button {
     background-image: url("asset/ui/button9.jpg");
 }
 
-#button2>.button {
+#button2 > .button {
     background-image: url("asset/ui/button5.jpg");
 }
 
-#button3>.button {
+#button3 > .button {
     background-image: url("asset/ui/button6.jpg");
 }
 
-#button4>.button {
+#button4 > .button {
     background-image: url("asset/ui/button2.jpg");
 }
 
-#button5>.button {
+#button5 > .button {
     background-image: url("asset/ui/button1.jpg");
 }
 
-#button6>.button {
+#button6 > .button {
     background-image: url("asset/ui/button4.jpg");
 }
 
-#button7>.button {
+#button7 > .button {
     background-image: url("asset/ui/button0.jpg");
 }
 
-#button8>.button {
+#button8 > .button {
     background-image: url("asset/ui/button7.jpg");
 }
 
-#button9>.button {
+#button9 > .button {
     background-image: url("asset/ui/button8.jpg");
 }
 
