@@ -72,6 +72,10 @@ export class Utils {
         }
     }
 
+    public static randomChoiceTyped<T>(optionArray: Array<T>): T {
+        return optionArray[this.rand(optionArray.length)];
+    }
+
     public static rand(max: number): number {
         return Math.floor(Math.random() * max);
     }

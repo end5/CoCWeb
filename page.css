@@ -286,3 +286,24 @@ body {
     background-image: url("res/ui/button8.jpg");
 }
 
+
+/* Loading */
+.loading #topRowButtons,
+.loading #statsPanel,
+.loading #bottomRowButtons {
+    opacity: 1%
+}
+
+/* Name must stay on a single line*/
+#nameDisplay {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#nameDisplay:hover {
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-overflow: initial;
+}
