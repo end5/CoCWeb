@@ -697,27 +697,27 @@ export class Saves extends BaseContent {
             saveFile.beeProgress = 0; //Now saved in a flag. getGame().beeProgress;
 
             //ITEMZ. Item1s
-            saveFile.itemSlot1 = [];
+            saveFile.itemSlot1 = {};
             saveFile.itemSlot1.quantity = this.player.itemSlot1.quantity;
             saveFile.itemSlot1.id = this.player.itemSlot1.itype.id;
             saveFile.itemSlot1.unlocked = true;
 
-            saveFile.itemSlot2 = [];
+            saveFile.itemSlot2 = {};
             saveFile.itemSlot2.quantity = this.player.itemSlot2.quantity;
             saveFile.itemSlot2.id = this.player.itemSlot2.itype.id;
             saveFile.itemSlot2.unlocked = true;
 
-            saveFile.itemSlot3 = [];
+            saveFile.itemSlot3 = {};
             saveFile.itemSlot3.quantity = this.player.itemSlot3.quantity;
             saveFile.itemSlot3.id = this.player.itemSlot3.itype.id;
             saveFile.itemSlot3.unlocked = true;
 
-            saveFile.itemSlot4 = [];
+            saveFile.itemSlot4 = {};
             saveFile.itemSlot4.quantity = this.player.itemSlot4.quantity;
             saveFile.itemSlot4.id = this.player.itemSlot4.itype.id;
             saveFile.itemSlot4.unlocked = this.player.itemSlot4.unlocked;
 
-            saveFile.itemSlot5 = [];
+            saveFile.itemSlot5 = {};
             saveFile.itemSlot5.quantity = this.player.itemSlot5.quantity;
             saveFile.itemSlot5.id = this.player.itemSlot5.itype.id;
             saveFile.itemSlot5.unlocked = this.player.itemSlot5.unlocked;
@@ -1528,24 +1528,24 @@ export class Saves extends BaseContent {
 
             this.player.itemSlot1.unlocked = true;
             this.player.itemSlot1.setItemAndQty(ItemType.lookupItem(
-                saveFile.itemSlot1.id || saveFile.itemSlot1.shortName),
-                saveFile.itemSlot1.quantity);
+                saveFile.itemSlot1.id || saveFile.itemSlot1.shortName) || "",
+                saveFile.itemSlot1.quantity || 0);
             this.player.itemSlot2.unlocked = true;
             this.player.itemSlot2.setItemAndQty(ItemType.lookupItem(
-                saveFile.itemSlot2.id || saveFile.itemSlot2.shortName),
-                saveFile.itemSlot2.quantity);
+                saveFile.itemSlot2.id || saveFile.itemSlot2.shortName) || "",
+                saveFile.itemSlot2.quantity || 0);
             this.player.itemSlot3.unlocked = true;
             this.player.itemSlot3.setItemAndQty(ItemType.lookupItem(
-                saveFile.itemSlot3.id || saveFile.itemSlot3.shortName),
-                saveFile.itemSlot3.quantity);
+                saveFile.itemSlot3.id || saveFile.itemSlot3.shortName) || "",
+                saveFile.itemSlot3.quantity || 0);
             this.player.itemSlot4.unlocked = saveFile.itemSlot4.unlocked;
             this.player.itemSlot4.setItemAndQty(ItemType.lookupItem(
-                saveFile.itemSlot4.id || saveFile.itemSlot4.shortName),
-                saveFile.itemSlot4.quantity);
+                saveFile.itemSlot4.id || saveFile.itemSlot4.shortName) || "",
+                saveFile.itemSlot4.quantity || 0);
             this.player.itemSlot5.unlocked = saveFile.itemSlot5.unlocked;
             this.player.itemSlot5.setItemAndQty(ItemType.lookupItem(
-                saveFile.itemSlot5.id || saveFile.itemSlot5.shortName),
-                saveFile.itemSlot5.quantity);
+                saveFile.itemSlot5.id || saveFile.itemSlot5.shortName) || "",
+                saveFile.itemSlot5.quantity || 0);
 
             CoC.loadAllAwareClasses(this.getGame()); //Informs each saveAwareClass that it must load its values from the flags array
             this.unFuckSave();
